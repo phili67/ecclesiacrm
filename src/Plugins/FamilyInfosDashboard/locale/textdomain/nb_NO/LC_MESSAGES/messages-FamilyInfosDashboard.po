@@ -1,0 +1,25 @@
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:23
+msgid "Latest Families"
+msgstr ""
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:32
+msgid "Updated Families"
+msgstr ""
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:54
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:70
+msgid "Family Name"
+msgstr ""
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:55
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:71
+msgid "Address"
+msgstr ""
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:56
+msgid "Created"
+msgstr ""
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:72
+msgid "Updated"
+msgstr ""

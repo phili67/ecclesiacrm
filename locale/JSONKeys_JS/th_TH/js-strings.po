@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
+"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -314,6 +314,29 @@ msgstr "คุณเลือกสองเท่าของชื่อเด
 msgid "for this field. Chose another one."
 msgstr "สำหรับสนามนี้ เลือกอีกคนหนึ่ง"
 
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "กระดาน"
+
+#, fuzzy
+msgid "Moved!"
+msgstr "ถอยไป"
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "ลบทั้งหมด"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "คุณกำลังจะลบแคมเปญของคุณ! คุณแน่ใจเหรอ?"
+
+msgid "Confirm"
+msgstr "ยืนยัน"
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "ถอดรถออก"
+
 msgid "Please confirm deletion of this document"
 msgstr "กรุณายืนยันการลบเอกสารนี้ด้วยครับ"
 
@@ -466,9 +489,6 @@ msgstr "รูปแบบผิด"
 
 msgid "Set Calendar Name"
 msgstr "ตั้งชื่อปฏิทิน"
-
-msgid "Confirm"
-msgstr "ยืนยัน"
 
 msgid "Set Resource Name"
 msgstr "ตั้ง เรซูร์ซ ชื่อ"

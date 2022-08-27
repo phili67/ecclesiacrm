@@ -1,0 +1,16 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-26T12:54:33.698Z\n"
+"Language: fr_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Tracking"
+msgstr "Suivi"
+
+#~ msgid "Deposit Tracking"
+#~ msgstr "Suivi des dépôts"

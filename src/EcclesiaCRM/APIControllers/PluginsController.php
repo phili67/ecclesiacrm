@@ -11,6 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\PluginUserRoleQuery;
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\SQLUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\Propel;
@@ -80,7 +82,7 @@ class PluginsController
 
             exec('cd .. && composer dump-autoload');
 
-            return $response->withJson(["status" => "success22"]);
+            return $response->withJson(["status" => "success"]);
         }
 
         return $response->withJson(["status" => "failed"]);
@@ -123,6 +125,55 @@ class PluginsController
             throw new \Exception(_("Impossible to open") . $uploadedFileDestination);
         }
 
+
+        return $response->withJson(["status" => "failed"]);
+    }
+
+    public function addDashboardPlaces (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $pluginPayload = (object)$request->getParsedBody();
+
+        if ( isset ($pluginPayload->dashBoardItems) ) {
+
+            foreach ($pluginPayload->dashBoardItems as $dashBoardItem) {
+                $plugin = PluginQuery::create()->findOneByName($dashBoardItem[2]);
+
+                if ( !is_null($plugin) ) {
+                    $plgnRole = PluginUserRoleQuery::create()
+                        ->filterByPluginId($plugin->getId())
+                        ->findOneByUserId(SessionUser::getId());
+
+                    if (!is_null($plgnRole)) {
+                        $plgnRole->setDashboardOrientation($dashBoardItem[0]);
+                        $plgnRole->setDashboardPlace($dashBoardItem[1]);
+                        $plgnRole->save();
+                    }
+                }
+            }
+
+            return $response->withJson(["status" => "success"]);
+        }
+
+        return $response->withJson(["status" => "failed"]);
+    }
+
+    public function removeFromDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $pluginPayload = (object)$request->getParsedBody();
+
+        if ( isset ($pluginPayload->name) ) {
+
+            $plugin = PluginQuery::create()->findOneByName($pluginPayload->name);
+
+            if ( !is_null($plugin)) {
+                $plgnRole = PluginUserRoleQuery::create()
+                    ->filterByPluginId($plugin->getId())
+                    ->findOneByUserId(SessionUser::getId());
+
+                $plgnRole->setDashboardVisible(false);
+                $plgnRole->save();
+            }
+
+            return $response->withJson(["status" => "success"]);
+        }
 
         return $response->withJson(["status" => "failed"]);
     }

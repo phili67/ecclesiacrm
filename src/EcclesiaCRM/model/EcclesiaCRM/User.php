@@ -18,6 +18,33 @@ use EcclesiaCRM\Service\SystemService;
 use DateTime;
 use DateTimeZone;
 
+// to define new plugin add the securities to : 2+4=6 for example to have pastoral + mailchimp security options
+
+abstract class SecurityOptions
+{
+    const bNoDashBordItem = 0;
+    const bAdmin = 1; // bit 0
+    const bPastoralCare = 2;// bit 1
+    const bMailChimp = 4;// bit 2
+    const bGdrpDpo = 8;// bit 3
+    const bMainDashboard = 16;// bit 4
+    const bSeePrivacyData = 32;// bit 5
+    const bAddRecords = 64;// bit 6
+    const bEditRecords = 128;// bit 7
+    const bDeleteRecords = 256;// bit 8
+    const bMenuOptions = 512;// bit 9
+    const bManageGroups = 1024;// bit 10
+    const bFinance = 2048;// bit 11
+    const bNotes = 4096;// bit 12
+    const bCanvasser = 8192;// bit 13
+    const bEditSelf = 16384;// bit 14
+    const bShowCart = 32768;// bit 15
+    const bShowMap = 65536;// bit 16
+    const bEDrive = 131072;// bit 17
+    const bShowMenuQuery = 262144; // bit 18
+    const bDashBoardUser = 1073741824; // bit 30
+}
+
 
 /**
  * Skeleton subclass for representing a row from the 'user_usr' table.
@@ -1049,6 +1076,128 @@ class User extends BaseUser
 
         if (!is_null($role)) {
             return ($role->getRole() == 'admin')?true:false;
+        }
+
+        return false;
+    }
+
+    public function allSecuritiesBits ()
+    {
+        $bits = SecurityOptions::bNoDashBordItem;
+
+        if ($this->isAdmin()) { // bit 0
+            $bits |= SecurityOptions::bAdmin;
+        }
+        if ($this->isPastoralCareEnabled()) { // bit 1
+            $bits |= SecurityOptions::bPastoralCare;
+        }
+        if ($this->isMailChimpEnabled()) { // bit 2
+            $bits |= SecurityOptions::bMailChimp;
+        }
+        if ($this->isGdrpDpoEnabled()) { // bit 3
+            $bits |= SecurityOptions::bGdrpDpo;
+        }
+        if ($this->isMainDashboardEnabled()) { // bit 4
+            $bits |= SecurityOptions::bMainDashboard;
+        }
+        if ($this->isSeePrivacyDataEnabled()) { // bit 5
+            $bits |= SecurityOptions::bSeePrivacyData;
+        }
+        if ($this->isAddRecordsEnabled()) {// bit 6
+            $bits |= SecurityOptions::bAddRecords;
+        }
+        if ($this->isEditRecordsEnabled()) {// bit 7
+            $bits |= SecurityOptions::bEditRecords;
+        }
+        if ($this->isDeleteRecordsEnabled()) {// bit 8
+            $bits |= SecurityOptions::bDeleteRecords;
+        }
+        if ($this->isMenuOptionsEnabled()) {// bit 9
+            $bits |= SecurityOptions::bMenuOptions;
+        }
+
+        if ($this->isManageGroupsEnabled()) {// bit 10
+            $bits |= SecurityOptions::bManageGroups;
+        }
+        if ($this->isFinanceEnabled()) {// bit 11
+            $bits |= SecurityOptions::bFinance;
+        }
+        if ($this->isNotesEnabled()) {// bit 12
+            $bits |= SecurityOptions::bNotes;
+        }
+        if ($this->isCanvasserEnabled()) {// bit 13
+            $bits |= SecurityOptions::bCanvasser;
+        }
+        if ($this->isEditSelf()) {// bit 14
+            $bits |= SecurityOptions::bEditSelf;
+        }
+        if ($this->isShowCartEnabled()) {// bit 15
+            $bits |= SecurityOptions::bShowCart;
+        }
+        if ($this->isShowMapEnabled()) {// bit 16
+            $bits |= SecurityOptions::bShowMap;
+        }
+        if ($this->isEDriveEnabled()) {// bit 17
+            $bits |= SecurityOptions::bEDrive;
+        }
+        if ($this->isShowMenuQueryEnabled()) {// bit 18
+            $bits |= SecurityOptions::bShowMenuQuery;
+        }
+
+        return $bits;
+    }
+
+    public function isSecurityEnableForPlugin ($name, $sec = 1073741824) {
+        //$sec = SecurityOptions::bNone => 1073741824; by default
+
+        if ( $this->isAdmin() ) {
+            return true;
+        }
+
+        $plugin = PluginQuery::create()->findOneByName($name);
+
+        if ($plugin->getSecurities() & $sec) {// when the bit sec is activated
+            switch($sec) {
+                case 1: // bAdmin bit 0
+                    return $this->isAdmin();
+                case 2: // bPastoralCare bit 1
+                    return $this->isPastoralCareEnabled();
+                case 4: // see : SecurityOptions bit 2
+                    return $this->isMailChimpEnabled();
+                case 8: // bit 3
+                    return $this->isGdrpDpoEnabled();
+                case 16:// bit 4
+                    return $this->isMainDashboardEnabled();
+                case 32:// bit 5
+                    return $this->isSeePrivacyData();
+                case 64:// bit 6
+                    return $this->isAddRecordsEnabled();
+                case 128:// bit 7
+                    return $this->isEditRecordsEnabled();
+                case 256:// bit 8
+                    return $this->isDeleteRecordsEnabled();
+                case 512:// bit 9
+                    return $this->isMenuOptionsEnabled();
+                case 1024:// bit 10
+                    return $this->isManageGroupsEnabled();
+                case 2048:// bit 11
+                    return $this->isFinanceEnabled();
+                case 4096:// bit 12
+                    return $this->isNotesEnabled();
+                case 8192:// bit 13
+                    return $this->isCanvasserEnabled();
+                case 16384:// bit 14
+                    return $this->isEditSelf();
+                case 32768:// bit 15
+                    return $this->isShowCartEnabled();
+                case 65536:// bit 16
+                    return $this->isShowMapEnabled();
+                case 131072:// bit 17
+                    return $this->isEDriveEnabled();
+                case 262144:// bit 18
+                    return $this->isShowMenuQueryEnabled();
+            }
+            return true;
         }
 
         return false;

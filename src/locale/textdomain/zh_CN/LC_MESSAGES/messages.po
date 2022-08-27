@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-24 07:12+0000\n"
+"POT-Creation-Date: 2022-08-27 08:18+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +54,6 @@ msgstr "个人"
 #: Include/Footer.php:66 members/404.php:16 PersonView.php:941
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
-#: v2/templates/dashboard/maindashboard.php:506
 #: v2/templates/gdpr/gdprdatastructure.php:100
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:25
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:32
@@ -89,7 +88,7 @@ msgstr "警告!你必须选择一个人或一个家庭来创建一个自动付�
 #: ident/routes/verify.php:213 PersonEditor.php:977 PersonEditor.php:997
 #: PersonEditor.php:1587 PrintPastoralCarePerson.php:332
 #: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
-#: SelectDelete.php:243 SystemSettings.php:232
+#: SelectDelete.php:243 SystemSettings.php:235
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
@@ -162,9 +161,7 @@ msgstr "基金"
 #: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
-#: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:476
-#: v2/templates/dashboard/maindashboard.php:532
-#: v2/templates/group/groupbadge.php:126
+#: PrintPastoralCarePerson.php:664 v2/templates/group/groupbadge.php:126
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
 #: v2/templates/sundayschool/sundayschoolreports.php:41
@@ -208,10 +205,6 @@ msgstr "姓氏"
 #: ident/routes/verify.php:378 ident/routes/verify.php:433
 #: PersonEditor.php:1037 PersonEditor.php:1043 PersonEditor.php:1177
 #: PersonEditor.php:1201 PersonView.php:592 Reports/PDFLabel.php:859
-#: v2/templates/dashboard/maindashboard.php:638
-#: v2/templates/dashboard/maindashboard.php:654
-#: v2/templates/dashboard/maindashboard.php:698
-#: v2/templates/dashboard/maindashboard.php:714
 #: v2/templates/pastoralcare/pastoralcarefamily.php:124
 #: v2/templates/pastoralcare/pastoralcareperson.php:220
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
@@ -333,7 +326,7 @@ msgstr "在Vanco存储私人数据"
 #: ident/templates/verify/change-password.php:56 PersonEditor.php:888
 #: PersonEditor.php:970 PersonEditor.php:1157 PersonEditor.php:1579
 #: PersonEditor.php:1659 PersonEditor.php:1747 PledgeEditor.php:793
-#: SystemSettings.php:107 UserPasswordChange.php:225
+#: SystemSettings.php:111 UserPasswordChange.php:225
 #: v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
 msgstr "拯救"
@@ -344,9 +337,9 @@ msgstr "拯救"
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
-#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:1335
-#: v2/templates/fundraiser/donatedItemEditor.php:178
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:174
+#: SettingsIndividual.php:440 SettingsIndividual.php:563 TaxReport.php:53
+#: UserEditor.php:1398 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -547,7 +540,7 @@ msgstr "征求意见"
 msgid "family"
 msgstr "家庭"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1053
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1064
 msgid "Canvasser"
 msgstr "拉票员"
 
@@ -659,7 +652,8 @@ msgstr "图像位置"
 
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
-#: PersonCustomFieldsEditor.php:517 v2/templates/group/groupbadge.php:165
+#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:550
+#: UserEditor.php:1359 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "左边"
 
@@ -669,7 +663,8 @@ msgstr "中心"
 
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
-#: PersonCustomFieldsEditor.php:518 v2/templates/group/groupbadge.php:167
+#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:551
+#: UserEditor.php:1360 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "对"
 
@@ -697,7 +692,6 @@ msgstr "添加购物车到家庭"
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166 FamilyView.php:551
 #: ident/templates/verify/login-info.php:15
-#: v2/templates/dashboard/maindashboard.php:542
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:63
 #: v2/templates/pastoralcare/pastoralcarefamily.php:267
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -720,8 +714,6 @@ msgstr "成员"
 #: Reports/FRBidSheets.php:102 Reports/FundRaiserStatement.php:125
 #: Reports/FundRaiserStatement.php:169 Reports/PDFLabel.php:859
 #: v2/templates/calendar/eventattendeesedit.php:56
-#: v2/templates/dashboard/maindashboard.php:697
-#: v2/templates/dashboard/maindashboard.php:713
 #: v2/templates/group/groupview.php:398 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:49
 #: queryparameteroptions_qpo.php:4
@@ -758,8 +750,6 @@ msgstr "如果增加一个新的家庭，请在下面输入数据。"
 #: external/templates/registration/family-register.php:36 FamilyEditor.php:722
 #: LettersAndLabels.php:71 PersonEditor.php:1026 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
-#: v2/templates/dashboard/maindashboard.php:637
-#: v2/templates/dashboard/maindashboard.php:653
 msgid "Family Name"
 msgstr "姓氏"
 
@@ -965,7 +955,7 @@ msgstr "转换 下一步"
 msgid "Convert All"
 msgstr "全部转换"
 
-#: CSVExport.php:55 UserEditor.php:984 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:995 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "CSV导出"
 
@@ -1579,7 +1569,7 @@ msgstr "标题页"
 msgid "Use Title Page"
 msgstr "使用标题页"
 
-#: DirectoryReports.php:283 EcclesiaCRM/dto/SystemConfig.php:142
+#: DirectoryReports.php:283 EcclesiaCRM/dto/SystemConfig.php:152
 msgid "Church Name"
 msgstr "教会名称"
 
@@ -1587,7 +1577,7 @@ msgstr "教会名称"
 msgid "Disclaimer"
 msgstr "免责声明"
 
-#: DirectoryReports.php:338 UserEditor.php:995
+#: DirectoryReports.php:338 UserEditor.php:1006
 msgid "Create Directory"
 msgstr "创建目录"
 
@@ -1862,7 +1852,7 @@ msgstr "人数"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:103
+#: v2/templates/dashboard/maindashboard.php:203
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -1881,7 +1871,7 @@ msgstr "家庭"
 #: ident/routes/verify.php:309 ident/routes/verify.php:711
 #: ident/templates/verify/verify-family-info.php:145 PersonView.php:504
 #: v2/templates/calendar/calendar.php:197
-#: v2/templates/dashboard/maindashboard.php:169
+#: v2/templates/dashboard/maindashboard.php:269
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:142
 #: v2/templates/people/peopledashboard.php:171
@@ -1969,7 +1959,8 @@ msgstr "添加到组"
 #: EcclesiaCRM/Service/CalendarService.php:263
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
-#: Reports/GDPR/GDPRListExport.php:88
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:543
+#: UserEditor.php:1352
 msgid "Yes"
 msgstr "是"
 
@@ -1980,8 +1971,8 @@ msgstr "是"
 #: EcclesiaCRM/Service/CalendarService.php:454
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 UserEditor.php:1295
-#: v2/templates/user/userlist.php:161
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:542
+#: UserEditor.php:1308 UserEditor.php:1351 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "没有"
 
@@ -2002,7 +1993,7 @@ msgstr "已停用的人员"
 msgid "Person Activated"
 msgstr "被激活的人"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:123
+#: EcclesiaCRM/APIControllers/PluginsController.php:125
 #: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
 msgid "Impossible to open"
 msgstr "不可能打开"
@@ -2014,7 +2005,7 @@ msgstr "请在此写下您的留言!"
 #: EcclesiaCRM/APIControllers/SearchController.php:68
 #: EcclesiaCRM/APIControllers/SearchController.php:71
 #: EcclesiaCRM/Search/FamilySearchRes.php:168
-#: v2/templates/dashboard/maindashboard.php:90
+#: v2/templates/dashboard/maindashboard.php:190
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:95
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peoplelist.php:44
@@ -3424,132 +3415,132 @@ msgstr "通知书"
 msgid "Invalid Family"
 msgstr "无效的家庭"
 
-#: EcclesiaCRM/dto/SystemConfig.php:33
+#: EcclesiaCRM/dto/SystemConfig.php:43
 #: EcclesiaCRM/Service/CalendarService.php:760
 #: EcclesiaCRM/Service/CalendarService.php:1082
 msgid "NONE"
 msgstr "无"
 
-#: EcclesiaCRM/dto/SystemConfig.php:34
+#: EcclesiaCRM/dto/SystemConfig.php:44
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: EcclesiaCRM/dto/SystemConfig.php:35
+#: EcclesiaCRM/dto/SystemConfig.php:45
 msgid "INFO"
 msgstr "信息"
 
-#: EcclesiaCRM/dto/SystemConfig.php:36
+#: EcclesiaCRM/dto/SystemConfig.php:46
 msgid "NOTICE"
 msgstr "注意事项"
 
-#: EcclesiaCRM/dto/SystemConfig.php:37
+#: EcclesiaCRM/dto/SystemConfig.php:47
 msgid "WARNING"
 msgstr "警告"
 
-#: EcclesiaCRM/dto/SystemConfig.php:38
+#: EcclesiaCRM/dto/SystemConfig.php:48
 msgid "ERROR"
 msgstr "错误"
 
-#: EcclesiaCRM/dto/SystemConfig.php:39
+#: EcclesiaCRM/dto/SystemConfig.php:49
 msgid "CRITICAL"
 msgstr "重要的"
 
-#: EcclesiaCRM/dto/SystemConfig.php:40
+#: EcclesiaCRM/dto/SystemConfig.php:50
 msgid "ALERT"
 msgstr "警报"
 
-#: EcclesiaCRM/dto/SystemConfig.php:41
+#: EcclesiaCRM/dto/SystemConfig.php:51
 msgid "EMERGENCY"
 msgstr "紧急事件"
 
-#: EcclesiaCRM/dto/SystemConfig.php:50
+#: EcclesiaCRM/dto/SystemConfig.php:60
 msgid "Title FirstName MiddleName LastName"
 msgstr "职称 姓氏 中间名 最后名"
 
-#: EcclesiaCRM/dto/SystemConfig.php:51
+#: EcclesiaCRM/dto/SystemConfig.php:61
 msgid "Title FirstName MiddleInitial. LastName"
 msgstr "职称 姓氏 中间名。姓氏"
 
-#: EcclesiaCRM/dto/SystemConfig.php:52
+#: EcclesiaCRM/dto/SystemConfig.php:62
 msgid "LastName, Title FirstName MiddleName"
 msgstr "姓氏，职称 名，中间名"
 
-#: EcclesiaCRM/dto/SystemConfig.php:53
+#: EcclesiaCRM/dto/SystemConfig.php:63
 msgid "LastName, Title FirstName MiddleInitial"
 msgstr "姓氏，头衔 名字 中间名"
 
-#: EcclesiaCRM/dto/SystemConfig.php:54
+#: EcclesiaCRM/dto/SystemConfig.php:64
 msgid "FirstName MiddleName LastName"
 msgstr "名 中间名 最后名"
 
-#: EcclesiaCRM/dto/SystemConfig.php:55
+#: EcclesiaCRM/dto/SystemConfig.php:65
 msgid "Title FirstName LastName"
 msgstr "职称 姓氏名称 姓氏名称"
 
-#: EcclesiaCRM/dto/SystemConfig.php:56
+#: EcclesiaCRM/dto/SystemConfig.php:66
 msgid "LastName, Title FirstName"
 msgstr "姓氏，头衔 名字"
 
-#: EcclesiaCRM/dto/SystemConfig.php:65
+#: EcclesiaCRM/dto/SystemConfig.php:75
 msgid "Address city state zip"
 msgstr "地址市州邮编"
 
-#: EcclesiaCRM/dto/SystemConfig.php:66
+#: EcclesiaCRM/dto/SystemConfig.php:76
 msgid "Address zip city state"
 msgstr "地址邮编城市州"
 
-#: EcclesiaCRM/dto/SystemConfig.php:74
+#: EcclesiaCRM/dto/SystemConfig.php:84
 msgid ""
 "Event Log severity to write, used by ORM and App Logs. sLogLevel >= 300 : "
 "ORM is set in debug mode."
 msgstr "sLogLevel >= 300 : ORM被设置为调试模式。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:75
+#: EcclesiaCRM/dto/SystemConfig.php:85
 msgid "Include only these classifications in the directory, comma seperated"
 msgstr "在目录中只包括这些分类，以逗号隔开。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:76
+#: EcclesiaCRM/dto/SystemConfig.php:86
 msgid "These are the family role numbers designated as head of house"
 msgstr "这些是被指定为户主的家庭角色号码"
 
-#: EcclesiaCRM/dto/SystemConfig.php:77
+#: EcclesiaCRM/dto/SystemConfig.php:87
 msgid "These are the family role numbers designated as spouse"
 msgstr "这些是指定为配偶的家庭角色号码"
 
-#: EcclesiaCRM/dto/SystemConfig.php:78
+#: EcclesiaCRM/dto/SystemConfig.php:88
 msgid "These are the family role numbers designated as child"
 msgstr "这些是被指定为儿童的家庭角色号码"
 
-#: EcclesiaCRM/dto/SystemConfig.php:79
+#: EcclesiaCRM/dto/SystemConfig.php:89
 msgid ""
 "Session timeout length in seconds. Set to zero to disable session timeouts."
 msgstr "会话超时长度（秒）。设置为零以禁用会话超时。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:80
+#: EcclesiaCRM/dto/SystemConfig.php:90
 msgid "Queries for which user must have finance permissions to use:"
 msgstr "查询，用户必须有财务权限才能使用。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:81
+#: EcclesiaCRM/dto/SystemConfig.php:91
 msgid ""
 "Should only administrators have access to the CSV export system and "
 "directory report?"
 msgstr "是否只有管理员才能访问CSV导出系统和目录报告？"
 
-#: EcclesiaCRM/dto/SystemConfig.php:82
+#: EcclesiaCRM/dto/SystemConfig.php:92
 msgid "Minimum length a user may set their password to"
 msgstr "用户可以设置密码的最小长度"
 
-#: EcclesiaCRM/dto/SystemConfig.php:83
+#: EcclesiaCRM/dto/SystemConfig.php:93
 msgid ""
 "Minimum amount that a new password must differ from the old one (# of "
 "characters changed). Set to zero to disable this feature"
 msgstr "新密码必须与旧密码不同的最小数量（改变的字符数）。设置为零以禁用该功能"
 
-#: EcclesiaCRM/dto/SystemConfig.php:84
+#: EcclesiaCRM/dto/SystemConfig.php:94
 msgid "A comma-seperated list of disallowed (too obvious) passwords."
 msgstr "一个逗号分隔的不允许（太明显）的密码列表。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:85
+#: EcclesiaCRM/dto/SystemConfig.php:95
 msgid ""
 "Maximum number of failed logins to allow before a user account is locked.. "
 "Once the maximum has been reached, an administrator must re-enable the "
@@ -3559,44 +3550,44 @@ msgstr ""
 "在用户账户被锁定之前，允许的最大登录失败次数。一旦达到最大值，管理员必须重新"
 "启用该帐户。该功能有助于防止自动密码猜测攻击。设置为零以禁用此功能。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:86
+#: EcclesiaCRM/dto/SystemConfig.php:96
 msgid ""
 "PDF handling mode.. 1 = Save File dialog. 2 = Open in current browser window"
 msgstr "PDF处理模式。1 = 保存文件对话框。2 = 在当前浏览器窗口中打开"
 
-#: EcclesiaCRM/dto/SystemConfig.php:87
+#: EcclesiaCRM/dto/SystemConfig.php:97
 msgid "Default City"
 msgstr "默认城市"
 
-#: EcclesiaCRM/dto/SystemConfig.php:88
+#: EcclesiaCRM/dto/SystemConfig.php:98
 msgid "Default State - Must be 2-letter abbreviation!"
 msgstr "默认状态 - 必须是2个字母的缩写!"
 
-#: EcclesiaCRM/dto/SystemConfig.php:90
+#: EcclesiaCRM/dto/SystemConfig.php:100
 msgid "Default account for receiving a copy of all emails"
 msgstr "用于接收所有电子邮件副本的默认账户"
 
-#: EcclesiaCRM/dto/SystemConfig.php:91
+#: EcclesiaCRM/dto/SystemConfig.php:101
 msgid "SMTP Server timeout in sec"
 msgstr "SMTP服务器超时（秒）。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:92
+#: EcclesiaCRM/dto/SystemConfig.php:102
 msgid "SMTP Server Address (mail.server.com:25)"
 msgstr "SMTP服务器地址（mail.server.com:25）。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:93
+#: EcclesiaCRM/dto/SystemConfig.php:103
 msgid "Does your SMTP server require auththentication (username/password)?"
 msgstr "你的SMTP服务器是否需要自动认证（用户名/密码）？"
 
-#: EcclesiaCRM/dto/SystemConfig.php:94
+#: EcclesiaCRM/dto/SystemConfig.php:104
 msgid "SMTP Username"
 msgstr "SMTP用户名"
 
-#: EcclesiaCRM/dto/SystemConfig.php:95
+#: EcclesiaCRM/dto/SystemConfig.php:105
 msgid "SMTP Password"
 msgstr "SMTP密码"
 
-#: EcclesiaCRM/dto/SystemConfig.php:96
+#: EcclesiaCRM/dto/SystemConfig.php:106
 msgid ""
 "Unavailable person info inherited from assigned family for display?. This "
 "option causes certain info from a person's assigned family record to be. "
@@ -3605,15 +3596,15 @@ msgstr ""
 "从指定家庭继承的不可用的人的信息是否显示？这个选项使一个人的指定家庭记录中的"
 "某些信息被显示出来，如果该人的相应信息没有被输入。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:97
+#: EcclesiaCRM/dto/SystemConfig.php:107
 msgid "gzip format export allowed"
 msgstr "允许gzip格式导出"
 
-#: EcclesiaCRM/dto/SystemConfig.php:98
+#: EcclesiaCRM/dto/SystemConfig.php:108
 msgid "zip format export allowed"
 msgstr "允许导出zip格式"
 
-#: EcclesiaCRM/dto/SystemConfig.php:99
+#: EcclesiaCRM/dto/SystemConfig.php:109
 msgid ""
 "By default GPG (GnuPG) a hybrid-encryption software program or Internal "
 "encryption software. You could avoid to use with the None choice."
@@ -3621,43 +3612,43 @@ msgstr ""
 "默认情况下，GPG（GnuPG）是一个混合加密软件程序或内部加密软件。你可以避免使用 "
 "\"无 \"的选择。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:100
+#: EcclesiaCRM/dto/SystemConfig.php:110
 msgid "Internationalization (I18n) support"
 msgstr "国际化（I18n）支持"
 
-#: EcclesiaCRM/dto/SystemConfig.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:111
 msgid "First month of the fiscal year"
 msgstr "财政年度的第一个月"
 
-#: EcclesiaCRM/dto/SystemConfig.php:102
+#: EcclesiaCRM/dto/SystemConfig.php:112
 msgid "Link of the nominatim server : https://nominatim.openstreetmap.org"
 msgstr "Nominatim服务器的链接：https://nominatim.openstreetmap.org"
 
-#: EcclesiaCRM/dto/SystemConfig.php:103
+#: EcclesiaCRM/dto/SystemConfig.php:113
 msgid "Google map API requires a unique key"
 msgstr "谷歌地图API需要一个独特的密钥"
 
-#: EcclesiaCRM/dto/SystemConfig.php:104
+#: EcclesiaCRM/dto/SystemConfig.php:114
 msgid "Bing map API requires a unique key"
 msgstr "必应地图API需要一个唯一的密钥"
 
-#: EcclesiaCRM/dto/SystemConfig.php:105
+#: EcclesiaCRM/dto/SystemConfig.php:115
 msgid "Google/OpenStreetMap/BingMaps Maps Zoom"
 msgstr "谷歌/OpenStreetMap/BingMaps地图缩放"
 
-#: EcclesiaCRM/dto/SystemConfig.php:106
+#: EcclesiaCRM/dto/SystemConfig.php:116
 msgid "Google/OpenStreetMap/BingMaps Litle Maps Zoom"
 msgstr "谷歌/OpenStreetMap/BingMaps小地图放大版"
 
-#: EcclesiaCRM/dto/SystemConfig.php:107
+#: EcclesiaCRM/dto/SystemConfig.php:117
 msgid "Latitude of the church, used to center the Google map"
 msgstr "教堂的纬度，用于谷歌地图的中心位置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:108
+#: EcclesiaCRM/dto/SystemConfig.php:118
 msgid "Longitude of the church, used to center the Google map"
 msgstr "教堂的经度，用于谷歌地图的中心位置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:109
+#: EcclesiaCRM/dto/SystemConfig.php:119
 msgid ""
 "Set true to disable entering addresses in Person Editor.  Set false to "
 "enable entering addresses in Person Editor."
@@ -3665,7 +3656,7 @@ msgstr ""
 "如果设置为 \"true\"，则禁止在个人编辑器中输入地址。  如果设置为 \"false\"，则"
 "可以在个人编辑器中输入地址。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:110
+#: EcclesiaCRM/dto/SystemConfig.php:120
 msgid ""
 "Set true to disable entering Friend Date in Person Editor.  Set false to "
 "enable entering Friend Date in Person Editor."
@@ -3673,13 +3664,13 @@ msgstr ""
 "设置为 \"true\"，禁止在个人编辑器中输入朋友的日期。  设置为 \"false\"，就可以"
 "在个人编辑器中输入朋友的日期。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:111
+#: EcclesiaCRM/dto/SystemConfig.php:121
 msgid ""
 "Set true to disable management of newsletter subscriptions in the Family "
 "Editor."
 msgstr "设置为 \"true\"，可在家庭编辑器中禁用通讯订阅的管理。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:112
+#: EcclesiaCRM/dto/SystemConfig.php:122
 msgid ""
 "Set true to disable entering Wedding Date in Family Editor.  Set false to "
 "enable entering Wedding Date in Family Editor."
@@ -3687,7 +3678,7 @@ msgstr ""
 "设置为 \"true\"，则禁止在家庭编辑器中输入结婚日期。  设置为 \"false\"，可以在"
 "家庭编辑器中输入结婚日期。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:113
+#: EcclesiaCRM/dto/SystemConfig.php:123
 msgid ""
 "Set true to disable entering Latitude and Longitude in Family Editor.  Set "
 "false to enable entering Latitude and Longitude in Family Editor.  Lookups "
@@ -3696,11 +3687,11 @@ msgstr ""
 "设置为 \"true\"，则禁止在家族编辑器中输入经度和纬度。  设置为 \"false \"可以"
 "在家族编辑器中输入纬度和经度。  仍会进行查询，只是不显示。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:114
+#: EcclesiaCRM/dto/SystemConfig.php:124
 msgid "Set true to enable use of donation envelopes"
 msgstr "设置为 \"true\"，以启用捐款信封的使用。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:115
+#: EcclesiaCRM/dto/SystemConfig.php:125
 msgid ""
 "Enter in HTML code which will be displayed as a header at the top of each "
 "page. Be sure to close your tags! Note: You must REFRESH YOUR BROWSER A "
@@ -3709,100 +3700,100 @@ msgstr ""
 "输入HTML代码，它将作为标题显示在每个页面的顶部。请确保关闭你的标签!注意：你必"
 "须再次刷新你的浏览器以查看新的页眉。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:116
+#: EcclesiaCRM/dto/SystemConfig.php:126
 msgid "Intelligent Search Technolgy, Ltd. CorrectAddress Username"
 msgstr "智能搜索技术有限公司正确地址 用户名"
 
-#: EcclesiaCRM/dto/SystemConfig.php:117
+#: EcclesiaCRM/dto/SystemConfig.php:127
 msgid "Intelligent Search Technolgy, Ltd. CorrectAddress Password"
 msgstr "智能搜索技术有限公司正确的地址密码"
 
-#: EcclesiaCRM/dto/SystemConfig.php:118
+#: EcclesiaCRM/dto/SystemConfig.php:128
 msgid "Select GeoCoder Provider"
 msgstr "选择地理编码器供应商"
 
-#: EcclesiaCRM/dto/SystemConfig.php:119
+#: EcclesiaCRM/dto/SystemConfig.php:129
 msgid "Number of checks for Deposit Slip Report"
 msgstr "存款单报告的支票数量"
 
-#: EcclesiaCRM/dto/SystemConfig.php:120
+#: EcclesiaCRM/dto/SystemConfig.php:130
 msgid "Set true to enable use of scanned checks"
 msgstr "设置为 \"true \"以启用扫描检查的使用"
 
-#: EcclesiaCRM/dto/SystemConfig.php:121
+#: EcclesiaCRM/dto/SystemConfig.php:131
 msgid "Unit used to measure distance, miles or kilometers or li."
 msgstr "用来测量距离的单位，英里或公里或里。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:122
+#: EcclesiaCRM/dto/SystemConfig.php:132
 msgid "Time zone"
 msgstr "时区"
 
-#: EcclesiaCRM/dto/SystemConfig.php:122
+#: EcclesiaCRM/dto/SystemConfig.php:132
 msgid ""
 "CalDAV protocol to work with php date_default_timezone_set function default "
 "settings : america/new_york"
 msgstr ""
 "CalDAV协议与php date_default_timezone_set函数兼容 默认设置：America/new_york"
 
-#: EcclesiaCRM/dto/SystemConfig.php:123
+#: EcclesiaCRM/dto/SystemConfig.php:133
 msgid "Make user-entered zip/postcodes UPPERCASE when saving to the database."
 msgstr "在保存到数据库时，使用户输入的邮政编码为大写字母。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:124
+#: EcclesiaCRM/dto/SystemConfig.php:134
 msgid "Enable non-deductible payments"
 msgstr "启用不可减免的付款"
 
-#: EcclesiaCRM/dto/SystemConfig.php:125
+#: EcclesiaCRM/dto/SystemConfig.php:135
 msgid "Electronic Transaction Processor"
 msgstr "电子交易处理器"
 
-#: EcclesiaCRM/dto/SystemConfig.php:125
+#: EcclesiaCRM/dto/SystemConfig.php:135
 msgid "Vanco"
 msgstr "梵高"
 
-#: EcclesiaCRM/dto/SystemConfig.php:125
+#: EcclesiaCRM/dto/SystemConfig.php:135
 msgid "Authorize.NET"
 msgstr "授权书.NET"
 
-#: EcclesiaCRM/dto/SystemConfig.php:126
+#: EcclesiaCRM/dto/SystemConfig.php:136
 msgid "Set true to enable family self registration."
 msgstr "设置为 \"true \"以启用家庭自我登记。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:130
+#: EcclesiaCRM/dto/SystemConfig.php:140
 msgid ""
 "For defining the date, per default : m/d/Y, In French : d/m/Y for example."
 msgstr "对于定义日期，默认为：m/d/Y，法语为：d/m/Y，例如。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:131
+#: EcclesiaCRM/dto/SystemConfig.php:141
 msgid "This part is important for the time Line date and time"
 msgstr "这一部分对时间线日期和时间很重要"
 
-#: EcclesiaCRM/dto/SystemConfig.php:132
+#: EcclesiaCRM/dto/SystemConfig.php:142
 msgid "Set the time in English format or 24 hours."
 msgstr "以英文格式或24小时设置时间。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:133
+#: EcclesiaCRM/dto/SystemConfig.php:143
 msgid "For defining the date, per default : m/d, In French : d/m for example."
 msgstr "对于定义日期，默认情况下：m/d，法语中：d/m，例如。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:135
+#: EcclesiaCRM/dto/SystemConfig.php:145
 msgid "php format for the date, in English : j/m/y g:i a"
 msgstr "php格式的日期，英文为：j/m/y g:i a"
 
-#: EcclesiaCRM/dto/SystemConfig.php:137
+#: EcclesiaCRM/dto/SystemConfig.php:147
 msgid ""
 "For defining the date in Date-Picker, per default : yyyy-mm-dd, In French : "
 "dd/mm/yyyy for example."
 msgstr ""
 "在Date-Picker中定义日期，默认为：yyyy-mm-dd，法语为：dd/mm/yyyy，例如。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:138
+#: EcclesiaCRM/dto/SystemConfig.php:148
 msgid ""
 "For defining the date in Date-Picker, per default : Y-m-d, In French : d/m/Y "
 "for example."
 msgstr "在Date-Picker中定义日期，默认为：Y-m-d，法语为：d/m/Y，例如。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:139
+#: EcclesiaCRM/dto/SystemConfig.php:149
 msgid ""
 "EcclesiaCRM has been registered.  The EcclesiaCRM team uses registration "
 "information to track usage.  This information is kept confidential and never "
@@ -3813,172 +3804,172 @@ msgstr ""
 "息是保密的，绝不公布或出售。  如果这个字段为真，管理菜单中的注册选项将变为更"
 "新注册。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:140
+#: EcclesiaCRM/dto/SystemConfig.php:150
 msgid "Left Margin (1 = 1/100th inch)"
 msgstr "左边距(1=1/100英寸)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:141
+#: EcclesiaCRM/dto/SystemConfig.php:151
 msgid "Line Thickness (1 = 1/100th inch"
 msgstr "线条厚度（1=1/100英寸"
 
-#: EcclesiaCRM/dto/SystemConfig.php:143 FinancialReports.php:418
+#: EcclesiaCRM/dto/SystemConfig.php:153 FinancialReports.php:418
 msgid "Church Address"
 msgstr "教会地址"
 
-#: EcclesiaCRM/dto/SystemConfig.php:144
+#: EcclesiaCRM/dto/SystemConfig.php:154
 msgid "Church City"
 msgstr "教堂市"
 
-#: EcclesiaCRM/dto/SystemConfig.php:145
+#: EcclesiaCRM/dto/SystemConfig.php:155
 msgid "Church State"
 msgstr "教会国家"
 
-#: EcclesiaCRM/dto/SystemConfig.php:146
+#: EcclesiaCRM/dto/SystemConfig.php:156
 msgid "Church Zip"
 msgstr "教堂邮编"
 
-#: EcclesiaCRM/dto/SystemConfig.php:147
+#: EcclesiaCRM/dto/SystemConfig.php:157
 msgid "Church Phone"
 msgstr "教会电话"
 
-#: EcclesiaCRM/dto/SystemConfig.php:148
+#: EcclesiaCRM/dto/SystemConfig.php:158
 msgid "Church Email"
 msgstr "教会电子邮件"
 
-#: EcclesiaCRM/dto/SystemConfig.php:149
+#: EcclesiaCRM/dto/SystemConfig.php:159
 msgid "Home area code of the church"
 msgstr "教会的家庭区号"
 
-#: EcclesiaCRM/dto/SystemConfig.php:150 EcclesiaCRM/dto/SystemConfig.php:170
+#: EcclesiaCRM/dto/SystemConfig.php:160 EcclesiaCRM/dto/SystemConfig.php:180
 msgid ""
 "Verbage for top line of tax report. Dates will be appended to the end of "
 "this line."
 msgstr "税务报告的顶行垃圾。日期将被附加到这一行的末尾。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:151 EcclesiaCRM/dto/SystemConfig.php:152
-#: EcclesiaCRM/dto/SystemConfig.php:171 EcclesiaCRM/dto/SystemConfig.php:172
+#: EcclesiaCRM/dto/SystemConfig.php:161 EcclesiaCRM/dto/SystemConfig.php:162
+#: EcclesiaCRM/dto/SystemConfig.php:181 EcclesiaCRM/dto/SystemConfig.php:182
 msgid "Verbage for bottom line of tax report."
 msgstr "税务报告的底线的垃圾。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:153
+#: EcclesiaCRM/dto/SystemConfig.php:163
 msgid "Tax Report signer"
 msgstr "税务报告签字人"
 
-#: EcclesiaCRM/dto/SystemConfig.php:154
+#: EcclesiaCRM/dto/SystemConfig.php:164
 msgid "Verbage for the pledge reminder report"
 msgstr "催促认捐报告用语"
 
-#: EcclesiaCRM/dto/SystemConfig.php:155
+#: EcclesiaCRM/dto/SystemConfig.php:165
 msgid "Pledge Reminder Signer"
 msgstr "认捐提醒签名者"
 
-#: EcclesiaCRM/dto/SystemConfig.php:156
+#: EcclesiaCRM/dto/SystemConfig.php:166
 msgid "Verbage for the pledge reminder report - No record of a pledge"
 msgstr "认捐提醒报告的垃圾 - 没有认捐记录"
 
-#: EcclesiaCRM/dto/SystemConfig.php:157
+#: EcclesiaCRM/dto/SystemConfig.php:167
 msgid "Verbage for the pledge reminder report - No record of payments"
 msgstr "认捐提醒报告的垃圾 - 没有付款记录"
 
-#: EcclesiaCRM/dto/SystemConfig.php:158 EcclesiaCRM/dto/SystemConfig.php:159
-#: EcclesiaCRM/dto/SystemConfig.php:160 EcclesiaCRM/dto/SystemConfig.php:161
-#: EcclesiaCRM/dto/SystemConfig.php:162 EcclesiaCRM/dto/SystemConfig.php:163
+#: EcclesiaCRM/dto/SystemConfig.php:168 EcclesiaCRM/dto/SystemConfig.php:169
+#: EcclesiaCRM/dto/SystemConfig.php:170 EcclesiaCRM/dto/SystemConfig.php:171
+#: EcclesiaCRM/dto/SystemConfig.php:172 EcclesiaCRM/dto/SystemConfig.php:173
 msgid "Verbage for the database information confirmation and correction report"
 msgstr "数据库信息确认和更正报告的垃圾"
 
-#: EcclesiaCRM/dto/SystemConfig.php:164
+#: EcclesiaCRM/dto/SystemConfig.php:174
 msgid "Database information confirmation and correction report signer"
 msgstr "数据库信息确认和更正报告签字人"
 
-#: EcclesiaCRM/dto/SystemConfig.php:165 EcclesiaCRM/dto/SystemConfig.php:166
+#: EcclesiaCRM/dto/SystemConfig.php:175 EcclesiaCRM/dto/SystemConfig.php:176
 msgid "Verbage for the pledge summary report"
 msgstr "认捐总结报告的垃圾"
 
-#: EcclesiaCRM/dto/SystemConfig.php:167 EcclesiaCRM/dto/SystemConfig.php:168
+#: EcclesiaCRM/dto/SystemConfig.php:177 EcclesiaCRM/dto/SystemConfig.php:178
 msgid "Verbage for the directory report"
 msgstr "目录报告用语"
 
-#: EcclesiaCRM/dto/SystemConfig.php:169
+#: EcclesiaCRM/dto/SystemConfig.php:179
 msgid "Church Letterhead path and file"
 msgstr "教会信笺的路径和文件"
 
-#: EcclesiaCRM/dto/SystemConfig.php:173
+#: EcclesiaCRM/dto/SystemConfig.php:183
 msgid "Church Checking Account Number"
 msgstr "教会支票账户号码"
 
-#: EcclesiaCRM/dto/SystemConfig.php:174
+#: EcclesiaCRM/dto/SystemConfig.php:184
 msgid "lookup user images on Gravatar when no local image is present"
 msgstr "在没有本地图片的情况下，在Gravatar上查找用户图片"
 
-#: EcclesiaCRM/dto/SystemConfig.php:175
+#: EcclesiaCRM/dto/SystemConfig.php:185
 msgid "Enable Remote Backups to Cloud Services"
 msgstr "启用远程备份到云服务"
 
-#: EcclesiaCRM/dto/SystemConfig.php:176
+#: EcclesiaCRM/dto/SystemConfig.php:186
 msgid "Cloud Service Type (Supported values: WebDAV, Local)"
 msgstr "云服务类型（支持的值：WebDAV，本地）。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:176
+#: EcclesiaCRM/dto/SystemConfig.php:186
 msgid "WebDAV"
 msgstr "WebDAV"
 
-#: EcclesiaCRM/dto/SystemConfig.php:176
+#: EcclesiaCRM/dto/SystemConfig.php:186
 msgid "Local"
 msgstr "当地"
 
-#: EcclesiaCRM/dto/SystemConfig.php:177
+#: EcclesiaCRM/dto/SystemConfig.php:187
 msgid "Remote Backup Endpoint"
 msgstr "远程备份端点"
 
-#: EcclesiaCRM/dto/SystemConfig.php:178
+#: EcclesiaCRM/dto/SystemConfig.php:188
 msgid "Remote Backup Username"
 msgstr "远程备份用户名"
 
-#: EcclesiaCRM/dto/SystemConfig.php:179
+#: EcclesiaCRM/dto/SystemConfig.php:189
 msgid "Remote Backup Password"
 msgstr "远程备份密码"
 
-#: EcclesiaCRM/dto/SystemConfig.php:180
+#: EcclesiaCRM/dto/SystemConfig.php:190
 msgid "Interval in Hours for Automatic Remote Backups"
 msgstr "自动远程备份的时间间隔（小时"
 
-#: EcclesiaCRM/dto/SystemConfig.php:181
+#: EcclesiaCRM/dto/SystemConfig.php:191
 msgid "Last Backup Timestamp"
 msgstr "最后备份时间戳"
 
-#: EcclesiaCRM/dto/SystemConfig.php:182
+#: EcclesiaCRM/dto/SystemConfig.php:192
 msgid "QuickBooks Deposit Ticket Settings"
 msgstr "QuickBooks 存款票据设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:183
+#: EcclesiaCRM/dto/SystemConfig.php:193
 msgid "Enable Integrity Check"
 msgstr "启用完整性检查"
 
-#: EcclesiaCRM/dto/SystemConfig.php:184
+#: EcclesiaCRM/dto/SystemConfig.php:194
 msgid "Interval in Hours for Integrity Check"
 msgstr "完整性检查的时间间隔（小时"
 
-#: EcclesiaCRM/dto/SystemConfig.php:185
+#: EcclesiaCRM/dto/SystemConfig.php:195
 msgid "Last Integrity Check Timestamp"
 msgstr "最后一次完整性检查时间戳"
 
-#: EcclesiaCRM/dto/SystemConfig.php:187
+#: EcclesiaCRM/dto/SystemConfig.php:197
 msgid "Used to end a letter before Signer"
 msgstr "用于在签名者之前结束信件"
 
-#: EcclesiaCRM/dto/SystemConfig.php:188
+#: EcclesiaCRM/dto/SystemConfig.php:198
 msgid "Text before name in emails/reports"
 msgstr "电子邮件/报告中名称前的文字"
 
-#: EcclesiaCRM/dto/SystemConfig.php:189
+#: EcclesiaCRM/dto/SystemConfig.php:199
 msgid "Google Analytics Tracking Code"
 msgstr "谷歌分析的跟踪代码"
 
-#: EcclesiaCRM/dto/SystemConfig.php:191
+#: EcclesiaCRM/dto/SystemConfig.php:201
 msgid "Deposit ticket type.  QBDT - Quickbooks"
 msgstr "存款票据类型。  QBDT - Quickbooks"
 
-#: EcclesiaCRM/dto/SystemConfig.php:192
+#: EcclesiaCRM/dto/SystemConfig.php:202
 msgid ""
 "Set true to allow empty lastname in Person Editor.  Set false to validate "
 "last name and inherit from family when left empty."
@@ -3986,291 +3977,291 @@ msgstr ""
 "设置为 \"true\"，允许在人物编辑器中使用空的姓氏。  设置为 \"false\"，当姓氏为"
 "空时，将验证姓氏并从家庭中继承。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:194
+#: EcclesiaCRM/dto/SystemConfig.php:204
 msgid "Display bill counts on deposit slip"
 msgstr "在存款单上显示账单数量"
 
-#: EcclesiaCRM/dto/SystemConfig.php:195
+#: EcclesiaCRM/dto/SystemConfig.php:205
 msgid "EcclesiaCRM Cloud Access URL"
 msgstr "EcclesiaCRM云端访问网址"
 
-#: EcclesiaCRM/dto/SystemConfig.php:196
+#: EcclesiaCRM/dto/SystemConfig.php:206
 msgid "Nexmo SMS API Key"
 msgstr "Nexmo SMS API密钥"
 
-#: EcclesiaCRM/dto/SystemConfig.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:207
 msgid "Nexmo SMS API Secret"
 msgstr "Nexmo SMS API 秘密"
 
-#: EcclesiaCRM/dto/SystemConfig.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:208
 msgid "Nexmo SMS From Number"
 msgstr "Nexmo SMS from Number"
 
-#: EcclesiaCRM/dto/SystemConfig.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:209
 msgid "OpenLP URL"
 msgstr "OpenLP网址"
 
-#: EcclesiaCRM/dto/SystemConfig.php:200
+#: EcclesiaCRM/dto/SystemConfig.php:210
 msgid "OpenLP Username"
 msgstr "OpenLP用户名"
 
-#: EcclesiaCRM/dto/SystemConfig.php:201
+#: EcclesiaCRM/dto/SystemConfig.php:211
 msgid "OpenLP Password"
 msgstr "OpenLP密码"
 
-#: EcclesiaCRM/dto/SystemConfig.php:202
+#: EcclesiaCRM/dto/SystemConfig.php:212
 msgid "KioskVisibilityTimestamp"
 msgstr "亭子可见度时间戳"
 
-#: EcclesiaCRM/dto/SystemConfig.php:203
+#: EcclesiaCRM/dto/SystemConfig.php:213
 msgid "Show/Hide Lost Password Link on the login screen"
 msgstr "在登录屏幕上显示/隐藏丢失的密码链接"
 
-#: EcclesiaCRM/dto/SystemConfig.php:204
+#: EcclesiaCRM/dto/SystemConfig.php:214
 msgid "Your Church's Website"
 msgstr "你的教会网站"
 
-#: EcclesiaCRM/dto/SystemConfig.php:205
+#: EcclesiaCRM/dto/SystemConfig.php:215
 msgid "Your Church's Facebook Page"
 msgstr "你的教会的Facebook页面"
 
-#: EcclesiaCRM/dto/SystemConfig.php:206
+#: EcclesiaCRM/dto/SystemConfig.php:216
 msgid "Your Church's Twitter Page"
 msgstr "你的教会的Twitter页面"
 
-#: EcclesiaCRM/dto/SystemConfig.php:207
+#: EcclesiaCRM/dto/SystemConfig.php:217
 msgid "lookup user images on Google when no local image is present"
 msgstr "在没有本地图片的情况下，在谷歌上查找用户图片"
 
-#: EcclesiaCRM/dto/SystemConfig.php:208
+#: EcclesiaCRM/dto/SystemConfig.php:218
 msgid ""
 "Comma Separated list of PersonIDs of people to notify when a new family or "
 "person is added"
 msgstr "逗号分隔的人的PersonIDs列表，当一个新的家庭或人被添加时要通知他们"
 
-#: EcclesiaCRM/dto/SystemConfig.php:209
+#: EcclesiaCRM/dto/SystemConfig.php:219
 msgid "Allow unauthenticated reads of events from the external calendar API"
 msgstr "允许从外部日历API中未经认证地读取事件"
 
-#: EcclesiaCRM/dto/SystemConfig.php:210
+#: EcclesiaCRM/dto/SystemConfig.php:220
 msgid "Search People"
 msgstr "搜索人物"
 
-#: EcclesiaCRM/dto/SystemConfig.php:211
+#: EcclesiaCRM/dto/SystemConfig.php:221
 msgid "Search Family"
 msgstr "搜索家庭"
 
-#: EcclesiaCRM/dto/SystemConfig.php:212
+#: EcclesiaCRM/dto/SystemConfig.php:222
 msgid "Show Family Head of House Names"
 msgstr "显示家庭户主的名字"
 
-#: EcclesiaCRM/dto/SystemConfig.php:213
+#: EcclesiaCRM/dto/SystemConfig.php:223
 msgid "Search Groups"
 msgstr "搜索组"
 
-#: EcclesiaCRM/dto/SystemConfig.php:214
+#: EcclesiaCRM/dto/SystemConfig.php:224
 msgid "Search Deposits"
 msgstr "搜索存款"
 
-#: EcclesiaCRM/dto/SystemConfig.php:215
+#: EcclesiaCRM/dto/SystemConfig.php:225
 msgid "Search Payments"
 msgstr "搜索支付"
 
-#: EcclesiaCRM/dto/SystemConfig.php:216
+#: EcclesiaCRM/dto/SystemConfig.php:226
 msgid "Search Addresses"
 msgstr "搜索地址"
 
-#: EcclesiaCRM/dto/SystemConfig.php:217
+#: EcclesiaCRM/dto/SystemConfig.php:227
 msgid "Maximum number of People"
 msgstr "最多人数"
 
-#: EcclesiaCRM/dto/SystemConfig.php:218
+#: EcclesiaCRM/dto/SystemConfig.php:228
 msgid "Maximum number of Families"
 msgstr "最多家庭数"
 
-#: EcclesiaCRM/dto/SystemConfig.php:219
+#: EcclesiaCRM/dto/SystemConfig.php:229
 msgid "Maximum number of Family H.O.H Names"
 msgstr "家庭H.O.H名称的最大数量"
 
-#: EcclesiaCRM/dto/SystemConfig.php:220
+#: EcclesiaCRM/dto/SystemConfig.php:230
 msgid "Maximum number of Groups"
 msgstr "组的最大数量"
 
-#: EcclesiaCRM/dto/SystemConfig.php:221
+#: EcclesiaCRM/dto/SystemConfig.php:231
 msgid "Maximum number of Deposits"
 msgstr "存款的最大数量"
 
-#: EcclesiaCRM/dto/SystemConfig.php:222
+#: EcclesiaCRM/dto/SystemConfig.php:232
 msgid "Maximum number of Payments"
 msgstr "最多支付次数"
 
-#: EcclesiaCRM/dto/SystemConfig.php:223
+#: EcclesiaCRM/dto/SystemConfig.php:233
 msgid "Maximum number of Addresses"
 msgstr "最大的地址数"
 
-#: EcclesiaCRM/dto/SystemConfig.php:224
+#: EcclesiaCRM/dto/SystemConfig.php:234
 msgid "Search Pastoral Care"
 msgstr "搜索教牧关怀"
 
-#: EcclesiaCRM/dto/SystemConfig.php:225
+#: EcclesiaCRM/dto/SystemConfig.php:235
 msgid "Maximum number of Pastoral Care results"
 msgstr "牧师关怀结果的最大数量"
 
-#: EcclesiaCRM/dto/SystemConfig.php:226
+#: EcclesiaCRM/dto/SystemConfig.php:236
 msgid "Height to use for images"
 msgstr "用于图像的高度"
 
-#: EcclesiaCRM/dto/SystemConfig.php:227
+#: EcclesiaCRM/dto/SystemConfig.php:237
 msgid "Width to use for images"
 msgstr "用于图像的宽度"
 
-#: EcclesiaCRM/dto/SystemConfig.php:228
+#: EcclesiaCRM/dto/SystemConfig.php:238
 msgid "Width to use for thumbnails"
 msgstr "用于缩略图的宽度"
 
-#: EcclesiaCRM/dto/SystemConfig.php:229
+#: EcclesiaCRM/dto/SystemConfig.php:239
 msgid "Point size to use for initials thumbnails"
 msgstr "用于首字母缩略图的点数大小"
 
-#: EcclesiaCRM/dto/SystemConfig.php:230
+#: EcclesiaCRM/dto/SystemConfig.php:240
 msgid "Client cache seconds for images"
 msgstr "客户端对图像的缓存秒数"
 
-#: EcclesiaCRM/dto/SystemConfig.php:231
+#: EcclesiaCRM/dto/SystemConfig.php:241
 msgid "Server cache time for remote images"
 msgstr "远程图像的服务器缓存时间"
 
-#: EcclesiaCRM/dto/SystemConfig.php:232
+#: EcclesiaCRM/dto/SystemConfig.php:242
 msgid "Require that this EcclesiaCRM Database is accessed over HTTPS"
 msgstr "要求通过HTTPS访问该EcclesiaCRM数据库"
 
-#: EcclesiaCRM/dto/SystemConfig.php:233
+#: EcclesiaCRM/dto/SystemConfig.php:243
 msgid "Show Birthdates Anniversaries on start up of the CRM"
 msgstr "在CRM启动时显示出生日期和纪念日"
 
-#: EcclesiaCRM/dto/SystemConfig.php:234
+#: EcclesiaCRM/dto/SystemConfig.php:244
 msgid ""
 "Number of seconds after page load until the banner disappears, default 10 "
 "seconds"
 msgstr "页面加载后到横幅消失的秒数，默认为10秒"
 
-#: EcclesiaCRM/dto/SystemConfig.php:235
+#: EcclesiaCRM/dto/SystemConfig.php:245
 msgid "Automatically enable SMTP encryption if offered by the relaying server."
 msgstr "如果中转服务器提供SMTP加密，则自动启用。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:236
+#: EcclesiaCRM/dto/SystemConfig.php:246
 msgid "Set the encryption system to use - ssl (deprecated) or tls"
 msgstr "设置要使用的加密系统 - ssl（已废弃）或tls"
 
-#: EcclesiaCRM/dto/SystemConfig.php:237
+#: EcclesiaCRM/dto/SystemConfig.php:247
 msgid ""
 "Dashboard & page Service dynamic asynchronous refresh interval, default 60 "
 "second"
 msgstr "仪表板和页面服务动态异步刷新间隔，默认为60秒"
 
-#: EcclesiaCRM/dto/SystemConfig.php:238
+#: EcclesiaCRM/dto/SystemConfig.php:248
 msgid "When you make the attendance all the kids are checked by default"
 msgstr "当你进行考勤时，所有的孩子都被默认为选中。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:239
+#: EcclesiaCRM/dto/SystemConfig.php:249
 msgid "When you make the attendance the current user isn't choosed by default"
 msgstr "当你进行考勤时，默认情况下不会选择当前用户。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:240
+#: EcclesiaCRM/dto/SystemConfig.php:250
 msgid "Hide dropdown states when they are unusefull"
 msgstr "当下拉状态不完整时，隐藏下拉状态"
 
-#: EcclesiaCRM/dto/SystemConfig.php:241
+#: EcclesiaCRM/dto/SystemConfig.php:251
 msgid "The currency symbol you want to use in the deposit in $ per default"
 msgstr "你想在存款中使用的货币符号，默认为$。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:242
+#: EcclesiaCRM/dto/SystemConfig.php:252
 msgid "If you do not want to receive these emails from"
 msgstr "如果你不希望收到这些来自于"
 
-#: EcclesiaCRM/dto/SystemConfig.php:243
+#: EcclesiaCRM/dto/SystemConfig.php:253
 msgid "in the future, please contact the church admins"
 msgstr "在未来，请联系教会管理员"
 
-#: EcclesiaCRM/dto/SystemConfig.php:244
+#: EcclesiaCRM/dto/SystemConfig.php:254
 msgid "Time in minutes when a share document can't be opened."
 msgstr "无法打开共享文件的时间，以分钟计。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:245
+#: EcclesiaCRM/dto/SystemConfig.php:255
 msgid "The DPO administrator for the GDPR"
 msgstr "GDPR的DPO管理员"
 
-#: EcclesiaCRM/dto/SystemConfig.php:246
+#: EcclesiaCRM/dto/SystemConfig.php:256
 msgid "GDPR option"
 msgstr "GDPR选项"
 
-#: EcclesiaCRM/dto/SystemConfig.php:247
+#: EcclesiaCRM/dto/SystemConfig.php:257
 msgid "The DPO email"
 msgstr "DPO的电子邮件"
 
-#: EcclesiaCRM/dto/SystemConfig.php:248
+#: EcclesiaCRM/dto/SystemConfig.php:258
 msgid ""
 "The private datas should be deleted after the iGdprExpirationDate in Year."
 msgstr "私人数据应该在iGdprExpirationDate（年）之后被删除。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:249
+#: EcclesiaCRM/dto/SystemConfig.php:259
 msgid "Show custom links on the left menu."
 msgstr "在左侧菜单上显示自定义链接。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:250
+#: EcclesiaCRM/dto/SystemConfig.php:260
 msgid "Enable Sunday School left menu."
 msgstr "启用主日学左侧菜单。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:251
+#: EcclesiaCRM/dto/SystemConfig.php:261
 msgid "Enable Finance menu"
 msgstr "启用财务菜单"
 
-#: EcclesiaCRM/dto/SystemConfig.php:252
+#: EcclesiaCRM/dto/SystemConfig.php:262
 msgid "Enable Events menu."
 msgstr "启用事件菜单。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:253
+#: EcclesiaCRM/dto/SystemConfig.php:263
 msgid "Enable Fundraiser menu."
 msgstr "启用筹款活动菜单。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:254
+#: EcclesiaCRM/dto/SystemConfig.php:264
 msgid "Enable Email menu."
 msgstr "启用电子邮件菜单。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:255
+#: EcclesiaCRM/dto/SystemConfig.php:265
 msgid "Enable WebDav, CardDav and CalDav support."
 msgstr "启用WebDav、CardDav和CalDav支持。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:256
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Enable WebDav, CardDav and CalDav support through a Browser."
 msgstr "通过浏览器启用WebDav、CardDav和CalDav支持。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:257
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid "MailChimp API request time out in seconds"
 msgstr "MailChimp的API请求超时（秒）。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:258
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid "Add Address, Phone."
 msgstr "添加地址，电话。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:259
+#: EcclesiaCRM/dto/SystemConfig.php:269
 msgid "Add a thumbnail icon for the people in the datatables."
 msgstr "为数据表格中的人添加缩略图图标。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:260
+#: EcclesiaCRM/dto/SystemConfig.php:270
 msgid "Search Pledges"
 msgstr "搜索认捐"
 
-#: EcclesiaCRM/dto/SystemConfig.php:261
+#: EcclesiaCRM/dto/SystemConfig.php:271
 msgid "Maximum number of Pledges results"
 msgstr "认捐结果的最大数量"
 
-#: EcclesiaCRM/dto/SystemConfig.php:262
+#: EcclesiaCRM/dto/SystemConfig.php:272
 msgid ""
 "Allow to get the name in the search sequence in case of pledges and deposits"
 msgstr "在认捐和存款的情况下，允许在搜索序列中获得名字"
 
-#: EcclesiaCRM/dto/SystemConfig.php:263
+#: EcclesiaCRM/dto/SystemConfig.php:273
 msgid ""
 "'Yearly 1' : from 1 january to 31 december, '365' : in a range from now-365 "
 "days to now, 'Yearly 2' : from september to september."
@@ -4278,19 +4269,19 @@ msgstr ""
 "'Yearly 1'：从1月1日到12月31日，'365'：在从现在到365天的范围内，'Yearly 2'："
 "从9月到9月。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:264
+#: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Get the statistics of calls/visits (for each pastors counselors)"
 msgstr "获取电话/访问的统计数据（针对每个牧师顾问）。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:265
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Set the export address)"
 msgstr "设置出口地址)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:266
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "email address of the mailchimp sender."
 msgstr "mailchimp发件人的电子邮件地址。"
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid ""
 "Link to a style sheet for a particular font. This is useful for the font "
 "menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
@@ -4300,7 +4291,7 @@ msgstr ""
 "googleapis.com/css?family=Abril+Fatface:400,400i,700,700i,900,900i|"
 "Roboto:400,400i,700,700i,900,900i"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid ""
 "Here we put the font in the form fontnametodisplay/yourfontname. It is "
 "useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
@@ -4308,87 +4299,87 @@ msgstr ""
 "在这里，我们把字体以fontnametodisplay/yourfontname的形式放入。它对ckeditor的"
 "字体菜单很有用，例如：Abril/Abril Fatface"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Church Information"
 msgstr "教会信息"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:286
 msgid "Enabled Features"
 msgstr "启用的功能"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:287 Include/Footer.php:199
 msgid "System Settings"
 msgstr "系统设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:288
 msgid "Localization"
 msgstr "本地化"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "User setup"
 msgstr "用户设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "People Setup"
 msgstr "人员设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Email Setup"
 msgstr "电子邮件设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:292
 msgid "Map Settings"
 msgstr "地图设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/dto/SystemConfig.php:293 EcclesiaCRM/MenuBar/MenuBar.php:381
 #: FamilyView.php:473 PersonView.php:832 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1095
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1106
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
 msgstr "牧民关怀"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:294
 msgid "Sundayschool Attendance"
 msgstr "主日学的出席率"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285
+#: EcclesiaCRM/dto/SystemConfig.php:295
 msgid "Integration"
 msgstr "融合"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:111
+#: EcclesiaCRM/dto/SystemConfig.php:296 EcclesiaCRM/MenuBar/MenuBar.php:111
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
-#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:108
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:297
 msgid "Quick Search"
 msgstr "快速搜索"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288
+#: EcclesiaCRM/dto/SystemConfig.php:298
 msgid "Report Settings"
 msgstr "报告设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:299
 msgid "Financial Settings"
 msgstr "财务设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:300
 msgid "Backup"
 msgstr "备份"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:301
 msgid "Users Specific Schedule Tasks"
 msgstr "用户的具体日程任务"
 
-#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
-#: EcclesiaCRM/dto/SystemConfig.php:360
+#: EcclesiaCRM/dto/SystemConfig.php:351 EcclesiaCRM/dto/SystemConfig.php:360
+#: EcclesiaCRM/dto/SystemConfig.php:370
 msgid "An invalid configuration name has been requested"
 msgstr "已请求一个无效的配置名称"
 
-#: EcclesiaCRM/dto/SystemConfig.php:375
+#: EcclesiaCRM/dto/SystemConfig.php:385
 msgid "An invalid configuration id has been requested"
 msgstr "已请求一个无效的配置ID"
 
@@ -4540,7 +4531,6 @@ msgid "Password"
 msgstr "密码"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:24
-#, fuzzy
 msgid "informations"
 msgstr "信息"
 
@@ -4566,7 +4556,7 @@ msgstr "更改设置"
 msgid "Documents"
 msgstr "文件"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:898
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:909
 msgid "EDrive"
 msgstr "驱动器"
 
@@ -4615,7 +4605,7 @@ msgid "List Event Types"
 msgstr "列出事件类型"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:149
-#: v2/templates/dashboard/maindashboard.php:125
+#: v2/templates/dashboard/maindashboard.php:225
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:127
 msgid "People"
@@ -4680,7 +4670,7 @@ msgstr "自定义菜单"
 msgid "By Classifications"
 msgstr "按类别划分"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1073
+#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1084
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 msgid "MailChimp"
 msgstr "郵件服務公司（MailChimp"
@@ -4747,7 +4737,7 @@ msgstr "数据/报告"
 msgid "Reports Menu"
 msgstr "报告菜单"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1063
+#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1074
 msgid "Query Menu"
 msgstr "查询菜单"
 
@@ -4842,17 +4832,13 @@ msgid "Witness"
 msgstr "证人"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:236
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:282
-#: v2/templates/dashboard/maindashboard.php:639
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:284
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "创建"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:241
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:287
-#: v2/templates/dashboard/maindashboard.php:655
-#: v2/templates/dashboard/maindashboard.php:699
-#: v2/templates/dashboard/maindashboard.php:715
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:289
 msgid "Updated"
 msgstr "更新"
 
@@ -4865,12 +4851,12 @@ msgid "Verification email sent"
 msgstr "发送验证邮件"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:327
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:450
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:452
 msgid "Profile Image Deleted"
 msgstr "删去的个人资料图片"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:340
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:474
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:476
 msgid "Profile Image uploaded"
 msgstr "上传的个人资料图片"
 
@@ -4880,7 +4866,7 @@ msgstr "上传的个人资料图片"
 msgid "Member"
 msgstr "会员"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:624
 #: EcclesiaCRM/Service/TimelineService.php:216
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
@@ -4891,76 +4877,76 @@ msgstr "会员"
 msgid "Unknown"
 msgstr "不详"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:629
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
 #: EcclesiaCRM/utils/OutputUtils.php:566
 msgid "mos old"
 msgstr "几个月大"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:633
 #: EcclesiaCRM/utils/OutputUtils.php:568
 msgid "mo old"
 msgstr "老人"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:635
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:637
 #: EcclesiaCRM/utils/OutputUtils.php:536 EcclesiaCRM/utils/OutputUtils.php:538
 #: EcclesiaCRM/utils/OutputUtils.php:572
 msgid "yrs old"
 msgstr "岁"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:637
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:639
 #: EcclesiaCRM/utils/OutputUtils.php:574
 msgid "yr old"
 msgstr "岁"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:665
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:667
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM出口"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
 msgid "system user created"
 msgstr "创建的系统用户"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:672
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:697
 msgid "system user updated"
 msgstr "系统用户更新"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:675
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:700
 msgid "system user deleted"
 msgstr "系统用户删除"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:678
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:703
 msgid "system user password reset"
 msgstr "系统用户密码重置"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:681
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:706
 msgid "system user changed password"
 msgstr "系统用户改变了密码"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:684
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:709
 msgid "system user password changed by admin"
 msgstr "系统用户密码被管理员修改"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:687
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:712
 msgid "system user login reset"
 msgstr "系统用户登录重置"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:693
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:718
 msgid "Dav create file"
 msgstr "Dav创建文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:699
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:724
 msgid "Dav create directory"
 msgstr "Dav创建目录"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:705
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:730
 msgid "Dav update file"
 msgstr "Dav更新文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:718
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
 msgid "Dav move copy file"
 msgstr "Dav移动复制文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:725
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "Dav delete file"
 msgstr "Dav删除文件"
 
@@ -5205,7 +5191,6 @@ msgid "Family Pastoral Cares"
 msgstr "家庭牧养关怀"
 
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
-#: v2/templates/dashboard/maindashboard.php:486
 msgid "Family Pastoral Care"
 msgstr "家庭教牧关怀"
 
@@ -5801,7 +5786,7 @@ msgid "Restore Database"
 msgstr "恢复数据库"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:160
-#: v2/templates/dashboard/maindashboard.php:82
+#: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/peopledashboard.php:83
 #: v2/templates/people/peoplelist.php:22
 msgid "Single Persons"
@@ -5880,7 +5865,7 @@ msgstr "活动出席者"
 msgid "View Your Cart"
 msgstr "查看您的购物车"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:157
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:153
 msgid "Welcome to"
 msgstr "欢迎来到"
 
@@ -5953,14 +5938,12 @@ msgid "Pastoral care list of members for"
 msgstr "牧民关怀的成员名单为"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
-#: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "Period  from"
 msgstr "期间从"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
-#: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "to"
@@ -6396,8 +6379,8 @@ msgstr "家庭注册"
 msgid "Reset your password"
 msgstr "重置您的密码"
 
-#: external/templates/password/enter-username.php:32 UserEditor.php:694
-#: UserEditor.php:753
+#: external/templates/password/enter-username.php:32 UserEditor.php:705
+#: UserEditor.php:764
 msgid "Login Name"
 msgstr "登录名称"
 
@@ -6667,7 +6650,7 @@ msgstr "首先"
 msgid "Middle"
 msgstr "中层"
 
-#: FamilyEditor.php:1094 v2/templates/dashboard/maindashboard.php:486
+#: FamilyEditor.php:1094
 msgid "Last"
 msgstr "最后一次"
 
@@ -7107,7 +7090,7 @@ msgstr "最低总金额。"
 msgid "0 - No Minimum"
 msgstr "0 - 没有最低限度"
 
-#: FinancialReports.php:389 SettingsIndividual.php:160
+#: FinancialReports.php:389 SettingsIndividual.php:193
 msgid "Other Settings"
 msgstr "其他设置"
 
@@ -7238,7 +7221,7 @@ msgstr "这一行动不能被撤销，而且可能会有法律上的影响。"
 msgid "Please ensure this what you want to do."
 msgstr "请确保这是你想做的事。"
 
-#: FindDepositSlip.php:128 GroupEditor.php:67 SystemSettings.php:106
+#: FindDepositSlip.php:128 GroupEditor.php:67 SystemSettings.php:110
 msgid "Close"
 msgstr "关闭"
 
@@ -8551,7 +8534,7 @@ msgid "Property"
 msgstr "财产"
 
 #: PrintPastoralCarePerson.php:557 PrintPastoralCarePerson.php:613
-#: PrintView.php:566 PrintView.php:622 SystemSettings.php:144
+#: PrintView.php:566 PrintView.php:622 SystemSettings.php:147
 msgid "Value"
 msgstr "价值"
 
@@ -9254,51 +9237,55 @@ msgstr "不，取消这次删除"
 msgid "Delete Person Record"
 msgstr "删除个人记录"
 
-#: SettingsIndividual.php:96
+#: SettingsIndividual.php:129
 msgid "My User Settings"
 msgstr "我的用户设置"
 
-#: SettingsIndividual.php:109
+#: SettingsIndividual.php:142
 msgid "Classic User Profile Settings"
 msgstr "经典用户资料设置"
 
-#: SettingsIndividual.php:113 SettingsIndividual.php:164 UserEditor.php:1132
+#: SettingsIndividual.php:146 SettingsIndividual.php:197 UserEditor.php:1143
 msgid "Notes"
 msgstr "笔记"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:1131
+#: SettingsIndividual.php:147 SettingsIndividual.php:198 UserEditor.php:1142
 msgid "Current Value"
 msgstr "当前价值"
 
-#: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
-#: UserEditor.php:1130
+#: SettingsIndividual.php:148 SettingsIndividual.php:199 SystemSettings.php:146
+#: UserEditor.php:1141
 msgid "Variable name"
 msgstr "变量名称"
 
-#: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
-#: UserEditor.php:1332
+#: SettingsIndividual.php:175 SettingsIndividual.php:441
+#: SettingsIndividual.php:566 SystemSettings.php:132 UserEditor.php:1395
 msgid "Save Settings"
 msgstr "保存设置"
 
-#: SettingsIndividual.php:160
+#: SettingsIndividual.php:193
 msgid "Skin"
 msgstr "皮肤"
 
-#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:1167
-#: UserEditor.php:1220
+#: SettingsIndividual.php:392 SystemSettings.php:215 UserEditor.php:1178
+#: UserEditor.php:1231
 msgid "False"
 msgstr "假的"
 
-#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:1168
-#: UserEditor.php:1221
+#: SettingsIndividual.php:393 SystemSettings.php:216 UserEditor.php:1179
+#: UserEditor.php:1232
 msgid "True"
 msgstr "真"
 
-#: SettingsIndividual.php:421
+#: SettingsIndividual.php:451
+msgid "Specific settings"
+msgstr "具体设置"
+
+#: SettingsIndividual.php:460
 msgid "Two-factor authentication (2fa)"
 msgstr "双因素认证（2fa）"
 
-#: SettingsIndividual.php:424
+#: SettingsIndividual.php:463
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -9307,29 +9294,29 @@ msgstr ""
 "将你的EcclesiaCRM用户账户注册为双因素认证，为EcclesiaCRM提供了一个防御层，防"
 "止坏人试图访问你的账户。"
 
-#: SettingsIndividual.php:425
+#: SettingsIndividual.php:464
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "EcclesiaCRM双因素支持任何TOTP认证器应用程序"
 
-#: SettingsIndividual.php:430
+#: SettingsIndividual.php:469
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
 msgstr "当你登录到EcclesiaCRM时，你仍然会像平常一样输入你的用户名和密码"
 
-#: SettingsIndividual.php:433
+#: SettingsIndividual.php:472
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
 msgstr "然而，你还需要从你的认证器设备上提供一个一次性代码来完成你的登录。"
 
-#: SettingsIndividual.php:436
+#: SettingsIndividual.php:475
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
 msgstr "在成功输入你的凭证和一次性代码后，你将会像往常一样登录。"
 
-#: SettingsIndividual.php:439
+#: SettingsIndividual.php:478
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -9337,43 +9324,51 @@ msgstr ""
 "为了防止被锁定你的EcclesiaCRM账户，请确保你在点击开始之前准备好完成双因素注"
 "册。"
 
-#: SettingsIndividual.php:442
+#: SettingsIndividual.php:481
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
 msgstr "开始注册将使以前注册的任何2因素设备和恢复代码无效。"
 
-#: SettingsIndividual.php:444
+#: SettingsIndividual.php:483
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
 msgstr "当你点击下一步时，你会被提示扫描一个二维码来注册你的认证器应用程序。"
 
-#: SettingsIndividual.php:446
+#: SettingsIndividual.php:485
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
 msgstr "为了确认注册，你需要输入由你的认证器应用程序生成的代码"
 
-#: SettingsIndividual.php:448
+#: SettingsIndividual.php:487
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
 msgstr "在确认应用程序的注册后，将生成并显示一次性恢复代码。"
 
-#: SettingsIndividual.php:450
+#: SettingsIndividual.php:489
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
 msgstr "可以使用恢复代码，而不是从你的认证器应用程序生成的代码。"
 
-#: SettingsIndividual.php:452
+#: SettingsIndividual.php:491
 msgid "Store these in a secure location"
 msgstr "将这些东西存放在一个安全的地方"
 
-#: SettingsIndividual.php:459
+#: SettingsIndividual.php:498
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "开始双因素认证的注册工作"
+
+#: SettingsIndividual.php:511 UserEditor.php:1325
+msgid "Visibilities of the dashboard plugins"
+msgstr "仪表板插件的可视性"
+
+#: SettingsIndividual.php:549 UserEditor.php:1358
+msgid "Top"
+msgstr "返回顶部"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -9431,19 +9426,19 @@ msgstr "一般设置"
 msgid "Setting saved"
 msgstr "保存的设置"
 
-#: SystemSettings.php:98
+#: SystemSettings.php:102
 msgid "Edit JSON Settings"
 msgstr "编辑JSON设置"
 
-#: SystemSettings.php:145
+#: SystemSettings.php:148
 msgid "Default Value"
 msgstr "默认值"
 
-#: SystemSettings.php:222
+#: SystemSettings.php:225
 msgid "Edit Settings"
 msgstr "编辑设置"
 
-#: SystemSettings.php:236
+#: SystemSettings.php:239
 msgid "Unknown Type"
 msgstr "未知类型"
 
@@ -9559,205 +9554,205 @@ msgstr "登录名已被使用，请选择其他登录名!"
 msgid "The same as before"
 msgstr "和以前一样"
 
-#: UserEditor.php:615
+#: UserEditor.php:626
 msgid "User Editor"
 msgstr "用户编辑"
 
-#: UserEditor.php:632
+#: UserEditor.php:643
 msgid "Role management"
 msgstr "角色管理"
 
-#: UserEditor.php:635
+#: UserEditor.php:646
 msgid "Add Role"
 msgstr "添加角色"
 
-#: UserEditor.php:636
+#: UserEditor.php:647
 msgid "Manage Roles"
 msgstr "管理角色"
 
-#: UserEditor.php:639
+#: UserEditor.php:650
 msgid "Add Role to Current User"
 msgstr "为当前用户添加角色"
 
-#: UserEditor.php:675
+#: UserEditor.php:686
 msgid "Person to Make User"
 msgstr "做出用户的人"
 
-#: UserEditor.php:711
+#: UserEditor.php:722
 msgid "Note: Changes will not take effect until next logon."
 msgstr "请注意：在下次登录之前，更改不会生效。"
 
-#: UserEditor.php:730 UserEditor.php:1296
+#: UserEditor.php:741 UserEditor.php:1309
 msgid "User"
 msgstr "用户"
 
-#: UserEditor.php:773 UserEditor.php:1312
+#: UserEditor.php:784 UserEditor.php:1375
 msgid "Global Permissions"
 msgstr "全局权限"
 
-#: UserEditor.php:783 v2/templates/user/userlist.php:158
+#: UserEditor.php:794 v2/templates/user/userlist.php:158
 msgid "Management"
 msgstr "管理层"
 
-#: UserEditor.php:789 UserEditor.php:1297
+#: UserEditor.php:800 UserEditor.php:1310
 msgid "Admin"
 msgstr "管理员"
 
-#: UserEditor.php:790
+#: UserEditor.php:801
 msgid "Grants all privileges."
 msgstr "授予所有特权。"
 
-#: UserEditor.php:800
+#: UserEditor.php:811
 msgid "Add Records"
 msgstr "添加记录"
 
-#: UserEditor.php:809
+#: UserEditor.php:820
 msgid "Edit Records"
 msgstr "编辑记录"
 
-#: UserEditor.php:818
+#: UserEditor.php:829
 msgid "Delete Records"
 msgstr "删除记录"
 
-#: UserEditor.php:827
+#: UserEditor.php:838
 msgid "Manage Properties and Classifications"
 msgstr "管理属性和分类"
 
-#: UserEditor.php:836
+#: UserEditor.php:847
 msgid "Manage Groups and Roles"
 msgstr "管理组和角色"
 
-#: UserEditor.php:845
+#: UserEditor.php:856
 msgid "Manage resource reservation schedules (room, computer, projectors)"
 msgstr "管理资源预订时间表（房间、电脑、投影仪）。"
 
-#: UserEditor.php:854
+#: UserEditor.php:865
 msgid "View, Add and Edit Notes"
 msgstr "查看、添加和编辑注释"
 
-#: UserEditor.php:870
+#: UserEditor.php:881
 msgid "User Account Permissions"
 msgstr "用户账户权限"
 
-#: UserEditor.php:875
+#: UserEditor.php:886
 msgid "Main Dashboard"
 msgstr "主仪表板"
 
-#: UserEditor.php:877
+#: UserEditor.php:888
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "主仪表板和日历中的出生日期是可见的。"
 
-#: UserEditor.php:887
+#: UserEditor.php:898
 msgid "Edit Self"
 msgstr "编辑自我"
 
-#: UserEditor.php:888
+#: UserEditor.php:899
 msgid "Edit own family only."
 msgstr "只编辑自己的家庭。"
 
-#: UserEditor.php:907
+#: UserEditor.php:918
 msgid "Right to edit html code"
 msgstr "编辑HTML代码的权利"
 
-#: UserEditor.php:916
+#: UserEditor.php:927
 msgid "Can Send Email"
 msgstr "可以发送电子邮件"
 
-#: UserEditor.php:918
+#: UserEditor.php:929
 msgid "Allow to use the mail function and button in the CRM"
 msgstr "允许在CRM中使用邮件功能和按钮"
 
-#: UserEditor.php:934
+#: UserEditor.php:945
 msgid "Permissions To View"
 msgstr "查看权限"
 
-#: UserEditor.php:940
+#: UserEditor.php:951
 msgid "Show Cart"
 msgstr "显示购物车"
 
-#: UserEditor.php:949
+#: UserEditor.php:960
 msgid "Show Map"
 msgstr "显示地图"
 
-#: UserEditor.php:958
+#: UserEditor.php:969
 msgid "See Privacy Data"
 msgstr "见隐私数据"
 
-#: UserEditor.php:960
+#: UserEditor.php:971
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr "允许用户查看会员的隐私数据，如出生年份、年龄。"
 
-#: UserEditor.php:978
+#: UserEditor.php:989
 msgid "Export Permissions"
 msgstr "出口权限"
 
-#: UserEditor.php:986
+#: UserEditor.php:997
 msgid "User permission to export CSV files"
 msgstr "用户导出CSV文件的权限"
 
-#: UserEditor.php:996
+#: UserEditor.php:1007
 msgid "User permission to create directories"
 msgstr "用户创建目录的权限"
 
-#: UserEditor.php:1006
+#: UserEditor.php:1017
 msgid "Sunday school PDF"
 msgstr "主日学PDF"
 
-#: UserEditor.php:1008
+#: UserEditor.php:1019
 msgid "User permission to export PDF files for the sunday school"
 msgstr "用户有权为主日学导出PDF文件"
 
-#: UserEditor.php:1018
+#: UserEditor.php:1029
 msgid "Sunday school CSV"
 msgstr "主日学CSV"
 
-#: UserEditor.php:1020
+#: UserEditor.php:1031
 msgid "User permission to export CSV files for the sunday school"
 msgstr "用户可以为星期日学校导出CSV文件的权限"
 
-#: UserEditor.php:1038
+#: UserEditor.php:1049
 msgid "Special Permissions"
 msgstr "特别许可"
 
-#: UserEditor.php:1044
+#: UserEditor.php:1055
 msgid "Manage Donations and Finance"
 msgstr "管理捐款和财务"
 
-#: UserEditor.php:1054
+#: UserEditor.php:1065
 msgid "Canvass volunteer."
 msgstr "拉票志愿者。"
 
-#: UserEditor.php:1064
+#: UserEditor.php:1075
 msgid "Allow to manage the query menu"
 msgstr "允许管理查询菜单"
 
-#: UserEditor.php:1074
+#: UserEditor.php:1085
 msgid "Allow a user to use MailChimp tool"
 msgstr "允许用户使用MailChimp工具"
 
-#: UserEditor.php:1084
+#: UserEditor.php:1095
 msgid "GRPD Data Protection Officer"
 msgstr "GRPD数据保护官"
 
-#: UserEditor.php:1086
+#: UserEditor.php:1097
 msgid "General Data Protection Regulation in UE"
 msgstr "欧洲通用数据保护条例"
 
-#: UserEditor.php:1117 UserEditor.php:1313
+#: UserEditor.php:1128 UserEditor.php:1376
 msgid "Modifiable Permissions"
 msgstr "可修改的权限"
 
-#: UserEditor.php:1123
+#: UserEditor.php:1134
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
 msgstr "设置权限为 \"True\"，使该用户有能力改变其当前值。"
 
-#: UserEditor.php:1129
+#: UserEditor.php:1140
 msgid "Permission"
 msgstr "许可"
 
-#: UserEditor.php:1274 UserEditor.php:1314
+#: UserEditor.php:1285 UserEditor.php:1377
 msgid "Plugin permissions"
 msgstr "插件权限"
 
@@ -10099,182 +10094,111 @@ msgstr "您的购物车包含"
 msgid "persons from"
 msgstr "的人来自"
 
-#: v2/templates/dashboard/maindashboard.php:40
+#: v2/templates/dashboard/maindashboard.php:69
 msgid "Loading in progress"
 msgstr "正在加载中"
 
-#: v2/templates/dashboard/maindashboard.php:45
+#: v2/templates/dashboard/maindashboard.php:74
 msgid "Loading datas for the proper functioning of EcclesiaCRM"
 msgstr "为EcclesiaCRM的正常运行加载数据"
 
-#: v2/templates/dashboard/maindashboard.php:51
+#: v2/templates/dashboard/maindashboard.php:80
 msgid "Importing data from Mailchimp"
 msgstr "从Mailchimp导入数据"
 
-#: v2/templates/dashboard/maindashboard.php:54
+#: v2/templates/dashboard/maindashboard.php:83
 msgid "EcclesiaCRM data integrity check"
 msgstr "EcclesiaCRM数据完整性检查"
 
-#: v2/templates/dashboard/maindashboard.php:57
+#: v2/templates/dashboard/maindashboard.php:86
 msgid ""
 "Verification of the technical data of the hosting for the proper functioning "
 "of EcclesiaCRM"
 msgstr "为EcclesiaCRM的正常运行验证主机的技术数据"
 
-#: v2/templates/dashboard/maindashboard.php:90
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/people/peopledashboard.php:91
-#: v2/templates/people/peopledashboard.php:113
-msgid "View"
-msgstr "查看"
-
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/people/peopledashboard.php:113
-msgid "Familles"
-msgstr "家庭"
-
-#: v2/templates/dashboard/maindashboard.php:132
-#: v2/templates/people/peopledashboard.php:134
-msgid "See All People"
-msgstr "查看所有人员"
-
-#: v2/templates/dashboard/maindashboard.php:147
-#: v2/templates/sundayschool/sundayschooldashboard.php:194
-msgid "Sunday School Classes"
-msgstr "主日学课程"
-
-#: v2/templates/dashboard/maindashboard.php:154
-#: v2/templates/dashboard/maindashboard.php:176
-#: v2/templates/people/peopledashboard.php:156
-#: v2/templates/people/peopledashboard.php:178
-msgid "More info"
-msgstr "更多信息"
-
-#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:108
 msgid "message for the DPO"
 msgstr "给DPO的信息"
 
-#: v2/templates/dashboard/maindashboard.php:201
+#: v2/templates/dashboard/maindashboard.php:119
 msgid "person must be deleted from the CRM."
 msgstr "必须从CRM中删除该人。"
 
-#: v2/templates/dashboard/maindashboard.php:203
+#: v2/templates/dashboard/maindashboard.php:121
 msgid "persons must be deleted from the CRM."
 msgstr "必须从CRM中删除这些人。"
 
-#: v2/templates/dashboard/maindashboard.php:208
-#: v2/templates/dashboard/maindashboard.php:233
+#: v2/templates/dashboard/maindashboard.php:126
+#: v2/templates/dashboard/maindashboard.php:151
 msgid "Click the"
 msgstr "点击"
 
-#: v2/templates/dashboard/maindashboard.php:209
-#: v2/templates/dashboard/maindashboard.php:234
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
 msgid "link"
 msgstr "链接"
 
-#: v2/templates/dashboard/maindashboard.php:209
-#: v2/templates/dashboard/maindashboard.php:234
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
 #: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "to solve the problem."
 msgstr "来解决这个问题。"
 
-#: v2/templates/dashboard/maindashboard.php:214
+#: v2/templates/dashboard/maindashboard.php:132
 msgid "No Person to remove in the CRM."
 msgstr "在CRM中没有人可以删除。"
 
-#: v2/templates/dashboard/maindashboard.php:226
+#: v2/templates/dashboard/maindashboard.php:144
 msgid "family must be deleted from the CRM."
 msgstr "家庭必须从CRM中删除。"
 
-#: v2/templates/dashboard/maindashboard.php:228
+#: v2/templates/dashboard/maindashboard.php:146
 msgid "families must be deleted from the CRM."
 msgstr "家庭必须从CRM中删除。"
 
-#: v2/templates/dashboard/maindashboard.php:239
+#: v2/templates/dashboard/maindashboard.php:157
 msgid "No Family to remove in the CRM."
 msgstr "在客户关系管理中没有家庭可供删除。"
 
-#: v2/templates/dashboard/maindashboard.php:335
-msgid "Birthdates of the day"
-msgstr "当天的出生日期"
+#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:212
+#: v2/templates/people/peopledashboard.php:91
+#: v2/templates/people/peopledashboard.php:113
+msgid "View"
+msgstr "查看"
 
-#: v2/templates/dashboard/maindashboard.php:349
-msgid "Anniversaries of the day"
-msgstr "当天的纪念日"
+#: v2/templates/dashboard/maindashboard.php:212
+#: v2/templates/people/peopledashboard.php:113
+msgid "Familles"
+msgstr "家庭"
 
-#: v2/templates/dashboard/maindashboard.php:396
-msgid "Unclassified birthdates"
-msgstr "未分类的出生日期"
+#: v2/templates/dashboard/maindashboard.php:232
+#: v2/templates/people/peopledashboard.php:134
+msgid "See All People"
+msgstr "查看所有人员"
 
-#: v2/templates/dashboard/maindashboard.php:430
-msgid "Latest"
-msgstr "最新的"
+#: v2/templates/dashboard/maindashboard.php:247
+#: v2/templates/sundayschool/sundayschooldashboard.php:194
+msgid "Sunday School Classes"
+msgstr "主日学课程"
 
-#: v2/templates/dashboard/maindashboard.php:430
-msgid "Individual Pastoral Care"
-msgstr "个人教诲关怀"
+#: v2/templates/dashboard/maindashboard.php:254
+#: v2/templates/dashboard/maindashboard.php:276
+#: v2/templates/people/peopledashboard.php:156
+#: v2/templates/people/peopledashboard.php:178
+msgid "More info"
+msgstr "更多信息"
 
-#: v2/templates/dashboard/maindashboard.php:539
-msgid "Statistics"
-msgstr "统计数据"
+#: v2/templates/dashboard/maindashboard.php:287
+#: v2/templates/plugins/plugins.php:32
+msgid "Plugins managements"
+msgstr "插件管理"
 
-#: v2/templates/dashboard/maindashboard.php:545
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:162
-msgid "Persons not reached"
-msgstr "未接触到的人"
-
-#: v2/templates/dashboard/maindashboard.php:549
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
-msgid "Families not reached"
-msgstr "未达到的家庭"
-
-#: v2/templates/dashboard/maindashboard.php:553
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:190
-msgid "Single Persons not reached"
-msgstr "未达到的单身人士"
-
-#: v2/templates/dashboard/maindashboard.php:557
-msgid "Retired Persons not reached"
-msgstr "未到达的退休人员"
-
-#: v2/templates/dashboard/maindashboard.php:561
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:121
-msgid "Young People"
-msgstr "年轻人"
-
-#: v2/templates/dashboard/maindashboard.php:564
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:219
-msgid "Young People not reached"
-msgstr "未接触到的年轻人"
-
-#: v2/templates/dashboard/maindashboard.php:570
-msgid "Visit/Call your church members"
-msgstr "访问/致电你的教会成员"
-
-#: v2/templates/dashboard/maindashboard.php:571
-msgid "Manage Pastoral Care"
-msgstr "管理教牧关怀"
-
-#: v2/templates/dashboard/maindashboard.php:588
-msgid "Deposit Tracking"
-msgstr "存款追踪"
-
-#: v2/templates/dashboard/maindashboard.php:614
-msgid "Latest Families"
-msgstr "最新的家庭"
-
-#: v2/templates/dashboard/maindashboard.php:623
-msgid "Updated Families"
-msgstr "更新的家庭"
-
-#: v2/templates/dashboard/maindashboard.php:676
-msgid "Latest Members"
-msgstr "最新成员"
-
-#: v2/templates/dashboard/maindashboard.php:683
-msgid "Updated Members"
-msgstr "最新成员"
+#: v2/templates/dashboard/maindashboard.php:294
+#: v2/templates/plugins/plugins.php:102
+msgid "Settings"
+msgstr "设置"
 
 #: v2/templates/email/mailchimp/campaign.php:22
 msgid "Email Campaign Management"
@@ -10888,13 +10812,33 @@ msgstr "请联系"
 msgid "Count"
 msgstr "计数"
 
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:121
+msgid "Young People"
+msgstr "年轻人"
+
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:140
 msgid "Pastoral Care Members"
 msgstr "牧民关怀成员"
 
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:162
+msgid "Persons not reached"
+msgstr "未接触到的人"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
+msgid "Families not reached"
+msgstr "未达到的家庭"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:190
+msgid "Single Persons not reached"
+msgstr "未达到的单身人士"
+
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:203
 msgid "Retired not reached"
 msgstr "未到达的退休人员"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:219
+msgid "Young People not reached"
+msgstr "未接触到的年轻人"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:28
 #: v2/templates/pastoralcare/pastoralcareperson.php:25
@@ -11198,10 +11142,6 @@ msgstr ""
 "警告：有些人可能有一些捐赠记录，在这些捐赠与另一个人或家庭相关联之前，可能不"
 "会被删除。"
 
-#: v2/templates/plugins/plugins.php:32
-msgid "Plugins managements"
-msgstr "插件管理"
-
 #: v2/templates/plugins/plugins.php:36
 msgid "Add a plugin"
 msgstr "添加一个插件"
@@ -11215,9 +11155,8 @@ msgid "Upload A Plugin"
 msgstr "上传一个插件"
 
 #: v2/templates/plugins/plugins.php:52
-#, fuzzy
 msgid "Select the grouped action"
-msgstr "选择一个组"
+msgstr "选择分组的行动"
 
 #: v2/templates/plugins/plugins.php:54
 msgid "Grouped actions"
@@ -11234,10 +11173,6 @@ msgstr "勾选所有方框"
 #: v2/templates/plugins/plugins.php:84
 msgid "Update"
 msgstr "更新"
-
-#: v2/templates/plugins/plugins.php:102
-msgid "Settings"
-msgstr "设置"
 
 #: v2/templates/plugins/plugins.php:107
 msgid "guided tour"
@@ -12350,6 +12285,48 @@ msgstr "一天"
 
 msgid "Several days"
 msgstr "数天"
+
+#~ msgid "Birthdates of the day"
+#~ msgstr "当天的出生日期"
+
+#~ msgid "Anniversaries of the day"
+#~ msgstr "当天的纪念日"
+
+#~ msgid "Unclassified birthdates"
+#~ msgstr "未分类的出生日期"
+
+#~ msgid "Latest"
+#~ msgstr "最新的"
+
+#~ msgid "Individual Pastoral Care"
+#~ msgstr "个人教诲关怀"
+
+#~ msgid "Statistics"
+#~ msgstr "统计数据"
+
+#~ msgid "Retired Persons not reached"
+#~ msgstr "未到达的退休人员"
+
+#~ msgid "Visit/Call your church members"
+#~ msgstr "访问/致电你的教会成员"
+
+#~ msgid "Manage Pastoral Care"
+#~ msgstr "管理教牧关怀"
+
+#~ msgid "Deposit Tracking"
+#~ msgstr "存款追踪"
+
+#~ msgid "Latest Families"
+#~ msgstr "最新的家庭"
+
+#~ msgid "Updated Families"
+#~ msgstr "更新的家庭"
+
+#~ msgid "Latest Members"
+#~ msgstr "最新成员"
+
+#~ msgid "Updated Members"
+#~ msgstr "最新成员"
 
 #~ msgid "Please enter the following to start your family's verification"
 #~ msgstr "请输入以下内容以开始您的家庭验证"

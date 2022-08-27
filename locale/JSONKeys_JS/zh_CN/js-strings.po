@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
+"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -314,6 +314,29 @@ msgstr "你已经选择了两次相同的名字"
 msgid "for this field. Chose another one."
 msgstr "为这个领域。选择另一个。"
 
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "仪表板"
+
+#, fuzzy
+msgid "Moved!"
+msgstr "移动"
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "移除所有"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "你即将删除你的活动!你确定吗？"
+
+msgid "Confirm"
+msgstr "确认"
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "从购物车中删除"
+
 msgid "Please confirm deletion of this document"
 msgstr "请确认删除此文件"
 
@@ -466,9 +489,6 @@ msgstr "错误的地址格式。"
 
 msgid "Set Calendar Name"
 msgstr "设置日历名称"
-
-msgid "Confirm"
-msgstr "确认"
 
 msgid "Set Resource Name"
 msgstr "设置资源名称"

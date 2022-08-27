@@ -45,10 +45,6 @@ class VIEWDashboardController {
     {
         $renderer = new PhpRenderer('templates/dashboard/');
 
-        if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->isMainDashboardEnabled() || SessionUser::getUser()->isPastoralCareEnabled()) ) {
-            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . SessionUser::getUser()->getPersonId());
-        }
-
         return $renderer->render($response, 'maindashboard.php', $this->argumentsFashboardArray());
     }
 

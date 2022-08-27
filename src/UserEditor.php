@@ -519,7 +519,8 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 // Save Settings
 if (isset($_POST['save']) && ($iPersonID > 0)) {
 
-    $plugins = PluginQuery::create()->find();
+    $plugins = PluginQuery::create()
+        ->find();
     foreach ($plugins as $plugin) {
         $new_plugin = $_POST['new_plugin'];
 
@@ -534,7 +535,17 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
             $role->setPluginId($plugin->getId());
             $role->setUserId($iPersonID);
         }
-        $role->setRole($sel_role);
+
+        $plugin = $role->getPlugin();
+
+        if ($plugin->getCategory() == 'Dashboard') {
+            $new_plugin_place = $_POST['new_plugin_place'];
+            $position = $new_plugin_place[$plugin->getId()];
+            $role->setDashboardVisible($sel_role);
+            $role->setDashboardOrientation($position);
+        } else {
+            $role->setRole($sel_role);
+        }
         $role->save();
     }
 
@@ -1267,7 +1278,7 @@ if ($usr_role_id == null) {
                             <!-- /.box -->
                         </div>
                         <div class="tab-pane fade" id="vert-tabs-right-messages" role="tabpanel" aria-labelledby="vert-tabs-right-messages-tab">
-                            <!-- Plugin settings -->
+                            <!-- Global Plugin settings -->
                             <div class="card">
                                 <div class="card-header">
                                     <label class="card-title">
@@ -1276,7 +1287,9 @@ if ($usr_role_id == null) {
                                 </div>
                                 <div class="card-body">
                                     <?php
-                                    $plugins = PluginQuery::create()->find();
+                                    $plugins = PluginQuery::create()
+                                        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL)
+                                        ->find();
                                     foreach ($plugins as $plugin) {
                                         $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
 
@@ -1303,7 +1316,57 @@ if ($usr_role_id == null) {
                                     ?>
                                 </div>
                             </div>
-                            <!-- Plugin settings -->
+                            <!-- Global Plugin settings -->
+
+                            <!-- Dashboard Plugin settings -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <label class="card-title">
+                                        <?= _("Visibilities of the dashboard plugins") ?>
+                                    </label>
+                                </div>
+                                <div class="card-body">
+                                    <?php
+                                    $plugins = PluginQuery::create()
+                                        ->filterByCategory('Dashboard', Criteria::EQUAL)
+                                        ->orderByName()
+                                        ->find();
+                                    foreach ($plugins as $plugin) {
+                                        $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
+
+                                        $visible = 0;
+                                        $place = 'top';
+                                        if (!is_null($role)) {
+                                            $visible = $role->getDashboardVisible();
+                                            $place = $role->getDashboardOrientation();
+                                        }
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-md-7">&bullet;
+                                                <?= $plugin->getName() ?>:
+                                            </div>
+                                            <div class="col-md-2">
+                                                <select class="form-control form-control-sm"
+                                                        name="new_plugin[<?= $plugin->getId() ?>]">
+                                                    <option value="0" <?= ($visible == false)?'SELECTED':'' ?>><?= _('No') ?>
+                                                    <option value="1" <?= ($visible == true)?'SELECTED':'' ?>><?= _('Yes') ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <select class="form-control form-control-sm"
+                                                        name="new_plugin_place[<?= $plugin->getId() ?>]">
+                                                    <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
+                                                    <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
+                                                    <option value="right" <?= ($place == 'right')?'SELECTED':'' ?>><?= _('Right') ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <!-- Dashboard Plugin settings -->
                         </div>
                     </div>
                 </div>

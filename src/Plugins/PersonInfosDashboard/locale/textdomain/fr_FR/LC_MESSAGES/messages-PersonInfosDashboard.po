@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-26 21:48+0000\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:21
+msgid "Latest Members"
+msgstr "Derniers membres"
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:28
+msgid "Updated Members"
+msgstr "Membres actualisés"
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:50
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:65
+msgid "Name"
+msgstr "Nom"
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:51
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:66
+msgid "Address"
+msgstr "Adresse"
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:52
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:67
+msgid "Updated"
+msgstr "Mise à jour de"
+
+#~ msgid "Family Name"
+#~ msgstr "Nom de famille"
+
+#~ msgid "Created"
+#~ msgstr "Créé"

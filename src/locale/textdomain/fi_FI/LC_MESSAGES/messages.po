@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-24 07:12+0000\n"
+"POT-Creation-Date: 2022-08-27 08:18+0000\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +54,6 @@ msgstr "Henkilö"
 #: Include/Footer.php:66 members/404.php:16 PersonView.php:941
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
-#: v2/templates/dashboard/maindashboard.php:506
 #: v2/templates/gdpr/gdprdatastructure.php:100
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:25
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:32
@@ -91,7 +90,7 @@ msgstr ""
 #: ident/routes/verify.php:213 PersonEditor.php:977 PersonEditor.php:997
 #: PersonEditor.php:1587 PrintPastoralCarePerson.php:332
 #: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
-#: SelectDelete.php:243 SystemSettings.php:232
+#: SelectDelete.php:243 SystemSettings.php:235
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
@@ -164,9 +163,7 @@ msgstr "Rahasto"
 #: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
-#: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:476
-#: v2/templates/dashboard/maindashboard.php:532
-#: v2/templates/group/groupbadge.php:126
+#: PrintPastoralCarePerson.php:664 v2/templates/group/groupbadge.php:126
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
 #: v2/templates/sundayschool/sundayschoolreports.php:41
@@ -210,10 +207,6 @@ msgstr "Sukunimi"
 #: ident/routes/verify.php:378 ident/routes/verify.php:433
 #: PersonEditor.php:1037 PersonEditor.php:1043 PersonEditor.php:1177
 #: PersonEditor.php:1201 PersonView.php:592 Reports/PDFLabel.php:859
-#: v2/templates/dashboard/maindashboard.php:638
-#: v2/templates/dashboard/maindashboard.php:654
-#: v2/templates/dashboard/maindashboard.php:698
-#: v2/templates/dashboard/maindashboard.php:714
 #: v2/templates/pastoralcare/pastoralcarefamily.php:124
 #: v2/templates/pastoralcare/pastoralcareperson.php:220
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
@@ -335,7 +328,7 @@ msgstr "Tallenna yksityiset tiedot Vancossa"
 #: ident/templates/verify/change-password.php:56 PersonEditor.php:888
 #: PersonEditor.php:970 PersonEditor.php:1157 PersonEditor.php:1579
 #: PersonEditor.php:1659 PersonEditor.php:1747 PledgeEditor.php:793
-#: SystemSettings.php:107 UserPasswordChange.php:225
+#: SystemSettings.php:111 UserPasswordChange.php:225
 #: v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
 msgstr "Tallenna"
@@ -346,9 +339,9 @@ msgstr "Tallenna"
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
-#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:1335
-#: v2/templates/fundraiser/donatedItemEditor.php:178
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:174
+#: SettingsIndividual.php:440 SettingsIndividual.php:563 TaxReport.php:53
+#: UserEditor.php:1398 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -562,7 +555,7 @@ msgstr "Panoksen kerääminen"
 msgid "family"
 msgstr "perhe"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1053
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1064
 msgid "Canvasser"
 msgstr "Kannanottaja"
 
@@ -674,7 +667,8 @@ msgstr "Kuvan sijainti"
 
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
-#: PersonCustomFieldsEditor.php:517 v2/templates/group/groupbadge.php:165
+#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:550
+#: UserEditor.php:1359 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Vasen"
 
@@ -684,7 +678,8 @@ msgstr "Keskusta"
 
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
-#: PersonCustomFieldsEditor.php:518 v2/templates/group/groupbadge.php:167
+#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:551
+#: UserEditor.php:1360 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Oikea"
 
@@ -712,7 +707,6 @@ msgstr "Lisää ostoskori perheeseen"
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166 FamilyView.php:551
 #: ident/templates/verify/login-info.php:15
-#: v2/templates/dashboard/maindashboard.php:542
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:63
 #: v2/templates/pastoralcare/pastoralcarefamily.php:267
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -735,8 +729,6 @@ msgstr "Jäsenet"
 #: Reports/FRBidSheets.php:102 Reports/FundRaiserStatement.php:125
 #: Reports/FundRaiserStatement.php:169 Reports/PDFLabel.php:859
 #: v2/templates/calendar/eventattendeesedit.php:56
-#: v2/templates/dashboard/maindashboard.php:697
-#: v2/templates/dashboard/maindashboard.php:713
 #: v2/templates/group/groupview.php:398 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:49
 #: queryparameteroptions_qpo.php:4
@@ -773,8 +765,6 @@ msgstr "Jos lisäät uuden perheen, syötä tiedot alla olevaan kenttään."
 #: external/templates/registration/family-register.php:36 FamilyEditor.php:722
 #: LettersAndLabels.php:71 PersonEditor.php:1026 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
-#: v2/templates/dashboard/maindashboard.php:637
-#: v2/templates/dashboard/maindashboard.php:653
 msgid "Family Name"
 msgstr "Sukunimi"
 
@@ -981,7 +971,7 @@ msgstr "Muunna Seuraava"
 msgid "Convert All"
 msgstr "Muunna kaikki"
 
-#: CSVExport.php:55 UserEditor.php:984 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:995 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "CSV-vienti"
 
@@ -1612,7 +1602,7 @@ msgstr "Nimiölehti"
 msgid "Use Title Page"
 msgstr "Käytä otsikkosivua"
 
-#: DirectoryReports.php:283 EcclesiaCRM/dto/SystemConfig.php:142
+#: DirectoryReports.php:283 EcclesiaCRM/dto/SystemConfig.php:152
 msgid "Church Name"
 msgstr "Kirkon nimi"
 
@@ -1620,7 +1610,7 @@ msgstr "Kirkon nimi"
 msgid "Disclaimer"
 msgstr "Vastuuvapauslauseke"
 
-#: DirectoryReports.php:338 UserEditor.php:995
+#: DirectoryReports.php:338 UserEditor.php:1006
 msgid "Create Directory"
 msgstr "Luo hakemisto"
 
@@ -1902,7 +1892,7 @@ msgstr "Henkilöt"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:103
+#: v2/templates/dashboard/maindashboard.php:203
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -1921,7 +1911,7 @@ msgstr "Perheet"
 #: ident/routes/verify.php:309 ident/routes/verify.php:711
 #: ident/templates/verify/verify-family-info.php:145 PersonView.php:504
 #: v2/templates/calendar/calendar.php:197
-#: v2/templates/dashboard/maindashboard.php:169
+#: v2/templates/dashboard/maindashboard.php:269
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:142
 #: v2/templates/people/peopledashboard.php:171
@@ -2009,7 +1999,8 @@ msgstr "Lisätty ryhmään"
 #: EcclesiaCRM/Service/CalendarService.php:263
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
-#: Reports/GDPR/GDPRListExport.php:88
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:543
+#: UserEditor.php:1352
 msgid "Yes"
 msgstr "Kyllä"
 
@@ -2020,8 +2011,8 @@ msgstr "Kyllä"
 #: EcclesiaCRM/Service/CalendarService.php:454
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 UserEditor.php:1295
-#: v2/templates/user/userlist.php:161
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:542
+#: UserEditor.php:1308 UserEditor.php:1351 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Ei"
 
@@ -2042,7 +2033,7 @@ msgstr "Henkilö Deaktivoitu"
 msgid "Person Activated"
 msgstr "Henkilö aktivoitu"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:123
+#: EcclesiaCRM/APIControllers/PluginsController.php:125
 #: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
 msgid "Impossible to open"
 msgstr "Mahdoton avata"
@@ -2054,7 +2045,7 @@ msgstr "Kirjoita viesti tänne !"
 #: EcclesiaCRM/APIControllers/SearchController.php:68
 #: EcclesiaCRM/APIControllers/SearchController.php:71
 #: EcclesiaCRM/Search/FamilySearchRes.php:168
-#: v2/templates/dashboard/maindashboard.php:90
+#: v2/templates/dashboard/maindashboard.php:190
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:95
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peoplelist.php:44
@@ -3470,81 +3461,81 @@ msgstr "Ilmoitus"
 msgid "Invalid Family"
 msgstr "Invalidi perhe"
 
-#: EcclesiaCRM/dto/SystemConfig.php:33
+#: EcclesiaCRM/dto/SystemConfig.php:43
 #: EcclesiaCRM/Service/CalendarService.php:760
 #: EcclesiaCRM/Service/CalendarService.php:1082
 msgid "NONE"
 msgstr "EI OLE"
 
-#: EcclesiaCRM/dto/SystemConfig.php:34
+#: EcclesiaCRM/dto/SystemConfig.php:44
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: EcclesiaCRM/dto/SystemConfig.php:35
+#: EcclesiaCRM/dto/SystemConfig.php:45
 msgid "INFO"
 msgstr "INFO"
 
-#: EcclesiaCRM/dto/SystemConfig.php:36
+#: EcclesiaCRM/dto/SystemConfig.php:46
 msgid "NOTICE"
 msgstr "ILMOITUS"
 
-#: EcclesiaCRM/dto/SystemConfig.php:37
+#: EcclesiaCRM/dto/SystemConfig.php:47
 msgid "WARNING"
 msgstr "VAROITUS"
 
-#: EcclesiaCRM/dto/SystemConfig.php:38
+#: EcclesiaCRM/dto/SystemConfig.php:48
 msgid "ERROR"
 msgstr "VIRHE"
 
-#: EcclesiaCRM/dto/SystemConfig.php:39
+#: EcclesiaCRM/dto/SystemConfig.php:49
 msgid "CRITICAL"
 msgstr "KRIITTINEN"
 
-#: EcclesiaCRM/dto/SystemConfig.php:40
+#: EcclesiaCRM/dto/SystemConfig.php:50
 msgid "ALERT"
 msgstr "ALERT"
 
-#: EcclesiaCRM/dto/SystemConfig.php:41
+#: EcclesiaCRM/dto/SystemConfig.php:51
 msgid "EMERGENCY"
 msgstr "HÄTÄTILANNE"
 
-#: EcclesiaCRM/dto/SystemConfig.php:50
+#: EcclesiaCRM/dto/SystemConfig.php:60
 msgid "Title FirstName MiddleName LastName"
 msgstr "Otsikko Etunimi Etunimi Keskinimi Sukunimi Sukunimi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:51
+#: EcclesiaCRM/dto/SystemConfig.php:61
 msgid "Title FirstName MiddleInitial. LastName"
 msgstr "Otsikko Etunimi Etunimi KeskimmäinenAlkutunnus. LastName"
 
-#: EcclesiaCRM/dto/SystemConfig.php:52
+#: EcclesiaCRM/dto/SystemConfig.php:62
 msgid "LastName, Title FirstName MiddleName"
 msgstr "Sukunimi, titteli Etunimi Keskimmäinen nimi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:53
+#: EcclesiaCRM/dto/SystemConfig.php:63
 msgid "LastName, Title FirstName MiddleInitial"
 msgstr "Sukunimi, titteli Etunimi MiddleInitial"
 
-#: EcclesiaCRM/dto/SystemConfig.php:54
+#: EcclesiaCRM/dto/SystemConfig.php:64
 msgid "FirstName MiddleName LastName"
 msgstr "Etunimi Keskimmäinen nimi Sukunimi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:55
+#: EcclesiaCRM/dto/SystemConfig.php:65
 msgid "Title FirstName LastName"
 msgstr "Otsikko Etunimi Sukunimi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:56
+#: EcclesiaCRM/dto/SystemConfig.php:66
 msgid "LastName, Title FirstName"
 msgstr "Sukunimi, titteli Etunimi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:65
+#: EcclesiaCRM/dto/SystemConfig.php:75
 msgid "Address city state zip"
 msgstr "Osoite kaupunki valtio postinumero"
 
-#: EcclesiaCRM/dto/SystemConfig.php:66
+#: EcclesiaCRM/dto/SystemConfig.php:76
 msgid "Address zip city state"
 msgstr "Osoite postinumero kaupunki valtio"
 
-#: EcclesiaCRM/dto/SystemConfig.php:74
+#: EcclesiaCRM/dto/SystemConfig.php:84
 msgid ""
 "Event Log severity to write, used by ORM and App Logs. sLogLevel >= 300 : "
 "ORM is set in debug mode."
@@ -3552,34 +3543,34 @@ msgstr ""
 "Tapahtumalokin kirjoitusaste, jota ORM ja sovelluslokit käyttävät. sLogLevel "
 ">= 300 : ORM on asetettu debug-tilaan."
 
-#: EcclesiaCRM/dto/SystemConfig.php:75
+#: EcclesiaCRM/dto/SystemConfig.php:85
 msgid "Include only these classifications in the directory, comma seperated"
 msgstr "Sisällytä hakemistoon vain nämä luokitukset pilkulla erotettuna."
 
-#: EcclesiaCRM/dto/SystemConfig.php:76
+#: EcclesiaCRM/dto/SystemConfig.php:86
 msgid "These are the family role numbers designated as head of house"
 msgstr "Nämä ovat perheen päämieheksi nimetyn perheen roolinumerot."
 
-#: EcclesiaCRM/dto/SystemConfig.php:77
+#: EcclesiaCRM/dto/SystemConfig.php:87
 msgid "These are the family role numbers designated as spouse"
 msgstr "Nämä ovat perheen roolinumerot, jotka on nimetty puolisoksi."
 
-#: EcclesiaCRM/dto/SystemConfig.php:78
+#: EcclesiaCRM/dto/SystemConfig.php:88
 msgid "These are the family role numbers designated as child"
 msgstr "Nämä ovat perheen roolinumerot, jotka on nimetty lapseksi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:79
+#: EcclesiaCRM/dto/SystemConfig.php:89
 msgid ""
 "Session timeout length in seconds. Set to zero to disable session timeouts."
 msgstr ""
 "Istunnon aikakatkaisun pituus sekunteina. Aseta nollaksi, jos haluat poistaa "
 "istunnon aikakatkaisut käytöstä."
 
-#: EcclesiaCRM/dto/SystemConfig.php:80
+#: EcclesiaCRM/dto/SystemConfig.php:90
 msgid "Queries for which user must have finance permissions to use:"
 msgstr "Kyselyt, joiden käyttämiseen käyttäjällä on oltava rahoitusoikeudet:"
 
-#: EcclesiaCRM/dto/SystemConfig.php:81
+#: EcclesiaCRM/dto/SystemConfig.php:91
 msgid ""
 "Should only administrators have access to the CSV export system and "
 "directory report?"
@@ -3587,11 +3578,11 @@ msgstr ""
 "Pitäisikö vain järjestelmänvalvojilla olla pääsy CSV-vientijärjestelmään ja "
 "hakemistoraporttiin?"
 
-#: EcclesiaCRM/dto/SystemConfig.php:82
+#: EcclesiaCRM/dto/SystemConfig.php:92
 msgid "Minimum length a user may set their password to"
 msgstr "Käyttäjän salasanan vähimmäispituus"
 
-#: EcclesiaCRM/dto/SystemConfig.php:83
+#: EcclesiaCRM/dto/SystemConfig.php:93
 msgid ""
 "Minimum amount that a new password must differ from the old one (# of "
 "characters changed). Set to zero to disable this feature"
@@ -3600,12 +3591,12 @@ msgstr ""
 "merkkien määrä). Aseta nollaan, jos haluat poistaa tämän ominaisuuden "
 "käytöstä."
 
-#: EcclesiaCRM/dto/SystemConfig.php:84
+#: EcclesiaCRM/dto/SystemConfig.php:94
 msgid "A comma-seperated list of disallowed (too obvious) passwords."
 msgstr ""
 "Pilkulla erotettu luettelo kielletyistä (liian ilmeisistä) salasanoista."
 
-#: EcclesiaCRM/dto/SystemConfig.php:85
+#: EcclesiaCRM/dto/SystemConfig.php:95
 msgid ""
 "Maximum number of failed logins to allow before a user account is locked.. "
 "Once the maximum has been reached, an administrator must re-enable the "
@@ -3618,48 +3609,48 @@ msgstr ""
 "auttaa suojautumaan automaattisilta salasanan arvaushyökkäyksiltä. Aseta "
 "nollaksi tämän ominaisuuden poistamiseksi käytöstä."
 
-#: EcclesiaCRM/dto/SystemConfig.php:86
+#: EcclesiaCRM/dto/SystemConfig.php:96
 msgid ""
 "PDF handling mode.. 1 = Save File dialog. 2 = Open in current browser window"
 msgstr ""
 "PDF-käsittelytila.. 1 = Tallenna tiedosto -valintaikkuna. 2 = Avaa "
 "nykyisessä selainikkunassa"
 
-#: EcclesiaCRM/dto/SystemConfig.php:87
+#: EcclesiaCRM/dto/SystemConfig.php:97
 msgid "Default City"
 msgstr "Oletuskaupunki"
 
-#: EcclesiaCRM/dto/SystemConfig.php:88
+#: EcclesiaCRM/dto/SystemConfig.php:98
 msgid "Default State - Must be 2-letter abbreviation!"
 msgstr "Default State (Oletusvaltio) - On oltava 2-kirjaiminen lyhenne!"
 
-#: EcclesiaCRM/dto/SystemConfig.php:90
+#: EcclesiaCRM/dto/SystemConfig.php:100
 msgid "Default account for receiving a copy of all emails"
 msgstr "Oletustili, joka vastaanottaa kopion kaikista sähköpostiviesteistä."
 
-#: EcclesiaCRM/dto/SystemConfig.php:91
+#: EcclesiaCRM/dto/SystemConfig.php:101
 msgid "SMTP Server timeout in sec"
 msgstr "SMTP-palvelimen aikakatkaisu sekunteina"
 
-#: EcclesiaCRM/dto/SystemConfig.php:92
+#: EcclesiaCRM/dto/SystemConfig.php:102
 msgid "SMTP Server Address (mail.server.com:25)"
 msgstr "SMTP-palvelimen osoite (mail.server.com:25)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:93
+#: EcclesiaCRM/dto/SystemConfig.php:103
 msgid "Does your SMTP server require auththentication (username/password)?"
 msgstr ""
 "Vaatiiko SMTP-palvelimesi automaattista tunnistautumista (käyttäjätunnus/"
 "salasana)?"
 
-#: EcclesiaCRM/dto/SystemConfig.php:94
+#: EcclesiaCRM/dto/SystemConfig.php:104
 msgid "SMTP Username"
 msgstr "SMTP-käyttäjätunnus"
 
-#: EcclesiaCRM/dto/SystemConfig.php:95
+#: EcclesiaCRM/dto/SystemConfig.php:105
 msgid "SMTP Password"
 msgstr "SMTP-salasana"
 
-#: EcclesiaCRM/dto/SystemConfig.php:96
+#: EcclesiaCRM/dto/SystemConfig.php:106
 msgid ""
 "Unavailable person info inherited from assigned family for display?. This "
 "option causes certain info from a person's assigned family record to be. "
@@ -3670,15 +3661,15 @@ msgstr ""
 "henkilön määritetystä perhetietueesta, näytetään, JOS vastaavaa tietoa EI "
 "ole syötetty kyseiselle henkilölle."
 
-#: EcclesiaCRM/dto/SystemConfig.php:97
+#: EcclesiaCRM/dto/SystemConfig.php:107
 msgid "gzip format export allowed"
 msgstr "gzip-muodossa vienti sallittu"
 
-#: EcclesiaCRM/dto/SystemConfig.php:98
+#: EcclesiaCRM/dto/SystemConfig.php:108
 msgid "zip format export allowed"
 msgstr "zip-muodossa vienti sallittu"
 
-#: EcclesiaCRM/dto/SystemConfig.php:99
+#: EcclesiaCRM/dto/SystemConfig.php:109
 msgid ""
 "By default GPG (GnuPG) a hybrid-encryption software program or Internal "
 "encryption software. You could avoid to use with the None choice."
@@ -3686,43 +3677,43 @@ msgstr ""
 "Oletusarvoisesti GPG (GnuPG) hybridi-salausohjelma tai sisäinen "
 "salausohjelmisto. Voit välttää käytön valitsemalla None (Ei mitään)."
 
-#: EcclesiaCRM/dto/SystemConfig.php:100
+#: EcclesiaCRM/dto/SystemConfig.php:110
 msgid "Internationalization (I18n) support"
 msgstr "Kansainvälistymisen (I18n) tuki"
 
-#: EcclesiaCRM/dto/SystemConfig.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:111
 msgid "First month of the fiscal year"
 msgstr "Tilikauden ensimmäinen kuukausi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:102
+#: EcclesiaCRM/dto/SystemConfig.php:112
 msgid "Link of the nominatim server : https://nominatim.openstreetmap.org"
 msgstr "Nominatim-palvelimen linkki : https://nominatim.openstreetmap.org"
 
-#: EcclesiaCRM/dto/SystemConfig.php:103
+#: EcclesiaCRM/dto/SystemConfig.php:113
 msgid "Google map API requires a unique key"
 msgstr "Google Map API vaatii yksilöllisen avaimen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:104
+#: EcclesiaCRM/dto/SystemConfig.php:114
 msgid "Bing map API requires a unique key"
 msgstr "Bing-kartta API vaatii yksilöllisen avaimen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:105
+#: EcclesiaCRM/dto/SystemConfig.php:115
 msgid "Google/OpenStreetMap/BingMaps Maps Zoom"
 msgstr "Google/OpenStreetMap/BingMaps Maps Kartat Zoomaus"
 
-#: EcclesiaCRM/dto/SystemConfig.php:106
+#: EcclesiaCRM/dto/SystemConfig.php:116
 msgid "Google/OpenStreetMap/BingMaps Litle Maps Zoom"
 msgstr "Google/OpenStreetMap/BingMaps Litle Maps Zoom (Pienet kartat)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:107
+#: EcclesiaCRM/dto/SystemConfig.php:117
 msgid "Latitude of the church, used to center the Google map"
 msgstr "Kirkon leveysaste, jota käytetään Googlen kartan keskittämiseen."
 
-#: EcclesiaCRM/dto/SystemConfig.php:108
+#: EcclesiaCRM/dto/SystemConfig.php:118
 msgid "Longitude of the church, used to center the Google map"
 msgstr "Kirkon pituusaste, jota käytetään Googlen kartan keskittämiseen."
 
-#: EcclesiaCRM/dto/SystemConfig.php:109
+#: EcclesiaCRM/dto/SystemConfig.php:119
 msgid ""
 "Set true to disable entering addresses in Person Editor.  Set false to "
 "enable entering addresses in Person Editor."
@@ -3730,7 +3721,7 @@ msgstr ""
 "Aseta true, jos haluat estää osoitteiden syöttämisen henkilöeditorissa.  "
 "Aseta false, jos haluat sallia osoitteiden syöttämisen Person Editorissa."
 
-#: EcclesiaCRM/dto/SystemConfig.php:110
+#: EcclesiaCRM/dto/SystemConfig.php:120
 msgid ""
 "Set true to disable entering Friend Date in Person Editor.  Set false to "
 "enable entering Friend Date in Person Editor."
@@ -3739,14 +3730,14 @@ msgstr ""
 "henkilöeditorissa.  Aseta false salliaksesi ystävän päivämäärän syöttämisen "
 "Person Editoriin."
 
-#: EcclesiaCRM/dto/SystemConfig.php:111
+#: EcclesiaCRM/dto/SystemConfig.php:121
 msgid ""
 "Set true to disable management of newsletter subscriptions in the Family "
 "Editor."
 msgstr ""
 "Aseta true, jos haluat poistaa uutiskirjetilausten hallinnan perheeditorista."
 
-#: EcclesiaCRM/dto/SystemConfig.php:112
+#: EcclesiaCRM/dto/SystemConfig.php:122
 msgid ""
 "Set true to disable entering Wedding Date in Family Editor.  Set false to "
 "enable entering Wedding Date in Family Editor."
@@ -3754,7 +3745,7 @@ msgstr ""
 "Aseta true, jos haluat estää hääpäivän syöttämisen perheeditorissa.  Aseta "
 "false salliaksesi hääpäivän syöttämisen Family Editoriin."
 
-#: EcclesiaCRM/dto/SystemConfig.php:113
+#: EcclesiaCRM/dto/SystemConfig.php:123
 msgid ""
 "Set true to disable entering Latitude and Longitude in Family Editor.  Set "
 "false to enable entering Latitude and Longitude in Family Editor.  Lookups "
@@ -3765,11 +3756,11 @@ msgstr ""
 "syöttämisen Family Editorissa.  Hakuja suoritetaan edelleen, mutta niitä ei "
 "näytetä."
 
-#: EcclesiaCRM/dto/SystemConfig.php:114
+#: EcclesiaCRM/dto/SystemConfig.php:124
 msgid "Set true to enable use of donation envelopes"
 msgstr "Aseta true, jos haluat käyttää lahjoituskirjekuoria."
 
-#: EcclesiaCRM/dto/SystemConfig.php:115
+#: EcclesiaCRM/dto/SystemConfig.php:125
 msgid ""
 "Enter in HTML code which will be displayed as a header at the top of each "
 "page. Be sure to close your tags! Note: You must REFRESH YOUR BROWSER A "
@@ -3779,37 +3770,37 @@ msgstr ""
 "sulkea tunnisteet! Huomaa: Sinun on uusittava selaimesi toisen kerran "
 "nähdäksesi uuden otsikon."
 
-#: EcclesiaCRM/dto/SystemConfig.php:116
+#: EcclesiaCRM/dto/SystemConfig.php:126
 msgid "Intelligent Search Technolgy, Ltd. CorrectAddress Username"
 msgstr "Intelligent Search Technolgy, Ltd. CorrectAddress Käyttäjätunnus"
 
-#: EcclesiaCRM/dto/SystemConfig.php:117
+#: EcclesiaCRM/dto/SystemConfig.php:127
 msgid "Intelligent Search Technolgy, Ltd. CorrectAddress Password"
 msgstr "Intelligent Search Technolgy, Ltd. CorrectAddress Salasana"
 
-#: EcclesiaCRM/dto/SystemConfig.php:118
+#: EcclesiaCRM/dto/SystemConfig.php:128
 msgid "Select GeoCoder Provider"
 msgstr "Valitse GeoCoder Provider"
 
-#: EcclesiaCRM/dto/SystemConfig.php:119
+#: EcclesiaCRM/dto/SystemConfig.php:129
 msgid "Number of checks for Deposit Slip Report"
 msgstr "Shekkien lukumäärä talletuskuittiraporttia varten"
 
-#: EcclesiaCRM/dto/SystemConfig.php:120
+#: EcclesiaCRM/dto/SystemConfig.php:130
 msgid "Set true to enable use of scanned checks"
 msgstr "Aseta true, jos haluat käyttää skannattuja tarkastuksia"
 
-#: EcclesiaCRM/dto/SystemConfig.php:121
+#: EcclesiaCRM/dto/SystemConfig.php:131
 msgid "Unit used to measure distance, miles or kilometers or li."
 msgstr ""
 "Yksikkö, jota käytetään etäisyyden mittaamiseen, mailit tai kilometrit tai "
 "li."
 
-#: EcclesiaCRM/dto/SystemConfig.php:122
+#: EcclesiaCRM/dto/SystemConfig.php:132
 msgid "Time zone"
 msgstr "Aikavyöhyke"
 
-#: EcclesiaCRM/dto/SystemConfig.php:122
+#: EcclesiaCRM/dto/SystemConfig.php:132
 msgid ""
 "CalDAV protocol to work with php date_default_timezone_set function default "
 "settings : america/new_york"
@@ -3817,58 +3808,58 @@ msgstr ""
 "CalDAV-protokolla toimimaan php date_default_timezone_set-funktion kanssa "
 "oletusasetukset : america/new_york"
 
-#: EcclesiaCRM/dto/SystemConfig.php:123
+#: EcclesiaCRM/dto/SystemConfig.php:133
 msgid "Make user-entered zip/postcodes UPPERCASE when saving to the database."
 msgstr ""
 "Tee käyttäjän syöttämistä postinumeroista UPPERCASE, kun tallennat "
 "tietokantaan."
 
-#: EcclesiaCRM/dto/SystemConfig.php:124
+#: EcclesiaCRM/dto/SystemConfig.php:134
 msgid "Enable non-deductible payments"
 msgstr "Ota käyttöön vähennyskelvottomat maksut"
 
-#: EcclesiaCRM/dto/SystemConfig.php:125
+#: EcclesiaCRM/dto/SystemConfig.php:135
 msgid "Electronic Transaction Processor"
 msgstr "Sähköisten transaktioiden käsittelijä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:125
+#: EcclesiaCRM/dto/SystemConfig.php:135
 msgid "Vanco"
 msgstr "Vanco"
 
-#: EcclesiaCRM/dto/SystemConfig.php:125
+#: EcclesiaCRM/dto/SystemConfig.php:135
 msgid "Authorize.NET"
 msgstr "Authorize.NET"
 
-#: EcclesiaCRM/dto/SystemConfig.php:126
+#: EcclesiaCRM/dto/SystemConfig.php:136
 msgid "Set true to enable family self registration."
 msgstr "Aseta true, jos haluat sallia perheen oman rekisteröinnin."
 
-#: EcclesiaCRM/dto/SystemConfig.php:130
+#: EcclesiaCRM/dto/SystemConfig.php:140
 msgid ""
 "For defining the date, per default : m/d/Y, In French : d/m/Y for example."
 msgstr ""
 "Päivämäärän määrittäminen, oletusarvoisesti : m/d/Y, ranskaksi esimerkiksi : "
 "d/m/Y."
 
-#: EcclesiaCRM/dto/SystemConfig.php:131
+#: EcclesiaCRM/dto/SystemConfig.php:141
 msgid "This part is important for the time Line date and time"
 msgstr "Tämä osa on tärkeä aikarivin päivämäärän ja kellonajan kannalta."
 
-#: EcclesiaCRM/dto/SystemConfig.php:132
+#: EcclesiaCRM/dto/SystemConfig.php:142
 msgid "Set the time in English format or 24 hours."
 msgstr "Aseta kellonaika englanninkielisessä muodossa tai 24 tunnin muodossa."
 
-#: EcclesiaCRM/dto/SystemConfig.php:133
+#: EcclesiaCRM/dto/SystemConfig.php:143
 msgid "For defining the date, per default : m/d, In French : d/m for example."
 msgstr ""
 "Päivämäärän määrittelyä varten, oletusarvoisesti : m/d, esimerkiksi "
 "ranskaksi : d/m."
 
-#: EcclesiaCRM/dto/SystemConfig.php:135
+#: EcclesiaCRM/dto/SystemConfig.php:145
 msgid "php format for the date, in English : j/m/y g:i a"
 msgstr "php päivämäärän muoto englanniksi : j/m/y g:i a"
 
-#: EcclesiaCRM/dto/SystemConfig.php:137
+#: EcclesiaCRM/dto/SystemConfig.php:147
 msgid ""
 "For defining the date in Date-Picker, per default : yyyy-mm-dd, In French : "
 "dd/mm/yyyy for example."
@@ -3876,7 +3867,7 @@ msgstr ""
 "Päivämäärän määrittäminen Date-Pickerissä, oletusarvoisesti: vvvv-mm-kk, "
 "ranskaksi esimerkiksi: pp/kk/kk/vvvv."
 
-#: EcclesiaCRM/dto/SystemConfig.php:138
+#: EcclesiaCRM/dto/SystemConfig.php:148
 msgid ""
 "For defining the date in Date-Picker, per default : Y-m-d, In French : d/m/Y "
 "for example."
@@ -3884,7 +3875,7 @@ msgstr ""
 "Päivämäärän määrittäminen Date-Pickerissä, oletusarvoisesti : Y-m-d, "
 "ranskaksi esimerkiksi : d/m/Y."
 
-#: EcclesiaCRM/dto/SystemConfig.php:139
+#: EcclesiaCRM/dto/SystemConfig.php:149
 msgid ""
 "EcclesiaCRM has been registered.  The EcclesiaCRM team uses registration "
 "information to track usage.  This information is kept confidential and never "
@@ -3896,43 +3887,43 @@ msgstr ""
 "koskaan luovuteta tai myydä.  Jos tämä kenttä on tosi, ylläpidon valikossa "
 "oleva rekisteröintivaihtoehto muuttuu rekisteröinnin päivittämiseksi."
 
-#: EcclesiaCRM/dto/SystemConfig.php:140
+#: EcclesiaCRM/dto/SystemConfig.php:150
 msgid "Left Margin (1 = 1/100th inch)"
 msgstr "Vasen marginaali (1 = 1/100 tuumaa)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:141
+#: EcclesiaCRM/dto/SystemConfig.php:151
 msgid "Line Thickness (1 = 1/100th inch"
 msgstr "Viivan paksuus (1 = 1/100 tuumaa)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:143 FinancialReports.php:418
+#: EcclesiaCRM/dto/SystemConfig.php:153 FinancialReports.php:418
 msgid "Church Address"
 msgstr "Kirkon osoite"
 
-#: EcclesiaCRM/dto/SystemConfig.php:144
+#: EcclesiaCRM/dto/SystemConfig.php:154
 msgid "Church City"
 msgstr "Church City"
 
-#: EcclesiaCRM/dto/SystemConfig.php:145
+#: EcclesiaCRM/dto/SystemConfig.php:155
 msgid "Church State"
 msgstr "Kirkko Valtio"
 
-#: EcclesiaCRM/dto/SystemConfig.php:146
+#: EcclesiaCRM/dto/SystemConfig.php:156
 msgid "Church Zip"
 msgstr "Kirkon postinumero"
 
-#: EcclesiaCRM/dto/SystemConfig.php:147
+#: EcclesiaCRM/dto/SystemConfig.php:157
 msgid "Church Phone"
 msgstr "Kirkon puhelin"
 
-#: EcclesiaCRM/dto/SystemConfig.php:148
+#: EcclesiaCRM/dto/SystemConfig.php:158
 msgid "Church Email"
 msgstr "Kirkon sähköpostiosoite"
 
-#: EcclesiaCRM/dto/SystemConfig.php:149
+#: EcclesiaCRM/dto/SystemConfig.php:159
 msgid "Home area code of the church"
 msgstr "Kirkon kotialueen suuntanumero"
 
-#: EcclesiaCRM/dto/SystemConfig.php:150 EcclesiaCRM/dto/SystemConfig.php:170
+#: EcclesiaCRM/dto/SystemConfig.php:160 EcclesiaCRM/dto/SystemConfig.php:180
 msgid ""
 "Verbage for top line of tax report. Dates will be appended to the end of "
 "this line."
@@ -3940,132 +3931,132 @@ msgstr ""
 "Veroraportin ylimmän rivin sanamuoto. Päivämäärät liitetään tämän rivin "
 "loppuun."
 
-#: EcclesiaCRM/dto/SystemConfig.php:151 EcclesiaCRM/dto/SystemConfig.php:152
-#: EcclesiaCRM/dto/SystemConfig.php:171 EcclesiaCRM/dto/SystemConfig.php:172
+#: EcclesiaCRM/dto/SystemConfig.php:161 EcclesiaCRM/dto/SystemConfig.php:162
+#: EcclesiaCRM/dto/SystemConfig.php:181 EcclesiaCRM/dto/SystemConfig.php:182
 msgid "Verbage for bottom line of tax report."
 msgstr "Veroraportin alarivin sanamuoto."
 
-#: EcclesiaCRM/dto/SystemConfig.php:153
+#: EcclesiaCRM/dto/SystemConfig.php:163
 msgid "Tax Report signer"
 msgstr "Veroraportin allekirjoittaja"
 
-#: EcclesiaCRM/dto/SystemConfig.php:154
+#: EcclesiaCRM/dto/SystemConfig.php:164
 msgid "Verbage for the pledge reminder report"
 msgstr "Sanamuistutusraportin sanamuoto"
 
-#: EcclesiaCRM/dto/SystemConfig.php:155
+#: EcclesiaCRM/dto/SystemConfig.php:165
 msgid "Pledge Reminder Signer"
 msgstr "Lupauksen muistutuksen allekirjoittaja"
 
-#: EcclesiaCRM/dto/SystemConfig.php:156
+#: EcclesiaCRM/dto/SystemConfig.php:166
 msgid "Verbage for the pledge reminder report - No record of a pledge"
 msgstr ""
 "Lupauksen antamista koskeva muistutusraportti - Ei merkintöjä lupauksesta."
 
-#: EcclesiaCRM/dto/SystemConfig.php:157
+#: EcclesiaCRM/dto/SystemConfig.php:167
 msgid "Verbage for the pledge reminder report - No record of payments"
 msgstr "Sanamuistutuskertomuksen sanamuoto - Maksuja ei ole kirjattu."
 
-#: EcclesiaCRM/dto/SystemConfig.php:158 EcclesiaCRM/dto/SystemConfig.php:159
-#: EcclesiaCRM/dto/SystemConfig.php:160 EcclesiaCRM/dto/SystemConfig.php:161
-#: EcclesiaCRM/dto/SystemConfig.php:162 EcclesiaCRM/dto/SystemConfig.php:163
+#: EcclesiaCRM/dto/SystemConfig.php:168 EcclesiaCRM/dto/SystemConfig.php:169
+#: EcclesiaCRM/dto/SystemConfig.php:170 EcclesiaCRM/dto/SystemConfig.php:171
+#: EcclesiaCRM/dto/SystemConfig.php:172 EcclesiaCRM/dto/SystemConfig.php:173
 msgid "Verbage for the database information confirmation and correction report"
 msgstr "Tietokannan tietojen vahvistus- ja korjausraportin sanamuoto"
 
-#: EcclesiaCRM/dto/SystemConfig.php:164
+#: EcclesiaCRM/dto/SystemConfig.php:174
 msgid "Database information confirmation and correction report signer"
 msgstr "Tietokannan tietojen vahvistuksen ja korjausraportin allekirjoittaja"
 
-#: EcclesiaCRM/dto/SystemConfig.php:165 EcclesiaCRM/dto/SystemConfig.php:166
+#: EcclesiaCRM/dto/SystemConfig.php:175 EcclesiaCRM/dto/SystemConfig.php:176
 msgid "Verbage for the pledge summary report"
 msgstr "Lupauksen yhteenvetoraportin sanamuoto"
 
-#: EcclesiaCRM/dto/SystemConfig.php:167 EcclesiaCRM/dto/SystemConfig.php:168
+#: EcclesiaCRM/dto/SystemConfig.php:177 EcclesiaCRM/dto/SystemConfig.php:178
 msgid "Verbage for the directory report"
 msgstr "Hakemistoraportin sanamuoto"
 
-#: EcclesiaCRM/dto/SystemConfig.php:169
+#: EcclesiaCRM/dto/SystemConfig.php:179
 msgid "Church Letterhead path and file"
 msgstr "Kirkon kirjelomakkeen polku ja tiedosto"
 
-#: EcclesiaCRM/dto/SystemConfig.php:173
+#: EcclesiaCRM/dto/SystemConfig.php:183
 msgid "Church Checking Account Number"
 msgstr "Kirkon sekkitilin numero"
 
-#: EcclesiaCRM/dto/SystemConfig.php:174
+#: EcclesiaCRM/dto/SystemConfig.php:184
 msgid "lookup user images on Gravatar when no local image is present"
 msgstr ""
 "etsi käyttäjän kuvia Gravatarista, kun paikallista kuvaa ei ole saatavilla"
 
-#: EcclesiaCRM/dto/SystemConfig.php:175
+#: EcclesiaCRM/dto/SystemConfig.php:185
 msgid "Enable Remote Backups to Cloud Services"
 msgstr "Ota käyttöön etävarmistukset pilvipalveluihin"
 
-#: EcclesiaCRM/dto/SystemConfig.php:176
+#: EcclesiaCRM/dto/SystemConfig.php:186
 msgid "Cloud Service Type (Supported values: WebDAV, Local)"
 msgstr "Pilvipalvelun tyyppi (tuetut arvot: WebDAV, Local)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:176
+#: EcclesiaCRM/dto/SystemConfig.php:186
 msgid "WebDAV"
 msgstr "WebDAV"
 
-#: EcclesiaCRM/dto/SystemConfig.php:176
+#: EcclesiaCRM/dto/SystemConfig.php:186
 msgid "Local"
 msgstr "Paikallinen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:177
+#: EcclesiaCRM/dto/SystemConfig.php:187
 msgid "Remote Backup Endpoint"
 msgstr "Remote Backup Endpoint"
 
-#: EcclesiaCRM/dto/SystemConfig.php:178
+#: EcclesiaCRM/dto/SystemConfig.php:188
 msgid "Remote Backup Username"
 msgstr "Etävarmistuksen käyttäjätunnus"
 
-#: EcclesiaCRM/dto/SystemConfig.php:179
+#: EcclesiaCRM/dto/SystemConfig.php:189
 msgid "Remote Backup Password"
 msgstr "Etäisen varmuuskopioinnin salasana"
 
-#: EcclesiaCRM/dto/SystemConfig.php:180
+#: EcclesiaCRM/dto/SystemConfig.php:190
 msgid "Interval in Hours for Automatic Remote Backups"
 msgstr "Automaattisten etävarmuuskopioiden aikaväli tunteina"
 
-#: EcclesiaCRM/dto/SystemConfig.php:181
+#: EcclesiaCRM/dto/SystemConfig.php:191
 msgid "Last Backup Timestamp"
 msgstr "Viimeisen varmuuskopion aikaleima"
 
-#: EcclesiaCRM/dto/SystemConfig.php:182
+#: EcclesiaCRM/dto/SystemConfig.php:192
 msgid "QuickBooks Deposit Ticket Settings"
 msgstr "QuickBooksin talletuslipun asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:183
+#: EcclesiaCRM/dto/SystemConfig.php:193
 msgid "Enable Integrity Check"
 msgstr "Ota eheyden tarkistus käyttöön"
 
-#: EcclesiaCRM/dto/SystemConfig.php:184
+#: EcclesiaCRM/dto/SystemConfig.php:194
 msgid "Interval in Hours for Integrity Check"
 msgstr "Ehjyyden tarkistuksen aikaväli tunteina"
 
-#: EcclesiaCRM/dto/SystemConfig.php:185
+#: EcclesiaCRM/dto/SystemConfig.php:195
 msgid "Last Integrity Check Timestamp"
 msgstr "Viimeisimmän eheystarkastuksen aikaleima"
 
-#: EcclesiaCRM/dto/SystemConfig.php:187
+#: EcclesiaCRM/dto/SystemConfig.php:197
 msgid "Used to end a letter before Signer"
 msgstr "Käytetään kirjeen päättämiseen ennen allekirjoittajaa"
 
-#: EcclesiaCRM/dto/SystemConfig.php:188
+#: EcclesiaCRM/dto/SystemConfig.php:198
 msgid "Text before name in emails/reports"
 msgstr "Teksti ennen nimeä sähköposteissa/raporteissa"
 
-#: EcclesiaCRM/dto/SystemConfig.php:189
+#: EcclesiaCRM/dto/SystemConfig.php:199
 msgid "Google Analytics Tracking Code"
 msgstr "Google Analyticsin seurantakoodi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:191
+#: EcclesiaCRM/dto/SystemConfig.php:201
 msgid "Deposit ticket type.  QBDT - Quickbooks"
 msgstr "Talletuslipun tyyppi.  QBDT - Quickbooks"
 
-#: EcclesiaCRM/dto/SystemConfig.php:192
+#: EcclesiaCRM/dto/SystemConfig.php:202
 msgid ""
 "Set true to allow empty lastname in Person Editor.  Set false to validate "
 "last name and inherit from family when left empty."
@@ -4074,63 +4065,63 @@ msgstr ""
 "validoidaksesi sukunimen ja periytyäksesi perheestä, jos se jätetään "
 "tyhjäksi."
 
-#: EcclesiaCRM/dto/SystemConfig.php:194
+#: EcclesiaCRM/dto/SystemConfig.php:204
 msgid "Display bill counts on deposit slip"
 msgstr "Näytä laskujen lukumäärät talletuslaskussa"
 
-#: EcclesiaCRM/dto/SystemConfig.php:195
+#: EcclesiaCRM/dto/SystemConfig.php:205
 msgid "EcclesiaCRM Cloud Access URL"
 msgstr "EcclesiaCRM Cloud Access URL-osoite"
 
-#: EcclesiaCRM/dto/SystemConfig.php:196
+#: EcclesiaCRM/dto/SystemConfig.php:206
 msgid "Nexmo SMS API Key"
 msgstr "Nexmo SMS API -avain"
 
-#: EcclesiaCRM/dto/SystemConfig.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:207
 msgid "Nexmo SMS API Secret"
 msgstr "Nexmo SMS API Salaisuus"
 
-#: EcclesiaCRM/dto/SystemConfig.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:208
 msgid "Nexmo SMS From Number"
 msgstr "Nexmo SMS numerosta"
 
-#: EcclesiaCRM/dto/SystemConfig.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:209
 msgid "OpenLP URL"
 msgstr "OpenLP URL-osoite"
 
-#: EcclesiaCRM/dto/SystemConfig.php:200
+#: EcclesiaCRM/dto/SystemConfig.php:210
 msgid "OpenLP Username"
 msgstr "OpenLP Käyttäjätunnus"
 
-#: EcclesiaCRM/dto/SystemConfig.php:201
+#: EcclesiaCRM/dto/SystemConfig.php:211
 msgid "OpenLP Password"
 msgstr "OpenLP Salasana"
 
-#: EcclesiaCRM/dto/SystemConfig.php:202
+#: EcclesiaCRM/dto/SystemConfig.php:212
 msgid "KioskVisibilityTimestamp"
 msgstr "KioskVisibilityTimestamp"
 
-#: EcclesiaCRM/dto/SystemConfig.php:203
+#: EcclesiaCRM/dto/SystemConfig.php:213
 msgid "Show/Hide Lost Password Link on the login screen"
 msgstr "Näytä/piilota kadonnut salasana -linkki kirjautumisnäytössä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:204
+#: EcclesiaCRM/dto/SystemConfig.php:214
 msgid "Your Church's Website"
 msgstr "Kirkkosi verkkosivusto"
 
-#: EcclesiaCRM/dto/SystemConfig.php:205
+#: EcclesiaCRM/dto/SystemConfig.php:215
 msgid "Your Church's Facebook Page"
 msgstr "Kirkkosi Facebook-sivu"
 
-#: EcclesiaCRM/dto/SystemConfig.php:206
+#: EcclesiaCRM/dto/SystemConfig.php:216
 msgid "Your Church's Twitter Page"
 msgstr "Kirkkosi Twitter-sivu"
 
-#: EcclesiaCRM/dto/SystemConfig.php:207
+#: EcclesiaCRM/dto/SystemConfig.php:217
 msgid "lookup user images on Google when no local image is present"
 msgstr "Etsi käyttäjän kuvia Googlesta, kun paikallista kuvaa ei ole olemassa."
 
-#: EcclesiaCRM/dto/SystemConfig.php:208
+#: EcclesiaCRM/dto/SystemConfig.php:218
 msgid ""
 "Comma Separated list of PersonIDs of people to notify when a new family or "
 "person is added"
@@ -4138,109 +4129,109 @@ msgstr ""
 "Pilkulla erotettu luettelo henkilöistä, joille ilmoitetaan, kun uusi perhe "
 "tai henkilö lisätään."
 
-#: EcclesiaCRM/dto/SystemConfig.php:209
+#: EcclesiaCRM/dto/SystemConfig.php:219
 msgid "Allow unauthenticated reads of events from the external calendar API"
 msgstr ""
 "Salli tapahtumien lukeminen ulkoisesta kalenteri-API:stä ilman "
 "tunnistautumista."
 
-#: EcclesiaCRM/dto/SystemConfig.php:210
+#: EcclesiaCRM/dto/SystemConfig.php:220
 msgid "Search People"
 msgstr "Etsi ihmisiä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:211
+#: EcclesiaCRM/dto/SystemConfig.php:221
 msgid "Search Family"
 msgstr "Etsi perhe"
 
-#: EcclesiaCRM/dto/SystemConfig.php:212
+#: EcclesiaCRM/dto/SystemConfig.php:222
 msgid "Show Family Head of House Names"
 msgstr "Näytä perheen päämiehen nimet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:213
+#: EcclesiaCRM/dto/SystemConfig.php:223
 msgid "Search Groups"
 msgstr "Etsi ryhmiä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:214
+#: EcclesiaCRM/dto/SystemConfig.php:224
 msgid "Search Deposits"
 msgstr "Haku Talletukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:215
+#: EcclesiaCRM/dto/SystemConfig.php:225
 msgid "Search Payments"
 msgstr "Haku Maksut"
 
-#: EcclesiaCRM/dto/SystemConfig.php:216
+#: EcclesiaCRM/dto/SystemConfig.php:226
 msgid "Search Addresses"
 msgstr "Hakuosoitteet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:217
+#: EcclesiaCRM/dto/SystemConfig.php:227
 msgid "Maximum number of People"
 msgstr "Henkilöiden enimmäismäärä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:218
+#: EcclesiaCRM/dto/SystemConfig.php:228
 msgid "Maximum number of Families"
 msgstr "Perheiden enimmäismäärä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:219
+#: EcclesiaCRM/dto/SystemConfig.php:229
 msgid "Maximum number of Family H.O.H Names"
 msgstr "Perheen H.O.H.-nimien enimmäismäärä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:220
+#: EcclesiaCRM/dto/SystemConfig.php:230
 msgid "Maximum number of Groups"
 msgstr "Ryhmien enimmäismäärä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:221
+#: EcclesiaCRM/dto/SystemConfig.php:231
 msgid "Maximum number of Deposits"
 msgstr "Talletusten enimmäismäärä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:222
+#: EcclesiaCRM/dto/SystemConfig.php:232
 msgid "Maximum number of Payments"
 msgstr "Maksujen enimmäismäärä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:223
+#: EcclesiaCRM/dto/SystemConfig.php:233
 msgid "Maximum number of Addresses"
 msgstr "Osoitteiden enimmäismäärä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:224
+#: EcclesiaCRM/dto/SystemConfig.php:234
 msgid "Search Pastoral Care"
 msgstr "Haku Pastoraalihoito"
 
-#: EcclesiaCRM/dto/SystemConfig.php:225
+#: EcclesiaCRM/dto/SystemConfig.php:235
 msgid "Maximum number of Pastoral Care results"
 msgstr "Pastoraalihoidon tulosten enimmäismäärä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:226
+#: EcclesiaCRM/dto/SystemConfig.php:236
 msgid "Height to use for images"
 msgstr "Kuville käytettävä korkeus"
 
-#: EcclesiaCRM/dto/SystemConfig.php:227
+#: EcclesiaCRM/dto/SystemConfig.php:237
 msgid "Width to use for images"
 msgstr "Kuville käytettävä leveys"
 
-#: EcclesiaCRM/dto/SystemConfig.php:228
+#: EcclesiaCRM/dto/SystemConfig.php:238
 msgid "Width to use for thumbnails"
 msgstr "Pikkukuvissa käytettävä leveys"
 
-#: EcclesiaCRM/dto/SystemConfig.php:229
+#: EcclesiaCRM/dto/SystemConfig.php:239
 msgid "Point size to use for initials thumbnails"
 msgstr "Pistekoko, jota käytetään nimikirjainten pikkukuvissa"
 
-#: EcclesiaCRM/dto/SystemConfig.php:230
+#: EcclesiaCRM/dto/SystemConfig.php:240
 msgid "Client cache seconds for images"
 msgstr "Asiakkaan välimuistin sekuntia kuvia varten"
 
-#: EcclesiaCRM/dto/SystemConfig.php:231
+#: EcclesiaCRM/dto/SystemConfig.php:241
 msgid "Server cache time for remote images"
 msgstr "Palvelimen välimuistiin tallennettu aika etäkuville"
 
-#: EcclesiaCRM/dto/SystemConfig.php:232
+#: EcclesiaCRM/dto/SystemConfig.php:242
 msgid "Require that this EcclesiaCRM Database is accessed over HTTPS"
 msgstr "Vaadi, että tätä EcclesiaCRM-tietokantaa käytetään HTTPS:n kautta."
 
-#: EcclesiaCRM/dto/SystemConfig.php:233
+#: EcclesiaCRM/dto/SystemConfig.php:243
 msgid "Show Birthdates Anniversaries on start up of the CRM"
 msgstr "Näytä syntymäpäivät vuosipäivät CRM:n käynnistyessä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:234
+#: EcclesiaCRM/dto/SystemConfig.php:244
 msgid ""
 "Number of seconds after page load until the banner disappears, default 10 "
 "seconds"
@@ -4248,16 +4239,16 @@ msgstr ""
 "Kuinka monta sekuntia sivun lataamisen jälkeen banneri katoaa, oletusarvo 10 "
 "sekuntia."
 
-#: EcclesiaCRM/dto/SystemConfig.php:235
+#: EcclesiaCRM/dto/SystemConfig.php:245
 msgid "Automatically enable SMTP encryption if offered by the relaying server."
 msgstr ""
 "Ota SMTP-salaus automaattisesti käyttöön, jos välityspalvelin tarjoaa sitä."
 
-#: EcclesiaCRM/dto/SystemConfig.php:236
+#: EcclesiaCRM/dto/SystemConfig.php:246
 msgid "Set the encryption system to use - ssl (deprecated) or tls"
 msgstr "Määritä käytettävä salausjärjestelmä - ssl (vanhentunut) tai tls."
 
-#: EcclesiaCRM/dto/SystemConfig.php:237
+#: EcclesiaCRM/dto/SystemConfig.php:247
 msgid ""
 "Dashboard & page Service dynamic asynchronous refresh interval, default 60 "
 "second"
@@ -4265,113 +4256,113 @@ msgstr ""
 "Dashboard & page Service dynaaminen asynkroninen päivitysväli, oletusarvo 60 "
 "sekuntia."
 
-#: EcclesiaCRM/dto/SystemConfig.php:238
+#: EcclesiaCRM/dto/SystemConfig.php:248
 msgid "When you make the attendance all the kids are checked by default"
 msgstr "Kun teet läsnäolon, kaikki lapset ovat oletusarvoisesti valittuna."
 
-#: EcclesiaCRM/dto/SystemConfig.php:239
+#: EcclesiaCRM/dto/SystemConfig.php:249
 msgid "When you make the attendance the current user isn't choosed by default"
 msgstr "Kun teet läsnäolon, nykyistä käyttäjää ei oletusarvoisesti valita."
 
-#: EcclesiaCRM/dto/SystemConfig.php:240
+#: EcclesiaCRM/dto/SystemConfig.php:250
 msgid "Hide dropdown states when they are unusefull"
 msgstr "Piilota avattavat tilat, kun ne eivät ole käytössä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:241
+#: EcclesiaCRM/dto/SystemConfig.php:251
 msgid "The currency symbol you want to use in the deposit in $ per default"
 msgstr ""
 "Valuuttasymboli, jota haluat käyttää talletuksessa oletusarvoisesti $:na."
 
-#: EcclesiaCRM/dto/SystemConfig.php:242
+#: EcclesiaCRM/dto/SystemConfig.php:252
 msgid "If you do not want to receive these emails from"
 msgstr "Jos et halua vastaanottaa näitä sähköpostiviestejä osoitteesta"
 
-#: EcclesiaCRM/dto/SystemConfig.php:243
+#: EcclesiaCRM/dto/SystemConfig.php:253
 msgid "in the future, please contact the church admins"
 msgstr "tulevaisuudessa, ota yhteyttä kirkon ylläpitäjiin."
 
-#: EcclesiaCRM/dto/SystemConfig.php:244
+#: EcclesiaCRM/dto/SystemConfig.php:254
 msgid "Time in minutes when a share document can't be opened."
 msgstr "Aika minuutteina, jolloin jaettua asiakirjaa ei voi avata."
 
-#: EcclesiaCRM/dto/SystemConfig.php:245
+#: EcclesiaCRM/dto/SystemConfig.php:255
 msgid "The DPO administrator for the GDPR"
 msgstr "GDPR:n tietosuojavastaava"
 
-#: EcclesiaCRM/dto/SystemConfig.php:246
+#: EcclesiaCRM/dto/SystemConfig.php:256
 msgid "GDPR option"
 msgstr "GDPR-vaihtoehto"
 
-#: EcclesiaCRM/dto/SystemConfig.php:247
+#: EcclesiaCRM/dto/SystemConfig.php:257
 msgid "The DPO email"
 msgstr "TVH:n sähköpostiviesti"
 
-#: EcclesiaCRM/dto/SystemConfig.php:248
+#: EcclesiaCRM/dto/SystemConfig.php:258
 msgid ""
 "The private datas should be deleted after the iGdprExpirationDate in Year."
 msgstr ""
 "Yksityiset tiedot olisi poistettava iGdprExpirationDate-päivän jälkeen "
 "vuonna."
 
-#: EcclesiaCRM/dto/SystemConfig.php:249
+#: EcclesiaCRM/dto/SystemConfig.php:259
 msgid "Show custom links on the left menu."
 msgstr "Näytä mukautetut linkit vasemmassa valikossa."
 
-#: EcclesiaCRM/dto/SystemConfig.php:250
+#: EcclesiaCRM/dto/SystemConfig.php:260
 msgid "Enable Sunday School left menu."
 msgstr "Ota pyhäkoulu käyttöön vasemmanpuoleinen valikko."
 
-#: EcclesiaCRM/dto/SystemConfig.php:251
+#: EcclesiaCRM/dto/SystemConfig.php:261
 msgid "Enable Finance menu"
 msgstr "Ota Finance-valikko käyttöön"
 
-#: EcclesiaCRM/dto/SystemConfig.php:252
+#: EcclesiaCRM/dto/SystemConfig.php:262
 msgid "Enable Events menu."
 msgstr "Ota Tapahtumat-valikko käyttöön."
 
-#: EcclesiaCRM/dto/SystemConfig.php:253
+#: EcclesiaCRM/dto/SystemConfig.php:263
 msgid "Enable Fundraiser menu."
 msgstr "Ota Rahankeräys-valikko käyttöön."
 
-#: EcclesiaCRM/dto/SystemConfig.php:254
+#: EcclesiaCRM/dto/SystemConfig.php:264
 msgid "Enable Email menu."
 msgstr "Ota sähköpostivalikko käyttöön."
 
-#: EcclesiaCRM/dto/SystemConfig.php:255
+#: EcclesiaCRM/dto/SystemConfig.php:265
 msgid "Enable WebDav, CardDav and CalDav support."
 msgstr "Ota käyttöön WebDav-, CardDav- ja CalDav-tuki."
 
-#: EcclesiaCRM/dto/SystemConfig.php:256
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Enable WebDav, CardDav and CalDav support through a Browser."
 msgstr "Ota WebDav-, CardDav- ja CalDav-tuki käyttöön selaimen kautta."
 
-#: EcclesiaCRM/dto/SystemConfig.php:257
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid "MailChimp API request time out in seconds"
 msgstr "MailChimpin API-pyynnön aikakatkaisu sekunteina"
 
-#: EcclesiaCRM/dto/SystemConfig.php:258
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid "Add Address, Phone."
 msgstr "Lisää osoite, puhelin."
 
-#: EcclesiaCRM/dto/SystemConfig.php:259
+#: EcclesiaCRM/dto/SystemConfig.php:269
 msgid "Add a thumbnail icon for the people in the datatables."
 msgstr "Lisää pienoiskuvakkeen kuvake henkilöille datataulukoissa."
 
-#: EcclesiaCRM/dto/SystemConfig.php:260
+#: EcclesiaCRM/dto/SystemConfig.php:270
 msgid "Search Pledges"
 msgstr "Haku Lupaukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:261
+#: EcclesiaCRM/dto/SystemConfig.php:271
 msgid "Maximum number of Pledges results"
 msgstr "Lupausten enimmäismäärä"
 
-#: EcclesiaCRM/dto/SystemConfig.php:262
+#: EcclesiaCRM/dto/SystemConfig.php:272
 msgid ""
 "Allow to get the name in the search sequence in case of pledges and deposits"
 msgstr ""
 "Salli nimen saaminen hakusekvenssiin panttausten ja talletusten tapauksessa."
 
-#: EcclesiaCRM/dto/SystemConfig.php:263
+#: EcclesiaCRM/dto/SystemConfig.php:273
 msgid ""
 "'Yearly 1' : from 1 january to 31 december, '365' : in a range from now-365 "
 "days to now, 'Yearly 2' : from september to september."
@@ -4379,20 +4370,20 @@ msgstr ""
 "'Vuosi 1' : 1. tammikuuta-31. joulukuuta, '365' : välillä nyt-365 päivää "
 "tähän päivään, 'Vuosi 2' : syyskuusta syyskuuhun."
 
-#: EcclesiaCRM/dto/SystemConfig.php:264
+#: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Get the statistics of calls/visits (for each pastors counselors)"
 msgstr ""
 "Hanki tilastot puheluista/käynneistä (kunkin pastorin neuvonantajan osalta)."
 
-#: EcclesiaCRM/dto/SystemConfig.php:265
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Set the export address)"
 msgstr "Aseta vientiosoite)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:266
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "email address of the mailchimp sender."
 msgstr "mailchimp-lähettäjän sähköpostiosoite."
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid ""
 "Link to a style sheet for a particular font. This is useful for the font "
 "menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
@@ -4402,7 +4393,7 @@ msgstr ""
 "fontti-valikossa : https://fonts.googleapis.com/css?family=Abril"
 "+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,700i,900,900i"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid ""
 "Here we put the font in the form fontnametodisplay/yourfontname. It is "
 "useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
@@ -4410,87 +4401,87 @@ msgstr ""
 "Tässä asetamme fontin muodossa fontnametodisplay/yourfontname. Se on "
 "hyödyllinen ckeditorin fontti-valikossa, esimerkiksi : Abril/Abril Fatface."
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Church Information"
 msgstr "Kirkon tiedot"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:286
 msgid "Enabled Features"
 msgstr "Käytössä olevat ominaisuudet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:287 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Järjestelmäasetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:288
 msgid "Localization"
 msgstr "Lokalisointi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "User setup"
 msgstr "Käyttäjän asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "People Setup"
 msgstr "Ihmiset Asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Email Setup"
 msgstr "Sähköpostiasetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:292
 msgid "Map Settings"
 msgstr "Kartta-asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/dto/SystemConfig.php:293 EcclesiaCRM/MenuBar/MenuBar.php:381
 #: FamilyView.php:473 PersonView.php:832 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1095
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1106
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
 msgstr "Sielunhoito"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:294
 msgid "Sundayschool Attendance"
 msgstr "Sunnuntaikouluun osallistuminen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285
+#: EcclesiaCRM/dto/SystemConfig.php:295
 msgid "Integration"
 msgstr "Integrointi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:111
+#: EcclesiaCRM/dto/SystemConfig.php:296 EcclesiaCRM/MenuBar/MenuBar.php:111
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
-#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:108
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:297
 msgid "Quick Search"
 msgstr "Pikahaku"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288
+#: EcclesiaCRM/dto/SystemConfig.php:298
 msgid "Report Settings"
 msgstr "Raportin asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:299
 msgid "Financial Settings"
 msgstr "Taloudelliset asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:300
 msgid "Backup"
 msgstr "Varmuuskopiointi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:301
 msgid "Users Specific Schedule Tasks"
 msgstr "Käyttäjäkohtaiset aikataulutehtävät"
 
-#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
-#: EcclesiaCRM/dto/SystemConfig.php:360
+#: EcclesiaCRM/dto/SystemConfig.php:351 EcclesiaCRM/dto/SystemConfig.php:360
+#: EcclesiaCRM/dto/SystemConfig.php:370
 msgid "An invalid configuration name has been requested"
 msgstr "Virheellinen konfiguraation nimi on pyydetty"
 
-#: EcclesiaCRM/dto/SystemConfig.php:375
+#: EcclesiaCRM/dto/SystemConfig.php:385
 msgid "An invalid configuration id has been requested"
 msgstr "Virheellinen konfiguraatiotunnus on pyydetty"
 
@@ -4642,9 +4633,8 @@ msgid "Password"
 msgstr "Salasana"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:24
-#, fuzzy
 msgid "informations"
-msgstr "Tietoja"
+msgstr "tietoa"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:92
 #: Include/Header.php:148
@@ -4668,7 +4658,7 @@ msgstr "Muuta asetuksia"
 msgid "Documents"
 msgstr "Asiakirjat"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:898
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:909
 msgid "EDrive"
 msgstr "EDrive"
 
@@ -4717,7 +4707,7 @@ msgid "List Event Types"
 msgstr "Luettelo tapahtumatyypeistä"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:149
-#: v2/templates/dashboard/maindashboard.php:125
+#: v2/templates/dashboard/maindashboard.php:225
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:127
 msgid "People"
@@ -4782,7 +4772,7 @@ msgstr "Mukautetut valikot"
 msgid "By Classifications"
 msgstr "Luokitusten mukaan"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1073
+#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1084
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 msgid "MailChimp"
 msgstr "MailChimp"
@@ -4849,7 +4839,7 @@ msgstr "Tiedot/raportit"
 msgid "Reports Menu"
 msgstr "Raportit-valikko"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1063
+#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1074
 msgid "Query Menu"
 msgstr "Kyselyvalikko"
 
@@ -4944,17 +4934,13 @@ msgid "Witness"
 msgstr "Todistaja"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:236
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:282
-#: v2/templates/dashboard/maindashboard.php:639
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:284
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "Luotu"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:241
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:287
-#: v2/templates/dashboard/maindashboard.php:655
-#: v2/templates/dashboard/maindashboard.php:699
-#: v2/templates/dashboard/maindashboard.php:715
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:289
 msgid "Updated"
 msgstr "Päivitetty"
 
@@ -4967,12 +4953,12 @@ msgid "Verification email sent"
 msgstr "Vahvistussähköposti lähetetty"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:327
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:450
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:452
 msgid "Profile Image Deleted"
 msgstr "Profiilikuva poistettu"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:340
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:474
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:476
 msgid "Profile Image uploaded"
 msgstr "Profiilikuva ladattu"
 
@@ -4982,7 +4968,7 @@ msgstr "Profiilikuva ladattu"
 msgid "Member"
 msgstr "Jäsen"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:624
 #: EcclesiaCRM/Service/TimelineService.php:216
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
@@ -4993,76 +4979,76 @@ msgstr "Jäsen"
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:629
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
 #: EcclesiaCRM/utils/OutputUtils.php:566
 msgid "mos old"
 msgstr "mos vanha"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:633
 #: EcclesiaCRM/utils/OutputUtils.php:568
 msgid "mo old"
 msgstr "mo vanha"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:635
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:637
 #: EcclesiaCRM/utils/OutputUtils.php:536 EcclesiaCRM/utils/OutputUtils.php:538
 #: EcclesiaCRM/utils/OutputUtils.php:572
 msgid "yrs old"
 msgstr "vuotta vanha"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:637
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:639
 #: EcclesiaCRM/utils/OutputUtils.php:574
 msgid "yr old"
 msgstr "vuotias"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:665
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:667
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM vienti"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
 msgid "system user created"
 msgstr "järjestelmän käyttäjä luotu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:672
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:697
 msgid "system user updated"
 msgstr "järjestelmän käyttäjä päivitetty"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:675
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:700
 msgid "system user deleted"
 msgstr "järjestelmän käyttäjä poistettu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:678
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:703
 msgid "system user password reset"
 msgstr "järjestelmän käyttäjän salasanan palautus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:681
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:706
 msgid "system user changed password"
 msgstr "järjestelmän käyttäjä vaihtoi salasanaa"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:684
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:709
 msgid "system user password changed by admin"
 msgstr "järjestelmän käyttäjän salasanan on muuttanut admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:687
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:712
 msgid "system user login reset"
 msgstr "järjestelmän käyttäjän kirjautumisen palautus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:693
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:718
 msgid "Dav create file"
 msgstr "Dav luo tiedoston"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:699
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:724
 msgid "Dav create directory"
 msgstr "Dav luo hakemiston"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:705
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:730
 msgid "Dav update file"
 msgstr "Dav päivitystiedosto"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:718
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
 msgid "Dav move copy file"
 msgstr "Dav siirrä kopioi tiedosto"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:725
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "Dav delete file"
 msgstr "Dav poista tiedosto"
 
@@ -5307,7 +5293,6 @@ msgid "Family Pastoral Cares"
 msgstr "Perhesielunhoito"
 
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
-#: v2/templates/dashboard/maindashboard.php:486
 msgid "Family Pastoral Care"
 msgstr "Perhesielunhoito"
 
@@ -5906,7 +5891,7 @@ msgid "Restore Database"
 msgstr "Palauta tietokanta"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:160
-#: v2/templates/dashboard/maindashboard.php:82
+#: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/peopledashboard.php:83
 #: v2/templates/people/peoplelist.php:22
 msgid "Single Persons"
@@ -5985,7 +5970,7 @@ msgstr "Tapahtuman osallistujat"
 msgid "View Your Cart"
 msgstr "Näytä ostoskorisi"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:157
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:153
 msgid "Welcome to"
 msgstr "Tervetuloa"
 
@@ -6058,14 +6043,12 @@ msgid "Pastoral care list of members for"
 msgstr "Sielunhoidon jäsenluettelo"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
-#: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "Period  from"
 msgstr "Ajanjakso alkaen"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
-#: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "to"
@@ -6509,8 +6492,8 @@ msgstr "Perheen rekisteröinti"
 msgid "Reset your password"
 msgstr "Nollaa salasanasi"
 
-#: external/templates/password/enter-username.php:32 UserEditor.php:694
-#: UserEditor.php:753
+#: external/templates/password/enter-username.php:32 UserEditor.php:705
+#: UserEditor.php:764
 msgid "Login Name"
 msgstr "Kirjautumisnimi"
 
@@ -6784,7 +6767,7 @@ msgstr "Ensimmäinen"
 msgid "Middle"
 msgstr "Keskimmäinen"
 
-#: FamilyEditor.php:1094 v2/templates/dashboard/maindashboard.php:486
+#: FamilyEditor.php:1094
 msgid "Last"
 msgstr "Viimeinen"
 
@@ -7226,7 +7209,7 @@ msgstr "Minimimäärä yhteensä:"
 msgid "0 - No Minimum"
 msgstr "0 - Ei vähimmäismäärää"
 
-#: FinancialReports.php:389 SettingsIndividual.php:160
+#: FinancialReports.php:389 SettingsIndividual.php:193
 msgid "Other Settings"
 msgstr "Muut asetukset"
 
@@ -7360,7 +7343,7 @@ msgstr ""
 msgid "Please ensure this what you want to do."
 msgstr "Varmista, että haluat tehdä tämän."
 
-#: FindDepositSlip.php:128 GroupEditor.php:67 SystemSettings.php:106
+#: FindDepositSlip.php:128 GroupEditor.php:67 SystemSettings.php:110
 msgid "Close"
 msgstr "Sulje"
 
@@ -8703,7 +8686,7 @@ msgid "Property"
 msgstr "Kiinteistö"
 
 #: PrintPastoralCarePerson.php:557 PrintPastoralCarePerson.php:613
-#: PrintView.php:566 PrintView.php:622 SystemSettings.php:144
+#: PrintView.php:566 PrintView.php:622 SystemSettings.php:147
 msgid "Value"
 msgstr "Arvo"
 
@@ -9422,51 +9405,55 @@ msgstr "Ei, peruuta tämä poisto"
 msgid "Delete Person Record"
 msgstr "Poista henkilötietue"
 
-#: SettingsIndividual.php:96
+#: SettingsIndividual.php:129
 msgid "My User Settings"
 msgstr "Omat käyttäjäasetukset"
 
-#: SettingsIndividual.php:109
+#: SettingsIndividual.php:142
 msgid "Classic User Profile Settings"
 msgstr "Klassisen käyttäjäprofiilin asetukset"
 
-#: SettingsIndividual.php:113 SettingsIndividual.php:164 UserEditor.php:1132
+#: SettingsIndividual.php:146 SettingsIndividual.php:197 UserEditor.php:1143
 msgid "Notes"
 msgstr "Huomautukset"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:1131
+#: SettingsIndividual.php:147 SettingsIndividual.php:198 UserEditor.php:1142
 msgid "Current Value"
 msgstr "Nykyinen arvo"
 
-#: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
-#: UserEditor.php:1130
+#: SettingsIndividual.php:148 SettingsIndividual.php:199 SystemSettings.php:146
+#: UserEditor.php:1141
 msgid "Variable name"
 msgstr "Muuttujan nimi"
 
-#: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
-#: UserEditor.php:1332
+#: SettingsIndividual.php:175 SettingsIndividual.php:441
+#: SettingsIndividual.php:566 SystemSettings.php:132 UserEditor.php:1395
 msgid "Save Settings"
 msgstr "Tallenna asetukset"
 
-#: SettingsIndividual.php:160
+#: SettingsIndividual.php:193
 msgid "Skin"
 msgstr "Iho"
 
-#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:1167
-#: UserEditor.php:1220
+#: SettingsIndividual.php:392 SystemSettings.php:215 UserEditor.php:1178
+#: UserEditor.php:1231
 msgid "False"
 msgstr "False"
 
-#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:1168
-#: UserEditor.php:1221
+#: SettingsIndividual.php:393 SystemSettings.php:216 UserEditor.php:1179
+#: UserEditor.php:1232
 msgid "True"
 msgstr "Totta"
 
-#: SettingsIndividual.php:421
+#: SettingsIndividual.php:451
+msgid "Specific settings"
+msgstr "Erityisasetukset"
+
+#: SettingsIndividual.php:460
 msgid "Two-factor authentication (2fa)"
 msgstr "Kaksitekijätodennus (2fa)"
 
-#: SettingsIndividual.php:424
+#: SettingsIndividual.php:463
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -9476,11 +9463,11 @@ msgstr ""
 "tarjoaa EcclesiaCRM:n suojakerroksen huonoja toimijoita vastaan, jotka "
 "yrittävät käyttää tiliäsi."
 
-#: SettingsIndividual.php:425
+#: SettingsIndividual.php:464
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "EcclesiaCRM Two factor tukee mitä tahansa TOTP-todennussovellusta."
 
-#: SettingsIndividual.php:430
+#: SettingsIndividual.php:469
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -9488,7 +9475,7 @@ msgstr ""
 "Kun kirjaudut sisään EcclesiaCRM:ään, syötät edelleen käyttäjänimesi ja "
 "salasanasi normaalisti."
 
-#: SettingsIndividual.php:433
+#: SettingsIndividual.php:472
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -9496,7 +9483,7 @@ msgstr ""
 "Sinun on kuitenkin myös annettava kertakäyttökoodi autentikointilaitteestasi "
 "kirjautumisen loppuunsaattamiseksi."
 
-#: SettingsIndividual.php:436
+#: SettingsIndividual.php:475
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -9504,7 +9491,7 @@ msgstr ""
 "Kun olet onnistuneesti syöttänyt tunnistetietosi ja kertakäyttökoodin, "
 "kirjaudut sisään normaalisti."
 
-#: SettingsIndividual.php:439
+#: SettingsIndividual.php:478
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -9512,7 +9499,7 @@ msgstr ""
 "Varmista, että olet valmis suorittamaan kaksitekijäisen kirjautumisen, ennen "
 "kuin klikkaat Aloita, jotta et pääse lukkiutumaan ulos EcclesiaCRM-tililtäsi."
 
-#: SettingsIndividual.php:442
+#: SettingsIndividual.php:481
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
@@ -9520,7 +9507,7 @@ msgstr ""
 "Rekisteröinnin aloittaminen mitätöi kaikki aiemmin rekisteröidyt 2-"
 "tekijälaitteet ja palautuskoodit."
 
-#: SettingsIndividual.php:444
+#: SettingsIndividual.php:483
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -9528,7 +9515,7 @@ msgstr ""
 "Kun valitset Seuraava, sinua pyydetään skannaamaan QR-koodi, jotta voit "
 "rekisteröidä todentajasovelluksen."
 
-#: SettingsIndividual.php:446
+#: SettingsIndividual.php:485
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
@@ -9536,7 +9523,7 @@ msgstr ""
 "Vahvistaaksesi rekisteröinnin sinun on syötettävä tunnistautumissovelluksen "
 "luoma koodi."
 
-#: SettingsIndividual.php:448
+#: SettingsIndividual.php:487
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -9544,7 +9531,7 @@ msgstr ""
 "Kun sovelluksen rekisteröinti on vahvistettu, kertakäyttöiset palautuskoodit "
 "luodaan ja näytetään."
 
-#: SettingsIndividual.php:450
+#: SettingsIndividual.php:489
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -9552,13 +9539,21 @@ msgstr ""
 "Palautuskoodeja voidaan käyttää autentikointisovelluksen tuottaman koodin "
 "sijasta."
 
-#: SettingsIndividual.php:452
+#: SettingsIndividual.php:491
 msgid "Store these in a secure location"
 msgstr "Säilytä nämä turvallisessa paikassa"
 
-#: SettingsIndividual.php:459
+#: SettingsIndividual.php:498
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Aloita kaksitekijätodennuksen rekisteröinti"
+
+#: SettingsIndividual.php:511 UserEditor.php:1325
+msgid "Visibilities of the dashboard plugins"
+msgstr "Kojelaudan lisäosien näkyvyydet"
+
+#: SettingsIndividual.php:549 UserEditor.php:1358
+msgid "Top"
+msgstr "Top"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -9616,19 +9611,19 @@ msgstr "Yleiset asetukset"
 msgid "Setting saved"
 msgstr "Asetus tallennettu"
 
-#: SystemSettings.php:98
+#: SystemSettings.php:102
 msgid "Edit JSON Settings"
 msgstr "Muokkaa JSON-asetuksia"
 
-#: SystemSettings.php:145
+#: SystemSettings.php:148
 msgid "Default Value"
 msgstr "Oletusarvo"
 
-#: SystemSettings.php:222
+#: SystemSettings.php:225
 msgid "Edit Settings"
 msgstr "Muokkaa asetuksia"
 
-#: SystemSettings.php:236
+#: SystemSettings.php:239
 msgid "Unknown Type"
 msgstr "Tuntematon tyyppi"
 
@@ -9744,198 +9739,198 @@ msgstr "Kirjautuminen on jo käytössä, valitse toinen kirjautuminen!"
 msgid "The same as before"
 msgstr "Sama kuin ennenkin"
 
-#: UserEditor.php:615
+#: UserEditor.php:626
 msgid "User Editor"
 msgstr "Käyttäjäeditori"
 
-#: UserEditor.php:632
+#: UserEditor.php:643
 msgid "Role management"
 msgstr "Roolien hallinta"
 
-#: UserEditor.php:635
+#: UserEditor.php:646
 msgid "Add Role"
 msgstr "Lisää rooli"
 
-#: UserEditor.php:636
+#: UserEditor.php:647
 msgid "Manage Roles"
 msgstr "Hallitse rooleja"
 
-#: UserEditor.php:639
+#: UserEditor.php:650
 msgid "Add Role to Current User"
 msgstr "Lisää rooli nykyiselle käyttäjälle"
 
-#: UserEditor.php:675
+#: UserEditor.php:686
 msgid "Person to Make User"
 msgstr "Henkilö tehdä käyttäjä"
 
-#: UserEditor.php:711
+#: UserEditor.php:722
 msgid "Note: Changes will not take effect until next logon."
 msgstr ""
 "Huomautus: Muutokset tulevat voimaan vasta seuraavalla kirjautumiskerralla."
 
-#: UserEditor.php:730 UserEditor.php:1296
+#: UserEditor.php:741 UserEditor.php:1309
 msgid "User"
 msgstr "Käyttäjä"
 
-#: UserEditor.php:773 UserEditor.php:1312
+#: UserEditor.php:784 UserEditor.php:1375
 msgid "Global Permissions"
 msgstr "Globaalit käyttöoikeudet"
 
-#: UserEditor.php:783 v2/templates/user/userlist.php:158
+#: UserEditor.php:794 v2/templates/user/userlist.php:158
 msgid "Management"
 msgstr "Hallinto"
 
-#: UserEditor.php:789 UserEditor.php:1297
+#: UserEditor.php:800 UserEditor.php:1310
 msgid "Admin"
 msgstr "Admin"
 
-#: UserEditor.php:790
+#: UserEditor.php:801
 msgid "Grants all privileges."
 msgstr "Myöntää kaikki oikeudet."
 
-#: UserEditor.php:800
+#: UserEditor.php:811
 msgid "Add Records"
 msgstr "Lisää tietueita"
 
-#: UserEditor.php:809
+#: UserEditor.php:820
 msgid "Edit Records"
 msgstr "Muokkaa tietueita"
 
-#: UserEditor.php:818
+#: UserEditor.php:829
 msgid "Delete Records"
 msgstr "Poista tietueet"
 
-#: UserEditor.php:827
+#: UserEditor.php:838
 msgid "Manage Properties and Classifications"
 msgstr "Ominaisuuksien ja luokitusten hallinta"
 
-#: UserEditor.php:836
+#: UserEditor.php:847
 msgid "Manage Groups and Roles"
 msgstr "Ryhmien ja roolien hallinta"
 
-#: UserEditor.php:845
+#: UserEditor.php:856
 msgid "Manage resource reservation schedules (room, computer, projectors)"
 msgstr ""
 "Resurssien varausaikataulujen hallinta (huone, tietokoneet, projektorit)."
 
-#: UserEditor.php:854
+#: UserEditor.php:865
 msgid "View, Add and Edit Notes"
 msgstr "Näytä, lisää ja muokkaa muistiinpanoja"
 
-#: UserEditor.php:870
+#: UserEditor.php:881
 msgid "User Account Permissions"
 msgstr "Käyttäjätilin käyttöoikeudet"
 
-#: UserEditor.php:875
+#: UserEditor.php:886
 msgid "Main Dashboard"
 msgstr "Tärkein kojelauta"
 
-#: UserEditor.php:877
+#: UserEditor.php:888
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "Tärkein kojelauta ja kalenterissa olevat syntymäpäivät ovat näkyvissä."
 
-#: UserEditor.php:887
+#: UserEditor.php:898
 msgid "Edit Self"
 msgstr "Muokkaa itseäsi"
 
-#: UserEditor.php:888
+#: UserEditor.php:899
 msgid "Edit own family only."
 msgstr "Muokkaa vain omaa perhettä."
 
-#: UserEditor.php:907
+#: UserEditor.php:918
 msgid "Right to edit html code"
 msgstr "Oikeus muokata html-koodia"
 
-#: UserEditor.php:916
+#: UserEditor.php:927
 msgid "Can Send Email"
 msgstr "Voi lähettää sähköpostia"
 
-#: UserEditor.php:918
+#: UserEditor.php:929
 msgid "Allow to use the mail function and button in the CRM"
 msgstr "Salli sähköpostitoiminnon ja -painikkeen käyttö CRM:ssä."
 
-#: UserEditor.php:934
+#: UserEditor.php:945
 msgid "Permissions To View"
 msgstr "Katseluluvat"
 
-#: UserEditor.php:940
+#: UserEditor.php:951
 msgid "Show Cart"
 msgstr "Näytä ostoskori"
 
-#: UserEditor.php:949
+#: UserEditor.php:960
 msgid "Show Map"
 msgstr "Näytä kartta"
 
-#: UserEditor.php:958
+#: UserEditor.php:969
 msgid "See Privacy Data"
 msgstr "Katso Yksityisyydensuojaa koskevat tiedot"
 
-#: UserEditor.php:960
+#: UserEditor.php:971
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 "Salli käyttäjän nähdä jäsenten yksityisyystiedot, esim. syntymävuosi, ikä."
 
-#: UserEditor.php:978
+#: UserEditor.php:989
 msgid "Export Permissions"
 msgstr "Vientiluvat"
 
-#: UserEditor.php:986
+#: UserEditor.php:997
 msgid "User permission to export CSV files"
 msgstr "Käyttäjän oikeus viedä CSV-tiedostoja"
 
-#: UserEditor.php:996
+#: UserEditor.php:1007
 msgid "User permission to create directories"
 msgstr "Käyttäjän oikeus luoda hakemistoja"
 
-#: UserEditor.php:1006
+#: UserEditor.php:1017
 msgid "Sunday school PDF"
 msgstr "Sunnuntaikoulu PDF"
 
-#: UserEditor.php:1008
+#: UserEditor.php:1019
 msgid "User permission to export PDF files for the sunday school"
 msgstr "Käyttäjän oikeus viedä PDF-tiedostoja pyhäkoulua varten"
 
-#: UserEditor.php:1018
+#: UserEditor.php:1029
 msgid "Sunday school CSV"
 msgstr "Pyhäkoulu CSV"
 
-#: UserEditor.php:1020
+#: UserEditor.php:1031
 msgid "User permission to export CSV files for the sunday school"
 msgstr "Käyttäjän oikeus viedä CSV-tiedostoja pyhäkoulua varten"
 
-#: UserEditor.php:1038
+#: UserEditor.php:1049
 msgid "Special Permissions"
 msgstr "Erityisluvat"
 
-#: UserEditor.php:1044
+#: UserEditor.php:1055
 msgid "Manage Donations and Finance"
 msgstr "Hallitse lahjoituksia ja rahoitusta"
 
-#: UserEditor.php:1054
+#: UserEditor.php:1065
 msgid "Canvass volunteer."
 msgstr "Vapaaehtoistyöntekijä."
 
-#: UserEditor.php:1064
+#: UserEditor.php:1075
 msgid "Allow to manage the query menu"
 msgstr "Salli kyselyvalikon hallinta"
 
-#: UserEditor.php:1074
+#: UserEditor.php:1085
 msgid "Allow a user to use MailChimp tool"
 msgstr "Salli käyttäjän käyttää MailChimp-työkalua"
 
-#: UserEditor.php:1084
+#: UserEditor.php:1095
 msgid "GRPD Data Protection Officer"
 msgstr "GRPD:n tietosuojavastaava"
 
-#: UserEditor.php:1086
+#: UserEditor.php:1097
 msgid "General Data Protection Regulation in UE"
 msgstr "Yleinen tietosuoja-asetus EU:ssa"
 
-#: UserEditor.php:1117 UserEditor.php:1313
+#: UserEditor.php:1128 UserEditor.php:1376
 msgid "Modifiable Permissions"
 msgstr "Muokattavat käyttöoikeudet"
 
-#: UserEditor.php:1123
+#: UserEditor.php:1134
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
@@ -9943,11 +9938,11 @@ msgstr ""
 "Aseta Permission True, jos haluat antaa tälle käyttäjälle mahdollisuuden "
 "muuttaa nykyistä arvoaan."
 
-#: UserEditor.php:1129
+#: UserEditor.php:1140
 msgid "Permission"
 msgstr "Lupa"
 
-#: UserEditor.php:1274 UserEditor.php:1314
+#: UserEditor.php:1285 UserEditor.php:1377
 msgid "Plugin permissions"
 msgstr "Pluginin käyttöoikeudet"
 
@@ -10298,24 +10293,24 @@ msgstr "Ostoskorisi sisältää"
 msgid "persons from"
 msgstr "henkilöitä"
 
-#: v2/templates/dashboard/maindashboard.php:40
+#: v2/templates/dashboard/maindashboard.php:69
 msgid "Loading in progress"
 msgstr "Lataus käynnissä"
 
-#: v2/templates/dashboard/maindashboard.php:45
+#: v2/templates/dashboard/maindashboard.php:74
 msgid "Loading datas for the proper functioning of EcclesiaCRM"
 msgstr ""
 "Tietojen lataaminen EcclesiaCRM:n moitteettoman toiminnan varmistamiseksi."
 
-#: v2/templates/dashboard/maindashboard.php:51
+#: v2/templates/dashboard/maindashboard.php:80
 msgid "Importing data from Mailchimp"
 msgstr "Tietojen tuonti Mailchimpistä"
 
-#: v2/templates/dashboard/maindashboard.php:54
+#: v2/templates/dashboard/maindashboard.php:83
 msgid "EcclesiaCRM data integrity check"
 msgstr "EcclesiaCRM-tietojen eheyden tarkistus"
 
-#: v2/templates/dashboard/maindashboard.php:57
+#: v2/templates/dashboard/maindashboard.php:86
 msgid ""
 "Verification of the technical data of the hosting for the proper functioning "
 "of EcclesiaCRM"
@@ -10323,160 +10318,89 @@ msgstr ""
 "EcclesiaCRM:n moitteettoman toiminnan kannalta tärkeiden teknisten tietojen "
 "tarkistaminen."
 
-#: v2/templates/dashboard/maindashboard.php:90
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/people/peopledashboard.php:91
-#: v2/templates/people/peopledashboard.php:113
-msgid "View"
-msgstr "Näytä"
-
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/people/peopledashboard.php:113
-msgid "Familles"
-msgstr "Familles"
-
-#: v2/templates/dashboard/maindashboard.php:132
-#: v2/templates/people/peopledashboard.php:134
-msgid "See All People"
-msgstr "Katso kaikki ihmiset"
-
-#: v2/templates/dashboard/maindashboard.php:147
-#: v2/templates/sundayschool/sundayschooldashboard.php:194
-msgid "Sunday School Classes"
-msgstr "Pyhäkoululuokat"
-
-#: v2/templates/dashboard/maindashboard.php:154
-#: v2/templates/dashboard/maindashboard.php:176
-#: v2/templates/people/peopledashboard.php:156
-#: v2/templates/people/peopledashboard.php:178
-msgid "More info"
-msgstr "Lisätietoja"
-
-#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:108
 msgid "message for the DPO"
 msgstr "viesti TVH:lle"
 
-#: v2/templates/dashboard/maindashboard.php:201
+#: v2/templates/dashboard/maindashboard.php:119
 msgid "person must be deleted from the CRM."
 msgstr "henkilö on poistettava CRM:stä."
 
-#: v2/templates/dashboard/maindashboard.php:203
+#: v2/templates/dashboard/maindashboard.php:121
 msgid "persons must be deleted from the CRM."
 msgstr "henkilöt on poistettava CRM:stä."
 
-#: v2/templates/dashboard/maindashboard.php:208
-#: v2/templates/dashboard/maindashboard.php:233
+#: v2/templates/dashboard/maindashboard.php:126
+#: v2/templates/dashboard/maindashboard.php:151
 msgid "Click the"
 msgstr "Napsauta"
 
-#: v2/templates/dashboard/maindashboard.php:209
-#: v2/templates/dashboard/maindashboard.php:234
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
 msgid "link"
 msgstr "linkki"
 
-#: v2/templates/dashboard/maindashboard.php:209
-#: v2/templates/dashboard/maindashboard.php:234
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
 #: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "to solve the problem."
 msgstr "ongelman ratkaisemiseksi."
 
-#: v2/templates/dashboard/maindashboard.php:214
+#: v2/templates/dashboard/maindashboard.php:132
 msgid "No Person to remove in the CRM."
 msgstr "CRM:ssä ei ole poistettavaa henkilöä."
 
-#: v2/templates/dashboard/maindashboard.php:226
+#: v2/templates/dashboard/maindashboard.php:144
 msgid "family must be deleted from the CRM."
 msgstr "perhe on poistettava CRM:stä."
 
-#: v2/templates/dashboard/maindashboard.php:228
+#: v2/templates/dashboard/maindashboard.php:146
 msgid "families must be deleted from the CRM."
 msgstr "perheet on poistettava CRM:stä."
 
-#: v2/templates/dashboard/maindashboard.php:239
+#: v2/templates/dashboard/maindashboard.php:157
 msgid "No Family to remove in the CRM."
 msgstr "CRM:ssä ei ole poistettavaa perhettä."
 
-#: v2/templates/dashboard/maindashboard.php:335
-msgid "Birthdates of the day"
-msgstr "Päivän syntymäajat"
+#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:212
+#: v2/templates/people/peopledashboard.php:91
+#: v2/templates/people/peopledashboard.php:113
+msgid "View"
+msgstr "Näytä"
 
-#: v2/templates/dashboard/maindashboard.php:349
-msgid "Anniversaries of the day"
-msgstr "Päivän merkkipäivät"
+#: v2/templates/dashboard/maindashboard.php:212
+#: v2/templates/people/peopledashboard.php:113
+msgid "Familles"
+msgstr "Familles"
 
-#: v2/templates/dashboard/maindashboard.php:396
-msgid "Unclassified birthdates"
-msgstr "Luokittelemattomat syntymäajat"
+#: v2/templates/dashboard/maindashboard.php:232
+#: v2/templates/people/peopledashboard.php:134
+msgid "See All People"
+msgstr "Katso kaikki ihmiset"
 
-#: v2/templates/dashboard/maindashboard.php:430
-msgid "Latest"
-msgstr "Uusimmat"
+#: v2/templates/dashboard/maindashboard.php:247
+#: v2/templates/sundayschool/sundayschooldashboard.php:194
+msgid "Sunday School Classes"
+msgstr "Pyhäkoululuokat"
 
-#: v2/templates/dashboard/maindashboard.php:430
-msgid "Individual Pastoral Care"
-msgstr "Yksilöllinen sielunhoito"
+#: v2/templates/dashboard/maindashboard.php:254
+#: v2/templates/dashboard/maindashboard.php:276
+#: v2/templates/people/peopledashboard.php:156
+#: v2/templates/people/peopledashboard.php:178
+msgid "More info"
+msgstr "Lisätietoja"
 
-#: v2/templates/dashboard/maindashboard.php:539
-msgid "Statistics"
-msgstr "Tilastot"
+#: v2/templates/dashboard/maindashboard.php:287
+#: v2/templates/plugins/plugins.php:32
+msgid "Plugins managements"
+msgstr "Liitännäisten hallinta"
 
-#: v2/templates/dashboard/maindashboard.php:545
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:162
-msgid "Persons not reached"
-msgstr "Henkilöt, joita ei ole tavoitettu"
-
-#: v2/templates/dashboard/maindashboard.php:549
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
-msgid "Families not reached"
-msgstr "Perheet, joita ei ole tavoitettu"
-
-#: v2/templates/dashboard/maindashboard.php:553
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:190
-msgid "Single Persons not reached"
-msgstr "Yksinäiset henkilöt, joita ei ole tavoitettu"
-
-#: v2/templates/dashboard/maindashboard.php:557
-msgid "Retired Persons not reached"
-msgstr "Eläkeläiset, joita ei ole tavoitettu"
-
-#: v2/templates/dashboard/maindashboard.php:561
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:121
-msgid "Young People"
-msgstr "Nuoret ihmiset"
-
-#: v2/templates/dashboard/maindashboard.php:564
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:219
-msgid "Young People not reached"
-msgstr "Nuoret, joita ei ole tavoitettu"
-
-#: v2/templates/dashboard/maindashboard.php:570
-msgid "Visit/Call your church members"
-msgstr "Vieraile/ soita kirkkosi jäsenille"
-
-#: v2/templates/dashboard/maindashboard.php:571
-msgid "Manage Pastoral Care"
-msgstr "Hallitse sielunhoitoa"
-
-#: v2/templates/dashboard/maindashboard.php:588
-msgid "Deposit Tracking"
-msgstr "Talletusten seuranta"
-
-#: v2/templates/dashboard/maindashboard.php:614
-msgid "Latest Families"
-msgstr "Viimeisimmät perheet"
-
-#: v2/templates/dashboard/maindashboard.php:623
-msgid "Updated Families"
-msgstr "Päivitetyt perheet"
-
-#: v2/templates/dashboard/maindashboard.php:676
-msgid "Latest Members"
-msgstr "Viimeisimmät jäsenet"
-
-#: v2/templates/dashboard/maindashboard.php:683
-msgid "Updated Members"
-msgstr "Päivitetyt jäsenet"
+#: v2/templates/dashboard/maindashboard.php:294
+#: v2/templates/plugins/plugins.php:102
+msgid "Settings"
+msgstr "Asetukset"
 
 #: v2/templates/email/mailchimp/campaign.php:22
 msgid "Email Campaign Management"
@@ -11114,13 +11038,33 @@ msgstr "ottaa yhteyttä"
 msgid "Count"
 msgstr "Count"
 
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:121
+msgid "Young People"
+msgstr "Nuoret ihmiset"
+
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:140
 msgid "Pastoral Care Members"
 msgstr "Sielunhoidon jäsenet"
 
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:162
+msgid "Persons not reached"
+msgstr "Henkilöt, joita ei ole tavoitettu"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
+msgid "Families not reached"
+msgstr "Perheet, joita ei ole tavoitettu"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:190
+msgid "Single Persons not reached"
+msgstr "Yksinäiset henkilöt, joita ei ole tavoitettu"
+
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:203
 msgid "Retired not reached"
 msgstr "Eläkkeelle jäänyt ei tavoitettu"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:219
+msgid "Young People not reached"
+msgstr "Nuoret, joita ei ole tavoitettu"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:28
 #: v2/templates/pastoralcare/pastoralcareperson.php:25
@@ -11436,10 +11380,6 @@ msgstr ""
 "välttämättä poisteta ennen kuin nämä lahjoitukset liitetään toiseen "
 "henkilöön tai perheeseen."
 
-#: v2/templates/plugins/plugins.php:32
-msgid "Plugins managements"
-msgstr "Liitännäisten hallinta"
-
 #: v2/templates/plugins/plugins.php:36
 msgid "Add a plugin"
 msgstr "Lisää lisäosa"
@@ -11453,9 +11393,8 @@ msgid "Upload A Plugin"
 msgstr "Lataa liitännäinen"
 
 #: v2/templates/plugins/plugins.php:52
-#, fuzzy
 msgid "Select the grouped action"
-msgstr "Valitse ryhmä"
+msgstr "Valitse ryhmitelty toiminto"
 
 #: v2/templates/plugins/plugins.php:54
 msgid "Grouped actions"
@@ -11472,10 +11411,6 @@ msgstr "Rastita kaikki ruudut"
 #: v2/templates/plugins/plugins.php:84
 msgid "Update"
 msgstr "Päivitys"
-
-#: v2/templates/plugins/plugins.php:102
-msgid "Settings"
-msgstr "Asetukset"
 
 #: v2/templates/plugins/plugins.php:107
 msgid "guided tour"
@@ -12619,6 +12554,48 @@ msgstr "Yksi päivä"
 
 msgid "Several days"
 msgstr "Useita päiviä"
+
+#~ msgid "Birthdates of the day"
+#~ msgstr "Päivän syntymäajat"
+
+#~ msgid "Anniversaries of the day"
+#~ msgstr "Päivän merkkipäivät"
+
+#~ msgid "Unclassified birthdates"
+#~ msgstr "Luokittelemattomat syntymäajat"
+
+#~ msgid "Latest"
+#~ msgstr "Uusimmat"
+
+#~ msgid "Individual Pastoral Care"
+#~ msgstr "Yksilöllinen sielunhoito"
+
+#~ msgid "Statistics"
+#~ msgstr "Tilastot"
+
+#~ msgid "Retired Persons not reached"
+#~ msgstr "Eläkeläiset, joita ei ole tavoitettu"
+
+#~ msgid "Visit/Call your church members"
+#~ msgstr "Vieraile/ soita kirkkosi jäsenille"
+
+#~ msgid "Manage Pastoral Care"
+#~ msgstr "Hallitse sielunhoitoa"
+
+#~ msgid "Deposit Tracking"
+#~ msgstr "Talletusten seuranta"
+
+#~ msgid "Latest Families"
+#~ msgstr "Viimeisimmät perheet"
+
+#~ msgid "Updated Families"
+#~ msgstr "Päivitetyt perheet"
+
+#~ msgid "Latest Members"
+#~ msgstr "Viimeisimmät jäsenet"
+
+#~ msgid "Updated Members"
+#~ msgstr "Päivitetyt jäsenet"
 
 #~ msgid "Please enter the following to start your family's verification"
 #~ msgstr "Kirjoita seuraavat tiedot aloittaaksesi perheesi vahvistuksen."

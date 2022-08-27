@@ -20,9 +20,15 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+
 use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\UserConfig;
 use EcclesiaCRM\UserConfigChoicesQuery;
+use EcclesiaCRM\PluginQuery;
+use EcclesiaCRM\PluginUserRoleQuery;
+
+
+use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\Theme;
 
@@ -87,6 +93,33 @@ if (isset($_POST['save'])) {
 
         }
         next($type);
+    }
+
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard')
+        ->find();
+    foreach ($plugins as $plugin) {
+        $new_plugin = $_POST['new_plugin'];
+        $new_plugin_place = $_POST['new_plugin_place'];
+
+        $sel_role = $new_plugin[$plugin->getId()];
+        $position = $new_plugin_place[$plugin->getId()];
+
+        $role = PluginUserRoleQuery::create()
+            ->filterByUserId($iPersonID)
+            ->findOneByPluginId($plugin->getId());
+
+        if (is_null($role)) {
+            $role = new PluginUserRole();
+            $role->setPluginId($plugin->getId());
+            $role->setUserId($iPersonID);
+        }
+
+        $plugin = $role->getPlugin();
+
+        $role->setDashboardVisible(($sel_role)?true:false);
+        $role->setDashboardOrientation($position);
+        $role->save();
     }
 
     RedirectUtils::Redirect('SettingsIndividual.php');// to reflect the tooltip change, we have to refresh the page
@@ -412,10 +445,16 @@ $numberRow = 0;
             </div>
         </div><!-- end a card col-md-6 -->
     </div>
-</form>
+<br/>
+    <hr/>
+    <section class="content-header">
+        <h1><?= _("Specific settings") ?></h1>
+    </section>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
+
+        <!-- 2fa -->
         <div class="card card-primary">
             <div class="card-header  border-1">
                 <div class="card-title"><?= _("Two-factor authentication (2fa)") ?> </div>
@@ -459,10 +498,82 @@ $numberRow = 0;
                     class="btn btn-success Twofa-activation"><?= _("Begin Two Factor Authentication Enrollment") ?></button>
             </div>
         </div>
+        <!-- 2fa -->
     </div>
-    <div class="col-md-6" id="two-factor-results">
+    <div class="col-md-3" id="two-factor-results">
+    </div>
+
+    <div class="col-md-4">
+        <!-- Dashboard Plugin settings -->
+        <div class="card">
+            <div class="card-header">
+                <label class="card-title">
+                    <?= _("Visibilities of the dashboard plugins") ?>
+                </label>
+            </div>
+            <div class="card-body">
+                <?php
+                $allRights = SessionUser::getUser()->allSecuritiesBits();
+
+                $plugins = PluginQuery::create()
+                    ->filterByCategory('Dashboard', Criteria::EQUAL)
+                    ->orderByName()
+                    ->find();
+                foreach ($plugins as $plugin) {
+                    $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
+                    $securities = $plugin->getSecurities();
+
+                    if (($securities & $allRights) == 0) continue;
+
+                    $visible = 0;
+                    $place = 'top';
+                    if ( !is_null($role) ) {
+                        $visible = $role->getDashboardVisible();
+                        $place = $role->getDashboardOrientation();
+                    }
+                    ?>
+                    <div class="row">
+                        <div class="col-md-7">&bullet;
+                            <?= $plugin->getName() ?>:
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-control form-control-sm"
+                                    name="new_plugin[<?= $plugin->getId() ?>]">
+                                <option value="0" <?= ($visible == false)?'SELECTED':'' ?>><?= _('No') ?>
+                                <option value="1" <?= ($visible == true)?'SELECTED':'' ?>><?= _('Yes') ?>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-control form-control-sm"
+                                    name="new_plugin_place[<?= $plugin->getId() ?>]">
+                                <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
+                                <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
+                                <option value="right" <?= ($place == 'right')?'SELECTED':'' ?>><?= _('Right') ?>
+                            </select>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <input type=submit class='btn btn-default' name=cancel value="<?= _('Cancel') ?>">
+                    </div>
+                    <div class="col-md-4">
+                        <input type=submit class='btn btn-primary' name=save value="<?= _('Save Settings') ?>">
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Dashboard Plugin settings -->
     </div>
 </div>
+</form>
+
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     var mode = "<?= Theme::getCurrentSideBarMainColor() ?>";

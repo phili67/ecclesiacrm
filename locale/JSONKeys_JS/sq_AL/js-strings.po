@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
+"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,6 +321,29 @@ msgstr "Ke zgjedhur dy herë të njëjtin emër"
 msgid "for this field. Chose another one."
 msgstr "për këtë fushë. Zgjidh një tjetër."
 
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Dorëzimi."
+
+#, fuzzy
+msgid "Moved!"
+msgstr "Lëviz."
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "Largoni të gjitha"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Do ta fshish fushatën tënde! A je i sigurt?"
+
+msgid "Confirm"
+msgstr "Konfirmo."
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "Largoje nga Karti"
+
 msgid "Please confirm deletion of this document"
 msgstr "Ju lutem konfirmoni fshirjen e këtij dokumenti"
 
@@ -473,9 +496,6 @@ msgstr "Forma e gabuar e adresës."
 
 msgid "Set Calendar Name"
 msgstr "vendose emrin kalendar"
-
-msgid "Confirm"
-msgstr "Konfirmo."
 
 msgid "Set Resource Name"
 msgstr "vendosni emrin e resurseve"
