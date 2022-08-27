@@ -98,6 +98,76 @@ if (!$load_Elements) {
 
     ?>
 
+    <!-- GDPR -->
+    <?php
+    if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR')) {
+        if ($numPersons + $numFamilies > 0) {
+            ?>
+            <div class="alert bg-gradient-gray-dark alert-dismissible " id="Menu_GDRP">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4 class="alert-heading"><i class="fa fa-exclamation-triangle"></i> <?= _("GDPR") ?> (<?= _("message for the DPO") ?>)</h4>
+                <div class="row">
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-5">
+                        <?php
+                        if ($numPersons) {
+                            ?>
+                            <?php
+                            if ($numPersons == 1) {
+                                ?>
+                                <?= $numPersons . " " . _("person must be deleted from the CRM.") ?>
+                            <?php } else { ?>
+                                <?= $numPersons . " " . _("persons must be deleted from the CRM.") ?>
+                                <?php
+                            }
+                            ?>
+                            <br>
+                            <b><?= _("Click the") ?> <a
+                                    href="<?= $sRootPath ?>/v2/personlist/GDRP"><?= _("link") ?></a> <?= _("to solve the problem.") ?>
+                            </b>
+                            <?php
+                        } else {
+                            ?>
+                            <?= _("No Person to remove in the CRM.") ?>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="col-sm-5">
+                        <?php
+                        if ($numFamilies) {
+                            ?>
+                            <?php
+                            if ($numFamilies == 1) {
+                                ?>
+                                <?= $numFamilies . " " . _("family must be deleted from the CRM.") ?>
+                            <?php } else { ?>
+                                <?= $numFamilies . " " . _("families must be deleted from the CRM.") ?>
+                                <?php
+                            }
+                            ?>
+                            <br>
+                            <b><?= _("Click the") ?> <a
+                                    href="<?= $sRootPath ?>/v2/familylist/GDRP"><?= _("link") ?></a> <?= _("to solve the problem.") ?>
+                            </b>
+                            <?php
+                        } else {
+                            ?>
+                            <?= _("No Family to remove in the CRM.") ?>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="col-sm-1">
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+    }
+    ?>
+
     <?php if ( SessionUser::getUser()->isMainDashboardEnabled() ) { ?>
     <!-- Small boxes (Stat box) -->
     <div class="row">
