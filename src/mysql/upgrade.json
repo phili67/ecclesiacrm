@@ -775,7 +775,13 @@
         ],
         "scripts": [
             "/mysql/upgrade/8.0.0-upgrade.sql",
-            "/Plugins/MeetingJitsi/mysql/Install.sql"
+            "/Plugins/MeetingJitsi/mysql/Install.sql",
+            "/Plugins/BirthdayAnniversaryDashboard/mysql/Install.sql",
+            "/Plugins/BirthdayAnniversaryDashboard/mysql/Install.sql",
+            "/Plugins/FamilyInfosDashboard/mysql/Install.sql",
+            "/Plugins/FinanceDashboard/mysql/Install.sql",
+            "/Plugins/PastoralCareDashboard/mysql/Install.sql",
+            "/Plugins/PersonInfosDashboard/mysql/Install.sql"
         ],
         "dbVersion": "8.0.0"
     }
