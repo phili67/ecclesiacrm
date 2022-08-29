@@ -13,6 +13,7 @@ class SystemConfig
      */
     private static $configs;
     private static $categories;
+    private static $installation_setup;
 
     private static function getSupportedLocales()
     {
@@ -28,10 +29,13 @@ class SystemConfig
 
     public static function getFamilyRoleChoices()
     {
-        $familyRoles = ListOptionQuery::create()->getFamilyRoles();
         $roles = [];
-        foreach ($familyRoles as $familyRole) {
-            $roles[] = $familyRole->getOptionName().":".$familyRole->getOptionId();
+        if (self::$installation_setup == null) {
+            $familyRoles = ListOptionQuery::create()->getFamilyRoles();
+
+            foreach ($familyRoles as $familyRole) {
+                $roles[] = $familyRole->getOptionName() . ":" . $familyRole->getOptionId();
+            }
         }
         return ["Choices" => $roles];
     }
@@ -305,8 +309,9 @@ class SystemConfig
     /**
      * @param Config[] $configs
      */
-    public static function init($configs = null)
+    public static function init($configs = null, $installation_setup = null)
     {
+        self::$installation_setup = $installation_setup;
         self::$configs = self::buildConfigs();
         self::$categories = self::buildCategories();
         if (!empty($configs)) {

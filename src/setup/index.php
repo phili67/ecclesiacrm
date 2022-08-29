@@ -17,7 +17,7 @@ if (file_exists('../Include/Config.php')) {
 
     $rootPath = str_replace('/setup/index.php', '', $_SERVER['SCRIPT_NAME']);
     SystemURLs::init($rootPath, '', dirname(__FILE__)."/../");
-    SystemConfig::init();
+    SystemConfig::init(null, 1);
 
     // Instantiate the app
     $container = new Container();

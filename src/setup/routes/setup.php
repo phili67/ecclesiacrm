@@ -107,9 +107,9 @@ $app->group('/', function (RouteCollectorProxy $group) {
 
         SQLUtils::sqlImport($filename, $pdo);
 
+        // now we install the version
         $logger->info("Step3 : Version\n");
 
-        // now we install the version
         $sql = "INSERT INTO `version_ver` (`ver_version`, `ver_update_start`, `ver_update_end`) VALUES ('".$version."', '".$date."', '".$date."');";
 
         $logger->info("Step4 : configuration\n". $sql);
@@ -159,6 +159,36 @@ $app->group('/', function (RouteCollectorProxy $group) {
         //if (file_exists($filename)) {
         SQLUtils::sqlImport($filename, $pdo);
         //}
+
+
+        // dashboard plugins
+        // we install the language
+        $logger->info("Step6 : Dashboard plugins\n sql : ". $sql);
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/BirthdayAnniversaryDashboard/mysql/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+
+        SQLUtils::sqlImport($filename, $pdo);
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/FamilyInfosDashboard/mysql/Install.sql';
+
+        $logger->info("filename sql : \n".  $filename);
+        SQLUtils::sqlImport($filename, $pdo);
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/FinanceDashboard/mysql/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+
+        SQLUtils::sqlImport($filename, $pdo);
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/PastoralCareDashboard/mysql/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+
+        SQLUtils::sqlImport($filename, $pdo);
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/PersonInfosDashboard/mysql/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+
+        SQLUtils::sqlImport($filename, $pdo);
 
         $logger->info("Setup : End");
 
