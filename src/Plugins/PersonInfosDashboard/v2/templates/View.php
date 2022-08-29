@@ -70,6 +70,7 @@ $plugin = PluginQuery::create()
                     <tbody></tbody>
                 </table>
             </div>
+        </div>
     </div>
     <!-- /.card -->
 </div>
