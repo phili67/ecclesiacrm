@@ -1144,6 +1144,8 @@ class User extends BaseUser
             $bits |= SecurityOptions::bShowMenuQuery;
         }
 
+        $bits |= SecurityOptions::bDashBoardUser;
+
         return $bits;
     }
 
@@ -1196,6 +1198,8 @@ class User extends BaseUser
                     return $this->isEDriveEnabled();
                 case 262144:// bit 18
                     return $this->isShowMenuQueryEnabled();
+                case 1073741824:// ever true
+                    return true;
             }
             return true;
         }
