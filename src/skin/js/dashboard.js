@@ -84,4 +84,21 @@ $(document).ready(function () {
             }
         });*/
     });
+
+    /*
+    * Add remove events to boxes
+    */
+    $("[data-card-widget='collapse']").click(function() {
+        //Find the box parent
+        var box = $(this).parents(".card").first();
+        //Find the body and the footer
+        var name = box.data("name");
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'plugins/collapseFromDashboard',
+            data: JSON.stringify({"name": name})
+        },function (data) {
+        });
+    });
 });

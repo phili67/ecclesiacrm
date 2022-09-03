@@ -62,7 +62,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
 
     ?>
 
-    <div class="card <?= $plugin->getPlgnColor() ?> <?= $pastoralServiceStats['PastoralcareAlertType'] ?> <?= $plugin->getName() ?>" style="position: relative; left: 0px; top: 0px;" data-name="<?= $plugin->getName() ?>">
+    <div class="card <?= $plugin->getPlgnColor() ?> <?= $pastoralServiceStats['PastoralcareAlertType'] ?> <?= $plugin->getName() ?> <?= $Card_collapsed ?>" style="position: relative; left: 0px; top: 0px;" data-name="<?= $plugin->getName() ?>">
         <div class="card-header border-0 ui-sortable-handle">
             <h5 class="card-title"><i class="fas fa-heartbeat"></i> <?= dgettext("messages-PastoralCareDashboard","Pastoral Care") ?></h5>
             <div class="card-tools">
@@ -70,11 +70,11 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                     <i class="fas fa-times"></i>
                 </button>
                 <button type="button" class="btn btn-danger btn-sm" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
+                    <i class="fas <?= $Card_collapsed_button?>"></i>
                 </button>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body"  style="<?= $Card_body ?>">
 
             <div class="row">
                 <div class="col-md-7">

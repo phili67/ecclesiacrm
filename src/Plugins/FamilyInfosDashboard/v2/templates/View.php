@@ -11,7 +11,7 @@ $plugin = PluginQuery::create()
 
 ?>
 
-<div class="card card-gray card-tabs <?= $plugin->getName() ?>" data-name="<?= $plugin->getName() ?>">
+<div class="card card-gray card-tabs <?= $plugin->getName() ?> <?= $Card_collapsed ?>" data-name="<?= $plugin->getName() ?>">
     <div class="card-header p-0 pt-1 border-bottom-0">
         <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
             <li class="nav-item">
@@ -38,11 +38,11 @@ $plugin = PluginQuery::create()
                 <i class="fas fa-times"></i>
             </button>
             <button type="button" class="btn btn-default btn-sm" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
+                <i class="fas <?= $Card_collapsed_button?>"></i>
             </button>
         </div>
     </div>
-    <div class="card-body">
+    <div class="card-body" style="<?= $Card_body ?>">
         <div class="tab-content" id="custom-tabs-two-tabContent">
             <div class="tab-pane fade  active show" id="custom-tabs-latest-families" role="tabpanel"
                  aria-labelledby="custom-tabs-latest-families-tab">

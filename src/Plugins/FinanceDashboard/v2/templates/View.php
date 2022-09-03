@@ -27,7 +27,7 @@ if (SessionUser::getUser()->isFinanceEnabled()) {
 if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If the user has Finance permissions, then let's display the deposit line chart
     ?>
 
-<div class="card <?= $plugin->getName() ?>" data-name="<?= $plugin->getName() ?>">
+<div class="card <?= $plugin->getName() ?> <?= $Card_collapsed ?>" data-name="<?= $plugin->getName() ?>">
     <div class="card-header  border-1">
             <h3 class="card-title">
                 <i class="fas fa-money-bill"
@@ -38,11 +38,11 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
                 <i class="fas fa-times"></i>
             </button>
             <button type="button" class="btn btn-default btn-sm" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
+                <i class="fas <?= $Card_collapsed_button?>"></i>
             </button>
         </div>
     </div><!-- /.box-header -->
-    <div class="card-body">
+    <div class="card-body"  style="<?= $Card_body ?>">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <canvas id="deposit-lineGraph" style="height:225px; width:100%"></canvas>

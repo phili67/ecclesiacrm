@@ -177,4 +177,33 @@ class PluginsController
 
         return $response->withJson(["status" => "failed"]);
     }
+
+    public function collapseFromDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $pluginPayload = (object)$request->getParsedBody();
+
+        if ( isset ($pluginPayload->name) ) {
+
+            $plugin = PluginQuery::create()->findOneByName($pluginPayload->name);
+
+            if ( !is_null($plugin)) {
+                $plgnRole = PluginUserRoleQuery::create()
+                    ->filterByPluginId($plugin->getId())
+                    ->findOneByUserId(SessionUser::getId());
+
+                if ($plgnRole->isCollapsed()) {
+                    $plgnRole->setCollapsed(false);
+                } else {
+                    $plgnRole->setCollapsed(true);
+                }
+
+                $plgnRole->save();
+            }
+
+            return $response->withJson(["status" => "success"]);
+        }
+
+        return $response->withJson(["status" => "failed"]);
+    }
+
+
 }

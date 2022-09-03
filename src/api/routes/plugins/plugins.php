@@ -12,6 +12,7 @@ $app->group('/plugins', function (RouteCollectorProxy $group) {
     $group->post('/add', PluginsController::class . ':add' );
     $group->post('/addDashboardPlaces', PluginsController::class . ':addDashboardPlaces' );
     $group->post('/removeFromDashboard', PluginsController::class . ':removeFromDashboard' );
+    $group->post('/collapseFromDashboard', PluginsController::class . ':collapseFromDashboard' );
 
 });
 
