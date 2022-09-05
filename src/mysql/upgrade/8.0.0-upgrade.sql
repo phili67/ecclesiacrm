@@ -114,7 +114,7 @@ CREATE TABLE `plugin_user_role` (
     `plgn_collapsed` BOOLEAN NOT NULL default 0 COMMENT 'the plugin is collapse on the dashboard by the default no',
     PRIMARY KEY  (`plgn_usr_rl_ID`),
     CONSTRAINT fk_plgn_usr_rl_user_id FOREIGN KEY (plgn_usr_rl_user_id) REFERENCES user_usr(usr_per_ID) ON DELETE CASCADE,
-    CONSTRAINT fkplgn_usr_rl_plugin_id FOREIGN KEY (plgn_usr_rl_plugin_id) REFERENCES plugin(plgn_ID) ON DELETE CASCADE
+    CONSTRAINT fk_plgn_usr_rl_plugin_id FOREIGN KEY (plgn_usr_rl_plugin_id) REFERENCES plugin(plgn_ID) ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
