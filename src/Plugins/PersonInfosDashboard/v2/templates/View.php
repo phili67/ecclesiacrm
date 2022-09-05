@@ -29,7 +29,7 @@ $plugin = PluginQuery::create()
                 </a>
             </li>
         </ul>
-        <div class="card-tools">
+        <div class="card-tools" style="margin-top:-33px">
             <button type="button" class="btn btn-default btn-sm" data-card-widget="remove">
                 <i class="fas fa-times"></i>
             </button>

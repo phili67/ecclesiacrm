@@ -16,10 +16,12 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Container\ContainerInterface;
 
+spl_autoload_register(function ($className) {
+    include_once str_replace(array('PluginStore', '\\'), array(__DIR__.'/../../core/model', '/'), $className) . '.php';
+});
+
 use PluginStore\PersonJitsiMeetingQuery;
 use PluginStore\PersonLastJitsiMeetingQuery;
-
-use PluginStore\PluginPrefJitsiMeeting;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
