@@ -1,4 +1,6 @@
 <?php
+
+
 use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\Map\PluginUserRoleTableMap;
 
