@@ -115,7 +115,7 @@ require_once __DIR__ . '/routes/plugins/plugins.php';
 $plugins = PluginQuery::create()->findByActiv(true);
 
 foreach ($plugins as $plugin) {
-    $path = __DIR__.'/../Plugins/'.$plugin->getName().'/v2/routes/v2route.php';
+    $path = __DIR__ . '/../Plugins/' .$plugin->getName().'/v2/routes/v2route.php';
     if (file_exists($path)) {
         require_once $path;
     }
