@@ -12,6 +12,10 @@
 
 use Slim\Routing\RouteCollectorProxy;
 
+spl_autoload_register(function ($className) {
+    include_once str_replace(array('Plugins\\VIEWControllers', '\\'), array(__DIR__.'/../../core/VIEWControllers', '/'), $className) . '.php';
+});
+
 use Plugins\VIEWControllers\VIEWMeetingController;
 
 $app->group('/meeting', function (RouteCollectorProxy $group) {
