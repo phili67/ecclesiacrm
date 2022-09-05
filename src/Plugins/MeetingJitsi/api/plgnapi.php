@@ -17,11 +17,6 @@
 // Routes
 use Slim\Routing\RouteCollectorProxy;
 
-// in practice you would require the composer loader if it was not already part of your framework or project
-spl_autoload_register(function ($className) {
-    include_once str_replace(array('Plugins\\APIControllers', '\\'), array(__DIR__.'/../core/APIControllers', '/'), $className) . '.php';
-});
-
 use Plugins\APIControllers\MeetingController;
 
 $app->group('/meeting', function (RouteCollectorProxy $group) {
