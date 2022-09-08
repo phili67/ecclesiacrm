@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
+"POT-Creation-Date: 2022-09-08T16:31:50.214Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -315,14 +315,6 @@ msgid "for this field. Chose another one."
 msgstr "สำหรับสนามนี้ เลือกอีกคนหนึ่ง"
 
 #, fuzzy
-msgid "Dashboard Item"
-msgstr "กระดาน"
-
-#, fuzzy
-msgid "Moved!"
-msgstr "ถอยไป"
-
-#, fuzzy
 msgid "Remove Plugin"
 msgstr "ลบทั้งหมด"
 
@@ -332,6 +324,10 @@ msgstr "คุณกำลังจะลบแคมเปญของคุณ
 
 msgid "Confirm"
 msgstr "ยืนยัน"
+
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "กระดาน"
 
 #, fuzzy
 msgid "Removed from your dashboard !"
@@ -2375,6 +2371,10 @@ msgstr "สลับกล้อง"
 
 msgid "Upload Image"
 msgstr "อัพโหลด ภาพยนตร์"
+
+#, fuzzy
+#~ msgid "Moved!"
+#~ msgstr "ถอยไป"
 
 #~ msgid "Problem"
 #~ msgstr "ปัญหา"

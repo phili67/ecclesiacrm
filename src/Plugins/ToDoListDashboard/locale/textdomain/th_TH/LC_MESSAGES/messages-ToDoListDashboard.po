@@ -1,0 +1,35 @@
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:28
+msgid "min(s)"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:30
+msgid "hour(s)"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:32
+msgid "day(s)"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:34
+msgid "month(s)"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:38
+msgid "To Do List"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:67
+msgid "Edit Name of Current To Do List"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:71
+msgid "Remove Current To Do List"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:75
+msgid "Add a To Do List"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:124
+msgid "Add item"
+msgstr ""

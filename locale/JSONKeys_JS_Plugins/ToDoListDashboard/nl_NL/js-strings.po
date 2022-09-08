@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08T16:43:45.198Z\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "List name"
+msgstr "Naam van de lijst"
+
+msgid "Create a list"
+msgstr "Maak een lijst"
+
+msgid "Edit list"
+msgstr "Lijst bewerken"
+
+msgid "You're about to delete your list?"
+msgstr "Je staat op het punt om je lijst te verwijderen?"
+
+msgid "This can't be undone."
+msgstr "Dit kan niet ongedaan gemaakt worden."
+
+msgid "Item name"
+msgstr "Naam van het item"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Create a list item"
+msgstr "Maak een lijst item"
+
+msgid "Edit list item"
+msgstr "Wijzig lijst item"
+
+msgid "Delete item?"
+msgstr "Item verwijderen?"
+
+msgid "You're about to delete an item."
+msgstr "Je staat op het punt om een item te verwijderen."

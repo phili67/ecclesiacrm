@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08T16:43:39.308Z\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "List name"
+msgstr "列表名称"
+
+msgid "Create a list"
+msgstr "创建一个列表"
+
+msgid "Edit list"
+msgstr "编辑列表"
+
+msgid "You're about to delete your list?"
+msgstr "你要删除你的名单？"
+
+msgid "This can't be undone."
+msgstr "这是不可能被撤销的。"
+
+msgid "Item name"
+msgstr "项目名称"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "Create a list item"
+msgstr "创建一个列表项"
+
+msgid "Edit list item"
+msgstr "编辑列表项"
+
+msgid "Delete item?"
+msgstr "删除项目？"
+
+msgid "You're about to delete an item."
+msgstr "你要删除一个项目。"

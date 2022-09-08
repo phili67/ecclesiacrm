@@ -45,7 +45,6 @@ $(document).ready(function () {
                 path: 'plugins/addDashboardPlaces',
                 data: JSON.stringify({"dashBoardItems":res})
             },function (data) {
-                window.CRM.DisplayAlert(i18next.t("Dashboard Item"), i18next.t("Moved!"));
             });
         }})
     $('.connectedSortable .card-header').css('cursor','move');

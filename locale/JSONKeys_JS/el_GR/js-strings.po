@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
+"POT-Creation-Date: 2022-09-08T16:31:50.214Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -325,14 +325,6 @@ msgid "for this field. Chose another one."
 msgstr "για αυτό το πεδίο. Επιλέξτε ένα άλλο."
 
 #, fuzzy
-msgid "Dashboard Item"
-msgstr "Ταμπλό"
-
-#, fuzzy
-msgid "Moved!"
-msgstr "Μετακίνηση"
-
-#, fuzzy
 msgid "Remove Plugin"
 msgstr "Αφαιρέστε όλα"
 
@@ -342,6 +334,10 @@ msgstr "Πρόκειται να διαγράψετε την καμπάνια σ�
 
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
+
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Ταμπλό"
 
 #, fuzzy
 msgid "Removed from your dashboard !"
@@ -2465,6 +2461,10 @@ msgstr "Αλλαγή κάμερας"
 
 msgid "Upload Image"
 msgstr "Ανέβασμα εικόνας"
+
+#, fuzzy
+#~ msgid "Moved!"
+#~ msgstr "Μετακίνηση"
 
 #~ msgid "Problem"
 #~ msgstr "Πρόβλημα"

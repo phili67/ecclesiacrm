@@ -1,0 +1,1 @@
+try {window.CRM.ToDoListDashboard_i18keys = {    "List name": "",    "Create a list": "",    "Edit list": "",    "You're about to delete your list?": "",    "This can't be undone.": "",    "Item name": "",    "Date": "",    "Create a list item": "",    "Edit list item": "",    "Delete item?": "",    "You're about to delete an item.": ""};} catch(e) {};

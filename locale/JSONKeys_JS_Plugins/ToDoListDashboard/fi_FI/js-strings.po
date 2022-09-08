@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08T16:43:47.297Z\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "List name"
+msgstr "Luettelon nimi"
+
+msgid "Create a list"
+msgstr "Luo lista"
+
+msgid "Edit list"
+msgstr "Muokkaa luetteloa"
+
+msgid "You're about to delete your list?"
+msgstr "Aiotko poistaa listasi?"
+
+msgid "This can't be undone."
+msgstr "Tätä ei voi perua."
+
+msgid "Item name"
+msgstr "Kohteen nimi"
+
+msgid "Date"
+msgstr "Päivämäärä"
+
+msgid "Create a list item"
+msgstr "Luo luettelon kohde"
+
+msgid "Edit list item"
+msgstr "Muokkaa luettelon kohdetta"
+
+msgid "Delete item?"
+msgstr "Poista kohde?"
+
+msgid "You're about to delete an item."
+msgstr "Olet poistamassa kohdetta."
