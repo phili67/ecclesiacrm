@@ -95,15 +95,19 @@ if (isset($_POST['save'])) {
         next($type);
     }
 
-    $plugins = PluginQuery::create()
-        ->filterByCategory('Dashboard')
-        ->find();
-    foreach ($plugins as $plugin) {
-        $new_plugin = $_POST['new_plugin'];
-        $new_plugin_place = $_POST['new_plugin_place'];
+    $new_plugin = $_POST['new_plugin'];
+    $new_plugin_place = $_POST['new_plugin_place'];
 
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard',Criteria::EQUAL)
+        ->orderByName()
+        ->find();
+
+    foreach ($plugins as $plugin) {
         $sel_role = $new_plugin[$plugin->getId()];
         $position = $new_plugin_place[$plugin->getId()];
+
+        if ( is_null($position) ) continue;
 
         $role = PluginUserRoleQuery::create()
             ->filterByUserId($iPersonID)
@@ -519,8 +523,12 @@ $numberRow = 0;
                     ->filterByCategory('Dashboard', Criteria::EQUAL)
                     ->orderByName()
                     ->find();
+
                 foreach ($plugins as $plugin) {
-                    $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
+                    $role = PluginUserRoleQuery::create()
+                        ->filterByUserId($iPersonID)
+                        ->findOneByPluginId($plugin->getId());
+
                     $securities = $plugin->getSecurities();
 
                     if (($securities & $allRights) == 0) continue;
