@@ -25,13 +25,13 @@ class ToDoListDashboardService
         $period = '';
 
         if ($time < 60) {
-            $period = $minutes . ' ' . dgettext("messages-ToDoListDashboard","mins");
+            $period = $minutes . ' ' . dgettext("messages-ToDoListDashboard","min(s)");
         } else if ($time < 60*24) {
-            $period = $hours . ' ' . dgettext("messages-ToDoListDashboard","hours");
+            $period = $hours . ' ' . dgettext("messages-ToDoListDashboard","hour(s)");
         } else if ($time < 60*24*30) {
-            $period = $days . ' ' . dgettext("messages-ToDoListDashboard","days");
+            $period = $days . ' ' . dgettext("messages-ToDoListDashboard","day(s)");
         } else {
-            $period = (int)($days/30) . ' ' . dgettext("messages-ToDoListDashboard","months");
+            $period = (int)($days/30) . ' ' . dgettext("messages-ToDoListDashboard","month(s)");
         }
 
         $period = $after. ' ' .$period;
