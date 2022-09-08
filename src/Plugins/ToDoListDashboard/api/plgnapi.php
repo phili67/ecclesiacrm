@@ -26,10 +26,19 @@ use Plugins\APIControllers\ToDoListDashboardController;
 
 $app->group('/todolistdashboard', function (RouteCollectorProxy $group) {
 
-    $group->post('/addList', ToDoListDashboardController::class . ':addList');
-    $group->post('/changeList', ToDoListDashboardController::class . ':changeList');
+    $group->post('/addList', ToDoListDashboardController::class . ':addList' );
+    $group->delete('/removeList', ToDoListDashboardController::class . ':removeList' );
+    $group->post('/modifyList', ToDoListDashboardController::class . ':modifyList' );
+    $group->post('/listInfo', ToDoListDashboardController::class . ':listInfo' );
 
-    $group->post('/addListItem', ToDoListDashboardController::class . ':addListItem');
-    $group->post('/checkItem', ToDoListDashboardController::class . ':checkItem');
+    $group->post('/changeList', ToDoListDashboardController::class . ':changeList' );
+
+    $group->post('/addListItem', ToDoListDashboardController::class . ':addListItem' );
+    $group->delete('/deleteListItem', ToDoListDashboardController::class . ':deleteListItem' );
+    $group->post('/checkListItem', ToDoListDashboardController::class . ':checkListItem' );
+    $group->post('/changeListItemsOrder', ToDoListDashboardController::class . ':changeListItemsOrder' );
+
+    $group->post('/ListItemInfo', ToDoListDashboardController::class . ':ListItemInfo' );
+    $group->post('/modifyListItem', ToDoListDashboardController::class . ':modifyListItem' );
 
 });
