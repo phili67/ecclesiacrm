@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
+"POT-Creation-Date: 2022-09-08T16:31:50.214Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,14 +321,6 @@ msgid "for this field. Chose another one."
 msgstr "tätä kenttää varten. Valitse toinen."
 
 #, fuzzy
-msgid "Dashboard Item"
-msgstr "Kojelauta"
-
-#, fuzzy
-msgid "Moved!"
-msgstr "Siirrä"
-
-#, fuzzy
 msgid "Remove Plugin"
 msgstr "Poista kaikki"
 
@@ -338,6 +330,10 @@ msgstr "Olet poistamassa kampanjaasi! Oletko varma?"
 
 msgid "Confirm"
 msgstr "Vahvista"
+
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Kojelauta"
 
 #, fuzzy
 msgid "Removed from your dashboard !"
@@ -2437,6 +2433,10 @@ msgstr "Vaihda kamera"
 
 msgid "Upload Image"
 msgstr "Lataa kuva"
+
+#, fuzzy
+#~ msgid "Moved!"
+#~ msgstr "Siirrä"
 
 #~ msgid "Problem"
 #~ msgstr "Ongelma"

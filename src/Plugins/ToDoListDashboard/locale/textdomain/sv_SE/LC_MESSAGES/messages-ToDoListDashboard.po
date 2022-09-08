@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08 16:50+0000\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:28
+msgid "min(s)"
+msgstr "min(s)"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:30
+msgid "hour(s)"
+msgstr "timme(n)"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:32
+msgid "day(s)"
+msgstr "dag(ar)"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:34
+msgid "month(s)"
+msgstr "månad(er)"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:38
+msgid "To Do List"
+msgstr "Att göra-lista"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:67
+msgid "Edit Name of Current To Do List"
+msgstr "Redigera namnet på den aktuella listan med uppgifter"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:71
+msgid "Remove Current To Do List"
+msgstr "Ta bort den aktuella listan över saker att göra"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:75
+msgid "Add a To Do List"
+msgstr "Lägg till en lista över saker att göra"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:124
+msgid "Add item"
+msgstr "Lägg till objekt"

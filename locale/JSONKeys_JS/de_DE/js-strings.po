@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
+"POT-Creation-Date: 2022-09-08T16:31:50.214Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -327,14 +327,6 @@ msgid "for this field. Chose another one."
 msgstr "für dieses Feld. Wählen Sie ein anderes."
 
 #, fuzzy
-msgid "Dashboard Item"
-msgstr "Dashboard"
-
-#, fuzzy
-msgid "Moved!"
-msgstr "Verschieben"
-
-#, fuzzy
 msgid "Remove Plugin"
 msgstr "Alle entfernen"
 
@@ -344,6 +336,10 @@ msgstr "Sie sind dabei, Ihre Kampagne zu löschen! Sind Sie sicher?"
 
 msgid "Confirm"
 msgstr "Bestätigen Sie"
+
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Dashboard"
 
 #, fuzzy
 msgid "Removed from your dashboard !"
@@ -2473,6 +2469,10 @@ msgstr "Kamera wechseln"
 
 msgid "Upload Image"
 msgstr "Bild hochladen"
+
+#, fuzzy
+#~ msgid "Moved!"
+#~ msgstr "Verschieben"
 
 #~ msgid "Problem"
 #~ msgstr "Problem"

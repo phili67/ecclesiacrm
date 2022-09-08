@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08T16:44:01.162Z\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "List name"
+msgstr "Névjegyzék neve"
+
+msgid "Create a list"
+msgstr "Létrehoz egy listát"
+
+msgid "Edit list"
+msgstr "Lista szerkesztése"
+
+msgid "You're about to delete your list?"
+msgstr "Törölni készülsz a listádat?"
+
+msgid "This can't be undone."
+msgstr "Ezt nem lehet visszacsinálni."
+
+msgid "Item name"
+msgstr "Tétel neve"
+
+msgid "Date"
+msgstr "Dátum"
+
+msgid "Create a list item"
+msgstr "Listaelem létrehozása"
+
+msgid "Edit list item"
+msgstr "Listaelem szerkesztése"
+
+msgid "Delete item?"
+msgstr "Elem törlése?"
+
+msgid "You're about to delete an item."
+msgstr "Egy elem törlésére készül."

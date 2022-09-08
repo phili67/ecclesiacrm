@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
+"POT-Creation-Date: 2022-09-08T16:31:50.214Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -315,14 +315,6 @@ msgid "for this field. Chose another one."
 msgstr "为这个领域。选择另一个。"
 
 #, fuzzy
-msgid "Dashboard Item"
-msgstr "仪表板"
-
-#, fuzzy
-msgid "Moved!"
-msgstr "移动"
-
-#, fuzzy
 msgid "Remove Plugin"
 msgstr "移除所有"
 
@@ -332,6 +324,10 @@ msgstr "你即将删除你的活动!你确定吗？"
 
 msgid "Confirm"
 msgstr "确认"
+
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "仪表板"
 
 #, fuzzy
 msgid "Removed from your dashboard !"
@@ -2371,6 +2367,10 @@ msgstr "开关摄像机"
 
 msgid "Upload Image"
 msgstr "上传图片"
+
+#, fuzzy
+#~ msgid "Moved!"
+#~ msgstr "移动"
 
 #~ msgid "Problem"
 #~ msgstr "问题"

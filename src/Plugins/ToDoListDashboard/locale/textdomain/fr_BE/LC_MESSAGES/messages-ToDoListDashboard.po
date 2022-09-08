@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08 16:49+0000\n"
+"Language: fr_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:28
+msgid "min(s)"
+msgstr "min(s)"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:30
+msgid "hour(s)"
+msgstr "heure(s)"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:32
+msgid "day(s)"
+msgstr "jour(s)"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:34
+msgid "month(s)"
+msgstr "mois(s)"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:38
+msgid "To Do List"
+msgstr "Liste des tâches à accomplir"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:67
+msgid "Edit Name of Current To Do List"
+msgstr "Modifier le nom de la liste de tâches actuelle"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:71
+msgid "Remove Current To Do List"
+msgstr "Supprimer la liste des tâches en cours"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:75
+msgid "Add a To Do List"
+msgstr "Ajouter une liste de choses à faire"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:124
+msgid "Add item"
+msgstr "Ajouter un item"

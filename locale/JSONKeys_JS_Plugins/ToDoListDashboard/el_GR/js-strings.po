@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08T16:43:57.234Z\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "List name"
+msgstr "Όνομα λίστας"
+
+msgid "Create a list"
+msgstr "Δημιουργήστε μια λίστα"
+
+msgid "Edit list"
+msgstr "Επεξεργασία λίστας"
+
+msgid "You're about to delete your list?"
+msgstr "Ετοιμάζεστε να διαγράψετε τη λίστα σας;"
+
+msgid "This can't be undone."
+msgstr "Αυτό δεν μπορεί να αναιρεθεί."
+
+msgid "Item name"
+msgstr "Όνομα στοιχείου"
+
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgid "Create a list item"
+msgstr "Δημιουργήστε ένα στοιχείο λίστας"
+
+msgid "Edit list item"
+msgstr "Επεξεργασία στοιχείου λίστας"
+
+msgid "Delete item?"
+msgstr "Διαγραφή αντικειμένου;"
+
+msgid "You're about to delete an item."
+msgstr "Πρόκειται να διαγράψετε ένα στοιχείο."

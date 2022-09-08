@@ -121,7 +121,7 @@ $defaultList = ToDoListDashboardQuery::create()
     </div>
 
     <div class="card-footer clearfix">
-        <button type="button" class="btn btn-primary float-right" id="add-to-do-list-item" <?= (is_null($defaultList) > 0 or (!is_null($items) and $items->count() == 8))?'disabled':'' ?>><i class="fas fa-plus"></i> Add item</button>
+        <button type="button" class="btn btn-primary float-right" id="add-to-do-list-item" <?= (is_null($defaultList) > 0 or (!is_null($items) and $items->count() == 8))?'disabled':'' ?>><i class="fas fa-plus"></i> <?= dgettext("messages-ToDoListDashboard","Add item") ?></button>
     </div>
 </div>
 
