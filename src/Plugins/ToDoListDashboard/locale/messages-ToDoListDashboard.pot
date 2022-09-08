@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-08 16:52+0000\n"
+"POT-Creation-Date: 2022-09-08 18:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:28
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:27
 msgid "min(s)"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:30
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:29
 msgid "hour(s)"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:32
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:31
 msgid "day(s)"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:34
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:33
+msgid "week(s)"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:35
 msgid "month(s)"
 msgstr ""
 
