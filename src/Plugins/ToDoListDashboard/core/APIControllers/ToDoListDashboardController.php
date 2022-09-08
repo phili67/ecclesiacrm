@@ -11,7 +11,6 @@
 
 namespace Plugins\APIControllers;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -372,8 +371,6 @@ class ToDoListDashboardController
             // now we reload all the datas
             $item = ToDoListDashboardItemQuery::create()
                 ->findOneById($input->ItemID);
-
-            LoggerUtils::getAppLogger()->info('id : '.$input->ItemId);
 
             $item->setName($input->Name);
             $item->setDateTime($input->DateTime);
