@@ -46,7 +46,7 @@ $defaultList = ToDoListDashboardQuery::create()
                     <i class="fas <?= $Card_collapsed_button?>"></i>
                 </button>
             </div>
-            <div class="float-right ">
+            <!--<div class="float-right ">
                 <ul class="pagination pagination-sm">
                     <li class="page-item"><a href="#" class="page-link">«</a></li>
                     <li class="page-item"><a href="#" class="page-link">1</a></li>
@@ -54,20 +54,25 @@ $defaultList = ToDoListDashboardQuery::create()
                     <li class="page-item"><a href="#" class="page-link">3</a></li>
                     <li class="page-item"><a href="#" class="page-link">»</a></li>
                 </ul>
-            </div>
-            <?php if ( $lists->count() > 0 ) { ?>
+            </div>-->
             <div class="float-right" style="margin-right:20px;margin-top: -5px">
-                <select class="form-control form-control-sm" id="select-to-do-list-dashboard">
+                <select class="form-control form-control-sm" id="select-to-do-list-dashboard" <?= ($lists->count() == 0?'hidden':'') ?>>
                     <?php foreach ($lists as $list) { ?>
                         <option value="<?= $list->getId() ?>" <?= ($list->isVisible()?'selected':'') ?>><?= $list->getName() ?></option>
                     <?php } ?>
                 </select>
             </div>
-            <?php
-                }
-            ?>
             <div class="float-right" style="margin-right:5px;margin-top: -6px">
-                <button type="button" class="btn btn-success float-right" id="Add-To-Do-List-Dashboard"><i class="fas fa-plus"></i> <?= dgettext("messages-ToDoListDashboard","Add List") ?></button>
+                <button type="button" class="btn btn-success float-right" id="edit-To-Do-List-Dashboard"
+                        data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= dgettext("messages-ToDoListDashboard","Edit Name of Current To Do List") ?>"><i class="fas fa-edit"></i></button>
+            </div>
+            <div class="float-right" style="margin-right:5px;margin-top: -6px">
+                <button type="button" class="btn btn-danger float-right" id="remove-To-Do-List-Dashboard"
+                        data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= dgettext("messages-ToDoListDashboard","Remove Current To Do List") ?>"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="float-right" style="margin-right:5px;margin-top: -6px">
+                <button type="button" class="btn btn-primary float-right" id="Add-To-Do-List-Dashboard"
+                        data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= dgettext("messages-ToDoListDashboard","Add a To Do List") ?>"><i class="fas fa-plus"></i></button>
             </div>
         </div>
     </div>
@@ -77,6 +82,7 @@ $defaultList = ToDoListDashboardQuery::create()
             <?php
                 if ( !is_null($defaultList) ) {
                     $items = ToDoListDashboardItemQuery::create()
+                        ->orderByPlace()
                         ->filterByList($defaultList->getId())
                         ->find();
 
@@ -86,7 +92,7 @@ $defaultList = ToDoListDashboardQuery::create()
 
                             $periodTime = ToDoListDashboardService::getColorPeriod($date);
                             ?>
-                            <li>
+                            <li data-id="<?= $item->getId() ?>">
                                 <span class="handle ui-sortable-handle">
                                 <i class="fas fa-ellipsis-v"></i>
                                 <i class="fas fa-ellipsis-v"></i>
@@ -99,11 +105,11 @@ $defaultList = ToDoListDashboardQuery::create()
 
                                 <span class="text"><?= $item->getName() ?></span>
 
-                                <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
+                                <small class="badge badge-<?= $periodTime['color'] ?>"><i class="far fa-clock" alt="toto"></i> <?= $periodTime['period'] ?></small>
 
                                 <div class="tools">
-                                    <i class="fas fa-edit"></i>
-                                    <i class="fas fa-trash"></i>
+                                    <i class="fas fa-edit edit-todoitemlist" data-id="<?= $item->getId() ?>"></i>
+                                    <i class="fas fa-trash remove-todoitemlist" data-id="<?= $item->getId() ?>"></i>
                                 </div>
                             </li>
                             <?php
@@ -115,7 +121,7 @@ $defaultList = ToDoListDashboardQuery::create()
     </div>
 
     <div class="card-footer clearfix">
-        <button type="button" class="btn btn-primary float-right" id="add-to-do-list-item"><i class="fas fa-plus"></i> Add item</button>
+        <button type="button" class="btn btn-primary float-right" id="add-to-do-list-item" <?= (is_null($defaultList) > 0 or (!is_null($items) and $items->count() == 8))?'disabled':'' ?>><i class="fas fa-plus"></i> Add item</button>
     </div>
 </div>
 
