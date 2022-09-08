@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 19:07+0000\n"
+"POT-Creation-Date: 2022-09-08 16:32+0000\n"
 "Language: th_TH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:50
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:52
 msgid "Meeting Dashboard"
 msgstr "เจอกับแดชบอร์ด"
 
-#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:96
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:98
 msgid "Meeting Settings"
 msgstr ""
 

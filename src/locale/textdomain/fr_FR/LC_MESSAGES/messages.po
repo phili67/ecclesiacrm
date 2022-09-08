@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-27 08:18+0000\n"
+"POT-Creation-Date: 2022-09-08 16:43+0000\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -339,8 +339,8 @@ msgstr "Enregistrer"
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:174
-#: SettingsIndividual.php:440 SettingsIndividual.php:563 TaxReport.php:53
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
+#: SettingsIndividual.php:444 SettingsIndividual.php:571 TaxReport.php:53
 #: UserEditor.php:1398 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -672,7 +672,7 @@ msgstr "Position de l'image"
 
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
-#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:550
+#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:558
 #: UserEditor.php:1359 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Gauche"
@@ -683,7 +683,7 @@ msgstr "Centrer"
 
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
-#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:551
+#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:559
 #: UserEditor.php:1360 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Droite"
@@ -1610,7 +1610,7 @@ msgstr "Titre de la page"
 msgid "Use Title Page"
 msgstr "Utiliser le Titre de la page"
 
-#: DirectoryReports.php:283 EcclesiaCRM/dto/SystemConfig.php:152
+#: DirectoryReports.php:283 EcclesiaCRM/dto/SystemConfig.php:156
 msgid "Church Name"
 msgstr "Nom Église"
 
@@ -2013,7 +2013,7 @@ msgstr "Ajouté au groupe"
 #: EcclesiaCRM/Service/CalendarService.php:263
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:543
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:551
 #: UserEditor.php:1352
 msgid "Yes"
 msgstr "Oui"
@@ -2025,7 +2025,7 @@ msgstr "Oui"
 #: EcclesiaCRM/Service/CalendarService.php:454
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:542
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:550
 #: UserEditor.php:1308 UserEditor.php:1351 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Non"
@@ -3475,81 +3475,81 @@ msgstr "Notification pour"
 msgid "Invalid Family"
 msgstr "Mauvaise famille"
 
-#: EcclesiaCRM/dto/SystemConfig.php:43
+#: EcclesiaCRM/dto/SystemConfig.php:47
 #: EcclesiaCRM/Service/CalendarService.php:760
 #: EcclesiaCRM/Service/CalendarService.php:1082
 msgid "NONE"
 msgstr "AUCUN(E)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:44
+#: EcclesiaCRM/dto/SystemConfig.php:48
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: EcclesiaCRM/dto/SystemConfig.php:45
+#: EcclesiaCRM/dto/SystemConfig.php:49
 msgid "INFO"
 msgstr "INFO"
 
-#: EcclesiaCRM/dto/SystemConfig.php:46
+#: EcclesiaCRM/dto/SystemConfig.php:50
 msgid "NOTICE"
 msgstr "NOTICE"
 
-#: EcclesiaCRM/dto/SystemConfig.php:47
+#: EcclesiaCRM/dto/SystemConfig.php:51
 msgid "WARNING"
 msgstr "ALERTE"
 
-#: EcclesiaCRM/dto/SystemConfig.php:48
+#: EcclesiaCRM/dto/SystemConfig.php:52
 msgid "ERROR"
 msgstr "ERREUR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:49
+#: EcclesiaCRM/dto/SystemConfig.php:53
 msgid "CRITICAL"
 msgstr "CRTIQUE"
 
-#: EcclesiaCRM/dto/SystemConfig.php:50
+#: EcclesiaCRM/dto/SystemConfig.php:54
 msgid "ALERT"
 msgstr "ALERTE"
 
-#: EcclesiaCRM/dto/SystemConfig.php:51
+#: EcclesiaCRM/dto/SystemConfig.php:55
 msgid "EMERGENCY"
 msgstr "URGENCE"
 
-#: EcclesiaCRM/dto/SystemConfig.php:60
+#: EcclesiaCRM/dto/SystemConfig.php:64
 msgid "Title FirstName MiddleName LastName"
 msgstr "Titre Prénom DeuxièmePrénom Nom"
 
-#: EcclesiaCRM/dto/SystemConfig.php:61
+#: EcclesiaCRM/dto/SystemConfig.php:65
 msgid "Title FirstName MiddleInitial. LastName"
 msgstr "Titre Prénom DeuxièmeInitiale. Nom"
 
-#: EcclesiaCRM/dto/SystemConfig.php:62
+#: EcclesiaCRM/dto/SystemConfig.php:66
 msgid "LastName, Title FirstName MiddleName"
 msgstr "Nom, Titre Prénom DeuxièmePrénom"
 
-#: EcclesiaCRM/dto/SystemConfig.php:63
+#: EcclesiaCRM/dto/SystemConfig.php:67
 msgid "LastName, Title FirstName MiddleInitial"
 msgstr "Nom, Titre Prénom Deuxième Initiale"
 
-#: EcclesiaCRM/dto/SystemConfig.php:64
+#: EcclesiaCRM/dto/SystemConfig.php:68
 msgid "FirstName MiddleName LastName"
 msgstr "Prénom DeuxièmePrénom Nom"
 
-#: EcclesiaCRM/dto/SystemConfig.php:65
+#: EcclesiaCRM/dto/SystemConfig.php:69
 msgid "Title FirstName LastName"
 msgstr "Titre Prénom Nom"
 
-#: EcclesiaCRM/dto/SystemConfig.php:66
+#: EcclesiaCRM/dto/SystemConfig.php:70
 msgid "LastName, Title FirstName"
 msgstr "Nom , Titre Prénom"
 
-#: EcclesiaCRM/dto/SystemConfig.php:75
+#: EcclesiaCRM/dto/SystemConfig.php:79
 msgid "Address city state zip"
 msgstr "Adresse ville région code postal"
 
-#: EcclesiaCRM/dto/SystemConfig.php:76
+#: EcclesiaCRM/dto/SystemConfig.php:80
 msgid "Address zip city state"
 msgstr "Adresse code postal ville région"
 
-#: EcclesiaCRM/dto/SystemConfig.php:84
+#: EcclesiaCRM/dto/SystemConfig.php:88
 msgid ""
 "Event Log severity to write, used by ORM and App Logs. sLogLevel >= 300 : "
 "ORM is set in debug mode."
@@ -3557,38 +3557,38 @@ msgstr ""
 "Écrire la gravité des événements Log, utilisé par ORM et App Logs. sLogLevel "
 ">= 300 : ORM est en mode debogage."
 
-#: EcclesiaCRM/dto/SystemConfig.php:85
+#: EcclesiaCRM/dto/SystemConfig.php:89
 msgid "Include only these classifications in the directory, comma seperated"
 msgstr ""
 "Inclure uniquement ces classifications dans l'annuaire, séparées par une "
 "virgule"
 
-#: EcclesiaCRM/dto/SystemConfig.php:86
+#: EcclesiaCRM/dto/SystemConfig.php:90
 msgid "These are the family role numbers designated as head of house"
 msgstr "Voici les numéros des rôles familiaux attribués au chef de famille"
 
-#: EcclesiaCRM/dto/SystemConfig.php:87
+#: EcclesiaCRM/dto/SystemConfig.php:91
 msgid "These are the family role numbers designated as spouse"
 msgstr "Voici les numéros des rôles familiaux attribués aux conjoints"
 
-#: EcclesiaCRM/dto/SystemConfig.php:88
+#: EcclesiaCRM/dto/SystemConfig.php:92
 msgid "These are the family role numbers designated as child"
 msgstr "Voici les numéros des rôles familiaux attribués aux enfants"
 
-#: EcclesiaCRM/dto/SystemConfig.php:89
+#: EcclesiaCRM/dto/SystemConfig.php:93
 msgid ""
 "Session timeout length in seconds. Set to zero to disable session timeouts."
 msgstr ""
 "Durée du dépassement de délai d'une session en secondes. Mettre à zéro pour "
 "désactiver le dépassement de délai."
 
-#: EcclesiaCRM/dto/SystemConfig.php:90
+#: EcclesiaCRM/dto/SystemConfig.php:94
 msgid "Queries for which user must have finance permissions to use:"
 msgstr ""
 "Requêtes pour lesquelles l'utilisateur doit avoir des permissions de finance "
 "pour utiliser:"
 
-#: EcclesiaCRM/dto/SystemConfig.php:91
+#: EcclesiaCRM/dto/SystemConfig.php:95
 msgid ""
 "Should only administrators have access to the CSV export system and "
 "directory report?"
@@ -3596,11 +3596,11 @@ msgstr ""
 "Est-ce que les administrateurs sont les seuls à voir accès au système "
 "d'exportation au format CSV et au répertoire?"
 
-#: EcclesiaCRM/dto/SystemConfig.php:92
+#: EcclesiaCRM/dto/SystemConfig.php:96
 msgid "Minimum length a user may set their password to"
 msgstr "Longueur minimal d'un Mot de Passe utilisateur"
 
-#: EcclesiaCRM/dto/SystemConfig.php:93
+#: EcclesiaCRM/dto/SystemConfig.php:97
 msgid ""
 "Minimum amount that a new password must differ from the old one (# of "
 "characters changed). Set to zero to disable this feature"
@@ -3609,12 +3609,12 @@ msgstr ""
 "différent de l'ancien (# nombre de caractères modifié). Fixer à zéro pour "
 "désactiver cette fonction"
 
-#: EcclesiaCRM/dto/SystemConfig.php:94
+#: EcclesiaCRM/dto/SystemConfig.php:98
 msgid "A comma-seperated list of disallowed (too obvious) passwords."
 msgstr ""
 "Une liste de mot de passe rejeté (trop évident), séparé par une virugle."
 
-#: EcclesiaCRM/dto/SystemConfig.php:95
+#: EcclesiaCRM/dto/SystemConfig.php:99
 msgid ""
 "Maximum number of failed logins to allow before a user account is locked.. "
 "Once the maximum has been reached, an administrator must re-enable the "
@@ -3627,47 +3627,47 @@ msgstr ""
 "protéger contre les attaques automatiques.\n"
 "Fixer à zéro pour désactiver cette fonctionnalité."
 
-#: EcclesiaCRM/dto/SystemConfig.php:96
+#: EcclesiaCRM/dto/SystemConfig.php:100
 msgid ""
 "PDF handling mode.. 1 = Save File dialog. 2 = Open in current browser window"
 msgstr ""
 "Mode de gestion PDF.. 1 = Enregistrer le dialogue du fichier. 2 = Ouvrir "
 "dans la fenêtre du navigateur."
 
-#: EcclesiaCRM/dto/SystemConfig.php:97
+#: EcclesiaCRM/dto/SystemConfig.php:101
 msgid "Default City"
 msgstr "Ville par défaut"
 
-#: EcclesiaCRM/dto/SystemConfig.php:98
+#: EcclesiaCRM/dto/SystemConfig.php:102
 msgid "Default State - Must be 2-letter abbreviation!"
 msgstr "Etat par défaut - Abréviation de 2 lettres !"
 
-#: EcclesiaCRM/dto/SystemConfig.php:100
+#: EcclesiaCRM/dto/SystemConfig.php:104
 msgid "Default account for receiving a copy of all emails"
 msgstr "Compte par défaut pour recevoir une copie de tous les emails."
 
-#: EcclesiaCRM/dto/SystemConfig.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:105
 msgid "SMTP Server timeout in sec"
 msgstr "Timeout en sec. du serveur SMTP"
 
-#: EcclesiaCRM/dto/SystemConfig.php:102
+#: EcclesiaCRM/dto/SystemConfig.php:106
 msgid "SMTP Server Address (mail.server.com:25)"
 msgstr "Adresse du serveur SMTP (mail.serveur.com:25)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:103
+#: EcclesiaCRM/dto/SystemConfig.php:107
 msgid "Does your SMTP server require auththentication (username/password)?"
 msgstr ""
 "Votre serveur SMTP requière-t-il une authentification (login/mot de passe)?"
 
-#: EcclesiaCRM/dto/SystemConfig.php:104
+#: EcclesiaCRM/dto/SystemConfig.php:108
 msgid "SMTP Username"
 msgstr "Identifiant SMTP"
 
-#: EcclesiaCRM/dto/SystemConfig.php:105
+#: EcclesiaCRM/dto/SystemConfig.php:109
 msgid "SMTP Password"
 msgstr "Mot de passe SMTP"
 
-#: EcclesiaCRM/dto/SystemConfig.php:106
+#: EcclesiaCRM/dto/SystemConfig.php:110
 msgid ""
 "Unavailable person info inherited from assigned family for display?. This "
 "option causes certain info from a person's assigned family record to be. "
@@ -3678,15 +3678,15 @@ msgstr ""
 "d'une famille.  SI les informations correspondantes n'ont PAS été "
 "renseignées pour cette personne. "
 
-#: EcclesiaCRM/dto/SystemConfig.php:107
+#: EcclesiaCRM/dto/SystemConfig.php:111
 msgid "gzip format export allowed"
 msgstr "export gzip autorisé"
 
-#: EcclesiaCRM/dto/SystemConfig.php:108
+#: EcclesiaCRM/dto/SystemConfig.php:112
 msgid "zip format export allowed"
 msgstr "export zip autorisé"
 
-#: EcclesiaCRM/dto/SystemConfig.php:109
+#: EcclesiaCRM/dto/SystemConfig.php:113
 msgid ""
 "By default GPG (GnuPG) a hybrid-encryption software program or Internal "
 "encryption software. You could avoid to use with the None choice."
@@ -3694,43 +3694,43 @@ msgstr ""
 "Par défaut GPG (GnuPG) un format de chiffrement ou Internal ne interne. Vous "
 "devriez éviter d'utiliser le choix None."
 
-#: EcclesiaCRM/dto/SystemConfig.php:110
+#: EcclesiaCRM/dto/SystemConfig.php:114
 msgid "Internationalization (I18n) support"
 msgstr "Internationalisation de l'aide (I18n)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:111
+#: EcclesiaCRM/dto/SystemConfig.php:115
 msgid "First month of the fiscal year"
 msgstr "Premier mois de l&#39;année fiscale"
 
-#: EcclesiaCRM/dto/SystemConfig.php:112
+#: EcclesiaCRM/dto/SystemConfig.php:116
 msgid "Link of the nominatim server : https://nominatim.openstreetmap.org"
 msgstr "Lien vers le serveur nominatim : https://nominatim.openstreetmap.org"
 
-#: EcclesiaCRM/dto/SystemConfig.php:113
+#: EcclesiaCRM/dto/SystemConfig.php:117
 msgid "Google map API requires a unique key"
 msgstr "Api Google requière une clé unique"
 
-#: EcclesiaCRM/dto/SystemConfig.php:114
+#: EcclesiaCRM/dto/SystemConfig.php:118
 msgid "Bing map API requires a unique key"
 msgstr "L'API Bing map nécessite une clé unique."
 
-#: EcclesiaCRM/dto/SystemConfig.php:115
+#: EcclesiaCRM/dto/SystemConfig.php:119
 msgid "Google/OpenStreetMap/BingMaps Maps Zoom"
 msgstr "Google/OpenStreetMap/BingMaps Zoom des cartes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:116
+#: EcclesiaCRM/dto/SystemConfig.php:120
 msgid "Google/OpenStreetMap/BingMaps Litle Maps Zoom"
 msgstr "Google/OpenStreetMap/BingMaps Zoom des Maps petites tailles"
 
-#: EcclesiaCRM/dto/SystemConfig.php:117
+#: EcclesiaCRM/dto/SystemConfig.php:121
 msgid "Latitude of the church, used to center the Google map"
 msgstr "Latitude de l&#39;église, utilisé pour centrer Google Map"
 
-#: EcclesiaCRM/dto/SystemConfig.php:118
+#: EcclesiaCRM/dto/SystemConfig.php:122
 msgid "Longitude of the church, used to center the Google map"
 msgstr "Longitude de l&#39;église, utilisé pour centrer Google Map"
 
-#: EcclesiaCRM/dto/SystemConfig.php:119
+#: EcclesiaCRM/dto/SystemConfig.php:123
 msgid ""
 "Set true to disable entering addresses in Person Editor.  Set false to "
 "enable entering addresses in Person Editor."
@@ -3739,7 +3739,7 @@ msgstr ""
 "Gestionnaire d'individu. Cocher Faux pour activer la saisie de l&#39;adresse "
 "dans la partie Gestionnaire d'individu."
 
-#: EcclesiaCRM/dto/SystemConfig.php:120
+#: EcclesiaCRM/dto/SystemConfig.php:124
 msgid ""
 "Set true to disable entering Friend Date in Person Editor.  Set false to "
 "enable entering Friend Date in Person Editor."
@@ -3748,7 +3748,7 @@ msgstr ""
 "d'individu. Cocher Faux pour activer la saisie de Date d'amitié dans le "
 "Gestionnaire d'individu."
 
-#: EcclesiaCRM/dto/SystemConfig.php:121
+#: EcclesiaCRM/dto/SystemConfig.php:125
 msgid ""
 "Set true to disable management of newsletter subscriptions in the Family "
 "Editor."
@@ -3756,7 +3756,7 @@ msgstr ""
 "Cocher Vrai pour désactiver la gestion des inscriptions à la Lettre de "
 "Nouvelles dans le gestionnaire de Famille."
 
-#: EcclesiaCRM/dto/SystemConfig.php:122
+#: EcclesiaCRM/dto/SystemConfig.php:126
 msgid ""
 "Set true to disable entering Wedding Date in Family Editor.  Set false to "
 "enable entering Wedding Date in Family Editor."
@@ -3765,7 +3765,7 @@ msgstr ""
 "Gestionnaire de famille. Cocher Faux pour activer la saisie de la date de "
 "mariage dans le Gestionnaire de famille."
 
-#: EcclesiaCRM/dto/SystemConfig.php:123
+#: EcclesiaCRM/dto/SystemConfig.php:127
 msgid ""
 "Set true to disable entering Latitude and Longitude in Family Editor.  Set "
 "false to enable entering Latitude and Longitude in Family Editor.  Lookups "
@@ -3776,11 +3776,11 @@ msgstr ""
 "de longitude dans le gestionnaire de famille. Les recherches sont toujours "
 "effectuées, juste pas affichées."
 
-#: EcclesiaCRM/dto/SystemConfig.php:124
+#: EcclesiaCRM/dto/SystemConfig.php:128
 msgid "Set true to enable use of donation envelopes"
 msgstr "Cocher Vrai pour activer l'utilisation d&#39;enveloppes de dons"
 
-#: EcclesiaCRM/dto/SystemConfig.php:125
+#: EcclesiaCRM/dto/SystemConfig.php:129
 msgid ""
 "Enter in HTML code which will be displayed as a header at the top of each "
 "page. Be sure to close your tags! Note: You must REFRESH YOUR BROWSER A "
@@ -3790,36 +3790,36 @@ msgstr ""
 "les tags soient bien fermés ! Note : vous devrez RAFRAÎCHIR LA PAGE UNE "
 "SECONDE FOIS pour voir le nouvel entête."
 
-#: EcclesiaCRM/dto/SystemConfig.php:126
+#: EcclesiaCRM/dto/SystemConfig.php:130
 msgid "Intelligent Search Technolgy, Ltd. CorrectAddress Username"
 msgstr "Intelligent Search Technolgy, Ltd. CorrectAddress Identifiant"
 
-#: EcclesiaCRM/dto/SystemConfig.php:127
+#: EcclesiaCRM/dto/SystemConfig.php:131
 msgid "Intelligent Search Technolgy, Ltd. CorrectAddress Password"
 msgstr "IIntelligent Search Technolgy, Ltd. CorrectAddress Mot de Passe"
 
-#: EcclesiaCRM/dto/SystemConfig.php:128
+#: EcclesiaCRM/dto/SystemConfig.php:132
 msgid "Select GeoCoder Provider"
 msgstr "Sélectionner Provider Geocoder"
 
-#: EcclesiaCRM/dto/SystemConfig.php:129
+#: EcclesiaCRM/dto/SystemConfig.php:133
 msgid "Number of checks for Deposit Slip Report"
 msgstr "Nombre de chèques pour le rapport du bordereau de dépôt"
 
-#: EcclesiaCRM/dto/SystemConfig.php:130
+#: EcclesiaCRM/dto/SystemConfig.php:134
 msgid "Set true to enable use of scanned checks"
 msgstr "Cocher Vrai pour activer l'utilisation des chèques scannés"
 
-#: EcclesiaCRM/dto/SystemConfig.php:131
+#: EcclesiaCRM/dto/SystemConfig.php:135
 msgid "Unit used to measure distance, miles or kilometers or li."
 msgstr "Unité utilisée pour les distances, miles ou km ou li."
 
-#: EcclesiaCRM/dto/SystemConfig.php:132
+#: EcclesiaCRM/dto/SystemConfig.php:136
 msgid "Time zone"
 msgstr "Fuseau horaire"
 
 # SystemConfig
-#: EcclesiaCRM/dto/SystemConfig.php:132
+#: EcclesiaCRM/dto/SystemConfig.php:136
 msgid ""
 "CalDAV protocol to work with php date_default_timezone_set function default "
 "settings : america/new_york"
@@ -3827,58 +3827,58 @@ msgstr ""
 "Le protocal CalDAV fonctionne avec la fonction php date_default_timezone_set "
 "qui nécessite ce réglage : Europe/Paris"
 
-#: EcclesiaCRM/dto/SystemConfig.php:133
+#: EcclesiaCRM/dto/SystemConfig.php:137
 msgid "Make user-entered zip/postcodes UPPERCASE when saving to the database."
 msgstr ""
 "Forcer la saisie du Code Postale en MAJUSCULE pour la sauvegarde dans la "
 "Base de Donnée."
 
-#: EcclesiaCRM/dto/SystemConfig.php:134
+#: EcclesiaCRM/dto/SystemConfig.php:138
 msgid "Enable non-deductible payments"
 msgstr "Activer les paiements non déductibles"
 
-#: EcclesiaCRM/dto/SystemConfig.php:135
+#: EcclesiaCRM/dto/SystemConfig.php:139
 msgid "Electronic Transaction Processor"
 msgstr "Processeur de Transaction Électronique"
 
-#: EcclesiaCRM/dto/SystemConfig.php:135
+#: EcclesiaCRM/dto/SystemConfig.php:139
 msgid "Vanco"
 msgstr "Vanco"
 
-#: EcclesiaCRM/dto/SystemConfig.php:135
+#: EcclesiaCRM/dto/SystemConfig.php:139
 msgid "Authorize.NET"
 msgstr "Authorize.NET"
 
-#: EcclesiaCRM/dto/SystemConfig.php:136
+#: EcclesiaCRM/dto/SystemConfig.php:140
 msgid "Set true to enable family self registration."
 msgstr "Cocher Vrai pour que la famille puisse s'enregistrer elle même"
 
-#: EcclesiaCRM/dto/SystemConfig.php:140
+#: EcclesiaCRM/dto/SystemConfig.php:144
 msgid ""
 "For defining the date, per default : m/d/Y, In French : d/m/Y for example."
 msgstr ""
 "Pour définir les dates, par défaut :  m/d/Y, en français : d/m/Y par exemple."
 
-#: EcclesiaCRM/dto/SystemConfig.php:141
+#: EcclesiaCRM/dto/SystemConfig.php:145
 msgid "This part is important for the time Line date and time"
 msgstr ""
 "Cette partie est importante pour la gestion du time line : mettre %H:%M pour "
 "le temps français"
 
-#: EcclesiaCRM/dto/SystemConfig.php:142
+#: EcclesiaCRM/dto/SystemConfig.php:146
 msgid "Set the time in English format or 24 hours."
 msgstr "Permet de fixer les heures sur 24 heures."
 
-#: EcclesiaCRM/dto/SystemConfig.php:143
+#: EcclesiaCRM/dto/SystemConfig.php:147
 msgid "For defining the date, per default : m/d, In French : d/m for example."
 msgstr ""
 "Pour définir les dates, par défaut :  m/d, en français : d/m par exemple."
 
-#: EcclesiaCRM/dto/SystemConfig.php:145
+#: EcclesiaCRM/dto/SystemConfig.php:149
 msgid "php format for the date, in English : j/m/y g:i a"
 msgstr "format php pour les dates en français : j/m/y G:i"
 
-#: EcclesiaCRM/dto/SystemConfig.php:147
+#: EcclesiaCRM/dto/SystemConfig.php:151
 msgid ""
 "For defining the date in Date-Picker, per default : yyyy-mm-dd, In French : "
 "dd/mm/yyyy for example."
@@ -3886,7 +3886,7 @@ msgstr ""
 "Pour définir les date dans Date-Picker-Bootstrap, par défaut :  yyyy-mm-dd, "
 "en français : dd/mm/yyyy par exemple."
 
-#: EcclesiaCRM/dto/SystemConfig.php:148
+#: EcclesiaCRM/dto/SystemConfig.php:152
 msgid ""
 "For defining the date in Date-Picker, per default : Y-m-d, In French : d/m/Y "
 "for example."
@@ -3894,7 +3894,7 @@ msgstr ""
 "Pour définir les date dans Date-Picker-Bootstrap, par défaut :  Y-m-d, en "
 "français : d/m/Y par exemple."
 
-#: EcclesiaCRM/dto/SystemConfig.php:149
+#: EcclesiaCRM/dto/SystemConfig.php:153
 msgid ""
 "EcclesiaCRM has been registered.  The EcclesiaCRM team uses registration "
 "information to track usage.  This information is kept confidential and never "
@@ -3907,43 +3907,43 @@ msgstr ""
 "ce champ est coché Vrai, l&#39;option d&#39;enregistrement dans le menu "
 "admin changera pour mettre à jour l&#39;enregistrement"
 
-#: EcclesiaCRM/dto/SystemConfig.php:150
+#: EcclesiaCRM/dto/SystemConfig.php:154
 msgid "Left Margin (1 = 1/100th inch)"
 msgstr "Marge de gauche (1=1/100 Inch)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:151
+#: EcclesiaCRM/dto/SystemConfig.php:155
 msgid "Line Thickness (1 = 1/100th inch"
 msgstr "Épaisseur de la ligne (1=1/100 Inch)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:153 FinancialReports.php:418
+#: EcclesiaCRM/dto/SystemConfig.php:157 FinancialReports.php:418
 msgid "Church Address"
 msgstr "Adresse de l&#39;église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:154
+#: EcclesiaCRM/dto/SystemConfig.php:158
 msgid "Church City"
 msgstr "Ville de l&#39;église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:155
+#: EcclesiaCRM/dto/SystemConfig.php:159
 msgid "Church State"
 msgstr "Région de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:156
+#: EcclesiaCRM/dto/SystemConfig.php:160
 msgid "Church Zip"
 msgstr "Code postal de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:157
+#: EcclesiaCRM/dto/SystemConfig.php:161
 msgid "Church Phone"
 msgstr "Téléphone de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:158
+#: EcclesiaCRM/dto/SystemConfig.php:162
 msgid "Church Email"
 msgstr "Email de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:159
+#: EcclesiaCRM/dto/SystemConfig.php:163
 msgid "Home area code of the church"
 msgstr "Indicatif de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:160 EcclesiaCRM/dto/SystemConfig.php:180
+#: EcclesiaCRM/dto/SystemConfig.php:164 EcclesiaCRM/dto/SystemConfig.php:184
 msgid ""
 "Verbage for top line of tax report. Dates will be appended to the end of "
 "this line."
@@ -3951,139 +3951,139 @@ msgstr ""
 "Verbiage pour première ligne de rapport de Taxes. Les dates seront ajoutées "
 "à la fin de cette ligne."
 
-#: EcclesiaCRM/dto/SystemConfig.php:161 EcclesiaCRM/dto/SystemConfig.php:162
-#: EcclesiaCRM/dto/SystemConfig.php:181 EcclesiaCRM/dto/SystemConfig.php:182
+#: EcclesiaCRM/dto/SystemConfig.php:165 EcclesiaCRM/dto/SystemConfig.php:166
+#: EcclesiaCRM/dto/SystemConfig.php:185 EcclesiaCRM/dto/SystemConfig.php:186
 msgid "Verbage for bottom line of tax report."
 msgstr "Verbiage pour la dernière ligne du rapport de Taxes."
 
-#: EcclesiaCRM/dto/SystemConfig.php:163
+#: EcclesiaCRM/dto/SystemConfig.php:167
 msgid "Tax Report signer"
 msgstr "Signataire du rapport de Taxes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:164
+#: EcclesiaCRM/dto/SystemConfig.php:168
 msgid "Verbage for the pledge reminder report"
 msgstr "Verbiage rapport de rappel de engagement"
 
-#: EcclesiaCRM/dto/SystemConfig.php:165
+#: EcclesiaCRM/dto/SystemConfig.php:169
 msgid "Pledge Reminder Signer"
 msgstr "Rappel de engagement du signataire"
 
-#: EcclesiaCRM/dto/SystemConfig.php:166
+#: EcclesiaCRM/dto/SystemConfig.php:170
 msgid "Verbage for the pledge reminder report - No record of a pledge"
 msgstr ""
 "Verbiage pour le rapport de rappel de engagement - Aucun rapport de "
 "engagement"
 
-#: EcclesiaCRM/dto/SystemConfig.php:167
+#: EcclesiaCRM/dto/SystemConfig.php:171
 msgid "Verbage for the pledge reminder report - No record of payments"
 msgstr ""
 "Verbiage pour le rapport de rappel de engagement - Aucun rapport de paiements"
 
-#: EcclesiaCRM/dto/SystemConfig.php:168 EcclesiaCRM/dto/SystemConfig.php:169
-#: EcclesiaCRM/dto/SystemConfig.php:170 EcclesiaCRM/dto/SystemConfig.php:171
 #: EcclesiaCRM/dto/SystemConfig.php:172 EcclesiaCRM/dto/SystemConfig.php:173
+#: EcclesiaCRM/dto/SystemConfig.php:174 EcclesiaCRM/dto/SystemConfig.php:175
+#: EcclesiaCRM/dto/SystemConfig.php:176 EcclesiaCRM/dto/SystemConfig.php:177
 msgid "Verbage for the database information confirmation and correction report"
 msgstr ""
 "Verbiage pour la confirmation des informations de la Base de Données et le "
 "rapport de corrections"
 
-#: EcclesiaCRM/dto/SystemConfig.php:174
+#: EcclesiaCRM/dto/SystemConfig.php:178
 msgid "Database information confirmation and correction report signer"
 msgstr ""
 "Confirmation des informations de la Base de Données et signataire du rapport "
 "de correction."
 
-#: EcclesiaCRM/dto/SystemConfig.php:175 EcclesiaCRM/dto/SystemConfig.php:176
+#: EcclesiaCRM/dto/SystemConfig.php:179 EcclesiaCRM/dto/SystemConfig.php:180
 msgid "Verbage for the pledge summary report"
 msgstr "Verbiage pour le rapport sommaire de contribution"
 
-#: EcclesiaCRM/dto/SystemConfig.php:177 EcclesiaCRM/dto/SystemConfig.php:178
+#: EcclesiaCRM/dto/SystemConfig.php:181 EcclesiaCRM/dto/SystemConfig.php:182
 msgid "Verbage for the directory report"
 msgstr "Verbiage pour le rapport annuaire"
 
-#: EcclesiaCRM/dto/SystemConfig.php:179
+#: EcclesiaCRM/dto/SystemConfig.php:183
 msgid "Church Letterhead path and file"
 msgstr "Chemin et fichier de l&#39;En-tête de lettre de l&#39;église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:183
+#: EcclesiaCRM/dto/SystemConfig.php:187
 msgid "Church Checking Account Number"
 msgstr "Vérification du numéro de compte de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:184
+#: EcclesiaCRM/dto/SystemConfig.php:188
 msgid "lookup user images on Gravatar when no local image is present"
 msgstr ""
 "Recherche d&#39;images de l&#39;utilisateur sur Gravatar quand aucune image "
 "locale n'est présente"
 
-#: EcclesiaCRM/dto/SystemConfig.php:185
+#: EcclesiaCRM/dto/SystemConfig.php:189
 msgid "Enable Remote Backups to Cloud Services"
 msgstr "Activer la sauvegarde sur un service Cloud"
 
-#: EcclesiaCRM/dto/SystemConfig.php:186
+#: EcclesiaCRM/dto/SystemConfig.php:190
 msgid "Cloud Service Type (Supported values: WebDAV, Local)"
 msgstr "Type de serviceCloud (Valeurs supportées : WebDAV, Local)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:186
+#: EcclesiaCRM/dto/SystemConfig.php:190
 msgid "WebDAV"
 msgstr "WebDAV"
 
-#: EcclesiaCRM/dto/SystemConfig.php:186
+#: EcclesiaCRM/dto/SystemConfig.php:190
 msgid "Local"
 msgstr "Local"
 
-#: EcclesiaCRM/dto/SystemConfig.php:187
+#: EcclesiaCRM/dto/SystemConfig.php:191
 msgid "Remote Backup Endpoint"
 msgstr "Sauvegarde externe"
 
-#: EcclesiaCRM/dto/SystemConfig.php:188
+#: EcclesiaCRM/dto/SystemConfig.php:192
 msgid "Remote Backup Username"
 msgstr "Sauvegarde externe des Identifiants"
 
-#: EcclesiaCRM/dto/SystemConfig.php:189
+#: EcclesiaCRM/dto/SystemConfig.php:193
 msgid "Remote Backup Password"
 msgstr "Sauvegarde externe des Mots de Passe"
 
-#: EcclesiaCRM/dto/SystemConfig.php:190
+#: EcclesiaCRM/dto/SystemConfig.php:194
 msgid "Interval in Hours for Automatic Remote Backups"
 msgstr "Intervalle en heure pour les sauvegardes automatique externe"
 
-#: EcclesiaCRM/dto/SystemConfig.php:191
+#: EcclesiaCRM/dto/SystemConfig.php:195
 msgid "Last Backup Timestamp"
 msgstr "Date de la dernière sauvegarde"
 
-#: EcclesiaCRM/dto/SystemConfig.php:192
+#: EcclesiaCRM/dto/SystemConfig.php:196
 msgid "QuickBooks Deposit Ticket Settings"
 msgstr "Réglages des tickets de dépôt QuickBooks"
 
-#: EcclesiaCRM/dto/SystemConfig.php:193
+#: EcclesiaCRM/dto/SystemConfig.php:197
 msgid "Enable Integrity Check"
 msgstr "Activer le vérification d'intégrité"
 
-#: EcclesiaCRM/dto/SystemConfig.php:194
+#: EcclesiaCRM/dto/SystemConfig.php:198
 msgid "Interval in Hours for Integrity Check"
 msgstr "Intervalle en heure pour la vérification d'intégrité"
 
-#: EcclesiaCRM/dto/SystemConfig.php:195
+#: EcclesiaCRM/dto/SystemConfig.php:199
 msgid "Last Integrity Check Timestamp"
 msgstr "Date de la dernière vérification d'intégrité"
 
-#: EcclesiaCRM/dto/SystemConfig.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:201
 msgid "Used to end a letter before Signer"
 msgstr "Utilisé pour mettre fin à une lettre avant Signataire"
 
-#: EcclesiaCRM/dto/SystemConfig.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:202
 msgid "Text before name in emails/reports"
 msgstr "Texte avant le nom dans les emails/rapports"
 
-#: EcclesiaCRM/dto/SystemConfig.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:203
 msgid "Google Analytics Tracking Code"
 msgstr "Code de suivi Google Analytics"
 
-#: EcclesiaCRM/dto/SystemConfig.php:201
+#: EcclesiaCRM/dto/SystemConfig.php:205
 msgid "Deposit ticket type.  QBDT - Quickbooks"
 msgstr "Type de tiquet de dépôt. QBDT - quickbooks"
 
-#: EcclesiaCRM/dto/SystemConfig.php:202
+#: EcclesiaCRM/dto/SystemConfig.php:206
 msgid ""
 "Set true to allow empty lastname in Person Editor.  Set false to validate "
 "last name and inherit from family when left empty."
@@ -4092,65 +4092,65 @@ msgstr ""
 "d'individu. Cocher Faux pour valider le nom de famille et de l’héritier de "
 "la famille quand le champ est vide."
 
-#: EcclesiaCRM/dto/SystemConfig.php:204
+#: EcclesiaCRM/dto/SystemConfig.php:208
 msgid "Display bill counts on deposit slip"
 msgstr "Afficher le nombre de Factures sur le bordereau de dépôt"
 
-#: EcclesiaCRM/dto/SystemConfig.php:205
+#: EcclesiaCRM/dto/SystemConfig.php:209
 msgid "EcclesiaCRM Cloud Access URL"
 msgstr "URL d'accès au Cloud de EcclesiaCRM"
 
-#: EcclesiaCRM/dto/SystemConfig.php:206
+#: EcclesiaCRM/dto/SystemConfig.php:210
 msgid "Nexmo SMS API Key"
 msgstr "Clé API Nexmo SMS"
 
-#: EcclesiaCRM/dto/SystemConfig.php:207
+#: EcclesiaCRM/dto/SystemConfig.php:211
 msgid "Nexmo SMS API Secret"
 msgstr "Code secret API Nexmo SMS"
 
-#: EcclesiaCRM/dto/SystemConfig.php:208
+#: EcclesiaCRM/dto/SystemConfig.php:212
 msgid "Nexmo SMS From Number"
 msgstr "Numéro du SMS Nexmo"
 
-#: EcclesiaCRM/dto/SystemConfig.php:209
+#: EcclesiaCRM/dto/SystemConfig.php:213
 msgid "OpenLP URL"
 msgstr "URL OpenLP"
 
-#: EcclesiaCRM/dto/SystemConfig.php:210
+#: EcclesiaCRM/dto/SystemConfig.php:214
 msgid "OpenLP Username"
 msgstr "Identifiant OpenLP"
 
-#: EcclesiaCRM/dto/SystemConfig.php:211
+#: EcclesiaCRM/dto/SystemConfig.php:215
 msgid "OpenLP Password"
 msgstr "Mot de passe OpenLP"
 
-#: EcclesiaCRM/dto/SystemConfig.php:212
+#: EcclesiaCRM/dto/SystemConfig.php:216
 msgid "KioskVisibilityTimestamp"
 msgstr "KioskVisibilityTimestamp"
 
-#: EcclesiaCRM/dto/SystemConfig.php:213
+#: EcclesiaCRM/dto/SystemConfig.php:217
 msgid "Show/Hide Lost Password Link on the login screen"
 msgstr ""
 "Afficher/Masquer le lien Mot de Passe Perdu sur fenêtre d'identification"
 
-#: EcclesiaCRM/dto/SystemConfig.php:214
+#: EcclesiaCRM/dto/SystemConfig.php:218
 msgid "Your Church's Website"
 msgstr "Votre site internet de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:215
+#: EcclesiaCRM/dto/SystemConfig.php:219
 msgid "Your Church's Facebook Page"
 msgstr "La page Facebook de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:216
+#: EcclesiaCRM/dto/SystemConfig.php:220
 msgid "Your Church's Twitter Page"
 msgstr "La page Twitter de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:217
+#: EcclesiaCRM/dto/SystemConfig.php:221
 msgid "lookup user images on Google when no local image is present"
 msgstr ""
 "chercher des images de l'utilisateur sur Google en l'absence d'image locale"
 
-#: EcclesiaCRM/dto/SystemConfig.php:218
+#: EcclesiaCRM/dto/SystemConfig.php:222
 msgid ""
 "Comma Separated list of PersonIDs of people to notify when a new family or "
 "person is added"
@@ -4158,112 +4158,112 @@ msgstr ""
 "La virgule sépare la liste des IDs des personnes à prévenir quand une "
 "famille ou une personne est ajoutée."
 
-#: EcclesiaCRM/dto/SystemConfig.php:219
+#: EcclesiaCRM/dto/SystemConfig.php:223
 msgid "Allow unauthenticated reads of events from the external calendar API"
 msgstr ""
 "Autorise la lecture non authentifiée des événements par une API de "
 "calendrier externe."
 
-#: EcclesiaCRM/dto/SystemConfig.php:220
+#: EcclesiaCRM/dto/SystemConfig.php:224
 msgid "Search People"
 msgstr "Recherche Personnes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:221
+#: EcclesiaCRM/dto/SystemConfig.php:225
 msgid "Search Family"
 msgstr "Rechercher une famille"
 
-#: EcclesiaCRM/dto/SystemConfig.php:222
+#: EcclesiaCRM/dto/SystemConfig.php:226
 msgid "Show Family Head of House Names"
 msgstr "Afficher les prénoms des chefs des familles"
 
-#: EcclesiaCRM/dto/SystemConfig.php:223
+#: EcclesiaCRM/dto/SystemConfig.php:227
 msgid "Search Groups"
 msgstr "Rechercher des groupes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:224
+#: EcclesiaCRM/dto/SystemConfig.php:228
 msgid "Search Deposits"
 msgstr "Rechercher des versements"
 
-#: EcclesiaCRM/dto/SystemConfig.php:225
+#: EcclesiaCRM/dto/SystemConfig.php:229
 msgid "Search Payments"
 msgstr "Rechercher des paiements"
 
-#: EcclesiaCRM/dto/SystemConfig.php:226
+#: EcclesiaCRM/dto/SystemConfig.php:230
 msgid "Search Addresses"
 msgstr "Rechercher dans les adresses"
 
-#: EcclesiaCRM/dto/SystemConfig.php:227
+#: EcclesiaCRM/dto/SystemConfig.php:231
 msgid "Maximum number of People"
 msgstr "Nombre maximum de Personnes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:228
+#: EcclesiaCRM/dto/SystemConfig.php:232
 msgid "Maximum number of Families"
 msgstr "Nombre maximum de familles"
 
-#: EcclesiaCRM/dto/SystemConfig.php:229
+#: EcclesiaCRM/dto/SystemConfig.php:233
 msgid "Maximum number of Family H.O.H Names"
 msgstr "Nombre maximum de membres H.O.H"
 
-#: EcclesiaCRM/dto/SystemConfig.php:230
+#: EcclesiaCRM/dto/SystemConfig.php:234
 msgid "Maximum number of Groups"
 msgstr "Nombre maximum de groupes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:231
+#: EcclesiaCRM/dto/SystemConfig.php:235
 msgid "Maximum number of Deposits"
 msgstr "Nombre maximum de dépôts"
 
-#: EcclesiaCRM/dto/SystemConfig.php:232
+#: EcclesiaCRM/dto/SystemConfig.php:236
 msgid "Maximum number of Payments"
 msgstr "Nombre maximum de paiements"
 
-#: EcclesiaCRM/dto/SystemConfig.php:233
+#: EcclesiaCRM/dto/SystemConfig.php:237
 msgid "Maximum number of Addresses"
 msgstr "Nombre maximum d'adresses"
 
-#: EcclesiaCRM/dto/SystemConfig.php:234
+#: EcclesiaCRM/dto/SystemConfig.php:238
 msgid "Search Pastoral Care"
 msgstr "Recherche Suivi pastoral"
 
-#: EcclesiaCRM/dto/SystemConfig.php:235
+#: EcclesiaCRM/dto/SystemConfig.php:239
 msgid "Maximum number of Pastoral Care results"
 msgstr "Nombre maximum de résultats pour le suivi pastoral"
 
-#: EcclesiaCRM/dto/SystemConfig.php:236
+#: EcclesiaCRM/dto/SystemConfig.php:240
 msgid "Height to use for images"
 msgstr "La hauteur à utilisé pour les images"
 
-#: EcclesiaCRM/dto/SystemConfig.php:237
+#: EcclesiaCRM/dto/SystemConfig.php:241
 msgid "Width to use for images"
 msgstr "La largeur à utilisé pour les images"
 
-#: EcclesiaCRM/dto/SystemConfig.php:238
+#: EcclesiaCRM/dto/SystemConfig.php:242
 msgid "Width to use for thumbnails"
 msgstr "La largeur à utilisé pour les miniatures"
 
-#: EcclesiaCRM/dto/SystemConfig.php:239
+#: EcclesiaCRM/dto/SystemConfig.php:243
 msgid "Point size to use for initials thumbnails"
 msgstr "La taille en points à utilisé pour les miniatures des initiales"
 
-#: EcclesiaCRM/dto/SystemConfig.php:240
+#: EcclesiaCRM/dto/SystemConfig.php:244
 msgid "Client cache seconds for images"
 msgstr "Nombre de seconds de cache client pour les images"
 
-#: EcclesiaCRM/dto/SystemConfig.php:241
+#: EcclesiaCRM/dto/SystemConfig.php:245
 msgid "Server cache time for remote images"
 msgstr "Temps de cache serveur pour les images à distance"
 
-#: EcclesiaCRM/dto/SystemConfig.php:242
+#: EcclesiaCRM/dto/SystemConfig.php:246
 msgid "Require that this EcclesiaCRM Database is accessed over HTTPS"
 msgstr ""
 "Requière que la base de données de EcclesiaCRM soit accessible par HTTPS"
 
-#: EcclesiaCRM/dto/SystemConfig.php:243
+#: EcclesiaCRM/dto/SystemConfig.php:247
 msgid "Show Birthdates Anniversaries on start up of the CRM"
 msgstr ""
 "Visualiser les date de naissance et anniversaires de mariage au démarrage du "
 "CRM"
 
-#: EcclesiaCRM/dto/SystemConfig.php:244
+#: EcclesiaCRM/dto/SystemConfig.php:248
 msgid ""
 "Number of seconds after page load until the banner disappears, default 10 "
 "seconds"
@@ -4271,16 +4271,16 @@ msgstr ""
 "Nombre de secondes à fixer pour que la bannière disparaisse, par défaut 10 "
 "secs."
 
-#: EcclesiaCRM/dto/SystemConfig.php:245
+#: EcclesiaCRM/dto/SystemConfig.php:249
 msgid "Automatically enable SMTP encryption if offered by the relaying server."
 msgstr ""
 "Activer automatiquement le cryptage SMTP que le serveur relai peut utiliser"
 
-#: EcclesiaCRM/dto/SystemConfig.php:246
+#: EcclesiaCRM/dto/SystemConfig.php:250
 msgid "Set the encryption system to use - ssl (deprecated) or tls"
 msgstr "Activer le système de cryptage pour utiliser SSL (deprecated) ou TLS"
 
-#: EcclesiaCRM/dto/SystemConfig.php:247
+#: EcclesiaCRM/dto/SystemConfig.php:251
 msgid ""
 "Dashboard & page Service dynamic asynchronous refresh interval, default 60 "
 "second"
@@ -4288,116 +4288,116 @@ msgstr ""
 "Service de gestion dynamique des événements sur les page, par défaut 60 "
 "secondes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:248
+#: EcclesiaCRM/dto/SystemConfig.php:252
 msgid "When you make the attendance all the kids are checked by default"
 msgstr ""
 "Quand vous faîtes l'appel tous les enfants sont cochés présents par défaut"
 
-#: EcclesiaCRM/dto/SystemConfig.php:249
+#: EcclesiaCRM/dto/SystemConfig.php:253
 msgid "When you make the attendance the current user isn't choosed by default"
 msgstr ""
 "Quand vous faîtes l'appel l'utilisateur courant n'est pas tout de suite "
 "validé par défaut"
 
-#: EcclesiaCRM/dto/SystemConfig.php:250
+#: EcclesiaCRM/dto/SystemConfig.php:254
 msgid "Hide dropdown states when they are unusefull"
 msgstr "Masquer les états quand ils sont inutiles dans certains pays"
 
-#: EcclesiaCRM/dto/SystemConfig.php:251
+#: EcclesiaCRM/dto/SystemConfig.php:255
 msgid "The currency symbol you want to use in the deposit in $ per default"
 msgstr "Le symbole de devise que vous voulez utiliser, par défaut le $"
 
-#: EcclesiaCRM/dto/SystemConfig.php:252
+#: EcclesiaCRM/dto/SystemConfig.php:256
 msgid "If you do not want to receive these emails from"
 msgstr "Si vous ne voulez recevoir ces messages de"
 
-#: EcclesiaCRM/dto/SystemConfig.php:253
+#: EcclesiaCRM/dto/SystemConfig.php:257
 msgid "in the future, please contact the church admins"
 msgstr "dans le futur, contactez SVP les admins de cette église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:254
+#: EcclesiaCRM/dto/SystemConfig.php:258
 msgid "Time in minutes when a share document can't be opened."
 msgstr "Temps en minutes pour lequel le document partagé ne peut être ouvert"
 
-#: EcclesiaCRM/dto/SystemConfig.php:255
+#: EcclesiaCRM/dto/SystemConfig.php:259
 msgid "The DPO administrator for the GDPR"
 msgstr "L'administrateur DPO pour le RGPD"
 
-#: EcclesiaCRM/dto/SystemConfig.php:256
+#: EcclesiaCRM/dto/SystemConfig.php:260
 msgid "GDPR option"
 msgstr "Option RGPD"
 
-#: EcclesiaCRM/dto/SystemConfig.php:257
+#: EcclesiaCRM/dto/SystemConfig.php:261
 msgid "The DPO email"
 msgstr "Le mail du DPO"
 
-#: EcclesiaCRM/dto/SystemConfig.php:258
+#: EcclesiaCRM/dto/SystemConfig.php:262
 msgid ""
 "The private datas should be deleted after the iGdprExpirationDate in Year."
 msgstr ""
 "Les données privées doivent être supprimées après le délai "
 "iGdprExpirationDate en années."
 
-#: EcclesiaCRM/dto/SystemConfig.php:259
+#: EcclesiaCRM/dto/SystemConfig.php:263
 msgid "Show custom links on the left menu."
 msgstr "Afficher le menu des liens personnalisés"
 
-#: EcclesiaCRM/dto/SystemConfig.php:260
+#: EcclesiaCRM/dto/SystemConfig.php:264
 msgid "Enable Sunday School left menu."
 msgstr "Activer le menu à gauche Ecole du dimanche"
 
-#: EcclesiaCRM/dto/SystemConfig.php:261
+#: EcclesiaCRM/dto/SystemConfig.php:265
 msgid "Enable Finance menu"
 msgstr "Activer le menu Finance"
 
-#: EcclesiaCRM/dto/SystemConfig.php:262
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Enable Events menu."
 msgstr "Activer le menu des événements"
 
-#: EcclesiaCRM/dto/SystemConfig.php:263
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid "Enable Fundraiser menu."
 msgstr "Activer le menu Collecte de fonds"
 
-#: EcclesiaCRM/dto/SystemConfig.php:264
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid "Enable Email menu."
 msgstr "Activer le menu Email"
 
-#: EcclesiaCRM/dto/SystemConfig.php:265
+#: EcclesiaCRM/dto/SystemConfig.php:269
 msgid "Enable WebDav, CardDav and CalDav support."
 msgstr "Activer le support WebDav, CardDav et CalDav."
 
-#: EcclesiaCRM/dto/SystemConfig.php:266
+#: EcclesiaCRM/dto/SystemConfig.php:270
 msgid "Enable WebDav, CardDav and CalDav support through a Browser."
 msgstr "Activer le support WebDav, CardDav et CalDav via un navigateur."
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:271
 msgid "MailChimp API request time out in seconds"
 msgstr "Time Out de la requête API de MailChimp en secondes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:272
 msgid "Add Address, Phone."
 msgstr "Ajouter Adresse, Téléphone."
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:273
 msgid "Add a thumbnail icon for the people in the datatables."
 msgstr "Ajouter des vignettes pour les personnes dans les tableaux."
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Search Pledges"
 msgstr "Recherche des engagements"
 
-#: EcclesiaCRM/dto/SystemConfig.php:271
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Maximum number of Pledges results"
 msgstr "Nombre maximum de résultats pour les engagements"
 
-#: EcclesiaCRM/dto/SystemConfig.php:272
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid ""
 "Allow to get the name in the search sequence in case of pledges and deposits"
 msgstr ""
 "permet de retourner les résultats de recherche dans le cas des dons et des "
 "dépôts"
 
-#: EcclesiaCRM/dto/SystemConfig.php:273
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid ""
 "'Yearly 1' : from 1 january to 31 december, '365' : in a range from now-365 "
 "days to now, 'Yearly 2' : from september to september."
@@ -4405,19 +4405,19 @@ msgstr ""
 "'Yearly 1' : du 1 janvier au 31 décembre, '365' dans la portée d'il y a 365 "
 "jour à maintenant, 'Yearly 2' : de septembre à septembre."
 
-#: EcclesiaCRM/dto/SystemConfig.php:274
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Get the statistics of calls/visits (for each pastors counselors)"
 msgstr "Statistiques de visites et d'appels (pour chaque pasteur conseillers)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "Set the export address)"
 msgstr "Fixer l&#39;adresse de l&#39;église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "email address of the mailchimp sender."
 msgstr "email de l'expéditeur de mailchimp."
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid ""
 "Link to a style sheet for a particular font. This is useful for the font "
 "menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
@@ -4428,7 +4428,7 @@ msgstr ""
 "family=Abril+Fatface:400,400i,700,700i,900,900i|"
 "Roboto:400,400i,700,700i,900,900i"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid ""
 "Here we put the font in the form fontnametodisplay/yourfontname. It is "
 "useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
@@ -4436,39 +4436,39 @@ msgstr ""
 "Ici on met la police sous la forme fontnametodisplay/yourfontname. C'est "
 "utile pour le menu des polices de ckeditor, par exemple : Abril/Abril Fatface"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Church Information"
 msgstr "Information de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Enabled Features"
 msgstr "Activer Fonctionnalités"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287 Include/Footer.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:291 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Réglages Système"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288
+#: EcclesiaCRM/dto/SystemConfig.php:292
 msgid "Localization"
 msgstr "Localisation"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:293
 msgid "User setup"
 msgstr "Réglages utilisateur"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:294
 msgid "People Setup"
 msgstr "Installation de personnes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:295
 msgid "Email Setup"
 msgstr "Réglages Email"
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:296
 msgid "Map Settings"
 msgstr "Réglages Carte"
 
-#: EcclesiaCRM/dto/SystemConfig.php:293 EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:381
 #: FamilyView.php:473 PersonView.php:832 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1106
 #: v2/templates/gdpr/gdprdatastructure.php:141
@@ -4476,47 +4476,47 @@ msgstr "Réglages Carte"
 msgid "Pastoral Care"
 msgstr "Suivi pastoral"
 
-#: EcclesiaCRM/dto/SystemConfig.php:294
+#: EcclesiaCRM/dto/SystemConfig.php:298
 msgid "Sundayschool Attendance"
 msgstr "Compte de présence école du dimanche"
 
-#: EcclesiaCRM/dto/SystemConfig.php:295
+#: EcclesiaCRM/dto/SystemConfig.php:299
 msgid "Integration"
 msgstr "Intégration"
 
-#: EcclesiaCRM/dto/SystemConfig.php:296 EcclesiaCRM/MenuBar/MenuBar.php:111
+#: EcclesiaCRM/dto/SystemConfig.php:300 EcclesiaCRM/MenuBar/MenuBar.php:111
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
 #: v2/templates/dashboard/maindashboard.php:108
 msgid "GDPR"
 msgstr "RGPD"
 
-#: EcclesiaCRM/dto/SystemConfig.php:297
+#: EcclesiaCRM/dto/SystemConfig.php:301
 msgid "Quick Search"
 msgstr "Recherche rapide"
 
-#: EcclesiaCRM/dto/SystemConfig.php:298
+#: EcclesiaCRM/dto/SystemConfig.php:302
 msgid "Report Settings"
 msgstr "Réglages Rapport"
 
-#: EcclesiaCRM/dto/SystemConfig.php:299
+#: EcclesiaCRM/dto/SystemConfig.php:303
 msgid "Financial Settings"
 msgstr "Réglages financiers"
 
-#: EcclesiaCRM/dto/SystemConfig.php:300
+#: EcclesiaCRM/dto/SystemConfig.php:304
 msgid "Backup"
 msgstr "Sauvegarde"
 
-#: EcclesiaCRM/dto/SystemConfig.php:301
+#: EcclesiaCRM/dto/SystemConfig.php:305
 msgid "Users Specific Schedule Tasks"
 msgstr "Tâches planifiées utilisateurs"
 
-#: EcclesiaCRM/dto/SystemConfig.php:351 EcclesiaCRM/dto/SystemConfig.php:360
-#: EcclesiaCRM/dto/SystemConfig.php:370
+#: EcclesiaCRM/dto/SystemConfig.php:356 EcclesiaCRM/dto/SystemConfig.php:365
+#: EcclesiaCRM/dto/SystemConfig.php:375
 msgid "An invalid configuration name has been requested"
 msgstr "Nom de configuration invalide demandé"
 
-#: EcclesiaCRM/dto/SystemConfig.php:385
+#: EcclesiaCRM/dto/SystemConfig.php:390
 msgid "An invalid configuration id has been requested"
 msgstr "ID de configuration invalide demandé"
 
@@ -7258,7 +7258,7 @@ msgstr "Montant total minimum :"
 msgid "0 - No Minimum"
 msgstr "0 - Pas de minimum"
 
-#: FinancialReports.php:389 SettingsIndividual.php:193
+#: FinancialReports.php:389 SettingsIndividual.php:197
 msgid "Other Settings"
 msgstr "Autres réglages"
 
@@ -9463,55 +9463,55 @@ msgstr "Non, annuler cette suppression"
 msgid "Delete Person Record"
 msgstr "Effacer Enregistrement de cette Personne"
 
-#: SettingsIndividual.php:129
+#: SettingsIndividual.php:133
 msgid "My User Settings"
 msgstr "Réglages personnels"
 
-#: SettingsIndividual.php:142
+#: SettingsIndividual.php:146
 msgid "Classic User Profile Settings"
 msgstr "Réglages classique du profile utilisateur"
 
-#: SettingsIndividual.php:146 SettingsIndividual.php:197 UserEditor.php:1143
+#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1143
 msgid "Notes"
 msgstr "Notes"
 
-#: SettingsIndividual.php:147 SettingsIndividual.php:198 UserEditor.php:1142
+#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1142
 msgid "Current Value"
 msgstr "Valeur Actuelle"
 
-#: SettingsIndividual.php:148 SettingsIndividual.php:199 SystemSettings.php:146
+#: SettingsIndividual.php:152 SettingsIndividual.php:203 SystemSettings.php:146
 #: UserEditor.php:1141
 msgid "Variable name"
 msgstr "Nom de la variable"
 
-#: SettingsIndividual.php:175 SettingsIndividual.php:441
-#: SettingsIndividual.php:566 SystemSettings.php:132 UserEditor.php:1395
+#: SettingsIndividual.php:179 SettingsIndividual.php:445
+#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1395
 msgid "Save Settings"
 msgstr "Enregistrer les réglages"
 
-#: SettingsIndividual.php:193
+#: SettingsIndividual.php:197
 msgid "Skin"
 msgstr "Apparence"
 
-#: SettingsIndividual.php:392 SystemSettings.php:215 UserEditor.php:1178
+#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1178
 #: UserEditor.php:1231
 msgid "False"
 msgstr "Faux"
 
-#: SettingsIndividual.php:393 SystemSettings.php:216 UserEditor.php:1179
+#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1179
 #: UserEditor.php:1232
 msgid "True"
 msgstr "Vrai"
 
-#: SettingsIndividual.php:451
+#: SettingsIndividual.php:455
 msgid "Specific settings"
 msgstr "Paramètres spécifiques"
 
-#: SettingsIndividual.php:460
+#: SettingsIndividual.php:464
 msgid "Two-factor authentication (2fa)"
 msgstr "Authentification à deux facteurs (2fa)"
 
-#: SettingsIndividual.php:463
+#: SettingsIndividual.php:467
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -9521,13 +9521,13 @@ msgstr ""
 "à deux facteurs constitue une couche de défense d'EcclesiaCRM contre les "
 "personnes mal intentionnées qui tentent d'accéder à votre compte."
 
-#: SettingsIndividual.php:464
+#: SettingsIndividual.php:468
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr ""
 "EcclesiaCRM Two factor prend en charge toute application d'authentification "
 "TOTP."
 
-#: SettingsIndividual.php:469
+#: SettingsIndividual.php:473
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -9535,7 +9535,7 @@ msgstr ""
 "Lorsque vous vous connectez à EcclesiaCRM, vous devez toujours entrer votre "
 "nom d'utilisateur et votre mot de passe comme d'habitude."
 
-#: SettingsIndividual.php:472
+#: SettingsIndividual.php:476
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -9543,7 +9543,7 @@ msgstr ""
 "Cependant, vous devrez également fournir un code à usage unique à partir de "
 "votre dispositif d'authentification pour terminer votre connexion."
 
-#: SettingsIndividual.php:475
+#: SettingsIndividual.php:479
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -9551,7 +9551,7 @@ msgstr ""
 "Après avoir saisi vos informations d'identification et le code à usage "
 "unique, vous serez connecté normalement."
 
-#: SettingsIndividual.php:478
+#: SettingsIndividual.php:482
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -9560,7 +9560,7 @@ msgstr ""
 "assurer que vous êtes prêt à effectuer l'inscription à deux facteurs avant "
 "de cliquer sur \"Commencer\"."
 
-#: SettingsIndividual.php:481
+#: SettingsIndividual.php:485
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
@@ -9568,7 +9568,7 @@ msgstr ""
 "Le début de l'inscription invalidera tous les dispositifs à 2 facteurs et "
 "les codes de récupération précédemment inscrits."
 
-#: SettingsIndividual.php:483
+#: SettingsIndividual.php:487
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -9576,7 +9576,7 @@ msgstr ""
 "Lorsque vous cliquez sur Suivant, vous êtes invité à scanner un code QR pour "
 "enregistrer votre application d'authentification."
 
-#: SettingsIndividual.php:485
+#: SettingsIndividual.php:489
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
@@ -9584,7 +9584,7 @@ msgstr ""
 "Pour confirmer l'inscription, vous devrez entrer le code généré par votre "
 "application d'authentification."
 
-#: SettingsIndividual.php:487
+#: SettingsIndividual.php:491
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -9592,7 +9592,7 @@ msgstr ""
 "Après avoir confirmé l'inscription à l'application, des codes de "
 "récupération à usage unique seront générés et affichés."
 
-#: SettingsIndividual.php:489
+#: SettingsIndividual.php:493
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -9600,19 +9600,19 @@ msgstr ""
 "Les codes de récupération peuvent être utilisés à la place d'un code généré "
 "par votre application d'authentification."
 
-#: SettingsIndividual.php:491
+#: SettingsIndividual.php:495
 msgid "Store these in a secure location"
 msgstr "Stockez-les dans un endroit sûr"
 
-#: SettingsIndividual.php:498
+#: SettingsIndividual.php:502
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Commencer l'inscription à l'authentification à deux facteurs"
 
-#: SettingsIndividual.php:511 UserEditor.php:1325
+#: SettingsIndividual.php:515 UserEditor.php:1325
 msgid "Visibilities of the dashboard plugins"
 msgstr "Visibilités des plugins du tableau de bord"
 
-#: SettingsIndividual.php:549 UserEditor.php:1358
+#: SettingsIndividual.php:557 UserEditor.php:1358
 msgid "Top"
 msgstr "Haut"
 

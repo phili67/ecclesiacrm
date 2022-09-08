@@ -1,7 +1,7 @@
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:105
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:103
 msgid "Birthdates of the day"
 msgstr ""
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:125
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:123
 msgid "Anniversaries of the day"
 msgstr ""
