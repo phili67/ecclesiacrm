@@ -1,16 +1,20 @@
-#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:28
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:27
 msgid "min(s)"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:30
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:29
 msgid "hour(s)"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:32
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:31
 msgid "day(s)"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:34
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:33
+msgid "week(s)"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:35
 msgid "month(s)"
 msgstr ""
 

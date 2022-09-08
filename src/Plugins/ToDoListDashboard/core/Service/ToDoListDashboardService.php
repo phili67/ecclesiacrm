@@ -12,7 +12,7 @@ class ToDoListDashboardService
 
         $interval = $now->diff($date);
 
-        $days = $interval->format('%d');
+        $days = $interval->format('%a');
         $hours   = $interval->format('%H');
         $minutes = $interval->format('%i');
 
@@ -21,15 +21,16 @@ class ToDoListDashboardService
         $time = $days * 1440 + $hours * 60 + $minutes;
 
 
-
         $period = '';
 
         if ($time < 60) {
             $period = $minutes . ' ' . dgettext("messages-ToDoListDashboard","min(s)");
         } else if ($time < 60*24) {
             $period = $hours . ' ' . dgettext("messages-ToDoListDashboard","hour(s)");
-        } else if ($time < 60*24*30) {
+        } else if ($time < 60*24*7) {
             $period = $days . ' ' . dgettext("messages-ToDoListDashboard","day(s)");
+        } elseif ($time < 60*24*30) {
+            $period = (int)($days/7) . ' ' . dgettext("messages-ToDoListDashboard","week(s)");
         } else {
             $period = (int)($days/30) . ' ' . dgettext("messages-ToDoListDashboard","month(s)");
         }
@@ -40,13 +41,13 @@ class ToDoListDashboardService
 
         $color = '';
 
-        if ($time < 1) {
+        if ($time < 60) {
             $color = 'danger';
-        } elseif ($time < 60) {
-            $color = 'warning';
         } elseif ($time < 60*24) {
-            $color = 'info';
+            $color = 'warning';
         } elseif ($time < 60*24*7) {
+            $color = 'info';
+        } elseif ($time < 60*24*30) {
             $color = 'primary';
         } elseif ($time < 60*24*30) {
             $color = 'success';
