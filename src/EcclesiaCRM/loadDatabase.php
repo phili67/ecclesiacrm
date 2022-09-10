@@ -19,8 +19,8 @@ foreach ($files as $file) {
     }
 }
 
-// we loop all the Plugins directory to find map files
-$plugins = scandir(__DIR__ . "/../Plugins/");
+// we loop for all the Plugins directory to find map files
+/*$plugins = scandir(__DIR__ . "/../Plugins/");
 
 foreach ($plugins as $plugin) {
     if (!in_array($plugin, [".", ".."]) and $plugin != "") {
@@ -34,6 +34,6 @@ foreach ($plugins as $plugin) {
             }
         }
     }
-}
+}*/
 
 $serviceContainer->initDatabaseMaps($array);
