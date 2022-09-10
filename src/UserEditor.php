@@ -543,6 +543,14 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
             $position = $new_plugin_place[$plugin->getId()];
             $role->setDashboardVisible($sel_role);
             $role->setDashboardOrientation($position);
+
+            if ( $plugin->getUserRoleDashboardAvailability() ) {
+                $new_plugin_role = $_POST['new_plugin_role'];
+
+                $sel_role = $new_plugin_role[$plugin->getId()];
+
+                $role->setRole($sel_role);
+            }
         } else {
             $role->setRole($sel_role);
         }
@@ -1340,10 +1348,19 @@ if ($usr_role_id == null) {
                                             $visible = $role->getDashboardVisible();
                                             $place = $role->getDashboardOrientation();
                                         }
+
+                                        // on this special case there only two possibilities : user or admin
+                                        $role_sel = 'user';
+                                        if ( !is_null($role) ) {
+                                            $role_sel = $role->getRole();
+                                        }
                                         ?>
                                         <div class="row">
-                                            <div class="col-md-7">&bullet;
+                                            <div class="col-md-4">&bullet;
                                                 <?= $plugin->getName() ?>:
+                                            </div>
+                                            <div class="col-md-2">
+                                                <?= $plugin->getPluginSecurityName() ?>
                                             </div>
                                             <div class="col-md-2">
                                                 <select class="form-control form-control-sm"
@@ -1352,12 +1369,19 @@ if ($usr_role_id == null) {
                                                     <option value="1" <?= ($visible == true)?'SELECTED':'' ?>><?= _('Yes') ?>
                                                 </select>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                 <select class="form-control form-control-sm"
                                                         name="new_plugin_place[<?= $plugin->getId() ?>]">
                                                     <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
                                                     <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
                                                     <option value="right" <?= ($place == 'right')?'SELECTED':'' ?>><?= _('Right') ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2" style="display: <?= $plugin->getUserRoleDashboardAvailability()?'block':'none'?>">
+                                                <select class="form-control form-control-sm"
+                                                        name="new_plugin_role[<?= $plugin->getId() ?>]">
+                                                    <option value="user" <?= ($role_sel == 'user' or $role_sel == 'none')?'SELECTED':'' ?>><?= _('User') ?>
+                                                    <option value="admin" <?= ($role_sel == 'admin')?'SELECTED':'' ?>><?= _('Admin') ?>
                                                 </select>
                                             </div>
                                         </div>
