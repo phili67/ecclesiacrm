@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-08 16:43+0000\n"
+"POT-Creation-Date: 2022-09-10 12:14+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -341,7 +341,7 @@ msgstr "Spara"
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
 #: SettingsIndividual.php:444 SettingsIndividual.php:571 TaxReport.php:53
-#: UserEditor.php:1398 v2/templates/fundraiser/donatedItemEditor.php:178
+#: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -556,7 +556,7 @@ msgstr "Insamling av bidrag till den"
 msgid "family"
 msgstr "familjen"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1064
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1072
 msgid "Canvasser"
 msgstr "Reklamare"
 
@@ -669,7 +669,7 @@ msgstr "Bildposition"
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
 #: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:558
-#: UserEditor.php:1359 v2/templates/group/groupbadge.php:165
+#: UserEditor.php:1376 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Vänster"
 
@@ -680,7 +680,7 @@ msgstr "Centrum"
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
 #: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:559
-#: UserEditor.php:1360 v2/templates/group/groupbadge.php:167
+#: UserEditor.php:1377 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Höger"
 
@@ -971,7 +971,7 @@ msgstr "Konvertera Nästa"
 msgid "Convert All"
 msgstr "Konvertera alla"
 
-#: CSVExport.php:55 UserEditor.php:995 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:1003 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "CSV-export"
 
@@ -1609,7 +1609,7 @@ msgstr "Kyrkans namn"
 msgid "Disclaimer"
 msgstr "Ansvarsfriskrivning"
 
-#: DirectoryReports.php:338 UserEditor.php:1006
+#: DirectoryReports.php:338 UserEditor.php:1014
 msgid "Create Directory"
 msgstr "Skapa en katalog"
 
@@ -1996,7 +1996,7 @@ msgstr "Tillagd till gruppen"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:551
-#: UserEditor.php:1352
+#: UserEditor.php:1369
 msgid "Yes"
 msgstr "Ja"
 
@@ -2008,7 +2008,7 @@ msgstr "Ja"
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:550
-#: UserEditor.php:1308 UserEditor.php:1351 v2/templates/user/userlist.php:161
+#: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Ingen"
 
@@ -4431,7 +4431,7 @@ msgstr "Inställningar för kartan"
 
 #: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:381
 #: FamilyView.php:473 PersonView.php:832 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1106
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1114
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
@@ -4656,7 +4656,7 @@ msgstr "Ändra inställningar"
 msgid "Documents"
 msgstr "Dokument"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:909
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:917
 msgid "EDrive"
 msgstr "EDrive"
 
@@ -4770,7 +4770,7 @@ msgstr "Anpassade menyer"
 msgid "By Classifications"
 msgstr "Enligt klassificeringar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1084
+#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1092
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 msgid "MailChimp"
 msgstr "MailChimp"
@@ -4837,7 +4837,7 @@ msgstr "Uppgifter/rapporter"
 msgid "Reports Menu"
 msgstr "Menyn Rapporter"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1074
+#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1082
 msgid "Query Menu"
 msgstr "Meny för sökning"
 
@@ -6488,8 +6488,8 @@ msgstr "Familjeregistrering"
 msgid "Reset your password"
 msgstr "Återställ ditt lösenord"
 
-#: external/templates/password/enter-username.php:32 UserEditor.php:705
-#: UserEditor.php:764
+#: external/templates/password/enter-username.php:32 UserEditor.php:713
+#: UserEditor.php:772
 msgid "Login Name"
 msgstr "Inloggningsnamn"
 
@@ -9412,21 +9412,21 @@ msgstr "Mina användarinställningar"
 msgid "Classic User Profile Settings"
 msgstr "Inställningar för den klassiska användarprofilen"
 
-#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1143
+#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1151
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1142
+#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1150
 msgid "Current Value"
 msgstr "Nuvarande värde"
 
 #: SettingsIndividual.php:152 SettingsIndividual.php:203 SystemSettings.php:146
-#: UserEditor.php:1141
+#: UserEditor.php:1149
 msgid "Variable name"
 msgstr "Variabelns namn"
 
 #: SettingsIndividual.php:179 SettingsIndividual.php:445
-#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1395
+#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1419
 msgid "Save Settings"
 msgstr "Spara inställningar"
 
@@ -9434,13 +9434,13 @@ msgstr "Spara inställningar"
 msgid "Skin"
 msgstr "Hud"
 
-#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1178
-#: UserEditor.php:1231
+#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1186
+#: UserEditor.php:1239
 msgid "False"
 msgstr "Falskt"
 
-#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1179
-#: UserEditor.php:1232
+#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1187
+#: UserEditor.php:1240
 msgid "True"
 msgstr "True"
 
@@ -9547,11 +9547,11 @@ msgstr "Förvara dem på en säker plats."
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Påbörja registrering av tvåfaktorsautentisering"
 
-#: SettingsIndividual.php:515 UserEditor.php:1325
+#: SettingsIndividual.php:515 UserEditor.php:1333
 msgid "Visibilities of the dashboard plugins"
 msgstr "Synlighet för pluginprogrammen i instrumentpanelen"
 
-#: SettingsIndividual.php:557 UserEditor.php:1358
+#: SettingsIndividual.php:557 UserEditor.php:1375
 msgid "Top"
 msgstr "Topp"
 
@@ -9741,199 +9741,199 @@ msgstr "Inloggningen är redan i bruk, välj en annan inloggning!"
 msgid "The same as before"
 msgstr "Samma som tidigare"
 
-#: UserEditor.php:626
+#: UserEditor.php:634
 msgid "User Editor"
 msgstr "Användarredigerare"
 
-#: UserEditor.php:643
+#: UserEditor.php:651
 msgid "Role management"
 msgstr "Förvaltning av roller"
 
-#: UserEditor.php:646
+#: UserEditor.php:654
 msgid "Add Role"
 msgstr "Lägg till roll"
 
-#: UserEditor.php:647
+#: UserEditor.php:655
 msgid "Manage Roles"
 msgstr "Hantera roller"
 
-#: UserEditor.php:650
+#: UserEditor.php:658
 msgid "Add Role to Current User"
 msgstr "Lägg till roll till aktuell användare"
 
-#: UserEditor.php:686
+#: UserEditor.php:694
 msgid "Person to Make User"
 msgstr "Person som ska göra användaren"
 
-#: UserEditor.php:722
+#: UserEditor.php:730
 msgid "Note: Changes will not take effect until next logon."
 msgstr ""
 "Observera: Ändringarna träder inte i kraft förrän vid nästa inloggning."
 
-#: UserEditor.php:741 UserEditor.php:1309
+#: UserEditor.php:749 UserEditor.php:1317 UserEditor.php:1383
 msgid "User"
 msgstr "Användare"
 
-#: UserEditor.php:784 UserEditor.php:1375
+#: UserEditor.php:792 UserEditor.php:1399
 msgid "Global Permissions"
 msgstr "Globala behörigheter"
 
-#: UserEditor.php:794 v2/templates/user/userlist.php:158
+#: UserEditor.php:802 v2/templates/user/userlist.php:158
 msgid "Management"
 msgstr "Förvaltning"
 
-#: UserEditor.php:800 UserEditor.php:1310
+#: UserEditor.php:808 UserEditor.php:1318 UserEditor.php:1384
 msgid "Admin"
 msgstr "Admin"
 
-#: UserEditor.php:801
+#: UserEditor.php:809
 msgid "Grants all privileges."
 msgstr "Ger alla privilegier."
 
-#: UserEditor.php:811
+#: UserEditor.php:819
 msgid "Add Records"
 msgstr "Lägg till poster"
 
-#: UserEditor.php:820
+#: UserEditor.php:828
 msgid "Edit Records"
 msgstr "Redigera register"
 
-#: UserEditor.php:829
+#: UserEditor.php:837
 msgid "Delete Records"
 msgstr "Radera poster"
 
-#: UserEditor.php:838
+#: UserEditor.php:846
 msgid "Manage Properties and Classifications"
 msgstr "Hantera egenskaper och klassificeringar"
 
-#: UserEditor.php:847
+#: UserEditor.php:855
 msgid "Manage Groups and Roles"
 msgstr "Hantera grupper och roller"
 
-#: UserEditor.php:856
+#: UserEditor.php:864
 msgid "Manage resource reservation schedules (room, computer, projectors)"
 msgstr ""
 "Hantera tidtabeller för bokning av resurser (rum, datorer, projektorer)."
 
-#: UserEditor.php:865
+#: UserEditor.php:873
 msgid "View, Add and Edit Notes"
 msgstr "Visa, lägga till och redigera anteckningar"
 
-#: UserEditor.php:881
+#: UserEditor.php:889
 msgid "User Account Permissions"
 msgstr "Behörigheter för användarkonton"
 
-#: UserEditor.php:886
+#: UserEditor.php:894
 msgid "Main Dashboard"
 msgstr "Huvudsaklig instrumentpanel"
 
-#: UserEditor.php:888
+#: UserEditor.php:896
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "Huvudpanelen och födelsedata i kalendern är synliga."
 
-#: UserEditor.php:898
+#: UserEditor.php:906
 msgid "Edit Self"
 msgstr "Redigera själv"
 
-#: UserEditor.php:899
+#: UserEditor.php:907
 msgid "Edit own family only."
 msgstr "Redigera endast den egna familjen."
 
-#: UserEditor.php:918
+#: UserEditor.php:926
 msgid "Right to edit html code"
 msgstr "Rätt att redigera html-kod"
 
-#: UserEditor.php:927
+#: UserEditor.php:935
 msgid "Can Send Email"
 msgstr "Kan skicka e-post"
 
-#: UserEditor.php:929
+#: UserEditor.php:937
 msgid "Allow to use the mail function and button in the CRM"
 msgstr "Tillåt att använda e-postfunktionen och -knappen i CRM"
 
-#: UserEditor.php:945
+#: UserEditor.php:953
 msgid "Permissions To View"
 msgstr "Behörigheter att visa"
 
-#: UserEditor.php:951
+#: UserEditor.php:959
 msgid "Show Cart"
 msgstr "Visa varukorgen"
 
-#: UserEditor.php:960
+#: UserEditor.php:968
 msgid "Show Map"
 msgstr "Visa karta"
 
-#: UserEditor.php:969
+#: UserEditor.php:977
 msgid "See Privacy Data"
 msgstr "Se sekretessuppgifter"
 
-#: UserEditor.php:971
+#: UserEditor.php:979
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 "Tillåt användaren att se uppgifter om medlemmarnas privatliv, t.ex. "
 "födelseår, ålder."
 
-#: UserEditor.php:989
+#: UserEditor.php:997
 msgid "Export Permissions"
 msgstr "Exporttillstånd"
 
-#: UserEditor.php:997
+#: UserEditor.php:1005
 msgid "User permission to export CSV files"
 msgstr "Användartillstånd för att exportera CSV-filer"
 
-#: UserEditor.php:1007
+#: UserEditor.php:1015
 msgid "User permission to create directories"
 msgstr "Användarens behörighet att skapa kataloger"
 
-#: UserEditor.php:1017
+#: UserEditor.php:1025
 msgid "Sunday school PDF"
 msgstr "Söndagsskola PDF"
 
-#: UserEditor.php:1019
+#: UserEditor.php:1027
 msgid "User permission to export PDF files for the sunday school"
 msgstr "Användartillstånd för att exportera PDF-filer för söndagsskolan"
 
-#: UserEditor.php:1029
+#: UserEditor.php:1037
 msgid "Sunday school CSV"
 msgstr "Söndagsskola CSV"
 
-#: UserEditor.php:1031
+#: UserEditor.php:1039
 msgid "User permission to export CSV files for the sunday school"
 msgstr "Användartillstånd för att exportera CSV-filer för söndagsskolan"
 
-#: UserEditor.php:1049
+#: UserEditor.php:1057
 msgid "Special Permissions"
 msgstr "Särskilda behörigheter"
 
-#: UserEditor.php:1055
+#: UserEditor.php:1063
 msgid "Manage Donations and Finance"
 msgstr "Hantera donationer och ekonomi"
 
-#: UserEditor.php:1065
+#: UserEditor.php:1073
 msgid "Canvass volunteer."
 msgstr "Frivillig volontär i en kampanj."
 
-#: UserEditor.php:1075
+#: UserEditor.php:1083
 msgid "Allow to manage the query menu"
 msgstr "Tillåt att hantera frågelistan"
 
-#: UserEditor.php:1085
+#: UserEditor.php:1093
 msgid "Allow a user to use MailChimp tool"
 msgstr "Tillåt en användare att använda MailChimp-verktyget"
 
-#: UserEditor.php:1095
+#: UserEditor.php:1103
 msgid "GRPD Data Protection Officer"
 msgstr "GRPD:s dataskyddsombud"
 
-#: UserEditor.php:1097
+#: UserEditor.php:1105
 msgid "General Data Protection Regulation in UE"
 msgstr "Den allmänna dataskyddsförordningen i EU"
 
-#: UserEditor.php:1128 UserEditor.php:1376
+#: UserEditor.php:1136 UserEditor.php:1400
 msgid "Modifiable Permissions"
 msgstr "Ändringsbara behörigheter"
 
-#: UserEditor.php:1134
+#: UserEditor.php:1142
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
@@ -9941,11 +9941,11 @@ msgstr ""
 "Ange Behörighet True för att ge användaren möjlighet att ändra sitt "
 "nuvarande värde."
 
-#: UserEditor.php:1140
+#: UserEditor.php:1148
 msgid "Permission"
 msgstr "Tillstånd"
 
-#: UserEditor.php:1285 UserEditor.php:1377
+#: UserEditor.php:1293 UserEditor.php:1401
 msgid "Plugin permissions"
 msgstr "Behörigheter för insticksprogram"
 

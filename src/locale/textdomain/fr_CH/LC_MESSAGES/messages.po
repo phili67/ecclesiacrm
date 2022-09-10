@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-08 16:43+0000\n"
+"POT-Creation-Date: 2022-09-10 12:14+0000\n"
 "Language: fr_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -341,7 +341,7 @@ msgstr "Enregistrer"
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
 #: SettingsIndividual.php:444 SettingsIndividual.php:571 TaxReport.php:53
-#: UserEditor.php:1398 v2/templates/fundraiser/donatedItemEditor.php:178
+#: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -560,7 +560,7 @@ msgstr "Démarchage pour le/la "
 msgid "family"
 msgstr "famille"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1064
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1072
 msgid "Canvasser"
 msgstr "Sondeur"
 
@@ -673,7 +673,7 @@ msgstr "Position de l'image"
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
 #: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:558
-#: UserEditor.php:1359 v2/templates/group/groupbadge.php:165
+#: UserEditor.php:1376 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Gauche"
 
@@ -684,7 +684,7 @@ msgstr "Centrer"
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
 #: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:559
-#: UserEditor.php:1360 v2/templates/group/groupbadge.php:167
+#: UserEditor.php:1377 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Droite"
 
@@ -977,7 +977,7 @@ msgstr "Convertir le suivant"
 msgid "Convert All"
 msgstr "Tout convertir"
 
-#: CSVExport.php:55 UserEditor.php:995 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:1003 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "Exporter au format CSV"
 
@@ -1618,7 +1618,7 @@ msgstr "Nom Église"
 msgid "Disclaimer"
 msgstr "Avertissement"
 
-#: DirectoryReports.php:338 UserEditor.php:1006
+#: DirectoryReports.php:338 UserEditor.php:1014
 msgid "Create Directory"
 msgstr "Créer un annuaire"
 
@@ -2014,7 +2014,7 @@ msgstr "Ajouté au groupe"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:551
-#: UserEditor.php:1352
+#: UserEditor.php:1369
 msgid "Yes"
 msgstr "Oui"
 
@@ -2026,7 +2026,7 @@ msgstr "Oui"
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:550
-#: UserEditor.php:1308 UserEditor.php:1351 v2/templates/user/userlist.php:161
+#: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Non"
 
@@ -4470,7 +4470,7 @@ msgstr "Réglages Carte"
 
 #: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:381
 #: FamilyView.php:473 PersonView.php:832 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1106
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1114
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
@@ -4696,7 +4696,7 @@ msgstr "Changer les Réglages"
 msgid "Documents"
 msgstr "Documents"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:909
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:917
 msgid "EDrive"
 msgstr "EDrive"
 
@@ -4810,7 +4810,7 @@ msgstr "Menus Perso."
 msgid "By Classifications"
 msgstr "Par Classification"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1084
+#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1092
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 msgid "MailChimp"
 msgstr "MailChimp"
@@ -4877,7 +4877,7 @@ msgstr "Données/Rapports"
 msgid "Reports Menu"
 msgstr "Menu des Rapports"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1074
+#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1082
 msgid "Query Menu"
 msgstr "Menu Requête"
 
@@ -6532,8 +6532,8 @@ msgstr "Enregistrement de la famille"
 msgid "Reset your password"
 msgstr "Réinitialiser votre Mot de Passe"
 
-#: external/templates/password/enter-username.php:32 UserEditor.php:705
-#: UserEditor.php:764
+#: external/templates/password/enter-username.php:32 UserEditor.php:713
+#: UserEditor.php:772
 msgid "Login Name"
 msgstr "Nom d'authentification"
 
@@ -9471,21 +9471,21 @@ msgstr "Réglages personnels"
 msgid "Classic User Profile Settings"
 msgstr "Réglages classique du profile utilisateur"
 
-#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1143
+#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1151
 msgid "Notes"
 msgstr "Notes"
 
-#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1142
+#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1150
 msgid "Current Value"
 msgstr "Valeur Actuelle"
 
 #: SettingsIndividual.php:152 SettingsIndividual.php:203 SystemSettings.php:146
-#: UserEditor.php:1141
+#: UserEditor.php:1149
 msgid "Variable name"
 msgstr "Nom de la variable"
 
 #: SettingsIndividual.php:179 SettingsIndividual.php:445
-#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1395
+#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1419
 msgid "Save Settings"
 msgstr "Enregistrer les réglages"
 
@@ -9493,13 +9493,13 @@ msgstr "Enregistrer les réglages"
 msgid "Skin"
 msgstr "Apparence"
 
-#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1178
-#: UserEditor.php:1231
+#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1186
+#: UserEditor.php:1239
 msgid "False"
 msgstr "Faux"
 
-#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1179
-#: UserEditor.php:1232
+#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1187
+#: UserEditor.php:1240
 msgid "True"
 msgstr "Vrai"
 
@@ -9608,11 +9608,11 @@ msgstr "Stockez-les dans un endroit sûr"
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Commencer l'inscription à l'authentification à deux facteurs"
 
-#: SettingsIndividual.php:515 UserEditor.php:1325
+#: SettingsIndividual.php:515 UserEditor.php:1333
 msgid "Visibilities of the dashboard plugins"
 msgstr "Visibilités des plugins du tableau de bord"
 
-#: SettingsIndividual.php:557 UserEditor.php:1358
+#: SettingsIndividual.php:557 UserEditor.php:1375
 msgid "Top"
 msgstr "Haut"
 
@@ -9803,206 +9803,206 @@ msgstr "Le login est déjà utilisé, veuillez en choisir un autre !"
 msgid "The same as before"
 msgstr "Le même que précédemment"
 
-#: UserEditor.php:626
+#: UserEditor.php:634
 msgid "User Editor"
 msgstr "Gestionnaire d'utilisateur"
 
-#: UserEditor.php:643
+#: UserEditor.php:651
 msgid "Role management"
 msgstr "Gestion de Rôle"
 
-#: UserEditor.php:646
+#: UserEditor.php:654
 msgid "Add Role"
 msgstr "Ajouter un nouveau rôle"
 
-#: UserEditor.php:647
+#: UserEditor.php:655
 msgid "Manage Roles"
 msgstr "Gestion des Rôles"
 
-#: UserEditor.php:650
+#: UserEditor.php:658
 msgid "Add Role to Current User"
 msgstr "Ajouter le rôle à l'utilisateur courant"
 
-#: UserEditor.php:686
+#: UserEditor.php:694
 msgid "Person to Make User"
 msgstr "Personne à changer en Utilisateur"
 
-#: UserEditor.php:722
+#: UserEditor.php:730
 msgid "Note: Changes will not take effect until next logon."
 msgstr ""
 "Note:  Les changements n'entreront en vigueur qu'à la prochaine connexion."
 
-#: UserEditor.php:741 UserEditor.php:1309
+#: UserEditor.php:749 UserEditor.php:1317 UserEditor.php:1383
 msgid "User"
 msgstr "Utilisateur"
 
-#: UserEditor.php:784 UserEditor.php:1375
+#: UserEditor.php:792 UserEditor.php:1399
 msgid "Global Permissions"
 msgstr "Autorisations globales"
 
-#: UserEditor.php:794 v2/templates/user/userlist.php:158
+#: UserEditor.php:802 v2/templates/user/userlist.php:158
 msgid "Management"
 msgstr "Gestion"
 
-#: UserEditor.php:800 UserEditor.php:1310
+#: UserEditor.php:808 UserEditor.php:1318 UserEditor.php:1384
 msgid "Admin"
 msgstr "Administrateur"
 
-#: UserEditor.php:801
+#: UserEditor.php:809
 msgid "Grants all privileges."
 msgstr "Accorder tous les privilèges."
 
-#: UserEditor.php:811
+#: UserEditor.php:819
 msgid "Add Records"
 msgstr "Ajouter des Enregistrements"
 
-#: UserEditor.php:820
+#: UserEditor.php:828
 msgid "Edit Records"
 msgstr "Modifier des Enregistrements"
 
-#: UserEditor.php:829
+#: UserEditor.php:837
 msgid "Delete Records"
 msgstr "Effacer des Enregistrements"
 
-#: UserEditor.php:838
+#: UserEditor.php:846
 msgid "Manage Properties and Classifications"
 msgstr "Administrer des Propriétés et Classifications"
 
-#: UserEditor.php:847
+#: UserEditor.php:855
 msgid "Manage Groups and Roles"
 msgstr "Administrer des Groupes et des Rôles"
 
-#: UserEditor.php:856
+#: UserEditor.php:864
 msgid "Manage resource reservation schedules (room, computer, projectors)"
 msgstr ""
 "Gérer les plannings de réservation des ressources (salle, ordinateur, "
 "projecteurs)"
 
-#: UserEditor.php:865
+#: UserEditor.php:873
 msgid "View, Add and Edit Notes"
 msgstr "Visualiser, Ajouter et Modifier des notes"
 
-#: UserEditor.php:881
+#: UserEditor.php:889
 msgid "User Account Permissions"
 msgstr "Autorisations du compte utilisateur"
 
-#: UserEditor.php:886
+#: UserEditor.php:894
 msgid "Main Dashboard"
 msgstr "Tableau de bord Principal"
 
-#: UserEditor.php:888
+#: UserEditor.php:896
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr ""
 "Permet de visualiser le panneau principal et les dates de naissance dans le "
 "calendrier."
 
-#: UserEditor.php:898
+#: UserEditor.php:906
 msgid "Edit Self"
 msgstr "Modifier son propre compte"
 
-#: UserEditor.php:899
+#: UserEditor.php:907
 msgid "Edit own family only."
 msgstr "Modifier uniquement sa propre famille."
 
-#: UserEditor.php:918
+#: UserEditor.php:926
 msgid "Right to edit html code"
 msgstr "Droit de modifier le code html"
 
-#: UserEditor.php:927
+#: UserEditor.php:935
 msgid "Can Send Email"
 msgstr "Peut envoyer de mail"
 
-#: UserEditor.php:929
+#: UserEditor.php:937
 msgid "Allow to use the mail function and button in the CRM"
 msgstr "Permet d'utiliser la fonction mail et le bouton dans le CRM"
 
-#: UserEditor.php:945
+#: UserEditor.php:953
 msgid "Permissions To View"
 msgstr "Autorisations d'affichage"
 
-#: UserEditor.php:951
+#: UserEditor.php:959
 msgid "Show Cart"
 msgstr "Visualiser le panier"
 
-#: UserEditor.php:960
+#: UserEditor.php:968
 msgid "Show Map"
 msgstr "Visualiser les cartes"
 
-#: UserEditor.php:969
+#: UserEditor.php:977
 msgid "See Privacy Data"
 msgstr "Visualiser les Données privées"
 
-#: UserEditor.php:971
+#: UserEditor.php:979
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 "Autoriser les utilisateurs à voir les données privées des membres (Année de "
 "naissance, Âge)"
 
-#: UserEditor.php:989
+#: UserEditor.php:997
 msgid "Export Permissions"
 msgstr "Autorisations d'exportation"
 
-#: UserEditor.php:997
+#: UserEditor.php:1005
 msgid "User permission to export CSV files"
 msgstr "Permission de l&#39;utilisateur pour exporter des fichiers CSV"
 
-#: UserEditor.php:1007
+#: UserEditor.php:1015
 msgid "User permission to create directories"
 msgstr "Permission de l&#39;utilisateur pour créer des annuaires."
 
-#: UserEditor.php:1017
+#: UserEditor.php:1025
 msgid "Sunday school PDF"
 msgstr "École du dimanche PDF"
 
-#: UserEditor.php:1019
+#: UserEditor.php:1027
 msgid "User permission to export PDF files for the sunday school"
 msgstr ""
 "Permission de l&#39;utilisateur pour exporter des fichiers PDF uniquement "
 "pour l'école du dimanche"
 
-#: UserEditor.php:1029
+#: UserEditor.php:1037
 msgid "Sunday school CSV"
 msgstr "École du dimanche CSV"
 
-#: UserEditor.php:1031
+#: UserEditor.php:1039
 msgid "User permission to export CSV files for the sunday school"
 msgstr ""
 "Permission de l&#39;utilisateur pour exporter des fichiers CSV uniquement "
 "pour l'école du dimanche"
 
-#: UserEditor.php:1049
+#: UserEditor.php:1057
 msgid "Special Permissions"
 msgstr "Autorisations spéciales"
 
-#: UserEditor.php:1055
+#: UserEditor.php:1063
 msgid "Manage Donations and Finance"
 msgstr "Administrer des Cotisations et des Finances"
 
-#: UserEditor.php:1065
+#: UserEditor.php:1073
 msgid "Canvass volunteer."
 msgstr "bénévolat pour du démarchage."
 
-#: UserEditor.php:1075
+#: UserEditor.php:1083
 msgid "Allow to manage the query menu"
 msgstr "Permet de gérer le Menu Requête"
 
-#: UserEditor.php:1085
+#: UserEditor.php:1093
 msgid "Allow a user to use MailChimp tool"
 msgstr "Permet à un utilisateur d'utiliser MailChimp"
 
-#: UserEditor.php:1095
+#: UserEditor.php:1103
 msgid "GRPD Data Protection Officer"
 msgstr "DPO pour le RGPD"
 
-#: UserEditor.php:1097
+#: UserEditor.php:1105
 msgid "General Data Protection Regulation in UE"
 msgstr "Règlement Général sur la Protection des Données"
 
-#: UserEditor.php:1128 UserEditor.php:1376
+#: UserEditor.php:1136 UserEditor.php:1400
 msgid "Modifiable Permissions"
 msgstr "Permissions modifiables"
 
-#: UserEditor.php:1134
+#: UserEditor.php:1142
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
@@ -10010,11 +10010,11 @@ msgstr ""
 "Fixer les permissions sur Vrai, pour permettre à l'utilisateur de modifier "
 "ses valeurs actuelles."
 
-#: UserEditor.php:1140
+#: UserEditor.php:1148
 msgid "Permission"
 msgstr "Permission"
 
-#: UserEditor.php:1285 UserEditor.php:1377
+#: UserEditor.php:1293 UserEditor.php:1401
 msgid "Plugin permissions"
 msgstr "Permissions des plugins"
 
@@ -12579,7 +12579,7 @@ msgid "cyan"
 msgstr "cyan"
 
 msgid "yellow"
-msgstr "jeaune"
+msgstr "jaune"
 
 msgid "red"
 msgstr "rouge"

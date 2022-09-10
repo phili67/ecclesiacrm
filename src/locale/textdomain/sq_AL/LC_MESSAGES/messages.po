@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-08 16:43+0000\n"
+"POT-Creation-Date: 2022-09-10 12:14+0000\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -341,7 +341,7 @@ msgstr "Shpëto."
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
 #: SettingsIndividual.php:444 SettingsIndividual.php:571 TaxReport.php:53
-#: UserEditor.php:1398 v2/templates/fundraiser/donatedItemEditor.php:178
+#: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -556,7 +556,7 @@ msgstr "Input i fshehtë për këtë"
 msgid "family"
 msgstr "Familja"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1064
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1072
 msgid "Canvasser"
 msgstr "kanvasser."
 
@@ -669,7 +669,7 @@ msgstr "pozicioni i fotografisë"
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
 #: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:558
-#: UserEditor.php:1359 v2/templates/group/groupbadge.php:165
+#: UserEditor.php:1376 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Majtas."
 
@@ -680,7 +680,7 @@ msgstr "Qendra!"
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
 #: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:559
-#: UserEditor.php:1360 v2/templates/group/groupbadge.php:167
+#: UserEditor.php:1377 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "po."
 
@@ -971,7 +971,7 @@ msgstr "Konvertoj Next"
 msgid "Convert All"
 msgstr "Konvertojini të gjitha"
 
-#: CSVExport.php:55 UserEditor.php:995 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:1003 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "Eksporti CSV"
 
@@ -1610,7 +1610,7 @@ msgstr "emri i kishës"
 msgid "Disclaimer"
 msgstr "Klauzolë"
 
-#: DirectoryReports.php:338 UserEditor.php:1006
+#: DirectoryReports.php:338 UserEditor.php:1014
 msgid "Create Directory"
 msgstr "Krijo drejtuesin"
 
@@ -2001,7 +2001,7 @@ msgstr "Grupi i shtuar"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:551
-#: UserEditor.php:1352
+#: UserEditor.php:1369
 msgid "Yes"
 msgstr "po."
 
@@ -2013,7 +2013,7 @@ msgstr "po."
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:550
-#: UserEditor.php:1308 UserEditor.php:1351 v2/templates/user/userlist.php:161
+#: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Jo."
 
@@ -4436,7 +4436,7 @@ msgstr "Seksionet e hartave"
 
 #: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:381
 #: FamilyView.php:473 PersonView.php:832 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1106
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1114
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
@@ -4660,7 +4660,7 @@ msgstr "Ndrysho vendosjet"
 msgid "Documents"
 msgstr "dokumente"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:909
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:917
 msgid "EDrive"
 msgstr "Edrive"
 
@@ -4774,7 +4774,7 @@ msgstr "Manus"
 msgid "By Classifications"
 msgstr "Me klasifikimet"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1084
+#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1092
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 msgid "MailChimp"
 msgstr "mailchip"
@@ -4841,7 +4841,7 @@ msgstr "raporte të dhënash"
 msgid "Reports Menu"
 msgstr "raporto manu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1074
+#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1082
 msgid "Query Menu"
 msgstr "query manu"
 
@@ -6493,8 +6493,8 @@ msgstr "regjistrimi i familjes"
 msgid "Reset your password"
 msgstr "Rivendose fjalëkalimin"
 
-#: external/templates/password/enter-username.php:32 UserEditor.php:705
-#: UserEditor.php:764
+#: external/templates/password/enter-username.php:32 UserEditor.php:713
+#: UserEditor.php:772
 msgid "Login Name"
 msgstr "Login Emrin"
 
@@ -9427,21 +9427,21 @@ msgstr "Seksionet e mia të përdoruesve"
 msgid "Classic User Profile Settings"
 msgstr "Seksionet klasike të profilit të përdoruesve"
 
-#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1143
+#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1151
 msgid "Notes"
 msgstr "- Jo."
 
-#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1142
+#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1150
 msgid "Current Value"
 msgstr "Vlera aktuale"
 
 #: SettingsIndividual.php:152 SettingsIndividual.php:203 SystemSettings.php:146
-#: UserEditor.php:1141
+#: UserEditor.php:1149
 msgid "Variable name"
 msgstr "Emër i paqëndrueshëm"
 
 #: SettingsIndividual.php:179 SettingsIndividual.php:445
-#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1395
+#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1419
 msgid "Save Settings"
 msgstr "Ruaj vëndet"
 
@@ -9449,13 +9449,13 @@ msgstr "Ruaj vëndet"
 msgid "Skin"
 msgstr "lëkurë."
 
-#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1178
-#: UserEditor.php:1231
+#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1186
+#: UserEditor.php:1239
 msgid "False"
 msgstr "e gabuar"
 
-#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1179
-#: UserEditor.php:1232
+#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1187
+#: UserEditor.php:1240
 msgid "True"
 msgstr "E vërtetë."
 
@@ -9563,11 +9563,11 @@ msgstr "Vendosni këto në një vend të sigurt"
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "filloni regjistrimin e faktorit"
 
-#: SettingsIndividual.php:515 UserEditor.php:1325
+#: SettingsIndividual.php:515 UserEditor.php:1333
 msgid "Visibilities of the dashboard plugins"
 msgstr ""
 
-#: SettingsIndividual.php:557 UserEditor.php:1358
+#: SettingsIndividual.php:557 UserEditor.php:1375
 #, fuzzy
 msgid "Top"
 msgstr "Të"
@@ -9758,202 +9758,202 @@ msgstr "Login tashmë në përdorim, ju lutem zgjidhni një logjikë të ndryshm
 msgid "The same as before"
 msgstr "njësoj si më parë"
 
-#: UserEditor.php:626
+#: UserEditor.php:634
 msgid "User Editor"
 msgstr "redaktor përdorues"
 
-#: UserEditor.php:643
+#: UserEditor.php:651
 msgid "Role management"
 msgstr "Roli i menaxhimit"
 
-#: UserEditor.php:646
+#: UserEditor.php:654
 msgid "Add Role"
 msgstr "Add Role"
 
-#: UserEditor.php:647
+#: UserEditor.php:655
 msgid "Manage Roles"
 msgstr "manage roles"
 
-#: UserEditor.php:650
+#: UserEditor.php:658
 msgid "Add Role to Current User"
 msgstr "shto rolin në përdorimin aktual"
 
-#: UserEditor.php:686
+#: UserEditor.php:694
 msgid "Person to Make User"
 msgstr "personi do të bëjë përdoruesin"
 
-#: UserEditor.php:722
+#: UserEditor.php:730
 msgid "Note: Changes will not take effect until next logon."
 msgstr "shënim: ndryshimet nuk do të hyjnë në fuqi deri në logonin tjetër."
 
-#: UserEditor.php:741 UserEditor.php:1309
+#: UserEditor.php:749 UserEditor.php:1317 UserEditor.php:1383
 msgid "User"
 msgstr "përdorues."
 
-#: UserEditor.php:784 UserEditor.php:1375
+#: UserEditor.php:792 UserEditor.php:1399
 #, fuzzy
 msgid "Global Permissions"
 msgstr "Leje"
 
-#: UserEditor.php:794 v2/templates/user/userlist.php:158
+#: UserEditor.php:802 v2/templates/user/userlist.php:158
 msgid "Management"
 msgstr "menaxhim"
 
-#: UserEditor.php:800 UserEditor.php:1310
+#: UserEditor.php:808 UserEditor.php:1318 UserEditor.php:1384
 msgid "Admin"
 msgstr "Admin"
 
-#: UserEditor.php:801
+#: UserEditor.php:809
 msgid "Grants all privileges."
 msgstr "I jep të gjitha privilegjet."
 
-#: UserEditor.php:811
+#: UserEditor.php:819
 msgid "Add Records"
 msgstr "Shtoje rekorde"
 
-#: UserEditor.php:820
+#: UserEditor.php:828
 msgid "Edit Records"
 msgstr "rekordet e editit"
 
-#: UserEditor.php:829
+#: UserEditor.php:837
 msgid "Delete Records"
 msgstr "fshij rekordet"
 
-#: UserEditor.php:838
+#: UserEditor.php:846
 msgid "Manage Properties and Classifications"
 msgstr "manage properties dhe klasifikime"
 
-#: UserEditor.php:847
+#: UserEditor.php:855
 msgid "Manage Groups and Roles"
 msgstr "Grupet Manage dhe Roles"
 
-#: UserEditor.php:856
+#: UserEditor.php:864
 msgid "Manage resource reservation schedules (room, computer, projectors)"
 msgstr "oraret e rezervimit të burimeve (dhomë, kompjuter, projektorë)"
 
-#: UserEditor.php:865
+#: UserEditor.php:873
 msgid "View, Add and Edit Notes"
 msgstr "shiko, add dhe notat e edit"
 
-#: UserEditor.php:881
+#: UserEditor.php:889
 #, fuzzy
 msgid "User Account Permissions"
 msgstr "Pastër numrat e llogarisë"
 
-#: UserEditor.php:886
+#: UserEditor.php:894
 msgid "Main Dashboard"
 msgstr "main dashbord"
 
-#: UserEditor.php:888
+#: UserEditor.php:896
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "main dashboard dhe datat e kalendarit janë të dukshme."
 
-#: UserEditor.php:898
+#: UserEditor.php:906
 msgid "Edit Self"
 msgstr "Edit Vetë"
 
-#: UserEditor.php:899
+#: UserEditor.php:907
 msgid "Edit own family only."
 msgstr "Vetëm familja e vet Edit."
 
-#: UserEditor.php:918
+#: UserEditor.php:926
 msgid "Right to edit html code"
 msgstr "Drejt për kodin e html"
 
-#: UserEditor.php:927
+#: UserEditor.php:935
 msgid "Can Send Email"
 msgstr "mund ta dërgosh emailin"
 
-#: UserEditor.php:929
+#: UserEditor.php:937
 msgid "Allow to use the mail function and button in the CRM"
 msgstr "Më lejoni të përdor funksionin e postës dhe butonin në CRM"
 
-#: UserEditor.php:945
+#: UserEditor.php:953
 #, fuzzy
 msgid "Permissions To View"
 msgstr "Leje"
 
-#: UserEditor.php:951
+#: UserEditor.php:959
 msgid "Show Cart"
 msgstr "Tregoji Kartit"
 
-#: UserEditor.php:960
+#: UserEditor.php:968
 msgid "Show Map"
 msgstr "Shfaqja Harte"
 
-#: UserEditor.php:969
+#: UserEditor.php:977
 msgid "See Privacy Data"
 msgstr "shiko të dhënat e privatësisë"
 
-#: UserEditor.php:971
+#: UserEditor.php:979
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 "Përdorues të ketë të dhëna private, Vitin e Rilindjes, moshën e lindjes."
 
-#: UserEditor.php:989
+#: UserEditor.php:997
 #, fuzzy
 msgid "Export Permissions"
 msgstr "Leje"
 
-#: UserEditor.php:997
+#: UserEditor.php:1005
 msgid "User permission to export CSV files"
 msgstr "Leje përdoruesish për të eksportuar dosje CSV"
 
-#: UserEditor.php:1007
+#: UserEditor.php:1015
 msgid "User permission to create directories"
 msgstr "Leje përdoruese për të krijuar drejtori"
 
-#: UserEditor.php:1017
+#: UserEditor.php:1025
 msgid "Sunday school PDF"
 msgstr "pdf e së dielës"
 
-#: UserEditor.php:1019
+#: UserEditor.php:1027
 msgid "User permission to export PDF files for the sunday school"
 msgstr "Leje përdoruesi për të eksportuar dosje PDF për shkollën e së dielës"
 
-#: UserEditor.php:1029
+#: UserEditor.php:1037
 msgid "Sunday school CSV"
 msgstr "CSV e shkollës së të dielës"
 
-#: UserEditor.php:1031
+#: UserEditor.php:1039
 msgid "User permission to export CSV files for the sunday school"
 msgstr "Leje përdoruesish për të eksportuar dosje CSV për shkollën e së dielës"
 
-#: UserEditor.php:1049
+#: UserEditor.php:1057
 #, fuzzy
 msgid "Special Permissions"
 msgstr "Leje"
 
-#: UserEditor.php:1055
+#: UserEditor.php:1063
 msgid "Manage Donations and Finance"
 msgstr "donacionet për manage dhe financat"
 
-#: UserEditor.php:1065
+#: UserEditor.php:1073
 msgid "Canvass volunteer."
 msgstr "vullnetar i njomë."
 
-#: UserEditor.php:1075
+#: UserEditor.php:1083
 msgid "Allow to manage the query menu"
 msgstr "Më lejoni të menaxhoj një pyetje"
 
-#: UserEditor.php:1085
+#: UserEditor.php:1093
 msgid "Allow a user to use MailChimp tool"
 msgstr "Lejoje një përdorues të përdorë veglën e MailChamp"
 
-#: UserEditor.php:1095
+#: UserEditor.php:1103
 msgid "GRPD Data Protection Officer"
 msgstr "Oficeri i Mbrojtjes së të dhënave"
 
-#: UserEditor.php:1097
+#: UserEditor.php:1105
 msgid "General Data Protection Regulation in UE"
 msgstr "Rregullimi i përgjithshëm i mbrojtjes së të dhënave në UE"
 
-#: UserEditor.php:1128 UserEditor.php:1376
+#: UserEditor.php:1136 UserEditor.php:1400
 #, fuzzy
 msgid "Modifiable Permissions"
 msgstr "Leje"
 
-#: UserEditor.php:1134
+#: UserEditor.php:1142
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
@@ -9961,11 +9961,11 @@ msgstr ""
 "Leja e vertete qe ti jape ketij shfrytezuesit aftesine per te ndryshuar "
 "vleren e tyre aktuale."
 
-#: UserEditor.php:1140
+#: UserEditor.php:1148
 msgid "Permission"
 msgstr "Leje"
 
-#: UserEditor.php:1285 UserEditor.php:1377
+#: UserEditor.php:1293 UserEditor.php:1401
 #, fuzzy
 msgid "Plugin permissions"
 msgstr "Leje"

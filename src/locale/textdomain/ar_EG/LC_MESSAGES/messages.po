@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-08 16:43+0000\n"
+"POT-Creation-Date: 2022-09-10 12:14+0000\n"
 "Language: ar-EG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -339,7 +339,7 @@ msgstr "أنقذ"
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
 #: SettingsIndividual.php:444 SettingsIndividual.php:571 TaxReport.php:53
-#: UserEditor.php:1398 v2/templates/fundraiser/donatedItemEditor.php:178
+#: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -551,7 +551,7 @@ msgstr "مدخلات من أجل"
 msgid "family"
 msgstr "الأسرة"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1064
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1072
 msgid "Canvasser"
 msgstr "Canvasser"
 
@@ -664,7 +664,7 @@ msgstr "موقع الصورة"
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
 #: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:558
-#: UserEditor.php:1359 v2/templates/group/groupbadge.php:165
+#: UserEditor.php:1376 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "يسار"
 
@@ -675,7 +675,7 @@ msgstr "المركز"
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
 #: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:559
-#: UserEditor.php:1360 v2/templates/group/groupbadge.php:167
+#: UserEditor.php:1377 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "صحيح"
 
@@ -966,7 +966,7 @@ msgstr "تحويل التالي"
 msgid "Convert All"
 msgstr "حوّلْ كُلّ"
 
-#: CSVExport.php:55 UserEditor.php:995 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:1003 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "صدير سي إس في"
 
@@ -1598,7 +1598,7 @@ msgstr "اسم الكنيسة"
 msgid "Disclaimer"
 msgstr "Disclaimer"
 
-#: DirectoryReports.php:338 UserEditor.php:1006
+#: DirectoryReports.php:338 UserEditor.php:1014
 msgid "Create Directory"
 msgstr "إنشاء دليل"
 
@@ -1983,7 +1983,7 @@ msgstr "إضافة إلى المجموعة"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:551
-#: UserEditor.php:1352
+#: UserEditor.php:1369
 msgid "Yes"
 msgstr "نعم"
 
@@ -1995,7 +1995,7 @@ msgstr "نعم"
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:550
-#: UserEditor.php:1308 UserEditor.php:1351 v2/templates/user/userlist.php:161
+#: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "لا"
 
@@ -4387,7 +4387,7 @@ msgstr "-خريطة خرائط"
 
 #: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:381
 #: FamilyView.php:473 PersonView.php:832 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1106
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1114
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
@@ -4611,7 +4611,7 @@ msgstr "تغيير التجهيزات"
 msgid "Documents"
 msgstr "الوثائق"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:909
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:917
 msgid "EDrive"
 msgstr "EDRIV"
 
@@ -4725,7 +4725,7 @@ msgstr "\"منس الجمارك\""
 msgid "By Classifications"
 msgstr "بالتصنيفات"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1084
+#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1092
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 msgid "MailChimp"
 msgstr "تشيمب"
@@ -4792,7 +4792,7 @@ msgstr "Data/Reports"
 msgid "Reports Menu"
 msgstr "تقارير مفيدة"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1074
+#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1082
 msgid "Query Menu"
 msgstr "\"منكم السحري\""
 
@@ -6434,8 +6434,8 @@ msgstr "تسجيل الأسرة"
 msgid "Reset your password"
 msgstr "أعد تشغيل كلمة السر"
 
-#: external/templates/password/enter-username.php:32 UserEditor.php:705
-#: UserEditor.php:764
+#: external/templates/password/enter-username.php:32 UserEditor.php:713
+#: UserEditor.php:772
 msgid "Login Name"
 msgstr "اسم منطقي"
 
@@ -9323,21 +9323,21 @@ msgstr "مستخدمي"
 msgid "Classic User Profile Settings"
 msgstr "مستخدم كلاسيكي"
 
-#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1143
+#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1151
 msgid "Notes"
 msgstr "الحواشي"
 
-#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1142
+#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1150
 msgid "Current Value"
 msgstr "القيمة الحالية"
 
 #: SettingsIndividual.php:152 SettingsIndividual.php:203 SystemSettings.php:146
-#: UserEditor.php:1141
+#: UserEditor.php:1149
 msgid "Variable name"
 msgstr "اسم مختلف"
 
 #: SettingsIndividual.php:179 SettingsIndividual.php:445
-#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1395
+#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1419
 msgid "Save Settings"
 msgstr "أنقذ (ستيتنجز)"
 
@@ -9345,13 +9345,13 @@ msgstr "أنقذ (ستيتنجز)"
 msgid "Skin"
 msgstr "الجلد"
 
-#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1178
-#: UserEditor.php:1231
+#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1186
+#: UserEditor.php:1239
 msgid "False"
 msgstr "خطأ"
 
-#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1179
-#: UserEditor.php:1232
+#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1187
+#: UserEditor.php:1240
 msgid "True"
 msgstr "صحيح"
 
@@ -9451,11 +9451,11 @@ msgstr "تخزين هذه في مكان آمن"
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "ابدأ التحاق مصداقية عامل"
 
-#: SettingsIndividual.php:515 UserEditor.php:1325
+#: SettingsIndividual.php:515 UserEditor.php:1333
 msgid "Visibilities of the dashboard plugins"
 msgstr ""
 
-#: SettingsIndividual.php:557 UserEditor.php:1358
+#: SettingsIndividual.php:557 UserEditor.php:1375
 #, fuzzy
 msgid "Top"
 msgstr "إلى"
@@ -9644,213 +9644,213 @@ msgstr "لوجين) في الاستخدام) رجاءً اختر منطقاً م
 msgid "The same as before"
 msgstr "كما كان سابقاً"
 
-#: UserEditor.php:626
+#: UserEditor.php:634
 msgid "User Editor"
 msgstr "محرر المستخدم"
 
-#: UserEditor.php:643
+#: UserEditor.php:651
 msgid "Role management"
 msgstr "إدارة الأدوار"
 
-#: UserEditor.php:646
+#: UserEditor.php:654
 msgid "Add Role"
 msgstr "أضف دور"
 
-#: UserEditor.php:647
+#: UserEditor.php:655
 msgid "Manage Roles"
 msgstr "تدبّر الأدوار"
 
-#: UserEditor.php:650
+#: UserEditor.php:658
 msgid "Add Role to Current User"
 msgstr "أضف دور المستخدم الحالي"
 
-#: UserEditor.php:686
+#: UserEditor.php:694
 msgid "Person to Make User"
 msgstr "شخص لجعل المستخدم"
 
-#: UserEditor.php:722
+#: UserEditor.php:730
 msgid "Note: Changes will not take effect until next logon."
 msgstr "ملاحظة: لن تدخل التغييرات حيز النفاذ حتى الشعار التالي."
 
-#: UserEditor.php:741 UserEditor.php:1309
+#: UserEditor.php:749 UserEditor.php:1317 UserEditor.php:1383
 msgid "User"
 msgstr "المستخدم"
 
-#: UserEditor.php:784 UserEditor.php:1375
+#: UserEditor.php:792 UserEditor.php:1399
 #, fuzzy
 msgid "Global Permissions"
 msgstr "الإذن"
 
-#: UserEditor.php:794 v2/templates/user/userlist.php:158
+#: UserEditor.php:802 v2/templates/user/userlist.php:158
 msgid "Management"
 msgstr "الإدارة"
 
-#: UserEditor.php:800 UserEditor.php:1310
+#: UserEditor.php:808 UserEditor.php:1318 UserEditor.php:1384
 msgid "Admin"
 msgstr "Admin"
 
-#: UserEditor.php:801
+#: UserEditor.php:809
 msgid "Grants all privileges."
 msgstr "يمنح كل الامتيازات"
 
-#: UserEditor.php:811
+#: UserEditor.php:819
 msgid "Add Records"
 msgstr "أضف السجلات"
 
-#: UserEditor.php:820
+#: UserEditor.php:828
 msgid "Edit Records"
 msgstr "سجلات التحرير"
 
-#: UserEditor.php:829
+#: UserEditor.php:837
 msgid "Delete Records"
 msgstr "احذف السجلات"
 
-#: UserEditor.php:838
+#: UserEditor.php:846
 msgid "Manage Properties and Classifications"
 msgstr "إدارة الممتلكات والتصنيفات"
 
-#: UserEditor.php:847
+#: UserEditor.php:855
 msgid "Manage Groups and Roles"
 msgstr "إدارة المجموعات والأدوار"
 
-#: UserEditor.php:856
+#: UserEditor.php:864
 msgid "Manage resource reservation schedules (room, computer, projectors)"
 msgstr "إدارة جداول تحفظ الموارد (الغرفة والحاسوب والمسقطات)"
 
-#: UserEditor.php:865
+#: UserEditor.php:873
 msgid "View, Add and Edit Notes"
 msgstr "() انظر: Diew, Add and Edit Notes"
 
-#: UserEditor.php:881
+#: UserEditor.php:889
 #, fuzzy
 msgid "User Account Permissions"
 msgstr "أرقام حساب واضحة"
 
-#: UserEditor.php:886
+#: UserEditor.php:894
 msgid "Main Dashboard"
 msgstr "لوحة القيادة الرئيسية"
 
-#: UserEditor.php:888
+#: UserEditor.php:896
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "لوحة القيادة الرئيسية ومواعيد الميلاد في الجدول واضحة"
 
-#: UserEditor.php:898
+#: UserEditor.php:906
 msgid "Edit Self"
 msgstr "(إيت سيلف)"
 
-#: UserEditor.php:899
+#: UserEditor.php:907
 msgid "Edit own family only."
 msgstr "-إيد) عائلة خاصة فقط)"
 
-#: UserEditor.php:918
+#: UserEditor.php:926
 msgid "Right to edit html code"
 msgstr "الحق في تحرير رمز HTML"
 
-#: UserEditor.php:927
+#: UserEditor.php:935
 msgid "Can Send Email"
 msgstr "يمكن إرسال البريد الإلكتروني"
 
-#: UserEditor.php:929
+#: UserEditor.php:937
 msgid "Allow to use the mail function and button in the CRM"
 msgstr "اسمحوا لي باستخدام وظيفة البريد والزر في CRM"
 
-#: UserEditor.php:945
+#: UserEditor.php:953
 #, fuzzy
 msgid "Permissions To View"
 msgstr "الإذن"
 
-#: UserEditor.php:951
+#: UserEditor.php:959
 msgid "Show Cart"
 msgstr "عربة عرض"
 
-#: UserEditor.php:960
+#: UserEditor.php:968
 msgid "Show Map"
 msgstr "أرني خريطة العرض"
 
-#: UserEditor.php:969
+#: UserEditor.php:977
 msgid "See Privacy Data"
 msgstr "انظر بيانات الخصوصية"
 
-#: UserEditor.php:971
+#: UserEditor.php:979
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 "واسمحوا للمستخدم أن يرى بيانات الخصوصية الأعضاء، على سبيل المثال سنة "
 "الولادة، العمر."
 
-#: UserEditor.php:989
+#: UserEditor.php:997
 #, fuzzy
 msgid "Export Permissions"
 msgstr "الإذن"
 
-#: UserEditor.php:997
+#: UserEditor.php:1005
 msgid "User permission to export CSV files"
 msgstr "إذن المستخدم لتصدير ملفات CSV"
 
-#: UserEditor.php:1007
+#: UserEditor.php:1015
 msgid "User permission to create directories"
 msgstr "إذن المستخدم لإنشاء أدلة"
 
-#: UserEditor.php:1017
+#: UserEditor.php:1025
 msgid "Sunday school PDF"
 msgstr "مدرسة الأحد بي دي إف"
 
-#: UserEditor.php:1019
+#: UserEditor.php:1027
 msgid "User permission to export PDF files for the sunday school"
 msgstr "إذن المستخدم بتصدير ملفات قوات الدفاع الشعبي لمدرسة الأحد"
 
-#: UserEditor.php:1029
+#: UserEditor.php:1037
 msgid "Sunday school CSV"
 msgstr "مدرسة الأحد سي إس في"
 
-#: UserEditor.php:1031
+#: UserEditor.php:1039
 msgid "User permission to export CSV files for the sunday school"
 msgstr "إذن المستخدم لتصدير ملفات CSV لمدرسة الأحد"
 
-#: UserEditor.php:1049
+#: UserEditor.php:1057
 #, fuzzy
 msgid "Special Permissions"
 msgstr "الإذن"
 
-#: UserEditor.php:1055
+#: UserEditor.php:1063
 msgid "Manage Donations and Finance"
 msgstr "إدارة التبرعات والمالية"
 
-#: UserEditor.php:1065
+#: UserEditor.php:1073
 msgid "Canvass volunteer."
 msgstr "متطوع"
 
-#: UserEditor.php:1075
+#: UserEditor.php:1083
 msgid "Allow to manage the query menu"
 msgstr "اسمح لي بإدارة قائمة الأسئلة"
 
-#: UserEditor.php:1085
+#: UserEditor.php:1093
 msgid "Allow a user to use MailChimp tool"
 msgstr "اسمح للمستخدم باستخدام أداة البريد"
 
-#: UserEditor.php:1095
+#: UserEditor.php:1103
 msgid "GRPD Data Protection Officer"
 msgstr "ضابط حماية البيانات في شرطة (غو آر دي)"
 
-#: UserEditor.php:1097
+#: UserEditor.php:1105
 msgid "General Data Protection Regulation in UE"
 msgstr "لائحة حماية البيانات العامة في وحدة أوروبا"
 
-#: UserEditor.php:1128 UserEditor.php:1376
+#: UserEditor.php:1136 UserEditor.php:1400
 #, fuzzy
 msgid "Modifiable Permissions"
 msgstr "الإذن"
 
-#: UserEditor.php:1134
+#: UserEditor.php:1142
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
 msgstr "ضع الإذن الحقيقي لإعطاء هذا المستخدم القدرة على تغيير قيمته الحالية"
 
-#: UserEditor.php:1140
+#: UserEditor.php:1148
 msgid "Permission"
 msgstr "الإذن"
 
-#: UserEditor.php:1285 UserEditor.php:1377
+#: UserEditor.php:1293 UserEditor.php:1401
 #, fuzzy
 msgid "Plugin permissions"
 msgstr "الإذن"
