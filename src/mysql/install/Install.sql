@@ -1928,6 +1928,7 @@ CREATE TABLE `plugin` (
   `plgn_Name` varchar(255) DEFAULT '',
   `plgn_Description` text,
   `plgn_Category` enum('Dashboard', 'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu') NOT NULL default 'Personal' COMMENT 'For the left side menu bar',
+  `plgn_UserRole_Dashboard_Availability` BOOLEAN NOT NULL default 0 COMMENT 'role choice (none/user/admin) available for dashboard plugins only ',
   `plgn_position` enum('inside_category_menu', 'after_category_menu') NOT NULL default 'after_category_menu' COMMENT 'Inside category menu or after',
   `plgn_securities` INT(40) DEFAULT 0 COMMENT 'See for this point EcclesiaCRM/User.php model class in : SecurityOptions 0 mean not dashboard',
   `plgn_default_orientation` enum('left', 'top', 'right') NOT NULL default 'left' COMMENT 'only for dashboard plugins',
