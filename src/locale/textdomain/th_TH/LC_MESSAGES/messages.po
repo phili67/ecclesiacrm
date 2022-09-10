@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-08 16:43+0000\n"
+"POT-Creation-Date: 2022-09-10 12:14+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -339,7 +339,7 @@ msgstr "ช่วยด้วย"
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
 #: SettingsIndividual.php:444 SettingsIndividual.php:571 TaxReport.php:53
-#: UserEditor.php:1398 v2/templates/fundraiser/donatedItemEditor.php:178
+#: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -543,7 +543,7 @@ msgstr "ตรวจสอบข้อมูลให้กับ"
 msgid "family"
 msgstr "ครอบครัว"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1064
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1072
 msgid "Canvasser"
 msgstr "Canvasser"
 
@@ -656,7 +656,7 @@ msgstr "ภาพถ่าย"
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
 #: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:558
-#: UserEditor.php:1359 v2/templates/group/groupbadge.php:165
+#: UserEditor.php:1376 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "ซ้าย"
 
@@ -667,7 +667,7 @@ msgstr "ศูนย์"
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
 #: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:559
-#: UserEditor.php:1360 v2/templates/group/groupbadge.php:167
+#: UserEditor.php:1377 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "ใช่"
 
@@ -958,7 +958,7 @@ msgstr "พูดเสียก่อน"
 msgid "Convert All"
 msgstr "ยกเลิกทุกคน"
 
-#: CSVExport.php:55 UserEditor.php:995 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:1003 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "CSV"
 
@@ -1578,7 +1578,7 @@ msgstr "โบสถ์"
 msgid "Disclaimer"
 msgstr "อ้างอิง"
 
-#: DirectoryReports.php:338 UserEditor.php:1006
+#: DirectoryReports.php:338 UserEditor.php:1014
 msgid "Create Directory"
 msgstr "สร้างไดเรคเตอรี่"
 
@@ -1962,7 +1962,7 @@ msgstr "รวมเข้ากับกลุ่ม"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:551
-#: UserEditor.php:1352
+#: UserEditor.php:1369
 msgid "Yes"
 msgstr "ใช่"
 
@@ -1974,7 +1974,7 @@ msgstr "ใช่"
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:550
-#: UserEditor.php:1308 UserEditor.php:1351 v2/templates/user/userlist.php:161
+#: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "ไม่"
 
@@ -4337,7 +4337,7 @@ msgstr "การตั้งแผนที่"
 
 #: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:381
 #: FamilyView.php:473 PersonView.php:832 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1106
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1114
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
@@ -4561,7 +4561,7 @@ msgstr "เปลี่ยนตังค์"
 msgid "Documents"
 msgstr "เอกสารนี้"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:909
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:917
 msgid "EDrive"
 msgstr "EDrive"
 
@@ -4675,7 +4675,7 @@ msgstr "ลูกค้าเมนัส"
 msgid "By Classifications"
 msgstr "ขอสาบานต่อลมที่พิจารณา"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1084
+#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1092
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 msgid "MailChimp"
 msgstr "MailChimp"
@@ -4742,7 +4742,7 @@ msgstr "ข้อมูล/รายงาน"
 msgid "Reports Menu"
 msgstr "รายงาน Menu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1074
+#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1082
 msgid "Query Menu"
 msgstr "เคอรี่ เมนู"
 
@@ -6384,8 +6384,8 @@ msgstr "จดทะเบียนครอบครัว"
 msgid "Reset your password"
 msgstr "รีเซ็ตรหัสผ่าน"
 
-#: external/templates/password/enter-username.php:32 UserEditor.php:705
-#: UserEditor.php:764
+#: external/templates/password/enter-username.php:32 UserEditor.php:713
+#: UserEditor.php:772
 msgid "Login Name"
 msgstr "ชื่อล็อกจิ้น"
 
@@ -9253,21 +9253,21 @@ msgstr "ตั้งค่าผู้ใช้งาน"
 msgid "Classic User Profile Settings"
 msgstr "การตั้งค่าใช้จ่าย"
 
-#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1143
+#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1151
 msgid "Notes"
 msgstr "โน้ต"
 
-#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1142
+#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1150
 msgid "Current Value"
 msgstr "วาวินาทีปัจจุบัน"
 
 #: SettingsIndividual.php:152 SettingsIndividual.php:203 SystemSettings.php:146
-#: UserEditor.php:1141
+#: UserEditor.php:1149
 msgid "Variable name"
 msgstr "ชื่อแตกต่างกัน"
 
 #: SettingsIndividual.php:179 SettingsIndividual.php:445
-#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1395
+#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1419
 msgid "Save Settings"
 msgstr "ช่วยชีวิต"
 
@@ -9275,13 +9275,13 @@ msgstr "ช่วยชีวิต"
 msgid "Skin"
 msgstr "ผิว"
 
-#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1178
-#: UserEditor.php:1231
+#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1186
+#: UserEditor.php:1239
 msgid "False"
 msgstr "ผิดพลาด"
 
-#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1179
-#: UserEditor.php:1232
+#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1187
+#: UserEditor.php:1240
 msgid "True"
 msgstr "จริง"
 
@@ -9372,11 +9372,11 @@ msgstr "ร้านขายพวกนี้ไว้ในที่ปลอ
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "เริ่มเข้ารหัสผ่านการพิสูจน์"
 
-#: SettingsIndividual.php:515 UserEditor.php:1325
+#: SettingsIndividual.php:515 UserEditor.php:1333
 msgid "Visibilities of the dashboard plugins"
 msgstr ""
 
-#: SettingsIndividual.php:557 UserEditor.php:1358
+#: SettingsIndividual.php:557 UserEditor.php:1375
 #, fuzzy
 msgid "Top"
 msgstr "เพื่อ"
@@ -9565,211 +9565,211 @@ msgstr "ล็อคกิ้นแล้ว โปรดเลือกตร�
 msgid "The same as before"
 msgstr "เหมือนกับที่เคยเป็น"
 
-#: UserEditor.php:626
+#: UserEditor.php:634
 msgid "User Editor"
 msgstr "ผู้บริหารผู้ใช้"
 
-#: UserEditor.php:643
+#: UserEditor.php:651
 msgid "Role management"
 msgstr "การจัดการวงกลม"
 
-#: UserEditor.php:646
+#: UserEditor.php:654
 msgid "Add Role"
 msgstr "Add Role"
 
-#: UserEditor.php:647
+#: UserEditor.php:655
 msgid "Manage Roles"
 msgstr "จัดการโรลส์"
 
-#: UserEditor.php:650
+#: UserEditor.php:658
 msgid "Add Role to Current User"
 msgstr "บวก Role เข้ากับ Current User"
 
-#: UserEditor.php:686
+#: UserEditor.php:694
 msgid "Person to Make User"
 msgstr "คนทำให้ผู้ใช้ชีวิต"
 
-#: UserEditor.php:722
+#: UserEditor.php:730
 msgid "Note: Changes will not take effect until next logon."
 msgstr "คำตอบ: การเปลี่ยนแปลงจะไม่มีผลจนกว่า โลกอนต่อไป"
 
-#: UserEditor.php:741 UserEditor.php:1309
+#: UserEditor.php:749 UserEditor.php:1317 UserEditor.php:1383
 msgid "User"
 msgstr "ผู้ใช้"
 
-#: UserEditor.php:784 UserEditor.php:1375
+#: UserEditor.php:792 UserEditor.php:1399
 #, fuzzy
 msgid "Global Permissions"
 msgstr "อนุญาติ"
 
-#: UserEditor.php:794 v2/templates/user/userlist.php:158
+#: UserEditor.php:802 v2/templates/user/userlist.php:158
 msgid "Management"
 msgstr "การจัดการ"
 
-#: UserEditor.php:800 UserEditor.php:1310
+#: UserEditor.php:808 UserEditor.php:1318 UserEditor.php:1384
 msgid "Admin"
 msgstr "แอดมิน"
 
-#: UserEditor.php:801
+#: UserEditor.php:809
 msgid "Grants all privileges."
 msgstr "ทุกสิทธิพิเศษทั้งหมด"
 
-#: UserEditor.php:811
+#: UserEditor.php:819
 msgid "Add Records"
 msgstr "บวกบันทึก"
 
-#: UserEditor.php:820
+#: UserEditor.php:828
 msgid "Edit Records"
 msgstr "บันทึกแก้ไข"
 
-#: UserEditor.php:829
+#: UserEditor.php:837
 msgid "Delete Records"
 msgstr "ลบบันทึก"
 
-#: UserEditor.php:838
+#: UserEditor.php:846
 msgid "Manage Properties and Classifications"
 msgstr "จัดการทรัพย์สินและการปรับปรุง"
 
-#: UserEditor.php:847
+#: UserEditor.php:855
 msgid "Manage Groups and Roles"
 msgstr "จัดการกลุ่มและโรลส์"
 
-#: UserEditor.php:856
+#: UserEditor.php:864
 msgid "Manage resource reservation schedules (room, computer, projectors)"
 msgstr "จัดการตารางการจองทรัพยากร (ห้อง, คอมพิวเตอร์, โปรเจคเตอร์)"
 
-#: UserEditor.php:865
+#: UserEditor.php:873
 msgid "View, Add and Edit Notes"
 msgstr "วิว แอดด์ แอนด์ เอด โน๊ต"
 
-#: UserEditor.php:881
+#: UserEditor.php:889
 #, fuzzy
 msgid "User Account Permissions"
 msgstr "หมายเลขบัญชีที่เคลียร์"
 
-#: UserEditor.php:886
+#: UserEditor.php:894
 msgid "Main Dashboard"
 msgstr "กระดาน"
 
-#: UserEditor.php:888
+#: UserEditor.php:896
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "กระดาน และ วัน เกิด ใน ปฏิทิน นั้น มอง เห็น ได้"
 
-#: UserEditor.php:898
+#: UserEditor.php:906
 msgid "Edit Self"
 msgstr "แก้ไข เซลฟ์"
 
-#: UserEditor.php:899
+#: UserEditor.php:907
 msgid "Edit own family only."
 msgstr "ครอบครัวแก้ไขเท่านั้น"
 
-#: UserEditor.php:918
+#: UserEditor.php:926
 msgid "Right to edit html code"
 msgstr "ใช่แล้ว ที่จะตัดต่อรหัสอัดเซลล์"
 
-#: UserEditor.php:927
+#: UserEditor.php:935
 msgid "Can Send Email"
 msgstr "สามารถส่งอีเมลได้"
 
-#: UserEditor.php:929
+#: UserEditor.php:937
 msgid "Allow to use the mail function and button in the CRM"
 msgstr "อนุญาตให้ใช้จดหมายทำงานและปุ่มใน CRM"
 
-#: UserEditor.php:945
+#: UserEditor.php:953
 #, fuzzy
 msgid "Permissions To View"
 msgstr "อนุญาติ"
 
-#: UserEditor.php:951
+#: UserEditor.php:959
 msgid "Show Cart"
 msgstr "โชว์คาร์ท"
 
-#: UserEditor.php:960
+#: UserEditor.php:968
 msgid "Show Map"
 msgstr "แสดงแผนที่"
 
-#: UserEditor.php:969
+#: UserEditor.php:977
 msgid "See Privacy Data"
 msgstr "ดูข้อมูลเป็นส่วนตัว"
 
-#: UserEditor.php:971
+#: UserEditor.php:979
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr "ให้ผู้ใช้เพื่อดูข้อมูลความเป็นส่วนตัวของสมาชิก ปีเกิด, อายุ"
 
-#: UserEditor.php:989
+#: UserEditor.php:997
 #, fuzzy
 msgid "Export Permissions"
 msgstr "อนุญาติ"
 
-#: UserEditor.php:997
+#: UserEditor.php:1005
 msgid "User permission to export CSV files"
 msgstr "ผู้ใช้อนุญาตให้ส่งแฟ้มCSV"
 
-#: UserEditor.php:1007
+#: UserEditor.php:1015
 msgid "User permission to create directories"
 msgstr "ผู้ใช้รับอนุญาตให้สร้างผู้อำนวยการ"
 
-#: UserEditor.php:1017
+#: UserEditor.php:1025
 msgid "Sunday school PDF"
 msgstr "PDF โรงเรียนวันอาทิตย์"
 
-#: UserEditor.php:1019
+#: UserEditor.php:1027
 msgid "User permission to export PDF files for the sunday school"
 msgstr "ผู้ใช้รับอนุญาตให้ส่งแฟ้มเอกสาร PDF ไปโรงเรียนวันอาทิตย์"
 
-#: UserEditor.php:1029
+#: UserEditor.php:1037
 msgid "Sunday school CSV"
 msgstr "CSV โรงเรียนวันอาทิตย์"
 
-#: UserEditor.php:1031
+#: UserEditor.php:1039
 msgid "User permission to export CSV files for the sunday school"
 msgstr "ผู้ใช้รับอนุญาตให้ส่งแฟ้ม CSV ไปโรงเรียนวันอาทิตย์"
 
-#: UserEditor.php:1049
+#: UserEditor.php:1057
 #, fuzzy
 msgid "Special Permissions"
 msgstr "อนุญาติ"
 
-#: UserEditor.php:1055
+#: UserEditor.php:1063
 msgid "Manage Donations and Finance"
 msgstr "จัดการบริจาค และการเงิน"
 
-#: UserEditor.php:1065
+#: UserEditor.php:1073
 msgid "Canvass volunteer."
 msgstr "อาสาสมัครที่นี่"
 
-#: UserEditor.php:1075
+#: UserEditor.php:1083
 msgid "Allow to manage the query menu"
 msgstr "ให้จัดการเมนูต่อสู้"
 
-#: UserEditor.php:1085
+#: UserEditor.php:1093
 msgid "Allow a user to use MailChimp tool"
 msgstr "ให้ผู้ใช้เครื่องมือ MailChimp"
 
-#: UserEditor.php:1095
+#: UserEditor.php:1103
 msgid "GRPD Data Protection Officer"
 msgstr "เจ้าหน้าที่คุ้มครองข้อมูลภาคสนามรบ"
 
-#: UserEditor.php:1097
+#: UserEditor.php:1105
 msgid "General Data Protection Regulation in UE"
 msgstr "เขตปกครองการคุ้มครองนายพลดาต้าในยูอี"
 
-#: UserEditor.php:1128 UserEditor.php:1376
+#: UserEditor.php:1136 UserEditor.php:1400
 #, fuzzy
 msgid "Modifiable Permissions"
 msgstr "อนุญาติ"
 
-#: UserEditor.php:1134
+#: UserEditor.php:1142
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
 msgstr "ตั้งค่าอนุญาตจริง ที่จะให้ความสามารถในการเปลี่ยนค่าปัจจุบันของพวกเขา"
 
-#: UserEditor.php:1140
+#: UserEditor.php:1148
 msgid "Permission"
 msgstr "อนุญาติ"
 
-#: UserEditor.php:1285 UserEditor.php:1377
+#: UserEditor.php:1293 UserEditor.php:1401
 #, fuzzy
 msgid "Plugin permissions"
 msgstr "อนุญาติ"
