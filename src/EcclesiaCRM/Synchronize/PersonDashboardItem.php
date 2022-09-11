@@ -40,7 +40,7 @@ class PersonDashboardItem implements DashboardItemInterface {
      * @param int $limit
      * @return array|\EcclesiaCRM\Person[]|mixed|\Propel\Runtime\ActiveRecord\ActiveRecordInterface[]|\Propel\Runtime\Collection\ObjectCollection
      */
-    public static function getUpdatedMembers($limit = 12)
+    public static function getUpdatedMembers($limit = 6)
     {
         return PersonQuery::create()
             ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
@@ -56,7 +56,7 @@ class PersonDashboardItem implements DashboardItemInterface {
      * @param int $limit
      * @return array|\EcclesiaCRM\Person[]|mixed|\Propel\Runtime\ActiveRecord\ActiveRecordInterface[]|\Propel\Runtime\Collection\ObjectCollection
      */
-    public static function getLatestMembers($limit = 12)
+    public static function getLatestMembers($limit = 6)
     {
         return PersonQuery::create()
             ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
