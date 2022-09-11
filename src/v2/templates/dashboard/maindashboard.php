@@ -300,7 +300,7 @@ if (!$load_Elements) {
     </div>
     <br/>
     <div class="row">
-        <section class="col-lg-12 connectedSortable ui-sortable center-plugins" data-name="center">
+        <section class="col-lg-12 connectedSortable ui-sortable top-plugins" data-name="center">
             <?php
             $plugins = PluginQuery::create()
                 ->filterByActiv(1)
@@ -344,7 +344,7 @@ if (!$load_Elements) {
     <!-- we add the left right plugins -->
     <div class="row">
 
-        <section class="col-lg-6 connectedSortable ui-sortable left-plugins" data-name="left">
+        <section class="col-lg-4 connectedSortable ui-sortable left-plugins" data-name="left">
             <?php
             $plugins = PluginQuery::create()
                 ->filterByActiv(1)
@@ -384,8 +384,52 @@ if (!$load_Elements) {
             <?php } ?>
         </section>
 
+        <!-- the center dashboard plugins -->
+        <section class="col-lg-4 connectedSortable ui-sortable center-plugins" data-name="right">
 
-        <section class="col-lg-6 connectedSortable ui-sortable right-plugins" data-name="right">
+            <?php
+            $plugins = PluginQuery::create()
+                ->filterByActiv(1)
+                ->filterByCategory('Dashboard')
+                ->usePluginUserRoleQuery()
+                ->filterByDashboardOrientation('center')
+                ->filterByUserId(SessionUser::getId())
+                ->filterByDashboardVisible(true)
+                ->endUse()
+                ->leftJoinPluginUserRole()
+                ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
+                ->orderBy('place')
+                ->find();
+
+            foreach ($plugins as $plugin) {
+                $security = $plugin->getSecurities();
+
+                if ( !(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)) )
+                    continue;
+
+                $userPluginStatus = PluginUserRoleQuery::create()
+                    ->filterByUserId(SessionUser::getId())
+                    ->findOneByPluginId($plugin->getId());
+
+                $is_collapsed = $userPluginStatus->isCollapsed();
+
+                echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php",[
+                    'sRootPath'     => $sRootPath,
+                    'sRootDocument' => $sRootDocument,
+                    'CSPNonce'      => $CSPNonce,
+                    'PluginId'      => $plugin->getId(),
+                    'Card_collapsed'  => ($is_collapsed?'collapsed-card':''),
+                    'Card_body'       => ($is_collapsed?'display: none':'display: block'),
+                    'Card_collapsed_button' => ($is_collapsed?'fa-plus':'fa-minus')
+                ])
+                ?>
+                <?php
+            }
+            ?>
+        </section>
+
+        <!-- the right dashboard plugins -->
+        <section class="col-lg-4 connectedSortable ui-sortable right-plugins" data-name="right">
 
             <?php
             $plugins = PluginQuery::create()

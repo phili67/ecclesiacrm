@@ -19,25 +19,41 @@ $(document).ready(function () {
         forcePlaceholderSize:true,
         zIndex:999999,
         stop: function( ev ) {
-            var getChild_Left = $('.left-plugins').children();
 
             var res = [];
 
+            var getChild_Left = $('.left-plugins').children();
+
             getChild_Left.each(function(i,v){
                 // push in fruits array, an array of data-fruit
-                res.push(['left', i , $(v).data('name')])
+                if ($(v).data('name') != undefined) {
+                    res.push(['left', i, $(v).data('name')])
+                }
+            });
+
+            var getChild_Center = $('.center-plugins').children();
+
+            getChild_Center.each(function(i,v){
+                // push in fruits array, an array of data-fruit
+                if ($(v).data('name') != undefined) {
+                    res.push(['center', i, $(v).data('name')])
+                }
             });
 
             var getChild_right = $('.right-plugins').children();
 
             getChild_right.each(function(i,v){
-                res.push(['right', i , $(v).data('name')])
+                if ($(v).data('name') != undefined) {
+                    res.push(['right', i, $(v).data('name')])
+                }
             })
 
-            var getChild_top = $('.center-plugins').children();
+            var getChild_top = $('.top-plugins').children();
 
             getChild_top.each(function(i,v){
-                res.push(['top', i , $(v).data('name')])
+                if ($(v).data('name') != undefined) {
+                    res.push(['top', i, $(v).data('name')])
+                }
             })
 
             window.CRM.APIRequest({
@@ -45,6 +61,7 @@ $(document).ready(function () {
                 path: 'plugins/addDashboardPlaces',
                 data: JSON.stringify({"dashBoardItems":res})
             },function (data) {
+                window.CRM.DisplayAlert(i18next.t("Dashboard Item"), i18next.t("Moved!"));
             });
         }})
     $('.connectedSortable .card-header').css('cursor','move');
