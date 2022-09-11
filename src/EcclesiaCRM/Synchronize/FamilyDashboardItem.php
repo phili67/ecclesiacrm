@@ -44,7 +44,7 @@ class FamilyDashboardItem implements DashboardItemInterface {
    * @param int $limit
    * @return array|\EcclesiaCRM\Family[]|mixed|\Propel\Runtime\ActiveRecord\ActiveRecordInterface[]|\Propel\Runtime\Collection\ObjectCollection
    */
-  private static function getUpdatedFamilies($limit = 12) {
+  private static function getUpdatedFamilies($limit = 6) {
     $families = FamilyQuery::create()
                     ->filterByDateDeactivated(null)
                     ->filterByDateLastEdited(null, Criteria::NOT_EQUAL)
@@ -72,7 +72,7 @@ class FamilyDashboardItem implements DashboardItemInterface {
    * @param int $limit
    * @return array|\EcclesiaCRM\Family[]|mixed|\Propel\Runtime\ActiveRecord\ActiveRecordInterface[]|\Propel\Runtime\Collection\ObjectCollection
    */
-  private static function getLatestFamilies($limit = 12) {
+  private static function getLatestFamilies($limit = 6) {
 
     $families = FamilyQuery::create()
                     ->filterByDateDeactivated(null)
