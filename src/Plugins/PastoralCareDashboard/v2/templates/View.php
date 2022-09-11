@@ -66,7 +66,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
         <div class="card-header border-0 ui-sortable-handle">
             <h5 class="card-title"><i class="fas fa-heartbeat"></i> <?= dgettext("messages-PastoralCareDashboard","Pastoral Care") ?></h5>
             <div class="card-tools">
-                <button type="button" class="btn bg-danger btn-sm" data-card-widget="remove">
+                <button type="button" class="btn btn-danger btn-sm" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                 </button>
                 <button type="button" class="btn btn-danger btn-sm" data-card-widget="collapse" title="Collapse">

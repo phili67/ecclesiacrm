@@ -2,8 +2,8 @@
 
 /*******************************************************************************
  *
- *  filename    : meeting.php
- *  last change : 2020-07-07
+ *  filename    : ToDoListDashboard.php
+ *  last change : 2020-09-07
  *  description : manage the Pastoral Care
  *
  *  http://www.ecclesiacrm.com/

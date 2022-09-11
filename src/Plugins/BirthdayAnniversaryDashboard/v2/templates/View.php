@@ -102,7 +102,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
     if ( !empty($classified) ) {
         $global_body .= '<h5 class="card-title"><i class="fas fa-birthday-cake"></i> '. dgettext("messages-BirthdayAnniversaryDashboard","Birthdates of the day") . '</h5>';
         $global_body .= '<div class="card-tools">
-            <button type="button" class="btn bg-primary btn-sm" data-card-widget="remove">
+            <button type="button" class="btn btn-primary btn-sm" data-card-widget="remove">
                             <i class="fas fa-times"></i>
                         </button>
             <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">

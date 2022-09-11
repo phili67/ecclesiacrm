@@ -1,6 +1,6 @@
 DELETE FROM `plugin` WHERE `plgn_Name`='ToDoListDashboard';
 
-DELETE FROM `tdl_l_item`;
-DELETE FROM `tdl_list`;
+DROP TABLE `tdl_l_item`;
+DROP TABLE `tdl_list`;
 
 
