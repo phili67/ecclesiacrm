@@ -38,7 +38,7 @@ $defaultList = ToDoListDashboardQuery::create()
             <?= dgettext("messages-ToDoListDashboard","To Do List") ?>
         </h3>
         <div class="card-tools">
-            <div class="float-right" style="margin-left:10px;margin-top: -3px">
+            <div class="float-right" style="margin-left:10px;margin-top: -3px;margin-right:-18px">
                 <button type="button" class="btn btn-default btn-sm" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                 </button>
