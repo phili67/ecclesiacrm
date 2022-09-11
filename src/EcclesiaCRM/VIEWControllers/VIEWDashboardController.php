@@ -112,61 +112,17 @@ class VIEWDashboardController {
             $numPersons = $persons->count();
         }
 
-        $pastoralServiceStats = null;
-        $range = null;
-        $caresPersons = null;
-        $caresFamilies = null;
-
-        if (SessionUser::getUser()->isPastoralCareEnabled()) {
-
-            // Persons and Families never been searched
-
-            $pastoralService = new PastoralCareService();
-
-            /*
-             *  get all the stats of the pastoral care service
-             */
-
-            $pastoralServiceStats = $pastoralService->stats();
-
-            /*
-             *  get the period for the pastoral care
-             */
-
-            $range = $pastoralService->getRange();
-
-            /*
-             *  last pastoralcare search persons for the current system user
-             */
-
-            $caresPersons = $pastoralService->lastContactedPersons();
-
-            /*
-             *  last pastoralcare search families for the current system user
-             */
-
-            $caresFamilies = $pastoralService->lastContactedFamilies();
-        }
+        $sCSPNonce       = SystemURLs::getCSPNonce();
 
         $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'sPageTitle'  => $sPageTitle = _('Welcome to') . ' ' . ChurchMetaData::getChurchName(),
-            'deposits' => $deposits,
-            'depositData' => $depositData,
-            'showBanner' => $showBanner,
             'dashboardCounts' => $dashboardCounts,
             'peopleWithBirthDays' => $peopleWithBirthDays,
-            'Anniversaries' => $Anniversaries,
-            'peopleWithBirthDaysCount' => $peopleWithBirthDaysCount,
-            'AnniversariesCount' => $AnniversariesCount,
-            'families' => $families,
             'numFamilies' => $numFamilies,
-            'persons' => $persons,
             'numPersons' => $numPersons,
-            'pastoralServiceStats' => $pastoralServiceStats,
-            'range' => $range,
-            'caresPersons' => $caresPersons,
-            'caresFamilies' => $caresFamilies
+            'CSPNonce' => $sCSPNonce,
+
         ];
 
         return $paramsArguments;
