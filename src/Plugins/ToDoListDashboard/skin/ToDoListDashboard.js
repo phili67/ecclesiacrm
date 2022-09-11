@@ -205,7 +205,7 @@ $(document).ready(function () {
                         var selectList = document.getElementById('select-to-do-list-dashboard');
 
                         if (data.ListId != -1) {
-                            res = addElementsToList(data);
+                            res = addElementsToDoList(data);
 
                             // we select the right list
                             selectList.value = data.ListId;
@@ -228,7 +228,7 @@ $(document).ready(function () {
         });
     });
 
-    function addElementsToList(data) {
+    function addElementsToDoList(data) {
         let cnt = data.items.length;
         var res = '';
 
@@ -270,11 +270,11 @@ $(document).ready(function () {
 
             var ul = document.getElementById('todo-list');
 
-            var res = addElementsToList(data)
+            var res = addElementsToDoList(data)
 
             ul.innerHTML = res;
 
-            addListeners();
+            addToDoListListeners();
         });
     });
 
@@ -375,11 +375,11 @@ $(document).ready(function () {
                         }, function (data) {
                             var ul = document.getElementById('todo-list');
 
-                            var res = addElementsToList(data)
+                            var res = addElementsToDoList(data)
 
                             ul.innerHTML = res;
 
-                            addListeners();
+                            addToDoListListeners();
 
                             document.querySelector('#add-to-do-list-item').disabled = (data.items.length == 8)?true:false;
                         });
@@ -409,7 +409,7 @@ $(document).ready(function () {
         });
     });
 
-    function addListeners () {
+    function addToDoListListeners () {
         window.CRM.ElementListener('.todoListItemCheck', 'click', function (event) {
             var id = parseInt(event.currentTarget.dataset.id);
             var checked = event.currentTarget.checked;
@@ -423,7 +423,7 @@ $(document).ready(function () {
                 })
             }, function (data) {
                 // TO DO reload the datas
-                addListeners();
+                addToDoListListeners();
             });
         });
 
@@ -482,11 +482,11 @@ $(document).ready(function () {
                                     if (data.status == "success") {
                                         var ul = document.getElementById('todo-list');
 
-                                        var res = addElementsToList(data)
+                                        var res = addElementsToDoList(data)
 
                                         ul.innerHTML = res;
 
-                                        addListeners();
+                                        addToDoListListeners();
                                     }
                                 });
                             }
@@ -545,11 +545,11 @@ $(document).ready(function () {
                             // TO DO
                             var ul = document.getElementById('todo-list');
 
-                            var res = addElementsToList(data)
+                            var res = addElementsToDoList(data)
 
                             ul.innerHTML = res;
 
-                            addListeners();
+                            addToDoListListeners();
 
                             document.querySelector('#add-to-do-list-item').disabled = false;
                         });
@@ -559,6 +559,6 @@ $(document).ready(function () {
         });
     }
 
-    addListeners();
+    addToDoListListeners();
 });
 
