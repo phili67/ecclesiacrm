@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-10 12:14+0000\n"
+"POT-Creation-Date: 2022-09-11 11:17+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6037,7 +6037,7 @@ msgstr "Συμμετέχοντες στην εκδήλωση"
 msgid "View Your Cart"
 msgstr "Δείτε το καλάθι σας"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:153
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:119
 msgid "Welcome to"
 msgstr "Καλώς ήρθατε στην"
 
@@ -12697,6 +12697,9 @@ msgstr "Μια μέρα"
 
 msgid "Several days"
 msgstr "Αρκετές ημέρες"
+
+#~ msgid "week(s)"
+#~ msgstr "εβδομάδα(ες)"
 
 #~ msgid "Birthdates of the day"
 #~ msgstr "Ημερομηνίες γέννησης της ημέρας"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-10 12:14+0000\n"
+"POT-Creation-Date: 2022-09-11 11:10+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5948,7 +5948,7 @@ msgstr "Event Attendees"
 msgid "View Your Cart"
 msgstr "Nhìn xe của anh đi"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:153
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:119
 msgid "Welcome to"
 msgstr "Chào mừng đến với"
 
