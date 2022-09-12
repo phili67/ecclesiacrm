@@ -841,7 +841,7 @@ class User extends BaseUser
       $public_dir = dirname(__FILE__)."/../../../".$this->public_path.$this->getWebdavPublickey();
       $public_dir_target_link = dirname(__FILE__)."/../../../".$this->getUserDir()."/public";
       if ( !is_link($public_dir_target_link) or is_dir($public_dir_target_link) or !is_dir($public_dir_target_link) ) {
-          MiscUtils::delTree($public_dir_target_link);
+          //MiscUtils::delTree($public_dir_target_link);
           symlink($public_dir."/", $public_dir_target_link);
       }
 
