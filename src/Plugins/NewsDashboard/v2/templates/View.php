@@ -49,7 +49,7 @@ if ( $role == 'admin' or SessionUser::isAdmin() ) {
             </button>
         </div>
     </div>
-    <div class="card-body"  style="<?= $Card_body ?>">
+    <div class="card-body"  style="<?= $Card_body ?>;padding: .15rem;">
         <?php if ( $notes->count() == 0 ) { ?>
         <ul class="products-list product-list-in-card pl-2 pr-2" id="news-dashboard-list">
             <?= dgettext("messages-NewsDashboard","No news at this time") ?>
