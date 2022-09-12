@@ -62,22 +62,22 @@ $defaultList = ToDoListDashboardQuery::create()
                     <?php } ?>
                 </select>
             </div>
-            <div class="float-right" style="margin-right:5px;margin-top: -6px">
-                <button type="button" class="btn btn-success float-right" id="edit-To-Do-List-Dashboard"
+            <div class="float-right" style="margin-right:5px;margin-top: -4px">
+                <button type="button" class="btn btn-success btn-sm float-right" id="edit-To-Do-List-Dashboard"
                         data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= dgettext("messages-ToDoListDashboard","Edit Name of Current To Do List") ?>"><i class="fas fa-edit"></i></button>
             </div>
-            <div class="float-right" style="margin-right:5px;margin-top: -6px">
-                <button type="button" class="btn btn-danger float-right" id="remove-To-Do-List-Dashboard"
+            <div class="float-right" style="margin-right:5px;margin-top: -4px">
+                <button type="button" class="btn btn-danger btn-sm float-right" id="remove-To-Do-List-Dashboard"
                         data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= dgettext("messages-ToDoListDashboard","Remove Current To Do List") ?>"><i class="fas fa-trash"></i></button>
             </div>
-            <div class="float-right" style="margin-right:5px;margin-top: -6px">
-                <button type="button" class="btn btn-primary float-right" id="Add-To-Do-List-Dashboard"
+            <div class="float-right" style="margin-right:5px;margin-top: -4px">
+                <button type="button" class="btn btn-primary btn-sm float-right" id="Add-To-Do-List-Dashboard"
                         data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= dgettext("messages-ToDoListDashboard","Add a To Do List") ?>"><i class="fas fa-plus"></i></button>
             </div>
         </div>
     </div>
 
-    <div class="card-body"  style="<?= $Card_body ?>">
+    <div class="card-body"  style="<?= $Card_body ?>;padding: .05rem;">
         <ul class="todo-list ui-sortable" id="todo-list" data-widget="todo-list">
             <?php
                 if ( !is_null($defaultList) ) {
@@ -121,7 +121,7 @@ $defaultList = ToDoListDashboardQuery::create()
     </div>
 
     <div class="card-footer clearfix">
-        <button type="button" class="btn btn-primary float-right" id="add-to-do-list-item" <?= (is_null($defaultList) > 0 or (!is_null($items) and $items->count() == 8))?'disabled':'' ?>><i class="fas fa-plus"></i> <?= dgettext("messages-ToDoListDashboard","Add item") ?></button>
+        <button type="button" class="btn btn-primary btn-sm float-right" id="add-to-do-list-item" <?= (is_null($defaultList) > 0 or (!is_null($items) and $items->count() == 8))?'disabled':'' ?>><i class="fas fa-plus"></i> <?= dgettext("messages-ToDoListDashboard","Add item") ?></button>
     </div>
 </div>
 
