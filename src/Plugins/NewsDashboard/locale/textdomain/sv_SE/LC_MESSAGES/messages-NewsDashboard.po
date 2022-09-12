@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-11 11:22+0000\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:42
+msgid "News"
+msgstr "Nyheter"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:54
+msgid "No news at this time"
+msgstr "Inga nyheter för närvarande"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:66
+msgid "Last modification on"
+msgstr "Senaste ändring den"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:72
+msgid "Remove"
+msgstr "Ta bort"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:73
+msgid "Edit"
+msgstr "Redigera"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:89
+msgid "Add News"
+msgstr "Lägg till nyheter"
+
+#~ msgid "week(s)"
+#~ msgstr "vecka(n)"
+
+#~ msgid "News Editor"
+#~ msgstr "Nyhetsredaktör"
+
+#~ msgid "News Title"
+#~ msgstr "Nyhetstitel"
+
+#~ msgid "Set your News title"
+#~ msgstr "Ange din nyhetstitel"
+
+#~ msgid "Choose your News Type"
+#~ msgstr "Välj din typ av nyhet"
+
+#~ msgid "Infos"
+#~ msgstr "Information"
+
+#~ msgid "To plan"
+#~ msgstr "Att planera"
+
+#~ msgid "To note"
+#~ msgstr "Att notera"
+
+#~ msgid "Important"
+#~ msgstr "Viktigt"
+
+#~ msgid "Very important"
+#~ msgstr "Mycket viktigt"
+
+#~ msgid "You have to set a Title for your news"
+#~ msgstr "Du måste ange en titel för din nyhet"

@@ -1,0 +1,21 @@
+<!-- in plugin.schema.xml -->
+<database package="NewsDashboard" name="pluginstore" nameSpace="PluginStore">
+    <table name="news_nw" idMethod="native" phpName="NewsDashboard">
+        <column name="news_nw_id" phpName="Id" type="SMALLINT" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="news_nw_user_id" phpName="UserId" type="SMALLINT" sqlType="mediumint unsigned" description="user id " required="true" defaultValue="0"/>
+        <column name="news_nw_title" phpName="Title" type="VARCHAR" size="255" description="Note Title" required="true" defaultValue=""/>
+        <column name="news_nw_Text" phpName="Text" type="LONGVARCHAR" description="Note"/>
+        <column name="news_nw_type" phpName="Type" type="CHAR" sqlType="enum('infos','to_plan','to_note','important','very_important')" required="true" defaultValue="infos"/>
+        <column name="news_nw_DateEntered" phpName="Dateentered" type="TIMESTAMP" required="true"/>
+        <column name="news_nw_DateLastEdited" phpName="Datelastedited" type="TIMESTAMP"/>
+        <index name="fk_news_nw_user_id">
+            <index-column name="news_nw_user_id"/>
+        </index>
+        <unique name="wf_c_id">
+            <unique-column name="news_nw_id"/>
+        </unique>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+</database>
