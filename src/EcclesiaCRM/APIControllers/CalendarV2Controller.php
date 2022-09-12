@@ -216,6 +216,8 @@ class CalendarV2Controller
 
                 if ($values['calendarShareAccess'] >= 2 && $values['grpid'] == 0 && $calendar['cal_type'] == 1) {
                     $values['type'] = 'share';
+                    $calendarType = _('Share');
+                    $values['calendarNameForEventEditor']       = "(".$calendarType.") : ".$calendar['{DAV:}displayname'];
                 }
 
                 if (
