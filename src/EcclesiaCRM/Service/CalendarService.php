@@ -34,6 +34,7 @@ use EcclesiaCRM\EventCounts;
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -388,6 +389,17 @@ class CalendarService
                             }
                         }
                     }
+
+                    $evntType = EventTypesQuery::create()->findOneById($type);
+
+                    if ( !is_null($evntType) ) {
+                        $color = $evntType->getColor();
+
+                        if ($color != '#000000') {
+                            $calendarColor = $color;
+                        }
+                    }
+
 
                     if ($fEvnt == false) {
 
