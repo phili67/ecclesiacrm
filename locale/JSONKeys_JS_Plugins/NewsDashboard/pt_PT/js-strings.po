@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-11T11:18:10.961Z\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Last modification on"
+msgstr "Última modificação em"
+
+msgid "Remove"
+msgstr "Remover"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "News Editor"
+msgstr "Editor de notícias"
+
+msgid "News Title"
+msgstr "Título da notícia"
+
+msgid "Set your News title"
+msgstr "Defina o título da sua Notícia"
+
+msgid "Choose your News Type"
+msgstr "Escolha o seu tipo de notícia"
+
+msgid "Infos"
+msgstr "Infos"
+
+msgid "To plan"
+msgstr "Para planear"
+
+msgid "To note"
+msgstr "Para notar"
+
+msgid "Important"
+msgstr "Importante"
+
+msgid "Very important"
+msgstr "Muito importante"
+
+msgid "You have to set a Title for your news"
+msgstr "Tem de definir um título para as suas notícias"
+
+#~ msgid "week(s)"
+#~ msgstr "semana(s)"
+
+#~ msgid "News"
+#~ msgstr "Notícias"
+
+#~ msgid "No news at this time"
+#~ msgstr "Nenhuma notícia neste momento"
+
+#~ msgid "Add News"
+#~ msgstr "Adicionar Notícias"

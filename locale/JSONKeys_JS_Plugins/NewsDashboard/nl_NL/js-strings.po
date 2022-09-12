@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-11T11:17:38.059Z\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Last modification on"
+msgstr "Laatste wijziging op"
+
+msgid "Remove"
+msgstr "Verwijder"
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "News Editor"
+msgstr "Nieuwsredacteur"
+
+msgid "News Title"
+msgstr "Nieuws Titel"
+
+msgid "Set your News title"
+msgstr "Stel uw nieuwstitel in"
+
+msgid "Choose your News Type"
+msgstr "Kies uw nieuwstype"
+
+msgid "Infos"
+msgstr "Info"
+
+msgid "To plan"
+msgstr "Om te plannen"
+
+msgid "To note"
+msgstr "Om op te merken"
+
+msgid "Important"
+msgstr "Belangrijk"
+
+msgid "Very important"
+msgstr "Zeer belangrijk"
+
+msgid "You have to set a Title for your news"
+msgstr "Je moet een Titel instellen voor je nieuws"
+
+#~ msgid "week(s)"
+#~ msgstr "week(en)"
+
+#~ msgid "News"
+#~ msgstr "Nieuws"
+
+#~ msgid "No news at this time"
+#~ msgstr "Geen nieuws op dit moment"
+
+#~ msgid "Add News"
+#~ msgstr "Nieuws toevoegen"
