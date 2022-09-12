@@ -307,6 +307,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 calEvent.el.style.background = calEvent.backgroundColor;
             }
 
+            if (calEvent.event.extendedProps.Desc != '') {
+                $(calEvent.el).tooltip({
+                    title: calEvent.event.extendedProps.Desc,
+                    //word-break: break-all;
+                    placement: "top",
+                    trigger: "hover",
+                    container: "body"
+                });
+            }
+
             /*var str = '<div class="fc-event-main"><div class="fc-event-main-frame"><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">'
                 + calEvent.event.extendedProps.icon + " " + calEvent.event.title
                 + '</div></div></div></div><div class="fc-event-resizer fc-event-resizer-end"></div>';
