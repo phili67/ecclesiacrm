@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-11 11:22+0000\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:42
+msgid "News"
+msgstr "Nachrichten"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:54
+msgid "No news at this time"
+msgstr "Zur Zeit keine Neuigkeiten"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:66
+msgid "Last modification on"
+msgstr "Letzte Änderung am"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:72
+msgid "Remove"
+msgstr "entfernen"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:73
+msgid "Edit"
+msgstr "bearbeiten"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:89
+msgid "Add News"
+msgstr "Nachrichten hinzufügen"
+
+#~ msgid "week(s)"
+#~ msgstr "Woche(n)"
+
+#~ msgid "News Editor"
+#~ msgstr "Nachrichtenredakteur"
+
+#~ msgid "News Title"
+#~ msgstr "Nachrichten Titel"
+
+#~ msgid "Set your News title"
+#~ msgstr "Legen Sie Ihren Nachrichtentitel fest"
+
+#~ msgid "Choose your News Type"
+#~ msgstr "Wählen Sie Ihren Nachrichtentyp"
+
+#~ msgid "Infos"
+#~ msgstr "Infos"
+
+#~ msgid "To plan"
+#~ msgstr "Zu planen"
+
+#~ msgid "To note"
+#~ msgstr "Zu beachten"
+
+#~ msgid "Important"
+#~ msgstr "Wichtig"
+
+#~ msgid "Very important"
+#~ msgstr "Sehr wichtig"
+
+#~ msgid "You have to set a Title for your news"
+#~ msgstr "Sie müssen einen Titel für Ihre Nachrichten festlegen"

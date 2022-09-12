@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-11 11:22+0000\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:42
+msgid "News"
+msgstr "Nieuws"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:54
+msgid "No news at this time"
+msgstr "Geen nieuws op dit moment"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:66
+msgid "Last modification on"
+msgstr "Laatste wijziging op"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:72
+msgid "Remove"
+msgstr "Verwijder"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:73
+msgid "Edit"
+msgstr "Bewerken"
+
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:89
+msgid "Add News"
+msgstr "Nieuws toevoegen"
+
+#~ msgid "week(s)"
+#~ msgstr "week(en)"
+
+#~ msgid "News Editor"
+#~ msgstr "Nieuwsredacteur"
+
+#~ msgid "News Title"
+#~ msgstr "Nieuws Titel"
+
+#~ msgid "Set your News title"
+#~ msgstr "Stel uw nieuwstitel in"
+
+#~ msgid "Choose your News Type"
+#~ msgstr "Kies uw nieuwstype"
+
+#~ msgid "Infos"
+#~ msgstr "Info"
+
+#~ msgid "To plan"
+#~ msgstr "Om te plannen"
+
+#~ msgid "To note"
+#~ msgstr "Om op te merken"
+
+#~ msgid "Important"
+#~ msgstr "Belangrijk"
+
+#~ msgid "Very important"
+#~ msgstr "Zeer belangrijk"
+
+#~ msgid "You have to set a Title for your news"
+#~ msgstr "Je moet een Titel instellen voor je nieuws"
