@@ -62,10 +62,9 @@ if (isset($_POST['Action'])) {
 
       $eventType->setName(InputUtils::LegacyFilterInput($eName));
       $eventType->setDefStartTime(InputUtils::LegacyFilterInput($eTime));
-      $eventType->setDefRecurType(InputUtils::LegacyFilterInput($eRecur));
+      /*$eventType->setDefRecurType(InputUtils::LegacyFilterInput($eRecur));
       $eventType->setDefRecurDOW(InputUtils::LegacyFilterInput($eDOW));
-      $eventType->setDefRecurDOM(InputUtils::LegacyFilterInput($eDOM));
-      $eventType->setDefRecurDOY(InputUtils::LegacyFilterInput($eDOY));
+      $eventType->setDefRecurDOY(InputUtils::LegacyFilterInput($eDOY));*/
 
       $eventType->save();
 
@@ -105,6 +104,7 @@ $aDefRecurDOW = array();
 $aDefRecurDOM = array();
 $aDefRecurDOY = array();
 $aDefRecurType = array();
+$aDefColorType = array();
 
 
   foreach ($eventTypes as $eventType) {
@@ -115,6 +115,7 @@ $aDefRecurType = array();
       $aDefRecurDOM[] = $eventType->getDefRecurDOM();
       $aDefRecurDOY[] = $eventType->getDefRecurDOY();
       $aDefRecurType[] = $eventType->getDefRecurType();
+      $aDefColorType[] = $eventType->getColor();
 
 
       //echo "$row:::ID = $aTypeID[$row] DOW = $aDefRecurDOW[$row], DOM=$aDefRecurDOM[$row], DOY=$adefRecurDOY[$row] type=$aDefRecurType[$row]\n\r\n<br>";
@@ -328,6 +329,9 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
                           <i class='fas fa-trash-alt'></i>
                         </button>
                     </td>
+                      <td>
+                          <div style="background-color:<?= $aDefColorType[$row] ?>;width:30px;height:30px"></div>
+                      </td>
                   </tr>
                 </table>
               </td>
@@ -368,7 +372,6 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) != 'NEW') {
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
-
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.isModifiable  = true;
 
@@ -376,6 +379,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) != 'NEW') {
       lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
       lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
   window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
+
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>

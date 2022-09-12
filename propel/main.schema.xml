@@ -689,6 +689,7 @@
     <table name="event_types" idMethod="native" phpName="EventTypes">
         <column name="type_id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="type_name" phpName="Name" type="VARCHAR" size="255" required="true" defaultValue=""/>
+        <column name="type_color" phpName="Color" type="VARCHAR" size="10" sqlType="varbinary(10)" defaultValue="#000000"/>
         <column name="type_defstarttime" phpName="DefStartTime" type="TIME" required="true" defaultValue="00:00:00"/>
         <column name="type_defrecurtype" phpName="DefRecurType" type="CHAR"
                 sqlType="enum('none','weekly','monthly','yearly')" required="true" defaultValue="none"/>

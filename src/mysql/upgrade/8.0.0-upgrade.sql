@@ -157,3 +157,7 @@ CREATE TABLE `tokens_password` (
 ALTER TABLE `events_event` ADD `event_link` varchar(255) default NULL;
 
 
+-- 2022-09-12
+ALTER TABLE `event_types` ADD `type_color` VARBINARY(10) DEFAULT '#000000';
+
+
