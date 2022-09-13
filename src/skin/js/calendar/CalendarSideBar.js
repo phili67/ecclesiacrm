@@ -126,7 +126,8 @@ function addShareCalendarPresence(type) {
         method: 'POST',
         path: 'calendar/getallforuser',
         data: JSON.stringify({"type": type, "onlyvisible": false, "allCalendars": true})
-    }, function (data) {
+    }, function (res) {
+        var data = res.calendars;
         var elt = document.getElementById("select-calendar-presence");
         var len = data.length;
 
@@ -764,14 +765,21 @@ function addPersonalCalendars() {
         method: 'POST',
         path: 'calendar/getallforuser',
         data: JSON.stringify({"type": "personal", "onlyvisible": false, "allCalendars": false})
-    }, function (data) {
+    }, function (res) {
+        var data = res.calendars;
         var len = data.length;
 
+        var visibles = 0;
+
         for (i = 0; i < len; ++i) {
+            if (data[i].visible) {
+                visibles += 1;
+            }
+
             $('#cal-list').append('<li class="list-group-item" style="cursor: pointer;">' +
                 '<div class="row">' +
                 '   <div class="col-1">' +
-                '       <input id="checkBox" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
+                '       <input id="personal-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
                 '   </div>' +
                 '   <div class="col-10">' +
                 '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
@@ -809,6 +817,15 @@ function addPersonalCalendars() {
                 });
             });
         }
+
+        var elt = document.getElementById("check-uncheck-personal-calendar");
+        if (visibles == 0) {
+            elt.classList.add("fa-square");
+            elt.classList.remove("fa-check-square");
+        } else {
+            elt.classList.add("fa-check-square");
+            elt.classList.remove("fa-square");
+        }
     });
 }
 
@@ -819,15 +836,22 @@ function addGroupCalendars() {
         method: 'POST',
         path: 'calendar/getallforuser',
         data: JSON.stringify({"type": "group", "onlyvisible": false, "allCalendars": false})
-    }, function (data) {
+    }, function (res) {
+        var data = res.calendars;
         var len = data.length;
 
+        var visibles = 0;
+
         for (i = 0; i < len; ++i) {
+
+            if (data[i].visible) {
+                visibles += 1;
+            }
 
             $('#group-list').append('<li class="list-group-item" style="cursor: pointer;">' +
                 '<div class="row">' +
                 '   <div class="col-1">' +
-                '       <input id="checkBox" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
+                '       <input id="Group-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
                 '   </div>' +
                 '   <div class="col-10">' +
                 '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
@@ -871,6 +895,15 @@ function addGroupCalendars() {
                 });
             });
         }
+
+        var elt = document.getElementById("check-uncheck-all-group-calendar");
+        if (visibles == 0) {
+            elt.classList.add("fa-square");
+            elt.classList.remove("fa-check-square");
+        } else {
+            elt.classList.add("fa-check-square");
+            elt.classList.remove("fa-square");
+        }
     });
 }
 
@@ -881,8 +914,10 @@ function addReservationCalendars() {
         method: 'POST',
         path: 'calendar/getallforuser',
         data: JSON.stringify({"type": "reservation", "onlyvisible": false, "allCalendars": false})
-    }, function (data) {
+    }, function (res) {
+        var data = res.calendars;
         var len = data.length;
+        var visibles = 0;
 
         for (i = 0; i < len; ++i) {
             var icon = '';
@@ -895,10 +930,14 @@ function addReservationCalendars() {
                 icon = '<i class="fas fa-video"></i>';
             }
 
+            if (data[i].visible) {
+                visibles += 1;
+            }
+
             var infoLine = '<li class="list-group-item" style="cursor: pointer;">' +
                 '<div class="row row-calendar-resource">' +
                 '   <div class="col-1">' +
-                '       <input id="checkBox" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
+                '       <input id="Reservation-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
                 '   </div>' +
                 '   <div class="col-9">' +
                 '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
@@ -948,6 +987,15 @@ function addReservationCalendars() {
                 });
             });
         }
+
+        var elt = document.getElementById("check-uncheck-all-reservation-calendar");
+        if (visibles == 0) {
+            elt.classList.add("fa-square");
+            elt.classList.remove("fa-check-square");
+        } else {
+            elt.classList.add("fa-check-square");
+            elt.classList.remove("fa-square");
+        }
     });
 }
 
@@ -958,8 +1006,11 @@ function addShareCalendars() {
         method: 'POST',
         path: 'calendar/getallforuser',
         data: JSON.stringify({"type": "share", "onlyvisible": false, "allCalendars": false})
-    }, function (data) {
+    }, function (res) {
+        var data = res.calendars;
         var len = data.length;
+
+        var visibles = 0;
 
         for (i = 0; i < len; ++i) {
             var icon = '';
@@ -972,10 +1023,14 @@ function addShareCalendars() {
                 icon = '&nbsp<i class="fas fa-video"></i>&nbsp;';
             }
 
+            if (data[i].visible) {
+                visibles += 1;
+            }
+
             $('#share-list').append('<li class="list-group-item" style="cursor: pointer;">' +
                 '<div class="row">' +
                 '   <div class="col-1">' +
-                '       <input id="checkBox" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
+                '       <input id="Share-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
                 '   </div>' +
                 '   <div class="col-10">' +
                 '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
@@ -1017,6 +1072,16 @@ function addShareCalendars() {
                 });
             });
         }
+
+        var elt = document.getElementById("check-uncheck-all-shared-calendar");
+        if (visibles == 0) {
+            elt.classList.add("fa-square");
+            elt.classList.remove("fa-check-square");
+        } else {
+            elt.classList.add("fa-check-square");
+            elt.classList.remove("fa-square");
+        }
+
     });
 }
 
@@ -1028,3 +1093,153 @@ window.CRM.addAllCalendars = function f() {
     addReservationCalendars();
     addShareCalendars();
 }
+
+window.CRM.ElementListener('#check-uncheck-personal-calendar', 'click', function(event) {
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'calendar/getallforuser',
+        data: JSON.stringify({"type": "personal", "onlyvisible": false, "allCalendars": false})
+    }, function (res) {
+        var data = res.calendars;
+        var len = data.length;
+        var isChecked = (res.visibles > 0)?true:false;
+
+        var allCalendars = [];
+        for (i = 0; i < len; ++i) {
+            var elt = document.getElementById('personal-checkbox-'+ data[i].calendarID);
+            elt.checked = !isChecked;
+            allCalendars.push(data[i].calendarID);
+        }
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/setckeckedselected',
+            data: JSON.stringify({"allCalIDs": allCalendars, "isChecked": !isChecked})
+        }, function (data) {
+            // we reload all the events
+            window.CRM.calendar.refetchEvents();
+        });
+
+        var globalCheckbox = document.getElementById("check-uncheck-personal-calendar");
+        if (isChecked == true) {
+            globalCheckbox.classList.add("fa-square");
+            globalCheckbox.classList.remove("fa-check-square");
+        } else {
+            globalCheckbox.classList.add("fa-check-square");
+            globalCheckbox.classList.remove("fa-square");
+        }
+    });
+});
+
+window.CRM.ElementListener('#check-uncheck-all-group-calendar', 'click', function(event) {
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'calendar/getallforuser',
+        data: JSON.stringify({"type": "group", "onlyvisible": false, "allCalendars": false})
+    }, function (res) {
+        var data = res.calendars;
+        var len = data.length;
+        var isChecked = (res.visibles > 0)?true:false;
+
+        var allCalendars = [];
+        for (i = 0; i < len; ++i) {
+            var elt = document.getElementById('Group-checkbox-'+ data[i].calendarID);
+            elt.checked = !isChecked;
+            allCalendars.push(data[i].calendarID);
+        }
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/setckeckedselected',
+            data: JSON.stringify({"allCalIDs": allCalendars, "isChecked": !isChecked})
+        }, function (data) {
+            // we reload all the events
+            window.CRM.calendar.refetchEvents();
+        });
+
+        var globalCheckbox = document.getElementById("check-uncheck-all-group-calendar");
+        if (isChecked == true) {
+            globalCheckbox.classList.add("fa-square");
+            globalCheckbox.classList.remove("fa-check-square");
+        } else {
+            globalCheckbox.classList.add("fa-check-square");
+            globalCheckbox.classList.remove("fa-square");
+        }
+    });
+});
+
+window.CRM.ElementListener('#check-uncheck-all-reservation-calendar', 'click', function(event) {
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'calendar/getallforuser',
+        data: JSON.stringify({"type": "reservation", "onlyvisible": false, "allCalendars": false})
+    }, function (res) {
+        var data = res.calendars;
+        var len = data.length;
+        var isChecked = (res.visibles > 0)?true:false;
+
+        var allCalendars = [];
+        for (i = 0; i < len; ++i) {
+            var elt = document.getElementById('Reservation-checkbox-'+ data[i].calendarID);
+            elt.checked = !isChecked;
+            allCalendars.push(data[i].calendarID);
+        }
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/setckeckedselected',
+            data: JSON.stringify({"allCalIDs": allCalendars, "isChecked": !isChecked})
+        }, function (data) {
+            // we reload all the events
+            window.CRM.calendar.refetchEvents();
+        });
+
+        var globalCheckbox = document.getElementById("check-uncheck-all-reservation-calendar");
+        if (isChecked == true) {
+            globalCheckbox.classList.add("fa-square");
+            globalCheckbox.classList.remove("fa-check-square");
+        } else {
+            globalCheckbox.classList.add("fa-check-square");
+            globalCheckbox.classList.remove("fa-square");
+        }
+    });
+});
+
+window.CRM.ElementListener('#check-uncheck-all-shared-calendar', 'click', function(event) {
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'calendar/getallforuser',
+        data: JSON.stringify({"type": "share", "onlyvisible": false, "allCalendars": false})
+    }, function (res) {
+        var data = res.calendars;
+        var len = data.length;
+        var isChecked = (res.visibles > 0)?true:false;
+
+        var allCalendars = [];
+        for (i = 0; i < len; ++i) {
+            var elt = document.getElementById('Share-checkbox-'+ data[i].calendarID);
+            elt.checked = !isChecked;
+            allCalendars.push(data[i].calendarID);
+        }
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/setckeckedselected',
+            data: JSON.stringify({"allCalIDs": allCalendars, "isChecked": !isChecked})
+        }, function (data) {
+            // we reload all the events
+            window.CRM.calendar.refetchEvents();
+        });
+
+        var globalCheckbox = document.getElementById("check-uncheck-all-shared-calendar");
+        if (isChecked == true) {
+            globalCheckbox.classList.add("fa-square");
+            globalCheckbox.classList.remove("fa-check-square");
+        } else {
+            globalCheckbox.classList.add("fa-check-square");
+            globalCheckbox.classList.remove("fa-square");
+        }
+    });
+});
+
+
