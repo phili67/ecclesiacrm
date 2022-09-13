@@ -56,7 +56,7 @@ $(document).ready(function () {
                 '       </div>\n' +
                 '       <div class="product-info">' +
                 '           <a href="javascript:void(0)" class="product-title">' + data.items[i].Title +
-                '               <span class="badge badge-warning float-right">' + i18next.t("Last modification on", {ns: 'NewsDashboard'}) + " : " + data.items[i].Date +'</span>' +
+                '               <span class="badge badge-warning float-right">' + data.items[i].Date +'</span>' +
                 '           </a>' +
                 '           <span class="product-description">' + data.items[i].Text;
 
