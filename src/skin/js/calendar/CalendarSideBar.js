@@ -445,42 +445,28 @@ function createShareWindow(calIDs) {
 
     $("#person-group-rights").change(function () {
         var rightAccess = $(this).val();
-        var deferredsPR = [];
         var i = 0;
 
         $('#select-share-persons :selected').each(function (i, sel) {
             var principal = $(sel).val();
             var str = $(sel).text();
 
-            deferredsPR.push(
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'calendar/setrights',
-                    data: JSON.stringify({"calIDs": calIDs, "principal": principal, "rightAccess": rightAccess})
-                }, function (data) {
-                    if (rightAccess == 1) {
-                        res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
-                    } else {
-                        res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
-                    }
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'calendar/setrights',
+                data: JSON.stringify({"calIDs": calIDs, "principal": principal, "rightAccess": rightAccess})
+            }, function (data) {
+                if (rightAccess == 1) {
+                    res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
+                } else {
+                    res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
+                }
 
-                    var elt = [principal, res];
-                    deferredsPR[i++] = elt;
-                })
-            );
-
-        });
-
-        $.when.apply($, deferredsPR).done(function (data) {
-            // all images are now prefetched
-            //addPersonsFromCalendar(calIDs);
-
-            deferredsPR.forEach(function (element) {
-                $('#select-share-persons option[value="' + element[0] + '"]').text(element[1]);
+                $('#select-share-persons option[value="' + principal + '"]').text(res);
             });
-
-            $("#person-group-rights option:first").attr('selected', 'selected');
         });
+
+        $("#person-group-rights option:first").attr('selected', 'selected');
     });
 
     $("#select-share-persons").change(function () {
