@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 calEvent.el.style.background = calEvent.backgroundColor;
             }
 
-            if (calEvent.event.extendedProps.Desc != '') {
+            if (calEvent.event.extendedProps.Desc != '' && calEvent.event.extendedProps.Desc != undefined) {
                 $(calEvent.el).tooltip({
                     title: calEvent.event.extendedProps.Desc,
                     //word-break: break-all;
