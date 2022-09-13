@@ -168,6 +168,8 @@ class CalendarV2Controller
             // get all the calendars for the current user
             $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),($params->type == 'all')?true:false);
 
+            $visibles = 0;
+
             foreach ($calendars as $calendar) {
                 $typeSup = "";
 
@@ -205,6 +207,7 @@ class CalendarV2Controller
                 $values['present']            = ($calendar['present'] == "1")?true:false;
                 $values['visible']            = ($calendar['visible'] == "1")?true:false;
 
+
                 $values['grpid']              = $calendar['grpid'];
                 $values['calType']            = $calendar['cal_type'];
                 $values['desc']               = ($calendar['description'] == null)?_("None"):$calendar['description'];
@@ -229,6 +232,9 @@ class CalendarV2Controller
                     && ($params->type == $values['type'] || $params->type == 'all')
                 )
                 {
+                    if ($values['visible']) {
+                        $visibles ++;
+                    }
                     array_push($return, $values);
                 }
             }
@@ -238,7 +244,7 @@ class CalendarV2Controller
             });
         }
 
-        return $response->withJson($return);
+        return $response->withJson(["visibles" => $visibles, "calendars" => $return]);
     }
 
     public function calendarInfo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
@@ -340,6 +346,30 @@ class CalendarV2Controller
             $calendar->setVisible ($params->isChecked);
 
             $calendar->save();
+
+            return $response->withJson(['status' => "success"]);
+        }
+
+        return $response->withJson(['status' => "failed"]);
+    }
+
+    public function setCheckedSelectedCalendar (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $params = (object)$request->getParsedBody();
+
+        if (isset ($params->allCalIDs) && isset ($params->isChecked)) {
+
+            foreach ($params->allCalIDs as $calID) {
+                $calIDs = explode(",", $calID);
+
+                $calendarId = $calIDs[0];
+                $Id = $calIDs[1];
+
+                $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+
+                $calendar->setVisible($params->isChecked);
+
+                $calendar->save();
+            }
 
             return $response->withJson(['status' => "success"]);
         }

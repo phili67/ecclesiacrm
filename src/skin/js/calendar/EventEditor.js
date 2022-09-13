@@ -506,7 +506,8 @@ function addCalendars(calendarId, attendees) {
         method: 'POST',
         path: 'calendar/getallforuser',
         data: JSON.stringify({"type": "all", "onlyvisible": true, "allCalendars": false})
-    },function (calendars) {
+    },function (res) {
+        var calendars = res.calendars;
         var elt = document.getElementById("EventCalendar");
         var len = calendars.length;
 

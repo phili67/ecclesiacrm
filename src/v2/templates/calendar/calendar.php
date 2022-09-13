@@ -123,6 +123,11 @@ require $sRootDocument . '/Include/Header.php';
                                         title="<?= _("Add New Calendar") ?>"
                                         id="add-calendar"></i>
                                 </button>
+                                <button type="button" class="btn btn-tool" data-card-widget=""><i
+                                        class="fa pull-right fa-square icon-calendar-button" data-toggle="tooltip" data-placement="left"
+                                        title="<?= _("Check/Uncheck all Calendars") ?>"
+                                        id="check-uncheck-personal-calendar"></i>
+                                </button>
                             </div>
                         </div>
 
@@ -171,6 +176,11 @@ require $sRootDocument . '/Include/Header.php';
                                     <?php
                                 }
                                 ?>
+                                <button type="button" class="btn btn-tool" data-card-widget=""><i
+                                        class="fa pull-right fa-square icon-calendar-button" data-toggle="tooltip" data-placement="left"
+                                        title="<?= _("Check/Uncheck all Calendars") ?>"
+                                        id="check-uncheck-all-reservation-calendar"></i>
+                                </button>
                             </div>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
@@ -203,6 +213,11 @@ require $sRootDocument . '/Include/Header.php';
                                            title="<?= _("Add New Calendar") ?>"
                                            id="manage-all-groups"></i>
                                     </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget=""><i
+                                            class="fa pull-right fa-square icon-calendar-button" data-toggle="tooltip" data-placement="left"
+                                            title="<?= _("Check/Uncheck all Calendars") ?>"
+                                            id="check-uncheck-all-group-calendar"></i>
+                                    </button>
                                 </div>
                             </h5>
                         </div>
@@ -234,6 +249,11 @@ require $sRootDocument . '/Include/Header.php';
                                     <i class="fa pull-right fa-cog icon-calendar-button" data-toggle="tooltip" data-placement="left"
                                        title="<?= _("Exclude/include the Shared") ?>"
                                        id="manage-all-shared"></i>&nbsp;
+                                    <button type="button" class="btn btn-tool" data-card-widget=""><i
+                                            class="fa pull-right fa-square icon-calendar-button" data-toggle="tooltip" data-placement="left"
+                                            title="<?= _("Check/Uncheck all Calendars") ?>"
+                                            id="check-uncheck-all-shared-calendar"></i>
+                                    </button>
                                 </button>
                             </div>
                         </div>
@@ -299,13 +319,13 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= $sRootPath ?>/skin/external/fullcalendar/main.min.js"></script>
 <script src="<?= $sRootPath ?>/skin/external/fullcalendar/locales-all.min.js "></script>
 
-<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
-
 <script src="<?= $sRootPath ?>/skin/js/calendar/CalendarSideBar.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/calendar/CalendarV2.js"></script>
 <script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+
+<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
 
 <?php
 if ($sMapProvider == 'OpenStreetMap') {
