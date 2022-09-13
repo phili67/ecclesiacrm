@@ -42,13 +42,13 @@ $plugin = PluginQuery::create()
             </button>
         </div>
     </div>
-    <div class="card-body" style="<?= $Card_body ?>;padding: .0rem;"">
+    <div class="card-body" style="<?= $Card_body ?>">
         <div class="tab-content" id="custom-tabs-two-tabContent">
             <div class="tab-pane fade  active show" id="custom-tabs-latest-families" role="tabpanel"
                  aria-labelledby="custom-tabs-latest-families-tab">
                 <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline"
                        id="latestFamiliesDashboardItem"
-                       style="width:100%">
+                       style="width:100%;font-size: 11px;">
                     <thead>
                     <tr>
                         <th data-field="name"><?= dgettext("messages-FamilyInfosDashboard",'Family Name') ?></th>
@@ -64,7 +64,7 @@ $plugin = PluginQuery::create()
                  aria-labelledby="custom-tabs-updated-families-tab">
                 <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline"
                        id="updatedFamiliesDashboardItem"
-                       style="width:100%">
+                       style="width:100%;font-size: 11px;">
                     <thead>
                     <tr>
                         <th data-field="name"><?= dgettext("messages-FamilyInfosDashboard",'Family Name') ?></th>
