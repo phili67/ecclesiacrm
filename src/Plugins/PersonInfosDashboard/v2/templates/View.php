@@ -8,7 +8,6 @@ $plugin = PluginQuery::create()
     ->addAsColumn('PlgnColor', PluginUserRoleTableMap::COL_PLGN_USR_RL_COLOR)
     ->endUse()
     ->findOneById($PluginId);
-
 ?>
 
 <div class="card card-gray card-tabs <?= $plugin->getName() ?> <?= $Card_collapsed ?>" data-name="<?= $plugin->getName() ?>">
@@ -38,13 +37,13 @@ $plugin = PluginQuery::create()
             </button>
         </div>
     </div>
-    <div class="card-body"  style="<?= $Card_body ?>;padding: .0rem;"">
+    <div class="card-body"  style="<?= $Card_body ?>">
         <div class="tab-content" id="custom-tabs-two-tabContent">
             <div class="tab-pane fade   active show" id="custom-tabs-latest-members" role="tabpanel"
                  aria-labelledby="custom-tabs-latest-members-tab">
                 <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline"
                        id="latestPersonsDashboardItem"
-                       style="width:100%">
+                       style="width:100%;font-size: 11px;">
                     <thead>
                     <tr>
                         <th data-field="lastname"><?= dgettext("messages-PersonInfosDashboard",'Name') ?></th>
@@ -59,7 +58,7 @@ $plugin = PluginQuery::create()
                  aria-labelledby="custom-tabs-two-settings-tab">
                 <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline"
                        id="updatedPersonsDashboardItem"
-                       style="width:100%">
+                       style="width:100%;font-size: 11px;">
                     <thead>
                     <tr>
                         <th data-field="lastname"><?= dgettext("messages-PersonInfosDashboard",'Name') ?></th>
