@@ -65,7 +65,7 @@ if ( $role == 'admin' or SessionUser::isAdmin() ) {
                         </div>
                         <div class="product-info">
                             <a href="javascript:void(0)" class="product-title"><?=  $note->getTitle() ?>
-                                <span class="badge badge-warning float-right"><?= dgettext("messages-NewsDashboard","Last modification on"). " : ". OutputUtils::change_date_for_place_holder($note->getDateentered()->format('Y-m-d')) ?></span></a>
+                                <span class="badge badge-warning float-right"><?= OutputUtils::change_date_for_place_holder($note->getDateentered()->format('Y-m-d')) ?></span></a>
                             <span class="product-description">
                                 <?= $note->getText() ?>
                                 <?php if ($isAdmin) { ?>
@@ -88,7 +88,7 @@ if ( $role == 'admin' or SessionUser::isAdmin() ) {
     </div>
     <?php if ($isAdmin) { ?>
         <div class="card-footer clearfix">
-            <button type="button" class="btn btn-primary float-right" id="add-dashboard-news-note"><i class="fas fa-plus"></i> <?= dgettext("messages-NewsDashboard","Add News") ?></button>
+            <button type="button" class="btn btn-success btn-sm float-right" id="add-dashboard-news-note"><i class="fas fa-plus"></i> <?= dgettext("messages-NewsDashboard","Add News") ?></button>
         </div>
     <?php } ?>
 </div>
@@ -104,3 +104,4 @@ if ( $role == 'admin' or SessionUser::isAdmin() ) {
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
 <script src="<?= $sRootPath ?>/Plugins/NewsDashboard/skin/NewsDashboard.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
