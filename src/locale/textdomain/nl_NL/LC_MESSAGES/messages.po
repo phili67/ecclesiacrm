@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-11 11:10+0000\n"
+"POT-Creation-Date: 2022-09-13 19:46+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -152,7 +152,7 @@ msgid "Fund"
 msgstr "Fonds"
 
 #: AutoPaymentEditor.php:891 CartToBadge.php:134
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:210
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:213
 #: EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php:37
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:239
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:240
@@ -160,9 +160,9 @@ msgstr "Fonds"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:242
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:243
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:251
-#: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:125
-#: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
-#: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
+#: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:140
+#: EditEventTypes.php:152 EventNames.php:125 EventNames.php:137
+#: EventNames.php:191 GroupReports.php:66 GroupReports.php:169
 #: PrintPastoralCarePerson.php:664 v2/templates/group/groupbadge.php:126
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
@@ -334,7 +334,7 @@ msgid "Save"
 msgstr "Save"
 
 #: AutoPaymentEditor.php:1093 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:262
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
@@ -719,7 +719,7 @@ msgstr "Leden"
 #: CartToFamily.php:229
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 EventAttendance.php:205
-#: EventNames.php:293 FamilyCustomFieldsEditor.php:349
+#: EventNames.php:294 FamilyCustomFieldsEditor.php:349
 #: FamilyCustomFieldsEditor.php:471 GeoPage.php:373 GroupEditor.php:86
 #: GroupPropsEditor.php:235 GroupPropsFormEditor.php:350
 #: GroupPropsFormEditor.php:477 ident/routes/verify.php:365
@@ -1467,7 +1467,7 @@ msgstr "Bevoegde transacties laden"
 msgid "Run Transactions"
 msgstr "Transacties uitvoeren"
 
-#: DepositSlipEditor.php:218 EventNames.php:297 PersonView.php:1294
+#: DepositSlipEditor.php:218 EventNames.php:298 PersonView.php:1294
 #: v2/templates/calendar/eventattendeesedit.php:62
 msgid "Action"
 msgstr "Actie"
@@ -1527,7 +1527,7 @@ msgstr "Informatie die moet worden opgenomen"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:247
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:265
-#: EcclesiaCRM/Service/CalendarService.php:57 FamilyView.php:554
+#: EcclesiaCRM/Service/CalendarService.php:58 FamilyView.php:554
 #: ident/routes/verify.php:281 ident/routes/verify.php:694
 #: ident/templates/verify/verify-family-info.php:115 PersonView.php:1160
 #: Reports/ConfirmReport.php:231 Reports/ConfirmReport.php:251
@@ -1624,8 +1624,8 @@ msgstr "Directory maken"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:614
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:684
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:704
-#: EcclesiaCRM/Service/CalendarService.php:1027
-#: EcclesiaCRM/Service/CalendarService.php:1053
+#: EcclesiaCRM/Service/CalendarService.php:1039
+#: EcclesiaCRM/Service/CalendarService.php:1065
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr ""
 "Twee reserveringen van hulpbronnen kunnen niet in hetzelfde tijdslot staan."
@@ -1641,63 +1641,68 @@ msgstr ""
 "Deze resource-reservering is niet door u aangemaakt. U kunt een resource die "
 "u niet bezit niet bewerken, verplaatsen of verwijderen."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:178
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:180
 #: v2/templates/calendar/calendar.php:51
 msgid "Room"
 msgstr "Kamer"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:181
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:183
 #: v2/templates/calendar/calendar.php:52
 msgid "Computer"
 msgstr "Computer"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:184
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:186
 #: v2/templates/calendar/calendar.php:53
 msgid "Video"
 msgstr "Video"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:270
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:222
+#: EcclesiaCRM/Service/CalendarService.php:621
+msgid "Share"
+msgstr "Deel"
+
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:278
 msgid "Owner"
 msgstr "Eigenaar"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:273
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:275
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:281
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:283
 msgid "Access"
 msgstr "Toegang"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:273
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:281
 msgid "Full access in Read and write for all the events of this calendar."
 msgstr ""
 "Volledige toegang in lezen en schrijven voor alle evenementen van deze "
 "kalender."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:275
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:283
 msgid "You can only read the events of this calendar."
 msgstr "U kunt alleen de gebeurtenissen van deze kalender lezen."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:279
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:287
 msgid "This address can be used only with a CalDav server."
 msgstr "Dit adres kan alleen worden gebruikt met een CalDav-server."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:279
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:287
 msgid "For thunderbird the URL is"
 msgstr "Voor thunderbird is de URL"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:280
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:288
 msgid "For a share calendar (only in read mode)"
 msgstr "Voor een gedeelde kalender (alleen in leesmodus)"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:282
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:290
 msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
 msgstr "Je moet de \"bEnableExternalCalendarAPI\" instelling activeren in"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:282
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:290
 msgid "General Settings/Integration"
 msgstr "Algemene instellingen/Integratie"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:506
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:557
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:608
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:538
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:589
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:640
 msgid "You can visualize it in your account, in the Calendar."
 msgstr "U kunt het visualiseren in uw account, in de agenda."
 
@@ -1914,7 +1919,7 @@ msgstr "Families"
 #: EcclesiaCRM/MenuBar/MenuBar.php:201 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: ident/routes/verify.php:309 ident/routes/verify.php:711
 #: ident/templates/verify/verify-family-info.php:145 PersonView.php:504
-#: v2/templates/calendar/calendar.php:197
+#: v2/templates/calendar/calendar.php:207
 #: v2/templates/dashboard/maindashboard.php:269
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:142
@@ -2000,7 +2005,7 @@ msgstr "Toegevoegd aan groep"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:144
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:164
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Service/CalendarService.php:263
+#: EcclesiaCRM/Service/CalendarService.php:264
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:551
@@ -2011,8 +2016,8 @@ msgstr "Ja"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:157
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:166
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Service/CalendarService.php:263
-#: EcclesiaCRM/Service/CalendarService.php:454
+#: EcclesiaCRM/Service/CalendarService.php:264
+#: EcclesiaCRM/Service/CalendarService.php:466
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:550
@@ -2167,7 +2172,7 @@ msgstr "Groep Types Editor"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:227
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:606
+#: EcclesiaCRM/Service/CalendarService.php:618
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:100 OptionManager.php:133
@@ -3463,8 +3468,8 @@ msgid "Invalid Family"
 msgstr "Ongeldige familie"
 
 #: EcclesiaCRM/dto/SystemConfig.php:47
-#: EcclesiaCRM/Service/CalendarService.php:760
-#: EcclesiaCRM/Service/CalendarService.php:1082
+#: EcclesiaCRM/Service/CalendarService.php:772
+#: EcclesiaCRM/Service/CalendarService.php:1094
 msgid "NONE"
 msgstr "GEEN"
 
@@ -5253,7 +5258,7 @@ msgstr "Adressen"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:283
+#: ElectronicPaymentList.php:258 EventNames.php:322 FamilyView.php:283
 #: PersonView.php:533 v2/templates/pastoralcare/pastoralcareperson.php:166
 msgid "Edit"
 msgstr "Bewerken"
@@ -5440,61 +5445,57 @@ msgstr "Bestand met definitie van handtekening ontbreekt"
 msgid "One or more files failed signature validation"
 msgstr "Een of meer bestanden zijn niet geldig voor handtekeningvalidatie"
 
-#: EcclesiaCRM/Service/CalendarService.php:56
+#: EcclesiaCRM/Service/CalendarService.php:57
 msgid "Event"
 msgstr "Evenement"
 
-#: EcclesiaCRM/Service/CalendarService.php:58
+#: EcclesiaCRM/Service/CalendarService.php:59
 msgid "Anniversary"
 msgstr "Verjaardag"
 
-#: EcclesiaCRM/Service/CalendarService.php:469
+#: EcclesiaCRM/Service/CalendarService.php:481
 msgid "Check-in"
 msgstr "Check-in"
 
-#: EcclesiaCRM/Service/CalendarService.php:470
+#: EcclesiaCRM/Service/CalendarService.php:482
 msgid "Check-out"
 msgstr "Check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:471
+#: EcclesiaCRM/Service/CalendarService.php:483
 msgid "Rest"
 msgstr "Rust"
 
-#: EcclesiaCRM/Service/CalendarService.php:492
-#: EcclesiaCRM/Service/CalendarService.php:529
+#: EcclesiaCRM/Service/CalendarService.php:504
+#: EcclesiaCRM/Service/CalendarService.php:541
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "Aanwezigen"
 
-#: EcclesiaCRM/Service/CalendarService.php:508
-#: EcclesiaCRM/Service/CalendarService.php:509
+#: EcclesiaCRM/Service/CalendarService.php:520
+#: EcclesiaCRM/Service/CalendarService.php:521
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "Maak Check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:509
+#: EcclesiaCRM/Service/CalendarService.php:521
 msgid "Check-out done"
 msgstr "Check-out gedaan"
 
-#: EcclesiaCRM/Service/CalendarService.php:528
-#: EcclesiaCRM/Service/CalendarService.php:555
+#: EcclesiaCRM/Service/CalendarService.php:540
+#: EcclesiaCRM/Service/CalendarService.php:567
 msgid "No Attendance Recorded"
 msgstr "Geen aanwezigheid geregistreerd"
 
-#: EcclesiaCRM/Service/CalendarService.php:569
+#: EcclesiaCRM/Service/CalendarService.php:581
 msgid "login"
 msgstr "inloggen"
 
-#: EcclesiaCRM/Service/CalendarService.php:603
+#: EcclesiaCRM/Service/CalendarService.php:615
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "Persoonlijke kalender"
-
-#: EcclesiaCRM/Service/CalendarService.php:609
-msgid "Share"
-msgstr "Deel"
 
 #: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
 msgid "NonDeductible amount can't be greater than total amount."
@@ -6118,57 +6119,69 @@ msgstr "Systeem Gebruikers Lijst"
 msgid "Edit Event Types"
 msgstr "Gebeurtenistypes bewerken"
 
-#: EditEventTypes.php:128 EventNames.php:127
+#: EditEventTypes.php:143 EventNames.php:128
 msgid "Weekly on"
 msgstr "Wekelijks op"
 
-#: EditEventTypes.php:128 EventNames.php:127
+#: EditEventTypes.php:143 EventNames.php:128
 msgid "s"
 msgstr "s"
 
-#: EditEventTypes.php:131 EventNames.php:130
+#: EditEventTypes.php:146 EventNames.php:131
 msgid "Monthly on"
 msgstr "Maandelijks op"
 
-#: EditEventTypes.php:134 EventNames.php:133
+#: EditEventTypes.php:149 EventNames.php:134
 msgid "Yearly on"
 msgstr "Jaarlijks op"
 
-#: EditEventTypes.php:168
+#: EditEventTypes.php:183
 msgid "Edit Event Type"
 msgstr "Gebeurtenistype bewerken"
 
-#: EditEventTypes.php:178 EventNames.php:292
+#: EditEventTypes.php:193 EventNames.php:293
 msgid "Event Type"
 msgstr "Type gebeurtenis"
 
-#: EditEventTypes.php:184
+#: EditEventTypes.php:201
 msgid "Save Name"
 msgstr "Naam opslaan"
 
-#: EditEventTypes.php:189 EventNames.php:185 EventNames.php:294
+#: EditEventTypes.php:207
+msgid "Event Type Color"
+msgstr "Gebeurtenistype Kleur"
+
+#: EditEventTypes.php:213
+msgid "Color"
+msgstr "Kleur"
+
+#: EditEventTypes.php:221
+msgid "Save Color"
+msgstr "Kleur opslaan"
+
+#: EditEventTypes.php:227 EventNames.php:186 EventNames.php:295
 msgid "Recurrence Pattern"
 msgstr "Herhalingspatroon"
 
-#: EditEventTypes.php:204 EventNames.php:296
+#: EditEventTypes.php:243 EventNames.php:297
 msgid "Attendance Counts"
 msgstr "Aanwezigheid Telt"
 
-#: EditEventTypes.php:213 v2/templates/people/familylist.php:69
+#: EditEventTypes.php:253 v2/templates/people/familylist.php:69
 #: v2/templates/people/familylist.php:123 v2/templates/people/personlist.php:61
 #: v2/templates/people/personlist.php:111
 msgid "Remove"
 msgstr "Verwijder"
 
-#: EditEventTypes.php:221
+#: EditEventTypes.php:262
 msgid "New Attendance Count"
 msgstr "Nieuw aanwezigheids aantal"
 
-#: EditEventTypes.php:224
+#: EditEventTypes.php:266
 msgid "Add counter"
 msgstr "Teller toevoegen"
 
-#: EditEventTypes.php:234
+#: EditEventTypes.php:276
 msgid "Return to Event Types"
 msgstr "Terug naar Gebeurtenistypes"
 
@@ -6225,7 +6238,7 @@ msgid "Add a New Electronic Payment Method"
 msgstr "Een nieuwe elektronische betaalmethode toevoegen"
 
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
-#: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1096
+#: ElectronicPaymentList.php:318 EventNames.php:328 FamilyView.php:1096
 #: FindDepositSlip.php:131 ident/routes/verify.php:728
 #: ident/routes/verify.php:795 ident/templates/verify/verify-family-info.php:55
 #: ident/templates/verify/verify-family-info.php:161 PersonView.php:1894
@@ -6374,113 +6387,113 @@ msgstr "Er zijn geen evenementen in deze categorie"
 msgid "There are no Records"
 msgstr "Er zijn geen gegevens"
 
-#: EventNames.php:177
+#: EventNames.php:178
 msgid "EVENT TYPE NAME"
 msgstr "EVENEMENTTYPE NAAM"
 
-#: EventNames.php:195 PledgeEditor.php:630
+#: EventNames.php:196 PledgeEditor.php:630
 msgid "Weekly"
 msgstr "Wekelijks"
 
-#: EventNames.php:199
+#: EventNames.php:200
 msgid "Sundays"
 msgstr "Zondag"
 
-#: EventNames.php:200
+#: EventNames.php:201
 msgid "Mondays"
 msgstr "Maandag"
 
-#: EventNames.php:201
+#: EventNames.php:202
 msgid "Tuesdays"
 msgstr "Dinsdag"
 
-#: EventNames.php:202
+#: EventNames.php:203
 msgid "Wednesdays"
 msgstr "Woensdag"
 
-#: EventNames.php:203
+#: EventNames.php:204
 msgid "Thursdays"
 msgstr "Donderdag"
 
-#: EventNames.php:204
+#: EventNames.php:205
 msgid "Fridays"
 msgstr "Vrijdag"
 
-#: EventNames.php:205
+#: EventNames.php:206
 msgid "Saturdays"
 msgstr "Zaterdag"
 
-#: EventNames.php:211 PledgeEditor.php:634
+#: EventNames.php:212 PledgeEditor.php:634
 msgid "Monthly"
 msgstr "Maandelijks"
 
-#: EventNames.php:226
+#: EventNames.php:227
 msgid "Yearly"
 msgstr "Jaarlijks"
 
-#: EventNames.php:239
+#: EventNames.php:240
 msgid "DEFAULT START TIME"
 msgstr "STANDAARD STARTTIJD"
 
-#: EventNames.php:249
+#: EventNames.php:250
 msgid "ATTENDANCE COUNTS"
 msgstr "AANWEZIGHEID TELT"
 
-#: EventNames.php:252
+#: EventNames.php:253
 msgid "Optional"
 msgstr "Optioneel"
 
-#: EventNames.php:253
+#: EventNames.php:254
 msgid ""
 "Enter a list of the attendance counts you want to include with this event."
 msgstr ""
 "Voer een lijst in van de aanwezigheidslijsten die u bij dit evenement wilt "
 "opnemen."
 
-#: EventNames.php:254
+#: EventNames.php:255
 msgid ""
 "Separate each count_name with a comma. e.g. Members, Visitors, Campus, "
 "Children"
 msgstr ""
 "Scheid elke count_name met een komma. b.v. Leden, Bezoekers, Campus, Kinderen"
 
-#: EventNames.php:255
+#: EventNames.php:256
 msgid "Every event type includes a Total count, you do not need to include it."
 msgstr ""
 "Elk evenementtype heeft een totaaltelling, die hoeft u niet op te nemen."
 
-#: EventNames.php:264 FamilyCustomFieldsEditor.php:450 GroupPropsEditor.php:301
+#: EventNames.php:265 FamilyCustomFieldsEditor.php:450 GroupPropsEditor.php:301
 #: GroupPropsFormEditor.php:449 OptionManager.php:524
 #: PersonCustomFieldsEditor.php:445
 msgid "Save Changes"
 msgstr "Wijzigingen opslaan"
 
-#: EventNames.php:280
+#: EventNames.php:281
 msgid "There currently is"
 msgstr "Er is momenteel"
 
-#: EventNames.php:280
+#: EventNames.php:281
 msgid "There currently are"
 msgstr "Er zijn momenteel"
 
-#: EventNames.php:280
+#: EventNames.php:281
 msgid "custom event type"
 msgstr "aangepast evenementtype"
 
-#: EventNames.php:280
+#: EventNames.php:281
 msgid "custom event types"
 msgstr "aangepaste evenementtypes"
 
-#: EventNames.php:295
+#: EventNames.php:296
 #: kiosk/templates/kioskDevices/sunday-school-class-view.php:28
 msgid "Start Time"
 msgstr "Begintijd"
 
-#: EventNames.php:314 EventNames.php:315
+#: EventNames.php:315 EventNames.php:316
 msgid "Create Event"
 msgstr "Evenement aanmaken"
 
-#: EventNames.php:351
+#: EventNames.php:355
 msgid "Add Event Type"
 msgstr "Gebeurtenistype toevoegen"
 
@@ -10175,9 +10188,9 @@ msgstr "Door Types"
 msgid "Personal"
 msgstr "Persoonlijk"
 
-#: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:152
-#: v2/templates/calendar/calendar.php:197
-#: v2/templates/calendar/calendar.php:228
+#: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:157
+#: v2/templates/calendar/calendar.php:207
+#: v2/templates/calendar/calendar.php:243
 msgid "Shared"
 msgstr "Gedeelde"
 
@@ -10194,28 +10207,35 @@ msgid "Exclude/include Calendars"
 msgstr "Kalenders uitsluiten/insluiten"
 
 #: v2/templates/calendar/calendar.php:123
-#: v2/templates/calendar/calendar.php:166
-#: v2/templates/calendar/calendar.php:203
+#: v2/templates/calendar/calendar.php:171
+#: v2/templates/calendar/calendar.php:213
 msgid "Add New Calendar"
 msgstr "Nieuwe kalender toevoegen"
 
-#: v2/templates/calendar/calendar.php:152
+#: v2/templates/calendar/calendar.php:128
+#: v2/templates/calendar/calendar.php:181
+#: v2/templates/calendar/calendar.php:218
+#: v2/templates/calendar/calendar.php:254
+msgid "Check/Uncheck all Calendars"
+msgstr "Alle kalenders controleren/uitvinken"
+
+#: v2/templates/calendar/calendar.php:157
 msgid "Resources"
 msgstr "Middelen"
 
-#: v2/templates/calendar/calendar.php:158
+#: v2/templates/calendar/calendar.php:163
 msgid "Exclude/include Resource"
 msgstr "Hulpbron uitsluiten/insluiten"
 
-#: v2/templates/calendar/calendar.php:168
+#: v2/templates/calendar/calendar.php:173
 msgid "Add New Resource Calendar"
 msgstr "Nieuwe Hulpbron Kalender toevoegen"
 
-#: v2/templates/calendar/calendar.php:228
+#: v2/templates/calendar/calendar.php:243
 msgid "Users"
 msgstr "Gebruikers"
 
-#: v2/templates/calendar/calendar.php:235
+#: v2/templates/calendar/calendar.php:250
 msgid "Exclude/include the Shared"
 msgstr "De Gedeelde in-/uitsluiten"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-11 11:31+0000\n"
+"POT-Creation-Date: 2022-09-13 19:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:103
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:112
 msgid "Birthdates of the day"
 msgstr ""
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:123
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:132
 msgid "Anniversaries of the day"
 msgstr ""
