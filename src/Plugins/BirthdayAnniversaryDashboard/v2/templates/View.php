@@ -52,7 +52,12 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
                     $unclassified .= '<img src="' . $sRootPath . "/skin/icons/markers/" . $peopleWithBirthDay->getUrlIcon() . '">';
                 }
 
-                $unclassified .= '<a href="' . $peopleWithBirthDay->getViewURI() . '" class="btn btn-link-menu" style="text-decoration: none">' . $peopleWithBirthDay->getFullNameWithAge() . '</a>';
+                if (SessionUser::getUser()->isPastoralCareEnabled()) {
+                    $unclassified .= '<a href="' . $sRootPath . '/v2/pastoralcare/person/' . $peopleWithBirthDay->getId() . '" class="btn btn-link-menu" style="text-decoration: none">' . $peopleWithBirthDay->getFullNameWithAge() . '</a>';
+                } else {
+                    $unclassified .= '<a href="' . $peopleWithBirthDay->getViewURI() . '" class="btn btn-link-menu" style="text-decoration: none">' . $peopleWithBirthDay->getFullNameWithAge() . '</a>';
+                }
+
 
                 $unclassified .= '</label>';
                 $unclassified .= '</div>';
@@ -83,7 +88,11 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
         if ($peopleWithBirthDay->getUrlIcon() != '') {
             $classified .= '<img src="' . $sRootPath . '/skin/icons/markers/' . $peopleWithBirthDay->getUrlIcon() . '">';
         }
-        $classified .= '<a href="' . $peopleWithBirthDay->getViewURI() . '" class="btn btn-link-menu" style="text-decoration: none">' . $peopleWithBirthDay->getFullNameWithAge() . '</a>';
+        if (SessionUser::getUser()->isPastoralCareEnabled()) {
+            $classified .= '<a href="' . $sRootPath . '/v2/pastoralcare/person/' . $peopleWithBirthDay->getId() . '" class="btn btn-link-menu" style="text-decoration: none">' . $peopleWithBirthDay->getFullNameWithAge() . '</a>';
+        } else {
+            $classified .= '<a href="' . $peopleWithBirthDay->getViewURI() . '" class="btn btn-link-menu" style="text-decoration: none">' . $peopleWithBirthDay->getFullNameWithAge() . '</a>';
+        }
         $classified .= '</label>';
         $classified .= '</div>';
 
@@ -146,9 +155,20 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
                 $new_row = true;
             }
             $global_body .= '<div class="col-md-3">
-                <label class="checkbox-inline">
-                    <a href="'. $Anniversary->getViewURI() .'" class="btn btn-link-menu"
-                       style="text-decoration: none">'.  $Anniversary->getFamilyString() .'</a>
+                <label class="checkbox-inline">';
+
+            if (SessionUser::getUser()->isPastoralCareEnabled()) {
+                $global_body .= '
+                    <a href="' . $sRootPath .  '/v2/pastoralcare/family/' . $Anniversary->getId() . '" class="btn btn-link-menu"
+                       style="text-decoration: none">' . $Anniversary->getFamilyString() . '</a>';
+
+            } else {
+                $global_body .= '
+                    <a href="' . $Anniversary->getViewURI() . '" class="btn btn-link-menu"
+                       style="text-decoration: none">' . $Anniversary->getFamilyString() . '</a>';
+            }
+
+            $global_body .= '
                 </label>
             </div>';
 
