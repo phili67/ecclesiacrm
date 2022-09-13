@@ -2,33 +2,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 21:48+0000\n"
+"POT-Creation-Date: 2022-09-13 19:41+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:21
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:20
 msgid "Latest Members"
 msgstr "Последние члены"
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:28
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:27
 msgid "Updated Members"
 msgstr "Обновленные члены"
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:50
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:65
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:49
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:64
 msgid "Name"
 msgstr "Имя"
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:51
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:66
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:50
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:65
 msgid "Address"
 msgstr "Адрес"
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:52
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:67
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:51
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:66
 msgid "Updated"
 msgstr "Обновленный"
 

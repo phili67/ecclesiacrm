@@ -2,22 +2,18 @@
 msgid "News"
 msgstr ""
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:54
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:55
 msgid "No news at this time"
 msgstr ""
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:66
-msgid "Last modification on"
-msgstr ""
-
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:72
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:74
 msgid "Remove"
 msgstr ""
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:73
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:75
 msgid "Edit"
 msgstr ""
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:89
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:91
 msgid "Add News"
 msgstr ""

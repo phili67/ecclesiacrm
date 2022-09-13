@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-11 11:31+0000\n"
+"POT-Creation-Date: 2022-09-13 19:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,22 +21,18 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:54
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:55
 msgid "No news at this time"
 msgstr ""
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:66
-msgid "Last modification on"
-msgstr ""
-
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:72
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:74
 msgid "Remove"
 msgstr ""
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:73
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:75
 msgid "Edit"
 msgstr ""
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:89
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:91
 msgid "Add News"
 msgstr ""

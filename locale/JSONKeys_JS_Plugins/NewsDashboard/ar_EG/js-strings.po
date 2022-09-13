@@ -1,6 +1,3 @@
-msgid "Last modification on"
-msgstr ""
-
 msgid "Remove"
 msgstr ""
 
