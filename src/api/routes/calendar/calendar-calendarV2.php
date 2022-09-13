@@ -69,6 +69,12 @@ $app->group('/calendar', function (RouteCollectorProxy $group) {
     */
     $group->post('/setckecked', CalendarV2Controller::class . ':setCheckedCalendar' );
     /*
+    * @! Check the calendar to make it visible
+    * #! param: ref->array  :: calIDs
+    * #! param: ref->bool   :: isChecked
+    */
+    $group->post('/setckeckedselected', CalendarV2Controller::class . ':setCheckedSelectedCalendar' );
+    /*
      * @! Create a new calendar
      * #! param: ref->string  :: title
      */
