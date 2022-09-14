@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-13 19:46+0000\n"
+"POT-Creation-Date: 2022-09-14 14:37+0000\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -161,8 +161,8 @@ msgstr "Fond"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:243
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:251
 #: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:140
-#: EditEventTypes.php:152 EventNames.php:125 EventNames.php:137
-#: EventNames.php:191 GroupReports.php:66 GroupReports.php:169
+#: EditEventTypes.php:152 EventNames.php:127 EventNames.php:139
+#: EventNames.php:194 GroupReports.php:66 GroupReports.php:169
 #: PrintPastoralCarePerson.php:664 v2/templates/group/groupbadge.php:126
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
@@ -334,7 +334,7 @@ msgid "Save"
 msgstr "Salvați"
 
 #: AutoPaymentEditor.php:1093 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:262
+#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:285
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
@@ -721,7 +721,7 @@ msgstr "Membri"
 #: CartToFamily.php:229
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 EventAttendance.php:205
-#: EventNames.php:294 FamilyCustomFieldsEditor.php:349
+#: EventNames.php:317 FamilyCustomFieldsEditor.php:349
 #: FamilyCustomFieldsEditor.php:471 GeoPage.php:373 GroupEditor.php:86
 #: GroupPropsEditor.php:235 GroupPropsFormEditor.php:350
 #: GroupPropsFormEditor.php:477 ident/routes/verify.php:365
@@ -1472,7 +1472,7 @@ msgstr "Încărcați tranzacțiile autorizate"
 msgid "Run Transactions"
 msgstr "Executarea tranzacțiilor"
 
-#: DepositSlipEditor.php:218 EventNames.php:298 PersonView.php:1294
+#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1294
 #: v2/templates/calendar/eventattendeesedit.php:62
 msgid "Action"
 msgstr "Acțiune"
@@ -5265,7 +5265,7 @@ msgstr "Adrese"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:258 EventNames.php:322 FamilyView.php:283
+#: ElectronicPaymentList.php:258 EventNames.php:349 FamilyView.php:283
 #: PersonView.php:533 v2/templates/pastoralcare/pastoralcareperson.php:166
 msgid "Edit"
 msgstr "Editați"
@@ -6128,19 +6128,19 @@ msgstr "Lista utilizatorilor de sistem"
 msgid "Edit Event Types"
 msgstr "Editarea tipurilor de evenimente"
 
-#: EditEventTypes.php:143 EventNames.php:128
+#: EditEventTypes.php:143 EventNames.php:130
 msgid "Weekly on"
 msgstr "Săptămânal pe"
 
-#: EditEventTypes.php:143 EventNames.php:128
+#: EditEventTypes.php:143 EventNames.php:130
 msgid "s"
 msgstr "s"
 
-#: EditEventTypes.php:146 EventNames.php:131
+#: EditEventTypes.php:146 EventNames.php:133
 msgid "Monthly on"
 msgstr "Lunar pe"
 
-#: EditEventTypes.php:149 EventNames.php:134
+#: EditEventTypes.php:149 EventNames.php:136
 msgid "Yearly on"
 msgstr "Anual pe"
 
@@ -6148,7 +6148,7 @@ msgstr "Anual pe"
 msgid "Edit Event Type"
 msgstr "Editați tipul de eveniment"
 
-#: EditEventTypes.php:193 EventNames.php:293
+#: EditEventTypes.php:193 EventNames.php:316
 msgid "Event Type"
 msgstr "Tip de eveniment"
 
@@ -6168,11 +6168,11 @@ msgstr "Culoare"
 msgid "Save Color"
 msgstr "Salvează culoarea"
 
-#: EditEventTypes.php:227 EventNames.php:186 EventNames.php:295
+#: EditEventTypes.php:227 EventNames.php:189 EventNames.php:318
 msgid "Recurrence Pattern"
 msgstr "Model de recurență"
 
-#: EditEventTypes.php:243 EventNames.php:297
+#: EditEventTypes.php:243 EventNames.php:320
 msgid "Attendance Counts"
 msgstr "Numărătoarea prezenței"
 
@@ -6247,7 +6247,7 @@ msgid "Add a New Electronic Payment Method"
 msgstr "Adăugați o nouă metodă de plată electronică"
 
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
-#: ElectronicPaymentList.php:318 EventNames.php:328 FamilyView.php:1096
+#: ElectronicPaymentList.php:318 EventNames.php:355 FamilyView.php:1096
 #: FindDepositSlip.php:131 ident/routes/verify.php:728
 #: ident/routes/verify.php:795 ident/templates/verify/verify-family-info.php:55
 #: ident/templates/verify/verify-family-info.php:161 PersonView.php:1894
@@ -6396,70 +6396,74 @@ msgstr "Nu există evenimente în această categorie"
 msgid "There are no Records"
 msgstr "Nu există înregistrări"
 
-#: EventNames.php:178
+#: EventNames.php:180
 msgid "EVENT TYPE NAME"
 msgstr "NUMELE TIPULUI DE EVENIMENT"
 
-#: EventNames.php:196 PledgeEditor.php:630
+#: EventNames.php:199 PledgeEditor.php:630
 msgid "Weekly"
 msgstr "Săptămânal"
 
-#: EventNames.php:200
+#: EventNames.php:203
 msgid "Sundays"
 msgstr "Duminica"
 
-#: EventNames.php:201
+#: EventNames.php:204
 msgid "Mondays"
 msgstr "Luni"
 
-#: EventNames.php:202
+#: EventNames.php:205
 msgid "Tuesdays"
 msgstr "Marți"
 
-#: EventNames.php:203
+#: EventNames.php:206
 msgid "Wednesdays"
 msgstr "Miercuri"
 
-#: EventNames.php:204
+#: EventNames.php:207
 msgid "Thursdays"
 msgstr "Joia"
 
-#: EventNames.php:205
+#: EventNames.php:208
 msgid "Fridays"
 msgstr "Vineri"
 
-#: EventNames.php:206
+#: EventNames.php:209
 msgid "Saturdays"
 msgstr "Sâmbăta"
 
-#: EventNames.php:212 PledgeEditor.php:634
+#: EventNames.php:215 PledgeEditor.php:634
 msgid "Monthly"
 msgstr "Lunar"
 
-#: EventNames.php:227
+#: EventNames.php:230
 msgid "Yearly"
 msgstr "Anual"
 
-#: EventNames.php:240
+#: EventNames.php:243
+msgid "DEFAULT COLOR"
+msgstr "CULOARE DEFAULT"
+
+#: EventNames.php:258
 msgid "DEFAULT START TIME"
 msgstr "ORA DE ÎNCEPERE IMPLICITĂ"
 
-#: EventNames.php:250
+#: EventNames.php:268
 msgid "ATTENDANCE COUNTS"
 msgstr "PREZENȚA CONTEAZĂ"
 
-#: EventNames.php:253
+#: EventNames.php:273
 msgid "Optional"
 msgstr "Opțional"
 
-#: EventNames.php:254
+#: EventNames.php:275
 msgid ""
 "Enter a list of the attendance counts you want to include with this event."
 msgstr ""
 "Introduceți o listă a numărului de prezențe pe care doriți să le includeți "
 "cu acest eveniment."
 
-#: EventNames.php:255
+#: EventNames.php:277
 msgid ""
 "Separate each count_name with a comma. e.g. Members, Visitors, Campus, "
 "Children"
@@ -6467,44 +6471,44 @@ msgstr ""
 "Separați fiecare nume_număr cu o virgulă. de exemplu: Membri, Vizitatori, "
 "Campus, Copii"
 
-#: EventNames.php:256
+#: EventNames.php:279
 msgid "Every event type includes a Total count, you do not need to include it."
 msgstr ""
 "Fiecare tip de eveniment include un număr total, nu este necesar să îl "
 "includeți și dumneavoastră."
 
-#: EventNames.php:265 FamilyCustomFieldsEditor.php:450 GroupPropsEditor.php:301
+#: EventNames.php:288 FamilyCustomFieldsEditor.php:450 GroupPropsEditor.php:301
 #: GroupPropsFormEditor.php:449 OptionManager.php:524
 #: PersonCustomFieldsEditor.php:445
 msgid "Save Changes"
 msgstr "Salvați modificările"
 
-#: EventNames.php:281
+#: EventNames.php:304
 msgid "There currently is"
 msgstr "În prezent, există"
 
-#: EventNames.php:281
+#: EventNames.php:304
 msgid "There currently are"
 msgstr "În prezent, există"
 
-#: EventNames.php:281
+#: EventNames.php:304
 msgid "custom event type"
 msgstr "tip de eveniment personalizat"
 
-#: EventNames.php:281
+#: EventNames.php:304
 msgid "custom event types"
 msgstr "tipuri de evenimente personalizate"
 
-#: EventNames.php:296
+#: EventNames.php:319
 #: kiosk/templates/kioskDevices/sunday-school-class-view.php:28
 msgid "Start Time"
 msgstr "Ora de începere"
 
-#: EventNames.php:315 EventNames.php:316
+#: EventNames.php:338 EventNames.php:341
 msgid "Create Event"
 msgstr "Creați evenimentul"
 
-#: EventNames.php:355
+#: EventNames.php:384
 msgid "Add Event Type"
 msgstr "Adăugați tipul de eveniment"
 
