@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-13 19:46+0000\n"
+"POT-Creation-Date: 2022-09-14 14:37+0000\n"
 "Language: pt-pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -161,8 +161,8 @@ msgstr "Fundo"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:243
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:251
 #: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:140
-#: EditEventTypes.php:152 EventNames.php:125 EventNames.php:137
-#: EventNames.php:191 GroupReports.php:66 GroupReports.php:169
+#: EditEventTypes.php:152 EventNames.php:127 EventNames.php:139
+#: EventNames.php:194 GroupReports.php:66 GroupReports.php:169
 #: PrintPastoralCarePerson.php:664 v2/templates/group/groupbadge.php:126
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
@@ -334,7 +334,7 @@ msgid "Save"
 msgstr "Salvar"
 
 #: AutoPaymentEditor.php:1093 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:262
+#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:285
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
@@ -720,7 +720,7 @@ msgstr "Membros"
 #: CartToFamily.php:229
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 EventAttendance.php:205
-#: EventNames.php:294 FamilyCustomFieldsEditor.php:349
+#: EventNames.php:317 FamilyCustomFieldsEditor.php:349
 #: FamilyCustomFieldsEditor.php:471 GeoPage.php:373 GroupEditor.php:86
 #: GroupPropsEditor.php:235 GroupPropsFormEditor.php:350
 #: GroupPropsFormEditor.php:477 ident/routes/verify.php:365
@@ -1463,7 +1463,7 @@ msgstr "Carregar Transacções Autorizadas"
 msgid "Run Transactions"
 msgstr "Executar Transacções"
 
-#: DepositSlipEditor.php:218 EventNames.php:298 PersonView.php:1294
+#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1294
 #: v2/templates/calendar/eventattendeesedit.php:62
 msgid "Action"
 msgstr "Ação"
@@ -5240,7 +5240,7 @@ msgstr "Endereços"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:258 EventNames.php:322 FamilyView.php:283
+#: ElectronicPaymentList.php:258 EventNames.php:349 FamilyView.php:283
 #: PersonView.php:533 v2/templates/pastoralcare/pastoralcareperson.php:166
 msgid "Edit"
 msgstr "Editar"
@@ -6102,19 +6102,19 @@ msgstr "Listagem de usuários do sistema"
 msgid "Edit Event Types"
 msgstr "Editar Tipos de Eventos"
 
-#: EditEventTypes.php:143 EventNames.php:128
+#: EditEventTypes.php:143 EventNames.php:130
 msgid "Weekly on"
 msgstr "Semanalmente em"
 
-#: EditEventTypes.php:143 EventNames.php:128
+#: EditEventTypes.php:143 EventNames.php:130
 msgid "s"
 msgstr "s"
 
-#: EditEventTypes.php:146 EventNames.php:131
+#: EditEventTypes.php:146 EventNames.php:133
 msgid "Monthly on"
 msgstr "Mensalmente em"
 
-#: EditEventTypes.php:149 EventNames.php:134
+#: EditEventTypes.php:149 EventNames.php:136
 msgid "Yearly on"
 msgstr "Anualmente em"
 
@@ -6122,7 +6122,7 @@ msgstr "Anualmente em"
 msgid "Edit Event Type"
 msgstr "Editar Tipo de Evento"
 
-#: EditEventTypes.php:193 EventNames.php:293
+#: EditEventTypes.php:193 EventNames.php:316
 msgid "Event Type"
 msgstr "Tipo de evento"
 
@@ -6142,11 +6142,11 @@ msgstr "Cor"
 msgid "Save Color"
 msgstr "Guardar cor"
 
-#: EditEventTypes.php:227 EventNames.php:186 EventNames.php:295
+#: EditEventTypes.php:227 EventNames.php:189 EventNames.php:318
 msgid "Recurrence Pattern"
 msgstr "Padrão de Recorrência"
 
-#: EditEventTypes.php:243 EventNames.php:297
+#: EditEventTypes.php:243 EventNames.php:320
 msgid "Attendance Counts"
 msgstr "Contagem de presenças"
 
@@ -6221,7 +6221,7 @@ msgid "Add a New Electronic Payment Method"
 msgstr "Adicionar um novo método de pagamento eletrônico"
 
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
-#: ElectronicPaymentList.php:318 EventNames.php:328 FamilyView.php:1096
+#: ElectronicPaymentList.php:318 EventNames.php:355 FamilyView.php:1096
 #: FindDepositSlip.php:131 ident/routes/verify.php:728
 #: ident/routes/verify.php:795 ident/templates/verify/verify-family-info.php:55
 #: ident/templates/verify/verify-family-info.php:161 PersonView.php:1894
@@ -6370,70 +6370,74 @@ msgstr "Não há eventos nesta categoria"
 msgid "There are no Records"
 msgstr "Não existem Registros"
 
-#: EventNames.php:178
+#: EventNames.php:180
 msgid "EVENT TYPE NAME"
 msgstr "NOME DO TIPO DE EVENTO"
 
-#: EventNames.php:196 PledgeEditor.php:630
+#: EventNames.php:199 PledgeEditor.php:630
 msgid "Weekly"
 msgstr "Semanalmente"
 
-#: EventNames.php:200
+#: EventNames.php:203
 msgid "Sundays"
 msgstr "Domingos"
 
-#: EventNames.php:201
+#: EventNames.php:204
 msgid "Mondays"
 msgstr "Segundas-feiras"
 
-#: EventNames.php:202
+#: EventNames.php:205
 msgid "Tuesdays"
 msgstr "Terças-feiras"
 
-#: EventNames.php:203
+#: EventNames.php:206
 msgid "Wednesdays"
 msgstr "Quartas-feiras"
 
-#: EventNames.php:204
+#: EventNames.php:207
 msgid "Thursdays"
 msgstr "Quintas-feiras"
 
-#: EventNames.php:205
+#: EventNames.php:208
 msgid "Fridays"
 msgstr "Sextas-feiras"
 
-#: EventNames.php:206
+#: EventNames.php:209
 msgid "Saturdays"
 msgstr "Sábados"
 
-#: EventNames.php:212 PledgeEditor.php:634
+#: EventNames.php:215 PledgeEditor.php:634
 msgid "Monthly"
 msgstr "Mensal"
 
-#: EventNames.php:227
+#: EventNames.php:230
 msgid "Yearly"
 msgstr "Anualmente"
 
-#: EventNames.php:240
+#: EventNames.php:243
+msgid "DEFAULT COLOR"
+msgstr "COR DEFAULT"
+
+#: EventNames.php:258
 msgid "DEFAULT START TIME"
 msgstr "HORA DE INÍCIO PADRÃO"
 
-#: EventNames.php:250
+#: EventNames.php:268
 msgid "ATTENDANCE COUNTS"
 msgstr "CONTAGEM DE PRESENÇAS"
 
-#: EventNames.php:253
+#: EventNames.php:273
 msgid "Optional"
 msgstr "Opcional"
 
-#: EventNames.php:254
+#: EventNames.php:275
 msgid ""
 "Enter a list of the attendance counts you want to include with this event."
 msgstr ""
 "Entre uma lista das contagens de presença que você deseja incluir neste "
 "evento."
 
-#: EventNames.php:255
+#: EventNames.php:277
 msgid ""
 "Separate each count_name with a comma. e.g. Members, Visitors, Campus, "
 "Children"
@@ -6441,43 +6445,43 @@ msgstr ""
 "Separe cada nome de contagem com uma vírgula, por exemplo, Membros, "
 "Visitantes, Campus, Crianças."
 
-#: EventNames.php:256
+#: EventNames.php:279
 msgid "Every event type includes a Total count, you do not need to include it."
 msgstr ""
 "Cada tipo de evento inclui uma contagem Total, você não precisa incluí-la."
 
-#: EventNames.php:265 FamilyCustomFieldsEditor.php:450 GroupPropsEditor.php:301
+#: EventNames.php:288 FamilyCustomFieldsEditor.php:450 GroupPropsEditor.php:301
 #: GroupPropsFormEditor.php:449 OptionManager.php:524
 #: PersonCustomFieldsEditor.php:445
 msgid "Save Changes"
 msgstr "Salvar Alterações"
 
-#: EventNames.php:281
+#: EventNames.php:304
 msgid "There currently is"
 msgstr "Existe actualmente"
 
-#: EventNames.php:281
+#: EventNames.php:304
 msgid "There currently are"
 msgstr "Existem actualmente"
 
-#: EventNames.php:281
+#: EventNames.php:304
 msgid "custom event type"
 msgstr "tipo de evento personalizado"
 
-#: EventNames.php:281
+#: EventNames.php:304
 msgid "custom event types"
 msgstr "tipos de eventos personalizados"
 
-#: EventNames.php:296
+#: EventNames.php:319
 #: kiosk/templates/kioskDevices/sunday-school-class-view.php:28
 msgid "Start Time"
 msgstr "Hora de início"
 
-#: EventNames.php:315 EventNames.php:316
+#: EventNames.php:338 EventNames.php:341
 msgid "Create Event"
 msgstr "Criar Evento"
 
-#: EventNames.php:355
+#: EventNames.php:384
 msgid "Add Event Type"
 msgstr "Adicionar Tipo de Evento"
 
