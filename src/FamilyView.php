@@ -1211,7 +1211,7 @@ if ($sMapProvider == 'OpenStreetMap') {
     };
     window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
 
-    initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, '<?= $family->getName() ?>', '', '');
+    initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, "<?= $family->getName() ?>", '', '');
     <?php } ?>
 </script>
 
