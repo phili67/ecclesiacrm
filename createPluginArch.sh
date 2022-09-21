@@ -66,6 +66,8 @@
     touch "src/Plugins/${pluginName}/mysql/index.html"
 
     mkdir "src/Plugins/${pluginName}/skin"
+    mkdir "src/Plugins/${pluginName}/skin/css"
+    mkdir "src/Plugins/${pluginName}/skin/js"
 
     mkdir "src/Plugins/${pluginName}/v2"
     mkdir "src/Plugins/${pluginName}/v2/routes"
