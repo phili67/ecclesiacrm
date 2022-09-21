@@ -234,21 +234,21 @@ class Family extends BaseFamily implements iPhoto
         switch ($type) {
             case "create":
               $note->setText(_('Created'));
-              $note->setEnteredBy($this->getEnteredBy());
+              $note->setEnteredBy(SessionUser::getId());
               $note->setDateEntered($this->getDateEntered());
               break;
             case "edit":
               $note->setText(_('Updated'));
-                $note->setEnteredBy($this->getEditedBy());
+                $note->setEnteredBy(SessionUser::getId());
                 $note->setDateEntered($this->getDateLastEdited());
                 break;
             case "verify":
                 $note->setText(_('Family Data Verified'));
-                $note->setEnteredBy(SessionUser::getUser()->getPersonId());
+                $note->setEnteredBy(SessionUser::getId());
                 break;
             case "verify-link":
               $note->setText(_('Verification email sent'));
-              $note->setEnteredBy(SessionUser::getUser()->getPersonId());
+              $note->setEnteredBy(SessionUser::getId());
               break;
         }
 
