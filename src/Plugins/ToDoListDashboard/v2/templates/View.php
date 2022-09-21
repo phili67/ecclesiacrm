@@ -131,4 +131,4 @@ $defaultList = ToDoListDashboardQuery::create()
     });
 </script>
 
-<script src="<?= $sRootPath ?>/Plugins/ToDoListDashboard/skin/ToDoListDashboard.js"></script>
+<script src="<?= $sRootPath ?>/Plugins/ToDoListDashboard/skin/js/ToDoListDashboard.js"></script>
