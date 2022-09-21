@@ -359,6 +359,16 @@ class CalendarService
 
                     }
 
+                    $evntType = EventTypesQuery::create()->findOneById($type);
+
+                    if ( !is_null($evntType) ) {
+                        $color = $evntType->getColor();
+
+                        if ($color != '#000000') {
+                            $calendarColor = $color;
+                        }
+                    }
+
                     foreach ($freqEvents as $key => $value) {
                         if ($key == 'freq' && $value != 'none') {
                             $fEvnt = true;
@@ -389,17 +399,6 @@ class CalendarService
                             }
                         }
                     }
-
-                    $evntType = EventTypesQuery::create()->findOneById($type);
-
-                    if ( !is_null($evntType) ) {
-                        $color = $evntType->getColor();
-
-                        if ($color != '#000000') {
-                            $calendarColor = $color;
-                        }
-                    }
-
 
                     if ($fEvnt == false) {
 
