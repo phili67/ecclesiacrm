@@ -109,7 +109,7 @@ require $sRootDocument . '/Include/Header.php';
 
 
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
-<script src="<?= $sRootPath ?>/Plugins/MeetingJitsi/skin/meeting.js"></script>
+<script src="<?= $sRootPath ?>/Plugins/MeetingJitsi/skin/js/meeting.js"></script>
 
 <?php
 if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
