@@ -71,5 +71,5 @@ require $sRootDocument . '/Include/Header.php';
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-<script src="<?= $sRootPath ?>/Plugins/MeetingJitsi/skin/settings.js"></script>
+<script src="<?= $sRootPath ?>/Plugins/MeetingJitsi/skin/js/settings.js"></script>
 
