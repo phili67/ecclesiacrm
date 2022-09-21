@@ -270,8 +270,8 @@ class Person extends BasePerson implements iPhoto
         $note = new Note();
         $note->setPerId($this->getId());
 
-        if (!is_null (SessionUser::getUser())) {
-          $note->setEnteredBy(SessionUser::getUser()->getPerson()->getEditedBy());
+        if ( !is_null (SessionUser::getUser()) ) {
+          $note->setEnteredBy(SessionUser::getId());
         } else {
           $note->setEnteredBy($this->getEditedBy());
         }
