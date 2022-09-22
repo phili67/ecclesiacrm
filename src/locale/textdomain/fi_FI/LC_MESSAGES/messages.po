@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-21 16:58+0000\n"
+"POT-Creation-Date: 2022-09-20 06:49+0000\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgstr "Henkilö"
 msgid "Family"
 msgstr "Perhe"
 
-#: AutoPaymentEditor.php:814 PersonEditor.php:1026 PledgeEditor.php:588
+#: AutoPaymentEditor.php:814 PersonEditor.php:1029 PledgeEditor.php:588
 msgid "or"
 msgstr "tai"
 
@@ -87,8 +87,8 @@ msgstr ""
 #: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:79 eGive.php:345
 #: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
-#: ident/routes/verify.php:213 PersonEditor.php:977 PersonEditor.php:997
-#: PersonEditor.php:1587 PrintPastoralCarePerson.php:332
+#: ident/routes/verify.php:213 PersonEditor.php:980 PersonEditor.php:1000
+#: PersonEditor.php:1590 PrintPastoralCarePerson.php:332
 #: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
 #: SelectDelete.php:243 SystemSettings.php:235
 #: v2/templates/fundraiser/donatedItemEditor.php:43
@@ -177,7 +177,7 @@ msgstr "inaktiivinen"
 #: AutoPaymentEditor.php:905 CSVExport.php:76 CSVImport.php:235
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: external/templates/registration/family-register-members.php:76
-#: ident/routes/verify.php:168 ident/routes/verify.php:173 PersonEditor.php:913
+#: ident/routes/verify.php:168 ident/routes/verify.php:173 PersonEditor.php:916
 #: Reports/MemberEmailExport.php:20
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
@@ -189,7 +189,7 @@ msgstr "Etunimi"
 #: AutoPaymentEditor.php:913 CSVExport.php:66 CSVImport.php:237
 #: external/templates/registration/family-register-members.php:81
 #: ident/routes/verify.php:191 ident/routes/verify.php:196
-#: ManageEnvelopes.php:171 PersonEditor.php:935
+#: ManageEnvelopes.php:171 PersonEditor.php:938
 #: Reports/MemberEmailExport.php:21
 #: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
@@ -205,8 +205,8 @@ msgstr "Sukunimi"
 #: external/templates/registration/family-register.php:47 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:297 GeoPage.php:374 GroupReports.php:148
 #: ident/routes/verify.php:378 ident/routes/verify.php:433
-#: PersonEditor.php:1037 PersonEditor.php:1043 PersonEditor.php:1177
-#: PersonEditor.php:1201 PersonView.php:592 Reports/PDFLabel.php:859
+#: PersonEditor.php:1040 PersonEditor.php:1046 PersonEditor.php:1180
+#: PersonEditor.php:1204 PersonView.php:592 Reports/PDFLabel.php:859
 #: v2/templates/pastoralcare/pastoralcarefamily.php:124
 #: v2/templates/pastoralcare/pastoralcareperson.php:220
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
@@ -216,7 +216,7 @@ msgstr "Osoite"
 #: AutoPaymentEditor.php:937 CartToFamily.php:366 CSVExport.php:103
 #: CSVImport.php:243 DirectoryReports.php:294
 #: external/templates/registration/family-register.php:58 FamilyEditor.php:746
-#: ident/routes/verify.php:388 PersonEditor.php:1049 PersonEditor.php:1225
+#: ident/routes/verify.php:388 PersonEditor.php:1052 PersonEditor.php:1228
 #: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Kaupunki"
@@ -224,7 +224,7 @@ msgstr "Kaupunki"
 #: AutoPaymentEditor.php:945 CartToFamily.php:375 CSVExport.php:108
 #: CSVImport.php:244 DirectoryReports.php:300
 #: external/templates/registration/family-register.php:62 FamilyEditor.php:755
-#: ident/routes/verify.php:400 PersonEditor.php:1058 PersonEditor.php:1253
+#: ident/routes/verify.php:400 PersonEditor.php:1061 PersonEditor.php:1256
 #: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Valtio"
@@ -232,14 +232,14 @@ msgstr "Valtio"
 #: AutoPaymentEditor.php:953 CartToFamily.php:393 CSVExport.php:115
 #: CSVImport.php:245 DirectoryReports.php:306
 #: external/templates/registration/family-register.php:73 FamilyEditor.php:769
-#: ident/routes/verify.php:413 PersonEditor.php:1073 PersonEditor.php:1287
+#: ident/routes/verify.php:413 PersonEditor.php:1076 PersonEditor.php:1290
 #: Reports/PDFLabel.php:859
 msgid "Zip"
 msgstr "Vetoketju"
 
 #: AutoPaymentEditor.php:961 CartToFamily.php:402 CSVExport.php:125
 #: CSVImport.php:246 FamilyEditor.php:779 ident/routes/verify.php:425
-#: PersonEditor.php:1083 PersonEditor.php:1317
+#: PersonEditor.php:1086 PersonEditor.php:1320
 msgid "Country"
 msgstr "Maa"
 
@@ -267,8 +267,8 @@ msgstr "Puhelin"
 #: FamilyView.php:555 GroupReports.php:152 ident/routes/verify.php:262
 #: ident/routes/verify.php:265 ident/routes/verify.php:686
 #: ident/templates/verify/login-info.php:34
-#: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1461
-#: PersonEditor.php:1465 PersonView.php:665 PersonView.php:793
+#: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1464
+#: PersonEditor.php:1468 PersonView.php:665 PersonView.php:793
 #: PersonView.php:1161 PrintPastoralCarePerson.php:385 PrintView.php:396
 #: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
 #: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
@@ -325,9 +325,9 @@ msgstr "Tallenna yksityiset tiedot Vancossa"
 #: FamilyEditor.php:715 FamilyEditor.php:813 FamilyEditor.php:888
 #: FamilyEditor.php:976 FamilyEditor.php:998 FamilyEditor.php:1072
 #: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:181
-#: ident/templates/verify/change-password.php:56 PersonEditor.php:888
-#: PersonEditor.php:970 PersonEditor.php:1157 PersonEditor.php:1579
-#: PersonEditor.php:1659 PersonEditor.php:1747 PledgeEditor.php:793
+#: ident/templates/verify/change-password.php:56 PersonEditor.php:891
+#: PersonEditor.php:973 PersonEditor.php:1160 PersonEditor.php:1582
+#: PersonEditor.php:1662 PersonEditor.php:1750 PledgeEditor.php:793
 #: SystemSettings.php:111 UserPasswordChange.php:225
 #: v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
@@ -338,7 +338,7 @@ msgstr "Tallenna"
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
+#: ManageEnvelopes.php:144 PersonEditor.php:1758 PersonView.php:1985
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
 #: SettingsIndividual.php:444 SettingsIndividual.php:571 TaxReport.php:53
 #: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
@@ -560,7 +560,7 @@ msgid "Canvasser"
 msgstr "Kannanottaja"
 
 #: CanvassEditor.php:177 FamilyEditor.php:930 FamilyEditor.php:952
-#: PersonEditor.php:1109 PersonEditor.php:1131
+#: PersonEditor.php:1112 PersonEditor.php:1134
 msgid "None selected"
 msgstr "Ei valittua"
 
@@ -610,7 +610,7 @@ msgid "Generate Badges"
 msgstr "Luo merkkejä"
 
 #: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:71 CSVImport.php:234
-#: FundRaiserEditor.php:186 PersonEditor.php:904
+#: FundRaiserEditor.php:186 PersonEditor.php:907
 #: Reports/GDPR/GDPRListExport.php:66
 #: v2/templates/email/mailchimp/dashboard.php:21
 #: v2/templates/fundraiser/donatedItemEditor.php:60
@@ -763,7 +763,7 @@ msgstr "Jos lisäät uuden perheen, syötä tiedot alla olevaan kenttään."
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
 #: external/templates/registration/family-register.php:36 FamilyEditor.php:722
-#: LettersAndLabels.php:71 PersonEditor.php:1026 Reports/ConfirmReport.php:148
+#: LettersAndLabels.php:71 PersonEditor.php:1029 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
 msgid "Family Name"
 msgstr "Sukunimi"
@@ -799,8 +799,8 @@ msgstr ""
 #: FamilyView.php:356 GroupReports.php:149 ident/routes/verify.php:231
 #: ident/routes/verify.php:234 ident/routes/verify.php:670
 #: ident/routes/verify.php:779 ident/templates/verify/verify-family-info.php:36
-#: ident/templates/verify/verify-family-info.php:93 PersonEditor.php:1359
-#: PersonEditor.php:1363 PersonView.php:651 PrintPastoralCarePerson.php:257
+#: ident/templates/verify/verify-family-info.php:93 PersonEditor.php:1362
+#: PersonEditor.php:1366 PersonView.php:651 PrintPastoralCarePerson.php:257
 #: PrintView.php:268 Reports/ConfirmReport.php:168
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/calendar/eventattendeesedit.php:60
@@ -813,8 +813,8 @@ msgstr "Kotipuhelin"
 
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:433 FamilyEditor.php:829
-#: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1380
-#: PersonEditor.php:1410 PersonEditor.php:1439
+#: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1383
+#: PersonEditor.php:1413 PersonEditor.php:1442
 msgid "Do not auto-format"
 msgstr "Älä muotoile automaattisesti"
 
@@ -823,8 +823,8 @@ msgstr "Älä muotoile automaattisesti"
 #: FamilyView.php:362 GroupReports.php:150 ident/routes/verify.php:242
 #: ident/routes/verify.php:245 ident/routes/verify.php:458
 #: ident/routes/verify.php:461 ident/routes/verify.php:675
-#: ident/templates/verify/verify-family-info.php:98 PersonEditor.php:1388
-#: PersonEditor.php:1392 PersonView.php:679 PrintPastoralCarePerson.php:262
+#: ident/templates/verify/verify-family-info.php:98 PersonEditor.php:1391
+#: PersonEditor.php:1395 PersonView.php:679 PrintPastoralCarePerson.php:262
 #: PrintView.php:273 Reports/ConfirmReport.php:288
 #: v2/templates/pastoralcare/pastoralcarefamily.php:187
 #: v2/templates/pastoralcare/pastoralcareperson.php:305
@@ -834,8 +834,8 @@ msgstr "Työpuhelin"
 #: CartToFamily.php:439 CSVExport.php:142 FamilyEditor.php:846
 #: FamilyEditor.php:862 FamilyView.php:369 ident/routes/verify.php:251
 #: ident/routes/verify.php:467 ident/routes/verify.php:680
-#: ident/templates/verify/verify-family-info.php:103 PersonEditor.php:1419
-#: PersonEditor.php:1423 PersonView.php:639 PrintPastoralCarePerson.php:267
+#: ident/templates/verify/verify-family-info.php:103 PersonEditor.php:1422
+#: PersonEditor.php:1426 PersonView.php:639 PrintPastoralCarePerson.php:267
 #: PrintView.php:278 v2/templates/pastoralcare/pastoralcarefamily.php:194
 #: v2/templates/pastoralcare/pastoralcareperson.php:265
 msgid "Mobile Phone"
@@ -984,12 +984,12 @@ msgid "Required"
 msgstr "Vaadittu"
 
 #: CSVExport.php:82 CSVImport.php:236 ident/routes/verify.php:180
-#: ident/routes/verify.php:185 PersonEditor.php:924
+#: ident/routes/verify.php:185 PersonEditor.php:927
 msgid "Middle Name"
 msgstr "Keskimmäinen nimi"
 
 #: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
-#: PersonEditor.php:946
+#: PersonEditor.php:949
 msgid "Suffix"
 msgstr "Suffiksi"
 
@@ -1004,7 +1004,7 @@ msgstr "Kirjekuori"
 msgid "Work/Other Email"
 msgstr "Työ/muu sähköpostiosoite"
 
-#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1604
+#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1607
 #: PrintPastoralCarePerson.php:395 PrintView.php:406
 msgid "Membership Date"
 msgstr "Jäsenyys Päivämäärä"
@@ -1021,7 +1021,7 @@ msgstr "Ikä / Avioliittovuodet"
 #: EcclesiaCRM/APIControllers/SearchController.php:278
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
 #: FamilyEditor.php:1101 FamilyView.php:553 FinancialReports.php:153
-#: ident/routes/verify.php:305 OptionManager.php:109 PersonEditor.php:1585
+#: ident/routes/verify.php:305 OptionManager.php:109 PersonEditor.php:1588
 #: PrintPastoralCarePerson.php:400 PrintView.php:411
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
 #: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
@@ -1085,7 +1085,7 @@ msgstr "Käytä Ctrl-näppäintä valitaksesi useita"
 
 #: CSVExport.php:355 CSVImport.php:239
 #: EcclesiaCRM/APIControllers/SearchController.php:277 FamilyEditor.php:1096
-#: PersonEditor.php:895 PrintPastoralCarePerson.php:311
+#: PersonEditor.php:898 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:221
 #: v2/templates/sundayschool/sundayschoolview.php:313 queryparameters_qrp.php:4
@@ -1101,7 +1101,7 @@ msgstr "Älä suodata"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
 #: external/templates/registration/family-register-members.php:66
-#: FamilyEditor.php:1150 PersonEditor.php:899 PrintPastoralCarePerson.php:315
+#: FamilyEditor.php:1150 PersonEditor.php:902 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
 #: queryparameteroptions_qpo.php:2
 msgid "Male"
@@ -1112,7 +1112,7 @@ msgstr "Mies"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
 #: external/templates/registration/family-register-members.php:67
-#: FamilyEditor.php:1153 PersonEditor.php:900 PrintPastoralCarePerson.php:315
+#: FamilyEditor.php:1153 PersonEditor.php:903 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
 #: queryparameteroptions_qpo.php:3
 msgid "Female"
@@ -1130,7 +1130,7 @@ msgstr "From:"
 msgid "To:"
 msgstr "To:"
 
-#: CSVExport.php:438 PersonEditor.php:955
+#: CSVExport.php:438 PersonEditor.php:958
 msgid "Birthday Date"
 msgstr "Syntymäpäivä"
 
@@ -1199,7 +1199,7 @@ msgstr "Lahjoituskuori"
 msgid "Cell Phone"
 msgstr "Matkapuhelin"
 
-#: CSVImport.php:251 PersonEditor.php:1487 PrintPastoralCarePerson.php:390
+#: CSVImport.php:251 PersonEditor.php:1490 PrintPastoralCarePerson.php:390
 #: PrintView.php:401
 msgid "Work / Other Email"
 msgstr "Työ / Muu sähköpostiosoite"
@@ -5102,7 +5102,7 @@ msgstr "Kaupunki, osavaltio, postinumero"
 
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186 FamilyEditor.php:874
 #: FamilyView.php:333 ident/routes/verify.php:505 ident/routes/verify.php:792
-#: ident/templates/verify/verify-family-info.php:52 PersonEditor.php:1445
+#: ident/templates/verify/verify-family-info.php:52 PersonEditor.php:1448
 #: PersonView.php:658 Reports/ConfirmReport.php:173
 #: v2/templates/pastoralcare/pastoralcarefamily.php:158
 #: v2/templates/pastoralcare/pastoralcareperson.php:284
@@ -6574,7 +6574,7 @@ msgid "Mobile"
 msgstr "Mobiili"
 
 #: external/templates/registration/family-register-members.php:132
-#: PersonEditor.php:959 Reports/ConfirmReport.php:232
+#: PersonEditor.php:962 Reports/ConfirmReport.php:232
 #: Reports/ConfirmReport.php:252
 msgid "Hide Age"
 msgstr "Piilota ikä"
@@ -6622,7 +6622,7 @@ msgstr "Mukautettuja perhekenttiä ei ole vielä lisätty"
 
 #: FamilyCustomFieldsEditor.php:341 GroupPropsEditor.php:226
 #: GroupPropsFormEditor.php:340 OptionManager.php:391
-#: PersonCustomFieldsEditor.php:333 PersonEditor.php:880
+#: PersonCustomFieldsEditor.php:333 PersonEditor.php:883
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
@@ -6722,8 +6722,8 @@ msgstr "Päivitetty perheen kautta"
 msgid "Family Info"
 msgstr "Perheen tiedot"
 
-#: FamilyEditor.php:762 ident/routes/verify.php:407 PersonEditor.php:1066
-#: PersonEditor.php:1269
+#: FamilyEditor.php:762 ident/routes/verify.php:407 PersonEditor.php:1069
+#: PersonEditor.php:1272
 msgid "None US/CND State"
 msgstr "Ei ole US/CND Valtio"
 
@@ -6735,7 +6735,7 @@ msgstr "Leveysaste"
 msgid "Longitude"
 msgstr "Pituusaste"
 
-#: FamilyEditor.php:811 PersonEditor.php:1155
+#: FamilyEditor.php:811 PersonEditor.php:1158
 msgid "Contact Info"
 msgstr "Yhteystiedot"
 
@@ -6743,15 +6743,15 @@ msgstr "Yhteystiedot"
 msgid "Other Info"
 msgstr "Muut tiedot"
 
-#: FamilyEditor.php:919 PersonEditor.php:1098
+#: FamilyEditor.php:919 PersonEditor.php:1101
 msgid "Ok To Canvass"
 msgstr "Ok To Canvass"
 
-#: FamilyEditor.php:928 PersonEditor.php:1107
+#: FamilyEditor.php:928 PersonEditor.php:1110
 msgid "Assign a Canvasser"
 msgstr "Aseta kyselijä"
 
-#: FamilyEditor.php:949 PersonEditor.php:1128
+#: FamilyEditor.php:949 PersonEditor.php:1131
 msgid "Assign a Brave Canvasser"
 msgstr "Määritä rohkea kyselijä"
 
@@ -6764,7 +6764,7 @@ msgstr "Kirjekuoren tiedot"
 msgid "Envelope Number"
 msgstr "Kirjekuoren numero"
 
-#: FamilyEditor.php:996 PersonEditor.php:1657
+#: FamilyEditor.php:996 PersonEditor.php:1660
 msgid "Custom Fields"
 msgstr "Mukautetut kentät"
 
@@ -6792,7 +6792,7 @@ msgstr "Viimeinen"
 msgid "Day"
 msgstr "Päivä"
 
-#: FamilyEditor.php:1147 PersonEditor.php:897
+#: FamilyEditor.php:1147 PersonEditor.php:900
 msgid "Select Gender"
 msgstr "Valitse sukupuoli"
 
@@ -6852,7 +6852,7 @@ msgstr "Joulukuu"
 msgid "Unk"
 msgstr "Unk"
 
-#: FamilyEditor.php:1294 PersonEditor.php:1751 PledgeEditor.php:795
+#: FamilyEditor.php:1294 PersonEditor.php:1754 PledgeEditor.php:795
 #: v2/templates/fundraiser/donatedItemEditor.php:173
 msgid "Save and Add"
 msgstr "Tallenna ja lisää"
@@ -8337,51 +8337,51 @@ msgstr "Ei voimassa oleva jäsenyyspäivä"
 msgid "Work Email is Not Valid"
 msgstr "Työsähköposti ei ole voimassa"
 
-#: PersonEditor.php:873
+#: PersonEditor.php:876
 msgid "Red text"
 msgstr "Punainen teksti"
 
-#: PersonEditor.php:873 PersonView.php:761
+#: PersonEditor.php:876 PersonView.php:761
 msgid "indicates items inherited from the associated family record."
 msgstr "ilmaisee kohteet, jotka periytyvät siihen liittyvästä sukutietueesta."
 
-#: PersonEditor.php:886
+#: PersonEditor.php:889
 msgid "Personal Info"
 msgstr "Henkilökohtaiset tiedot"
 
-#: PersonEditor.php:907
+#: PersonEditor.php:910
 msgid "Mr., Mrs., Dr., Rev."
 msgstr "Mr., Mrs., Dr., Rev."
 
-#: PersonEditor.php:949
+#: PersonEditor.php:952
 msgid "Jr., Sr., III"
 msgstr "Nuori, vanhempi, III"
 
-#: PersonEditor.php:968
+#: PersonEditor.php:971
 msgid "Person or Family Info"
 msgstr "Henkilön tai perheen tiedot"
 
-#: PersonEditor.php:975
+#: PersonEditor.php:978
 msgid "Person or Family Role"
 msgstr "Henkilö tai perhe Rooli"
 
-#: PersonEditor.php:995
+#: PersonEditor.php:998
 msgid "Person or Family address"
 msgstr "Henkilön tai perheen osoite"
 
-#: PersonEditor.php:998
+#: PersonEditor.php:1001
 msgid "Create a new Address or A new family (using last name)"
 msgstr "Luo uusi osoite tai uusi perhe (käyttäen sukunimeä)."
 
-#: PersonEditor.php:1020
+#: PersonEditor.php:1023
 msgid "Person or Family Address"
 msgstr "Henkilön tai perheen osoite"
 
-#: PersonEditor.php:1026 SelectDelete.php:234 SelectDelete.php:366
+#: PersonEditor.php:1029 SelectDelete.php:234 SelectDelete.php:366
 msgid "Person Name"
 msgstr "Henkilön nimi"
 
-#: PersonEditor.php:1032
+#: PersonEditor.php:1035
 msgid ""
 "A person could have a different name as his family.<br>• In this case set "
 "the Family Name in this field.<br>• In the other case, leave this field "
@@ -8390,29 +8390,29 @@ msgstr ""
 "Henkilöllä voi olla eri nimi perheenä.<br>- Tässä tapauksessa aseta tähän "
 "kenttään perheen nimi.<br>- Muissa tapauksissa jätä tämä kenttä tyhjäksi."
 
-#: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:701
+#: PersonEditor.php:1514 PersonEditor.php:1518 PersonView.php:701
 #: PersonView.php:703 v2/templates/pastoralcare/pastoralcareperson.php:327
 #: v2/templates/pastoralcare/pastoralcareperson.php:329
 msgid "Facebook"
 msgstr "Facebook"
 
-#: PersonEditor.php:1537 PersonView.php:710 PersonView.php:711
+#: PersonEditor.php:1540 PersonView.php:710 PersonView.php:711
 #: v2/templates/pastoralcare/pastoralcareperson.php:336
 #: v2/templates/pastoralcare/pastoralcareperson.php:337
 msgid "Twitter"
 msgstr "Twitter"
 
-#: PersonEditor.php:1555 PersonView.php:718 PersonView.php:719
+#: PersonEditor.php:1558 PersonView.php:718 PersonView.php:719
 #: v2/templates/pastoralcare/pastoralcareperson.php:344
 #: v2/templates/pastoralcare/pastoralcareperson.php:345
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: PersonEditor.php:1577
+#: PersonEditor.php:1580
 msgid "Membership Info"
 msgstr "Jäsenyyden tiedot"
 
-#: PersonEditor.php:1627 PersonView.php:626
+#: PersonEditor.php:1630 PersonView.php:626
 #: v2/templates/pastoralcare/pastoralcareperson.php:252
 msgid "Friend Date"
 msgstr "Ystävän treffit"
