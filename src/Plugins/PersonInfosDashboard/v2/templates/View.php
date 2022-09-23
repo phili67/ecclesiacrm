@@ -37,7 +37,7 @@ $plugin = PluginQuery::create()
             </button>
         </div>
     </div>
-    <div class="card-body"  style="<?= $Card_body ?>">
+    <div class="card-body"  style="<?= $Card_body ?>; padding: 1.15px !important">
         <div class="tab-content" id="custom-tabs-two-tabContent">
             <div class="tab-pane fade   active show" id="custom-tabs-latest-members" role="tabpanel"
                  aria-labelledby="custom-tabs-latest-members-tab">
