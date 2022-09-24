@@ -5,24 +5,40 @@
 namespace EcclesiaCRM\Utils;
 
 
+use Cassandra\RetryPolicy\Logging;
+
 class LabelUtils {
 
     public static function FontSelect($fieldname)
     {
-        $sFPDF_PATH = __DIR__.'/../../vendor/setasign/fpdf';
+        $sFPDF_PATH = __DIR__.'/../../vendor/tecnickcom/tcpdf';
 
-        $d = scandir($sFPDF_PATH.'/font/', SCANDIR_SORT_DESCENDING);
+        $d = scandir($sFPDF_PATH.'/fonts/', SCANDIR_SORT_DESCENDING);
 
         $fontnames = [];
         $family = ' ';
         foreach ($d as $entry) {
             $len = strlen($entry);
             if ($len > 3) {
-                $r = file_get_contents ($sFPDF_PATH.'/font/'.$entry);
-                $res = explode('$name = \'', $r);
+                $ext = pathinfo($entry, PATHINFO_EXTENSION);
+
+                if ($ext != "php") continue;
+
+                $r = file_get_contents ($sFPDF_PATH.'/fonts/'.$entry);
+                $res = explode('$name=\'', $r);
+
+                if (count($res) == 1) continue;
+
                 $font = explode ("';",$res[1]);
 
                 $font = $font[0];
+
+                if ($font == 'AlArabiya'
+                    or $font == 'FreeSansBold' or $font == 'FreeSansBoldOblique' or $font == 'FreeSansOblique'
+                    or $font == 'FreeMonoBold' or $font == 'FreeMonoBoldOblique' or $font == 'FreeMonoOblique'
+                    or $font == 'FreeSerifBold' or $font == 'FreeSerifBoldItalic' or $font == 'FreeSerifItalic') continue;// we must exclude ALArabiya font
+
+                if (strpos($font, "PDF")) continue;
 
                 $font = str_replace ("-BoldOblique"," Bold Italic",$font);
                 $font = str_replace ("-BoldItalic"," Bold Italic",$font);
@@ -35,6 +51,8 @@ class LabelUtils {
                 $fontnames[] = $font;
             }
         }
+
+        $fontnames = array_unique($fontnames);
 
         sort($fontnames);
     ?>
