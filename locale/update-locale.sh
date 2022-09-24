@@ -138,7 +138,7 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
        fi
 
        # js files for plugin
-       i18next-extract-gettext --files="../src/Plugins/${pluginName}/skin/*.js" --output="../src/Plugins/${pluginName}/locale/js-strings-${pluginName}.pot" --ns="${pluginName}"
+       i18next-extract-gettext --files="../src/Plugins/${pluginName}/skin/js/*.js" --output="../src/Plugins/${pluginName}/locale/js-strings-${pluginName}.pot" --ns="${pluginName}"
 
        msgmerge -U "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po" "../src/Plugins/${pluginName}/locale/js-strings-${pluginName}.pot"
 
