@@ -1,11 +1,11 @@
 {
-              "Name": "ToDoListDashboard",
-              "copyrights": "",
-              "version": "1.0",
-              "Description": "",
-              "infos": "Name of your team",
-              "url_infos": "https://team_url",
-              "url_docs": "https://doc_url",
-              "Settings_url": "meeting/settings",
-              "Details": "https://url;iframe=true&amp;width=772&amp;height=549"
-          }
+  "Name": "ToDoListDashboard",
+  "copyrights": "Philippe Logel © EcclesiaCRM Team",
+  "version": "1.0",
+  "Description": "Dashboard plugin for to do lists",
+  "infos": "iMathGeo & Softwares",
+  "url_infos": "https://www.ecclesiacrm.com",
+  "url_docs": "https://doc_url",
+  "Settings_url": "",
+  "Details": "https://url;iframe=true&amp;width=772&amp;height=549"
+}
