@@ -1,0 +1,25 @@
+.note-dashboard-yellow {
+    background-color: #fffb8cfc
+}
+
+.note-dashboard-text {
+    background: transparent !important;
+    box-sizing: border-box !important;
+    border:0px !important;
+    padding:20px !important
+}
+
+.note-dashboard-body {
+    padding: 2px;
+}
+
+.note-dashboard-footer {
+    height: 35px;
+    padding: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .note-dashboard-yellow {
+        background-color: #40474e
+    }
+}
