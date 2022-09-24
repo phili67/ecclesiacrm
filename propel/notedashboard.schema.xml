@@ -1,0 +1,17 @@
+<!-- in plugin.schema.xml -->
+<database package="NoteDashboard" name="pluginstore" nameSpace="PluginStore">
+    <table name="NoteDashboard_nd" idMethod="native" phpName="NoteDashboard">
+        <column name="nd_id" phpName="Id" type="SMALLINT" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="nd_user_id" phpName="UserId" type="SMALLINT" sqlType="mediumint unsigned" description="user id " required="true" defaultValue="0"/>
+        <column name="nd_note" phpName="Note" type="LONGVARCHAR" description="All the workflow summary"/>
+        <index name="fk_nd_user_id">
+            <index-column name="nd_user_id"/>
+        </index>
+        <unique name="nd_id">
+            <unique-column name="nd_id"/>
+        </unique>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+</database>
