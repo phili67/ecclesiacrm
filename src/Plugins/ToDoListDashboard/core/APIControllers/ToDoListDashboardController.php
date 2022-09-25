@@ -373,7 +373,7 @@ class ToDoListDashboardController
             $item = ToDoListDashboardItemQuery::create()
                 ->findOneById($input->ItemID);
 
-            $item->setName(InputUtils::FilterHTML(input->Name));
+            $item->setName(InputUtils::FilterHTML($input->Name));
             $item->setDateTime($input->DateTime);
 
             $item->save();
