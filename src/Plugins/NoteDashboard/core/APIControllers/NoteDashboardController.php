@@ -43,7 +43,7 @@ class NoteDashboardController
             $note = NoteDashboardQuery::create()
                 ->findOneByUserId(SessionUser::getId());
 
-            $note->setNote($input->note);
+            $note->setNote(InputUtils::FilterHTML($input->note));
             $note->save();
 
             return $response->withJson(['status' => "success"]);
