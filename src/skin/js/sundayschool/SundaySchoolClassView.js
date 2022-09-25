@@ -209,8 +209,12 @@ $("document").ready(function () {
             path: 'groups/' + sundayGroupId + '/addperson/' + e.params.data.objid,
             data: JSON.stringify({"RoleID": 2})// only a student
         },function (data) {
-            dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
-            updateGraphs();
+            if (data.status == "failed") {
+                window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("A kid should have a family in a sunday school group !"));
+            } else {
+                dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+                updateGraphs();
+            }
         });
     });
 

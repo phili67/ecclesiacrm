@@ -412,6 +412,12 @@ class PeopleGroupController
         $person = PersonQuery::create()->findPk($userID);
         $input = (object) $request->getParsedBody();
         $group = GroupQuery::create()->findPk($groupID);
+
+        if ($group->getType() == 4 and $person->getFamId() == 0) {
+            // sundayschool group should be in a family
+            return $response->withJson(['status' => "failed"]);
+        }
+
         $p2g2r = Person2group2roleP2g2rQuery::create()
             ->filterByGroupId($groupID)
             ->filterByPersonId($userID)
