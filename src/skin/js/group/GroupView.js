@@ -247,8 +247,12 @@ $(document).ready(function () {
             GroupID: window.CRM.currentGroup
         }, function (selection) {
             window.CRM.groups.addPerson(window.CRM.currentGroup, e.params.data.objid, selection.RoleID, function (data) {
-                $(".personSearch").val(null).trigger('change');
-                window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+                if (data.status == "failed") {
+                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("A kid should have a family in a sunday school group !"));
+                } else {
+                    $(".personSearch").val(null).trigger('change');
+                    window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+                }
             });
         });
     });
