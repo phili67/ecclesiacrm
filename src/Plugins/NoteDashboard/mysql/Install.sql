@@ -1,5 +1,5 @@
 INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`)
-VALUES ('NoteDashboard', 'Plugin to a little note for a each user', 'Dashboard', NULL, '', '1', '1.0', 'nd_', 'inside_category_menu', 'center', 'bg-gradient-yellow text-black',1073741824);
+VALUES ('NoteDashboard', 'Plugin to a little note for a each user', 'Dashboard', NULL, '', '1', '1.0', 'nd_', 'inside_category_menu', 'left', 'bg-gradient-yellow text-black',1073741824);
 
 --
 -- Table structure for table `tdl_list`
