@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-23 19:52+0000\n"
+"POT-Creation-Date: 2022-09-26 18:43+0000\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1979,12 +1979,12 @@ msgid "Family Activated"
 msgstr "家族の活性化"
 
 #: EcclesiaCRM/APIControllers/PeopleGroupController.php:399
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:775
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:781
 msgid "Deleted from group"
 msgstr "グループからの削除"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:431
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:466
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:437
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:472
 msgid "Added to group"
 msgstr "グループに追加"
 

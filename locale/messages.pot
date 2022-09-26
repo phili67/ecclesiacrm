@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-24 18:41+0000\n"
+"POT-Creation-Date: 2022-09-26 18:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1946,12 +1946,12 @@ msgid "Family Activated"
 msgstr ""
 
 #: EcclesiaCRM/APIControllers/PeopleGroupController.php:399
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:775
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:781
 msgid "Deleted from group"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:431
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:466
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:437
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:472
 msgid "Added to group"
 msgstr ""
 
