@@ -11,6 +11,7 @@
 
 namespace Plugins\APIControllers;
 
+use EcclesiaCRM\Utils\InputUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -56,7 +57,7 @@ class ToDoListDashboardController
             // we create a new list that is only visible
             $tdl = new ToDoListDashboard();
 
-            $tdl->setName($input->name);
+            $tdl->setName(InputUtils::FilterHTML($input->name));
             $tdl->setUserId(SessionUser::getId());
             $tdl->setVisible(true);
 
@@ -93,7 +94,7 @@ class ToDoListDashboardController
                 ->findOneById($input->ListID);
 
             if ( !is_null($list) ) {
-                $list->setName($input->Name);
+                $list->setName(InputUtils::FilterHTML($input->Name));
                 $list->save();
             }
 
@@ -228,7 +229,7 @@ class ToDoListDashboardController
 
             $item = new ToDoListDashboardItem();
 
-            $item->setName($input->name);
+            $item->setName(InputUtils::FilterHTML($input->name));
             $item->setDateTime($input->DateTime);
             $item->setList($input->ListId);
             $item->setChecked(false);
@@ -372,7 +373,7 @@ class ToDoListDashboardController
             $item = ToDoListDashboardItemQuery::create()
                 ->findOneById($input->ItemID);
 
-            $item->setName($input->Name);
+            $item->setName(InputUtils::FilterHTML($input->Name));
             $item->setDateTime($input->DateTime);
 
             $item->save();
