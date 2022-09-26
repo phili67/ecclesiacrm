@@ -87,8 +87,12 @@ $(".addGroup").click(function() {
     window.CRM.groups.defaultGroup(function (data) {
       var theGroupID = data;
       var target = window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role, GroupID:theGroupID, Role:window.CRM.groups.selectTypes.Role}, function(data){
-         window.CRM.groups.addPerson(data.GroupID,personID,data.RoleID, function(){
-           window.location.href = window.CRM.root +'/PersonView.php?PersonID=' + personID + '&group=true';
+         window.CRM.groups.addPerson(data.GroupID,personID,data.RoleID, function(data){
+             if (data.status == "failed") {
+                 window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("A kid should have a family in a sunday school group !"));
+             } else {
+                 window.location.href = window.CRM.root +'/PersonView.php?PersonID=' + personID + '&group=true';
+             }
          });
       });
     })
