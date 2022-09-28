@@ -160,4 +160,7 @@ ALTER TABLE `events_event` ADD `event_link` varchar(255) default NULL;
 -- 2022-09-12
 ALTER TABLE `event_types` ADD `type_color` VARBINARY(10) DEFAULT '#000000';
 
+-- 2022-09-28
+ALTER TABLE `user_usr` ADD `usr_is_logged_in` tinyint(1) unsigned NOT NULL default '0';
+
 
