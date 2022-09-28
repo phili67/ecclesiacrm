@@ -170,8 +170,14 @@ $_SESSION['username'] = $urlUserName;
 $_SESSION['iUserID'] = $id;
 $_SESSION['lastPage'] = $lastPage;
 
+if ( $type == 'Lock' ) {
+}
 
 if ($type == "Lock" && $id > 0) {// this point is important for the photo in a lock session
+    $user = UserQuery::create()->findOneByPersonId($_SESSION['iUserID']);
+    $user->setIsLoggedIn(false);
+    $user->save();
+
     $person = PersonQuery::Create()
         ->findOneByID($_SESSION['iUserID']);
 } else {
