@@ -7,8 +7,6 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
-\EcclesiaCRM\Utils\LoggerUtils::getAppLogger()->info("toto".SessionUser::getUser());
-
 if ( !is_null(SessionUser::getUser()) ) {
 
     if (!isset($_SESSION['sshowPledges']) || ($_SESSION['sshowPledges'] == '')) {
