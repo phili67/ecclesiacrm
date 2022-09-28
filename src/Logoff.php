@@ -7,7 +7,10 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
-if (is_null(SessionUser::getUser())) {
+\EcclesiaCRM\Utils\LoggerUtils::getAppLogger()->info("toto".SessionUser::getUser());
+
+if ( !is_null(SessionUser::getUser()) ) {
+
     if (!isset($_SESSION['sshowPledges']) || ($_SESSION['sshowPledges'] == '')) {
         $_SESSION['sshowPledges'] = 0;
     }
@@ -19,12 +22,14 @@ if (is_null(SessionUser::getUser())) {
     }
 
     $currentUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
-    
+
     if (!is_null($currentUser)) {
+
       $currentUser->setShowPledges($_SESSION['sshowPledges']);
       $currentUser->setShowPayments($_SESSION['sshowPayments']);
       $currentUser->setDefaultFY($_SESSION['idefaultFY']);
       $currentUser->setCurrentDeposit($_SESSION['iCurrentDeposit']);
+      $currentUser->setIsLoggedIn(false);
 
       $currentUser->save();
     }

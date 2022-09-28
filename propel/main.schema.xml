@@ -885,6 +885,7 @@
         <column name="usr_NeedPasswordChange" phpName="NeedPasswordChange" type="BOOLEAN" size="1" sqlType="tinyint(3) unsigned" required="true" defaultValue="1"/>
         <column name="usr_LastLogin" phpName="LastLogin" type="TIMESTAMP" required="true" defaultValue="2016-01-01 00:00:00"/>
         <column name="usr_LoginCount" phpName="LoginCount" type="SMALLINT" size="5" sqlType="smallint(5) unsigned" required="true" defaultValue="0"/>
+        <column name="usr_is_logged_in" phpName="IsLoggedIn" type="TINYINT" sqlType="tinyint unsigned" required="true" defaultValue="0"/>
         <column name="usr_FailedLogins" phpName="FailedLogins" type="TINYINT" size="3" sqlType="tinyint(3) unsigned" required="true" defaultValue="0"/>
         <column name="usr_AddRecords" phpName="AddRecords" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_EditRecords" phpName="EditRecords" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
