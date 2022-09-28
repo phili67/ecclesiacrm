@@ -1015,6 +1015,9 @@ class User extends BaseUser
         $_SESSION['sshowPledges'] = $this->getShowPledges();
         $_SESSION['sshowPayments'] = $this->getShowPayments();
 
+        $this->setIsLoggedIn(true);
+        $this->save();
+
         if (is_null($_SESSION['user']->getShowSince())) {
             $_SESSION['user']->setShowSince(date("Y-m-d", strtotime('-1 year')));
             $this->save();
