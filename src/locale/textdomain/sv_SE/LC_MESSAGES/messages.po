@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-26 18:43+0000\n"
+"POT-Creation-Date: 2022-10-01 12:24+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: EcclesiaCRM/utils/MiscUtils.php:1624
+#: EcclesiaCRM/utils/MiscUtils.php:1626
 msgid "Cannot execute query."
 msgstr "Det går inte att utföra en fråga."
 
@@ -26,7 +26,7 @@ msgstr "För"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: ident/routes/verify.php:156 Include/Footer.php:83 PledgeEditor.php:588
+#: ident/routes/verify.php:156 Include/Footer.php:85 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -51,7 +51,7 @@ msgstr "Person"
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:345
-#: Include/Footer.php:66 members/404.php:16 PersonView.php:941
+#: Include/Footer.php:68 members/404.php:16 PersonView.php:941
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/templates/gdpr/gdprdatastructure.php:100
@@ -859,7 +859,7 @@ msgstr "QR-kod Samtal"
 
 #: Checkin.php:143
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:274
+#: Include/Footer.php:276
 msgid "Kiosk Manager"
 msgstr "Kioskansvarig"
 
@@ -1166,7 +1166,7 @@ msgstr "Hoppa över poster med ofullständig postadress"
 msgid "Create File"
 msgstr "Skapa en fil"
 
-#: CSVImport.php:121 Include/Footer.php:265
+#: CSVImport.php:121 Include/Footer.php:267
 msgid "CSV Import"
 msgstr "CSV-import"
 
@@ -1766,7 +1766,7 @@ msgid "Minutes left"
 msgstr "Återstående minuter"
 
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:132
-#: EcclesiaCRM/utils/MiscUtils.php:656
+#: EcclesiaCRM/utils/MiscUtils.php:658
 msgid "Folder"
 msgstr "Mapp"
 
@@ -1863,7 +1863,7 @@ msgid "newsletter"
 msgstr "nyhetsbrev"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:81
-#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:92
+#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:94
 #: v2/templates/cart/cartview.php:195
 msgid "families"
 msgstr "familjer"
@@ -2098,7 +2098,7 @@ msgid "Role"
 msgstr "Roll"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:69 OptionManager.php:103
+#: Include/Footer.php:71 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:270
 msgid "Family Roles"
 msgstr "Familjens roller"
@@ -2141,7 +2141,7 @@ msgid "Sunday School Group Type"
 msgstr "Typ av grupp för söndagsskola"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:126 OptionManager.php:119
+#: Include/Footer.php:128 OptionManager.php:119
 msgid "Sunday School Group Types"
 msgstr "Grupper för söndagsskola"
 
@@ -2151,7 +2151,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "Söndagsskolans grupptyper Redaktör"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:116 OptionManager.php:127
+#: Include/Footer.php:118 OptionManager.php:127
 msgid "Group Types"
 msgstr "Grupptyper"
 
@@ -2167,7 +2167,7 @@ msgstr "Redaktör för grupptyper"
 #: EcclesiaCRM/Service/CalendarService.php:617
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
-#: Include/Footer.php:100 OptionManager.php:133
+#: Include/Footer.php:102 OptionManager.php:133
 #: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:45
 msgid "Group"
@@ -4410,7 +4410,7 @@ msgstr "Information om kyrkan"
 msgid "Enabled Features"
 msgstr "Aktiverade funktioner"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291 Include/Footer.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:291 Include/Footer.php:201
 msgid "System Settings"
 msgstr "Systeminställningar"
 
@@ -4524,7 +4524,7 @@ msgstr "Ditt konto har raderats"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "Ditt EcclesiaCRM-konto har tagits bort."
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:216
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:222
 msgid "Email/Username"
 msgstr "E-post/användarnamn"
 
@@ -4625,12 +4625,12 @@ msgstr "Kontrollera din familjs uppgifter"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:34
 #: external/templates/password/enter-username.php:46
-#: ident/templates/verify/login-info.php:44 Login.php:182 Login.php:233
+#: ident/templates/verify/login-info.php:44 Login.php:188 Login.php:239
 msgid "Login"
 msgstr "Inloggning"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:35
-#: ident/templates/verify/login-info.php:38 Login.php:220 Login.php:312
+#: ident/templates/verify/login-info.php:38 Login.php:226 Login.php:318
 #: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:55
 msgid "Password"
 msgstr "Lösenord"
@@ -4644,7 +4644,7 @@ msgstr "information"
 msgid "Private Space"
 msgstr "Privat utrymme"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:461
+#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:463
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "Hem"
@@ -4763,7 +4763,7 @@ msgid "Sunday School"
 msgstr "Söndagsskola"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:354 EcclesiaCRM/MenuBar/MenuBar.php:361
-#: Include/Footer.php:175
+#: Include/Footer.php:177
 msgid "Global Custom Menus"
 msgstr "Globala anpassade menyer"
 
@@ -5391,7 +5391,7 @@ msgid "Person Properties"
 msgstr "Egenskaper för personer"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:145 PersonView.php:978
+#: Include/Footer.php:147 PersonView.php:978
 msgid "Volunteer Opportunities"
 msgstr "Möjligheter till volontärarbete"
 
@@ -5519,7 +5519,7 @@ msgid "by"
 msgstr "av"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:656 EcclesiaCRM/utils/MiscUtils.php:759
+#: EcclesiaCRM/utils/MiscUtils.php:658 EcclesiaCRM/utils/MiscUtils.php:761
 msgid "File"
 msgstr "Fil"
 
@@ -5536,7 +5536,7 @@ msgstr "Uppgradering av databasen misslyckades"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:133 PledgeEditor.php:646
+#: Include/Footer.php:135 PledgeEditor.php:646
 msgid "Other"
 msgstr "Övriga"
 
@@ -5643,7 +5643,7 @@ msgstr "Uppgifter om roller saknas för vissa personer"
 msgid "Unmet Application Prerequisites"
 msgstr "Otillfredsställda förutsättningar för tillämpningen"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:320
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:322
 msgid "Register Software"
 msgstr "Registrera programvara"
 
@@ -5788,45 +5788,45 @@ msgstr "Ignorera ofullständiga<br>adresser"
 msgid "File Type"
 msgstr "Filtyp"
 
-#: EcclesiaCRM/utils/MiscUtils.php:704
+#: EcclesiaCRM/utils/MiscUtils.php:706
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "Du måste använda en PDF-läsare eller ladda ner filen här."
 
-#: EcclesiaCRM/utils/MiscUtils.php:711 EcclesiaCRM/utils/MiscUtils.php:716
-#: EcclesiaCRM/utils/MiscUtils.php:720 EcclesiaCRM/utils/MiscUtils.php:826
+#: EcclesiaCRM/utils/MiscUtils.php:713 EcclesiaCRM/utils/MiscUtils.php:718
+#: EcclesiaCRM/utils/MiscUtils.php:722 EcclesiaCRM/utils/MiscUtils.php:828
 msgid "Your browser does not support the audio element."
 msgstr "Din webbläsare stöder inte ljudelementet."
 
-#: EcclesiaCRM/utils/MiscUtils.php:726 EcclesiaCRM/utils/MiscUtils.php:733
-#: EcclesiaCRM/utils/MiscUtils.php:742 EcclesiaCRM/utils/MiscUtils.php:836
-#: EcclesiaCRM/utils/MiscUtils.php:847 EcclesiaCRM/utils/MiscUtils.php:862
+#: EcclesiaCRM/utils/MiscUtils.php:728 EcclesiaCRM/utils/MiscUtils.php:735
+#: EcclesiaCRM/utils/MiscUtils.php:744 EcclesiaCRM/utils/MiscUtils.php:838
+#: EcclesiaCRM/utils/MiscUtils.php:849 EcclesiaCRM/utils/MiscUtils.php:864
 msgid "Your browser does not support the video tag."
 msgstr "Din webbläsare stöder inte videomärket."
 
-#: EcclesiaCRM/utils/MiscUtils.php:768 EcclesiaCRM/utils/MiscUtils.php:800
-#: EcclesiaCRM/utils/MiscUtils.php:809 EcclesiaCRM/utils/MiscUtils.php:824
-#: EcclesiaCRM/utils/MiscUtils.php:833 EcclesiaCRM/utils/MiscUtils.php:843
-#: EcclesiaCRM/utils/MiscUtils.php:856
+#: EcclesiaCRM/utils/MiscUtils.php:770 EcclesiaCRM/utils/MiscUtils.php:802
+#: EcclesiaCRM/utils/MiscUtils.php:811 EcclesiaCRM/utils/MiscUtils.php:826
+#: EcclesiaCRM/utils/MiscUtils.php:835 EcclesiaCRM/utils/MiscUtils.php:845
+#: EcclesiaCRM/utils/MiscUtils.php:858
 msgid "Expand"
 msgstr "Expandera"
 
-#: EcclesiaCRM/utils/MiscUtils.php:904
+#: EcclesiaCRM/utils/MiscUtils.php:906
 msgid "Classic Document"
 msgstr "Klassiskt dokument"
 
-#: EcclesiaCRM/utils/MiscUtils.php:907
+#: EcclesiaCRM/utils/MiscUtils.php:909
 msgid "Classic Video"
 msgstr "Klassisk video"
 
-#: EcclesiaCRM/utils/MiscUtils.php:910
+#: EcclesiaCRM/utils/MiscUtils.php:912
 msgid "Classic File"
 msgstr "Klassisk fil"
 
-#: EcclesiaCRM/utils/MiscUtils.php:913
+#: EcclesiaCRM/utils/MiscUtils.php:915
 msgid "Classic Audio"
 msgstr "Klassiskt ljud"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1020
+#: EcclesiaCRM/utils/MiscUtils.php:1022
 msgid "Select Fiscal Year"
 msgstr "Välj räkenskapsår"
 
@@ -5880,12 +5880,12 @@ msgid "1 yr old"
 msgstr "1 år gammal"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:256
+#: Include/Footer.php:258
 msgid "Backup Database"
 msgstr "Säkerhetskopiera databasen"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:248
+#: Include/Footer.php:250
 msgid "Restore Database"
 msgstr "Återställa databas"
 
@@ -6070,7 +6070,7 @@ msgid "Pastoral care members list by classification"
 msgstr "Förteckning över medlemmar i själavården enligt klassificering"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
-#: Include/Footer.php:232
+#: Include/Footer.php:234
 msgid "Plugins"
 msgstr "Insticksprogram"
 
@@ -7754,7 +7754,7 @@ msgstr "Gammalt lösenord"
 msgid "Confirm New Password"
 msgstr "Bekräfta det nya lösenordet"
 
-#: ident/templates/verify/login-info.php:21 Login.php:196 Login.php:271
+#: ident/templates/verify/login-info.php:21 Login.php:202 Login.php:277
 msgid "Please Login"
 msgstr "Vänligen logga in"
 
@@ -7797,95 +7797,95 @@ msgstr "Skicka"
 msgid "Visit our Site"
 msgstr "Besök vår webbplats"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:31
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:33
 msgid "Copyright"
 msgstr "Upphovsrätt"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:34
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:36
 msgid "All rights reserved"
 msgstr "Alla rättigheter förbehållna"
 
-#: Include/Footer.php:29
+#: Include/Footer.php:31
 msgid "Version"
 msgstr "Version"
 
-#: Include/Footer.php:74
+#: Include/Footer.php:76
 msgid "Family Properties"
 msgstr "Familjefastigheter"
 
-#: Include/Footer.php:79
+#: Include/Footer.php:81
 msgid "Edit Custom Family Fields"
 msgstr "Redigera anpassade familjefält"
 
-#: Include/Footer.php:86
+#: Include/Footer.php:88
 msgid "Classifications Manager"
 msgstr "Klassificeringschef"
 
-#: Include/Footer.php:91
+#: Include/Footer.php:93
 msgid "People Properties"
 msgstr "People Properties"
 
-#: Include/Footer.php:96
+#: Include/Footer.php:98
 msgid "Edit Custom Person Fields"
 msgstr "Redigera anpassade personfält"
 
-#: Include/Footer.php:106 v2/templates/group/groupview.php:319
+#: Include/Footer.php:108 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "Gruppegenskaper"
 
-#: Include/Footer.php:136
+#: Include/Footer.php:138
 msgid "Property Types"
 msgstr "Fastighetstyper"
 
-#: Include/Footer.php:155
+#: Include/Footer.php:157
 msgid "Edit Donation Funds"
 msgstr "Redigera donationsfonder"
 
-#: Include/Footer.php:165
+#: Include/Footer.php:167
 msgid "Pastoral Care Type"
 msgstr "Pastoralvård Typ"
 
-#: Include/Footer.php:190 Include/Footer.php:284
+#: Include/Footer.php:192 Include/Footer.php:286
 msgid "Please contact your admin to change the system settings."
 msgstr "Kontakta din administratör för att ändra systeminställningarna."
 
-#: Include/Footer.php:208 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:210 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Redigera allmänna inställningar"
 
-#: Include/Footer.php:220
+#: Include/Footer.php:222
 msgid "System Users"
 msgstr "Systemanvändare"
 
-#: Include/Footer.php:295
+#: Include/Footer.php:297
 msgid "CSV Export Records"
 msgstr "CSV-export av poster"
 
-#: Include/Footer.php:308
+#: Include/Footer.php:310
 msgid "Open Tasks"
 msgstr "Öppna uppgifter"
 
-#: Include/Footer.php:309
+#: Include/Footer.php:311
 msgid "You have"
 msgstr "Du har"
 
-#: Include/Footer.php:310
+#: Include/Footer.php:312
 msgid "task(s)"
 msgstr "uppgift(er)"
 
-#: Include/Functions.php:88
+#: Include/Functions.php:90
 msgid "Thank you for registering your EcclesiaCRM installation."
 msgstr "Tack för att du har registrerat din EcclesiaCRM-installation."
 
-#: Include/Functions.php:92
+#: Include/Functions.php:94
 msgid "PDFs successfully emailed "
 msgstr "PDF-filer skickades framgångsrikt via e-post"
 
-#: Include/Functions.php:97
+#: Include/Functions.php:99
 msgid "PDF successfully emailed to family members."
 msgstr "PDF-filen har skickats till familjemedlemmar."
 
-#: Include/Functions.php:99
+#: Include/Functions.php:101
 msgid "Failed to email PDF to family members."
 msgstr "Det gick inte att skicka PDF-filer till familjemedlemmar."
 
@@ -8127,27 +8127,27 @@ msgstr ""
 msgid "This account has been deactiveted by an administrator."
 msgstr "Det här kontot har avaktiverats av en administratör."
 
-#: Login.php:201 Login.php:278
+#: Login.php:207 Login.php:284
 msgid "Your previous session timed out.  Please login again."
 msgstr "Din föregående session tog slut.  Vänligen logga in igen."
 
-#: Login.php:225
+#: Login.php:231
 msgid "2FA : OTP key"
 msgstr "2FA : OTP-nyckel"
 
-#: Login.php:240
+#: Login.php:246
 msgid "I forgot my password"
 msgstr "Jag har glömt mitt lösenord"
 
-#: Login.php:252
+#: Login.php:258
 msgid "Register a new Family"
 msgstr "Registrera en ny familj"
 
-#: Login.php:321
+#: Login.php:327
 msgid "Enter your password to retrieve your session"
 msgstr "Ange ditt lösenord för att hämta din session"
 
-#: Login.php:324
+#: Login.php:330
 msgid "Or sign in as a different user"
 msgstr "Eller logga in som en annan användare"
 

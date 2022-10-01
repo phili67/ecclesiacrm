@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-26 18:43+0000\n"
+"POT-Creation-Date: 2022-10-01 12:24+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: EcclesiaCRM/utils/MiscUtils.php:1624
+#: EcclesiaCRM/utils/MiscUtils.php:1626
 msgid "Cannot execute query."
 msgstr "无法执行查询。"
 
@@ -26,7 +26,7 @@ msgstr "对于"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: ident/routes/verify.php:156 Include/Footer.php:83 PledgeEditor.php:588
+#: ident/routes/verify.php:156 Include/Footer.php:85 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -51,7 +51,7 @@ msgstr "个人"
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:345
-#: Include/Footer.php:66 members/404.php:16 PersonView.php:941
+#: Include/Footer.php:68 members/404.php:16 PersonView.php:941
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/templates/gdpr/gdprdatastructure.php:100
@@ -843,7 +843,7 @@ msgstr "二维码调用"
 
 #: Checkin.php:143
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:274
+#: Include/Footer.php:276
 msgid "Kiosk Manager"
 msgstr "售货亭经理"
 
@@ -1150,7 +1150,7 @@ msgstr "跳过不完整邮件地址的记录"
 msgid "Create File"
 msgstr "创建文件"
 
-#: CSVImport.php:121 Include/Footer.php:265
+#: CSVImport.php:121 Include/Footer.php:267
 msgid "CSV Import"
 msgstr "CSV导入"
 
@@ -1731,7 +1731,7 @@ msgid "Minutes left"
 msgstr "还剩几分钟"
 
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:132
-#: EcclesiaCRM/utils/MiscUtils.php:656
+#: EcclesiaCRM/utils/MiscUtils.php:658
 msgid "Folder"
 msgstr "文件夹"
 
@@ -1827,7 +1827,7 @@ msgid "newsletter"
 msgstr "简讯"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:81
-#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:92
+#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:94
 #: v2/templates/cart/cartview.php:195
 msgid "families"
 msgstr "家庭"
@@ -2062,7 +2062,7 @@ msgid "Role"
 msgstr "角色"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:69 OptionManager.php:103
+#: Include/Footer.php:71 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:270
 msgid "Family Roles"
 msgstr "家庭角色"
@@ -2105,7 +2105,7 @@ msgid "Sunday School Group Type"
 msgstr "主日学小组类型"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:126 OptionManager.php:119
+#: Include/Footer.php:128 OptionManager.php:119
 msgid "Sunday School Group Types"
 msgstr "主日学小组类型"
 
@@ -2115,7 +2115,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "主日学小组类型编辑"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:116 OptionManager.php:127
+#: Include/Footer.php:118 OptionManager.php:127
 msgid "Group Types"
 msgstr "集团类型"
 
@@ -2131,7 +2131,7 @@ msgstr "组别类型编辑"
 #: EcclesiaCRM/Service/CalendarService.php:617
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
-#: Include/Footer.php:100 OptionManager.php:133
+#: Include/Footer.php:102 OptionManager.php:133
 #: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:45
 msgid "Group"
@@ -4312,7 +4312,7 @@ msgstr "教会信息"
 msgid "Enabled Features"
 msgstr "启用的功能"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291 Include/Footer.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:291 Include/Footer.php:201
 msgid "System Settings"
 msgstr "系统设置"
 
@@ -4426,7 +4426,7 @@ msgstr "你的账户被删除了"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "你的EcclesiaCRM账户被删除了。"
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:216
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:222
 msgid "Email/Username"
 msgstr "电子邮件/用户名"
 
@@ -4525,12 +4525,12 @@ msgstr "请核实你的家庭信息"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:34
 #: external/templates/password/enter-username.php:46
-#: ident/templates/verify/login-info.php:44 Login.php:182 Login.php:233
+#: ident/templates/verify/login-info.php:44 Login.php:188 Login.php:239
 msgid "Login"
 msgstr "登录"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:35
-#: ident/templates/verify/login-info.php:38 Login.php:220 Login.php:312
+#: ident/templates/verify/login-info.php:38 Login.php:226 Login.php:318
 #: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:55
 msgid "Password"
 msgstr "密码"
@@ -4544,7 +4544,7 @@ msgstr "信息"
 msgid "Private Space"
 msgstr "私人空间"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:461
+#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:463
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "首页"
@@ -4663,7 +4663,7 @@ msgid "Sunday School"
 msgstr "主日学"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:354 EcclesiaCRM/MenuBar/MenuBar.php:361
-#: Include/Footer.php:175
+#: Include/Footer.php:177
 msgid "Global Custom Menus"
 msgstr "全球自定义菜单"
 
@@ -5291,7 +5291,7 @@ msgid "Person Properties"
 msgstr "人员属性"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:145 PersonView.php:978
+#: Include/Footer.php:147 PersonView.php:978
 msgid "Volunteer Opportunities"
 msgstr "志愿者机会"
 
@@ -5418,7 +5418,7 @@ msgid "by"
 msgstr "由"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:656 EcclesiaCRM/utils/MiscUtils.php:759
+#: EcclesiaCRM/utils/MiscUtils.php:658 EcclesiaCRM/utils/MiscUtils.php:761
 msgid "File"
 msgstr "文件"
 
@@ -5435,7 +5435,7 @@ msgstr "数据库升级失败"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:133 PledgeEditor.php:646
+#: Include/Footer.php:135 PledgeEditor.php:646
 msgid "Other"
 msgstr "其他"
 
@@ -5540,7 +5540,7 @@ msgstr "一些人的角色数据缺失"
 msgid "Unmet Application Prerequisites"
 msgstr "未满足的应用先决条件"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:320
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:322
 msgid "Register Software"
 msgstr "注册软件"
 
@@ -5685,45 +5685,45 @@ msgstr "忽略不完整的<br>地址"
 msgid "File Type"
 msgstr "文件类型"
 
-#: EcclesiaCRM/utils/MiscUtils.php:704
+#: EcclesiaCRM/utils/MiscUtils.php:706
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "你必须使用PDF浏览器或在此下载该文件"
 
-#: EcclesiaCRM/utils/MiscUtils.php:711 EcclesiaCRM/utils/MiscUtils.php:716
-#: EcclesiaCRM/utils/MiscUtils.php:720 EcclesiaCRM/utils/MiscUtils.php:826
+#: EcclesiaCRM/utils/MiscUtils.php:713 EcclesiaCRM/utils/MiscUtils.php:718
+#: EcclesiaCRM/utils/MiscUtils.php:722 EcclesiaCRM/utils/MiscUtils.php:828
 msgid "Your browser does not support the audio element."
 msgstr "您的浏览器不支持音频元素。"
 
-#: EcclesiaCRM/utils/MiscUtils.php:726 EcclesiaCRM/utils/MiscUtils.php:733
-#: EcclesiaCRM/utils/MiscUtils.php:742 EcclesiaCRM/utils/MiscUtils.php:836
-#: EcclesiaCRM/utils/MiscUtils.php:847 EcclesiaCRM/utils/MiscUtils.php:862
+#: EcclesiaCRM/utils/MiscUtils.php:728 EcclesiaCRM/utils/MiscUtils.php:735
+#: EcclesiaCRM/utils/MiscUtils.php:744 EcclesiaCRM/utils/MiscUtils.php:838
+#: EcclesiaCRM/utils/MiscUtils.php:849 EcclesiaCRM/utils/MiscUtils.php:864
 msgid "Your browser does not support the video tag."
 msgstr "您的浏览器不支持视频标签。"
 
-#: EcclesiaCRM/utils/MiscUtils.php:768 EcclesiaCRM/utils/MiscUtils.php:800
-#: EcclesiaCRM/utils/MiscUtils.php:809 EcclesiaCRM/utils/MiscUtils.php:824
-#: EcclesiaCRM/utils/MiscUtils.php:833 EcclesiaCRM/utils/MiscUtils.php:843
-#: EcclesiaCRM/utils/MiscUtils.php:856
+#: EcclesiaCRM/utils/MiscUtils.php:770 EcclesiaCRM/utils/MiscUtils.php:802
+#: EcclesiaCRM/utils/MiscUtils.php:811 EcclesiaCRM/utils/MiscUtils.php:826
+#: EcclesiaCRM/utils/MiscUtils.php:835 EcclesiaCRM/utils/MiscUtils.php:845
+#: EcclesiaCRM/utils/MiscUtils.php:858
 msgid "Expand"
 msgstr "拓展"
 
-#: EcclesiaCRM/utils/MiscUtils.php:904
+#: EcclesiaCRM/utils/MiscUtils.php:906
 msgid "Classic Document"
 msgstr "经典文件"
 
-#: EcclesiaCRM/utils/MiscUtils.php:907
+#: EcclesiaCRM/utils/MiscUtils.php:909
 msgid "Classic Video"
 msgstr "经典视频"
 
-#: EcclesiaCRM/utils/MiscUtils.php:910
+#: EcclesiaCRM/utils/MiscUtils.php:912
 msgid "Classic File"
 msgstr "经典文件"
 
-#: EcclesiaCRM/utils/MiscUtils.php:913
+#: EcclesiaCRM/utils/MiscUtils.php:915
 msgid "Classic Audio"
 msgstr "经典音频"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1020
+#: EcclesiaCRM/utils/MiscUtils.php:1022
 msgid "Select Fiscal Year"
 msgstr "选择财政年度"
 
@@ -5777,12 +5777,12 @@ msgid "1 yr old"
 msgstr "1岁"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:256
+#: Include/Footer.php:258
 msgid "Backup Database"
 msgstr "备份数据库"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:248
+#: Include/Footer.php:250
 msgid "Restore Database"
 msgstr "恢复数据库"
 
@@ -5967,7 +5967,7 @@ msgid "Pastoral care members list by classification"
 msgstr "按类别划分的教牧关怀成员名单"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
-#: Include/Footer.php:232
+#: Include/Footer.php:234
 msgid "Plugins"
 msgstr "插件"
 
@@ -7625,7 +7625,7 @@ msgstr "旧密码"
 msgid "Confirm New Password"
 msgstr "确认新密码"
 
-#: ident/templates/verify/login-info.php:21 Login.php:196 Login.php:271
+#: ident/templates/verify/login-info.php:21 Login.php:202 Login.php:277
 msgid "Please Login"
 msgstr "请登录"
 
@@ -7667,95 +7667,95 @@ msgstr "发送"
 msgid "Visit our Site"
 msgstr "访问我们的网站"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:31
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:33
 msgid "Copyright"
 msgstr "版权声明"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:34
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:36
 msgid "All rights reserved"
 msgstr "保留所有权利"
 
-#: Include/Footer.php:29
+#: Include/Footer.php:31
 msgid "Version"
 msgstr "版本"
 
-#: Include/Footer.php:74
+#: Include/Footer.php:76
 msgid "Family Properties"
 msgstr "家庭财产"
 
-#: Include/Footer.php:79
+#: Include/Footer.php:81
 msgid "Edit Custom Family Fields"
 msgstr "编辑自定义家族字段"
 
-#: Include/Footer.php:86
+#: Include/Footer.php:88
 msgid "Classifications Manager"
 msgstr "分类管理人"
 
-#: Include/Footer.php:91
+#: Include/Footer.php:93
 msgid "People Properties"
 msgstr "人民财产"
 
-#: Include/Footer.php:96
+#: Include/Footer.php:98
 msgid "Edit Custom Person Fields"
 msgstr "编辑自定义人物字段"
 
-#: Include/Footer.php:106 v2/templates/group/groupview.php:319
+#: Include/Footer.php:108 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "集团属性"
 
-#: Include/Footer.php:136
+#: Include/Footer.php:138
 msgid "Property Types"
 msgstr "财产类型"
 
-#: Include/Footer.php:155
+#: Include/Footer.php:157
 msgid "Edit Donation Funds"
 msgstr "编辑捐助资金"
 
-#: Include/Footer.php:165
+#: Include/Footer.php:167
 msgid "Pastoral Care Type"
 msgstr "牧民关怀类型"
 
-#: Include/Footer.php:190 Include/Footer.php:284
+#: Include/Footer.php:192 Include/Footer.php:286
 msgid "Please contact your admin to change the system settings."
 msgstr "请联系你的管理员，以改变系统设置。"
 
-#: Include/Footer.php:208 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:210 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "编辑一般设置"
 
-#: Include/Footer.php:220
+#: Include/Footer.php:222
 msgid "System Users"
 msgstr "系统用户"
 
-#: Include/Footer.php:295
+#: Include/Footer.php:297
 msgid "CSV Export Records"
 msgstr "CSV导出记录"
 
-#: Include/Footer.php:308
+#: Include/Footer.php:310
 msgid "Open Tasks"
 msgstr "打开任务"
 
-#: Include/Footer.php:309
+#: Include/Footer.php:311
 msgid "You have"
 msgstr "你有"
 
-#: Include/Footer.php:310
+#: Include/Footer.php:312
 msgid "task(s)"
 msgstr "任务(s)"
 
-#: Include/Functions.php:88
+#: Include/Functions.php:90
 msgid "Thank you for registering your EcclesiaCRM installation."
 msgstr "谢谢你注册你的EcclesiaCRM安装。"
 
-#: Include/Functions.php:92
+#: Include/Functions.php:94
 msgid "PDFs successfully emailed "
 msgstr "成功发送的PDF文件"
 
-#: Include/Functions.php:97
+#: Include/Functions.php:99
 msgid "PDF successfully emailed to family members."
 msgstr "PDF文件成功地通过电子邮件发送给家庭成员。"
 
-#: Include/Functions.php:99
+#: Include/Functions.php:101
 msgid "Failed to email PDF to family members."
 msgstr "未能通过电子邮件将PDF发送给家庭成员。"
 
@@ -7986,27 +7986,27 @@ msgstr "登录失败次数过多：您的账户已被锁定。  请联系管理�
 msgid "This account has been deactiveted by an administrator."
 msgstr "该账户已被管理员停用。"
 
-#: Login.php:201 Login.php:278
+#: Login.php:207 Login.php:284
 msgid "Your previous session timed out.  Please login again."
 msgstr "您的上一次会话已超时。  请重新登录。"
 
-#: Login.php:225
+#: Login.php:231
 msgid "2FA : OTP key"
 msgstr "2FA : OTP密钥"
 
-#: Login.php:240
+#: Login.php:246
 msgid "I forgot my password"
 msgstr "我忘记了我的密码"
 
-#: Login.php:252
+#: Login.php:258
 msgid "Register a new Family"
 msgstr "注册一个新的家庭"
 
-#: Login.php:321
+#: Login.php:327
 msgid "Enter your password to retrieve your session"
 msgstr "输入你的密码以检索你的会话"
 
-#: Login.php:324
+#: Login.php:330
 msgid "Or sign in as a different user"
 msgstr "或以不同的用户身份登录"
 
