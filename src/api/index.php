@@ -16,6 +16,8 @@ use EcclesiaCRM\TokenQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\PluginQuery;
 
+use Propel\Runtime\ActiveQuery\Criteria;
+
 use EcclesiaCRM\Utils\RedirectUtils;
 
 // security access, if no user exit
@@ -131,7 +133,19 @@ require_once __DIR__.'/routes/plugins/plugins.php';
 // fundraiser route
 require_once __DIR__.'/routes/fundraiser/fundraiser.php';
 
-$plugins = PluginQuery::create()->findByActiv(true);
+// we load the plugin
+if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
+    // only dashboard plugins are loaded on the maindashboard page
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::EQUAL )
+        ->findByActiv(true);
+
+
+} else {
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
+        ->findByActiv(true);
+}
 
 foreach ($plugins as $plugin) {
     $path = __DIR__.'/../Plugins/'.$plugin->getName().'/api/plgnapi.php';
@@ -139,7 +153,6 @@ foreach ($plugins as $plugin) {
         require_once $path;
     }
 }
-
 
 // Run app
 $app->run();

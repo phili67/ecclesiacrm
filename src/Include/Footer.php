@@ -19,6 +19,8 @@ use EcclesiaCRM\Theme;
 
 use EcclesiaCRM\PluginQuery;
 
+use Propel\Runtime\ActiveQuery\Criteria;
+
 ?>
 </section><!-- /.content -->
 
@@ -396,12 +398,37 @@ use EcclesiaCRM\PluginQuery;
     src="<?= SystemURLs::getRootPath() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
 
 <?php
-$plugins = PluginQuery::create()->findByActiv(true);
+// we load the plugin
+if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
+    // only dashboard plugins are loaded on the maindashboard page
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::EQUAL )
+        ->findByActiv(true);
+
+
+} else {
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
+        ->findByActiv(true);
+}
 
 foreach ($plugins as $plugin) {
 ?>
 <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
 <?php
+    if ($plugin->getCategory() == 'Dashboard') {
+        if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/")) {
+            $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/");
+
+            foreach ($files as $file) {
+                if (!in_array($file, [".", ".."])) {
+        ?>
+                <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/js/<?= $file ?>"></script>
+<?php
+                }
+            }
+        }
+    }
 }
 ?>
 

@@ -3,6 +3,10 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PluginQuery;
 
+use EcclesiaCRM\SessionUser;
+
+use Propel\Runtime\ActiveQuery\Criteria;
+
 ?>
 
 <!-- Bootstrap CSS -->
@@ -14,22 +18,33 @@ use EcclesiaCRM\PluginQuery;
 
 <!-- custom plugins css files -->
 <?php
-$plugins = scandir(__DIR__ . "/../Plugins/");
+// we load the plugin
+if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
+    // only dashboard plugins are loaded on the maindashboard page
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::EQUAL )
+        ->findByActiv(true);
+
+
+} else {
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
+        ->findByActiv(true);
+}
 
 foreach ($plugins as $plugin) {
-    if (!in_array($plugin, [".", ".."]) and $plugin != "") {
-        if (file_exists(__DIR__ . "/../Plugins/" . $plugin . "/skin/css/")) {
-            $files = scandir(__DIR__ . "/../Plugins/" . $plugin . "/skin/css/");
+    if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/")) {
+        $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/");
 
-            foreach ($files as $file) {
-                if (!in_array($file, [".", ".."])) {
-                    ?>
-                    <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin ?>/skin/css/<?= $file ?>">
-                    <?php
-                }
+        foreach ($files as $file) {
+            if (!in_array($file, [".", ".."])) {
+                ?>
+                <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/css/<?= $file ?>">
+                <?php
             }
         }
     }
+
 }
 ?>
 

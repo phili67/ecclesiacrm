@@ -23,6 +23,15 @@ class SessionUser
             return false;
         }
     }
+    public static function setCurrentPageName($pageName) {
+        if ($pageName[0] == '/') {
+            $pageName = substr($pageName, 1);
+        }
+        $_SESSION['currentPageName'] = $pageName;
+    }
+    public static function getCurrentPageName() {
+        return $_SESSION['currentPageName'];
+    }
     public static function getId()
     {
         if (self::isActive()) {

@@ -50,5 +50,3 @@ if ( is_null($note) ) {
         <button class="btn btn-warning btn-xs" id="saveDashboardNote"><?=  dgettext("messages-NoteDashboard","Save")  ?></button>
     </div>
 </div>
-
-<script src="<?= $sRootPath ?>/Plugins/NoteDashboard/skin/js/NoteDashboard.js"></script>

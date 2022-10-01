@@ -25,6 +25,8 @@ $_SESSION['sSoftwareInstalledVersion'] = SystemService::getInstalledVersion();
 // Basic security checks:
 //
 
+SessionUser::setCurrentPageName($_SERVER['REQUEST_URI']);
+
 if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
     // Basic security: If the UserID isn't set (no session), redirect to the login page
     if (is_null(SessionUser::getUser())) {

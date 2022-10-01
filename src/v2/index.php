@@ -19,6 +19,8 @@ use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
+use Propel\Runtime\ActiveQuery\Criteria;
+
 if (SessionUser::getId() ==  0) RedirectUtils::Redirect('Login.php');
 
 $rootPath = str_replace('/v2/index.php', '', $_SERVER['SCRIPT_NAME']);
@@ -112,7 +114,19 @@ require_once __DIR__ . '/routes/error/error.php';
 // plugins routes
 require_once __DIR__ . '/routes/plugins/plugins.php';
 
-$plugins = PluginQuery::create()->findByActiv(true);
+// we load the plugin
+if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
+    // only dashboard plugins are loaded on the maindashboard page
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::EQUAL )
+        ->findByActiv(true);
+
+
+} else {
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
+        ->findByActiv(true);
+}
 
 foreach ($plugins as $plugin) {
     $path = __DIR__ . '/../Plugins/' .$plugin->getName().'/v2/routes/v2route.php';

@@ -16,7 +16,7 @@ use EcclesiaCRM\dto\ChurchMetaData;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card card-primary card-body">
+<div class="card bg-gray-dark card-body">
     <div class="margin">
         <label><?= dgettext("messages-MeetingJitsi","Room names") ?></label>
         <div class="btn-group">
@@ -47,7 +47,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row" style="height: 100%">
     <div class="col-md-12">
-        <div class="card">
+        <div class="card card-gray-dark">
             <div class="card-header  border-1">
                 <div
                     class="card-title"><?= dgettext("messages-MeetingJitsi","Room Name") ?> : <?= $roomName ?>
@@ -56,7 +56,7 @@ require $sRootDocument . '/Include/Header.php';
                         <img src="<?= $sRootPath ?>/Images/jitsi_logo.png" height="25/"></a>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="padding: 0px">
                 <div id="meetingIframe" style="width:100%;height:600px">
                     <?php if ($roomName == '') { ?>
                         <div class="text-center">
