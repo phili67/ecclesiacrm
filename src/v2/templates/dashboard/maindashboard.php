@@ -492,4 +492,9 @@ if (!$load_Elements) {
 
 <script src="<?= $sRootPath ?>/skin/js/dashboard.js"></script>
 
+<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
+
+
 
