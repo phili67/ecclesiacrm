@@ -17,6 +17,8 @@ use PhpOffice\PhpWord\Style\ListItem;
 use \PhpOffice\PhpWord\Element\AbstractContainer;
 use EcclesiaCRM\PluginQuery;
 
+use Propel\Runtime\ActiveQuery\Criteria;
+
 use DOMNode;
 
 
@@ -1632,7 +1634,18 @@ class MiscUtils
 
     public static function pluginInformations ()
     {
-        $plugins = PluginQuery::create()->findByActiv(true);
+        if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
+            // only dashboard plugins are loaded on the maindashboard page
+            $plugins = PluginQuery::create()
+                ->filterByCategory('Dashboard', Criteria::EQUAL )
+                ->findByActiv(true);
+
+
+        } else {
+            $plugins = PluginQuery::create()
+                ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
+                ->findByActiv(true);
+        }
 
         $pluginNames = "false";
         $isMailerAvalaible = "false";
