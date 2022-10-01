@@ -170,6 +170,11 @@ $app->group('/', function (RouteCollectorProxy $group) {
 
         SQLUtils::sqlImport($filename, $pdo);
 
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/CurrentUsersDashboard/mysql/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+
+        SQLUtils::sqlImport($filename, $pdo);
+
         $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/FamilyInfosDashboard/mysql/Install.sql';
 
         $logger->info("filename sql : \n".  $filename);
@@ -180,12 +185,32 @@ $app->group('/', function (RouteCollectorProxy $group) {
 
         SQLUtils::sqlImport($filename, $pdo);
 
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/MeetingJitsi/mysql/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+
+        SQLUtils::sqlImport($filename, $pdo);
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/NewsDashboard/mysql/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+
+        SQLUtils::sqlImport($filename, $pdo);
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/NoteDashboard/mysql/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+
+        SQLUtils::sqlImport($filename, $pdo);
+
         $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/PastoralCareDashboard/mysql/Install.sql';
         $logger->info("filename sql : \n".  $filename);
 
         SQLUtils::sqlImport($filename, $pdo);
 
         $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/PersonInfosDashboard/mysql/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+
+        SQLUtils::sqlImport($filename, $pdo);
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/ToDoListDashboard/mysql/Install.sql';
         $logger->info("filename sql : \n".  $filename);
 
         SQLUtils::sqlImport($filename, $pdo);
