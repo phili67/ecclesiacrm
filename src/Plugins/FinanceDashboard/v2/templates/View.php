@@ -58,5 +58,3 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     window.CRM.bEnabledFinance = <?= (SystemConfig::getBooleanValue('bEnabledFinance')) ? 'true' : 'false' ?>;
     window.CRM.depositData = <?= ($depositData) ? $depositData : "false" ?>;
 </script>
-
-<script src="<?= $sRootPath ?>/Plugins/FinanceDashboard/skin/js/financialdashboard.js"></script>

@@ -99,9 +99,3 @@ if ( $role == 'admin' or SessionUser::isAdmin() ) {
         window.CRM.userID = <?= SessionUser::getId() ?>;
     });
 </script>
-
-<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
-
-<script src="<?= $sRootPath ?>/Plugins/NewsDashboard/skin/js/NewsDashboard.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>

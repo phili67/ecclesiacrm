@@ -130,5 +130,3 @@ $defaultList = ToDoListDashboardQuery::create()
         window.CRM.TodoListDashboardId = <?= (!is_null($defaultList)?$defaultList->getId():-1) ?>;
     });
 </script>
-
-<script src="<?= $sRootPath ?>/Plugins/ToDoListDashboard/skin/js/ToDoListDashboard.js"></script>
