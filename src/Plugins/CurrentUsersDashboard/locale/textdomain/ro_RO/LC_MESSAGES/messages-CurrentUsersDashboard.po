@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-01 12:38+0000\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:34
+msgid "Connected Users"
+msgstr "Utilizatori conectați"
+
+#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:46
+msgid "user is connected"
+msgstr "utilizatorul este conectat"
+
+#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:46
+msgid "users are connected"
+msgstr "utilizatorii sunt conectați"
