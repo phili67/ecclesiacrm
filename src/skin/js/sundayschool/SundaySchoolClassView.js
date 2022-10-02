@@ -372,11 +372,11 @@ $("document").ready(function () {
                 render: function (data, type, full, meta) {
                     return '<table>'
                         + '<tr class="no-background-theme">'
-                        + '  <td style="min-width:55px">'
+                        + '  <td style="min-width:55px;border-width: 0px">'
                         + '    <img src="' + window.CRM.root + '/api/persons/' + data + '/thumbnail"'
                         + '        alt="User Image" class="user-image initials-image" width="50" height="50" />'
                         + '  </td>'
-                        + '  <td align="left">'
+                        + '  <td align="left" style="border-width: 0px">'
                         + '    <a href="' + window.CRM.root + '/PersonView.php?PersonID=' + data + '">' + full.firstName + '</a>'
                         + '  </dt>'
                         + '</tr>'
