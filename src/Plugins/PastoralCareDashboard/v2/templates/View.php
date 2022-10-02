@@ -62,14 +62,14 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
 
     ?>
 
-    <div class="card <?= $plugin->getPlgnColor() ?> <?= $pastoralServiceStats['PastoralcareAlertType'] ?> <?= $plugin->getName() ?> <?= $Card_collapsed ?>" style="position: relative; left: 0px; top: 0px;" data-name="<?= $plugin->getName() ?>">
+    <div class="card <?= $pastoralServiceStats['PastoralcareAlertType'] ?> <?= $plugin->getName() ?> <?= $Card_collapsed ?>" style="position: relative; left: 0px; top: 0px;" data-name="<?= $plugin->getName() ?>">
         <div class="card-header border-0 ui-sortable-handle">
             <h5 class="card-title"><i class="fas fa-heartbeat"></i> <?= dgettext("messages-PastoralCareDashboard","Pastoral Care") ?></h5>
             <div class="card-tools">
-                <button type="button" class="btn btn-danger btn-sm" data-card-widget="remove">
+                <button type="button" class="btn btn-<?= $pastoralServiceStats['PastoralcareAlertTypeButton'] ?> btn-sm" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                 </button>
-                <button type="button" class="btn btn-danger btn-sm" data-card-widget="collapse" title="Collapse">
+                <button type="button" class="btn btn-<?= $pastoralServiceStats['PastoralcareAlertTypeButton'] ?> btn-sm" data-card-widget="collapse" title="Collapse">
                     <i class="fas <?= $Card_collapsed_button?>"></i>
                 </button>
             </div>
