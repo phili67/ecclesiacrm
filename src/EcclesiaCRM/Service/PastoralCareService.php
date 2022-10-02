@@ -513,17 +513,21 @@ WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
         // only retired, families and persons are concerned, the young people are only here to be showned
         // the type of banner
         $pastoralcareAlertType = "bg-gradient-green";
+        $pastoralcareAlertTypeButton = "success";
         $pastoralcareAlertTypeHR = "#019501";
 
         if ((100.0 - $percentRetiredViewPersons) < 10.0 || (100.0 - $percentViewFamilies) < 10.0 || (100.0 - $percentViewPersons) < 10.0) {
             $pastoralcareAlertType = "bg-gradient-red";
+            $pastoralcareAlertTypeButton = "danger";
             $pastoralcareAlertTypeHR = "#ad0000";
         } else if ((100.0 - $percentRetiredViewPersons) < 30.0 || (100.0 - $percentViewFamilies) < 30.0 || (100.0 - $percentViewFamilies) < 30.0) {
             $pastoralcareAlertType = "bg-gradient-yellow";
+            $pastoralcareAlertTypeButton = "warning";
             $pastoralcareAlertTypeHR = "#cca500";
         } else if ((100.0 - $percentRetiredViewPersons) < 60.0 || (100.0 - $percentViewFamilies) < 30.0 || (100.0 - $percentViewFamilies) < 60.0) {
             $pastoralcareAlertType = "bg-gradient-blue";
             $pastoralcareAlertTypeHR = "#4557dd";
+            $pastoralcareAlertTypeButton = "primary";
         }
 
         return ['startPeriod' => $range['startPeriod'],
@@ -544,6 +548,7 @@ WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
             'PercentViewYoung' => round($percentYoungViewPersons,2),
             'youngColor' => $youngColor,
             'PastoralcareAlertType' => $pastoralcareAlertType,
+            'PastoralcareAlertTypeButton' => $pastoralcareAlertTypeButton,
             'PastoralcareAlertTypeHR' => $pastoralcareAlertTypeHR];
     }
 
