@@ -82,6 +82,12 @@ class PeopleGroupController
     }
 
     public function getAllGroups (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroups()) ) {
+            $ids = SessionUser::getUser()->getGroupManagerIds();
+
+            return $response->write(GroupQuery::create()->groupByName()->findById($ids)->toJSON());
+        }
+
         return $response->write(GroupQuery::create()->groupByName()->find()->toJSON());
     }
 

@@ -504,8 +504,39 @@ class User extends BaseUser
         return $this->isAdmin() || $this->isMenuOptions();
     }
 
+    public function getGroupManagerIds()
+    {
+        $groups = GroupManagerPersonQuery::create()
+            ->findByPersonId(SessionUser::getId());
+
+        $ids = [];
+        foreach ($groups as $group) {
+            $ids[] = $group->getGroupId();
+        }
+
+        return $ids;
+    }
+
+    public function isGroupManagerEnabled()
+    {
+        if ($this->isManageGroups()) {
+            return true;
+        }
+        $groups = GroupManagerPersonQuery::create()
+            ->findByPersonId(SessionUser::getId());
+
+        if ($groups->count()) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function isManageGroupsEnabled()
     {
+        if ( !($this->isAdmin() || $this->isManageGroups()) ) {
+            return $this->isGroupManagerEnabled();
+        }
         return $this->isAdmin() || $this->isManageGroups();
     }
 
