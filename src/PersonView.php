@@ -849,7 +849,12 @@ if (!is_null($family)) {
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Assign this user to a group") ?>"><i
                                 class="fas fa-users">
                             </i> <?= _("Assign New Group") ?></a>
+                        <?php
+                    }
 
+                    if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                         $buttons++;
+                        ?>
                         <a class="btn btn-app bg-yellow-gradient <?= (mb_strlen($person->getAddress1()) == 0 || !is_null($person->getFamily()) && mb_strlen($person->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
                            href="<?= SystemURLs::getRootPath() ?>/api/persons/addressbook/extract/<?= $iPersonID ?>"><i
@@ -931,7 +936,7 @@ if (!is_null($family)) {
                         }
                         ?>
                         <?php
-                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || count($person->getOtherFamilyMembers()) > 0 && SessionUser::getUser()->isEditRecordsEnabled()) {
+                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || count($person->getOtherFamilyMembers()) > 0 && SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
@@ -962,16 +967,24 @@ if (!is_null($family)) {
                             }
                         }
                         ?>
+
                         <?php
-                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isEditRecordsEnabled()) {
+                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        ?>
+                        <li class="nav-item">
+                            <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
+                               href="#properties"
+                               aria-controls="properties"
+                               role="tab"
+                               data-toggle="tab"><i class="fas fa-user-cog"></i> <?= _('Assigned Properties') ?></a>
+                        </li>
+                        <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isCanvasserEnabled()) {
                             ?>
-                            <li class="nav-item">
-                                <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
-                                   href="#properties"
-                                   aria-controls="properties"
-                                   role="tab"
-                                   data-toggle="tab"><i class="fas fa-user-cog"></i> <?= _('Assigned Properties') ?></a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link"
                                    href="#volunteer" aria-controls="volunteer" role="tab"
@@ -1255,7 +1268,11 @@ if (!is_null($family)) {
                                         // Loop through the rows
                                         $i = 1;
 
+                                        $ids = SessionUser::getUser()->getGroupManagerIds();
+
                                         foreach ($ormAssignedGroups as $ormAssignedGroup) {
+                                            if ( !SessionUser::getUser()->isManageGroups() && !in_array($ormAssignedGroup->getGroupID(),$ids) ) continue;
+
                                             if ($i % 4 == 0 || $i == 1) {
                                                 $i=1;
                                                 ?>
