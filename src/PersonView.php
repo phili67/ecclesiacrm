@@ -842,7 +842,7 @@ if (!is_null($family)) {
                                 class="fas fa-file"></i><?= _("Create a document") ?></a>
                         <?php
                     }
-                    if (SessionUser::getUser()->isManageGroupsEnabled()) {
+                    if (SessionUser::getUser()->isManageGroupsEnabled() or SessionUser::getUser()->isGroupManagerEnabled() ) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app addGroup" data-personid="<?= $iPersonID ?>"
@@ -915,7 +915,7 @@ if (!is_null($family)) {
             </div>
 
             <?php
-            if (SessionUser::getUser()->isManageGroupsEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled())) {
+            if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled())) {
             ?>
             <div class="card">
                 <div class="card-header  border-1">
@@ -952,7 +952,7 @@ if (!is_null($family)) {
                         }
                         ?>
                         <?php
-                        if (SessionUser::getUser()->isManageGroupsEnabled() || $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId()) {
+                        if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabled() || $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId()) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= ($bGroup) ? 'active' : '' ?>"
@@ -1297,7 +1297,7 @@ if (!is_null($family)) {
                                                     </div>
                                                     <div class="card-body" style="width:275px">
                                                         <?php
-                                                        if (SessionUser::getUser()->isManageGroupsEnabled()) {
+                                                        if ( SessionUser::getUser()->isManageGroupsEnabled() or SessionUser::getUser()->isGroupManagerEnabled() ) {
                                                             ?>
                                                             <div class="text-center">
 

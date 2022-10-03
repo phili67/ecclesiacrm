@@ -507,7 +507,7 @@ class User extends BaseUser
     public function getGroupManagerIds()
     {
         $groups = GroupManagerPersonQuery::create()
-            ->findByPersonId(SessionUser::getId());
+            ->findByPersonId($this->getId());
 
         $ids = [];
         foreach ($groups as $group) {
@@ -532,11 +532,24 @@ class User extends BaseUser
         return false;
     }
 
+    public function isGroupManagerEnabledForId($groupId)
+    {
+        if ($this->isManageGroups()) {
+            return true;
+        }
+        $groups = GroupManagerPersonQuery::create()
+            ->filterByGroupId($groupId)
+            ->findByPersonId(SessionUser::getId());
+
+        if ($groups->count()) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function isManageGroupsEnabled()
     {
-        if ( !($this->isAdmin() || $this->isManageGroups()) ) {
-            return $this->isGroupManagerEnabled();
-        }
         return $this->isAdmin() || $this->isManageGroups();
     }
 

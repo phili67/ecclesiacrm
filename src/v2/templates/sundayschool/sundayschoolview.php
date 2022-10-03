@@ -62,7 +62,7 @@ if (SessionUser::getUser()->isAddRecords()) {
         <a class="btn btn-app bg-yellow" href="<?= $sRootPath ?>/v2/group/<?= $iGroupId ?>/view"><i
                 class="fas fa-info-circle"></i><?= _('Show More Props') ?> </a>
         <?php
-        if (SessionUser::getUser()->isManageGroupsEnabled()) {
+        if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabledForId($iGroupId)) {
             ?>
             <a class="btn btn-app" href="<?= $sRootPath ?>/GroupEditor.php?GroupID=<?= $iGroupId ?>"><i
                     class="fas fa-pencil-alt"></i><?= _("Edit this Class") ?></a>
@@ -244,7 +244,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
     <div class="card-header border-1">
         <h4 class="card-title"><?= _('Students') ?></h4>
         <div style="float:right;margin-left: 20px">
-        <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>
+        <?php if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabledForId($iGroupId)) { ?>
             <button class="btn btn-danger" id="remove_all_members"><i class="fas fa-trash-alt"></i> <?= _("Remove members") ?></button>
         <?php } ?>
         </div>
