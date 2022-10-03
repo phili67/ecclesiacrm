@@ -163,4 +163,8 @@ ALTER TABLE `event_types` ADD `type_color` VARBINARY(10) DEFAULT '#000000';
 -- 2022-09-28
 ALTER TABLE `user_usr` ADD `usr_is_logged_in` tinyint(1) unsigned NOT NULL default '0';
 
+-- 2022-10-03
+ALTER TABLE `user_usr` ADD `usr_tLastOperation_date` datetime NOT NULL default '2000-01-01 00:00:00';
+
+
 

@@ -1333,6 +1333,7 @@ CREATE TABLE `user_usr` (
   `usr_LastLogin` datetime NOT NULL default '2000-01-01 00:00:00',
   `usr_LoginCount` smallint(5) unsigned NOT NULL default '0',
   `usr_is_logged_in` tinyint(1) unsigned NOT NULL default '0',
+  `usr_tLastOperation_date` datetime NOT NULL default '2000-01-01 00:00:00',
   `usr_FailedLogins` tinyint(3) unsigned NOT NULL default '0',
   `usr_AddRecords` tinyint(1) unsigned NOT NULL default '0',
   `usr_EditRecords` tinyint(1) unsigned NOT NULL default '0',
