@@ -43,7 +43,10 @@ if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
             if (!str_contains($_SERVER['REQUEST_URI'], '/api/')) {
                 $_SESSION['lastPage'] = $_SERVER['REQUEST_URI'];
             }
-            $_SESSION['tLastOperation'] = time();
+            $t = time();
+            $_SESSION['user']->setLastoperationDate($t);
+            $_SESSION['user']->save();
+            $_SESSION['tLastOperation'] = $t;
         }
     }
 
