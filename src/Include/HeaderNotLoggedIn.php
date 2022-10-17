@@ -7,6 +7,8 @@ $bSuppressSessionTests = true;
 require_once 'Header-function.php';
 require_once 'Header-Security.php';
 
+use EcclesiaCRM\PluginQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 $localeInfo = Bootstrapper::GetCurrentLocale();
 
@@ -25,6 +27,29 @@ $localeInfo = Bootstrapper::GetCurrentLocale();
     <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/bootstrap.min.css">
     <!-- Custom EcclesiaCRM styles -->
     <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/ecclesiacrm.min.css">
+
+    <!-- custom plugins css files -->
+    <?php
+    // we load the plugin
+    $plugins = PluginQuery::create()
+            ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
+            ->findByActiv(true);
+
+    foreach ($plugins as $plugin) {
+        if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/")) {
+            $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/");
+
+            foreach ($files as $file) {
+                if (!in_array($file, [".", ".."])) {
+                    ?>
+                    <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/css/<?= $file ?>">
+                    <?php
+                }
+            }
+        }
+
+    }
+    ?>
 
     <!-- jQuery JS -->
     <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery/jquery.min.js"></script>
