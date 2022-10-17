@@ -12,6 +12,8 @@ use DI\Container;
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
 
+use EcclesiaCRM\PluginQuery;
+
 $rootPath = str_replace('/ident/index.php', '', $_SERVER['SCRIPT_NAME']);
 
 // Instantiate the app
@@ -35,6 +37,23 @@ require_once __DIR__ . '/../Include/slim/error-handler.php';
 
 // routes
 require_once __DIR__ . '/routes/verify.php';
+
+$plugins = PluginQuery::create()
+    ->findByActiv(true);
+
+foreach ($plugins as $plugin) {
+    $routes = scandir(__DIR__.'/../Plugins/'.$plugin->getName().'/ident/routes/');
+
+    foreach ($routes as $route) {
+        if (!in_array($route, [".", ".."]) and $route != "") {
+            $path = __DIR__ . '/../Plugins/' . $plugin->getName() . '/ident/routes/' . $route;
+
+            if (file_exists($path)) {
+                require_once $path;
+            }
+        }
+    }
+}
 
 
 // Run app
