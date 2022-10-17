@@ -17,7 +17,7 @@ abstract class BaseEmail
     protected $mustache;
     protected $isActiv;// now only a user who has given authorization can receive email notifications
 
-    public function __construct($toAddresses)
+    public function __construct($toAddresses, $baseDirectory = '/views/email')
     {
         $this->isActiv = true;
         $this->setConnection();
@@ -30,7 +30,7 @@ abstract class BaseEmail
         $options = array('extension' => '.html');
 
         $this->mustache = new Mustache_Engine(array(
-            'loader' => new Mustache_Loader_FilesystemLoader(SystemURLs::getDocumentRoot() . '/views/email', $options),
+            'loader' => new Mustache_Loader_FilesystemLoader(SystemURLs::getDocumentRoot() . $baseDirectory, $options),
         ));
     }
 
