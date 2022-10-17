@@ -49,7 +49,7 @@ class VIEWMeetingController {
 
     public function argumentDashboard ()
     {
-        $sPageTitle = _("Meeting Dashboard");
+        $sPageTitle = dgettext("messages-MeetingJitsi","Meeting Dashboard");
 
         $sRootDocument   = SystemURLs::getDocumentRoot();
         $sCSPNonce       = SystemURLs::getCSPNonce();

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-01 12:24+0000\n"
+"POT-Creation-Date: 2022-10-17 19:35+0000\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgstr "Személy"
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:345
-#: Include/Footer.php:68 members/404.php:16 PersonView.php:941
+#: Include/Footer.php:68 members/404.php:16 PersonView.php:946
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/templates/gdpr/gdprdatastructure.php:100
@@ -269,7 +269,7 @@ msgstr "Telefon"
 #: ident/templates/verify/login-info.php:34
 #: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1461
 #: PersonEditor.php:1465 PersonView.php:665 PersonView.php:793
-#: PersonView.php:1161 PrintPastoralCarePerson.php:385 PrintView.php:396
+#: PersonView.php:1174 PrintPastoralCarePerson.php:385 PrintView.php:396
 #: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
 #: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
@@ -338,9 +338,9 @@ msgstr "Mentés"
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
+#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:2002
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
-#: SettingsIndividual.php:444 SettingsIndividual.php:571 TaxReport.php:53
+#: SettingsIndividual.php:444 SettingsIndividual.php:520 TaxReport.php:53
 #: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -377,7 +377,7 @@ msgstr "Győztesek beírása"
 msgid "File Manager"
 msgstr "Fájlkezelő"
 
-#: browser/browse.php:42 PersonView.php:1881
+#: browser/browse.php:42 PersonView.php:1898
 msgid "Upload a file in EDrive"
 msgstr "Fájl feltöltése az EDrive-ban"
 
@@ -385,7 +385,7 @@ msgstr "Fájl feltöltése az EDrive-ban"
 msgid "Download"
 msgstr "Letöltés"
 
-#: browser/browse.php:72 PersonView.php:1924
+#: browser/browse.php:72 PersonView.php:1941
 msgid "Preview"
 msgstr "Előnézet"
 
@@ -668,7 +668,7 @@ msgstr "Kép pozíciója"
 
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
-#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:558
+#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:507
 #: UserEditor.php:1376 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Balra"
@@ -679,7 +679,7 @@ msgstr "Központ"
 
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
-#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:559
+#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:508
 #: UserEditor.php:1377 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Jobbra"
@@ -1472,7 +1472,7 @@ msgstr "Engedélyezett tranzakciók betöltése"
 msgid "Run Transactions"
 msgstr "Tranzakciók futtatása"
 
-#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1294
+#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1311
 #: v2/templates/calendar/eventattendeesedit.php:62
 msgid "Action"
 msgstr "Akció"
@@ -1534,7 +1534,7 @@ msgstr "Tartalmazandó információk"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:265
 #: EcclesiaCRM/Service/CalendarService.php:58 FamilyView.php:554
 #: ident/routes/verify.php:281 ident/routes/verify.php:694
-#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1160
+#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1173
 #: Reports/ConfirmReport.php:231 Reports/ConfirmReport.php:251
 msgid "Birthday"
 msgstr "Születésnap"
@@ -1872,7 +1872,7 @@ msgid "newsletter"
 msgstr "hírlevél"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:81
-#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:94
+#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:97
 #: v2/templates/cart/cartview.php:195
 msgid "families"
 msgstr "családok"
@@ -1994,13 +1994,13 @@ msgstr "Család kikapcsolva"
 msgid "Family Activated"
 msgstr "Család Aktiválva"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:399
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:781
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:405
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:787
 msgid "Deleted from group"
 msgstr "Törölve a csoportból"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:437
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:472
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:443
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:478
 msgid "Added to group"
 msgstr "Hozzáadva a csoporthoz"
 
@@ -2010,7 +2010,7 @@ msgstr "Hozzáadva a csoporthoz"
 #: EcclesiaCRM/Service/CalendarService.php:264
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:551
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:500
 #: UserEditor.php:1369
 msgid "Yes"
 msgstr "Igen"
@@ -2022,7 +2022,7 @@ msgstr "Igen"
 #: EcclesiaCRM/Service/CalendarService.php:465
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:550
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:499
 #: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Nem"
@@ -2098,7 +2098,7 @@ msgstr "Csoport típusa"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:113
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:154
 #: FamilyEditor.php:1097 FamilyView.php:552 OptionManager.php:100
-#: OptionManager.php:141 PersonView.php:1159 PrintPastoralCarePerson.php:449
+#: OptionManager.php:141 PersonView.php:1172 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
@@ -4687,11 +4687,11 @@ msgstr "Jelszó módosítása"
 msgid "Change Settings"
 msgstr "Beállítások módosítása"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1023
+#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1036
 msgid "Documents"
 msgstr "Dokumentumok"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:917
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1050 UserEditor.php:917
 msgid "EDrive"
 msgstr "EDrive"
 
@@ -5037,51 +5037,51 @@ msgstr "éves"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM export"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
 msgid "system user created"
 msgstr "létrehozott rendszerfelhasználó"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:697
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 msgid "system user updated"
 msgstr "rendszerfelhasználó frissítve"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:700
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
 msgid "system user deleted"
 msgstr "rendszerfelhasználó törölve"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:703
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 msgid "system user password reset"
 msgstr "rendszer felhasználói jelszó visszaállítása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:706
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "system user changed password"
 msgstr "a rendszerfelhasználó megváltoztatta a jelszavát"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:709
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "system user password changed by admin"
 msgstr "rendszerfelhasználó jelszava admin által megváltoztatva"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:712
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
 msgid "system user login reset"
 msgstr "rendszer felhasználói bejelentkezés visszaállítása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:718
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
 msgid "Dav create file"
 msgstr "Dav fájl létrehozása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:724
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
 msgid "Dav create directory"
 msgstr "Dav könyvtár létrehozása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:730
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
 msgid "Dav update file"
 msgstr "Dav frissítési fájl"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
 msgid "Dav move copy file"
 msgstr "Dav move másolás fájl"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
 msgid "Dav delete file"
 msgstr "Dav fájl törlése"
 
@@ -5292,7 +5292,7 @@ msgstr "Cím:"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:395
-#: FamilyView.php:1069 PersonView.php:726 PersonView.php:1956
+#: FamilyView.php:1069 PersonView.php:726 PersonView.php:1973
 #: PrintPastoralCarePerson.php:654
 #: v2/templates/pastoralcare/pastoralcarefamily.php:220
 #: v2/templates/pastoralcare/pastoralcareperson.php:352
@@ -5421,7 +5421,7 @@ msgid "Person Properties"
 msgstr "Személy tulajdonságok"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:147 PersonView.php:978
+#: Include/Footer.php:147 PersonView.php:991
 msgid "Volunteer Opportunities"
 msgstr "Önkéntes lehetőségek"
 
@@ -6249,8 +6249,8 @@ msgstr "Új elektronikus fizetési mód hozzáadása"
 #: ElectronicPaymentList.php:318 EventNames.php:355 FamilyView.php:1096
 #: FindDepositSlip.php:131 ident/routes/verify.php:728
 #: ident/routes/verify.php:795 ident/templates/verify/verify-family-info.php:55
-#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1894
-#: PersonView.php:1986 v2/templates/calendar/eventattendeesedit.php:101
+#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1911
+#: PersonView.php:2003 v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/group/groupview.php:287
@@ -6583,7 +6583,7 @@ msgid "Register"
 msgstr "Regisztráció"
 
 #: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1158
+#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1171
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:262
 #: v2/templates/pastoralcare/pastoralcareperson.php:390
@@ -6963,16 +6963,16 @@ msgstr "Dokumentum létrehozása"
 msgid "Get the vCard of the family"
 msgstr "Szerezze be a család vCardját"
 
-#: FamilyView.php:510 PersonView.php:857 v2/templates/cart/cartview.php:63
+#: FamilyView.php:510 PersonView.php:862 v2/templates/cart/cartview.php:63
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:518 PersonView.php:884 v2/templates/plugins/plugins.php:56
+#: FamilyView.php:518 PersonView.php:889 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:105
 msgid "Deactivate"
 msgstr "A  deaktiválása"
 
-#: FamilyView.php:518 PersonView.php:884 v2/templates/plugins/plugins.php:55
+#: FamilyView.php:518 PersonView.php:889 v2/templates/plugins/plugins.php:55
 #: v2/templates/plugins/plugins.php:105
 msgid "Activate"
 msgstr "Aktiválja a  címet."
@@ -6985,76 +6985,76 @@ msgstr " ez a család"
 msgid "Delete this Family"
 msgstr "A család törlése"
 
-#: FamilyView.php:659 PersonView.php:929
+#: FamilyView.php:659 PersonView.php:934
 msgid "Timeline"
 msgstr "Idővonal"
 
-#: FamilyView.php:662 PersonView.php:973 PrintPastoralCarePerson.php:594
+#: FamilyView.php:662 PersonView.php:979 PrintPastoralCarePerson.php:594
 #: PrintView.php:603 v2/templates/group/groupview.php:325
 #: v2/templates/group/groupview.php:383
 msgid "Assigned Properties"
 msgstr "Hozzárendelt tulajdonságok"
 
-#: FamilyView.php:669 PersonView.php:996
+#: FamilyView.php:669 PersonView.php:1009
 msgid "Automatic Payments"
 msgstr "Automatikus kifizetések"
 
-#: FamilyView.php:672 PersonView.php:1003
+#: FamilyView.php:672 PersonView.php:1016
 msgid "Pledges and Payments"
 msgstr "Zálogjogok és kifizetések"
 
-#: FamilyView.php:815 PersonView.php:1460 v2/templates/group/groupview.php:338
+#: FamilyView.php:815 PersonView.php:1477 v2/templates/group/groupview.php:338
 msgid "Assign a New Property"
 msgstr "Új tulajdonság hozzárendelése"
 
-#: FamilyView.php:822 PersonView.php:1466 PersonView.php:1537
-#: PersonView.php:1676
+#: FamilyView.php:822 PersonView.php:1483 PersonView.php:1554
+#: PersonView.php:1693
 msgid "Select"
 msgstr "Válassza ki a  címet."
 
-#: FamilyView.php:825 PersonView.php:1468 QueryView.php:457 QueryView.php:474
+#: FamilyView.php:825 PersonView.php:1485 QueryView.php:457 QueryView.php:474
 #: v2/templates/group/groupview.php:343
 msgid "select an option"
 msgstr "válasszon ki egy opciót"
 
-#: FamilyView.php:846 PersonView.php:1489 PersonView.php:1552
+#: FamilyView.php:846 PersonView.php:1506 PersonView.php:1569
 #: v2/templates/group/groupview.php:359
 msgid "Assign"
 msgstr "Hozzárendelés"
 
-#: FamilyView.php:874 PersonView.php:1584
+#: FamilyView.php:874 PersonView.php:1601
 msgid "Add a new automatic payment"
 msgstr "Új automatikus fizetés hozzáadása"
 
-#: FamilyView.php:883 PersonView.php:1605
+#: FamilyView.php:883 PersonView.php:1622
 msgid "Show Pledges"
 msgstr "Mutasd meg a zálogokat"
 
-#: FamilyView.php:887 PersonView.php:1609
+#: FamilyView.php:887 PersonView.php:1626
 msgid "Show Payments"
 msgstr "Fizetések megjelenítése"
 
-#: FamilyView.php:890 PersonView.php:1612
+#: FamilyView.php:890 PersonView.php:1629
 msgid "From"
 msgstr "A  címről"
 
-#: FamilyView.php:899 PersonView.php:1621
+#: FamilyView.php:899 PersonView.php:1638
 msgid "To"
 msgstr "A  címre."
 
-#: FamilyView.php:922 PersonView.php:1634
+#: FamilyView.php:922 PersonView.php:1651
 msgid "Add a new pledge"
 msgstr "Új ígéret hozzáadása"
 
-#: FamilyView.php:924 PersonView.php:1636
+#: FamilyView.php:924 PersonView.php:1653
 msgid "Add a new payment"
 msgstr "Új fizetés hozzáadása"
 
-#: FamilyView.php:932 PersonView.php:1652
+#: FamilyView.php:932 PersonView.php:1669
 msgid " Canvass Entry"
 msgstr " Canvass bejegyzés"
 
-#: FamilyView.php:1066 PersonView.php:547 PersonView.php:1953
+#: FamilyView.php:1066 PersonView.php:547 PersonView.php:1970
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
@@ -7062,28 +7062,28 @@ msgstr " Canvass bejegyzés"
 msgid "Informations"
 msgstr "Információk"
 
-#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1973
+#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1990
 msgid "Confirm Delete"
 msgstr "Törlés megerősítése"
 
-#: FamilyView.php:1091 PersonView.php:1979
+#: FamilyView.php:1091 PersonView.php:1996
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "A profilkép törlése előtt áll, ez az eljárás visszafordíthatatlan."
 
-#: FamilyView.php:1092 PersonView.php:1981
+#: FamilyView.php:1092 PersonView.php:1998
 msgid "Do you want to proceed?"
 msgstr "Akarod folytatni?"
 
-#: FamilyView.php:1107 PersonView.php:1999
+#: FamilyView.php:1107 PersonView.php:2016
 msgid "Request Family Info Verification"
 msgstr "Családi információk ellenőrzésének kérése"
 
-#: FamilyView.php:1112 PersonView.php:2004
+#: FamilyView.php:1112 PersonView.php:2021
 msgid "Select how do you want to request the family information to be verified"
 msgstr "Válassza ki, hogyan szeretné kérni a családi információk ellenőrzését."
 
-#: FamilyView.php:1117 PersonView.php:2009
+#: FamilyView.php:1117 PersonView.php:2026
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
@@ -7091,20 +7091,20 @@ msgstr ""
 "A családi információk másolatát pdf formátumban a következő e-mail címekre "
 "kell elküldenie"
 
-#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2031
-#: PersonView.php:2035
+#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2048
+#: PersonView.php:2052
 msgid "Online Verification"
 msgstr "Online ellenőrzés"
 
-#: FamilyView.php:1149 PersonView.php:2041
+#: FamilyView.php:1149 PersonView.php:2058
 msgid "URL"
 msgstr "URL"
 
-#: FamilyView.php:1152 PersonView.php:2044
+#: FamilyView.php:1152 PersonView.php:2061
 msgid "PDF Report"
 msgstr "PDF jelentés"
 
-#: FamilyView.php:1156 PersonView.php:2048
+#: FamilyView.php:1156 PersonView.php:2065
 msgid "Verified In Person"
 msgstr "Személyesen ellenőrizve"
 
@@ -7905,19 +7905,19 @@ msgstr "Van egy..."
 msgid "task(s)"
 msgstr "feladat(ok)"
 
-#: Include/Functions.php:90
+#: Include/Functions.php:93
 msgid "Thank you for registering your EcclesiaCRM installation."
 msgstr "Köszönjük, hogy regisztrálta az EcclesiaCRM telepítését."
 
-#: Include/Functions.php:94
+#: Include/Functions.php:97
 msgid "PDFs successfully emailed "
 msgstr "Sikeresen elküldött PDF-ek"
 
-#: Include/Functions.php:99
+#: Include/Functions.php:102
 msgid "PDF successfully emailed to family members."
 msgstr "PDF sikeresen elküldve a családtagoknak."
 
-#: Include/Functions.php:101
+#: Include/Functions.php:104
 msgid "Failed to email PDF to family members."
 msgstr "Nem sikerült PDF-et küldeni e-mailben a családtagoknak."
 
@@ -8497,127 +8497,127 @@ msgstr "A felhasználó hozzárendelése egy csoporthoz"
 msgid "Assign New Group"
 msgstr "Új csoport hozzárendelése"
 
-#: PersonView.php:854 v2/templates/cart/cartview.php:60
+#: PersonView.php:859 v2/templates/cart/cartview.php:60
 msgid "Get the vCard of the person"
 msgstr "A személy vCardjának lekérdezése"
 
-#: PersonView.php:867
+#: PersonView.php:872
 msgid "Create a CRM user"
 msgstr "CRM-felhasználó létrehozása"
 
-#: PersonView.php:868
+#: PersonView.php:873
 msgid "Make User"
 msgstr "Felhasználó készítése"
 
-#: PersonView.php:874
+#: PersonView.php:879
 msgid "Add rights to this user"
 msgstr "Jogok hozzáadása ehhez a felhasználóhoz"
 
-#: PersonView.php:875
+#: PersonView.php:880
 msgid "Edit User"
 msgstr "Felhasználó szerkesztése"
 
-#: PersonView.php:884
+#: PersonView.php:889
 msgid " this Person"
 msgstr " ez a személy"
 
-#: PersonView.php:897 PersonView.php:904
+#: PersonView.php:902 PersonView.php:909
 msgid "Delete this Record"
 msgstr "A rekord törlése"
 
-#: PersonView.php:958 PrintPastoralCarePerson.php:497 PrintView.php:506
+#: PersonView.php:963 PrintPastoralCarePerson.php:497 PrintView.php:506
 msgid "Assigned Groups"
 msgstr "Hozzárendelt csoportok"
 
-#: PersonView.php:1134
+#: PersonView.php:1147
 msgid "click to download"
 msgstr "kattintson a letöltéshez"
 
-#: PersonView.php:1249 PrintPastoralCarePerson.php:509 PrintView.php:518
+#: PersonView.php:1262 PrintPastoralCarePerson.php:509 PrintView.php:518
 msgid "No group assignments."
 msgstr "Nincs csoportos feladat."
 
-#: PersonView.php:1304
+#: PersonView.php:1321
 msgid "Change Role"
 msgstr "Szerepváltás"
 
-#: PersonView.php:1311
+#: PersonView.php:1328
 msgid "Update Properties"
 msgstr "Tulajdonságok frissítése"
 
-#: PersonView.php:1347
+#: PersonView.php:1364
 msgid "Group Informations"
 msgstr "Csoportinformációk"
 
-#: PersonView.php:1378
+#: PersonView.php:1395
 msgid "Person Informations"
 msgstr "Személyi információk"
 
-#: PersonView.php:1401
+#: PersonView.php:1418
 msgid "Modify Specific Properties"
 msgstr "Speciális tulajdonságok módosítása"
 
-#: PersonView.php:1444 PrintPastoralCarePerson.php:606 PrintView.php:615
+#: PersonView.php:1461 PrintPastoralCarePerson.php:606 PrintView.php:615
 msgid "No property assignments."
 msgstr "Nincsenek tulajdonjog-kiutalások."
 
-#: PersonView.php:1514
+#: PersonView.php:1531
 msgid "No volunteer opportunity assignments."
 msgstr "Nincsenek önkéntes lehetőségek kijelölése."
 
-#: PersonView.php:1529
+#: PersonView.php:1546
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Új önkéntes lehetőség hozzárendelése"
 
-#: PersonView.php:1589 PersonView.php:1641
+#: PersonView.php:1606 PersonView.php:1658
 msgid "You must set an address for this person"
 msgstr "Meg kell adnia egy címet ennek a személynek"
 
-#: PersonView.php:1677
+#: PersonView.php:1694
 msgid "Filter your documents by : "
 msgstr "Szűrje a dokumentumokat :"
 
-#: PersonView.php:1678
+#: PersonView.php:1695
 msgid "All type"
 msgstr "Minden típus"
 
-#: PersonView.php:1683
+#: PersonView.php:1700
 msgid "Shared documents"
 msgstr "Megosztott dokumentumok"
 
-#: PersonView.php:1719
+#: PersonView.php:1736
 msgid "Edit this document"
 msgstr "A dokumentum szerkesztése"
 
-#: PersonView.php:1729
+#: PersonView.php:1746
 msgid "Delete this document"
 msgstr "A dokumentum törlése"
 
-#: PersonView.php:1740
+#: PersonView.php:1757
 msgid "Share this document to another user"
 msgstr "A dokumentum megosztása egy másik felhasználóval"
 
-#: PersonView.php:1753
+#: PersonView.php:1770
 msgid "Export this document to word Format"
 msgstr "A dokumentum exportálása word formátumba"
 
-#: PersonView.php:1796
+#: PersonView.php:1813
 msgid "Last modification by"
 msgstr "Utolsó módosítás:"
 
-#: PersonView.php:1872
+#: PersonView.php:1889
 msgid "All Files"
 msgstr "Minden fájl"
 
-#: PersonView.php:1889
+#: PersonView.php:1906
 msgid "Create a Folder"
 msgstr "Mappa létrehozása"
 
-#: PersonView.php:1899
+#: PersonView.php:1916
 msgid "Up One Level"
 msgstr "Egy szinttel feljebb"
 
-#: PersonView.php:1906
+#: PersonView.php:1923
 msgid "Actualize files"
 msgstr "Aktualizálja a fájlokat"
 
@@ -9477,7 +9477,7 @@ msgid "Variable name"
 msgstr "Változó neve"
 
 #: SettingsIndividual.php:179 SettingsIndividual.php:445
-#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1419
+#: SettingsIndividual.php:523 SystemSettings.php:132 UserEditor.php:1419
 msgid "Save Settings"
 msgstr "Beállítások mentése"
 
@@ -9499,11 +9499,19 @@ msgstr "Igaz"
 msgid "Specific settings"
 msgstr "Speciális beállítások"
 
-#: SettingsIndividual.php:464
+#: SettingsIndividual.php:464 UserEditor.php:1333
+msgid "Visibilities of the dashboard plugins"
+msgstr "A műszerfal bővítmények láthatósága"
+
+#: SettingsIndividual.php:506 UserEditor.php:1375
+msgid "Top"
+msgstr "Top"
+
+#: SettingsIndividual.php:536
 msgid "Two-factor authentication (2fa)"
 msgstr "Kétfaktoros hitelesítés (2fa)"
 
-#: SettingsIndividual.php:467
+#: SettingsIndividual.php:539
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -9513,12 +9521,12 @@ msgstr ""
 "feliratkozása egy EcclesiaCRM védelmi réteget biztosít a fiókjához "
 "hozzáférni próbáló rossz szereplőkkel szemben."
 
-#: SettingsIndividual.php:468
+#: SettingsIndividual.php:540
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr ""
 "Az EcclesiaCRM Two factor támogatja bármely TOTP hitelesítőt alkalmazást"
 
-#: SettingsIndividual.php:473
+#: SettingsIndividual.php:545
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -9526,7 +9534,7 @@ msgstr ""
 "Amikor bejelentkezik az EcclesiaCRM-be, továbbra is a szokásos módon adja "
 "meg a felhasználónevét és jelszavát."
 
-#: SettingsIndividual.php:476
+#: SettingsIndividual.php:548
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -9534,7 +9542,7 @@ msgstr ""
 "A bejelentkezés befejezéséhez azonban egy egyszer használatos kódot is meg "
 "kell adnia a hitelesítőkészülékéről."
 
-#: SettingsIndividual.php:479
+#: SettingsIndividual.php:551
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -9542,7 +9550,7 @@ msgstr ""
 "Miután sikeresen megadta a hitelesítő adatait és az egyszeri kódot, a "
 "szokásos módon bejelentkezik."
 
-#: SettingsIndividual.php:482
+#: SettingsIndividual.php:554
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -9551,7 +9559,7 @@ msgstr ""
 "kérjük, győződjön meg róla, hogy készen áll a kétfaktoros regisztráció "
 "elvégzésére, mielőtt a kezdés gombra kattint."
 
-#: SettingsIndividual.php:485
+#: SettingsIndividual.php:557
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
@@ -9559,7 +9567,7 @@ msgstr ""
 "A regisztráció megkezdése érvényteleníti a korábban regisztrált 2 faktoros "
 "eszközöket és helyreállítási kódokat."
 
-#: SettingsIndividual.php:487
+#: SettingsIndividual.php:559
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -9567,7 +9575,7 @@ msgstr ""
 "Amikor a következő gombra kattint, egy QR-kód beolvasására lesz szüksége a "
 "hitelesítőt használó alkalmazás regisztrálásához."
 
-#: SettingsIndividual.php:489
+#: SettingsIndividual.php:561
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
@@ -9575,7 +9583,7 @@ msgstr ""
 "A beiratkozás megerősítéséhez be kell írnia a hitelesítő alkalmazás által "
 "generált kódot."
 
-#: SettingsIndividual.php:491
+#: SettingsIndividual.php:563
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -9583,7 +9591,7 @@ msgstr ""
 "Az alkalmazás regisztrációjának megerősítése után egyszer használatos "
 "helyreállítási kódok generálódnak és jelennek meg."
 
-#: SettingsIndividual.php:493
+#: SettingsIndividual.php:565
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -9591,21 +9599,13 @@ msgstr ""
 "A helyreállítási kódok használhatók a hitelesítési alkalmazásból generált "
 "kód helyett."
 
-#: SettingsIndividual.php:495
+#: SettingsIndividual.php:567
 msgid "Store these in a secure location"
 msgstr "Tárolja ezeket biztonságos helyen"
 
-#: SettingsIndividual.php:502
+#: SettingsIndividual.php:574
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Kétfaktoros hitelesítés regisztrációjának megkezdése"
-
-#: SettingsIndividual.php:515 UserEditor.php:1333
-msgid "Visibilities of the dashboard plugins"
-msgstr "A műszerfal bővítmények láthatósága"
-
-#: SettingsIndividual.php:557 UserEditor.php:1375
-msgid "Top"
-msgstr "Top"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"

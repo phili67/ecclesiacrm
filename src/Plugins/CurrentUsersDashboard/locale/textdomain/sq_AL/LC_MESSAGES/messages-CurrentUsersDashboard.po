@@ -1,11 +1,11 @@
-#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:34
+#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:52
 msgid "Connected Users"
 msgstr ""
 
-#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:46
+#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:63
 msgid "user is connected"
 msgstr ""
 
-#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:46
+#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:63
 msgid "users are connected"
 msgstr ""
