@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-01 12:24+0000\n"
+"POT-Creation-Date: 2022-10-17 19:35+0000\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgstr "PERSON"
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:345
-#: Include/Footer.php:68 members/404.php:16 PersonView.php:941
+#: Include/Footer.php:68 members/404.php:16 PersonView.php:946
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/templates/gdpr/gdprdatastructure.php:100
@@ -269,7 +269,7 @@ msgstr "Telepon"
 #: ident/templates/verify/login-info.php:34
 #: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1461
 #: PersonEditor.php:1465 PersonView.php:665 PersonView.php:793
-#: PersonView.php:1161 PrintPastoralCarePerson.php:385 PrintView.php:396
+#: PersonView.php:1174 PrintPastoralCarePerson.php:385 PrintView.php:396
 #: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
 #: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
@@ -338,9 +338,9 @@ msgstr "Selamatkan"
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
+#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:2002
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
-#: SettingsIndividual.php:444 SettingsIndividual.php:571 TaxReport.php:53
+#: SettingsIndividual.php:444 SettingsIndividual.php:520 TaxReport.php:53
 #: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -377,7 +377,7 @@ msgstr "Masukkan Pemenang"
 msgid "File Manager"
 msgstr "File Manager"
 
-#: browser/browse.php:42 PersonView.php:1881
+#: browser/browse.php:42 PersonView.php:1898
 msgid "Upload a file in EDrive"
 msgstr "Upload file di EDrive"
 
@@ -385,7 +385,7 @@ msgstr "Upload file di EDrive"
 msgid "Download"
 msgstr "Download"
 
-#: browser/browse.php:72 PersonView.php:1924
+#: browser/browse.php:72 PersonView.php:1941
 msgid "Preview"
 msgstr "Preview"
 
@@ -666,7 +666,7 @@ msgstr "Posisi gambar"
 
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
-#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:558
+#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:507
 #: UserEditor.php:1376 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Kiri"
@@ -677,7 +677,7 @@ msgstr "Pusat"
 
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
-#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:559
+#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:508
 #: UserEditor.php:1377 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Benar"
@@ -1480,7 +1480,7 @@ msgstr "Isi Transaksi otoris"
 msgid "Run Transactions"
 msgstr "Jalankan Transaksi"
 
-#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1294
+#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1311
 #: v2/templates/calendar/eventattendeesedit.php:62
 msgid "Action"
 msgstr "Action"
@@ -1542,7 +1542,7 @@ msgstr "Informasi untuk Include"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:265
 #: EcclesiaCRM/Service/CalendarService.php:58 FamilyView.php:554
 #: ident/routes/verify.php:281 ident/routes/verify.php:694
-#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1160
+#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1173
 #: Reports/ConfirmReport.php:231 Reports/ConfirmReport.php:251
 msgid "Birthday"
 msgstr "Ulang Tahun."
@@ -1880,7 +1880,7 @@ msgid "newsletter"
 msgstr "Newsletter"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:81
-#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:94
+#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:97
 #: v2/templates/cart/cartview.php:195
 msgid "families"
 msgstr "Keluarga"
@@ -2001,13 +2001,13 @@ msgstr "Keluarga dinonaktifkan"
 msgid "Family Activated"
 msgstr "Keluarga diaktifkan"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:399
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:781
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:405
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:787
 msgid "Deleted from group"
 msgstr "Dihapus dari kelompok"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:437
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:472
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:443
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:478
 msgid "Added to group"
 msgstr "Ditambah ke kelompok"
 
@@ -2017,7 +2017,7 @@ msgstr "Ditambah ke kelompok"
 #: EcclesiaCRM/Service/CalendarService.php:264
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:551
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:500
 #: UserEditor.php:1369
 msgid "Yes"
 msgstr "Ya"
@@ -2029,7 +2029,7 @@ msgstr "Ya"
 #: EcclesiaCRM/Service/CalendarService.php:465
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:550
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:499
 #: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Tidak"
@@ -2105,7 +2105,7 @@ msgstr "Kelompok tipe"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:113
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:154
 #: FamilyEditor.php:1097 FamilyView.php:552 OptionManager.php:100
-#: OptionManager.php:141 PersonView.php:1159 PrintPastoralCarePerson.php:449
+#: OptionManager.php:141 PersonView.php:1172 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
@@ -4668,11 +4668,11 @@ msgstr "Ganti kata sandi"
 msgid "Change Settings"
 msgstr "Mengubah peraturan"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1023
+#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1036
 msgid "Documents"
 msgstr "Dokumen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:917
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1050 UserEditor.php:917
 msgid "EDrive"
 msgstr "EDrive"
 
@@ -5018,51 +5018,51 @@ msgstr "tua mu"
 msgid "EcclesiaCRM export"
 msgstr "Ekspor EcclesiacRM"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
 msgid "system user created"
 msgstr "pengguna sistem diciptakan"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:697
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 msgid "system user updated"
 msgstr "pengguna sistem diperbarui"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:700
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
 msgid "system user deleted"
 msgstr "pengguna sistem dihapus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:703
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 msgid "system user password reset"
 msgstr "reset password pengguna sistem"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:706
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "system user changed password"
 msgstr "pengguna sistem mengubah password"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:709
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "system user password changed by admin"
 msgstr "password pengguna sistem yang diubah oleh admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:712
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
 msgid "system user login reset"
 msgstr "reset pengguna sistem"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:718
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
 msgid "Dav create file"
 msgstr "Dav menciptakan file"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:724
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
 msgid "Dav create directory"
 msgstr "Dav membuat direktori"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:730
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
 msgid "Dav update file"
 msgstr "Berkas pembaruan Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
 msgid "Dav move copy file"
 msgstr "Dav memindahkan file copy"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
 msgid "Dav delete file"
 msgstr "Dav menghapus file"
 
@@ -5273,7 +5273,7 @@ msgstr "Alamat"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:395
-#: FamilyView.php:1069 PersonView.php:726 PersonView.php:1956
+#: FamilyView.php:1069 PersonView.php:726 PersonView.php:1973
 #: PrintPastoralCarePerson.php:654
 #: v2/templates/pastoralcare/pastoralcarefamily.php:220
 #: v2/templates/pastoralcare/pastoralcareperson.php:352
@@ -5402,7 +5402,7 @@ msgid "Person Properties"
 msgstr "Properti orang"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:147 PersonView.php:978
+#: Include/Footer.php:147 PersonView.php:991
 msgid "Volunteer Opportunities"
 msgstr "Peluang sukarela"
 
@@ -6229,8 +6229,8 @@ msgstr "Tambahkan metode Pembayaran elektronik baru"
 #: ElectronicPaymentList.php:318 EventNames.php:355 FamilyView.php:1096
 #: FindDepositSlip.php:131 ident/routes/verify.php:728
 #: ident/routes/verify.php:795 ident/templates/verify/verify-family-info.php:55
-#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1894
-#: PersonView.php:1986 v2/templates/calendar/eventattendeesedit.php:101
+#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1911
+#: PersonView.php:2003 v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/group/groupview.php:287
@@ -6562,7 +6562,7 @@ msgid "Register"
 msgstr "Daftar"
 
 #: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1158
+#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1171
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:262
 #: v2/templates/pastoralcare/pastoralcareperson.php:390
@@ -6943,16 +6943,16 @@ msgstr "Buat dokumen"
 msgid "Get the vCard of the family"
 msgstr "Ambil VCard dari keluarga"
 
-#: FamilyView.php:510 PersonView.php:857 v2/templates/cart/cartview.php:63
+#: FamilyView.php:510 PersonView.php:862 v2/templates/cart/cartview.php:63
 msgid "vCard"
 msgstr "VCard"
 
-#: FamilyView.php:518 PersonView.php:884 v2/templates/plugins/plugins.php:56
+#: FamilyView.php:518 PersonView.php:889 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:105
 msgid "Deactivate"
 msgstr "Menonaktifkan"
 
-#: FamilyView.php:518 PersonView.php:884 v2/templates/plugins/plugins.php:55
+#: FamilyView.php:518 PersonView.php:889 v2/templates/plugins/plugins.php:55
 #: v2/templates/plugins/plugins.php:105
 msgid "Activate"
 msgstr "Aktifkan"
@@ -6965,76 +6965,76 @@ msgstr "keluarga ini"
 msgid "Delete this Family"
 msgstr "Hapus keluarga ini"
 
-#: FamilyView.php:659 PersonView.php:929
+#: FamilyView.php:659 PersonView.php:934
 msgid "Timeline"
 msgstr "Timeline"
 
-#: FamilyView.php:662 PersonView.php:973 PrintPastoralCarePerson.php:594
+#: FamilyView.php:662 PersonView.php:979 PrintPastoralCarePerson.php:594
 #: PrintView.php:603 v2/templates/group/groupview.php:325
 #: v2/templates/group/groupview.php:383
 msgid "Assigned Properties"
 msgstr "Ditugaskan Properties"
 
-#: FamilyView.php:669 PersonView.php:996
+#: FamilyView.php:669 PersonView.php:1009
 msgid "Automatic Payments"
 msgstr "Pembayaran otomatis"
 
-#: FamilyView.php:672 PersonView.php:1003
+#: FamilyView.php:672 PersonView.php:1016
 msgid "Pledges and Payments"
 msgstr "Pledges dan Payments"
 
-#: FamilyView.php:815 PersonView.php:1460 v2/templates/group/groupview.php:338
+#: FamilyView.php:815 PersonView.php:1477 v2/templates/group/groupview.php:338
 msgid "Assign a New Property"
 msgstr "Assign a Property baru"
 
-#: FamilyView.php:822 PersonView.php:1466 PersonView.php:1537
-#: PersonView.php:1676
+#: FamilyView.php:822 PersonView.php:1483 PersonView.php:1554
+#: PersonView.php:1693
 msgid "Select"
 msgstr "Pilih"
 
-#: FamilyView.php:825 PersonView.php:1468 QueryView.php:457 QueryView.php:474
+#: FamilyView.php:825 PersonView.php:1485 QueryView.php:457 QueryView.php:474
 #: v2/templates/group/groupview.php:343
 msgid "select an option"
 msgstr "pilih pilihan"
 
-#: FamilyView.php:846 PersonView.php:1489 PersonView.php:1552
+#: FamilyView.php:846 PersonView.php:1506 PersonView.php:1569
 #: v2/templates/group/groupview.php:359
 msgid "Assign"
 msgstr "Assign"
 
-#: FamilyView.php:874 PersonView.php:1584
+#: FamilyView.php:874 PersonView.php:1601
 msgid "Add a new automatic payment"
 msgstr "Tambahkan pembayaran otomatis baru"
 
-#: FamilyView.php:883 PersonView.php:1605
+#: FamilyView.php:883 PersonView.php:1622
 msgid "Show Pledges"
 msgstr "Pertunjukan Pledges"
 
-#: FamilyView.php:887 PersonView.php:1609
+#: FamilyView.php:887 PersonView.php:1626
 msgid "Show Payments"
 msgstr "Tunjukkan pembayaran"
 
-#: FamilyView.php:890 PersonView.php:1612
+#: FamilyView.php:890 PersonView.php:1629
 msgid "From"
 msgstr "Dari"
 
-#: FamilyView.php:899 PersonView.php:1621
+#: FamilyView.php:899 PersonView.php:1638
 msgid "To"
 msgstr "To"
 
-#: FamilyView.php:922 PersonView.php:1634
+#: FamilyView.php:922 PersonView.php:1651
 msgid "Add a new pledge"
 msgstr "Tambahkan janji baru"
 
-#: FamilyView.php:924 PersonView.php:1636
+#: FamilyView.php:924 PersonView.php:1653
 msgid "Add a new payment"
 msgstr "Tambahkan pembayaran baru"
 
-#: FamilyView.php:932 PersonView.php:1652
+#: FamilyView.php:932 PersonView.php:1669
 msgid " Canvass Entry"
 msgstr "Canvass Entry"
 
-#: FamilyView.php:1066 PersonView.php:547 PersonView.php:1953
+#: FamilyView.php:1066 PersonView.php:547 PersonView.php:1970
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
@@ -7042,29 +7042,29 @@ msgstr "Canvass Entry"
 msgid "Informations"
 msgstr "Informasi"
 
-#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1973
+#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1990
 msgid "Confirm Delete"
 msgstr "Konfirmasi Hapus"
 
-#: FamilyView.php:1091 PersonView.php:1979
+#: FamilyView.php:1091 PersonView.php:1996
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "Kau akan menghapus foto profil, prosedur ini tidak bisa dibalik."
 
-#: FamilyView.php:1092 PersonView.php:1981
+#: FamilyView.php:1092 PersonView.php:1998
 msgid "Do you want to proceed?"
 msgstr "Kau ingin melanjutkan?"
 
-#: FamilyView.php:1107 PersonView.php:1999
+#: FamilyView.php:1107 PersonView.php:2016
 msgid "Request Family Info Verification"
 msgstr "Meminta Verifikasi Info Keluarga"
 
-#: FamilyView.php:1112 PersonView.php:2004
+#: FamilyView.php:1112 PersonView.php:2021
 msgid "Select how do you want to request the family information to be verified"
 msgstr ""
 "Pilih bagaimana kau ingin meminta informasi keluarga untuk diverifikasi"
 
-#: FamilyView.php:1117 PersonView.php:2009
+#: FamilyView.php:1117 PersonView.php:2026
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
@@ -7072,20 +7072,20 @@ msgstr ""
 "Kau akan mengirim salinan email dari informasi keluarga di PDF ke email "
 "berikut"
 
-#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2031
-#: PersonView.php:2035
+#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2048
+#: PersonView.php:2052
 msgid "Online Verification"
 msgstr "Verifikasi online"
 
-#: FamilyView.php:1149 PersonView.php:2041
+#: FamilyView.php:1149 PersonView.php:2058
 msgid "URL"
 msgstr "URL"
 
-#: FamilyView.php:1152 PersonView.php:2044
+#: FamilyView.php:1152 PersonView.php:2061
 msgid "PDF Report"
 msgstr "PDF Laporan"
 
-#: FamilyView.php:1156 PersonView.php:2048
+#: FamilyView.php:1156 PersonView.php:2065
 msgid "Verified In Person"
 msgstr "Diverifikasi In Prson"
 
@@ -7882,19 +7882,19 @@ msgstr "Kau sudah"
 msgid "task(s)"
 msgstr "tugas (S)"
 
-#: Include/Functions.php:90
+#: Include/Functions.php:93
 msgid "Thank you for registering your EcclesiaCRM installation."
 msgstr "Terima kasih sudah mendaftar instalasi EcclesiacRM-mu."
 
-#: Include/Functions.php:94
+#: Include/Functions.php:97
 msgid "PDFs successfully emailed "
 msgstr "PDF berhasil email"
 
-#: Include/Functions.php:99
+#: Include/Functions.php:102
 msgid "PDF successfully emailed to family members."
 msgstr "PDF berhasil mengirim email ke anggota keluarga."
 
-#: Include/Functions.php:101
+#: Include/Functions.php:104
 msgid "Failed to email PDF to family members."
 msgstr "Gagal email PDF untuk anggota keluarga."
 
@@ -8475,127 +8475,127 @@ msgstr "Suruh pengguna ini ke sebuah kelompok"
 msgid "Assign New Group"
 msgstr "Assign New Group"
 
-#: PersonView.php:854 v2/templates/cart/cartview.php:60
+#: PersonView.php:859 v2/templates/cart/cartview.php:60
 msgid "Get the vCard of the person"
 msgstr "Dapatkan VCard orang"
 
-#: PersonView.php:867
+#: PersonView.php:872
 msgid "Create a CRM user"
 msgstr "Buat pengguna CRM"
 
-#: PersonView.php:868
+#: PersonView.php:873
 msgid "Make User"
 msgstr "Buat User"
 
-#: PersonView.php:874
+#: PersonView.php:879
 msgid "Add rights to this user"
 msgstr "Tambahkan hak untuk pengguna ini"
 
-#: PersonView.php:875
+#: PersonView.php:880
 msgid "Edit User"
 msgstr "Edit Pengguna"
 
-#: PersonView.php:884
+#: PersonView.php:889
 msgid " this Person"
 msgstr "orang ini"
 
-#: PersonView.php:897 PersonView.php:904
+#: PersonView.php:902 PersonView.php:909
 msgid "Delete this Record"
 msgstr "Hapus kitab ini"
 
-#: PersonView.php:958 PrintPastoralCarePerson.php:497 PrintView.php:506
+#: PersonView.php:963 PrintPastoralCarePerson.php:497 PrintView.php:506
 msgid "Assigned Groups"
 msgstr "Ditugaskan kelompok"
 
-#: PersonView.php:1134
+#: PersonView.php:1147
 msgid "click to download"
 msgstr "klik untuk mengunduh"
 
-#: PersonView.php:1249 PrintPastoralCarePerson.php:509 PrintView.php:518
+#: PersonView.php:1262 PrintPastoralCarePerson.php:509 PrintView.php:518
 msgid "No group assignments."
 msgstr "Tidak ada tugas kelompok."
 
-#: PersonView.php:1304
+#: PersonView.php:1321
 msgid "Change Role"
 msgstr "Ganti Role"
 
-#: PersonView.php:1311
+#: PersonView.php:1328
 msgid "Update Properties"
 msgstr "Perubahan Properti"
 
-#: PersonView.php:1347
+#: PersonView.php:1364
 msgid "Group Informations"
 msgstr "Informasi kelompok"
 
-#: PersonView.php:1378
+#: PersonView.php:1395
 msgid "Person Informations"
 msgstr "Informasi orang"
 
-#: PersonView.php:1401
+#: PersonView.php:1418
 msgid "Modify Specific Properties"
 msgstr "Properti Spesifik Modifikasi"
 
-#: PersonView.php:1444 PrintPastoralCarePerson.php:606 PrintView.php:615
+#: PersonView.php:1461 PrintPastoralCarePerson.php:606 PrintView.php:615
 msgid "No property assignments."
 msgstr "Tidak ada tugas properti."
 
-#: PersonView.php:1514
+#: PersonView.php:1531
 msgid "No volunteer opportunity assignments."
 msgstr "Tidak ada tugas sukarelawan."
 
-#: PersonView.php:1529
+#: PersonView.php:1546
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Tanyakan peluang Volunteer baru"
 
-#: PersonView.php:1589 PersonView.php:1641
+#: PersonView.php:1606 PersonView.php:1658
 msgid "You must set an address for this person"
 msgstr "Kau harus mengatur alamat orang ini"
 
-#: PersonView.php:1677
+#: PersonView.php:1694
 msgid "Filter your documents by : "
 msgstr "Mengisi dokumen Anda dengan:"
 
-#: PersonView.php:1678
+#: PersonView.php:1695
 msgid "All type"
 msgstr "Semua jenis"
 
-#: PersonView.php:1683
+#: PersonView.php:1700
 msgid "Shared documents"
 msgstr "Dokumen yang dibagi"
 
-#: PersonView.php:1719
+#: PersonView.php:1736
 msgid "Edit this document"
 msgstr "Edit dokumen ini"
 
-#: PersonView.php:1729
+#: PersonView.php:1746
 msgid "Delete this document"
 msgstr "Hapus dokumen ini"
 
-#: PersonView.php:1740
+#: PersonView.php:1757
 msgid "Share this document to another user"
 msgstr "Berbagi dokumen ini untuk pengguna lain"
 
-#: PersonView.php:1753
+#: PersonView.php:1770
 msgid "Export this document to word Format"
 msgstr "Laporkan dokumen ini untuk kata Format"
 
-#: PersonView.php:1796
+#: PersonView.php:1813
 msgid "Last modification by"
 msgstr "Modifikasi terakhir oleh"
 
-#: PersonView.php:1872
+#: PersonView.php:1889
 msgid "All Files"
 msgstr "Semua Files"
 
-#: PersonView.php:1889
+#: PersonView.php:1906
 msgid "Create a Folder"
 msgstr "Buat Folder"
 
-#: PersonView.php:1899
+#: PersonView.php:1916
 msgid "Up One Level"
 msgstr "Naik satu Level"
 
-#: PersonView.php:1906
+#: PersonView.php:1923
 msgid "Actualize files"
 msgstr "Actualisize file"
 
@@ -9449,7 +9449,7 @@ msgid "Variable name"
 msgstr "Nama yang bisa diperoleh"
 
 #: SettingsIndividual.php:179 SettingsIndividual.php:445
-#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1419
+#: SettingsIndividual.php:523 SystemSettings.php:132 UserEditor.php:1419
 msgid "Save Settings"
 msgstr "Simpan Setting"
 
@@ -9472,11 +9472,20 @@ msgstr "Benar"
 msgid "Specific settings"
 msgstr "Simpan Setting"
 
-#: SettingsIndividual.php:464
+#: SettingsIndividual.php:464 UserEditor.php:1333
+msgid "Visibilities of the dashboard plugins"
+msgstr ""
+
+#: SettingsIndividual.php:506 UserEditor.php:1375
+#, fuzzy
+msgid "Top"
+msgstr "To"
+
+#: SettingsIndividual.php:536
 msgid "Two-factor authentication (2fa)"
 msgstr "Dua-Factor otentikasi (2FA)"
 
-#: SettingsIndividual.php:467
+#: SettingsIndividual.php:539
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -9486,11 +9495,11 @@ msgstr ""
 "menyediakan EcclesiaCRM lapisan pertahanan terhadap aktor buruk yang mencoba "
 "mengakses rekening kalian"
 
-#: SettingsIndividual.php:468
+#: SettingsIndividual.php:540
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "EcclesiaCRM 2 faktor mendukung setiap aplikasi otomatis TTP"
 
-#: SettingsIndividual.php:473
+#: SettingsIndividual.php:545
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -9498,7 +9507,7 @@ msgstr ""
 "Ketika Anda menandatangani untuk EcclesiaCRM, Anda akan tetap memasukkan "
 "username dan password seperti biasa"
 
-#: SettingsIndividual.php:476
+#: SettingsIndividual.php:548
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -9506,7 +9515,7 @@ msgstr ""
 "Namun, kau juga perlu memasok kode satu kali dari perangkat otenticatormu "
 "untuk menyelesaikan loginmu"
 
-#: SettingsIndividual.php:479
+#: SettingsIndividual.php:551
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -9514,7 +9523,7 @@ msgstr ""
 "Setelah berhasil memasuki kedua surat mandatmu, dan kode sekali, kau akan "
 "masuk secara normal"
 
-#: SettingsIndividual.php:482
+#: SettingsIndividual.php:554
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -9522,14 +9531,14 @@ msgstr ""
 "Untuk mencegah terkunci dari rekening CRMEcclesia-mu, tolong pastikan kau "
 "siap untuk menyelesaikan dua pendaftaran sebelum mengklik"
 
-#: SettingsIndividual.php:485
+#: SettingsIndividual.php:557
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
 msgstr ""
 "Memulai pendaftaran akan merusak perangkat 2 faktor dan kode pemulihan."
 
-#: SettingsIndividual.php:487
+#: SettingsIndividual.php:559
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -9537,7 +9546,7 @@ msgstr ""
 "Saat kau mengklik, kau akan diproh untuk memindai kode QR untuk mendaftarkan "
 "aplikasi aslimu."
 
-#: SettingsIndividual.php:489
+#: SettingsIndividual.php:561
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
@@ -9545,7 +9554,7 @@ msgstr ""
 "Untuk mengkonfirmasi pendaftaran, Anda harus memasukkan kode yang dihasilkan "
 "oleh aplikasi asli Anda"
 
-#: SettingsIndividual.php:491
+#: SettingsIndividual.php:563
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -9553,7 +9562,7 @@ msgstr ""
 "Setelah konfirmasi pendaftaran aplikasi, kode pemulihan tunggal akan "
 "dihasilkan dan ditampilkan."
 
-#: SettingsIndividual.php:493
+#: SettingsIndividual.php:565
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -9561,22 +9570,13 @@ msgstr ""
 "Kode pemulihan dapat digunakan bukan kode yang dihasilkan dari aplikasi asli "
 "Anda."
 
-#: SettingsIndividual.php:495
+#: SettingsIndividual.php:567
 msgid "Store these in a secure location"
 msgstr "Simpan ini di lokasi yang aman"
 
-#: SettingsIndividual.php:502
+#: SettingsIndividual.php:574
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Mulai Dua Factor Authentication Enrollment"
-
-#: SettingsIndividual.php:515 UserEditor.php:1333
-msgid "Visibilities of the dashboard plugins"
-msgstr ""
-
-#: SettingsIndividual.php:557 UserEditor.php:1375
-#, fuzzy
-msgid "Top"
-msgstr "To"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"

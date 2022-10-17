@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-01 12:24+0000\n"
+"POT-Creation-Date: 2022-10-17 19:35+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgstr "Người"
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:345
-#: Include/Footer.php:68 members/404.php:16 PersonView.php:941
+#: Include/Footer.php:68 members/404.php:16 PersonView.php:946
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/templates/gdpr/gdprdatastructure.php:100
@@ -269,7 +269,7 @@ msgstr "Điện thoại"
 #: ident/templates/verify/login-info.php:34
 #: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1461
 #: PersonEditor.php:1465 PersonView.php:665 PersonView.php:793
-#: PersonView.php:1161 PrintPastoralCarePerson.php:385 PrintView.php:396
+#: PersonView.php:1174 PrintPastoralCarePerson.php:385 PrintView.php:396
 #: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
 #: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
@@ -338,9 +338,9 @@ msgstr "Cứu"
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
+#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:2002
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
-#: SettingsIndividual.php:444 SettingsIndividual.php:571 TaxReport.php:53
+#: SettingsIndividual.php:444 SettingsIndividual.php:520 TaxReport.php:53
 #: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -377,7 +377,7 @@ msgstr "Vào người chiến thắng"
 msgid "File Manager"
 msgstr "Quản lý tài liệu"
 
-#: browser/browse.php:42 PersonView.php:1881
+#: browser/browse.php:42 PersonView.php:1898
 msgid "Upload a file in EDrive"
 msgstr "Tải một hồ sơ ở Edrive"
 
@@ -385,7 +385,7 @@ msgstr "Tải một hồ sơ ở Edrive"
 msgid "Download"
 msgstr "Nạp đạn"
 
-#: browser/browse.php:72 PersonView.php:1924
+#: browser/browse.php:72 PersonView.php:1941
 msgid "Preview"
 msgstr "Preview"
 
@@ -668,7 +668,7 @@ msgstr "Vị trí hình ảnh"
 
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
-#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:558
+#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:507
 #: UserEditor.php:1376 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Trái"
@@ -679,7 +679,7 @@ msgstr "Trung tâm"
 
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
-#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:559
+#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:508
 #: UserEditor.php:1377 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Đúng vậy."
@@ -1462,7 +1462,7 @@ msgstr "Nạp đạn giao dịch được cấp phép"
 msgid "Run Transactions"
 msgstr "Chạy giao dịch"
 
-#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1294
+#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1311
 #: v2/templates/calendar/eventattendeesedit.php:62
 msgid "Action"
 msgstr "Diễn"
@@ -1524,7 +1524,7 @@ msgstr "Thông tin cho bao gồm"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:265
 #: EcclesiaCRM/Service/CalendarService.php:58 FamilyView.php:554
 #: ident/routes/verify.php:281 ident/routes/verify.php:694
-#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1160
+#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1173
 #: Reports/ConfirmReport.php:231 Reports/ConfirmReport.php:251
 msgid "Birthday"
 msgstr "Sinh nhật"
@@ -1862,7 +1862,7 @@ msgid "newsletter"
 msgstr "Tin tức"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:81
-#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:94
+#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:97
 #: v2/templates/cart/cartview.php:195
 msgid "families"
 msgstr "Gia đình"
@@ -1983,13 +1983,13 @@ msgstr "Gia đình bị vô hiệu hóa"
 msgid "Family Activated"
 msgstr "Đã kích hoạt gia đình"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:399
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:781
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:405
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:787
 msgid "Deleted from group"
 msgstr "Xóa khỏi nhóm"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:437
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:472
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:443
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:478
 msgid "Added to group"
 msgstr "Thêm vào đó là nhóm"
 
@@ -1999,7 +1999,7 @@ msgstr "Thêm vào đó là nhóm"
 #: EcclesiaCRM/Service/CalendarService.php:264
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:551
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:500
 #: UserEditor.php:1369
 msgid "Yes"
 msgstr "Vâng."
@@ -2011,7 +2011,7 @@ msgstr "Vâng."
 #: EcclesiaCRM/Service/CalendarService.php:465
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:550
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:499
 #: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Không."
@@ -2087,7 +2087,7 @@ msgstr "Nhóm Type"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:113
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:154
 #: FamilyEditor.php:1097 FamilyView.php:552 OptionManager.php:100
-#: OptionManager.php:141 PersonView.php:1159 PrintPastoralCarePerson.php:449
+#: OptionManager.php:141 PersonView.php:1172 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
@@ -4637,11 +4637,11 @@ msgstr "Đổi mật khẩu"
 msgid "Change Settings"
 msgstr "Thay đổi thiết lập"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1023
+#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1036
 msgid "Documents"
 msgstr "Tài liệu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:917
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1050 UserEditor.php:917
 msgid "EDrive"
 msgstr "Edrive"
 
@@ -4987,51 +4987,51 @@ msgstr "- Già rồi"
 msgid "EcclesiaCRM export"
 msgstr "Xuất khẩu CRMEcclesia"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
 msgid "system user created"
 msgstr "người dùng hệ thống tạo ra"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:697
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 msgid "system user updated"
 msgstr "cập nhật hệ thống cho người dùng"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:700
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
 msgid "system user deleted"
 msgstr "người dùng hệ thống đã xóa"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:703
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 msgid "system user password reset"
 msgstr "tái thiết lập mật khẩu hệ thống"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:706
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "system user changed password"
 msgstr "người dùng hệ thống đổi mật khẩu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:709
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "system user password changed by admin"
 msgstr "mật khẩu người dùng hệ thống thay đổi bởi admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:712
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
 msgid "system user login reset"
 msgstr "login người dùng hệ thống"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:718
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
 msgid "Dav create file"
 msgstr "Dav tạo hồ sơ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:724
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
 msgid "Dav create directory"
 msgstr "Dav tạo thư mục"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:730
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
 msgid "Dav update file"
 msgstr "Hồ sơ cập nhật Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
 msgid "Dav move copy file"
 msgstr "Hồ sơ di chuyển Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
 msgid "Dav delete file"
 msgstr "Dav xóa hồ sơ"
 
@@ -5242,7 +5242,7 @@ msgstr "Địa chỉ"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:395
-#: FamilyView.php:1069 PersonView.php:726 PersonView.php:1956
+#: FamilyView.php:1069 PersonView.php:726 PersonView.php:1973
 #: PrintPastoralCarePerson.php:654
 #: v2/templates/pastoralcare/pastoralcarefamily.php:220
 #: v2/templates/pastoralcare/pastoralcareperson.php:352
@@ -5371,7 +5371,7 @@ msgid "Person Properties"
 msgstr "Tài sản cá nhân"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:147 PersonView.php:978
+#: Include/Footer.php:147 PersonView.php:991
 msgid "Volunteer Opportunities"
 msgstr "Cơ hội tình nguyện"
 
@@ -6199,8 +6199,8 @@ msgstr "Thêm một phương pháp luật pháp luật mới"
 #: ElectronicPaymentList.php:318 EventNames.php:355 FamilyView.php:1096
 #: FindDepositSlip.php:131 ident/routes/verify.php:728
 #: ident/routes/verify.php:795 ident/templates/verify/verify-family-info.php:55
-#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1894
-#: PersonView.php:1986 v2/templates/calendar/eventattendeesedit.php:101
+#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1911
+#: PersonView.php:2003 v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/group/groupview.php:287
@@ -6533,7 +6533,7 @@ msgid "Register"
 msgstr "Đăng ký"
 
 #: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1158
+#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1171
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:262
 #: v2/templates/pastoralcare/pastoralcareperson.php:390
@@ -6913,16 +6913,16 @@ msgstr "Tạo một tài liệu"
 msgid "Get the vCard of the family"
 msgstr "Lấy VCard của gia đình"
 
-#: FamilyView.php:510 PersonView.php:857 v2/templates/cart/cartview.php:63
+#: FamilyView.php:510 PersonView.php:862 v2/templates/cart/cartview.php:63
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:518 PersonView.php:884 v2/templates/plugins/plugins.php:56
+#: FamilyView.php:518 PersonView.php:889 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:105
 msgid "Deactivate"
 msgstr "Vô hiệu hóa"
 
-#: FamilyView.php:518 PersonView.php:884 v2/templates/plugins/plugins.php:55
+#: FamilyView.php:518 PersonView.php:889 v2/templates/plugins/plugins.php:55
 #: v2/templates/plugins/plugins.php:105
 msgid "Activate"
 msgstr "Kích hoạt"
@@ -6935,76 +6935,76 @@ msgstr "gia đình này"
 msgid "Delete this Family"
 msgstr "Xóa gia đình này đi"
 
-#: FamilyView.php:659 PersonView.php:929
+#: FamilyView.php:659 PersonView.php:934
 msgid "Timeline"
 msgstr "Timeline"
 
-#: FamilyView.php:662 PersonView.php:973 PrintPastoralCarePerson.php:594
+#: FamilyView.php:662 PersonView.php:979 PrintPastoralCarePerson.php:594
 #: PrintView.php:603 v2/templates/group/groupview.php:325
 #: v2/templates/group/groupview.php:383
 msgid "Assigned Properties"
 msgstr "Phân biệt tài sản"
 
-#: FamilyView.php:669 PersonView.php:996
+#: FamilyView.php:669 PersonView.php:1009
 msgid "Automatic Payments"
 msgstr "Tiền lương tự động"
 
-#: FamilyView.php:672 PersonView.php:1003
+#: FamilyView.php:672 PersonView.php:1016
 msgid "Pledges and Payments"
 msgstr "Những lời cầu nguyện và tiền bạc"
 
-#: FamilyView.php:815 PersonView.php:1460 v2/templates/group/groupview.php:338
+#: FamilyView.php:815 PersonView.php:1477 v2/templates/group/groupview.php:338
 msgid "Assign a New Property"
 msgstr "Thay một tài sản mới"
 
-#: FamilyView.php:822 PersonView.php:1466 PersonView.php:1537
-#: PersonView.php:1676
+#: FamilyView.php:822 PersonView.php:1483 PersonView.php:1554
+#: PersonView.php:1693
 msgid "Select"
 msgstr "Chọn đi"
 
-#: FamilyView.php:825 PersonView.php:1468 QueryView.php:457 QueryView.php:474
+#: FamilyView.php:825 PersonView.php:1485 QueryView.php:457 QueryView.php:474
 #: v2/templates/group/groupview.php:343
 msgid "select an option"
 msgstr "chọn lựa đi"
 
-#: FamilyView.php:846 PersonView.php:1489 PersonView.php:1552
+#: FamilyView.php:846 PersonView.php:1506 PersonView.php:1569
 #: v2/templates/group/groupview.php:359
 msgid "Assign"
 msgstr "Điệp viên"
 
-#: FamilyView.php:874 PersonView.php:1584
+#: FamilyView.php:874 PersonView.php:1601
 msgid "Add a new automatic payment"
 msgstr "Thêm một khoản thanh toán mới"
 
-#: FamilyView.php:883 PersonView.php:1605
+#: FamilyView.php:883 PersonView.php:1622
 msgid "Show Pledges"
 msgstr "Cho các bạn xem"
 
-#: FamilyView.php:887 PersonView.php:1609
+#: FamilyView.php:887 PersonView.php:1626
 msgid "Show Payments"
 msgstr "Cho thấy tiền lương"
 
-#: FamilyView.php:890 PersonView.php:1612
+#: FamilyView.php:890 PersonView.php:1629
 msgid "From"
 msgstr "Từ"
 
-#: FamilyView.php:899 PersonView.php:1621
+#: FamilyView.php:899 PersonView.php:1638
 msgid "To"
 msgstr "To"
 
-#: FamilyView.php:922 PersonView.php:1634
+#: FamilyView.php:922 PersonView.php:1651
 msgid "Add a new pledge"
 msgstr "Thêm một lời thề mới"
 
-#: FamilyView.php:924 PersonView.php:1636
+#: FamilyView.php:924 PersonView.php:1653
 msgid "Add a new payment"
 msgstr "Thêm một lời thề mới"
 
-#: FamilyView.php:932 PersonView.php:1652
+#: FamilyView.php:932 PersonView.php:1669
 msgid " Canvass Entry"
 msgstr "Vải bạt Entry"
 
-#: FamilyView.php:1066 PersonView.php:547 PersonView.php:1953
+#: FamilyView.php:1066 PersonView.php:547 PersonView.php:1970
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
@@ -7012,48 +7012,48 @@ msgstr "Vải bạt Entry"
 msgid "Informations"
 msgstr "Thông tin"
 
-#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1973
+#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1990
 msgid "Confirm Delete"
 msgstr ""
 "Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận"
 
-#: FamilyView.php:1091 PersonView.php:1979
+#: FamilyView.php:1091 PersonView.php:1996
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "Anh sắp xóa hình hồ sơ, thủ tục này không thể đảo ngược được."
 
-#: FamilyView.php:1092 PersonView.php:1981
+#: FamilyView.php:1092 PersonView.php:1998
 msgid "Do you want to proceed?"
 msgstr "Anh có muốn tiếp tục không?"
 
-#: FamilyView.php:1107 PersonView.php:1999
+#: FamilyView.php:1107 PersonView.php:2016
 msgid "Request Family Info Verification"
 msgstr "Yêu cầu kiểm chứng cho Info Info"
 
-#: FamilyView.php:1112 PersonView.php:2004
+#: FamilyView.php:1112 PersonView.php:2021
 msgid "Select how do you want to request the family information to be verified"
 msgstr "Chọn cách nào để yêu cầu thông tin gia đình được xác nhận"
 
-#: FamilyView.php:1117 PersonView.php:2009
+#: FamilyView.php:1117 PersonView.php:2026
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
 msgstr "Bạn sắp gửi email cho thông tin gia đình ở PDF đến các email sau đây"
 
-#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2031
-#: PersonView.php:2035
+#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2048
+#: PersonView.php:2052
 msgid "Online Verification"
 msgstr "Trên mạng"
 
-#: FamilyView.php:1149 PersonView.php:2041
+#: FamilyView.php:1149 PersonView.php:2058
 msgid "URL"
 msgstr "URL"
 
-#: FamilyView.php:1152 PersonView.php:2044
+#: FamilyView.php:1152 PersonView.php:2061
 msgid "PDF Report"
 msgstr "Báo cáo PDF"
 
-#: FamilyView.php:1156 PersonView.php:2048
+#: FamilyView.php:1156 PersonView.php:2065
 msgid "Verified In Person"
 msgstr "Xác nhận ở Person"
 
@@ -7849,19 +7849,19 @@ msgstr "Anh đã làm"
 msgid "task(s)"
 msgstr "task(S)"
 
-#: Include/Functions.php:90
+#: Include/Functions.php:93
 msgid "Thank you for registering your EcclesiaCRM installation."
 msgstr "Cảm ơn vì đã đăng ký thiết lập CRMEcclesia."
 
-#: Include/Functions.php:94
+#: Include/Functions.php:97
 msgid "PDFs successfully emailed "
 msgstr "PDF đã email thành công"
 
-#: Include/Functions.php:99
+#: Include/Functions.php:102
 msgid "PDF successfully emailed to family members."
 msgstr "PDF thành công gửi email cho các thành viên trong gia đình."
 
-#: Include/Functions.php:101
+#: Include/Functions.php:104
 msgid "Failed to email PDF to family members."
 msgstr "Không gửi email PDF cho các thành viên trong gia đình."
 
@@ -8440,127 +8440,127 @@ msgstr "Phân chia người dùng này cho một nhóm"
 msgid "Assign New Group"
 msgstr "Trợ cấp New Group"
 
-#: PersonView.php:854 v2/templates/cart/cartview.php:60
+#: PersonView.php:859 v2/templates/cart/cartview.php:60
 msgid "Get the vCard of the person"
 msgstr "Lấy vcard của người đó"
 
-#: PersonView.php:867
+#: PersonView.php:872
 msgid "Create a CRM user"
 msgstr "Tạo ra một người dùng CRM"
 
-#: PersonView.php:868
+#: PersonView.php:873
 msgid "Make User"
 msgstr "Làm người dùng"
 
-#: PersonView.php:874
+#: PersonView.php:879
 msgid "Add rights to this user"
 msgstr "Thêm quyền lợi cho người dùng này"
 
-#: PersonView.php:875
+#: PersonView.php:880
 msgid "Edit User"
 msgstr "Chỉnh User đi"
 
-#: PersonView.php:884
+#: PersonView.php:889
 msgid " this Person"
 msgstr "người này"
 
-#: PersonView.php:897 PersonView.php:904
+#: PersonView.php:902 PersonView.php:909
 msgid "Delete this Record"
 msgstr "Xóa sổ ghi chép này"
 
-#: PersonView.php:958 PrintPastoralCarePerson.php:497 PrintView.php:506
+#: PersonView.php:963 PrintPastoralCarePerson.php:497 PrintView.php:506
 msgid "Assigned Groups"
 msgstr "Các tập đoàn đã được phân công"
 
-#: PersonView.php:1134
+#: PersonView.php:1147
 msgid "click to download"
 msgstr "click to download"
 
-#: PersonView.php:1249 PrintPastoralCarePerson.php:509 PrintView.php:518
+#: PersonView.php:1262 PrintPastoralCarePerson.php:509 PrintView.php:518
 msgid "No group assignments."
 msgstr "Không phân công nhóm."
 
-#: PersonView.php:1304
+#: PersonView.php:1321
 msgid "Change Role"
 msgstr "Thay đổi Role"
 
-#: PersonView.php:1311
+#: PersonView.php:1328
 msgid "Update Properties"
 msgstr "Cập nhật các tài sản"
 
-#: PersonView.php:1347
+#: PersonView.php:1364
 msgid "Group Informations"
 msgstr "Thông tin tập thể"
 
-#: PersonView.php:1378
+#: PersonView.php:1395
 msgid "Person Informations"
 msgstr "Thông tin cá nhân"
 
-#: PersonView.php:1401
+#: PersonView.php:1418
 msgid "Modify Specific Properties"
 msgstr "Thay đổi các Propertis"
 
-#: PersonView.php:1444 PrintPastoralCarePerson.php:606 PrintView.php:615
+#: PersonView.php:1461 PrintPastoralCarePerson.php:606 PrintView.php:615
 msgid "No property assignments."
 msgstr "Không có nhiệm vụ bất động sản."
 
-#: PersonView.php:1514
+#: PersonView.php:1531
 msgid "No volunteer opportunity assignments."
 msgstr "Không có nhiệm vụ tình nguyện viên."
 
-#: PersonView.php:1529
+#: PersonView.php:1546
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Phân chia cơ hội tình nguyện mới"
 
-#: PersonView.php:1589 PersonView.php:1641
+#: PersonView.php:1606 PersonView.php:1658
 msgid "You must set an address for this person"
 msgstr "Anh phải lập địa chỉ cho người này"
 
-#: PersonView.php:1677
+#: PersonView.php:1694
 msgid "Filter your documents by : "
 msgstr "Xét nghiệm các tài liệu của bạn:"
 
-#: PersonView.php:1678
+#: PersonView.php:1695
 msgid "All type"
 msgstr "Tất cả mọi loại"
 
-#: PersonView.php:1683
+#: PersonView.php:1700
 msgid "Shared documents"
 msgstr "Giấy tờ đã chia sẻ"
 
-#: PersonView.php:1719
+#: PersonView.php:1736
 msgid "Edit this document"
 msgstr "Chỉnh lại tài liệu này đi"
 
-#: PersonView.php:1729
+#: PersonView.php:1746
 msgid "Delete this document"
 msgstr "Xóa tài liệu này đi"
 
-#: PersonView.php:1740
+#: PersonView.php:1757
 msgid "Share this document to another user"
 msgstr "Chia sẻ tài liệu này cho người khác"
 
-#: PersonView.php:1753
+#: PersonView.php:1770
 msgid "Export this document to word Format"
 msgstr "Hãy chuyển tài liệu này đến từ Format"
 
-#: PersonView.php:1796
+#: PersonView.php:1813
 msgid "Last modification by"
 msgstr "Thay đổi cuối cùng"
 
-#: PersonView.php:1872
+#: PersonView.php:1889
 msgid "All Files"
 msgstr "Tất cả các tập tin"
 
-#: PersonView.php:1889
+#: PersonView.php:1906
 msgid "Create a Folder"
 msgstr "Tạo một tập nhạc"
 
-#: PersonView.php:1899
+#: PersonView.php:1916
 msgid "Up One Level"
 msgstr "Lên 1 tầng"
 
-#: PersonView.php:1906
+#: PersonView.php:1923
 msgid "Actualize files"
 msgstr "Hồ sơ thực sự"
 
@@ -9412,7 +9412,7 @@ msgid "Variable name"
 msgstr "Tên rất hay"
 
 #: SettingsIndividual.php:179 SettingsIndividual.php:445
-#: SettingsIndividual.php:574 SystemSettings.php:132 UserEditor.php:1419
+#: SettingsIndividual.php:523 SystemSettings.php:132 UserEditor.php:1419
 msgid "Save Settings"
 msgstr "Giữ nguyên vị trí"
 
@@ -9435,11 +9435,20 @@ msgstr "Đúng"
 msgid "Specific settings"
 msgstr "Giữ nguyên vị trí"
 
-#: SettingsIndividual.php:464
+#: SettingsIndividual.php:464 UserEditor.php:1333
+msgid "Visibilities of the dashboard plugins"
+msgstr ""
+
+#: SettingsIndividual.php:506 UserEditor.php:1375
+#, fuzzy
+msgid "Top"
+msgstr "To"
+
+#: SettingsIndividual.php:536
 msgid "Two-factor authentication (2fa)"
 msgstr "2 nhân tố xác thực (2fa)"
 
-#: SettingsIndividual.php:467
+#: SettingsIndividual.php:539
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -9449,11 +9458,11 @@ msgstr ""
 "của Factor cung cấp một lớp phòng thủ Ecclesiađể chống lại những diễn viên "
 "xấu đang cố truy cập tài khoản của bạn"
 
-#: SettingsIndividual.php:468
+#: SettingsIndividual.php:540
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "EcclesiaCRM 2 yếu tố hỗ trợ bất kỳ ứng dụng xác thực"
 
-#: SettingsIndividual.php:473
+#: SettingsIndividual.php:545
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -9461,7 +9470,7 @@ msgstr ""
 "Khi bạn đăng ký vào EcclesiaCRM, bạn vẫn sẽ nhập tên và mật khẩu như bình "
 "thường"
 
-#: SettingsIndividual.php:476
+#: SettingsIndividual.php:548
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -9469,7 +9478,7 @@ msgstr ""
 "Tuy nhiên, bạn cũng cần cung cấp một mã một lần từ thiết bị xác thực của bạn "
 "để hoàn thành các login"
 
-#: SettingsIndividual.php:479
+#: SettingsIndividual.php:551
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -9477,7 +9486,7 @@ msgstr ""
 "Sau khi nhập vào thành công của cả hai bằng chứng, và mã số một lần, anh sẽ "
 "được đăng nhập như bình thường"
 
-#: SettingsIndividual.php:482
+#: SettingsIndividual.php:554
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -9485,7 +9494,7 @@ msgstr ""
 "Để ngăn chặn việc bị khóa trong tài khoản CRM 98, xin đảm bảo rằng bạn đã "
 "sẵn sàng để hoàn thành hai lần đăng ký nhân tố trước khi bắt đầu"
 
-#: SettingsIndividual.php:485
+#: SettingsIndividual.php:557
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
@@ -9493,7 +9502,7 @@ msgstr ""
 "Việc đăng ký sẽ vô hiệu hóa bất kỳ trước đây đã đăng ký 2 thiết bị nhân tố "
 "và mã phục hồi."
 
-#: SettingsIndividual.php:487
+#: SettingsIndividual.php:559
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -9501,13 +9510,13 @@ msgstr ""
 "Khi bạn nhấp vào tiếp theo, bạn sẽ được đề nghị quét mã QR để đăng ký ứng "
 "dụng xác thực."
 
-#: SettingsIndividual.php:489
+#: SettingsIndividual.php:561
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
 msgstr "Để xác nhận, anh cần nhập mã được tạo ra bởi ứng dụng xác thực"
 
-#: SettingsIndividual.php:491
+#: SettingsIndividual.php:563
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -9515,7 +9524,7 @@ msgstr ""
 "Sau khi xác nhận việc đăng ký ứng dụng, mã phục hồi sử dụng đơn sẽ được tạo "
 "ra và hiển thị."
 
-#: SettingsIndividual.php:493
+#: SettingsIndividual.php:565
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -9523,22 +9532,13 @@ msgstr ""
 "Mã phục hồi có thể được sử dụng thay vì mã hóa được tạo ra từ ứng dụng xác "
 "thực của bạn."
 
-#: SettingsIndividual.php:495
+#: SettingsIndividual.php:567
 msgid "Store these in a secure location"
 msgstr "Giữ chúng ở một nơi an toàn"
 
-#: SettingsIndividual.php:502
+#: SettingsIndividual.php:574
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Bắt đầu tiến hành tiến trình khai thác 2"
-
-#: SettingsIndividual.php:515 UserEditor.php:1333
-msgid "Visibilities of the dashboard plugins"
-msgstr ""
-
-#: SettingsIndividual.php:557 UserEditor.php:1375
-#, fuzzy
-msgid "Top"
-msgstr "To"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"

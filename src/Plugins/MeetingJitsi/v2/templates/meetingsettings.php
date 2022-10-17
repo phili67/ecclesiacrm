@@ -62,7 +62,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="card-footer">
                 <button class="btn btn-primary" id="SaveSettings">
-                    <i class="fas fa-check"></i> <?= _("Save Changes") ?>
+                    <i class="fas fa-check"></i> <?= dgettext("messages-MeetingJitsi","Save Changes") ?>
                 </button>
             </div>
         </div>
