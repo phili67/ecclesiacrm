@@ -37,12 +37,13 @@ namespace EcclesiaCRM
      *
      * @param string path to sql file
      */
-      public static function sqlImport($file, $pdo)
+      public static function sqlImport($fileName, $pdo)
       {
           $pdo->setAttribute(\PDO::ATTR_AUTOCOMMIT, 0);
 
           $delimiter = ';';
-          $file = fopen($file, 'r');
+          $fileName = str_replace("//","/",$fileName);
+          $file = fopen($fileName, 'r');
           $isFirstRow = true;
           $isMultiLineComment = false;
           $sql = '';

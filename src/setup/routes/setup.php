@@ -50,6 +50,7 @@ $app->group('/', function (RouteCollectorProxy $group) {
     });
 
     $group->post('', function (Request $request, Response $response, array $args) {
+
         $setupDate = $request->getParsedBody();
         $template = file_get_contents(SystemURLs::getDocumentRoot().'/Include/Config.php.example');
 
@@ -95,20 +96,14 @@ $app->group('/', function (RouteCollectorProxy $group) {
 
         $logger->info("Step2 : Install.sql\n");
 
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/mysql/install/Install.sql';
-        $logger->info("filename sql : \n".  $filename);
-
-        SQLUtils::sqlImport($filename, $pdo);
-
-        $logger->info("Step2' Plugins MeetingJitsi: Install.sql\n");
-
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/MeetingJitsi/mysql/Install.sql';
+        $filename = SystemURLs::getDocumentRoot().SystemURLs::getRootPath().'/mysql/install/Install.sql';
         $logger->info("filename sql : \n".  $filename);
 
         SQLUtils::sqlImport($filename, $pdo);
 
         // now we install the version
         $logger->info("Step3 : Version\n");
+
 
         $sql = "INSERT INTO `version_ver` (`ver_version`, `ver_update_start`, `ver_update_end`) VALUES ('".$version."', '".$date."', '".$date."');";
 
@@ -153,7 +148,7 @@ $app->group('/', function (RouteCollectorProxy $group) {
         // we install the language
         $logger->info("Step5 : language\n sql : ". $sql);
 
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/mysql/install/languages/'.$setupDate['sLanguage'].'.sql';
+        $filename = SystemURLs::getDocumentRoot().SystemURLs::getRootPath().'/mysql/install/languages/'.$setupDate['sLanguage'].'.sql';
         $logger->info("filename language : \n".  $filename );
 
         //if (file_exists($filename)) {
@@ -165,55 +160,16 @@ $app->group('/', function (RouteCollectorProxy $group) {
         // we install the language
         $logger->info("Step6 : Dashboard plugins\n sql : ". $sql);
 
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/BirthdayAnniversaryDashboard/mysql/Install.sql';
-        $logger->info("filename sql : \n".  $filename);
+        $files = scandir(__DIR__ . "/../../Plugins/");
 
-        SQLUtils::sqlImport($filename, $pdo);
+        foreach ($files as $file) {
+            if (!in_array($file, [".", ".."])) {
+                $filename = SystemURLs::getDocumentRoot().SystemURLs::getRootPath().'/Plugins/' . $file . '/mysql/Install.sql';
+                $logger->info("filename sql : \n".  $filename);
 
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/CurrentUsersDashboard/mysql/Install.sql';
-        $logger->info("filename sql : \n".  $filename);
-
-        SQLUtils::sqlImport($filename, $pdo);
-
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/FamilyInfosDashboard/mysql/Install.sql';
-
-        $logger->info("filename sql : \n".  $filename);
-        SQLUtils::sqlImport($filename, $pdo);
-
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/FinanceDashboard/mysql/Install.sql';
-        $logger->info("filename sql : \n".  $filename);
-
-        SQLUtils::sqlImport($filename, $pdo);
-
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/MeetingJitsi/mysql/Install.sql';
-        $logger->info("filename sql : \n".  $filename);
-
-        SQLUtils::sqlImport($filename, $pdo);
-
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/NewsDashboard/mysql/Install.sql';
-        $logger->info("filename sql : \n".  $filename);
-
-        SQLUtils::sqlImport($filename, $pdo);
-
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/NoteDashboard/mysql/Install.sql';
-        $logger->info("filename sql : \n".  $filename);
-
-        SQLUtils::sqlImport($filename, $pdo);
-
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/PastoralCareDashboard/mysql/Install.sql';
-        $logger->info("filename sql : \n".  $filename);
-
-        SQLUtils::sqlImport($filename, $pdo);
-
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/PersonInfosDashboard/mysql/Install.sql';
-        $logger->info("filename sql : \n".  $filename);
-
-        SQLUtils::sqlImport($filename, $pdo);
-
-        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/ToDoListDashboard/mysql/Install.sql';
-        $logger->info("filename sql : \n".  $filename);
-
-        SQLUtils::sqlImport($filename, $pdo);
+                SQLUtils::sqlImport($filename, $pdo);
+            }
+        }
 
         $logger->info("Setup : End");
 
