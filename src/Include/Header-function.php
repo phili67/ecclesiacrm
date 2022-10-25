@@ -143,8 +143,6 @@ function Header_modals()
 function Header_body_scripts()
 {
     $localeInfo = Bootstrapper::GetCurrentLocale();
-
-
     $pluginInfos = MiscUtils::pluginInformations();
 
 ?>
