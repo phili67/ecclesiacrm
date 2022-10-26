@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-18 19:13+0000\n"
+"POT-Creation-Date: 2022-10-25 20:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5223,7 +5223,7 @@ msgstr ""
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:192
+#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:190
 msgid "Print"
 msgstr ""
 
@@ -7773,7 +7773,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: Include/Header-function.php:191
+#: Include/Header-function.php:189
 msgid "Change columns"
 msgstr ""
 

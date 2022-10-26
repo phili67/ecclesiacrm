@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-17 19:35+0000\n"
+"POT-Creation-Date: 2022-10-25 20:48+0000\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5360,7 +5360,7 @@ msgstr "Opiskelija"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:192
+#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:190
 msgid "Print"
 msgstr "Tulosta"
 
@@ -7950,7 +7950,7 @@ msgstr "Näytä ongelma GitHubissa"
 msgid "OK"
 msgstr "OK"
 
-#: Include/Header-function.php:191
+#: Include/Header-function.php:189
 msgid "Change columns"
 msgstr "Vaihda sarakkeita"
 
