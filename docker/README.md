@@ -33,11 +33,25 @@ cp sample.env .env
 sudo bash install_or_launch_docker.sh
 // visit localhost
 ```
-Your LAMP stack is now ready!! You can access it via `http://localhost`.
+- Your LAMP stack is now ready!! You can access it via `http://localhost`
+
+Pass the different pannel, but at this pannel, set your datas like this :
 
 <img width="1109" alt="Welcome to EcclesiaCRM8 setup wizard" src="https://user-images.githubusercontent.com/20263693/198359399-02f91826-bfe0-42ff-a293-0e3e2939744f.png">
 
-your phpMyAdmin too
+The password is **tiger**
+
+At this end, your should be on this page
+
+<img width="695" alt="Capture d’écran 2022-10-27 à 15 55 12" src="https://user-images.githubusercontent.com/20263693/198359955-002f3992-0e43-4574-b18a-58291a91c165.png">
+
+The default login is : admin
+The default password is : changeme
+
+Last you should see :
+<img width="2048" alt="Capture d’écran 2022-10-27 à 18 50 24" src="https://user-images.githubusercontent.com/20263693/198360109-e5da5fc1-e1d0-4692-8e80-78711b3e0465.png">
+
+- your phpMyAdmin too
 
 <img width="1425" alt="Capture d’écran 2022-10-27 à 18 50 48" src="https://user-images.githubusercontent.com/20263693/198359520-11397f94-01d2-40b9-8282-8d768ee656dc.png">
 
