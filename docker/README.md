@@ -26,15 +26,20 @@ As of now, we have several different PHP versions. Use appropriate php version a
 - Run the `docker-compose up -d`.
 
 ```shell
-git clone https://github.com/sprintcube/docker-compose-lamp.git
-cd docker-compose-lamp/
+git clone https://github.com/phili67/ecclesiacrm.git
+cd ecclesiacrm/
 cp sample.env .env
 // modify sample.env as needed
-docker-compose up -d
+sudo bash install_or_launch_docker.sh
 // visit localhost
 ```
-
 Your LAMP stack is now ready!! You can access it via `http://localhost`.
+
+<img width="1109" alt="Welcome to EcclesiaCRM8 setup wizard" src="https://user-images.githubusercontent.com/20263693/198359399-02f91826-bfe0-42ff-a293-0e3e2939744f.png">
+
+your phpMyAdmin too
+
+<img width="1425" alt="Capture d’écran 2022-10-27 à 18 50 48" src="https://user-images.githubusercontent.com/20263693/198359520-11397f94-01d2-40b9-8282-8d768ee656dc.png">
 
 ## Configuration and Usage
 
