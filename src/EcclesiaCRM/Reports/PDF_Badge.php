@@ -142,7 +142,7 @@ class PDF_Badge extends PDF_Label
             $this->Cell($this->_Width, 10,  mb_strtoupper($firstName), 0, 0, 'C');
 
             $this->SetFontSize(12);
-            $this->SetXY($_PosX, $_PosY + $this->_Height / 4 * 3 - $this->_Get_Height_Chars(12));
+            $this->SetXY($_PosX, $_PosY + $this->_Height / 4 * 3 - $this->_Get_Height_Chars($lastNameFontSize));
             $this->Cell($this->_Width, 10, mb_strtoupper($LastName), 0, 0, 'C');
 
             $this->SetFontSize(4);
