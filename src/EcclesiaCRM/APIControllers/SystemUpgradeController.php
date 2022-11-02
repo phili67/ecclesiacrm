@@ -42,7 +42,8 @@ class SystemUpgradeController
 
     public function isUpdateRequired (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         if (SessionUser::getUser()->isAdmin() && $_SESSION['isSoftwareUpdateTestPassed'] == false) {
-            $isUpdateRequired = $_SESSION['latestVersion'] != null && $_SESSION['latestVersion']['name'] != $_SESSION['sSoftwareInstalledVersion'];
+            $compare = version_compare($_SESSION['sSoftwareInstalledVersion'], $_SESSION['latestVersion']['name']);
+            $isUpdateRequired = $_SESSION['latestVersion'] != null && $compare != 1;
             $_SESSION['isSoftwareUpdateTestPassed'] = true;
         } else {
             $isUpdateRequired = 0;
