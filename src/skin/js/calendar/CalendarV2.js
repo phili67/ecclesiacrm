@@ -238,6 +238,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                         $("form #EventAlarm").val(event.extendedProps.alarm.trigger).trigger('change');
                                     }
 
+                                    if (event.allDay) {
+                                        $("#checkboxEventAllday").prop("checked", true);
+                                    }
+
                                     if (event.extendedProps.recurrent == 1) {
                                         $("#checkboxEventrecurrence").prop( "checked", true );
 
