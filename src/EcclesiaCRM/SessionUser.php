@@ -1,6 +1,8 @@
 <?php
 namespace EcclesiaCRM;
 
+use EcclesiaCRM\dto\SystemURLs;
+
 class SessionUser
 {
     public static function isActive()
@@ -24,6 +26,7 @@ class SessionUser
         }
     }
     public static function setCurrentPageName($pageName) {
+        $pageName = str_replace(SystemURLs::getRootPath(), "", $pageName);
         if ($pageName[0] == '/') {
             $pageName = substr($pageName, 1);
         }
