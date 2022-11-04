@@ -166,5 +166,8 @@ ALTER TABLE `user_usr` ADD `usr_is_logged_in` tinyint(1) unsigned NOT NULL defau
 -- 2022-10-03
 ALTER TABLE `user_usr` ADD `usr_tLastOperation_date` datetime NOT NULL default '2000-01-01 00:00:00';
 
+-- 2022-11-03
+ALTER TABLE `events_event` ADD `event_allday` BOOLEAN NOT NULL default 0;
+
 
 
