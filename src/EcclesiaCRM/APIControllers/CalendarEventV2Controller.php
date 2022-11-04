@@ -349,7 +349,7 @@ class CalendarEventV2Controller
             if (!$calendarService->createEventForCalendar($input->calendarID, $input->start, $input->end,
                 $input->recurrenceType, $input->endrecurrence, $input->EventDesc, $input->EventTitle, $input->location,
                 $input->recurrenceValid, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
-                $input->eventInActive, $input->Fields, $input->EventCountNotes)) {
+                $input->eventInActive, $input->Fields, $input->EventCountNotes, $input->checkboxEventAllday)) {
                 return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
             }
 
@@ -752,7 +752,7 @@ class CalendarEventV2Controller
 
             return $response->withJson($calendarService->modifyEventFromCalendar($input->calendarID, $input->eventID, $input->reccurenceID, $input->start,
                 $input->end, $input->EventTitle, $input->EventDesc, $input->location, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
-                $input->eventInActive, $input->Fields, $input->EventCountNotes, $input->recurrenceValid, $input->recurrenceType, $input->endrecurrence));
+                $input->eventInActive, $input->Fields, $input->EventCountNotes, $input->recurrenceValid, $input->recurrenceType, $input->endrecurrence, $input->eventAllday));
         }
 
         return $response->withJson(["status" => "failed"]);
