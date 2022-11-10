@@ -173,7 +173,7 @@ if (!$load_Elements) {
     <div class="row">
         <div class="col-lg-2 col-xs-6">
             <!-- small box -->
-            <div class="small-box bg-gradient-lime">
+            <div class="small-box bg-gradient-green">
                 <div class="inner">
                     <h3 id="singleCNT">
                         <?= $dashboardCounts['singleCount'] ?>
@@ -216,7 +216,7 @@ if (!$load_Elements) {
         </div><!-- ./col -->
         <div class="col-lg-2 col-xs-6">
             <!-- small box -->
-            <div class="small-box bg-purple">
+            <div class="small-box bg-gradient-purple">
                 <div class="inner">
                     <h3 id="peopleStatsDashboard">
                         <?= $dashboardCounts['personCount'] ?>
@@ -238,7 +238,7 @@ if (!$load_Elements) {
             ?>
             <div class="col-lg-2 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-yellow">
+                <div class="small-box bg-gradient-yellow">
                     <div class="inner">
                         <h3 id="groupStatsSundaySchool">
                             <?= $dashboardCounts['SundaySchoolCount'] ?>
@@ -260,7 +260,7 @@ if (!$load_Elements) {
         ?>
         <div class="col-lg-2 col-xs-6">
             <!-- small box -->
-            <div class="small-box bg-maroon">
+            <div class="small-box bg-gradient-maroon">
                 <div class="inner">
                     <h3 id="groupsCountDashboard">
                         <?= $dashboardCounts['groupsCount'] ?>

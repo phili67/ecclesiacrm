@@ -74,7 +74,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-lg-2 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-gradient-lime">
+        <div class="small-box bg-gradient-green">
             <div class="inner">
                 <h3 id="singleCNT">
                     <?= $PeopleAndSundaySchoolCountStats['singleCount'] ?>
@@ -117,7 +117,7 @@ require $sRootDocument . '/Include/Header.php';
     </div><!-- ./col -->
     <div class="col-lg-2 col-md-6 col-sm-6">
         <!-- small box -->
-        <div class="small-box bg-purple">
+        <div class="small-box bg-gradient-purple">
             <div class="inner">
                 <h3 id="peopleStatsDashboard">
                     <?= $PeopleAndSundaySchoolCountStats['personCount'] ?>
@@ -139,7 +139,7 @@ require $sRootDocument . '/Include/Header.php';
     <?php if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) { ?>
         <div class="col-lg-2 col-md-6 col-sm-6">
             <!-- small box -->
-            <div class="small-box bg-yellow">
+            <div class="small-box bg-gradient-yellow">
                 <div class="inner">
                     <h3 id="groupStatsSundaySchoolKids">
                         <?= $PeopleAndSundaySchoolCountStats['sundaySchoolCountStats']['sundaySchoolkids'] ?>
@@ -161,7 +161,7 @@ require $sRootDocument . '/Include/Header.php';
     <!-- ./col -->
     <div class="col-lg-2 col-md-6 col-sm-6">
         <!-- small box -->
-        <div class="small-box bg-maroon">
+        <div class="small-box bg-gradient-maroon">
             <div class="inner">
                 <h3 id="groupsCountDashboard">
                     <?= $PeopleAndSundaySchoolCountStats['groupsCount'] ?>
