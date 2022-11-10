@@ -752,6 +752,7 @@
         <column name="event_desc" phpName="Desc" type="VARCHAR" size="255"/>
         <column name="event_text" phpName="Text" type="LONGVARCHAR"/>
         <column name="event_start" phpName="Start" type="TIMESTAMP" required="true"/>
+        <column name="event_allday" phpName="Allday" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="event_end" phpName="End" type="TIMESTAMP" required="true"/>
         <column name="inactive" phpName="InActive" type="INTEGER" size="1" required="true" defaultValue="0"/>
         <column name="event_typename" phpName="TypeName" type="VARCHAR" size="40" required="true" defaultValue=""/>

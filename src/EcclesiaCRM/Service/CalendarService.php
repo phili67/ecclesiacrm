@@ -243,6 +243,7 @@ class CalendarService
 
                     $title = $evnt->getTitle();
                     $desc = $evnt->getDesc();
+                    $allDay = $evnt->getAllday();
                     $start = $evnt->getStart('Y-m-d H:i:s');
                     $end = $evnt->getEnd('Y-m-d H:i:s');
                     $id = $evnt->getID();
@@ -392,7 +393,7 @@ class CalendarService
                                         $subid++, 1, $reccurenceID, $rrule, $freq, $writeable,
                                         $loc, $lat, $long, $alarm, $cal_type, $cal_category, $eventTypeName,
                                         $eventGroupName, $eventCalendarName, $eventRights, $loginName,
-                                        $realStats, $freeStats, $status);// only the event id sould be edited and moved and have custom color
+                                        $realStats, $freeStats, $status, $link, $allDay);// only the event id sould be edited and moved and have custom color
 
                                     array_push($events, $event);
                                 }
@@ -414,7 +415,7 @@ class CalendarService
                                 $desc, $text, $calID, $calendarColor, 0, 0, 0, $rrule, $freq,
                                 $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category,
                                 $eventTypeName, $eventGroupName, $eventCalendarName, $eventRights, $loginName,
-                                $realStats, $freeStats, $status, $link);// only the event id sould be edited and moved and have custom color
+                                $realStats, $freeStats, $status, $link, $allDay);// only the event id sould be edited and moved and have custom color
 
                             array_push($events, $event);
                         }
@@ -431,15 +432,17 @@ class CalendarService
                                                    $recurrent = 0, $reccurenceID = '', $rrule = '', $freq = '',
                                                    $writeable = false, $location = "", $latitude = 0, $longitude = 0, $alarm = "", $cal_type = "0",
                                                    $cal_category = "personal", $eventTypeName = "all", $eventGroupName = "None", $eventCalendarName = "None",
-                                                   $eventRights = false, $loginName = "", $realStats = [], $freeStats = [], $status='no', $link = null)
+                                                   $eventRights = false, $loginName = "", $realStats = [], $freeStats = [], $status='no', $link = null, $allDay = false)
     {
         $event = [];
         switch ($type) {
             case 'birthday':
                 $event['backgroundColor'] = '#dd4b39';
+                $allDay = true;
                 break;
             case 'anniversary':
                 $event['backgroundColor'] = '#3c8dbc';
+                $allDay = true;
                 break;
             default:
                 $event['backgroundColor'] = '#eeeeee';
@@ -461,6 +464,7 @@ class CalendarService
         $event['CalendarName'] = $eventCalendarName;
         $event['Rights'] = $eventRights;
         $event['Link'] = $link;
+
 
         if ($status == _('No')) {
             $event['Status'] = '<span style="color:red;text-align:center">'.$status.'</span>';
@@ -535,8 +539,8 @@ class CalendarService
                     . '  <input type="hidden" name="EID" value="' . $eventID . '">'
                     . '  <input type="hidden" name="EName" value="' . $title . '">'
                     . '  <input type="hidden" name="EDesc" value="' . $desc . '">'
-                    . '  <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">'
-                    . '<span style="font-size: 12px;">' ._('No Attendance Recorded') . '</span><br>'
+                    . '  <input type="hidden" name="EDate" value="'.  OutputUtils::FormatDate($start, 1) . '">'
+                    //. '<span style="font-size: 12px;">' ._('No Attendance Recorded') . '</span><br>'
                     . '  <input type="submit" name="Action" value="' . _('Attendees') . '(' . $realStats['attNumRows'] . ')' . '" class="btn btn-info btn-xs" >'
                     . '</form>';
 
@@ -582,10 +586,11 @@ class CalendarService
             $event['Login'] = "";
         }
 
-        if ($end != '') {
+        if ($allDay == false) {
             $event['end'] = $end;
             $event['allDay'] = false;
         } else {
+            $event['end'] = $end;
             $event['allDay'] = true;
         }
         if ($uri != '') {
@@ -647,7 +652,7 @@ class CalendarService
 
     public function createEventForCalendar($calendarID, $start, $end, $recurrenceType, $endrecurrence, $EventDesc, $EventTitle, $inputlocation,
                                            $recurrenceValid, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes, $eventInActive, $Fields,
-                                           $EventCountNotes)
+                                           $EventCountNotes, $allDay = false)
     {
         // New way to manage events
         // We set the BackEnd for sabre Backends
@@ -789,6 +794,7 @@ class CalendarService
         $event->setText($eventNotes);
         $event->setTypeName($eventTypeName);
         $event->setInActive($eventInActive);
+        $event->setAllday((is_null($allDay) or $allDay == false)?0:1);
 
         if ($isCalendarResource) {
             $event->setCreatorUserId(SessionUser::getId());
@@ -894,7 +900,8 @@ class CalendarService
 
     public function modifyEventFromCalendar($calendarID, $eventID, $reccurenceID, $start, $end, $EventTitle,
                                             $EventDesc, $location, $addGroupAttendees, $alarm, $eventTypeID,
-                                            $eventNotes, $eventInActive, $Fields, $EventCountNotes, $recurrenceValid, $recurrenceType, $endrecurrence)
+                                            $eventNotes, $eventInActive, $Fields, $EventCountNotes, $recurrenceValid, $recurrenceType,
+                                            $endrecurrence, $allDay)
     {
         $old_event = EventQuery::Create()->findOneById($eventID);
 
@@ -937,7 +944,7 @@ class CalendarService
                         $calendarID, $start, $end,
                         "", "", $EventDesc, $EventTitle, $location,
                         false, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes,
-                        $eventInActive, $Fields, $EventCountNotes
+                        $eventInActive, $Fields, $EventCountNotes, $allDay
                     );
 
                     return ["status" => "success"];
@@ -949,7 +956,7 @@ class CalendarService
                         $calendarID, $start, $end,
                         $recurrenceType, $endrecurrence, $EventDesc, $EventTitle, $location,
                         $recurrenceValid, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes,
-                        $eventInActive, $Fields, $EventCountNotes
+                        $eventInActive, $Fields, $EventCountNotes, $allDay
                     );
                     return ["status" => "success"];
                 }
@@ -964,7 +971,7 @@ class CalendarService
                     $calendarID, $start, $end,
                     "", "", $EventDesc, $EventTitle, $location,
                     false, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes,
-                    $eventInActive, $Fields, $EventCountNotes
+                    $eventInActive, $Fields, $EventCountNotes, $allDay
                 );
             }
         } /*else { // bug whith an old recursive calendar event
@@ -976,7 +983,7 @@ class CalendarService
                 $calendarID, $start, $end,
                 $recurrenceType, $endrecurrence, $EventDesc, $EventTitle, $location,
                 $recurrenceValid, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes,
-                $eventInActive, $Fields, $EventCountNotes
+                $eventInActive, $Fields, $EventCountNotes, $allDay
             );
 
             return ["status" => "success"];
@@ -1120,6 +1127,7 @@ class CalendarService
         $old_event->setText($eventNotes);
         $old_event->setTypeName($eventTypeName);
         $old_event->setInActive($eventInActive);
+        $old_event->setAllday((is_null($allDay) or $allDay == false)?0:1);
 
         $old_event->setLocation($location);
         $old_event->setCoordinates($coordinates);

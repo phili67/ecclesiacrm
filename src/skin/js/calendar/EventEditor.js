@@ -609,12 +609,12 @@ function BootboxContent(start, end, windowtitle, title) {
         + '      <hr/>'
         + '  </div>'
         + '  <div class="row date-title div-title">'
-        + '      <div class="date-range" id="rangeStart" data-datestart="' + dateStart + '">'
-        + i18next.t('From') + ' : ' + dateStart + ' ' + timeStart
-        + '</div>'
-        + '      <div class="date-range" id="rangeEnd" data-dateend="' + dateEnd + '">'
-        + i18next.t('to') + ' : ' + dateEnd + ' ' + timeEnd
-        + '</div>'
+        + '      <div class="col-md-4 text-center" id="rangeStart" data-datestart="' + dateStart + '">'
+        +           i18next.t('From') + ' : ' + dateStart + ' ' + timeStart
+        + '      </div>'
+        + '      <div class="col-md-4 text-center" id="rangeEnd" data-dateend="' + dateEnd + '">'
+        +           i18next.t('to') + ' : ' + dateEnd + ' ' + timeEnd
+        + '      </div>'
         + '  </div>'
         + '  <div class="row date-start div-block">'
         + '      <div class="col-md-12">'
@@ -622,7 +622,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '              <div class="col-md-3"><span style="color: red">*</span>'
         + i18next.t('Start Date') + ' :'
         + '              </div>'
-        + '              <div class="input-group col-md-4">'
+        + '              <div class="input-group col-md-3">'
         + '                  <div class="input-group-prepend">'
         + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
         + '                  </div>'
@@ -630,12 +630,15 @@ function BootboxContent(start, end, windowtitle, title) {
         + '                      maxlength="10" id="sel1" size="11"'
         + '                      placeholder="' + window.CRM.datePickerformat + '">'
         + '              </div>'
-        + '              <div class="input-group col-md-4">'
+        + '              <div class="input-group col-md-3">'
         + '                  <div class="input-group-prepend">'
         + '                      <span class="input-group-text"><i class="fas fa-clock"></i></span>'
         + '                  </div>'
         + '                  <input type="text" class="form-control timepicker form-control-sm" id="timeEventStart" name="timeEventStart" value="' + timeStart + '">'
         + '              </div>'
+        + '             <div class="col-md-3 text-center">'
+        + '                 <input type="checkbox" id="checkboxEventAllday" name="checkboxEventAllday"> ' + i18next.t('All day')
+        + '             </div>'
         + '          </div>'
         + '      </div>'
         + '  </div>'
@@ -645,7 +648,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '              <div class="col-md-3"><span style="color: red">*</span>'
         + i18next.t('End Date') + ' :'
         + '              </div>'
-        + '              <div class="input-group col-md-4">'
+        + '              <div class="input-group col-md-3">'
         + '                  <div class="input-group-prepend">'
         + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
         + '                  </div>'
@@ -653,7 +656,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '                      maxlength="10" id="sel1" size="11"'
         + '                      placeholder="' + window.CRM.datePickerformat + '">'
         + '              </div>'
-        + '              <div class="input-group col-md-4">'
+        + '              <div class="input-group col-md-3">'
         + '                  <div class="input-group-prepend">'
         + '                      <span class="input-group-text"><i class="fas fa-clock"></i></span>'
         + '                  </div>'
@@ -820,6 +823,8 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                         var timeEnd = $('form #timeEventEnd').val();
 
                         var recurrenceValid = $('#checkboxEventrecurrence').is(":checked");
+                        var checkboxEventAllday = $('#checkboxEventAllday').is(":checked");
+
                         var recurrenceType = $("#typeEventrecurrence").val();
                         var endrecurrence = $("#endDateEventrecurrence").val();
 
@@ -877,6 +882,7 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                             data: JSON.stringify({
                                 "eventAction": dialogType,
                                 "eventID": eventID,
+                                "eventAllday": checkboxEventAllday,
                                 "eventTypeID": eventTypeID,
                                 "EventTitle": EventTitle,
                                 "EventDesc": EventDesc,

@@ -428,6 +428,7 @@ CREATE TABLE `events_event` (
   `event_text` text,
   `event_start` datetime NOT NULL,
   `event_end` datetime NOT NULL,
+  `event_allday` BOOLEAN NOT NULL default 0,
   `event_last_occurence` datetime NOT NULL,
   `inactive` int(1) NOT NULL default '0',
   `event_typename` varchar(40) NOT NULL default '',
