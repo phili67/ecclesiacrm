@@ -336,7 +336,7 @@ class CalendarEventV2Controller
     {
         $input = (object)$request->getParsedBody();
 
-        $the_event = Null;
+        $the_event = null;
 
         if (isset($input->eventID)) {
             $the_event = EventQuery::create()->findOneById($input->eventID);
@@ -349,13 +349,16 @@ class CalendarEventV2Controller
             if (!$calendarService->createEventForCalendar($input->calendarID, $input->start, $input->end,
                 $input->recurrenceType, $input->endrecurrence, $input->EventDesc, $input->EventTitle, $input->location,
                 $input->recurrenceValid, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
-                $input->eventInActive, $input->Fields, $input->EventCountNotes, $input->checkboxEventAllday)) {
+                $input->eventInActive, $input->Fields, $input->EventCountNotes, $input->eventAllday)) {
                 return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
             }
 
             return $response->withJson(["status" => "success"]);
 
         } else if (!strcmp($input->eventAction, 'moveEvent')) {
+
+            $the_event->setAllday((is_null($input->eventAllday) or $input->eventAllday == false)?0:1);
+            $the_event->save();
 
             // this part allows to create a resource without being in collision on another one
             if ($the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources()) {
