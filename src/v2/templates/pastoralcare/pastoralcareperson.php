@@ -174,7 +174,7 @@ $sFamilyEmails = [];
             <div class="card-header">
                 <h3 class="card-title"><?= _("Informations") ?></h3>
                 <div class="card-tools">
-                    <?php if (count($family->getActivatedPeople()) > 1) { ?>
+                    <?php if (!is_null($family) and count($family->getActivatedPeople()) > 1) { ?>
                     <button type="button" class="btn btn-tool" title="<?= _("View Family Members") ?>" data-widget="chat-pane-toggle"
                             data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= _("View Family Members") ?>">
                         <i class="fas fa-users"></i>
@@ -383,7 +383,7 @@ $sFamilyEmails = [];
                     </ul>
                 </div>
                 <!-- Contacts are loaded here -->
-                <?php if (count($family->getActivatedPeople()) > 1) { ?>
+                <?php if (!is_null($family) and count($family->getActivatedPeople()) > 1) { ?>
                 <div class="direct-chat-contacts" style="height: 100%;padding: 10px">
                         <br>
                         <h3 class="card-title">
