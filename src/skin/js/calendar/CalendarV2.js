@@ -496,7 +496,12 @@ document.addEventListener('DOMContentLoaded', function () {
                             window.CRM.APIRequest({
                                 method: 'POST',
                                 path: 'events/',
-                                data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd})
+                                data: JSON.stringify({"eventAction":'moveEvent',
+                                    "calendarID":event.extendedProps.calendarID,
+                                    "eventID":event.extendedProps.eventID,
+                                    "start":dateStart,
+                                    "end":dateEnd,
+                                    "eventAllday":event.allDay})
                             },function(data) {
                                 // now we can refresh the calendar
                                 if (data.status == "failed") {
@@ -536,7 +541,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                     window.CRM.APIRequest({
                                         method: 'POST',
                                         path: 'events/',
-                                        data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
+                                        data: JSON.stringify({"eventAction":'moveEvent',
+                                            "calendarID":event.extendedProps.calendarID,
+                                            "eventID":event.extendedProps.eventID,
+                                            "start":dateStart,
+                                            "end":dateEnd,
+                                            "allEvents":false,
+                                            "reccurenceID":reccurenceID,
+                                            "eventAllday":event.allDay})
                                     },function(data) {
                                         if (data.status == "failed") {
                                             window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
@@ -556,7 +568,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                     window.CRM.APIRequest({
                                         method: 'POST',
                                         path: 'events/',
-                                        data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
+                                        data: JSON.stringify({"eventAction":'moveEvent',
+                                            "calendarID":event.extendedProps.calendarID,
+                                            "eventID":event.extendedProps.eventID,
+                                            "start":dateStart,
+                                            "end":dateEnd,
+                                            "allEvents":true,
+                                            "reccurenceID":reccurenceID,
+                                            "eventAllday":event.allDay})
                                     },function(data) {
                                         if (data.status == "failed") {
                                             window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
@@ -588,7 +607,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                 window.CRM.APIRequest({
                                     method: 'POST',
                                     path: 'events/',
-                                    data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
+                                    data: JSON.stringify({"eventAction":'moveEvent',
+                                        "calendarID":event.extendedProps.calendarID,
+                                        "eventID":event.extendedProps.eventID,
+                                        "start":dateStart,
+                                        "end":dateEnd,
+                                        "allEvents":false,
+                                        "reccurenceID":reccurenceID,
+                                        "eventAllday":event.allDay})
                                 },function(data) {
                                     if (data.status == "failed") {
                                         window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
@@ -611,6 +637,7 @@ document.addEventListener('DOMContentLoaded', function () {
         select: function(selectionInfo) {//start end
             var start = selectionInfo.start;
             var end = selectionInfo.end;
+            var allDay = selectionInfo.allDay;
 
             window.CRM.APIRequest({
                 method: 'POST',
@@ -623,7 +650,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         window.CRM.editor = null;
                     }
 
-                    var modal = createEventEditorWindow (start,end);
+                    var modal = createEventEditorWindow (start, end, allDay);
 
                     // we add the calendars and the types
                     addCalendars();
@@ -646,6 +673,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         e.preventDefault();
                         $(this).datepicker('show');
                     });
+
+                    if (allDay) {
+                        $("#checkboxEventAllday").prop("checked", true);
+                    }
 
                     $('.date-start').hide();
                     $('.date-end').hide();
