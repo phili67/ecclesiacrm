@@ -365,7 +365,7 @@ class CalendarService
                     if ( !is_null($evntType) ) {
                         $color = $evntType->getColor();
 
-                        if ($color != '#000000') {
+                        if (!is_null($color) and $color != '#000000') {
                             $calendarColor = $color;
                         }
                     }
