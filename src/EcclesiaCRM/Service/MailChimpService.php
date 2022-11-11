@@ -603,6 +603,13 @@ class MailChimpService
             }
         }
 
+        $your_date_field_name = 'send_time';
+        usort($res, function ($a, $b) use (&$your_date_field_name) {
+            return  strtotime($b[$your_date_field_name]) - strtotime($a[$your_date_field_name]);
+        });
+
+        $res = array_slice($res, 0, 5);
+
         return $res;
     }
 
