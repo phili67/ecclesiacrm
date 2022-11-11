@@ -650,7 +650,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         window.CRM.editor = null;
                     }
 
-                    var modal = createEventEditorWindow (start, end, allDay);
+                    var modal = createEventEditorWindow (start, end);
 
                     // we add the calendars and the types
                     addCalendars();
