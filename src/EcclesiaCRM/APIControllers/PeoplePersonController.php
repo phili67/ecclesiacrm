@@ -247,11 +247,10 @@ class PeoplePersonController
     public function isMailChimpActivePerson (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $input = (object)$request->getParsedBody();
 
-        if ( isset ($input->personId) && isset ($input->email)){
+        // we get the MailChimp Service
+        $mailchimp = $this->container->get('MailChimpService');
 
-            // we get the MailChimp Service
-            $mailchimp = $this->container->get('MailChimpService');
-
+        if ( isset ($input->personId) && isset ($input->email) && $mailchimp->isLoaded() ){
             $person = PersonQuery::create()->findPk($input->personId);
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {

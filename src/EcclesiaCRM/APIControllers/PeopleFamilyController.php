@@ -84,10 +84,11 @@ class PeopleFamilyController
     public function isMailChimpActiveFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $input = (object)$request->getParsedBody();
 
-        if ( isset ($input->familyId) && isset ($input->email)){
+        // we get the MailChimp Service
+        $mailchimp = $this->container->get('MailChimpService');
 
-            // we get the MailChimp Service
-            $mailchimp = $this->container->get('MailChimpService');
+        if ( isset ($input->familyId) && isset ($input->email) && $mailchimp->isLoaded() ){
+
             $family = FamilyQuery::create()->findPk($input->familyId);
             $isIncludedInMailing = $family->getSendNewsletter();
 
