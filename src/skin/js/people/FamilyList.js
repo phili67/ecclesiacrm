@@ -8,6 +8,8 @@
 $(document).ready(function () {
   $('.remove-property-btn').click(function(e) {
     var familyId = $(this).data('family_id');
+    var row = window.CRM.familiesListTable.row( $(this).parents('tr') );
+    var rowNode = row.node();
 
     bootbox.confirm({
       message: i18next.t("Are you sure you want to remove this family from the CRM") + "?",
@@ -30,7 +32,7 @@ $(document).ready(function () {
             path: 'gdrp/removefamily',
             data: JSON.stringify({"familyId":familyId})
           },function(data) {
-            location.reload();
+              row.remove().draw();
           });
         }
       }

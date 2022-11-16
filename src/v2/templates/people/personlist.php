@@ -125,7 +125,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <script nonce="<?= $sCSPNonce ?>" >
   $(document).ready(function () {
-    $('#personlist').DataTable(window.CRM.plugin.dataTable);
+      window.CRM.personsListTable = $('#personlist').DataTable(window.CRM.plugin.dataTable);
   });
 </script>
 

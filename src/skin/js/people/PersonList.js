@@ -8,6 +8,8 @@
 $(document).ready(function () {
   $('.remove-property-btn').click(function(e) {
     var personId = $(this).data('person_id');
+    var row = window.CRM.personsListTable.row( $(this).parents('tr') );
+    var rowNode = row.node();
 
     bootbox.confirm({
       message: i18next.t("Are you sure you want to remove this person from the CRM") + "?",
@@ -30,7 +32,7 @@ $(document).ready(function () {
             path: 'gdrp/removeperson',
             data: JSON.stringify({"personId":personId})
           },function(data) {
-            location.reload();
+              row.remove().draw();
           });
         }
       }
