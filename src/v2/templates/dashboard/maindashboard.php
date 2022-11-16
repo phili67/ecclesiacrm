@@ -13,7 +13,6 @@
 // Include the function library
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\PluginUserRoleQuery;
@@ -22,10 +21,6 @@ use EcclesiaCRM\PluginUserRole;
 // we place this part to avoid a problem during the upgrade process
 // Set the page title
 require $sRootDocument . '/Include/Header.php';
-
-$mailchimp = new MailChimpService();
-
-$isActive = $mailchimp->isActive();
 
 $load_Elements = false;
 
@@ -55,47 +50,9 @@ foreach ($plugins as $plugin) {
     }
 }
 
-if ($isActive == true) {
-    $isLoaded = $mailchimp->isLoaded();
 
-    if (!$isLoaded) {
-        $load_Elements = true;
-        ?>
-        <br/><br/><br/>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="text-center">
-                    <h2 class="headline text-primary"><i class="fas fa-spin fa-spinner"></i> <?= _("Loading in progress") ?> ....</h2>
-                </div>
-
-                <div class="error-content">
-                    <h3>
-                        <i class="fas fa-exclamation-triangle text-primary"></i> <?= gettext("Loading datas for the proper functioning of EcclesiaCRM") ?>.
-                    </h3>
-
-                    <p>
-                    <ul>
-                        <li>
-                            <?= _("Importing data from Mailchimp") ?>.
-                        </li>
-                        <li>
-                            <?= _("EcclesiaCRM data integrity check") ?>.
-                        </li>
-                        <li>
-                            <?= _("Verification of the technical data of the hosting for the proper functioning of EcclesiaCRM") ?>.
-                        </li>
-                    </ul>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <?php
-    }
-}
 
 if (!$load_Elements) {
-
     ?>
 
     <!-- GDPR -->

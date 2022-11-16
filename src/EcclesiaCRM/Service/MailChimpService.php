@@ -36,7 +36,7 @@ class MailChimpService
 
     public function __construct()
     {
-        if (!empty(SystemConfig::getValue('sMailChimpApiKey'))) {
+        if ( !empty(SystemConfig::getValue('sMailChimpApiKey')) ) {
             $this->isActive = true;
             $this->myMailchimp = new MailChimp(SystemConfig::getValue('sMailChimpApiKey'));
             $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp->post("authorized-apps");
@@ -602,6 +602,13 @@ class MailChimpService
                 $res[] = $campaign;
             }
         }
+
+        $your_date_field_name = 'send_time';
+        usort($res, function ($a, $b) use (&$your_date_field_name) {
+            return  strtotime($b[$your_date_field_name]) - strtotime($a[$your_date_field_name]);
+        });
+
+        $res = array_slice($res, 0, 5);
 
         return $res;
     }

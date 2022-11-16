@@ -9,8 +9,42 @@
  ******************************************************************************/
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\MailChimpService;
 
 require $sRootDocument . '/Include/Header.php';
+
+$mailchimp = new MailChimpService();
+
+$isActive = $mailchimp->isActive();
+
+$load_Elements = false;
+
+if ($isActive == true) {
+    $isLoaded = $mailchimp->isLoaded();
+
+    if (!$isLoaded) {
+        $load_Elements = true;
+        ?>
+        <br/><br/><br/>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="text-center">
+                    <h2 class="headline text-primary"><i class="fas fa-spin fa-spinner"></i> <?= _("Loading in progress") ?> ....</h2>
+                </div>
+
+                <div class="error-content">
+                    <h3>
+                        <i class="fas fa-exclamation-triangle text-primary"></i>  <?= _("Importing data from Mailchimp") ?>.
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+}
+
+if (!$load_Elements) {
 ?>
 
 <?php
@@ -88,15 +122,19 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
 </div>
 
 <div id="container"></div>
+    <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/AutomaticDarkMode.js"></script>
+    <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+        window.CRM.mailchimpIsActive = <?= $isMailChimpActiv ?>;
+        window.CRM.getSupportURL = "<?= $getSupportURL ?>";
+        window.CRM.isMailChimpLoaded = <?= $isMailChimpLoaded ?>;
+    </script>
 
-<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/AutomaticDarkMode.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Dashboard.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
+
+    <?php
+} // end of $load_Elements
+?>
+
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    window.CRM.mailchimpIsActive = <?= $isMailChimpActiv ?>;
-    window.CRM.getSupportURL = "<?= $getSupportURL ?>";
-    window.CRM.isMailChimpLoaded = <?= $isMailChimpLoaded ?>;
-</script>
-
-<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Dashboard.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
