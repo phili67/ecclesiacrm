@@ -58,7 +58,7 @@ CREATE TABLE `plugin_pref_jitsimeeting_pjmp` (
 --
 
 INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`)
-VALUES ('MeetingJitsi', 'Plugin for jitsi Meeting', 'Meeting', NULL, '', '0', '1.0', 'jm_', 'inside_category_menu');
+VALUES ('MeetingJitsi', 'Plugin for jitsi Meeting', 'Meeting', NULL, '', '0', '1.0', 'jm_', 'after_category_menu');
 
 INSERT INTO `plugin_pref_jitsimeeting_pjmp` (`jm_pjmp_personmeeting_pm_id`, `jm_pjmp_domain` ,`jm_pjmp_domainscriptpath`)
 VALUES (LAST_INSERT_ID(),'meet.jit.si', 'https://meet.jit.si/external_api.js');
