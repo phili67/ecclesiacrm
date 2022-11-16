@@ -232,8 +232,6 @@ class PersonSearchRes extends BaseSearchRes
                         $res_buffer = [];
 
                         foreach ($people as $person) {
-                            if ($person->getDateDeactivated() != NULL) continue;
-
                             $ormAssignedProperties = Record2propertyR2pQuery::Create()
                                 ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID, PropertyTableMap::COL_PRO_ID, Criteria::LEFT_JOIN)
                                 ->addJoin(PropertyTableMap::COL_PRO_PRT_ID, PropertyTypeTableMap::COL_PRT_ID, Criteria::LEFT_JOIN)
