@@ -6,6 +6,7 @@ $(document).ready(function () {
     var buildMenu = false;
     var cart = [];
     var search_Term = window.CRM.mode;
+    var first_loaded = true;
 
     if (search_Term != "*") {
         $(".person-filters").hide();
@@ -618,6 +619,9 @@ $(document).ready(function () {
 
     // newMessage event handler
     function updateButtons(e) {
-        window.CRM.dataSearchTable.ajax.reload(null , false);
+        if ( first_loaded == false ) {
+            window.CRM.dataSearchTable.ajax.reload(null, false);
+        }
+        first_loaded = false;
     }
 });
