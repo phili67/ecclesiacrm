@@ -448,16 +448,49 @@ class CalendarService
                 $event['backgroundColor'] = '#eeeeee';
         }
 
-        $event['title'] = $title;
+        $event['title'] = $event['title_desc'] = $title;
+
+        if ( !empty($desc) ) {
+            $event['title_desc'] .= "<br/>(" . $desc  . ")";
+        }
+
+        $event['title_full'] =
+
         $event['start'] = $start;
-        $event['month'] = (int)explode('-', $start)[1];
+        $event['start_name'] = (new \DateTime($start))->format(SystemConfig::getValue('sDateFormatLong') . ' H:i');
         $event['origStart'] = $start;
+
+        $event['month'] = (int)explode('-', $start)[1];
+
+        $datefmt = new \IntlDateFormatter(SystemConfig::getValue('sLanguage'), NULL, NULL, NULL, NULL, 'MMMM');
+        $event['month_name'] = ucfirst($datefmt->format(\DateTime::createFromFormat('!m', $event['month'])));
+
+
 
         if ( !is_null($link) ) {
             $icon .= ' <i class="fas fa-link"></i>';
         }
 
         $event['icon'] = $icon;
+
+        $event['icon_full'] = '<table class="table-responsive" style="width:120px">'.
+        '                <tbody><tr class="no-background-theme">'.
+        '                  <td style="width:100px;padding: 7px 2px;border:none;text-align: center">'.
+        '                     <div class="btn-group" role="group" aria-label="Basic example">'.
+        '                       <button type="submit"  name="Action" data-link="' . $link . '" data-id="' . $eventID .  '" title="' . _('Edit') . '" style="color:' . (($eventRights != "")?'blue':'gray') . '" class="EditEvent btn btn-default btn-xs" ' . (($eventRights)?'':'disabled') . '>' .
+            $icon .
+        '                        </button>'.
+        '                      <button type="submit" name="Action" data-dateStart="' . $start . '" data-reccurenceid="' . $reccurenceID . '" data-recurrent="' . $recurrent . '" data-calendarid="' . implode(",",$calendarid) . '" data-id="' . $eventID . '" title="' . _('Delete') . '"  style="color:' . (($eventRights != "")?'red':'gray') . '" class="DeleteEvent btn btn-default btn-xs" ' . (($eventRights)?'':'disabled') . '>'.
+        '                        <i class="fas fa-trash-alt"></i>'.
+        '                      </button>'.
+        '                      <button type="submit" name="Action" data-id="' . $eventID . '" title="' . _('Info') . '" style="color:' . (($text != "" && $eventRights)?'green':'gray') . '" class="EventInfo btn btn-default btn-xs" ' . (($text != "")?'':'disabled') . '>'.
+        '                        <i class="far fa-file"></i>'.
+        '                      </button>'.
+        '                    </div>'.
+        '                  </td>' .
+        '                </tr>' .
+        '              </tbody></table>';
+
         $event['realType'] = $event['type'] = $type;
         $event['TypeName'] = $eventTypeName;
         $event['GroupName'] = $eventGroupName;
@@ -586,13 +619,9 @@ class CalendarService
             $event['Login'] = "";
         }
 
-        if ($allDay == false) {
-            $event['end'] = $end;
-            $event['allDay'] = false;
-        } else {
-            $event['end'] = $end;
-            $event['allDay'] = true;
-        }
+        $event['end'] = $end;
+        $event['end_name'] = (new \DateTime($end))->format(SystemConfig::getValue('sDateFormatLong') . ' H:i');
+        $event['allDay'] = $allDay;
         if ($uri != '') {
             $event['url'] = $uri;
         }

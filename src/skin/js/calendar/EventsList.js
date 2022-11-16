@@ -54,51 +54,26 @@ $(document).ready(function () {
                 width: 'auto',
                 title: i18next.t('Month'),
                 visible: true,
-                data: 'month',
+                data: 'month_name',
                 render: function (data, type, full, meta) {
-                    var oneDate = moment('02-' + full.month + '-2021', 'DD-MM-YYYY');
-                    return oneDate.format('MMMM');
+                    return data;
                 }
             },
             {
                 width: 'auto',
                 title: i18next.t('Actions'),
                 visible: true,
-                data: 'icon',
+                data: 'icon_full',
                 render: function (data, type, full, meta) {
-                    //full.backgroundColor
-                    return '<table class="table-responsive" style="width:120px">\n' +
-                        '                <tbody><tr class="no-background-theme">\n' +
-                        '                  <td style="width:48px;padding: 7px 2px;border:none;text-align: right">\n' +
-                        '                    <button type="submit"  name="Action" data-link="' + full.Link +'" data-id="' + full.eventID + '" title="' + i18next.t('Edit') + '" style="color:' + ((full.Rights != "")?'blue':'gray') + '" class="EditEvent btn btn-default btn-xs" '+ ((full.Rights)?'':'disabled') +'>\n' +
-                                                data +
-                        '                    </button>\n' +
-                        '                  </td>\n' +
-                        '                  <td style="width:18px;padding: 7px 2px;border:none;">\n' +
-                        '                      <button type="submit" name="Action" data-dateStart="' + full.start + '" data-reccurenceid="' + full.reccurenceID + '" data-recurrent="' + full.recurrent + '" data-calendarid="' + full.calendarID + '" data-id="' + full.eventID+ '" title="' + i18next.t('Delete') + '"  style="color:' + ((full.Rights != "")?'red':'gray') + '" class="DeleteEvent btn btn-default btn-xs" ' + ((full.Rights)?'':'disabled') + '>\n' +
-                        '                        <i class="fas fa-trash-alt"></i>\n' +
-                        '                      </button>\n' +
-                        '                  </td>\n' +
-                        '                  <td style="width:18px;padding: 7px 2px;border:none;text-align: left">\n' +
-                        '                      <button type="submit" name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Info') + '" style="color:' + ((full.Text != "" && full.Rights)?'green':'gray') + '" class="EventInfo btn btn-default btn-xs" ' + ((full.Text != "")?'':'disabled') + '>\n' +
-                        '                        <i class="far fa-file"></i>\n' +
-                        '                      </button>\n' +
-                        '                  </td>\n' +
-                        '                </tr>\n' +
-                        '              </tbody></table>';
+                    return data;
                 }
             },
             {
                 width: 'auto',
                 title: i18next.t('Title') + ' (' + i18next.t('Desc') + ')',
-                data: 'title',
+                data: 'title_desc',
                 render: function (data, type, full, meta) {
-                    var ret = data;
-
-                    if ( full.Desc != '') {
-                        ret += "<br/>(" + full.Desc  + ")";
-                    }
-                    return ret;
+                    return data;
                 }
             },
             {
@@ -133,18 +108,18 @@ $(document).ready(function () {
                 width: 'auto',
                 title: i18next.t('Start Date'),
                 visible: true,
-                data: 'start',
+                data: 'start_name',
                 render: function (data, type, full, meta) {
-                    return moment(data).format(window.CRM.fmt);
+                    return data
                 }
             },
             {
                 width: 'auto',
                 title: i18next.t('End Date'),
                 visible: true,
-                data: 'end',
+                data: 'end_name',
                 render: function (data, type, full, meta) {
-                    return moment(data).format(window.CRM.fmt);
+                    return data
                 }
             },
             {
@@ -341,6 +316,9 @@ $(document).ready(function () {
         var reccurenceID = $(this).data("reccurenceid");
         var dateStart    = $(this).data("datestart");
 
+        var row = window.CRM.DataEventsListTable.row( $(this).parents('tr') );
+        var rowNode = row.node();
+
 
         var box = bootbox.dialog({
             title: i18next.t("Modify Event"),
@@ -365,8 +343,9 @@ $(document).ready(function () {
                                     },function (data) {
                                         if (data.status == "failed") {
                                             window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
+                                        } else {
+                                            row.remove().draw();
                                         }
-                                        window.CRM.reloadListEventPage();
                                     });
                                 }
                             });
