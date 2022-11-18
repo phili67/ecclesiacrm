@@ -33,6 +33,8 @@ $(document).ready(function () {
   $(".DeleleAttendees").on("click",function(e) {
     var eventID = $(this).data("eventid");
     var personID = $(this).data("personid");
+    var row = window.CRM.DataTableEventView.row( $(this).parents('tr') );
+    var rowNode = row.node();
 
     bootbox.confirm({
      title: i18next.t("Attention"),
@@ -54,7 +56,7 @@ $(document).ready(function () {
             path: 'attendees/delete',
             data: JSON.stringify({"eventID":eventID,"personID":personID})
             },function(data) {
-              window.location = window.location.href;
+                row.remove().draw();
             });
         }
       }
@@ -119,5 +121,4 @@ $(document).ready(function () {
           });
       }
   });
-
 });
