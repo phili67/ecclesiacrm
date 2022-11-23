@@ -80,13 +80,22 @@ require $sRootDocument . '/Include/Header.php';
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
 <script nonce="<?= $sCSPNonce ?>">
-    $('#MemberTable').DataTable({
-        "language": {
-            "url": window.CRM.plugin.dataTable.language.url
-        },
-    })
+    $(document).ready(function () {
+        window.CRM.fmt = "";
 
-    window.CRM.fmt = window.CRM.datePickerformat.toUpperCase()+ ' HH:mm:ss';
+        if (window.CRM.timeEnglish == true) {
+            window.CRM.fmt = window.CRM.datePickerformat.toUpperCase() + ' hh:mm:ss a';
+        } else {
+            window.CRM.fmt = window.CRM.datePickerformat.toUpperCase() + ' HH:mm:ss';
+        }
 
-    $.fn.dataTable.moment( window.CRM.fmt  );
+        $.fn.dataTable.moment( window.CRM.fmt  );
+
+        $('#MemberTable').DataTable({
+            "language": {
+                "url": window.CRM.plugin.dataTable.language.url
+            },
+            "order": [[ 1, 'desc' ]],
+        });
+    });
 </script>
