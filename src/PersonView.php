@@ -475,28 +475,22 @@ if (!is_null($family)) {
                                 <li class="list-group-item">
                                     <b><?= _('Member Since') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?></a>
                                 </li>
-                                <?php
-                                if (!empty($person->getClassIcon())) {
-                                    ?>
-                                    <li class="list-group-item">
-                                        <b><img
-                                                src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $person->getClassIcon() ?>"
-                                                width="18" alt="">
-                                            <?= _($person->getClassName()) ?>
-                                        </b>
+                                <li class="list-group-item">
+                                    <b><img
+                                            src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $person->getClassIcon() ?>"
+                                            width="18" alt="">
+                                        <?= _($person->getClassName()) ?>
+                                    </b>
 
-                                        <div class="float-right">
-                                            <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
-                                               data-person_id="<?= $person->getId() ?>"
-                                               data-classification_id="<?= $person->getClassID() ?>"
-                                               data-classification_role="<?= $person->getClassName() ?>">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <?php
-                                }
-                                ?>
+                                    <div class="float-right">
+                                        <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
+                                           data-person_id="<?= $person->getId() ?>"
+                                           data-classification_id="<?= $person->getClassID() ?>"
+                                           data-classification_role="<?= $person->getClassName() ?>">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </div>
+                                </li>
                             </ul>
                             <?php
                         }
@@ -690,7 +684,7 @@ if (!is_null($family)) {
                                 <?php
                                 if ($isMailChimpActive) {
                                     ?>
-                                    <li><i class="fa-li fas fa-paper-plane"></i>MailChimp: <span id="mailChimpUserWork"></span>
+                                    <li><strong><i class="fa-li fas fa-paper-plane"></i>MailChimp <?= _("Work")?>:</strong> <span id="mailChimpUserWork"></span>
                                     </li>
                                     <?php
                                 }

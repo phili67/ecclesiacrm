@@ -16,7 +16,7 @@ $(document).ready(function () {
         } else {
           $("#NewsLetterSend").css('color','red');
           $("#NewsLetterSend").html('<i class="fas fa-times"></i>');
-          $("#mailChimpUserNormal").text(i18next.t("None"));
+          $("#mailChimpUserNormal").html(i18next.t("None"));
         }
       } else {
         $("#NewsLetterSend").css('color','red');
