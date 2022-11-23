@@ -117,9 +117,9 @@ $(document).ready(function () {
     window.CRM.fmt = "";
 
     if (window.CRM.timeEnglish == true) {
-        window.CRM.fmt = window.CRM.datePickerformat.toUpperCase() + ' hh:mm a';
+        window.CRM.fmt = window.CRM.datePickerformat.toUpperCase() + ' hh:mm:ss a';
     } else {
-        window.CRM.fmt = window.CRM.datePickerformat.toUpperCase() + ' HH:mm';
+        window.CRM.fmt = window.CRM.datePickerformat.toUpperCase() + ' HH:mm:ss';
     }
 
     $.fn.dataTable.moment(window.CRM.fmt);
