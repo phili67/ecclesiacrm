@@ -15,7 +15,6 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\EventTypesQuery;
 
 use EcclesiaCRM\Map\EventTypesTableMap;
@@ -29,6 +28,7 @@ use EcclesiaCRM\SessionUser;
 
 
 use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\Propel;
 
 
 use Slim\Views\PhpRenderer;
@@ -99,12 +99,17 @@ class VIEWCalendarController {
         $eType = 'All';
 
         if ($eType == 'All') {
-            $years = EventQuery::Create()
-                ->addAsColumn('year', 'YEAR(' . EventTableMap::COL_EVENT_START . ')')
-                ->select('year')
-                ->setDistinct()
-                ->where('YEAR(' . EventTableMap::COL_EVENT_START . ')')
-                ->find();
+            $connection = Propel::getConnection();
+
+            $aSQL = 'SELECT YEAR(events_event.event_start) as year FROM events_event GROUP BY year';
+
+            $raOpps = $connection->prepare($aSQL);
+            $raOpps->execute();
+
+            $years = [];
+            while ($aRow = $raOpps->fetch( \PDO::FETCH_ASSOC )) {
+                $years[] = $aRow['year'];
+            }
         }
 
         $yVal = date('Y');
