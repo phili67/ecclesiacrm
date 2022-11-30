@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : pastoralcareperson.php
- *  last change : 2020-01-03
+ *  last change : 2022-11-24
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
  *                This code can't be incoprorated in another software without any authorization
@@ -32,8 +32,8 @@ $sFamilyEmails = [];
 <br/>
 <div class="margin">
     <img src="/api/persons/<?= $currentPersonID ?>/photo"
-           class="initials-image profile-user-img img-responsive img-rounded img-circle"
-           style="width:70px; height:70px;display:inline-block">
+         class="initials-image profile-user-img img-responsive img-rounded img-circle"
+         style="width:70px; height:70px;display:inline-block">
     <div class="btn-group">
         <?php
         foreach ($ormPastoralTypeCares as $ormPastoralTypeCare) {
@@ -175,10 +175,10 @@ $sFamilyEmails = [];
                 <h3 class="card-title"><?= _("Informations") ?></h3>
                 <div class="card-tools">
                     <?php if (!is_null($family) and count($family->getActivatedPeople()) > 1) { ?>
-                    <button type="button" class="btn btn-tool" title="<?= _("View Family Members") ?>" data-widget="chat-pane-toggle"
-                            data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= _("View Family Members") ?>">
-                        <i class="fas fa-users"></i>
-                    </button>
+                        <button type="button" class="btn btn-tool" title="<?= _("View Family Members") ?>" data-widget="chat-pane-toggle"
+                                data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= _("View Family Members") ?>">
+                            <i class="fas fa-users"></i>
+                        </button>
                     <?php } ?>
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
@@ -384,7 +384,7 @@ $sFamilyEmails = [];
                 </div>
                 <!-- Contacts are loaded here -->
                 <?php if (!is_null($family) and count($family->getActivatedPeople()) > 1) { ?>
-                <div class="direct-chat-contacts" style="height: 100%;padding: 10px">
+                    <div class="direct-chat-contacts" style="height: 100%;padding: 10px">
                         <br>
                         <h3 class="card-title">
                             <?= _("Family Members") ?>
@@ -429,7 +429,7 @@ $sFamilyEmails = [];
                             ?>
                             </tbody>
                         </table>
-                </div>
+                    </div>
                 <?php } ?>
                 <!-- /.direct-chat-pane -->
             </div>
@@ -534,7 +534,7 @@ $sFamilyEmails = [];
 <script nonce="<?= $sCSPNonce ?>">
     var currentPersonID = <?= $currentPersonID ?>;
     var currentPastorId = <?= $currentPastorId ?>;
-    var sPageTitle = '<?= $sPageTitle ?>';
+    var sPageTitle = "<?= str_replace('"', "'", $sPageTitle) ?>";
 
     window.CRM.churchloc = {
         lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
@@ -576,6 +576,6 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     };
     window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
 
-    initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, 'titre', '<?= $person->getFullName() ?>', '');
+    initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, 'titre', "<?= str_replace('"', "'", $person->getFullName()) ?>", '');
     <?php } ?>
 </script>
