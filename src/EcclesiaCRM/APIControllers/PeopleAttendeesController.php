@@ -467,6 +467,7 @@ class PeopleAttendeesController
                 $event->setText(_("Attendance"));
                 $event->setGroupId($group->getId());
                 $event->setInActive(false);
+                $event->setCreatorUserId(SessionUser::getId());
                 $event->save();
 
                 $sundaySchoolService = $this->container->get('SundaySchoolService');
@@ -710,7 +711,10 @@ class PeopleAttendeesController
                         $event->setEnd($dateTime_End->format('Y-m-d H:i:s'));
                         $event->setText(_("Attendance"));
                         $event->setInActive(false);
+                        $event->setCreatorUserId(SessionUser::getId());
                         $event->save();
+
+
 
                         $sundaySchoolService = $this->container->get('SundaySchoolService');
                         $thisClassChildren = $sundaySchoolService->getKidsFullDetails($group->getId());
