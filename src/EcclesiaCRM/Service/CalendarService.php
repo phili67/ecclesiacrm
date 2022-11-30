@@ -35,6 +35,7 @@ use EcclesiaCRM\EventCounts;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
+use http\Client\Curl\User;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -211,25 +212,15 @@ class CalendarService
 
             foreach ($eventsForCal as $eventForCal) {
                 $evnt = EventQuery::Create()
-                    ->addJoin(EventTableMap::COL_EVENT_TYPE, EventTypesTableMap::COL_TYPE_ID, Criteria::LEFT_JOIN)
-                    ->addJoin(EventTableMap::COL_EVENT_GRPID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
-                    ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID, Criteria::LEFT_JOIN)
-                    ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI, Criteria::LEFT_JOIN)
-                    ->addAsColumn('EventTypeName', EventTypesTableMap::COL_TYPE_NAME)
-                    ->addAsColumn('GroupName', GroupTableMap::COL_GRP_NAME)
-                    ->addAsColumn('CalendarName', CalendarinstancesTableMap::COL_DISPLAYNAME)
-                    ->addAsColumn('rights', CalendarinstancesTableMap::COL_ACCESS)
-                    ->addAsColumn('login', PrincipalsTableMap::COL_URI)
                     ->filterByInActive($criteria)
                     ->findOneById($eventForCal['id']);
 
                 if ($evnt != null) {
-
                     $calObj = $calendarBackend->getCalendarObject($calendar['id'], $eventForCal['uri']);
 
                     $cal_category = ($calendar['grpid'] != "0") ? 'group' : 'personal';
 
-                    if ($calendar['share-access'] >= 2) {
+                    if ($calendar['share-access'] >= 2 ) {
                         $cal_type = 5;
                     } else {
                         $cal_type = $calendar['cal_type'];
@@ -240,6 +231,21 @@ class CalendarService
                     if ($freqEvents == null) {
                         continue;
                     }
+
+                    // search the organizer of the even
+                     if ( !is_null($evnt->getCreatorUserId()) ) {
+                        $user = UserQuery::create()->findOneByPersonId($evnt->getCreatorUserId());
+                         $organizer = $user->getPerson()->getFullName()."<br>".$user->getPerson()->getEmail();
+                     } else {
+                         if (is_null($freqEvents['organiser'])) {
+                             $username = str_replace("principals/", "", $evnt->getLogin());
+                             $user = UserQuery::create()->findOneByUserName($username);
+
+                             $organizer = $user->getPerson()->getFullName()."<br>".$user->getPerson()->getEmail();
+                         } else {
+                             $organizer = $freqEvents['organiser'];
+                         }
+                     }
 
                     $title = $evnt->getTitle();
                     $desc = $evnt->getDesc();
@@ -263,6 +269,8 @@ class CalendarService
                     $eventCalendarName = $evnt->getCalendarName();
                     $loginName = $evnt->getLogin();
                     $status = ($evnt->getInactive() != 0)? _('No') : _('Yes');
+                    $calendarType = $evnt->getCalendarType();// 1 : normal; 2: room; etc ...
+                    $attentees = $freqEvents['attentees'];
 
                     if (!(SessionUser::getUser()->isAdmin())) {
                         $eventRights = ($evnt->getRights() == 1 || $evnt->getRights() == 3) ? true : false;
@@ -415,7 +423,7 @@ class CalendarService
                                 $desc, $text, $calID, $calendarColor, 0, 0, 0, $rrule, $freq,
                                 $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category,
                                 $eventTypeName, $eventGroupName, $eventCalendarName, $eventRights, $loginName,
-                                $realStats, $freeStats, $status, $link, $allDay);// only the event id sould be edited and moved and have custom color
+                                $realStats, $freeStats, $status, $link, $allDay, $organizer, $attentees, $calendarType);// only the event id sould be edited and moved and have custom color
 
                             array_push($events, $event);
                         }
@@ -432,7 +440,8 @@ class CalendarService
                                                    $recurrent = 0, $reccurenceID = '', $rrule = '', $freq = '',
                                                    $writeable = false, $location = "", $latitude = 0, $longitude = 0, $alarm = "", $cal_type = "0",
                                                    $cal_category = "personal", $eventTypeName = "all", $eventGroupName = "None", $eventCalendarName = "None",
-                                                   $eventRights = false, $loginName = "", $realStats = [], $freeStats = [], $status='no', $link = null, $allDay = false)
+                                                   $eventRights = false, $loginName = "", $realStats = [], $freeStats = [], $status='no', $link = null, $allDay = false,
+                                                   $organizer = null, $attentees = null, $calendarType = 1)
     {
         $event = [];
         switch ($type) {
@@ -459,6 +468,8 @@ class CalendarService
         $event['start'] = $start;
         $event['start_name'] = (new \DateTime($start))->format(SystemConfig::getValue('sDateFormatLong') . ' H:i');
         $event['origStart'] = $start;
+        $event['organizer'] = (!is_null($organizer)? str_replace('mailto:','', $organizer):'');
+        $event['attentees'] = $attentees;
 
         $event['month'] = (int)explode('-', $start)[1];
 
@@ -495,6 +506,7 @@ class CalendarService
         $event['TypeName'] = $eventTypeName;
         $event['GroupName'] = $eventGroupName;
         $event['CalendarName'] = $eventCalendarName;
+        $event['calendarType'] = $calendarType; // 1 : normal; 2: room;  3 : video
         $event['Rights'] = $eventRights;
         $event['Link'] = $link;
 
@@ -825,9 +837,9 @@ class CalendarService
         $event->setInActive($eventInActive);
         $event->setAllday((is_null($allDay) or $allDay == false)?0:1);
 
-        if ($isCalendarResource) {
+        //if ($isCalendarResource) {
             $event->setCreatorUserId(SessionUser::getId());
-        }
+        //}
 
         // we set the groupID to manage correctly the attendees : Historical
         $event->setGroupId($calendar->getGroupId());

@@ -3,10 +3,11 @@
 //  copyright   : 2020 Philippe Logel all right reserved not MIT licence
 //                This code can't be included in another software.
 //
-//  Updated : 2020/05/07
+//  Updated : 2022/11/17
 //
 
 window.CRM.editor = null;
+window.CRM.allDay = -1;
 
 document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
@@ -67,7 +68,45 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         editable: true,
         selectable: true,
+        eventMouseEnter: function( calEvent ) {
+            if ( calEvent.event.extendedProps.realType != "event") return;
+
+            if (calEvent.event.allDay && window.CRM.allDay == calEvent.event.extendedProps.eventID) return;
+            $(".tooltip").tooltip("hide");
+            if (calEvent.event.allDay) {
+                window.CRM.allDay = calEvent.event.extendedProps.eventID;
+            } else {
+                window.CRM.allDay = -1;
+            }
+
+            let message = "<b><u><i class='fa fa-calendar-check'></i> " + calEvent.event.title + "</u></b><br>"
+                + '<div class="row"><div class="col-md-6 text-right">Date : </div> <div class="col-md-6"> From : ' + calEvent.event.extendedProps.start_name + '</div></div> '
+                + '<div class="row"><div class="col-md-6 text-right"></div> <div class="col-md-6"> to : ' + calEvent.event.extendedProps.end_name + '</div></div> '
+                + '<div class="row"><div class="col-md-6 text-right">Organizer : </div> <div class="col-md-6">' + calEvent.event.extendedProps.organizer + '</div></div> ';
+
+            if (calEvent.event.extendedProps.attendees = null) {
+                message += '<div class="row"><div class="col-md-6 text-right">Organizer : </div> <div class="col-md-6">' + calEvent.event.extendedProps.attendees + '</div></div> ';
+            }
+
+            message += '<div class="row"><div class="col-md-6 text-right">Notes : </div> <div class="col-md-6">' + calEvent.event.extendedProps.Desc + '</div></div>';
+
+            $(calEvent.el).tooltip({
+                title: message,
+                //word-break: break-all;
+                placement: "auto",
+                template:'<div class="tooltip" role="tooltip"><div class="tooltip-fullcalendar-arrow"></div><div class="tooltip-inner tooltip-fullcalendar"></div></div>',
+                trigger: "manual",
+                container: "body",
+                html:true
+            }).tooltip('show');
+        },
+        eventMouseLeave:  function( calEvent ) {
+            if (window.CRM.allDay != calEvent.event.extendedProps.eventID) {
+                $(".tooltip").tooltip("hide");
+            }
+        },
         eventClick: function(calEvent) {
+            $(".tooltip").tooltip('hide');
             var event = calEvent.event;
 
             if (event.extendedProps.writeable == false) {
@@ -302,6 +341,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return { domNodes: arrayOfDomNodes }
         },
         eventDidMount: function(calEvent) {
+            $(".tooltip").tooltip("hide");
             var calendarFilterID = window.calendarFilterID;
             var EventTypeFilterID = window.CRM.EventTypeFilterID;
 
@@ -311,15 +351,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 calEvent.el.style.background = calEvent.backgroundColor;
             }
 
-            if (calEvent.event.extendedProps.Desc != '' && calEvent.event.extendedProps.Desc != undefined) {
+            /*if (calEvent.event.extendedProps.Desc != '' && calEvent.event.extendedProps.Desc != undefined) {
                 $(calEvent.el).tooltip({
-                    title: calEvent.event.extendedProps.Desc,
+                    title: "<b><u><i class='fa fa-calendar-check'></i> " + calEvent.event.title + "</u></b><br>"
+                        + '<div class="row"><div class="col-md-6 align-right">Notes : </div> <div class="col-md-6">' + calEvent.event.extendedProps.Desc + '</div> '
+                        + '</div>',
                     //word-break: break-all;
-                    placement: "top",
+                    placement: "bottom",
+                    template:'<div class="tooltip" role="tooltip"><div class="arrow tooltip-fullcalendar-arrow"></div><div class="tooltip-inner tooltip-fullcalendar"></div></div>',
                     trigger: "hover",
-                    container: "body"
+                    container: "body",
+                    html:true
                 });
-            }
+            }*/
 
             /*var str = '<div class="fc-event-main"><div class="fc-event-main-frame"><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">'
                 + calEvent.event.extendedProps.icon + " " + calEvent.event.title
@@ -361,6 +405,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return calEvent;
         },
         eventResize: function(info) {
+            $(".tooltip").tooltip("hide");
             var event = info.event;
 
             if (event.extendedProps.writeable == false || event.extendedProps.realType == 'birthday' || event.extendedProps.realType == 'anniversary') {
@@ -461,6 +506,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         eventDrop: function(info) {
+            $(".tooltip").tooltip("hide");
             var event = info.event;
 
             if (event.extendedProps.writeable == false || event.extendedProps.realType == 'birthday' || event.extendedProps.realType == 'anniversary') {
@@ -635,6 +681,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         select: function(selectionInfo) {//start end
+            $(".tooltip").tooltip("hide");
             var start = selectionInfo.start;
             var end = selectionInfo.end;
             var allDay = selectionInfo.allDay;
