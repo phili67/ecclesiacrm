@@ -10,6 +10,7 @@ require_once dirname(__FILE__).'/../vendor/autoload.php';
 use Slim\Factory\AppFactory;
 use Slim\HttpCache\Cache;
 use Tuupola\Middleware\JwtAuthentication;
+use Slim\Middleware\ContentLengthMiddleware;
 use DI\Container;
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
@@ -33,6 +34,9 @@ $settings($container);
 AppFactory::setContainer($container);
 
 $app = AppFactory::create();
+
+$contentLengthMiddleware = new ContentLengthMiddleware();
+$app->add($contentLengthMiddleware);
 
 // Register the http cache middleware.
 $app->add( new Cache('ApiCache', 0) );
