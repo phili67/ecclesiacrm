@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : pastoralcarefamily.php
- *  last change : 2020-01-03
+ *  last change : 2022-11-24
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
  *                This code can't be incorporated in another software without authorization
@@ -374,7 +374,7 @@ $sFamilyEmails = [];
         } else {
             ?>
             <div class="alert alert-warning"><i class="fas fa-ban"></i> <?= _("None") ?></div>
-        <?php
+            <?php
         }
         ?>
         <div class="text-center">
@@ -406,7 +406,7 @@ $sFamilyEmails = [];
 <script nonce="<?= $sCSPNonce ?>">
     var currentFamilyID = <?= $currentFamilyID ?>;
     var currentPastorId = <?= $currentPastorId ?>;
-    var sPageTitle = '<?= $sPageTitle ?>';
+    var sPageTitle = "<?= str_replace('"', "'", $sPageTitle) ?>";
 
     window.CRM.churchloc = {
         lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
@@ -446,6 +446,6 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     };
     window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
 
-    initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, '<?= $family->getName() ?>', '', '');
+    initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, "<?= str_replace('"', "'", $family->getName()) ?>", '', '');
     <?php } ?>
 </script>
