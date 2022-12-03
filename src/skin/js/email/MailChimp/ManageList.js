@@ -181,7 +181,7 @@ $(document).ready(function () {
                 width: '80px',
                 className: "text-center",
                 orderable: false,
-                title: i18next.t("Actions") + ' <br/>'
+                title: '<small>' + i18next.t("Actions") + ' </small><br/>'
                     + '<div class="btn-group">' +
                     '       <button type="button" id="deleteMembers" class="btn btn-danger btn-sm"'
                     +           'disabled><i class="far fa-trash-alt"></i> </button> ' +
@@ -209,8 +209,8 @@ $(document).ready(function () {
             {
                 width: 'auto',
                 className: "text-center",
-                orderable: true,
-                title: i18next.t('Tags') + '<br/><div class="btn-group">\n' +
+                orderable: false,
+                title: '<small>' + i18next.t('Tags') + '</small><br/><div class="btn-group">\n' +
                     '                                <button type="button" class="addTagButton btn btn-primary btn-sm" data-id="-1" ' +
                     '                                        disabled><i class="fas fa-tag"></i></button>' +
                     '                                <button type="button" class="addTagButtonDrop btn btn-primary dropdown-toggle btn-sm"' +
@@ -399,10 +399,11 @@ $(document).ready(function () {
                         },function (data) {
                             if (data.success) {
                                 window.CRM.closeDialogLoadingFunction();
-                                window.CRM.dataListTable.ajax.reload(null, false);
-                                render_container();
-                                addTagsToMainDropdown();
-                                changeState();
+                                window.CRM.dataListTable.ajax.reload(function ( json ) {
+                                    render_container();
+                                    addTagsToMainDropdown();
+                                    changeState();
+                                }, false);
                             } else if (data.success == false && data.error) {
                                 window.CRM.closeDialogLoadingFunction();
                                 window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
@@ -439,8 +440,9 @@ $(document).ready(function () {
                             },function (data) {
                                 if (data.success) {
                                     window.CRM.closeDialogLoadingFunction();
-                                    window.CRM.dataListTable.ajax.reload(null, false);
-                                    render_container();
+                                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                                        render_container();
+                                    }, false);
                                 } else if (data.success == false && data.error) {
                                     window.CRM.closeDialogLoadingFunction();
                                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
@@ -454,6 +456,7 @@ $(document).ready(function () {
                 });
             }
         });
+
         $('.deleteTagButton').click( function (event) {
             $(".addTagButtonDrop").dropdown('toggle');
             event.stopPropagation();
@@ -506,10 +509,11 @@ $(document).ready(function () {
                                 })
                             },function (data) {
                                 if (data.success) {
-                                    window.CRM.dataListTable.ajax.reload(null, false);
-                                    render_container();
-                                    addTagsToMainDropdown();
-                                    changeState();
+                                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                                        render_container();
+                                    }, false);
+                                    //addTagsToMainDropdown();
+                                    //changeState();
                                 } else if (data.success == false && data.error) {
                                     window.CRM.closeDialogLoadingFunction();
                                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
@@ -523,8 +527,9 @@ $(document).ready(function () {
                                 path: 'mailchimp/list/removeAllTagsForMembers',
                                 data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
                             },function (data) {
-                                window.CRM.dataListTable.ajax.reload(null, false);
-                                render_container();
+                                window.CRM.dataListTable.ajax.reload(function ( json ) {
+                                    render_container();
+                                }, false);
                                 //event.startPropagation();
                             });
                         }
@@ -562,9 +567,10 @@ $(document).ready(function () {
                         path: 'mailchimp/list/removeTag',
                         data: JSON.stringify({"list_id": listID, "tag_ID": tagID})
                     },function (data) {
-                        render_container();
-                        addTagsToMainDropdown();
-                        window.CRM.dataListTable.ajax.reload(null, false);
+                        window.CRM.dataListTable.ajax.reload(function () {
+                            render_container();
+                            addTagsToMainDropdown();
+                        }, false);
                     });
                 }
             }
@@ -1172,8 +1178,9 @@ $(document).ready(function () {
                         data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
                     },function (data) {
                         if (data.success) {
-                            window.CRM.dataListTable.ajax.reload(null, false);
-                            render_container();
+                            window.CRM.dataListTable.ajax.reload(function () {
+                                render_container();
+                            }, false);
                         } else if (data.success == false && data.error) {
                             window.CRM.closeDialogLoadingFunction();
                             window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
