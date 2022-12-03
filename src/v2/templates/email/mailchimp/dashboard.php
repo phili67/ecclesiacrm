@@ -84,8 +84,8 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
 ?>
 <div class="row">
     <div class="col-lg-12">
-        <div class="card">
-            <div class="card-header   border-1">
+        <div class="card card-mailchimp">
+            <div class="card-header">
                 <h3 class="card-title"><i class="far fa-envelope"></i> <?= _('MailChimp Management') ?></h3>
                 <div style="float:right"><a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">
                         <img class="logo-mailchimp" src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
@@ -93,22 +93,22 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
             </div>
             <div class="card-body">
                 <p>
-                    <button class="btn btn-app" id="CreateList" <?= ($mailchimp->isActive()) ? '' : 'disabled' ?> data-toggle="tooltip"  data-placement="bottom" title="<?= _("Create an audience or List") ?>">
+                    <button class="btn btn-app btn-app-mailchimp" id="CreateList" <?= ($mailchimp->isActive()) ? '' : 'disabled' ?> data-toggle="tooltip"  data-placement="bottom" title="<?= _("Create an audience or List") ?>">
                         <i class="fas fa-list-alt"></i><?= _("Create list") ?>
                     </button>
-                    <a class="btn btn-app bg-green" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
+                    <a class="btn btn-app btn-app-mailchimp" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
                         <i class="fas fas fa-table"></i> <?= _('Generate CSV') ?>
                     </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp/duplicateemails" class="btn btn-app">
+                    <a href="<?= $sRootPath ?>/v2/mailchimp/duplicateemails" class="btn btn-app btn-app-mailchimp">
                         <i class="fas fa-exclamation-triangle"></i> <?= _("Find Duplicate Emails") ?>
                     </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailspersons" class="btn btn-app">
+                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailspersons" class="btn btn-app btn-app-mailchimp">
                         <i class="far fa-bell-slash"></i> <?= _("Persons Not In MailChimp") ?>
                     </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailsfamilies" class="btn btn-app">
+                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailsfamilies" class="btn btn-app btn-app-mailchimp">
                         <i class="far fa-bell-slash"></i> <?= _("Families Not In MailChimp") ?>
                     </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp/debug" class="btn btn-app" data-toggle="tooltip"  data-placement="bottom" title="<?= _("To debug your email connection") ?>">
+                    <a href="<?= $sRootPath ?>/v2/mailchimp/debug" class="btn btn-app btn-app-mailchimp" data-toggle="tooltip"  data-placement="bottom" title="<?= _("To debug your email connection") ?>">
                         <i class="fas fa-stethoscope"></i><?= _("Debug") ?>
                     </a>
                 </p>

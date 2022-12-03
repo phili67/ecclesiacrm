@@ -17,7 +17,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="card">
+        <div class="card card-mailchimp">
             <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-list"></i> <?= _('Manage Email List') ?></h3>
                 <div style="float:right">
@@ -27,24 +27,24 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="card-body">
                 <div class="btn-group">
-                    <button class="btn btn-app CreateCampaign" id="CreateCampaign" data-listid="<?= $listId ?>"
+                    <button class="btn btn-app btn-app-mailchimp CreateCampaign" id="CreateCampaign" data-listid="<?= $listId ?>"
                             data-id="-1" data-name="">
                         <i class="fas fa-envelope-open-text"></i><?= _("Create a Campaign") ?>
                     </button>
-                    <button type="button" id="addCreateCampaignTagDrop" class="btn btn-app dropdown-toggle"
+                    <button type="button" id="addCreateCampaignTagDrop" class="btn btn-app btn-app-mailchimp dropdown-toggle"
                             data-toggle="dropdown" aria-expanded="false">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu" role="menu" id="allCampaignTags"></div>
                 </div>
-                <button id="deleteAllSubScribers" class="btn btn-app bg-orange" data-listid="<?= $listId ?>">
+                <button id="deleteAllSubScribers" class="btn btn-app btn-app-mailchimp" data-listid="<?= $listId ?>">
                     <i class="far fa-trash-alt"></i><?= _("Delete All Subscribers") ?>
                 </button>
-                <button id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $listId ?>">
+                <button id="deleteList" class="btn btn-app btn-app-mailchimp align-right" data-listid="<?= $listId ?>">
                     <i class="fas fa-trash-alt"></i><?= _("Delete") ?>
                 </button>
-                <button class="btn btn-app align-right bg-blue" id="modifyList" data-name="<?= $list['name'] ?>"
+                <button class="btn btn-app btn-app-mailchimp align-right" id="modifyList" data-name="<?= $list['name'] ?>"
                         data-subject="<?= $list['campaign_defaults']['subject'] ?>"
                         data-permissionreminder="<?= $list['permission_reminder'] ?>">
                     <i class="fas fa-pencil-alt"></i>
@@ -60,12 +60,12 @@ if ($isMailchimpActiv) {
     ?>
     <div class="row">
         <div class="col-lg-9">
-            <div class="card">
+            <div class="card card-mailchimp">
                 <div class="card-header border-1">
                     <h3 class="card-title"><i class="fas fa-users"></i> <?= _('Subscribers') ?></h3>
                 </div>
                 <div class="card-body">
-                    <div class="alert alert-info"><i class="fas fa-info" aria-hidden="true"></i>
+                    <div class="alert alert-warning"><i class="fas fa-info" aria-hidden="true"></i>
                         <?= _("To add all the newsletter users, type <b>NewLetter</b> in the search field, to add all members of the CRM, use <b>*</b>") ?>
                     </div>
 
@@ -96,7 +96,7 @@ if ($isMailchimpActiv) {
         </div>
         <div class="col-lg-3">
             <div class="sticky-top">
-                <div class="card card-secondary shadow" id="container"></div>
+                <div class="card shadow-mailchimp" id="container"></div>
             </div>
         </div>
 
