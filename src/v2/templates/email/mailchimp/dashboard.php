@@ -33,7 +33,7 @@ if ($isActive == true) {
                     <h2 class="headline text-primary"><i class="fas fa-spin fa-spinner"></i> <?= _("Loading in progress") ?> ....</h2>
                 </div>
 
-                <div class="error-content">
+                <div class="error-content text-center">
                     <h3>
                         <i class="fas fa-exclamation-triangle text-primary"></i>  <?= _("Importing data from Mailchimp") ?>.
                     </h3>

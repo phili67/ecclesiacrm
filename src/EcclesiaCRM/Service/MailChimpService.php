@@ -395,11 +395,37 @@ class MailChimpService
 
         $result = $this->myMailchimp->post("lists/$list_id/segments", $data);
 
-        $this->reloadMailChimpDatas();
+        if (array_key_exists('id', $result)) {
+            $segment_id = $result['id'];
+            // we've to add the modification to the list
+            $i = 0; // list index
+
+            $_SESSION['MailChimpLists'][$i]['tags'][] = $result;
+            $lists = $_SESSION['MailChimpLists'];
+
+            foreach ($lists as $list) {
+                foreach ($membersArr as $member) {
+                    $j = 0;// member index
+                    foreach ($list['members'] as $listMember) {
+                        if ($listMember['email_address'] == $member) {
+                            $_SESSION['MailChimpLists'][$i]['members'][$j]['tags'][] = [
+                                'id' => $segment_id,
+                                'name' => $this->getSegmentName($lists[$i]['tags'], $segment_id)
+                            ];
+
+                            break;
+                        }
+                        $j++;
+                    }
+                }
+                $i++;
+            }
+        }
 
         return [$result, "lists/$list_id/segments"];
     }
 
+    // DEAD code
     public function updateSegment($list_id, $name, $tag, $membersArr, $merge = true)
     {
 
@@ -467,8 +493,6 @@ class MailChimpService
         }
 
         // now we delete the tags for each members
-
-
         $_SESSION['MailChimpLists'] = $res;
     }
 
@@ -505,6 +529,15 @@ class MailChimpService
         return [$result, $result, "lists/$list_id/segments/$segment_id"];
     }
 
+    private function getSegmentName($tags, $segment_id) {
+        foreach ($tags as $tag) {
+            if ($tag['id'] == $segment_id) {
+                return $tag['name'];
+            }
+        }
+        return '';
+    }
+
     public function addMembersToSegment($list_id, $segment_id, $arr_members)
     {
         $data = array(
@@ -515,7 +548,26 @@ class MailChimpService
 
         if (!array_key_exists('title', $result)) {
             // we've to add the modification to the list
-            $this->reloadMailChimpDatas();
+            $i = 0;
+            $lists = $_SESSION['MailChimpLists'];
+
+            foreach ($lists as $list) {
+                foreach ($arr_members as $member) {
+                    $j = 0;
+                    foreach ($list['members'] as $listMember) {
+                        if ($listMember['email_address'] == $member) {
+                            $_SESSION['MailChimpLists'][$i]['members'][$j]['tags'][] = [
+                                'id' => $segment_id,
+                                'name' => $this->getSegmentName($lists[$i]['tags'], $segment_id)
+                            ];
+
+                            break;
+                        }
+                        $j++;
+                    }
+                }
+                $i++;
+            }
         }
 
         return [$result, $result, "lists/$list_id/segments/$segment_id"];
@@ -528,10 +580,30 @@ class MailChimpService
         );
         $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
 
-
         if (!array_key_exists('title', $result)) {
             // we've to add the modification to the list
-            $this->reloadMailChimpDatas();
+            $i = 0;
+            $lists = $_SESSION['MailChimpLists'];
+
+            foreach ($lists as $list) {
+                foreach ($arr_members as $member) {
+                    $j = 0;
+                    foreach ($list['members'] as $listMember) {
+                        if ($listMember['email_address'] == $member) {
+                            $k = 0;
+                            foreach ($listMember['tags'] as $tag) {
+                                if ($tag['id'] == $segment_id) {
+                                    array_splice($_SESSION['MailChimpLists'][$i]['members'][$j]['tags'], $k, $k);
+                                    break;
+                                }
+                                $k++;
+                            }
+                        }
+                        $j++;
+                    }
+                }
+                $i++;
+            }
         }
 
         return [$result, $result, "lists/$list_id/segments/$segment_id"];
@@ -550,11 +622,31 @@ class MailChimpService
             $segment_id = $tag['id'];
 
             $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
-        }
 
-        if (!array_key_exists('title', $result)) {
             // we've to add the modification to the list
-            $this->reloadMailChimpDatas();
+            // we've to reload all the list to be sure to delete in the right one
+            $i = 0;
+            $lists = $_SESSION['MailChimpLists'];
+
+            foreach ($lists as $list) {
+                foreach ($arr_members as $member) {
+                    $j = 0;
+                    foreach ($list['members'] as $listMember) {
+                        if ($listMember['email_address'] == $member) {
+                            $k = 0;
+                            foreach ($listMember['tags'] as $tag) {
+                                if ($tag['id'] == $segment_id) {
+                                    array_splice($_SESSION['MailChimpLists'][$i]['members'][$j]['tags'], $k, $k);
+                                    break;
+                                }
+                                $k++;
+                            }
+                        }
+                        $j++;
+                    }
+                }
+                $i++;
+            }
         }
 
         return [$result, $result, "lists/$list_id/segments/$segment_id"];
