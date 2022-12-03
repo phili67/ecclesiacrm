@@ -171,6 +171,48 @@ class MailChimpService
         return NULL;
     }
 
+    private function getMembersForManageListable($listMembers) {
+        $res = [];
+        $SeePrivacyDataEnabled = SessionUser::getUser()->isSeePrivacyDataEnabled();
+
+        foreach ($listMembers as $member) {
+            $data = $member;
+            $status = '';
+
+            $data['checkoxColumn'] = '<input type="checkbox" class="checkbox_users checkbox_user_' . $member['id'] . '" name="AddRecords" data-id="'
+                . $member['id'] . '" data-email="' . $member['email_address'] . '" ' . $status . '>';
+
+            $data['actionColumn'] = '<a class="edit-subscriber" data-id="' . $member['email_address'] . '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-subscriber" data-id="'
+                . $member['email_address'] . '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
+
+            $data['tagsColumn'] = '';
+
+            foreach ($member['tags'] as $tag) {
+                $data['tagsColumn'] .= $tag['name'] . ' ';
+            }
+
+            if ( $SeePrivacyDataEnabled ) {
+                $data['email_address_column'] = $member['email_address'];
+            } else {
+                $data['email_address_column'] = _("Private Data");
+            }
+
+            $d = $member['status'];
+            $r = _($d);
+            if ($d == 'subscribed') {
+                $data['statusColumn'] = '<p class="text-green">' . $r . '</p>';
+            } else if ($d == 'unsubscribed') {
+                $data['statusColumn'] = '<p class="text-orange">' . $r . '</p>';
+            } else {
+                $data['statusColumn'] = '<p class="text-red">' . $r . '</p>';
+            }
+
+            $res[] = $data;
+        }
+
+        return $res;
+    }
+
     public function getListMembersFromListId($list_id)
     {
         $mcLists = $this->getLists();
@@ -188,9 +230,9 @@ class MailChimpService
                         return [];
                     }
 
-                    return array_values($listmembers);
+                    return $this->getMembersForManageListable(array_values($listmembers));
                 }
-                return array_values($list['members']);
+                return $this->getMembersForManageListable(array_values($list['members']));
             }
             $i++;
         }

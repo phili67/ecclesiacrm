@@ -188,13 +188,9 @@ $(document).ready(function () {
                 width: '20px',
                 orderable: false,
                 title: '<input type="checkbox" class="check_all" id="check_all" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="' + i18next.t("Check all boxes") + '">',
-                data: 'id',
+                data: 'checkoxColumn',
                 render: function (data, type, full, meta) {
-                    var status = '';
-                    /*if (full.checkStatus != undefined && full.checkStatus) {
-                        status = ' checked'
-                    }*/
-                    return '<input type="checkbox" class="checkbox_users checkbox_user_' + full.id + '" name="AddRecords" data-id="' + full.id + '" data-email="' + full.email_address + '" ' + status + '>';
+                    return data;
                 }
             },
             {
@@ -221,9 +217,9 @@ $(document).ready(function () {
                     '                                    </a>\n' +
                     '                                </div>' +
                     '   </div>',
-                data: 'id',
+                data: 'actionColumn',
                 render: function (data, type, full, meta) {
-                    return '<a class="edit-subscriber" data-id="' + full.email_address + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-subscriber" data-id="' + full.email_address + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
+                    return data;
                 }
             },
             {
@@ -240,13 +236,9 @@ $(document).ready(function () {
                     '                                </button>\n' +
                     '                                <div class="dropdown-menu" role="menu" id="allTags"></div>' +
                     '                            </div>',
-                data: 'tags',
+                data: 'tagsColumn',
                 render: function (data, type, full, meta) {
-                    var res = '';
-                    data.forEach(function (element) {
-                        res += element.name + ' ';
-                    });
-                    return res;
+                    return data;
                 }
             },
             {
@@ -268,28 +260,17 @@ $(document).ready(function () {
             {
                 width: 'auto',
                 title: i18next.t('Email'),
-                data: 'email_address',
+                data: 'email_address_column',
                 render: function (data, type, full, meta) {
-                    if (!window.CRM.canSeePrivacyData) {
-                        return i18next.t('Private Data');
-                    }
                     return data;
                 }
             },
             {
                 width: 'auto',
                 title: i18next.t('Email Marketing'),
-                data: 'status',
+                data: 'statusColumn',
                 render: function (data, type, full, meta) {
-                    var res = i18next.t(data);
-                    if (data == 'subscribed') {
-                        res = '<p class="text-green">' + res + '</p>';
-                    } else if (data == 'unsubscribed') {
-                        res = '<p class="text-orange">' + res + '</p>';
-                    } else {
-                        res = '<p class="text-red">' + res + '</p>';
-                    }
-                    return res;
+                    return data;
                 }
             }
         ];
@@ -418,11 +399,11 @@ $(document).ready(function () {
                             })
                         },function (data) {
                             if (data.success) {
-                                window.CRM.closeDialogLoadingFunction();
                                 window.CRM.dataListTable.ajax.reload(function ( json ) {
                                     render_container();
                                     addTagsToMainDropdown();
                                     changeState();
+                                    window.CRM.closeDialogLoadingFunction();
                                 }, false);
                             } else if (data.success == false && data.error) {
                                 window.CRM.closeDialogLoadingFunction();
@@ -459,9 +440,9 @@ $(document).ready(function () {
                                 })
                             },function (data) {
                                 if (data.success) {
-                                    window.CRM.closeDialogLoadingFunction();
                                     window.CRM.dataListTable.ajax.reload(function ( json ) {
                                         render_container();
+                                        window.CRM.closeDialogLoadingFunction();
                                     }, false);
                                 } else if (data.success == false && data.error) {
                                     window.CRM.closeDialogLoadingFunction();
@@ -561,7 +542,9 @@ $(document).ready(function () {
 
     // render the main page
 
-    $(document).on("click", ".delete-tag", function () {
+    $(document).on("click", ".delete-tag", function (event) {
+        //event.startPropagation();
+
         var tagID = $(this).data("id");
         var listID = $(this).data("listid");
 
@@ -589,7 +572,7 @@ $(document).ready(function () {
                     },function (data) {
                         window.CRM.dataListTable.ajax.reload(function () {
                             render_container();
-                            addTagsToMainDropdown();
+                            //addTagsToMainDropdown();
                         }, false);
                     });
                 }

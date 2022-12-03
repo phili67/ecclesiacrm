@@ -250,7 +250,7 @@ class MailchimpController
             $campaigns[] = $mailchimp->getCampaignsFromListId($list['id']);
         }
 
-        return $response->withJSON(['MailChimpLists' => $mailchimp->getLists(),'MailChimpCampaigns' => $campaigns, 'firstLoaded' => !$isLoaded, 'isActive' => $isActive]);
+        return $response->withJSON(['MailChimpLists' => $lists,'MailChimpCampaigns' => $campaigns, 'firstLoaded' => !$isLoaded, 'isActive' => $isActive]);
     }
 
     public function listmembers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
