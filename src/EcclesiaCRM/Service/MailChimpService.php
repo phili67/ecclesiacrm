@@ -695,14 +695,27 @@ class MailChimpService
             }
         }
 
+        $res_sent = array_filter($res, function ($var) {
+            return ($var['status'] == 'sent');
+        });
+        $res_save = array_filter($res, function ($var) {
+            return ($var['status'] == 'save');
+        });;
+
         $your_date_field_name = 'send_time';
-        usort($res, function ($a, $b) use (&$your_date_field_name) {
+        usort($res_sent, function ($a, $b) use (&$your_date_field_name) {
             return  strtotime($b[$your_date_field_name]) - strtotime($a[$your_date_field_name]);
         });
 
-        $res = array_slice($res, 0, 5);
+        $your_date_field_name = 'create_time';
+        usort($res_save, function ($a, $b) use (&$your_date_field_name) {
+            return  strtotime($b[$your_date_field_name]) - strtotime($a[$your_date_field_name]);
+        });
 
-        return $res;
+        $res_sent = array_slice($res_sent, 0, 5);
+        $res_save = array_slice($res_save, 0, 5);
+
+        return [$res_sent, $res_save];
     }
 
     private function create_Campaign($list_id, $camp)
