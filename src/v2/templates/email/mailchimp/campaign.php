@@ -17,7 +17,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row">
     <div class="col-lg-9">
-        <div class="card">
+        <div class="card card-mailchimp">
             <div class="card-header   border-1">
                 <h3 class="card-title"><i class="fas fa-envelope-open-text"></i> <?= _('Email Campaign Management') ?></h3>
                 <div style="float:right">
@@ -27,15 +27,15 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="card-body">
                 <p>
-                    <button class="btn btn-app bg-blue" id="saveCampaign"
+                    <button class="btn btn-app btn-app-mailchimp" id="saveCampaign"
                             data-listid="<?= $list_id ?>" <?= (($campaign['status'] == "sent") ? 'disabled' : '') ?>>
                         <i class="fas fa-save"></i> <?= _("Save Campaign") ?>
                     </button>
-                    <button id="deleteCampaign" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
+                    <button id="deleteCampaign" class="btn btn-app btn-app-mailchimp align-right" data-listid="<?= $list_id ?>">
                         <i class="fas fa-trash-alt"></i><?= _("Delete") ?>
                     </button>
                     <button id="sendCampaign"
-                            class="btn btn-app align-right bg-green <?= (($campaign['status'] == "sent" || $campaign['status'] == "schedule") ? 'hidden' : '') ?>"
+                            class="btn btn-app btn-app-mailchimp align-right <?= (($campaign['status'] == "sent" || $campaign['status'] == "schedule") ? 'hidden' : '') ?>"
                             data-listid="<?= $list_id ?>">
                         <i class="far fa-paper-plane"></i><?= _("Send") ?>
                     </button>
@@ -44,13 +44,13 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
+                <div class="card card-mailchimp">
                     <div class="card-header border-1">
                         <h3 class="card-title"><i class="far fa-file-alt"></i> <?= _('Mail Subject') ?> & <?= _("Content") ?></h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-1"><span style="color: red">*</span>
+                            <div class="col-md-2"><span style="color: red">*</span>
                                 <label><?= _('Subject') ?> :</label>
                             </div>
                             <div class="col-md-9">
@@ -115,7 +115,7 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="alert alert-warning"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                        <div class="alert alert-warning alert-mailchimp"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
                             <?= _("You've first to create a content below to schedule a campaign.") ?>
                             <br/>
                             <i class="fas fa-exclamation-triangle" aria-hidden="true"></i> <?= _("Campaigns may only be scheduled to send on the quarter-hour (:00, :15, :30, :45).") ?>
