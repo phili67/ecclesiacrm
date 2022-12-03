@@ -12,3 +12,16 @@
 .btn-app-mailchimp {
     background-color: #e0e4e7 !important;
 }
+.alert-mailchimp {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+    margin-top: -10px !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .btn-app-mailchimp {
+        background-color: #555 !important;
+    }
+}
+
+

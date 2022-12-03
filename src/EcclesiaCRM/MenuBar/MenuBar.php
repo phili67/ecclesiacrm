@@ -418,6 +418,8 @@ class MenuBar extends Menu
 
                 $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
 
+                $campaigns = array_merge($campaigns[0], $campaigns[1]);
+
                 foreach ($campaigns as $campaign) {
                     //$menuItemItemItem = new Menu ($campaign['settings']['title'],"far fa-circle","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
                     $menuItemItemItem->addLink("v2/mailchimp/campaign/" . $campaign['id']);

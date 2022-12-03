@@ -100,17 +100,37 @@ $(document).ready(function () {
                     + '        <div class="col-md-12">'
                     + '           <b><i class="fas fa-envelope-open-text"></i> ' + i18next.t('Campaigns') + '</b><br>';
 
-                var lenCampaigns = data.MailChimpCampaign.length;
-
+                // saved campaigns
                 listView += '          <table width="100%">';
+
+                let save_campaigns = 1;
+                var lenCampaigns = data.MailChimpCampaign[save_campaigns].length;
 
                 var tags = '';
 
                 for (j = 0; j < lenCampaigns; j++) {
                     if (data.membersCount == 0) {
-                        listView += '<tr><td>• ' + data.MailChimpCampaign[j].settings.title + '</td></tr>';
+                        listView += '<tr><td>• ' + data.MailChimpCampaign[save_campaigns][j].settings.title + '</td></tr>';
                     } else {
-                        listView += '<tr><td>&bullet; ' + data.MailChimpCampaign[j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaign[j].status) + ')</span></b>  </td><td><a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[j].id + '" class="btn btn btn-primary btn-xs""><i class="fas fa-edit"></i> '+ i18next.t("Edit") + '</a></td></tr>';
+                        listView += '<tr><td>&bullet; ' + data.MailChimpCampaign[save_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[save_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaign[save_campaigns][j].status) + ')</span></b>  </td><td><a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[save_campaigns][j].id + '" class="btn btn btn-primary btn-xs""><i class="fas fa-edit"></i> '+ i18next.t("Edit") + '</a></td></tr>';
+                    }
+                }
+
+                // sent campaigns
+                if (lenCampaigns > 0) {
+                    listView += '<tr><td>&nbsp;</td><td></td><td></td></tr>';
+                }
+
+                let send_campaigns = 0;
+                var lenCampaigns = data.MailChimpCampaign[send_campaigns].length;
+
+                var tags = '';
+
+                for (j = 0; j < lenCampaigns; j++) {
+                    if (data.membersCount == 0) {
+                        listView += '<tr><td>• ' + data.MailChimpCampaign[send_campaigns][j].settings.title + '</td></tr>';
+                    } else {
+                        listView += '<tr><td>&bullet; ' + data.MailChimpCampaign[send_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[send_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaign[send_campaigns][j].status) + ')</span></b>  </td><td><a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[send_campaigns][j].id + '" class="btn btn btn-primary btn-xs""><i class="fas fa-edit"></i> '+ i18next.t("Edit") + '</a></td></tr>';
                     }
                 }
 
@@ -944,7 +964,7 @@ $(document).ready(function () {
         }
         var modal = bootbox.dialog({
             message: BootboxCampaignContent(tagName),
-            size: 'large',
+            size: 'extra-large',
             buttons: [
                 {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
