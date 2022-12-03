@@ -45,7 +45,7 @@ $(document).ready(function () {
                         + '    </div>'
                         + '    <div class="card-body">'
                         + '      <div class="row" style="100%">'
-                        + '        <div class="col-lg-5">'
+                        + '        <div class="col-lg-4 col-lg-mailchimp">'
                         + '          <table width="350px">'
                         + '            <tr><td><b><i class="far fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
                         + '            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
@@ -57,7 +57,7 @@ $(document).ready(function () {
                         + '            <tr><td>' + i18next.t('Cleaned count since last send:') + '</td><td>' + list.stats.cleaned_count_since_send + '</td></tr>'
                         + '          </table>'
                         + '        </div>'
-                        + '        <div class="col-lg-3">'
+                        + '        <div class="col-lg-4 col-lg-mailchimp">'
                         + '           <b><i class="fas fa-envelope-open-text"></i> ' + i18next.t('Campaigns') + '</b><br>';
 
                     let send_campaigns = 0;
@@ -85,7 +85,7 @@ $(document).ready(function () {
 
                         if (lenTags) {
 
-                            listViews += '        <div class="col-lg-3">'
+                            listViews += '        <div class="col-lg-4 cold-lg-mailchimp">'
                                 + '           <b><i class="icon fas fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
 
                             var tags = data.MailChimpLists[i].tags;
@@ -94,7 +94,9 @@ $(document).ready(function () {
 
                             if (lenTags) {
                                 for (k = 0; k < lenTags; k++) {
-                                    tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpCampaigns[i][send_campaigns].id + '"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>' + tags[k].name + '<br>';
+                                    tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="'
+                                        + data.MailChimpCampaigns[i][send_campaigns].id + '"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a> <b>'
+                                        + data.MailChimpLists[i].tags[k].member_count + '</b> ' + tags[k].name + ' <br>';
                                 }
                             }
 
