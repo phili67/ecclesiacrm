@@ -20,7 +20,13 @@
 
 .col-lg-mailchimp {
     margin-left: 10px !important;
+    margin-right: -10px !important;
     border-right: 1px solid #e3e1e1 !important;
+}
+
+.hr-mailchimp {
+    margin-left: -20px;
+    margin-right: -20px;
 }
 
 @media (prefers-color-scheme: dark) {
