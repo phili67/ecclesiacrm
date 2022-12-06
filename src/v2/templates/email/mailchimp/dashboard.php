@@ -17,37 +17,12 @@ $mailchimp = new MailChimpService();
 
 $isActive = $mailchimp->isActive();
 
-$load_Elements = false;
-
 if ($isActive == true) {
     $isLoaded = $mailchimp->isLoaded();
-
-    if (!$isLoaded) {
-        $load_Elements = true;
-        ?>
-        <br/><br/><br/>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="text-center">
-                    <h2 class="headline text-primary"><i class="fas fa-spin fa-spinner"></i> <?= _("Loading in progress") ?> ....</h2>
-                </div>
-
-                <div class="error-content text-center">
-                    <h3>
-                        <i class="fas fa-exclamation-triangle text-primary"></i>  <?= _("Importing data from Mailchimp") ?>.
-                    </h3>
-                </div>
-            </div>
-        </div>
-        <?php
-    }
 }
 
-if (!$load_Elements) {
-?>
+$load_Elements = false;
 
-<?php
 if ($mailChimpStatus['title'] == 'Forbidden') {
     ?>
     <div class="alert alert-danger">
@@ -75,53 +50,51 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     <?php
 } else {
     ?>
-    <div class="alert alert-info">
+    <div class="alert alert-info mailchimp-message-is-activated" style="display: <?= $isLoaded?'block':'none' ?>">
         <h4><i class="fas fa-info"></i> <?= _('MailChimp is activated') ?></h4>
         <?= _('MailChimp is working correctly') ?>
     </div>
-    <?php
-}
-?>
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card card-mailchimp">
-            <div class="card-header">
-                <h3 class="card-title"><i class="far fa-envelope"></i> <?= _('MailChimp Management') ?></h3>
-                <div style="float:right"><a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">
-                        <img class="logo-mailchimp" src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
+    <div class="row mailchimp-dashboard-list-visibility" style="display: <?= $isLoaded?'block':'none' ?>">
+        <div class="col-lg-12">
+            <div class="card card-mailchimp">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="far fa-envelope"></i> <?= _('MailChimp Management') ?></h3>
+                    <div style="float:right"><a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">
+                            <img class="logo-mailchimp" src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
+                    </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <p>
-                    <button class="btn btn-app btn-app-mailchimp" id="CreateList" <?= ($mailchimp->isActive()) ? '' : 'disabled' ?> data-toggle="tooltip"  data-placement="bottom" title="<?= _("Create an audience or List") ?>">
-                        <i class="fas fa-list-alt"></i><?= _("Create list") ?>
-                    </button>
-                    <a class="btn btn-app btn-app-mailchimp" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
-                        <i class="fas fas fa-table"></i> <?= _('Generate CSV') ?>
-                    </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp/duplicateemails" class="btn btn-app btn-app-mailchimp">
-                        <i class="fas fa-exclamation-triangle"></i> <?= _("Find Duplicate Emails") ?>
-                    </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailspersons" class="btn btn-app btn-app-mailchimp">
-                        <i class="far fa-bell-slash"></i> <?= _("Persons Not In MailChimp") ?>
-                    </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailsfamilies" class="btn btn-app btn-app-mailchimp">
-                        <i class="far fa-bell-slash"></i> <?= _("Families Not In MailChimp") ?>
-                    </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp/debug" class="btn btn-app btn-app-mailchimp" data-toggle="tooltip"  data-placement="bottom" title="<?= _("To debug your email connection") ?>">
-                        <i class="fas fa-stethoscope"></i><?= _("Debug") ?>
-                    </a>
-                </p>
-                <?= _('You can import the generated CSV file to external email system.') ?>
-                <?= _("For MailChimp see") ?> <a
-                    href="http://kb.mailchimp.com/lists/growth/import-subscribers-to-a-list"
-                    target="_blank"><?= _('import subscribers to a list.') ?></a>
+                <div class="card-body">
+                    <p>
+                        <button class="btn btn-app btn-app-mailchimp" id="CreateList" <?= ($mailchimp->isActive()) ? '' : 'disabled' ?> data-toggle="tooltip"  data-placement="bottom" title="<?= _("Create an audience or List") ?>">
+                            <i class="fas fa-list-alt"></i><?= _("Create list") ?>
+                        </button>
+                        <a class="btn btn-app btn-app-mailchimp" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
+                            <i class="fas fas fa-table"></i> <?= _('Generate CSV') ?>
+                        </a>
+                        <a href="<?= $sRootPath ?>/v2/mailchimp/duplicateemails" class="btn btn-app btn-app-mailchimp">
+                            <i class="fas fa-exclamation-triangle"></i> <?= _("Find Duplicate Emails") ?>
+                        </a>
+                        <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailspersons" class="btn btn-app btn-app-mailchimp">
+                            <i class="far fa-bell-slash"></i> <?= _("Persons Not In MailChimp") ?>
+                        </a>
+                        <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailsfamilies" class="btn btn-app btn-app-mailchimp">
+                            <i class="far fa-bell-slash"></i> <?= _("Families Not In MailChimp") ?>
+                        </a>
+                        <a href="<?= $sRootPath ?>/v2/mailchimp/debug" class="btn btn-app btn-app-mailchimp" data-toggle="tooltip"  data-placement="bottom" title="<?= _("To debug your email connection") ?>">
+                            <i class="fas fa-stethoscope"></i><?= _("Debug") ?>
+                        </a>
+                    </p>
+                    <?= _('You can import the generated CSV file to external email system.') ?>
+                    <?= _("For MailChimp see") ?> <a
+                        href="http://kb.mailchimp.com/lists/growth/import-subscribers-to-a-list"
+                        target="_blank"><?= _('import subscribers to a list.') ?></a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div id="container"></div>
+    <div id="container"></div>
+
     <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/AutomaticDarkMode.js"></script>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         window.CRM.mailchimpIsActive = <?= $isMailChimpActiv ?>;
@@ -133,8 +106,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     <script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
 
     <?php
-} // end of $load_Elements
+    }
 ?>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
-

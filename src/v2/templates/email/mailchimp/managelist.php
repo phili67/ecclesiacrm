@@ -65,7 +65,7 @@ if ($isMailchimpActiv) {
                     <h3 class="card-title"><i class="fas fa-users"></i> <?= _('Subscribers') ?></h3>
                 </div>
                 <div class="card-body">
-                    <div class="alert alert-warning"><i class="fas fa-info" aria-hidden="true"></i>
+                    <div class="alert alert-warning alert-managelist"><i class="fas fa-info" aria-hidden="true"></i>
                         <?= _("To add all the newsletter users, type <b>NewLetter</b> in the search field, to add all members of the CRM, use <b>*</b>") ?>
                     </div>
 
