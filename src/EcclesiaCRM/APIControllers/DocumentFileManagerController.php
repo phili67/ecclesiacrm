@@ -124,15 +124,18 @@ class DocumentFileManagerController
             $item['icon'] = MiscUtils::FileIcon($file);
             $item['path'] = $userName . $currentpath . $file;
 
+            $size = 28;
+
             $item['dir'] = false;
             if (is_dir("$currentNoteDir/$file")) {
                 $item['name'] = "/" . $file;
                 $item['dir'] = true;
-                $item['icon'] = 'far fa-folder text-yellow';
+                $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png"; //'far fa-folder text-yellow';
                 $item['type'] = gettext("Folder");
+                $size = 40;
             }
 
-            $item['icon'] = "<i class='" . $item['icon'] . " fa-2x'></i>";
+            $item['icon'] = '<img src="' . $item['icon']  . '" width="' . $size . '">';//;"<i class='" . $item['icon'] . " fa-2x'></i>";
 
             $result[] = $item;
         }
