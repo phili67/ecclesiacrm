@@ -574,33 +574,40 @@ class MiscUtils
         $filename = basename($path);
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
+        $globalPath = SystemURLs::getRootPath() . "/Images/Icons/";
+
         switch (strtolower($extension)) {
             case "doc":
             case "docx":
             case "odt":
-                $icon = ' far fa-file-word text-blue ';
+                $icon =  "DOC.png";//' far fa-file-word text-blue ';
+                break;
+            case "zip":
+                $icon =  "ZIP.png";//' far fa-file-word text-blue ';
                 break;
             case "ics":
-                $icon = ' far fa-calendar text-red';
+                $icon =  "ICS.png";//' far fa-calendar text-red';
                 break;
             case "sql":
-                $icon = ' fas fa-database text-red';
+                $icon =  "SQL.png";//' fas fa-database text-red';
                 break;
             case "xls":
             case "xlsx":
             case "ods":
             case "csv":
-                $icon = ' far fa-file-excel text-olive';
+                $icon =  "XLS.png";//' far fa-file-excel text-olive';
                 break;
-            case "xls":
-            case "xlsx":
+            case "ppt":
+            case "pptx":
             case "ods":
-                $icon = ' far fa-file-powerpoint text-red';
+                $icon =  "PPT.png";//' far fa-file-powerpoint text-red';
                 break;
             case "jpg":
             case "jpeg":
+                $icon =  "JPG.png";//
+                break;
             case "png":
-                $icon = ' far fa-file-image text-teal';
+                $icon =  "PNG.png"; //' far fa-file-image text-teal';
                 break;
             case "txt":
             case "ps1":
@@ -620,32 +627,36 @@ class MiscUtils
             case "vbs":
             case "admx":
             case "adml":
-                $icon = 'fas fa-file-code text-black';
+                $icon =  "CODE.png"; //'fas fa-file-code text-black';
                 break;
             case "pdf":
-                $icon = 'far fa-file-pdf  text-red';
+                $icon =  "PDF.png"; // 'far fa-file-pdf  text-red';
                 break;
             case "mp3":
             case "m4a":
             case "oga":
             case "wav":
-                $icon = 'fas fa-file-music  text-green';
+                $icon =  "MP3.png"; // 'fas fa-file-music  text-green';
                 break;
             case  "mp4":
-                $icon = 'fas fa-video text-blue';
+                $icon =  "MP4.png"; // 'fas fa-video text-blue';
                 break;
             case  "ogg":
-                $icon = 'fas fa-video  text-blue';
+                $icon =  "OGG.png"; //'fas fa-video  text-blue';
                 break;
             case "mov":
-                $icon = 'fas fa-video text-blue';
+                $icon =  "MOV.png"; // 'fas fa-video text-blue';
                 break;
             default:
-                $icon = "far fa-file text-blue";
+                $icon =  "FILE.png"; // "far fa-file text-blue";
                 break;
         }
 
-        return $icon . " bg-gray-light";
+        $globalPath .= $icon;
+
+        return $globalPath;
+
+        //return $icon . " bg-gray-light";
     }
 
     public static function simpleEmbedFiles($path, $realPath = NULL)
