@@ -14,90 +14,98 @@ use EcclesiaCRM\utils\OutputUtils;
 
 require $sRootDocument . '/Include/Header.php';
 
-print_r($campaign);
+//print_r($campaign);
 
 ?>
 
-<div class="row mailchimp-campaign-main-send-infos">
-    <div class="col-md-12">
-        <h3 class="mailchimp-h3">
-            <?= $campaign['recipients']['recipient_count'] ?>
-            <span class="mailchimp-h2">
+<?php
+if ($campaign['status'] == 'sent') {
+    ?>
+    <div class="row mailchimp-campaign-main-send-infos">
+        <div class="col-md-12">
+            <h3 class="mailchimp-h3">
+                <?= $campaign['recipients']['recipient_count'] ?>
+                <span class="mailchimp-h2">
                 <?= _("Recipients") ?>
             </span>
-        </h3>
-        <div class="row">
-            <div class="col-md-6">
-                <label><?= _("Audience") ?></label> : <?= $campaign['recipients']['list_name'] ?>
-            </div>
-            <div class="col-md-6">
+            </h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <label><?= _("Audience") ?></label> : <?= $campaign['recipients']['list_name'] ?>
+                </div>
+                <div class="col-md-6">
+                    <label><?= _("Delivered") ?></label> : <?= $campaign['send_time'] ?>
 
+                </div>
             </div>
-        </div>
 
 
-        <div class="row mailchimp-campaign-main-send-infos-sub">
-            <div class="col-md-3 text-center mailchimp-campaign-main-send-infos-sub-cell">
-                <h3 class="mailchimp-h3"><?= $campaign['report_summary']['unique_opens'] ?></h3>
-                <h2 class="mailchimp-h2"><?= _("Opened") ?></h2>
+            <div class="row mailchimp-campaign-main-send-infos-sub">
+                <div class="col-md-3 text-center mailchimp-campaign-main-send-infos-sub-cell">
+                    <h3 class="mailchimp-h3"><?= $campaign['report_summary']['unique_opens'] ?></h3>
+                    <h2 class="mailchimp-h2"><?= _("Opened") ?></h2>
+                </div>
+                <div class="col-md-3 text-center mailchimp-campaign-main-send-infos-sub-cell">
+                    <h3 class="mailchimp-h3"><?= $campaign['report_summary']['subscriber_clicks'] ?></h3>
+                    <h2 class="mailchimp-h2"><?= _("Clicked") ?></h2>
+                </div>
+                <div class="col-md-3 text-center mailchimp-campaign-main-send-infos-sub-cell">
+                    <h3 class="mailchimp-h3"><?= 0 /*$campaign['report_summary']['subscriber_clicks']*/ ?></h3>
+                    <h2 class="mailchimp-h2"><?= _("Bounced") ?></h2>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h3 class="mailchimp-h3"><?= 0 /*$campaign['report_summary']['subscriber_clicks']*/ ?></h3>
+                    <h2 class="mailchimp-h2"><?= _("Unsubscribed") ?></h2>
+                </div>
             </div>
-            <div class="col-md-3 text-center mailchimp-campaign-main-send-infos-sub-cell">
-                <h3 class="mailchimp-h3"><?= $campaign['report_summary']['subscriber_clicks'] ?></h3>
-                <h2 class="mailchimp-h2"><?= _("Clicked") ?></h2>
-            </div>
-            <div class="col-md-3 text-center mailchimp-campaign-main-send-infos-sub-cell">
-                <h3 class="mailchimp-h3"><?= 0 /*$campaign['report_summary']['subscriber_clicks']*/ ?></h3>
-                <h2 class="mailchimp-h2"><?= _("Bounced") ?></h2>
-            </div>
-            <div class="col-md-3 text-center">
-                <h3 class="mailchimp-h3"><?= 0 /*$campaign['report_summary']['subscriber_clicks']*/ ?></h3>
-                <h2 class="mailchimp-h2"><?= _("Unsubscribed") ?></h2>
-            </div>
-        </div>
 
-        <div class="unit size1of2">
-            <ul class="leaders">
-                <li><span>Successful deliveries</span> <span class="fwb">
-                                                    <span data-mc-el="deliverCountStat">407</span> <span
-                            data-mc-el="deliverRateStat" class="percent-spacer alignr dim-el fwn">100.0%</span>
+            <div class="unit size1of2">
+                <ul class="leaders">
+                    <li><span><?= _("Successful deliveries") ?></span> <span class="fwb">
+                                                    <span
+                                                        data-mc-el="deliverCountStat"><?= $campaign['emails_sent'] ?></span> <span
+                                data-mc-el="deliverRateStat"
+                                class="percent-spacer alignr dim-el fwn"><?= round($campaign['emails_sent'] / $campaign['recipients']['recipient_count'] * 100.0, 2) ?>%</span>
                                             </span></li>
-                <li><span>Total opens</span> <span class="fwb">
-                                                    <a data-mc-stat="openCountStat"
-                                                       href="/reports/activity/opened?id=6207353" title="View">160</a>                                             </span>
-                </li>
-                <li><span>Last opened</span>
+                    <li><span><?= _("Total opens") ?></span> <span class="fwb">
+                                                    <?= $campaign['report_summary']['opens'] ?></span>
+                    </li>
+                    <!--<li><span><?= _("Last opened") ?></span>
                     <span data-mc-el="lastOpenDate">10/12/22 9:53PM</span>
                 </li>
-                <li><span>Forwarded</span> <span class="fwb">
+                <li><span><?= _("Forwarded") ?></span> <span class="fwb">
                                                     <span data-mc-el="forwardCountStat">0</span>
                                             </span></li>
-                <li data-mc-el="forwardOpenCountBlock" style="display:none"><span>Forward opens</span> <span
+                <li data-mc-el="forwardOpenCountBlock" style="display:none"><span><?= _("Forward opens") ?></span> <span
                         class="fwb">
                                                     <span data-mc-el="forwardOpenCountStat">0</span>
-                                            </span></li>
-            </ul>
-        </div>
+                                            </span></li>-->
+                </ul>
+            </div>
 
-        <div class="lastUnit size1of2">
-            <ul class="leaders">
-                <li><span>Clicks per unique opens</span> <span class="fwb">
-                                                    <a data-mc-el="openClickRateStat" href="/reports/clicks?id=6207353"
-                                                       title="View">5.6%</a>                                             </span>
-                </li>
-                <li><span>Total clicks</span> <span class="fwb">
-                                                    <a data-mc-stat="clickCountStat" href="/reports/clicks?id=6207353"
-                                                       title="View">11</a>                                             </span>
-                </li>
-                <li><span>Last clicked</span>
-                    <span data-mc-el="lastClickDate">10/12/22 9:44PM</span>
-                </li>
-                <li><span>Abuse reports</span> <span class="fwb">
-                                                    <span data-mc-el="abuseCountStat">0</span>
-                                            </span></li>
-            </ul>
+            <div class="lastUnit size1of2">
+                <ul class="leaders">
+                    <li><span><?= _("Clicks rate") ?></span> <span class="fwb">
+                                                    <?= round($campaign['report_summary']['click_rate']*100.0,2) ?>%</span>
+                    </li>
+                    <li><span><?= _("Total clicks") ?></span> <span class="fwb">
+                                                    <?= $campaign['report_summary']['clicks'] ?>                                             </span>
+                    </li>
+                    <!--<li><span>Last clicked</span>
+                        <span data-mc-el="lastClickDate">10/12/22 9:44PM</span>
+                    </li>
+                    <li><span>Abuse reports</span> <span class="fwb">
+                                                        <span data-mc-el="abuseCountStat">0</span>
+                                                </span></li>
+                                                -->
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+
+    <?php
+}
+?>
 
 <div class="row">
     <div class="col-lg-9">
