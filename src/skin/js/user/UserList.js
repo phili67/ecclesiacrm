@@ -13,6 +13,20 @@ $(document).ready(function () {
         });
     });
 
+    $('.control-account').click(function () {
+        var userId = $(this).data("userid");
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'users/controlAccount',
+            data: JSON.stringify({"userID": userId})
+        },function (data) {
+            if (data.success) {
+                window.location = window.CRM.root;
+            }
+        });
+    });
+
 
     $('#user-listing-table').on('click', 'tr', function () {
         $(this).toggleClass('selected');
