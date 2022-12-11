@@ -69,14 +69,14 @@ $(document).ready(function () {
                     listViews += '          <table width="300px">';
 
                     for (j = 0; j < lenCampaigns; j++) {
-                        listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaigns[i][send_campaigns][j].id + '">' + data.MailChimpCampaigns[i][send_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaigns[i][send_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaigns[i][send_campaigns][j].status) + ')</span></b>  </td></tr>';
+                        listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaigns[i][send_campaigns][j].id + '">' + data.MailChimpCampaigns[i][send_campaigns][j].settings.title + '</td><td>' + ' <b><span class="badge bg-' + ((data.MailChimpCampaigns[i][send_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">' + i18next.t(data.MailChimpCampaigns[i][send_campaigns][j].status) + '</span></b>  </td></tr>';
                     }
 
                     let saved_campaigns = 1;
                     var lenCampaigns = data.MailChimpCampaigns[i][saved_campaigns].length;
 
                     for (j = 0; j < lenCampaigns; j++) {
-                        listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaigns[i][saved_campaigns][j].id + '">' + data.MailChimpCampaigns[i][saved_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaigns[i][saved_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaigns[i][saved_campaigns][j].status) + ')</span></b>  </td></tr>';
+                        listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaigns[i][saved_campaigns][j].id + '">' + data.MailChimpCampaigns[i][saved_campaigns][j].settings.title + '</td><td>' + ' <b><span class="badge bg-' + ((data.MailChimpCampaigns[i][saved_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">' + i18next.t(data.MailChimpCampaigns[i][saved_campaigns][j].status) + '</span></b>  </td></tr>';
                     }
 
                     listViews += '          </table>';
