@@ -29,6 +29,71 @@
     margin-right: -20px;
 }
 
+.mailchimp-h3 {
+    color: #007c89;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 200;
+}
+
+.mailchimp-h2 {
+    color: #111;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.7rem;
+    font-weight: 200;
+}
+
+.mailchimp-campaign-main-send-infos {
+    background-color: #fbfbfb;
+    padding: 10px;
+    margin: 10px;
+}
+
+.mailchimp-campaign-main-send-infos-sub {
+    border: 1px solid #dddddd;
+}
+
+.mailchimp-campaign-main-send-infos-sub-cell {
+    border-right: 1px solid #dddddd;
+}
+
+.leaders {
+    overflow-x: hidden;
+}
+
+.leaders li {
+    margin-bottom: 12px;
+    background: url(/Images/bg-leaders.png) transparent 0 17px repeat-x;
+}
+
+.leaders li>span:first-child {
+    padding-right: 12px;
+}
+.leaders li>span {
+    background-color: #fbfbfb;
+}
+
+.leaders li>span+span {
+    float: right;
+    padding-left: 12px;
+}
+
+.fwb {
+    font-weight: 500;
+}
+
+.size1of2 {
+    width: 50%;
+}
+.lastUnit, .unit {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 30px;
+    float: left;
+}
+
 @media (prefers-color-scheme: dark) {
     .btn-app-mailchimp {
         background-color: #555 !important;
