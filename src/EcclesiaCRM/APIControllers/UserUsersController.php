@@ -279,4 +279,42 @@ class UserUsersController
 
         return $response->withJson(['success' => false]);
     }
+
+    public function controlAccount(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $params = (object)$request->getParsedBody();
+
+        if ( isset ($params->userID) and SessionUser::isAdmin() ) {
+            $user = UserQuery::create()->findOneByPersonId($params->userID);
+
+            $_SESSION['ControllerAdminUserId'] = SessionUser::getId();
+
+            if ( !is_null($user) ) {
+                $user->LoginPhaseActivations();
+            }
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    public function exitControlAccount(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $params = (object)$request->getParsedBody();
+
+        if ( isset ($params->userID) and isset($_SESSION['ControllerAdminUserId']) ) {
+            $user = UserQuery::create()->findOneByPersonId($params->userID);
+
+            unset($_SESSION['ControllerAdminUserId']);
+
+            if ( !is_null($user) ) {
+                $user->LoginPhaseActivations();
+            }
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
 }

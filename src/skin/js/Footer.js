@@ -179,4 +179,19 @@ $("document").ready(function () {
         let allFound = document.querySelectorAll('.select2-container--open .select2-search__field');
         allFound[allFound.length - 1].focus();
     });
+
+    $('.exit-control-account').click(function () {
+        var userId = $(this).data("userid");
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'users/exitControlAccount',
+            data: JSON.stringify({"userID": userId})
+        },function (data) {
+            if (data.success) {
+                window.location = window.CRM.root;
+            }
+        });
+    });
+
 });

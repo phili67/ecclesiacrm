@@ -10,6 +10,8 @@ $app->group('/users', function (RouteCollectorProxy $group) {
     $group->post('/{userId:[0-9]+}/password/reset', UserUsersController::class . ':passwordReset' );
     $group->post('/applyrole' , UserUsersController::class . ':applyRole' );
     $group->post('/webdavKey' , UserUsersController::class . ':webDavKey' );
+    $group->post('/controlAccount', UserUsersController::class . ':controlAccount' );
+    $group->post('/exitControlAccount', UserUsersController::class . ':exitControlAccount' );
     $group->post('/lockunlock', UserUsersController::class . ':lockUnlock' );
     $group->post('/showsince', UserUsersController::class . ':showSince' );
     $group->post('/showto', UserUsersController::class . ':showTo' );
