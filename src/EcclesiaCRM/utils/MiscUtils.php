@@ -569,12 +569,94 @@ class MiscUtils
         return str_replace("." . $basePath, "", $path);
     }
 
-    public static function FileIcon($path)
+    private static function FileIconTimeLine($ext) {
+        switch (strtolower($ext)) {
+            case "doc":
+            case "docx":
+            case "odt":
+                $icon =  ' far fa-file-word text-blue ';
+                break;
+                break;
+            case "ics":
+                $icon =  ' far fa-calendar text-red';
+                break;
+            case "sql":
+                $icon =  ' fas fa-database text-red';
+                break;
+            case "xls":
+            case "xlsx":
+            case "ods":
+            case "csv":
+                $icon =  ' far fa-file-excel text-olive';
+                break;
+            case "ppt":
+            case "pptx":
+            case "ods":
+                $icon =  ' far fa-file-powerpoint text-red';
+                break;
+            case "jpg":
+            case "jpeg":
+                $icon =  ' far fa-file-image text-teal';
+                break;
+            case "png":
+                $icon =  ' far fa-file-image text-teal';
+                break;
+            case "txt":
+            case "ps1":
+            case "c":
+            case "cpp":
+            case "php":
+            case "js":
+            case "mm":
+            case "vcf":
+            case "py":
+            case "mm":
+            case "swift":
+            case "sh":
+            case "ru":
+            case "asp":
+            case "m":
+            case "vbs":
+            case "admx":
+            case "adml":
+                $icon =  'fas fa-file-code text-black';
+                break;
+            case "pdf":
+                $icon =  'far fa-file-pdf  text-red';
+                break;
+            case "mp3":
+            case "m4a":
+            case "oga":
+            case "wav":
+                $icon =  'fas fa-file-music  text-green';
+                break;
+            case  "mp4":
+                $icon =  'fas fa-video text-blue';
+                break;
+            case  "ogg":
+                $icon =  'fas fa-video  text-blue';
+                break;
+            case "mov":
+                $icon =  'fas fa-video text-blue';
+                break;
+            default:
+                $icon =  "far fa-file text-blue";
+                break;
+        }
+
+        return $icon . " bg-gray-light";
+    }
+
+    public static function FileIcon($path, $timeline=false)
     {
         $filename = basename($path);
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
         $globalPath = SystemURLs::getRootPath() . "/Images/Icons/";
+
+        if ($timeline) {
+            return MiscUtils::FileIconTimeLine($extension);
+        }
 
         switch (strtolower($extension)) {
             case "doc":

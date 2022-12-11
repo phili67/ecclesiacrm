@@ -315,7 +315,7 @@ class TimelineService
                 break;
             case 'file':
                 $item['slim'] = true;
-                $item['style'] = MiscUtils::FileIcon($text);
+                $item['style'] = MiscUtils::FileIcon($text, true);
                 $item['id'] = $id;
                 $item['header'] = _("File");
                 $item['editLink'] = $editLink;
