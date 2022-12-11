@@ -14,7 +14,7 @@ use EcclesiaCRM\utils\OutputUtils;
 
 require $sRootDocument . '/Include/Header.php';
 
-//print_r($campaign);
+print_r($campaign);
 
 ?>
 
