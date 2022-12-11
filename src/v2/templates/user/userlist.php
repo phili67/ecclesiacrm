@@ -53,6 +53,9 @@ require $sRootDocument . '/Include/Header.php';
                 <th align="center"><?= _('Total Logins') ?></th>
                 <th align="center"><?= _('Failed Logins') ?></th>
                 <th align="center"><?= _('Password') ?></th>
+                <?php if (\EcclesiaCRM\SessionUser::isAdmin()) { ?>
+                <th align="center"><?= _("Take control") ?></th>
+                <?php } ?>
                 <th align="center"><?= _('2FA authentication') ?></th>
                 <th align="center"><?= _('Status') ?></th>
             </tr>
@@ -152,6 +155,13 @@ require $sRootDocument . '/Include/Header.php';
                           }
                         ?>
                     </td>
+                    <?php if (\EcclesiaCRM\SessionUser::isAdmin()) { ?>
+                    <td>
+                        <a href="#" class="control-account" data-userid="<?= $user->getId()?>">
+                            <i class="fa fa-gamepad"></i>
+                        </a>
+                    </td>
+                    <?php } ?>
                     <td>
                         <?php if ($user->getTwoFaSecretConfirm()) { ?>
                             <a href="#" class="two-fa-manage btn btn-secondary" data-userid="<?= $user->getId()?>" data-userName="<?= $user->getPerson()->getFullName() ?>" data-userid="<?= $user->getId()?>">
