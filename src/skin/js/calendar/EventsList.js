@@ -210,7 +210,7 @@ $(document).ready(function () {
         var eventID    = $(this).data("id");
         var link    = $(this).data("link");
 
-        if (link !== null) {
+        if ( !(link == "" || link == null) ) {
             window.location.href = window.CRM.root + '/' + link;
             return;
         }
