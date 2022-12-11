@@ -106,6 +106,11 @@ Header_system_notifications();
                 </div>
             </div>
         </form>-->
+
+        <?php if(isset($_SESSION['ControllerAdminUserId']))  { ?>
+        <button class="btn btn-primary exit-control-account" data-userid="<?= $_SESSION['ControllerAdminUserId'] ?>"><?= _("Exit Control") ?></button>
+        <?php } ?>
+
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Cart Functions: style can be found in dropdown.less -->
