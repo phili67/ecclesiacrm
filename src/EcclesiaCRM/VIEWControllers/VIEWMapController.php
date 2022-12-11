@@ -109,6 +109,7 @@ class VIEWMapController {
             }
 
             $persons = PersonQuery::create()
+                ->filterByDateDeactivated(NULL) // GDPR
                 ->usePerson2group2roleP2g2rQuery()
                 ->filterByGroupId($iGroupID)
                 ->endUse()
@@ -116,15 +117,17 @@ class VIEWMapController {
 
             if ($persons->count() > 50) {
                 $families = FamilyQuery::create()
+                    ->filterByDateDeactivated(NULL) // GDPR
                     ->setDistinct(\EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ID)
                     ->filterByDateDeactivated(null)
                     ->filterByLatitude(0, Criteria::NOT_EQUAL)
                     ->filterByLongitude(0, Criteria::NOT_EQUAL)
                     ->usePersonQuery()
-                    ->usePerson2group2roleP2g2rQuery()
-                    ->filterByGroupId($iGroupID)
-                    ->endUse()
-                    //->filterByFmrId($dirRoleHead)
+                        ->filterByDateDeactivated(NULL) // GDPR
+                        ->usePerson2group2roleP2g2rQuery()
+                            ->filterByGroupId($iGroupID)
+                        ->endUse()
+                        //->filterByFmrId($dirRoleHead)
                     ->endUse()
                     ->find();
 
@@ -141,12 +144,14 @@ class VIEWMapController {
 
                 if ($persons->count() > 50) {
                     $families = FamilyQuery::create()
+                        ->filterByDateDeactivated(NULL) // GDPR
                         ->setDistinct(\EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ID)
                         ->filterByDateDeactivated(null)
                         ->filterByLatitude(0, Criteria::NOT_EQUAL)
                         ->filterByLongitude(0, Criteria::NOT_EQUAL)
                         ->usePersonQuery()
-                        ->filterById($_SESSION['aPeopleCart'])
+                            ->filterByDateDeactivated(NULL) // GDPR
+                            ->filterById($_SESSION['aPeopleCart'])
                         //->filterByFmrId($dirRoleHead)
                         ->endUse()
                         ->find();
@@ -157,11 +162,12 @@ class VIEWMapController {
         } elseif ($iGroupID == -1) {// the Family
             //Map all the families
             $families = FamilyQuery::create()
-                ->filterByDateDeactivated(null)
+                ->filterByDateDeactivated(NULL) // GDPR
                 ->filterByLatitude(0, Criteria::NOT_EQUAL)
                 ->filterByLongitude(0, Criteria::NOT_EQUAL)
                 ->usePersonQuery('per')
-                ->filterByFmrId($dirRoleHead)
+                    ->filterByDateDeactivated(NULL) // GDPR
+                    ->filterByFmrId($dirRoleHead)
                 ->endUse()
                 ->find();
 
