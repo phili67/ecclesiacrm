@@ -569,38 +569,37 @@ class MiscUtils
         return str_replace("." . $basePath, "", $path);
     }
 
-    public static function FileIcon($path)
-    {
-        $filename = basename($path);
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-
-        switch (strtolower($extension)) {
+    private static function FileIconTimeLine($ext) {
+        switch (strtolower($ext)) {
             case "doc":
             case "docx":
             case "odt":
-                $icon = ' far fa-file-word text-blue ';
+                $icon =  ' far fa-file-word text-blue ';
+                break;
                 break;
             case "ics":
-                $icon = ' far fa-calendar text-red';
+                $icon =  ' far fa-calendar text-red';
                 break;
             case "sql":
-                $icon = ' fas fa-database text-red';
+                $icon =  ' fas fa-database text-red';
                 break;
             case "xls":
             case "xlsx":
             case "ods":
             case "csv":
-                $icon = ' far fa-file-excel text-olive';
+                $icon =  ' far fa-file-excel text-olive';
                 break;
-            case "xls":
-            case "xlsx":
+            case "ppt":
+            case "pptx":
             case "ods":
-                $icon = ' far fa-file-powerpoint text-red';
+                $icon =  ' far fa-file-powerpoint text-red';
                 break;
             case "jpg":
             case "jpeg":
+                $icon =  ' far fa-file-image text-teal';
+                break;
             case "png":
-                $icon = ' far fa-file-image text-teal';
+                $icon =  ' far fa-file-image text-teal';
                 break;
             case "txt":
             case "ps1":
@@ -620,32 +619,126 @@ class MiscUtils
             case "vbs":
             case "admx":
             case "adml":
-                $icon = 'fas fa-file-code text-black';
+                $icon =  'fas fa-file-code text-black';
                 break;
             case "pdf":
-                $icon = 'far fa-file-pdf  text-red';
+                $icon =  'far fa-file-pdf  text-red';
                 break;
             case "mp3":
             case "m4a":
             case "oga":
             case "wav":
-                $icon = 'fas fa-file-music  text-green';
+                $icon =  'fas fa-file-music  text-green';
                 break;
             case  "mp4":
-                $icon = 'fas fa-video text-blue';
+                $icon =  'fas fa-video text-blue';
                 break;
             case  "ogg":
-                $icon = 'fas fa-video  text-blue';
+                $icon =  'fas fa-video  text-blue';
                 break;
             case "mov":
-                $icon = 'fas fa-video text-blue';
+                $icon =  'fas fa-video text-blue';
                 break;
             default:
-                $icon = "far fa-file text-blue";
+                $icon =  "far fa-file text-blue";
                 break;
         }
 
         return $icon . " bg-gray-light";
+    }
+
+    public static function FileIcon($path, $timeline=false)
+    {
+        $filename = basename($path);
+        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+        $globalPath = SystemURLs::getRootPath() . "/Images/Icons/";
+
+        if ($timeline) {
+            return MiscUtils::FileIconTimeLine($extension);
+        }
+
+        switch (strtolower($extension)) {
+            case "doc":
+            case "docx":
+            case "odt":
+                $icon =  "DOC.png";//' far fa-file-word text-blue ';
+                break;
+            case "zip":
+                $icon =  "ZIP.png";//' far fa-file-word text-blue ';
+                break;
+            case "ics":
+                $icon =  "ICS.png";//' far fa-calendar text-red';
+                break;
+            case "sql":
+                $icon =  "SQL.png";//' fas fa-database text-red';
+                break;
+            case "xls":
+            case "xlsx":
+            case "ods":
+            case "csv":
+                $icon =  "XLS.png";//' far fa-file-excel text-olive';
+                break;
+            case "ppt":
+            case "pptx":
+            case "ods":
+                $icon =  "PPT.png";//' far fa-file-powerpoint text-red';
+                break;
+            case "jpg":
+            case "jpeg":
+                $icon =  "JPG.png";//
+                break;
+            case "png":
+                $icon =  "PNG.png"; //' far fa-file-image text-teal';
+                break;
+            case "txt":
+            case "ps1":
+            case "c":
+            case "cpp":
+            case "php":
+            case "js":
+            case "mm":
+            case "vcf":
+            case "py":
+            case "mm":
+            case "swift":
+            case "sh":
+            case "ru":
+            case "asp":
+            case "m":
+            case "vbs":
+            case "admx":
+            case "adml":
+                $icon =  "CODE.png"; //'fas fa-file-code text-black';
+                break;
+            case "pdf":
+                $icon =  "PDF.png"; // 'far fa-file-pdf  text-red';
+                break;
+            case "mp3":
+            case "m4a":
+            case "oga":
+            case "wav":
+                $icon =  "MP3.png"; // 'fas fa-file-music  text-green';
+                break;
+            case  "mp4":
+                $icon =  "MP4.png"; // 'fas fa-video text-blue';
+                break;
+            case  "ogg":
+                $icon =  "OGG.png"; //'fas fa-video  text-blue';
+                break;
+            case "mov":
+                $icon =  "MOV.png"; // 'fas fa-video text-blue';
+                break;
+            default:
+                $icon =  "FILE.png"; // "far fa-file text-blue";
+                break;
+        }
+
+        $globalPath .= $icon;
+
+        return $globalPath;
+
+        //return $icon . " bg-gray-light";
     }
 
     public static function simpleEmbedFiles($path, $realPath = NULL)
