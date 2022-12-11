@@ -11,7 +11,7 @@ $(document).ready(function () {
     function render_container() {
         if (window.CRM.mailchimpIsActive) {
             // we first empty the container
-            $("#container").html('<div class="text-center"><i class="fas fa-spin fa-spinner"></i> ' + i18next.t("Loading datas ...") + "</div>");
+            $("#container").html('<br><br><br><h2 class="headline text-primary text-center"><i class="fas fa-spin fa-spinner"></i> ' + i18next.t("Loading datas ...") + "</h2>");
 
             window.CRM.APIRequest({
                 method: 'GET',
@@ -19,10 +19,13 @@ $(document).ready(function () {
             }, function (data) {
 
                 if (data.MailChimpLists == null) {
-                    $("#container").html(i18next.t("No list are created with this account ...."));
+                    $("#container").html('<h2 class="headline text-primary">' + i18next.t("No list are created with this account ...."));
 
                     return;
                 }
+
+                $(".mailchimp-message-is-activated").css("display", "block");
+                $(".mailchimp-dashboard-list-visibility").css("display", "block");
 
                 var len = data.MailChimpLists.length;
 
@@ -66,26 +69,26 @@ $(document).ready(function () {
                     listViews += '          <table width="300px">';
 
                     for (j = 0; j < lenCampaigns; j++) {
-                        listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaigns[i][send_campaigns][j].id + '">' + data.MailChimpCampaigns[i][send_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaigns[i][send_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaigns[i][send_campaigns][j].status) + ')</span></b>  </td></tr>';
+                        listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaigns[i][send_campaigns][j].id + '">' + data.MailChimpCampaigns[i][send_campaigns][j].settings.title + '</td><td>' + ' <b><span class="badge bg-' + ((data.MailChimpCampaigns[i][send_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">' + i18next.t(data.MailChimpCampaigns[i][send_campaigns][j].status) + '</span></b>  </td></tr>';
                     }
 
                     let saved_campaigns = 1;
                     var lenCampaigns = data.MailChimpCampaigns[i][saved_campaigns].length;
 
                     for (j = 0; j < lenCampaigns; j++) {
-                        listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaigns[i][saved_campaigns][j].id + '">' + data.MailChimpCampaigns[i][saved_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaigns[i][saved_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaigns[i][saved_campaigns][j].status) + ')</span></b>  </td></tr>';
+                        listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaigns[i][saved_campaigns][j].id + '">' + data.MailChimpCampaigns[i][saved_campaigns][j].settings.title + '</td><td>' + ' <b><span class="badge bg-' + ((data.MailChimpCampaigns[i][saved_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">' + i18next.t(data.MailChimpCampaigns[i][saved_campaigns][j].status) + '</span></b>  </td></tr>';
                     }
 
                     listViews += '          </table>';
 
                     listViews += '        </div>';
 
-                    if (data.MailChimpLists[i].tags !== undefined) {
+                    if (data.MailChimpLists[i].tags !== undefined && data.MailChimpLists[i].tags != null) {
                         var lenTags = data.MailChimpLists[i].tags.length;
 
                         if (lenTags) {
 
-                            listViews += '        <div class="col-lg-4 cold-lg-mailchimp">'
+                            listViews += '        <div class="col-lg-4 col-lg-mailchimp">'
                                 + '           <b><i class="icon fas fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
 
                             var tags = data.MailChimpLists[i].tags;

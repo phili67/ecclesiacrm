@@ -20,7 +20,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'mailchimp/list/getAllTags',
             data: JSON.stringify({"list_id": window.CRM.list_ID})
-        },function (data) {
+        }, function (data) {
             $("#allTags").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fas fa-plus"></i> <i class="fas fa-tag"></i> ' + i18next.t("Add a new tag") + '</a>');
             $("#allTags").append('<div class="dropdown-divider"></div>');
             $("#allTags").append('<a class="dropdown-item deleteTagButton" data-id="-1" data-name=""><i class="fas fa-minus"></i> <i class="fas fa-tag"></i> ' + i18next.t("Delete tag from subscriber(s)") + '</a>');
@@ -55,7 +55,7 @@ $(document).ready(function () {
             window.CRM.APIRequest({
                 method: 'GET',
                 path: 'mailchimp/list/' + window.CRM.list_ID
-            },function (data) {
+            }, function (data) {
                 window.CRM.closeDialogLoadingFunction();
 
                 // we set correctly the buttons
@@ -86,16 +86,16 @@ $(document).ready(function () {
                     + '        <div class="col-md-12">'
                     + '          <table width="100%">'
                     + '            <tr><td><b><i class="far fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
-                    + '            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
-                    + '            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
-                    //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
-                    + '            <tr><td>' + i18next.t('Unsubscribed count:') + '</td><td>' + list.stats.unsubscribe_count + '</td></tr>'
-                    + '            <tr><td>' + i18next.t('Unsubscribed count since last send:') + '</td><td>' + list.stats.unsubscribe_count_since_send + '</td></tr>'
-                    + '            <tr><td>' + i18next.t('Cleaned count:') + '</td><td>' + list.stats.cleaned_count + '</td></tr>'
-                    + '            <tr><td>' + i18next.t('Cleaned count since last send:') + '</td><td>' + list.stats.cleaned_count_since_send + '</td></tr>'
+                    + '            <tr><td>&bullet; ' + i18next.t('Subject') + '</td><td>:</td><td><b>' + list.campaign_defaults.subject + '</b></td></tr>'
+                    + '            <tr><td>&bullet; ' + i18next.t('Members:') + '</td><td>:</td><td><b>' + list.stats.member_count + '</b></td></tr>'
+                    //+'            <tr><td>&bullet; ' + i18next.t('Campaigns:') + '</td><td>:</td><td><b> ' + list.stats.campaign_count + '</b></td></tr>'
+                    + '            <tr><td>&bullet; ' + i18next.t('Unsubscribed count:') + '</td><td>:</td><td><b>' + list.stats.unsubscribe_count + '</b></td></tr>'
+                    + '            <tr><td>&bullet; ' + i18next.t('Unsubscribed count since last send:') + '</td><td>:</td><td><b>' + list.stats.unsubscribe_count_since_send + '</b></td></tr>'
+                    + '            <tr><td>&bullet; ' + i18next.t('Cleaned count:') + '</td><td>:</td><td><b>' + list.stats.cleaned_count + '</b></td></tr>'
+                    + '            <tr><td>&bullet; ' + i18next.t('Cleaned count since last send:') + '</td><td>:</td><td><b>' + list.stats.cleaned_count_since_send + '</b></td></tr>'
                     + '          </table>'
                     + '        </div>'
-                    + '      </div><hr/>'
+                    + '      </div><hr class="hr-mailchimp"/>'
                     + '      <div class="row">'
                     + '        <div class="col-md-12">'
                     + '           <b><i class="fas fa-envelope-open-text"></i> ' + i18next.t('Campaigns') + '</b><br>';
@@ -112,7 +112,7 @@ $(document).ready(function () {
                     if (data.membersCount == 0) {
                         listView += '<tr><td>• ' + data.MailChimpCampaign[save_campaigns][j].settings.title + '</td></tr>';
                     } else {
-                        listView += '<tr><td>&bullet; ' + data.MailChimpCampaign[save_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[save_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaign[save_campaigns][j].status) + ')</span></b>  </td><td><a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[save_campaigns][j].id + '" class="btn btn btn-primary btn-xs""><i class="fas fa-edit"></i> '+ i18next.t("Edit") + '</a></td></tr>';
+                        listView += '<tr><td>&bullet; ' + data.MailChimpCampaign[save_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[save_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaign[save_campaigns][j].status) + ')</span></b>  </td><td><a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[save_campaigns][j].id + '" class="btn btn btn-primary btn-xs""><i class="fas fa-edit"></i> </a></td></tr>';
                     }
                 }
 
@@ -130,7 +130,7 @@ $(document).ready(function () {
                     if (data.membersCount == 0) {
                         listView += '<tr><td>• ' + data.MailChimpCampaign[send_campaigns][j].settings.title + '</td></tr>';
                     } else {
-                        listView += '<tr><td>&bullet; ' + data.MailChimpCampaign[send_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[send_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaign[send_campaigns][j].status) + ')</span></b>  </td><td><a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[send_campaigns][j].id + '" class="btn btn btn-primary btn-xs""><i class="fas fa-edit"></i> '+ i18next.t("Edit") + '</a></td></tr>';
+                        listView += '<tr><td>&bullet; ' + data.MailChimpCampaign[send_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[send_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaign[send_campaigns][j].status) + ')</span></b>  </td><td><a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[send_campaigns][j].id + '" class="btn btn btn-primary btn-xs""><i class="fas fa-edit"></i> </a></td></tr>';
                     }
                 }
 
@@ -142,7 +142,7 @@ $(document).ready(function () {
 
                 listView += '        </div>';
 
-                listView += '   </div><hr/>';
+                listView += '   </div><hr class="hr-mailchimp"/>';
 
                 var lenTags = data.MailChimpList.tags.length;
 
@@ -159,7 +159,7 @@ $(document).ready(function () {
                         tagsButtons += '<table width="100%">';
                         for (k = 0; k < lenTags; k++) {
                             tagsButtons += '<tr>';
-                            tagsButtons += '<td>&bullet; ' + tags[k].name + ' </td><td><a class="delete-tag btn btn btn-danger btn-xs" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '"><i style="cursor:pointer;" class="icon far fa-trash-alt"></i> '+ i18next.t("Remove") + '</a></td>';
+                            tagsButtons += '<td>&bullet; ' + tags[k].name + ' </td><td><a class="delete-tag btn btn btn-danger btn-xs" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '"><i style="cursor:pointer;" class="icon far fa-trash-alt"></i> </a></td>';
                             tagsButtons += '</tr>';
                         }
                         tagsButtons += '</table>'
@@ -200,7 +200,7 @@ $(document).ready(function () {
                 title: '<small>' + i18next.t("Actions") + ' </small><br/>'
                     + '<div class="btn-group">' +
                     '       <button type="button" id="deleteMembers" class="btn btn-danger btn-sm"'
-                    +           'disabled><i class="far fa-trash-alt"></i> </button> ' +
+                    + 'disabled><i class="far fa-trash-alt"></i> </button> ' +
                     '       <button type="button" class="subscribeButton btn btn-primary btn-sm" data-type="subscribed"' +
                     '                                        disabled><i class="fas fa-user"></i></button>' +
                     '                                <button type="button" class="subscribeButtonDrop btn btn-primary dropdown-toggle btn-sm"' +
@@ -213,7 +213,7 @@ $(document).ready(function () {
                     '                                            class="fas fa-user"></i><i class="fas fa-check"></i> ' + i18next.t("Subscribed") +
                     '                                    </a>\n' +
                     '                                    <a class="dropdown-item subscribeButton" data-type="unsubscribed"><i\n' +
-                    '                                            class="fas fa-user"></i><i class="fas fa-times"></i> ' + i18next.t("Unsubscribed")  +
+                    '                                            class="fas fa-user"></i><i class="fas fa-times"></i> ' + i18next.t("Unsubscribed") +
                     '                                    </a>\n' +
                     '                                </div>' +
                     '   </div>',
@@ -306,12 +306,12 @@ $(document).ready(function () {
             columns: columns,
             responsive: true,
             pageLength: 50,
-            order: [[ 3, "asc" ]],
+            order: [[3, "asc"]],
             createdRow: function (row, data, index) {
                 $(row).addClass("duplicateRow");
             },
-            initComplete: function(settings, json) {
-                $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+            initComplete: function (settings, json) {
+                $("body").tooltip({selector: '[data-toggle=tooltip]'});
                 if (tagButtonsLoaded === false) {
                     addDataTableButtons();
                     tagButtonsLoaded = true;
@@ -364,11 +364,10 @@ $(document).ready(function () {
     addTagsToMainDropdown();
     loadTableMembers();
 
-    function addDataTableButtons ()
-    {
+    function addDataTableButtons() {
         $('.addTagButton').click(function (event) {
             $(".addTagButtonDrop").dropdown('toggle');
-            event.stopPropagation();
+            var ev = event;
 
             var tag = $(this).data("id");
             var name = $(this).data("name");
@@ -397,17 +396,20 @@ $(document).ready(function () {
                                 "name": name,
                                 "emails": emails
                             })
-                        },function (data) {
+                        }, function (data) {
+                            ev.stopPropagation();
                             if (data.success) {
-                                window.CRM.dataListTable.ajax.reload(function ( json ) {
+                                window.CRM.dataListTable.ajax.reload(function (json) {
                                     render_container();
-                                    addTagsToMainDropdown();
-                                    changeState();
+                                    //addTagsToMainDropdown();
+                                    //changeState();
                                     window.CRM.closeDialogLoadingFunction();
+                                    ev.startPropagation();
                                 }, false);
                             } else if (data.success == false && data.error) {
                                 window.CRM.closeDialogLoadingFunction();
                                 window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                                ev.startPropagation();
                             }
                         });
                     } else if (name != null) {
@@ -427,6 +429,7 @@ $(document).ready(function () {
                         }
                     },
                     callback: function (result) {
+                        ev.stopPropagation();
                         if (result) {
                             window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'));
                             window.CRM.APIRequest({
@@ -438,29 +441,30 @@ $(document).ready(function () {
                                     "name": name,
                                     "emails": emails
                                 })
-                            },function (data) {
+                            }, function (data) {
                                 if (data.success) {
-                                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                                    window.CRM.dataListTable.ajax.reload(function (json) {
                                         render_container();
                                         window.CRM.closeDialogLoadingFunction();
+                                        ev.startPropagation();
                                     }, false);
                                 } else if (data.success == false && data.error) {
                                     window.CRM.closeDialogLoadingFunction();
                                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                                    //event.startPropagation();
+                                    ev.startPropagation();
                                 }
                             });
                         } else {
-                            //event.startPropagation();
+                            ev.startPropagation();
                         }
                     }
                 });
             }
         });
 
-        $('.deleteTagButton').click( function (event) {
+        $('.deleteTagButton').click(function (event) {
             $(".addTagButtonDrop").dropdown('toggle');
-            event.stopPropagation();
+            var ev = event;
 
             var tag = $(this).data("id");
             var name = $(this).data("name");
@@ -480,7 +484,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/list/getAllTags',
                 data: JSON.stringify({"list_id": window.CRM.list_ID})
-            },function (data) {
+            }, function (data) {
                 var len = data.result.length;
 
                 var res = [{text: i18next.t("Select One"), value: ''}];
@@ -496,6 +500,7 @@ $(document).ready(function () {
                     inputType: 'select',
                     inputOptions: res,
                     callback: function (tag) {
+                        ev.stopPropagation();
                         if (tag && tag != -1) {
                             console.log(tag);
                             window.CRM.dialogLoadingFunction(i18next.t('Removing tags...'));
@@ -508,16 +513,18 @@ $(document).ready(function () {
                                     "name": name,
                                     "emails": emails
                                 })
-                            },function (data) {
+                            }, function (data) {
                                 if (data.success) {
-                                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                                    window.CRM.dataListTable.ajax.reload(function (json) {
                                         render_container();
+                                        ev.startPropagation();
                                     }, false);
                                     //addTagsToMainDropdown();
                                     //changeState();
                                 } else if (data.success == false && data.error) {
                                     window.CRM.closeDialogLoadingFunction();
                                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                                    ev.startPropagation();
                                 }
                             });
                         } else if (tag != null) {
@@ -527,11 +534,11 @@ $(document).ready(function () {
                                 method: 'POST',
                                 path: 'mailchimp/list/removeAllTagsForMembers',
                                 data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
-                            },function (data) {
-                                window.CRM.dataListTable.ajax.reload(function ( json ) {
+                            }, function (data) {
+                                window.CRM.dataListTable.ajax.reload(function (json) {
                                     render_container();
+                                    ev.startPropagation();
                                 }, false);
-                                //event.startPropagation();
                             });
                         }
                     }
@@ -543,8 +550,6 @@ $(document).ready(function () {
     // render the main page
 
     $(document).on("click", ".delete-tag", function (event) {
-        //event.startPropagation();
-
         var tagID = $(this).data("id");
         var listID = $(this).data("listid");
 
@@ -569,7 +574,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'mailchimp/list/removeTag',
                         data: JSON.stringify({"list_id": listID, "tag_ID": tagID})
-                    },function (data) {
+                    }, function (data) {
                         window.CRM.dataListTable.ajax.reload(function () {
                             render_container();
                             //addTagsToMainDropdown();
@@ -656,9 +661,9 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/addperson',
                 data: JSON.stringify({"list_id": list_id, "personID": e.params.data.personID})
-            },function (data) {
+            }, function (data) {
                 if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                    window.CRM.dataListTable.ajax.reload(function (json) {
                         render_container();
                     }, false);
                 } else if (data.error) {
@@ -674,9 +679,9 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/addgroup',
                 data: JSON.stringify({"list_id": list_id, "groupID": e.params.data.groupID})
-            },function (data) {
+            }, function (data) {
                 if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                    window.CRM.dataListTable.ajax.reload(function (json) {
                         render_container();
                     }, false);
                 } else if (data.error) {
@@ -691,9 +696,9 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/addfamily',
                 data: JSON.stringify({"list_id": list_id, "familyID": e.params.data.familyID})
-            },function (data) {
+            }, function (data) {
                 if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                    window.CRM.dataListTable.ajax.reload(function (json) {
                         render_container();
                     }, false);
                 } else if (data.error) {
@@ -708,14 +713,14 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/addallpersons',
                 data: JSON.stringify({"list_id": list_id})
-            },function (data) {
+            }, function (data) {
                 if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                    window.CRM.dataListTable.ajax.reload(function (json) {
                         render_container();
                     }, false);
                 } else if (data.error) {
                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                    window.CRM.dataListTable.ajax.reload(function (json) {
                         render_container();
                     }, false);
                 }
@@ -727,14 +732,14 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/addallnewsletterpersons',
                 data: JSON.stringify({"list_id": list_id})
-            },function (data) {
+            }, function (data) {
                 if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                    window.CRM.dataListTable.ajax.reload(function (json) {
                         render_container();
                     }, false);
                 } else if (data.error) {
-                    window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                    window.CRM.dataListTable.ajax.reload(function (json) {
                         render_container();
                     }, false);
                 }
@@ -746,14 +751,14 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/addAllFamilies',
                 data: JSON.stringify({"list_id": list_id})
-            },function (data) {
+            }, function (data) {
                 if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                    window.CRM.dataListTable.ajax.reload(function (json) {
                         render_container();
                     }, false);
                 } else if (data.error) {
-                    window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-                    window.CRM.dataListTable.ajax.reload(function ( json ) {
+                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                    window.CRM.dataListTable.ajax.reload(function (json) {
                         render_container();
                     }, false);
                 }
@@ -787,9 +792,9 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'mailchimp/status',
                         data: JSON.stringify({"list_id": window.CRM.list_ID, "status": status, "email": email})
-                    },function (data) {
+                    }, function (data) {
                         if (data.success) {
-                            window.CRM.dataListTable.ajax.reload(function ( json ) {
+                            window.CRM.dataListTable.ajax.reload(function (json) {
                                 render_container();
                             }, false);
                         } else if (data.success == false && data.error) {
@@ -824,9 +829,9 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'mailchimp/suppress',
                         data: JSON.stringify({"list_id": window.CRM.list_ID, "email": email})
-                    },function (data) {
+                    }, function (data) {
                         if (data.success) {
-                            window.CRM.dataListTable.ajax.reload(function ( json ) {
+                            window.CRM.dataListTable.ajax.reload(function (json) {
                                 render_container();
                             }, false);
                         } else if (data.success == false && data.error) {
@@ -860,7 +865,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'mailchimp/deletelist',
                         data: JSON.stringify({"list_id": window.CRM.list_ID})
-                    },function (data) {
+                    }, function (data) {
                         if (data.success) {
                             window.location.href = window.CRM.root + "/v2/mailchimp/dashboard";
                         } else if (data.error) {
@@ -895,7 +900,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'mailchimp/deleteallsubscribers',
                         data: JSON.stringify({"list_id": window.CRM.list_ID})
-                    },function (data) {
+                    }, function (data) {
                         if (data.success) {
                             window.CRM.dataListTable.ajax.reload(null, false);
                             render_container();
@@ -979,7 +984,7 @@ $(document).ready(function () {
                                     "title": campaignTitle,
                                     "htmlBody": htmlBody
                                 })
-                            },function (data) {
+                            }, function (data) {
                                 if (data.success) {
                                     bootbox.confirm({
                                         message: i18next.t("Would like to manage directly this new campaign ?"),
@@ -1048,7 +1053,7 @@ $(document).ready(function () {
                         "subject": subject,
                         "permission_reminder": permission_reminder
                     })
-                },function (data) {
+                }, function (data) {
                     if (data.success) {
                         $("#modifyList").data('name', name);
                         $("#modifyList").data('subject', subject);
@@ -1080,7 +1085,7 @@ $(document).ready(function () {
         $(".subscribeButtonDrop").prop('disabled', !(state));
     }
 
-    $(document).on("click",".check_all", function () {
+    $(document).on("click", ".check_all", function () {
         var res = 0;
 
         var state = this.checked;
@@ -1136,7 +1141,7 @@ $(document).ready(function () {
                     method: 'POST',
                     path: 'mailchimp/status',
                     data: JSON.stringify({"list_id": window.CRM.list_ID, "status": status, "email": email})
-                },function (data) {
+                }, function (data) {
                     if (data.success) {
                         window.CRM.dataListTable.ajax.reload(null, false);
                         render_container();
@@ -1149,7 +1154,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("click","#deleteMembers", function () {
+    $(document).on("click", "#deleteMembers", function () {
         var emails = [];
 
         $(".checkbox_users").each(function () {
@@ -1179,7 +1184,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'mailchimp/suppressMembers',
                         data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
-                    },function (data) {
+                    }, function (data) {
                         if (data.success) {
                             window.CRM.dataListTable.ajax.reload(function () {
                                 render_container();
