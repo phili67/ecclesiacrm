@@ -691,6 +691,9 @@ class MiscUtils
             case "png":
                 $icon =  "PNG.png"; //' far fa-file-image text-teal';
                 break;
+            case "gif":
+                $icon =  "GIF.png"; //' far fa-file-image text-teal';
+                break;
             case "txt":
             case "ps1":
             case "c":
