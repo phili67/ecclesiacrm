@@ -981,7 +981,7 @@ class User extends BaseUser
       return $userConf->getValue();
     }
 
-    public function LoginPhaseActivations()
+    public function LoginPhaseActivations($takeControl = false)
     {
         $token = TokenQuery::Create()->findOneByType("secret");
 
@@ -1003,10 +1003,12 @@ class User extends BaseUser
         }
 
         // Set the LastLogin and Increment the LoginCount
-        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-        $this->setLastLogin($date->format('Y-m-d H:i:s'));
-        $this->setLoginCount($this->getLoginCount() + 1);
-        $this->setFailedLogins(0);
+        if ($takeControl == false) {
+            $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+            $this->setLastLogin($date->format('Y-m-d H:i:s'));
+            $this->setLoginCount($this->getLoginCount() + 1);
+            $this->setFailedLogins(0);
+        }
         $this->save();
 
         $_SESSION['user'] = $this;
