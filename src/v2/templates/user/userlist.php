@@ -10,6 +10,8 @@
  *
  ******************************************************************************/
 
+use EcclesiaCRM\SessionUser;
+
 require $sRootDocument . '/Include/Header.php';
 ?>
 <!-- Default box -->
@@ -53,7 +55,7 @@ require $sRootDocument . '/Include/Header.php';
                 <th align="center"><?= _('Total Logins') ?></th>
                 <th align="center"><?= _('Failed Logins') ?></th>
                 <th align="center"><?= _('Password') ?></th>
-                <?php if (\EcclesiaCRM\SessionUser::isAdmin()) { ?>
+                <?php if (SessionUser::isAdmin()) { ?>
                 <th align="center"><?= _("Take control") ?></th>
                 <?php } ?>
                 <th align="center"><?= _('2FA authentication') ?></th>
@@ -155,13 +157,14 @@ require $sRootDocument . '/Include/Header.php';
                           }
                         ?>
                     </td>
-                    <?php if (\EcclesiaCRM\SessionUser::isAdmin()) { ?>
                     <td>
-                        <a href="#" class="control-account" data-userid="<?= $user->getId()?>">
-                            <i class="fa fa-gamepad"></i>
-                        </a>
+                        <?php if (SessionUser::isAdmin() and $user->getId() != $sessionUserId) { ?>
+
+                            <a href="#" class="control-account" data-userid="<?= $user->getId()?>">
+                                <i class="fa fa-gamepad"></i>
+                            </a>
+                        <?php } ?>
                     </td>
-                    <?php } ?>
                     <td>
                         <?php if ($user->getTwoFaSecretConfirm()) { ?>
                             <a href="#" class="two-fa-manage btn btn-secondary" data-userid="<?= $user->getId()?>" data-userName="<?= $user->getPerson()->getFullName() ?>" data-userid="<?= $user->getId()?>">
