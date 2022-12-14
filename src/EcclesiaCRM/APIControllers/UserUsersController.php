@@ -290,7 +290,7 @@ class UserUsersController
             $_SESSION['ControllerAdminUserId'] = SessionUser::getId();
 
             if ( !is_null($user) ) {
-                $user->LoginPhaseActivations();
+                $user->LoginPhaseActivations(true);
             }
 
             return $response->withJson(['success' => true]);
@@ -309,7 +309,7 @@ class UserUsersController
             unset($_SESSION['ControllerAdminUserId']);
 
             if ( !is_null($user) ) {
-                $user->LoginPhaseActivations();
+                $user->LoginPhaseActivations(true);
             }
 
             return $response->withJson(['success' => true]);
