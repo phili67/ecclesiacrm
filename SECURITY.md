@@ -11,4 +11,4 @@
 
 ## Reporting a Vulnerability
 
-Please disclose security issues to info@churchcrm.io
+Please disclose security issues to dev-team@ecclesiacrm.com
