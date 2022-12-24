@@ -18,6 +18,14 @@ npm rebuild node-sass
 #  it's time to install all the node js files
 npm install --unsafe-perm --legacy-peer-deps
 
+cd src/
+
+sudo composer i
+
+cd ..
+
+sudo cp BuildConfig.json.example BuildConfig.json
+
 # to run the installation
 npm run install
 npm run postinstall
