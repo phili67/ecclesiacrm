@@ -15,8 +15,9 @@ $(document).ready(function () {
     $('.connectedSortable').sortable({
         placeholder:'sort-highlight',
         connectWith:'.connectedSortable',
-        handle:'.card-header, .nav-tabs',
+        handle:'.card-header, .nav-tabs, .card-body',
         forcePlaceholderSize:true,
+        tolerance: 'pointer',// fix the drag in a small placeholder
         zIndex:999999,
         stop: function( ev ) {
 
