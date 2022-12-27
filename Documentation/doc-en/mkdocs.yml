@@ -147,7 +147,9 @@ nav:
       - "Cart": 'user-guide/doc-tools/doc-cart.md'
 
   - "Manual: Developer":
-      - 'API': 'user-guide/doc-dev/api.md'
+      - 'API': 'user-guide/doc-dev/doc-api/api.md'
+      - 'Plugins':
+          - 'Introduction': 'user-guide/doc-dev/doc-plugins/intro.md/'
 
   - "About":
       - 'About': 'about/about.md'
