@@ -153,7 +153,10 @@ nav:
     - "Import/export de personnes et familles": 'user-guide/doc-tools/doc-import.md'
 
 - "Manuel : développeur":
-    - 'API': 'user-guide/doc-dev/api.md'
+    - 'API': 'user-guide/doc-dev/doc-api/api.md'
+    - 'Plugins':
+      - 'Introduction': 'user-guide/doc-dev/doc-plugins/intro.md/'
+      - 'Démarrer': 'user-guide/doc-dev/doc-plugins/start.md/'
 
 - "À propos":
     - 'A propos': 'about/about.md'
