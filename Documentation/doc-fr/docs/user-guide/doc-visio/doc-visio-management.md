@@ -1,42 +1,41 @@
-##Create a meeting
+##Créer une réunion
 
-Use the button below
+Utilisez le bouton ci-dessous
 
-![Screenshot](../../img/visio/visio_create.png)
+![Capture d'écran](../../img/visio/visio_create.png)
 
-You get this window, choose a name (avoid the spaces, underscore special char, etc ...)
+Vous obtenez cette fenêtre, choisissez un nom (évitez les espaces, les caractères spéciaux de soulignement, etc ...)
 
-![Screenshot](../../img/visio/visio_create1.png)
+![Capture d'écran](../../img/visio/visio_create1.png)
 
-Set now your name or nickname
+Définissez maintenant votre nom ou votre surnom
 
-![Screenshot](../../img/visio/visio_create2.png)
+![Capture d'écran](../../img/visio/visio_create2.png)
 
-And ... it is done
+Et ... c'est fait
 
-![Screenshot](../../img/visio/visio_create3.png)
+![Capture d'écran](../../img/visio/visio_create3.png)
 
-##Invite other people
+##Inviter d'autres personnes
 
-Click the blue button
+Cliquez sur le bouton bleu
 
-![Screenshot](../../img/visio/visio_invite.png)
+![Capture d'écran](../../img/visio/visio_invite.png)
 
-- copy the share meeting link
-- and paste it to a mail
+- copiez le lien de la réunion de partage
+- et collez-le dans un mail
 
-It's done
+C'est fait
 
 
-##Meetings management
+##Gestion des réunions
 
->Note : you can prepare several meetings and switch from one to another.
+>Remarque : vous pouvez préparer plusieurs réunions et passer de l'une à l'autre.
 
-To do this, use the arrow button
+Pour ce faire, utilisez le bouton flèche
 
-![Screenshot](../../img/visio/visio_management.png)
+![Capture d'écran](../../img/visio/visio_management.png)
 
-##Last
+##Dernière
 
-You can delete all your rooms or create an appointment in the calendar....
-
+Vous pouvez supprimer toutes vos salles ou créer un rendez-vous dans le calendrier....
