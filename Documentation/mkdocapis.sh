@@ -145,8 +145,8 @@ php slim-doc.php -i ../src/api/routes/user/user-users.php -o output_file.md -n"u
 cat output_file.md >> api.md
 
 # now we copy the file at the right place
-cp api.md doc-fr/docs/user-guide/doc-dev/
-cp api.md doc-en/docs/user-guide/doc-dev/
+cp api.md doc-fr/docs/user-guide/doc-dev/doc-api/
+cp api.md doc-en/docs/user-guide/doc-dev/doc-api/
 
 rm output_file.md
 rm api.md
