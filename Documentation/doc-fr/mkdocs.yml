@@ -150,21 +150,21 @@ nav:
         - 'Gérer les Tags (étiquettes)': 'user-guide/doc-mailchimp/manage_tag.md'
         - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
 
-- "Outils":
-    - "Panier": 'user-guide/doc-tools/doc-cart.md'
-    - "Email": 'user-guide/doc-tools/doc-email.md'
-    - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'
-    - "Import/export de personnes et familles": 'user-guide/doc-tools/doc-import.md'
-
-- "Plugins":
+- "Manuel : Plugins":
     - "Présentation": 'user-guide/doc-plugins/introduction.md'
     - "Installation/mise à jour": 'user-guide/doc-plugins/installation-upgrade.md'
 
 - "Manuel : développeur":
     - 'API': 'user-guide/doc-dev/doc-api/api.md'
     - 'Plugins':
-      - 'Introduction': 'user-guide/doc-dev/doc-plugins/intro.md/'
-      - 'Démarrer': 'user-guide/doc-dev/doc-plugins/start.md/'
+      - 'Introduction': 'user-guide/doc-dev/doc-plugins/intro.md'
+      - 'Démarrer': 'user-guide/doc-dev/doc-plugins/start.md'
+
+- "Outils":
+    - "Panier": 'user-guide/doc-tools/doc-cart.md'
+    - "Email": 'user-guide/doc-tools/doc-email.md'
+    - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'
+    - "Import/export de personnes et familles": 'user-guide/doc-tools/doc-import.md'
 
 - "À propos":
     - 'A propos': 'about/about.md'
