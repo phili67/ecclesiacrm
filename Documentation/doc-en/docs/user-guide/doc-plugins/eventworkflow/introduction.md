@@ -1,43 +1,43 @@
-## Prérequis
+## Prerequisites
 
-- Le gestionnaire de flux d'événement est un plugin faisant partie de la version 8.0 d'Ecclesia**CRM**.
-- il requiert un **calendrier** (personnel, de groupe, de matériel ou bien partagé), voir pour cela le manuel utilisateurs et la section calendrier.
-- seul un utilisateur ayant les droits d'utiliser le plugin pourra l'utiliser.
-- la notion de flux d'événements est bâtis sur les opportunités de bénévolats (exemple ci-dessous : Accueil, Leader etc ...)
-Voir pour cela la rubrique associée : opportunités de bénévolats.
+- The event flow manager is a plugin in Ecclesia**CRM** version 8.0.
+- it requires a **calendar** (personal, group, material or shared), see the user manual and the calendar section.
+- only a user with the right to use the plugin can use it.
+- the notion of event flow is built on the volunteer opportunities (example below : Home, Leader etc ...)
+  See for that the associated section : volunteer opportunities.
 
-## Présentation
+## Presentation
 
-Le plugin "Flux d'événements" permet de gérer les plannings des bénévoles via un événement très particulier :
+The plugin "Event flow" allows you to manage the schedules of volunteers via a very specific event:
 
-- pour le dimanche matin
-- pour les répétitions
+- for Sunday morning
+- for rehearsals
 
-il y a deux types de flux d'événement :
-- journalier
-- sur plusieurs jours.
+there are two types of event flow :
+- daily
+- over several days.
 
-Il vous permettra de gérer vos membres via de mini doodle
+It will allow you to manage your members via mini doodle
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow1.png)
 
-- À gauche le graphique qui permettra de visualiser l'occupation du nombre de membres qui sont présents et absents
-- à droite les membres à cocher
-- il est possible de créer des titres en rouges, par exemple "Accueil (9h45)"
-- des **conteneurs** : "Groupe Accueil"
-  - Dans ce conteneur, des **sous conteneurs** (exemples : basses batterie) qui ne sont rien d'autre que de mini doodle (sous coneteneur), ou membre ou administrateur pourront cocher les présents ou absents
-    - de gérer les objectifs à atteindre (1/2)
-    - d'envoyer des emails au doodle
-- il sera possible de dupliquer un flux pour pouvoir réutiliser le travail déjà produit d'un dimanche à l'autre.
+- On the left the graph that will allow to visualize the occupation of the number of members who are present and absent
+- on the right the members to be checked
+- it is possible to create titles in red, for example "Welcome (9:45)
+- containers** : "Welcome group
+    - In this container, **sub-containers** (examples: low battery) which are nothing else than mini doodle (sub-container), or member or administrator will be able to check the present or absent
+        - to manage the objectives to reach (1/2)
+        - to send emails to the doodle
+- it will be possible to duplicate a flow to be able to reuse the work already produced from one Sunday to another.
 
-## Envoi de mails
+## Sending emails
 
-Il est possible d'envoyer un mail à tout membres :
+It is possible to send an email to any member :
 
-- du flux d'événement
-- de chaque conteneur
-- de chaque sous conteneur (Doodle)
-- de chaque membre
+- of the event stream
+- of each container
+- of each sub-container (Doodle)
+- of each member
 
 
 

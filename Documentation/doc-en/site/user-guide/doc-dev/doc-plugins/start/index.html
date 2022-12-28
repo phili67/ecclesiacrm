@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pour-bien-demarrer" class="md-skip">
+        <a href="#to-get-started" class="md-skip">
           Skip to content
         </a>
       
@@ -1272,13 +1272,13 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      Manual : Visio
+      Manual : Visio (Plugin)
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="Manual : Visio" data-md-level="1">
+    <nav class="md-nav" aria-label="Manual : Visio (Plugin)" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
         <span class="md-nav__icon md-icon"></span>
-        Manual : Visio
+        Manual : Visio (Plugin)
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1815,22 +1815,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pour-generer-larchitecture-dun-plugin" class="md-nav__link">
-    Pour générer l'architecture d'un plugin
+  <a href="#to-generate-the-architecture-of-a-plugin" class="md-nav__link">
+    To generate the architecture of a plugin
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creation-dun-plugin-classique" class="md-nav__link">
-    Création d'un plugin classique
+  <a href="#creation-of-a-classic-plugin" class="md-nav__link">
+    Creation of a classic plugin
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creation-dun-plugin-dashboard" class="md-nav__link">
-    Création d'un plugin dashboard
+  <a href="#creating-a-dashboard-plugin" class="md-nav__link">
+    Creating a dashboard plugin
   </a>
   
 </li>
@@ -2019,22 +2019,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pour-generer-larchitecture-dun-plugin" class="md-nav__link">
-    Pour générer l'architecture d'un plugin
+  <a href="#to-generate-the-architecture-of-a-plugin" class="md-nav__link">
+    To generate the architecture of a plugin
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creation-dun-plugin-classique" class="md-nav__link">
-    Création d'un plugin classique
+  <a href="#creation-of-a-classic-plugin" class="md-nav__link">
+    Creation of a classic plugin
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creation-dun-plugin-dashboard" class="md-nav__link">
-    Création d'un plugin dashboard
+  <a href="#creating-a-dashboard-plugin" class="md-nav__link">
+    Creating a dashboard plugin
   </a>
   
 </li>
@@ -2059,52 +2059,60 @@
               
                 
                 
-                <h1 id="pour-bien-demarrer">Pour bien démarrer<a class="headerlink" href="#pour-bien-demarrer" title="Permanent link">&para;</a></h1>
-<h2 id="pour-generer-larchitecture-dun-plugin">Pour générer l'architecture d'un plugin<a class="headerlink" href="#pour-generer-larchitecture-dun-plugin" title="Permanent link">&para;</a></h2>
-<p>Une commande shell a été développé pour faciliter le travail : createPluginArch.sh</p>
-<div class="codehilite"><pre><span></span><code>bash createPluginArch.sh NameOfPlugin
+                <h1 id="to-get-started">To get started<a class="headerlink" href="#to-get-started" title="Permanent link">&para;</a></h1>
+<h2 id="to-generate-the-architecture-of-a-plugin">To generate the architecture of a plugin<a class="headerlink" href="#to-generate-the-architecture-of-a-plugin" title="Permanent link">&para;</a></h2>
+<p>A shell command has been developed to facilitate the work: <strong>createPluginArch.sh</strong></p>
+<p><strong>Please note</strong></p>
+<ul>
+<li>the routes for each plugin are planned and are included in the complete management of the routes in <strong>api/plgnapi.php</strong> (see below) and are planned to be managed via controllers in the <strong>core/APIControllers</strong> arberscence.)</li>
+<li>for the views of the routes are predefined also <strong>v2/routes/v2route.php</strong> (they are possibly linked to your own controllers <strong>core/VIEWControllers</strong>).</li>
+<li>this mechanism guarantees maximum security.</li>
+<li>it is imperative to follow the fact that each plugin must have a signature which is validated by the crm (see for that the plugin documentation).</li>
+</ul>
+<p>**To create a plugin</p>
+<div class="codehilite"><pre><span></span><code>bash createPluginArch.sh *NameOfPlugin*
 </code></pre></div>
 
-<p>Ce script va créer <strong>NameOfPlugin</strong> dans le répertoire <strong>Plugins</strong> dans le répertoire <strong>src</strong>.</p>
-<p>1. L'architecture est de la forme</p>
-<div class="codehilite"><pre><span></span><code>api/                // gestion api interne
-    plgnapi.php     // on peut créer ses propres routes
-    (géré par le CRM directement)
-core/ // ici on peut gérer tous les modèles
-    APIControllers  // pour définir le controleur appelé dans plgnapi.php).
-    model           // exemple pour de l&#39;orm propel
-    VIEWControllers // pour les vues de la partie v2/routes
+<p>This script will create <strong>NameOfPlugin</strong> in the <strong>Plugins</strong> directory of the <strong>src</strong> directory.</p>
+<p>1. The architecture is of the form</p>
+<div class="codehilite"><pre><span></span><code>api/ // internal api management
+    plgnapi.php // we must create our own routes here
+    (managed by the CRM directly)
+core/ // here we can manage all the models
+    APIControllers // to define the controller called in plgnapi.php).
+    model // example for propel orm
+    VIEWControllers // for the views of the v2/routes part
     ...
-    //Par exemple
+    // for example
     Service
     views
-ident/ // pour un accès à une api externe (facultatif)
-    routes/         // appelé par le crm directement
-    templates/      // appelé par la partie route
+ident/ // for an access to an external api (optional)
+    routes/ // called by the crm directly
+    templates/ // called by the route part
 locale/
-    js/             // code de traduction js
-    textdomain/     // pour les traduction gettext
+    js/ // js translation code
+    textdomain/ // for gettext translation of php code
     index.html
-mysql/ // mise en place des fichiers mysql
-    index.html      // fichier de protection
-    Install.sql     // script sql pour créer la base de données
-                    // appelé par le gestionnaire de plugin
-    Uninstall.sql   // Pour désinstaller le plugin
-    upgrade.json    // cette partie permet de gérer les upgrades
+mysql/ // setting up mysql files
+    index.html // protection file
+    Install.sql // sql script to create the database
+                    // called by the plugin manager
+    Uninstall.sql // to uninstall the plugin, it&#39;s up to you not to forget anything
+    upgrade.json // this part allows to manage upgrades (under development)
 skin/
-    css/            // l&#39;ensemble des class css appelé par le crm
-    js/             // l&#39;ensemble du code js appelé par le crm
-v2/                 // MVC pour les vues le modèles et le controlleur
-    routes/         // appelé par le crm directement
+    css/ // all css classes called by the crm
+    js/ // all the js code called by the crm
+v2/ // MVC for views, models and controller : mandatory for dashboard plugin
+    routes/ // called by the crm directly
         v2route.php
     templates/
-                    // les templates
+                    // templates
 config.json
 signatures.json
 </code></pre></div>
 
-<p>La signature est créée via l'outil fourni par le CRM : <strong>grunt genPluginsSignatures</strong>.</p>
-<p>2. On peut éditer tout de suite : <strong>config.json</strong></p>
+<p>The signature is created via the tool provided by the CRM : <strong>grunt genPluginsSignatures</strong>.</p>
+<p>2. We can edit it right away: <strong>config.json</strong></p>
 <div class="codehilite"><pre><span></span><code>   {
        &quot;Name&quot;: &quot;EventWorkflow&quot;,
        &quot;copyrights&quot;: &quot;Philippe Logel © EcclesiaCRM Team&quot;,
@@ -2119,37 +2127,37 @@ signatures.json
 </code></pre></div>
 
 <ul>
-<li>Cette partie est capitale pour le système de mise à jour (via le numéro de version)</li>
-<li>Le numéro de version doit toujours être de la forme <strong>x.y</strong></li>
+<li>This part is crucial for the update system (via the version number)</li>
+<li>The version number must always be of the form <strong>x.y</strong>.</li>
 </ul>
-<p>3. Droits particuliers</p>
+<p>3. Special rights</p>
 <ul>
-<li>Il est possible de fixer des droits admin ou non</li>
+<li>It is possible to set admin rights or not</li>
 </ul>
-<h2 id="creation-dun-plugin-classique">Création d'un plugin classique<a class="headerlink" href="#creation-dun-plugin-classique" title="Permanent link">&para;</a></h2>
-<p>1. Concernant l'injection dans la base de données dans la table <code></code>plugin<code></code></p>
-<p>Dans la base de données Mettre le plugin, on doit fixer</p>
+<h2 id="creation-of-a-classic-plugin">Creation of a classic plugin<a class="headerlink" href="#creation-of-a-classic-plugin" title="Permanent link">&para;</a></h2>
+<p>1. Concerning injection into the database in the "plugin" table</p>
+<p>In the database Put the plugin, we must set</p>
 <ul>
-<li><code>`plgn_Category`</code> à</li>
+<li><code>plgn_Category</code> ``will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
+  Personal', 'GDPR', 'Events', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu
+-</li>
+<li>a <code>plgn_Description</code> description, e.g.: 'Plugin to show the current connected users</li>
+<li>a version <code>`plgn_version</code> `` to e.g. '1.0</li>
+<li>the prefix type for the entries <code>`plgn_prefix</code> to 'jm_'</li>
+<li><code>plgn_position``</code>can take the values <code>'inside_category_menu'', ``after_category_menu''</code> (very clear).</li>
 </ul>
-<p><code>'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu'</code>
-    cela permettra de mettre l'entrée du plugin dans le menu à gauche dans la partie Personnel, RGPD, Etc ....
-- une description <code>`plgn_Description`</code> à 'Plugin to show the current connected users'
-- une version <code>`plgn_version`</code> à '1.0' par exemple
-- le type de prefixe pour les entrées <code>`plgn_prefix`</code> à 'jm_'
-- <code>`plgn_position`</code> peut prendre les valeurs 'inside_category_menu', 'after_category_menu' (très clair).</p>
-<p>Voici un exemple complet dans le plugin <code>MeetingJitsi</code></p>
+<p>Here is a complete example in the <code>MeetingJitsi</code> plugin</p>
 <div class="codehilite"><pre><span></span><code>INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`)
 VALUES (&#39;MeetingJitsi&#39;, &#39;Plugin for jitsi Meeting&#39;, &#39;Meeting&#39;, NULL, &#39;&#39;, &#39;0&#39;, &#39;1.0&#39;, &#39;jm_&#39;, &#39;after_category_menu&#39;);
 </code></pre></div>
 
-<p>Pour créer les entrées dans la barre de menus supplémentaires dans la table <code></code>plugin_menu_barre<code></code>, on doit</p>
+<p>To create additional menu bar entries in the <code>plugin_menu_barre</code> table, we must</p>
 <ul>
-<li>fixer le nom du plugin dans <code>`plgn_mb_plugin_name`</code> par exemple à 'MeetingJitsi'</li>
-<li>Le nom de l'item de menu : <code>`plgn_mb_plugin_Display_name`</code> à 'Settings' par exemple</li>
-<li>l'url <code>`plgn_mb_url`</code> à par exemple 'v2/meeting/dashboard'</li>
-<li>l'icône <code>`plgn_bm_icon`</code> à 'fas fa-cogs'</li>
-<li>Puis une option de sécurité <code>`plgn_bm_grp_sec`</code> aux valeurs possibles de rôles définies dans le crm, par exemple 'usr_admin'</li>
+<li>set the name of the plugin in <code>plgn_mb_plugin_name</code> for example to <code>MeetingJitsi</code>.</li>
+<li>The name of the menu item: <code>`plgn_mb_plugin_Display_name</code> to ``Settings'' for example</li>
+<li>the url <code>`plgn_mb_url</code> ``to for example 'v2/meeting/dashboard</li>
+<li>the icon <code>`plgn_bm_icon</code> at 'fas fa-cogs</li>
+<li>Then a security option <code>`plgn_bm_grp_sec``</code>to the possible values of roles defined in the crm, for example 'usr_admin'</li>
 </ul>
 <div class="codehilite"><pre><span></span><code>usr_AddRecords,
 usr_EditRecords,
@@ -2179,46 +2187,46 @@ usr_GDRP_DPO,
 usr_PastoralCare
 </code></pre></div>
 
-<p>Voci un exemple complet</p>
+<p>Here is a complete example</p>
 <div class="codehilite"><pre><span></span><code>-- insert the menu item
 -- the first one is the main menu !!!
-INSERT INTO `plugin_menu_barre` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
+INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
 (&#39;MeetingJitsi&#39;, &#39;Jitsi&#39;, &#39;v2/meeting/dashboard&#39;, &#39;fas fa-video&#39;, &#39;&#39;),
 (&#39;MeetingJitsi&#39;, &#39;Dashboard&#39;, &#39;v2/meeting/dashboard&#39;, &#39;fas fa-tachometer-alt&#39;, &#39;&#39;),
 (&#39;MeetingJitsi&#39;, &#39;Settings&#39;, &#39;v2/meeting/settings&#39;, &#39;fas fa-cogs&#39;, &#39;usr_admin&#39;);
 </code></pre></div>
 
-<p>2. Attention, il doit suivre les recommandations suivantes</p>
+<p>2. Attention, it must follow the following recommendations</p>
 <ul>
-<li>On peut donc fixer la place et dans le menu ou après le menu (type vue plus haut)</li>
-<li>on met les css dans : skin/css</li>
-<li>on met les js dans : skin/js</li>
-<li>pour les api dans api/plgnapi.php (il faut le mettre dedans, cela sécurise le CRM)</li>
-<li>pour le code php des vues, il est préférable de le mettre dans v2/templates/</li>
-<li>Si on veut utiliser le design pattern MVC pour les vues, v2route.php est prêt dans v2/routes/</li>
-<li>pour ses classes personnelles on peut aller dans core/</li>
-<li>pour les classes et modèles propel tout est dans core/model</li>
+<li>You can set the place and in the menu or after the menu (type seen above)</li>
+<li>put the css in : skin/css</li>
+<li>put the js in : skin/js</li>
+<li>for the api in api/plgnapi.php (you have to put it in, it secures the CRM)</li>
+<li>for the php code of the views, it is better to put it in v2/templates/</li>
+<li>If you want to use the MVC design pattern for the views, v2route.php is ready in v2/routes/</li>
+<li>for your personal classes you can go in core/</li>
+<li>for propel classes and models everything is in core/model</li>
 <li>etc ...</li>
 </ul>
-<p>3. Attention à l'autoload pour propel ou des classes personnelles:</p>
+<p>3. Be careful with the autoload for propel or personal classes:</p>
 <div class="codehilite"><pre><span></span><code>// we&#39;ve to load the model make the plugin to workmv
 spl_autoload_register(function ($className) {
-    include_once str_replace(array(&#39;Plugins\\Service&#39;, &#39;\\&#39;), array(__DIR__.&#39;/../../core/Service&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
+    include_once str_replace(array(&#39;Plugins\Service&#39;, &#39;\&#39;), array(__DIR__.&#39;/../../core/Service&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
     include_once str_replace(array(&#39;PluginStore&#39;, &#39;\\&#39;), array(__DIR__.&#39;/../../core/model&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
 });
 </code></pre></div>
 
-<h2 id="creation-dun-plugin-dashboard">Création d'un plugin dashboard<a class="headerlink" href="#creation-dun-plugin-dashboard" title="Permanent link">&para;</a></h2>
-<p>1. Pour l'injection au niveau base de données dans la table <code></code>plugin<code></code></p>
-<p>Dans la base de données Mettre le plugin, on doit fixer</p>
+<h2 id="creating-a-dashboard-plugin">Creating a dashboard plugin<a class="headerlink" href="#creating-a-dashboard-plugin" title="Permanent link">&para;</a></h2>
+<p>1. For the injection at the database level in the "plugin" table</p>
+<p>In the database Put the plugin, we must set</p>
 <ul>
-<li><code>`plgn_Category`</code> à 'Dashboard'</li>
-<li>une description <code>`plgn_Description`</code> à 'Plugin to show the current connected users'</li>
-<li>une version <code>`plgn_version`</code> à '1.0' par exemple</li>
-<li>le type de prefixe pour les entrées <code>`plgn_prefix`</code> à 'cud_'</li>
-<li>la position à <code>`plgn_default_orientation`</code> à 'top', 'left', 'center', 'right'</li>
-<li>la couleur de la barre de la <code>card</code> <code>`plgn_default_color`</code> 'bg-gradient-blue text-white', 'bg-gradient-indigo text-white', .... (voir pour cela la base de données)</li>
-<li>la partie sécurité est très importante <code>`plgn_securities`</code> à ces valeurs possibles qui se trouvent dans <code>src\EcclesiaCRM\model\User.php</code></li>
+<li><code>plgn_Category</code> <code>to</code>Dashboard``.</li>
+<li>a description <code>plgn_Description</code> to ``Plugin to show the current connected users</li>
+<li>a version <code>`plgn_version</code> `` to '1.0' for example</li>
+<li>the prefix type for the <code>plgn_prefix</code> entries to <code>cud_</code>.</li>
+<li>the position at <code>plgn_default_orientation</code> at <code>top`,</code>left<code>,</code>center<code>,</code>right``</li>
+<li>the color of the card's bar <code>`plgn_default_color``</code>bg-gradient-blue text-white'', ``bg-gradient-indigo text-white'', .... (see for this the database)</li>
+<li>the security part is very important <code>plgn_securities</code> to those possible values which are in <code>src\EcclesiaCRM\model\User.php</code></li>
 </ul>
 <div class="codehilite"><pre><span></span><code>abstract class SecurityOptions
 {
@@ -2247,18 +2255,19 @@ spl_autoload_register(function ($className) {
 </code></pre></div>
 
 <ul>
-<li>Côté optionnel : <code>`plgn_UserRole_Dashboard_Availability`</code> que l'on peut mettre à 1 (cela permettra à utilisateur d'être administrateur : dans le cas du dashboard News seul quelques personnes peuvent saisir la news, les autres seront simplement des lecteurs).</li>
+<li>Optional side: <code>`plgn_UserRole_Dashboard_Availability</code> which can be set to 1 (this will allow user to be administrator: in the case of the News dashboard only few people can enter the news, the others will be simply readers).</li>
 </ul>
-<p>Voici un exemple</p>
+<p>Screenshot](../../../img/plugins/plugins_dashboard_admin.png)</p>
+<p>Here is an example</p>
 <div class="codehilite"><pre><span></span><code>INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`)
 VALUES (&#39;CurrentUsersDashboard&#39;, &#39;Plugin to show the current connected users&#39;, &#39;Dashboard&#39;, NULL, &#39;&#39;, &#39;1&#39;, &#39;1.0&#39;, &#39;cud_&#39;, &#39;inside_category_menu&#39;, &#39;right&#39;, &#39;bg-gradient-green text-black&#39;, 1073741824);
 </code></pre></div>
 
-<p>2. concernant le code</p>
+<p>2. about the code</p>
 <ul>
-<li>Il n'y a qu'une seule vue dans : v2/template/View.php</li>
-<li>régler correctement le card .....
-Dans le code de la View.php</li>
+<li>There is only one view in : v2/template/View.php</li>
+<li>set correctly the card .....
+  In the code of the View.php</li>
 </ul>
 <div class="codehilite"><pre><span></span><code>&lt;?php
 use EcclesiaCRM\PluginQuery;
@@ -2300,7 +2309,7 @@ $plugin = PluginQuery::create()
             &lt;/button&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;card-body&quot;  style=&quot;&lt;?= $Card_body ?&gt;;padding: .15rem;&quot;&gt;
+    &lt;div class=&quot;card-body&quot; style=&quot;&lt;?= $Card_body ?&gt;;padding: .15rem;&quot;&gt;
 
          .... Your code
 
@@ -2318,23 +2327,25 @@ $plugin = PluginQuery::create()
 <h2 id="dernieres-recommandations-pour-les-deux-types-de-plugins">Dernières recommandations pour les deux types de plugins<a class="headerlink" href="#dernieres-recommandations-pour-les-deux-types-de-plugins" title="Permanent link">&para;</a></h2>
 <p>1. Pour les traductions</p>
 <ul>
-<li>Pour le code PHP : On utilise non pas <code>gettext</code> mais avec dgettext et un domaine associé <code>dgettext("messages-NewsDashboard","News")</code> et on travaille donc avec du code po séparé pour chaque plugin pour éviter les conflits.</li>
-<li>Pour le code JS : On utilise <code>i18next.t('News Title', {ns: 'NewsDashboard'})</code> avec des <code>namespace</code>aussi.</li>
+<li>For the PHP code: We don't use <code>gettext</code> but with dgettext and an associated domain <code>dgettext("messages-NewsDashboard", "News")</code> and we work with separate po code for each plugin to avoid conflicts.</li>
+<li>For the JS code: We use <code>i18next.t('News Title', {ns: 'NewsDashboard'})</code> with <code>namespace</code> also.</li>
 </ul>
-<p>2. Pour du code spécialisé propel ou des class, l'autoload doit se faire manuellement</p>
-<p>Conseil :</p>
+<p>2. For specialized propel code or classes, the autoload must be done manually</p>
+<p>Tip :</p>
 <ul>
-<li>ne jamais utiliser <code>composer dump-autoload</code> cela ne marchera pas au chargement du plugin via le plugin manager</li>
-<li>Il faut donc contourner le problème comme cela :</li>
+<li>never use <code>composer dump-autoload</code> it will not work when loading the plugin via the plugin manager</li>
+<li>So you have to work around the problem like this:</li>
 </ul>
 <div class="codehilite"><pre><span></span><code>// we&#39;ve to load the model make the plugin to work
 spl_autoload_register(function ($className) {
-    include_once str_replace(array(&#39;Plugins\\Service&#39;, &#39;\\&#39;), array(__DIR__.&#39;/../../core/Service&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
+    include_once str_replace(array(&#39;Plugins\Service&#39;, &#39;\&#39;), array(__DIR__.&#39;/../../core/Service&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
     include_once str_replace(array(&#39;PluginStore&#39;, &#39;\\&#39;), array(__DIR__.&#39;/../../core/model&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
 });
 </code></pre></div>
 
-<p>Bon développement de plugins.</p>
+<p>3. The signatures</p>
+<p>The signature of a plugin is created via the tool provided by the CRM : <strong>grunt genPluginsSignatures</strong> at the root.</p>
+<p>Good development of plugins.</p>
                 
               
               

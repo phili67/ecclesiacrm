@@ -1,57 +1,67 @@
-# Pour bien démarrer
+# To get started
 
-## Pour générer l'architecture d'un plugin
+## To generate the architecture of a plugin
 
-Une commande shell a été développé pour faciliter le travail : createPluginArch.sh
+A shell command has been developed to facilitate the work: **createPluginArch.sh**
+
+
+**Please note**
+
+- the routes for each plugin are planned and are included in the complete management of the routes in **api/plgnapi.php** (see below) and are planned to be managed via controllers in the **core/APIControllers** arberscence.)
+- for the views of the routes are predefined also **v2/routes/v2route.php** (they are possibly linked to your own controllers **core/VIEWControllers**).
+- this mechanism guarantees maximum security.
+- it is imperative to follow the fact that each plugin must have a signature which is validated by the crm (see for that the plugin documentation).
+
+**To create a plugin
 
 ```
-bash createPluginArch.sh NameOfPlugin
+bash createPluginArch.sh *NameOfPlugin*
 ```
 
-Ce script va créer **NameOfPlugin** dans le répertoire **Plugins** dans le répertoire **src**.
+This script will create **NameOfPlugin** in the **Plugins** directory of the **src** directory.
 
-1\. L'architecture est de la forme
+1\. The architecture is of the form
 
 ```
-api/                // gestion api interne
-    plgnapi.php     // on peut créer ses propres routes
-    (géré par le CRM directement)
-core/ // ici on peut gérer tous les modèles
-    APIControllers  // pour définir le controleur appelé dans plgnapi.php).
-    model           // exemple pour de l'orm propel
-    VIEWControllers // pour les vues de la partie v2/routes
+api/ // internal api management
+    plgnapi.php // we must create our own routes here
+    (managed by the CRM directly)
+core/ // here we can manage all the models
+    APIControllers // to define the controller called in plgnapi.php).
+    model // example for propel orm
+    VIEWControllers // for the views of the v2/routes part
     ...
-    //Par exemple
+    // for example
     Service
     views
-ident/ // pour un accès à une api externe (facultatif)
-    routes/         // appelé par le crm directement
-    templates/      // appelé par la partie route
+ident/ // for an access to an external api (optional)
+    routes/ // called by the crm directly
+    templates/ // called by the route part
 locale/
-    js/             // code de traduction js
-    textdomain/     // pour les traduction gettext
+    js/ // js translation code
+    textdomain/ // for gettext translation of php code
     index.html
-mysql/ // mise en place des fichiers mysql
-    index.html      // fichier de protection
-    Install.sql     // script sql pour créer la base de données
-                    // appelé par le gestionnaire de plugin
-    Uninstall.sql   // Pour désinstaller le plugin
-    upgrade.json    // cette partie permet de gérer les upgrades
+mysql/ // setting up mysql files
+    index.html // protection file
+    Install.sql // sql script to create the database
+                    // called by the plugin manager
+    Uninstall.sql // to uninstall the plugin, it's up to you not to forget anything
+    upgrade.json // this part allows to manage upgrades (under development)
 skin/
-    css/            // l'ensemble des class css appelé par le crm
-    js/             // l'ensemble du code js appelé par le crm
-v2/                 // MVC pour les vues le modèles et le controlleur
-    routes/         // appelé par le crm directement
+    css/ // all css classes called by the crm
+    js/ // all the js code called by the crm
+v2/ // MVC for views, models and controller : mandatory for dashboard plugin
+    routes/ // called by the crm directly
         v2route.php
     templates/
-                    // les templates
+                    // templates
 config.json
 signatures.json
 ```
 
-La signature est créée via l'outil fourni par le CRM : **grunt genPluginsSignatures**.
+The signature is created via the tool provided by the CRM : **grunt genPluginsSignatures**.
 
-2\. On peut éditer tout de suite : **config.json**
+2\. We can edit it right away: **config.json**
 ```
    {
        "Name": "EventWorkflow",
@@ -66,42 +76,42 @@ La signature est créée via l'outil fourni par le CRM : **grunt genPluginsSigna
    }
 ```
 
-- Cette partie est capitale pour le système de mise à jour (via le numéro de version)
-- Le numéro de version doit toujours être de la forme **x.y**
+- This part is crucial for the update system (via the version number)
+- The version number must always be of the form **x.y**.
 
-3\. Droits particuliers
+3\. Special rights
 
-- Il est possible de fixer des droits admin ou non
+- It is possible to set admin rights or not
 
-## Création d'un plugin classique
+## Creation of a classic plugin
 
-1\. Concernant l'injection dans la base de données dans la table ` `plugin` `
+1\. Concerning injection into the database in the "plugin" table
 
-Dans la base de données Mettre le plugin, on doit fixer
+In the database Put the plugin, we must set
 
-- ``` `plgn_Category` ``` à
+- ``plgn_Category`` ``will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
+  Personal', 'GDPR', 'Events', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu
+-
+- a ``plgn_Description`` description, e.g.: 'Plugin to show the current connected users
+- a version ```plgn_version`` `` to e.g. '1.0
+- the prefix type for the entries ```plgn_prefix`` to 'jm_'
+- ```plgn_position`` ```can take the values ```'inside_category_menu'', ``after_category_menu'' ``` (very clear).
 
-  ```  'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu' ```
-    cela permettra de mettre l'entrée du plugin dans le menu à gauche dans la partie Personnel, RGPD, Etc ....
-- une description ``` `plgn_Description` ``` à 'Plugin to show the current connected users'
-- une version ``` `plgn_version` ``` à '1.0' par exemple
-- le type de prefixe pour les entrées ``` `plgn_prefix` ``` à 'jm_'
-- ``` `plgn_position`  ``` peut prendre les valeurs 'inside_category_menu', 'after_category_menu' (très clair).
-
-Voici un exemple complet dans le plugin `MeetingJitsi`
+Here is a complete example in the `MeetingJitsi` plugin
 
 ```
 INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`)
 VALUES ('MeetingJitsi', 'Plugin for jitsi Meeting', 'Meeting', NULL, '', '0', '1.0', 'jm_', 'after_category_menu');
 ```
 
-Pour créer les entrées dans la barre de menus supplémentaires dans la table ` `plugin_menu_barre` `, on doit
+To create additional menu bar entries in the `plugin_menu_barre` table, we must
 
-- fixer le nom du plugin dans ``` `plgn_mb_plugin_name` ``` par exemple à 'MeetingJitsi'
-- Le nom de l'item de menu : ``` `plgn_mb_plugin_Display_name` ``` à 'Settings' par exemple
-- l'url ``` `plgn_mb_url` ``` à par exemple 'v2/meeting/dashboard'
-- l'icône ``` `plgn_bm_icon` ``` à 'fas fa-cogs'
-- Puis une option de sécurité ``` `plgn_bm_grp_sec` ``` aux valeurs possibles de rôles définies dans le crm, par exemple 'usr_admin'
+- set the name of the plugin in ``plgn_mb_plugin_name`` for example to ``MeetingJitsi``.
+- The name of the menu item: ```plgn_mb_plugin_Display_name`` to ``Settings'' for example
+- the url ```plgn_mb_url`` ``to for example 'v2/meeting/dashboard
+- the icon ```plgn_bm_icon`` at 'fas fa-cogs
+- Then a security option ````plgn_bm_grp_sec`` ```to the possible values of roles defined in the crm, for example 'usr_admin'
+
 
 ```
 usr_AddRecords,
@@ -132,52 +142,52 @@ usr_GDRP_DPO,
 usr_PastoralCare
 ```
 
-Voci un exemple complet
+Here is a complete example
 
 ```
 -- insert the menu item
 -- the first one is the main menu !!!
-INSERT INTO `plugin_menu_barre` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
+INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
 ('MeetingJitsi', 'Jitsi', 'v2/meeting/dashboard', 'fas fa-video', ''),
 ('MeetingJitsi', 'Dashboard', 'v2/meeting/dashboard', 'fas fa-tachometer-alt', ''),
 ('MeetingJitsi', 'Settings', 'v2/meeting/settings', 'fas fa-cogs', 'usr_admin');
 ```
 
-2\. Attention, il doit suivre les recommandations suivantes
+2\. Attention, it must follow the following recommendations
 
-   - On peut donc fixer la place et dans le menu ou après le menu (type vue plus haut)
-   - on met les css dans : skin/css
-   - on met les js dans : skin/js
-   - pour les api dans api/plgnapi.php (il faut le mettre dedans, cela sécurise le CRM)
-   - pour le code php des vues, il est préférable de le mettre dans v2/templates/
-   - Si on veut utiliser le design pattern MVC pour les vues, v2route.php est prêt dans v2/routes/
-   - pour ses classes personnelles on peut aller dans core/
-   - pour les classes et modèles propel tout est dans core/model
-   - etc ...
+- You can set the place and in the menu or after the menu (type seen above)
+- put the css in : skin/css
+- put the js in : skin/js
+- for the api in api/plgnapi.php (you have to put it in, it secures the CRM)
+- for the php code of the views, it is better to put it in v2/templates/
+- If you want to use the MVC design pattern for the views, v2route.php is ready in v2/routes/
+- for your personal classes you can go in core/
+- for propel classes and models everything is in core/model
+- etc ...
 
-3\. Attention à l'autoload pour propel ou des classes personnelles:
+3\. Be careful with the autoload for propel or personal classes:
 
 ```
 // we've to load the model make the plugin to workmv
 spl_autoload_register(function ($className) {
-    include_once str_replace(array('Plugins\\Service', '\\'), array(__DIR__.'/../../core/Service', '/'), $className) . '.php';
+    include_once str_replace(array('Plugins\Service', '\'), array(__DIR__.'/../../core/Service', '/'), $className) . '.php';
     include_once str_replace(array('PluginStore', '\\'), array(__DIR__.'/../../core/model', '/'), $className) . '.php';
 });
 ```
 
-## Création d'un plugin dashboard
+## Creating a dashboard plugin
 
-1\. Pour l'injection au niveau base de données dans la table ` `plugin` `
+1\. For the injection at the database level in the "plugin" table
 
-Dans la base de données Mettre le plugin, on doit fixer
+In the database Put the plugin, we must set
 
-- ``` `plgn_Category` ``` à 'Dashboard'
-- une description ``` `plgn_Description` ``` à 'Plugin to show the current connected users'
-- une version ``` `plgn_version` ``` à '1.0' par exemple
-- le type de prefixe pour les entrées ``` `plgn_prefix` ``` à 'cud_'
-- la position à ``` `plgn_default_orientation` ``` à 'top', 'left', 'center', 'right'
-- la couleur de la barre de la `card` ``` `plgn_default_color` ``` 'bg-gradient-blue text-white', 'bg-gradient-indigo text-white', .... (voir pour cela la base de données)
-- la partie sécurité est très importante ``` `plgn_securities` ``` à ces valeurs possibles qui se trouvent dans `src\EcclesiaCRM\model\User.php`
+- ``plgn_Category`` ``to ``Dashboard``.
+- a description ``plgn_Description`` to ``Plugin to show the current connected users
+- a version ```plgn_version`` `` to '1.0' for example
+- the prefix type for the `plgn_prefix` entries to `cud_`.
+- the position at ``plgn_default_orientation`` at ``top`, ``left``, ``center``, ``right``
+- the color of the card's bar ````plgn_default_color`` ```bg-gradient-blue text-white'', ``bg-gradient-indigo text-white'', .... (see for this the database)
+- the security part is very important ``plgn_securities`` to those possible values which are in `src\EcclesiaCRM\model\User.php`
 ```
 abstract class SecurityOptions
 {
@@ -204,19 +214,22 @@ abstract class SecurityOptions
     const bDashBoardUser = 1073741824; // bit 30
 }
 ```
-- Côté optionnel : ``` `plgn_UserRole_Dashboard_Availability` ``` que l'on peut mettre à 1 (cela permettra à utilisateur d'être administrateur : dans le cas du dashboard News seul quelques personnes peuvent saisir la news, les autres seront simplement des lecteurs).
+- Optional side: ````plgn_UserRole_Dashboard_Availability``` which can be set to 1 (this will allow user to be administrator: in the case of the News dashboard only few people can enter the news, the others will be simply readers).
 
-Voici un exemple
+
+Screenshot](../../../img/plugins/plugins_dashboard_admin.png)
+
+Here is an example
 ```
 INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`)
 VALUES ('CurrentUsersDashboard', 'Plugin to show the current connected users', 'Dashboard', NULL, '', '1', '1.0', 'cud_', 'inside_category_menu', 'right', 'bg-gradient-green text-black', 1073741824);
 ```
 
-2\. concernant le code
+2\. about the code
 
-- Il n'y a qu'une seule vue dans : v2/template/View.php
-- régler correctement le card .....
-Dans le code de la View.php
+- There is only one view in : v2/template/View.php
+- set correctly the card .....
+  In the code of the View.php
 
 ```
 
@@ -260,7 +273,7 @@ $plugin = PluginQuery::create()
             </button>
         </div>
     </div>
-    <div class="card-body"  style="<?= $Card_body ?>;padding: .15rem;">
+    <div class="card-body" style="<?= $Card_body ?>;padding: .15rem;">
 
          .... Your code
 
@@ -282,22 +295,27 @@ Cela évite des chargements sales en plein milieu du code.
 
 1\. Pour les traductions
 
-- Pour le code PHP : On utilise non pas `gettext` mais avec dgettext et un domaine associé `dgettext("messages-NewsDashboard","News")` et on travaille donc avec du code po séparé pour chaque plugin pour éviter les conflits.
-- Pour le code JS : On utilise `i18next.t('News Title', {ns: 'NewsDashboard'})` avec des `namespace`aussi.
+- For the PHP code: We don't use `gettext` but with dgettext and an associated domain `dgettext("messages-NewsDashboard", "News")` and we work with separate po code for each plugin to avoid conflicts.
+- For the JS code: We use `i18next.t('News Title', {ns: 'NewsDashboard'})` with `namespace` also.
 
-2\. Pour du code spécialisé propel ou des class, l'autoload doit se faire manuellement
+2\. For specialized propel code or classes, the autoload must be done manually
 
-Conseil :
+Tip :
 
-- ne jamais utiliser `composer dump-autoload` cela ne marchera pas au chargement du plugin via le plugin manager
-- Il faut donc contourner le problème comme cela :
+- never use `composer dump-autoload` it will not work when loading the plugin via the plugin manager
+- So you have to work around the problem like this:
 
 ```
 // we've to load the model make the plugin to work
 spl_autoload_register(function ($className) {
-    include_once str_replace(array('Plugins\\Service', '\\'), array(__DIR__.'/../../core/Service', '/'), $className) . '.php';
+    include_once str_replace(array('Plugins\Service', '\'), array(__DIR__.'/../../core/Service', '/'), $className) . '.php';
     include_once str_replace(array('PluginStore', '\\'), array(__DIR__.'/../../core/model', '/'), $className) . '.php';
 });
 ```
 
-Bon développement de plugins.
+3\. The signatures
+
+The signature of a plugin is created via the tool provided by the CRM : **grunt genPluginsSignatures** at the root.
+
+Good development of plugins.
+

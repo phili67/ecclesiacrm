@@ -1,53 +1,49 @@
-# Mise en place
+# Implementation
 
-Avec la nouvelle version 8.0 d'EcclesiaCRM, un nouveau volet dans la gestion administrateur est maintenant à votre disposition
+With the new version 8.0 of EcclesiaCRM, a new component in the administrator management is now available to you
 
-Pour cela, il faut avoir des droits administrateurs
+To do so, you must have administrator rights
 
-- aller dans la partie réglages en haut à droite
+- go to the settings section on the top right
 
   ![Screenshot](../../img/plugins/plugins-management.png)
 
-- Vous aurez ici la vue permettant de gérer les plugins
+- You will have here the view to manage the plugins
 
-    ![Screenshot](../../img/plugins/plugins-management2.png)
+  ![Screenshot](../../img/plugins/plugins-management2.png)
 
-    Elle est assez similaire dans sa gestion à Wordpress.
+  It is quite similar in its management to Wordpress.
 
-- Il est possible d'ajouter un plugin
+- It is possible to add a plugin
 
-    ![Screenshot](../../img/plugins/plugins-management-add.png)
+  Screenshot](../../img/plugins/plugins-management-add.png)
 
-    **Attention** ce plugin doit être validé au niveau d'une signature numérique pour pouvoir être intégré à EcclesiaCRM.
+  **Warning** this plugin must be validated at the level of a digital signature to be integrated into EcclesiaCRM.
 
-- Il est possible d'activer ou de désactiver un plugin de manière groupée ou plugin par plugin.
+- It is possible to activate or deactivate a plugin as a group or plugin by plugin.
 
-    ![Screenshot](../../img/plugins/plugins-management-activate-deactivate-suppress.png)
+  ![Screenshot](../../img/plugins/plugins-management-activate-deactivate-suppress.png)
 
-- la mise à jour est en cours de développement et viendra dans une future version d'EcclesiaCRM.
+- the update is under development and will come in a future version of EcclesiaCRM.
 
-# Gestion des droits utilisateurs
+# User rights management
 
-Tous les utilisateurs n'ont pas forcément droit d'accéder au plugin ou ne veulent pas y accéder.
+Not all users have the right to access the plugin or want to access it.
 
-Pour cela :
-- Aller dans les réglages pour la partie utilisateurs
+To do so:
+- Go to the settings for the users part
 
-    ![Screenshot](../../img/plugins/plugins-management-users.png)
+  Screenshot](../../img/plugins/plugins-management-users.png)
 
-- On choisit un utilisateur
+- We choose a user
   ![Screenshot](../../img/plugins/plugins-management-users1.png)
 
-- On tombe sur la nouvelle gestion 8.0 d'EcclesiaCRM
+- We get the new 8.0 management of EcclesiaCRM
 
-  ![Screenshot](../../img/plugins/plugins-management-users2.png)
+  Screenshot](../../img/plugins/plugins-management-users2.png)
 
-    Il faut cliquer l'onglet à droite : "Permissions des plugins"
+  You have to click the tab on the right: "Plugin permissions".
 
-- On n'a plus qu'à activer ou attribuer les droits :
+- We just have to activate or assign the rights :
 
   ![Screenshot](../../img/plugins/plugins-management-users3.png)
-
-
-
-

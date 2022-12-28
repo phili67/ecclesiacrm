@@ -1,16 +1,16 @@
-Avec la version 8.0.0, la gestion des plugins est maintenant d'actualité. Ils vous permettront d'étendre la gestion d'EcclesiaCRM, faisant de lui un outil toujours plus polymorphe et puissant.
+With version 8.0.0, plugin management is now available. They will allow you to extend the management of EcclesiaCRM, making it an even more polymorphic and powerful tool.
 
 
 # Introduction
-Il est possible pour un développeur de rajouter la fonctionnalité qui lui manque :
+It is possible for a developer to add the functionality he is missing:
 
-- la gestion des visioconférences via Jitsi est maintenant faîte via un plugin
-- il est possible en contactant la team d'EcclesiaCRM de pouvoir gérer les flux d'événements, voir pour cela la documentation
-- d'autres plugins verront le jour par la suite.
+- the management of videoconferences via Jitsi is now done via a plugin
+- it is possible by contacting the EcclesiaCRM team to manage event flows, see the documentation for that
+- other plugins will be released later.
 
-# Gestion
+# Management
 
-- Les plugins peuvent être activés/désactivés et supprimés.
-- un plugin est bâti sur des droits forts qu'un utilisateur peut avoir ou non
+- Plugins can be activated/deactivated and deleted.
+- a plugin is built on strong rights that a user can have or not
 
-**Attention** les plugins doivent validée par l'équipe de développement, une signature sur chaque plugin permet de garantir la sécurité et la validation de l'outil.
+**Warning** plugins must be validated by the development team, a signature on each plugin guarantees the security and validation of the tool.

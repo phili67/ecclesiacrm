@@ -1272,13 +1272,13 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      Manuel : Visio
+      Manuel : Visio (Plugin)
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="Manuel : Visio" data-md-level="1">
+    <nav class="md-nav" aria-label="Manuel : Visio (Plugin)" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
         <span class="md-nav__icon md-icon"></span>
-        Manuel : Visio
+        Manuel : Visio (Plugin)
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -2061,14 +2061,22 @@
                 
                 <h1 id="pour-bien-demarrer">Pour bien démarrer<a class="headerlink" href="#pour-bien-demarrer" title="Permanent link">&para;</a></h1>
 <h2 id="pour-generer-larchitecture-dun-plugin">Pour générer l'architecture d'un plugin<a class="headerlink" href="#pour-generer-larchitecture-dun-plugin" title="Permanent link">&para;</a></h2>
-<p>Une commande shell a été développé pour faciliter le travail : createPluginArch.sh</p>
-<div class="codehilite"><pre><span></span><code>bash createPluginArch.sh NameOfPlugin
+<p>Une commande shell a été développé pour faciliter le travail : <strong>createPluginArch.sh</strong></p>
+<p><strong>Attention</strong></p>
+<ul>
+<li>les routes pour chaque plugins sont prévues et sont incluses dans la gestion complète des routes dans <strong>api/plgnapi.php</strong> (voir plus bas) et sont prévues pour être géré via contrôleurs dans l'arberscence <strong>core/APIControllers</strong>).</li>
+<li>pour les vues des routes sont préétablies aussi <strong>v2/routes/v2route.php</strong> (elles sont liés éventuellement à vos propres contrôleurs <strong>core/VIEWControllers</strong>).</li>
+<li>ce mécanisme garantie un maximum de sécurité.</li>
+<li>il est impératif de suivre le fait que chaque plugin doit avoir une signature qui est validé par le crm (voir pour cela la documentation plugin).</li>
+</ul>
+<p><strong>Pour créer un plugin</strong></p>
+<div class="codehilite"><pre><span></span><code>bash createPluginArch.sh *NameOfPlugin*
 </code></pre></div>
 
-<p>Ce script va créer <strong>NameOfPlugin</strong> dans le répertoire <strong>Plugins</strong> dans le répertoire <strong>src</strong>.</p>
+<p>Ce script va créer <strong>NameOfPlugin</strong> dans le répertoire <strong>Plugins</strong> du répertoire <strong>src</strong>.</p>
 <p>1. L'architecture est de la forme</p>
 <div class="codehilite"><pre><span></span><code>api/                // gestion api interne
-    plgnapi.php     // on peut créer ses propres routes
+    plgnapi.php     // on doit créer ses propres routes ici
     (géré par le CRM directement)
 core/ // ici on peut gérer tous les modèles
     APIControllers  // pour définir le controleur appelé dans plgnapi.php).
@@ -2083,18 +2091,18 @@ ident/ // pour un accès à une api externe (facultatif)
     templates/      // appelé par la partie route
 locale/
     js/             // code de traduction js
-    textdomain/     // pour les traduction gettext
+    textdomain/     // pour les traduction gettext du code php
     index.html
 mysql/ // mise en place des fichiers mysql
     index.html      // fichier de protection
     Install.sql     // script sql pour créer la base de données
                     // appelé par le gestionnaire de plugin
-    Uninstall.sql   // Pour désinstaller le plugin
-    upgrade.json    // cette partie permet de gérer les upgrades
+    Uninstall.sql   // Pour désinstaller le plugin charge à vous de ne rien oublier
+    upgrade.json    // cette partie permet de gérer les upgrades (en cours de développement)
 skin/
     css/            // l&#39;ensemble des class css appelé par le crm
     js/             // l&#39;ensemble du code js appelé par le crm
-v2/                 // MVC pour les vues le modèles et le controlleur
+v2/                 // MVC pour les vues le modèles et le controlleur : obligatoire pour les plugin dashboard
     routes/         // appelé par le crm directement
         v2route.php
     templates/
@@ -2130,14 +2138,14 @@ signatures.json
 <p>1. Concernant l'injection dans la base de données dans la table <code></code>plugin<code></code></p>
 <p>Dans la base de données Mettre le plugin, on doit fixer</p>
 <ul>
-<li><code>`plgn_Category`</code> à</li>
+<li><code>`plgn_Category`</code> permettra de mettre l'entrée du plugin dans le menu à gauche dans la partie Personnel, RGPD, Etc .... les options sont
+<code>'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu'</code>
+-</li>
+<li>une description <code>`plgn_Description`</code> à par exemple : 'Plugin to show the current connected users'</li>
+<li>une version <code>`plgn_version`</code> à '1.0' par exemple</li>
+<li>le type de prefixe pour les entrées <code>`plgn_prefix`</code> à 'jm_'</li>
+<li><code>`plgn_position`</code> peut prendre les valeurs <code>'inside_category_menu', 'after_category_menu'</code> (très clair).</li>
 </ul>
-<p><code>'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu'</code>
-    cela permettra de mettre l'entrée du plugin dans le menu à gauche dans la partie Personnel, RGPD, Etc ....
-- une description <code>`plgn_Description`</code> à 'Plugin to show the current connected users'
-- une version <code>`plgn_version`</code> à '1.0' par exemple
-- le type de prefixe pour les entrées <code>`plgn_prefix`</code> à 'jm_'
-- <code>`plgn_position`</code> peut prendre les valeurs 'inside_category_menu', 'after_category_menu' (très clair).</p>
 <p>Voici un exemple complet dans le plugin <code>MeetingJitsi</code></p>
 <div class="codehilite"><pre><span></span><code>INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`)
 VALUES (&#39;MeetingJitsi&#39;, &#39;Plugin for jitsi Meeting&#39;, &#39;Meeting&#39;, NULL, &#39;&#39;, &#39;0&#39;, &#39;1.0&#39;, &#39;jm_&#39;, &#39;after_category_menu&#39;);
@@ -2249,6 +2257,7 @@ spl_autoload_register(function ($className) {
 <ul>
 <li>Côté optionnel : <code>`plgn_UserRole_Dashboard_Availability`</code> que l'on peut mettre à 1 (cela permettra à utilisateur d'être administrateur : dans le cas du dashboard News seul quelques personnes peuvent saisir la news, les autres seront simplement des lecteurs).</li>
 </ul>
+<p><img alt="Screenshot" src="../../../../img/plugins/plugins_dashboard_admin.png" /></p>
 <p>Voici un exemple</p>
 <div class="codehilite"><pre><span></span><code>INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`)
 VALUES (&#39;CurrentUsersDashboard&#39;, &#39;Plugin to show the current connected users&#39;, &#39;Dashboard&#39;, NULL, &#39;&#39;, &#39;1&#39;, &#39;1.0&#39;, &#39;cud_&#39;, &#39;inside_category_menu&#39;, &#39;right&#39;, &#39;bg-gradient-green text-black&#39;, 1073741824);
@@ -2334,6 +2343,8 @@ spl_autoload_register(function ($className) {
 });
 </code></pre></div>
 
+<p>3. Les signatures</p>
+<p>La signature d'un plugin est créée via l'outil fourni par le CRM : <strong>grunt genPluginsSignatures</strong> à la racine.</p>
 <p>Bon développement de plugins.</p>
                 
               

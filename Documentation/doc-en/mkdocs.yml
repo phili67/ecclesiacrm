@@ -117,7 +117,7 @@ nav:
       - 'Overview': 'user-guide/doc-gdpr/doc-gdpr-introduction.md'
       - 'Activation & Management': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
 
-  - "Manual : Visio":
+  - "Manual : Visio (Plugin)":
       - 'Introduction': 'user-guide/doc-visio/doc-visio-introduction.md'
       - 'Management': 'user-guide/doc-visio/doc-visio-management.md'
 

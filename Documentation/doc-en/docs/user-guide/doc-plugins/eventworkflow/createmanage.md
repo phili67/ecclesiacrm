@@ -1,132 +1,129 @@
-## Créer un flux d'événement (une journée)
+## Create an event stream (one day)
 
-- il vous permettra de créer un conteneur dans lequel vous pourrez
-  - mettre, votre gestion complète d'un événement
-  - de mettre les bénévoles
-  - d'envoyer des mails pour les prévenir
+- it will allow you to create a container in which you can
+    - put, your complete management of an event
+    - to put the volunteers
+    - send emails to warn them
 
-- Pour créer un événement, aller dans le menu :
+- To create an event, go to the menu :
 
-    ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow0.png)
+  ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow0.png)
 
-- Puis utiliser le bouton : "Créer un flux d'événement"
+- Then use the button: "Create an event flow".
 
-    ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow5.png)
+  ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow5.png)
 
-- On obtient la fenêtre suivante puis on pourra paramétrer la fenêtre suivante :
+- We obtain the following window and then we can set the following window:
 
   ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow6.png)
 
-  C'est un flux de calendrier, on le retrouvera donc dans la vue calendrier. On doit y renseigner :
+  This is a calendar flow, so it will be found in the calendar view. You have to fill in :
 
-  - le nom du flux
-  - le calendrier (ne pas oublier de le partager avec les autres personnes l'utilisant, voir pour cela l'aide sur les calendriers, dans le manuel utilisateur)
-  - la date et l'heure ne pose pas de souci
+    - the name of the flow
+    - the calendar (don't forget to share it with the other people using it, see the help on calendars in the user manual)
+    - the date and time is not a problem
 
-Vous validez et l'événement est créé à la fois dans le  calendrier et dans la vue de gestion de flux d'événement.
+You validate and the event is created both in the calendar and in the event flow management view.
 
-## Mode constructeur : flux d'événement
+## Builder mode: event flow
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow2.png)
 
 
 ### Actions
 
-La barre d'outils suivante permettra de gérer complétement votre flux
+The following toolbar will allow you to manage your flow completely
 
-![Screenshot](../../../img/plugins/eventworkflow/eventworkflow3.png)
+Screenshot](../../../img/plugins/eventworkflow/eventworkflow3.png)
 
 
-#### Mode constructeur ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow4.png)
+#### Builder mode ! [Screenshot](../../../img/plugins/eventworkflow/eventworkflow4.png)
 
-On clique sur ce bouton, si ce n'est déjà fait, par défaut il est actif.
+Click on this button, if not already done, by default it is active.
 
-Il vous permettra de construire complétement votre flux d'événement :
-- titre
-- conteneur
-- sous conteneur en gérant vos opportunités de bénévolats.
+It will allow you to build your event flow completely:
+- title
+- container
+- sub-container by managing your volunteer opportunities.
 
-Dans chaque flux d'événement, on peut créer un conteneur, il peut contenir :
+In each event flow, you can create a container, it can contain :
 
-##### On peut créer de base un titre
+##### We can create a basic title
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow8.png)
 
-C'est un artifice permettant de simuler des titres
+This is a trick to simulate titles
 
-##### On peut alors créer une sous conteneur
+##### We can then create a sub-container
 
-On transforme ce titre en bloc de conteneurs d'opportunités de bénévolats.
+We transform this title into a block of containers of volunteer opportunities.
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow9.png)
 
-Voici la vue obtenue
+Here is the resulting view
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow10.png)
 
-- On peut choisir les opportunités de bénévolats
-- l'heure (c'est à titre indicatif entre entre deux sous conteneurs)
-- l'objectif : le nombre de bénévoles qu'il faudra atteindre
+- You can choose the volunteer opportunities
+- the time (this is a guideline between two sub-containers)
+- the objective: the number of volunteers to be reached
 
-##### On peut alors ajouter autant de sous conteneurs que l'on veut :
+##### You can then add as many sub-containers as you want:
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow7.png)
 
-- des notes à gauche
-- des sous conteneurs (les doodle à droite, on peut en mettre autant que l'on veut).
-  Les doodles :
-    - vous permettront de cocher les personnes
+- notes on the left
+- sub-containers (doodles on the right, you can put as many as you want).
+  The doodles :
+    - will allow you to check off the people
 
-##### Action dans un sous conteneur
+##### Action in a sub-container
 
-![Screenshot](../../../img/plugins/eventworkflow/eventworkflow11.png)
+Screenshot](../../../img/plugins/eventworkflow/eventworkflow11.png)
 
-on peut rajouter
+you can add
 
-- des membres
-- créer une note utile plus loin
-- envoyer une mail
-- Ou supprimer le sous contenur
+- members
+- create a useful note further on
+- send a mail
+- Or delete the subcontainer
 
-#### Mode édition ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow12.png)
+#### Edit mode ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow12.png)
 
-Vous pourrez rééditer l'événement
+You will be able to re-edit the event
 
-![Screenshot](../../../img/plugins/eventworkflow/eventworkflow13.png)
+Screenshot](../../img/plugins/eventworkflow/eventworkflow13.png)
 
-#### Envoi de mail ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow14.png)
+#### Send mail ! [Screenshot](../../../img/plugins/eventworkflow/eventworkflow14.png)
 
-L'envoi de mail, enverra un mail à toutes les bénévoles qui ont été cochés et ouvrira votre email personnel avec le résumé du flux.
+Sending mail, will send a mail to all volunteers that have been checked and will open your personal email with the summary of the flow.
 
-#### Duplication du flux ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow15.png)
+#### Duplicate the flow ! [Screenshot](../../../img/plugins/eventworkflow/eventworkflow15.png)
 
-Cette partie permet de dupliquer le flux à l'identique (les bénévoles sont évidemment décochés)
+This part allows you to duplicate the flow identically (volunteers are obviously unchecked)
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow16.png)
 
-#### Le dernier bouton permet de supprimer un flux
+#### The last button allows to delete a flow
 
 
-## Chronologie du flux d'événement (volontaires)
+## Event flow timeline (volunteers)
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow17.png)
 
-### Plan du culte pour les volontaires
+### Worship plan for volunteers
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow18.png)
 
-## Chronologie du flux d'événement (volontaires)
+## Event flow timeline (volunteers)
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow19.png)
 
-### Plan du culte pour les volontaires
+### Worship plan for volunteers
 
 ![Screenshot](../../../img/plugins/eventworkflow/eventworkflow20.png)
 
 
-## Créer un flux d'événement (plusieurs jours)
+## Create an event flow (several days)
 
-Le principe est le même que pour un jour.
-
-
-
+The principle is the same as for one day.
