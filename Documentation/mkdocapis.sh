@@ -4,7 +4,7 @@
 echo "# <center><big>Ecclesia**CRM** documentation de l'API</big></center>
 ----
 
-Ecclesia**CRM** use Slim 3.9.2 which allow to make api call to the restricted area of the CRM.
+Ecclesia**CRM** use Slim 4.10.0 which allow to make api call to the restricted area of the CRM.
 
 
 " > "api.md"

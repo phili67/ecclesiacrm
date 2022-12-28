@@ -6,9 +6,9 @@
 
     $use_template = array_key_exists("t", $options) ? $options["t"] : "markdown";
     $title = array_key_exists("n", $options) ? $options["n"] : "API Description";
-    
+
     //echo "Title ${title}\n";
-    
+
     if ($argc < 3 || array_key_exists("h", $options)) {
         printUsage();
         die();
@@ -17,16 +17,16 @@
     if (!file_exists($options["i"])) {
         die("Input file does not exist !\n");
     }
-    
+
     $route = str_replace("../src","",$options["i"]);
 
     $out_file = fopen($options["o"], "w");
     if (!$out_file) {
         die("Could not create output file. \n");
     }
-    
-    $src_file = fopen($options["i"], "r");
-    if ($src_file){
+
+    $src_file = fopen($options["i"], 'r');
+    if (!empty($src_file)){
         while(($line = fgets($src_file)) !== false){
             preg_match("/\*\s+@!\s+(.*)/", $line, $description);
             if ($description){
@@ -47,8 +47,9 @@
               // extract this->get( this->post( etc ...
             preg_match("/\\$[a-z]*->(get|post|put|delete)\(\'(.*)\', \'(.*)\' \)/", $line, $route_data);
               // extract this->get('coucou', 'toto' )
-            
-            if ($route_data) { 
+
+
+            if ($route_data) {
                 $doc_cache[] = array(
                     "route_data" => $route_data,
                     "doc" => $doc_temp
@@ -56,7 +57,8 @@
                 $doc_temp = emptyTemp();
             } else {
               preg_match("/\\$[a-z]*->(get|post|put|delete)\(\'(.*)\', \"(.*)\" \)/", $line, $route_data);
-              if ($route_data) { 
+
+              if ($route_data) {
                 $doc_cache[] = array(
                     "route_data" => $route_data,
                     "doc" => $doc_temp
@@ -64,22 +66,31 @@
                 $doc_temp = emptyTemp();
               } else {
                 preg_match("/\\$[a-z]*->(get|post|put|delete)\(\'(.*)\', (.*) \{/", $line, $route_data);
-                if ($route_data) { 
+                if ($route_data) {
                   $doc_cache[] = array(
                       "route_data" => $route_data,
                       "doc" => $doc_temp
                   );
                   $doc_temp = emptyTemp();
+                } else {
+                    preg_match("/\\$[a-z]*->(get|post|put|delete)\(\'(.*)\', (.*) \)/", $line, $route_data);
+                    if ($route_data) {
+                        $doc_cache[] = array(
+                            "route_data" => $route_data,
+                            "doc" => $doc_temp
+                        );
+                        $doc_temp = emptyTemp();
+                    }
                 }
               }
             }
         }
-        
+
         //print_r($doc_cache)."\n";
-        
+
         //echo $route;
 
-        fwrite($out_file, 
+        fwrite($out_file,
             template(dirname(__FILE__) . "/templates/". $use_template .".php",
                 array(
                     "title" => $title,

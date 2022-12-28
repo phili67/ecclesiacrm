@@ -1,7 +1,7 @@
 # <center><big>Ecclesia**CRM** documentation de l'API</big></center>
 ----
 
-Ecclesia**CRM** use Slim 3.9.2 which allow to make api call to the restricted area of the CRM.
+Ecclesia**CRM** use Slim 4.10.0 which allow to make api call to the restricted area of the CRM.
 
 
 
@@ -11,7 +11,7 @@ Ecclesia**CRM** use Slim 3.9.2 which allow to make api call to the restricted ar
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getallevents` | POST | getallCalendarEvents | Get all events for all calendars for a specified range
+`/getallevents` | POST | CalendarV2Controller::class . ':getallCalendarEvents' | Get all events for all calendars for a specified range
 
 * `{ref}`->`start` :: the start date : YYYY-MM-DD
 * `{ref}`->`end` :: the end date : YYYY-MM-DD
@@ -19,12 +19,20 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/numberofcalendars` | POST | numberOfCalendars | get all the number of calendar for the current user
+`/getalleventsForEventsList` | POST | CalendarV2Controller::class . ':getallCalendarEventsForEventsList' | Get all events for all calendars for a specified range
+
+* `{ref}`->`start` :: the start date : YYYY-MM-DD
+* `{ref}`->`end` :: the end date : YYYY-MM-DD
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/showhidecalendars` | POST | showHideCalendars | Show Hide calendar
+`/numberofcalendars` | POST | CalendarV2Controller::class . ':numberOfCalendars' | get all the number of calendar for the current user
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/showhidecalendars` | POST | CalendarV2Controller::class . ':showHideCalendars' | Show Hide calendar
 
 * `{ref}`->`array` :: calIDs
 * `{id}`->`bool` :: isPresent
@@ -32,7 +40,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setDescriptionType` | POST | setCalendarDescriptionType | set Description type for a calendar
+`/setDescriptionType` | POST | CalendarV2Controller::class . ':setCalendarDescriptionType' | set Description type for a calendar
 
 * `{ref}`->`array` :: calIDs
 * `{ref}`->`string` :: desc
@@ -41,7 +49,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getallforuser` | POST | getAllCalendarsForUser | Get all calendars for a specified user
+`/getallforuser` | POST | CalendarV2Controller::class . ':getAllCalendarsForUser' | Get all calendars for a specified user
 
 * `{ref}`->`string` :: type
 * `{ref}`->`bool` :: onlyvisible
@@ -50,7 +58,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/info` | POST | calendarInfo | Get infos for a calendar
+`/info` | POST | CalendarV2Controller::class . ':calendarInfo' | Get infos for a calendar
 
 * `{ref}`->`array` :: calIDs
 * `{ref}`->`string` :: type
@@ -58,7 +66,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setcolor` | POST | setCalendarColor | Set color for a calendar
+`/setcolor` | POST | CalendarV2Controller::class . ':setCalendarColor' | Set color for a calendar
 
 * `{ref}`->`array` :: calIDs
 * `{ref}`->`hex` :: color : #FFF
@@ -66,7 +74,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setckecked` | POST | setCheckedCalendar | Check the calendar to make it visible
+`/setckecked` | POST | CalendarV2Controller::class . ':setCheckedCalendar' | Check the calendar to make it visible
 
 * `{ref}`->`array` :: calIDs
 * `{ref}`->`bool` :: isChecked
@@ -74,14 +82,22 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/new` | POST | newCalendar | Create a new calendar
+`/setckeckedselected` | POST | CalendarV2Controller::class . ':setCheckedSelectedCalendar' | Check the calendar to make it visible
+
+* `{ref}`->`array` :: calIDs
+* `{ref}`->`bool` :: isChecked
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/new` | POST | CalendarV2Controller::class . ':newCalendar' | Create a new calendar
 
 * `{ref}`->`string` :: title
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/newReservation` | POST | newCalendarReservation | Create new calendar reservation
+`/newReservation` | POST | CalendarV2Controller::class . ':newCalendarReservation' | Create new calendar reservation
 
 * `{ref}`->`string` :: title
 * `{ref}`->`string` :: type
@@ -90,7 +106,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/modifyname` | POST | modifyCalendarName | Change calendar name
+`/modifyname` | POST | CalendarV2Controller::class . ':modifyCalendarName' | Change calendar name
 
 * `{ref}`->`array` :: calIDs
 * `{ref}`->`string` :: title
@@ -98,14 +114,14 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getinvites` | POST | getCalendarInvites | get attendees for a calendar
+`/getinvites` | POST | CalendarV2Controller::class . ':getCalendarInvites' | get attendees for a calendar
 
 * `{ref}`->`array` :: calIDs
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/sharedelete` | POST | shareCalendarDelete | Delete a share calendar for a person
+`/sharedelete` | POST | CalendarV2Controller::class . ':shareCalendarDelete' | Delete a share calendar for a person
 
 * `{ref}`->`array` :: calIDs
 * `{ref}`->`int` :: principal
@@ -113,7 +129,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/sharefamily` | POST | shareCalendarFamily | Share a calendar with a person
+`/sharefamily` | POST | CalendarV2Controller::class . ':shareCalendarFamily' | Share a calendar with a person
 
 * `{ref}`->`array` :: calIDs
 * `{id}`->`int` :: person ID
@@ -125,7 +141,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/sharegroup` | POST | shareCalendarGroup | Share a calendar with an entire group
+`/sharegroup` | POST | CalendarV2Controller::class . ':shareCalendarGroup' | Share a calendar with an entire group
 
 * `{ref}`->`array` :: calIDs
 * `{id}`->`int` :: group ID
@@ -134,7 +150,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setrights` | POST | setCalendarRights | Set right access for a calendar
+`/setrights` | POST | CalendarV2Controller::class . ':setCalendarRights' | Set right access for a calendar
 
 * `{ref}`->`array` :: calIDs
 * `{ref}`->`array` :: calIDs
@@ -144,7 +160,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | deleteCalendar | Delete a calendar
+`/delete` | POST | CalendarV2Controller::class . ':deleteCalendar' | Delete a calendar
 
 * `{ref}`->`array` :: calIDs
 
@@ -155,41 +171,41 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | GET | getAllEvents | Get all events for all calendars for a specified range
+`/` | GET | CalendarEventV2Controller::class . ":getAllEvents" | Get all events for all calendars for a specified range
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/notDone` | GET | getNotDoneEvents | Get all events after now
+`/notDone` | GET | CalendarEventV2Controller::class . ":getNotDoneEvents" | Get all events after now
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/types` | GET | getEventTypes | Get all event type
+`/types` | GET | CalendarEventV2Controller::class . ":getEventTypes" | Get all event type
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/names` | GET | eventNames | Get all event names
+`/names` | GET | CalendarEventV2Controller::class . ":eventNames" | Get all event names
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteeventtype` | POST | deleteeventtype | delete event type
+`/deleteeventtype` | POST | CalendarEventV2Controller::class . ":deleteeventtype" | delete event type
 
 * `{id}`->`int` :: type ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/info` | POST | eventInfo | get event info
+`/info` | POST | CalendarEventV2Controller::class . ":eventInfo" | get event info
 
 * `{id}`->`int` :: event ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person` | POST | personCheckIn | Set a person for the event + check
+`/person` | POST | CalendarEventV2Controller::class . ":personCheckIn" | Set a person for the event + check
 
 * `{id}`->`int` :: event ID
 * `{id}`->`int` :: person ID
@@ -197,7 +213,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/group` | POST | groupCheckIn | Set the group persons for the event + check
+`/group` | POST | CalendarEventV2Controller::class . ":groupCheckIn" | Set the group persons for the event + check
 
 * `{id}`->`int` :: event ID
 * `{id}`->`int` :: group ID
@@ -205,7 +221,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family` | POST | familyCheckIn | Set the family persons for the event + check
+`/family` | POST | CalendarEventV2Controller::class . ":familyCheckIn" | Set the family persons for the event + check
 
 * `{id}`->`int` :: event ID
 * `{id}`->`int` :: family ID
@@ -213,7 +229,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/attendees` | POST | eventCount | get event count
+`/attendees` | POST | CalendarEventV2Controller::class . ":eventCount" | get event count
 
 * `{id}`->`int` :: event ID
 * `{id}`->`int` :: type ID
@@ -221,7 +237,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | manageEvent | manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
+`/` | POST | CalendarEventV2Controller::class . ":manageEvent" | manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
 
 * `{id}`->`int` :: eventID
 * `{id}`->`int` :: type ID
@@ -238,12 +254,12 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | GET | getAllPeopleInCart | Get all people in Cart
+`/` | GET | CartController::class . ':getAllPeopleInCart' | Get all people in Cart
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | cartOperation | Get user info by id
+`/` | POST | CartController::class . ':cartOperation' | Get user info by id
 
 * `{ref}`->`array` :: Persons id in array ref
 * `{id}`->`int` :: Family id
@@ -255,77 +271,77 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/interectPerson` | POST | cartIntersectPersons | No description
+`/interectPerson` | POST | CartController::class . ':cartIntersectPersons' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/emptyToGroup` | POST | emptyCartToGroup | No description
+`/emptyToGroup` | POST | CartController::class . ':emptyCartToGroup' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/emptyToEvent` | POST | emptyCartToEvent | No description
+`/emptyToEvent` | POST | CartController::class . ':emptyCartToEvent' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/emptyToNewGroup` | POST | emptyCartToNewGroup | No description
+`/emptyToNewGroup` | POST | CartController::class . ':emptyCartToNewGroup' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeGroup` | POST | removeGroupFromCart | No description
+`/removeGroup` | POST | CartController::class . ':removeGroupFromCart' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeGroups` | POST | removeGroupsFromCart | No description
+`/removeGroups` | POST | CartController::class . ':removeGroupsFromCart' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeStudentGroup` | POST | removeStudentsGroupFromCart | No description
+`/removeStudentGroup` | POST | CartController::class . ':removeStudentsGroupFromCart' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeTeacherGroup` | POST | removeTeachersGroupFromCart | No description
+`/removeTeacherGroup` | POST | CartController::class . ':removeTeachersGroupFromCart' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addAllStudents` | POST | addAllStudentsToCart | No description
+`/addAllStudents` | POST | CartController::class . ':addAllStudentsToCart' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addAllTeachers` | POST | addAllTeachersToCart | No description
+`/addAllTeachers` | POST | CartController::class . ':addAllTeachersToCart' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeAllStudents` | POST | removeAllStudentsFromCart | No description
+`/removeAllStudents` | POST | CartController::class . ':removeAllStudentsFromCart' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeAllTeachers` | POST | removeAllTeachersFromCart | No description
+`/removeAllTeachers` | POST | CartController::class . ':removeAllTeachersFromCart' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | deletePersonCart | No description
+`/delete` | POST | CartController::class . ':deletePersonCart' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deactivate` | POST | deactivatePersonCart | No description
+`/deactivate` | POST | CartController::class . ':deactivatePersonCart' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | DELETE | removePersonCart | Remove all People in the Cart
+`/` | DELETE | CartController::class . ':removePersonCart' | Remove all People in the Cart
 
 ---
 ## API "ckeditor"
@@ -334,32 +350,32 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/templates` | GET | templates | No description
+`/{personId:[0-9]+}/templates` | GET | DocumentCKEditorController::class . ':templates' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/alltemplates` | POST | alltemplates | No description
+`/alltemplates` | POST | DocumentCKEditorController::class . ':alltemplates' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletetemplate` | POST | deleteTemplate | No description
+`/deletetemplate` | POST | DocumentCKEditorController::class . ':deleteTemplate' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/renametemplate` | POST | renametemplate | No description
+`/renametemplate` | POST | DocumentCKEditorController::class . ':renametemplate' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/savetemplate` | POST | saveTemplate | No description
+`/savetemplate` | POST | DocumentCKEditorController::class . ':saveTemplate' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/saveAsWordFile` | POST | saveAsWordFile | No description
+`/saveAsWordFile` | POST | DocumentCKEditorController::class . ':saveAsWordFile' | No description
 
 ---
 ## API "document"
@@ -368,27 +384,27 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/create` | POST | createDocument | No description
+`/create` | POST | DocumentDocumentController::class . ':createDocument' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/get` | POST | getDocument | No description
+`/get` | POST | DocumentDocumentController::class . ':getDocument' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/update` | POST | updateDocument | No description
+`/update` | POST | DocumentDocumentController::class . ':updateDocument' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | deleteDocument | No description
+`/delete` | POST | DocumentDocumentController::class . ':deleteDocument' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/leave` | POST | leaveDocument | No description
+`/leave` | POST | DocumentDocumentController::class . ':leaveDocument' | No description
 
 ---
 ## API "filemanager"
@@ -397,72 +413,72 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personID:[0-9]+}` | POST | getAllFileNoteForPerson | No description
+`/{personID:[0-9]+}` | POST | DocumentFileManagerController::class . ':getAllFileNoteForPerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getFile/{personID:[0-9]+}/[{path:.*}]` | GET | getRealFile | No description
+`/getFile/{personID:[0-9]+}/[{path:.*}]` | GET | DocumentFileManagerController::class . ':getRealFile' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getPreview` | POST | getPreview | No description
+`/getPreview` | POST | DocumentFileManagerController::class . ':getPreview' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/changeFolder` | POST | changeFolder | No description
+`/changeFolder` | POST | DocumentFileManagerController::class . ':changeFolder' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/folderBack` | POST | folderBack | No description
+`/folderBack` | POST | DocumentFileManagerController::class . ':folderBack' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteOneFolder` | POST | deleteOneFolder | No description
+`/deleteOneFolder` | POST | DocumentFileManagerController::class . ':deleteOneFolder' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteOneFile` | POST | deleteOneFile | No description
+`/deleteOneFile` | POST | DocumentFileManagerController::class . ':deleteOneFile' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteFiles` | POST | deleteFiles | No description
+`/deleteFiles` | POST | DocumentFileManagerController::class . ':deleteFiles' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/movefiles` | POST | movefiles | No description
+`/movefiles` | POST | DocumentFileManagerController::class . ':movefiles' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/newFolder` | POST | newFolder | No description
+`/newFolder` | POST | DocumentFileManagerController::class . ':newFolder' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/rename` | POST | renameFile | No description
+`/rename` | POST | DocumentFileManagerController::class . ':renameFile' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/uploadFile/{personID:[0-9]+}` | POST | uploadFile | No description
+`/uploadFile/{personID:[0-9]+}` | POST | DocumentFileManagerController::class . ':uploadFile' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getRealLink` | POST | getRealLink | No description
+`/getRealLink` | POST | DocumentFileManagerController::class . ':getRealLink' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setpathtopublicfolder` | POST | setpathtopublicfolder | No description
+`/setpathtopublicfolder` | POST | DocumentFileManagerController::class . ':setpathtopublicfolder' | No description
 
 ---
 ## API "sharedocument"
@@ -471,115 +487,70 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getallperson` | POST | getAllShareForPerson | No description
+`/getallperson` | POST | DocumentShareController::class . ':getAllShareForPerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addperson` | POST | addPersonToShare | No description
+`/addperson` | POST | DocumentShareController::class . ':addPersonToShare' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addfamily` | POST | addFamilyToShare | No description
+`/addfamily` | POST | DocumentShareController::class . ':addFamilyToShare' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addgroup` | POST | addGroupToShare | No description
+`/addgroup` | POST | DocumentShareController::class . ':addGroupToShare' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteperson` | POST | deletePersonFromShare | No description
+`/deleteperson` | POST | DocumentShareController::class . ':deletePersonFromShare' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setrights` | POST | setRightsForPerson | No description
+`/setrights` | POST | DocumentShareController::class . ':setRightsForPerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/cleardocument` | POST | clearDocument | No description
+`/cleardocument` | POST | DocumentShareController::class . ':clearDocument' | No description
 
 ---
 ## API "deposits"
 
    in route : "/api/routes/finance/finance-deposits.php
 
-Route | Method | function | Description
-------|--------|----------|------------
-`` | POST | createDeposit | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`` | GET | getAllDeposits | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{id:[0-9]+}` | GET | getOneDeposit | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{id:[0-9]+}` | POST | modifyOneDeposit | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{id:[0-9]+}/ofx` | GET | createDepositOFX | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{id:[0-9]+}/pdf` | GET | createDepositPDF | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{id:[0-9]+}/csv` | GET | createDepositCSV | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{id:[0-9]+}` | DELETE | deleteDeposit | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{id:[0-9]+}/pledges` | GET | getAllPledgesForDeposit | No description
-
----
 ## API "donationfunds"
 
    in route : "/api/routes/finance/finance-donationfunds.php
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | getAllDonationFunds | No description
+`/` | POST | FinanceDonationFundController::class . ':getAllDonationFunds' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/edit` | POST | editDonationFund | No description
+`/edit` | POST | FinanceDonationFundController::class . ':editDonationFund' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/set` | POST | setDonationFund | No description
+`/set` | POST | FinanceDonationFundController::class . ':setDonationFund' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | deleteDonationFund | No description
+`/delete` | POST | FinanceDonationFundController::class . ':deleteDonationFund' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/create` | POST | createDonationFund | No description
+`/create` | POST | FinanceDonationFundController::class . ':createDonationFund' | No description
 
 ---
 ## API "payments"
@@ -588,57 +559,57 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | GET | function ($request, $response, $args) | No description
+`/{id:[0-9]+}` | GET | FinancePaymentController::class . ':getPayment' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | function ($request, $response, $args) | No description
+`/` | POST | FinancePaymentController::class . ':getSubmitOrPayement' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupKey}` | DELETE | function ($request, $response, $args) | No description
+`/byGroupKey` | DELETE | FinancePaymentController::class . ':deletePaymentByGroupKey' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family` | POST | getAllPayementsForFamily | No description
+`/family` | POST | FinancePaymentController::class . ':getAllPayementsForFamily' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/info` | POST | getAutoPaymentInfo | No description
+`/info` | POST | FinancePaymentController::class . ':getAutoPaymentInfo' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/families` | POST | getAllPayementsForFamilies | No description
+`/families` | POST | FinancePaymentController::class . ':getAllPayementsForFamilies' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | deletePaymentForFamily | No description
+`/delete` | POST | FinancePaymentController::class . ':deletePaymentForFamily' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete/{authID:[0-9]+}` | GET | deleteAutoPayment | No description
+`/delete/{authID:[0-9]+}` | GET | FinancePaymentController::class . ':deleteAutoPayment' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/invalidate` | POST | invalidatePledge | No description
+`/invalidate` | POST | FinancePaymentController::class . ':invalidatePledge' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/validate` | POST | validatePledge | No description
+`/validate` | POST | FinancePaymentController::class . ':validatePledge' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getchartsarrays` | POST | getDepositSlipChartsArrays | No description
+`/getchartsarrays` | POST | FinancePaymentController::class . ':getDepositSlipChartsArrays' | No description
 
 ---
 ## API "pledges"
@@ -647,17 +618,17 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/detail` | POST | pledgeDetail | No description
+`/detail` | POST | FinancePledgeController::class . ':pledgeDetail' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family` | POST | familyPledges | No description
+`/family` | POST | FinancePledgeController::class . ':familyPledges' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | deletePledge | No description
+`/delete` | POST | FinancePledgeController::class . ':deletePledge' | No description
 
 ---
 ## API "geocoder"
@@ -666,12 +637,12 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/address` | POST | getGeoLocals | No description
+`/address` | POST | GeocoderController::class . ':getGeoLocals' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/address/` | POST | getGeoLocals | No description
+`/address/` | POST | GeocoderController::class . ':getGeoLocals' | No description
 
 ---
 ## API "kiosks"
@@ -680,37 +651,37 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | GET | getKioskDevices | No description
+`/` | GET | KiosksController::class . ':getKioskDevices' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/allowRegistration` | POST | allowDeviceRegistration | No description
+`/allowRegistration` | POST | KiosksController::class . ':allowDeviceRegistration' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{kioskId:[0-9]+}/reloadKiosk` | POST | reloadKiosk | No description
+`/{kioskId:[0-9]+}/reloadKiosk` | POST | KiosksController::class . ':reloadKiosk' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{kioskId:[0-9]+}/identifyKiosk` | POST | identifyKiosk | No description
+`/{kioskId:[0-9]+}/identifyKiosk` | POST | KiosksController::class . ':identifyKiosk' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{kioskId:[0-9]+}/acceptKiosk` | POST | acceptKiosk | No description
+`/{kioskId:[0-9]+}/acceptKiosk` | POST | KiosksController::class . ':acceptKiosk' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{kioskId:[0-9]+}/setAssignment` | POST | setKioskAssignment | No description
+`/{kioskId:[0-9]+}/setAssignment` | POST | KiosksController::class . ':setKioskAssignment' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{kioskId:[0-9]+}` | DELETE | deleteKiosk | No description
+`/{kioskId:[0-9]+}` | DELETE | KiosksController::class . ':deleteKiosk' | No description
 
 ---
 ## API "mailchimp"
@@ -719,142 +690,142 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/search/{query}` | GET | searchList | No description
+`/search/{query}` | GET | MailchimpController::class . ':searchList' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/list/{listID}` | GET | oneList | No description
+`/list/{listID}` | GET | MailchimpController::class . ':oneList' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/lists` | GET | lists | No description
+`/lists` | GET | MailchimpController::class . ':lists' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/listmembers/{listID}` | GET | listmembers | No description
+`/listmembers/{listID}` | GET | MailchimpController::class . ':listmembers' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/createlist` | POST | createList | No description
+`/createlist` | POST | MailchimpController::class . ':createList' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/modifylist` | POST | modifyList | No description
+`/modifylist` | POST | MailchimpController::class . ':modifyList' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteallsubscribers` | POST | deleteallsubscribers | No description
+`/deleteallsubscribers` | POST | MailchimpController::class . ':deleteallsubscribers' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletelist` | POST | deleteList | No description
+`/deletelist` | POST | MailchimpController::class . ':deleteList' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/list/removeTag` | POST | removeTag | No description
+`/list/removeTag` | POST | MailchimpController::class . ':removeTag' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/list/removeAllTagsForMembers` | POST | removeAllTagsForMembers | No description
+`/list/removeAllTagsForMembers` | POST | MailchimpController::class . ':removeAllTagsForMembers' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/list/addTag` | POST | addTag | No description
+`/list/addTag` | POST | MailchimpController::class . ':addTag' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/list/getAllTags` | POST | getAllTags | No description
+`/list/getAllTags` | POST | MailchimpController::class . ':getAllTags' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/list/removeTagForMembers` | POST | removeTagForMembers | No description
+`/list/removeTagForMembers` | POST | MailchimpController::class . ':removeTagForMembers' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/campaign/actions/create` | POST | campaignCreate | No description
+`/campaign/actions/create` | POST | MailchimpController::class . ':campaignCreate' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/campaign/actions/delete` | POST | campaignDelete | No description
+`/campaign/actions/delete` | POST | MailchimpController::class . ':campaignDelete' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/campaign/actions/send` | POST | campaignSend | No description
+`/campaign/actions/send` | POST | MailchimpController::class . ':campaignSend' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/campaign/actions/save` | POST | campaignSave | No description
+`/campaign/actions/save` | POST | MailchimpController::class . ':campaignSave' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/campaign/{campaignID}/content` | GET | campaignContent | No description
+`/campaign/{campaignID}/content` | GET | MailchimpController::class . ':campaignContent' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/status` | POST | statusList | No description
+`/status` | POST | MailchimpController::class . ':statusList' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/suppress` | POST | suppress | No description
+`/suppress` | POST | MailchimpController::class . ':suppress' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/suppressMembers` | POST | suppressMembers | No description
+`/suppressMembers` | POST | MailchimpController::class . ':suppressMembers' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addallnewsletterpersons` | POST | addallnewsletterpersons | No description
+`/addallnewsletterpersons` | POST | MailchimpController::class . ':addallnewsletterpersons' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addallpersons` | POST | addallpersons | No description
+`/addallpersons` | POST | MailchimpController::class . ':addallpersons' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addperson` | POST | addPerson | No description
+`/addperson` | POST | MailchimpController::class . ':addPerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addfamily` | POST | addFamily | No description
+`/addfamily` | POST | MailchimpController::class . ':addFamily' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addAllFamilies` | POST | addAllFamilies | No description
+`/addAllFamilies` | POST | MailchimpController::class . ':addAllFamilies' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addgroup` | POST | addGroup | No description
+`/addgroup` | POST | MailchimpController::class . ':addGroup' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/testConnection` | POST | testEmailConnectionMVC | No description
+`/testConnection` | POST | MailchimpController::class . ':testEmailConnectionMVC' | No description
 
 ---
 ## API "people"
@@ -863,26 +834,26 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/searchonlyperson/{query}` | GET | function($request,$response,$args) | Returns a list of the person who's first name or last name matches the :query parameter
+`/searchonlyperson/{query}` | GET | PeopleController::class . ':searchonlyperson' | Returns a list of the person who's first name or last name matches the :query parameter
 
 * `{ref}`->`string` :: query string ref
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/search/{query}` | GET | function($request,$response,$args) | Returns a list of the members/families/groups who's first name or last name matches the :query parameter
+`/search/{query}` | GET | PeopleController::class . ':searchpeople' | Returns a list of the members/families/groups who's first name or last name matches the :query parameter
 
 * `{ref}`->`string` :: query string ref
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/classifications/all` | GET | getAllClassifications | Returns all classifications
+`/classifications/all` | GET | PeopleController::class . ':getAllClassifications' | Returns all classifications
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/classification/assign` | POST | postPersonClassification | Returns all classifications
+`/person/classification/assign` | POST | PeopleController::class . ':postPersonClassification' | Returns all classifications
 
 ---
 ## API "attendees"
@@ -891,72 +862,72 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/event/{eventID:[0-9]+}` | GET | attendeesEvent | No description
+`/event/{eventID:[0-9]+}` | GET | PeopleAttendeesController::class . ':attendeesEvent' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/checkin` | POST | attendeesCheckIn | No description
+`/checkin` | POST | PeopleAttendeesController::class . ':attendeesCheckIn' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/checkout` | POST | attendeesCheckOut | No description
+`/checkout` | POST | PeopleAttendeesController::class . ':attendeesCheckOut' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/student` | POST | attendeesStudent | No description
+`/student` | POST | PeopleAttendeesController::class . ':attendeesStudent' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | attendeesDelete | No description
+`/delete` | POST | PeopleAttendeesController::class . ':attendeesDelete' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteAll` | POST | attendeesDeleteAll | No description
+`/deleteAll` | POST | PeopleAttendeesController::class . ':attendeesDeleteAll' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/checkAll` | POST | attendeesCheckAll | No description
+`/checkAll` | POST | PeopleAttendeesController::class . ':attendeesCheckAll' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/uncheckAll` | POST | attendeesUncheckAll | No description
+`/uncheckAll` | POST | PeopleAttendeesController::class . ':attendeesUncheckAll' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groups` | POST | attendeesGroups | No description
+`/groups` | POST | PeopleAttendeesController::class . ':attendeesGroups' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletePerson` | POST | deleteAttendeesPerson | No description
+`/deletePerson` | POST | PeopleAttendeesController::class . ':deleteAttendeesPerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addPerson` | POST | addAttendeesPerson | No description
+`/addPerson` | POST | PeopleAttendeesController::class . ':addAttendeesPerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/validate` | POST | validateAttendees | No description
+`/validate` | POST | PeopleAttendeesController::class . ':validateAttendees' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addFreeAttendees` | POST | addFreeAttendees | No description
+`/addFreeAttendees` | POST | PeopleAttendeesController::class . ':addFreeAttendees' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/qrcodeCall` | POST | qrcodeCallAttendees | No description
+`/qrcodeCall` | POST | PeopleAttendeesController::class . ':qrcodeCallAttendees' | No description
 
 ---
 ## API "families"
@@ -965,14 +936,14 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/familyproperties/{familyID:[0-9]+}` | POST | postfamilyproperties | Return family properties for familyID
+`/familyproperties/{familyID:[0-9]+}` | POST | PeopleFamilyController::class . ":postfamilyproperties" | Return family properties for familyID
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/isMailChimpActive` | POST | isMailChimpActiveFamily | Return if mailchimp is activated for family
+`/isMailChimpActive` | POST | PeopleFamilyController::class . ":isMailChimpActiveFamily" | Return if mailchimp is activated for family
 
 * `{id}`->`int` :: familyId as id
 * `{ref}`->`string` :: email as ref
@@ -980,104 +951,111 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId:[0-9]+}` | GET | getFamily | Return the family as json
+`/{familyId:[0-9]+}` | GET | PeopleFamilyController::class . ":getFamily" | Return the family as json
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/info` | POST | familyInfo | Return the family info as json
+`/info` | POST | PeopleFamilyController::class . ":familyInfo" | Return the family info as json
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/numbers` | GET | numbersOfAnniversaries | Return the numbers of Anniversaries for MenuEvent
+`/numbers` | GET | PeopleFamilyController::class . ":numbersOfAnniversaries" | Return the numbers of Anniversaries for MenuEvent
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/search/{query}` | GET | searchFamily | Returns a list of the families who's name matches the :query parameter
+`/search/{query}` | GET | PeopleFamilyController::class . ":searchFamily" | Returns a list of the families who's name matches the :query parameter
 
 * `{ref}`->`string` :: query as ref
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/self-register` | GET | selfRegisterFamily | Returns a list of the self-registered families
+`/self-register` | GET | PeopleFamilyController::class . ":selfRegisterFamily" | Returns a list of the self-registered families
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/self-verify` | GET | selfVerifyFamily | Returns a list of the self-verified families
+`/self-verify` | GET | PeopleFamilyController::class . ":selfVerifyFamily" | Returns a list of the self-verified families
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/pending-self-verify` | GET | pendingSelfVerify | Returns a list of the pending self-verified families
+`/pending-self-verify` | GET | PeopleFamilyController::class . ":pendingSelfVerify" | Returns a list of the pending self-verified families
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/byCheckNumber/{scanString}` | GET | byCheckNumberScan | Returns a family string based on the scan string of an MICR reader containing a routing and account number
+`/byCheckNumber/{scanString}` | GET | PeopleFamilyController::class . ":byCheckNumberScan" | Returns a family string based on the scan string of an MICR reader containing a routing and account number
 
 * `{ref}`->`string` :: scanString as ref
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId:[0-9]+}/photo` | GET | function ($request, $response, $args) | Returns the photo for the familyId
+`/{familyId:[0-9]+}/photo` | GET | PeopleFamilyController::class . ":photo" | Returns the photo for the familyId
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId:[0-9]+}/thumbnail` | GET | function ($request, $response, $args) | Returns the thumbnail for the familyId
+`/{familyId:[0-9]+}/thumbnail` | GET | PeopleFamilyController::class . ":thumbnail" | Returns the thumbnail for the familyId
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId:[0-9]+}/photo` | POST | postFamilyPhoto | Post the photo for the familyId
+`/{familyId:[0-9]+}/photo` | POST | PeopleFamilyController::class . ":postFamilyPhoto" | Post the photo for the familyId
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId:[0-9]+}/photo` | DELETE | deleteFamilyPhoto | Delete the photo for the familyId
+`/{familyId:[0-9]+}/photo` | DELETE | PeopleFamilyController::class . ":deleteFamilyPhoto" | Delete the photo for the familyId
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId:[0-9]+}/verify` | POST | verifyFamily | Verify the family for the familyId
+`/{familyId:[0-9]+}/verify` | POST | PeopleFamilyController::class . ":verifyFamily" | Verify the family for the familyId
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/verify/{familyId:[0-9]+}/now` | POST | verifyFamilyNow | Verify the family for the familyId now
+`/{familyId:[0-9]+}/verifyPDF` | POST | PeopleFamilyController::class . ":verifyFamilyPDF" | Verify the family for the familyId
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/verify/url` | POST | verifyFamilyURL | Verify the family for the familyId now
+`/verify/{familyId:[0-9]+}/now` | POST | PeopleFamilyController::class . ":verifyFamilyNow" | Verify the family for the familyId now
+
+* `{id}`->`int` :: familyId as id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/verify/url` | POST | PeopleFamilyController::class . ':verifyFamilyURL' | Verify the family for the familyId now
 
 * `{id}`->`int` :: family
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId:[0-9]+}/activate/{status}` | POST | familyActivateStatus | Update the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.
+`/{familyId:[0-9]+}/activate/{status}` | POST | PeopleFamilyController::class . ":familyActivateStatus" | Update the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.
 
 * `{id}`->`int` :: familyId as id
 * `{ref}`->`bool` :: status as ref
@@ -1085,14 +1063,14 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId:[0-9]+}/geolocation` | GET | familyGeolocation | Return the location for the family
+`/{familyId:[0-9]+}/geolocation` | GET | PeopleFamilyController::class . ":familyGeolocation" | Return the location for the family
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletefield` | POST | deleteFamilyField | delete familyField custom field
+`/deletefield` | POST | PeopleFamilyController::class . ":deleteFamilyField" | delete familyField custom field
 
 * `{id}`->`int` :: orderID as id
 * `{id}`->`int` :: field as id
@@ -1100,7 +1078,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/upactionfield` | POST | upactionFamilyField | Move up the family custom field
+`/upactionfield` | POST | PeopleFamilyController::class . ":upactionFamilyField" | Move up the family custom field
 
 * `{id}`->`int` :: orderID as id
 * `{id}`->`int` :: field as id
@@ -1108,7 +1086,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/downactionfield` | POST | downactionFamilyField | Move down the family custom field
+`/downactionfield` | POST | PeopleFamilyController::class . ":downactionFamilyField" | Move down the family custom field
 
 * `{id}`->`int` :: orderID as id
 * `{id}`->`int` :: field as id
@@ -1120,147 +1098,147 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | GET | getAllGroups | Get all the Groups
+`/` | GET | PeopleGroupController::class . ":getAllGroups" | Get all the Groups
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groupproperties/{groupID:[0-9]+}` | POST | groupproperties | Get all the properties of a group
+`/groupproperties/{groupID:[0-9]+}` | POST | PeopleGroupController::class . ":groupproperties" | Get all the properties of a group
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addressbook/extract/{groupId:[0-9]+}` | GET | function ($request, $response, $args) | get addressbook from a groupID through the url
+`/addressbook/extract/{groupId:[0-9]+}` | GET | PeopleGroupController::class . ":addressBook" | get addressbook from a groupID through the url
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/search/{query}` | GET | searchGroup | No description
+`/search/{query}` | GET | PeopleGroupController::class . ":searchGroup" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteAllManagers` | POST | deleteAllManagers | No description
+`/deleteAllManagers` | POST | PeopleGroupController::class . ":deleteAllManagers" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteManager` | POST | deleteManager | No description
+`/deleteManager` | POST | PeopleGroupController::class . ":deleteManager" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getmanagers` | POST | getManagers | No description
+`/getmanagers` | POST | PeopleGroupController::class . ":getManagers" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addManager` | POST | addManager | No description
+`/addManager` | POST | PeopleGroupController::class . ":addManager" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groupsInCart` | GET | groupsInCart | No description
+`/groupsInCart` | GET | PeopleGroupController::class . ":groupsInCart" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | newGroup | No description
+`/` | POST | PeopleGroupController::class . ":newGroup" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}` | POST | updateGroup | No description
+`/{groupID:[0-9]+}` | POST | PeopleGroupController::class . ":updateGroup" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}` | GET | groupInfo | No description
+`/{groupID:[0-9]+}` | GET | PeopleGroupController::class . ":groupInfo" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/cartStatus` | GET | groupCartStatus | No description
+`/{groupID:[0-9]+}/cartStatus` | GET | PeopleGroupController::class . ":groupCartStatus" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}` | DELETE | deleteGroup | No description
+`/{groupID:[0-9]+}` | DELETE | PeopleGroupController::class . ":deleteGroup" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/members` | GET | groupMembers | No description
+`/{groupID:[0-9]+}/members` | GET | PeopleGroupController::class . ":groupMembers" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/events` | GET | groupEvents | No description
+`/{groupID:[0-9]+}/events` | GET | PeopleGroupController::class . ":groupEvents" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}` | DELETE | removePersonFromGroup | No description
+`/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}` | DELETE | PeopleGroupController::class . ":removePersonFromGroup" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/addperson/{userID:[0-9]+}` | POST | addPersonToGroup | No description
+`/{groupID:[0-9]+}/addperson/{userID:[0-9]+}` | POST | PeopleGroupController::class . ":addPersonToGroup" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}` | POST | addTeacherToGroup | No description
+`/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}` | POST | PeopleGroupController::class . ":addTeacherToGroup" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/userRole/{userID:[0-9]+}` | POST | userRoleByUserId | No description
+`/{groupID:[0-9]+}/userRole/{userID:[0-9]+}` | POST | PeopleGroupController::class . ":userRoleByUserId" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/roles/{roleID:[0-9]+}` | POST | rolesByRoleId | No description
+`/{groupID:[0-9]+}/roles/{roleID:[0-9]+}` | POST | PeopleGroupController::class . ":rolesByRoleId" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/roles` | GET | allRoles | No description
+`/{groupID:[0-9]+}/roles` | GET | PeopleGroupController::class . ":allRoles" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/defaultRole` | POST | defaultRoleForGroup | No description
+`/{groupID:[0-9]+}/defaultRole` | POST | PeopleGroupController::class . ":defaultRoleForGroup" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/roles/{roleID:[0-9]+}` | DELETE | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/roles/{roleID:[0-9]+}` | DELETE | PeopleGroupController::class . ":deleteRole" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/roles` | POST | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/roles` | POST | PeopleGroupController::class . ":roles" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/setGroupSpecificPropertyStatus` | POST | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/setGroupSpecificPropertyStatus` | POST | PeopleGroupController::class . ":setGroupSepecificPropertyStatus" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/settings/active/{value}` | POST | settingsActiveValue | No description
+`/{groupID:[0-9]+}/settings/active/{value}` | POST | PeopleGroupController::class . ":settingsActiveValue" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/settings/email/export/{value}` | POST | settingsEmailExportVvalue | No description
+`/{groupID:[0-9]+}/settings/email/export/{value}` | POST | PeopleGroupController::class . ":settingsEmailExportVvalue" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletefield` | POST | deleteGroupField | delete Group Specific property custom field
+`/deletefield` | POST | PeopleGroupController::class . ":deleteGroupField" | delete Group Specific property custom field
 
 * `{id}`->`int` :: PropID as id
 * `{id}`->`int` :: Field as id
@@ -1269,7 +1247,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/upactionfield` | POST | upactionGroupField | delete Group Specific property custom field
+`/upactionfield` | POST | PeopleGroupController::class . ":upactionGroupField" | delete Group Specific property custom field
 
 * `{id}`->`int` :: PropID as id
 * `{id}`->`int` :: Field as id
@@ -1278,7 +1256,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/downactionfield` | POST | downactionGroupField | delete Group Specific property custom field
+`/downactionfield` | POST | PeopleGroupController::class . ":downactionGroupField" | delete Group Specific property custom field
 
 * `{id}`->`int` :: PropID as id
 * `{id}`->`int` :: Field as id
@@ -1287,7 +1265,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/sundayschool` | GET | groupSundaySchool | get all sundayschool teachers
+`/{groupID:[0-9]+}/sundayschool` | GET | PeopleGroupController::class . ":groupSundaySchool" | get all sundayschool teachers
 
 * `{id}`->`int` :: groupID as id
 
@@ -1298,26 +1276,26 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/search/{query}` | GET | searchPerson | Returns a list of the persons who's first name or last name matches the :query parameter
+`/search/{query}` | GET | PeoplePersonController::class . ":searchPerson" | Returns a list of the persons who's first name or last name matches the :query parameter
 
 * `{ref}`->`string` :: query string ref
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/cart/view` | GET | personCartView | Returns a list of the persons who are in the cart
+`/cart/view` | GET | PeoplePersonController::class . ":personCartView" | Returns a list of the persons who are in the cart
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/volunteers/{personID:[0-9]+}` | POST | volunteersPerPersonId | Returns all the volunteers opportunities
+`/volunteers/{personID:[0-9]+}` | POST | PeoplePersonController::class . ":volunteersPerPersonId" | Returns all the volunteers opportunities
 
 * `{id}`->`int` :: personId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/volunteers/delete` | POST | volunteersDelete | delete a volunteer opportunity for a user
+`/volunteers/delete` | POST | PeoplePersonController::class . ":volunteersDelete" | delete a volunteer opportunity for a user
 
 * `{id1}`->`int` :: personId as id1
 * `{id2}`->`int` :: volunteerOpportunityId as id2
@@ -1325,7 +1303,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/volunteers/add` | POST | volunteersAdd | Add volunteers opportunity
+`/volunteers/add` | POST | PeoplePersonController::class . ":volunteersAdd" | Add volunteers opportunity
 
 * `{id1}`->`int` :: personId as id1
 * `{id2}`->`int` :: volID as id2
@@ -1333,7 +1311,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/isMailChimpActive` | POST | isMailChimpActivePerson | Return if MailChimp is activated
+`/isMailChimpActive` | POST | PeoplePersonController::class . ":isMailChimpActivePerson" | Return if MailChimp is activated
 
 * `{id}`->`int` :: personId as id
 * `{ref}`->`string` :: email as ref
@@ -1341,7 +1319,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/activate/{status}` | POST | activateDeacticate | Return if MailChimp is activated
+`/{personId:[0-9]+}/activate/{status}` | POST | PeoplePersonController::class . ":activateDeacticate" | Return if MailChimp is activated
 
 * `{id}`->`int` :: personId as id
 * `{ref}`->`string` :: email as ref
@@ -1349,72 +1327,72 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/personproperties/{personID:[0-9]+}` | POST | personpropertiesPerPersonId | No description
+`/personproperties/{personID:[0-9]+}` | POST | PeoplePersonController::class . ":personpropertiesPerPersonId" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/numbers` | GET | numbersOfBirthDates | No description
+`/numbers` | GET | PeoplePersonController::class . ":numbersOfBirthDates" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/photo` | GET | function ($request, $response, $args ) | No description
+`/{personId:[0-9]+}/photo` | GET | PeoplePersonController::class . ":photo" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/thumbnail` | GET | function ($request, $response, $args) | No description
+`/{personId:[0-9]+}/thumbnail` | GET | PeoplePersonController::class . ":thumbnail" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/photo` | POST | postPersonPhoto | No description
+`/{personId:[0-9]+}/photo` | POST | PeoplePersonController::class . ":postPersonPhoto" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/photo` | DELETE | deletePersonPhoto | No description
+`/{personId:[0-9]+}/photo` | DELETE | PeoplePersonController::class . ":deletePersonPhoto" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/addToCart` | POST | addPersonToCart | No description
+`/{personId:[0-9]+}/addToCart` | POST | PeoplePersonController::class . ":addPersonToCart" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}` | DELETE | deletePerson | No description
+`/{personId:[0-9]+}` | DELETE | PeoplePersonController::class . ":deletePerson" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletefield` | POST | deletePersonField | No description
+`/deletefield` | POST | PeoplePersonController::class . ":deletePersonField" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/upactionfield` | POST | upactionPersonfield | No description
+`/upactionfield` | POST | PeoplePersonController::class . ":upactionPersonfield" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/downactionfield` | POST | downactionPersonfield | No description
+`/downactionfield` | POST | PeoplePersonController::class . ":downactionPersonfield" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/duplicate/emails` | GET | duplicateEmails | No description
+`/duplicate/emails` | GET | PeoplePersonController::class . ":duplicateEmails" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/NotInMailChimp/emails/{type}` | GET | notInMailChimpEmails | No description
+`/NotInMailChimp/emails/{type}` | GET | PeoplePersonController::class . ":notInMailChimpEmails" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/saveNoteAsWordFile` | POST | saveNoteAsWordFile | No description
+`/saveNoteAsWordFile` | POST | PeoplePersonController::class . ":saveNoteAsWordFile" | No description
 
 ---
 ## API "data"
@@ -1423,22 +1401,22 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/countries` | GET | getCountries | No description
+`/countries` | GET | PublicDataController::class . ':getCountries' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/countries/` | GET | getCountries | No description
+`/countries/` | GET | PublicDataController::class . ':getCountries' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/countries/{countryCode}/states` | GET | getStates | No description
+`/countries/{countryCode}/states` | GET | PublicDataController::class . ':getStates' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/countries/{countryCode}/states/` | GET | getStates | No description
+`/countries/{countryCode}/states/` | GET | PublicDataController::class . ':getStates' | No description
 
 ---
 ## API "register"
@@ -1447,7 +1425,7 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`` | POST | registerEcclesiaCRM | No description
+`` | POST | PublicRegisterController::class . ':registerEcclesiaCRM' | No description
 
 ---
 ## API "search"
@@ -1456,34 +1434,39 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{query}` | GET | quickSearch | a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query
+`/{query}` | GET | SearchController::class . ':quickSearch' | a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query
 
 * `{ref}`->`string` :: query string as ref
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/comboElements/` | POST | comboElements | No description
+`/getresultbyname/{query}` | GET | SearchController::class . ':getSearchResultByName' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getGroupForTypeID/` | POST | getGroupForTypeID | No description
+`/comboElements/` | POST | SearchController::class . ':comboElements' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getGroupRoleForGroupID/` | POST | getGroupRoleForGroupID | No description
+`/getGroupForTypeID/` | POST | SearchController::class . ':getGroupForTypeID' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getresult/` | POST | getSearchResult | No description
+`/getGroupRoleForGroupID/` | POST | SearchController::class . ':getGroupRoleForGroupID' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getresult/` | GET | getSearchResult | No description
+`/getresult/` | POST | SearchController::class . ':getSearchResult' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getresult/` | GET | SearchController::class . ':getSearchResult' | No description
 
 ---
 ## API "mapicons"
@@ -1492,145 +1475,110 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getall` | POST | getAllMapIcons | No description
+`/getall` | POST | SidebarMapIconsController::class . ':getAllMapIcons' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/checkOnlyPersonView` | POST | checkOnlyPersonView | No description
+`/checkOnlyPersonView` | POST | SidebarMapIconsController::class . ':checkOnlyPersonView' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setIconName` | POST | setIconName | No description
+`/setIconName` | POST | SidebarMapIconsController::class . ':setIconName' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeIcon` | POST | removeIcon | No description
+`/removeIcon` | POST | SidebarMapIconsController::class . ':removeIcon' | No description
 
 ---
 ## API "menulinks"
 
    in route : "/api/routes/sidebar/sidebar-menulinks.php
 
-Route | Method | function | Description
-------|--------|----------|------------
-`/{userId:[0-9]+}` | POST | getMenuLinksForUser | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/delete` | POST | deleteMenuLink | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/upaction` | POST | upMenuLink | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/downaction` | POST | downMenuLink | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/create` | POST | createMenuLink | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/set` | POST | setMenuLink | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/edit` | POST | editMenuLink | No description
-
----
 ## API "properties"
 
    in route : "/api/routes/sidebar/sidebar-properties.php
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/persons/assign` | POST | propertiesPersonsAssign | No description
+`/persons/assign` | POST | SidebarPropertiesController::class . ':propertiesPersonsAssign' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/persons/unassign` | DELETE | propertiesPersonsUnAssign | No description
+`/persons/unassign` | DELETE | SidebarPropertiesController::class . ':propertiesPersonsUnAssign' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/families/assign` | POST | propertiesFamiliesAssign | No description
+`/families/assign` | POST | SidebarPropertiesController::class . ':propertiesFamiliesAssign' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/families/unassign` | DELETE | propertiesFamiliesUnAssign | No description
+`/families/unassign` | DELETE | SidebarPropertiesController::class . ':propertiesFamiliesUnAssign' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groups/assign` | POST | propertiesGroupsAssign | No description
+`/groups/assign` | POST | SidebarPropertiesController::class . ':propertiesGroupsAssign' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groups/unassign` | DELETE | propertiesGroupsUnAssign | No description
+`/groups/unassign` | DELETE | SidebarPropertiesController::class . ':propertiesGroupsUnAssign' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/propertytypelists` | POST | getAllPropertyTypes | No description
+`/propertytypelists` | POST | SidebarPropertiesController::class . ':getAllPropertyTypes' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/propertytypelists/edit` | POST | editPropertyType | No description
+`/propertytypelists/edit` | POST | SidebarPropertiesController::class . ':editPropertyType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/propertytypelists/set` | POST | setPropertyType | No description
+`/propertytypelists/set` | POST | SidebarPropertiesController::class . ':setPropertyType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/propertytypelists/create` | POST | createPropertyType | No description
+`/propertytypelists/create` | POST | SidebarPropertiesController::class . ':createPropertyType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/propertytypelists/delete` | POST | deletePropertyType | No description
+`/propertytypelists/delete` | POST | SidebarPropertiesController::class . ':deletePropertyType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/typelists/edit` | POST | editProperty | No description
+`/typelists/edit` | POST | SidebarPropertiesController::class . ':editProperty' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/typelists/set` | POST | setProperty | No description
+`/typelists/set` | POST | SidebarPropertiesController::class . ':setProperty' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/typelists/delete` | POST | deleteProperty | No description
+`/typelists/delete` | POST | SidebarPropertiesController::class . ':deleteProperty' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/typelists/create` | POST | createProperty | No description
+`/typelists/create` | POST | SidebarPropertiesController::class . ':createProperty' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/typelists/{type}` | POST | getAllProperties | No description
+`/typelists/{type}` | POST | SidebarPropertiesController::class . ':getAllProperties' | No description
 
 ---
 ## API "roles"
@@ -1639,51 +1587,130 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/all` | GET | getAllRoles | No description
+`/all` | GET | SidebarRolesController::class . ':getAllRoles' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/persons/assign` | POST | rolePersonAssign | No description
+`/persons/assign` | POST | SidebarRolesController::class . ':rolePersonAssign' | No description
 
 ---
 ## API "volunteeropportunity"
 
    in route : "/api/routes/sidebar/sidebar-volunteeropportunity.php
 
+## API "pastoralcare"
+
+   in route : "/api/routes/pastoralcare/pastoralcare.php
+
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | getAllVolunteerOpportunities | No description
+`/` | POST | PastoralCareController::class . ':getAllPastoralCare' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | deleteVolunteerOpportunity | No description
+`/deletetype` | POST | PastoralCareController::class . ':deletePastoralCareType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/upaction` | POST | upActionVolunteerOpportunity | No description
+`/createtype` | POST | PastoralCareController::class . ':createPastoralCareType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/downaction` | POST | downActionVolunteerOpportunity | No description
+`/settype` | POST | PastoralCareController::class . ':setPastoralCareType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/create` | POST | createVolunteerOpportunity | No description
+`/edittype` | POST | PastoralCareController::class . ':editPastoralCareType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/set` | POST | setVolunteerOpportunity | No description
+`/person/add` | POST | PastoralCareController::class . ':addPastoralCarePerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/edit` | POST | editVolunteerOpportunity | No description
+`/person/delete` | POST | PastoralCareController::class . ':deletePastoralCarePerson' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/person/getinfo` | POST | PastoralCareController::class . ':getPastoralCareInfoPerson' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/person/modify` | POST | PastoralCareController::class . ':modifyPastoralCarePerson' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/add` | POST | PastoralCareController::class . ':addPastoralCareFamily' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/delete` | POST | PastoralCareController::class . ':deletePastoralCareFamily' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/getinfo` | POST | PastoralCareController::class . ':getPastoralCareInfoFamily' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/modify` | POST | PastoralCareController::class . ':modifyPastoralCareFamily' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/members` | POST | PastoralCareController::class . ':pastoralcareMembersDashboard' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/personNeverBeenContacted` | POST | PastoralCareController::class . ':personNeverBeenContacted' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/familyNeverBeenContacted` | POST | PastoralCareController::class . ':familyNeverBeenContacted' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/singleNeverBeenContacted` | POST | PastoralCareController::class . ':singleNeverBeenContacted' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/retiredNeverBeenContacted` | POST | PastoralCareController::class . ':retiredNeverBeenContacted' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/youngNeverBeenContacted` | POST | PastoralCareController::class . ':youngNeverBeenContacted' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getPersonByClassification` | POST | PastoralCareController::class . ':getPersonByClassificationPastoralCare' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getPersonByClassification/{type:[0-9]+}` | POST | PastoralCareController::class . ':getPersonByClassificationPastoralCare' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getlistforuser/{UserID:[0-9]+}` | GET | PastoralCareController::class . ':getPastoralCareListForUser' | No description
 
 ---
 ## API "pastoralcare"
@@ -1692,130 +1719,131 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | getAllPastoralCare | No description
+`/` | POST | PastoralCareController::class . ':getAllPastoralCare' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletetype` | POST | deletePastoralCareType | No description
+`/deletetype` | POST | PastoralCareController::class . ':deletePastoralCareType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/createtype` | POST | createPastoralCareType | No description
+`/createtype` | POST | PastoralCareController::class . ':createPastoralCareType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/settype` | POST | setPastoralCareType | No description
+`/settype` | POST | PastoralCareController::class . ':setPastoralCareType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/edittype` | POST | editPastoralCareType | No description
+`/edittype` | POST | PastoralCareController::class . ':editPastoralCareType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/add` | POST | addPastoralCarePerson | No description
+`/person/add` | POST | PastoralCareController::class . ':addPastoralCarePerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/delete` | POST | deletePastoralCarePerson | No description
+`/person/delete` | POST | PastoralCareController::class . ':deletePastoralCarePerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/getinfo` | POST | getPastoralCareInfoPerson | No description
+`/person/getinfo` | POST | PastoralCareController::class . ':getPastoralCareInfoPerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/modify` | POST | modifyPastoralCarePerson | No description
+`/person/modify` | POST | PastoralCareController::class . ':modifyPastoralCarePerson' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family/add` | POST | addPastoralCareFamily | No description
+`/family/add` | POST | PastoralCareController::class . ':addPastoralCareFamily' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family/delete` | POST | deletePastoralCareFamily | No description
+`/family/delete` | POST | PastoralCareController::class . ':deletePastoralCareFamily' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family/getinfo` | POST | getPastoralCareInfoFamily | No description
+`/family/getinfo` | POST | PastoralCareController::class . ':getPastoralCareInfoFamily' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family/modify` | POST | modifyPastoralCareFamily | No description
+`/family/modify` | POST | PastoralCareController::class . ':modifyPastoralCareFamily' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/members` | POST | pastoralcareMembersDashboard | No description
+`/members` | POST | PastoralCareController::class . ':pastoralcareMembersDashboard' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/personNeverBeenContacted` | POST | personNeverBeenContacted | No description
+`/personNeverBeenContacted` | POST | PastoralCareController::class . ':personNeverBeenContacted' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/familyNeverBeenContacted` | POST | familyNeverBeenContacted | No description
+`/familyNeverBeenContacted` | POST | PastoralCareController::class . ':familyNeverBeenContacted' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/singleNeverBeenContacted` | POST | singleNeverBeenContacted | No description
+`/singleNeverBeenContacted` | POST | PastoralCareController::class . ':singleNeverBeenContacted' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/retiredNeverBeenContacted` | POST | retiredNeverBeenContacted | No description
+`/retiredNeverBeenContacted` | POST | PastoralCareController::class . ':retiredNeverBeenContacted' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/youngNeverBeenContacted` | POST | youngNeverBeenContacted | No description
+`/youngNeverBeenContacted` | POST | PastoralCareController::class . ':youngNeverBeenContacted' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getPersonByClassification` | POST | getPersonByClassificationPastoralCare | No description
+`/getPersonByClassification` | POST | PastoralCareController::class . ':getPersonByClassificationPastoralCare' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getPersonByClassification/{type:[0-9]+}` | POST | getPersonByClassificationPastoralCare | No description
+`/getPersonByClassification/{type:[0-9]+}` | POST | PastoralCareController::class . ':getPersonByClassificationPastoralCare' | No description
 
 ---
-## API "meeting"
+Route | Method | function | Description
+------|--------|----------|------------
+`/getlistforuser/{UserID:[0-9]+}` | GET | PastoralCareController::class . ':getPastoralCareListForUser' | No description
 
-   in route : "/api/routes/meeting/meeting.php
-
+---
 ## API "sundayschool"
 
    in route : "/api/routes/sundayschool.php
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getallstudents/{groupId:[0-9]+}` | POST | getallstudentsForGroup | No description
+`/getallstudents/{groupId:[0-9]+}` | POST | SundaySchoolController::class . ':getallstudentsForGroup' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getAllGendersForDonut/{groupId:[0-9]+}` | POST | getAllGendersForDonut | No description
+`/getAllGendersForDonut/{groupId:[0-9]+}` | POST | SundaySchoolController::class . ':getAllGendersForDonut' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getAllStudentsForChart/{groupId:[0-9]+}` | POST | getAllStudentsForChart | No description
+`/getAllStudentsForChart/{groupId:[0-9]+}` | POST | SundaySchoolController::class . ':getAllStudentsForChart' | No description
 
 ---
 ## API "system"
@@ -1824,12 +1852,12 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/csp-report` | POST | function ($request, $response, $args) | No description
+`/csp-report` | POST | SystemController::class . ':cspReport' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletefile` | POST | function ($request, $response, $args) | No description
+`/deletefile` | POST | SystemController::class . ':deleteFile' | No description
 
 ---
 ## API "custom-fields"
@@ -1838,12 +1866,12 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person` | GET | getPersonFieldsByType | No description
+`/person` | GET | SystemCustomFieldController::class . ':getPersonFieldsByType' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/` | GET | getPersonFieldsByType | No description
+`/person/` | GET | SystemCustomFieldController::class . ':getPersonFieldsByType' | No description
 
 ---
 ## API "synchronize"
@@ -1852,7 +1880,7 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/page` | GET | function ($request,$response,$args) | Returns the dashboard items in function of the current page name : for CRMJsom.js
+`/page` | POST | SystemSynchronizeController::class . ':synchronize' | Returns the dashboard items in function of the current page name : for CRMJsom.js
 
 * `{page}`->`string` :: current page name
 
@@ -1863,22 +1891,17 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/backup` | POST | function ($request, $response, $args) | No description
+`/restore` | POST | SystemBackupRestoreController::class . ':restore' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/backupRemote` | POST | function($request, $response, $args) | No description
+`/download/{filename}` | GET | SystemBackupRestoreController::class . ':download' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/restore` | POST | function ($request, $response, $args) | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/download/{filename}` | GET | function ($request, $response, $args) | No description
+`/people/clear` | DELETE | SystemBackupRestoreController::class . ':clearPeopleTables' | No description
 
 ---
 ## API "gdrp"
@@ -1887,32 +1910,32 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | getAllGdprNotes | No description
+`/` | POST | SystemGDRPController::class . ':getAllGdprNotes' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setComment` | POST | setGdprComment | No description
+`/setComment` | POST | SystemGDRPController::class . ':setGdprComment' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeperson` | POST | removePersonGdpr | No description
+`/removeperson` | POST | SystemGDRPController::class . ':removePersonGdpr' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeallpersons` | POST | removeAllPersonsGdpr | No description
+`/removeallpersons` | POST | SystemGDRPController::class . ':removeAllPersonsGdpr' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removefamily` | POST | removeFamilyGdpr | No description
+`/removefamily` | POST | SystemGDRPController::class . ':removeFamilyGdpr' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeallfamilies` | POST | removeAllFamiliesGdpr | No description
+`/removeallfamilies` | POST | SystemGDRPController::class . ':removeAllFamiliesGdpr' | No description
 
 ---
 ## API "issues"
@@ -1921,7 +1944,7 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/issues` | POST | function ($request, $response, $args) | No description
+`/issues` | POST | SystemIssueController::class . ':issues' | No description
 
 ---
 ## API "systemupgrade"
@@ -1930,17 +1953,17 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/downloadlatestrelease` | GET | function () | No description
+`/downloadlatestrelease` | GET | SystemUpgradeController::class . ':downloadlatestrelease' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/doupgrade` | POST | function ($request, $response, $args) | No description
+`/doupgrade` | POST | SystemUpgradeController::class . ':doupgrade' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/isUpdateRequired` | POST | function ($request, $response, $args) | No description
+`/isUpdateRequired` | POST | SystemUpgradeController::class . ':isUpdateRequired' | No description
 
 ---
 ## API "timerjobs"
@@ -1949,7 +1972,7 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/run` | POST | function () | No description
+`/run` | POST | TimerJobsController::class . ':runTimerJobs' | No description
 
 ---
 ## API "userrole"
@@ -1958,27 +1981,27 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/add` | POST | addUserRole | No description
+`/add` | POST | UserRoleController::class . ':addUserRole' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/get` | POST | getUserRole | No description
+`/get` | POST | UserRoleController::class . ':getUserRole' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/rename` | POST | renameUserRole | No description
+`/rename` | POST | UserRoleController::class . ':renameUserRole' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getall` | POST | getAllUserRoles | No description
+`/getall` | POST | UserRoleController::class . ':getAllUserRoles' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | deleteUserRole | No description
+`/delete` | POST | UserRoleController::class . ':deleteUserRole' | No description
 
 ---
 ## API "users"
@@ -1987,31 +2010,51 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{userId:[0-9]+}/password/reset` | POST | passwordReset | No description
+`/{userId:[0-9]+}/password/reset` | POST | UserUsersController::class . ':passwordReset' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/lockunlock` | POST | lockUnlock | No description
+`/controlAccount` | POST | UserUsersController::class . ':controlAccount' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/showsince` | POST | showSince | No description
+`/exitControlAccount` | POST | UserUsersController::class . ':exitControlAccount' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/showto` | POST | showTo | No description
+`/lockunlock` | POST | UserUsersController::class . ':lockUnlock' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{userId:[0-9]+}/login/reset` | POST | loginReset | No description
+`/showsince` | POST | UserUsersController::class . ':showSince' | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{userId:[0-9]+}` | DELETE | deleteUser | No description
+`/showto` | POST | UserUsersController::class . ':showTo' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{userId:[0-9]+}/login/reset` | POST | UserUsersController::class . ':loginReset' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{userId:[0-9]+}` | DELETE | UserUsersController::class . ':deleteUser' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/2fa/remove` | POST | UserUsersController::class . ':userstwofaremove' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/2fa/pending` | POST | UserUsersController::class . ':userstwofapending' | No description
 
 ---
