@@ -139,6 +139,10 @@ nav:
     - "Export : Trombinoscope - tableau de présence": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
     - "Barre Latérale": 'user-guide/doc-sunday-school/doc-sunday-school-menu.md'
 
+- "Manuel : Flux d'événement (plugin)":
+    - "Présentation": 'user-guide/doc-plugins/eventworkflow/introduction.md'
+    - "Créer/gérer (une journée)": 'user-guide/doc-plugins/eventworkflow/createmanage.md'
+
 - "Manuel : Campagne de Publipostage":
     - "MailChimp":
         - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
@@ -151,6 +155,10 @@ nav:
     - "Email": 'user-guide/doc-tools/doc-email.md'
     - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'
     - "Import/export de personnes et familles": 'user-guide/doc-tools/doc-import.md'
+
+- "Plugins":
+    - "Présentation": 'user-guide/doc-plugins/introduction.md'
+    - "Installation/mise à jour": 'user-guide/doc-plugins/installation-upgrade.md'
 
 - "Manuel : développeur":
     - 'API': 'user-guide/doc-dev/doc-api/api.md'
