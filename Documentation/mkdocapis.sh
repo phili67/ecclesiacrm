@@ -45,6 +45,10 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/finance/finance-pledges.php -o output_file.md -n"pledges"
 cat output_file.md >> api.md
 
+# fundraiser
+php slim-doc.php -i ../src/api/routes/fundraiser/fundraiser.php -o output_file.md -n"fundraiser"
+cat output_file.md >> api.md
+
 #geocoder
 php slim-doc.php -i ../src/api/routes/geocoder.php -o output_file.md -n"geocoder"
 cat output_file.md >> api.md
