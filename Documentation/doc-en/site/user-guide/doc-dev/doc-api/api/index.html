@@ -2206,6 +2206,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#api-fundraiser" class="md-nav__link">
+    API "fundraiser"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-geocoder" class="md-nav__link">
     API "geocoder"
   </a>
@@ -2754,6 +2761,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#api-fundraiser" class="md-nav__link">
+    API "fundraiser"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-geocoder" class="md-nav__link">
     API "geocoder"
   </a>
@@ -2975,85 +2989,7551 @@
 <hr />
 <p>Ecclesia<strong>CRM</strong> use Slim 4.10.0 which allow to make api call to the restricted area of the CRM.</p>
 <h2 id="api-calendar">API "calendar"<a class="headerlink" href="#api-calendar" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/calendar/calendar-calendarV2.php</p>
+<p>in route : "/api/routes/calendar/calendar-calendarV2.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getallevents</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':getallCalendarEvents'</td>
+<td>Get all events for all calendars for a specified range</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>start</code> :: the start date : YYYY-MM-DD</li>
+<li><code>{ref}</code>-&gt;<code>end</code> :: the end date : YYYY-MM-DD</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getalleventsForEventsList</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':getallCalendarEventsForEventsList'</td>
+<td>Get all events for all calendars for a specified range</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>start</code> :: the start date : YYYY-MM-DD</li>
+<li><code>{ref}</code>-&gt;<code>end</code> :: the end date : YYYY-MM-DD</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/numberofcalendars</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':numberOfCalendars'</td>
+<td>get all the number of calendar for the current user</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/showhidecalendars</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':showHideCalendars'</td>
+<td>Show Hide calendar</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{id}</code>-&gt;<code>bool</code> :: isPresent</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setDescriptionType</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':setCalendarDescriptionType'</td>
+<td>set Description type for a calendar</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: desc</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: type</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getallforuser</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':getAllCalendarsForUser'</td>
+<td>Get all calendars for a specified user</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: type</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: onlyvisible</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: allCalendars</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/info</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':calendarInfo'</td>
+<td>Get infos for a calendar</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: type</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setcolor</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':setCalendarColor'</td>
+<td>Set color for a calendar</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{ref}</code>-&gt;<code>hex</code> :: color : #FFF</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setckecked</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':setCheckedCalendar'</td>
+<td>Check the calendar to make it visible</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: isChecked</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setckeckedselected</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':setCheckedSelectedCalendar'</td>
+<td>Check the calendar to make it visible</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: isChecked</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/new</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':newCalendar'</td>
+<td>Create a new calendar</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: title</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/newReservation</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':newCalendarReservation'</td>
+<td>Create new calendar reservation</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: title</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: type</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: desc</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/modifyname</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':modifyCalendarName'</td>
+<td>Change calendar name</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: title</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getinvites</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':getCalendarInvites'</td>
+<td>get attendees for a calendar</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/sharedelete</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':shareCalendarDelete'</td>
+<td>Delete a share calendar for a person</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: principal</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/sharefamily</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':shareCalendarFamily'</td>
+<td>Share a calendar with a person</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: person ID</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: notification</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: family ID</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: notification</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/sharegroup</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':shareCalendarGroup'</td>
+<td>Share a calendar with an entire group</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: group ID</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: notification</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setrights</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':setCalendarRights'</td>
+<td>Share a calendar with an entire group</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: principal</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: rightAccess</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/delete</code></td>
+<td>POST</td>
+<td>CalendarV2Controller::class . ':deleteCalendar'</td>
+<td>Delete a calendar</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calIDs</li>
+</ul>
+<hr />
 <h2 id="api-events">API "events"<a class="headerlink" href="#api-events" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/calendar/calendar-eventsV2.php</p>
+<p>in route : "/api/routes/calendar/calendar-eventsV2.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>GET</td>
+<td>CalendarEventV2Controller::class . ":getAllEvents"</td>
+<td>Get all events for all calendars for a specified range</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/notDone</code></td>
+<td>GET</td>
+<td>CalendarEventV2Controller::class . ":getNotDoneEvents"</td>
+<td>Get all events after now</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/types</code></td>
+<td>GET</td>
+<td>CalendarEventV2Controller::class . ":getEventTypes"</td>
+<td>Get all events from today</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/names</code></td>
+<td>GET</td>
+<td>CalendarEventV2Controller::class . ":eventNames"</td>
+<td>Get all event names</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deleteeventtype</code></td>
+<td>POST</td>
+<td>CalendarEventV2Controller::class . ":deleteeventtype"</td>
+<td>delete event type</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: type ID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/info</code></td>
+<td>POST</td>
+<td>CalendarEventV2Controller::class . ":eventInfo"</td>
+<td>get event info</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: event ID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person</code></td>
+<td>POST</td>
+<td>CalendarEventV2Controller::class . ":personCheckIn"</td>
+<td>Set a person for the event + check</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: event ID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: person ID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/group</code></td>
+<td>POST</td>
+<td>CalendarEventV2Controller::class . ":groupCheckIn"</td>
+<td>Set the group persons for the event + check</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: event ID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: group ID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family</code></td>
+<td>POST</td>
+<td>CalendarEventV2Controller::class . ":familyCheckIn"</td>
+<td>Set the family persons for the event + check</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: event ID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: family ID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/attendees</code></td>
+<td>POST</td>
+<td>CalendarEventV2Controller::class . ":eventCount"</td>
+<td>get event count</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: event ID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: type ID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>POST</td>
+<td>CalendarEventV2Controller::class . ":manageEvent"</td>
+<td>manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: eventID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: type ID</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: calendarID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: reccurenceID</li>
+<li><code>{ref}</code>-&gt;<code>start</code> :: the start date : YYYY-MM-DD</li>
+<li><code>{ref}</code>-&gt;<code>start</code> :: the end date : YYYY-MM-DD</li>
+<li><code>{ref}</code>-&gt;<code>location</code> :: location</li>
+</ul>
+<hr />
 <h2 id="api-cart">API "Cart"<a class="headerlink" href="#api-cart" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/cart.php</p>
+<p>in route : "/api/routes/cart.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>GET</td>
+<td>CartController::class . ':getAllPeopleInCart'</td>
+<td>Get all people in Cart</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>POST</td>
+<td>CartController::class . ':cartOperation'</td>
+<td>Get user info by id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: Persons id in array ref</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: Family id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: Group id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: removeFamily id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: studentGroup id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: teacherGroup id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/interectPerson</code></td>
+<td>POST</td>
+<td>CartController::class . ':cartIntersectPersons'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/emptyToGroup</code></td>
+<td>POST</td>
+<td>CartController::class . ':emptyCartToGroup'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/emptyToEvent</code></td>
+<td>POST</td>
+<td>CartController::class . ':emptyCartToEvent'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/emptyToNewGroup</code></td>
+<td>POST</td>
+<td>CartController::class . ':emptyCartToNewGroup'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeGroup</code></td>
+<td>POST</td>
+<td>CartController::class . ':removeGroupFromCart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeGroups</code></td>
+<td>POST</td>
+<td>CartController::class . ':removeGroupsFromCart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeStudentGroup</code></td>
+<td>POST</td>
+<td>CartController::class . ':removeStudentsGroupFromCart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeTeacherGroup</code></td>
+<td>POST</td>
+<td>CartController::class . ':removeTeachersGroupFromCart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addAllStudents</code></td>
+<td>POST</td>
+<td>CartController::class . ':addAllStudentsToCart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addAllTeachers</code></td>
+<td>POST</td>
+<td>CartController::class . ':addAllTeachersToCart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeAllStudents</code></td>
+<td>POST</td>
+<td>CartController::class . ':removeAllStudentsFromCart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeAllTeachers</code></td>
+<td>POST</td>
+<td>CartController::class . ':removeAllTeachersFromCart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/delete</code></td>
+<td>POST</td>
+<td>CartController::class . ':deletePersonCart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deactivate</code></td>
+<td>POST</td>
+<td>CartController::class . ':deactivatePersonCart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>DELETE</td>
+<td>CartController::class . ':removePersonCart'</td>
+<td>Remove all People in the Cart</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-ckeditor">API "ckeditor"<a class="headerlink" href="#api-ckeditor" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/documents/documents-ckeditor.php</p>
+<p>in route : "/api/routes/documents/documents-ckeditor.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personId:[0-9]+}/templates</code></td>
+<td>GET</td>
+<td>DocumentCKEditorController::class . ':templates'</td>
+<td>get all templates</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/alltemplates</code></td>
+<td>POST</td>
+<td>DocumentCKEditorController::class . ':alltemplates'</td>
+<td>get all templates</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>id</code> :: personID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletetemplate</code></td>
+<td>POST</td>
+<td>DocumentCKEditorController::class . ':deleteTemplate'</td>
+<td>delete template</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: templateID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/renametemplate</code></td>
+<td>POST</td>
+<td>DocumentCKEditorController::class . ':renametemplate'</td>
+<td>rename template</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: templateID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: title</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: desc</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/savetemplate</code></td>
+<td>POST</td>
+<td>DocumentCKEditorController::class . ':saveTemplate'</td>
+<td>save template</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: title</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: desc</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: text</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/saveAsWordFile</code></td>
+<td>POST</td>
+<td>DocumentCKEditorController::class . ':saveAsWordFile'</td>
+<td>save template as word file</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: title</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: text</li>
+</ul>
+<hr />
 <h2 id="api-document">API "document"<a class="headerlink" href="#api-document" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/documents/documents-document.php</p>
+<p>in route : "/api/routes/documents/documents-document.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/create</code></td>
+<td>POST</td>
+<td>DocumentDocumentController::class . ':createDocument'</td>
+<td>create a document</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: famID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: type</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: text</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: bPrivate</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/get</code></td>
+<td>POST</td>
+<td>DocumentDocumentController::class . ':getDocument'</td>
+<td>get a document</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: docID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: famID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/update</code></td>
+<td>POST</td>
+<td>DocumentDocumentController::class . ':updateDocument'</td>
+<td>update a document</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: docID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: title</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: type</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: text</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: bPrivate</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/delete</code></td>
+<td>POST</td>
+<td>DocumentDocumentController::class . ':deleteDocument'</td>
+<td>delete a document</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: docID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/leave</code></td>
+<td>POST</td>
+<td>DocumentDocumentController::class . ':leaveDocument'</td>
+<td>leave a document (in case of a share document)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: docID</li>
+</ul>
+<hr />
 <h2 id="api-filemanager">API "filemanager"<a class="headerlink" href="#api-filemanager" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/documents/documents-filemanager.php</p>
+<p>in route : "/api/routes/documents/documents-filemanager.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personID:[0-9]+}</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':getAllFileNoteForPerson'</td>
+<td>get All the files for personID user</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getFile/{personID:[0-9]+}/[{path:.*}]</code></td>
+<td>GET</td>
+<td>DocumentFileManagerController::class . ':getRealFile'</td>
+<td>get real file</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: path</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getPreview</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':getPreview'</td>
+<td>get preview for file name</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: name</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/changeFolder</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':changeFolder'</td>
+<td>change to folder name for personID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: folder</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/folderBack</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':folderBack'</td>
+<td>change to folder back</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deleteOneFolder</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':deleteOneFolder'</td>
+<td>delete folder</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: folder</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deleteOneFile</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':deleteOneFile'</td>
+<td>delete one file</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: file</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deleteFiles</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':deleteFiles'</td>
+<td>delete files</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: files</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/movefiles</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':movefiles'</td>
+<td>move a file to another folder</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: files</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: folder</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/newFolder</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':newFolder'</td>
+<td>create new folder</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: folder</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/rename</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':renameFile'</td>
+<td>rename file</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: oldName</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: newName</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: type</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/uploadFile/{personID:[0-9]+}</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':uploadFile'</td>
+<td>upload file to current folder, everything is contained in $_FILES</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getRealLink</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':getRealLink'</td>
+<td>upload : get file to file path</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: pathFile</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setpathtopublicfolder</code></td>
+<td>POST</td>
+<td>DocumentFileManagerController::class . ':setpathtopublicfolder'</td>
+<td>set current path to public folder</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-sharedocument">API "sharedocument"<a class="headerlink" href="#api-sharedocument" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/documents/documents-sharedocument.php</p>
+<p>in route : "/api/routes/documents/documents-sharedocument.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getallperson</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':getAllShareForPerson'</td>
+<td>get all shared persons for a noteID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addperson</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':addPersonToShare'</td>
+<td>share a note to a personID from currentPersonID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPersonID</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: notification</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addfamily</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':addFamilyToShare'</td>
+<td>share a note to a familyID from currentPersonID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: familyID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPersonID</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: notification</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addgroup</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':addGroupToShare'</td>
+<td>share a note to a groupID from currentPersonID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPersonID</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: notification</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deleteperson</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':deletePersonFromShare'</td>
+<td>remove a personID from a share note</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setrights</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':setRightsForPerson'</td>
+<td>set right access to a note</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: rightAccess</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/cleardocument</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':clearDocument'</td>
+<td>delete a note</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+</ul>
+<hr />
 <h2 id="api-deposits">API "deposits"<a class="headerlink" href="#api-deposits" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/finance/finance-deposits.php</p>
+<p>in route : "/api/routes/finance/finance-deposits.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>``</td>
+<td>POST</td>
+<td>FinanceDepositController::class . ':createDeposit'</td>
+<td>create a deposit type</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: depositType</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: depositComment</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: depositDate</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>``</td>
+<td>GET</td>
+<td>FinanceDepositController::class . ':getAllDeposits'</td>
+<td>get All the deposits if you're a financial</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{id:[0-9]+}</code></td>
+<td>GET</td>
+<td>FinanceDepositController::class . ':getOneDeposit'</td>
+<td>get information about one deposit</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: id (deposit id)</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{id:[0-9]+}</code></td>
+<td>POST</td>
+<td>FinanceDepositController::class . ':modifyOneDeposit'</td>
+<td>modify a deposit</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: id (deposit id)</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: depositType</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: depositComment</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: depositDate</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: depositClosed</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{id:[0-9]+}/ofx</code></td>
+<td>GET</td>
+<td>FinanceDepositController::class . ':createDepositOFX'</td>
+<td>create an OFX deposit export</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: id (deposit id)</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{id:[0-9]+}/pdf</code></td>
+<td>GET</td>
+<td>FinanceDepositController::class . ':createDepositPDF'</td>
+<td>create a pdf deposit export</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: id (deposit id)</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{id:[0-9]+}/csv</code></td>
+<td>GET</td>
+<td>FinanceDepositController::class . ':createDepositCSV'</td>
+<td>create a CSV deposit export</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: id (deposit id)</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{id:[0-9]+}</code></td>
+<td>DELETE</td>
+<td>FinanceDepositController::class . ':deleteDeposit'</td>
+<td>delete deposit</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: id (deposit id)</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{id:[0-9]+}/pledges</code></td>
+<td>GET</td>
+<td>FinanceDepositController::class . ':getAllPledgesForDeposit'</td>
+<td>get all the pledges associated to the deposit</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: id (deposit id)</li>
+</ul>
+<hr />
 <h2 id="api-donationfunds">API "donationfunds"<a class="headerlink" href="#api-donationfunds" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/finance/finance-donationfunds.php</p>
+<p>in route : "/api/routes/finance/finance-donationfunds.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>POST</td>
+<td>FinanceDonationFundController::class . ':getAllDonationFunds'</td>
+<td>get all donation funds</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/edit</code></td>
+<td>POST</td>
+<td>FinanceDonationFundController::class . ':editDonationFund'</td>
+<td>get all infos of donation fund to edit a donation fund</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: fundId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/set</code></td>
+<td>POST</td>
+<td>FinanceDonationFundController::class . ':setDonationFund'</td>
+<td>set donation fund informations</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: fundId</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Name</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Description</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: Activ</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/delete</code></td>
+<td>POST</td>
+<td>FinanceDonationFundController::class . ':deleteDonationFund'</td>
+<td>remove donation fund by fundId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: fundId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/create</code></td>
+<td>POST</td>
+<td>FinanceDonationFundController::class . ':createDonationFund'</td>
+<td>create donation fund</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Name</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Description</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: Activ</li>
+</ul>
+<hr />
 <h2 id="api-payments">API "payments"<a class="headerlink" href="#api-payments" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/finance/finance-payments.php</p>
+<p>in route : "/api/routes/finance/finance-payments.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{id:[0-9]+}</code></td>
+<td>GET</td>
+<td>FinancePaymentController::class . ':getPayment'</td>
+<td>get payment for Id as JSON</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>POST</td>
+<td>FinancePaymentController::class . ':getSubmitOrPayement'</td>
+<td>Get submit or Payment</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/byGroupKey</code></td>
+<td>DELETE</td>
+<td>FinancePaymentController::class . ':deletePaymentByGroupKey'</td>
+<td>Delete Payment par GroupKey</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Groupkey</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family</code></td>
+<td>POST</td>
+<td>FinancePaymentController::class . ':getAllPayementsForFamily'</td>
+<td>Get all payments for familyId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: famId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/info</code></td>
+<td>POST</td>
+<td>FinancePaymentController::class . ':getAutoPaymentInfo'</td>
+<td>Get auto payment for the author ID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: autID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/families</code></td>
+<td>POST</td>
+<td>FinancePaymentController::class . ':getAllPayementsForFamilies'</td>
+<td>Get all payments for a family</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: famId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/delete</code></td>
+<td>POST</td>
+<td>FinancePaymentController::class . ':deletePaymentForFamily'</td>
+<td>Delete paymentId for Family</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: famId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: paymentId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/delete/{authID:[0-9]+}</code></td>
+<td>GET</td>
+<td>FinancePaymentController::class . ':deleteAutoPayment'</td>
+<td>Delete auto payment</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: authID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/invalidate</code></td>
+<td>POST</td>
+<td>FinancePaymentController::class . ':invalidatePledge'</td>
+<td>Invalidate Pledge by Id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/validate</code></td>
+<td>POST</td>
+<td>FinancePaymentController::class . ':validatePledge'</td>
+<td>Validate Pledge by Id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getchartsarrays</code></td>
+<td>POST</td>
+<td>FinancePaymentController::class . ':getDepositSlipChartsArrays'</td>
+<td>Get depositSlip Charts in the View</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: depositSlipID</li>
+</ul>
+<hr />
 <h2 id="api-pledges">API "pledges"<a class="headerlink" href="#api-pledges" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/finance/finance-pledges.php</p>
+<p>in route : "/api/routes/finance/finance-pledges.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/detail</code></td>
+<td>POST</td>
+<td>FinancePledgeController::class . ':pledgeDetail'</td>
+<td>Get Pledge details by groupKey</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: groupKey</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family</code></td>
+<td>POST</td>
+<td>FinancePledgeController::class . ':familyPledges'</td>
+<td>Get Family pledges by famId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: famId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/delete</code></td>
+<td>POST</td>
+<td>FinancePledgeController::class . ':deletePledge'</td>
+<td>Delete Pledge by payment ID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: paymentId</li>
+</ul>
+<hr />
+<h2 id="api-fundraiser">API "fundraiser"<a class="headerlink" href="#api-fundraiser" title="Permanent link">&para;</a></h2>
+<p>in route : "/api/routes/fundraiser/fundraiser.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{FundRaiserID:[0-9]+}</code></td>
+<td>POST</td>
+<td>FundraiserController::class . ':getAllFundraiserForID'</td>
+<td>Get All fundraiser for FundRaiserID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: FundRaiserID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/replicate</code></td>
+<td>POST</td>
+<td>FundraiserController::class . ':replicateFundraiser'</td>
+<td>Duplicate fundraiser</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: DonatedItemID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: count</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/donatedItemSubmit</code></td>
+<td>POST</td>
+<td>FundraiserController::class . ':donatedItemSubmitFundraiser'</td>
+<td>create or update DonateItem with params</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentFundraiser</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentDonatedItemID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Item</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Multibuy</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Donor</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Title</li>
+<li><code>{ref}</code>-&gt;<code>html</code> :: Description</li>
+<li><code>{ref}</code>-&gt;<code>float</code> :: EstPrice</li>
+<li><code>{ref}</code>-&gt;<code>float</code> :: MaterialValue</li>
+<li><code>{ref}</code>-&gt;<code>float</code> :: MinimumPrice</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Buyer</li>
+<li><code>{ref}</code>-&gt;<code>float</code> :: SellPrice</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: PictureURL</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/donateditem/currentpicture</code></td>
+<td>POST</td>
+<td>FundraiserController::class . ':donatedItemCurrentPicture'</td>
+<td>Return current url picture for the DonateItem ID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: DonatedItemID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/donateditem</code></td>
+<td>DELETE</td>
+<td>FundraiserController::class . ':deleteDonatedItem'</td>
+<td>Delete donatedItem with the params below</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: FundRaiserID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: DonatedItemID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/donatedItem/submit/picture</code></td>
+<td>POST</td>
+<td>FundraiserController::class . ':donatedItemSubmitPicture'</td>
+<td>Submit picture for the Donated Item Id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: DonatedItemID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: pathFile</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}</code></td>
+<td>POST</td>
+<td>FundraiserController::class . ':findFundRaiser'</td>
+<td>Find a fund raiser by Id and in range of dates</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: fundRaiserID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: startDate</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: startDate</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/paddlenum</code></td>
+<td>DELETE</td>
+<td>FundraiserController::class . ':deletePaddleNum'</td>
+<td>delete PaddleNum</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: fundraiserID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: pnID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/paddlenum/list/{fundRaiserID:[0-9]+}</code></td>
+<td>POST</td>
+<td>FundraiserController::class . ':getPaddleNumList'</td>
+<td>Get PaddleNum list by fundraiser ID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: fundRaiserID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/paddlenum/add/donnors</code></td>
+<td>POST</td>
+<td>FundraiserController::class . ':addDonnors'</td>
+<td>Add all Donnors from the fundraiserID and create associated PaddleNums</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: fundraiserID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/paddlenum/persons/all/{fundRaiserID:[0-9]+}</code></td>
+<td>GET</td>
+<td>FundraiserController::class . ':getAllPersonsNum'</td>
+<td>Returns a list of all the persons who are in the cart</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: fundRaiserID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/paddlenum/add</code></td>
+<td>POST</td>
+<td>FundraiserController::class . ':addPaddleNum'</td>
+<td>Add PaddleNum</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: fundraiserID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PerID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PaddleNumID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Num</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/paddlenum/info</code></td>
+<td>POST</td>
+<td>FundraiserController::class . ':paddleNumInfo'</td>
+<td>Get PaddleNum infos</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: fundraiserID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PerID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Num</li>
+</ul>
+<hr />
 <h2 id="api-geocoder">API "geocoder"<a class="headerlink" href="#api-geocoder" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/geocoder.php</p>
+<p>in route : "/api/routes/geocoder.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/address</code></td>
+<td>POST</td>
+<td>GeocoderController::class . ':getGeoLocals'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/address/</code></td>
+<td>POST</td>
+<td>GeocoderController::class . ':getGeoLocals'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-kiosks">API "kiosks"<a class="headerlink" href="#api-kiosks" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/kiosks.php</p>
+<p>in route : "/api/routes/kiosks.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>GET</td>
+<td>KiosksController::class . ':getKioskDevices'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/allowRegistration</code></td>
+<td>POST</td>
+<td>KiosksController::class . ':allowDeviceRegistration'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{kioskId:[0-9]+}/reloadKiosk</code></td>
+<td>POST</td>
+<td>KiosksController::class . ':reloadKiosk'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{kioskId:[0-9]+}/identifyKiosk</code></td>
+<td>POST</td>
+<td>KiosksController::class . ':identifyKiosk'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{kioskId:[0-9]+}/acceptKiosk</code></td>
+<td>POST</td>
+<td>KiosksController::class . ':acceptKiosk'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{kioskId:[0-9]+}/setAssignment</code></td>
+<td>POST</td>
+<td>KiosksController::class . ':setKioskAssignment'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{kioskId:[0-9]+}</code></td>
+<td>DELETE</td>
+<td>KiosksController::class . ':deleteKiosk'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-mailchimp">API "mailchimp"<a class="headerlink" href="#api-mailchimp" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/mailchimp.php</p>
+<p>in route : "/api/routes/mailchimp.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/search/{query}</code></td>
+<td>GET</td>
+<td>MailchimpController::class . ':searchList'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/list/{listID}</code></td>
+<td>GET</td>
+<td>MailchimpController::class . ':oneList'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/lists</code></td>
+<td>GET</td>
+<td>MailchimpController::class . ':lists'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/listmembers/{listID}</code></td>
+<td>GET</td>
+<td>MailchimpController::class . ':listmembers'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/createlist</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':createList'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/modifylist</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':modifyList'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deleteallsubscribers</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':deleteallsubscribers'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletelist</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':deleteList'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/list/removeTag</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':removeTag'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/list/removeAllTagsForMembers</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':removeAllTagsForMembers'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/list/addTag</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':addTag'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/list/getAllTags</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':getAllTags'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/list/removeTagForMembers</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':removeTagForMembers'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/campaign/actions/create</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':campaignCreate'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/campaign/actions/delete</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':campaignDelete'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/campaign/actions/send</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':campaignSend'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/campaign/actions/save</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':campaignSave'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/campaign/{campaignID}/content</code></td>
+<td>GET</td>
+<td>MailchimpController::class . ':campaignContent'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/status</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':statusList'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/suppress</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':suppress'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/suppressMembers</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':suppressMembers'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addallnewsletterpersons</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':addallnewsletterpersons'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addallpersons</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':addallpersons'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addperson</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':addPerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addfamily</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':addFamily'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addAllFamilies</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':addAllFamilies'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addgroup</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':addGroup'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/testConnection</code></td>
+<td>POST</td>
+<td>MailchimpController::class . ':testEmailConnectionMVC'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-people">API "people"<a class="headerlink" href="#api-people" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/people/people.php</p>
+<p>in route : "/api/routes/people/people.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/searchonlyperson/{query}</code></td>
+<td>GET</td>
+<td>PeopleController::class . ':searchonlyperson'</td>
+<td>Returns a list of the person who's first name or last name matches the :query parameter</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: query string ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/search/{query}</code></td>
+<td>GET</td>
+<td>PeopleController::class . ':searchpeople'</td>
+<td>Returns a list of the members/families/groups who's first name or last name matches the :query parameter</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: query string ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/classifications/all</code></td>
+<td>GET</td>
+<td>PeopleController::class . ':getAllClassifications'</td>
+<td>Returns all classifications</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/classification/assign</code></td>
+<td>POST</td>
+<td>PeopleController::class . ':postPersonClassification'</td>
+<td>Returns all classifications</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-attendees">API "attendees"<a class="headerlink" href="#api-attendees" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/people/people-attendees.php</p>
+<p>in route : "/api/routes/people/people-attendees.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/event/{eventID:[0-9]+}</code></td>
+<td>GET</td>
+<td>PeopleAttendeesController::class . ':attendeesEvent'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/checkin</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':attendeesCheckIn'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/checkout</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':attendeesCheckOut'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/student</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':attendeesStudent'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/delete</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':attendeesDelete'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deleteAll</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':attendeesDeleteAll'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/checkAll</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':attendeesCheckAll'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/uncheckAll</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':attendeesUncheckAll'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/groups</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':attendeesGroups'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletePerson</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':deleteAttendeesPerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addPerson</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':addAttendeesPerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/validate</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':validateAttendees'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addFreeAttendees</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':addFreeAttendees'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/qrcodeCall</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':qrcodeCallAttendees'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-families">API "families"<a class="headerlink" href="#api-families" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/people/people-families.php</p>
+<p>in route : "/api/routes/people/people-families.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/familyproperties/{familyID:[0-9]+}</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":postfamilyproperties"</td>
+<td>Return family properties for familyID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/isMailChimpActive</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":isMailChimpActiveFamily"</td>
+<td>Return if mailchimp is activated for family</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: email as ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{familyId:[0-9]+}</code></td>
+<td>GET</td>
+<td>PeopleFamilyController::class . ":getFamily"</td>
+<td>Return the family as json</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/info</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":familyInfo"</td>
+<td>Return the family info as json</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/numbers</code></td>
+<td>GET</td>
+<td>PeopleFamilyController::class . ":numbersOfAnniversaries"</td>
+<td>Return the numbers of Anniversaries for MenuEvent</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/search/{query}</code></td>
+<td>GET</td>
+<td>PeopleFamilyController::class . ":searchFamily"</td>
+<td>Returns a list of the families who's name matches the :query parameter</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: query as ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/self-register</code></td>
+<td>GET</td>
+<td>PeopleFamilyController::class . ":selfRegisterFamily"</td>
+<td>Returns a list of the self-registered families</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/self-verify</code></td>
+<td>GET</td>
+<td>PeopleFamilyController::class . ":selfVerifyFamily"</td>
+<td>Returns a list of the self-verified families</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/pending-self-verify</code></td>
+<td>GET</td>
+<td>PeopleFamilyController::class . ":pendingSelfVerify"</td>
+<td>Returns a list of the pending self-verified families</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/byCheckNumber/{scanString}</code></td>
+<td>GET</td>
+<td>PeopleFamilyController::class . ":byCheckNumberScan"</td>
+<td>Returns a family string based on the scan string of an MICR reader containing a routing and account number</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: scanString as ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{familyId:[0-9]+}/photo</code></td>
+<td>GET</td>
+<td>PeopleFamilyController::class . ":photo"</td>
+<td>Returns the photo for the familyId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{familyId:[0-9]+}/thumbnail</code></td>
+<td>GET</td>
+<td>PeopleFamilyController::class . ":thumbnail"</td>
+<td>Returns the thumbnail for the familyId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{familyId:[0-9]+}/photo</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":postFamilyPhoto"</td>
+<td>Post the photo for the familyId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{familyId:[0-9]+}/photo</code></td>
+<td>DELETE</td>
+<td>PeopleFamilyController::class . ":deleteFamilyPhoto"</td>
+<td>Delete the photo for the familyId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{familyId:[0-9]+}/verify</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":verifyFamily"</td>
+<td>Verify the family for the familyId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{familyId:[0-9]+}/verifyPDF</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":verifyFamilyPDF"</td>
+<td>Verify the family for the familyId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/verify/{familyId:[0-9]+}/now</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":verifyFamilyNow"</td>
+<td>Verify the family for the familyId now</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/verify/url</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ':verifyFamilyURL'</td>
+<td>Verify the family for the familyId now</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: family</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{familyId:[0-9]+}/activate/{status}</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":familyActivateStatus"</td>
+<td>Update the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: status as ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{familyId:[0-9]+}/geolocation</code></td>
+<td>GET</td>
+<td>PeopleFamilyController::class . ":familyGeolocation"</td>
+<td>Return the location for the family</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletefield</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":deleteFamilyField"</td>
+<td>delete familyField custom field</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: orderID as id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: field as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/upactionfield</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":upactionFamilyField"</td>
+<td>Move up the family custom field</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: orderID as id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: field as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/downactionfield</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":downactionFamilyField"</td>
+<td>Move down the family custom field</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: orderID as id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: field as id</li>
+</ul>
+<hr />
 <h2 id="api-groups">API "groups"<a class="headerlink" href="#api-groups" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/people/people-groups.php</p>
+<p>in route : "/api/routes/people/people-groups.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>GET</td>
+<td>PeopleGroupController::class . ":getAllGroups"</td>
+<td>Get all the Groups</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/groupproperties/{groupID:[0-9]+}</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":groupproperties"</td>
+<td>Get the first Group of the list</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addressbook/extract/{groupId:[0-9]+}</code></td>
+<td>GET</td>
+<td>PeopleGroupController::class . ":addressBook"</td>
+<td>get addressbook from a groupID through the url</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/search/{query}</code></td>
+<td>GET</td>
+<td>PeopleGroupController::class . ":searchGroup"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deleteAllManagers</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":deleteAllManagers"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deleteManager</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":deleteManager"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getmanagers</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":getManagers"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addManager</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":addManager"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/groupsInCart</code></td>
+<td>GET</td>
+<td>PeopleGroupController::class . ":groupsInCart"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":newGroup"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":updateGroup"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}</code></td>
+<td>GET</td>
+<td>PeopleGroupController::class . ":groupInfo"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/cartStatus</code></td>
+<td>GET</td>
+<td>PeopleGroupController::class . ":groupCartStatus"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}</code></td>
+<td>DELETE</td>
+<td>PeopleGroupController::class . ":deleteGroup"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/members</code></td>
+<td>GET</td>
+<td>PeopleGroupController::class . ":groupMembers"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/events</code></td>
+<td>GET</td>
+<td>PeopleGroupController::class . ":groupEvents"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}</code></td>
+<td>DELETE</td>
+<td>PeopleGroupController::class . ":removePersonFromGroup"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/addperson/{userID:[0-9]+}</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":addPersonToGroup"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":addTeacherToGroup"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/userRole/{userID:[0-9]+}</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":userRoleByUserId"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/roles/{roleID:[0-9]+}</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":rolesByRoleId"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/roles</code></td>
+<td>GET</td>
+<td>PeopleGroupController::class . ":allRoles"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/defaultRole</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":defaultRoleForGroup"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/roles/{roleID:[0-9]+}</code></td>
+<td>DELETE</td>
+<td>PeopleGroupController::class . ":deleteRole"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/roles</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":roles"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/setGroupSpecificPropertyStatus</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":setGroupSepecificPropertyStatus"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/settings/active/{value}</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":settingsActiveValue"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/settings/email/export/{value}</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":settingsEmailExportVvalue"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletefield</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":deleteGroupField"</td>
+<td>delete Group Specific property custom field</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: PropID as id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: Field as id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: GroupId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/upactionfield</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":upactionGroupField"</td>
+<td>delete Group Specific property custom field</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: PropID as id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: Field as id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: GroupId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/downactionfield</code></td>
+<td>POST</td>
+<td>PeopleGroupController::class . ":downactionGroupField"</td>
+<td>delete Group Specific property custom field</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: PropID as id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: Field as id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: GroupId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/sundayschool</code></td>
+<td>GET</td>
+<td>PeopleGroupController::class . ":groupSundaySchool"</td>
+<td>get all sundayschool teachers</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID as id</li>
+</ul>
+<hr />
 <h2 id="api-persons">API "persons"<a class="headerlink" href="#api-persons" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/people/people-persons.php</p>
+<p>in route : "/api/routes/people/people-persons.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/search/{query}</code></td>
+<td>GET</td>
+<td>PeoplePersonController::class . ":searchPerson"</td>
+<td>Returns a list of the persons who's first name or last name matches the :query parameter</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: query string ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/cart/view</code></td>
+<td>GET</td>
+<td>PeoplePersonController::class . ":personCartView"</td>
+<td>Returns a list of the persons who are in the cart</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/volunteers/{personID:[0-9]+}</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":volunteersPerPersonId"</td>
+<td>Returns all the volunteers opportunities</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/volunteers/delete</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":volunteersDelete"</td>
+<td>delete a volunteer opportunity for a user</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id1}</code>-&gt;<code>int</code> :: personId as id1</li>
+<li><code>{id2}</code>-&gt;<code>int</code> :: volunteerOpportunityId as id2</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/volunteers/add</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":volunteersAdd"</td>
+<td>Add volunteers opportunity</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id1}</code>-&gt;<code>int</code> :: personId as id1</li>
+<li><code>{id2}</code>-&gt;<code>int</code> :: volID as id2</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/isMailChimpActive</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":isMailChimpActivePerson"</td>
+<td>Return if MailChimp is activated</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId as id</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: email as ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personId:[0-9]+}/activate/{status}</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":activateDeacticate"</td>
+<td>Return if MailChimp is activated</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId as id</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: email as ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/personproperties/{personID:[0-9]+}</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":personpropertiesPerPersonId"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/numbers</code></td>
+<td>GET</td>
+<td>PeoplePersonController::class . ":numbersOfBirthDates"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personId:[0-9]+}/photo</code></td>
+<td>GET</td>
+<td>PeoplePersonController::class . ":photo"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personId:[0-9]+}/thumbnail</code></td>
+<td>GET</td>
+<td>PeoplePersonController::class . ":thumbnail"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personId:[0-9]+}/photo</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":postPersonPhoto"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personId:[0-9]+}/photo</code></td>
+<td>DELETE</td>
+<td>PeoplePersonController::class . ":deletePersonPhoto"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personId:[0-9]+}/addToCart</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":addPersonToCart"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personId:[0-9]+}</code></td>
+<td>DELETE</td>
+<td>PeoplePersonController::class . ":deletePerson"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletefield</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":deletePersonField"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/upactionfield</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":upactionPersonfield"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/downactionfield</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":downactionPersonfield"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/duplicate/emails</code></td>
+<td>GET</td>
+<td>PeoplePersonController::class . ":duplicateEmails"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/NotInMailChimp/emails/{type}</code></td>
+<td>GET</td>
+<td>PeoplePersonController::class . ":notInMailChimpEmails"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/saveNoteAsWordFile</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":saveNoteAsWordFile"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-data">API "data"<a class="headerlink" href="#api-data" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/public/public-data.php</p>
+<p>in route : "/api/routes/public/public-data.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/countries</code></td>
+<td>GET</td>
+<td>PublicDataController::class . ':getCountries'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/countries/</code></td>
+<td>GET</td>
+<td>PublicDataController::class . ':getCountries'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/countries/{countryCode}/states</code></td>
+<td>GET</td>
+<td>PublicDataController::class . ':getStates'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/countries/{countryCode}/states/</code></td>
+<td>GET</td>
+<td>PublicDataController::class . ':getStates'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-register">API "register"<a class="headerlink" href="#api-register" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/public/public-register.php</p>
+<p>in route : "/api/routes/public/public-register.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>``</td>
+<td>POST</td>
+<td>PublicRegisterController::class . ':registerEcclesiaCRM'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-search">API "search"<a class="headerlink" href="#api-search" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/search.php</p>
+<p>in route : "/api/routes/search.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{query}</code></td>
+<td>GET</td>
+<td>SearchController::class . ':quickSearch'</td>
+<td>a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: query string as ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getresultbyname/{query}</code></td>
+<td>GET</td>
+<td>SearchController::class . ':getSearchResultByName'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/comboElements/</code></td>
+<td>POST</td>
+<td>SearchController::class . ':comboElements'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getGroupForTypeID/</code></td>
+<td>POST</td>
+<td>SearchController::class . ':getGroupForTypeID'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getGroupRoleForGroupID/</code></td>
+<td>POST</td>
+<td>SearchController::class . ':getGroupRoleForGroupID'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getresult/</code></td>
+<td>POST</td>
+<td>SearchController::class . ':getSearchResult'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getresult/</code></td>
+<td>GET</td>
+<td>SearchController::class . ':getSearchResult'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-mapicons">API "mapicons"<a class="headerlink" href="#api-mapicons" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/sidebar/sidebar-mapicons.php</p>
+<p>in route : "/api/routes/sidebar/sidebar-mapicons.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getall</code></td>
+<td>POST</td>
+<td>SidebarMapIconsController::class . ':getAllMapIcons'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/checkOnlyPersonView</code></td>
+<td>POST</td>
+<td>SidebarMapIconsController::class . ':checkOnlyPersonView'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setIconName</code></td>
+<td>POST</td>
+<td>SidebarMapIconsController::class . ':setIconName'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeIcon</code></td>
+<td>POST</td>
+<td>SidebarMapIconsController::class . ':removeIcon'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-menulinks">API "menulinks"<a class="headerlink" href="#api-menulinks" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/sidebar/sidebar-menulinks.php</p>
+<p>in route : "/api/routes/sidebar/sidebar-menulinks.php"</p>
 <h2 id="api-properties">API "properties"<a class="headerlink" href="#api-properties" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/sidebar/sidebar-properties.php</p>
+<p>in route : "/api/routes/sidebar/sidebar-properties.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/persons/assign</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':propertiesPersonsAssign'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/persons/unassign</code></td>
+<td>DELETE</td>
+<td>SidebarPropertiesController::class . ':propertiesPersonsUnAssign'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/families/assign</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':propertiesFamiliesAssign'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/families/unassign</code></td>
+<td>DELETE</td>
+<td>SidebarPropertiesController::class . ':propertiesFamiliesUnAssign'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/groups/assign</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':propertiesGroupsAssign'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/groups/unassign</code></td>
+<td>DELETE</td>
+<td>SidebarPropertiesController::class . ':propertiesGroupsUnAssign'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/propertytypelists</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':getAllPropertyTypes'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/propertytypelists/edit</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':editPropertyType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/propertytypelists/set</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':setPropertyType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/propertytypelists/create</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':createPropertyType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/propertytypelists/delete</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':deletePropertyType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/typelists/edit</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':editProperty'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/typelists/set</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':setProperty'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/typelists/delete</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':deleteProperty'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/typelists/create</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':createProperty'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/typelists/{type}</code></td>
+<td>POST</td>
+<td>SidebarPropertiesController::class . ':getAllProperties'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-roles">API "roles"<a class="headerlink" href="#api-roles" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/sidebar/sidebar-roles.php</p>
+<p>in route : "/api/routes/sidebar/sidebar-roles.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/all</code></td>
+<td>GET</td>
+<td>SidebarRolesController::class . ':getAllRoles'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/persons/assign</code></td>
+<td>POST</td>
+<td>SidebarRolesController::class . ':rolePersonAssign'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-volunteeropportunity">API "volunteeropportunity"<a class="headerlink" href="#api-volunteeropportunity" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/sidebar/sidebar-volunteeropportunity.php</p>
+<p>in route : "/api/routes/sidebar/sidebar-volunteeropportunity.php"</p>
 <h2 id="api-pastoralcare">API "pastoralcare"<a class="headerlink" href="#api-pastoralcare" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/pastoralcare/pastoralcare.php</p>
+<p>in route : "/api/routes/pastoralcare/pastoralcare.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':getAllPastoralCare'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletetype</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':deletePastoralCareType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/createtype</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':createPastoralCareType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/settype</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':setPastoralCareType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/edittype</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':editPastoralCareType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/add</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':addPastoralCarePerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/delete</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':deletePastoralCarePerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/getinfo</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':getPastoralCareInfoPerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/modify</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':modifyPastoralCarePerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/add</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':addPastoralCareFamily'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/delete</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':deletePastoralCareFamily'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/getinfo</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':getPastoralCareInfoFamily'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/modify</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':modifyPastoralCareFamily'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/members</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':pastoralcareMembersDashboard'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/personNeverBeenContacted</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':personNeverBeenContacted'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/familyNeverBeenContacted</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':familyNeverBeenContacted'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/singleNeverBeenContacted</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':singleNeverBeenContacted'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/retiredNeverBeenContacted</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':retiredNeverBeenContacted'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/youngNeverBeenContacted</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':youngNeverBeenContacted'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getPersonByClassification</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':getPersonByClassificationPastoralCare'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getPersonByClassification/{type:[0-9]+}</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':getPersonByClassificationPastoralCare'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getlistforuser/{UserID:[0-9]+}</code></td>
+<td>GET</td>
+<td>PastoralCareController::class . ':getPastoralCareListForUser'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-pastoralcare_1">API "pastoralcare"<a class="headerlink" href="#api-pastoralcare_1" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/pastoralcare/pastoralcare.php</p>
+<p>in route : "/api/routes/pastoralcare/pastoralcare.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':getAllPastoralCare'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletetype</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':deletePastoralCareType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/createtype</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':createPastoralCareType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/settype</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':setPastoralCareType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/edittype</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':editPastoralCareType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/add</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':addPastoralCarePerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/delete</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':deletePastoralCarePerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/getinfo</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':getPastoralCareInfoPerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/modify</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':modifyPastoralCarePerson'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/add</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':addPastoralCareFamily'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/delete</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':deletePastoralCareFamily'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/getinfo</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':getPastoralCareInfoFamily'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/modify</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':modifyPastoralCareFamily'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/members</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':pastoralcareMembersDashboard'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/personNeverBeenContacted</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':personNeverBeenContacted'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/familyNeverBeenContacted</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':familyNeverBeenContacted'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/singleNeverBeenContacted</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':singleNeverBeenContacted'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/retiredNeverBeenContacted</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':retiredNeverBeenContacted'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/youngNeverBeenContacted</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':youngNeverBeenContacted'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getPersonByClassification</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':getPersonByClassificationPastoralCare'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getPersonByClassification/{type:[0-9]+}</code></td>
+<td>POST</td>
+<td>PastoralCareController::class . ':getPersonByClassificationPastoralCare'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getlistforuser/{UserID:[0-9]+}</code></td>
+<td>GET</td>
+<td>PastoralCareController::class . ':getPastoralCareListForUser'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-sundayschool">API "sundayschool"<a class="headerlink" href="#api-sundayschool" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/sundayschool.php</p>
+<p>in route : "/api/routes/sundayschool.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getallstudents/{groupId:[0-9]+}</code></td>
+<td>POST</td>
+<td>SundaySchoolController::class . ':getallstudentsForGroup'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getAllGendersForDonut/{groupId:[0-9]+}</code></td>
+<td>POST</td>
+<td>SundaySchoolController::class . ':getAllGendersForDonut'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getAllStudentsForChart/{groupId:[0-9]+}</code></td>
+<td>POST</td>
+<td>SundaySchoolController::class . ':getAllStudentsForChart'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-system">API "system"<a class="headerlink" href="#api-system" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/system/system.php</p>
+<p>in route : "/api/routes/system/system.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/csp-report</code></td>
+<td>POST</td>
+<td>SystemController::class . ':cspReport'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletefile</code></td>
+<td>POST</td>
+<td>SystemController::class . ':deleteFile'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-custom-fields">API "custom-fields"<a class="headerlink" href="#api-custom-fields" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/system/system-custom-fields.php</p>
+<p>in route : "/api/routes/system/system-custom-fields.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person</code></td>
+<td>GET</td>
+<td>SystemCustomFieldController::class . ':getPersonFieldsByType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/</code></td>
+<td>GET</td>
+<td>SystemCustomFieldController::class . ':getPersonFieldsByType'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-synchronize">API "synchronize"<a class="headerlink" href="#api-synchronize" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/system/system-synchronize.php</p>
+<p>in route : "/api/routes/system/system-synchronize.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/page</code></td>
+<td>POST</td>
+<td>SystemSynchronizeController::class . ':synchronize'</td>
+<td>Returns the dashboard items in function of the current page name : for CRMJsom.js</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{page}</code>-&gt;<code>string</code> :: current page name</li>
+</ul>
+<hr />
 <h2 id="api-database">API "database"<a class="headerlink" href="#api-database" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/system/system-database.php</p>
+<p>in route : "/api/routes/system/system-database.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/restore</code></td>
+<td>POST</td>
+<td>SystemBackupRestoreController::class . ':restore'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/download/{filename}</code></td>
+<td>GET</td>
+<td>SystemBackupRestoreController::class . ':download'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/people/clear</code></td>
+<td>DELETE</td>
+<td>SystemBackupRestoreController::class . ':clearPeopleTables'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-gdrp">API "gdrp"<a class="headerlink" href="#api-gdrp" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/system/system-gdrp.php</p>
+<p>in route : "/api/routes/system/system-gdrp.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>POST</td>
+<td>SystemGDRPController::class . ':getAllGdprNotes'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setComment</code></td>
+<td>POST</td>
+<td>SystemGDRPController::class . ':setGdprComment'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeperson</code></td>
+<td>POST</td>
+<td>SystemGDRPController::class . ':removePersonGdpr'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeallpersons</code></td>
+<td>POST</td>
+<td>SystemGDRPController::class . ':removeAllPersonsGdpr'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removefamily</code></td>
+<td>POST</td>
+<td>SystemGDRPController::class . ':removeFamilyGdpr'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeallfamilies</code></td>
+<td>POST</td>
+<td>SystemGDRPController::class . ':removeAllFamiliesGdpr'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-issues">API "issues"<a class="headerlink" href="#api-issues" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/system/system-issues.php</p>
+<p>in route : "/api/routes/system/system-issues.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/issues</code></td>
+<td>POST</td>
+<td>SystemIssueController::class . ':issues'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-systemupgrade">API "systemupgrade"<a class="headerlink" href="#api-systemupgrade" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/system/system-system-upgrade.php</p>
+<p>in route : "/api/routes/system/system-system-upgrade.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/downloadlatestrelease</code></td>
+<td>GET</td>
+<td>SystemUpgradeController::class . ':downloadlatestrelease'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/doupgrade</code></td>
+<td>POST</td>
+<td>SystemUpgradeController::class . ':doupgrade'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/isUpdateRequired</code></td>
+<td>POST</td>
+<td>SystemUpgradeController::class . ':isUpdateRequired'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-timerjobs">API "timerjobs"<a class="headerlink" href="#api-timerjobs" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/system/system-timerjobs.php</p>
+<p>in route : "/api/routes/system/system-timerjobs.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/run</code></td>
+<td>POST</td>
+<td>TimerJobsController::class . ':runTimerJobs'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-userrole">API "userrole"<a class="headerlink" href="#api-userrole" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/user/user-role.php</p>
+<p>in route : "/api/routes/user/user-role.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/add</code></td>
+<td>POST</td>
+<td>UserRoleController::class . ':addUserRole'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/get</code></td>
+<td>POST</td>
+<td>UserRoleController::class . ':getUserRole'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/rename</code></td>
+<td>POST</td>
+<td>UserRoleController::class . ':renameUserRole'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getall</code></td>
+<td>POST</td>
+<td>UserRoleController::class . ':getAllUserRoles'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/delete</code></td>
+<td>POST</td>
+<td>UserRoleController::class . ':deleteUserRole'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-users">API "users"<a class="headerlink" href="#api-users" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/user/user-users.php</p>
+<p>in route : "/api/routes/user/user-users.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{userId:[0-9]+}/password/reset</code></td>
+<td>POST</td>
+<td>UserUsersController::class . ':passwordReset'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/controlAccount</code></td>
+<td>POST</td>
+<td>UserUsersController::class . ':controlAccount'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/exitControlAccount</code></td>
+<td>POST</td>
+<td>UserUsersController::class . ':exitControlAccount'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/lockunlock</code></td>
+<td>POST</td>
+<td>UserUsersController::class . ':lockUnlock'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/showsince</code></td>
+<td>POST</td>
+<td>UserUsersController::class . ':showSince'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/showto</code></td>
+<td>POST</td>
+<td>UserUsersController::class . ':showTo'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{userId:[0-9]+}/login/reset</code></td>
+<td>POST</td>
+<td>UserUsersController::class . ':loginReset'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{userId:[0-9]+}</code></td>
+<td>DELETE</td>
+<td>UserUsersController::class . ':deleteUser'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/2fa/remove</code></td>
+<td>POST</td>
+<td>UserUsersController::class . ':userstwofaremove'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/2fa/pending</code></td>
+<td>POST</td>
+<td>UserUsersController::class . ':userstwofapending'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
 
 
 
@@ -3111,7 +10591,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2017 - 202O Philippe Logel
+      Copyright &copy; 2017 - 2023 Philippe Logel
     </div>
   
   

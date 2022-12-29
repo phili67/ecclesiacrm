@@ -7,7 +7,7 @@ Ecclesia**CRM** use Slim 4.10.0 which allow to make api call to the restricted a
 
 ## API "calendar"
 
-   in route : "/api/routes/calendar/calendar-calendarV2.php
+   in route : "/api/routes/calendar/calendar-calendarV2.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -150,7 +150,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setrights` | POST | CalendarV2Controller::class . ':setCalendarRights' | Set right access for a calendar
+`/setrights` | POST | CalendarV2Controller::class . ':setCalendarRights' | Share a calendar with an entire group
 
 * `{ref}`->`array` :: calIDs
 * `{ref}`->`array` :: calIDs
@@ -167,7 +167,7 @@ Route | Method | function | Description
 ---
 ## API "events"
 
-   in route : "/api/routes/calendar/calendar-eventsV2.php
+   in route : "/api/routes/calendar/calendar-eventsV2.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -181,7 +181,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/types` | GET | CalendarEventV2Controller::class . ":getEventTypes" | Get all event type
+`/types` | GET | CalendarEventV2Controller::class . ":getEventTypes" | Get all events from today
 
 ---
 Route | Method | function | Description
@@ -250,7 +250,7 @@ Route | Method | function | Description
 ---
 ## API "Cart"
 
-   in route : "/api/routes/cart.php
+   in route : "/api/routes/cart.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -346,294 +346,619 @@ Route | Method | function | Description
 ---
 ## API "ckeditor"
 
-   in route : "/api/routes/documents/documents-ckeditor.php
+   in route : "/api/routes/documents/documents-ckeditor.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/templates` | GET | DocumentCKEditorController::class . ':templates' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/alltemplates` | POST | DocumentCKEditorController::class . ':alltemplates' | No description
+`/{personId:[0-9]+}/templates` | GET | DocumentCKEditorController::class . ':templates' | get all templates
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletetemplate` | POST | DocumentCKEditorController::class . ':deleteTemplate' | No description
+`/alltemplates` | POST | DocumentCKEditorController::class . ':alltemplates' | get all templates
+
+* `{ref}`->`id` :: personID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/renametemplate` | POST | DocumentCKEditorController::class . ':renametemplate' | No description
+`/deletetemplate` | POST | DocumentCKEditorController::class . ':deleteTemplate' | delete template
+
+* `{ref}`->`int` :: templateID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/savetemplate` | POST | DocumentCKEditorController::class . ':saveTemplate' | No description
+`/renametemplate` | POST | DocumentCKEditorController::class . ':renametemplate' | rename template
+
+* `{ref}`->`int` :: templateID
+* `{ref}`->`string` :: title
+* `{ref}`->`string` :: desc
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/saveAsWordFile` | POST | DocumentCKEditorController::class . ':saveAsWordFile' | No description
+`/savetemplate` | POST | DocumentCKEditorController::class . ':saveTemplate' | save template
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: title
+* `{ref}`->`string` :: desc
+* `{ref}`->`string` :: text
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/saveAsWordFile` | POST | DocumentCKEditorController::class . ':saveAsWordFile' | save template as word file
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: title
+* `{ref}`->`string` :: text
 
 ---
 ## API "document"
 
-   in route : "/api/routes/documents/documents-document.php
+   in route : "/api/routes/documents/documents-document.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/create` | POST | DocumentDocumentController::class . ':createDocument' | No description
+`/create` | POST | DocumentDocumentController::class . ':createDocument' | create a document
 
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/get` | POST | DocumentDocumentController::class . ':getDocument' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/update` | POST | DocumentDocumentController::class . ':updateDocument' | No description
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: famID
+* `{ref}`->`string` :: type
+* `{ref}`->`string` :: text
+* `{ref}`->`bool` :: bPrivate
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | DocumentDocumentController::class . ':deleteDocument' | No description
+`/get` | POST | DocumentDocumentController::class . ':getDocument' | get a document
+
+* `{ref}`->`int` :: docID
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: famID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/leave` | POST | DocumentDocumentController::class . ':leaveDocument' | No description
+`/update` | POST | DocumentDocumentController::class . ':updateDocument' | update a document
+
+* `{ref}`->`int` :: docID
+* `{ref}`->`string` :: title
+* `{ref}`->`string` :: type
+* `{ref}`->`string` :: text
+* `{ref}`->`bool` :: bPrivate
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/delete` | POST | DocumentDocumentController::class . ':deleteDocument' | delete a document
+
+* `{ref}`->`int` :: docID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/leave` | POST | DocumentDocumentController::class . ':leaveDocument' | leave a document (in case of a share document)
+
+* `{ref}`->`int` :: docID
 
 ---
 ## API "filemanager"
 
-   in route : "/api/routes/documents/documents-filemanager.php
+   in route : "/api/routes/documents/documents-filemanager.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personID:[0-9]+}` | POST | DocumentFileManagerController::class . ':getAllFileNoteForPerson' | No description
+`/{personID:[0-9]+}` | POST | DocumentFileManagerController::class . ':getAllFileNoteForPerson' | get All the files for personID user
 
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/getFile/{personID:[0-9]+}/[{path:.*}]` | GET | DocumentFileManagerController::class . ':getRealFile' | No description
+* `{ref}`->`int` :: personID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getPreview` | POST | DocumentFileManagerController::class . ':getPreview' | No description
+`/getFile/{personID:[0-9]+}/[{path:.*}]` | GET | DocumentFileManagerController::class . ':getRealFile' | get real file
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: path
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/changeFolder` | POST | DocumentFileManagerController::class . ':changeFolder' | No description
+`/getPreview` | POST | DocumentFileManagerController::class . ':getPreview' | get preview for file name
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: name
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/folderBack` | POST | DocumentFileManagerController::class . ':folderBack' | No description
+`/changeFolder` | POST | DocumentFileManagerController::class . ':changeFolder' | change to folder name for personID
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: folder
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteOneFolder` | POST | DocumentFileManagerController::class . ':deleteOneFolder' | No description
+`/folderBack` | POST | DocumentFileManagerController::class . ':folderBack' | change to folder back
+
+* `{ref}`->`int` :: personID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteOneFile` | POST | DocumentFileManagerController::class . ':deleteOneFile' | No description
+`/deleteOneFolder` | POST | DocumentFileManagerController::class . ':deleteOneFolder' | delete folder
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: folder
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteFiles` | POST | DocumentFileManagerController::class . ':deleteFiles' | No description
+`/deleteOneFile` | POST | DocumentFileManagerController::class . ':deleteOneFile' | delete one file
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: file
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/movefiles` | POST | DocumentFileManagerController::class . ':movefiles' | No description
+`/deleteFiles` | POST | DocumentFileManagerController::class . ':deleteFiles' | delete files
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: files
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/newFolder` | POST | DocumentFileManagerController::class . ':newFolder' | No description
+`/movefiles` | POST | DocumentFileManagerController::class . ':movefiles' | move a file to another folder
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: files
+* `{ref}`->`string` :: folder
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/rename` | POST | DocumentFileManagerController::class . ':renameFile' | No description
+`/newFolder` | POST | DocumentFileManagerController::class . ':newFolder' | create new folder
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: folder
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/uploadFile/{personID:[0-9]+}` | POST | DocumentFileManagerController::class . ':uploadFile' | No description
+`/rename` | POST | DocumentFileManagerController::class . ':renameFile' | rename file
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: oldName
+* `{ref}`->`string` :: newName
+* `{ref}`->`string` :: type
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getRealLink` | POST | DocumentFileManagerController::class . ':getRealLink' | No description
+`/uploadFile/{personID:[0-9]+}` | POST | DocumentFileManagerController::class . ':uploadFile' | upload file to current folder, everything is contained in $_FILES
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setpathtopublicfolder` | POST | DocumentFileManagerController::class . ':setpathtopublicfolder' | No description
+`/getRealLink` | POST | DocumentFileManagerController::class . ':getRealLink' | upload : get file to file path
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: pathFile
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/setpathtopublicfolder` | POST | DocumentFileManagerController::class . ':setpathtopublicfolder' | set current path to public folder
 
 ---
 ## API "sharedocument"
 
-   in route : "/api/routes/documents/documents-sharedocument.php
+   in route : "/api/routes/documents/documents-sharedocument.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getallperson` | POST | DocumentShareController::class . ':getAllShareForPerson' | No description
+`/getallperson` | POST | DocumentShareController::class . ':getAllShareForPerson' | get all shared persons for a noteID
 
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addperson` | POST | DocumentShareController::class . ':addPersonToShare' | No description
+* `{ref}`->`int` :: noteId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addfamily` | POST | DocumentShareController::class . ':addFamilyToShare' | No description
+`/addperson` | POST | DocumentShareController::class . ':addPersonToShare' | share a note to a personID from currentPersonID
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: noteId
+* `{ref}`->`int` :: currentPersonID
+* `{ref}`->`bool` :: notification
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addgroup` | POST | DocumentShareController::class . ':addGroupToShare' | No description
+`/addfamily` | POST | DocumentShareController::class . ':addFamilyToShare' | share a note to a familyID from currentPersonID
+
+* `{ref}`->`int` :: familyID
+* `{ref}`->`int` :: noteId
+* `{ref}`->`int` :: currentPersonID
+* `{ref}`->`bool` :: notification
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteperson` | POST | DocumentShareController::class . ':deletePersonFromShare' | No description
+`/addgroup` | POST | DocumentShareController::class . ':addGroupToShare' | share a note to a groupID from currentPersonID
+
+* `{ref}`->`int` :: groupID
+* `{ref}`->`int` :: noteId
+* `{ref}`->`int` :: currentPersonID
+* `{ref}`->`bool` :: notification
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setrights` | POST | DocumentShareController::class . ':setRightsForPerson' | No description
+`/deleteperson` | POST | DocumentShareController::class . ':deletePersonFromShare' | remove a personID from a share note
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: noteId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/cleardocument` | POST | DocumentShareController::class . ':clearDocument' | No description
+`/setrights` | POST | DocumentShareController::class . ':setRightsForPerson' | set right access to a note
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: noteId
+* `{ref}`->`int` :: rightAccess
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/cleardocument` | POST | DocumentShareController::class . ':clearDocument' | delete a note
+
+* `{ref}`->`int` :: noteId
 
 ---
 ## API "deposits"
 
-   in route : "/api/routes/finance/finance-deposits.php
+   in route : "/api/routes/finance/finance-deposits.php"
 
+Route | Method | function | Description
+------|--------|----------|------------
+`` | POST | FinanceDepositController::class . ':createDeposit' | create a deposit type
+
+* `{ref}`->`string` :: depositType
+* `{ref}`->`string` :: depositComment
+* `{ref}`->`string` :: depositDate
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`` | GET | FinanceDepositController::class . ':getAllDeposits' | get All the deposits if you're a financial
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{id:[0-9]+}` | GET | FinanceDepositController::class . ':getOneDeposit' | get information about one deposit
+
+* `{ref}`->`int` :: id (deposit id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{id:[0-9]+}` | POST | FinanceDepositController::class . ':modifyOneDeposit' | modify a deposit
+
+* `{ref}`->`int` :: id (deposit id)
+* `{ref}`->`string` :: depositType
+* `{ref}`->`string` :: depositComment
+* `{ref}`->`string` :: depositDate
+* `{ref}`->`bool` :: depositClosed
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{id:[0-9]+}/ofx` | GET | FinanceDepositController::class . ':createDepositOFX' | create an OFX deposit export
+
+* `{ref}`->`int` :: id (deposit id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{id:[0-9]+}/pdf` | GET | FinanceDepositController::class . ':createDepositPDF' | create a pdf deposit export
+
+* `{ref}`->`int` :: id (deposit id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{id:[0-9]+}/csv` | GET | FinanceDepositController::class . ':createDepositCSV' | create a CSV deposit export
+
+* `{ref}`->`int` :: id (deposit id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{id:[0-9]+}` | DELETE | FinanceDepositController::class . ':deleteDeposit' | delete deposit
+
+* `{ref}`->`int` :: id (deposit id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{id:[0-9]+}/pledges` | GET | FinanceDepositController::class . ':getAllPledgesForDeposit' | get all the pledges associated to the deposit
+
+* `{ref}`->`int` :: id (deposit id)
+
+---
 ## API "donationfunds"
 
-   in route : "/api/routes/finance/finance-donationfunds.php
+   in route : "/api/routes/finance/finance-donationfunds.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | FinanceDonationFundController::class . ':getAllDonationFunds' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/edit` | POST | FinanceDonationFundController::class . ':editDonationFund' | No description
+`/` | POST | FinanceDonationFundController::class . ':getAllDonationFunds' | get all donation funds
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/set` | POST | FinanceDonationFundController::class . ':setDonationFund' | No description
+`/edit` | POST | FinanceDonationFundController::class . ':editDonationFund' | get all infos of donation fund to edit a donation fund
+
+* `{ref}`->`int` :: fundId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | FinanceDonationFundController::class . ':deleteDonationFund' | No description
+`/set` | POST | FinanceDonationFundController::class . ':setDonationFund' | set donation fund informations
+
+* `{ref}`->`int` :: fundId
+* `{ref}`->`string` :: Name
+* `{ref}`->`string` :: Description
+* `{ref}`->`bool` :: Activ
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/create` | POST | FinanceDonationFundController::class . ':createDonationFund' | No description
+`/delete` | POST | FinanceDonationFundController::class . ':deleteDonationFund' | remove donation fund by fundId
+
+* `{ref}`->`int` :: fundId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/create` | POST | FinanceDonationFundController::class . ':createDonationFund' | create donation fund
+
+* `{ref}`->`string` :: Name
+* `{ref}`->`string` :: Description
+* `{ref}`->`bool` :: Activ
 
 ---
 ## API "payments"
 
-   in route : "/api/routes/finance/finance-payments.php
+   in route : "/api/routes/finance/finance-payments.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{id:[0-9]+}` | GET | FinancePaymentController::class . ':getPayment' | No description
+`/{id:[0-9]+}` | GET | FinancePaymentController::class . ':getPayment' | get payment for Id as JSON
 
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/` | POST | FinancePaymentController::class . ':getSubmitOrPayement' | No description
+* `{ref}`->`int` :: Id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/byGroupKey` | DELETE | FinancePaymentController::class . ':deletePaymentByGroupKey' | No description
+`/` | POST | FinancePaymentController::class . ':getSubmitOrPayement' | Get submit or Payment
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family` | POST | FinancePaymentController::class . ':getAllPayementsForFamily' | No description
+`/byGroupKey` | DELETE | FinancePaymentController::class . ':deletePaymentByGroupKey' | Delete Payment par GroupKey
+
+* `{ref}`->`string` :: Groupkey
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/info` | POST | FinancePaymentController::class . ':getAutoPaymentInfo' | No description
+`/family` | POST | FinancePaymentController::class . ':getAllPayementsForFamily' | Get all payments for familyId
+
+* `{ref}`->`int` :: famId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/families` | POST | FinancePaymentController::class . ':getAllPayementsForFamilies' | No description
+`/info` | POST | FinancePaymentController::class . ':getAutoPaymentInfo' | Get auto payment for the author ID
+
+* `{ref}`->`int` :: autID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | FinancePaymentController::class . ':deletePaymentForFamily' | No description
+`/families` | POST | FinancePaymentController::class . ':getAllPayementsForFamilies' | Get all payments for a family
+
+* `{ref}`->`int` :: famId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete/{authID:[0-9]+}` | GET | FinancePaymentController::class . ':deleteAutoPayment' | No description
+`/delete` | POST | FinancePaymentController::class . ':deletePaymentForFamily' | Delete paymentId for Family
+
+* `{ref}`->`int` :: famId
+* `{ref}`->`int` :: paymentId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/invalidate` | POST | FinancePaymentController::class . ':invalidatePledge' | No description
+`/delete/{authID:[0-9]+}` | GET | FinancePaymentController::class . ':deleteAutoPayment' | Delete auto payment
+
+* `{ref}`->`int` :: authID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/validate` | POST | FinancePaymentController::class . ':validatePledge' | No description
+`/invalidate` | POST | FinancePaymentController::class . ':invalidatePledge' | Invalidate Pledge by Id
+
+* `{ref}`->`int` :: Id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getchartsarrays` | POST | FinancePaymentController::class . ':getDepositSlipChartsArrays' | No description
+`/validate` | POST | FinancePaymentController::class . ':validatePledge' | Validate Pledge by Id
+
+* `{ref}`->`int` :: Id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getchartsarrays` | POST | FinancePaymentController::class . ':getDepositSlipChartsArrays' | Get depositSlip Charts in the View
+
+* `{ref}`->`int` :: depositSlipID
 
 ---
 ## API "pledges"
 
-   in route : "/api/routes/finance/finance-pledges.php
+   in route : "/api/routes/finance/finance-pledges.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/detail` | POST | FinancePledgeController::class . ':pledgeDetail' | No description
+`/detail` | POST | FinancePledgeController::class . ':pledgeDetail' | Get Pledge details by groupKey
 
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/family` | POST | FinancePledgeController::class . ':familyPledges' | No description
+* `{ref}`->`string` :: groupKey
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | FinancePledgeController::class . ':deletePledge' | No description
+`/family` | POST | FinancePledgeController::class . ':familyPledges' | Get Family pledges by famId
+
+* `{ref}`->`int` :: famId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/delete` | POST | FinancePledgeController::class . ':deletePledge' | Delete Pledge by payment ID
+
+* `{ref}`->`int` :: paymentId
+
+---
+## API "fundraiser"
+
+   in route : "/api/routes/fundraiser/fundraiser.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/{FundRaiserID:[0-9]+}` | POST | FundraiserController::class . ':getAllFundraiserForID' | Get All fundraiser for FundRaiserID
+
+* `{ref}`->`int` :: FundRaiserID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/replicate` | POST | FundraiserController::class . ':replicateFundraiser' | Duplicate fundraiser
+
+* `{ref}`->`int` :: DonatedItemID
+* `{ref}`->`int` :: count
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/donatedItemSubmit` | POST | FundraiserController::class . ':donatedItemSubmitFundraiser' | create or update DonateItem with params
+
+* `{ref}`->`int` :: currentFundraiser
+* `{ref}`->`int` :: currentDonatedItemID
+* `{ref}`->`string` :: Item
+* `{ref}`->`int` :: Multibuy
+* `{ref}`->`int` :: Donor
+* `{ref}`->`string` :: Title
+* `{ref}`->`html` :: Description
+* `{ref}`->`float` :: EstPrice
+* `{ref}`->`float` :: MaterialValue
+* `{ref}`->`float` :: MinimumPrice
+* `{ref}`->`int` :: Buyer
+* `{ref}`->`float` :: SellPrice
+* `{ref}`->`string` :: PictureURL
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/donateditem/currentpicture` | POST | FundraiserController::class . ':donatedItemCurrentPicture' | Return current url picture for the DonateItem ID
+
+* `{ref}`->`int` :: DonatedItemID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/donateditem` | DELETE | FundraiserController::class . ':deleteDonatedItem' | Delete donatedItem with the params below
+
+* `{ref}`->`int` :: FundRaiserID
+* `{ref}`->`int` :: DonatedItemID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/donatedItem/submit/picture` | POST | FundraiserController::class . ':donatedItemSubmitPicture' | Submit picture for the Donated Item Id
+
+* `{ref}`->`int` :: DonatedItemID
+* `{ref}`->`string` :: pathFile
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}` | POST | FundraiserController::class . ':findFundRaiser' | Find a fund raiser by Id and in range of dates
+
+* `{ref}`->`int` :: fundRaiserID
+* `{ref}`->`string` :: startDate
+* `{ref}`->`string` :: startDate
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum` | DELETE | FundraiserController::class . ':deletePaddleNum' | delete PaddleNum
+
+* `{ref}`->`int` :: fundraiserID
+* `{ref}`->`int` :: pnID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum/list/{fundRaiserID:[0-9]+}` | POST | FundraiserController::class . ':getPaddleNumList' | Get PaddleNum list by fundraiser ID
+
+* `{ref}`->`int` :: fundRaiserID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum/add/donnors` | POST | FundraiserController::class . ':addDonnors' | Add all Donnors from the fundraiserID and create associated PaddleNums
+
+* `{ref}`->`int` :: fundraiserID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum/persons/all/{fundRaiserID:[0-9]+}` | GET | FundraiserController::class . ':getAllPersonsNum' | Returns a list of all the persons who are in the cart
+
+* `{ref}`->`int` :: fundRaiserID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum/add` | POST | FundraiserController::class . ':addPaddleNum' | Add PaddleNum
+
+* `{ref}`->`int` :: fundraiserID
+* `{ref}`->`int` :: PerID
+* `{ref}`->`int` :: PaddleNumID
+* `{ref}`->`int` :: Num
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum/info` | POST | FundraiserController::class . ':paddleNumInfo' | Get PaddleNum infos
+
+* `{ref}`->`int` :: fundraiserID
+* `{ref}`->`int` :: PerID
+* `{ref}`->`int` :: Num
 
 ---
 ## API "geocoder"
 
-   in route : "/api/routes/geocoder.php
+   in route : "/api/routes/geocoder.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -647,7 +972,7 @@ Route | Method | function | Description
 ---
 ## API "kiosks"
 
-   in route : "/api/routes/kiosks.php
+   in route : "/api/routes/kiosks.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -686,7 +1011,7 @@ Route | Method | function | Description
 ---
 ## API "mailchimp"
 
-   in route : "/api/routes/mailchimp.php
+   in route : "/api/routes/mailchimp.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -830,7 +1155,7 @@ Route | Method | function | Description
 ---
 ## API "people"
 
-   in route : "/api/routes/people/people.php
+   in route : "/api/routes/people/people.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -858,7 +1183,7 @@ Route | Method | function | Description
 ---
 ## API "attendees"
 
-   in route : "/api/routes/people/people-attendees.php
+   in route : "/api/routes/people/people-attendees.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -932,7 +1257,7 @@ Route | Method | function | Description
 ---
 ## API "families"
 
-   in route : "/api/routes/people/people-families.php
+   in route : "/api/routes/people/people-families.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1094,7 +1419,7 @@ Route | Method | function | Description
 ---
 ## API "groups"
 
-   in route : "/api/routes/people/people-groups.php
+   in route : "/api/routes/people/people-groups.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1103,7 +1428,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groupproperties/{groupID:[0-9]+}` | POST | PeopleGroupController::class . ":groupproperties" | Get all the properties of a group
+`/groupproperties/{groupID:[0-9]+}` | POST | PeopleGroupController::class . ":groupproperties" | Get the first Group of the list
 
 ---
 Route | Method | function | Description
@@ -1272,7 +1597,7 @@ Route | Method | function | Description
 ---
 ## API "persons"
 
-   in route : "/api/routes/people/people-persons.php
+   in route : "/api/routes/people/people-persons.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1397,7 +1722,7 @@ Route | Method | function | Description
 ---
 ## API "data"
 
-   in route : "/api/routes/public/public-data.php
+   in route : "/api/routes/public/public-data.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1421,7 +1746,7 @@ Route | Method | function | Description
 ---
 ## API "register"
 
-   in route : "/api/routes/public/public-register.php
+   in route : "/api/routes/public/public-register.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1430,7 +1755,7 @@ Route | Method | function | Description
 ---
 ## API "search"
 
-   in route : "/api/routes/search.php
+   in route : "/api/routes/search.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1471,7 +1796,7 @@ Route | Method | function | Description
 ---
 ## API "mapicons"
 
-   in route : "/api/routes/sidebar/sidebar-mapicons.php
+   in route : "/api/routes/sidebar/sidebar-mapicons.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1495,11 +1820,11 @@ Route | Method | function | Description
 ---
 ## API "menulinks"
 
-   in route : "/api/routes/sidebar/sidebar-menulinks.php
+   in route : "/api/routes/sidebar/sidebar-menulinks.php"
 
 ## API "properties"
 
-   in route : "/api/routes/sidebar/sidebar-properties.php
+   in route : "/api/routes/sidebar/sidebar-properties.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1583,7 +1908,7 @@ Route | Method | function | Description
 ---
 ## API "roles"
 
-   in route : "/api/routes/sidebar/sidebar-roles.php
+   in route : "/api/routes/sidebar/sidebar-roles.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1597,11 +1922,11 @@ Route | Method | function | Description
 ---
 ## API "volunteeropportunity"
 
-   in route : "/api/routes/sidebar/sidebar-volunteeropportunity.php
+   in route : "/api/routes/sidebar/sidebar-volunteeropportunity.php"
 
 ## API "pastoralcare"
 
-   in route : "/api/routes/pastoralcare/pastoralcare.php
+   in route : "/api/routes/pastoralcare/pastoralcare.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1715,7 +2040,7 @@ Route | Method | function | Description
 ---
 ## API "pastoralcare"
 
-   in route : "/api/routes/pastoralcare/pastoralcare.php
+   in route : "/api/routes/pastoralcare/pastoralcare.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1829,7 +2154,7 @@ Route | Method | function | Description
 ---
 ## API "sundayschool"
 
-   in route : "/api/routes/sundayschool.php
+   in route : "/api/routes/sundayschool.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1848,7 +2173,7 @@ Route | Method | function | Description
 ---
 ## API "system"
 
-   in route : "/api/routes/system/system.php
+   in route : "/api/routes/system/system.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1862,7 +2187,7 @@ Route | Method | function | Description
 ---
 ## API "custom-fields"
 
-   in route : "/api/routes/system/system-custom-fields.php
+   in route : "/api/routes/system/system-custom-fields.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1876,7 +2201,7 @@ Route | Method | function | Description
 ---
 ## API "synchronize"
 
-   in route : "/api/routes/system/system-synchronize.php
+   in route : "/api/routes/system/system-synchronize.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1887,7 +2212,7 @@ Route | Method | function | Description
 ---
 ## API "database"
 
-   in route : "/api/routes/system/system-database.php
+   in route : "/api/routes/system/system-database.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1906,7 +2231,7 @@ Route | Method | function | Description
 ---
 ## API "gdrp"
 
-   in route : "/api/routes/system/system-gdrp.php
+   in route : "/api/routes/system/system-gdrp.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1940,7 +2265,7 @@ Route | Method | function | Description
 ---
 ## API "issues"
 
-   in route : "/api/routes/system/system-issues.php
+   in route : "/api/routes/system/system-issues.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1949,7 +2274,7 @@ Route | Method | function | Description
 ---
 ## API "systemupgrade"
 
-   in route : "/api/routes/system/system-system-upgrade.php
+   in route : "/api/routes/system/system-system-upgrade.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1968,7 +2293,7 @@ Route | Method | function | Description
 ---
 ## API "timerjobs"
 
-   in route : "/api/routes/system/system-timerjobs.php
+   in route : "/api/routes/system/system-timerjobs.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -1977,7 +2302,7 @@ Route | Method | function | Description
 ---
 ## API "userrole"
 
-   in route : "/api/routes/user/user-role.php
+   in route : "/api/routes/user/user-role.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
@@ -2006,7 +2331,7 @@ Route | Method | function | Description
 ---
 ## API "users"
 
-   in route : "/api/routes/user/user-users.php
+   in route : "/api/routes/user/user-users.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
