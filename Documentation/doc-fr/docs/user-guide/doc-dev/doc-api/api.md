@@ -1187,72 +1187,118 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/event/{eventID:[0-9]+}` | GET | PeopleAttendeesController::class . ':attendeesEvent' | No description
+`/event/{eventID:[0-9]+}` | GET | PeopleAttendeesController::class . ':attendeesEvent' | Returns event attendees for eventID
+
+* `{ref}`->`int` :: eventID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/checkin` | POST | PeopleAttendeesController::class . ':attendeesCheckIn' | No description
+`/checkin` | POST | PeopleAttendeesController::class . ':attendeesCheckIn' | checkin a person ID for event ID
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: eventID
+* `{ref}`->`bool` :: checked
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/checkout` | POST | PeopleAttendeesController::class . ':attendeesCheckOut' | No description
+`/checkout` | POST | PeopleAttendeesController::class . ':attendeesCheckOut' | checkout a person ID for event ID
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: eventID
+* `{ref}`->`bool` :: checked
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/student` | POST | PeopleAttendeesController::class . ':attendeesStudent' | No description
+`/student` | POST | PeopleAttendeesController::class . ':attendeesStudent' | Add attendees to current Event or create one with the student groupID + rangeInhours (for the predefined eventTypeID : ie time day)
+
+* `{ref}`->`int` :: eventTypeID
+* `{ref}`->`int` :: groupID
+* `{ref}`->`string` :: rangeInHours
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | PeopleAttendeesController::class . ':attendeesDelete' | No description
+`/delete` | POST | PeopleAttendeesController::class . ':attendeesDelete' | delete Attendee for person ID in event ID
+
+* `{ref}`->`int` :: eventID
+* `{ref}`->`int` :: personID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteAll` | POST | PeopleAttendeesController::class . ':attendeesDeleteAll' | No description
+`/deleteAll` | POST | PeopleAttendeesController::class . ':attendeesDeleteAll' | delete all Attendees for event ID
+
+* `{ref}`->`int` :: eventID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/checkAll` | POST | PeopleAttendeesController::class . ':attendeesCheckAll' | No description
+`/checkAll` | POST | PeopleAttendeesController::class . ':attendeesCheckAll' | check all Attendees for event ID
+
+* `{ref}`->`int` :: eventID
+* `{ref}`->`int` :: type (1: checkin only, 2: checkin+checkout if $eventAttent->getCheckinDate() )
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/uncheckAll` | POST | PeopleAttendeesController::class . ':attendeesUncheckAll' | No description
+`/uncheckAll` | POST | PeopleAttendeesController::class . ':attendeesUncheckAll' | uncheck all Attendees for event ID
+
+* `{ref}`->`int` :: eventID
+* `{ref}`->`int` :: type (1: un-checkin only, 2: un-checkin+un-checkout)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groups` | POST | PeopleAttendeesController::class . ':attendeesGroups' | No description
+`/groups` | POST | PeopleAttendeesController::class . ':attendeesGroups' | Add attendees all the sunday groups with eventTypeID + rangeInhours at dateTime (for the predefined eventTypeID : ie time day)
+
+* `{ref}`->`int` :: eventTypeID
+* `{ref}`->`string` :: dateTime
+* `{ref}`->`string` :: rangeInHours
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletePerson` | POST | PeopleAttendeesController::class . ':deleteAttendeesPerson' | No description
+`/deletePerson` | POST | PeopleAttendeesController::class . ':deleteAttendeesPerson' | remove a person ID attendee from event ID
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: eventID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addPerson` | POST | PeopleAttendeesController::class . ':addAttendeesPerson' | No description
+`/addPerson` | POST | PeopleAttendeesController::class . ':addAttendeesPerson' | Add a person ID attendee to event ID (with the two possibilities iChildID | iAdultID)
+
+* `{ref}`->`int` :: iChildID
+* `{ref}`->`int` :: iAdultID
+* `{ref}`->`string` :: eventID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/validate` | POST | PeopleAttendeesController::class . ':validateAttendees' | No description
+`/validate` | POST | PeopleAttendeesController::class . ':validateAttendees' | validate the event to close it definitely
+
+* `{ref}`->`int` :: eventID
+* `{ref}`->`string` :: noteText
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addFreeAttendees` | POST | PeopleAttendeesController::class . ':addFreeAttendees' | No description
+`/addFreeAttendees` | POST | PeopleAttendeesController::class . ':addFreeAttendees' | add free attendees to the event
+
+* `{ref}`->`int` :: eventID
+* `{ref}`->`string` :: fieldText
+* `{ref}`->`int` :: counts
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/qrcodeCall` | POST | PeopleAttendeesController::class . ':qrcodeCallAttendees' | No description
+`/qrcodeCall` | POST | PeopleAttendeesController::class . ':qrcodeCallAttendees' | checkin or checkout a person in group ID in reference of the current event ($_SESSION['EventID'] or if the event is create in the same day)
+
+* `{ref}`->`int` :: groupID
+* `{ref}`->`string` :: personID
 
 ---
 ## API "families"
@@ -1435,70 +1481,87 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/addressbook/extract/{groupId:[0-9]+}` | GET | PeopleGroupController::class . ":addressBook" | get addressbook from a groupID through the url
 
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/search/{query}` | GET | PeopleGroupController::class . ":searchGroup" | No description
+* `{id}`->`int` :: groupId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteAllManagers` | POST | PeopleGroupController::class . ":deleteAllManagers" | No description
+`/search/{query}` | GET | PeopleGroupController::class . ":searchGroup" | search informations in the group
+
+* `{id}`->`string` :: query
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteManager` | POST | PeopleGroupController::class . ":deleteManager" | No description
+`/deleteAllManagers` | POST | PeopleGroupController::class . ":deleteAllManagers" | delete all managers of a groupId
+
+* `{id}`->`int` :: groupID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getmanagers` | POST | PeopleGroupController::class . ":getManagers" | No description
+`/deleteManager` | POST | PeopleGroupController::class . ":deleteManager" | delete a manager (personID) of a group (groupId)
+
+* `{id}`->`int` :: personID
+* `{id}`->`int` :: groupID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addManager` | POST | PeopleGroupController::class . ":addManager" | No description
+`/getmanagers` | POST | PeopleGroupController::class . ":getManagers" | get group managers of a group (groupId)
+
+* `{id}`->`int` :: personID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groupsInCart` | GET | PeopleGroupController::class . ":groupsInCart" | No description
+`/addManager` | POST | PeopleGroupController::class . ":addManager" | get group managers of a group (groupId)
+
+* `{id}`->`int` :: personID
+* `{id}`->`int` :: groupID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | PeopleGroupController::class . ":newGroup" | No description
+`/groupsInCart` | GET | PeopleGroupController::class . ":groupsInCart" | get group managers of a group (groupId)
+
+* `{id}`->`int` :: personID
+* `{id}`->`int` :: groupID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}` | POST | PeopleGroupController::class . ":updateGroup" | No description
+`/` | POST | PeopleGroupController::class . ":newGroup" | create a new group
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}` | GET | PeopleGroupController::class . ":groupInfo" | No description
+`/{groupID:[0-9]+}` | POST | PeopleGroupController::class . ":updateGroup" | create a new group
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/cartStatus` | GET | PeopleGroupController::class . ":groupCartStatus" | No description
+`/{groupID:[0-9]+}` | GET | PeopleGroupController::class . ":groupInfo" | group info
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}` | DELETE | PeopleGroupController::class . ":deleteGroup" | No description
+`/{groupID:[0-9]+}/cartStatus` | GET | PeopleGroupController::class . ":groupCartStatus" | get group cart status
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/members` | GET | PeopleGroupController::class . ":groupMembers" | No description
+`/{groupID:[0-9]+}` | DELETE | PeopleGroupController::class . ":deleteGroup" | delete a group
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/events` | GET | PeopleGroupController::class . ":groupEvents" | No description
+`/{groupID:[0-9]+}/members` | GET | PeopleGroupController::class . ":groupMembers" | get all group members
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{groupID:[0-9]+}/events` | GET | PeopleGroupController::class . ":groupEvents" | get all group members
 
 ---
 Route | Method | function | Description
@@ -1652,72 +1715,99 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/personproperties/{personID:[0-9]+}` | POST | PeoplePersonController::class . ":personpropertiesPerPersonId" | No description
+`/personproperties/{personID:[0-9]+}` | POST | PeoplePersonController::class . ":personpropertiesPerPersonId" | Return assigned properties for a person
+
+* `{id}`->`int` :: personId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/numbers` | GET | PeoplePersonController::class . ":numbersOfBirthDates" | No description
+`/numbers` | GET | PeoplePersonController::class . ":numbersOfBirthDates" | Return Number of BirthDates
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/photo` | GET | PeoplePersonController::class . ":photo" | No description
+`/{personId:[0-9]+}/photo` | GET | PeoplePersonController::class . ":photo" | get person photo
+
+* `{id}`->`int` :: personId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/thumbnail` | GET | PeoplePersonController::class . ":thumbnail" | No description
+`/{personId:[0-9]+}/thumbnail` | GET | PeoplePersonController::class . ":thumbnail" | get person thumbnail
+
+* `{id}`->`int` :: personId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/photo` | POST | PeoplePersonController::class . ":postPersonPhoto" | No description
+`/{personId:[0-9]+}/photo` | POST | PeoplePersonController::class . ":postPersonPhoto" | Set person photo
+
+* `{id}`->`int` :: personId
+* `{id}`->`string` :: imgBase64
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/photo` | DELETE | PeoplePersonController::class . ":deletePersonPhoto" | No description
+`/{personId:[0-9]+}/photo` | DELETE | PeoplePersonController::class . ":deletePersonPhoto" | delete person photo
+
+* `{id}`->`int` :: personId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/addToCart` | POST | PeoplePersonController::class . ":addPersonToCart" | No description
+`/{personId:[0-9]+}/addToCart` | POST | PeoplePersonController::class . ":addPersonToCart" | add person to cart
+
+* `{id}`->`int` :: personId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}` | DELETE | PeoplePersonController::class . ":deletePerson" | No description
+`/{personId:[0-9]+}` | DELETE | PeoplePersonController::class . ":deletePerson" | delete person
+
+* `{id}`->`int` :: personId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletefield` | POST | PeoplePersonController::class . ":deletePersonField" | No description
+`/deletefield` | POST | PeoplePersonController::class . ":deletePersonField" | delete person field
+
+* `{id}`->`int` :: orderID
+* `{id}`->`int` :: field
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/upactionfield` | POST | PeoplePersonController::class . ":upactionPersonfield" | No description
+`/upactionfield` | POST | PeoplePersonController::class . ":upactionPersonfield" | up action person field
+
+* `{id}`->`int` :: orderID
+* `{id}`->`int` :: field
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/downactionfield` | POST | PeoplePersonController::class . ":downactionPersonfield" | No description
+`/downactionfield` | POST | PeoplePersonController::class . ":downactionPersonfield" | down action person field
+
+* `{id}`->`int` :: orderID
+* `{id}`->`int` :: field
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/duplicate/emails` | GET | PeoplePersonController::class . ":duplicateEmails" | No description
+`/duplicate/emails` | GET | PeoplePersonController::class . ":duplicateEmails" | duplicate emails in mailchimp
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/NotInMailChimp/emails/{type}` | GET | PeoplePersonController::class . ":notInMailChimpEmails" | No description
+`/NotInMailChimp/emails/{type}` | GET | PeoplePersonController::class . ":notInMailChimpEmails" | not in email for mailchimp
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/saveNoteAsWordFile` | POST | PeoplePersonController::class . ":saveNoteAsWordFile" | No description
+`/saveNoteAsWordFile` | POST | PeoplePersonController::class . ":saveNoteAsWordFile" | Export note as word file
+
+* `{id}`->`int` :: personId
+* `{id}`->`int` :: noteId
 
 ---
 ## API "data"
@@ -1930,226 +2020,168 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | PastoralCareController::class . ':getAllPastoralCare' | No description
+`/` | POST | PastoralCareController::class . ':getAllPastoralCare' | Get all pastoral care for User ID (person)
+
+* `{ref}`->`int` :: UserID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletetype` | POST | PastoralCareController::class . ':deletePastoralCareType' | No description
+`/deletetype` | POST | PastoralCareController::class . ':deletePastoralCareType' | delete pastoral care type
+
+* `{ref}`->`int` :: pastoralCareTypeId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/createtype` | POST | PastoralCareController::class . ':createPastoralCareType' | No description
+`/createtype` | POST | PastoralCareController::class . ':createPastoralCareType' | create pastoral care type
+
+* `{ref}`->`bool` :: Visible
+* `{ref}`->`string` :: Title
+* `{ref}`->`string` :: Description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/settype` | POST | PastoralCareController::class . ':setPastoralCareType' | No description
+`/settype` | POST | PastoralCareController::class . ':setPastoralCareType' | modify and set pastoral care type
+
+* `{ref}`->`int` :: pastoralCareTypeId
+* `{ref}`->`bool` :: Visible
+* `{ref}`->`string` :: Title
+* `{ref}`->`string` :: Description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/edittype` | POST | PastoralCareController::class . ':editPastoralCareType' | No description
+`/edittype` | POST | PastoralCareController::class . ':editPastoralCareType' | get pastoral care type infos
+
+* `{ref}`->`int` :: pastoralCareTypeId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/add` | POST | PastoralCareController::class . ':addPastoralCarePerson' | No description
+`/person/add` | POST | PastoralCareController::class . ':addPastoralCarePerson' | create new pastoral care for a person
+
+* `{ref}`->`int` :: typeID
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: currentPastorId
+* `{ref}`->`bool` :: visibilityStatus
+* `{ref}`->`string` :: noteText
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/delete` | POST | PastoralCareController::class . ':deletePastoralCarePerson' | No description
+`/person/delete` | POST | PastoralCareController::class . ':deletePastoralCarePerson' | delete pastoral care for a person ID
+
+* `{ref}`->`int` :: ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/getinfo` | POST | PastoralCareController::class . ':getPastoralCareInfoPerson' | No description
+`/person/getinfo` | POST | PastoralCareController::class . ':getPastoralCareInfoPerson' | get pastoral care infos for a person ID
+
+* `{ref}`->`int` :: ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/modify` | POST | PastoralCareController::class . ':modifyPastoralCarePerson' | No description
+`/person/modify` | POST | PastoralCareController::class . ':modifyPastoralCarePerson' | get pastoral care for a person ID
+
+* `{ref}`->`int` :: ID
+* `{ref}`->`int` :: typeID
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: currentPastorId
+* `{ref}`->`bool` :: visibilityStatus
+* `{ref}`->`string` :: noteText
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family/add` | POST | PastoralCareController::class . ':addPastoralCareFamily' | No description
+`/family/add` | POST | PastoralCareController::class . ':addPastoralCareFamily' | create new pastoral care for a family
+
+* `{ref}`->`int` :: typeID
+* `{ref}`->`int` :: familyID
+* `{ref}`->`int` :: currentPastorId
+* `{ref}`->`bool` :: visibilityStatus
+* `{ref}`->`string` :: noteText
+* `{ref}`->`bool` :: includeFamMembers
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family/delete` | POST | PastoralCareController::class . ':deletePastoralCareFamily' | No description
+`/family/delete` | POST | PastoralCareController::class . ':deletePastoralCareFamily' | delete pastoral care for a family ID
+
+* `{ref}`->`int` :: ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family/getinfo` | POST | PastoralCareController::class . ':getPastoralCareInfoFamily' | No description
+`/family/getinfo` | POST | PastoralCareController::class . ':getPastoralCareInfoFamily' | get pastoral care for a family ID
+
+* `{ref}`->`int` :: ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family/modify` | POST | PastoralCareController::class . ':modifyPastoralCareFamily' | No description
+`/family/modify` | POST | PastoralCareController::class . ':modifyPastoralCareFamily' | modify pastoral care for a family ID
+
+* `{ref}`->`int` :: ID
+* `{ref}`->`int` :: typeID
+* `{ref}`->`int` :: familyID
+* `{ref}`->`int` :: currentPastorId
+* `{ref}`->`bool` :: visibilityStatus
+* `{ref}`->`string` :: noteText
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/members` | POST | PastoralCareController::class . ':pastoralcareMembersDashboard' | No description
+`/members` | POST | PastoralCareController::class . ':pastoralcareMembersDashboard' | get all pastoral cares for all the members in the sPastoralcarePeriod (see for this the settings infos)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/personNeverBeenContacted` | POST | PastoralCareController::class . ':personNeverBeenContacted' | No description
+`/personNeverBeenContacted` | POST | PastoralCareController::class . ':personNeverBeenContacted' | get the persons never been contacted sPastoralcarePeriod (see for this the settings infos)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/familyNeverBeenContacted` | POST | PastoralCareController::class . ':familyNeverBeenContacted' | No description
+`/familyNeverBeenContacted` | POST | PastoralCareController::class . ':familyNeverBeenContacted' | get the families never been contacted sPastoralcarePeriod (see for this the settings infos)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/singleNeverBeenContacted` | POST | PastoralCareController::class . ':singleNeverBeenContacted' | No description
+`/singleNeverBeenContacted` | POST | PastoralCareController::class . ':singleNeverBeenContacted' | get the single persons never been contacted sPastoralcarePeriod (see for this the settings infos)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/retiredNeverBeenContacted` | POST | PastoralCareController::class . ':retiredNeverBeenContacted' | No description
+`/retiredNeverBeenContacted` | POST | PastoralCareController::class . ':retiredNeverBeenContacted' | get the retired persons never been contacted sPastoralcarePeriod (see for this the settings infos)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/youngNeverBeenContacted` | POST | PastoralCareController::class . ':youngNeverBeenContacted' | No description
+`/youngNeverBeenContacted` | POST | PastoralCareController::class . ':youngNeverBeenContacted' | get the young persons never been contacted sPastoralcarePeriod (see for this the settings infos)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getPersonByClassification` | POST | PastoralCareController::class . ':getPersonByClassificationPastoralCare' | No description
+`/getPersonByClassification` | POST | PastoralCareController::class . ':getPersonByClassificationPastoralCare' | get the young persons never been contacted sPastoralcarePeriod (see for this the settings infos)
+
+* `{ref}`->`int` :: typeID (1 : person, 2: family, 3: retired, 4: young person, 5: single person
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getPersonByClassification/{type:[0-9]+}` | POST | PastoralCareController::class . ':getPersonByClassificationPastoralCare' | No description
+`/getPersonByClassification/{type:[0-9]+}` | POST | PastoralCareController::class . ':getPersonByClassificationPastoralCare' | get the persons never been reached for the last period (sPastoralcarePeriod)
+
+* `{ref}`->`int` :: type (1: yet contacted)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getlistforuser/{UserID:[0-9]+}` | GET | PastoralCareController::class . ':getPastoralCareListForUser' | No description
+`/getlistforuser/{UserID:[0-9]+}` | GET | PastoralCareController::class . ':getPastoralCareListForUser' | get the pastoral care user in period for pastor current user ID in current period (sPastoralcarePeriod)
 
----
-## API "pastoralcare"
-
-   in route : "/api/routes/pastoralcare/pastoralcare.php"
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/` | POST | PastoralCareController::class . ':getAllPastoralCare' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/deletetype` | POST | PastoralCareController::class . ':deletePastoralCareType' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/createtype` | POST | PastoralCareController::class . ':createPastoralCareType' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/settype` | POST | PastoralCareController::class . ':setPastoralCareType' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/edittype` | POST | PastoralCareController::class . ':editPastoralCareType' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/person/add` | POST | PastoralCareController::class . ':addPastoralCarePerson' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/person/delete` | POST | PastoralCareController::class . ':deletePastoralCarePerson' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/person/getinfo` | POST | PastoralCareController::class . ':getPastoralCareInfoPerson' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/person/modify` | POST | PastoralCareController::class . ':modifyPastoralCarePerson' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/family/add` | POST | PastoralCareController::class . ':addPastoralCareFamily' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/family/delete` | POST | PastoralCareController::class . ':deletePastoralCareFamily' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/family/getinfo` | POST | PastoralCareController::class . ':getPastoralCareInfoFamily' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/family/modify` | POST | PastoralCareController::class . ':modifyPastoralCareFamily' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/members` | POST | PastoralCareController::class . ':pastoralcareMembersDashboard' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/personNeverBeenContacted` | POST | PastoralCareController::class . ':personNeverBeenContacted' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/familyNeverBeenContacted` | POST | PastoralCareController::class . ':familyNeverBeenContacted' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/singleNeverBeenContacted` | POST | PastoralCareController::class . ':singleNeverBeenContacted' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/retiredNeverBeenContacted` | POST | PastoralCareController::class . ':retiredNeverBeenContacted' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/youngNeverBeenContacted` | POST | PastoralCareController::class . ':youngNeverBeenContacted' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/getPersonByClassification` | POST | PastoralCareController::class . ':getPersonByClassificationPastoralCare' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/getPersonByClassification/{type:[0-9]+}` | POST | PastoralCareController::class . ':getPersonByClassificationPastoralCare' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/getlistforuser/{UserID:[0-9]+}` | GET | PastoralCareController::class . ':getPastoralCareListForUser' | No description
+* `{ref}`->`int` :: UserID
 
 ---
 ## API "sundayschool"
@@ -2381,5 +2413,39 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/2fa/pending` | POST | UserUsersController::class . ':userstwofapending' | No description
+
+---
+## API "meeting (plugin)"
+
+   in route : "/Plugins/MeetingJitsi/api/plgnapi.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/` | GET | MeetingController::class . ':getAllMettings' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getLastMeeting` | GET | MeetingController::class . ':getLastMeeting' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/createMeetingRoom` | POST | MeetingController::class . ':createMeetingRoom' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/selectMeetingRoom` | POST | MeetingController::class . ':selectMeetingRoom' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/deleteAllMeetingRooms` | DELETE | MeetingController::class . ':deleteAllMeetingRooms' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/changeSettings` | POST | MeetingController::class . ':changeSettings' | No description
 
 ---

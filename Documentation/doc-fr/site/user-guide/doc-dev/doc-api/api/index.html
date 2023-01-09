@@ -2332,13 +2332,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-pastoralcare_1" class="md-nav__link">
-    API "pastoralcare"
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#api-sundayschool" class="md-nav__link">
     API "sundayschool"
   </a>
@@ -2411,6 +2404,13 @@
         <li class="md-nav__item">
   <a href="#api-users" class="md-nav__link">
     API "users"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-meeting-plugin" class="md-nav__link">
+    API "meeting (plugin)"
   </a>
   
 </li>
@@ -2887,13 +2887,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-pastoralcare_1" class="md-nav__link">
-    API "pastoralcare"
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#api-sundayschool" class="md-nav__link">
     API "sundayschool"
   </a>
@@ -2966,6 +2959,13 @@
         <li class="md-nav__item">
   <a href="#api-users" class="md-nav__link">
     API "users"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-meeting-plugin" class="md-nav__link">
+    API "meeting (plugin)"
   </a>
   
 </li>
@@ -6497,10 +6497,13 @@
 <td><code>/event/{eventID:[0-9]+}</code></td>
 <td>GET</td>
 <td>PeopleAttendeesController::class . ':attendeesEvent'</td>
-<td>No description</td>
+<td>Returns event attendees for eventID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6516,10 +6519,15 @@
 <td><code>/checkin</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':attendeesCheckIn'</td>
-<td>No description</td>
+<td>checkin a person ID for event ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: checked</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6535,10 +6543,15 @@
 <td><code>/checkout</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':attendeesCheckOut'</td>
-<td>No description</td>
+<td>checkout a person ID for event ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: checked</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6554,10 +6567,15 @@
 <td><code>/student</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':attendeesStudent'</td>
-<td>No description</td>
+<td>Add attendees to current Event or create one with the student groupID + rangeInhours (for the predefined eventTypeID : ie time day)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventTypeID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: rangeInHours</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6573,10 +6591,14 @@
 <td><code>/delete</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':attendeesDelete'</td>
-<td>No description</td>
+<td>delete Attendee for person ID in event ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6592,10 +6614,13 @@
 <td><code>/deleteAll</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':attendeesDeleteAll'</td>
-<td>No description</td>
+<td>delete all Attendees for event ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6611,10 +6636,14 @@
 <td><code>/checkAll</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':attendeesCheckAll'</td>
-<td>No description</td>
+<td>check all Attendees for event ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: type (1: checkin only, 2: checkin+checkout if $eventAttent-&gt;getCheckinDate() )</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6630,10 +6659,14 @@
 <td><code>/uncheckAll</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':attendeesUncheckAll'</td>
-<td>No description</td>
+<td>uncheck all Attendees for event ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: type (1: un-checkin only, 2: un-checkin+un-checkout)</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6649,10 +6682,15 @@
 <td><code>/groups</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':attendeesGroups'</td>
-<td>No description</td>
+<td>Add attendees all the sunday groups with eventTypeID + rangeInhours at dateTime (for the predefined eventTypeID : ie time day)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventTypeID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: dateTime</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: rangeInHours</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6668,10 +6706,14 @@
 <td><code>/deletePerson</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':deleteAttendeesPerson'</td>
-<td>No description</td>
+<td>remove a person ID attendee from event ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: eventID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6687,10 +6729,15 @@
 <td><code>/addPerson</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':addAttendeesPerson'</td>
-<td>No description</td>
+<td>Add a person ID attendee to event ID (with the two possibilities iChildID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: iChildID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: iAdultID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: eventID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6706,10 +6753,14 @@
 <td><code>/validate</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':validateAttendees'</td>
-<td>No description</td>
+<td>validate the event to close it definitely</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: noteText</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6725,10 +6776,15 @@
 <td><code>/addFreeAttendees</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':addFreeAttendees'</td>
-<td>No description</td>
+<td>add free attendees to the event</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: fieldText</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: counts</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6744,10 +6800,14 @@
 <td><code>/qrcodeCall</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':qrcodeCallAttendees'</td>
-<td>No description</td>
+<td>checkin or checkout a person in group ID in reference of the current event ($_SESSION['EventID'] or if the event is create in the same day)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: personID</li>
+</ul>
 <hr />
 <h2 id="api-families">API "families"<a class="headerlink" href="#api-families" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/people/people-families.php"</p>
@@ -7308,6 +7368,9 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -7323,10 +7386,13 @@
 <td><code>/search/{query}</code></td>
 <td>GET</td>
 <td>PeopleGroupController::class . ":searchGroup"</td>
-<td>No description</td>
+<td>search informations in the group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>string</code> :: query</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -7342,10 +7408,13 @@
 <td><code>/deleteAllManagers</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":deleteAllManagers"</td>
-<td>No description</td>
+<td>delete all managers of a groupId</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -7361,10 +7430,14 @@
 <td><code>/deleteManager</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":deleteManager"</td>
-<td>No description</td>
+<td>delete a manager (personID) of a group (groupId)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -7380,10 +7453,13 @@
 <td><code>/getmanagers</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":getManagers"</td>
-<td>No description</td>
+<td>get group managers of a group (groupId)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -7399,10 +7475,14 @@
 <td><code>/addManager</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":addManager"</td>
-<td>No description</td>
+<td>get group managers of a group (groupId)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -7418,10 +7498,14 @@
 <td><code>/groupsInCart</code></td>
 <td>GET</td>
 <td>PeopleGroupController::class . ":groupsInCart"</td>
-<td>No description</td>
+<td>get group managers of a group (groupId)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -7437,7 +7521,7 @@
 <td><code>/</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":newGroup"</td>
-<td>No description</td>
+<td>create a new group</td>
 </tr>
 </tbody>
 </table>
@@ -7456,7 +7540,7 @@
 <td><code>/{groupID:[0-9]+}</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":updateGroup"</td>
-<td>No description</td>
+<td>create a new group</td>
 </tr>
 </tbody>
 </table>
@@ -7475,7 +7559,7 @@
 <td><code>/{groupID:[0-9]+}</code></td>
 <td>GET</td>
 <td>PeopleGroupController::class . ":groupInfo"</td>
-<td>No description</td>
+<td>group info</td>
 </tr>
 </tbody>
 </table>
@@ -7494,7 +7578,7 @@
 <td><code>/{groupID:[0-9]+}/cartStatus</code></td>
 <td>GET</td>
 <td>PeopleGroupController::class . ":groupCartStatus"</td>
-<td>No description</td>
+<td>get group cart status</td>
 </tr>
 </tbody>
 </table>
@@ -7513,7 +7597,7 @@
 <td><code>/{groupID:[0-9]+}</code></td>
 <td>DELETE</td>
 <td>PeopleGroupController::class . ":deleteGroup"</td>
-<td>No description</td>
+<td>delete a group</td>
 </tr>
 </tbody>
 </table>
@@ -7532,7 +7616,7 @@
 <td><code>/{groupID:[0-9]+}/members</code></td>
 <td>GET</td>
 <td>PeopleGroupController::class . ":groupMembers"</td>
-<td>No description</td>
+<td>get all group members</td>
 </tr>
 </tbody>
 </table>
@@ -7551,7 +7635,7 @@
 <td><code>/{groupID:[0-9]+}/events</code></td>
 <td>GET</td>
 <td>PeopleGroupController::class . ":groupEvents"</td>
-<td>No description</td>
+<td>get all group members</td>
 </tr>
 </tbody>
 </table>
@@ -8049,10 +8133,13 @@
 <td><code>/personproperties/{personID:[0-9]+}</code></td>
 <td>POST</td>
 <td>PeoplePersonController::class . ":personpropertiesPerPersonId"</td>
-<td>No description</td>
+<td>Return assigned properties for a person</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8068,7 +8155,7 @@
 <td><code>/numbers</code></td>
 <td>GET</td>
 <td>PeoplePersonController::class . ":numbersOfBirthDates"</td>
-<td>No description</td>
+<td>Return Number of BirthDates</td>
 </tr>
 </tbody>
 </table>
@@ -8087,10 +8174,13 @@
 <td><code>/{personId:[0-9]+}/photo</code></td>
 <td>GET</td>
 <td>PeoplePersonController::class . ":photo"</td>
-<td>No description</td>
+<td>get person photo</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8106,10 +8196,13 @@
 <td><code>/{personId:[0-9]+}/thumbnail</code></td>
 <td>GET</td>
 <td>PeoplePersonController::class . ":thumbnail"</td>
-<td>No description</td>
+<td>get person thumbnail</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8125,10 +8218,14 @@
 <td><code>/{personId:[0-9]+}/photo</code></td>
 <td>POST</td>
 <td>PeoplePersonController::class . ":postPersonPhoto"</td>
-<td>No description</td>
+<td>Set person photo</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId</li>
+<li><code>{id}</code>-&gt;<code>string</code> :: imgBase64</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8144,10 +8241,13 @@
 <td><code>/{personId:[0-9]+}/photo</code></td>
 <td>DELETE</td>
 <td>PeoplePersonController::class . ":deletePersonPhoto"</td>
-<td>No description</td>
+<td>delete person photo</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8163,10 +8263,13 @@
 <td><code>/{personId:[0-9]+}/addToCart</code></td>
 <td>POST</td>
 <td>PeoplePersonController::class . ":addPersonToCart"</td>
-<td>No description</td>
+<td>add person to cart</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8182,10 +8285,13 @@
 <td><code>/{personId:[0-9]+}</code></td>
 <td>DELETE</td>
 <td>PeoplePersonController::class . ":deletePerson"</td>
-<td>No description</td>
+<td>delete person</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8201,10 +8307,14 @@
 <td><code>/deletefield</code></td>
 <td>POST</td>
 <td>PeoplePersonController::class . ":deletePersonField"</td>
-<td>No description</td>
+<td>delete person field</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: orderID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: field</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8220,10 +8330,14 @@
 <td><code>/upactionfield</code></td>
 <td>POST</td>
 <td>PeoplePersonController::class . ":upactionPersonfield"</td>
-<td>No description</td>
+<td>up action person field</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: orderID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: field</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8239,10 +8353,14 @@
 <td><code>/downactionfield</code></td>
 <td>POST</td>
 <td>PeoplePersonController::class . ":downactionPersonfield"</td>
-<td>No description</td>
+<td>down action person field</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: orderID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: field</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8258,7 +8376,7 @@
 <td><code>/duplicate/emails</code></td>
 <td>GET</td>
 <td>PeoplePersonController::class . ":duplicateEmails"</td>
-<td>No description</td>
+<td>duplicate emails in mailchimp</td>
 </tr>
 </tbody>
 </table>
@@ -8277,7 +8395,7 @@
 <td><code>/NotInMailChimp/emails/{type}</code></td>
 <td>GET</td>
 <td>PeoplePersonController::class . ":notInMailChimpEmails"</td>
-<td>No description</td>
+<td>not in email for mailchimp</td>
 </tr>
 </tbody>
 </table>
@@ -8296,10 +8414,14 @@
 <td><code>/saveNoteAsWordFile</code></td>
 <td>POST</td>
 <td>PeoplePersonController::class . ":saveNoteAsWordFile"</td>
-<td>No description</td>
+<td>Export note as word file</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: noteId</li>
+</ul>
 <hr />
 <h2 id="api-data">API "data"<a class="headerlink" href="#api-data" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/public/public-data.php"</p>
@@ -8982,10 +9104,13 @@
 <td><code>/</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':getAllPastoralCare'</td>
-<td>No description</td>
+<td>Get all pastoral care for User ID (person)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: UserID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9001,10 +9126,13 @@
 <td><code>/deletetype</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':deletePastoralCareType'</td>
-<td>No description</td>
+<td>delete pastoral care type</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: pastoralCareTypeId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9020,10 +9148,15 @@
 <td><code>/createtype</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':createPastoralCareType'</td>
-<td>No description</td>
+<td>create pastoral care type</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: Visible</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Title</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Description</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9039,10 +9172,16 @@
 <td><code>/settype</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':setPastoralCareType'</td>
-<td>No description</td>
+<td>modify and set pastoral care type</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: pastoralCareTypeId</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: Visible</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Title</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Description</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9058,10 +9197,13 @@
 <td><code>/edittype</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':editPastoralCareType'</td>
-<td>No description</td>
+<td>get pastoral care type infos</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: pastoralCareTypeId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9077,10 +9219,17 @@
 <td><code>/person/add</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':addPastoralCarePerson'</td>
-<td>No description</td>
+<td>create new pastoral care for a person</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: typeID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPastorId</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: visibilityStatus</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: noteText</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9096,10 +9245,13 @@
 <td><code>/person/delete</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':deletePastoralCarePerson'</td>
-<td>No description</td>
+<td>delete pastoral care for a person ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: ID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9115,10 +9267,13 @@
 <td><code>/person/getinfo</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':getPastoralCareInfoPerson'</td>
-<td>No description</td>
+<td>get pastoral care infos for a person ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: ID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9134,10 +9289,18 @@
 <td><code>/person/modify</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':modifyPastoralCarePerson'</td>
-<td>No description</td>
+<td>get pastoral care for a person ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: ID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: typeID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPastorId</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: visibilityStatus</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: noteText</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9153,10 +9316,18 @@
 <td><code>/family/add</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':addPastoralCareFamily'</td>
-<td>No description</td>
+<td>create new pastoral care for a family</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: typeID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: familyID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPastorId</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: visibilityStatus</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: noteText</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: includeFamMembers</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9172,10 +9343,13 @@
 <td><code>/family/delete</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':deletePastoralCareFamily'</td>
-<td>No description</td>
+<td>delete pastoral care for a family ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: ID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9191,10 +9365,13 @@
 <td><code>/family/getinfo</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':getPastoralCareInfoFamily'</td>
-<td>No description</td>
+<td>get pastoral care for a family ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: ID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9210,10 +9387,18 @@
 <td><code>/family/modify</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':modifyPastoralCareFamily'</td>
-<td>No description</td>
+<td>modify pastoral care for a family ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: ID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: typeID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: familyID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPastorId</li>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: visibilityStatus</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: noteText</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9229,7 +9414,7 @@
 <td><code>/members</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':pastoralcareMembersDashboard'</td>
-<td>No description</td>
+<td>get all pastoral cares for all the members in the sPastoralcarePeriod (see for this the settings infos)</td>
 </tr>
 </tbody>
 </table>
@@ -9248,7 +9433,7 @@
 <td><code>/personNeverBeenContacted</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':personNeverBeenContacted'</td>
-<td>No description</td>
+<td>get the persons never been contacted sPastoralcarePeriod (see for this the settings infos)</td>
 </tr>
 </tbody>
 </table>
@@ -9267,7 +9452,7 @@
 <td><code>/familyNeverBeenContacted</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':familyNeverBeenContacted'</td>
-<td>No description</td>
+<td>get the families never been contacted sPastoralcarePeriod (see for this the settings infos)</td>
 </tr>
 </tbody>
 </table>
@@ -9286,7 +9471,7 @@
 <td><code>/singleNeverBeenContacted</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':singleNeverBeenContacted'</td>
-<td>No description</td>
+<td>get the single persons never been contacted sPastoralcarePeriod (see for this the settings infos)</td>
 </tr>
 </tbody>
 </table>
@@ -9305,7 +9490,7 @@
 <td><code>/retiredNeverBeenContacted</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':retiredNeverBeenContacted'</td>
-<td>No description</td>
+<td>get the retired persons never been contacted sPastoralcarePeriod (see for this the settings infos)</td>
 </tr>
 </tbody>
 </table>
@@ -9324,7 +9509,7 @@
 <td><code>/youngNeverBeenContacted</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':youngNeverBeenContacted'</td>
-<td>No description</td>
+<td>get the young persons never been contacted sPastoralcarePeriod (see for this the settings infos)</td>
 </tr>
 </tbody>
 </table>
@@ -9343,10 +9528,13 @@
 <td><code>/getPersonByClassification</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':getPersonByClassificationPastoralCare'</td>
-<td>No description</td>
+<td>get the young persons never been contacted sPastoralcarePeriod (see for this the settings infos)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: typeID (1 : person, 2: family, 3: retired, 4: young person, 5: single person</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9362,10 +9550,13 @@
 <td><code>/getPersonByClassification/{type:[0-9]+}</code></td>
 <td>POST</td>
 <td>PastoralCareController::class . ':getPersonByClassificationPastoralCare'</td>
-<td>No description</td>
+<td>get the persons never been reached for the last period (sPastoralcarePeriod)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: type (1: yet contacted)</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9381,430 +9572,13 @@
 <td><code>/getlistforuser/{UserID:[0-9]+}</code></td>
 <td>GET</td>
 <td>PastoralCareController::class . ':getPastoralCareListForUser'</td>
-<td>No description</td>
+<td>get the pastoral care user in period for pastor current user ID in current period (sPastoralcarePeriod)</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="api-pastoralcare_1">API "pastoralcare"<a class="headerlink" href="#api-pastoralcare_1" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/pastoralcare/pastoralcare.php"</p>
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':getAllPastoralCare'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/deletetype</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':deletePastoralCareType'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/createtype</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':createPastoralCareType'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/settype</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':setPastoralCareType'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/edittype</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':editPastoralCareType'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/person/add</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':addPastoralCarePerson'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/person/delete</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':deletePastoralCarePerson'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/person/getinfo</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':getPastoralCareInfoPerson'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/person/modify</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':modifyPastoralCarePerson'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/family/add</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':addPastoralCareFamily'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/family/delete</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':deletePastoralCareFamily'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/family/getinfo</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':getPastoralCareInfoFamily'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/family/modify</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':modifyPastoralCareFamily'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/members</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':pastoralcareMembersDashboard'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/personNeverBeenContacted</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':personNeverBeenContacted'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/familyNeverBeenContacted</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':familyNeverBeenContacted'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/singleNeverBeenContacted</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':singleNeverBeenContacted'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/retiredNeverBeenContacted</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':retiredNeverBeenContacted'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/youngNeverBeenContacted</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':youngNeverBeenContacted'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/getPersonByClassification</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':getPersonByClassificationPastoralCare'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/getPersonByClassification/{type:[0-9]+}</code></td>
-<td>POST</td>
-<td>PastoralCareController::class . ':getPersonByClassificationPastoralCare'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/getlistforuser/{UserID:[0-9]+}</code></td>
-<td>GET</td>
-<td>PastoralCareController::class . ':getPastoralCareListForUser'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: UserID</li>
+</ul>
 <hr />
 <h2 id="api-sundayschool">API "sundayschool"<a class="headerlink" href="#api-sundayschool" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/sundayschool.php"</p>
@@ -10529,6 +10303,122 @@
 <td><code>/2fa/pending</code></td>
 <td>POST</td>
 <td>UserUsersController::class . ':userstwofapending'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="api-meeting-plugin">API "meeting (plugin)"<a class="headerlink" href="#api-meeting-plugin" title="Permanent link">&para;</a></h2>
+<p>in route : "/Plugins/MeetingJitsi/api/plgnapi.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>GET</td>
+<td>MeetingController::class . ':getAllMettings'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getLastMeeting</code></td>
+<td>GET</td>
+<td>MeetingController::class . ':getLastMeeting'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/createMeetingRoom</code></td>
+<td>POST</td>
+<td>MeetingController::class . ':createMeetingRoom'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/selectMeetingRoom</code></td>
+<td>POST</td>
+<td>MeetingController::class . ':selectMeetingRoom'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deleteAllMeetingRooms</code></td>
+<td>DELETE</td>
+<td>MeetingController::class . ':deleteAllMeetingRooms'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/changeSettings</code></td>
+<td>POST</td>
+<td>MeetingController::class . ':changeSettings'</td>
 <td>No description</td>
 </tr>
 </tbody>

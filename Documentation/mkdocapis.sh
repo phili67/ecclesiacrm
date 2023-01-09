@@ -108,10 +108,6 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/pastoralcare/pastoralcare.php -o output_file.md -n"pastoralcare"
 cat output_file.md >> api.md
 
-# meeting
-php slim-doc.php -i ../src/api/routes/meeting/meeting.php -o output_file.md -n"meeting"
-cat output_file.md >> api.md
-
 #sundayschool
 php slim-doc.php -i ../src/api/routes/sundayschool.php -o output_file.md -n"sundayschool"
 cat output_file.md >> api.md
@@ -147,6 +143,15 @@ cat output_file.md >> api.md
 
 php slim-doc.php -i ../src/api/routes/user/user-users.php -o output_file.md -n"users"
 cat output_file.md >> api.md
+
+#
+# Plugins
+#
+
+# meeting plugin
+php slim-doc.php -i ../src/Plugins/MeetingJitsi/api/plgnapi.php -o output_file.md -n"meeting (plugin)"
+cat output_file.md >> api.md
+
 
 # now we copy the file at the right place
 cp api.md doc-fr/docs/user-guide/doc-dev/doc-api/
