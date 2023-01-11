@@ -259,89 +259,112 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | CartController::class . ':cartOperation' | Get user info by id
+`/` | POST | CartController::class . ':cartOperation' | cart operations
 
-* `{ref}`->`array` :: Persons id in array ref
-* `{id}`->`int` :: Family id
-* `{id}`->`int` :: Group id
-* `{id}`->`int` :: removeFamily id
+* `{ref}`->`array` :: Persons arrray of ids (possible value)
+* `{id}`->`int` :: Family (ID) of the person (possible value)
+* `{id}`->`array` :: Families (array of ids) (possible value)
+* `{id}`->`int` :: Group id (possible value)
+* `{id}`->`int` :: removeFamily id (possible value)
+* `{id}`->`array` :: removeFamilies (array of ids) (possible value)
 * `{id}`->`int` :: studentGroup id
 * `{id}`->`int` :: teacherGroup id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/interectPerson` | POST | CartController::class . ':cartIntersectPersons' | No description
+`/interectPerson` | POST | CartController::class . ':cartIntersectPersons' | Get user info by id
+
+* `{ref}`->`array` :: Persons id in array ref (possible value)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/emptyToGroup` | POST | CartController::class . ':emptyCartToGroup' | No description
+`/emptyToGroup` | POST | CartController::class . ':emptyCartToGroup' | Empty cart to a group
+
+* `{ref}`->`int` :: groupID
+* `{ref}`->`int` :: groupRoleID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/emptyToEvent` | POST | CartController::class . ':emptyCartToEvent' | No description
+`/emptyToEvent` | POST | CartController::class . ':emptyCartToEvent' | Empty cart to event
+
+* `{ref}`->`int` :: eventID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/emptyToNewGroup` | POST | CartController::class . ':emptyCartToNewGroup' | No description
+`/emptyToNewGroup` | POST | CartController::class . ':emptyCartToNewGroup' | Empty cart to a new group
+
+* `{ref}`->`string` :: groupName
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeGroup` | POST | CartController::class . ':removeGroupFromCart' | No description
+`/removeGroup` | POST | CartController::class . ':removeGroupFromCart' | Remove all group members Ids from the cart
+
+* `{ref}`->`int` :: Group (Id)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeGroups` | POST | CartController::class . ':removeGroupsFromCart' | No description
+`/removeGroups` | POST | CartController::class . ':removeGroupsFromCart' | Remove all groups members Ids from the cart
+
+* `{ref}`->`array` :: Groups (array of group Id)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeStudentGroup` | POST | CartController::class . ':removeStudentsGroupFromCart' | No description
+`/removeStudentGroup` | POST | CartController::class . ':removeStudentsGroupFromCart' | Remove students by group Id from the cart
+
+* `{ref}`->`int` :: Group (group Id)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeTeacherGroup` | POST | CartController::class . ':removeTeachersGroupFromCart' | No description
+`/removeTeacherGroup` | POST | CartController::class . ':removeTeachersGroupFromCart' | Remove teachers by group Id from the cart
+
+* `{ref}`->`int` :: Group (group Id)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addAllStudents` | POST | CartController::class . ':addAllStudentsToCart' | No description
+`/addAllStudents` | POST | CartController::class . ':addAllStudentsToCart' | Add all students to cart
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addAllTeachers` | POST | CartController::class . ':addAllTeachersToCart' | No description
+`/addAllTeachers` | POST | CartController::class . ':addAllTeachersToCart' | Add all teachers to cart
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeAllStudents` | POST | CartController::class . ':removeAllStudentsFromCart' | No description
+`/removeAllStudents` | POST | CartController::class . ':removeAllStudentsFromCart' | Remove all students from the cart
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeAllTeachers` | POST | CartController::class . ':removeAllTeachersFromCart' | No description
+`/removeAllTeachers` | POST | CartController::class . ':removeAllTeachersFromCart' | Remove all teachers from the cart
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | CartController::class . ':deletePersonCart' | No description
+`/delete` | POST | CartController::class . ':deletePersonCart' | Remove persons from the cart
+
+* `{ref}`->`array` :: Persons (array of persons ids)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deactivate` | POST | CartController::class . ':deactivatePersonCart' | No description
+`/deactivate` | POST | CartController::class . ':deactivatePersonCart' | De-activate persons from the cart
+
+* `{ref}`->`array` :: Persons (array of persons ids)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | DELETE | CartController::class . ':removePersonCart' | Remove all People in the Cart
+`/` | DELETE | CartController::class . ':removePersonCart' | Extract persons in the cart to vcard format
 
 ---
 ## API "ckeditor"
@@ -1816,22 +1839,26 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/countries` | GET | PublicDataController::class . ':getCountries' | No description
+`/countries` | GET | PublicDataController::class . ':getCountries' | get all countries
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/countries/` | GET | PublicDataController::class . ':getCountries' | No description
+`/countries/` | GET | PublicDataController::class . ':getCountries' | get all countries
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/countries/{countryCode}/states` | GET | PublicDataController::class . ':getStates' | No description
+`/countries/{countryCode}/states` | GET | PublicDataController::class . ':getStates' | Get all States
+
+* `{ref}`->`int` :: countryCode
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/countries/{countryCode}/states/` | GET | PublicDataController::class . ':getStates' | No description
+`/countries/{countryCode}/states/` | GET | PublicDataController::class . ':getStates' | Get all States
+
+* `{ref}`->`int` :: countryCode
 
 ---
 ## API "register"
@@ -1840,7 +1867,10 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`` | POST | PublicRegisterController::class . ':registerEcclesiaCRM' | No description
+`` | POST | PublicRegisterController::class . ':registerEcclesiaCRM' | register EcclesiaCRM (Admin role)
+
+* `{ref}`->`string` :: EcclesiaCRMURL
+* `{ref}`->`string` :: emailmessage
 
 ---
 ## API "search"
@@ -1882,6 +1912,30 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/getresult/` | GET | SearchController::class . ':getSearchResult' | No description
+
+---
+## API "general roles"
+
+   in route : "/api/routes/sidebar/sidebar-mapicons.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/getall` | POST | SidebarMapIconsController::class . ':getAllMapIcons' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/checkOnlyPersonView` | POST | SidebarMapIconsController::class . ':checkOnlyPersonView' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/setIconName` | POST | SidebarMapIconsController::class . ':setIconName' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeIcon` | POST | SidebarMapIconsController::class . ':removeIcon' | No description
 
 ---
 ## API "mapicons"
@@ -2231,17 +2285,6 @@ Route | Method | function | Description
 `/person/` | GET | SystemCustomFieldController::class . ':getPersonFieldsByType' | No description
 
 ---
-## API "synchronize"
-
-   in route : "/api/routes/system/system-synchronize.php"
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/page` | POST | SystemSynchronizeController::class . ':synchronize' | Returns the dashboard items in function of the current page name : for CRMJsom.js
-
-* `{page}`->`string` :: current page name
-
----
 ## API "database"
 
    in route : "/api/routes/system/system-database.php"
@@ -2302,6 +2345,36 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/issues` | POST | SystemIssueController::class . ':issues' | No description
+
+---
+## API "individual settings"
+
+   in route : "/api/routes/system/system-setting-individual.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/get2FA` | POST | SystemSettingsIndividualController::class . ':get2FA' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/verify2FA` | POST | SystemSettingsIndividualController::class . ':verify2FA' | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/remove2FA` | POST | SystemSettingsIndividualController::class . ':remove2FA' | No description
+
+---
+## API "synchronize"
+
+   in route : "/api/routes/system/system-synchronize.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/page` | POST | SystemSynchronizeController::class . ':synchronize' | Returns the dashboard items in function of the current page name : for CRMJsom.js
+
+* `{page}`->`string` :: current page name
 
 ---
 ## API "systemupgrade"
@@ -2413,6 +2486,57 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/2fa/pending` | POST | UserUsersController::class . ':userstwofapending' | No description
+
+---
+## API "Plugins (global management)"
+
+   in route : "/api/routes/plugins/plugins.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/activate` | POST | PluginsController::class . ':activate' | Activate a plugin (admin role)
+
+* `{ref}`->`int` :: Id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/deactivate` | POST | PluginsController::class . ':deactivate' | Deactivate a plugin (admin role)
+
+* `{ref}`->`int` :: Id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/` | DELETE | PluginsController::class . ':remove' | Remove a plugin (admin role)
+
+* `{ref}`->`int` :: Id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/add` | POST | PluginsController::class . ':add' | Add a plugin (admin role), post $_FILES['pluginFile']
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addDashboardPlaces` | POST | PluginsController::class . ':addDashboardPlaces' | Place dashboard items plugins on the dashboard
+
+* `{ref}`->`array` :: dashBoardItems
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeFromDashboard` | POST | PluginsController::class . ':removeFromDashboard' | Add a dashboard plugin from the dashboard by his name
+
+* `{ref}`->`string` :: name
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/collapseFromDashboard` | POST | PluginsController::class . ':collapseFromDashboard' | Remove a dashboard plugin from the dashboard by his name
+
+* `{ref}`->`string` :: name
 
 ---
 ## API "meeting (plugin)"

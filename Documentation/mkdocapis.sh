@@ -89,6 +89,9 @@ php slim-doc.php -i ../src/api/routes/search.php -o output_file.md -n"search"
 cat output_file.md >> api.md
 
 #sidebar
+php slim-doc.php -i ../src/api/routes/sidebar/sidebar-mapicons.php -o output_file.md -n"general roles"
+cat output_file.md >> api.md
+
 php slim-doc.php -i ../src/api/routes/sidebar/sidebar-mapicons.php -o output_file.md -n"mapicons"
 cat output_file.md >> api.md
 
@@ -119,9 +122,6 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/system/system-custom-fields.php -o output_file.md -n"custom-fields"
 cat output_file.md >> api.md
 
-php slim-doc.php -i ../src/api/routes/system/system-synchronize.php -o output_file.md -n"synchronize"
-cat output_file.md >> api.md
-
 php slim-doc.php -i ../src/api/routes/system/system-database.php -o output_file.md -n"database"
 cat output_file.md >> api.md
 
@@ -129,6 +129,12 @@ php slim-doc.php -i ../src/api/routes/system/system-gdrp.php -o output_file.md -
 cat output_file.md >> api.md
 
 php slim-doc.php -i ../src/api/routes/system/system-issues.php -o output_file.md -n"issues"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/system/system-setting-individual.php -o output_file.md -n"individual settings"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/system/system-synchronize.php -o output_file.md -n"synchronize"
 cat output_file.md >> api.md
 
 php slim-doc.php -i ../src/api/routes/system/system-system-upgrade.php -o output_file.md -n"systemupgrade"
@@ -147,6 +153,11 @@ cat output_file.md >> api.md
 #
 # Plugins
 #
+
+# global plugin management
+php slim-doc.php -i ../src/api/routes/plugins/plugins.php -o output_file.md -n"Plugins (global management)"
+cat output_file.md >> api.md
+
 
 # meeting plugin
 php slim-doc.php -i ../src/Plugins/MeetingJitsi/api/plgnapi.php -o output_file.md -n"meeting (plugin)"

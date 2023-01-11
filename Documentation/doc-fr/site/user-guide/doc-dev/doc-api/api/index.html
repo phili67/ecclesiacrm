@@ -2290,6 +2290,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#api-general-roles" class="md-nav__link">
+    API "general roles"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-mapicons" class="md-nav__link">
     API "mapicons"
   </a>
@@ -2353,13 +2360,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-synchronize" class="md-nav__link">
-    API "synchronize"
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#api-database" class="md-nav__link">
     API "database"
   </a>
@@ -2376,6 +2376,20 @@
         <li class="md-nav__item">
   <a href="#api-issues" class="md-nav__link">
     API "issues"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-individual-settings" class="md-nav__link">
+    API "individual settings"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-synchronize" class="md-nav__link">
+    API "synchronize"
   </a>
   
 </li>
@@ -2404,6 +2418,13 @@
         <li class="md-nav__item">
   <a href="#api-users" class="md-nav__link">
     API "users"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-plugins-global-management" class="md-nav__link">
+    API "Plugins (global management)"
   </a>
   
 </li>
@@ -2845,6 +2866,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#api-general-roles" class="md-nav__link">
+    API "general roles"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-mapicons" class="md-nav__link">
     API "mapicons"
   </a>
@@ -2908,13 +2936,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-synchronize" class="md-nav__link">
-    API "synchronize"
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#api-database" class="md-nav__link">
     API "database"
   </a>
@@ -2931,6 +2952,20 @@
         <li class="md-nav__item">
   <a href="#api-issues" class="md-nav__link">
     API "issues"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-individual-settings" class="md-nav__link">
+    API "individual settings"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-synchronize" class="md-nav__link">
+    API "synchronize"
   </a>
   
 </li>
@@ -2959,6 +2994,13 @@
         <li class="md-nav__item">
   <a href="#api-users" class="md-nav__link">
     API "users"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-plugins-global-management" class="md-nav__link">
+    API "Plugins (global management)"
   </a>
   
 </li>
@@ -3707,15 +3749,17 @@
 <td><code>/</code></td>
 <td>POST</td>
 <td>CartController::class . ':cartOperation'</td>
-<td>Get user info by id</td>
+<td>cart operations</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li><code>{ref}</code>-&gt;<code>array</code> :: Persons id in array ref</li>
-<li><code>{id}</code>-&gt;<code>int</code> :: Family id</li>
-<li><code>{id}</code>-&gt;<code>int</code> :: Group id</li>
-<li><code>{id}</code>-&gt;<code>int</code> :: removeFamily id</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: Persons arrray of ids (possible value)</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: Family (ID) of the person (possible value)</li>
+<li><code>{id}</code>-&gt;<code>array</code> :: Families (array of ids) (possible value)</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: Group id (possible value)</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: removeFamily id (possible value)</li>
+<li><code>{id}</code>-&gt;<code>array</code> :: removeFamilies (array of ids) (possible value)</li>
 <li><code>{id}</code>-&gt;<code>int</code> :: studentGroup id</li>
 <li><code>{id}</code>-&gt;<code>int</code> :: teacherGroup id</li>
 </ul>
@@ -3734,10 +3778,13 @@
 <td><code>/interectPerson</code></td>
 <td>POST</td>
 <td>CartController::class . ':cartIntersectPersons'</td>
-<td>No description</td>
+<td>Get user info by id</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: Persons id in array ref (possible value)</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -3753,10 +3800,14 @@
 <td><code>/emptyToGroup</code></td>
 <td>POST</td>
 <td>CartController::class . ':emptyCartToGroup'</td>
-<td>No description</td>
+<td>Empty cart to a group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: groupRoleID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -3772,10 +3823,13 @@
 <td><code>/emptyToEvent</code></td>
 <td>POST</td>
 <td>CartController::class . ':emptyCartToEvent'</td>
-<td>No description</td>
+<td>Empty cart to event</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -3791,10 +3845,13 @@
 <td><code>/emptyToNewGroup</code></td>
 <td>POST</td>
 <td>CartController::class . ':emptyCartToNewGroup'</td>
-<td>No description</td>
+<td>Empty cart to a new group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: groupName</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -3810,10 +3867,13 @@
 <td><code>/removeGroup</code></td>
 <td>POST</td>
 <td>CartController::class . ':removeGroupFromCart'</td>
-<td>No description</td>
+<td>Remove all group members Ids from the cart</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Group (Id)</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -3829,10 +3889,13 @@
 <td><code>/removeGroups</code></td>
 <td>POST</td>
 <td>CartController::class . ':removeGroupsFromCart'</td>
-<td>No description</td>
+<td>Remove all groups members Ids from the cart</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: Groups (array of group Id)</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -3848,10 +3911,13 @@
 <td><code>/removeStudentGroup</code></td>
 <td>POST</td>
 <td>CartController::class . ':removeStudentsGroupFromCart'</td>
-<td>No description</td>
+<td>Remove students by group Id from the cart</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Group (group Id)</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -3867,10 +3933,13 @@
 <td><code>/removeTeacherGroup</code></td>
 <td>POST</td>
 <td>CartController::class . ':removeTeachersGroupFromCart'</td>
-<td>No description</td>
+<td>Remove teachers by group Id from the cart</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Group (group Id)</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -3886,7 +3955,7 @@
 <td><code>/addAllStudents</code></td>
 <td>POST</td>
 <td>CartController::class . ':addAllStudentsToCart'</td>
-<td>No description</td>
+<td>Add all students to cart</td>
 </tr>
 </tbody>
 </table>
@@ -3905,7 +3974,7 @@
 <td><code>/addAllTeachers</code></td>
 <td>POST</td>
 <td>CartController::class . ':addAllTeachersToCart'</td>
-<td>No description</td>
+<td>Add all teachers to cart</td>
 </tr>
 </tbody>
 </table>
@@ -3924,7 +3993,7 @@
 <td><code>/removeAllStudents</code></td>
 <td>POST</td>
 <td>CartController::class . ':removeAllStudentsFromCart'</td>
-<td>No description</td>
+<td>Remove all students from the cart</td>
 </tr>
 </tbody>
 </table>
@@ -3943,7 +4012,7 @@
 <td><code>/removeAllTeachers</code></td>
 <td>POST</td>
 <td>CartController::class . ':removeAllTeachersFromCart'</td>
-<td>No description</td>
+<td>Remove all teachers from the cart</td>
 </tr>
 </tbody>
 </table>
@@ -3962,10 +4031,13 @@
 <td><code>/delete</code></td>
 <td>POST</td>
 <td>CartController::class . ':deletePersonCart'</td>
-<td>No description</td>
+<td>Remove persons from the cart</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: Persons (array of persons ids)</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -3981,10 +4053,13 @@
 <td><code>/deactivate</code></td>
 <td>POST</td>
 <td>CartController::class . ':deactivatePersonCart'</td>
-<td>No description</td>
+<td>De-activate persons from the cart</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: Persons (array of persons ids)</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -4000,7 +4075,7 @@
 <td><code>/</code></td>
 <td>DELETE</td>
 <td>CartController::class . ':removePersonCart'</td>
-<td>Remove all People in the Cart</td>
+<td>Extract persons in the cart to vcard format</td>
 </tr>
 </tbody>
 </table>
@@ -8439,7 +8514,7 @@
 <td><code>/countries</code></td>
 <td>GET</td>
 <td>PublicDataController::class . ':getCountries'</td>
-<td>No description</td>
+<td>get all countries</td>
 </tr>
 </tbody>
 </table>
@@ -8458,7 +8533,7 @@
 <td><code>/countries/</code></td>
 <td>GET</td>
 <td>PublicDataController::class . ':getCountries'</td>
-<td>No description</td>
+<td>get all countries</td>
 </tr>
 </tbody>
 </table>
@@ -8477,10 +8552,13 @@
 <td><code>/countries/{countryCode}/states</code></td>
 <td>GET</td>
 <td>PublicDataController::class . ':getStates'</td>
-<td>No description</td>
+<td>Get all States</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: countryCode</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8496,10 +8574,13 @@
 <td><code>/countries/{countryCode}/states/</code></td>
 <td>GET</td>
 <td>PublicDataController::class . ':getStates'</td>
-<td>No description</td>
+<td>Get all States</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: countryCode</li>
+</ul>
 <hr />
 <h2 id="api-register">API "register"<a class="headerlink" href="#api-register" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/public/public-register.php"</p>
@@ -8517,10 +8598,14 @@
 <td>``</td>
 <td>POST</td>
 <td>PublicRegisterController::class . ':registerEcclesiaCRM'</td>
-<td>No description</td>
+<td>register EcclesiaCRM (Admin role)</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: EcclesiaCRMURL</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: emailmessage</li>
+</ul>
 <hr />
 <h2 id="api-search">API "search"<a class="headerlink" href="#api-search" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/search.php"</p>
@@ -8655,6 +8740,84 @@
 <td><code>/getresult/</code></td>
 <td>GET</td>
 <td>SearchController::class . ':getSearchResult'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="api-general-roles">API "general roles"<a class="headerlink" href="#api-general-roles" title="Permanent link">&para;</a></h2>
+<p>in route : "/api/routes/sidebar/sidebar-mapicons.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getall</code></td>
+<td>POST</td>
+<td>SidebarMapIconsController::class . ':getAllMapIcons'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/checkOnlyPersonView</code></td>
+<td>POST</td>
+<td>SidebarMapIconsController::class . ':checkOnlyPersonView'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setIconName</code></td>
+<td>POST</td>
+<td>SidebarMapIconsController::class . ':setIconName'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeIcon</code></td>
+<td>POST</td>
+<td>SidebarMapIconsController::class . ':removeIcon'</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -9719,30 +9882,6 @@
 </tbody>
 </table>
 <hr />
-<h2 id="api-synchronize">API "synchronize"<a class="headerlink" href="#api-synchronize" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/system/system-synchronize.php"</p>
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/page</code></td>
-<td>POST</td>
-<td>SystemSynchronizeController::class . ':synchronize'</td>
-<td>Returns the dashboard items in function of the current page name : for CRMJsom.js</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><code>{page}</code>-&gt;<code>string</code> :: current page name</li>
-</ul>
-<hr />
 <h2 id="api-database">API "database"<a class="headerlink" href="#api-database" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/system/system-database.php"</p>
 <table>
@@ -9938,6 +10077,89 @@
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="api-individual-settings">API "individual settings"<a class="headerlink" href="#api-individual-settings" title="Permanent link">&para;</a></h2>
+<p>in route : "/api/routes/system/system-setting-individual.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/get2FA</code></td>
+<td>POST</td>
+<td>SystemSettingsIndividualController::class . ':get2FA'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/verify2FA</code></td>
+<td>POST</td>
+<td>SystemSettingsIndividualController::class . ':verify2FA'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/remove2FA</code></td>
+<td>POST</td>
+<td>SystemSettingsIndividualController::class . ':remove2FA'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="api-synchronize">API "synchronize"<a class="headerlink" href="#api-synchronize" title="Permanent link">&para;</a></h2>
+<p>in route : "/api/routes/system/system-synchronize.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/page</code></td>
+<td>POST</td>
+<td>SystemSynchronizeController::class . ':synchronize'</td>
+<td>Returns the dashboard items in function of the current page name : for CRMJsom.js</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{page}</code>-&gt;<code>string</code> :: current page name</li>
+</ul>
 <hr />
 <h2 id="api-systemupgrade">API "systemupgrade"<a class="headerlink" href="#api-systemupgrade" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/system/system-system-upgrade.php"</p>
@@ -10307,6 +10529,159 @@
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="api-plugins-global-management">API "Plugins (global management)"<a class="headerlink" href="#api-plugins-global-management" title="Permanent link">&para;</a></h2>
+<p>in route : "/api/routes/plugins/plugins.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/activate</code></td>
+<td>POST</td>
+<td>PluginsController::class . ':activate'</td>
+<td>Activate a plugin (admin role)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deactivate</code></td>
+<td>POST</td>
+<td>PluginsController::class . ':deactivate'</td>
+<td>Deactivate a plugin (admin role)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>DELETE</td>
+<td>PluginsController::class . ':remove'</td>
+<td>Remove a plugin (admin role)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/add</code></td>
+<td>POST</td>
+<td>PluginsController::class . ':add'</td>
+<td>Add a plugin (admin role), post $_FILES['pluginFile']</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addDashboardPlaces</code></td>
+<td>POST</td>
+<td>PluginsController::class . ':addDashboardPlaces'</td>
+<td>Place dashboard items plugins on the dashboard</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: dashBoardItems</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeFromDashboard</code></td>
+<td>POST</td>
+<td>PluginsController::class . ':removeFromDashboard'</td>
+<td>Add a dashboard plugin from the dashboard by his name</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: name</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/collapseFromDashboard</code></td>
+<td>POST</td>
+<td>PluginsController::class . ':collapseFromDashboard'</td>
+<td>Remove a dashboard plugin from the dashboard by his name</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: name</li>
+</ul>
 <hr />
 <h2 id="api-meeting-plugin">API "meeting (plugin)"<a class="headerlink" href="#api-meeting-plugin" title="Permanent link">&para;</a></h2>
 <p>in route : "/Plugins/MeetingJitsi/api/plgnapi.php"</p>
