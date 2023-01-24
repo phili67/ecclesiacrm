@@ -1,0 +1,2 @@
+[2021-11-04 08:26:50] ormLogger.ERROR: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'nte_Title' at row 1 [] []
+[2021-11-04 08:27:44] ormLogger.ERROR: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'nte_Title' at row 1 [] []

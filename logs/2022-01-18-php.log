@@ -1,0 +1,200 @@
+[18-Jan-2022 09:55:09 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class &quot;EcclesiaCRM\Service\OutputUtils&quot; not found
+File: /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php
+Line: 407
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php(332): EcclesiaCRM\Service\CalendarService->createCalendarItemForGetEvents()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/CalendarV2Controller.php(58): EcclesiaCRM\Service\CalendarService->getEvents()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\CalendarV2Controller->getallCalendarEventsForEventsList()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[18-Jan-2022 13:55:07 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: Unclosed '{' on line 217 does not match ')'
+File: /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php
+Line: 254
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#1 /var/www/CRM/src/api/dependencies.php(49): Composer\Autoload\ClassLoader->loadClass()
+#2 [internal function]: {closure}()
+#3 /var/www/CRM/src/vendor/php-di/invoker/src/Invoker.php(74): call_user_func_array()
+#4 /var/www/CRM/src/vendor/php-di/php-di/src/Definition/Resolver/FactoryResolver.php(80): Invoker\Invoker->call()
+#5 /var/www/CRM/src/vendor/php-di/php-di/src/Definition/Resolver/ResolverDispatcher.php(71): DI\Definition\Resolver\FactoryResolver->resolve()
+#6 /var/www/CRM/src/vendor/php-di/php-di/src/Container.php(390): DI\Definition\Resolver\ResolverDispatcher->resolve()
+#7 /var/www/CRM/src/vendor/php-di/php-di/src/Container.php(139): DI\Container->resolveDefinition()
+#8 /var/www/CRM/src/EcclesiaCRM/APIControllers/CalendarV2Controller.php(56): DI\Container->get()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\CalendarV2Controller->getallCalendarEventsForEventsList()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#15 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#17 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#24 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#25 {main}
+[18-Jan-2022 13:55:28 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Undefined constant &quot;EcclesiaCRM\Service\getInactive&quot;
+File: /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php
+Line: 546
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php(361): EcclesiaCRM\Service\CalendarService->createCalendarItemForGetEvents()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/CalendarV2Controller.php(58): EcclesiaCRM\Service\CalendarService->getEvents()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\CalendarV2Controller->getallCalendarEventsForEventsList()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[18-Jan-2022 13:55:32 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Undefined constant &quot;EcclesiaCRM\Service\getInactive&quot;
+File: /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php
+Line: 546
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php(361): EcclesiaCRM\Service\CalendarService->createCalendarItemForGetEvents()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/CalendarV2Controller.php(58): EcclesiaCRM\Service\CalendarService->getEvents()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\CalendarV2Controller->getallCalendarEventsForEventsList()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[18-Jan-2022 14:06:34 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Undefined method Propel\Runtime\ActiveQuery\ModelCriteria::getTitle()
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php
+Line: 2486
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php(241): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/CalendarV2Controller.php(58): EcclesiaCRM\Service\CalendarService->getEvents()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\CalendarV2Controller->getallCalendarEventsForEventsList()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[18-Jan-2022 14:07:08 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Undefined method Propel\Runtime\ActiveQuery\ModelCriteria::getTitle()
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php
+Line: 2486
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php(241): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/CalendarV2Controller.php(58): EcclesiaCRM\Service\CalendarService->getEvents()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\CalendarV2Controller->getallCalendarEventsForEventsList()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[18-Jan-2022 14:11:16 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Undefined method Propel\Runtime\ActiveQuery\ModelCriteria::getTitle()
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php
+Line: 2486
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php(241): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/CalendarV2Controller.php(58): EcclesiaCRM\Service\CalendarService->getEvents()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\CalendarV2Controller->getallCalendarEventsForEventsList()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[18-Jan-2022 14:14:01 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: POST
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#10 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#11 {main}

@@ -1,0 +1,33 @@
+[04-Sep-2022 20:45:51 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected ';', expecting ')'
+File: /var/www/CRM/src/Plugins/ToDoListDashboard/core/APIControllers/ToDoListDashboardController.php
+Line: 72
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass()
+#2 [internal function]: spl_autoload_call()
+#3 /var/www/CRM/src/vendor/php-di/php-di/src/Definition/Source/ReflectionBasedAutowiring.php(23): class_exists()
+#4 /var/www/CRM/src/vendor/php-di/php-di/src/Definition/Source/ReflectionBasedAutowiring.php(42): DI\Definition\Source\ReflectionBasedAutowiring->autowire()
+#5 /var/www/CRM/src/vendor/php-di/php-di/src/Definition/Source/SourceChain.php(54): DI\Definition\Source\ReflectionBasedAutowiring->getDefinition()
+#6 /var/www/CRM/src/vendor/php-di/php-di/src/Container.php(155): DI\Definition\Source\SourceChain->getDefinition()
+#7 /var/www/CRM/src/vendor/php-di/php-di/src/Container.php(223): DI\Container->getDefinition()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/CallableResolver.php(147): DI\Container->has()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/CallableResolver.php(103): Slim\CallableResolver->resolveSlimNotation()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/CallableResolver.php(72): Slim\CallableResolver->resolveByPredicate()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(366): Slim\CallableResolver->resolveRoute()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#16 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#18 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#25 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#26 {main}

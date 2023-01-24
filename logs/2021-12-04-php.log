@@ -1,0 +1,49 @@
+[04-Dec-2021 04:48:39 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 0
+Message: Could not load image http://dev.ecclesiacrm.com/public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/Capture d&rsquo;&eacute;cran 2021-10-26 &agrave; 21.00.52.png
+File: /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php
+Line: 879
+Trace: #0 [internal function]: PhpOffice\PhpWord\Shared\Html::parseImage()
+#1 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(215): call_user_func_array()
+#2 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(247): PhpOffice\PhpWord\Shared\Html::parseNode()
+#3 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(229): PhpOffice\PhpWord\Shared\Html::parseChildNodes()
+#4 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(247): PhpOffice\PhpWord\Shared\Html::parseNode()
+#5 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(229): PhpOffice\PhpWord\Shared\Html::parseChildNodes()
+#6 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(84): PhpOffice\PhpWord\Shared\Html::parseNode()
+#7 /var/www/CRM/src/EcclesiaCRM/APIControllers/DocumentCKEditorController.php(155): PhpOffice\PhpWord\Shared\Html::addHtml()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\DocumentCKEditorController->saveAsWordFile()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#24 {main}
+[04-Dec-2021 04:48:52 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: POST
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#10 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#11 {main}

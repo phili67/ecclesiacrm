@@ -985,12 +985,12 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/address` | POST | GeocoderController::class . ':getGeoLocals' | No description
+`/address` | POST | GeocoderController::class . ':getGeoLocals' | get address
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/address/` | POST | GeocoderController::class . ':getGeoLocals' | No description
+`/address/` | POST | GeocoderController::class . ':getGeoLocals' | get address
 
 ---
 ## API "kiosks"
@@ -1916,26 +1916,23 @@ Route | Method | function | Description
 ---
 ## API "general roles"
 
-   in route : "/api/routes/sidebar/sidebar-mapicons.php"
+   in route : "/api/routes/sidebar/sidebar-general-roles.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getall` | POST | SidebarMapIconsController::class . ':getAllMapIcons' | No description
+`/all/{mode}` | GET | SidebarGeneralRolesController::class . ':getAllGeneralRoles' | get all general roles
 
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/checkOnlyPersonView` | POST | SidebarMapIconsController::class . ':checkOnlyPersonView' | No description
+* `{ref}`->`str` :: mode 'famroles' 'classes' 'grptypes' 'grptypesSundSchool' 'famcustom' 'groupcustom' ('grproles' dead code)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setIconName` | POST | SidebarMapIconsController::class . ':setIconName' | No description
+`/action` | POST | SidebarGeneralRolesController::class . ':generalRoleAssign' | set gerneral role for the family, classification, etc ...
 
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/removeIcon` | POST | SidebarMapIconsController::class . ':removeIcon' | No description
+* `{ref}`->`str` :: mode 'famroles' 'classes' 'grptypes' 'grptypesSundSchool' 'famcustom' 'groupcustom' ('grproles' dead code)
+* `{ref}`->`int` :: Order
+* `{id}`->`int` :: ID as id
+* `{res}`->`str` :: Action 'up' 'down'
 
 ---
 ## API "mapicons"
@@ -1944,22 +1941,33 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getall` | POST | SidebarMapIconsController::class . ':getAllMapIcons' | No description
+`/getall` | POST | SidebarMapIconsController::class . ':getAllMapIcons' | get all map icons
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/checkOnlyPersonView` | POST | SidebarMapIconsController::class . ':checkOnlyPersonView' | No description
+`/checkOnlyPersonView` | POST | SidebarMapIconsController::class . ':checkOnlyPersonView' | check only person view
+
+* `{ref}`->`bool` :: onlyPersonView
+* `{ref}`->`int` :: lstID
+* `{ref}`->`int` :: lstOptionID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setIconName` | POST | SidebarMapIconsController::class . ':setIconName' | No description
+`/setIconName` | POST | SidebarMapIconsController::class . ':setIconName' | set Icon By name
+
+* `{ref}`->`str` :: name
+* `{ref}`->`int` :: lstID
+* `{ref}`->`int` :: lstOptionID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeIcon` | POST | SidebarMapIconsController::class . ':removeIcon' | No description
+`/removeIcon` | POST | SidebarMapIconsController::class . ':removeIcon' | remove icon
+
+* `{ref}`->`int` :: lstID
+* `{ref}`->`int` :: lstOptionID
 
 ---
 ## API "menulinks"
@@ -1972,82 +1980,129 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/persons/assign` | POST | SidebarPropertiesController::class . ':propertiesPersonsAssign' | No description
+`/persons/assign` | POST | SidebarPropertiesController::class . ':propertiesPersonsAssign' | Assign property to a person
+
+* `{ref}`->`int` :: PersonId
+* `{ref}`->`int` :: PropertyId
+* `{ref}`->`string` :: PropertyValue
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/persons/unassign` | DELETE | SidebarPropertiesController::class . ':propertiesPersonsUnAssign' | No description
+`/persons/unassign` | DELETE | SidebarPropertiesController::class . ':propertiesPersonsUnAssign' | Delete : un-assign property to a person
+
+* `{ref}`->`int` :: PersonId
+* `{ref}`->`int` :: PropertyId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/families/assign` | POST | SidebarPropertiesController::class . ':propertiesFamiliesAssign' | No description
+`/families/assign` | POST | SidebarPropertiesController::class . ':propertiesFamiliesAssign' | Assign property to a family
+
+* `{ref}`->`int` :: FamilyId
+* `{ref}`->`int` :: PropertyId
+* `{ref}`->`string` :: PropertyValue
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/families/unassign` | DELETE | SidebarPropertiesController::class . ':propertiesFamiliesUnAssign' | No description
+`/families/unassign` | DELETE | SidebarPropertiesController::class . ':propertiesFamiliesUnAssign' | Delete : un-assign property to a family
+
+* `{ref}`->`int` :: FamilyId
+* `{ref}`->`int` :: PropertyId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groups/assign` | POST | SidebarPropertiesController::class . ':propertiesGroupsAssign' | No description
+`/groups/assign` | POST | SidebarPropertiesController::class . ':propertiesGroupsAssign' | Assign property to a Group
+
+* `{ref}`->`int` :: GroupId
+* `{ref}`->`int` :: PropertyId
+* `{ref}`->`string` :: PropertyValue
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groups/unassign` | DELETE | SidebarPropertiesController::class . ':propertiesGroupsUnAssign' | No description
+`/groups/unassign` | DELETE | SidebarPropertiesController::class . ':propertiesGroupsUnAssign' | Delete : un-assign property to a group
+
+* `{ref}`->`int` :: GroupId
+* `{ref}`->`int` :: PropertyId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/propertytypelists` | POST | SidebarPropertiesController::class . ':getAllPropertyTypes' | No description
+`/propertytypelists` | POST | SidebarPropertiesController::class . ':getAllPropertyTypes' | get all propery types
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/propertytypelists/edit` | POST | SidebarPropertiesController::class . ':editPropertyType' | No description
+`/propertytypelists/edit` | POST | SidebarPropertiesController::class . ':editPropertyType' | get all datas for a property type ID
+
+* `{ref}`->`int` :: typeId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/propertytypelists/set` | POST | SidebarPropertiesController::class . ':setPropertyType' | No description
+`/propertytypelists/set` | POST | SidebarPropertiesController::class . ':setPropertyType' | set all datas for a property type ID
+
+* `{ref}`->`int` :: typeId
+* `{ref}`->`string` :: Name
+* `{ref}`->`string` :: Description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/propertytypelists/create` | POST | SidebarPropertiesController::class . ':createPropertyType' | No description
+`/propertytypelists/create` | POST | SidebarPropertiesController::class . ':createPropertyType' | create property type
+
+* `{ref}`->`string` :: Class
+* `{ref}`->`string` :: Name
+* `{ref}`->`string` :: Description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/propertytypelists/delete` | POST | SidebarPropertiesController::class . ':deletePropertyType' | No description
+`/propertytypelists/delete` | POST | SidebarPropertiesController::class . ':deletePropertyType' | delete property type
+
+* `{ref}`->`id` :: typeId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/typelists/edit` | POST | SidebarPropertiesController::class . ':editProperty' | No description
+`/typelists/edit` | POST | SidebarPropertiesController::class . ':editProperty' | get property datas for type Id
+
+* `{ref}`->`id` :: typeId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/typelists/set` | POST | SidebarPropertiesController::class . ':setProperty' | No description
+`/typelists/set` | POST | SidebarPropertiesController::class . ':setProperty' | get property datas for type Id
+
+* `{ref}`->`int` :: typeId
+* `{ref}`->`string` :: Name
+* `{ref}`->`string` :: Description
+* `{ref}`->`string` :: Prompt
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/typelists/delete` | POST | SidebarPropertiesController::class . ':deleteProperty' | No description
+`/typelists/delete` | POST | SidebarPropertiesController::class . ':deleteProperty' | delete property
+
+* `{ref}`->`id` :: typeId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/typelists/create` | POST | SidebarPropertiesController::class . ':createProperty' | No description
+`/typelists/create` | POST | SidebarPropertiesController::class . ':createProperty' | create property
+
+* `{ref}`->`string` :: Class
+* `{ref}`->`string` :: Name
+* `{ref}`->`string` :: Description
+* `{ref}`->`string` :: Prompt
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/typelists/{type}` | POST | SidebarPropertiesController::class . ':getAllProperties' | No description
+`/typelists/{type}` | POST | SidebarPropertiesController::class . ':getAllProperties' | get all properties
 
 ---
 ## API "roles"
@@ -2056,12 +2111,12 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/all` | GET | SidebarRolesController::class . ':getAllRoles' | No description
+`/all` | GET | SidebarRolesController::class . ':getAllRoles' | get all roles
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/persons/assign` | POST | SidebarRolesController::class . ':rolePersonAssign' | No description
+`/persons/assign` | POST | SidebarRolesController::class . ':rolePersonAssign' | get all roles
 
 ---
 ## API "volunteeropportunity"
@@ -2263,12 +2318,12 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/csp-report` | POST | SystemController::class . ':cspReport' | No description
+`/csp-report` | POST | SystemController::class . ':cspReport' | send csp report
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deletefile` | POST | SystemController::class . ':deleteFile' | No description
+`/deletefile` | POST | SystemController::class . ':deleteFile' | delete a file
 
 ---
 ## API "custom-fields"
@@ -2277,12 +2332,12 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person` | GET | SystemCustomFieldController::class . ':getPersonFieldsByType' | No description
+`/person` | GET | SystemCustomFieldController::class . ':getPersonFieldsByType' | Get person field type (public)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person/` | GET | SystemCustomFieldController::class . ':getPersonFieldsByType' | No description
+`/person/` | GET | SystemCustomFieldController::class . ':getPersonFieldsByType' | Get person field type (public)
 
 ---
 ## API "database"
@@ -2291,17 +2346,17 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/restore` | POST | SystemBackupRestoreController::class . ':restore' | No description
+`/restore` | POST | SystemBackupRestoreController::class . ':restore' | backup crm (admin)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/download/{filename}` | GET | SystemBackupRestoreController::class . ':download' | No description
+`/download/{filename}` | GET | SystemBackupRestoreController::class . ':download' | Download update (admin)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/people/clear` | DELETE | SystemBackupRestoreController::class . ':clearPeopleTables' | No description
+`/people/clear` | DELETE | SystemBackupRestoreController::class . ':clearPeopleTables' | Clear all people from the database (admin)
 
 ---
 ## API "gdrp"
@@ -2310,32 +2365,32 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | SystemGDRPController::class . ':getAllGdprNotes' | No description
+`/` | POST | SystemGDRPController::class . ':getAllGdprNotes' | Get all GDPR notes for each custom fields
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setComment` | POST | SystemGDRPController::class . ':setGdprComment' | No description
+`/setComment` | POST | SystemGDRPController::class . ':setGdprComment' | Set GDPR note (comment)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeperson` | POST | SystemGDRPController::class . ':removePersonGdpr' | No description
+`/removeperson` | POST | SystemGDRPController::class . ':removePersonGdpr' | remove a person for gdpr by person ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeallpersons` | POST | SystemGDRPController::class . ':removeAllPersonsGdpr' | No description
+`/removeallpersons` | POST | SystemGDRPController::class . ':removeAllPersonsGdpr' | Remove all persons
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removefamily` | POST | SystemGDRPController::class . ':removeFamilyGdpr' | No description
+`/removefamily` | POST | SystemGDRPController::class . ':removeFamilyGdpr' | remove a fmaily for gdpr by family ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/removeallfamilies` | POST | SystemGDRPController::class . ':removeAllFamiliesGdpr' | No description
+`/removeallfamilies` | POST | SystemGDRPController::class . ':removeAllFamiliesGdpr' | Remove all families
 
 ---
 ## API "issues"
@@ -2344,7 +2399,7 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/issues` | POST | SystemIssueController::class . ':issues' | No description
+`/issues` | POST | SystemIssueController::class . ':issues' | Sending an issue (public)
 
 ---
 ## API "individual settings"
@@ -2402,7 +2457,7 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/run` | POST | TimerJobsController::class . ':runTimerJobs' | No description
+`/run` | POST | TimerJobsController::class . ':runTimerJobs' | get all running timer jobs
 
 ---
 ## API "userrole"

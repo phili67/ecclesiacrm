@@ -89,7 +89,8 @@ php slim-doc.php -i ../src/api/routes/search.php -o output_file.md -n"search"
 cat output_file.md >> api.md
 
 #sidebar
-php slim-doc.php -i ../src/api/routes/sidebar/sidebar-mapicons.php -o output_file.md -n"general roles"
+
+php slim-doc.php -i ../src/api/routes/sidebar/sidebar-general-roles.php -o output_file.md -n"general roles"
 cat output_file.md >> api.md
 
 php slim-doc.php -i ../src/api/routes/sidebar/sidebar-mapicons.php -o output_file.md -n"mapicons"

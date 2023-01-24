@@ -1,0 +1,134 @@
+[11-May-2022 11:33:52 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '19-principals/anne.burles' for key 'calendarinstances.calendarid' in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php:181
+Stack trace:
+#0 /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php(181): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(110): EcclesiaCRM\MyPDO\CalDavPDO->updateInvites()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(195): EcclesiaCRM\User->createGroupAdminCalendars()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(944): EcclesiaCRM\User->createHomeDir()
+#4 /var/www/CRM/src/Login.php(107): EcclesiaCRM\User->LoginPhaseActivations()
+#5 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php on line 181
+[11-May-2022 12:07:20 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '19-principals/anne.burles' for key 'calendarinstances.calendarid' in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php:181
+Stack trace:
+#0 /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php(181): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(110): EcclesiaCRM\MyPDO\CalDavPDO->updateInvites()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(195): EcclesiaCRM\User->createGroupAdminCalendars()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(944): EcclesiaCRM\User->createHomeDir()
+#4 /var/www/CRM/src/Login.php(107): EcclesiaCRM\User->LoginPhaseActivations()
+#5 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php on line 181
+[11-May-2022 12:11:10 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '19-principals/anne.burles' for key 'calendarinstances.calendarid' in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php:184
+Stack trace:
+#0 /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php(184): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(110): EcclesiaCRM\MyPDO\CalDavPDO->updateInvites()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(195): EcclesiaCRM\User->createGroupAdminCalendars()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(944): EcclesiaCRM\User->createHomeDir()
+#4 /var/www/CRM/src/Login.php(107): EcclesiaCRM\User->LoginPhaseActivations()
+#5 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php on line 184
+[11-May-2022 12:11:23 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '19-principals/anne.burles' for key 'calendarinstances.calendarid' in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php:184
+Stack trace:
+#0 /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php(184): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(110): EcclesiaCRM\MyPDO\CalDavPDO->updateInvites()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(195): EcclesiaCRM\User->createGroupAdminCalendars()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(944): EcclesiaCRM\User->createHomeDir()
+#4 /var/www/CRM/src/Login.php(107): EcclesiaCRM\User->LoginPhaseActivations()
+#5 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php on line 184
+[11-May-2022 12:23:16 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1 in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php:187
+Stack trace:
+#0 /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php(187): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(110): EcclesiaCRM\MyPDO\CalDavPDO->updateInvites()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(195): EcclesiaCRM\User->createGroupAdminCalendars()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(944): EcclesiaCRM\User->createHomeDir()
+#4 /var/www/CRM/src/Login.php(107): EcclesiaCRM\User->LoginPhaseActivations()
+#5 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php on line 187
+[11-May-2022 20:36:28 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '19-principals/anne.burles' for key 'calendarinstances.calendarid' in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php:181
+Stack trace:
+#0 /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php(181): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(110): EcclesiaCRM\MyPDO\CalDavPDO->updateInvites()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(195): EcclesiaCRM\User->createGroupAdminCalendars()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(944): EcclesiaCRM\User->createHomeDir()
+#4 /var/www/CRM/src/Login.php(107): EcclesiaCRM\User->LoginPhaseActivations()
+#5 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php on line 181
+[11-May-2022 20:40:29 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected token &quot;)&quot;
+File: /var/www/CRM/src/vendor/sabre/dav/lib/CalDAV/Backend/PDO.php
+Line: 1392
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#1 /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php(28): Composer\Autoload\ClassLoader->loadClass()
+#2 /var/www/CRM/src/vendor/composer/ClassLoader.php(444): include('...')
+#3 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#4 /var/www/CRM/src/EcclesiaCRM/dto/MenuEventsCount.php(58): Composer\Autoload\ClassLoader->loadClass()
+#5 /var/www/CRM/src/EcclesiaCRM/Synchronize/EventsDashboardItem.php(24): EcclesiaCRM\dto\MenuEventsCount::getNumberEventsOfToday()
+#6 /var/www/CRM/src/EcclesiaCRM/Service/SynchronizeService.php(34): EcclesiaCRM\Synchronize\EventsDashboardItem::getDashboardItemValue()
+#7 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemSynchronizeController.php(46): EcclesiaCRM\Service\SynchronizeService::getValues()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemSynchronizeController->synchronize()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#24 {main}
+[11-May-2022 20:41:29 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected token &quot;)&quot;
+File: /var/www/CRM/src/vendor/sabre/dav/lib/CalDAV/Backend/PDO.php
+Line: 1392
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#1 /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php(28): Composer\Autoload\ClassLoader->loadClass()
+#2 /var/www/CRM/src/vendor/composer/ClassLoader.php(444): include('...')
+#3 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#4 /var/www/CRM/src/EcclesiaCRM/dto/MenuEventsCount.php(58): Composer\Autoload\ClassLoader->loadClass()
+#5 /var/www/CRM/src/EcclesiaCRM/Synchronize/EventsDashboardItem.php(24): EcclesiaCRM\dto\MenuEventsCount::getNumberEventsOfToday()
+#6 /var/www/CRM/src/EcclesiaCRM/Service/SynchronizeService.php(34): EcclesiaCRM\Synchronize\EventsDashboardItem::getDashboardItemValue()
+#7 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemSynchronizeController.php(46): EcclesiaCRM\Service\SynchronizeService::getValues()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemSynchronizeController->synchronize()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#24 {main}
+[11-May-2022 20:42:06 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '19-principals/anne.burles' for key 'calendarinstances.calendarid' in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php:181
+Stack trace:
+#0 /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php(181): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(110): EcclesiaCRM\MyPDO\CalDavPDO->updateInvites()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(195): EcclesiaCRM\User->createGroupAdminCalendars()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(944): EcclesiaCRM\User->createHomeDir()
+#4 /var/www/CRM/src/Login.php(107): EcclesiaCRM\User->LoginPhaseActivations()
+#5 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php on line 181
+[11-May-2022 20:44:20 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '19-principals/anne.burles' for key 'calendarinstances.calendarid' in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php:181
+Stack trace:
+#0 /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php(181): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(110): EcclesiaCRM\MyPDO\CalDavPDO->updateInvites()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(195): EcclesiaCRM\User->createGroupAdminCalendars()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(944): EcclesiaCRM\User->createHomeDir()
+#4 /var/www/CRM/src/Login.php(107): EcclesiaCRM\User->LoginPhaseActivations()
+#5 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/sabre/CalDavPDO.php on line 181

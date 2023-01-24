@@ -1,0 +1,127 @@
+[13-Oct-2022 08:00:59 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected end of file
+File: /var/www/eventworkflow/src/ident/templates/check/check-all.php
+Line: 84
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#2 /var/www/eventworkflow/src/ident/routes/checkeventworkflow.php(98): Slim\Views\PhpRenderer->render()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Closure->{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#14 /var/www/CRM/src/ident/index.php(60): Slim\App->run()
+#15 {main}
+[13-Oct-2022 08:01:34 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected '}'
+File: /var/www/eventworkflow/src/ident/templates/check/check-all.php
+Line: 32
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#2 /var/www/eventworkflow/src/ident/routes/checkeventworkflow.php(98): Slim\Views\PhpRenderer->render()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Closure->{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#14 /var/www/CRM/src/ident/index.php(60): Slim\App->run()
+#15 {main}
+[13-Oct-2022 08:01:36 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected '}'
+File: /var/www/eventworkflow/src/ident/templates/check/check-all.php
+Line: 32
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#2 /var/www/eventworkflow/src/ident/routes/checkeventworkflow.php(98): Slim\Views\PhpRenderer->render()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Closure->{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#14 /var/www/CRM/src/ident/index.php(60): Slim\App->run()
+#15 {main}
+[13-Oct-2022 17:41:09 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [UPDATE wfe_container_content_volunteeropportunity_person SET wf_ccvou_check=:p1 WHERE wfe_container_content_volunteeropportunity_person.wf_ccvou_id=:p2]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2249): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1939): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#5 /var/www/eventworkflow/src/core/model/Base/EventWorkflowContainerContentVolunteeropportunityPerson.php(874): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#6 /var/www/eventworkflow/src/core/model/Base/EventWorkflowContainerContentVolunteeropportunityPerson.php(771): PluginStore\Base\EventWorkflowContainerContentVolunteeropportunityPerson->doUpdate()
+#7 /var/www/eventworkflow/src/core/model/Base/EventWorkflowContainerContentVolunteeropportunityPerson.php(732): PluginStore\Base\EventWorkflowContainerContentVolunteeropportunityPerson->doSave()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): PluginStore\Base\EventWorkflowContainerContentVolunteeropportunityPerson->PluginStore\Base\{closure}()
+#9 /var/www/eventworkflow/src/core/model/Base/EventWorkflowContainerContentVolunteeropportunityPerson.php(745): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#10 /var/www/eventworkflow/src/ident/routes/checkeventworkflow.php(210): PluginStore\Base\EventWorkflowContainerContentVolunteeropportunityPerson->save()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Closure->{closure}()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Slim\Routing\RouteRunner->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/ident/index.php(60): Slim\App->run()
+#23 {main}
+Previous Error:
+Type: PDOException
+Code: 23000
+Message: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'wf_ccvou_check' cannot be null
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2249): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1939): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#6 /var/www/eventworkflow/src/core/model/Base/EventWorkflowContainerContentVolunteeropportunityPerson.php(874): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#7 /var/www/eventworkflow/src/core/model/Base/EventWorkflowContainerContentVolunteeropportunityPerson.php(771): PluginStore\Base\EventWorkflowContainerContentVolunteeropportunityPerson->doUpdate()
+#8 /var/www/eventworkflow/src/core/model/Base/EventWorkflowContainerContentVolunteeropportunityPerson.php(732): PluginStore\Base\EventWorkflowContainerContentVolunteeropportunityPerson->doSave()
+#9 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): PluginStore\Base\EventWorkflowContainerContentVolunteeropportunityPerson->PluginStore\Base\{closure}()
+#10 /var/www/eventworkflow/src/core/model/Base/EventWorkflowContainerContentVolunteeropportunityPerson.php(745): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#11 /var/www/eventworkflow/src/ident/routes/checkeventworkflow.php(210): PluginStore\Base\EventWorkflowContainerContentVolunteeropportunityPerson->save()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Closure->{closure}()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/ident/index.php(60): Slim\App->run()
+#24 {main}

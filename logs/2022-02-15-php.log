@@ -1,0 +1,4 @@
+[15-Feb-2022 22:13:57 Europe/Paris] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /var/www/CRM/src/IntegrityCheck.php:87
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/IntegrityCheck.php on line 87

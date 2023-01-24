@@ -1,0 +1,214 @@
+[17-Dec-2022 21:13:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:13:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:13:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:13:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:14:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:14:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:14:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:14:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:15:27 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'PrincipalsCollection' not found in /var/www/CRM/src/server.php:50
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 50
+[17-Dec-2022 21:15:28 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'PrincipalsCollection' not found in /var/www/CRM/src/server.php:50
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 50
+[17-Dec-2022 21:15:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:15:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:15:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:15:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:16:12 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAVACL\PrincipalsCollection' not found in /var/www/CRM/src/server.php:50
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 50
+[17-Dec-2022 21:16:27 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAVACL\PrincipalsCollection' not found in /var/www/CRM/src/server.php:50
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 50
+[17-Dec-2022 21:16:28 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAVACL\PrincipalsCollection' not found in /var/www/CRM/src/server.php:50
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 50
+[17-Dec-2022 21:16:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:16:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:16:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:16:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:17:00 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAV\ACL\Plugin' not found in /var/www/CRM/src/server.php:76
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 76
+[17-Dec-2022 21:17:03 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAV\ACL\Plugin' not found in /var/www/CRM/src/server.php:76
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 76
+[17-Dec-2022 21:17:16 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAV\ACL\Plugin' not found in /var/www/CRM/src/server.php:76
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 76
+[17-Dec-2022 21:17:17 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAV\ACL\Plugin' not found in /var/www/CRM/src/server.php:76
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 76
+[17-Dec-2022 21:17:23 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAV\ACL\Plugin' not found in /var/www/CRM/src/server.php:76
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 76
+[17-Dec-2022 21:17:24 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAV\ACL\Plugin' not found in /var/www/CRM/src/server.php:76
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 76
+[17-Dec-2022 21:17:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:17:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:17:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:17:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:17:59 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAV\ACL\Plugin' not found in /var/www/CRM/src/server.php:76
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 76
+[17-Dec-2022 21:18:00 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAV\ACL\Plugin' not found in /var/www/CRM/src/server.php:76
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 76
+[17-Dec-2022 21:18:09 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAV\ACL\Plugin' not found in /var/www/CRM/src/server.php:76
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 76
+[17-Dec-2022 21:18:10 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'Sabre\DAV\ACL\Plugin' not found in /var/www/CRM/src/server.php:76
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/server.php on line 76
+[17-Dec-2022 21:18:24 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:18:24 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:18:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:18:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:18:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:18:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:19:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:19:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:19:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:19:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:20:07 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:20:07 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:20:30 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:20:30 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:20:31 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:20:31 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:20:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:20:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:20:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:20:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:21:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:21:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:21:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:21:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:22:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:22:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:22:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:22:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:23:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:23:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:23:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:23:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:24:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:24:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:24:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:24:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:25:45 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:25:45 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:25:45 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:25:45 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:26:18 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:26:18 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:26:18 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:26:18 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:26:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:26:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:26:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:26:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:27:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:27:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:27:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:27:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:28:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:28:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:28:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:28:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:29:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:29:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:29:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:29:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:30:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:30:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:30:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:30:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:31:42 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:31:42 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:31:42 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:31:42 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:32:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:32:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:32:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:32:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:33:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:33:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:33:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:33:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:33:51 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:33:51 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:33:52 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:33:52 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:34:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:34:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:34:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:34:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:35:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:35:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:35:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:35:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:36:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:36:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:36:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:36:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:37:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:37:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:37:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:37:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:38:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:38:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:38:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:38:41 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:39:42 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:39:42 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:39:42 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:39:42 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:40:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:40:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:40:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:40:43 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:41:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:41:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:41:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:41:44 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:42:45 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:42:45 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:42:45 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:42:45 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:43:46 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:43:46 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:43:46 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:43:46 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:44:48 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:44:48 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:44:48 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:44:48 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:45:48 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:45:48 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:45:48 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:45:48 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:46:48 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:46:48 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:46:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:46:49 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[17-Dec-2022 21:55:53 Europe/Paris] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 3064725504 bytes) in /var/www/CRM/src/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php on line 68
+[17-Dec-2022 21:57:24 Europe/Paris] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 1684013056 bytes) in /var/www/CRM/src/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php on line 68

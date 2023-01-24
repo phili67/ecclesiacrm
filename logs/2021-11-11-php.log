@@ -1,0 +1,10 @@
+[11-Nov-2021 22:27:34 Europe/Paris] PHP Fatal error:  Uncaught Error: Call to a member function getOptionName() on null in /var/www/CRM/src/EcclesiaCRM/Reports/PDF_RealAttendance.php:138
+Stack trace:
+#0 /var/www/CRM/src/Reports/ClassRealAttendance.php(44): EcclesiaCRM\Reports\PDF_RealAttendance->render()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Reports/PDF_RealAttendance.php on line 138
+[11-Nov-2021 22:27:50 Europe/Paris] PHP Fatal error:  Uncaught Error: Call to a member function getOptionName() on null in /var/www/CRM/src/EcclesiaCRM/Reports/PDF_RealAttendance.php:138
+Stack trace:
+#0 /var/www/CRM/src/Reports/ClassRealAttendance.php(44): EcclesiaCRM\Reports\PDF_RealAttendance->render()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Reports/PDF_RealAttendance.php on line 138

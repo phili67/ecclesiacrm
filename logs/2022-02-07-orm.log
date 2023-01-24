@@ -1,0 +1,5 @@
+[2022-02-07 14:46:54] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'personlastmeeting_plm.plm_ID' in 'field list' [] []
+[2022-02-07 14:47:02] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'personlastmeeting_plm.plm_ID' in 'field list' [] []
+[2022-02-07 15:05:47] ormLogger.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'crm.personlastmeeting_plm' doesn't exist [] []
+[2022-02-07 15:05:48] ormLogger.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'crm.personlastmeeting_plm' doesn't exist [] []
+[2022-02-07 15:11:41] ormLogger.ERROR: Could not get a AdapterInterface, sql may be wrong [] []

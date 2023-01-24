@@ -1,0 +1,551 @@
+[05-Jan-2022 21:04:25 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: POST
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#10 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#11 {main}
+[05-Jan-2022 21:04:58 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: POST
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#10 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#11 {main}
+[05-Jan-2022 21:05:16 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: POST
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#10 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#11 {main}
+[05-Jan-2022 21:05:34 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 21:06:32 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 21:08:00 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 21:16:24 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 21:17:49 Europe/Paris] Slim Application Error
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1356 View 'crm.email_count' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
+File: /var/www/CRM/src/vendor/ifsnop/mysqldump-php/src/Ifsnop/Mysqldump/Mysqldump.php
+Line: 823
+Trace: #0 /var/www/CRM/src/vendor/ifsnop/mysqldump-php/src/Ifsnop/Mysqldump/Mysqldump.php(709): Ifsnop\Mysqldump\Mysqldump->getTableColumnTypes()
+#1 /var/www/CRM/src/vendor/ifsnop/mysqldump-php/src/Ifsnop/Mysqldump/Mysqldump.php(462): Ifsnop\Mysqldump\Mysqldump->exportViews()
+#2 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(485): Ifsnop\Mysqldump\Mysqldump->start()
+#3 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#20 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#21 {main}
+[05-Jan-2022 21:21:17 Europe/Paris] Slim Application Error
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1356 View 'crm.email_count' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
+File: /var/www/CRM/src/vendor/ifsnop/mysqldump-php/src/Ifsnop/Mysqldump/Mysqldump.php
+Line: 823
+Trace: #0 /var/www/CRM/src/vendor/ifsnop/mysqldump-php/src/Ifsnop/Mysqldump/Mysqldump.php(709): Ifsnop\Mysqldump\Mysqldump->getTableColumnTypes()
+#1 /var/www/CRM/src/vendor/ifsnop/mysqldump-php/src/Ifsnop/Mysqldump/Mysqldump.php(462): Ifsnop\Mysqldump\Mysqldump->exportViews()
+#2 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(485): Ifsnop\Mysqldump\Mysqldump->start()
+#3 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#20 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#21 {main}
+[05-Jan-2022 21:21:44 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:01:49 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sqlerror : SQLSTATE[HY000]: General error: 1356 View 'crm.email_count' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:02:20 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sqlerror : SQLSTATE[HY000]: General error: 1356 View 'crm.email_count' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:02:56 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql error : HY000
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:03:19 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql error : HY000
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:04:12 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at error /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql error : HY000
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:04:13 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at error /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql error : HY000
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:04:24 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at error /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql error : HY000
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:05:06 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at error /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql error : HY000 message : SQLSTATE[HY000]: General error: 1356 View 'crm.email_count' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:08:48 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at error /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql error : HY000 message : SQLSTATE[HY000]: General error: 1356 View 'crm.email_list' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:09:01 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 500
+Message: Unable to create backup archive at error /var/www/CRM/src/tmp_attach/EcclesiaCRMBackups/EcclesiaCRM-Database.sql error : HY000 message : SQLSTATE[HY000]: General error: 1356 View 'crm.email_list' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
+File: /var/www/CRM/src/EcclesiaCRM/BackupManager.php
+Line: 487
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/BackupManager.php(590): EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php(50): EcclesiaCRM\Backup\CreateBackup->run()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[05-Jan-2022 22:09:56 Europe/Paris] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/CRM/src/EcclesiaCRM/BackupManager.php on line 420
+[05-Jan-2022 22:09:56 Europe/Paris] PHP Stack trace:
+[05-Jan-2022 22:09:56 Europe/Paris] PHP   1. {main}() /var/www/CRM/src/api/index.php:0
+[05-Jan-2022 22:09:56 Europe/Paris] PHP   2. Slim\App->run($request = *uninitialized*) /var/www/CRM/src/api/index.php:135
+[05-Jan-2022 22:09:56 Europe/Paris] PHP   3. Slim\App->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/App.php:199
+[05-Jan-2022 22:09:56 Europe/Paris] PHP   4. Slim\MiddlewareDispatcher->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/App.php:215
+[05-Jan-2022 22:09:56 Europe/Paris] PHP   5. {anonymous-class:/var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:128-149}->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:81
+[05-Jan-2022 22:09:56 Europe/Paris] PHP   6. Slim\Middleware\ErrorMiddleware->process($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $handler = class Psr\Http\Server\RequestHandlerInterface@anonymous { private $middleware = class Tuupola\Middleware\JwtAuthentication { private $logger = NULL; private $message = NULL; private $rules = class SplStack { ... }; private $options = [...] }; private $next = class Psr\Http\Server\RequestHandlerInterface@anonymous { private $middleware = class EcclesiaCRM\Slim\Middleware\VersionMiddleware { ... }; private $next = class Slim\Routing\RouteRunner { ... } } }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:147
+[05-Jan-2022 22:09:56 Europe/Paris] PHP   7. {anonymous-class:/var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:128-149}->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php:107
+[05-Jan-2022 22:09:56 Europe/Paris] PHP   8. Tuupola\Middleware\JwtAuthentication->process($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $handler = class Psr\Http\Server\RequestHandlerInterface@anonymous { private $middleware = class EcclesiaCRM\Slim\Middleware\VersionMiddleware {  }; private $next = class Slim\Routing\RouteRunner { private $routeResolver = class Slim\Routing\RouteResolver { ... }; private $routeParser = class Slim\Routing\RouteParser { ... }; private $routeCollectorProxy = class Slim\App { ... } } }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:147
+[05-Jan-2022 22:09:56 Europe/Paris] PHP   9. {anonymous-class:/var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:294-315}->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php:132
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  10. EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $handler = class Slim\Routing\RouteRunner { private $routeResolver = class Slim\Routing\RouteResolver { protected $routeCollector = class Slim\Routing\RouteCollector { ... }; private $dispatcher = class Slim\Routing\Dispatcher { ... } }; private $routeParser = class Slim\Routing\RouteParser { private $routeCollector = class Slim\Routing\RouteCollector { ... }; private $routeParser = class FastRoute\RouteParser\Std { ... } }; private $routeCollectorProxy = class Slim\App { protected $routeResolver = class Slim\Routing\RouteResolver { ... }; protected $middlewareDispatcher = class Slim\MiddlewareDispatcher { ... }; protected $responseFactory = class Slim\Http\Factory\DecoratedResponseFactory { ... }; protected $callableResolver = class Slim\CallableResolver { ... }; protected $container = class DI\Container { ... }; protected $routeCollector = class Slim\Routing\RouteCollector { ... }; protected $groupPattern = '' } }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:313
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  11. Slim\Routing\RouteRunner->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php:17
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  12. Slim\Routing\Route->run($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php:84
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  13. Slim\MiddlewareDispatcher->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php:341
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  14. Slim\MiddlewareDispatcher->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:81
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  15. Slim\Routing\Route->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:81
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  16. Slim\Handlers\Strategies\RequestResponse->__invoke($callable = [0 => class EcclesiaCRM\APIControllers\SystemBackupRestoreController { private $container = class DI\Container { ... } }, 1 => 'backup'], $request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $response = class Slim\Http\Response { protected $response = class Slim\Psr7\Response { protected $status = 200; protected $reasonPhrase = ''; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $streamFactory = class Slim\Psr7\Factory\StreamFactory {  } }, $routeArguments = []) /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php:384
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  17. EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $response = class Slim\Http\Response { protected $response = class Slim\Psr7\Response { protected $status = 200; protected $reasonPhrase = ''; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $streamFactory = class Slim\Psr7\Factory\StreamFactory {  } }, $args = []) /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php:43
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  18. EcclesiaCRM\Backup\CreateBackup->run() /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:50
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  19. EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup() /var/www/CRM/src/EcclesiaCRM/BackupManager.php:590
+[05-Jan-2022 22:09:56 Europe/Paris] PHP  20. EcclesiaCRM\Backup\CreateBackup->FullBackupFile() /var/www/CRM/src/EcclesiaCRM/BackupManager.php:502
+[05-Jan-2022 22:12:32 Europe/Paris] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/CRM/src/EcclesiaCRM/BackupManager.php on line 420
+[05-Jan-2022 22:12:32 Europe/Paris] PHP Stack trace:
+[05-Jan-2022 22:12:32 Europe/Paris] PHP   1. {main}() /var/www/CRM/src/api/index.php:0
+[05-Jan-2022 22:12:32 Europe/Paris] PHP   2. Slim\App->run($request = *uninitialized*) /var/www/CRM/src/api/index.php:135
+[05-Jan-2022 22:12:32 Europe/Paris] PHP   3. Slim\App->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/App.php:199
+[05-Jan-2022 22:12:32 Europe/Paris] PHP   4. Slim\MiddlewareDispatcher->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/App.php:215
+[05-Jan-2022 22:12:32 Europe/Paris] PHP   5. {anonymous-class:/var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:128-149}->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:81
+[05-Jan-2022 22:12:32 Europe/Paris] PHP   6. Slim\Middleware\ErrorMiddleware->process($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $handler = class Psr\Http\Server\RequestHandlerInterface@anonymous { private $middleware = class Tuupola\Middleware\JwtAuthentication { private $logger = NULL; private $message = NULL; private $rules = class SplStack { ... }; private $options = [...] }; private $next = class Psr\Http\Server\RequestHandlerInterface@anonymous { private $middleware = class EcclesiaCRM\Slim\Middleware\VersionMiddleware { ... }; private $next = class Slim\Routing\RouteRunner { ... } } }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:147
+[05-Jan-2022 22:12:32 Europe/Paris] PHP   7. {anonymous-class:/var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:128-149}->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php:107
+[05-Jan-2022 22:12:32 Europe/Paris] PHP   8. Tuupola\Middleware\JwtAuthentication->process($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $handler = class Psr\Http\Server\RequestHandlerInterface@anonymous { private $middleware = class EcclesiaCRM\Slim\Middleware\VersionMiddleware {  }; private $next = class Slim\Routing\RouteRunner { private $routeResolver = class Slim\Routing\RouteResolver { ... }; private $routeParser = class Slim\Routing\RouteParser { ... }; private $routeCollectorProxy = class Slim\App { ... } } }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:147
+[05-Jan-2022 22:12:32 Europe/Paris] PHP   9. {anonymous-class:/var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:294-315}->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php:132
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  10. EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $handler = class Slim\Routing\RouteRunner { private $routeResolver = class Slim\Routing\RouteResolver { protected $routeCollector = class Slim\Routing\RouteCollector { ... }; private $dispatcher = class Slim\Routing\Dispatcher { ... } }; private $routeParser = class Slim\Routing\RouteParser { private $routeCollector = class Slim\Routing\RouteCollector { ... }; private $routeParser = class FastRoute\RouteParser\Std { ... } }; private $routeCollectorProxy = class Slim\App { protected $routeResolver = class Slim\Routing\RouteResolver { ... }; protected $middlewareDispatcher = class Slim\MiddlewareDispatcher { ... }; protected $responseFactory = class Slim\Http\Factory\DecoratedResponseFactory { ... }; protected $callableResolver = class Slim\CallableResolver { ... }; protected $container = class DI\Container { ... }; protected $routeCollector = class Slim\Routing\RouteCollector { ... }; protected $groupPattern = '' } }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:313
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  11. Slim\Routing\RouteRunner->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php:17
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  12. Slim\Routing\Route->run($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php:84
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  13. Slim\MiddlewareDispatcher->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php:341
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  14. Slim\MiddlewareDispatcher->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:81
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  15. Slim\Routing\Route->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:81
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  16. Slim\Handlers\Strategies\RequestResponse->__invoke($callable = [0 => class EcclesiaCRM\APIControllers\SystemBackupRestoreController { private $container = class DI\Container { ... } }, 1 => 'backup'], $request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $response = class Slim\Http\Response { protected $response = class Slim\Psr7\Response { protected $status = 200; protected $reasonPhrase = ''; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $streamFactory = class Slim\Psr7\Factory\StreamFactory {  } }, $routeArguments = []) /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php:384
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  17. EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $response = class Slim\Http\Response { protected $response = class Slim\Psr7\Response { protected $status = 200; protected $reasonPhrase = ''; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $streamFactory = class Slim\Psr7\Factory\StreamFactory {  } }, $args = []) /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php:43
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  18. EcclesiaCRM\Backup\CreateBackup->run() /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:50
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  19. EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup() /var/www/CRM/src/EcclesiaCRM/BackupManager.php:590
+[05-Jan-2022 22:12:32 Europe/Paris] PHP  20. EcclesiaCRM\Backup\CreateBackup->FullBackupFile() /var/www/CRM/src/EcclesiaCRM/BackupManager.php:502
+[05-Jan-2022 22:13:04 Europe/Paris] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/CRM/src/EcclesiaCRM/BackupManager.php on line 420
+[05-Jan-2022 22:13:04 Europe/Paris] PHP Stack trace:
+[05-Jan-2022 22:13:04 Europe/Paris] PHP   1. {main}() /var/www/CRM/src/api/index.php:0
+[05-Jan-2022 22:13:04 Europe/Paris] PHP   2. Slim\App->run($request = *uninitialized*) /var/www/CRM/src/api/index.php:135
+[05-Jan-2022 22:13:04 Europe/Paris] PHP   3. Slim\App->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/App.php:199
+[05-Jan-2022 22:13:04 Europe/Paris] PHP   4. Slim\MiddlewareDispatcher->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/App.php:215
+[05-Jan-2022 22:13:04 Europe/Paris] PHP   5. {anonymous-class:/var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:128-149}->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:81
+[05-Jan-2022 22:13:04 Europe/Paris] PHP   6. Slim\Middleware\ErrorMiddleware->process($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $handler = class Psr\Http\Server\RequestHandlerInterface@anonymous { private $middleware = class Tuupola\Middleware\JwtAuthentication { private $logger = NULL; private $message = NULL; private $rules = class SplStack { ... }; private $options = [...] }; private $next = class Psr\Http\Server\RequestHandlerInterface@anonymous { private $middleware = class EcclesiaCRM\Slim\Middleware\VersionMiddleware { ... }; private $next = class Slim\Routing\RouteRunner { ... } } }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:147
+[05-Jan-2022 22:13:04 Europe/Paris] PHP   7. {anonymous-class:/var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:128-149}->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php:107
+[05-Jan-2022 22:13:04 Europe/Paris] PHP   8. Tuupola\Middleware\JwtAuthentication->process($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $handler = class Psr\Http\Server\RequestHandlerInterface@anonymous { private $middleware = class EcclesiaCRM\Slim\Middleware\VersionMiddleware {  }; private $next = class Slim\Routing\RouteRunner { private $routeResolver = class Slim\Routing\RouteResolver { ... }; private $routeParser = class Slim\Routing\RouteParser { ... }; private $routeCollectorProxy = class Slim\App { ... } } }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:147
+[05-Jan-2022 22:13:04 Europe/Paris] PHP   9. {anonymous-class:/var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:294-315}->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php:132
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  10. EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $handler = class Slim\Routing\RouteRunner { private $routeResolver = class Slim\Routing\RouteResolver { protected $routeCollector = class Slim\Routing\RouteCollector { ... }; private $dispatcher = class Slim\Routing\Dispatcher { ... } }; private $routeParser = class Slim\Routing\RouteParser { private $routeCollector = class Slim\Routing\RouteCollector { ... }; private $routeParser = class FastRoute\RouteParser\Std { ... } }; private $routeCollectorProxy = class Slim\App { protected $routeResolver = class Slim\Routing\RouteResolver { ... }; protected $middlewareDispatcher = class Slim\MiddlewareDispatcher { ... }; protected $responseFactory = class Slim\Http\Factory\DecoratedResponseFactory { ... }; protected $callableResolver = class Slim\CallableResolver { ... }; protected $container = class DI\Container { ... }; protected $routeCollector = class Slim\Routing\RouteCollector { ... }; protected $groupPattern = '' } }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:313
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  11. Slim\Routing\RouteRunner->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php:17
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  12. Slim\Routing\Route->run($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php:84
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  13. Slim\MiddlewareDispatcher->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php:341
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  14. Slim\MiddlewareDispatcher->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:81
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  15. Slim\Routing\Route->handle($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }) /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php:81
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  16. Slim\Handlers\Strategies\RequestResponse->__invoke($callable = [0 => class EcclesiaCRM\APIControllers\SystemBackupRestoreController { private $container = class DI\Container { ... } }, 1 => 'backup'], $request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $response = class Slim\Http\Response { protected $response = class Slim\Psr7\Response { protected $status = 200; protected $reasonPhrase = ''; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $streamFactory = class Slim\Psr7\Factory\StreamFactory {  } }, $routeArguments = []) /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php:384
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  17. EcclesiaCRM\APIControllers\SystemBackupRestoreController->backup($request = class Slim\Http\ServerRequest { protected $serverRequest = class Slim\Psr7\Request { protected $method = 'POST'; protected $uri = class Slim\Psr7\Uri { ... }; protected $requestTarget = NULL; protected $queryParams = NULL; protected $cookies = [...]; protected $serverParams = [...]; protected $attributes = [...]; protected $parsedBody = NULL; protected $uploadedFiles = [...]; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $bodyParsers = ['application/json' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'text/xml' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }, 'application/x-www-form-urlencoded' => class Closure { virtual $closure = "$this->Slim\Http\{closure}", ... }] }, $response = class Slim\Http\Response { protected $response = class Slim\Psr7\Response { protected $status = 200; protected $reasonPhrase = ''; protected $protocolVersion = '1.1'; protected $headers = class Slim\Psr7\Headers { ... }; protected $body = class Slim\Psr7\Stream { ... } }; protected $streamFactory = class Slim\Psr7\Factory\StreamFactory {  } }, $args = []) /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php:43
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  18. EcclesiaCRM\Backup\CreateBackup->run() /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:50
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  19. EcclesiaCRM\Backup\CreateBackup->getDatabaseBackup() /var/www/CRM/src/EcclesiaCRM/BackupManager.php:590
+[05-Jan-2022 22:13:04 Europe/Paris] PHP  20. EcclesiaCRM\Backup\CreateBackup->FullBackupFile() /var/www/CRM/src/EcclesiaCRM/BackupManager.php:502

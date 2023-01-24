@@ -1,0 +1,42 @@
+[12-Oct-2022 21:26:08 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\BadMethodCallException
+Code: 0
+Message: Call to undefined method: getLastName.
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PersonVolunteerOpportunity.php
+Line: 1389
+Trace: #0 /var/www/eventworkflow/src/core/Service/EventWorkflowService.php(53): EcclesiaCRM\Base\PersonVolunteerOpportunity->__call()
+#1 /var/www/eventworkflow/src/ident/routes/checkeventworkflow.php(78): Plugins\Service\EventWorkflowService::GetAllOpportunities()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Closure->{closure}()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#13 /var/www/CRM/src/ident/index.php(60): Slim\App->run()
+#14 {main}
+[12-Oct-2022 22:01:54 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\BadMethodCallException
+Code: 0
+Message: Call to undefined method: getFullName.
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PersonVolunteerOpportunity.php
+Line: 1389
+Trace: #0 /var/www/eventworkflow/src/core/Service/EventWorkflowService.php(64): EcclesiaCRM\Base\PersonVolunteerOpportunity->__call()
+#1 /var/www/eventworkflow/src/ident/routes/checkeventworkflow.php(78): Plugins\Service\EventWorkflowService::GetAllOpportunities()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Closure->{closure}()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#13 /var/www/CRM/src/ident/index.php(60): Slim\App->run()
+#14 {main}

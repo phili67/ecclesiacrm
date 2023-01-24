@@ -1,0 +1,36 @@
+[21-Nov-2022 22:56:06 Europe/Paris] PHP Fatal error:  Uncaught Exception: The Auth plugin must be loaded before the ACL plugin if you want to allow unauthenticated access. in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php:770
+Stack trace:
+#0 /var/www/CRM/src/vendor/sabre/dav/lib/DAV/Server.php(402): Sabre\DAVACL\Plugin->initialize()
+#1 /var/www/CRM/src/server.php(55): Sabre\DAV\Server->addPlugin()
+#2 {main}
+  thrown in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php on line 770
+[21-Nov-2022 22:56:52 Europe/Paris] PHP Fatal error:  Uncaught Exception: The Auth plugin must be loaded before the ACL plugin if you want to allow unauthenticated access. in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php:770
+Stack trace:
+#0 /var/www/CRM/src/vendor/sabre/dav/lib/DAV/Server.php(402): Sabre\DAVACL\Plugin->initialize()
+#1 /var/www/CRM/src/server.php(55): Sabre\DAV\Server->addPlugin()
+#2 {main}
+  thrown in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php on line 770
+[21-Nov-2022 22:57:26 Europe/Paris] PHP Fatal error:  Uncaught Exception: The Auth plugin must be loaded before the ACL plugin if you want to allow unauthenticated access. in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php:770
+Stack trace:
+#0 /var/www/CRM/src/vendor/sabre/dav/lib/DAV/Server.php(402): Sabre\DAVACL\Plugin->initialize()
+#1 /var/www/CRM/src/server.php(55): Sabre\DAV\Server->addPlugin()
+#2 {main}
+  thrown in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php on line 770
+[21-Nov-2022 22:57:27 Europe/Paris] PHP Fatal error:  Uncaught Exception: The Auth plugin must be loaded before the ACL plugin if you want to allow unauthenticated access. in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php:770
+Stack trace:
+#0 /var/www/CRM/src/vendor/sabre/dav/lib/DAV/Server.php(402): Sabre\DAVACL\Plugin->initialize()
+#1 /var/www/CRM/src/server.php(55): Sabre\DAV\Server->addPlugin()
+#2 {main}
+  thrown in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php on line 770
+[21-Nov-2022 22:57:44 Europe/Paris] PHP Fatal error:  Uncaught Exception: The Auth plugin must be loaded before the ACL plugin if you want to allow unauthenticated access. in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php:770
+Stack trace:
+#0 /var/www/CRM/src/vendor/sabre/dav/lib/DAV/Server.php(402): Sabre\DAVACL\Plugin->initialize()
+#1 /var/www/CRM/src/server.php(55): Sabre\DAV\Server->addPlugin()
+#2 {main}
+  thrown in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php on line 770
+[21-Nov-2022 22:57:45 Europe/Paris] PHP Fatal error:  Uncaught Exception: The Auth plugin must be loaded before the ACL plugin if you want to allow unauthenticated access. in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php:770
+Stack trace:
+#0 /var/www/CRM/src/vendor/sabre/dav/lib/DAV/Server.php(402): Sabre\DAVACL\Plugin->initialize()
+#1 /var/www/CRM/src/server.php(55): Sabre\DAV\Server->addPlugin()
+#2 {main}
+  thrown in /var/www/CRM/src/vendor/sabre/dav/lib/DAVACL/Plugin.php on line 770

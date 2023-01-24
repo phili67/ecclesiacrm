@@ -1,0 +1,6 @@
+[2021-10-13 21:57:03] ormLogger.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value [] []
+[2021-10-13 21:57:06] ormLogger.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value [] []
+[2021-10-13 21:57:41] ormLogger.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value [] []
+[2021-10-13 21:58:25] ormLogger.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value [] []
+[2021-10-13 21:58:53] ormLogger.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value [] []
+[2021-10-13 21:59:55] ormLogger.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value [] []

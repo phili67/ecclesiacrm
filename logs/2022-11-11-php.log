@@ -1,0 +1,178 @@
+[11-Nov-2022 06:11:45 Europe/Paris] Invalid address:  (to): 
+[11-Nov-2022 06:12:08 Europe/Paris] Invalid address:  (to): 
+[11-Nov-2022 06:31:54 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [SELECT plugin.plgn_ID, plugin.plgn_Name, plugin.plgn_Description, plugin.plgn_Category, plugin.plgn_UserRole_Dashboard_Availability, plugin.plgn_securities, plugin.plgn_default_orientation, plugin.plgn_default_color, plugin.plgn_position, plugin.plgn_image, plugin.plgn_installation_path, plugin.plgn_activ, plugin.plgn_version, plugin.plgn_prefix, plugin.plgn_mailer FROM plugin WHERE plugin.plgn_Category=:p1 AND plugin.plgn_activ=:p2]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2322): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2211): Propel\Runtime\ActiveQuery\Criteria->doSelect()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1243): Propel\Runtime\ActiveQuery\ModelCriteria->doSelect()
+#6 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1531): Propel\Runtime\ActiveQuery\ModelCriteria->find()
+#7 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2426): Propel\Runtime\ActiveQuery\ModelCriteria->findBy()
+#8 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(45): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#9 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(385): EcclesiaCRM\MenuBar\MenuBar->addPluginMenus()
+#10 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(520): EcclesiaCRM\MenuBar\MenuBar->addPastoralCare()
+#11 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(41): EcclesiaCRM\MenuBar\MenuBar->createMenuBar()
+#12 /var/www/CRM/src/EcclesiaCRM/view/MenuRenderer.php(12): EcclesiaCRM\MenuBar\MenuBar->__construct()
+#13 /var/www/CRM/src/Include/Header.php(241): EcclesiaCRM\view\MenuRenderer::RenderMenu()
+#14 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(23): require('/var/www/CRM/sr...')
+#15 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#16 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#17 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#18 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(48): Slim\Views\PhpRenderer->render()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#25 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#27 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#28 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#29 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#30 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#31 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#32 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#33 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#34 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#35 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#36 /var/www/CRM/src/v2/index.php(138): Slim\App->run()
+#37 {main}
+Previous Error:
+Type: PDOException
+Code: 42S02
+Message: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'churchcrm.plugin' doesn't exist
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2322): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2211): Propel\Runtime\ActiveQuery\Criteria->doSelect()
+#6 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1243): Propel\Runtime\ActiveQuery\ModelCriteria->doSelect()
+#7 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1531): Propel\Runtime\ActiveQuery\ModelCriteria->find()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2426): Propel\Runtime\ActiveQuery\ModelCriteria->findBy()
+#9 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(45): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#10 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(385): EcclesiaCRM\MenuBar\MenuBar->addPluginMenus()
+#11 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(520): EcclesiaCRM\MenuBar\MenuBar->addPastoralCare()
+#12 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(41): EcclesiaCRM\MenuBar\MenuBar->createMenuBar()
+#13 /var/www/CRM/src/EcclesiaCRM/view/MenuRenderer.php(12): EcclesiaCRM\MenuBar\MenuBar->__construct()
+#14 /var/www/CRM/src/Include/Header.php(241): EcclesiaCRM\view\MenuRenderer::RenderMenu()
+#15 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(23): require('/var/www/CRM/sr...')
+#16 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#17 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#18 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#19 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(48): Slim\Views\PhpRenderer->render()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#26 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#27 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#28 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#29 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#30 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#31 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#32 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#33 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#34 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#35 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#36 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#37 /var/www/CRM/src/v2/index.php(138): Slim\App->run()
+#38 {main}
+[11-Nov-2022 00:31:58 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:32:35 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:33:14 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:33:33 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:33:49 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:33:49 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:33:58 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:34:01 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:34:05 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:34:05 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:34:06 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:36:07 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:36:07 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:37:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:37:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:39:03 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 00:39:05 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function getVersion() on null in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php:87
+Stack trace:
+#0 /var/www/CRM/src/SystemDBUpdate.php(44): EcclesiaCRM\Service\SystemService::getDBVersion()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Service/SystemService.php on line 87
+[11-Nov-2022 08:04:34 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(
+[11-Nov-2022 08:04:34 Europe/Paris] Xdebug: [Step Debug] Could not connect to debugging client. Tried: 192.168.151.205:9000 (through xdebug.client_host/xdebug.client_port) :-(

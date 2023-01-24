@@ -1,0 +1,17 @@
+[03-Oct-2021 09:07:36 Europe/Paris] PHP Fatal error:  Uncaught Error: Call to undefined method EcclesiaCRM\Reports\PDF_RealAttendance::DrawRealAttendanceCalendar() in /var/www/CRM/src/EcclesiaCRM/Reports/PDF_RealAttendance.php:191
+Stack trace:
+#0 /var/www/CRM/src/Reports/ClassRealAttendance.php(44): EcclesiaCRM\Reports\PDF_RealAttendance->render()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Reports/PDF_RealAttendance.php on line 191
+[03-Oct-2021 13:06:52 Europe/Paris] PHP Fatal error:  Uncaught Error: Call to a member function render() on null in /var/www/CRM/src/Reports/ClassRealAttendance.php:44
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/Reports/ClassRealAttendance.php on line 44
+[03-Oct-2021 13:12:48 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'EcclesiaCRM\Reports\PDF_Attendance' not found in /var/www/CRM/src/EcclesiaCRM/Reports/PDF_RealAttendance.php:26
+Stack trace:
+#0 /var/www/CRM/src/vendor/composer/ClassLoader.php(444): include()
+#1 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/var/www/CRM/sr...')
+#2 [internal function]: Composer\Autoload\ClassLoader->loadClass('EcclesiaCRM\\Rep...')
+#3 /var/www/CRM/src/Reports/ClassRealAttendance.php(43): spl_autoload_call('EcclesiaCRM\\Rep...')
+#4 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/Reports/PDF_RealAttendance.php on line 26

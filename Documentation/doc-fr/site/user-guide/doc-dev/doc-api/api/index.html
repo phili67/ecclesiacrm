@@ -5779,7 +5779,7 @@
 <td><code>/address</code></td>
 <td>POST</td>
 <td>GeocoderController::class . ':getGeoLocals'</td>
-<td>No description</td>
+<td>get address</td>
 </tr>
 </tbody>
 </table>
@@ -5798,7 +5798,7 @@
 <td><code>/address/</code></td>
 <td>POST</td>
 <td>GeocoderController::class . ':getGeoLocals'</td>
-<td>No description</td>
+<td>get address</td>
 </tr>
 </tbody>
 </table>
@@ -8746,7 +8746,7 @@
 </table>
 <hr />
 <h2 id="api-general-roles">API "general roles"<a class="headerlink" href="#api-general-roles" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/sidebar/sidebar-mapicons.php"</p>
+<p>in route : "/api/routes/sidebar/sidebar-general-roles.php"</p>
 <table>
 <thead>
 <tr>
@@ -8758,13 +8758,16 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/getall</code></td>
-<td>POST</td>
-<td>SidebarMapIconsController::class . ':getAllMapIcons'</td>
-<td>No description</td>
+<td><code>/all/{mode}</code></td>
+<td>GET</td>
+<td>SidebarGeneralRolesController::class . ':getAllGeneralRoles'</td>
+<td>get all general roles</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>str</code> :: mode 'famroles' 'classes' 'grptypes' 'grptypesSundSchool' 'famcustom' 'groupcustom' ('grproles' dead code)</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8777,51 +8780,19 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/checkOnlyPersonView</code></td>
+<td><code>/action</code></td>
 <td>POST</td>
-<td>SidebarMapIconsController::class . ':checkOnlyPersonView'</td>
-<td>No description</td>
+<td>SidebarGeneralRolesController::class . ':generalRoleAssign'</td>
+<td>set gerneral role for the family, classification, etc ...</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/setIconName</code></td>
-<td>POST</td>
-<td>SidebarMapIconsController::class . ':setIconName'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/removeIcon</code></td>
-<td>POST</td>
-<td>SidebarMapIconsController::class . ':removeIcon'</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>str</code> :: mode 'famroles' 'classes' 'grptypes' 'grptypesSundSchool' 'famcustom' 'groupcustom' ('grproles' dead code)</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: Order</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: ID as id</li>
+<li><code>{res}</code>-&gt;<code>str</code> :: Action 'up' 'down'</li>
+</ul>
 <hr />
 <h2 id="api-mapicons">API "mapicons"<a class="headerlink" href="#api-mapicons" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/sidebar/sidebar-mapicons.php"</p>
@@ -8839,7 +8810,7 @@
 <td><code>/getall</code></td>
 <td>POST</td>
 <td>SidebarMapIconsController::class . ':getAllMapIcons'</td>
-<td>No description</td>
+<td>get all map icons</td>
 </tr>
 </tbody>
 </table>
@@ -8858,10 +8829,15 @@
 <td><code>/checkOnlyPersonView</code></td>
 <td>POST</td>
 <td>SidebarMapIconsController::class . ':checkOnlyPersonView'</td>
-<td>No description</td>
+<td>check only person view</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>bool</code> :: onlyPersonView</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: lstID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: lstOptionID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8877,10 +8853,15 @@
 <td><code>/setIconName</code></td>
 <td>POST</td>
 <td>SidebarMapIconsController::class . ':setIconName'</td>
-<td>No description</td>
+<td>set Icon By name</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>str</code> :: name</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: lstID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: lstOptionID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8896,10 +8877,14 @@
 <td><code>/removeIcon</code></td>
 <td>POST</td>
 <td>SidebarMapIconsController::class . ':removeIcon'</td>
-<td>No description</td>
+<td>remove icon</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: lstID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: lstOptionID</li>
+</ul>
 <hr />
 <h2 id="api-menulinks">API "menulinks"<a class="headerlink" href="#api-menulinks" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/sidebar/sidebar-menulinks.php"</p>
@@ -8919,10 +8904,15 @@
 <td><code>/persons/assign</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':propertiesPersonsAssign'</td>
-<td>No description</td>
+<td>Assign property to a person</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PersonId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PropertyId</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: PropertyValue</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8938,10 +8928,14 @@
 <td><code>/persons/unassign</code></td>
 <td>DELETE</td>
 <td>SidebarPropertiesController::class . ':propertiesPersonsUnAssign'</td>
-<td>No description</td>
+<td>Delete : un-assign property to a person</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PersonId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PropertyId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8957,10 +8951,15 @@
 <td><code>/families/assign</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':propertiesFamiliesAssign'</td>
-<td>No description</td>
+<td>Assign property to a family</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: FamilyId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PropertyId</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: PropertyValue</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8976,10 +8975,14 @@
 <td><code>/families/unassign</code></td>
 <td>DELETE</td>
 <td>SidebarPropertiesController::class . ':propertiesFamiliesUnAssign'</td>
-<td>No description</td>
+<td>Delete : un-assign property to a family</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: FamilyId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PropertyId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -8995,10 +8998,15 @@
 <td><code>/groups/assign</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':propertiesGroupsAssign'</td>
-<td>No description</td>
+<td>Assign property to a Group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: GroupId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PropertyId</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: PropertyValue</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9014,10 +9022,14 @@
 <td><code>/groups/unassign</code></td>
 <td>DELETE</td>
 <td>SidebarPropertiesController::class . ':propertiesGroupsUnAssign'</td>
-<td>No description</td>
+<td>Delete : un-assign property to a group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: GroupId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: PropertyId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9033,7 +9045,7 @@
 <td><code>/propertytypelists</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':getAllPropertyTypes'</td>
-<td>No description</td>
+<td>get all propery types</td>
 </tr>
 </tbody>
 </table>
@@ -9052,10 +9064,13 @@
 <td><code>/propertytypelists/edit</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':editPropertyType'</td>
-<td>No description</td>
+<td>get all datas for a property type ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: typeId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9071,10 +9086,15 @@
 <td><code>/propertytypelists/set</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':setPropertyType'</td>
-<td>No description</td>
+<td>set all datas for a property type ID</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: typeId</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Name</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Description</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9090,10 +9110,15 @@
 <td><code>/propertytypelists/create</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':createPropertyType'</td>
-<td>No description</td>
+<td>create property type</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Class</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Name</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Description</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9109,10 +9134,13 @@
 <td><code>/propertytypelists/delete</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':deletePropertyType'</td>
-<td>No description</td>
+<td>delete property type</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>id</code> :: typeId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9128,10 +9156,13 @@
 <td><code>/typelists/edit</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':editProperty'</td>
-<td>No description</td>
+<td>get property datas for type Id</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>id</code> :: typeId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9147,10 +9178,16 @@
 <td><code>/typelists/set</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':setProperty'</td>
-<td>No description</td>
+<td>get property datas for type Id</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: typeId</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Name</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Description</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Prompt</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9166,10 +9203,13 @@
 <td><code>/typelists/delete</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':deleteProperty'</td>
-<td>No description</td>
+<td>delete property</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>id</code> :: typeId</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9185,10 +9225,16 @@
 <td><code>/typelists/create</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':createProperty'</td>
-<td>No description</td>
+<td>create property</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Class</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Name</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Description</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Prompt</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -9204,7 +9250,7 @@
 <td><code>/typelists/{type}</code></td>
 <td>POST</td>
 <td>SidebarPropertiesController::class . ':getAllProperties'</td>
-<td>No description</td>
+<td>get all properties</td>
 </tr>
 </tbody>
 </table>
@@ -9225,7 +9271,7 @@
 <td><code>/all</code></td>
 <td>GET</td>
 <td>SidebarRolesController::class . ':getAllRoles'</td>
-<td>No description</td>
+<td>get all roles</td>
 </tr>
 </tbody>
 </table>
@@ -9244,7 +9290,7 @@
 <td><code>/persons/assign</code></td>
 <td>POST</td>
 <td>SidebarRolesController::class . ':rolePersonAssign'</td>
-<td>No description</td>
+<td>get all roles</td>
 </tr>
 </tbody>
 </table>
@@ -9818,7 +9864,7 @@
 <td><code>/csp-report</code></td>
 <td>POST</td>
 <td>SystemController::class . ':cspReport'</td>
-<td>No description</td>
+<td>send csp report</td>
 </tr>
 </tbody>
 </table>
@@ -9837,7 +9883,7 @@
 <td><code>/deletefile</code></td>
 <td>POST</td>
 <td>SystemController::class . ':deleteFile'</td>
-<td>No description</td>
+<td>delete a file</td>
 </tr>
 </tbody>
 </table>
@@ -9858,7 +9904,7 @@
 <td><code>/person</code></td>
 <td>GET</td>
 <td>SystemCustomFieldController::class . ':getPersonFieldsByType'</td>
-<td>No description</td>
+<td>Get person field type (public)</td>
 </tr>
 </tbody>
 </table>
@@ -9877,7 +9923,7 @@
 <td><code>/person/</code></td>
 <td>GET</td>
 <td>SystemCustomFieldController::class . ':getPersonFieldsByType'</td>
-<td>No description</td>
+<td>Get person field type (public)</td>
 </tr>
 </tbody>
 </table>
@@ -9898,7 +9944,7 @@
 <td><code>/restore</code></td>
 <td>POST</td>
 <td>SystemBackupRestoreController::class . ':restore'</td>
-<td>No description</td>
+<td>backup crm (admin)</td>
 </tr>
 </tbody>
 </table>
@@ -9917,7 +9963,7 @@
 <td><code>/download/{filename}</code></td>
 <td>GET</td>
 <td>SystemBackupRestoreController::class . ':download'</td>
-<td>No description</td>
+<td>Download update (admin)</td>
 </tr>
 </tbody>
 </table>
@@ -9936,7 +9982,7 @@
 <td><code>/people/clear</code></td>
 <td>DELETE</td>
 <td>SystemBackupRestoreController::class . ':clearPeopleTables'</td>
-<td>No description</td>
+<td>Clear all people from the database (admin)</td>
 </tr>
 </tbody>
 </table>
@@ -9957,7 +10003,7 @@
 <td><code>/</code></td>
 <td>POST</td>
 <td>SystemGDRPController::class . ':getAllGdprNotes'</td>
-<td>No description</td>
+<td>Get all GDPR notes for each custom fields</td>
 </tr>
 </tbody>
 </table>
@@ -9976,7 +10022,7 @@
 <td><code>/setComment</code></td>
 <td>POST</td>
 <td>SystemGDRPController::class . ':setGdprComment'</td>
-<td>No description</td>
+<td>Set GDPR note (comment)</td>
 </tr>
 </tbody>
 </table>
@@ -9995,7 +10041,7 @@
 <td><code>/removeperson</code></td>
 <td>POST</td>
 <td>SystemGDRPController::class . ':removePersonGdpr'</td>
-<td>No description</td>
+<td>remove a person for gdpr by person ID</td>
 </tr>
 </tbody>
 </table>
@@ -10014,7 +10060,7 @@
 <td><code>/removeallpersons</code></td>
 <td>POST</td>
 <td>SystemGDRPController::class . ':removeAllPersonsGdpr'</td>
-<td>No description</td>
+<td>Remove all persons</td>
 </tr>
 </tbody>
 </table>
@@ -10033,7 +10079,7 @@
 <td><code>/removefamily</code></td>
 <td>POST</td>
 <td>SystemGDRPController::class . ':removeFamilyGdpr'</td>
-<td>No description</td>
+<td>remove a fmaily for gdpr by family ID</td>
 </tr>
 </tbody>
 </table>
@@ -10052,7 +10098,7 @@
 <td><code>/removeallfamilies</code></td>
 <td>POST</td>
 <td>SystemGDRPController::class . ':removeAllFamiliesGdpr'</td>
-<td>No description</td>
+<td>Remove all families</td>
 </tr>
 </tbody>
 </table>
@@ -10073,7 +10119,7 @@
 <td><code>/issues</code></td>
 <td>POST</td>
 <td>SystemIssueController::class . ':issues'</td>
-<td>No description</td>
+<td>Sending an issue (public)</td>
 </tr>
 </tbody>
 </table>
@@ -10236,7 +10282,7 @@
 <td><code>/run</code></td>
 <td>POST</td>
 <td>TimerJobsController::class . ':runTimerJobs'</td>
-<td>No description</td>
+<td>get all running timer jobs</td>
 </tr>
 </tbody>
 </table>

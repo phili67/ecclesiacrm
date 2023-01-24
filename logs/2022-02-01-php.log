@@ -1,0 +1,915 @@
+[01-Feb-2022 21:33:39 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO property_pro (pro_ID, pro_Class, pro_prt_ID, pro_Name, pro_Description, pro_Prompt) VALUES (:p0, :p1, :p2, :p3, :p4, :p5)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php
+Line: 933
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(841): EcclesiaCRM\Base\Property->doInsert()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(793): EcclesiaCRM\Base\Property->doSave()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Property->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(806): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarPropertiesController.php(339): EcclesiaCRM\Base\Property->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarPropertiesController->createProperty()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#20 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1364 Field 'pro_Comment' doesn't have a default value
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(930): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(841): EcclesiaCRM\Base\Property->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(793): EcclesiaCRM\Base\Property->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Property->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(806): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarPropertiesController.php(339): EcclesiaCRM\Base\Property->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarPropertiesController->createProperty()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#23 {main}
+[01-Feb-2022 21:35:56 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO property_pro (pro_ID, pro_Class, pro_prt_ID, pro_Name, pro_Description, pro_Prompt) VALUES (:p0, :p1, :p2, :p3, :p4, :p5)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php
+Line: 933
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(841): EcclesiaCRM\Base\Property->doInsert()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(793): EcclesiaCRM\Base\Property->doSave()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Property->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(806): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarPropertiesController.php(339): EcclesiaCRM\Base\Property->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarPropertiesController->createProperty()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#20 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1364 Field 'pro_Comment' doesn't have a default value
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(930): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(841): EcclesiaCRM\Base\Property->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(793): EcclesiaCRM\Base\Property->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Property->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(806): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarPropertiesController.php(339): EcclesiaCRM\Base\Property->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarPropertiesController->createProperty()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#23 {main}
+[01-Feb-2022 21:36:33 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO property_pro (pro_ID, pro_Class, pro_prt_ID, pro_Name, pro_Description, pro_Prompt) VALUES (:p0, :p1, :p2, :p3, :p4, :p5)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php
+Line: 933
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(841): EcclesiaCRM\Base\Property->doInsert()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(793): EcclesiaCRM\Base\Property->doSave()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Property->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(806): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarPropertiesController.php(339): EcclesiaCRM\Base\Property->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarPropertiesController->createProperty()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#20 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1364 Field 'pro_Comment' doesn't have a default value
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(930): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(841): EcclesiaCRM\Base\Property->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(793): EcclesiaCRM\Base\Property->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Property->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Property.php(806): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarPropertiesController.php(339): EcclesiaCRM\Base\Property->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarPropertiesController->createProperty()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#23 {main}
+[01-Feb-2022 21:39:07 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO pastoral_care_type (pst_cr_tp_id, pst_cr_tp_title, pst_cr_tp_desc, pst_cr_tp_visible) VALUES (:p0, :p1, :p2, :p3)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PastoralCareType.php
+Line: 870
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PastoralCareType.php(773): EcclesiaCRM\Base\PastoralCareType->doInsert()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PastoralCareType.php(737): EcclesiaCRM\Base\PastoralCareType->doSave()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PastoralCareType->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PastoralCareType.php(750): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/PastoralCareController.php(136): EcclesiaCRM\Base\PastoralCareType->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PastoralCareController->createPastoralCareType()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#20 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1364 Field 'pst_cr_tp_comment' doesn't have a default value
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PastoralCareType.php(867): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PastoralCareType.php(773): EcclesiaCRM\Base\PastoralCareType->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PastoralCareType.php(737): EcclesiaCRM\Base\PastoralCareType->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PastoralCareType->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PastoralCareType.php(750): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/PastoralCareController.php(136): EcclesiaCRM\Base\PastoralCareType->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PastoralCareController->createPastoralCareType()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#23 {main}
+[01-Feb-2022 21:45:01 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'fam_custom_comment' doesn't have a default value in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(1013): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(912): EcclesiaCRM\Base\FamilyCustomMaster->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(876): EcclesiaCRM\Base\FamilyCustomMaster->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\FamilyCustomMaster->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(889): Propel\Runtime\Connection\Con in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php on line 1016
+[01-Feb-2022 21:46:59 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'fam_custom_comment' doesn't have a default value in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(1013): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(912): EcclesiaCRM\Base\FamilyCustomMaster->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(876): EcclesiaCRM\Base\FamilyCustomMaster->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\FamilyCustomMaster->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(889): Propel\Runtime\Connection\Con in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php on line 1016
+[01-Feb-2022 21:47:02 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'fam_custom_comment' doesn't have a default value in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(1013): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(912): EcclesiaCRM\Base\FamilyCustomMaster->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(876): EcclesiaCRM\Base\FamilyCustomMaster->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\FamilyCustomMaster->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(889): Propel\Runtime\Connection\Con in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php on line 1016
+[01-Feb-2022 21:47:06 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'fam_custom_comment' doesn't have a default value in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(1013): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(912): EcclesiaCRM\Base\FamilyCustomMaster->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(876): EcclesiaCRM\Base\FamilyCustomMaster->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\FamilyCustomMaster->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php(889): Propel\Runtime\Connection\Con in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyCustomMaster.php on line 1016
+[01-Feb-2022 21:49:05 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'custom_comment' doesn't have a default value in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PersonCustomMaster.php(1007): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PersonCustomMaster.php(906): EcclesiaCRM\Base\PersonCustomMaster->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PersonCustomMaster.php(870): EcclesiaCRM\Base\PersonCustomMaster->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PersonCustomMaster->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PersonCustomMaster.php(883): Propel\Runtime\Connection\Connect in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PersonCustomMaster.php on line 1010
+[01-Feb-2022 22:23:17 Europe/Paris] Slim Application Error
+Type: PDOException
+Code: 42000
+Message: SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP 'c1'; check that column/key exists
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/PdoConnection.php
+Line: 144
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/PdoConnection.php(144): PDO->exec()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/ConnectionWrapper.php(418): Propel\Runtime\Connection\PdoConnection->exec()
+#2 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeopleGroupController.php(581): Propel\Runtime\Connection\ConnectionWrapper->exec()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeopleGroupController->deleteGroupField()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#19 {main}
+[01-Feb-2022 22:36:47 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO volunteeropportunity_vol (vol_ID, vol_Order, vol_Active, vol_Name, vol_Description) VALUES (:p0, :p1, :p2, :p3, :p4)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php
+Line: 846
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(749): EcclesiaCRM\Base\VolunteerOpportunity->doInsert()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(713): EcclesiaCRM\Base\VolunteerOpportunity->doSave()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\VolunteerOpportunity->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(726): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php(157): EcclesiaCRM\Base\VolunteerOpportunity->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarVolunteerOpportunityController->createVolunteerOpportunity()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#20 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: 01000
+Message: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'vol_Active' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(843): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(749): EcclesiaCRM\Base\VolunteerOpportunity->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(713): EcclesiaCRM\Base\VolunteerOpportunity->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\VolunteerOpportunity->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(726): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php(157): EcclesiaCRM\Base\VolunteerOpportunity->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarVolunteerOpportunityController->createVolunteerOpportunity()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#23 {main}
+[01-Feb-2022 22:38:41 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: POST
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#10 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#11 {main}
+[01-Feb-2022 22:41:36 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO donationfund_fun (fun_ID, fun_Active, fun_Name, fun_Description) VALUES (:p0, :p1, :p2, :p3)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php
+Line: 867
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(741): EcclesiaCRM\Base\DonationFund->doInsert()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(77): EcclesiaCRM\Base\DonationFund->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->createDonationFund()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#20 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: 01000
+Message: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'fun_Active' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(864): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(741): EcclesiaCRM\Base\DonationFund->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(77): EcclesiaCRM\Base\DonationFund->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->createDonationFund()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#23 {main}
+[01-Feb-2022 22:42:55 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [UPDATE donationfund_fun SET fun_Active=:p1 WHERE donationfund_fun.fun_ID=:p2]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(893): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(744): EcclesiaCRM\Base\DonationFund->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#9 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#10 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(52): EcclesiaCRM\Base\DonationFund->save()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->setDonationFund()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#27 {main}
+Previous Error:
+Type: PDOException
+Code: 01000
+Message: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'fun_Active' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(893): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(744): EcclesiaCRM\Base\DonationFund->doUpdate()
+#8 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#9 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#10 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#11 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(52): EcclesiaCRM\Base\DonationFund->save()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->setDonationFund()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#20 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#27 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#28 {main}
+[01-Feb-2022 22:42:58 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [UPDATE donationfund_fun SET fun_Active=:p1 WHERE donationfund_fun.fun_ID=:p2]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(893): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(744): EcclesiaCRM\Base\DonationFund->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#9 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#10 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(52): EcclesiaCRM\Base\DonationFund->save()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->setDonationFund()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#27 {main}
+Previous Error:
+Type: PDOException
+Code: 01000
+Message: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'fun_Active' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(893): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(744): EcclesiaCRM\Base\DonationFund->doUpdate()
+#8 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#9 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#10 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#11 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(52): EcclesiaCRM\Base\DonationFund->save()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->setDonationFund()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#20 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#27 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#28 {main}
+[01-Feb-2022 22:43:16 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [UPDATE donationfund_fun SET fun_Active=:p1 WHERE donationfund_fun.fun_ID=:p2]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(893): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(744): EcclesiaCRM\Base\DonationFund->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#9 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#10 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(52): EcclesiaCRM\Base\DonationFund->save()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->setDonationFund()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#27 {main}
+Previous Error:
+Type: PDOException
+Code: 01000
+Message: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'fun_Active' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(893): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(744): EcclesiaCRM\Base\DonationFund->doUpdate()
+#8 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#9 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#10 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#11 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(52): EcclesiaCRM\Base\DonationFund->save()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->setDonationFund()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#20 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#27 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#28 {main}
+[01-Feb-2022 22:43:24 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [UPDATE donationfund_fun SET fun_Active=:p1 WHERE donationfund_fun.fun_ID=:p2]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(893): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(744): EcclesiaCRM\Base\DonationFund->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#9 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#10 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(52): EcclesiaCRM\Base\DonationFund->save()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->setDonationFund()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#27 {main}
+Previous Error:
+Type: PDOException
+Code: 01000
+Message: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'fun_Active' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(893): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(744): EcclesiaCRM\Base\DonationFund->doUpdate()
+#8 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#9 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#10 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#11 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(52): EcclesiaCRM\Base\DonationFund->save()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->setDonationFund()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#20 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#27 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#28 {main}
+[01-Feb-2022 22:43:31 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [UPDATE donationfund_fun SET fun_Active=:p1 WHERE donationfund_fun.fun_ID=:p2]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(893): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(744): EcclesiaCRM\Base\DonationFund->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#9 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#10 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(52): EcclesiaCRM\Base\DonationFund->save()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->setDonationFund()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#27 {main}
+Previous Error:
+Type: PDOException
+Code: 01000
+Message: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'fun_Active' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(893): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(744): EcclesiaCRM\Base\DonationFund->doUpdate()
+#8 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(705): EcclesiaCRM\Base\DonationFund->doSave()
+#9 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\DonationFund->EcclesiaCRM\Base\{closure}()
+#10 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/DonationFund.php(718): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#11 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDonationFundController.php(52): EcclesiaCRM\Base\DonationFund->save()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDonationFundController->setDonationFund()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#20 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#27 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#28 {main}
+[01-Feb-2022 22:43:55 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [UPDATE volunteeropportunity_vol SET vol_Active=:p1 WHERE volunteeropportunity_vol.vol_ID=:p2]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(872): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(752): EcclesiaCRM\Base\VolunteerOpportunity->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(713): EcclesiaCRM\Base\VolunteerOpportunity->doSave()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\VolunteerOpportunity->EcclesiaCRM\Base\{closure}()
+#9 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(726): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#10 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php(177): EcclesiaCRM\Base\VolunteerOpportunity->save()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarVolunteerOpportunityController->setVolunteerOpportunity()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#27 {main}
+Previous Error:
+Type: PDOException
+Code: 01000
+Message: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'vol_Active' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(872): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(752): EcclesiaCRM\Base\VolunteerOpportunity->doUpdate()
+#8 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(713): EcclesiaCRM\Base\VolunteerOpportunity->doSave()
+#9 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\VolunteerOpportunity->EcclesiaCRM\Base\{closure}()
+#10 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(726): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#11 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php(177): EcclesiaCRM\Base\VolunteerOpportunity->save()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarVolunteerOpportunityController->setVolunteerOpportunity()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#20 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#27 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#28 {main}
+[01-Feb-2022 22:44:01 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [UPDATE volunteeropportunity_vol SET vol_Active=:p1 WHERE volunteeropportunity_vol.vol_ID=:p2]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(872): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(752): EcclesiaCRM\Base\VolunteerOpportunity->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(713): EcclesiaCRM\Base\VolunteerOpportunity->doSave()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\VolunteerOpportunity->EcclesiaCRM\Base\{closure}()
+#9 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(726): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#10 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php(177): EcclesiaCRM\Base\VolunteerOpportunity->save()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarVolunteerOpportunityController->setVolunteerOpportunity()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#27 {main}
+Previous Error:
+Type: PDOException
+Code: 01000
+Message: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'vol_Active' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(67): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/UpdateQueryExecutor.php(28): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor->runUpdate()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2363): Propel\Runtime\ActiveQuery\QueryExecutor\UpdateQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1959): Propel\Runtime\ActiveQuery\Criteria->doUpdate()
+#6 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(872): Propel\Runtime\ActiveQuery\ModelCriteria->doUpdate()
+#7 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(752): EcclesiaCRM\Base\VolunteerOpportunity->doUpdate()
+#8 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(713): EcclesiaCRM\Base\VolunteerOpportunity->doSave()
+#9 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\VolunteerOpportunity->EcclesiaCRM\Base\{closure}()
+#10 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/VolunteerOpportunity.php(726): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#11 /var/www/CRM/src/EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php(177): EcclesiaCRM\Base\VolunteerOpportunity->save()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SidebarVolunteerOpportunityController->setVolunteerOpportunity()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#20 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#27 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#28 {main}

@@ -1,0 +1,7 @@
+[2022-02-08 08:03:29] ormLogger.ERROR: Could not get a AdapterInterface, sql may be wrong [] []
+[2022-02-08 08:04:03] ormLogger.ERROR: Could not get a AdapterInterface, sql may be wrong [] []
+[2022-02-08 08:04:04] ormLogger.ERROR: Could not get a AdapterInterface, sql may be wrong [] []
+[2022-02-08 08:12:55] ormLogger.ERROR: Could not get a AdapterInterface, sql may be wrong [] []
+[2022-02-08 08:12:55] ormLogger.ERROR: Could not get a AdapterInterface, sql may be wrong [] []
+[2022-02-08 18:49:37] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_usr.usr_Meeting' in 'field list' [] []
+[2022-02-08 18:49:49] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_usr.usr_Meeting' in 'field list' [] []

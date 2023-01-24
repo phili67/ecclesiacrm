@@ -1,0 +1,20 @@
+[03-Feb-2022 21:59:00 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'EcclesiaCRM\Utils\qself' not found in /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php:46
+Stack trace:
+#0 /var/www/CRM/src/GroupPropsFormEditor.php(378): EcclesiaCRM\Utils\MiscUtils::PropTypes()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php on line 46
+[03-Feb-2022 21:59:05 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'EcclesiaCRM\Utils\qself' not found in /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php:46
+Stack trace:
+#0 /var/www/CRM/src/GroupPropsFormEditor.php(378): EcclesiaCRM\Utils\MiscUtils::PropTypes()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php on line 46
+[03-Feb-2022 21:59:16 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'EcclesiaCRM\Utils\qself' not found in /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php:46
+Stack trace:
+#0 /var/www/CRM/src/GroupPropsFormEditor.php(378): EcclesiaCRM\Utils\MiscUtils::PropTypes()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php on line 46
+[03-Feb-2022 22:00:04 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'EcclesiaCRM\Utils\qself' not found in /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php:46
+Stack trace:
+#0 /var/www/CRM/src/GroupPropsFormEditor.php(378): EcclesiaCRM\Utils\MiscUtils::PropTypes()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php on line 46

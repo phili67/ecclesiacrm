@@ -1,0 +1,3 @@
+[2022-11-03 19:50:30] defaultLogger.INFO: Start to delete : all unusefull files [] []
+[2022-11-03 20:30:51] defaultLogger.INFO: Database is not current, redirecting to SystemDBUpdate [] []
+[2022-11-03 20:30:52] defaultLogger.INFO: Database is not current, redirecting to SystemDBUpdate [] []
