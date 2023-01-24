@@ -1,0 +1,181 @@
+[29-Mar-2022 14:19:39 Europe/Paris] Slim Application Error
+Type: RuntimeException
+Code: 0
+Message: View cannot render `meetingsettings.php` because the template does not exist
+File: /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php
+Line: 154
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#1 /var/www/eventworkflow/src/core/VIEWControllers/VIEWEventWorkflowController.php(72): Slim\Views\PhpRenderer->render()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWEventWorkflowController->renderSettings()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#20 {main}
+[29-Mar-2022 15:47:21 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function setTime() on null
+File: /var/www/eventworkflow/src/core/APIControllers/EventWorkflowController.php
+Line: 509
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\APIControllers\EventWorkflowController->modifySubcontainerTime()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#6 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#8 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#15 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#16 {main}
+[29-Mar-2022 15:47:42 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function setTime() on null
+File: /var/www/eventworkflow/src/core/APIControllers/EventWorkflowController.php
+Line: 509
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\APIControllers\EventWorkflowController->modifySubcontainerTime()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#6 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#8 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#15 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#16 {main}
+[29-Mar-2022 15:49:27 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function setTime() on null
+File: /var/www/eventworkflow/src/core/APIControllers/EventWorkflowController.php
+Line: 509
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\APIControllers\EventWorkflowController->modifySubcontainerTime()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#6 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#8 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#15 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#16 {main}
+[29-Mar-2022 15:50:06 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function setTime() on null
+File: /var/www/eventworkflow/src/core/APIControllers/EventWorkflowController.php
+Line: 509
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\APIControllers\EventWorkflowController->modifySubcontainerTime()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#6 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#8 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#15 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#16 {main}
+[29-Mar-2022 15:51:03 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function setTime() on null
+File: /var/www/eventworkflow/src/core/APIControllers/EventWorkflowController.php
+Line: 509
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\APIControllers\EventWorkflowController->modifySubcontainerTime()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#6 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#8 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#15 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#16 {main}
+[29-Mar-2022 20:57:11 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\Exception\UnknownColumnException
+Code: 0
+Message: Unknown column UserId in model EcclesiaCRM\Plugin
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php
+Line: 2307
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(148): Propel\Runtime\ActiveQuery\ModelCriteria->getRealColumnName()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2426): Propel\Runtime\ActiveQuery\ModelCriteria->filterBy()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(1035): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#3 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(57): EcclesiaCRM\User->isAdminEnableForPlugin()
+#4 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(141): EcclesiaCRM\MenuBar\MenuBar->addPluginMenus()
+#5 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(506): EcclesiaCRM\MenuBar\MenuBar->addEventMenu()
+#6 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(41): EcclesiaCRM\MenuBar\MenuBar->createMenuBar()
+#7 /var/www/CRM/src/EcclesiaCRM/view/MenuRenderer.php(12): EcclesiaCRM\MenuBar\MenuBar->__construct()
+#8 /var/www/CRM/src/Include/Header.php(241): EcclesiaCRM\view\MenuRenderer::RenderMenu()
+#9 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(21): require('/var/www/CRM/sr...')
+#10 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#11 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#12 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#13 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#20 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#22 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#24 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#27 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#28 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#29 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#30 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#31 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#32 {main}

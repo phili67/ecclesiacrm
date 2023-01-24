@@ -1,0 +1,283 @@
+[10-Feb-2022 05:14:49 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginQuery' not found
+File: /var/www/CRM/src/Include/Footer.php
+Line: 387
+Trace: #0 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(742): require()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#2 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#3 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#4 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/v2/index.php(121): Slim\App->run()
+#23 {main}
+[10-Feb-2022 05:33:11 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected '&quot;:window.CRM.&quot;' (T_CONSTANT_ENCAPSED_STRING)
+File: /var/www/CRM/src/Include/Footer.php
+Line: 396
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#2 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#3 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#10 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#12 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#14 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#21 /var/www/CRM/src/v2/index.php(121): Slim\App->run()
+#22 {main}
+[10-Feb-2022 05:38:59 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected ')'
+File: /var/www/CRM/src/Include/Footer.php
+Line: 415
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#2 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#3 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#10 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#12 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#14 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#21 /var/www/CRM/src/v2/index.php(121): Slim\App->run()
+#22 {main}
+[10-Feb-2022 05:39:37 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected ')'
+File: /var/www/CRM/src/Include/Footer.php
+Line: 415
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#2 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#3 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#10 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#12 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#14 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#21 /var/www/CRM/src/v2/index.php(121): Slim\App->run()
+#22 {main}
+[10-Feb-2022 05:44:51 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected '='
+File: /var/www/CRM/src/Include/Header-function.php
+Line: 155
+Trace: #0 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(21): require()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#2 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#3 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#4 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/v2/index.php(121): Slim\App->run()
+#23 {main}
+[10-Feb-2022 05:45:14 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginQuery' not found
+File: /var/www/CRM/src/Include/Header-function.php
+Line: 145
+Trace: #0 /var/www/CRM/src/Include/Header.php(65): Header_body_scripts()
+#1 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(21): require('/var/www/CRM/sr...')
+#2 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#3 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#4 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#5 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#12 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/v2/index.php(121): Slim\App->run()
+#24 {main}
+[10-Feb-2022 20:29:20 Europe/Paris] Slim Application Error
+Type: RuntimeException
+Code: 0
+Message: Callable EcclesiaCRM\VIEWControllers\VIEWPluginsController does not exist
+File: /var/www/CRM/src/vendor/slim/slim/Slim/CallableResolver.php
+Line: 147
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/CallableResolver.php(101): Slim\CallableResolver->resolveSlimNotation()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/CallableResolver.php(71): Slim\CallableResolver->resolveByPredicate()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(366): Slim\CallableResolver->resolveRoute()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#19 {main}
+[10-Feb-2022 20:30:26 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to undefined method EcclesiaCRM\VIEWControllers\VIEWPluginsController::argumentsBackupArray()
+File: /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php
+Line: 39
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWPluginsController->renderPlugins()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#6 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#18 {main}
+[10-Feb-2022 20:30:27 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to undefined method EcclesiaCRM\VIEWControllers\VIEWPluginsController::argumentsBackupArray()
+File: /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php
+Line: 39
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWPluginsController->renderPlugins()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#6 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#18 {main}
+[10-Feb-2022 20:30:42 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to a member function group() on null
+File: /var/www/CRM/src/v2/templates/plugins/plugins.php
+Line: 21
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#2 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#3 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php(39): Slim\Views\PhpRenderer->render()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWPluginsController->renderPlugins()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#10 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#12 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#14 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#21 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#22 {main}

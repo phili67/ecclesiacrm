@@ -1,0 +1,4 @@
+[2022-09-24 13:44:59] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'plugin.plgn_default_color' in 'field list' [] []
+[2022-09-24 13:45:59] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'plugin.plgn_default_color' in 'field list' [] []
+[2022-09-24 13:55:31] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'plugin_user_role.plgn_usr_rl_color' in 'field list' [] []
+[2022-09-24 13:55:44] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'plugin_user_role.plgn_usr_rl_color' in 'field list' [] []

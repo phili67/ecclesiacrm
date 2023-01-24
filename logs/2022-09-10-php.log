@@ -1,0 +1,934 @@
+[10-Sep-2022 16:40:57 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginQuery' not found
+File: /var/www/CRM/src/Plugins/NewsDashboard/v2/templates/View.php
+Line: 3
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#2 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(423): Slim\Views\PhpRenderer->fetch()
+#3 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#4 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#5 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#6 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(48): Slim\Views\PhpRenderer->render()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#13 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#15 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#17 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#24 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#25 {main}
+[10-Sep-2022 16:41:13 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginUserRoleTableMap' not found
+File: /var/www/CRM/src/Plugins/NewsDashboard/v2/templates/View.php
+Line: 7
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#2 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(423): Slim\Views\PhpRenderer->fetch()
+#3 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#4 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#5 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#6 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(48): Slim\Views\PhpRenderer->render()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#13 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#15 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#17 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#24 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#25 {main}
+[10-Sep-2022 18:06:59 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:01 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:01 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:01 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:01 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:05 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:06 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:07 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:07 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:08 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:09 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:11 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:13 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:18 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:20 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:23 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:23 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:23 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:23 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:23 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:26 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:07:43 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:08:02 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:08:23 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:08:43 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:09:02 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:09:24 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:09:43 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 18:10:02 Europe/Paris] Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Cannot register two routes matching &quot;/api/todolistdashboard/addList&quot; for method &quot;POST&quot;
+File: /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 86
+Trace: #0 /var/www/CRM/src/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /var/www/CRM/src/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(46): FastRoute\RouteCollector->addRoute()
+#3 /var/www/CRM/src/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(64): FastRoute\simpleDispatcher()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Dispatcher.php(77): Slim\Routing\Dispatcher->createDispatcher()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteResolver.php(58): Slim\Routing\Dispatcher->dispatch()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(113): Slim\Routing\RouteResolver->computeRoutingResults()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(76): Slim\Middleware\RoutingMiddleware->resolveRoutingResultsFromRequest()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#20 {main}
+[10-Sep-2022 22:40:30 Europe/Paris] Slim Application Error
+Type: ArgumentCountError
+Code: 0
+Message: Too few arguments to function PluginStore\Base\NewsDashboard::setDateentered(), 0 passed in /var/www/CRM/src/Plugins/NewsDashboard/v2/templates/View.php on line 68 and exactly 1 expected
+File: /var/www/CRM/src/Plugins/NewsDashboard/core/model/Base/NewsDashboard.php
+Line: 564
+Trace: #0 /var/www/CRM/src/Plugins/NewsDashboard/v2/templates/View.php(68): PluginStore\Base\NewsDashboard->setDateentered()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#2 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#3 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(423): Slim\Views\PhpRenderer->fetch()
+#4 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#5 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#6 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#7 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(48): Slim\Views\PhpRenderer->render()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#14 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#16 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#18 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#25 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#26 {main}
+[11-Sep-2022 00:00:26 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: DELETE
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#10 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#11 {main}
+[11-Sep-2022 00:00:29 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: DELETE
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#10 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#11 {main}
+[11-Sep-2022 00:01:22 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: DELETE
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting()
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#10 /var/www/CRM/src/api/index.php(145): Slim\App->run()
+#11 {main}

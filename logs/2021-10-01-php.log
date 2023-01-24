@@ -1,0 +1,7 @@
+[01-Oct-2021 21:29:15 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'crm.version_ver' doesn't exist in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute(NULL)
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement(Object(Propel\Runtime\ActiveQuery\SqlBuilder\PreparedStatementDto))
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php on line 136

@@ -5,7 +5,7 @@ site_author: 'Philippe Logel'
 site_url: 'https://github.com/phili67/ecclesiacrm'
 
 # Copyright
-copyright: 'Copyright &copy; 2017 - 202O Philippe Logel'
+copyright: 'Copyright &copy; 2017 - 2023 Philippe Logel'
 
 # Configuration
 theme:
@@ -117,6 +117,10 @@ nav:
       - 'Overview': 'user-guide/doc-gdpr/doc-gdpr-introduction.md'
       - 'Activation & Management': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
 
+  - "Manual : Visio (Plugin)":
+      - 'Introduction': 'user-guide/doc-visio/doc-visio-introduction.md'
+      - 'Management': 'user-guide/doc-visio/doc-visio-management.md'
+
   - "Manual: Pastor & Advisor":
       - "Dashboard": 'user-guide/doc-pastoral-care/doc-pastoral-care-dashboard.md'
       - "Enable for an User": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
@@ -133,6 +137,10 @@ nav:
       - "Export : List - PhotoBook - Attendance": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
       - "Side bar": 'user-guide/doc-sunday-school/doc-sunday-school-menu.md'
 
+  - "Manual : Event Workflow (plugin)":
+      - "Overview": 'user-guide/doc-plugins/eventworkflow/introduction.md'
+      - "Create/Manaage (one day)": 'user-guide/doc-plugins/eventworkflow/createmanage.md'
+
   - "Manual: Mailing & Campaign":
       - "MailChimp":
           - 'Dashboard': 'user-guide/doc-mailchimp/dashboard.md'
@@ -140,16 +148,21 @@ nav:
           - 'Segments management (tags)': 'user-guide/doc-mailchimp/manage_tag.md'
           - 'Campaign management': 'user-guide/doc-mailchimp/manage_campaign.md'
 
-  - "Tools":
-      - "Geographical search": 'user-guide/doc-tools/doc-geographics.md'
-      - "Import datas": 'user-guide/doc-tools/doc-import.md'
-      - "Email": 'user-guide/doc-tools/doc-email.md'
-      - "Cart": 'user-guide/doc-tools/doc-cart.md'
+  - "Manuel : Plugins":
+      - "Overview": 'user-guide/doc-plugins/introduction.md'
+      - "Installation/Upgrade": 'user-guide/doc-plugins/installation-upgrade.md'
 
   - "Manual: Developer":
       - 'API': 'user-guide/doc-dev/doc-api/api.md'
       - 'Plugins':
           - 'Introduction': 'user-guide/doc-dev/doc-plugins/intro.md/'
+          - 'Start': 'user-guide/doc-dev/doc-plugins/start.md'
+
+  - "Tools":
+      - "Geographical search": 'user-guide/doc-tools/doc-geographics.md'
+      - "Import datas": 'user-guide/doc-tools/doc-import.md'
+      - "Email": 'user-guide/doc-tools/doc-email.md'
+      - "Cart": 'user-guide/doc-tools/doc-cart.md'
 
   - "About":
       - 'About': 'about/about.md'

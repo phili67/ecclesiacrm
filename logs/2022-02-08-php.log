@@ -1,0 +1,733 @@
+[08-Feb-2022 08:03:29 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\RuntimeException
+Code: 0
+Message: No connection defined for database &quot;pluginstore&quot;. Did you forget to define a connection or is it wrong written?
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ServiceContainer/StandardServiceContainer.php
+Line: 351
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ServiceContainer/StandardServiceContainer.php(444): Propel\Runtime\ServiceContainer\StandardServiceContainer->getConnectionManager()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1284): Propel\Runtime\ServiceContainer\StandardServiceContainer->getReadConnection()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1595): Propel\Runtime\ActiveQuery\ModelCriteria->findOne()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2446): Propel\Runtime\ActiveQuery\ModelCriteria->findOneBy()
+#4 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(54): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#5 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#12 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#24 {main}
+[08-Feb-2022 08:04:03 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\RuntimeException
+Code: 0
+Message: No connection defined for database &quot;pluginstore&quot;. Did you forget to define a connection or is it wrong written?
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ServiceContainer/StandardServiceContainer.php
+Line: 351
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ServiceContainer/StandardServiceContainer.php(444): Propel\Runtime\ServiceContainer\StandardServiceContainer->getConnectionManager()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1284): Propel\Runtime\ServiceContainer\StandardServiceContainer->getReadConnection()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1595): Propel\Runtime\ActiveQuery\ModelCriteria->findOne()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2446): Propel\Runtime\ActiveQuery\ModelCriteria->findOneBy()
+#4 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(54): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#5 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#12 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#24 {main}
+[08-Feb-2022 08:04:04 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\RuntimeException
+Code: 0
+Message: No connection defined for database &quot;pluginstore&quot;. Did you forget to define a connection or is it wrong written?
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ServiceContainer/StandardServiceContainer.php
+Line: 351
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ServiceContainer/StandardServiceContainer.php(444): Propel\Runtime\ServiceContainer\StandardServiceContainer->getConnectionManager()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1284): Propel\Runtime\ServiceContainer\StandardServiceContainer->getReadConnection()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1595): Propel\Runtime\ActiveQuery\ModelCriteria->findOne()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2446): Propel\Runtime\ActiveQuery\ModelCriteria->findOneBy()
+#4 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(54): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#5 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#12 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#24 {main}
+[08-Feb-2022 08:12:55 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\RuntimeException
+Code: 0
+Message: No connection defined for database &quot;pluginstore&quot;. Did you forget to define a connection or is it wrong written?
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ServiceContainer/StandardServiceContainer.php
+Line: 351
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ServiceContainer/StandardServiceContainer.php(444): Propel\Runtime\ServiceContainer\StandardServiceContainer->getConnectionManager()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1284): Propel\Runtime\ServiceContainer\StandardServiceContainer->getReadConnection()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1595): Propel\Runtime\ActiveQuery\ModelCriteria->findOne()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2446): Propel\Runtime\ActiveQuery\ModelCriteria->findOneBy()
+#4 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(54): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#5 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#12 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#24 {main}
+[08-Feb-2022 08:12:55 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\RuntimeException
+Code: 0
+Message: No connection defined for database &quot;pluginstore&quot;. Did you forget to define a connection or is it wrong written?
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ServiceContainer/StandardServiceContainer.php
+Line: 351
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ServiceContainer/StandardServiceContainer.php(444): Propel\Runtime\ServiceContainer\StandardServiceContainer->getConnectionManager()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1284): Propel\Runtime\ServiceContainer\StandardServiceContainer->getReadConnection()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1595): Propel\Runtime\ActiveQuery\ModelCriteria->findOne()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2446): Propel\Runtime\ActiveQuery\ModelCriteria->findOneBy()
+#4 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(54): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#5 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#12 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#24 {main}
+[08-Feb-2022 08:57:53 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginStore\PersonLastJitsiMeetingQuery' not found
+File: /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php
+Line: 54
+Trace: #0 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#19 {main}
+[08-Feb-2022 08:58:22 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginStore\PersonLastJitsiMeetingQuery' not found
+File: /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php
+Line: 54
+Trace: #0 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#19 {main}
+[08-Feb-2022 10:21:50 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginStore\PersonLastJitsiMeetingQuery' not found
+File: /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php
+Line: 54
+Trace: #0 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#19 {main}
+[08-Feb-2022 10:21:57 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginStore\PersonLastJitsiMeetingQuery' not found
+File: /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php
+Line: 54
+Trace: #0 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#19 {main}
+[08-Feb-2022 10:22:00 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginStore\PersonLastJitsiMeetingQuery' not found
+File: /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php
+Line: 54
+Trace: #0 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#19 {main}
+[08-Feb-2022 10:22:00 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginStore\PersonLastJitsiMeetingQuery' not found
+File: /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php
+Line: 54
+Trace: #0 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#19 {main}
+[08-Feb-2022 10:22:01 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginStore\PersonLastJitsiMeetingQuery' not found
+File: /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php
+Line: 54
+Trace: #0 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#19 {main}
+[08-Feb-2022 10:22:01 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginStore\PersonLastJitsiMeetingQuery' not found
+File: /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php
+Line: 54
+Trace: #0 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#19 {main}
+[08-Feb-2022 10:22:01 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginStore\PersonLastJitsiMeetingQuery' not found
+File: /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php
+Line: 54
+Trace: #0 /var/www/CRM/src/Plugins/MeetingJitsi/VIEWControllers/VIEWMeetingController.php(41): Plugins\VIEWControllers\VIEWMeetingController->argumentsMeetingArray()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderMeetingDashboard()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#19 {main}
+[08-Feb-2022 14:30:47 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'PluginMenuBarreQuery' not found
+File: /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php
+Line: 342
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(471): EcclesiaCRM\MenuBar\MenuBar->addMeeting()
+#1 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(41): EcclesiaCRM\MenuBar\MenuBar->createMenuBar()
+#2 /var/www/CRM/src/EcclesiaCRM/view/MenuRenderer.php(12): EcclesiaCRM\MenuBar\MenuBar->__construct()
+#3 /var/www/CRM/src/Include/Header.php(241): EcclesiaCRM\view\MenuRenderer::RenderMenu()
+#4 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(21): require('/var/www/CRM/sr...')
+#5 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#6 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#7 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#8 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#15 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#27 {main}
+[08-Feb-2022 14:37:03 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\Exception\UnknownColumnException
+Code: 0
+Message: Unknown column PluginName in model EcclesiaCRM\PluginMenuBarre
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php
+Line: 2327
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(163): Propel\Runtime\ActiveQuery\ModelCriteria->getRealColumnName()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2446): Propel\Runtime\ActiveQuery\ModelCriteria->filterBy()
+#2 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(343): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#3 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(472): EcclesiaCRM\MenuBar\MenuBar->addMeeting()
+#4 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(42): EcclesiaCRM\MenuBar\MenuBar->createMenuBar()
+#5 /var/www/CRM/src/EcclesiaCRM/view/MenuRenderer.php(12): EcclesiaCRM\MenuBar\MenuBar->__construct()
+#6 /var/www/CRM/src/Include/Header.php(241): EcclesiaCRM\view\MenuRenderer::RenderMenu()
+#7 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(21): require('/var/www/CRM/sr...')
+#8 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#9 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#10 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#11 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#20 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#22 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#27 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#28 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#29 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#30 {main}
+[08-Feb-2022 14:39:20 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\Exception\UnknownColumnException
+Code: 0
+Message: Unknown column PluginName in model EcclesiaCRM\PluginMenuBarre
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php
+Line: 2327
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(163): Propel\Runtime\ActiveQuery\ModelCriteria->getRealColumnName()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2446): Propel\Runtime\ActiveQuery\ModelCriteria->filterBy()
+#2 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(343): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#3 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(472): EcclesiaCRM\MenuBar\MenuBar->addMeeting()
+#4 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(42): EcclesiaCRM\MenuBar\MenuBar->createMenuBar()
+#5 /var/www/CRM/src/EcclesiaCRM/view/MenuRenderer.php(12): EcclesiaCRM\MenuBar\MenuBar->__construct()
+#6 /var/www/CRM/src/Include/Header.php(241): EcclesiaCRM\view\MenuRenderer::RenderMenu()
+#7 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(21): require('/var/www/CRM/sr...')
+#8 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#9 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#10 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#11 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#20 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#22 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#27 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#28 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#29 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#30 {main}
+[08-Feb-2022 14:39:23 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\Exception\UnknownColumnException
+Code: 0
+Message: Unknown column PluginName in model EcclesiaCRM\PluginMenuBarre
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php
+Line: 2327
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(163): Propel\Runtime\ActiveQuery\ModelCriteria->getRealColumnName()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2446): Propel\Runtime\ActiveQuery\ModelCriteria->filterBy()
+#2 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(343): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#3 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(472): EcclesiaCRM\MenuBar\MenuBar->addMeeting()
+#4 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(42): EcclesiaCRM\MenuBar\MenuBar->createMenuBar()
+#5 /var/www/CRM/src/EcclesiaCRM/view/MenuRenderer.php(12): EcclesiaCRM\MenuBar\MenuBar->__construct()
+#6 /var/www/CRM/src/Include/Header.php(241): EcclesiaCRM\view\MenuRenderer::RenderMenu()
+#7 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(21): require('/var/www/CRM/sr...')
+#8 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#9 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#10 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#11 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#18 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#20 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#22 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#27 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#28 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#29 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#30 {main}
+[08-Feb-2022 18:20:39 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Cannot use object of type EcclesiaCRM\User as array
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php
+Line: 876
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(52): EcclesiaCRM\User->getUserMainSettingByString()
+#1 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(369): EcclesiaCRM\MenuBar\MenuBar->addPluginMenus()
+#2 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(494): EcclesiaCRM\MenuBar\MenuBar->addMeeting()
+#3 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(41): EcclesiaCRM\MenuBar\MenuBar->createMenuBar()
+#4 /var/www/CRM/src/EcclesiaCRM/view/MenuRenderer.php(12): EcclesiaCRM\MenuBar\MenuBar->__construct()
+#5 /var/www/CRM/src/Include/Header.php(241): EcclesiaCRM\view\MenuRenderer::RenderMenu()
+#6 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(21): require('/var/www/CRM/sr...')
+#7 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#8 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#9 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#10 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#17 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#19 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#21 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#27 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#28 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#29 {main}
+[08-Feb-2022 18:49:37 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [SELECT user_usr.usr_per_ID, user_usr.usr_HomeDir, user_usr.usr_CurrentPath, user_usr.usr_role_id, user_usr.usr_Password, user_usr.usr_NeedPasswordChange, user_usr.usr_LastLogin, user_usr.usr_LoginCount, user_usr.usr_FailedLogins, user_usr.usr_AddRecords, user_usr.usr_EditRecords, user_usr.usr_DeleteRecords, user_usr.usr_MenuOptions, user_usr.usr_ManageGroups, user_usr.usr_HtmlSourceEditor, user_usr.usr_Finance, user_usr.usr_Notes, user_usr.usr_Admin, user_usr.usr_Meeting, user_usr.usr_PastoralCare, user_usr.usr_MailChimp, user_usr.usr_MainDashboard, user_usr.usr_SeePrivacyData, user_usr.usr_GDRP_DPO, user_usr.usr_SearchLimit, user_usr.usr_showPledges, user_usr.usr_showPayments, user_usr.usr_showMenuQuery, user_usr.usr_CanSendEmail, user_usr.usr_CreateDirectory, user_usr.usr_ExportCSV, user_usr.usr_ExportSundaySchoolCSV, user_usr.usr_ExportSundaySchoolPDF, user_usr.usr_ManageCalendarResources, user_usr.usr_showSince, user_usr.usr_showTo, user_usr.usr_defaultFY, user_usr.usr_currentDeposit, user_usr.usr_UserName, user_usr.usr_webDavKey, user_usr.usr_webDavPublicKey, user_usr.usr_EditSelf, user_usr.usr_CalStart, user_usr.usr_CalEnd, user_usr.usr_CalNoSchool1, user_usr.usr_CalNoSchool2, user_usr.usr_CalNoSchool3, user_usr.usr_CalNoSchool4, user_usr.usr_CalNoSchool5, user_usr.usr_CalNoSchool6, user_usr.usr_CalNoSchool7, user_usr.usr_CalNoSchool8, user_usr.usr_SearchFamily, user_usr.usr_TwoFaSecret, user_usr.usr_TwoFaSecretConfirm, user_usr.usr_TwoFaRescuePasswords, user_usr.usr_TwoFaRescueDateTime, user_usr.usr_Canvasser, user_usr.usr_ShowCart, user_usr.usr_ShowMap, user_usr.usr_EDrive, user_usr.usr_IsDeactivated, userrole_usrrol.usrrol_id, userrole_usrrol.usrrol_name, userrole_usrrol.usrrol_global, userrole_usrrol.usrrol_permissions, userrole_usrrol.usrrol_value FROM user_usr LEFT JOIN userrole_usrrol ON (user_usr.usr_role_id=userrole_usrrol.usrrol_id)]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2436): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2231): Propel\Runtime\ActiveQuery\Criteria->doSelect()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1263): Propel\Runtime\ActiveQuery\ModelCriteria->doSelect()
+#6 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWUserController.php(50): Propel\Runtime\ActiveQuery\ModelCriteria->find()
+#7 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWUserController.php(42): EcclesiaCRM\VIEWControllers\VIEWUserController->argumentsrenderUserListArray()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWUserController->renderUserList()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#14 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#16 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#18 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#25 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#26 {main}
+Previous Error:
+Type: PDOException
+Code: 42S22
+Message: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_usr.usr_Meeting' in 'field list'
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2436): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2231): Propel\Runtime\ActiveQuery\Criteria->doSelect()
+#6 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1263): Propel\Runtime\ActiveQuery\ModelCriteria->doSelect()
+#7 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWUserController.php(50): Propel\Runtime\ActiveQuery\ModelCriteria->find()
+#8 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWUserController.php(42): EcclesiaCRM\VIEWControllers\VIEWUserController->argumentsrenderUserListArray()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWUserController->renderUserList()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#15 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#27 {main}
+[08-Feb-2022 18:49:49 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [SELECT user_usr.usr_per_ID, user_usr.usr_HomeDir, user_usr.usr_CurrentPath, user_usr.usr_role_id, user_usr.usr_Password, user_usr.usr_NeedPasswordChange, user_usr.usr_LastLogin, user_usr.usr_LoginCount, user_usr.usr_FailedLogins, user_usr.usr_AddRecords, user_usr.usr_EditRecords, user_usr.usr_DeleteRecords, user_usr.usr_MenuOptions, user_usr.usr_ManageGroups, user_usr.usr_HtmlSourceEditor, user_usr.usr_Finance, user_usr.usr_Notes, user_usr.usr_Admin, user_usr.usr_Meeting, user_usr.usr_PastoralCare, user_usr.usr_MailChimp, user_usr.usr_MainDashboard, user_usr.usr_SeePrivacyData, user_usr.usr_GDRP_DPO, user_usr.usr_SearchLimit, user_usr.usr_showPledges, user_usr.usr_showPayments, user_usr.usr_showMenuQuery, user_usr.usr_CanSendEmail, user_usr.usr_CreateDirectory, user_usr.usr_ExportCSV, user_usr.usr_ExportSundaySchoolCSV, user_usr.usr_ExportSundaySchoolPDF, user_usr.usr_ManageCalendarResources, user_usr.usr_showSince, user_usr.usr_showTo, user_usr.usr_defaultFY, user_usr.usr_currentDeposit, user_usr.usr_UserName, user_usr.usr_webDavKey, user_usr.usr_webDavPublicKey, user_usr.usr_EditSelf, user_usr.usr_CalStart, user_usr.usr_CalEnd, user_usr.usr_CalNoSchool1, user_usr.usr_CalNoSchool2, user_usr.usr_CalNoSchool3, user_usr.usr_CalNoSchool4, user_usr.usr_CalNoSchool5, user_usr.usr_CalNoSchool6, user_usr.usr_CalNoSchool7, user_usr.usr_CalNoSchool8, user_usr.usr_SearchFamily, user_usr.usr_TwoFaSecret, user_usr.usr_TwoFaSecretConfirm, user_usr.usr_TwoFaRescuePasswords, user_usr.usr_TwoFaRescueDateTime, user_usr.usr_Canvasser, user_usr.usr_ShowCart, user_usr.usr_ShowMap, user_usr.usr_EDrive, user_usr.usr_IsDeactivated, userrole_usrrol.usrrol_id, userrole_usrrol.usrrol_name, userrole_usrrol.usrrol_global, userrole_usrrol.usrrol_permissions, userrole_usrrol.usrrol_value FROM user_usr LEFT JOIN userrole_usrrol ON (user_usr.usr_role_id=userrole_usrrol.usrrol_id)]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2436): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2231): Propel\Runtime\ActiveQuery\Criteria->doSelect()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1263): Propel\Runtime\ActiveQuery\ModelCriteria->doSelect()
+#6 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWUserController.php(50): Propel\Runtime\ActiveQuery\ModelCriteria->find()
+#7 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWUserController.php(42): EcclesiaCRM\VIEWControllers\VIEWUserController->argumentsrenderUserListArray()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWUserController->renderUserList()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#14 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#16 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#18 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#25 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#26 {main}
+Previous Error:
+Type: PDOException
+Code: 42S22
+Message: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_usr.usr_Meeting' in 'field list'
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2436): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2231): Propel\Runtime\ActiveQuery\Criteria->doSelect()
+#6 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1263): Propel\Runtime\ActiveQuery\ModelCriteria->doSelect()
+#7 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWUserController.php(50): Propel\Runtime\ActiveQuery\ModelCriteria->find()
+#8 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWUserController.php(42): EcclesiaCRM\VIEWControllers\VIEWUserController->argumentsrenderUserListArray()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWUserController->renderUserList()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#15 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/v2/index.php(118): Slim\App->run()
+#27 {main}
+[08-Feb-2022 22:00:11 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'SystemURLs' not found
+File: /var/www/CRM/src/v2/templates/error/404.php
+Line: 21
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#2 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#3 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWErrorController.php(34): Slim\Views\PhpRenderer->render()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWErrorController->render404Error()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#10 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#12 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#14 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#21 /var/www/CRM/src/v2/index.php(121): Slim\App->run()
+#22 {main}

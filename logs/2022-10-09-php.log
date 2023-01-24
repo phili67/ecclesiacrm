@@ -1,0 +1,45 @@
+[09-Oct-2022 07:14:00 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected ')'
+File: /var/www/eventworkflow/src/ident/templates/check/check-all.php
+Line: 26
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#2 /var/www/eventworkflow/src/ident/routes/checkeventworkflow.php(91): Slim\Views\PhpRenderer->render()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Closure->{closure}()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#14 /var/www/CRM/src/ident/index.php(60): Slim\App->run()
+#15 {main}
+[09-Oct-2022 07:46:56 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'SystemConfig' not found
+File: /var/www/eventworkflow/src/ident/templates/check/check-all.php
+Line: 26
+Trace: #0 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include()
+#1 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#2 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#3 /var/www/eventworkflow/src/ident/routes/checkeventworkflow.php(97): Slim\Views\PhpRenderer->render()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Closure->{closure}()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Slim\Routing\RouteRunner->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#15 /var/www/CRM/src/ident/index.php(60): Slim\App->run()
+#16 {main}

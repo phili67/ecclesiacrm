@@ -5,7 +5,7 @@ site_author: 'Philippe Logel'
 site_url: 'https://github.com/phili67/ecclesiacrm'
 
 # Copyright
-copyright: 'Copyright &copy; 2017 - 2020 Philippe Logel'
+copyright: 'Copyright &copy; 2017 - 2023 Philippe Logel'
 
 # Configuration
 theme:
@@ -119,7 +119,7 @@ nav:
     - 'Introduction': 'user-guide/doc-gdpr/doc-gdpr-introduction.md'
     - 'Activation & Gestion': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
 
-- "Manuel : Visio":
+- "Manuel : Visio (Plugin)":
       - 'Introduction': 'user-guide/doc-visio/doc-visio-introduction.md'
       - 'Gestion': 'user-guide/doc-visio/doc-visio-management.md'
 
@@ -139,6 +139,10 @@ nav:
     - "Export : Trombinoscope - tableau de présence": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
     - "Barre Latérale": 'user-guide/doc-sunday-school/doc-sunday-school-menu.md'
 
+- "Manuel : Flux d'événement (plugin)":
+    - "Présentation": 'user-guide/doc-plugins/eventworkflow/introduction.md'
+    - "Créer/gérer (une journée)": 'user-guide/doc-plugins/eventworkflow/createmanage.md'
+
 - "Manuel : Campagne de Publipostage":
     - "MailChimp":
         - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
@@ -146,17 +150,21 @@ nav:
         - 'Gérer les Tags (étiquettes)': 'user-guide/doc-mailchimp/manage_tag.md'
         - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
 
+- "Manuel : Plugins":
+    - "Présentation": 'user-guide/doc-plugins/introduction.md'
+    - "Installation/mise à jour": 'user-guide/doc-plugins/installation-upgrade.md'
+
+- "Manuel : développeur":
+    - 'API': 'user-guide/doc-dev/doc-api/api.md'
+    - 'Plugins':
+      - 'Introduction': 'user-guide/doc-dev/doc-plugins/intro.md'
+      - 'Démarrer': 'user-guide/doc-dev/doc-plugins/start.md'
+
 - "Outils":
     - "Panier": 'user-guide/doc-tools/doc-cart.md'
     - "Email": 'user-guide/doc-tools/doc-email.md'
     - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'
     - "Import/export de personnes et familles": 'user-guide/doc-tools/doc-import.md'
-
-- "Manuel : développeur":
-    - 'API': 'user-guide/doc-dev/doc-api/api.md'
-    - 'Plugins':
-      - 'Introduction': 'user-guide/doc-dev/doc-plugins/intro.md/'
-      - 'Démarrer': 'user-guide/doc-dev/doc-plugins/start.md/'
 
 - "À propos":
     - 'A propos': 'about/about.md'

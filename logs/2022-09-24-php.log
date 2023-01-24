@@ -1,0 +1,168 @@
+[24-Sep-2022 13:44:59 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'plugin.plgn_default_color' in 'field list' in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2322): Propel\Runtime\Activ in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php on line 136
+[24-Sep-2022 13:45:59 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'plugin.plgn_default_color' in 'field list' in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2322): Propel\Runtime\Activ in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php on line 136
+[24-Sep-2022 13:55:31 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [SELECT plugin_user_role.plgn_usr_rl_ID, plugin_user_role.plgn_usr_rl_user_id, plugin_user_role.plgn_usr_rl_plugin_id, plugin_user_role.plgn_usr_rl_role, plugin_user_role.plgn_usr_rl_visible, plugin_user_role.plgn_usr_rl_orientation, plugin_user_role.plgn_usr_rl_place, plugin_user_role.plgn_usr_rl_color, plugin_user_role.plgn_collapsed FROM plugin_user_role WHERE plugin_user_role.plgn_usr_rl_plugin_id=:p1 AND plugin_user_role.plgn_usr_rl_user_id=:p2 LIMIT 1]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2322): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2211): Propel\Runtime\ActiveQuery\Criteria->doSelect()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1270): Propel\Runtime\ActiveQuery\ModelCriteria->doSelect()
+#6 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1575): Propel\Runtime\ActiveQuery\ModelCriteria->findOne()
+#7 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2426): Propel\Runtime\ActiveQuery\ModelCriteria->findOneBy()
+#8 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(43): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#9 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#10 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#11 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#12 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(48): Slim\Views\PhpRenderer->render()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#19 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#21 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#23 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#27 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#28 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#29 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#30 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#31 {main}
+Previous Error:
+Type: PDOException
+Code: 42S22
+Message: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'plugin_user_role.plgn_usr_rl_color' in 'field list'
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2322): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2211): Propel\Runtime\ActiveQuery\Criteria->doSelect()
+#6 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1270): Propel\Runtime\ActiveQuery\ModelCriteria->doSelect()
+#7 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1575): Propel\Runtime\ActiveQuery\ModelCriteria->findOne()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2426): Propel\Runtime\ActiveQuery\ModelCriteria->findOneBy()
+#9 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(43): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#10 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#11 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#12 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#13 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(48): Slim\Views\PhpRenderer->render()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#20 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#22 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#24 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#27 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#28 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#29 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#30 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#31 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#32 {main}
+[24-Sep-2022 13:55:44 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\ActiveQuery\QueryExecutor\QueryExecutionException
+Code: 0
+Message: Unable to execute statement [SELECT plugin_user_role.plgn_usr_rl_ID, plugin_user_role.plgn_usr_rl_user_id, plugin_user_role.plgn_usr_rl_plugin_id, plugin_user_role.plgn_usr_rl_role, plugin_user_role.plgn_usr_rl_visible, plugin_user_role.plgn_usr_rl_orientation, plugin_user_role.plgn_usr_rl_place, plugin_user_role.plgn_usr_rl_color, plugin_user_role.plgn_collapsed FROM plugin_user_role WHERE plugin_user_role.plgn_usr_rl_plugin_id=:p1 AND plugin_user_role.plgn_usr_rl_user_id=:p2 LIMIT 1]
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php
+Line: 136
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(105): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->handleStatementException()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2322): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor::execute()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2211): Propel\Runtime\ActiveQuery\Criteria->doSelect()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1270): Propel\Runtime\ActiveQuery\ModelCriteria->doSelect()
+#6 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1575): Propel\Runtime\ActiveQuery\ModelCriteria->findOne()
+#7 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2426): Propel\Runtime\ActiveQuery\ModelCriteria->findOneBy()
+#8 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(43): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#9 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#10 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#11 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#12 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(48): Slim\Views\PhpRenderer->render()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#19 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#21 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#23 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#27 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#28 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#29 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#30 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#31 {main}
+Previous Error:
+Type: PDOException
+Code: 42S22
+Message: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'plugin_user_role.plgn_usr_rl_color' in 'field list'
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2322): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor::execute()
+#5 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2211): Propel\Runtime\ActiveQuery\Criteria->doSelect()
+#6 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1270): Propel\Runtime\ActiveQuery\ModelCriteria->doSelect()
+#7 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(1575): Propel\Runtime\ActiveQuery\ModelCriteria->findOne()
+#8 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/ModelCriteria.php(2426): Propel\Runtime\ActiveQuery\ModelCriteria->findOneBy()
+#9 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(43): Propel\Runtime\ActiveQuery\ModelCriteria->__call()
+#10 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#11 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#12 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#13 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(48): Slim\Views\PhpRenderer->render()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#20 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#22 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#24 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#27 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#28 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#29 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#30 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#31 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#32 {main}

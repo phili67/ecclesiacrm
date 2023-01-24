@@ -1,0 +1,2 @@
+[02-Nov-2022 16:46:06 Europe/Paris] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 2379218944 bytes) in /var/www/CRM/src/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php on line 68
+[02-Nov-2022 16:58:37 Europe/Paris] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 849346560 bytes) in /var/www/CRM/src/vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php on line 68

@@ -1,0 +1,3 @@
+[2022-02-19 11:21:41] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_usr.usr_Meeting' in 'field list' [] []
+[2022-02-19 19:47:45] ormLogger.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`crm`.`plugin_user_role`, CONSTRAINT `fk_plgn_usr_rl_user_id` FOREIGN KEY (`plgn_usr_rl_user_id`) REFERENCES `user_usr` (`usr_per_ID`) ON DELETE CASCADE) [] []
+[2022-02-19 19:48:21] ormLogger.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`crm`.`plugin_user_role`, CONSTRAINT `fk_plgn_usr_rl_user_id` FOREIGN KEY (`plgn_usr_rl_user_id`) REFERENCES `user_usr` (`usr_per_ID`) ON DELETE CASCADE) [] []

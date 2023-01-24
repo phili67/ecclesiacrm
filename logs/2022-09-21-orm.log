@@ -1,0 +1,1 @@
+[2022-09-21 12:02:07] ormLogger.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`crm`.`person2volunteeropp_p2vo`, CONSTRAINT `fk_p2vo_per_ID` FOREIGN KEY (`p2vo_per_ID`) REFERENCES `person_per` (`per_ID`) ON DELETE CASCADE) [] []

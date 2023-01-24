@@ -1,0 +1,34 @@
+[09-Nov-2021 14:57:02 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected ')'
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Family.php
+Line: 385
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/var/www/CRM/sr...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('EcclesiaCRM\\Fam...')
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/BaseModelCriteria.php(183): spl_autoload_call('EcclesiaCRM\\Fam...')
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/BaseModelCriteria.php(75): Propel\Runtime\ActiveQuery\BaseModelCriteria->setModelName('EcclesiaCRM\\Fam...')
+#4 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyQuery.php(298): Propel\Runtime\ActiveQuery\BaseModelCriteria->__construct('default', '\\EcclesiaCRM\\Fa...', NULL)
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/FamilyQuery.php(314): EcclesiaCRM\Base\FamilyQuery->__construct()
+#6 /var/www/CRM/src/EcclesiaCRM/dto/MenuEventsCount.php(224): EcclesiaCRM\Base\FamilyQuery::create()
+#7 /var/www/CRM/src/EcclesiaCRM/dto/MenuEventsCount.php(244): EcclesiaCRM\dto\MenuEventsCount::getAnniversaries()
+#8 /var/www/CRM/src/EcclesiaCRM/Synchronize/EventsDashboardItem.php(29): EcclesiaCRM\dto\MenuEventsCount::getNumberAnniversaries()
+#9 /var/www/CRM/src/EcclesiaCRM/Service/SynchronizeService.php(34): EcclesiaCRM\Synchronize\EventsDashboardItem::getDashboardItemValue()
+#10 /var/www/CRM/src/EcclesiaCRM/APIControllers/SystemSynchronizeController.php(46): EcclesiaCRM\Service\SynchronizeService::getValues('/PersonView.php...')
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\SystemSynchronizeController->synchronize(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#26 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#27 {main}

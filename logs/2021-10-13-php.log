@@ -1,0 +1,464 @@
+[13-Oct-2021 07:54:48 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'EcclesiaCRM\ystemConfig' not found
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Deposit.php
+Line: 119
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Deposit.php(235): EcclesiaCRM\Deposit->generateCashDenominations(Object(stdClass))
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Deposit.php(429): EcclesiaCRM\Deposit->generateQBDepositSlip(Object(stdClass))
+#2 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDepositController.php(100): EcclesiaCRM\Deposit->getPDF()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDepositController->createDepositPDF(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#19 {main}
+[13-Oct-2021 07:56:01 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to undefined function EcclesiaCRM\OutputUtils_()
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Deposit.php
+Line: 126
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Deposit.php(231): EcclesiaCRM\Deposit->generateCashDenominations(Object(stdClass))
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Deposit.php(425): EcclesiaCRM\Deposit->generateQBDepositSlip(Object(stdClass))
+#2 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDepositController.php(100): EcclesiaCRM\Deposit->getPDF()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDepositController->createDepositPDF(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#19 {main}
+[13-Oct-2021 21:28:37 Europe/Paris] PHP Fatal error:  Uncaught Error: Class 'EcclesiaCRM\Reports\PDF_Directory' not found in /var/www/CRM/src/Reports/DirectoryReport.php:104
+Stack trace:
+#0 {main}
+  thrown in /var/www/CRM/src/Reports/DirectoryReport.php on line 104
+[13-Oct-2021 21:35:05 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'EcclesiaCRM\Reports\PDF_DepositReport' not found
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Deposit.php
+Line: 416
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/APIControllers/FinanceDepositController.php(100): EcclesiaCRM\Deposit->getPDF()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FinanceDepositController->createDepositPDF(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#7 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#9 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#17 {main}
+[13-Oct-2021 21:57:03 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO paddlenum_pn (pn_ID, pn_fr_ID, pn_Num) VALUES (:p0, :p1, :p2)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php
+Line: 787
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute(NULL)
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(784): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#22 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#23 {main}
+[13-Oct-2021 21:57:06 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO paddlenum_pn (pn_ID, pn_fr_ID, pn_Num) VALUES (:p0, :p1, :p2)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php
+Line: 787
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute(NULL)
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(784): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#22 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#23 {main}
+[13-Oct-2021 21:57:20 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: POST
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Http\ServerRequest))
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#11 {main}
+[13-Oct-2021 21:57:41 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO paddlenum_pn (pn_ID, pn_fr_ID, pn_Num) VALUES (:p0, :p1, :p2)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php
+Line: 787
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute(NULL)
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(784): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#22 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#23 {main}
+[13-Oct-2021 21:58:25 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO paddlenum_pn (pn_ID, pn_fr_ID, pn_Num) VALUES (:p0, :p1, :p2)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php
+Line: 787
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute(NULL)
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(784): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#22 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#23 {main}
+[13-Oct-2021 21:58:36 Europe/Paris] 405 Method Not Allowed
+Type: Slim\Exception\HttpMethodNotAllowedException
+Code: 405
+Message: Method not allowed. Must be one of: POST
+File: /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php
+Line: 94
+Trace: #0 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(72): Slim\Middleware\RoutingMiddleware->performRouting(Object(Slim\Http\ServerRequest))
+#1 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#3 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#11 {main}
+[13-Oct-2021 21:58:53 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO paddlenum_pn (pn_ID, pn_fr_ID, pn_Num) VALUES (:p0, :p1, :p2)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php
+Line: 787
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute(NULL)
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(784): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#22 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#23 {main}
+[13-Oct-2021 21:59:55 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO paddlenum_pn (pn_ID, pn_fr_ID, pn_Num) VALUES (:p0, :p1, :p2)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php
+Line: 787
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: 1364 Field 'pn_per_ID' doesn't have a default value
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute(NULL)
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(784): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(713): EcclesiaCRM\Base\PaddleNum->doInsert(Object(Propel\Runtime\Connection\PropelPDO))
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(658): EcclesiaCRM\Base\PaddleNum->doSave(Object(Propel\Runtime\Connection\PropelPDO))
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\PaddleNum->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PaddleNum.php(671): Propel\Runtime\Connection\ConnectionWrapper->transaction(Object(Closure))
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/FundraiserController.php(497): EcclesiaCRM\Base\PaddleNum->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\FundraiserController->addDonnors(Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke(Array, Object(Slim\Http\ServerRequest), Object(Slim\Http\Response), Array)
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle(Object(Slim\Http\ServerRequest))
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run(Object(Slim\Http\ServerRequest))
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle(Object(Slim\Http\ServerRequest))
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke(Object(Slim\Http\ServerRequest), Object(Slim\Routing\RouteRunner))
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process(Object(Slim\Http\ServerRequest), Object(class@anonymous))
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle(Object(Slim\Http\ServerRequest))
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle(Object(Slim\Http\ServerRequest))
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle(Object(Slim\Http\ServerRequest))
+#22 /var/www/CRM/src/api/index.php(134): Slim\App->run()
+#23 {main}

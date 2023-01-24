@@ -1,0 +1,11 @@
+[24-Feb-2022 20:06:24 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/Bootstrapper.php(131): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/Bootstrapper.php(167): EcclesiaCRM\Bootstrapper::DB_table_exists()
+#3 /var/www/CRM/src/EcclesiaCRM/Bootstrapper.php(87): EcclesiaCRM\Bootstrapper::ConfigureLocale()
+#4 /var/www/CRM/src/Include/LoadConfigs.php(33): EcclesiaCRM\Bootstrapper::init()
+#5 /var/www/CRM/src/Include/Config.php(62): require_once('...')
+#6 /var/www/CRM/src/index.php(7): require_once('...')
+#7 {main}
+  thrown in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php on line 215

@@ -1,0 +1,2857 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="a full documentation of the CRM">
+      
+      
+        <meta name="author" content="Philippe Logel">
+      
+      
+        <link rel="canonical" href="https://github.com/phili67/ecclesiacrm/user-guide/doc-dev/doc-plugins/start/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Start - EcclesiaCRM Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#795649">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="brown" data-md-color-accent="brown">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#to-get-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="EcclesiaCRM Documentation" class="md-header__button md-logo" aria-label="EcclesiaCRM Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EcclesiaCRM Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Start
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="EcclesiaCRM Documentation" class="md-nav__button md-logo" aria-label="EcclesiaCRM Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    EcclesiaCRM Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Manual: Administrator
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manual: Administrator" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Manual: Administrator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Setting Up EcclesiaCRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Setting Up EcclesiaCRM" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Setting Up EcclesiaCRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-installation/doc-requirement/" class="md-nav__link">
+        System requirements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-installation/doc-install/" class="md-nav__link">
+        Installation process
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Persons managements
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Persons managements" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Persons managements
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/person/doc-persons/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/person/doc-create-person/" class="md-nav__link">
+        Create a person
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/person/doc-delete-person/" class="md-nav__link">
+        De-actiavte/delete a person
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_4" type="checkbox" id="__nav_2_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_4">
+          Customization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Customization" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Customization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/person/doc-custom-settings/doc-person-classification/" class="md-nav__link">
+        Classifications management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/person/doc-custom-settings/doc-person-properties/" class="md-nav__link">
+        Property list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/person/doc-custom-settings/doc-person-customfields/" class="md-nav__link">
+        Custom fields
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Families management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Families management" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Families management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/family/doc-families/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/family/doc-create-family/" class="md-nav__link">
+        Register a family
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/family/doc-create-family-auto/" class="md-nav__link">
+        Self-register families
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/family/doc-verify-family-auto/" class="md-nav__link">
+        Self-verification families
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/family/doc-delete-family/" class="md-nav__link">
+        De-activate delete a family
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_6" type="checkbox" id="__nav_2_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_6">
+          customization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="customization" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          customization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/family/doc-custom-settings/doc-family-roles/" class="md-nav__link">
+        Family role
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/family/doc-custom-settings/doc-family-properties/" class="md-nav__link">
+        Family properties
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/family/doc-custom-settings/doc-family-customfields/" class="md-nav__link">
+        Family custom fields
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Group management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Group management" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Group management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/group/doc-groups/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/group/doc-groups-management/" class="md-nav__link">
+        Create & Menu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/group/doc-groups-managers/" class="md-nav__link">
+        Group management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/group/doc-groups-members-roles/" class="md-nav__link">
+        Members & roles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/group/doc-groups-export-contacts/" class="md-nav__link">
+        Export Contacts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_6" type="checkbox" id="__nav_2_4_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_6">
+          customization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="customization" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_6">
+          <span class="md-nav__icon md-icon"></span>
+          customization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/group/doc-custom-settings/doc-groups-global-properties/" class="md-nav__link">
+        Globals properties
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/group/doc-custom-settings/doc-groups-specific-properties/" class="md-nav__link">
+        Group specific properties
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/group/doc-groups-management/" class="md-nav__link">
+        Group types
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Rights & CRM users managements
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Rights & CRM users managements" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Rights & CRM users managements
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-users/doc-users/" class="md-nav__link">
+        User creation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-users/doc-user-role/" class="md-nav__link">
+        User role
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Global Settings
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Global Settings" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Global Settings
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-installation/doc-localization/" class="md-nav__link">
+        Localization in foreign language + currency
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-installation/doc-report/" class="md-nav__link">
+        Export in foreign language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/doc-settings/doc-settings-integration/" class="md-nav__link">
+        Integration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Tips
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tips" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tips
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-admin/doc-tips/doc-restauration-bdd-bug/" class="md-nav__link">
+        Bug after database restauration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Manual: User
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manual: User" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Manual: User
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Manage your profile
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manage your profile" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Manage your profile
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-profile/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-settings/" class="md-nav__link">
+        Settings
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          calendars
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="calendars" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          calendars
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-calendar/" class="md-nav__link">
+        Add & delete
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-events/" class="md-nav__link">
+        Create an event
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-share-calendar/" class="md-nav__link">
+        Share your calendar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-share-mac/" class="md-nav__link">
+        Share with a Mac
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Documents
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documents" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documents
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-document-creation/" class="md-nav__link">
+        Create & manage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-document-images-files/" class="md-nav__link">
+        Images & Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-document-share/" class="md-nav__link">
+        Sharing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-document-word-export/" class="md-nav__link">
+        Export to Word (BETA)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-document-templates/" class="md-nav__link">
+        Documents & Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          EDrive
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="EDrive" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          EDrive
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-person-document-edrive/" class="md-nav__link">
+        EDrive in the CRM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_2" type="checkbox" id="__nav_3_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_2">
+          EDrive outside the CRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="EDrive outside the CRM" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          EDrive outside the CRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-webdav-file/doc-webdav-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-webdav-file/doc-webdav-use/" class="md-nav__link">
+        Using the file manager
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Tips
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tips" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Tips
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-tips/doc-export-CSV/" class="md-nav__link">
+        Export problem (CSV)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-tips/doc-export-sidebar/" class="md-nav__link">
+        Menu bar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-person/doc-tips/doc-export-export-address-smartphone/" class="md-nav__link">
+        View your addresses through AppleMap, GoogleMap
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Manual: DPO & GDPR
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manual: DPO & GDPR" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Manual: DPO & GDPR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-gdpr/doc-gdpr-introduction/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-gdpr/doc-gdpr-activation/" class="md-nav__link">
+        Activation & Management
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Manual : Visio (Plugin)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manual : Visio (Plugin)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Manual : Visio (Plugin)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-visio/doc-visio-introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-visio/doc-visio-management/" class="md-nav__link">
+        Management
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Manual: Pastor & Advisor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manual: Pastor & Advisor" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Manual: Pastor & Advisor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-pastoral-care/doc-pastoral-care-dashboard/" class="md-nav__link">
+        Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-pastoral-care/doc-pastoral-care/" class="md-nav__link">
+        Enable for an User
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-pastoral-care/doc-pastoral-care-add-person-family/" class="md-nav__link">
+        Add : Person & Family
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-pastoral-care/doc-pastoral-care-classifications/" class="md-nav__link">
+        Classifications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-pastoral-care/doc-settings/doc-settings-pastoral-care/" class="md-nav__link">
+        Customization
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Manual: Sunday School
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manual: Sunday School" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Manual: Sunday School
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-sunday-school/doc-sunday-school-introduction/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-sunday-school/doc-sunday-school-attendance/" class="md-nav__link">
+        Call the Register
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-sunday-school/doc-sunday-school-add-edit/" class="md-nav__link">
+        Create - Edit - Sort
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-sunday-school/doc-sunday-school-help-teacher/" class="md-nav__link">
+        Help Teacher
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-sunday-school/doc-sunday-school-badges/" class="md-nav__link">
+        Export : Bagdes & QR codes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-sunday-school/doc-sunday-school-exports/" class="md-nav__link">
+        Export : List - PhotoBook - Attendance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-sunday-school/doc-sunday-school-menu/" class="md-nav__link">
+        Side bar
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Manual : Event Workflow (plugin)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manual : Event Workflow (plugin)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Manual : Event Workflow (plugin)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-plugins/eventworkflow/introduction/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-plugins/eventworkflow/createmanage/" class="md-nav__link">
+        Create/Manaage (one day)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Manual: Mailing & Campaign
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manual: Mailing & Campaign" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Manual: Mailing & Campaign
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          MailChimp
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MailChimp" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          MailChimp
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-mailchimp/dashboard/" class="md-nav__link">
+        Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-mailchimp/manage_list/" class="md-nav__link">
+        List Audience Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-mailchimp/manage_tag/" class="md-nav__link">
+        Segments management (tags)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-mailchimp/manage_campaign/" class="md-nav__link">
+        Campaign management
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Manuel : Plugins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manuel : Plugins" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Manuel : Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-plugins/introduction/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-plugins/installation-upgrade/" class="md-nav__link">
+        Installation/Upgrade
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Manual: Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manual: Developer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Manual: Developer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../doc-api/api/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_2">
+          Plugins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Plugins" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Start
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Start
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#to-generate-the-architecture-of-a-plugin" class="md-nav__link">
+    To generate the architecture of a plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-of-a-classic-plugin" class="md-nav__link">
+    Creation of a classic plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-dashboard-plugin" class="md-nav__link">
+    Creating a dashboard plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dernieres-recommandations-pour-les-deux-types-de-plugins" class="md-nav__link">
+    Dernières recommandations pour les deux types de plugins
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-tools/doc-geographics/" class="md-nav__link">
+        Geographical search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-tools/doc-import/" class="md-nav__link">
+        Import datas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-tools/doc-email/" class="md-nav__link">
+        Email
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../doc-tools/doc-cart/" class="md-nav__link">
+        Cart
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/license/" class="md-nav__link">
+        Licence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/release-notes/" class="md-nav__link">
+        Releases notes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#to-generate-the-architecture-of-a-plugin" class="md-nav__link">
+    To generate the architecture of a plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-of-a-classic-plugin" class="md-nav__link">
+    Creation of a classic plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-dashboard-plugin" class="md-nav__link">
+    Creating a dashboard plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dernieres-recommandations-pour-les-deux-types-de-plugins" class="md-nav__link">
+    Dernières recommandations pour les deux types de plugins
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="to-get-started">To get started<a class="headerlink" href="#to-get-started" title="Permanent link">&para;</a></h1>
+<h2 id="to-generate-the-architecture-of-a-plugin">To generate the architecture of a plugin<a class="headerlink" href="#to-generate-the-architecture-of-a-plugin" title="Permanent link">&para;</a></h2>
+<p>A shell command has been developed to facilitate the work: <strong>createPluginArch.sh</strong></p>
+<p><strong>Please note</strong></p>
+<ul>
+<li>the routes for each plugin are planned and are included in the complete management of the routes in <strong>api/plgnapi.php</strong> (see below) and are planned to be managed via controllers in the <strong>core/APIControllers</strong> arberscence.)</li>
+<li>for the views of the routes are predefined also <strong>v2/routes/v2route.php</strong> (they are possibly linked to your own controllers <strong>core/VIEWControllers</strong>).</li>
+<li>this mechanism guarantees maximum security.</li>
+<li>it is imperative to follow the fact that each plugin must have a signature which is validated by the crm (see for that the plugin documentation).</li>
+</ul>
+<p>**To create a plugin</p>
+<div class="codehilite"><pre><span></span><code>bash createPluginArch.sh *NameOfPlugin*
+</code></pre></div>
+
+<p>This script will create <strong>NameOfPlugin</strong> in the <strong>Plugins</strong> directory of the <strong>src</strong> directory.</p>
+<p>1. The architecture is of the form</p>
+<div class="codehilite"><pre><span></span><code>api/ // internal api management
+    plgnapi.php // we must create our own routes here
+    (managed by the CRM directly)
+core/ // here we can manage all the models
+    APIControllers // to define the controller called in plgnapi.php).
+    model // example for propel orm
+    VIEWControllers // for the views of the v2/routes part
+    ...
+    // for example
+    Service
+    views
+ident/ // for an access to an external api (optional)
+    routes/ // called by the crm directly
+    templates/ // called by the route part
+locale/
+    js/ // js translation code
+    textdomain/ // for gettext translation of php code
+    index.html
+mysql/ // setting up mysql files
+    index.html // protection file
+    Install.sql // sql script to create the database
+                    // called by the plugin manager
+    Uninstall.sql // to uninstall the plugin, it&#39;s up to you not to forget anything
+    upgrade.json // this part allows to manage upgrades (under development)
+skin/
+    css/ // all css classes called by the crm
+    js/ // all the js code called by the crm
+v2/ // MVC for views, models and controller : mandatory for dashboard plugin
+    routes/ // called by the crm directly
+        v2route.php
+    templates/
+                    // templates
+config.json
+signatures.json
+</code></pre></div>
+
+<p>The signature is created via the tool provided by the CRM : <strong>grunt genPluginsSignatures</strong>.</p>
+<p>2. We can edit it right away: <strong>config.json</strong></p>
+<div class="codehilite"><pre><span></span><code>   {
+       &quot;Name&quot;: &quot;EventWorkflow&quot;,
+       &quot;copyrights&quot;: &quot;Philippe Logel © EcclesiaCRM Team&quot;,
+       &quot;version&quot;: &quot;1.0&quot;,
+       &quot;Description&quot;: &quot;Plugin to manage your events&quot;,
+       &quot;infos&quot;: &quot;iMathGeo &amp; Softwares&quot;,
+       &quot;url_infos&quot;: &quot;https://www.ecclesiacrm.com&quot;,
+       &quot;url_docs&quot;: &quot;https://&quot;,
+       &quot;Settings_url&quot;: &quot;v2/eventworkflow/settings&quot;,
+       &quot;Details&quot;: &quot;https://url;iframe=true&amp;amp;width=772&amp;amp;height=549&quot;
+   }
+</code></pre></div>
+
+<ul>
+<li>This part is crucial for the update system (via the version number)</li>
+<li>The version number must always be of the form <strong>x.y</strong>.</li>
+</ul>
+<p>3. Special rights</p>
+<ul>
+<li>It is possible to set admin rights or not</li>
+</ul>
+<h2 id="creation-of-a-classic-plugin">Creation of a classic plugin<a class="headerlink" href="#creation-of-a-classic-plugin" title="Permanent link">&para;</a></h2>
+<p>1. Concerning injection into the database in the "plugin" table</p>
+<p>In the database Put the plugin, we must set</p>
+<ul>
+<li><code>plgn_Category</code> ``will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
+  Personal', 'GDPR', 'Events', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu
+-</li>
+<li>a <code>plgn_Description</code> description, e.g.: 'Plugin to show the current connected users</li>
+<li>a version <code>`plgn_version</code> `` to e.g. '1.0</li>
+<li>the prefix type for the entries <code>`plgn_prefix</code> to 'jm_'</li>
+<li><code>plgn_position``</code>can take the values <code>'inside_category_menu'', ``after_category_menu''</code> (very clear).</li>
+</ul>
+<p>Here is a complete example in the <code>MeetingJitsi</code> plugin</p>
+<div class="codehilite"><pre><span></span><code>INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`)
+VALUES (&#39;MeetingJitsi&#39;, &#39;Plugin for jitsi Meeting&#39;, &#39;Meeting&#39;, NULL, &#39;&#39;, &#39;0&#39;, &#39;1.0&#39;, &#39;jm_&#39;, &#39;after_category_menu&#39;);
+</code></pre></div>
+
+<p>To create additional menu bar entries in the <code>plugin_menu_barre</code> table, we must</p>
+<ul>
+<li>set the name of the plugin in <code>plgn_mb_plugin_name</code> for example to <code>MeetingJitsi</code>.</li>
+<li>The name of the menu item: <code>`plgn_mb_plugin_Display_name</code> to ``Settings'' for example</li>
+<li>the url <code>`plgn_mb_url</code> ``to for example 'v2/meeting/dashboard</li>
+<li>the icon <code>`plgn_bm_icon</code> at 'fas fa-cogs</li>
+<li>Then a security option <code>`plgn_bm_grp_sec``</code>to the possible values of roles defined in the crm, for example 'usr_admin'</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>usr_AddRecords,
+usr_EditRecords,
+usr_DeleteRecords,
+usr_ShowCart,
+usr_ShowMap,
+usr_EDrive,
+usr_MenuOptions,
+usr_ManageGroups,
+usr_ManageCalendarResources,
+usr_HtmlSourceEditor,
+usr_Finance,
+usr_Notes,
+usr_EditSelf,
+usr_Canvasser,
+usr_Admin,
+usr_showMenuQuery,
+usr_CanSendEmail,
+usr_ExportCSV,
+usr_CreateDirectory,
+usr_ExportSundaySchoolPDF,
+usr_ExportSundaySchoolCSV,
+usr_MainDashboard,
+usr_SeePrivacyData,
+usr_MailChimp,
+usr_GDRP_DPO,
+usr_PastoralCare
+</code></pre></div>
+
+<p>Here is a complete example</p>
+<div class="codehilite"><pre><span></span><code>-- insert the menu item
+-- the first one is the main menu !!!
+INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
+(&#39;MeetingJitsi&#39;, &#39;Jitsi&#39;, &#39;v2/meeting/dashboard&#39;, &#39;fas fa-video&#39;, &#39;&#39;),
+(&#39;MeetingJitsi&#39;, &#39;Dashboard&#39;, &#39;v2/meeting/dashboard&#39;, &#39;fas fa-tachometer-alt&#39;, &#39;&#39;),
+(&#39;MeetingJitsi&#39;, &#39;Settings&#39;, &#39;v2/meeting/settings&#39;, &#39;fas fa-cogs&#39;, &#39;usr_admin&#39;);
+</code></pre></div>
+
+<p>2. Attention, it must follow the following recommendations</p>
+<ul>
+<li>You can set the place and in the menu or after the menu (type seen above)</li>
+<li>put the css in : skin/css</li>
+<li>put the js in : skin/js</li>
+<li>for the api in api/plgnapi.php (you have to put it in, it secures the CRM)</li>
+<li>for the php code of the views, it is better to put it in v2/templates/</li>
+<li>If you want to use the MVC design pattern for the views, v2route.php is ready in v2/routes/</li>
+<li>for your personal classes you can go in core/</li>
+<li>for propel classes and models everything is in core/model</li>
+<li>etc ...</li>
+</ul>
+<p>3. Be careful with the autoload for propel or personal classes:</p>
+<div class="codehilite"><pre><span></span><code>// we&#39;ve to load the model make the plugin to workmv
+spl_autoload_register(function ($className) {
+    include_once str_replace(array(&#39;Plugins\Service&#39;, &#39;\&#39;), array(__DIR__.&#39;/../../core/Service&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
+    include_once str_replace(array(&#39;PluginStore&#39;, &#39;\\&#39;), array(__DIR__.&#39;/../../core/model&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
+});
+</code></pre></div>
+
+<h2 id="creating-a-dashboard-plugin">Creating a dashboard plugin<a class="headerlink" href="#creating-a-dashboard-plugin" title="Permanent link">&para;</a></h2>
+<p>1. For the injection at the database level in the "plugin" table</p>
+<p>In the database Put the plugin, we must set</p>
+<ul>
+<li><code>plgn_Category</code> <code>to</code>Dashboard``.</li>
+<li>a description <code>plgn_Description</code> to ``Plugin to show the current connected users</li>
+<li>a version <code>`plgn_version</code> `` to '1.0' for example</li>
+<li>the prefix type for the <code>plgn_prefix</code> entries to <code>cud_</code>.</li>
+<li>the position at <code>plgn_default_orientation</code> at <code>top`,</code>left<code>,</code>center<code>,</code>right``</li>
+<li>the color of the card's bar <code>`plgn_default_color``</code>bg-gradient-blue text-white'', ``bg-gradient-indigo text-white'', .... (see for this the database)</li>
+<li>the security part is very important <code>plgn_securities</code> to those possible values which are in <code>src\EcclesiaCRM\model\User.php</code></li>
+</ul>
+<div class="codehilite"><pre><span></span><code>abstract class SecurityOptions
+{
+    const bNoDashBordItem = 0;
+    const bAdmin = 1; // bit 0
+    const bPastoralCare = 2;// bit 1
+    const bMailChimp = 4;// bit 2
+    const bGdrpDpo = 8;// bit 3
+    const bMainDashboard = 16;// bit 4
+    const bSeePrivacyData = 32;// bit 5
+    const bAddRecords = 64;// bit 6
+    const bEditRecords = 128;// bit 7
+    const bDeleteRecords = 256;// bit 8
+    const bMenuOptions = 512;// bit 9
+    const bManageGroups = 1024;// bit 10
+    const bFinance = 2048;// bit 11
+    const bNotes = 4096;// bit 12
+    const bCanvasser = 8192;// bit 13
+    const bEditSelf = 16384;// bit 14
+    const bShowCart = 32768;// bit 15
+    const bShowMap = 65536;// bit 16
+    const bEDrive = 131072;// bit 17
+    const bShowMenuQuery = 262144; // bit 18
+    const bDashBoardUser = 1073741824; // bit 30
+}
+</code></pre></div>
+
+<ul>
+<li>Optional side: <code>`plgn_UserRole_Dashboard_Availability</code> which can be set to 1 (this will allow user to be administrator: in the case of the News dashboard only few people can enter the news, the others will be simply readers).</li>
+</ul>
+<p>Screenshot](../../../img/plugins/plugins_dashboard_admin.png)</p>
+<p>Here is an example</p>
+<div class="codehilite"><pre><span></span><code>INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`)
+VALUES (&#39;CurrentUsersDashboard&#39;, &#39;Plugin to show the current connected users&#39;, &#39;Dashboard&#39;, NULL, &#39;&#39;, &#39;1&#39;, &#39;1.0&#39;, &#39;cud_&#39;, &#39;inside_category_menu&#39;, &#39;right&#39;, &#39;bg-gradient-green text-black&#39;, 1073741824);
+</code></pre></div>
+
+<p>2. about the code</p>
+<ul>
+<li>There is only one view in : v2/template/View.php</li>
+<li>set correctly the card .....
+  In the code of the View.php</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>&lt;?php
+use EcclesiaCRM\PluginQuery;
+use EcclesiaCRM\PluginUserRoleQuery;
+use EcclesiaCRM\Map\PluginUserRoleTableMap;
+
+....
+
+// we&#39;ve to load the model make the plugin to work
+// for example if you&#39;ve a model for your propel orm version + a class service
+
+spl_autoload_register(function ($className) {
+    include_once str_replace(array(&#39;PluginStore&#39;, &#39;\\&#39;), array(__DIR__.&#39;/../../core/model&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
+    include_once str_replace(array(&#39;Plugins\\Service&#39;, &#39;\\&#39;), array(__DIR__.&#39;/../../core/Service&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
+});
+
+use .....
+
+....
+
+$plugin = PluginQuery::create()
+    -&gt;usePluginUserRoleQuery()
+        -&gt;addAsColumn(&#39;PlgnColor&#39;, PluginUserRoleTableMap::COL_PLGN_USR_RL_COLOR)
+    -&gt;endUse()
+    -&gt;findOneById($PluginId);
+
+..... .... Your code
+?&gt;
+
+&lt;div class=&quot;card &lt;?= $plugin-&gt;getName() ?&gt; &lt;?= $Card_collapsed ?&gt;&quot; style=&quot;position: relative; left: 0px; top: 0px;&quot; data-name=&quot;&lt;?= $plugin-&gt;getName() ?&gt;&quot;&gt;
+    &lt;div class=&quot;card-header border-0 ui-sortable-handle&quot;&gt;
+        &lt;h5 class=&quot;card-title&quot;&gt;&lt;i class=&quot;fas fa-newspaper&quot;&gt;&lt;/i&gt; &lt;?= dgettext(&quot;messages-NewsDashboard&quot;,&quot;News&quot;) ?&gt;&lt;/h5&gt;
+        &lt;div class=&quot;card-tools&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-sm&quot; data-card-widget=&quot;remove&quot;&gt;
+                &lt;i class=&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-sm&quot; data-card-widget=&quot;collapse&quot; title=&quot;Collapse&quot;&gt;
+                &lt;i class=&quot;fas &lt;?= $Card_collapsed_button?&gt;&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card-body&quot; style=&quot;&lt;?= $Card_body ?&gt;;padding: .15rem;&quot;&gt;
+
+         .... Your code
+
+    &lt;/div&gt;
+&lt;/div
+</code></pre></div>
+
+<p>3. Attention</p>
+<ul>
+<li>pour les dashboard plugins, le code js est chargé dans le footer</li>
+<li>le css est également chargé pour vous par le CRM.</li>
+<li>le code css est chargé automatiquement dans le header !!!!</li>
+</ul>
+<p>Cela évite des chargements sales en plein milieu du code.</p>
+<h2 id="dernieres-recommandations-pour-les-deux-types-de-plugins">Dernières recommandations pour les deux types de plugins<a class="headerlink" href="#dernieres-recommandations-pour-les-deux-types-de-plugins" title="Permanent link">&para;</a></h2>
+<p>1. Pour les traductions</p>
+<ul>
+<li>For the PHP code: We don't use <code>gettext</code> but with dgettext and an associated domain <code>dgettext("messages-NewsDashboard", "News")</code> and we work with separate po code for each plugin to avoid conflicts.</li>
+<li>For the JS code: We use <code>i18next.t('News Title', {ns: 'NewsDashboard'})</code> with <code>namespace</code> also.</li>
+</ul>
+<p>2. For specialized propel code or classes, the autoload must be done manually</p>
+<p>Tip :</p>
+<ul>
+<li>never use <code>composer dump-autoload</code> it will not work when loading the plugin via the plugin manager</li>
+<li>So you have to work around the problem like this:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>// we&#39;ve to load the model make the plugin to work
+spl_autoload_register(function ($className) {
+    include_once str_replace(array(&#39;Plugins\Service&#39;, &#39;\&#39;), array(__DIR__.&#39;/../../core/Service&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
+    include_once str_replace(array(&#39;PluginStore&#39;, &#39;\\&#39;), array(__DIR__.&#39;/../../core/model&#39;, &#39;/&#39;), $className) . &#39;.php&#39;;
+});
+</code></pre></div>
+
+<p>3. The signatures</p>
+<p>The signature of a plugin is created via the tool provided by the CRM : <strong>grunt genPluginsSignatures</strong> at the root.</p>
+<p>Good development of plugins.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../intro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introduction
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../doc-tools/doc-geographics/" class="md-footer__link md-footer__link--next" aria-label="Next: Geographical search" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Geographical search
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017 - 2023 Philippe Logel
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/phili67/ecclesiacrm" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

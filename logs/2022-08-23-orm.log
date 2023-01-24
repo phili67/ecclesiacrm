@@ -1,0 +1,5 @@
+[2022-08-23 20:26:22] ormLogger.ERROR: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'plgn_usr_rl_orientation' at row 1 [] []
+[2022-08-23 20:35:33] ormLogger.ERROR: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'plgn_usr_rl_orientation' at row 1 [] []
+[2022-08-23 20:36:11] ormLogger.ERROR: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'plgn_usr_rl_orientation' at row 1 [] []
+[2022-08-23 20:36:59] ormLogger.ERROR: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'plgn_usr_rl_orientation' at row 1 [] []
+[2022-08-23 20:37:43] ormLogger.ERROR: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'plgn_usr_rl_orientation' at row 1 [] []

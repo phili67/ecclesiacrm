@@ -2,19 +2,29 @@
 
 ## Pour générer l'architecture d'un plugin
 
-Une commande shell a été développé pour faciliter le travail : createPluginArch.sh
+Une commande shell a été développé pour faciliter le travail : **createPluginArch.sh**
+
+
+**Attention**
+
+- les routes pour chaque plugins sont prévues et sont incluses dans la gestion complète des routes dans **api/plgnapi.php** (voir plus bas) et sont prévues pour être géré via contrôleurs dans l'arberscence **core/APIControllers**).
+- pour les vues des routes sont préétablies aussi **v2/routes/v2route.php** (elles sont liés éventuellement à vos propres contrôleurs **core/VIEWControllers**).
+- ce mécanisme garantie un maximum de sécurité.
+- il est impératif de suivre le fait que chaque plugin doit avoir une signature qui est validé par le crm (voir pour cela la documentation plugin).
+
+**Pour créer un plugin**
 
 ```
-bash createPluginArch.sh NameOfPlugin
+bash createPluginArch.sh *NameOfPlugin*
 ```
 
-Ce script va créer **NameOfPlugin** dans le répertoire **Plugins** dans le répertoire **src**.
+Ce script va créer **NameOfPlugin** dans le répertoire **Plugins** du répertoire **src**.
 
 1\. L'architecture est de la forme
 
 ```
 api/                // gestion api interne
-    plgnapi.php     // on peut créer ses propres routes
+    plgnapi.php     // on doit créer ses propres routes ici
     (géré par le CRM directement)
 core/ // ici on peut gérer tous les modèles
     APIControllers  // pour définir le controleur appelé dans plgnapi.php).
@@ -29,18 +39,18 @@ ident/ // pour un accès à une api externe (facultatif)
     templates/      // appelé par la partie route
 locale/
     js/             // code de traduction js
-    textdomain/     // pour les traduction gettext
+    textdomain/     // pour les traduction gettext du code php
     index.html
 mysql/ // mise en place des fichiers mysql
     index.html      // fichier de protection
     Install.sql     // script sql pour créer la base de données
                     // appelé par le gestionnaire de plugin
-    Uninstall.sql   // Pour désinstaller le plugin
-    upgrade.json    // cette partie permet de gérer les upgrades
+    Uninstall.sql   // Pour désinstaller le plugin charge à vous de ne rien oublier
+    upgrade.json    // cette partie permet de gérer les upgrades (en cours de développement)
 skin/
     css/            // l'ensemble des class css appelé par le crm
     js/             // l'ensemble du code js appelé par le crm
-v2/                 // MVC pour les vues le modèles et le controlleur
+v2/                 // MVC pour les vues le modèles et le controlleur : obligatoire pour les plugin dashboard
     routes/         // appelé par le crm directement
         v2route.php
     templates/
@@ -79,14 +89,13 @@ La signature est créée via l'outil fourni par le CRM : **grunt genPluginsSigna
 
 Dans la base de données Mettre le plugin, on doit fixer
 
-- ``` `plgn_Category` ``` à
-
-  ```  'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu' ```
-    cela permettra de mettre l'entrée du plugin dans le menu à gauche dans la partie Personnel, RGPD, Etc ....
-- une description ``` `plgn_Description` ``` à 'Plugin to show the current connected users'
+- ``` `plgn_Category` ``` permettra de mettre l'entrée du plugin dans le menu à gauche dans la partie Personnel, RGPD, Etc .... les options sont
+```  'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu' ```
+-
+- une description ``` `plgn_Description` ``` à par exemple : 'Plugin to show the current connected users'
 - une version ``` `plgn_version` ``` à '1.0' par exemple
 - le type de prefixe pour les entrées ``` `plgn_prefix` ``` à 'jm_'
-- ``` `plgn_position`  ``` peut prendre les valeurs 'inside_category_menu', 'after_category_menu' (très clair).
+- ``` `plgn_position`  ``` peut prendre les valeurs ``` 'inside_category_menu', 'after_category_menu' ``` (très clair).
 
 Voici un exemple complet dans le plugin `MeetingJitsi`
 
@@ -206,6 +215,9 @@ abstract class SecurityOptions
 ```
 - Côté optionnel : ``` `plgn_UserRole_Dashboard_Availability` ``` que l'on peut mettre à 1 (cela permettra à utilisateur d'être administrateur : dans le cas du dashboard News seul quelques personnes peuvent saisir la news, les autres seront simplement des lecteurs).
 
+
+![Screenshot](../../../img/plugins/plugins_dashboard_admin.png)
+
 Voici un exemple
 ```
 INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`)
@@ -299,5 +311,9 @@ spl_autoload_register(function ($className) {
     include_once str_replace(array('PluginStore', '\\'), array(__DIR__.'/../../core/model', '/'), $className) . '.php';
 });
 ```
+
+3\. Les signatures
+
+La signature d'un plugin est créée via l'outil fourni par le CRM : **grunt genPluginsSignatures** à la racine.
 
 Bon développement de plugins.

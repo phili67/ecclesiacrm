@@ -1,0 +1,2 @@
+[2022-09-17 12:15:05] ormLogger.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'crm.wfe_container' doesn't exist [] []
+[2022-09-17 16:32:13] ormLogger.ERROR: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'wf_cc_type_of_container' at row 1 [] []

@@ -1,0 +1,132 @@
+[19-Feb-2022 11:21:41 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_usr.usr_Meeting' in 'field list' in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php(103): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(49): Propel\Runtime\ActiveQuery\QueryExecutor\AbstractQueryExecutor->executeStatement()
+#3 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/SelectQueryExecutor.php(37): Propel\Runtime\ActiveQuery\QueryExecutor\SelectQueryExecutor->runSelect()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/Criteria.php(2436): Propel\Runtime\ActiveQuer in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/ActiveQuery/QueryExecutor/AbstractQueryExecutor.php on line 136
+[19-Feb-2022 11:22:23 Europe/Paris] PHP Fatal error:  Uncaught Propel\Runtime\Exception\BadMethodCallException: Call to undefined method: getMeeting. in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/User.php:6686
+Stack trace:
+#0 /var/www/CRM/src/UserEditor.php(424): EcclesiaCRM\Base\User->__call()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/User.php on line 6686
+[19-Feb-2022 11:23:12 Europe/Paris] PHP Fatal error:  Uncaught Propel\Runtime\Exception\BadMethodCallException: Call to undefined method: getMeeting. in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/User.php:6686
+Stack trace:
+#0 /var/www/CRM/src/UserEditor.php(424): EcclesiaCRM\Base\User->__call()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/User.php on line 6686
+[19-Feb-2022 11:23:13 Europe/Paris] PHP Fatal error:  Uncaught Propel\Runtime\Exception\BadMethodCallException: Call to undefined method: getMeeting. in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/User.php:6686
+Stack trace:
+#0 /var/www/CRM/src/UserEditor.php(424): EcclesiaCRM\Base\User->__call()
+#1 {main}
+  thrown in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/User.php on line 6686
+[19-Feb-2022 11:25:12 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\BadMethodCallException
+Code: 0
+Message: Call to undefined method: isMeeting.
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/User.php
+Line: 6686
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/User.php(435): EcclesiaCRM\Base\User->__call()
+#1 /var/www/CRM/src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php(41): EcclesiaCRM\User->isMeetingEnabled()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Plugins\VIEWControllers\VIEWMeetingController->renderDashboard()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#10 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#12 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#19 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#20 {main}
+[19-Feb-2022 19:47:45 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`crm`.`plugin_user_role`, CONSTRAINT `fk_plgn_usr_rl_user_id` FOREIGN KEY (`plgn_usr_rl_user_id`) REFERENCES `user_usr` (`usr_per_ID`) ON DELETE CASCADE) in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PluginUserRole.php(814): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PluginUserRole.php(743): EcclesiaCRM\Base\PluginUserRole->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PluginUserRole.php(688): EcclesiaCRM\Base\PluginUserRole->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Pl in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PluginUserRole.php on line 817
+[19-Feb-2022 19:48:21 Europe/Paris] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`crm`.`plugin_user_role`, CONSTRAINT `fk_plgn_usr_rl_user_id` FOREIGN KEY (`plgn_usr_rl_user_id`) REFERENCES `user_usr` (`usr_per_ID`) ON DELETE CASCADE) in /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php:215
+Stack trace:
+#0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PluginUserRole.php(814): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PluginUserRole.php(743): EcclesiaCRM\Base\PluginUserRole->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PluginUserRole.php(688): EcclesiaCRM\Base\PluginUserRole->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Pl in /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/PluginUserRole.php on line 817
+[19-Feb-2022 19:53:01 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'EcclesiaCRM\MenuBar\PluginUserRoleQuery' not found
+File: /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php
+Line: 48
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(388): EcclesiaCRM\MenuBar\MenuBar->addPluginMenus()
+#1 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(513): EcclesiaCRM\MenuBar\MenuBar->addMeeting()
+#2 /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php(41): EcclesiaCRM\MenuBar\MenuBar->createMenuBar()
+#3 /var/www/CRM/src/EcclesiaCRM/view/MenuRenderer.php(12): EcclesiaCRM\MenuBar\MenuBar->__construct()
+#4 /var/www/CRM/src/Include/Header.php(241): EcclesiaCRM\view\MenuRenderer::RenderMenu()
+#5 /var/www/CRM/src/v2/templates/user/userlist.php(13): require('/var/www/CRM/sr...')
+#6 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#7 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#8 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#9 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWUserController.php(42): Slim\Views\PhpRenderer->render()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWUserController->renderUserList()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#16 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#18 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#20 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#26 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#27 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#28 {main}
+[19-Feb-2022 21:40:27 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected 'break' (T_BREAK)
+File: /var/www/CRM/src/EcclesiaCRM/MenuBar/MenuBar.php
+Line: 49
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass()
+#2 /var/www/CRM/src/EcclesiaCRM/view/MenuRenderer.php(12): spl_autoload_call()
+#3 /var/www/CRM/src/Include/Header.php(241): EcclesiaCRM\view\MenuRenderer::RenderMenu()
+#4 /var/www/CRM/src/v2/templates/dashboard/maindashboard.php(21): require('/var/www/CRM/sr...')
+#5 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(188): include('/var/www/CRM/sr...')
+#6 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(169): Slim\Views\PhpRenderer->protectedIncludeScope()
+#7 /var/www/CRM/src/vendor/slim/php-view/src/PhpRenderer.php(62): Slim\Views\PhpRenderer->fetch()
+#8 /var/www/CRM/src/EcclesiaCRM/VIEWControllers/VIEWDashboardController.php(50): Slim\Views\PhpRenderer->render()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\VIEWControllers\VIEWDashboardController->renderDashboard()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#15 /var/www/CRM/src/vendor/slim/http-cache/src/Cache.php(67): Slim\Routing\RouteRunner->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\HttpCache\Cache->process()
+#17 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): class@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#19 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#25 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#26 /var/www/CRM/src/v2/index.php(124): Slim\App->run()
+#27 {main}

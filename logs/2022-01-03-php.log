@@ -1,0 +1,33 @@
+[03-Jan-2022 09:01:26 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected '-&gt;' (T_OBJECT_OPERATOR), expecting ')'
+File: /var/www/CRM/src/EcclesiaCRM/Service/CalendarService.php
+Line: 325
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass()
+#2 /var/www/CRM/src/api/dependencies.php(49): spl_autoload_call()
+#3 [internal function]: {closure}()
+#4 /var/www/CRM/src/vendor/php-di/invoker/src/Invoker.php(74): call_user_func_array()
+#5 /var/www/CRM/src/vendor/php-di/php-di/src/Definition/Resolver/FactoryResolver.php(80): Invoker\Invoker->call()
+#6 /var/www/CRM/src/vendor/php-di/php-di/src/Definition/Resolver/ResolverDispatcher.php(71): DI\Definition\Resolver\FactoryResolver->resolve()
+#7 /var/www/CRM/src/vendor/php-di/php-di/src/Container.php(390): DI\Definition\Resolver\ResolverDispatcher->resolve()
+#8 /var/www/CRM/src/vendor/php-di/php-di/src/Container.php(139): DI\Container->resolveDefinition()
+#9 /var/www/CRM/src/EcclesiaCRM/APIControllers/CalendarV2Controller.php(48): DI\Container->get()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\CalendarV2Controller->getallCalendarEvents()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#16 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#18 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): class@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): class@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#23 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#24 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#25 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#26 {main}

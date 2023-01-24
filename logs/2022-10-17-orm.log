@@ -1,0 +1,1 @@
+[2022-10-17 17:19:26] ormLogger.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'token' doesn't have a default value [] []

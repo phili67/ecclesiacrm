@@ -1,0 +1,4 @@
+[2022-11-24 17:39:02] ormLogger.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%'  OR record2property_r2p.r2p_Value LIKE '%n'%' ) ORDER BY ProName ASC,ProTypeN' at line 1 [] []
+[2022-11-24 18:08:31] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'year' in 'field list' [] []
+[2022-11-24 18:09:38] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'events_event.year' in 'field list' [] []
+[2022-11-24 18:10:23] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'events_event.year' in 'field list' [] []

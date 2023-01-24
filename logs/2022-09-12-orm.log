@@ -1,0 +1,3 @@
+[2022-09-12 22:03:43] ormLogger.ERROR: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type_defrecurtype' at row 1 [] []
+[2022-09-12 22:03:55] ormLogger.ERROR: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type_defrecurtype' at row 1 [] []
+[2022-09-12 22:05:50] ormLogger.ERROR: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type_defrecurtype' at row 1 [] []

@@ -1,0 +1,555 @@
+[08-Jan-2022 09:00:33 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO note_nte (nte_ID, nte_per_ID, nte_Private, nte_Title, nte_Text, nte_DateEntered, nte_EnteredBy, nte_Type, nte_Info) VALUES (:p0, :p1, :p2, :p3, :p4, :p5, :p6, :p7, :p8)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php
+Line: 1386
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1235): EcclesiaCRM\Base\Note->doInsert()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1180): EcclesiaCRM\Base\Note->doSave()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Note->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1193): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(617): EcclesiaCRM\Base\Note->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#20 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: 22001
+Message: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'nte_Title' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1383): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1235): EcclesiaCRM\Base\Note->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1180): EcclesiaCRM\Base\Note->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Note->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1193): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(617): EcclesiaCRM\Base\Note->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#23 {main}
+[08-Jan-2022 09:04:29 Europe/Paris] Slim Application Error
+Type: Propel\Runtime\Exception\PropelException
+Code: 0
+Message: Unable to execute INSERT statement [INSERT INTO note_nte (nte_ID, nte_per_ID, nte_Private, nte_Title, nte_Text, nte_DateEntered, nte_EnteredBy, nte_Type, nte_Info) VALUES (:p0, :p1, :p2, :p3, :p4, :p5, :p6, :p7, :p8)]
+File: /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php
+Line: 1386
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1235): EcclesiaCRM\Base\Note->doInsert()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1180): EcclesiaCRM\Base\Note->doSave()
+#2 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Note->EcclesiaCRM\Base\{closure}()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1193): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#4 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(617): EcclesiaCRM\Base\Note->save()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#11 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#13 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#20 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#21 {main}
+Previous Error:
+Type: PDOException
+Code: 22001
+Message: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'nte_Title' at row 1
+File: /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php
+Line: 215
+Trace: #0 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/StatementWrapper.php(215): PDOStatement->execute()
+#1 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1383): Propel\Runtime\Connection\StatementWrapper->execute()
+#2 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1235): EcclesiaCRM\Base\Note->doInsert()
+#3 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1180): EcclesiaCRM\Base\Note->doSave()
+#4 /var/www/CRM/src/vendor/propel/propel/src/Propel/Runtime/Connection/TransactionTrait.php(35): EcclesiaCRM\Base\Note->EcclesiaCRM\Base\{closure}()
+#5 /var/www/CRM/src/EcclesiaCRM/model/EcclesiaCRM/Base/Note.php(1193): Propel\Runtime\Connection\ConnectionWrapper->transaction()
+#6 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(617): EcclesiaCRM\Base\Note->save()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#13 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#15 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#22 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#23 {main}
+[08-Jan-2022 09:12:56 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 0
+Message: Could not load image https://www.imathgeo.com/local/cache-vignettes/L520xH371/capture_d_ecran_2014-11-03_a_09.00.11-06d4f.png?1489776917
+File: /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php
+Line: 879
+Trace: #0 [internal function]: PhpOffice\PhpWord\Shared\Html::parseImage()
+#1 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(215): call_user_func_array()
+#2 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(247): PhpOffice\PhpWord\Shared\Html::parseNode()
+#3 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(229): PhpOffice\PhpWord\Shared\Html::parseChildNodes()
+#4 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(247): PhpOffice\PhpWord\Shared\Html::parseNode()
+#5 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(229): PhpOffice\PhpWord\Shared\Html::parseChildNodes()
+#6 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(84): PhpOffice\PhpWord\Shared\Html::parseNode()
+#7 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(596): PhpOffice\PhpWord\Shared\Html::addHtml()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#24 {main}
+[08-Jan-2022 13:54:05 Europe/Paris] Slim Application Error
+Type: Exception
+Code: 0
+Message: Could not load image https://www.imathgeo.com/local/cache-vignettes/L520xH371/capture_d_ecran_2014-11-03_a_09.00.11-06d4f.png?1489776917
+File: /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php
+Line: 879
+Trace: #0 [internal function]: PhpOffice\PhpWord\Shared\Html::parseImage()
+#1 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(215): call_user_func_array()
+#2 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(247): PhpOffice\PhpWord\Shared\Html::parseNode()
+#3 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(229): PhpOffice\PhpWord\Shared\Html::parseChildNodes()
+#4 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(247): PhpOffice\PhpWord\Shared\Html::parseNode()
+#5 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(229): PhpOffice\PhpWord\Shared\Html::parseChildNodes()
+#6 /var/www/CRM/src/vendor/phpoffice/phpword/src/PhpWord/Shared/Html.php(84): PhpOffice\PhpWord\Shared\Html::parseNode()
+#7 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(593): PhpOffice\PhpWord\Shared\Html::addHtml()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#14 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#16 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#18 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#19 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#20 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#21 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#22 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#23 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#24 {main}
+[08-Jan-2022 13:55:43 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class &quot;EcclesiaCRM\Utils\DOMDocument&quot; not found
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1274
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(593): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#9 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#16 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#17 {main}
+[08-Jan-2022 13:56:08 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Call to undefined function EcclesiaCRM\Utils\generateRandomString()
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1291
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(593): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#9 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#16 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#17 {main}
+[08-Jan-2022 14:21:11 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected token &quot;}&quot;
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1316
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/DocumentFileManagerController.php(123): Composer\Autoload\ClassLoader->loadClass()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\DocumentFileManagerController->getAllFileNoteForPerson()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[08-Jan-2022 15:56:45 Europe/Paris] Slim Application Error
+Type: ArgumentCountError
+Code: 0
+Message: Too few arguments to function EcclesiaCRM\Utils\MiscUtils::png2jpg(), 2 passed in /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php on line 1309 and exactly 3 expected
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1267
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1309): EcclesiaCRM\Utils\MiscUtils::png2jpg()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(593): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[08-Jan-2022 16:01:33 Europe/Paris] Slim Application Error
+Type: TypeError
+Code: 0
+Message: imagejpeg(): Argument #1 ($image) must be of type GdImage, bool given
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1269
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1269): imagejpeg()
+#1 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1309): EcclesiaCRM\Utils\MiscUtils::png2jpg()
+#2 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(593): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#19 {main}
+[08-Jan-2022 16:02:44 Europe/Paris] Slim Application Error
+Type: TypeError
+Code: 0
+Message: imagejpeg(): Argument #1 ($image) must be of type GdImage, bool given
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1269
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1269): imagejpeg()
+#1 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1309): EcclesiaCRM\Utils\MiscUtils::png2jpg()
+#2 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(593): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#19 {main}
+[08-Jan-2022 16:03:01 Europe/Paris] Slim Application Error
+Type: TypeError
+Code: 0
+Message: imagejpeg(): Argument #1 ($image) must be of type GdImage, bool given
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1269
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1269): imagejpeg()
+#1 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1309): EcclesiaCRM\Utils\MiscUtils::png2jpg()
+#2 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(593): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#19 {main}
+[08-Jan-2022 16:05:03 Europe/Paris] Slim Application Error
+Type: TypeError
+Code: 0
+Message: imagejpeg(): Argument #1 ($image) must be of type GdImage, bool given
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1269
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1269): imagejpeg()
+#1 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1309): EcclesiaCRM\Utils\MiscUtils::png2jpg()
+#2 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(593): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#19 {main}
+[08-Jan-2022 16:06:50 Europe/Paris] Slim Application Error
+Type: TypeError
+Code: 0
+Message: imagejpeg(): Argument #1 ($image) must be of type GdImage, bool given
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1269
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1269): imagejpeg()
+#1 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1309): EcclesiaCRM\Utils\MiscUtils::png2jpg()
+#2 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(593): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#19 {main}
+[08-Jan-2022 16:09:00 Europe/Paris] Slim Application Error
+Type: TypeError
+Code: 0
+Message: imagejpeg(): Argument #1 ($image) must be of type GdImage, bool given
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1269
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1269): imagejpeg()
+#1 /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php(1310): EcclesiaCRM\Utils\MiscUtils::png2jpg()
+#2 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(593): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#9 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#11 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#17 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#18 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#19 {main}
+[08-Jan-2022 17:32:15 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected identifier &quot;img&quot;
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1289
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/DocumentFileManagerController.php(123): Composer\Autoload\ClassLoader->loadClass()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\DocumentFileManagerController->getAllFileNoteForPerson()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[08-Jan-2022 17:32:16 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected identifier &quot;img&quot;
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1289
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/DocumentFileManagerController.php(123): Composer\Autoload\ClassLoader->loadClass()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\DocumentFileManagerController->getAllFileNoteForPerson()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[08-Jan-2022 17:32:19 Europe/Paris] Slim Application Error
+Type: ParseError
+Code: 0
+Message: syntax error, unexpected identifier &quot;img&quot;
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1289
+Trace: #0 /var/www/CRM/src/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile()
+#1 /var/www/CRM/src/EcclesiaCRM/APIControllers/DocumentFileManagerController.php(123): Composer\Autoload\ClassLoader->loadClass()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\DocumentFileManagerController->getAllFileNoteForPerson()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#8 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#10 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#16 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#17 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#18 {main}
+[08-Jan-2022 17:57:32 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Object of class DOMNodeList could not be converted to string
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1296
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(594): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#9 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#16 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#17 {main}
+[08-Jan-2022 17:59:26 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Object of class DOMElement could not be converted to string
+File: /var/www/CRM/src/EcclesiaCRM/utils/MiscUtils.php
+Line: 1297
+Trace: #0 /var/www/CRM/src/EcclesiaCRM/APIControllers/PeoplePersonController.php(594): EcclesiaCRM\Utils\MiscUtils::replace_img_src()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): EcclesiaCRM\APIControllers\PeoplePersonController->saveNoteAsWordFile()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/EcclesiaCRM/Slim/Middleware/VersionMiddleware.php(17): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(313): EcclesiaCRM\Slim\Middleware\VersionMiddleware->__invoke()
+#9 /var/www/CRM/src/vendor/tuupola/slim-jwt-auth/src/JwtAuthentication.php(132): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Tuupola\Middleware\JwtAuthentication->process()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#12 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#13 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Psr\Http\Server\RequestHandlerInterface@anonymous->handle()
+#14 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#15 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#16 /var/www/CRM/src/api/index.php(135): Slim\App->run()
+#17 {main}

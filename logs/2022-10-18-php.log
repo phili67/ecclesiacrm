@@ -1,0 +1,20 @@
+[18-Oct-2022 13:24:55 Europe/Paris] Slim Application Error
+Type: Error
+Code: 0
+Message: Class 'Plugins\Service\VolunteerOpportunityQuery' not found
+File: /var/www/eventworkflow/src/core/Service/EventWorkflowService.php
+Line: 39
+Trace: #0 /var/www/eventworkflow/src/ident/routes/checkeventworkflow.php(81): Plugins\Service\EventWorkflowService::GetAllOpportunities()
+#1 /var/www/CRM/src/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(43): Closure->{closure}()
+#2 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(384): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#3 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\Routing\Route->handle()
+#4 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): Slim\MiddlewareDispatcher->handle()
+#5 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/Route.php(341): Slim\MiddlewareDispatcher->handle()
+#6 /var/www/CRM/src/vendor/slim/slim/Slim/Routing/RouteRunner.php(84): Slim\Routing\Route->run()
+#7 /var/www/CRM/src/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(107): Slim\Routing\RouteRunner->handle()
+#8 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(147): Slim\Middleware\ErrorMiddleware->process()
+#9 /var/www/CRM/src/vendor/slim/slim/Slim/MiddlewareDispatcher.php(81): class@anonymous->handle()
+#10 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(215): Slim\MiddlewareDispatcher->handle()
+#11 /var/www/CRM/src/vendor/slim/slim/Slim/App.php(199): Slim\App->handle()
+#12 /var/www/CRM/src/ident/index.php(60): Slim\App->run()
+#13 {main}

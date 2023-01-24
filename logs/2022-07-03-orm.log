@@ -1,0 +1,8 @@
+[2022-07-03 06:15:17] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'res.r2p_id' in 'field list' [] []
+[2022-07-03 06:16:22] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'res.r2p_id' in 'field list' [] []
+[2022-07-03 06:17:02] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'res.r2p_id' in 'field list' [] []
+[2022-07-03 06:25:18] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'res.per_ID' in 'field list' [] []
+[2022-07-03 06:26:12] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'res.per_ID' in 'field list' [] []
+[2022-07-03 06:33:09] ormLogger.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'person_per' [] []
+[2022-07-03 06:33:28] ormLogger.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'person_per' [] []
+[2022-07-03 06:37:40] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'property_pro.pro_Name' in 'field list' [] []
