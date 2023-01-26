@@ -75,6 +75,7 @@ class CalendarEventV2Controller
     {
         $Events = EventQuery::create()
             ->filterByEnd(new \DateTime(), Criteria::GREATER_EQUAL)
+            ->groupById()
             ->find();
 
         $return = [];
