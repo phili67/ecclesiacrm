@@ -33,7 +33,8 @@ class EventQuery extends BaseEventQuery
             ->addAsColumn('CalendarName', CalendarinstancesTableMap::COL_DISPLAYNAME)
             ->addAsColumn('rights', CalendarinstancesTableMap::COL_ACCESS)
             ->addAsColumn('CalendarType', CalendarinstancesTableMap::COL_CAL_TYPE)
-            ->addAsColumn('login', PrincipalsTableMap::COL_URI);
+            ->addAsColumn('login', PrincipalsTableMap::COL_URI)
+            ->groupById();
 
         parent::preSelect($con);
     }
