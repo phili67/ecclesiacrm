@@ -1,4 +1,0 @@
-[2022-04-20 16:07:08] ormLogger.ERROR: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '09:00:00.000000' for column 'wf_cc_time' at row 1 [] []
-[2022-04-20 20:07:41] ormLogger.ERROR: Error parsing date/time value: '2022-04-20 16:00:1000%' [] []
-[2022-04-20 20:08:50] ormLogger.ERROR: Error parsing date/time value: '2022-04-20 13:00:1000%' [] []
-[2022-04-20 20:09:32] ormLogger.ERROR: Error parsing date/time value: '2022-04-20 08:00:59%' [] []

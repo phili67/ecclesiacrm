@@ -1,3 +1,0 @@
-[2022-06-21 08:21:01] ormLogger.ERROR: Error parsing date/time value: '12:00 PM:10' [] []
-[2022-06-21 08:30:54] ormLogger.ERROR: Error parsing date/time value: 'Invalid date:10' [] []
-[2022-06-21 08:41:03] ormLogger.ERROR: Error parsing date/time value: '2022-05-17 11:00 AM:10' [] []

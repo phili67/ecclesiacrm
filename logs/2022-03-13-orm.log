@@ -1,1 +1,0 @@
-[2022-03-13 20:03:36] ormLogger.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'inactive' cannot be null [] []

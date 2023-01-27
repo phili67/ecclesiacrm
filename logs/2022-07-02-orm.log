@@ -1,8 +1,0 @@
-[2022-07-02 15:28:34] ormLogger.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'crm.a' doesn't exist [] []
-[2022-07-02 15:28:34] ormLogger.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'crm.a' doesn't exist [] []
-[2022-07-02 15:31:29] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'res.r2p_id' in 'field list' [] []
-[2022-07-02 15:32:08] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'res.r2p_id' in 'field list' [] []
-[2022-07-02 15:33:27] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'res.r2p_id' in 'field list' [] []
-[2022-07-02 16:40:51] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'res.r2p_id' in 'field list' [] []
-[2022-07-02 16:41:48] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'res.r2p_id' in 'field list' [] []
-[2022-07-02 16:43:59] ormLogger.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'alias_1.r2p_id' in 'field list' [] []

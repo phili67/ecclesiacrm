@@ -1,3 +1,0 @@
-[2022-08-25 08:38:29] ormLogger.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'plgn_usr_rl_visible' cannot be null [] []
-[2022-08-25 08:39:00] ormLogger.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'plgn_usr_rl_visible' cannot be null [] []
-[2022-08-25 08:39:03] ormLogger.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'plgn_usr_rl_visible' cannot be null [] []

@@ -1,1 +1,0 @@
-[2022-04-08 05:39:01] ormLogger.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND events_event.inactive IN (0) AND events_event.event_id=921 LIMIT 1' at line 1 [] []
