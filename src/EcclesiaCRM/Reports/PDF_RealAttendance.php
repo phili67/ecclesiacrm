@@ -72,7 +72,6 @@ class PDF_RealAttendance extends PDF_Attendance
             // we filter all the events which belongs to a group
             $activeEvents = EventQuery::Create()
                 ->filterByGroupId($iGroupID)
-                ->groupById()
                 ->filterByInActive(1, Criteria::NOT_EQUAL)
                 ->Where('event_start BETWEEN "' . $this->startDate . '" AND "' . $this->endDate . '"')// We filter only the events from the current month : date('Y')
                 ->orderByStart()
