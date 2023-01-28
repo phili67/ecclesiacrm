@@ -29,6 +29,10 @@ class SidebarRolesController
 
     public function getAllRoles(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+            return $response->withStatus(401);
+        }
+
         $roles = ListOptionQuery::create()->getFamilyRoles();
         $roles = $roles->toArray();
         return $response->withJson($roles);
@@ -36,6 +40,10 @@ class SidebarRolesController
 
     public function rolePersonAssign(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+            return $response->withStatus(401);
+        }
+
         $data = (object)$request->getParsedBody();
 
         $personId = empty($data->personId) ? null : $data->personId;

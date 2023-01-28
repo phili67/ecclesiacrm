@@ -32,24 +32,32 @@ class FinancePaymentController
     }
 
     public function getPayment (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        $id = $args['id'];
-        $FinancialService = $this->container->get('FinancialService');
-        return $response->write($FinancialService->getPaymentJSON($FinancialService->getPayments($id)));
+        if ( SessionUser::getUser()->isFinanceEnabled() and array_key_exists('id', $args) ) {
+            $id = $args['id'];
+
+            $FinancialService = $this->container->get('FinancialService');
+            return $response->write($FinancialService->getPaymentJSON($FinancialService->getPayments($id)));
+        }
+        return $response->withStatus(401);
     }
 
     public function getSubmitOrPayement (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $payment = $request->getParsedBody();
-        $FinancialService = $this->container->get('FinancialService');
-        return $response->write(json_encode(['payment' => $FinancialService->submitPledgeOrPayment($payment)]));
+        if ( SessionUser::getUser()->isFinanceEnabled() ) {
+            $FinancialService = $this->container->get('FinancialService');
+            return $response->write(json_encode(['payment' => $FinancialService->submitPledgeOrPayment($payment)]));
+        }
+        return $response->withStatus(401);
     }
 
     public function deletePaymentByGroupKey (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $payments = (object) $request->getParsedBody();
 
-        if ( isset($payments->Groupkey) ) {
+        if ( SessionUser::getUser()->isFinanceEnabled() and isset($payments->Groupkey) ) {
             $groupKey = $payments->Groupkey;
             $FinancialService = $this->container->get('FinancialService');
             $FinancialService->deletePayment($groupKey);
+
             return $response->withJson(['status' => 'success']);
         }
 
@@ -61,25 +69,30 @@ class FinancePaymentController
     {
         $payments = (object)$request->getParsedBody();
 
-        $AutoPayments = AutoPaymentQuery::create()
-            ->leftJoinPerson()
-            ->withColumn('Person.FirstName', 'EnteredFirstName')
-            ->withColumn('Person.LastName', 'EnteredLastName')
-            ->withColumn('Person.FirstName', 'EnteredFirstName')
-            ->withColumn('Person.LastName', 'EnteredLastName')
-            ->leftJoinDonationFund()
-            ->withColumn('DonationFund.Name', 'fundName')
-            ->orderByNextPayDate()
-            ->findByFamilyid($payments->famId);
+        if ( SessionUser::getUser()->isFinanceEnabled() and isset($payments->famId) ) {
 
-        return $response->write($AutoPayments->toJSON());
+            $AutoPayments = AutoPaymentQuery::create()
+                ->leftJoinPerson()
+                ->withColumn('Person.FirstName', 'EnteredFirstName')
+                ->withColumn('Person.LastName', 'EnteredLastName')
+                ->withColumn('Person.FirstName', 'EnteredFirstName')
+                ->withColumn('Person.LastName', 'EnteredLastName')
+                ->leftJoinDonationFund()
+                ->withColumn('DonationFund.Name', 'fundName')
+                ->orderByNextPayDate()
+                ->findByFamilyid($payments->famId);
+
+            return $response->write($AutoPayments->toJSON());
+        }
+
+        return $response->withStatus(401);
     }
 
     public function getAutoPaymentInfo(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $payments = (object)$request->getParsedBody();
 
-        if (isset ($payments->autID)) {
+        if (SessionUser::getUser()->isFinanceEnabled() and isset ($payments->autID)) {
             $AutoPayments = AutoPaymentQuery::create()
                 ->leftJoinFamily()
                 ->findOneById($payments->autID);
@@ -94,7 +107,7 @@ class FinancePaymentController
     {
         $autoPay = (object)$request->getParsedBody();
 
-        if (!(SessionUser::getUser()->isFinance())) {
+        if (!( SessionUser::getUser()->isFinance() and isset($autoPay->famId) )) {
             return $response->withStatus(401);
         }
 
@@ -126,11 +139,11 @@ class FinancePaymentController
 
     public function deletePaymentForFamily(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if (!(SessionUser::getUser()->isFinance())) {
+        $payments = (object)$request->getParsedBody();
+
+        if ( !(SessionUser::getUser()->isFinance() and isset($payments->famId) and isset($payments->paymentId) ) ) {
             return $response->withStatus(401);
         }
-
-        $payments = (object)$request->getParsedBody();
 
         $AutoPayment = AutoPaymentQuery::create()
             ->filterByFamilyid($payments->famId)
@@ -145,7 +158,7 @@ class FinancePaymentController
 
     public function deleteAutoPayment(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if (!(SessionUser::getUser()->isFinance())) {
+        if (!( SessionUser::getUser()->isFinance() and array_key_exists('authID', $args) )) {
             return $response->withStatus(401);
         }
 
@@ -161,14 +174,14 @@ class FinancePaymentController
 
     public function invalidatePledge(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if (!(SessionUser::getUser()->isFinance())) {
+        $payments = (object)$request->getParsedBody();
+
+        if (!(SessionUser::getUser()->isFinance() and isset($payment->Id) )) {
             return $response->withStatus(401);
         }
 
-        $payments = (object)$request->getParsedBody();
-
         foreach ($payments->data as $payment) {
-            $pledge = PledgeQuery::Create()->findOneById($payment['Id']);
+            $pledge = PledgeQuery::Create()->findOneById($payment->Id);
             if (!empty($pledge)) {
                 $pledge->setPledgeorpayment('Pledge');
                 $pledge->save();
@@ -180,14 +193,14 @@ class FinancePaymentController
 
     public function validatePledge(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if (!(SessionUser::getUser()->isFinance())) {
+        $payments = (object)$request->getParsedBody();
+
+        if (!(SessionUser::getUser()->isFinance() and isset($payment->Id) )) {
             return $response->withStatus(401);
         }
 
-        $payments = (object)$request->getParsedBody();
-
         foreach ($payments->data as $payment) {
-            $pledge = PledgeQuery::Create()->findOneById($payment['Id']);
+            $pledge = PledgeQuery::Create()->findOneById($payment->Id);
             if (!empty($pledge)) {
                 $pledge->setPledgeorpayment('Payment');
                 $pledge->save();
@@ -200,6 +213,10 @@ class FinancePaymentController
     public function getDepositSlipChartsArrays(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $params = (object)$request->getParsedBody();
+
+        if (!(SessionUser::getUser()->isFinance() and isset($params->depositSlipID) )) {
+            return $response->withStatus(401);
+        }
 
         $thisDeposit = DepositQuery::create()->findOneById($params->depositSlipID);
 

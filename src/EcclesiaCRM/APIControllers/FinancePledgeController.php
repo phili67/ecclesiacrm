@@ -29,11 +29,11 @@ class FinancePledgeController
 
     public function pledgeDetail(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {// only in DepositSlipEditor
-        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isFinance())) {
+        $plg = (object)$request->getParsedBody();
+
+        if (!( SessionUser::getUser()->isFinanceEnabled() and isset($plg->groupKey) )) {
             return $response->withStatus(401);
         }
-
-        $plg = (object)$request->getParsedBody();
 
         $pledges = PledgeQuery::Create()
             ->leftJoinFamily()
@@ -55,6 +55,10 @@ class FinancePledgeController
     {
         $plg = (object)$request->getParsedBody();
 
+        if (!( SessionUser::getUser()->isFinanceEnabled() and isset($plg->famId) )) {
+            return $response->withStatus(401);
+        }
+
         $pledges = PledgeQuery::Create()
             ->leftJoinPerson()
             ->withColumn('Person.FirstName', 'EnteredFirstName')
@@ -72,6 +76,10 @@ class FinancePledgeController
     public function deletePledge(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $plg = (object)$request->getParsedBody();
+
+        if (!( SessionUser::getUser()->isFinanceEnabled() and isset($plg->paymentId) )) {
+            return $response->withStatus(401);
+        }
 
         $pledge = PledgeQuery::Create()
             ->findOneById($plg->paymentId);

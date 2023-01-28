@@ -46,6 +46,9 @@ class SidebarGeneralRolesController
 
     public function getAllGeneralRoles(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
+            return $response->withStatus(401);
+        }
 
         $mode = trim($args['mode']);
 

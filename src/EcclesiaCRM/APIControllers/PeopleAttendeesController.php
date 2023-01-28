@@ -98,7 +98,9 @@ class PeopleAttendeesController
                 $eventAttent->save();
             }
 
-            return $response->withJson(['status' => "success", 'person' => $person->getFullName(), 'group' => $group->getName(), 'data' => $returnData]);
+            if ( !is_null($person) and !is_null($group) ) {
+                return $response->withJson(['status' => "success", 'person' => $person->getFullName(), 'group' => $group->getName(), 'data' => $returnData]);
+            }
         }
 
         return $response->withJson(['status' => "global_failed"]);
@@ -226,9 +228,9 @@ class PeopleAttendeesController
 
     public function attendeesEvent(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
+        if (!( array_key_exists('eventID', $args) )) {
             return $response->withStatus(401);
-        }*/
+        }
 
         $eventID = $args['eventID'];
 
@@ -312,13 +314,9 @@ class PeopleAttendeesController
 
     public function attendeesCheckIn(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-            return $response->withStatus(401);
-        }*/
-
         $requestValues = (object)$request->getParsedBody();
 
-        if (isset ($requestValues->personID) && isset ($requestValues->eventID) && isset($requestValues->checked)) {
+        if ( isset ($requestValues->personID) && isset ($requestValues->eventID) && isset($requestValues->checked) ) {
             $eventAttent = EventAttendQuery::Create()
                 ->filterByEventId($requestValues->eventID)
                 ->filterByPersonId($requestValues->personID)
@@ -348,10 +346,6 @@ class PeopleAttendeesController
 
     public function attendeesCheckOut(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-            return $response->withStatus(401);
-        }*/
-
         $requestValues = (object)$request->getParsedBody();
 
         if (isset ($requestValues->personID) && isset ($requestValues->eventID) && isset($requestValues->checked)) {
@@ -384,13 +378,9 @@ class PeopleAttendeesController
 
     public function attendeesStudent(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-            return $response->withStatus(401);
-        }*/
-
         $requestValues = (object)$request->getParsedBody();
 
-        if (isset ($requestValues->eventTypeID) && isset ($requestValues->groupID) && isset($requestValues->rangeInHours)) {
+        if (isset ($requestValues->eventTypeID) && isset ($requestValues->groupID) && isset($requestValues->rangeInHourseventTypeID) && isset ($requestValues->groupID) && isset($requestValues->rangeInHours)) {
             $group = GroupQuery::Create()
                 ->findOneById($requestValues->groupID);
 
@@ -509,29 +499,21 @@ class PeopleAttendeesController
 
     public function attendeesDelete(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-            return $response->withStatus(401);
-        }
-
         $requestValues = (object)$request->getParsedBody();
 
-        if (isset ($requestValues->eventID)) {
+        if ( isset ($requestValues->eventID) and isset($requestValues->personID) ) {
             $eventAttend = EventAttendQuery::Create()->filterByEventId($requestValues->eventID)->filterByPersonId($requestValues->personID)->limit(1)->findOne();
             if ($eventAttend) {
                 $eventAttend->delete();
             }
         } else {
-            throw new \Exception(_("POST to cart requires a EventID"), 500);
+            throw new \Exception(_("POST to delete attendees requires a EventID and personID"), 500);
         }
         return $response->withJson(['status' => "success"]);
     }
 
     public function attendeesDeleteAll(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-            return $response->withStatus(401);
-        }
-
         $requestValues = (object)$request->getParsedBody();
 
         if (isset ($requestValues->eventID)) {
@@ -548,11 +530,11 @@ class PeopleAttendeesController
 
     public function attendeesCheckAll(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-            return $response->withStatus(401);
-        }*/
-
         $requestValues = (object)$request->getParsedBody();
+
+        if (!( isset ($requestValues->eventID) && isset($requestValues->type) )) {
+            return $response->withStatus(401);
+        }
 
         if (isset ($requestValues->eventID) && isset($requestValues->type)) {
             $eventAttents = EventAttendQuery::Create()
@@ -583,11 +565,11 @@ class PeopleAttendeesController
 
     public function attendeesUncheckAll(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-            return $response->withStatus(401);
-        }*/
-
         $requestValues = (object)$request->getParsedBody();
+
+        if (!( isset ($requestValues->eventID) && isset($requestValues->type) )) {
+            return $response->withStatus(401);
+        }
 
         if (isset ($requestValues->eventID) && isset($requestValues->type)) {
             $eventAttents = EventAttendQuery::Create()
@@ -618,11 +600,11 @@ class PeopleAttendeesController
 
     public function attendeesGroups(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-            return $response->withStatus(401);
-        }*/
-
         $requestValues = (object)$request->getParsedBody();
+
+        if (!( isset ($requestValues->dateTime) && isset ($requestValues->eventTypeID) && isset ($requestValues->rangeInHours) )) {
+            return $response->withStatus(401);
+        }
 
         if (isset ($requestValues->dateTime) && isset ($requestValues->eventTypeID) && isset ($requestValues->rangeInHours)) {
             $listOptions = ListOptionQuery::Create()

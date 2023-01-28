@@ -447,6 +447,11 @@ class PeopleFamilyController
     }
 
     public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+
+        if ( !( SessionUser::getUser()->isSeePrivacyDataEnabled() and array_key_exists('famId', $args) ) ) {
+            return $response->withStatus(401);
+        }
+
         $fam = FamilyQuery::create()->findOneById($args['famId']);
 
         $filename = "Fam-".$fam->getName().".vcf";

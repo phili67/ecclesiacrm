@@ -11,6 +11,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -30,6 +31,10 @@ class SidebarMapIconsController
 
     function getAllMapIcons(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
+            return $response->withStatus(401);
+        }
+
         $files = scandir('../skin/icons/markers');
 
         return $response->withJson(array_values(array_diff($files, array(".", "..", 'shadow'))));
@@ -37,6 +42,10 @@ class SidebarMapIconsController
 
     function checkOnlyPersonView(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
+            return $response->withStatus(401);
+        }
+
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->onlyPersonView) && isset ($params->lstID) && isset ($params->lstOptionID)) {
@@ -62,6 +71,10 @@ class SidebarMapIconsController
 
     function setIconName(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
+            return $response->withStatus(401);
+        }
+
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->name) && isset ($params->lstID) && isset ($params->lstOptionID)) {
@@ -88,6 +101,10 @@ class SidebarMapIconsController
 
     function removeIcon(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
+            return $response->withStatus(401);
+        }
+
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->lstID) && isset ($params->lstOptionID)) {

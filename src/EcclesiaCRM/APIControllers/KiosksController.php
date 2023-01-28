@@ -10,6 +10,8 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -30,6 +32,10 @@ class KiosksController
 
     public function deleteKiosk(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !( SessionUser::isAdmin() ) ) {
+            return $response->withStatus(401);
+        }
+
         $kioskId = $args['kioskId'];
 
         $kiosk = KioskDeviceQuery::create()
@@ -48,6 +54,10 @@ class KiosksController
 
     public function getKioskDevices(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !( SessionUser::isAdmin() ) ) {
+            return $response->withStatus(401);
+        }
+
         $Kiosks = KioskDeviceQuery::create()
             ->joinWithKioskAssignment(Criteria::LEFT_JOIN)
             ->useKioskAssignmentQuery()
@@ -89,6 +99,10 @@ class KiosksController
 
     public function allowDeviceRegistration(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !( SessionUser::isAdmin() ) ) {
+            return $response->withStatus(401);
+        }
+
         $window = new \DateTime();
         $window->add(new \DateInterval("PT05S"));
         SystemConfig::setValue("sKioskVisibilityTimestamp", $window->format('Y-m-d H:i:s'));
@@ -97,6 +111,10 @@ class KiosksController
 
     public function reloadKiosk(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !( SessionUser::isAdmin() ) ) {
+            return $response->withStatus(401);
+        }
+
         $kioskId = $args['kioskId'];
         $reload = KioskDeviceQuery::create()
             ->findOneById($kioskId)
@@ -106,6 +124,10 @@ class KiosksController
 
     public function identifyKiosk(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !( SessionUser::isAdmin() ) ) {
+            return $response->withStatus(401);
+        }
+
         $kioskId = $args['kioskId'];
         $identify = KioskDeviceQuery::create()
             ->findOneById($kioskId)
@@ -115,6 +137,10 @@ class KiosksController
 
     public function acceptKiosk(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !( SessionUser::isAdmin() ) ) {
+            return $response->withStatus(401);
+        }
+
         $kioskId = $args['kioskId'];
         $accept = KioskDeviceQuery::create()
             ->findOneById($kioskId)
@@ -125,6 +151,10 @@ class KiosksController
 
     public function setKioskAssignment(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !( SessionUser::isAdmin() ) ) {
+            return $response->withStatus(401);
+        }
+
         $kioskId = $args['kioskId'];
         $input = (object)$request->getParsedBody();
         $accept = KioskDeviceQuery::create()

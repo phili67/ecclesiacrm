@@ -37,7 +37,7 @@ class PluginsController
 
         $pluginPayload = (object)$request->getParsedBody();
 
-        if ( isset ($pluginPayload->Id) )
+        if ( isset ($pluginPayload->Id) and SessionUser::isAdmin() )
         {
             $plugin = PluginQuery::create()->findOneById($pluginPayload->Id);
             $plugin->setActiv(true);
@@ -53,7 +53,7 @@ class PluginsController
 
         $pluginPayload = (object)$request->getParsedBody();
 
-        if ( isset ($pluginPayload->Id) )
+        if ( isset ($pluginPayload->Id) and SessionUser::isAdmin() )
         {
             $plugin = PluginQuery::create()->findOneById($pluginPayload->Id);
             $plugin->setActiv(false);
@@ -69,7 +69,7 @@ class PluginsController
 
         $pluginPayload = (object)$request->getParsedBody();
 
-        if ( isset ($pluginPayload->Id) )
+        if ( isset ($pluginPayload->Id) and SessionUser::isAdmin() )
         {
             $plugin = PluginQuery::create()->findOneById($pluginPayload->Id);
 
@@ -88,43 +88,45 @@ class PluginsController
         return $response->withJson(["status" => "failed"]);
     }
 
-    public function add (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function add (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
 
-        $file = $_FILES['pluginFile'];
+        if ( SessionUser::isAdmin() ) {
+            $file = $_FILES['pluginFile'];
 
-        $uploadedFileDestination = SystemURLs::getDocumentRoot()."/tmp_attach/".$file['name'];
-        move_uploaded_file($file['tmp_name'], $uploadedFileDestination);
+            $uploadedFileDestination = SystemURLs::getDocumentRoot() . "/tmp_attach/" . $file['name'];
+            move_uploaded_file($file['tmp_name'], $uploadedFileDestination);
 
-        $backupDir = "../Plugins/";
+            $backupDir = "../Plugins/";
 
-        $zip = new ZipArchive;
-        if ($zip->open($uploadedFileDestination) === TRUE) {
-            $res = $zip->extractTo($backupDir);
-            $zip->close();
+            $zip = new ZipArchive;
+            if ($zip->open($uploadedFileDestination) === TRUE) {
+                $res = $zip->extractTo($backupDir);
+                $zip->close();
 
-            if ($res) {
-                $connection = Propel::getConnection();
+                if ($res) {
+                    $connection = Propel::getConnection();
 
-                $folder = basename($file['name'], '.zip');
+                    $folder = basename($file['name'], '.zip');
 
-                SQLUtils::sqlImport(SystemURLs::getDocumentRoot() . '/Plugins/' . $folder . '/mysql/Install.sql', $connection);
-                LoggerUtils::getAppLogger()->info($folder." DB is installed");
+                    SQLUtils::sqlImport(SystemURLs::getDocumentRoot() . '/Plugins/' . $folder . '/mysql/Install.sql', $connection);
+                    LoggerUtils::getAppLogger()->info($folder . " DB is installed");
 
-                $string = file_get_contents(SystemURLs::getDocumentRoot() . '/Plugins/' . $folder . '/config.json');
-                $json_a = json_decode($string, true);
-                LoggerUtils::getAppLogger()->info("Plugin  ".$json_a['Name']. " is installed");
+                    $string = file_get_contents(SystemURLs::getDocumentRoot() . '/Plugins/' . $folder . '/config.json');
+                    $json_a = json_decode($string, true);
+                    LoggerUtils::getAppLogger()->info("Plugin  " . $json_a['Name'] . " is installed");
 
-                exec('cd .. && composer dump-autoload');
+                    exec('cd .. && composer dump-autoload');
 
-                // we delete the upload zip
-                unlink($uploadedFileDestination);
+                    // we delete the upload zip
+                    unlink($uploadedFileDestination);
 
-                return $response->withHeader('Location', SystemURLs::getRootPath() . '/v2/plugins')->withStatus(302);
+                    return $response->withHeader('Location', SystemURLs::getRootPath() . '/v2/plugins')->withStatus(302);
+                }
+            } else {
+                throw new \Exception(_("Impossible to open") . $uploadedFileDestination);
             }
-        } else {
-            throw new \Exception(_("Impossible to open") . $uploadedFileDestination);
         }
-
 
         return $response->withJson(["status" => "failed"]);
     }
@@ -204,6 +206,4 @@ class PluginsController
 
         return $response->withJson(["status" => "failed"]);
     }
-
-
 }

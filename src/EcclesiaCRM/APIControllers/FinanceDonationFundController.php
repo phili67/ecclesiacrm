@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -29,53 +30,74 @@ class FinanceDonationFundController
 
     public function getAllDonationFunds(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        return $response->write(DonationFundQuery::Create()->find()->toJSON());
+        if ( SessionUser::getUser()->isFinanceEnabled() ) {
+            return $response->write(DonationFundQuery::Create()->find()->toJSON());
+        }
+
+        return $response->withStatus(401);
     }
 
     public function editDonationFund(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $donation = (object)$request->getParsedBody();
 
-        return $response->write(DonationFundQuery::Create()->findOneById($donation->fundId)->toJSON());
+        if ( SessionUser::getUser()->isFinanceEnabled() and isset($donation->fundId) ) {
+            return $response->write(DonationFundQuery::Create()->findOneById($donation->fundId)->toJSON());
+        }
+
+        return $response->withStatus(401);
     }
 
     public function setDonationFund(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $fund = (object)$request->getParsedBody();
 
-        $donation = DonationFundQuery::Create()->findOneById($fund->fundId);
+        if ( SessionUser::getUser()->isFinanceEnabled() and isset($fund->fundId) and isset($fund->Name) and isset($fund->Description)) {
 
-        $donation->setName($fund->Name);
-        $donation->setDescription($fund->Description);
-        $donation->setActive(($fund->Activ)?1:0);
+            $donation = DonationFundQuery::Create()->findOneById($fund->fundId);
 
-        $donation->save();
+            $donation->setName($fund->Name);
+            $donation->setDescription($fund->Description);
+            $donation->setActive(($fund->Activ) ? 1 : 0);
 
-        return $response->write(json_encode(['status' => "OK"]));
+            $donation->save();
+
+            return $response->write(json_encode(['status' => "OK"]));
+        }
+
+        return $response->withStatus(401);
     }
 
     public function deleteDonationFund(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $fund = (object)$request->getParsedBody();
 
-        $donation = DonationFundQuery::Create()->findOneById($fund->fundId);
-        $donation->delete();
+        if ( SessionUser::getUser()->isFinanceEnabled() and isset($fund->fundId) ) {
+            $donation = DonationFundQuery::Create()->findOneById($fund->fundId);
+            $donation->delete();
 
-        return $response->write(json_encode(['status' => "OK"]));
+            return $response->write(json_encode(['status' => "OK"]));
+        }
+
+        return $response->withStatus(401);
     }
 
     public function createDonationFund(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $fund = (object)$request->getParsedBody();
 
-        $donation = new DonationFund();
+        if ( SessionUser::getUser()->isFinanceEnabled() and isset($fund->Name) and isset($fund->Description) ) {
+            $donation = new DonationFund();
 
-        $donation->setName($fund->Name);
-        $donation->setDescription($fund->Description);
-        $donation->setActive(($fund->Activ)?1:0);
+            $donation->setName($fund->Name);
+            $donation->setDescription($fund->Description);
+            $donation->setActive(($fund->Activ) ? 1 : 0);
 
-        $donation->save();
+            $donation->save();
 
-        return $response->write(json_encode(['status' => "OK"]));
+            return $response->write(json_encode(['status' => "OK"]));
+        }
+
+        return $response->withStatus(401);
     }
 }

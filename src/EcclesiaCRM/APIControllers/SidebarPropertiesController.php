@@ -122,7 +122,6 @@ class SidebarPropertiesController
             return $response->withStatus(401);
         }
 
-
         $data = $request->getParsedBody();
 
         //Set the properties
