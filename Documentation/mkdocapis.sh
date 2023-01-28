@@ -10,15 +10,14 @@ Ecclesia**CRM** use Slim 4.10.0 which allow to make api call to the restricted a
 " > "api.md"
 
 # events
+echo "## EVENTS & CALENDAR" >> api.md
 php slim-doc.php -i ../src/api/routes/calendar/calendar-calendarV2.php -o output_file.md -n"calendar"
 cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/calendar/calendar-eventsV2.php -o output_file.md -n"events"
 cat output_file.md >> api.md
 
-# cart
-php slim-doc.php -i ../src/api/routes/cart.php -o output_file.md -n"Cart"
-cat output_file.md >> api.md
 
+echo "## DOCUMENTS FILES" >> api.md
 # documents
 php slim-doc.php -i ../src/api/routes/documents/documents-ckeditor.php -o output_file.md -n"ckeditor"
 cat output_file.md >> api.md
@@ -45,26 +44,8 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/finance/finance-pledges.php -o output_file.md -n"pledges"
 cat output_file.md >> api.md
 
-# fundraiser
-php slim-doc.php -i ../src/api/routes/fundraiser/fundraiser.php -o output_file.md -n"fundraiser"
-cat output_file.md >> api.md
-
-#geocoder
-php slim-doc.php -i ../src/api/routes/geocoder.php -o output_file.md -n"geocoder"
-cat output_file.md >> api.md
-
-# kiosk
-php slim-doc.php -i ../src/api/routes/kiosks.php -o output_file.md -n"kiosks"
-cat output_file.md >> api.md
-
-#mailchimp
-php slim-doc.php -i ../src/api/routes/mailchimp.php -o output_file.md -n"mailchimp"
-cat output_file.md >> api.md
-
 #people
-php slim-doc.php -i ../src/api/routes/people/people.php -o output_file.md -n"people"
-cat output_file.md >> api.md
-
+echo "## PEOPLE" >> api.md
 php slim-doc.php -i ../src/api/routes/people/people-attendees.php -o output_file.md -n"attendees"
 cat output_file.md >> api.md
 
@@ -74,10 +55,14 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/people/people-groups.php -o output_file.md -n"groups"
 cat output_file.md >> api.md
 
+php slim-doc.php -i ../src/api/routes/people/people.php -o output_file.md -n"people"
+cat output_file.md >> api.md
+
 php slim-doc.php -i ../src/api/routes/people/people-persons.php -o output_file.md -n"persons"
 cat output_file.md >> api.md
 
 # public
+echo "## PUBLIC API" >> api.md
 php slim-doc.php -i ../src/api/routes/public/public-data.php  -o output_file.md -n"data"
 cat output_file.md >> api.md
 
@@ -85,11 +70,12 @@ php slim-doc.php -i ../src/api/routes/public/public-register.php  -o output_file
 cat output_file.md >> api.md
 
 #search nothing
+echo "## SEARCH MANAGEMENT" >> api.md
 php slim-doc.php -i ../src/api/routes/search.php -o output_file.md -n"search"
 cat output_file.md >> api.md
 
 #sidebar
-
+echo "## SIDE BAR ADMIN" >> api.md
 php slim-doc.php -i ../src/api/routes/sidebar/sidebar-general-roles.php -o output_file.md -n"general roles"
 cat output_file.md >> api.md
 
@@ -109,17 +95,17 @@ php slim-doc.php -i ../src/api/routes/sidebar/sidebar-volunteeropportunity.php -
 cat output_file.md >> api.md
 
 # pastoral care
+echo "## PASTORAL CARE" >> api.md
 php slim-doc.php -i ../src/api/routes/pastoralcare/pastoralcare.php -o output_file.md -n"pastoralcare"
 cat output_file.md >> api.md
 
 #sundayschool
+echo "## SUNDAY SCHOOL" >> api.md
 php slim-doc.php -i ../src/api/routes/sundayschool.php -o output_file.md -n"sundayschool"
 cat output_file.md >> api.md
 
 #system
-php slim-doc.php -i ../src/api/routes/system/system.php -o output_file.md -n"system"
-cat output_file.md >> api.md
-
+echo "## SYSTEM" >> api.md
 php slim-doc.php -i ../src/api/routes/system/system-custom-fields.php -o output_file.md -n"custom-fields"
 cat output_file.md >> api.md
 
@@ -129,13 +115,16 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/system/system-gdrp.php -o output_file.md -n"gdrp"
 cat output_file.md >> api.md
 
-php slim-doc.php -i ../src/api/routes/system/system-issues.php -o output_file.md -n"issues"
-cat output_file.md >> api.md
-
 php slim-doc.php -i ../src/api/routes/system/system-setting-individual.php -o output_file.md -n"individual settings"
 cat output_file.md >> api.md
 
+php slim-doc.php -i ../src/api/routes/system/system-issues.php -o output_file.md -n"issues"
+cat output_file.md >> api.md
+
 php slim-doc.php -i ../src/api/routes/system/system-synchronize.php -o output_file.md -n"synchronize"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/system/system.php -o output_file.md -n"system"
 cat output_file.md >> api.md
 
 php slim-doc.php -i ../src/api/routes/system/system-system-upgrade.php -o output_file.md -n"systemupgrade"
@@ -145,6 +134,7 @@ php slim-doc.php -i ../src/api/routes/system/system-timerjobs.php -o output_file
 cat output_file.md >> api.md
 
 #user
+echo "## USER PROFILE" >> api.md
 php slim-doc.php -i ../src/api/routes/user/user-role.php -o output_file.md -n"userrole"
 cat output_file.md >> api.md
 
@@ -154,7 +144,7 @@ cat output_file.md >> api.md
 #
 # Plugins
 #
-
+echo "## PLUGINS" >> api.md
 # global plugin management
 php slim-doc.php -i ../src/api/routes/plugins/plugins.php -o output_file.md -n"Plugins (global management)"
 cat output_file.md >> api.md
@@ -165,9 +155,36 @@ php slim-doc.php -i ../src/Plugins/MeetingJitsi/api/plgnapi.php -o output_file.m
 cat output_file.md >> api.md
 
 
+echo "## OTHERS" >> api.md
+
+# cart
+php slim-doc.php -i ../src/api/routes/cart.php -o output_file.md -n"Cart"
+cat output_file.md >> api.md
+
+# fundraiser
+php slim-doc.php -i ../src/api/routes/fundraiser/fundraiser.php -o output_file.md -n"fundraiser"
+cat output_file.md >> api.md
+
+#geocoder
+php slim-doc.php -i ../src/api/routes/geocoder.php -o output_file.md -n"geocoder"
+cat output_file.md >> api.md
+
+# kiosk
+php slim-doc.php -i ../src/api/routes/kiosks.php -o output_file.md -n"kiosks"
+cat output_file.md >> api.md
+
+#mailchimp
+php slim-doc.php -i ../src/api/routes/mailchimp.php -o output_file.md -n"mailchimp"
+cat output_file.md >> api.md
+
+
 # now we copy the file at the right place
 cp api.md doc-fr/docs/user-guide/doc-dev/doc-api/
 cp api.md doc-en/docs/user-guide/doc-dev/doc-api/
 
 rm output_file.md
 rm api.md
+
+
+
+

@@ -13,10 +13,40 @@ use EcclesiaCRM\APIControllers\DocumentDocumentController;
 
 $app->group('/document', function (RouteCollectorProxy $group) {
 
+    /*
+     * @! create a document
+     * #! param: ref->int :: personID
+     * #! param: ref->int :: famID
+     * #! param: ref->string :: type
+     * #! param: ref->string :: text
+     * #! param: ref->bool :: bPrivate
+     */
     $group->post('/create', DocumentDocumentController::class . ':createDocument' );
+    /*
+     * @! get a document
+     * #! param: ref->int :: docID
+     * #! param: ref->int :: personID
+     * #! param: ref->int :: famID
+     */
     $group->post('/get', DocumentDocumentController::class . ':getDocument' );
+    /*
+     * @! update a document
+     * #! param: ref->int :: docID
+     * #! param: ref->string :: title
+     * #! param: ref->string :: type
+     * #! param: ref->string :: text
+     * #! param: ref->bool :: bPrivate
+     */
     $group->post('/update', DocumentDocumentController::class . ':updateDocument' );
+    /*
+     * @! delete a document
+     * #! param: ref->int :: docID
+     */
     $group->post('/delete', DocumentDocumentController::class . ':deleteDocument' );
+    /*
+     * @! leave a document (in case of a share document)
+     * #! param: ref->int :: docID
+     */
     $group->post('/leave', DocumentDocumentController::class . ':leaveDocument' );
 
 });

@@ -16,14 +16,14 @@ $app->group('/calendar', function (RouteCollectorProxy $group) {
 
     /*
      * @! Get all events for all calendars for a specified range
-     * #! param: ref->start :: the start date : YYYY-MM-DD
-     * #! param: ref->end   :: the end date : YYYY-MM-DD
+     * #! param: ref->date :: the start date : YYYY-MM-DD
+     * #! param: ref->date   :: the end date : YYYY-MM-DD
      */
     $group->post('/getallevents', CalendarV2Controller::class . ':getallCalendarEvents' );
     /*
      * @! Get all events for all calendars for a specified range
-     * #! param: ref->start :: the start date : YYYY-MM-DD
-     * #! param: ref->end   :: the end date : YYYY-MM-DD
+     * #! param: ref->date :: the start date : YYYY-MM-DD
+     * #! param: ref->date   :: the end date : YYYY-MM-DD
      */
     $group->post('/getalleventsForEventsList', CalendarV2Controller::class . ':getallCalendarEventsForEventsList' );
     /*
@@ -33,7 +33,7 @@ $app->group('/calendar', function (RouteCollectorProxy $group) {
     /*
      * @! Show Hide calendar
      * #! param: ref->array :: calIDs
-     * #! param: id->bool   :: isPresent
+     * #! param: ref->bool   :: isPresent
      */
     $group->post('/showhidecalendars', CalendarV2Controller::class . ':showHideCalendars' );
     /*
@@ -106,21 +106,21 @@ $app->group('/calendar', function (RouteCollectorProxy $group) {
     /*
     * @! Share a calendar with a person
     * #! param: ref->array  :: calIDs
-    * #! param: id->int     :: person ID
+    * #! param: ref->int     :: person ID
     * #! param: ref->bool   :: notification
     */
     $group->post('/shareperson', CalendarV2Controller::class . ':shareCalendarPerson');
     /*
     * @! Share a calendar with a person
     * #! param: ref->array  :: calIDs
-    * #! param: id->int     :: family ID
+    * #! param: ref->int     :: family ID
     * #! param: ref->bool   :: notification
     */
     $group->post('/sharefamily', CalendarV2Controller::class . ':shareCalendarFamily' );
     /*
    * @! Share a calendar with an entire group
    * #! param: ref->array  :: calIDs
-   * #! param: id->int     :: group ID
+   * #! param: ref->int     :: group ID
    * #! param: ref->bool   :: notification
    */
     $group->post('/sharegroup', CalendarV2Controller::class . ':shareCalendarGroup' );

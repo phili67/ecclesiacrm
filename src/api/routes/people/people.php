@@ -15,28 +15,28 @@ use EcclesiaCRM\APIControllers\PeopleController;
 // Routes people
 $app->group('/people', function (RouteCollectorProxy $group) {
 
-/*
- * @! Returns a list of the person who's first name or last name matches the :query parameter
- * #! param: ref->string :: query string ref
- */
+    /*
+     * @! Returns a list of the person who's first name or last name matches the :query parameter
+     * #! param: ref->string :: query string ref
+     */
   $group->get('/searchonlyperson/{query}', PeopleController::class . ':searchonlyperson' );
 
-/*
- * @! Returns a list of the members/families/groups who's first name or last name matches the :query parameter
- * #! param: ref->string :: query string ref
- */
+    /*
+     * @! Returns a list of the members/families/groups who's first name or last name matches the :query parameter
+     * #! param: ref->string :: query string ref
+     */
   $group->get('/search/{query}', PeopleController::class . ':searchpeople' );
 
-/*
- * @! Returns all classifications
- * #! param: nothing
- */
+    /*
+     * @! Returns all classifications
+     * #! param: nothing
+     */
   $group->get('/classifications/all', PeopleController::class . ':getAllClassifications' );
 
-/*
- * @! Returns all classifications
- * #! param: nothing
- */
+    /*
+     * @! Returns all classifications
+     * #! param: nothing
+     */
   $group->post('/person/classification/assign', PeopleController::class . ':postPersonClassification' );
 
 });

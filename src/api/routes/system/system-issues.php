@@ -3,4 +3,8 @@
 // Routes
 use EcclesiaCRM\APIControllers\SystemIssueController;
 
-$app->post('/issues', SystemIssueController::class . ':issues' );
+    /*
+    * @! Sending an issue (public)
+    * #! param: ref->int :: iArchiveType
+    */
+    $app->post('/issues', SystemIssueController::class . ':issues' );
