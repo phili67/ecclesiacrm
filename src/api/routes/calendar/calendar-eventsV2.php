@@ -42,44 +42,44 @@ $app->group('/events', function (RouteCollectorProxy $group) {
     $group->get('/names', CalendarEventV2Controller::class . ":eventNames" );
     /*
      * @! delete event type
-     * #! param: id->int  :: type ID
+     * #! param: ref->int  :: type ID
      */
     $group->post('/deleteeventtype', CalendarEventV2Controller::class . ":deleteeventtype" );
     /*
      * @! get event info
-     * #! param: id->int  :: event ID
+     * #! param: ref->int  :: event ID
      */
     $group->post('/info', CalendarEventV2Controller::class . ":eventInfo" );
     /*
     * @! Set a person for the event + check
-    * #! param: id->int  :: event ID
-    * #! param: id->int  :: person ID
+    * #! param: ref->int  :: event ID
+    * #! param: ref->int  :: person ID
     */
     $group->post('/person', CalendarEventV2Controller::class . ":personCheckIn" );
     /*
     * @! Set the group persons for the event + check
-    * #! param: id->int  :: event ID
-    * #! param: id->int  :: group ID
+    * #! param: ref->int  :: event ID
+    * #! param: ref->int  :: group ID
     */
     $group->post('/group', CalendarEventV2Controller::class . ":groupCheckIn" );
     /*
     * @! Set the family persons for the event + check
-    * #! param: id->int  :: event ID
-    * #! param: id->int  :: family ID
+    * #! param: ref->int  :: event ID
+    * #! param: ref->int  :: family ID
     */
     $group->post('/family', CalendarEventV2Controller::class . ":familyCheckIn" );
     /*
     * @! get event count
-    * #! param: id->int  :: event ID
-    * #! param: id->int  :: type ID
+    * #! param: ref->int  :: event ID
+    * #! param: ref->int  :: type ID
     */
     $group->post('/attendees', CalendarEventV2Controller::class . ":eventCount" );
     /*
     * @! manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
-    * #! param: id->int       :: eventID
-    * #! param: id->int       :: type ID
+    * #! param: ref->int       :: eventID
+    * #! param: ref->int       :: type ID
     * #! param: ref->array    :: calendarID
-    * #! param: id->int       :: reccurenceID
+    * #! param: ref->int       :: reccurenceID
     * #! param: ref->start    :: the start date : YYYY-MM-DD
     * #! param: ref->start    :: the end date : YYYY-MM-DD
     * #! param: ref->location :: location

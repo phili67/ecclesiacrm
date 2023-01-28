@@ -5,6 +5,7 @@ Ecclesia**CRM** use Slim 4.10.0 which allow to make api call to the restricted a
 
 
 
+## EVENTS & CALENDAR
 ## API "calendar"
 
    in route : "/api/routes/calendar/calendar-calendarV2.php"
@@ -13,16 +14,16 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/getallevents` | POST | CalendarV2Controller::class . ':getallCalendarEvents' | Get all events for all calendars for a specified range
 
-* `{ref}`->`start` :: the start date : YYYY-MM-DD
-* `{ref}`->`end` :: the end date : YYYY-MM-DD
+* `{ref}`->`date` :: the start date : YYYY-MM-DD
+* `{ref}`->`date` :: the end date : YYYY-MM-DD
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/getalleventsForEventsList` | POST | CalendarV2Controller::class . ':getallCalendarEventsForEventsList' | Get all events for all calendars for a specified range
 
-* `{ref}`->`start` :: the start date : YYYY-MM-DD
-* `{ref}`->`end` :: the end date : YYYY-MM-DD
+* `{ref}`->`date` :: the start date : YYYY-MM-DD
+* `{ref}`->`date` :: the end date : YYYY-MM-DD
 
 ---
 Route | Method | function | Description
@@ -35,7 +36,7 @@ Route | Method | function | Description
 `/showhidecalendars` | POST | CalendarV2Controller::class . ':showHideCalendars' | Show Hide calendar
 
 * `{ref}`->`array` :: calIDs
-* `{id}`->`bool` :: isPresent
+* `{ref}`->`bool` :: isPresent
 
 ---
 Route | Method | function | Description
@@ -132,10 +133,10 @@ Route | Method | function | Description
 `/sharefamily` | POST | CalendarV2Controller::class . ':shareCalendarFamily' | Share a calendar with a person
 
 * `{ref}`->`array` :: calIDs
-* `{id}`->`int` :: person ID
+* `{ref}`->`int` :: person ID
 * `{ref}`->`bool` :: notification
 * `{ref}`->`array` :: calIDs
-* `{id}`->`int` :: family ID
+* `{ref}`->`int` :: family ID
 * `{ref}`->`bool` :: notification
 
 ---
@@ -144,7 +145,7 @@ Route | Method | function | Description
 `/sharegroup` | POST | CalendarV2Controller::class . ':shareCalendarGroup' | Share a calendar with an entire group
 
 * `{ref}`->`array` :: calIDs
-* `{id}`->`int` :: group ID
+* `{ref}`->`int` :: group ID
 * `{ref}`->`bool` :: notification
 
 ---
@@ -193,180 +194,62 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/deleteeventtype` | POST | CalendarEventV2Controller::class . ":deleteeventtype" | delete event type
 
-* `{id}`->`int` :: type ID
+* `{ref}`->`int` :: type ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/info` | POST | CalendarEventV2Controller::class . ":eventInfo" | get event info
 
-* `{id}`->`int` :: event ID
+* `{ref}`->`int` :: event ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/person` | POST | CalendarEventV2Controller::class . ":personCheckIn" | Set a person for the event + check
 
-* `{id}`->`int` :: event ID
-* `{id}`->`int` :: person ID
+* `{ref}`->`int` :: event ID
+* `{ref}`->`int` :: person ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/group` | POST | CalendarEventV2Controller::class . ":groupCheckIn" | Set the group persons for the event + check
 
-* `{id}`->`int` :: event ID
-* `{id}`->`int` :: group ID
+* `{ref}`->`int` :: event ID
+* `{ref}`->`int` :: group ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/family` | POST | CalendarEventV2Controller::class . ":familyCheckIn" | Set the family persons for the event + check
 
-* `{id}`->`int` :: event ID
-* `{id}`->`int` :: family ID
+* `{ref}`->`int` :: event ID
+* `{ref}`->`int` :: family ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/attendees` | POST | CalendarEventV2Controller::class . ":eventCount" | get event count
 
-* `{id}`->`int` :: event ID
-* `{id}`->`int` :: type ID
+* `{ref}`->`int` :: event ID
+* `{ref}`->`int` :: type ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/` | POST | CalendarEventV2Controller::class . ":manageEvent" | manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
 
-* `{id}`->`int` :: eventID
-* `{id}`->`int` :: type ID
+* `{ref}`->`int` :: eventID
+* `{ref}`->`int` :: type ID
 * `{ref}`->`array` :: calendarID
-* `{id}`->`int` :: reccurenceID
+* `{ref}`->`int` :: reccurenceID
 * `{ref}`->`start` :: the start date : YYYY-MM-DD
 * `{ref}`->`start` :: the end date : YYYY-MM-DD
 * `{ref}`->`location` :: location
 
 ---
-## API "Cart"
-
-   in route : "/api/routes/cart.php"
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/` | GET | CartController::class . ':getAllPeopleInCart' | Get all people in Cart
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/` | POST | CartController::class . ':cartOperation' | cart operations
-
-* `{ref}`->`array` :: Persons arrray of ids (possible value)
-* `{id}`->`int` :: Family (ID) of the person (possible value)
-* `{id}`->`array` :: Families (array of ids) (possible value)
-* `{id}`->`int` :: Group id (possible value)
-* `{id}`->`int` :: removeFamily id (possible value)
-* `{id}`->`array` :: removeFamilies (array of ids) (possible value)
-* `{id}`->`int` :: studentGroup id
-* `{id}`->`int` :: teacherGroup id
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/interectPerson` | POST | CartController::class . ':cartIntersectPersons' | Get user info by id
-
-* `{ref}`->`array` :: Persons id in array ref (possible value)
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/emptyToGroup` | POST | CartController::class . ':emptyCartToGroup' | Empty cart to a group
-
-* `{ref}`->`int` :: groupID
-* `{ref}`->`int` :: groupRoleID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/emptyToEvent` | POST | CartController::class . ':emptyCartToEvent' | Empty cart to event
-
-* `{ref}`->`int` :: eventID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/emptyToNewGroup` | POST | CartController::class . ':emptyCartToNewGroup' | Empty cart to a new group
-
-* `{ref}`->`string` :: groupName
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/removeGroup` | POST | CartController::class . ':removeGroupFromCart' | Remove all group members Ids from the cart
-
-* `{ref}`->`int` :: Group (Id)
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/removeGroups` | POST | CartController::class . ':removeGroupsFromCart' | Remove all groups members Ids from the cart
-
-* `{ref}`->`array` :: Groups (array of group Id)
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/removeStudentGroup` | POST | CartController::class . ':removeStudentsGroupFromCart' | Remove students by group Id from the cart
-
-* `{ref}`->`int` :: Group (group Id)
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/removeTeacherGroup` | POST | CartController::class . ':removeTeachersGroupFromCart' | Remove teachers by group Id from the cart
-
-* `{ref}`->`int` :: Group (group Id)
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addAllStudents` | POST | CartController::class . ':addAllStudentsToCart' | Add all students to cart
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addAllTeachers` | POST | CartController::class . ':addAllTeachersToCart' | Add all teachers to cart
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/removeAllStudents` | POST | CartController::class . ':removeAllStudentsFromCart' | Remove all students from the cart
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/removeAllTeachers` | POST | CartController::class . ':removeAllTeachersFromCart' | Remove all teachers from the cart
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/delete` | POST | CartController::class . ':deletePersonCart' | Remove persons from the cart
-
-* `{ref}`->`array` :: Persons (array of persons ids)
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/deactivate` | POST | CartController::class . ':deactivatePersonCart' | De-activate persons from the cart
-
-* `{ref}`->`array` :: Persons (array of persons ids)
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/` | DELETE | CartController::class . ':removePersonCart' | Extract persons in the cart to vcard format
-
----
+## DOCUMENTS FILES
 ## API "ckeditor"
 
    in route : "/api/routes/documents/documents-ckeditor.php"
@@ -861,349 +744,7 @@ Route | Method | function | Description
 * `{ref}`->`int` :: paymentId
 
 ---
-## API "fundraiser"
-
-   in route : "/api/routes/fundraiser/fundraiser.php"
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/{FundRaiserID:[0-9]+}` | POST | FundraiserController::class . ':getAllFundraiserForID' | Get All fundraiser for FundRaiserID
-
-* `{ref}`->`int` :: FundRaiserID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/replicate` | POST | FundraiserController::class . ':replicateFundraiser' | Duplicate fundraiser
-
-* `{ref}`->`int` :: DonatedItemID
-* `{ref}`->`int` :: count
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/donatedItemSubmit` | POST | FundraiserController::class . ':donatedItemSubmitFundraiser' | create or update DonateItem with params
-
-* `{ref}`->`int` :: currentFundraiser
-* `{ref}`->`int` :: currentDonatedItemID
-* `{ref}`->`string` :: Item
-* `{ref}`->`int` :: Multibuy
-* `{ref}`->`int` :: Donor
-* `{ref}`->`string` :: Title
-* `{ref}`->`html` :: Description
-* `{ref}`->`float` :: EstPrice
-* `{ref}`->`float` :: MaterialValue
-* `{ref}`->`float` :: MinimumPrice
-* `{ref}`->`int` :: Buyer
-* `{ref}`->`float` :: SellPrice
-* `{ref}`->`string` :: PictureURL
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/donateditem/currentpicture` | POST | FundraiserController::class . ':donatedItemCurrentPicture' | Return current url picture for the DonateItem ID
-
-* `{ref}`->`int` :: DonatedItemID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/donateditem` | DELETE | FundraiserController::class . ':deleteDonatedItem' | Delete donatedItem with the params below
-
-* `{ref}`->`int` :: FundRaiserID
-* `{ref}`->`int` :: DonatedItemID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/donatedItem/submit/picture` | POST | FundraiserController::class . ':donatedItemSubmitPicture' | Submit picture for the Donated Item Id
-
-* `{ref}`->`int` :: DonatedItemID
-* `{ref}`->`string` :: pathFile
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}` | POST | FundraiserController::class . ':findFundRaiser' | Find a fund raiser by Id and in range of dates
-
-* `{ref}`->`int` :: fundRaiserID
-* `{ref}`->`string` :: startDate
-* `{ref}`->`string` :: startDate
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/paddlenum` | DELETE | FundraiserController::class . ':deletePaddleNum' | delete PaddleNum
-
-* `{ref}`->`int` :: fundraiserID
-* `{ref}`->`int` :: pnID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/paddlenum/list/{fundRaiserID:[0-9]+}` | POST | FundraiserController::class . ':getPaddleNumList' | Get PaddleNum list by fundraiser ID
-
-* `{ref}`->`int` :: fundRaiserID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/paddlenum/add/donnors` | POST | FundraiserController::class . ':addDonnors' | Add all Donnors from the fundraiserID and create associated PaddleNums
-
-* `{ref}`->`int` :: fundraiserID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/paddlenum/persons/all/{fundRaiserID:[0-9]+}` | GET | FundraiserController::class . ':getAllPersonsNum' | Returns a list of all the persons who are in the cart
-
-* `{ref}`->`int` :: fundRaiserID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/paddlenum/add` | POST | FundraiserController::class . ':addPaddleNum' | Add PaddleNum
-
-* `{ref}`->`int` :: fundraiserID
-* `{ref}`->`int` :: PerID
-* `{ref}`->`int` :: PaddleNumID
-* `{ref}`->`int` :: Num
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/paddlenum/info` | POST | FundraiserController::class . ':paddleNumInfo' | Get PaddleNum infos
-
-* `{ref}`->`int` :: fundraiserID
-* `{ref}`->`int` :: PerID
-* `{ref}`->`int` :: Num
-
----
-## API "geocoder"
-
-   in route : "/api/routes/geocoder.php"
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/address` | POST | GeocoderController::class . ':getGeoLocals' | get address
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/address/` | POST | GeocoderController::class . ':getGeoLocals' | get address
-
----
-## API "kiosks"
-
-   in route : "/api/routes/kiosks.php"
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/` | GET | KiosksController::class . ':getKioskDevices' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/allowRegistration` | POST | KiosksController::class . ':allowDeviceRegistration' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{kioskId:[0-9]+}/reloadKiosk` | POST | KiosksController::class . ':reloadKiosk' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{kioskId:[0-9]+}/identifyKiosk` | POST | KiosksController::class . ':identifyKiosk' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{kioskId:[0-9]+}/acceptKiosk` | POST | KiosksController::class . ':acceptKiosk' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{kioskId:[0-9]+}/setAssignment` | POST | KiosksController::class . ':setKioskAssignment' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{kioskId:[0-9]+}` | DELETE | KiosksController::class . ':deleteKiosk' | No description
-
----
-## API "mailchimp"
-
-   in route : "/api/routes/mailchimp.php"
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/search/{query}` | GET | MailchimpController::class . ':searchList' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/{listID}` | GET | MailchimpController::class . ':oneList' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/lists` | GET | MailchimpController::class . ':lists' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/listmembers/{listID}` | GET | MailchimpController::class . ':listmembers' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/createlist` | POST | MailchimpController::class . ':createList' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/modifylist` | POST | MailchimpController::class . ':modifyList' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/deleteallsubscribers` | POST | MailchimpController::class . ':deleteallsubscribers' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/deletelist` | POST | MailchimpController::class . ':deleteList' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/removeTag` | POST | MailchimpController::class . ':removeTag' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/removeAllTagsForMembers` | POST | MailchimpController::class . ':removeAllTagsForMembers' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/addTag` | POST | MailchimpController::class . ':addTag' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/getAllTags` | POST | MailchimpController::class . ':getAllTags' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/removeTagForMembers` | POST | MailchimpController::class . ':removeTagForMembers' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/campaign/actions/create` | POST | MailchimpController::class . ':campaignCreate' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/campaign/actions/delete` | POST | MailchimpController::class . ':campaignDelete' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/campaign/actions/send` | POST | MailchimpController::class . ':campaignSend' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/campaign/actions/save` | POST | MailchimpController::class . ':campaignSave' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/campaign/{campaignID}/content` | GET | MailchimpController::class . ':campaignContent' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/status` | POST | MailchimpController::class . ':statusList' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/suppress` | POST | MailchimpController::class . ':suppress' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/suppressMembers` | POST | MailchimpController::class . ':suppressMembers' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addallnewsletterpersons` | POST | MailchimpController::class . ':addallnewsletterpersons' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addallpersons` | POST | MailchimpController::class . ':addallpersons' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addperson` | POST | MailchimpController::class . ':addPerson' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addfamily` | POST | MailchimpController::class . ':addFamily' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addAllFamilies` | POST | MailchimpController::class . ':addAllFamilies' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addgroup` | POST | MailchimpController::class . ':addGroup' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/testConnection` | POST | MailchimpController::class . ':testEmailConnectionMVC' | No description
-
----
-## API "people"
-
-   in route : "/api/routes/people/people.php"
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/searchonlyperson/{query}` | GET | PeopleController::class . ':searchonlyperson' | Returns a list of the person who's first name or last name matches the :query parameter
-
-* `{ref}`->`string` :: query string ref
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/search/{query}` | GET | PeopleController::class . ':searchpeople' | Returns a list of the members/families/groups who's first name or last name matches the :query parameter
-
-* `{ref}`->`string` :: query string ref
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/classifications/all` | GET | PeopleController::class . ':getAllClassifications' | Returns all classifications
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/person/classification/assign` | POST | PeopleController::class . ':postPersonClassification' | Returns all classifications
-
----
+## PEOPLE
 ## API "attendees"
 
    in route : "/api/routes/people/people-attendees.php"
@@ -1681,6 +1222,34 @@ Route | Method | function | Description
 * `{id}`->`int` :: groupID as id
 
 ---
+## API "people"
+
+   in route : "/api/routes/people/people.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/searchonlyperson/{query}` | GET | PeopleController::class . ':searchonlyperson' | Returns a list of the person who's first name or last name matches the :query parameter
+
+* `{ref}`->`string` :: query string ref
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/search/{query}` | GET | PeopleController::class . ':searchpeople' | Returns a list of the members/families/groups who's first name or last name matches the :query parameter
+
+* `{ref}`->`string` :: query string ref
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/classifications/all` | GET | PeopleController::class . ':getAllClassifications' | Returns all classifications
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/person/classification/assign` | POST | PeopleController::class . ':postPersonClassification' | Returns all classifications
+
+---
 ## API "persons"
 
    in route : "/api/routes/people/people-persons.php"
@@ -1833,6 +1402,7 @@ Route | Method | function | Description
 * `{id}`->`int` :: noteId
 
 ---
+## PUBLIC API
 ## API "data"
 
    in route : "/api/routes/public/public-data.php"
@@ -1873,6 +1443,7 @@ Route | Method | function | Description
 * `{ref}`->`string` :: emailmessage
 
 ---
+## SEARCH MANAGEMENT
 ## API "search"
 
    in route : "/api/routes/search.php"
@@ -1882,31 +1453,42 @@ Route | Method | function | Description
 `/{query}` | GET | SearchController::class . ':quickSearch' | a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query
 
 * `{ref}`->`string` :: query string as ref
+* `{ref}`->`string` :: query
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getresultbyname/{query}` | GET | SearchController::class . ':getSearchResultByName' | No description
+`/getresultbyname/{query}` | GET | SearchController::class . ':getSearchResultByName' | Main search for all options : *, famillies, persons, etc ...
+
+* `{ref}`->`string` :: query
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/comboElements/` | POST | SearchController::class . ':comboElements' | No description
+`/comboElements/` | POST | SearchController::class . ':comboElements' | Combo elements : whe we search by *, you can add options like Gender, Classification, FamilyRole, etc ....
+
+* `{ref}`->`string` :: query
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getGroupForTypeID/` | POST | SearchController::class . ':getGroupForTypeID' | No description
+`/getGroupForTypeID/` | POST | SearchController::class . ':getGroupForTypeID' | Search for group typ
+
+* `{ref}`->`string` :: GroupType
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getGroupRoleForGroupID/` | POST | SearchController::class . ':getGroupRoleForGroupID' | No description
+`/getGroupRoleForGroupID/` | POST | SearchController::class . ':getGroupRoleForGroupID' | Get group role for Group ID
+
+* `{ref}`->`int` :: Group
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getresult/` | POST | SearchController::class . ':getSearchResult' | No description
+`/getresult/` | POST | SearchController::class . ':getSearchResult' | Get search result for the main seach view
+
+* `{ref}`->`string` :: query
 
 ---
 Route | Method | function | Description
@@ -1914,6 +1496,7 @@ Route | Method | function | Description
 `/getresult/` | GET | SearchController::class . ':getSearchResult' | No description
 
 ---
+## SIDE BAR ADMIN
 ## API "general roles"
 
    in route : "/api/routes/sidebar/sidebar-general-roles.php"
@@ -2118,11 +1701,14 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/persons/assign` | POST | SidebarRolesController::class . ':rolePersonAssign' | get all roles
 
+* `{ref}`->`string` :: Description
+
 ---
 ## API "volunteeropportunity"
 
    in route : "/api/routes/sidebar/sidebar-volunteeropportunity.php"
 
+## PASTORAL CARE
 ## API "pastoralcare"
 
    in route : "/api/routes/pastoralcare/pastoralcare.php"
@@ -2293,39 +1879,33 @@ Route | Method | function | Description
 * `{ref}`->`int` :: UserID
 
 ---
+## SUNDAY SCHOOL
 ## API "sundayschool"
 
    in route : "/api/routes/sundayschool.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getallstudents/{groupId:[0-9]+}` | POST | SundaySchoolController::class . ':getallstudentsForGroup' | No description
+`/getallstudents/{groupId:[0-9]+}` | POST | SundaySchoolController::class . ':getallstudentsForGroup' | Get all students for Group ID
+
+* `{ref}`->`int` :: groupId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getAllGendersForDonut/{groupId:[0-9]+}` | POST | SundaySchoolController::class . ':getAllGendersForDonut' | No description
+`/getAllGendersForDonut/{groupId:[0-9]+}` | POST | SundaySchoolController::class . ':getAllGendersForDonut' | Get all genders for Group ID (to draw the donut)
+
+* `{ref}`->`int` :: groupId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getAllStudentsForChart/{groupId:[0-9]+}` | POST | SundaySchoolController::class . ':getAllStudentsForChart' | No description
+`/getAllStudentsForChart/{groupId:[0-9]+}` | POST | SundaySchoolController::class . ':getAllStudentsForChart' | Get all students for Group ID (to draw the chart)
+
+* `{ref}`->`int` :: groupId
 
 ---
-## API "system"
-
-   in route : "/api/routes/system/system.php"
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/csp-report` | POST | SystemController::class . ':cspReport' | send csp report
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/deletefile` | POST | SystemController::class . ':deleteFile' | delete a file
-
----
+## SYSTEM
 ## API "custom-fields"
 
    in route : "/api/routes/system/system-custom-fields.php"
@@ -2334,10 +1914,14 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/person` | GET | SystemCustomFieldController::class . ':getPersonFieldsByType' | Get person field type (public)
 
+* `{ref}`->`int` :: typeId
+
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/person/` | GET | SystemCustomFieldController::class . ':getPersonFieldsByType' | Get person field type (public)
+
+* `{ref}`->`int` :: typeId
 
 ---
 ## API "database"
@@ -2348,15 +1932,26 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/restore` | POST | SystemBackupRestoreController::class . ':restore' | backup crm (admin)
 
+* `{ref}`->`int` :: iArchiveType
+* `{ref}`->`int` :: iRemote
+* `{ref}`->`int` :: iArchiveType
+* `{ref}`->`bool` :: bEncryptBackup,
+* `{ref}`->`string` :: password
+* `{ref}`->`string` :: restoreFile
+
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/download/{filename}` | GET | SystemBackupRestoreController::class . ':download' | Download update (admin)
 
+* `{ref}`->`string` :: filename
+
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/people/clear` | DELETE | SystemBackupRestoreController::class . ':clearPeopleTables' | Clear all people from the database (admin)
+
+* `{ref}`->`string` :: filename
 
 ---
 ## API "gdrp"
@@ -2372,10 +1967,16 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/setComment` | POST | SystemGDRPController::class . ':setGdprComment' | Set GDPR note (comment)
 
+* `{ref}`->`int` :: custom_id
+* `{ref}`->`string` :: comment
+* `{ref}`->`int` :: type 'person', 'personCustom', 'personProperty', 'family', 'familyCustom'
+
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/removeperson` | POST | SystemGDRPController::class . ':removePersonGdpr' | remove a person for gdpr by person ID
+
+* `{ref}`->`int` :: personId
 
 ---
 Route | Method | function | Description
@@ -2387,10 +1988,33 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/removefamily` | POST | SystemGDRPController::class . ':removeFamilyGdpr' | remove a fmaily for gdpr by family ID
 
+* `{ref}`->`int` :: familyId
+
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/removeallfamilies` | POST | SystemGDRPController::class . ':removeAllFamiliesGdpr' | Remove all families
+
+---
+## API "individual settings"
+
+   in route : "/api/routes/system/system-setting-individual.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/get2FA` | POST | SystemSettingsIndividualController::class . ':get2FA' | Get 2FA key
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/verify2FA` | POST | SystemSettingsIndividualController::class . ':verify2FA' | Verify 2FA
+
+* `{ref}`->`string` :: code
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/remove2FA` | POST | SystemSettingsIndividualController::class . ':remove2FA' | Remove 2FA for session user
 
 ---
 ## API "issues"
@@ -2401,24 +2025,7 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/issues` | POST | SystemIssueController::class . ':issues' | Sending an issue (public)
 
----
-## API "individual settings"
-
-   in route : "/api/routes/system/system-setting-individual.php"
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/get2FA` | POST | SystemSettingsIndividualController::class . ':get2FA' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/verify2FA` | POST | SystemSettingsIndividualController::class . ':verify2FA' | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/remove2FA` | POST | SystemSettingsIndividualController::class . ':remove2FA' | No description
+* `{ref}`->`int` :: iArchiveType
 
 ---
 ## API "synchronize"
@@ -2432,23 +2039,43 @@ Route | Method | function | Description
 * `{page}`->`string` :: current page name
 
 ---
+## API "system"
+
+   in route : "/api/routes/system/system.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/csp-report` | POST | SystemController::class . ':cspReport' | send csp report
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/deletefile` | POST | SystemController::class . ':deleteFile' | delete a file
+
+* `{ref}`->`string` :: name
+* `{ref}`->`string` :: path
+
+---
 ## API "systemupgrade"
 
    in route : "/api/routes/system/system-system-upgrade.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/downloadlatestrelease` | GET | SystemUpgradeController::class . ':downloadlatestrelease' | No description
+`/downloadlatestrelease` | GET | SystemUpgradeController::class . ':downloadlatestrelease' | Download latest release
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/doupgrade` | POST | SystemUpgradeController::class . ':doupgrade' | No description
+`/doupgrade` | POST | SystemUpgradeController::class . ':doupgrade' | Do upgrade system to latest
+
+* `{ref}`->`string` :: fullPath
+* `{ref}`->`string` :: sha1
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/isUpdateRequired` | POST | SystemUpgradeController::class . ':isUpdateRequired' | No description
+`/isUpdateRequired` | POST | SystemUpgradeController::class . ':isUpdateRequired' | Test if update is required : return
 
 ---
 ## API "timerjobs"
@@ -2460,33 +2087,34 @@ Route | Method | function | Description
 `/run` | POST | TimerJobsController::class . ':runTimerJobs' | get all running timer jobs
 
 ---
+## USER PROFILE
 ## API "userrole"
 
    in route : "/api/routes/user/user-role.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/add` | POST | UserRoleController::class . ':addUserRole' | No description
+`/add` | POST | UserRoleController::class . ':addUserRole' | Add new role by name, global etc ...
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/get` | POST | UserRoleController::class . ':getUserRole' | No description
+`/get` | POST | UserRoleController::class . ':getUserRole' | Get role by name, global etc ...
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/rename` | POST | UserRoleController::class . ':renameUserRole' | No description
+`/rename` | POST | UserRoleController::class . ':renameUserRole' | Rename role id by name
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getall` | POST | UserRoleController::class . ':getAllUserRoles' | No description
+`/getall` | POST | UserRoleController::class . ':getAllUserRoles' | Get all user roles
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | UserRoleController::class . ':deleteUserRole' | No description
+`/delete` | POST | UserRoleController::class . ':deleteUserRole' | delete user role by id
 
 ---
 ## API "users"
@@ -2495,54 +2123,55 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{userId:[0-9]+}/password/reset` | POST | UserUsersController::class . ':passwordReset' | No description
+`/{userId:[0-9]+}/password/reset` | POST | UserUsersController::class . ':passwordReset' | Reset password to random one
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/controlAccount` | POST | UserUsersController::class . ':controlAccount' | No description
+`/controlAccount` | POST | UserUsersController::class . ':controlAccount' | Apply role ID to user ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/exitControlAccount` | POST | UserUsersController::class . ':exitControlAccount' | No description
+`/exitControlAccount` | POST | UserUsersController::class . ':exitControlAccount' | Exit account control (admin)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/lockunlock` | POST | UserUsersController::class . ':lockUnlock' | No description
+`/lockunlock` | POST | UserUsersController::class . ':lockUnlock' | Lock/unlock account (admin)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/showsince` | POST | UserUsersController::class . ':showSince' | No description
+`/showsince` | POST | UserUsersController::class . ':showSince' | Show since (every user)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/showto` | POST | UserUsersController::class . ':showTo' | No description
+`/showto` | POST | UserUsersController::class . ':showTo' | Show to (every user)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{userId:[0-9]+}/login/reset` | POST | UserUsersController::class . ':loginReset' | No description
+`/{userId:[0-9]+}/login/reset` | POST | UserUsersController::class . ':loginReset' | Reset login count to setFailedLogins(0) (Admin)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{userId:[0-9]+}` | DELETE | UserUsersController::class . ':deleteUser' | No description
+`/{userId:[0-9]+}` | DELETE | UserUsersController::class . ':deleteUser' | Delete user account (Admin)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/2fa/remove` | POST | UserUsersController::class . ':userstwofaremove' | No description
+`/2fa/remove` | POST | UserUsersController::class . ':userstwofaremove' | Remove 2FA code (Admin)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/2fa/pending` | POST | UserUsersController::class . ':userstwofapending' | No description
+`/2fa/pending` | POST | UserUsersController::class . ':userstwofapending' | pending 2FA code (Admin)
 
 ---
+## PLUGINS
 ## API "Plugins (global management)"
 
    in route : "/api/routes/plugins/plugins.php"
@@ -2626,5 +2255,534 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/changeSettings` | POST | MeetingController::class . ':changeSettings' | No description
+
+---
+## OTHERS
+## API "Cart"
+
+   in route : "/api/routes/cart.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/` | GET | CartController::class . ':getAllPeopleInCart' | Get all people in Cart
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/` | POST | CartController::class . ':cartOperation' | cart operations
+
+* `{ref}`->`array` :: Persons arrray of ids (possible value)
+* `{id}`->`int` :: Family (ID) of the person (possible value)
+* `{id}`->`array` :: Families (array of ids) (possible value)
+* `{id}`->`int` :: Group id (possible value)
+* `{id}`->`int` :: removeFamily id (possible value)
+* `{id}`->`array` :: removeFamilies (array of ids) (possible value)
+* `{id}`->`int` :: studentGroup id
+* `{id}`->`int` :: teacherGroup id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/interectPerson` | POST | CartController::class . ':cartIntersectPersons' | Get user info by id
+
+* `{ref}`->`array` :: Persons id in array ref (possible value)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/emptyToGroup` | POST | CartController::class . ':emptyCartToGroup' | Empty cart to a group
+
+* `{ref}`->`int` :: groupID
+* `{ref}`->`int` :: groupRoleID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/emptyToEvent` | POST | CartController::class . ':emptyCartToEvent' | Empty cart to event
+
+* `{ref}`->`int` :: eventID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/emptyToNewGroup` | POST | CartController::class . ':emptyCartToNewGroup' | Empty cart to a new group
+
+* `{ref}`->`string` :: groupName
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeGroup` | POST | CartController::class . ':removeGroupFromCart' | Remove all group members Ids from the cart
+
+* `{ref}`->`int` :: Group (Id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeGroups` | POST | CartController::class . ':removeGroupsFromCart' | Remove all groups members Ids from the cart
+
+* `{ref}`->`array` :: Groups (array of group Id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeStudentGroup` | POST | CartController::class . ':removeStudentsGroupFromCart' | Remove students by group Id from the cart
+
+* `{ref}`->`int` :: Group (group Id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeTeacherGroup` | POST | CartController::class . ':removeTeachersGroupFromCart' | Remove teachers by group Id from the cart
+
+* `{ref}`->`int` :: Group (group Id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addAllStudents` | POST | CartController::class . ':addAllStudentsToCart' | Add all students to cart
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addAllTeachers` | POST | CartController::class . ':addAllTeachersToCart' | Add all teachers to cart
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeAllStudents` | POST | CartController::class . ':removeAllStudentsFromCart' | Remove all students from the cart
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeAllTeachers` | POST | CartController::class . ':removeAllTeachersFromCart' | Remove all teachers from the cart
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/delete` | POST | CartController::class . ':deletePersonCart' | Remove persons from the cart
+
+* `{ref}`->`array` :: Persons (array of persons ids)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/deactivate` | POST | CartController::class . ':deactivatePersonCart' | De-activate persons from the cart
+
+* `{ref}`->`array` :: Persons (array of persons ids)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/` | DELETE | CartController::class . ':removePersonCart' | Extract persons in the cart to vcard format
+
+---
+## API "fundraiser"
+
+   in route : "/api/routes/fundraiser/fundraiser.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/{FundRaiserID:[0-9]+}` | POST | FundraiserController::class . ':getAllFundraiserForID' | Get All fundraiser for FundRaiserID
+
+* `{ref}`->`int` :: FundRaiserID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/replicate` | POST | FundraiserController::class . ':replicateFundraiser' | Duplicate fundraiser
+
+* `{ref}`->`int` :: DonatedItemID
+* `{ref}`->`int` :: count
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/donatedItemSubmit` | POST | FundraiserController::class . ':donatedItemSubmitFundraiser' | create or update DonateItem with params
+
+* `{ref}`->`int` :: currentFundraiser
+* `{ref}`->`int` :: currentDonatedItemID
+* `{ref}`->`string` :: Item
+* `{ref}`->`int` :: Multibuy
+* `{ref}`->`int` :: Donor
+* `{ref}`->`string` :: Title
+* `{ref}`->`html` :: Description
+* `{ref}`->`float` :: EstPrice
+* `{ref}`->`float` :: MaterialValue
+* `{ref}`->`float` :: MinimumPrice
+* `{ref}`->`int` :: Buyer
+* `{ref}`->`float` :: SellPrice
+* `{ref}`->`string` :: PictureURL
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/donateditem/currentpicture` | POST | FundraiserController::class . ':donatedItemCurrentPicture' | Return current url picture for the DonateItem ID
+
+* `{ref}`->`int` :: DonatedItemID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/donateditem` | DELETE | FundraiserController::class . ':deleteDonatedItem' | Delete donatedItem with the params below
+
+* `{ref}`->`int` :: FundRaiserID
+* `{ref}`->`int` :: DonatedItemID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/donatedItem/submit/picture` | POST | FundraiserController::class . ':donatedItemSubmitPicture' | Submit picture for the Donated Item Id
+
+* `{ref}`->`int` :: DonatedItemID
+* `{ref}`->`string` :: pathFile
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}` | POST | FundraiserController::class . ':findFundRaiser' | Find a fund raiser by Id and in range of dates
+
+* `{ref}`->`int` :: fundRaiserID
+* `{ref}`->`string` :: startDate
+* `{ref}`->`string` :: startDate
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum` | DELETE | FundraiserController::class . ':deletePaddleNum' | delete PaddleNum
+
+* `{ref}`->`int` :: fundraiserID
+* `{ref}`->`int` :: pnID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum/list/{fundRaiserID:[0-9]+}` | POST | FundraiserController::class . ':getPaddleNumList' | Get PaddleNum list by fundraiser ID
+
+* `{ref}`->`int` :: fundRaiserID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum/add/donnors` | POST | FundraiserController::class . ':addDonnors' | Add all Donnors from the fundraiserID and create associated PaddleNums
+
+* `{ref}`->`int` :: fundraiserID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum/persons/all/{fundRaiserID:[0-9]+}` | GET | FundraiserController::class . ':getAllPersonsNum' | Returns a list of all the persons who are in the cart
+
+* `{ref}`->`int` :: fundRaiserID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum/add` | POST | FundraiserController::class . ':addPaddleNum' | Add PaddleNum
+
+* `{ref}`->`int` :: fundraiserID
+* `{ref}`->`int` :: PerID
+* `{ref}`->`int` :: PaddleNumID
+* `{ref}`->`int` :: Num
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/paddlenum/info` | POST | FundraiserController::class . ':paddleNumInfo' | Get PaddleNum infos
+
+* `{ref}`->`int` :: fundraiserID
+* `{ref}`->`int` :: PerID
+* `{ref}`->`int` :: Num
+
+---
+## API "geocoder"
+
+   in route : "/api/routes/geocoder.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/address` | POST | GeocoderController::class . ':getGeoLocals' | get address
+
+* `{ref}`->`string` :: address
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/address/` | POST | GeocoderController::class . ':getGeoLocals' | get address
+
+---
+## API "kiosks"
+
+   in route : "/api/routes/kiosks.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/` | GET | KiosksController::class . ':getKioskDevices' | Get all Kiosk devices
+
+* `{ref}`->`string` :: address
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/allowRegistration` | POST | KiosksController::class . ':allowDeviceRegistration' | Allow a Kiosk registration
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{kioskId:[0-9]+}/reloadKiosk` | POST | KiosksController::class . ':reloadKiosk' | Reload kiosk for kioskId
+
+* `{ref}`->`int` :: kioskId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{kioskId:[0-9]+}/identifyKiosk` | POST | KiosksController::class . ':identifyKiosk' | Identify Kiosk by id
+
+* `{ref}`->`int` :: kioskId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{kioskId:[0-9]+}/acceptKiosk` | POST | KiosksController::class . ':acceptKiosk' | Accept Kiosk by id
+
+* `{ref}`->`int` :: kioskId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{kioskId:[0-9]+}/setAssignment` | POST | KiosksController::class . ':setKioskAssignment' | Set Kiosk assignement
+
+* `{ref}`->`int` :: kioskId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{kioskId:[0-9]+}` | DELETE | KiosksController::class . ':deleteKiosk' | Delete kiosk by id
+
+* `{ref}`->`int` :: kioskId
+
+---
+## API "mailchimp"
+
+   in route : "/api/routes/mailchimp.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/search/{query}` | GET | MailchimpController::class . ':searchList' | Search in the list field : *, family name, group, etc ...
+
+* `{ref}`->`string` :: query
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/list/{listID}` | GET | MailchimpController::class . ':oneList' | get one list info (['MailChimpList' => $list,'MailChimpCampaign' => $campaign,'membersCount' => count($mailchimp->getListMembersFromListId($args['listID']))])
+
+* `{ref}`->`int` :: listID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/lists` | GET | MailchimpController::class . ':lists' | get all lists ['MailChimpLists' => $lists,'MailChimpCampaigns' => $campaigns, 'firstLoaded' => !$isLoaded, 'isActive' => $isActive]
+
+* `{ref}`->`int` :: listID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/listmembers/{listID}` | GET | MailchimpController::class . ':listmembers' | get all members list for listID
+
+* `{ref}`->`int` :: listID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/createlist` | POST | MailchimpController::class . ':createList' | create a list
+
+* `{ref}`->`string` :: ListTitle
+* `{ref}`->`string` :: Subject
+* `{ref}`->`string` :: PermissionReminder
+* `{ref}`->`bool` :: ArchiveBars
+* `{ref}`->`bool` :: Status (private | public)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/modifylist` | POST | MailchimpController::class . ':modifyList' | modify list by list id
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`string` :: name
+* `{ref}`->`string` :: subject
+* `{ref}`->`string` :: permission_reminder
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/deleteallsubscribers` | POST | MailchimpController::class . ':deleteallsubscribers' | delete all subscribers
+
+* `{ref}`->`int` :: list_id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/deletelist` | POST | MailchimpController::class . ':deleteList' | delete list by list ID
+
+* `{ref}`->`int` :: list_id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/list/removeTag` | POST | MailchimpController::class . ':removeTag' | remove TagID in the List by list ID
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`int` :: tag_ID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/list/removeAllTagsForMembers` | POST | MailchimpController::class . ':removeAllTagsForMembers' | remove all tags in list ID by an array of emails
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`array` :: emails
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/list/addTag` | POST | MailchimpController::class . ':addTag' | add a tag to all members by emails array or create a tag (-1) by name for all emails array.
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`string` :: tag (could be -1 : in this case, you'll create a new tag)
+* `{ref}`->`string` :: name (in case tag is -1)
+* `{ref}`->`array` :: emails
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/list/getAllTags` | POST | MailchimpController::class . ':getAllTags' | get all tags for for list by id
+
+* `{ref}`->`int` :: list_id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/list/removeTagForMembers` | POST | MailchimpController::class . ':removeTagForMembers' | remove tag for all members (emails array) in list Id
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`int` :: tag
+* `{ref}`->`array` :: emails
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/campaign/actions/create` | POST | MailchimpController::class . ':campaignCreate' | Create a campaign for tagID with subject etc ....
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`string` :: subject
+* `{ref}`->`string` :: title
+* `{ref}`->`string` :: tagId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/campaign/actions/delete` | POST | MailchimpController::class . ':campaignDelete' | Delete campaign by id
+
+* `{ref}`->`int` :: campaign_id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/campaign/actions/send` | POST | MailchimpController::class . ':campaignSend' | Send campaign by id
+
+* `{ref}`->`int` :: campaign_id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/campaign/actions/save` | POST | MailchimpController::class . ':campaignSave' | Save a campaign
+
+* `{ref}`->`int` :: campaign_id
+* `{ref}`->`string` :: subject
+* `{ref}`->`string` :: oldStatus ("save" | "paused" | scheduled)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/campaign/{campaignID}/content` | GET | MailchimpController::class . ':campaignContent' | Get html contect of a campaign
+
+* `{ref}`->`int` :: campaignID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/status` | POST | MailchimpController::class . ':statusList' | update the list status
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`string` :: status ("save" | "paused" | scheduled)
+* `{ref}`->`string` :: email
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/suppress` | POST | MailchimpController::class . ':suppress' | delete email in the list id
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`string` :: email (one email)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/suppressMembers` | POST | MailchimpController::class . ':suppressMembers' | delete emails in the list id
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`array` :: array of emails
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addallnewsletterpersons` | POST | MailchimpController::class . ':addallnewsletterpersons' | add all members checked by newsletter checkbox in the CRM
+
+* `{ref}`->`int` :: list_id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addallpersons` | POST | MailchimpController::class . ':addallpersons' | add all persons in the CRM who have a email or work email to list ID
+
+* `{ref}`->`int` :: list_id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addperson` | POST | MailchimpController::class . ':addPerson' | add one person ID to list ID
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`int` :: personID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addfamily` | POST | MailchimpController::class . ':addFamily' | add one family ID to list ID
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`int` :: familyID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addAllFamilies` | POST | MailchimpController::class . ':addAllFamilies' | add all families to list ID
+
+* `{ref}`->`int` :: list_id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addgroup` | POST | MailchimpController::class . ':addGroup' | add all group members by ID to list ID
+
+* `{ref}`->`int` :: list_id
+* `{ref}`->`int` :: fgroupID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/testConnection` | POST | MailchimpController::class . ':testEmailConnectionMVC' | Test if connection is available
 
 ---
