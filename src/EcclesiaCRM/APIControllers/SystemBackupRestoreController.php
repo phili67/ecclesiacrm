@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -44,6 +45,10 @@ class SystemBackupRestoreController
     }
 
     public function backup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !SessionUser::isAdmin() ) {
+            return $response->withStatus(401);
+        }
+
         $input = (object) $request->getParsedBody();
 
         $createBackup = new CreateBackup($input);
@@ -53,6 +58,10 @@ class SystemBackupRestoreController
     }
 
     public function backupRemote (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !SessionUser::isAdmin() ) {
+            return $response->withStatus(401);
+        }
+
         // without parameters the backup is done on the remote server
         $input = (object) $request->getParsedBody();
 
@@ -69,6 +78,10 @@ class SystemBackupRestoreController
     }
 
     public function restore (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !SessionUser::isAdmin() ) {
+            return $response->withStatus(401);
+        }
+
         $fileName = $_FILES['restoreFile'];
 
         $restoreJob = new RestoreBackup($fileName);
@@ -79,6 +92,10 @@ class SystemBackupRestoreController
 
     public function download (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !SessionUser::isAdmin() ) {
+            return $response->withStatus(401);
+        }
+
         $filename = $args['filename'];
         DownloadManager::run($filename);
         exit;// bug resolution for safari
@@ -86,6 +103,10 @@ class SystemBackupRestoreController
 
     public function clearPeopleTables (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !SessionUser::isAdmin() ) {
+            return $response->withStatus(401);
+        }
+
         $logger = $this->container->get('Logger');
 
         $connection = Propel::getConnection();

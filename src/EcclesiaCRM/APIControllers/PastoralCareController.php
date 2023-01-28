@@ -37,7 +37,7 @@ class PastoralCareController
 
     public function getPastoralCareListForUser(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if (!(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
+        if (!( SessionUser::getUser()->isPastoralCareEnabled() and SessionUser::getUser()->isMenuOptionsEnabled() and array_key_exists('UserID', $args) )) {
             return $response->withStatus(401);
         }
 
@@ -91,7 +91,7 @@ class PastoralCareController
             return $response->withJson(['ListOfMembers' => $ormPastors->toArray()]);
         }
 
-
+        return $response->withStatus(401);
     }
 
 
@@ -580,7 +580,7 @@ class PastoralCareController
 
     public function getPersonByClassificationPastoralCare(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if (!(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
+        if (!(SessionUser::getUser()->isPastoralCareEnabled() and SessionUser::getUser()->isMenuOptionsEnabled() and array_key_exists('type', $args ))) {
             return $response->withStatus(401);
         }
 

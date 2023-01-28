@@ -62,12 +62,19 @@ class PeoplePersonController
     }
 
     public function photo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !array_key_exists('personId', $args) ) {
+            return $response->withStatus(401);
+        }
+
         $response=$this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Person",$args['personId']);
         return $response->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
     }
 
     public function thumbnail (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !array_key_exists('personId', $args) ) {
+            return $response->withStatus(401);
+        }
         $response=$this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Person",$args['personId']);
         return $response->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
@@ -264,6 +271,10 @@ class PeoplePersonController
     }
 
     public function personpropertiesPerPersonId (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !array_key_exists('personID', $args) ) {
+            return $response->withStatus(401);
+        }
+
         $ormAssignedProperties = Record2propertyR2pQuery::Create()
             ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
             ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
@@ -287,28 +298,37 @@ class PeoplePersonController
 
     public function postPersonPhoto (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $input = (object)$request->getParsedBody();
+
+        if ( !( array_key_exists('personID', $args) and isset($input->imgBase64) ) ) {
+            return $response->withStatus(401);
+        }
+
         $person = PersonQuery::create()->findPk($args['personId']);
         $person->setImageFromBase64($input->imgBase64);
+
         return $response->withJSON(array("status" => "success"));
     }
 
     public function deletePersonPhoto (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !( array_key_exists('personID', $args) ) ) {
+            return $response->withStatus(401);
+        }
         $person = PersonQuery::create()->findPk($args['personId']);
         return json_encode(array("status" => $person->deletePhoto()));
     }
 
     public function addPersonToCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !( array_key_exists('personId', $args) and SessionUser::getUser()->isShowCartEnabled() ) ) {
+            return $response->withStatus(401);
+        }
         Cart::AddPerson($args['personId']);
 
         return $response->withJSON(array("status" => "success"));
     }
 
     public function deletePerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        /**
-         * @var \EcclesiaCRM\User $sessionUser
-         */
         $sessionUser = SessionUser::getUser();
-        if (!$sessionUser->isDeleteRecordsEnabled()) {
+        if ( !( $sessionUser->isDeleteRecordsEnabled() and array_key_exists('personId', $args) ) ) {
             return $response->withStatus(401);
         }
         $personId = $args['personId'];
@@ -337,11 +357,11 @@ class PeoplePersonController
     }
 
     public function deletePersonField (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-            return $response->withStatus(404);
-        }
-
         $values = (object)$request->getParsedBody();
+
+        if (!(SessionUser::getUser()->isMenuOptionsEnabled() and isset($values->orderID) and isset($values->field) ) ) {
+            return $response->withStatus(401);
+        }
 
         if ( isset ($values->orderID) && isset ($values->field) )
         {
@@ -383,11 +403,11 @@ class PeoplePersonController
     }
 
     public function upactionPersonfield (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+        $values = (object)$request->getParsedBody();
+
+        if (!( SessionUser::getUser()->isMenuOptionsEnabled() and isset ($values->orderID) and isset ($values->field) ) ) {
             return $response->withStatus(404);
         }
-
-        $values = (object)$request->getParsedBody();
 
         if ( isset ($values->orderID) && isset ($values->field) )
         {
@@ -405,11 +425,11 @@ class PeoplePersonController
     }
 
     public function downactionPersonfield (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-            return $response->withStatus(404);
-        }
-
         $values = (object)$request->getParsedBody();
+
+        if (!(SessionUser::getUser()->isMenuOptionsEnabled() and isset ($values->orderID) and isset ($values->field) ) ) {
+            return $response->withStatus(401);
+        }
 
         if ( isset ($values->orderID) && isset ($values->field) )
         {
@@ -427,6 +447,10 @@ class PeoplePersonController
     }
 
     public function duplicateEmails(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!SessionUser::getUser()->isMailChimpEnabled()) {
+            return $response->withStatus(401);
+        }
+
         $connection = Propel::getConnection();
         $dupEmailsSQL = "SELECT email, total FROM email_count where total > 1";
         $statement = $connection->prepare($dupEmailsSQL);
@@ -455,6 +479,9 @@ class PeoplePersonController
     }
 
     public function notInMailChimpEmails (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!SessionUser::getUser()->isMailChimpEnabled()) {
+            return $response->withStatus(401);
+        }
 
         $mailchimp = $this->container->get('MailChimpService');
 
@@ -573,7 +600,8 @@ class PeoplePersonController
         return $response->withJson(['success' => true]);
     }
 
-    public function saveNoteAsWordFile (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function saveNoteAsWordFile (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personId) && isset ($input->noteId) ) {
@@ -614,6 +642,10 @@ class PeoplePersonController
     }
 
     public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !( array_key_exists('personId', $args) ) ) {
+            return $response->withStatus(401);
+        }
+
         $person = PersonQuery::create()->findOneById($args['personId']);
 
         $filename = $person->getLastName()."_".$person->getFirstName().".vcf";

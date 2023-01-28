@@ -11,6 +11,7 @@
 namespace EcclesiaCRM\APIControllers;
 
 
+use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

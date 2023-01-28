@@ -114,7 +114,12 @@ class PeopleGroupController
         return $response->write($ormAssignedProperties->toJSON());
     }
 
-    public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        if ( !(SessionUser::getUser()->isSeePrivacyDataEnabled() and array_key_exists('groupId', $args)) ) {
+            return $response->withStatus(401);
+        }
+
         // we get the group
         $group = GroupQuery::create()->findOneById ($args['groupId']);
 
@@ -143,7 +148,12 @@ class PeopleGroupController
         return $response;
     }
 
-    public function searchGroup(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function searchGroup(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        if ( array_key_exists('query', $args) ) {
+            return $response->withStatus(401);
+        }
+
         $query = $args['query'];
 
         $query = filter_var($query, FILTER_SANITIZE_STRING);
@@ -178,7 +188,7 @@ class PeopleGroupController
     public function deleteAllManagers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $options = (object) $request->getParsedBody();
 
-        if ( isset ($options->groupID) ) {
+        if ( isset ($options->groupID) and SessionUser::getUser()->isManageGroupsEnabled() ) {
             $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
 
             if ($managers != null) {
@@ -193,7 +203,7 @@ class PeopleGroupController
     public function deleteManager (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $options = (object) $request->getParsedBody();
 
-        if ( isset ($options->groupID) && isset ($options->personID) ) {
+        if ( isset ($options->groupID) and isset ($options->personID) and SessionUser::getUser()->isManageGroupsEnabled() ) {
             $manager = GroupManagerPersonQuery::Create()->filterByPersonID($options->personID)->filterByGroupId($options->groupID)->findOne();
 
             if ($manager != null) {
@@ -226,7 +236,7 @@ class PeopleGroupController
     public function getManagers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $option = (object) $request->getParsedBody();
 
-        if (isset ($option->groupID)) {
+        if ( isset ($option->groupID) and SessionUser::getUser()->isGroupManagerEnabledForId($option->groupID) ) {
             $managers = GroupManagerPersonQuery::Create()->findByGroupId($option->groupID);
 
             if ($managers->count()) {
@@ -253,7 +263,7 @@ class PeopleGroupController
     public function addManager (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $options = (object)$request->getParsedBody();
 
-        if (isset ($options->personID) && isset($options->groupID)) {
+        if (isset ($options->personID) and isset($options->groupID) and SessionUser::getUser()->isGroupManagerEnabledForId($options->groupID) ) {
             $groupManager = new GroupManagerPerson();
 
             $groupManager->setPersonId($options->personID);
@@ -267,7 +277,12 @@ class PeopleGroupController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function groupsInCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupsInCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        if ( !SessionUser::getUser()->isShowCartEnabled() ) {
+            return $response->withStatus(401);
+        }
+
         $groupsInCart = [];
         $groups = GroupQuery::create()->find();
         foreach ($groups as $group) {
@@ -278,7 +293,12 @@ class PeopleGroupController
         return $response->withJson(['groupsInCart' => $groupsInCart]);
     }
 
-    public function newGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function newGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        if ( !SessionUser::getUser()->isManageGroupsEnabled() ) {
+            return $response->withStatus(401);
+        }
+
         $groupSettings = (object) $request->getParsedBody();
         $group = new Group();
         if ($groupSettings->isSundaySchool) {
@@ -302,9 +322,17 @@ class PeopleGroupController
         return $response->write( $group->toJSON() );
     }
 
-    public function updateGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        $groupID = $args['groupID'];
+    public function updateGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
         $input = (object) $request->getParsedBody();
+
+        if ( !( SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID']) and array_key_exists('groupID', $args)
+            and isset($input->groupName) and isset($input->groupType) and isset($input->description)) ) {
+            return $response->withStatus(401);
+        }
+
+        $groupID = $args['groupID'];
+
         $group = GroupQuery::create()->findOneById($groupID);
         $group->setName($input->groupName);
 
@@ -330,20 +358,36 @@ class PeopleGroupController
     }
 
     public function groupInfo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !( SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID']) and array_key_exists('groupID', $args) ) ) {
+            return $response->withStatus(401);
+        }
         return $response->write( GroupQuery::create()->findOneById($args['groupID'])->toJSON());
     }
 
     public function groupCartStatus (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !( SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID']) and SessionUser::getUser()->isShowCartEnabled()
+            and array_key_exists('groupID', $args) ) ) {
+            return $response->withStatus(401);
+        }
         return $response->write( GroupQuery::create()->findOneById($args['groupID'])->checkAgainstCart());
     }
 
     public function deleteGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !( SessionUser::getUser()->isManageGroupsEnabled()
+            and array_key_exists('groupID', $args) ) ) {
+            return $response->withStatus(401);
+        }
         $groupID = $args['groupID'];
         GroupQuery::create()->findOneById($groupID)->delete();
         return $response->withJson(['status'=>'success']);
     }
 
     public function groupMembers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !( SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID'])
+            and array_key_exists('groupID', $args) ) ) {
+            return $response->withStatus(401);
+        }
+
         $groupID = $args['groupID'];
         $members = Person2group2roleP2g2rQuery::create()
             ->joinWithPerson()
@@ -381,6 +425,11 @@ class PeopleGroupController
     }
 
     public function groupEvents (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !( SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID'])
+            and array_key_exists('groupID', $args) ) ) {
+            return $response->withStatus(401);
+        }
+
         $groupID = $args['groupID'];
         $members = Person2group2roleP2g2rQuery::create()
             ->joinWithPerson()

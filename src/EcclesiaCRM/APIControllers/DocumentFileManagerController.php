@@ -67,7 +67,7 @@ class DocumentFileManagerController
 
         $realUserID = SessionUser::getUser()->getPersonId();
 
-        if (is_null($user) || $realUserID != $args['personID']) {// in the case the user is null
+        if (SessionUser::getUser()->isEDriveEnabled() and is_null($user) || $realUserID != $args['personID']) {// in the case the user is null
             return $response->withJson(["files" => [] ]);
         }
 
@@ -148,9 +148,9 @@ class DocumentFileManagerController
         $user = UserQuery::create()->findPk($args['personID']);
         $name = $request->getAttribute('path');
 
-        $per = PersonQuery::Create()->findOneById($args['personID']);
+        if (!is_null($user) ) {
+            $per = PersonQuery::Create()->findOneById($args['personID']);
 
-        if (!is_null($user)) {
             $realNoteDir = $userDir = $user->getUserRootDir();
             $userName = $user->getUserName();
             $currentpath = $user->getCurrentpath();
@@ -215,7 +215,7 @@ class DocumentFileManagerController
     {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->name)) {
+        if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->name) and SessionUser::getId() == $params->personID) {
             $user = UserQuery::create()->findPk($params->personID);
             if (!is_null($user)) {
                 $userName = $user->getUserName();
@@ -245,7 +245,7 @@ class DocumentFileManagerController
     {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->folder)) {
+        if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) && isset ($params->folder) and SessionUser::getId() == $params->personID) {
 
             $user = UserQuery::create()->findPk($params->personID);
             if (!is_null($user)) {
@@ -265,7 +265,7 @@ class DocumentFileManagerController
     {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID)) {
+        if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and SessionUser::getId() == $params->personID) {
 
             $user = UserQuery::create()->findPk($params->personID);
             if (!is_null($user)) {
@@ -302,7 +302,7 @@ class DocumentFileManagerController
     {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->folder)) {
+        if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->folder) and SessionUser::getId() == $params->personID) {
 
             $user = UserQuery::create()->findPk($params->personID);
             if (!is_null($user)) {
@@ -333,7 +333,7 @@ class DocumentFileManagerController
     {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->file)) {
+        if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->file) and SessionUser::getId() == $params->personID) {
 
             $user = UserQuery::create()->findPk($params->personID);
             if (!is_null($user)) {
@@ -368,7 +368,7 @@ class DocumentFileManagerController
     {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->files)) {
+        if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->files) and SessionUser::getId() == $params->personID ) {
 
             $error = [];
 
@@ -435,7 +435,7 @@ class DocumentFileManagerController
     {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->folder) && isset ($params->files)) {
+        if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->folder) and isset ($params->files) and SessionUser::getId() == $params->personID) {
             $user = UserQuery::create()->findPk($params->personID);
 
             if (!is_null($user)) {
@@ -552,7 +552,7 @@ class DocumentFileManagerController
     {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->folder)) {
+        if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->folder) and SessionUser::getId() == $params->personID) {
 
             $user = UserQuery::create()->findPk($params->personID);
             if (!is_null($user)) {
@@ -592,7 +592,7 @@ class DocumentFileManagerController
     {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->oldName) && isset ($params->newName) && isset ($params->type)) {
+        if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->oldName) and isset ($params->newName) and isset ($params->type) and SessionUser::getId() == $params->personID) {
 
             $user = UserQuery::create()->findPk($params->personID);
             if (!is_null($user)) {
@@ -643,6 +643,10 @@ class DocumentFileManagerController
 
     public function uploadFile(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if (SessionUser::getUser()->isEDriveEnabled() and SessionUser::getId() != $args['personID']) {
+            return $response->withStatus(401);
+        }
+
         $user = UserQuery::create()->findPk($args['personID']);
 
         $realNoteDir = $userDir = $user->getUserRootDir();
@@ -686,7 +690,7 @@ class DocumentFileManagerController
     {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->pathFile)) {
+        if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->pathFile) and SessionUser::getId() == $params->personID) {
             $user = UserQuery::create()->findPk($params->personID);
             if (!is_null($user)) {
 

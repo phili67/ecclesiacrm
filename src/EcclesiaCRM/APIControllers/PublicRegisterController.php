@@ -29,6 +29,10 @@ class PublicRegisterController
 
     public function registerEcclesiaCRM(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        if ( !SessionUser::isAdmin() ) {
+            return $response->withStatus(401);
+        }
+
         $input = (object)$request->getParsedBody();
 
         $headers = [];
@@ -87,15 +91,15 @@ class PublicRegisterController
 
         return $response->withJson(
             ['ChurchName' => SystemConfig::getValue('sChurchName'),
-                'InstalledVersion' => SystemService::getInstalledVersion(),
-                'ChurchAddress' => SystemConfig::getValue('sChurchAddress'),
-                'ChurchCity' => SystemConfig::getValue('sChurchCity'),
-                'ChurchState' => SystemConfig::getValue('sChurchState'),
-                'ChurchZip' => SystemConfig::getValue('sChurchZip'),
-                'ChurchCountry' => SystemConfig::getValue('sChurchCountry'),
-                'ChurchEmail' => SystemConfig::getValue('sChurchEmail'),
-                'EcclesiaCRMURL' => $EcclesiaCRMURL,
-                'EmailMessage' => htmlspecialchars($sEmailMessage)
+            'InstalledVersion' => SystemService::getInstalledVersion(),
+            'ChurchAddress' => SystemConfig::getValue('sChurchAddress'),
+            'ChurchCity' => SystemConfig::getValue('sChurchCity'),
+            'ChurchState' => SystemConfig::getValue('sChurchState'),
+            'ChurchZip' => SystemConfig::getValue('sChurchZip'),
+            'ChurchCountry' => SystemConfig::getValue('sChurchCountry'),
+            'ChurchEmail' => SystemConfig::getValue('sChurchEmail'),
+            'EcclesiaCRMURL' => $EcclesiaCRMURL,
+            'EmailMessage' => htmlspecialchars($sEmailMessage)
             ]);
     }
 }
