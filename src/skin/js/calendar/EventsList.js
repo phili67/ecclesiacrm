@@ -350,6 +350,7 @@ $(document).ready(function () {
                                 }
                             });
                         } else if (recurrent == 1) {
+                            var fmt = 'YYYY-MM-DD HH:mm:ss';
                             var reccurenceID = moment(reccurenceID).format(fmt);
 
                             var box = bootbox.dialog({
