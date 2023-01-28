@@ -11,6 +11,8 @@ use EcclesiaCRM\PledgeQuery;
 use PhpOffice\PhpWord\IOFactory;
 use Propel\Runtime\Propel;
 
+use PhpOffice\PhpWord\Shared\PhpWordHTMLExtension;
+
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Html;
 use PhpOffice\PhpWord\Style\ListItem;
@@ -1689,7 +1691,6 @@ class MiscUtils
             'paragraph' => ['name' => 'courier', 'size' => 10, 'color' => '111111', 'bold' => true],
             'font' =>  ['name' => 'courier', 'size' => 10, 'color' => '111111', 'bold' => true]
         ];*/
-
         //PhpWordHTMLExtension::addHtml($section, MiscUtils::replace_img_src($html) , false, false, $options);
         Html::addHtml( $section, MiscUtils::replace_img_src($html) , false, false, $options);
 
