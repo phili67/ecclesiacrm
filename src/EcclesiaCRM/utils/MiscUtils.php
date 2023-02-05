@@ -28,6 +28,8 @@ class MiscUtils
 {
     const types = ["a", "b", "i", "u", "h1", "h2", "h2", "hr", "img", "p", "ul", "ol", "li", "table", "tbody", "theader", "tr", "td", "strong", "em"];
 
+    const extensions_to_sanitize = ["php", "jar", "js", "exe", "py", "com", "sh", "bash", "rb", "ahk", "apk", "pl"];
+
     // Constants
     const aPropTypes = [
         1  => 'True / False',
@@ -1762,5 +1764,13 @@ class MiscUtils
         }
 
         return ["pluginNames" => $pluginNames, "isMailerAvalaible" => $isMailerAvalaible];
+    }
+
+    public static function SanitizeExtension ($ext)
+    {
+        if (in_array($ext, self::extensions_to_sanitize) ) {
+            return "txt";
+        }
+        return $ext;
     }
 }
