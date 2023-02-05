@@ -31,7 +31,7 @@ class EcclesiaCRMServer extends DAV\Server
      parent::__construct($treeOrNode);
 
      $this->on('beforeUnbind',array($this, 'beforeUnbind'));
-     //$this->on('beforeBind',array($this, 'beforeBind'));
+     $this->on('beforeBind',array($this, 'beforeBind'));
    }
 
    function createFile($uri, $data, &$etag = null) {
@@ -89,13 +89,33 @@ class EcclesiaCRMServer extends DAV\Server
       return $res;
     }
 
-    /*function beforeBind($uri) { // due to a bug with : ́e special char that aren't to the right format : é
-       if(preg_match('/[^\x20-\x7f]/', $uri))
-         return false;
-       else
-         return true;
+    function beforeBind($uri) {
+        $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());
+        $userName = $currentUser->getUserName();
+        $userPathPublic = "home/".$userName."/public/";
 
-    }*/
+        $fileName = basename($uri);
+        $real_extension = pathinfo($fileName, PATHINFO_EXTENSION);
+
+        if (str_starts_with(  $uri, $userPathPublic )) {
+            $extension = MiscUtils::SanitizeExtension(pathinfo($fileName, PATHINFO_EXTENSION));
+        } else {
+            $extension = $real_extension;
+        }
+
+        if ($extension != $real_extension) {
+            return false;
+        }
+
+        // due to a bug with : ́e special char that aren't to the right format : é
+        /*if(preg_match('/[^\x20-\x7f]/', $uri))
+         return false;
+        else
+         return true;
+        */
+
+        return true;
+    }
 
     function beforeUnbind($uri) {
       if ($uri == "home/".$this->authBackend->getLoginName()."/public") {
