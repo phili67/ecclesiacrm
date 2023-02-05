@@ -599,7 +599,7 @@ class DocumentFileManagerController
                 $realNoteDir = $userDir = $user->getUserRootDir();
                 $userName = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
-                $extension = pathinfo($params->oldName, PATHINFO_EXTENSION);
+                $extension = MiscUtils::SanitizeExtension(pathinfo($params->oldName, PATHINFO_EXTENSION));
 
                 $oldName = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . MiscUtils::convertUTF8AccentuedString2Unicode($params->oldName);
                 if (!file_exists($oldName)) {// in the case the file name isn't in unicode format
@@ -650,6 +650,7 @@ class DocumentFileManagerController
         $user = UserQuery::create()->findPk($args['personID']);
 
         $realNoteDir = $userDir = $user->getUserRootDir();
+        $publicNoteDir = $user->getUserPublicDir();
         $userName = $user->getUserName();
         $currentpath = $user->getCurrentpath();
 
@@ -664,7 +665,16 @@ class DocumentFileManagerController
         foreach ($file_ary as $file) {
 
             $fileName = basename($file["name"]);
+            $real_extension = pathinfo($fileName, PATHINFO_EXTENSION);
+            if (str_starts_with(  $currentpath, '/public/' )) {
+                $extension = MiscUtils::SanitizeExtension(pathinfo($fileName, PATHINFO_EXTENSION));
+            } else {
+                $extension = $real_extension;
+            }
 
+            if ($real_extension != $extension) {
+                $fileName = str_replace(".".$real_extension, ".".$extension, $fileName);
+            }
             $target_file = $currentNoteDir . $fileName;
 
             if (move_uploaded_file($file['tmp_name'], $target_file)) {
