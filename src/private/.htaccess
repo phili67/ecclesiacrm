@@ -1,0 +1,8 @@
+Options -Indexes
+
+<FilesMatch ".*.(php|php3|php4|php5|php6|php7|php8|phps|pl|py|pyc|pyo|jsp|asp|htm|html|shtml|phtml|sh|cgi)$">
+ Order Deny,Allow
+ Deny from all
+  #IPs to allow access to the above extensions in current folder
+  # Allow from XXX.XXX.XXX.XXX/32 XXX.XXX.XXX.XXX/32
+</FilesMatch>
