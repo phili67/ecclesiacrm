@@ -599,7 +599,7 @@ class DocumentFileManagerController
                 $realNoteDir = $userDir = $user->getUserRootDir();
                 $userName = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
-                $extension = MiscUtils::SanitizeExtension(pathinfo($params->oldName, PATHINFO_EXTENSION));
+                $extension = pathinfo($params->oldName, PATHINFO_EXTENSION);
 
                 $oldName = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . MiscUtils::convertUTF8AccentuedString2Unicode($params->oldName);
                 if (!file_exists($oldName)) {// in the case the file name isn't in unicode format
@@ -666,11 +666,11 @@ class DocumentFileManagerController
 
             $fileName = basename($file["name"]);
             $real_extension = pathinfo($fileName, PATHINFO_EXTENSION);
-            if (str_starts_with(  $currentpath, '/public/' )) {
+            /*if (str_starts_with(  $currentpath, '/public/' )) {
                 $extension = MiscUtils::SanitizeExtension(pathinfo($fileName, PATHINFO_EXTENSION));
-            } else {
+            } else {*/
                 $extension = $real_extension;
-            }
+            //}
 
             if ($real_extension != $extension) {
                 $fileName = str_replace(".".$real_extension, ".".$extension, $fileName);

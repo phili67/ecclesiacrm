@@ -90,7 +90,7 @@ class EcclesiaCRMServer extends DAV\Server
     }
 
     function beforeBind($uri) {
-        $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());
+        /*$currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());
         $userName = $currentUser->getUserName();
         $userPathPublic = "home/".$userName."/public/";
 
@@ -105,7 +105,7 @@ class EcclesiaCRMServer extends DAV\Server
 
         if ($extension != $real_extension) {
             return false;
-        }
+        }*/
 
         // due to a bug with : ́e special char that aren't to the right format : é
         /*if(preg_match('/[^\x20-\x7f]/', $uri))
