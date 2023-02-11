@@ -77,8 +77,6 @@ require $sRootDocument . '/Include/Header.php';
            onclick="javascript:document.location='<?= $sRootPath ?>/v2/pastoralcare/membersList';">
 </div>
 
-<?php require $sRootDocument . '/Include/Footer.php'; ?>
-
 <script nonce="<?= $sCSPNonce ?>">
     $(document).ready(function () {
         window.CRM.fmt = "";
@@ -99,3 +97,7 @@ require $sRootDocument . '/Include/Header.php';
         });
     });
 </script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+
