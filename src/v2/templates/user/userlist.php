@@ -159,7 +159,6 @@ require $sRootDocument . '/Include/Header.php';
                     </td>
                     <td>
                         <?php if (SessionUser::isAdmin() and $user->getId() != $sessionUserId) { ?>
-
                             <a href="#" class="control-account" data-userid="<?= $user->getId()?>">
                                 <i class="fa fa-gamepad"></i>
                             </a>
@@ -196,8 +195,5 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 <!-- /.box -->
 
-<?php
-require $sRootDocument . '/Include/Footer.php';
-?>
 
 <script src="<?= $sRootPath ?>/skin/js/user/UserList.js" ></script>
