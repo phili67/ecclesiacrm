@@ -25,10 +25,12 @@ spl_autoload_register(function ($className) {
 use Plugins\APIControllers\MeetingController;
 
 $app->group('/meeting', function (RouteCollectorProxy $group) {
-    $group->get('/', MeetingController::class . ':getAllMettings');
-    $group->get('/getLastMeeting', MeetingController::class . ':getLastMeeting');
-    $group->post('/createMeetingRoom', MeetingController::class . ':createMeetingRoom');
-    $group->post('/selectMeetingRoom', MeetingController::class . ':selectMeetingRoom');
-    $group->delete('/deleteAllMeetingRooms', MeetingController::class . ':deleteAllMeetingRooms');
-    $group->post('/changeSettings' , MeetingController::class . ':changeSettings');
+
+    $group->get('/', MeetingController::class . ':getAllMettings' );
+    $group->get('/getLastMeeting', MeetingController::class . ':getLastMeeting' );
+    $group->post('/createMeetingRoom', MeetingController::class . ':createMeetingRoom' );
+    $group->post('/selectMeetingRoom', MeetingController::class . ':selectMeetingRoom' );
+    $group->delete('/deleteAllMeetingRooms', MeetingController::class . ':deleteAllMeetingRooms' );
+    $group->post('/changeSettings', MeetingController::class . ':changeSettings' );
+
 });
