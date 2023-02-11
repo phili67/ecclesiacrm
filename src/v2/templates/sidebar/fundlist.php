@@ -31,6 +31,4 @@ require $sRootDocument . '/Include/Header.php';
 
 <script src="<?= $sRootPath ?>/skin/js/sidebar/FundList.js" ></script>
 
-<?php
-require $sRootDocument . '/Include/Footer.php';
-?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

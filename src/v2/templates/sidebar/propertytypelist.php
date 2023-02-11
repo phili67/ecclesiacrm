@@ -36,13 +36,11 @@ if ( $isMenuOption ) {
 </div>
 </div>
 
-
-<?php
-require $sRootDocument . '/Include/Footer.php';
-?>
-
 <script nonce="<?= $CSPNonce ?>">
   window.CRM.menuOptionEnabled = <?= ($isMenuOption)?'true':'false' ?>;
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/sidebar/PropertyTypeList.js" ></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
