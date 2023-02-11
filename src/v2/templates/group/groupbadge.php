@@ -187,9 +187,6 @@ if (isset($_GET['typeProblem'])) {
     <!-- /.card-body -->
 </div>
 
-<?php
-require $sRootDocument . '/Include/Footer.php';
-?>
 
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
 <link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
@@ -200,3 +197,5 @@ require $sRootDocument . '/Include/Footer.php';
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/BadgeSticker.js"></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
