@@ -445,13 +445,14 @@ if (!$load_Elements) {
 <script src="<?= $sRootPath ?>/skin/external/jquery-ui/jquery-ui.min.js"  type="text/javascript"></script>
 <script src="<?= $sRootPath ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 
-<?php require $sRootDocument . '/Include/Footer.php'; ?>
-
 <script src="<?= $sRootPath ?>/skin/js/dashboard.js"></script>
 
 <script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
 
 
 
