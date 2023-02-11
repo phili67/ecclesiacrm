@@ -281,7 +281,6 @@ if ($campaign['status'] == 'sent') {
 
 
 <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/AutomaticDarkMode.js"></script>
-<?php require $sRootDocument . '/Include/Footer.php'; ?>
 
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
@@ -313,3 +312,6 @@ if ($campaign['status'] == 'sent') {
 <script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+

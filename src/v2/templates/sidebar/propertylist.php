@@ -29,9 +29,6 @@ require $sRootDocument . '/Include/Header.php'; ?>
 <table class='table table-striped table-bordered' id="property-listing-table-v2" width="100%"></table>
 </div>
 
-<?php
-require $sRootDocument . '/Include/Footer.php';
-?>
 
 <script nonce="<?= $CSPNonce ?>">
   window.CRM.menuOptionEnabled = <?= ($isMenuOption)?'true':'false' ?>;
@@ -41,3 +38,6 @@ require $sRootDocument . '/Include/Footer.php';
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/sidebar/PropertyList.js" ></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+

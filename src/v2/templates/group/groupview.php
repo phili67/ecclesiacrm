@@ -501,8 +501,6 @@ if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true
 }
 ?>
 
-<?php require $sRootDocument . '/Include/Footer.php'; ?>
-
 <script nonce="<?= $CSPNonce ?>">
     window.CRM.currentGroup            = <?= $iGroupID ?>;
     window.CRM.calendarID              = <?= json_encode($calendarID) ?>;
@@ -573,6 +571,9 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     <?php
 }
 ?>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
 
 
 

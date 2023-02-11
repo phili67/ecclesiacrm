@@ -119,8 +119,6 @@ if ($sMode == 'person') {
     </div>
 </div>
 
-<?php require $sRootDocument . '/Include/Footer.php'; ?>
-
 <script nonce="<?= $sCSPNonce ?>">
     window.CRM.mode = "<?= $mode ?>",
     window.CRM.listPeople = [];
@@ -131,3 +129,5 @@ if ($sMode == 'person') {
 
 <script src="<?= $sRootPath ?>/skin/js/Search/Search.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/people/AddRemoveCart.js"></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

@@ -26,6 +26,7 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/AutomaticDarkMode.js"></script>
-<?php require $sRootDocument . '/Include/Footer.php'; ?>
 
 <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/NotInMailChimpFamilies.js"></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

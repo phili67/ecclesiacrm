@@ -165,6 +165,7 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 
+<script src="<?= $sRootPath ?>/skin/js/calendar/EventsList.js"></script>
+
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-<script src="<?= $sRootPath ?>/skin/js/calendar/EventsList.js"></script>

@@ -36,6 +36,4 @@ if ( $addCustomLink ) {
 
 <script src="<?= $sRootPath ?>/skin/js/sidebar/MenuLinksList.js" ></script>
 
-<?php
- require $sRootDocument . '/Include/Footer.php';
-?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

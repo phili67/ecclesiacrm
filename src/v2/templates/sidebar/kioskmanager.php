@@ -49,6 +49,4 @@ require $sRootDocument . '/Include/Header.php';
 
 <script src="<?= $sRootPath ?>/skin/js/system/KioskManager.js"></script>
 
-<?php
-require $sRootDocument . '/Include/Footer.php';
-?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

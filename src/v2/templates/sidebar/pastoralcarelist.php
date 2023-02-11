@@ -36,6 +36,4 @@ if ( $isPastoralCareEnabled ) {
 
 <script src="<?=  $sRootPath ?>/skin/js/sidebar/PastoralCareList.js" ></script>
 
-<?php
-require $sRootDocument . '/Include/Footer.php';
-?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

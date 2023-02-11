@@ -520,8 +520,6 @@ $sFamilyEmails = [];
 </div>
 
 
-<?php require $sRootDocument . '/Include/Footer.php'; ?>
-
 <link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
 
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
@@ -579,3 +577,5 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, 'titre', "<?= str_replace('"', "'", $person->getFullName()) ?>", '');
     <?php } ?>
 </script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

@@ -1085,13 +1085,17 @@ function addShareCalendars() {
     });
 }
 
+var addAllCalendarsCountimes = 1;
 
 window.CRM.addAllCalendars = function f() {
-    // Add all the calendars
-    addPersonalCalendars();
-    addGroupCalendars();
-    addReservationCalendars();
-    addShareCalendars();
+    if (addAllCalendarsCountimes != 2) {
+        // Add all the calendars
+        addPersonalCalendars();
+        addGroupCalendars();
+        addReservationCalendars();
+        addShareCalendars();
+    }
+    addAllCalendarsCountimes++;
 }
 
 window.CRM.ElementListener('#check-uncheck-personal-calendar', 'click', function(event) {
@@ -1241,5 +1245,7 @@ window.CRM.ElementListener('#check-uncheck-all-shared-calendar', 'click', functi
         }
     });
 });
+
+window.CRM.addAllCalendars();
 
 
