@@ -145,7 +145,8 @@ require $sRootDocument . '/Include/Header.php';
   });
 </script>
 
+<script src="<?= $sRootPath ?>/skin/js/people/FamilyList.js" ></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-<script src="<?= $sRootPath ?>/skin/js/people/FamilyList.js" ></script>
+
