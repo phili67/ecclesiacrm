@@ -374,11 +374,10 @@ require $sRootDocument . '/Include/Header.php';
 }
 ?>
 
-<?php
-require $sRootDocument . '/Include/Footer.php';
-?>
-
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
 <script src="<?= $sRootPath ?>/skin/js/sundayschool/SundaySchoolDashboard.js"></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
 
