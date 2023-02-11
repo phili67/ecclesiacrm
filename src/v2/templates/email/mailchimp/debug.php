@@ -17,6 +17,7 @@ require $sRootDocument . '/Include/Header.php';
 
 </div>
 
+<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Debug.js"></script>
+
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Debug.js"></script>
