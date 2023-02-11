@@ -284,8 +284,6 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 <!-- /.col -->
 
-<?php require $sRootDocument . '/Include/Footer.php'; ?>
-
 <link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
 
 
@@ -345,3 +343,5 @@ if ($sMapProvider == 'OpenStreetMap') {
 <?php
   }
 ?>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
