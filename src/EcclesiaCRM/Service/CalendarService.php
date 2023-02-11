@@ -484,6 +484,10 @@ class CalendarService
 
         $event['icon'] = $icon;
 
+        if ( is_array($calendarid) ) {
+            $calendarid = implode(",",$calendarid);
+        }
+
         $event['icon_full'] = '<table class="table-responsive" style="width:120px">'.
         '                <tbody><tr class="no-background-theme">'.
         '                  <td style="width:100px;padding: 7px 2px;border:none;text-align: center">'.
@@ -491,7 +495,7 @@ class CalendarService
         '                       <button type="submit"  name="Action" data-link="' . $link . '" data-id="' . $eventID .  '" title="' . _('Edit') . '" style="color:' . (($eventRights != "")?'blue':'gray') . '" class="EditEvent btn btn-default btn-xs" ' . (($eventRights)?'':'disabled') . '>' .
             $icon .
         '                        </button>'.
-        '                      <button type="submit" name="Action" data-dateStart="' . $start . '" data-reccurenceid="' . $reccurenceID . '" data-recurrent="' . $recurrent . '" data-calendarid="' . implode(",",$calendarid) . '" data-id="' . $eventID . '" title="' . _('Delete') . '"  style="color:' . (($eventRights != "")?'red':'gray') . '" class="DeleteEvent btn btn-default btn-xs" ' . (($eventRights)?'':'disabled') . '>'.
+        '                      <button type="submit" name="Action" data-dateStart="' . $start . '" data-reccurenceid="' . $reccurenceID . '" data-recurrent="' . $recurrent . '" data-calendarid="' . $calendarid . '" data-id="' . $eventID . '" title="' . _('Delete') . '"  style="color:' . (($eventRights != "")?'red':'gray') . '" class="DeleteEvent btn btn-default btn-xs" ' . (($eventRights)?'':'disabled') . '>'.
         '                        <i class="fas fa-trash-alt"></i>'.
         '                      </button>'.
         '                      <button type="submit" name="Action" data-id="' . $eventID . '" title="' . _('Info') . '" style="color:' . (($text != "" && $eventRights)?'green':'gray') . '" class="EventInfo btn btn-default btn-xs" ' . (($text != "")?'':'disabled') . '>'.
