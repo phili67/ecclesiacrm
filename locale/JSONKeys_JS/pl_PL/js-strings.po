@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-09-26T18:43:51.146Z\n"
+"POT-Creation-Date: 2023-02-12T12:18:21.489Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -322,24 +322,20 @@ msgstr "Wybrałeś dwa razy tę samą nazwę"
 msgid "for this field. Chose another one."
 msgstr "dla tego pola. Wybierz inną."
 
-#, fuzzy
 msgid "Remove Plugin"
-msgstr "Usuń wszystko"
+msgstr "Usuń wtyczkę"
 
-#, fuzzy
 msgid "You're about to remove the plugin from yout dashboard !!!"
-msgstr "Zamierzasz usunąć swoją kampanię! Czy jesteś pewien?"
+msgstr "Zaraz usuniesz plugin z yout dashboard !!!"
 
 msgid "Confirm"
 msgstr "Potwierdź"
 
-#, fuzzy
 msgid "Dashboard Item"
-msgstr "Tablica rozdzielcza"
+msgstr "Pozycja tablicy rozdzielczej"
 
-#, fuzzy
 msgid "Removed from your dashboard !"
-msgstr "Usuń z koszyka"
+msgstr "Usunięto z tablicy rozdzielczej !"
 
 msgid "Please confirm deletion of this document"
 msgstr "Proszę potwierdzić usunięcie tego dokumentu"
@@ -723,6 +719,9 @@ msgstr "Liczenie obecności"
 msgid "Start Date"
 msgstr "Data rozpoczęcia"
 
+msgid "All day"
+msgstr "Cały dzień"
+
 msgid "End Date"
 msgstr "Data końcowa"
 
@@ -824,9 +823,6 @@ msgstr "Ładowanie zakończone...."
 
 msgid "Month"
 msgstr "Miesiąc"
-
-msgid "Info"
-msgstr "Info"
 
 msgid "Attendance Counts with real Attendees"
 msgstr "Obecność liczy się z rzeczywistymi uczestnikami"
@@ -2285,6 +2281,8 @@ msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
+"Wyszukiwane hasła takie jak: nazwisko, imię, numer telefonu, nieruchomość, "
+"nazwa grupy, itp ..."
 
 msgid "Done !"
 msgstr "Gotowe!"
@@ -2432,6 +2430,9 @@ msgstr "Przełącznik Kamera"
 
 msgid "Upload Image"
 msgstr "Prześlij obraz"
+
+#~ msgid "Info"
+#~ msgstr "Info"
 
 #, fuzzy
 #~ msgid "Moved!"

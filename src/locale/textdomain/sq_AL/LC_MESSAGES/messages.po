@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-25 20:48+0000\n"
+"POT-Creation-Date: 2023-02-12 12:18+0000\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: EcclesiaCRM/utils/MiscUtils.php:1626
+#: EcclesiaCRM/utils/MiscUtils.php:1725
 msgid "Cannot execute query."
 msgstr "nuk mund ta ekzekutoj një pyetje."
 
@@ -24,7 +24,7 @@ msgstr "Për"
 
 #: AutoPaymentEditor.php:805 AutoPaymentEditor.php:814 CanvassEditor.php:52
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:220
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
 #: ident/routes/verify.php:156 Include/Footer.php:85 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
@@ -37,7 +37,7 @@ msgstr "Person"
 #: AutoPaymentEditor.php:805 AutoPaymentEditor.php:814
 #: ConvertIndividualToAddress.php:61 ConvertIndividualToAddress.php:129
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:73
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:224
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:223
 #: EcclesiaCRM/dto/ReportUtilities.php:71
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:31
@@ -51,7 +51,7 @@ msgstr "Person"
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:345
-#: Include/Footer.php:68 members/404.php:16 PersonView.php:946
+#: Include/Footer.php:68 members/404.php:16 PersonView.php:940
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/templates/gdpr/gdprdatastructure.php:100
@@ -74,8 +74,8 @@ msgstr ""
 
 #: AutoPaymentEditor.php:819 BatchWinnerEntry.php:98 BatchWinnerEntry.php:112
 #: CSVImport.php:386 DirectoryReports.php:98
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:114
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:125
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:121
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:132
 #: EcclesiaCRM/APIControllers/SearchController.php:226
 #: EcclesiaCRM/APIControllers/SearchController.php:231
 #: EcclesiaCRM/APIControllers/SearchController.php:239
@@ -121,7 +121,7 @@ msgstr "- i çaktivizuar."
 #: FundRaiserEditor.php:173 PledgeEditor.php:599 Reports/ReminderReport.php:323
 #: Reports/ReminderReport.php:404 Reports/TaxReport.php:379
 #: SelectDelete.php:323 v2/templates/calendar/eventattendeesedit.php:36
-#: v2/templates/email/mailchimp/campaign.php:127
+#: v2/templates/email/mailchimp/campaign.php:233
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Date"
 msgstr "Takim"
@@ -182,7 +182,7 @@ msgstr "jo aktive"
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
-#: v2/templates/user/userlist.php:50
+#: v2/templates/user/userlist.php:52
 msgid "First Name"
 msgstr "Emri i parë"
 
@@ -206,7 +206,7 @@ msgstr "emri i fundit"
 #: FamilyEditor.php:740 FamilyView.php:297 GeoPage.php:374 GroupReports.php:148
 #: ident/routes/verify.php:378 ident/routes/verify.php:433
 #: PersonEditor.php:1037 PersonEditor.php:1043 PersonEditor.php:1177
-#: PersonEditor.php:1201 PersonView.php:592 Reports/PDFLabel.php:859
+#: PersonEditor.php:1201 PersonView.php:586 Reports/PDFLabel.php:859
 #: v2/templates/pastoralcare/pastoralcarefamily.php:124
 #: v2/templates/pastoralcare/pastoralcareperson.php:220
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
@@ -268,8 +268,8 @@ msgstr "Telefoni"
 #: ident/routes/verify.php:265 ident/routes/verify.php:686
 #: ident/templates/verify/login-info.php:34
 #: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1461
-#: PersonEditor.php:1465 PersonView.php:665 PersonView.php:793
-#: PersonView.php:1174 PrintPastoralCarePerson.php:385 PrintView.php:396
+#: PersonEditor.php:1465 PersonView.php:659 PersonView.php:787
+#: PersonView.php:1168 PrintPastoralCarePerson.php:385 PrintView.php:396
 #: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
 #: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
@@ -338,7 +338,7 @@ msgstr "Shpëto."
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:2002
+#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1996
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
 #: SettingsIndividual.php:444 SettingsIndividual.php:520 TaxReport.php:53
 #: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
@@ -377,7 +377,7 @@ msgstr "Hyr fituesit"
 msgid "File Manager"
 msgstr "menaxher i dosjeve"
 
-#: browser/browse.php:42 PersonView.php:1898
+#: browser/browse.php:42 PersonView.php:1892
 msgid "Upload a file in EDrive"
 msgstr "ngarko një dosje në edrive"
 
@@ -385,7 +385,7 @@ msgstr "ngarko një dosje në edrive"
 msgid "Download"
 msgstr "shkarko"
 
-#: browser/browse.php:72 PersonView.php:1941
+#: browser/browse.php:72 PersonView.php:1935
 msgid "Preview"
 msgstr "Previetni"
 
@@ -613,7 +613,7 @@ msgstr "Generate Sidges"
 #: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:71 CSVImport.php:234
 #: FundRaiserEditor.php:186 PersonEditor.php:904
 #: Reports/GDPR/GDPRListExport.php:66
-#: v2/templates/email/mailchimp/dashboard.php:21
+#: v2/templates/email/mailchimp/dashboard.php:30
 #: v2/templates/fundraiser/donatedItemEditor.php:60
 msgid "Title"
 msgstr "titulli"
@@ -731,7 +731,7 @@ msgstr "Anëtarë"
 #: Reports/FundRaiserStatement.php:169 Reports/PDFLabel.php:859
 #: v2/templates/calendar/eventattendeesedit.php:56
 #: v2/templates/group/groupview.php:398 v2/templates/people/familylist.php:55
-#: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:49
+#: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:51
 #: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Emri"
@@ -800,7 +800,7 @@ msgstr "(Përdore tekstet për vendet e tjera përveç SHBA dhe Kanadasë)"
 #: ident/routes/verify.php:234 ident/routes/verify.php:670
 #: ident/routes/verify.php:779 ident/templates/verify/verify-family-info.php:36
 #: ident/templates/verify/verify-family-info.php:93 PersonEditor.php:1359
-#: PersonEditor.php:1363 PersonView.php:651 PrintPastoralCarePerson.php:257
+#: PersonEditor.php:1363 PersonView.php:645 PrintPastoralCarePerson.php:257
 #: PrintView.php:268 Reports/ConfirmReport.php:168
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/calendar/eventattendeesedit.php:60
@@ -824,7 +824,7 @@ msgstr "mos u bëj auto-format"
 #: ident/routes/verify.php:245 ident/routes/verify.php:458
 #: ident/routes/verify.php:461 ident/routes/verify.php:675
 #: ident/templates/verify/verify-family-info.php:98 PersonEditor.php:1388
-#: PersonEditor.php:1392 PersonView.php:679 PrintPastoralCarePerson.php:262
+#: PersonEditor.php:1392 PersonView.php:673 PrintPastoralCarePerson.php:262
 #: PrintView.php:273 Reports/ConfirmReport.php:288
 #: v2/templates/pastoralcare/pastoralcarefamily.php:187
 #: v2/templates/pastoralcare/pastoralcareperson.php:305
@@ -835,7 +835,7 @@ msgstr "Telefoni puno"
 #: FamilyEditor.php:862 FamilyView.php:369 ident/routes/verify.php:251
 #: ident/routes/verify.php:467 ident/routes/verify.php:680
 #: ident/templates/verify/verify-family-info.php:103 PersonEditor.php:1419
-#: PersonEditor.php:1423 PersonView.php:639 PrintPastoralCarePerson.php:267
+#: PersonEditor.php:1423 PersonView.php:633 PrintPastoralCarePerson.php:267
 #: PrintView.php:278 v2/templates/pastoralcare/pastoralcarefamily.php:194
 #: v2/templates/pastoralcare/pastoralcareperson.php:265
 msgid "Mobile Phone"
@@ -998,7 +998,7 @@ msgid "Envelope"
 msgstr "\"Zbrit\""
 
 #: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
-#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:686
+#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:680
 #: Reports/DirectoryReport.php:331
 #: v2/templates/pastoralcare/pastoralcareperson.php:312
 msgid "Work/Other Email"
@@ -1019,7 +1019,7 @@ msgstr "mosha jonë u martua"
 
 #: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
 #: EcclesiaCRM/APIControllers/SearchController.php:278
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
 #: FamilyEditor.php:1101 FamilyView.php:553 FinancialReports.php:153
 #: ident/routes/verify.php:305 OptionManager.php:109 PersonEditor.php:1585
 #: PrintPastoralCarePerson.php:400 PrintView.php:411
@@ -1030,7 +1030,7 @@ msgstr "Klasifikimi"
 
 #: CSVExport.php:180 CSVExport.php:325
 #: EcclesiaCRM/APIControllers/SearchController.php:279
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:115
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:118
 #: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
 #: queryparameters_qrp.php:5
 msgid "Family Role"
@@ -1097,7 +1097,7 @@ msgid "Don't Filter"
 msgstr "mos filter"
 
 #: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:221
-#: EcclesiaCRM/Search/PersonSearchRes.php:339
+#: EcclesiaCRM/Search/PersonSearchRes.php:337
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
 #: external/templates/registration/family-register-members.php:66
@@ -1108,7 +1108,7 @@ msgid "Male"
 msgstr "mashkull."
 
 #: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:221
-#: EcclesiaCRM/Search/PersonSearchRes.php:339
+#: EcclesiaCRM/Search/PersonSearchRes.php:337
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
 #: external/templates/registration/family-register-members.php:67
@@ -1204,7 +1204,7 @@ msgstr "celulari"
 msgid "Work / Other Email"
 msgstr "Punë e-mail tjetër"
 
-#: CSVImport.php:252 PersonView.php:609 PrintPastoralCarePerson.php:320
+#: CSVImport.php:252 PersonView.php:603 PrintPastoralCarePerson.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
 #: v2/templates/pastoralcare/pastoralcareperson.php:235
 #: v2/templates/sundayschool/sundayschooldashboard.php:260
@@ -1464,7 +1464,7 @@ msgstr "ngarkoni transaksionet e autorizuara"
 msgid "Run Transactions"
 msgstr "drejto transaksionet"
 
-#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1311
+#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1305
 #: v2/templates/calendar/eventattendeesedit.php:62
 msgid "Action"
 msgstr "Aksion."
@@ -1524,9 +1524,9 @@ msgstr "Informacioni për përfshirje"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:247
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:265
-#: EcclesiaCRM/Service/CalendarService.php:58 FamilyView.php:554
+#: EcclesiaCRM/Service/CalendarService.php:59 FamilyView.php:554
 #: ident/routes/verify.php:281 ident/routes/verify.php:694
-#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1173
+#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1167
 #: Reports/ConfirmReport.php:231 Reports/ConfirmReport.php:251
 msgid "Birthday"
 msgstr "Ditëlindje"
@@ -1615,21 +1615,21 @@ msgid "Create Directory"
 msgstr "Krijo drejtuesin"
 
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:353
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:461
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:546
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:566
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:614
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:684
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:704
-#: EcclesiaCRM/Service/CalendarService.php:1038
-#: EcclesiaCRM/Service/CalendarService.php:1064
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:465
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:550
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:570
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:619
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:689
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:709
+#: EcclesiaCRM/Service/CalendarService.php:1090
+#: EcclesiaCRM/Service/CalendarService.php:1116
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "Dy rezerva burimesh nuk mund të jenë në të njëjtën vend."
 
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:362
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:584
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:738
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:750
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:366
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:589
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:744
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:756
 msgid ""
 "This resource reservation was not created by you. You cannot edit, move or "
 "delete a resource that you do not own."
@@ -1653,7 +1653,7 @@ msgid "Video"
 msgstr "video."
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:222
-#: EcclesiaCRM/Service/CalendarService.php:620
+#: EcclesiaCRM/Service/CalendarService.php:670
 msgid "Share"
 msgstr "Ndahuni."
 
@@ -1752,9 +1752,9 @@ msgstr "karroca juaj është zbrazur me sukses"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:170
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:111
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:172
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:673
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:606
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:175
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:690
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:633
 #: uploader/upload.php:80
 msgid "Create file"
 msgstr "krijo dosjen"
@@ -1769,44 +1769,44 @@ msgstr "Ky dokument hapet nga"
 msgid "Minutes left"
 msgstr "minutat majtas"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:132
-#: EcclesiaCRM/utils/MiscUtils.php:658
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:134
+#: EcclesiaCRM/utils/MiscUtils.php:758
 msgid "Folder"
 msgstr "Folder"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:193
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:196
 msgid "Document not found"
 msgstr "Dokumenti nuk gjendet"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:386
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:389
 msgid "You can't erase the public folder !"
 msgstr "nuk mund ta fshish dosjen publike!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:457
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:563
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:460
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:566
 msgid "A Folder"
 msgstr "Një Folder"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:457
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:507
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:563
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:460
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:510
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:566
 msgid "already exists at this place."
 msgstr "tashmë ekziston në këtë vend."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:487
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:490
 msgid "Folder modification"
 msgstr "modifikim folder"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:489
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:532
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:492
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:535
 msgid "File modification"
 msgstr "modifikim dosjesh"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:507
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:510
 msgid "A File"
 msgstr "Dosje"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:575
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:578
 msgid "New Folder"
 msgstr "Folder i ri"
 
@@ -1827,25 +1827,25 @@ msgstr ""
 "Mund ta përfytyrosh në llogarinë tënde, në kohën kur vija ose shënon "
 "llogarinë."
 
-#: EcclesiaCRM/APIControllers/FinancePaymentController.php:113
+#: EcclesiaCRM/APIControllers/FinancePaymentController.php:126
 #: PledgeEditor.php:743
 msgid "Credit card"
 msgstr "kartë krediti"
 
-#: EcclesiaCRM/APIControllers/FinancePaymentController.php:115
+#: EcclesiaCRM/APIControllers/FinancePaymentController.php:128
 #: PledgeEditor.php:745
 msgid "Bank account"
 msgstr "llogari bankare"
 
-#: EcclesiaCRM/APIControllers/FinancePaymentController.php:242
-#: EcclesiaCRM/APIControllers/FinancePaymentController.php:267
+#: EcclesiaCRM/APIControllers/FinancePaymentController.php:259
+#: EcclesiaCRM/APIControllers/FinancePaymentController.php:284
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:142 FinancialReports.php:362
 #: PledgeEditor.php:673
 msgid "Cash"
 msgstr "Para në dorë"
 
-#: EcclesiaCRM/APIControllers/FinancePaymentController.php:250
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:267
+#: EcclesiaCRM/APIControllers/FinancePaymentController.php:284
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:137
 msgid "Checks"
 msgstr "çeqe."
@@ -1898,7 +1898,7 @@ msgstr "Persona"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:203
+#: v2/templates/dashboard/maindashboard.php:160
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -1915,9 +1915,9 @@ msgstr "Familjet"
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:201 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: ident/routes/verify.php:309 ident/routes/verify.php:711
-#: ident/templates/verify/verify-family-info.php:145 PersonView.php:504
+#: ident/templates/verify/verify-family-info.php:145 PersonView.php:498
 #: v2/templates/calendar/calendar.php:207
-#: v2/templates/dashboard/maindashboard.php:269
+#: v2/templates/dashboard/maindashboard.php:226
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:142
 #: v2/templates/people/peopledashboard.php:171
@@ -1925,84 +1925,88 @@ msgstr "Familjet"
 msgid "Groups"
 msgstr "Grupe."
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:981
+#: EcclesiaCRM/APIControllers/MailchimpController.php:985
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "SMTP Host nuk është ngritur, ju lutem vizitoni faqen e rregullimit"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:256
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:258
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Boy"
 msgstr "Djalë"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:257
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:259
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Girl"
 msgstr "Vajzë."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:259
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:261
 msgid "Man"
 msgstr "- Po."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:260
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:262
 msgid "Woman"
 msgstr "grua"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:342
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:378
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:340
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:372
 msgid "POST to cart requires a personID and an eventID"
 msgstr "POST për karrocë kërkon personazh dhe një ngjarje"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:443
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:464
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:687
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:708
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:433
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:454
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:670
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:691
 msgid "Create From sunday school class view"
 msgstr "do të krijohet nga pamja e klasës së ditës së dielë"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:467
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:711
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:457
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:694
 msgid "Attendance"
 msgstr "Kujdes"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:504
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:523
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:543
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:578
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:613
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:495
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:526
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:561
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:596
 msgid "POST to cart requires a EventID"
 msgstr "POST për karrocë kërkon një EventID"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:752
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:510
+#, fuzzy
+msgid "POST to delete attendees requires a EventID and personID"
+msgstr "POST për karrocë kërkon personazh dhe një ngjarje"
+
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:738
 msgid "POST to cart requires an EventID"
 msgstr "POST për karrocë kërkon një EventID"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:331
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:332
 #: ident/routes/verify.php:601
 msgid "Family Deactivated"
 msgstr "Familja u çaktivizua"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:333
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:334
 msgid "Family Activated"
 msgstr "familja u aktivizua"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:405
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:787
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:454
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:836
 msgid "Deleted from group"
 msgstr "I fshirë nga grupi"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:443
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:478
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:492
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:527
 msgid "Added to group"
 msgstr "Grupi i shtuar"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:144
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:164
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:151
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:171
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Service/CalendarService.php:264
+#: EcclesiaCRM/Service/CalendarService.php:271
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:500
@@ -2010,20 +2014,20 @@ msgstr "Grupi i shtuar"
 msgid "Yes"
 msgstr "po."
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:157
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:166
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:164
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:173
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Service/CalendarService.php:264
-#: EcclesiaCRM/Service/CalendarService.php:465
+#: EcclesiaCRM/Service/CalendarService.php:271
+#: EcclesiaCRM/Service/CalendarService.php:518
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:499
-#: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:161
+#: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:184
 msgid "No"
 msgstr "Jo."
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:524
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:531
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:550
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:557
 #: EcclesiaCRM/APIControllers/UserUsersController.php:136
 #: EcclesiaCRM/APIControllers/UserUsersController.php:142
 #: EcclesiaCRM/dto/Cart.php:337 EcclesiaCRM/dto/Cart.php:343
@@ -2031,27 +2035,27 @@ msgstr "Jo."
 msgid "Account Deactivated"
 msgstr "llogaria e caktivizuar"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:569
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:595
 msgid "Person Deactivated"
 msgstr "Person u çaktivizua"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:569
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:595
 msgid "Person Activated"
 msgstr "personi u aktivizua"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:125
+#: EcclesiaCRM/APIControllers/PluginsController.php:127
 #: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
 msgid "Impossible to open"
 msgstr "E pamundur për t'u hapur"
 
-#: EcclesiaCRM/APIControllers/PublicRegisterController.php:86
+#: EcclesiaCRM/APIControllers/PublicRegisterController.php:90
 msgid "Write a message Here !"
 msgstr "shkruaj një mesazh këtu !"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:68
 #: EcclesiaCRM/APIControllers/SearchController.php:71
 #: EcclesiaCRM/Search/FamilySearchRes.php:168
-#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:147
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:95
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peoplelist.php:44
@@ -2085,15 +2089,15 @@ msgid "Person Property"
 msgstr "Person Property"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:281
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:139
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:142
 #: OptionManager.php:126
 msgid "Group Type"
 msgstr "Lloj grupi"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:113
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:154
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:157
 #: FamilyEditor.php:1097 FamilyView.php:552 OptionManager.php:100
-#: OptionManager.php:141 PersonView.php:1172 PrintPastoralCarePerson.php:449
+#: OptionManager.php:141 PersonView.php:1166 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
@@ -2102,34 +2106,34 @@ msgstr "Lloj grupi"
 msgid "Role"
 msgstr "rol."
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
 #: Include/Footer.php:71 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:270
 msgid "Family Roles"
 msgstr "Familja Roles"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:117
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:120
 #: OptionManager.php:104
 msgid "Family Roles Editor"
 msgstr "redaktor family roles"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:123
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:126
 #: OptionManager.php:110
 msgid "Person Classification"
 msgstr "Klasifikimi i personave"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:124
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:127
 #: OptionManager.php:111
 msgid "Person Classifications"
 msgstr "Klasifikimet e personit"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:128
 #: OptionManager.php:112
 msgid "Person Classifications Editor"
 msgstr "redaktor i klasifikimit të personave"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:130
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:138
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:133
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:141
 #: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:348
 #: FamilyCustomFieldsEditor.php:468 GroupPropsFormEditor.php:349
 #: GroupPropsFormEditor.php:476 OptionManager.php:117 OptionManager.php:125
@@ -2140,36 +2144,36 @@ msgstr "redaktor i klasifikimit të personave"
 msgid "Type"
 msgstr "Tip"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:131
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:134
 #: OptionManager.php:118
 msgid "Sunday School Group Type"
 msgstr "tipi i grupit të shkollës së diel"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:135
 #: Include/Footer.php:128 OptionManager.php:119
 msgid "Sunday School Group Types"
 msgstr "Tipat e grupit të shkollës së diel"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:133
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:136
 #: OptionManager.php:120
 msgid "Sunday School Group Types Editor"
 msgstr "Grupi i shkollës së diel shfaq redaktorin"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:143
 #: Include/Footer.php:118 OptionManager.php:127
 msgid "Group Types"
 msgstr "Tipa të grupit"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:141
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:144
 #: OptionManager.php:128
 msgid "Group Types Editor"
 msgstr "grupi shkruan redaktorin"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:146
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:149
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:227
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:617
+#: EcclesiaCRM/Service/CalendarService.php:667
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:102 OptionManager.php:133
@@ -2178,146 +2182,146 @@ msgstr "grupi shkruan redaktorin"
 msgid "Group"
 msgstr "Grup"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:147
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:150
 #: OptionManager.php:134
 msgid "Security Group"
 msgstr "Grupi i Sigurimit"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:148
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:151
 #: OptionManager.php:135
 msgid "Security Groups"
 msgstr "Grupet e Sigurimit"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:149
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:152
 #: OptionManager.php:136
 msgid "Security Groups Editor"
 msgstr "grupi i sigurimit redaktor"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:155
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:158
 #: OptionManager.php:142
 msgid "Group Member Role"
 msgstr "Anëtari i grupit Role"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:156
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:159
 #: GroupEditor.php:122 OptionManager.php:143
 msgid "Group Member Roles"
 msgstr "Anëtari i grupit Roles"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:157
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:160
 #: OptionManager.php:144
 msgid "Group Member Roles Editor"
 msgstr "redaktor i grupit roles"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:170
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:185
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:200
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:173
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:188
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:203
 #: OptionManager.php:158 OptionManager.php:174 OptionManager.php:190
 msgid "Option"
 msgstr "Mundësia ime"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:171
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:174
 #: OptionManager.php:159
 msgid "Person Custom List Option"
 msgstr "Opsioni i listës së doganave persona"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:172
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:175
 #: OptionManager.php:160
 msgid "Person Custom List Options"
 msgstr "Opsionet e listës së doganave"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:173
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:176
 #: OptionManager.php:161
 msgid "Person Custom List Options Editor"
 msgstr "redaktori i operacioneve të doganave, personi"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:186
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:189
 #: OptionManager.php:175
 msgid "Custom List Option"
 msgstr "Lista e Listës së Doganave"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:187
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:190
 #: OptionManager.php:176
 msgid "Custom List Options"
 msgstr "Lista e Doganave"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:188
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:191
 #: OptionManager.php:177
 msgid "Custom List Options Editor"
 msgstr "redaktori i operacioneve të listave"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:201
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:204
 #: OptionManager.php:191
 msgid "Family Custom List Option"
 msgstr "Opsioni i listës së të burgosurve"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:202
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:205
 #: OptionManager.php:192
 msgid "Family Custom List Options"
 msgstr "Opsionet e listës së doganave familjare"
 
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:203
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:206
 #: OptionManager.php:193
 msgid "Family Custom List Options Editor"
 msgstr "redaktori i operacioneve të familjes së doganave"
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:359
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:423
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:459
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:509
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:531
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:581
-#: EcclesiaCRM/APIControllers/SidebarRolesController.php:56
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:358
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:422
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:458
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:508
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:530
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:580
+#: EcclesiaCRM/APIControllers/SidebarRolesController.php:64
 msgid "The record could not be found."
 msgstr "Rekordi nuk mund të gjendet."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:369
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:469
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:541
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:368
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:468
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:540
 msgid "The property is already assigned."
 msgstr "prona tashmë është caktuar."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:374
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:404
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:474
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:490
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:546
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:562
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:373
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:403
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:473
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:489
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:545
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:561
 msgid "The property is successfully assigned."
 msgstr "prona është caktuar me sukses."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:376
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:387
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:476
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:487
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:548
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:559
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:375
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:386
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:475
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:486
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:547
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:558
 msgid "The property could not be assigned."
 msgstr "prona nuk mund të caktohej."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:442
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:514
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:586
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:441
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:513
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:585
 msgid "The property is successfully unassigned."
 msgstr "prona është e pashënjtur me sukses."
 
-#: EcclesiaCRM/APIControllers/SidebarRolesController.php:60
+#: EcclesiaCRM/APIControllers/SidebarRolesController.php:68
 msgid "The role is already assigned."
 msgstr "roli tashmë është caktuar."
 
-#: EcclesiaCRM/APIControllers/SidebarRolesController.php:65
+#: EcclesiaCRM/APIControllers/SidebarRolesController.php:73
 msgid "The role is successfully assigned."
 msgstr "roli është caktuar me sukses."
 
-#: EcclesiaCRM/APIControllers/SidebarRolesController.php:67
+#: EcclesiaCRM/APIControllers/SidebarRolesController.php:75
 msgid "The role could not be assigned."
 msgstr "roli nuk mund të caktohet."
 
-#: EcclesiaCRM/APIControllers/SidebarRolesController.php:70
+#: EcclesiaCRM/APIControllers/SidebarRolesController.php:78
 #: EcclesiaCRM/VIEWControllers/VIEWErrorController.php:39
 msgid "Error"
 msgstr "Gabim"
 
-#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:134
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:155
 msgid "The people and families has been cleared from the database."
 msgstr "njerëzit dhe familjet janë hequr nga baza e të dhënave."
 
@@ -3470,8 +3474,8 @@ msgid "Invalid Family"
 msgstr "familja invalide"
 
 #: EcclesiaCRM/dto/SystemConfig.php:47
-#: EcclesiaCRM/Service/CalendarService.php:771
-#: EcclesiaCRM/Service/CalendarService.php:1093
+#: EcclesiaCRM/Service/CalendarService.php:821
+#: EcclesiaCRM/Service/CalendarService.php:1145
 msgid "NONE"
 msgstr "NJË"
 
@@ -4440,7 +4444,7 @@ msgid "Map Settings"
 msgstr "Seksionet e hartave"
 
 #: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:381
-#: FamilyView.php:473 PersonView.php:832 PrintPastoralCarePerson.php:639
+#: FamilyView.php:473 PersonView.php:826 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1114
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
@@ -4458,7 +4462,7 @@ msgstr "Integrim"
 #: EcclesiaCRM/dto/SystemConfig.php:300 EcclesiaCRM/MenuBar/MenuBar.php:111
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
-#: v2/templates/dashboard/maindashboard.php:108
+#: v2/templates/dashboard/maindashboard.php:65
 msgid "GDPR"
 msgstr "gdp"
 
@@ -4618,7 +4622,7 @@ msgstr "llogaria jote Ecclesiacrm është përditësuar"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
 #: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:83
-#: v2/templates/user/userlist.php:57
+#: v2/templates/user/userlist.php:62
 msgid "Status"
 msgstr "gjendja."
 
@@ -4634,7 +4638,7 @@ msgstr "po i vendosim"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:35
 #: ident/templates/verify/login-info.php:38 Login.php:226 Login.php:318
-#: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:55
+#: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "fjalëkalimi"
 
@@ -4644,35 +4648,35 @@ msgid "informations"
 msgstr "informacione"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:92
-#: Include/Header.php:148
+#: Include/Header.php:153
 msgid "Private Space"
 msgstr "hapsira private"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:463
+#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:467
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "Shtëpi."
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:91 Include/Header.php:150 PersonView.php:808
+#: EcclesiaCRM/MenuBar/MenuBar.php:91 Include/Header.php:155 PersonView.php:802
 msgid "Change Password"
 msgstr "Ndrysho fjalëkalimin"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:92 Include/Header.php:152 PersonView.php:806
+#: EcclesiaCRM/MenuBar/MenuBar.php:92 Include/Header.php:157 PersonView.php:800
 msgid "Change Settings"
 msgstr "Ndrysho vendosjet"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1036
+#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1030
 msgid "Documents"
 msgstr "dokumente"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1050 UserEditor.php:917
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1044 UserEditor.php:917
 msgid "EDrive"
 msgstr "Edrive"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:112 EcclesiaCRM/MenuBar/MenuBar.php:151
 #: EcclesiaCRM/MenuBar/MenuBar.php:276 EcclesiaCRM/MenuBar/MenuBar.php:372
 #: EcclesiaCRM/MenuBar/MenuBar.php:382 EcclesiaCRM/MenuBar/MenuBar.php:404
-#: EcclesiaCRM/MenuBar/MenuBar.php:495
+#: EcclesiaCRM/MenuBar/MenuBar.php:497
 msgid "Dashboard"
 msgstr "Dorëzimi."
 
@@ -4714,7 +4718,7 @@ msgid "List Event Types"
 msgstr "List Event Cype"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:149
-#: v2/templates/dashboard/maindashboard.php:225
+#: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:127
 msgid "People"
@@ -4788,7 +4792,7 @@ msgstr "mailchip"
 msgid "Email Lists"
 msgstr "Lista e emailit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:437
+#: EcclesiaCRM/MenuBar/MenuBar.php:439
 #: EcclesiaCRM/Search/PledgeSearchRes.php:63
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
 #: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
@@ -4797,56 +4801,56 @@ msgstr "Lista e emailit"
 msgid "Deposit"
 msgstr "Depozita."
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:450
+#: EcclesiaCRM/MenuBar/MenuBar.php:452
 msgid "Current"
 msgstr "Aktualisht"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:455 ManageEnvelopes.php:25
+#: EcclesiaCRM/MenuBar/MenuBar.php:457 ManageEnvelopes.php:25
 msgid "Envelope Manager"
 msgstr "menaxheri i zarfit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:456
+#: EcclesiaCRM/MenuBar/MenuBar.php:458
 msgid "View All Deposits"
 msgstr "Shiko të gjitha depozitat"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:457 ElectronicPaymentList.php:55
+#: EcclesiaCRM/MenuBar/MenuBar.php:459 ElectronicPaymentList.php:55
 msgid "Electronic Payment Listing"
 msgstr "lista e pagesave elektronike"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:458
+#: EcclesiaCRM/MenuBar/MenuBar.php:460
 msgid "Deposit Reports"
 msgstr "raporti i depozitimit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:459
+#: EcclesiaCRM/MenuBar/MenuBar.php:461
 msgid "Edit Deposit Slip"
 msgstr "slipi i depozitave edit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:471 FundRaiserEditor.php:38
+#: EcclesiaCRM/MenuBar/MenuBar.php:473 FundRaiserEditor.php:38
 msgid "Fundraiser"
 msgstr "Funddreiser"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:473
+#: EcclesiaCRM/MenuBar/MenuBar.php:475
 msgid "Create New Fundraiser"
 msgstr "Krijo fondacione të reja"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:474
+#: EcclesiaCRM/MenuBar/MenuBar.php:476
 msgid "View All Fundraisers"
 msgstr "shikoni të gjithë të fonderuarit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:476
+#: EcclesiaCRM/MenuBar/MenuBar.php:478
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "Edit i fundit fondacion"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:537
+#: EcclesiaCRM/MenuBar/MenuBar.php:539
 msgid "Data/Reports"
 msgstr "raporte të dhënash"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:539
+#: EcclesiaCRM/MenuBar/MenuBar.php:541
 msgid "Reports Menu"
 msgstr "raporto manu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:540 UserEditor.php:1082
+#: EcclesiaCRM/MenuBar/MenuBar.php:542 UserEditor.php:1082
 msgid "Query Menu"
 msgstr "query manu"
 
@@ -5105,7 +5109,7 @@ msgstr "Qyteti Shteti dhe Zip"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186 FamilyEditor.php:874
 #: FamilyView.php:333 ident/routes/verify.php:505 ident/routes/verify.php:792
 #: ident/templates/verify/verify-family-info.php:52 PersonEditor.php:1445
-#: PersonView.php:658 Reports/ConfirmReport.php:173
+#: PersonView.php:652 Reports/ConfirmReport.php:173
 #: v2/templates/pastoralcare/pastoralcarefamily.php:158
 #: v2/templates/pastoralcare/pastoralcareperson.php:284
 msgid "Send Newsletter"
@@ -5159,7 +5163,8 @@ msgstr "faqen"
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460
 #: external/templates/registration/family-register-members.php:105
-#: Reports/DirectoryReport.php:321 Reports/GroupReport.php:129
+#: PersonView.php:687 Reports/DirectoryReport.php:321
+#: Reports/GroupReport.php:129
 msgid "Work"
 msgstr "Punë"
 
@@ -5234,14 +5239,15 @@ msgstr "Adresa."
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
-#: EcclesiaCRM/Search/PersonSearchRes.php:265
-#: EcclesiaCRM/Search/PersonSearchRes.php:334
+#: EcclesiaCRM/Search/PersonSearchRes.php:263
+#: EcclesiaCRM/Search/PersonSearchRes.php:332
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84
+#: EcclesiaCRM/Service/CalendarService.php:495 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:258 EventNames.php:349 FamilyView.php:283
-#: PersonView.php:533 v2/templates/pastoralcare/pastoralcareperson.php:166
+#: PersonView.php:527 v2/templates/pastoralcare/pastoralcareperson.php:166
 msgid "Edit"
 msgstr "Edit"
 
@@ -5259,14 +5265,15 @@ msgstr "adresa."
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:131
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
-#: EcclesiaCRM/Search/PersonSearchRes.php:336
+#: EcclesiaCRM/Search/PersonSearchRes.php:334
+#: EcclesiaCRM/Search/PersonSearchRes.php:338
+#: EcclesiaCRM/Search/PersonSearchRes.php:339
 #: EcclesiaCRM/Search/PersonSearchRes.php:340
-#: EcclesiaCRM/Search/PersonSearchRes.php:341
-#: EcclesiaCRM/Search/PersonSearchRes.php:342
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
+#: EcclesiaCRM/Service/MailChimpService.php:197
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:395
-#: FamilyView.php:1069 PersonView.php:726 PersonView.php:1973
+#: FamilyView.php:1069 PersonView.php:720 PersonView.php:1967
 #: PrintPastoralCarePerson.php:654
 #: v2/templates/pastoralcare/pastoralcarefamily.php:220
 #: v2/templates/pastoralcare/pastoralcareperson.php:352
@@ -5362,7 +5369,7 @@ msgstr "Studente."
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:190
+#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:190
 msgid "Print"
 msgstr "printoje."
 
@@ -5395,7 +5402,7 @@ msgid "Person Properties"
 msgstr "Person Properties"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:147 PersonView.php:991
+#: Include/Footer.php:147 PersonView.php:985
 msgid "Volunteer Opportunities"
 msgstr "Mundësi vullnetare"
 
@@ -5427,54 +5434,76 @@ msgstr "definitim i firmosur dosjet mungojnë"
 msgid "One or more files failed signature validation"
 msgstr "Një apo më shumë dosje dështuan të firmosnin vërtetimin"
 
-#: EcclesiaCRM/Service/CalendarService.php:57
+#: EcclesiaCRM/Service/CalendarService.php:58
 msgid "Event"
 msgstr "ngjarja"
 
-#: EcclesiaCRM/Service/CalendarService.php:59
+#: EcclesiaCRM/Service/CalendarService.php:60
 msgid "Anniversary"
 msgstr "përvjetori"
 
-#: EcclesiaCRM/Service/CalendarService.php:480
+#: EcclesiaCRM/Service/CalendarService.php:498 ElectronicPaymentList.php:216
+#: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
+#: EventNames.php:355 FamilyView.php:1096 FindDepositSlip.php:131
+#: ident/routes/verify.php:728 ident/routes/verify.php:795
+#: ident/templates/verify/verify-family-info.php:55
+#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1905
+#: PersonView.php:1997 v2/templates/calendar/eventattendeesedit.php:101
+#: v2/templates/email/mailchimp/campaign.php:131
+#: v2/templates/email/mailchimp/managelist.php:45
+#: v2/templates/group/groupview.php:287
+#: v2/templates/pastoralcare/pastoralcarefamily.php:350
+#: v2/templates/pastoralcare/pastoralcarefamily.php:357
+#: v2/templates/pastoralcare/pastoralcareperson.php:477
+#: v2/templates/pastoralcare/pastoralcareperson.php:484
+#: v2/templates/plugins/plugins.php:57
+msgid "Delete"
+msgstr "Fshije."
+
+#: EcclesiaCRM/Service/CalendarService.php:501
+#, fuzzy
+msgid "Info"
+msgstr "Infos."
+
+#: EcclesiaCRM/Service/CalendarService.php:533
 msgid "Check-in"
 msgstr "Kontrollo"
 
-#: EcclesiaCRM/Service/CalendarService.php:481
+#: EcclesiaCRM/Service/CalendarService.php:534
 msgid "Check-out"
 msgstr "Kontrollo"
 
-#: EcclesiaCRM/Service/CalendarService.php:482
+#: EcclesiaCRM/Service/CalendarService.php:535
 msgid "Rest"
 msgstr "Pusho."
 
-#: EcclesiaCRM/Service/CalendarService.php:503
-#: EcclesiaCRM/Service/CalendarService.php:540
+#: EcclesiaCRM/Service/CalendarService.php:556
+#: EcclesiaCRM/Service/CalendarService.php:593
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "të pranishmit"
 
-#: EcclesiaCRM/Service/CalendarService.php:519
-#: EcclesiaCRM/Service/CalendarService.php:520
+#: EcclesiaCRM/Service/CalendarService.php:572
+#: EcclesiaCRM/Service/CalendarService.php:573
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "Bëj kontrollën"
 
-#: EcclesiaCRM/Service/CalendarService.php:520
+#: EcclesiaCRM/Service/CalendarService.php:573
 msgid "Check-out done"
 msgstr "- Po, është e kryer"
 
-#: EcclesiaCRM/Service/CalendarService.php:539
-#: EcclesiaCRM/Service/CalendarService.php:566
+#: EcclesiaCRM/Service/CalendarService.php:619
 msgid "No Attendance Recorded"
 msgstr "pa regjistrim"
 
-#: EcclesiaCRM/Service/CalendarService.php:580
+#: EcclesiaCRM/Service/CalendarService.php:633
 msgid "login"
 msgstr "Logji"
 
-#: EcclesiaCRM/Service/CalendarService.php:614
+#: EcclesiaCRM/Service/CalendarService.php:664
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "Kalendari personal"
@@ -5503,7 +5532,7 @@ msgstr "pjesë"
 msgid " of the"
 msgstr "i"
 
-#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:577
+#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:571
 #: v2/templates/pastoralcare/pastoralcareperson.php:207
 msgid "(No assigned family)"
 msgstr "(Pa asnjë caktuar familje)"
@@ -5522,7 +5551,7 @@ msgid "by"
 msgstr "nga"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:658 EcclesiaCRM/utils/MiscUtils.php:761
+#: EcclesiaCRM/utils/MiscUtils.php:758 EcclesiaCRM/utils/MiscUtils.php:861
 msgid "File"
 msgstr "Dosjen."
 
@@ -5614,7 +5643,7 @@ msgstr ""
 msgid "Application Integrity Check Failed"
 msgstr "dështoi integriteti i aplikimit"
 
-#: EcclesiaCRM/tasks/LatestReleaseTask.php:40
+#: EcclesiaCRM/tasks/LatestReleaseTask.php:41
 msgid "New Release"
 msgstr "Lirimi i ri"
 
@@ -5792,45 +5821,45 @@ msgstr "Interpoli<br>Adresat"
 msgid "File Type"
 msgstr "filmo tipin"
 
-#: EcclesiaCRM/utils/MiscUtils.php:706
+#: EcclesiaCRM/utils/MiscUtils.php:806
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "Duhet të përdorësh një shikues PDF ose të shkarkosh dosjen këtu"
 
-#: EcclesiaCRM/utils/MiscUtils.php:713 EcclesiaCRM/utils/MiscUtils.php:718
-#: EcclesiaCRM/utils/MiscUtils.php:722 EcclesiaCRM/utils/MiscUtils.php:828
+#: EcclesiaCRM/utils/MiscUtils.php:813 EcclesiaCRM/utils/MiscUtils.php:818
+#: EcclesiaCRM/utils/MiscUtils.php:822 EcclesiaCRM/utils/MiscUtils.php:928
 msgid "Your browser does not support the audio element."
 msgstr "shfletuesi juaj nuk e mbështet elementin audio."
 
-#: EcclesiaCRM/utils/MiscUtils.php:728 EcclesiaCRM/utils/MiscUtils.php:735
-#: EcclesiaCRM/utils/MiscUtils.php:744 EcclesiaCRM/utils/MiscUtils.php:838
-#: EcclesiaCRM/utils/MiscUtils.php:849 EcclesiaCRM/utils/MiscUtils.php:864
+#: EcclesiaCRM/utils/MiscUtils.php:828 EcclesiaCRM/utils/MiscUtils.php:835
+#: EcclesiaCRM/utils/MiscUtils.php:844 EcclesiaCRM/utils/MiscUtils.php:938
+#: EcclesiaCRM/utils/MiscUtils.php:949 EcclesiaCRM/utils/MiscUtils.php:964
 msgid "Your browser does not support the video tag."
 msgstr "shfletuesi juaj nuk e mbështet etiketën e videos."
 
-#: EcclesiaCRM/utils/MiscUtils.php:770 EcclesiaCRM/utils/MiscUtils.php:802
-#: EcclesiaCRM/utils/MiscUtils.php:811 EcclesiaCRM/utils/MiscUtils.php:826
-#: EcclesiaCRM/utils/MiscUtils.php:835 EcclesiaCRM/utils/MiscUtils.php:845
-#: EcclesiaCRM/utils/MiscUtils.php:858
+#: EcclesiaCRM/utils/MiscUtils.php:870 EcclesiaCRM/utils/MiscUtils.php:902
+#: EcclesiaCRM/utils/MiscUtils.php:911 EcclesiaCRM/utils/MiscUtils.php:926
+#: EcclesiaCRM/utils/MiscUtils.php:935 EcclesiaCRM/utils/MiscUtils.php:945
+#: EcclesiaCRM/utils/MiscUtils.php:958
 msgid "Expand"
 msgstr "zgjerohu."
 
-#: EcclesiaCRM/utils/MiscUtils.php:906
+#: EcclesiaCRM/utils/MiscUtils.php:1006
 msgid "Classic Document"
 msgstr "Dokumenti klasik"
 
-#: EcclesiaCRM/utils/MiscUtils.php:909
+#: EcclesiaCRM/utils/MiscUtils.php:1009
 msgid "Classic Video"
 msgstr "Video klasike"
 
-#: EcclesiaCRM/utils/MiscUtils.php:912
+#: EcclesiaCRM/utils/MiscUtils.php:1012
 msgid "Classic File"
 msgstr "dosja klasike"
 
-#: EcclesiaCRM/utils/MiscUtils.php:915
+#: EcclesiaCRM/utils/MiscUtils.php:1015
 msgid "Classic Audio"
 msgstr "audio klasike"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1022
+#: EcclesiaCRM/utils/MiscUtils.php:1122
 msgid "Select Fiscal Year"
 msgstr "Zgjidh Vitin Fiskal"
 
@@ -5894,7 +5923,7 @@ msgid "Restore Database"
 msgstr "Ristartuar Databaza"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:160
-#: v2/templates/dashboard/maindashboard.php:182
+#: v2/templates/dashboard/maindashboard.php:139
 #: v2/templates/people/peopledashboard.php:83
 #: v2/templates/people/peoplelist.php:22
 msgid "Single Persons"
@@ -5960,11 +5989,11 @@ msgstr "redaktor i mundësive vullnetare"
 msgid "Church Calendar"
 msgstr "Kalendar Kishe"
 
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:119
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:124
 msgid "Listing All Church Events"
 msgstr "Lidhja e të gjithë ngjarjeve të kishës"
 
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:169
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:174
 #: EventAttendance.php:36
 msgid "Event Attendees"
 msgstr "në të njëjtin ngjarje"
@@ -6022,17 +6051,17 @@ msgid "Email List"
 msgstr "lista e email"
 
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:192
-#: v2/templates/email/mailchimp/dashboard.php:69
+#: v2/templates/email/mailchimp/dashboard.php:75
 msgid "Find Duplicate Emails"
 msgstr "gjej emailet e dyfishtë"
 
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:218
-#: v2/templates/email/mailchimp/dashboard.php:72
+#: v2/templates/email/mailchimp/dashboard.php:78
 msgid "Persons Not In MailChimp"
 msgstr "personat e jo në mailchimp"
 
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:243
-#: v2/templates/email/mailchimp/dashboard.php:75
+#: v2/templates/email/mailchimp/dashboard.php:81
 msgid "Families Not In MailChimp"
 msgstr "Familjet jo në MailChamp"
 
@@ -6220,23 +6249,6 @@ msgstr "Pastroni numrat e llogarisë"
 #: ElectronicPaymentList.php:207
 msgid "Add a New Electronic Payment Method"
 msgstr "shto metodën e re të pagesave elektronike"
-
-#: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
-#: ElectronicPaymentList.php:318 EventNames.php:355 FamilyView.php:1096
-#: FindDepositSlip.php:131 ident/routes/verify.php:728
-#: ident/routes/verify.php:795 ident/templates/verify/verify-family-info.php:55
-#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1911
-#: PersonView.php:2003 v2/templates/calendar/eventattendeesedit.php:101
-#: v2/templates/email/mailchimp/campaign.php:35
-#: v2/templates/email/mailchimp/managelist.php:45
-#: v2/templates/group/groupview.php:287
-#: v2/templates/pastoralcare/pastoralcarefamily.php:350
-#: v2/templates/pastoralcare/pastoralcarefamily.php:357
-#: v2/templates/pastoralcare/pastoralcareperson.php:477
-#: v2/templates/pastoralcare/pastoralcareperson.php:484
-#: v2/templates/plugins/plugins.php:57
-msgid "Delete"
-msgstr "Fshije."
 
 #: ElectronicPaymentList.php:220
 msgid "Next Date"
@@ -6561,7 +6573,7 @@ msgid "Register"
 msgstr "regjistrues."
 
 #: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1171
+#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1165
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:262
 #: v2/templates/pastoralcare/pastoralcareperson.php:390
@@ -6897,35 +6909,35 @@ msgstr "i kishës<br>"
 msgid "Latitude/Longitude"
 msgstr "Gjerësia dhe Longitude"
 
-#: FamilyView.php:371 PersonView.php:642
+#: FamilyView.php:371 PersonView.php:636
 #: v2/templates/pastoralcare/pastoralcarefamily.php:196
 #: v2/templates/pastoralcare/pastoralcareperson.php:268
 msgid "Text Message"
 msgstr "mesazh me mesazh"
 
-#: FamilyView.php:373 PersonView.php:644
+#: FamilyView.php:373 PersonView.php:638
 #: v2/templates/pastoralcare/pastoralcarefamily.php:198
 #: v2/templates/pastoralcare/pastoralcareperson.php:270
 msgid "EcclesiaCRM text message"
 msgstr "mesazhi Ecclesiacrm"
 
-#: FamilyView.php:442 PersonView.php:776 v2/templates/group/groupview.php:82
+#: FamilyView.php:442 PersonView.php:770 v2/templates/group/groupview.php:82
 msgid "Remove from Cart"
 msgstr "Largoje nga Karti"
 
-#: FamilyView.php:449 PersonView.php:784 QueryView.php:219
+#: FamilyView.php:449 PersonView.php:778 QueryView.php:219
 #: v2/templates/group/groupview.php:86
 msgid "Add to Cart"
 msgstr "Shtoje tek Karti"
 
-#: FamilyView.php:465 PersonView.php:796 v2/templates/cart/cartview.php:86
+#: FamilyView.php:465 PersonView.php:790 v2/templates/cart/cartview.php:86
 #: v2/templates/group/groupview.php:184
 #: v2/templates/sundayschool/sundayschooldashboard.php:116
 #: v2/templates/sundayschool/sundayschoolview.php:51
 msgid "Email (BCC)"
 msgstr "email (bcc)"
 
-#: FamilyView.php:481 PersonView.php:822
+#: FamilyView.php:481 PersonView.php:816
 msgid "Verify Info"
 msgstr "Verifi Info"
 
@@ -6933,7 +6945,7 @@ msgstr "Verifi Info"
 msgid "Add New Member"
 msgstr "shto anëtarin e ri"
 
-#: FamilyView.php:498 FamilyView.php:499 PersonView.php:841 PersonView.php:842
+#: FamilyView.php:498 FamilyView.php:499 PersonView.php:835 PersonView.php:836
 msgid "Create a document"
 msgstr "do të bëj një dokument"
 
@@ -6941,16 +6953,16 @@ msgstr "do të bëj një dokument"
 msgid "Get the vCard of the family"
 msgstr "Merr vKardin e familjes"
 
-#: FamilyView.php:510 PersonView.php:862 v2/templates/cart/cartview.php:63
+#: FamilyView.php:510 PersonView.php:856 v2/templates/cart/cartview.php:63
 msgid "vCard"
 msgstr "VCard"
 
-#: FamilyView.php:518 PersonView.php:889 v2/templates/plugins/plugins.php:56
+#: FamilyView.php:518 PersonView.php:883 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:105
 msgid "Deactivate"
 msgstr "Deaktivizohu"
 
-#: FamilyView.php:518 PersonView.php:889 v2/templates/plugins/plugins.php:55
+#: FamilyView.php:518 PersonView.php:883 v2/templates/plugins/plugins.php:55
 #: v2/templates/plugins/plugins.php:105
 msgid "Activate"
 msgstr "Aktivizo."
@@ -6963,76 +6975,78 @@ msgstr "kjo familje"
 msgid "Delete this Family"
 msgstr "fshije këtë familje"
 
-#: FamilyView.php:659 PersonView.php:934
+#: FamilyView.php:659 PersonView.php:928
 msgid "Timeline"
 msgstr "timeline"
 
-#: FamilyView.php:662 PersonView.php:979 PrintPastoralCarePerson.php:594
+#: FamilyView.php:662 PersonView.php:973 PrintPastoralCarePerson.php:594
 #: PrintView.php:603 v2/templates/group/groupview.php:325
 #: v2/templates/group/groupview.php:383
 msgid "Assigned Properties"
 msgstr "të caktuar nga properties"
 
-#: FamilyView.php:669 PersonView.php:1009
+#: FamilyView.php:669 PersonView.php:1003
 msgid "Automatic Payments"
 msgstr "Pagesat automatike"
 
-#: FamilyView.php:672 PersonView.php:1016
+#: FamilyView.php:672 PersonView.php:1010
 msgid "Pledges and Payments"
 msgstr "pengesa dhe pagesa"
 
-#: FamilyView.php:815 PersonView.php:1477 v2/templates/group/groupview.php:338
+#: FamilyView.php:815 PersonView.php:1471 v2/templates/group/groupview.php:338
 msgid "Assign a New Property"
 msgstr "cakto një pronë të re"
 
-#: FamilyView.php:822 PersonView.php:1483 PersonView.php:1554
-#: PersonView.php:1693
+#: FamilyView.php:822 PersonView.php:1477 PersonView.php:1548
+#: PersonView.php:1687
 msgid "Select"
 msgstr "Zgjedh."
 
-#: FamilyView.php:825 PersonView.php:1485 QueryView.php:457 QueryView.php:474
-#: v2/templates/group/groupview.php:343
+#: FamilyView.php:825 PersonView.php:1479
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:343
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:360
+#: QueryView.php:457 QueryView.php:474 v2/templates/group/groupview.php:343
 msgid "select an option"
 msgstr "zgjedh një opsion"
 
-#: FamilyView.php:846 PersonView.php:1506 PersonView.php:1569
+#: FamilyView.php:846 PersonView.php:1500 PersonView.php:1563
 #: v2/templates/group/groupview.php:359
 msgid "Assign"
 msgstr "cakto"
 
-#: FamilyView.php:874 PersonView.php:1601
+#: FamilyView.php:874 PersonView.php:1595
 msgid "Add a new automatic payment"
 msgstr "shto një pagesë të re automatike"
 
-#: FamilyView.php:883 PersonView.php:1622
+#: FamilyView.php:883 PersonView.php:1616
 msgid "Show Pledges"
 msgstr "Tregoni Pengjet"
 
-#: FamilyView.php:887 PersonView.php:1626
+#: FamilyView.php:887 PersonView.php:1620
 msgid "Show Payments"
 msgstr "Tregoni pagesat"
 
-#: FamilyView.php:890 PersonView.php:1629
+#: FamilyView.php:890 PersonView.php:1623
 msgid "From"
 msgstr "Nga ana tjetër."
 
-#: FamilyView.php:899 PersonView.php:1638
+#: FamilyView.php:899 PersonView.php:1632
 msgid "To"
 msgstr "Të"
 
-#: FamilyView.php:922 PersonView.php:1651
+#: FamilyView.php:922 PersonView.php:1645
 msgid "Add a new pledge"
 msgstr "shto një premtim të ri"
 
-#: FamilyView.php:924 PersonView.php:1653
+#: FamilyView.php:924 PersonView.php:1647
 msgid "Add a new payment"
 msgstr "shto një pagesë të re"
 
-#: FamilyView.php:932 PersonView.php:1669
+#: FamilyView.php:932 PersonView.php:1663
 msgid " Canvass Entry"
 msgstr "hyrje e veqant"
 
-#: FamilyView.php:1066 PersonView.php:547 PersonView.php:1970
+#: FamilyView.php:1066 PersonView.php:541 PersonView.php:1964
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
@@ -7040,28 +7054,28 @@ msgstr "hyrje e veqant"
 msgid "Informations"
 msgstr "informacione"
 
-#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1990
+#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1984
 msgid "Confirm Delete"
 msgstr "Konfirmo Fshijen"
 
-#: FamilyView.php:1091 PersonView.php:1996
+#: FamilyView.php:1091 PersonView.php:1990
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "Ti do ta fshish foton e profilit, kjo procedurë është e pakthyeshme."
 
-#: FamilyView.php:1092 PersonView.php:1998
+#: FamilyView.php:1092 PersonView.php:1992
 msgid "Do you want to proceed?"
 msgstr "Dëshiron të vazhdojmë?"
 
-#: FamilyView.php:1107 PersonView.php:2016
+#: FamilyView.php:1107 PersonView.php:2010
 msgid "Request Family Info Verification"
 msgstr "Kërkoj Verifikimin e Familjes Info"
 
-#: FamilyView.php:1112 PersonView.php:2021
+#: FamilyView.php:1112 PersonView.php:2015
 msgid "Select how do you want to request the family information to be verified"
 msgstr "Zgjidh si do që të kërkosh informacionin e familjes të verifikohet"
 
-#: FamilyView.php:1117 PersonView.php:2026
+#: FamilyView.php:1117 PersonView.php:2020
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
@@ -7069,20 +7083,20 @@ msgstr ""
 "Do t'i dërgosh mesazhet elektronike të dhënave të familjes në pdf tek e-"
 "mailet e mëposhtme"
 
-#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2048
-#: PersonView.php:2052
+#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2042
+#: PersonView.php:2046
 msgid "Online Verification"
 msgstr "Verifikimi online"
 
-#: FamilyView.php:1149 PersonView.php:2058
+#: FamilyView.php:1149 PersonView.php:2052
 msgid "URL"
 msgstr "url"
 
-#: FamilyView.php:1152 PersonView.php:2061
+#: FamilyView.php:1152 PersonView.php:2055
 msgid "PDF Report"
 msgstr "Raporti PDF"
 
-#: FamilyView.php:1156 PersonView.php:2065
+#: FamilyView.php:1156 PersonView.php:2059
 msgid "Verified In Person"
 msgstr "verifikuar në personin"
 
@@ -7798,7 +7812,7 @@ msgid "We encountered an error submitting with your verification data"
 msgstr "Ne edhe para teje kemi bërë thirrje (për rojë) të gabuar"
 
 #: ident/templates/verify/verify-family-info.php:202
-#: v2/templates/email/mailchimp/campaign.php:40
+#: v2/templates/email/mailchimp/campaign.php:136
 msgid "Send"
 msgstr "Dërgo."
 
@@ -7962,47 +7976,51 @@ msgstr "në rregull."
 msgid "Change columns"
 msgstr "Ndrysho kolonat"
 
-#: Include/Header.php:116
+#: Include/Header.php:111
+msgid "Exit Control"
+msgstr ""
+
+#: Include/Header.php:121
 msgid "Your Cart"
 msgstr "karroca jote"
 
-#: Include/Header.php:128
+#: Include/Header.php:133
 msgid "Your settings and more"
 msgstr "Zgjerimi yt"
 
-#: Include/Header.php:154
+#: Include/Header.php:159
 msgid "Lock"
 msgstr "Mbylle!"
 
-#: Include/Header.php:156
+#: Include/Header.php:161
 msgid "Sign out"
 msgstr "Firmos"
 
-#: Include/Header.php:167
+#: Include/Header.php:172
 msgid "Help & Support"
 msgstr "Ndihmë dhe mbështetja"
 
-#: Include/Header.php:171
+#: Include/Header.php:176
 msgid "Help Center"
 msgstr "Ndihmo qendrën"
 
-#: Include/Header.php:173 Include/Header.php:175
+#: Include/Header.php:178 Include/Header.php:180
 msgid "Help & Manual"
 msgstr "Ndihmë & Manual"
 
-#: Include/Header.php:178 Include/Header.php:180
+#: Include/Header.php:183 Include/Header.php:185
 msgid "Report an issue"
 msgstr "Raporto një problem"
 
-#: Include/Header.php:183 Include/Header.php:185
+#: Include/Header.php:188 Include/Header.php:190
 msgid "Developer Chat"
 msgstr "Bisedim i zhvillimit"
 
-#: Include/Header.php:189 Include/Header.php:190
+#: Include/Header.php:194 Include/Header.php:195
 msgid "Contributing"
 msgstr "kontribues"
 
-#: Include/Header.php:202
+#: Include/Header.php:207
 msgid "Your tasks"
 msgstr "detyrat tuaja"
 
@@ -8348,7 +8366,7 @@ msgstr "Puna e Emailit nuk është e vlefshme"
 msgid "Red text"
 msgstr "mesazh i kuq"
 
-#: PersonEditor.php:873 PersonView.php:761
+#: PersonEditor.php:873 PersonView.php:755
 msgid "indicates items inherited from the associated family record."
 msgstr "tregon gjëra të trashëguara nga rekordi i familjes."
 
@@ -8398,19 +8416,19 @@ msgstr ""
 "vendose emrin familjar në këtë fushë.<br>• në rastin tjetër, lëre këtë fushë "
 "bosh."
 
-#: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:701
-#: PersonView.php:703 v2/templates/pastoralcare/pastoralcareperson.php:327
+#: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:695
+#: PersonView.php:697 v2/templates/pastoralcare/pastoralcareperson.php:327
 #: v2/templates/pastoralcare/pastoralcareperson.php:329
 msgid "Facebook"
 msgstr "facebook"
 
-#: PersonEditor.php:1537 PersonView.php:710 PersonView.php:711
+#: PersonEditor.php:1537 PersonView.php:704 PersonView.php:705
 #: v2/templates/pastoralcare/pastoralcareperson.php:336
 #: v2/templates/pastoralcare/pastoralcareperson.php:337
 msgid "Twitter"
 msgstr "Twitter"
 
-#: PersonEditor.php:1555 PersonView.php:718 PersonView.php:719
+#: PersonEditor.php:1555 PersonView.php:712 PersonView.php:713
 #: v2/templates/pastoralcare/pastoralcareperson.php:344
 #: v2/templates/pastoralcare/pastoralcareperson.php:345
 msgid "LinkedIn"
@@ -8420,7 +8438,7 @@ msgstr "Linkedin"
 msgid "Membership Info"
 msgstr "Anëtarësimi Info"
 
-#: PersonEditor.php:1627 PersonView.php:626
+#: PersonEditor.php:1627 PersonView.php:620
 #: v2/templates/pastoralcare/pastoralcareperson.php:252
 msgid "Friend Date"
 msgstr "Takim shok"
@@ -8442,7 +8460,7 @@ msgid "This Person is Deactivated"
 msgstr "Ky njeri është i çaktivizuar"
 
 #: PersonView.php:462 v2/templates/pastoralcare/pastoralcareperson.php:114
-#: v2/templates/user/userlist.php:119
+#: v2/templates/user/userlist.php:128
 msgid "Undefined"
 msgstr "i pa përkufizuar"
 
@@ -8450,150 +8468,150 @@ msgstr "i pa përkufizuar"
 msgid "Member Since"
 msgstr "Anëtar që nga"
 
-#: PersonView.php:561 v2/templates/pastoralcare/pastoralcareperson.php:198
+#: PersonView.php:555 v2/templates/pastoralcare/pastoralcareperson.php:198
 msgid "Family:"
 msgstr "Familja:"
 
-#: PersonView.php:814 v2/templates/gdpr/dashboard.php:24
+#: PersonView.php:808 v2/templates/gdpr/dashboard.php:24
 #: v2/templates/gdpr/gdprdatastructure.php:19
 #: v2/templates/pastoralcare/pastoralcarefamily.php:73
 #: v2/templates/pastoralcare/pastoralcareperson.php:68
 msgid "Printable Page"
 msgstr "printabela faqe"
 
-#: PersonView.php:831
+#: PersonView.php:825
 msgid "Add a pastoral care note"
 msgstr "shto një shënim kujdesi pastorial"
 
-#: PersonView.php:849
+#: PersonView.php:843
 msgid "Assign this user to a group"
 msgstr "caktoja këtë përdorues një grupi"
 
-#: PersonView.php:851
+#: PersonView.php:845
 msgid "Assign New Group"
 msgstr "cakto grupin e ri"
 
-#: PersonView.php:859 v2/templates/cart/cartview.php:60
+#: PersonView.php:853 v2/templates/cart/cartview.php:60
 msgid "Get the vCard of the person"
 msgstr "Merr vcardin e personit"
 
-#: PersonView.php:872
+#: PersonView.php:866
 msgid "Create a CRM user"
 msgstr "Krijo një përdorues CRM"
 
-#: PersonView.php:873
+#: PersonView.php:867
 msgid "Make User"
 msgstr "Bëj përdoruesin"
 
-#: PersonView.php:879
+#: PersonView.php:873
 msgid "Add rights to this user"
 msgstr "shto të drejtat e këtij përdoruesi"
 
-#: PersonView.php:880
+#: PersonView.php:874
 msgid "Edit User"
 msgstr "Përdorues i editit"
 
-#: PersonView.php:889
+#: PersonView.php:883
 msgid " this Person"
 msgstr "ky Personi"
 
-#: PersonView.php:902 PersonView.php:909
+#: PersonView.php:896 PersonView.php:903
 msgid "Delete this Record"
 msgstr "fshije këtë libër"
 
-#: PersonView.php:963 PrintPastoralCarePerson.php:497 PrintView.php:506
+#: PersonView.php:957 PrintPastoralCarePerson.php:497 PrintView.php:506
 msgid "Assigned Groups"
 msgstr "Grupe të caktuara"
 
-#: PersonView.php:1147
+#: PersonView.php:1141
 msgid "click to download"
 msgstr "kliko për të shkarkuar"
 
-#: PersonView.php:1262 PrintPastoralCarePerson.php:509 PrintView.php:518
+#: PersonView.php:1256 PrintPastoralCarePerson.php:509 PrintView.php:518
 msgid "No group assignments."
 msgstr "Asnjë detyrë në grup."
 
-#: PersonView.php:1321
+#: PersonView.php:1315
 msgid "Change Role"
 msgstr "Ndrysho Rolin"
 
-#: PersonView.php:1328
+#: PersonView.php:1322
 msgid "Update Properties"
 msgstr "Përditëse të Properties"
 
-#: PersonView.php:1364
+#: PersonView.php:1358
 msgid "Group Informations"
 msgstr "Grupi informatat"
 
-#: PersonView.php:1395
+#: PersonView.php:1389
 msgid "Person Informations"
 msgstr "Informacione personale"
 
-#: PersonView.php:1418
+#: PersonView.php:1412
 msgid "Modify Specific Properties"
 msgstr "Modifiko pronat Specific"
 
-#: PersonView.php:1461 PrintPastoralCarePerson.php:606 PrintView.php:615
+#: PersonView.php:1455 PrintPastoralCarePerson.php:606 PrintView.php:615
 msgid "No property assignments."
 msgstr "nuk ka detyra pronësie."
 
-#: PersonView.php:1531
+#: PersonView.php:1525
 msgid "No volunteer opportunity assignments."
 msgstr "Nuk ka detyra vullnetare për mundësi."
 
-#: PersonView.php:1546
+#: PersonView.php:1540
 msgid "Assign a New Volunteer Opportunity"
 msgstr "cakto një mundësi të re vullnetare"
 
-#: PersonView.php:1606 PersonView.php:1658
+#: PersonView.php:1600 PersonView.php:1652
 msgid "You must set an address for this person"
 msgstr "duhet t'i vendosësh një adresë këtij personi"
 
-#: PersonView.php:1694
+#: PersonView.php:1688
 msgid "Filter your documents by : "
 msgstr "plotësoni dokumentet tuaja:"
 
-#: PersonView.php:1695
+#: PersonView.php:1689
 msgid "All type"
 msgstr "Të gjitha llojet"
 
-#: PersonView.php:1700
+#: PersonView.php:1694
 msgid "Shared documents"
 msgstr "dokumente të ndara"
 
-#: PersonView.php:1736
+#: PersonView.php:1730
 msgid "Edit this document"
 msgstr "Epro këtë dokument"
 
-#: PersonView.php:1746
+#: PersonView.php:1740
 msgid "Delete this document"
 msgstr "Fshije këtë dokument"
 
-#: PersonView.php:1757
+#: PersonView.php:1751
 msgid "Share this document to another user"
 msgstr "ndaje këtë dokument për një përdorues tjetër"
 
-#: PersonView.php:1770
+#: PersonView.php:1764
 msgid "Export this document to word Format"
 msgstr "Dergoje këtë dokument për në fjalë Format"
 
-#: PersonView.php:1813
+#: PersonView.php:1807
 msgid "Last modification by"
 msgstr "Modifikimi i fundit"
 
-#: PersonView.php:1889
+#: PersonView.php:1883
 msgid "All Files"
 msgstr "Të gjitha dosjet"
 
-#: PersonView.php:1906
+#: PersonView.php:1900
 msgid "Create a Folder"
 msgstr "krijo një dosje"
 
-#: PersonView.php:1916
+#: PersonView.php:1910
 msgid "Up One Level"
 msgstr "Lart në nivelin e parë"
 
-#: PersonView.php:1923
+#: PersonView.php:1917
 msgid "Actualize files"
 msgstr "- Filloni të dhënat"
 
@@ -8723,6 +8741,74 @@ msgstr "hyr:"
 msgid "Last Edited"
 msgstr "Ediiti i fundit"
 
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:31
+#: QueryView.php:32
+msgid "Query View"
+msgstr "query vju"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:108
+#: QueryView.php:102
+msgid "This value is required."
+msgstr "Kjo vlere është e nevojshme."
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:121
+#: QueryView.php:113
+msgid "This value must be numeric."
+msgstr "Kjo vlere duhet të jetë numerike."
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:126
+#: QueryView.php:118
+msgid "This value must be at least "
+msgstr "Kjo vlere duhet të jetë së paku"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:131
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:144
+#: QueryView.php:122 QueryView.php:135
+msgid "This value cannot be more than "
+msgstr "Kjo vlerë nuk mund të jetë më shumë se"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:144
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:149
+#: QueryView.php:135 QueryView.php:139
+msgid " characters long"
+msgstr "karakteret janë të gjata"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:149
+#: QueryView.php:139
+msgid "This value cannot be less than "
+msgstr "Kjo vlere nuk mund te jete me pak se"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
+#: QuerySQL.php:123 QueryView.php:185 QueryView.php:283
+msgid " record(s) returned"
+msgstr "u kthye regjistrimi"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
+#: QueryView.php:292
+msgid "Add To Cart"
+msgstr "Shtoje tek Cart"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
+#: QueryView.php:294
+msgid "Intersect With Cart"
+msgstr "Ndërlidhu me Kartin"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
+#: QueryView.php:296
+msgid "Remove From Cart"
+msgstr "Largohuni nga Karti"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
+#: QueryView.php:301
+msgid "Run Query Again"
+msgstr "Vrapo sërish \"Queri\""
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:407
+#: QueryView.php:519
+msgid "Execute Query"
+msgstr "ekzekuto query"
+
 #: QueryList.php:27
 msgid "Query Listing"
 msgstr "\"query list\""
@@ -8751,10 +8837,6 @@ msgstr "Ekzekutoni SkL"
 msgid "An error occured: "
 msgstr "Një gabim ndodhi:"
 
-#: QuerySQL.php:123 QueryView.php:185 QueryView.php:283
-msgid " record(s) returned"
-msgstr "u kthye regjistrimi"
-
 #: QuerySQL.php:189
 msgid "Add Results To Cart"
 msgstr "shtoni rezultatet në cart"
@@ -8770,54 +8852,6 @@ msgstr "hiqini rezultatet nga karroca"
 #: QuerySQL.php:196
 msgid "Return to Query Menu"
 msgstr "kthehu në query manu"
-
-#: QueryView.php:32
-msgid "Query View"
-msgstr "query vju"
-
-#: QueryView.php:102
-msgid "This value is required."
-msgstr "Kjo vlere është e nevojshme."
-
-#: QueryView.php:113
-msgid "This value must be numeric."
-msgstr "Kjo vlere duhet të jetë numerike."
-
-#: QueryView.php:118
-msgid "This value must be at least "
-msgstr "Kjo vlere duhet të jetë së paku"
-
-#: QueryView.php:122 QueryView.php:135
-msgid "This value cannot be more than "
-msgstr "Kjo vlerë nuk mund të jetë më shumë se"
-
-#: QueryView.php:135 QueryView.php:139
-msgid " characters long"
-msgstr "karakteret janë të gjata"
-
-#: QueryView.php:139
-msgid "This value cannot be less than "
-msgstr "Kjo vlere nuk mund te jete me pak se"
-
-#: QueryView.php:292
-msgid "Add To Cart"
-msgstr "Shtoje tek Cart"
-
-#: QueryView.php:294
-msgid "Intersect With Cart"
-msgstr "Ndërlidhu me Kartin"
-
-#: QueryView.php:296
-msgid "Remove From Cart"
-msgstr "Largohuni nga Karti"
-
-#: QueryView.php:301
-msgid "Run Query Again"
-msgstr "Vrapo sërish \"Queri\""
-
-#: QueryView.php:519
-msgid "Execute Query"
-msgstr "ekzekuto query"
 
 #: ReminderReport.php:28 v2/templates/people/peopledashboard.php:214
 msgid "Pledge Reminder Report"
@@ -9383,8 +9417,8 @@ msgstr "Anulloje dhe kthehu tek Person Vju"
 msgid "Move Donations to Selected Person"
 msgstr "Lëviz Donacionet tek personi i zgjedhur"
 
-#: SelectDelete.php:325 v2/templates/email/mailchimp/campaign.php:103
-#: v2/templates/email/mailchimp/campaign.php:109
+#: SelectDelete.php:325 v2/templates/email/mailchimp/campaign.php:205
+#: v2/templates/email/mailchimp/campaign.php:212
 msgid "Schedule"
 msgstr "Shkolla."
 
@@ -9814,7 +9848,7 @@ msgstr "përdorues."
 msgid "Global Permissions"
 msgstr "Leje"
 
-#: UserEditor.php:802 v2/templates/user/userlist.php:158
+#: UserEditor.php:802 v2/templates/user/userlist.php:181
 msgid "Management"
 msgstr "menaxhim"
 
@@ -10348,230 +10382,269 @@ msgstr "është e mbushur"
 msgid "persons from"
 msgstr "personat nga"
 
-#: v2/templates/dashboard/maindashboard.php:69
-msgid "Loading in progress"
-msgstr "Po mbushet"
-
-#: v2/templates/dashboard/maindashboard.php:74
-msgid "Loading datas for the proper functioning of EcclesiaCRM"
-msgstr "Duke mbushur datat për funksionimin e duhur të EcclesiaCRM"
-
-#: v2/templates/dashboard/maindashboard.php:80
-msgid "Importing data from Mailchimp"
-msgstr "importon të dhënat nga mailchip"
-
-#: v2/templates/dashboard/maindashboard.php:83
-msgid "EcclesiaCRM data integrity check"
-msgstr "Kontroll i integritetit të të dhënave të EcclesiaCRM"
-
-#: v2/templates/dashboard/maindashboard.php:86
-msgid ""
-"Verification of the technical data of the hosting for the proper functioning "
-"of EcclesiaCRM"
-msgstr ""
-"Verifikimi i të dhënave teknike të pritjes për funksionimin e duhur të "
-"EcclesiaCRM"
-
-#: v2/templates/dashboard/maindashboard.php:108
+#: v2/templates/dashboard/maindashboard.php:65
 msgid "message for the DPO"
 msgstr "mesazh për DPO"
 
-#: v2/templates/dashboard/maindashboard.php:119
+#: v2/templates/dashboard/maindashboard.php:76
 msgid "person must be deleted from the CRM."
 msgstr "personi duhet të fshihet nga crm."
 
-#: v2/templates/dashboard/maindashboard.php:121
+#: v2/templates/dashboard/maindashboard.php:78
 msgid "persons must be deleted from the CRM."
 msgstr "personat duhet të fshihen nga CRM."
 
-#: v2/templates/dashboard/maindashboard.php:126
-#: v2/templates/dashboard/maindashboard.php:151
+#: v2/templates/dashboard/maindashboard.php:83
+#: v2/templates/dashboard/maindashboard.php:108
 msgid "Click the"
 msgstr "kliko"
 
-#: v2/templates/dashboard/maindashboard.php:127
-#: v2/templates/dashboard/maindashboard.php:152
+#: v2/templates/dashboard/maindashboard.php:84
+#: v2/templates/dashboard/maindashboard.php:109
 msgid "link"
 msgstr "Lidhja"
 
-#: v2/templates/dashboard/maindashboard.php:127
-#: v2/templates/dashboard/maindashboard.php:152
+#: v2/templates/dashboard/maindashboard.php:84
+#: v2/templates/dashboard/maindashboard.php:109
 #: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "to solve the problem."
 msgstr "te zgjidhim problemin."
 
-#: v2/templates/dashboard/maindashboard.php:132
+#: v2/templates/dashboard/maindashboard.php:89
 msgid "No Person to remove in the CRM."
 msgstr "asnjë njeri nuk do të largohet në crm."
 
-#: v2/templates/dashboard/maindashboard.php:144
+#: v2/templates/dashboard/maindashboard.php:101
 msgid "family must be deleted from the CRM."
 msgstr "familja duhet të fshihet nga crm."
 
-#: v2/templates/dashboard/maindashboard.php:146
+#: v2/templates/dashboard/maindashboard.php:103
 msgid "families must be deleted from the CRM."
 msgstr "familjet duhet të jenë fshirë nga CRM."
 
-#: v2/templates/dashboard/maindashboard.php:157
+#: v2/templates/dashboard/maindashboard.php:114
 msgid "No Family to remove in the CRM."
 msgstr "S'ka familje për ta hequr në CRM."
 
-#: v2/templates/dashboard/maindashboard.php:190
-#: v2/templates/dashboard/maindashboard.php:212
+#: v2/templates/dashboard/maindashboard.php:147
+#: v2/templates/dashboard/maindashboard.php:169
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peopledashboard.php:113
 msgid "View"
 msgstr "shiko"
 
-#: v2/templates/dashboard/maindashboard.php:212
+#: v2/templates/dashboard/maindashboard.php:169
 #: v2/templates/people/peopledashboard.php:113
 msgid "Familles"
 msgstr "Familjet"
 
-#: v2/templates/dashboard/maindashboard.php:232
+#: v2/templates/dashboard/maindashboard.php:189
 #: v2/templates/people/peopledashboard.php:134
 msgid "See All People"
 msgstr "Shih të gjithë njerëzit"
 
-#: v2/templates/dashboard/maindashboard.php:247
+#: v2/templates/dashboard/maindashboard.php:204
 #: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Sunday School Classes"
 msgstr "klasat e shkollës së së dielës"
 
-#: v2/templates/dashboard/maindashboard.php:254
-#: v2/templates/dashboard/maindashboard.php:276
+#: v2/templates/dashboard/maindashboard.php:211
+#: v2/templates/dashboard/maindashboard.php:233
 #: v2/templates/people/peopledashboard.php:156
 #: v2/templates/people/peopledashboard.php:178
 msgid "More info"
 msgstr "Më shumë informacione"
 
-#: v2/templates/dashboard/maindashboard.php:287
+#: v2/templates/dashboard/maindashboard.php:244
 #: v2/templates/plugins/plugins.php:32
 #, fuzzy
 msgid "Plugins managements"
 msgstr "Roli i menaxhimit"
 
-#: v2/templates/dashboard/maindashboard.php:294
+#: v2/templates/dashboard/maindashboard.php:251
 #: v2/templates/plugins/plugins.php:102
 #, fuzzy
 msgid "Settings"
 msgstr "Seksionet e hartave"
 
-#: v2/templates/email/mailchimp/campaign.php:22
+#: v2/templates/email/mailchimp/campaign.php:29
+#, fuzzy
+msgid "Recipients"
+msgstr "ngjarjet."
+
+#: v2/templates/email/mailchimp/campaign.php:34
+#, fuzzy
+msgid "Audience"
+msgstr "audienca e email"
+
+#: v2/templates/email/mailchimp/campaign.php:37
+msgid "Delivered"
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:46
+msgid "Opened"
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:50
+#, fuzzy
+msgid "Clicked"
+msgstr "kliko"
+
+#: v2/templates/email/mailchimp/campaign.php:54
+msgid "Bounced"
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:58
+msgid "Unsubscribed"
+msgstr "E papërshkruara"
+
+#: v2/templates/email/mailchimp/campaign.php:64
+msgid "Successful deliveries"
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:70
+#, fuzzy
+msgid "Total opens"
+msgstr "pagesa e plotë"
+
+#: v2/templates/email/mailchimp/campaign.php:73
+#, fuzzy
+msgid "Last opened"
+msgstr "Logini i fundit"
+
+#: v2/templates/email/mailchimp/campaign.php:76
+msgid "Forwarded"
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:79
+msgid "Forward opens"
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:88
+#, fuzzy
+msgid "Clicks rate"
+msgstr "kliko"
+
+#: v2/templates/email/mailchimp/campaign.php:91
+#, fuzzy
+msgid "Total clicks"
+msgstr "Logins total"
+
+#: v2/templates/email/mailchimp/campaign.php:114
 msgid "Email Campaign Management"
 msgstr "menaxhimi i fushatës elektronike"
 
-#: v2/templates/email/mailchimp/campaign.php:32
+#: v2/templates/email/mailchimp/campaign.php:127
 msgid "Save Campaign"
 msgstr "Ruaj fushatën"
 
-#: v2/templates/email/mailchimp/campaign.php:49
+#: v2/templates/email/mailchimp/campaign.php:145
 msgid "Mail Subject"
 msgstr "posta subjekt"
 
-#: v2/templates/email/mailchimp/campaign.php:49
+#: v2/templates/email/mailchimp/campaign.php:146
 msgid "Content"
 msgstr "Lidhje"
 
-#: v2/templates/email/mailchimp/campaign.php:54
+#: v2/templates/email/mailchimp/campaign.php:151
 msgid "Subject"
 msgstr "subjekti"
 
-#: v2/templates/email/mailchimp/campaign.php:57
+#: v2/templates/email/mailchimp/campaign.php:154
 msgid "Your Mail Subject"
 msgstr "Subjekti yt i postës"
 
-#: v2/templates/email/mailchimp/campaign.php:66
+#: v2/templates/email/mailchimp/campaign.php:164
 msgid "You can use the button \"Merge Tags\" below, to customize your content"
 msgstr ""
 "Mund ta përdorësh butonin \"Mere Tags\" poshtë, për të rregulluar "
 "përmbajtjen tënde"
 
-#: v2/templates/email/mailchimp/campaign.php:83
+#: v2/templates/email/mailchimp/campaign.php:183
 msgid "Tags"
 msgstr "Tags"
 
-#: v2/templates/email/mailchimp/campaign.php:119
+#: v2/templates/email/mailchimp/campaign.php:224
 msgid "You've first to create a content below to schedule a campaign."
 msgstr ""
 "së pari ke krijuar një përmbajtje më poshtë për të planifikuar një fushatë."
 
-#: v2/templates/email/mailchimp/campaign.php:121
+#: v2/templates/email/mailchimp/campaign.php:227
 msgid ""
 "Campaigns may only be scheduled to send on the quarter-hour "
 "(:00, :15, :30, :45)."
 msgstr "Fushatat mund të jenë të caktuara vetëm çerek orësh (:45)."
 
-#: v2/templates/email/mailchimp/campaign.php:146
+#: v2/templates/email/mailchimp/campaign.php:253
 msgid "Time"
 msgstr "Koha."
 
-#: v2/templates/email/mailchimp/campaign.php:162
+#: v2/templates/email/mailchimp/campaign.php:270
 msgid ""
 "To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
 "over."
 msgstr ""
 "për të vërtetuar, ruaje fushatën tënde me butonin<b>\"save fushatën\"</b>."
 
-#: v2/templates/email/mailchimp/dashboard.php:20
+#: v2/templates/email/mailchimp/dashboard.php:29
 msgid "MailChimp Problem"
 msgstr "Problemi i Kryeshimit"
 
-#: v2/templates/email/mailchimp/dashboard.php:21
+#: v2/templates/email/mailchimp/dashboard.php:30
 msgid "Mailchimp Status"
 msgstr "gjendja e mailçimpit"
 
-#: v2/templates/email/mailchimp/dashboard.php:31
+#: v2/templates/email/mailchimp/dashboard.php:40
 msgid "field"
 msgstr "fushë."
 
-#: v2/templates/email/mailchimp/dashboard.php:31
+#: v2/templates/email/mailchimp/dashboard.php:40
 msgid "Message"
 msgstr "mesazh."
 
-#: v2/templates/email/mailchimp/dashboard.php:45
+#: v2/templates/email/mailchimp/dashboard.php:54
 msgid "MailChimp is activated"
 msgstr "MailChip është aktivizuar"
 
-#: v2/templates/email/mailchimp/dashboard.php:46
+#: v2/templates/email/mailchimp/dashboard.php:55
 msgid "MailChimp is working correctly"
 msgstr "mailchimp punon në mënyrë të saktë"
 
-#: v2/templates/email/mailchimp/dashboard.php:55
+#: v2/templates/email/mailchimp/dashboard.php:61
 msgid "MailChimp Management"
 msgstr "Manazhimi i Chip Management"
 
-#: v2/templates/email/mailchimp/dashboard.php:62
+#: v2/templates/email/mailchimp/dashboard.php:68
 msgid "Create an audience or List"
 msgstr "të krijoj një audiencë apo list"
 
-#: v2/templates/email/mailchimp/dashboard.php:63
+#: v2/templates/email/mailchimp/dashboard.php:69
 msgid "Create list"
 msgstr "Krijo listën"
 
-#: v2/templates/email/mailchimp/dashboard.php:66
+#: v2/templates/email/mailchimp/dashboard.php:72
 msgid "Generate CSV"
 msgstr "CSV e gjeneratës"
 
-#: v2/templates/email/mailchimp/dashboard.php:77
+#: v2/templates/email/mailchimp/dashboard.php:83
 msgid "To debug your email connection"
 msgstr "për të debatuar lidhjen tuaj elektronike"
 
-#: v2/templates/email/mailchimp/dashboard.php:78
+#: v2/templates/email/mailchimp/dashboard.php:84
 msgid "Debug"
 msgstr "Shkatërrim."
 
-#: v2/templates/email/mailchimp/dashboard.php:81
+#: v2/templates/email/mailchimp/dashboard.php:87
 msgid "You can import the generated CSV file to external email system."
 msgstr ""
 "Mund të importosh dosjen e gjeneruar CSV për sistemin e jashtëm elektronik."
 
-#: v2/templates/email/mailchimp/dashboard.php:82
+#: v2/templates/email/mailchimp/dashboard.php:88
 msgid "For MailChimp see"
 msgstr "Për MailChip po e sheh"
 
-#: v2/templates/email/mailchimp/dashboard.php:84
+#: v2/templates/email/mailchimp/dashboard.php:90
 msgid "import subscribers to a list."
 msgstr "avokati i importit në një listë."
 
@@ -11464,7 +11537,7 @@ msgstr "Grupi i funksioneve"
 msgid "Activated"
 msgstr "Aktivizo."
 
-#: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:47
+#: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:49
 msgid "Check all boxes"
 msgstr "Kontrollo të gjitha kutitë"
 
@@ -11801,45 +11874,90 @@ msgstr "duke u treguar studentëve gjininë"
 msgid "Add Members to Sunday Group"
 msgstr "shtoni anëtarët në grupin e së dielës"
 
-#: v2/templates/user/userlist.php:18
+#: v2/templates/user/userlist.php:20
 msgid "New User"
 msgstr "përdorues i ri"
 
-#: v2/templates/user/userlist.php:21
+#: v2/templates/user/userlist.php:23
 msgid "Add Role to Selected User(s)"
 msgstr "Shtoje rolin për përdoruesit e zgjedhur (s)"
 
-#: v2/templates/user/userlist.php:37
+#: v2/templates/user/userlist.php:39
 msgid "Apply Roles"
 msgstr "Apple Roles"
 
-#: v2/templates/user/userlist.php:48
+#: v2/templates/user/userlist.php:50
 msgid "Actions"
 msgstr "Veprime."
 
-#: v2/templates/user/userlist.php:51
+#: v2/templates/user/userlist.php:53
 msgid "User Role"
 msgstr "role përdorues"
 
-#: v2/templates/user/userlist.php:52
+#: v2/templates/user/userlist.php:54
 msgid "Last Login"
 msgstr "Logini i fundit"
 
-#: v2/templates/user/userlist.php:53
+#: v2/templates/user/userlist.php:55
 msgid "Total Logins"
 msgstr "Logins total"
 
-#: v2/templates/user/userlist.php:54
+#: v2/templates/user/userlist.php:56
 msgid "Failed Logins"
 msgstr "Logina të dështuara"
 
-#: v2/templates/user/userlist.php:56
+#: v2/templates/user/userlist.php:59
+msgid "Take control"
+msgstr ""
+
+#: v2/templates/user/userlist.php:61
 msgid "2FA authentication"
 msgstr "autentiction 2fa"
 
-#: v2/templates/user/userlist.php:81
+#: v2/templates/user/userlist.php:82
+#, fuzzy
+msgid "Manage user account"
+msgstr "llogari bankare"
+
+#: v2/templates/user/userlist.php:88
 msgid "Not modifiable"
 msgstr "nuk është i modifikueshëm"
+
+#: v2/templates/user/userlist.php:97
+msgid "User account webdav key"
+msgstr ""
+
+#: v2/templates/user/userlist.php:107
+msgid "Remove user account (not the profile)"
+msgstr ""
+
+#: v2/templates/user/userlist.php:147
+#, fuzzy
+msgid "Reset failed login"
+msgstr "Logina të dështuara"
+
+#: v2/templates/user/userlist.php:155
+#, fuzzy
+msgid "Change user account password"
+msgstr "Ndrysho fjalëkalimin"
+
+#: v2/templates/user/userlist.php:161
+#, fuzzy
+msgid "Reset and send new user password"
+msgstr "Rivendose fjalëkalimin"
+
+#: v2/templates/user/userlist.php:171
+msgid "Take control of the account"
+msgstr ""
+
+#: v2/templates/user/userlist.php:180
+#, fuzzy
+msgid "Manage 2 factor secret"
+msgstr "Menazh Pastoral Care"
+
+#: v2/templates/user/userlist.php:192
+msgid "Lock/unlock user account"
+msgstr ""
 
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
@@ -12617,6 +12735,25 @@ msgstr ""
 msgid "Several days"
 msgstr ""
 
+#~ msgid "Loading in progress"
+#~ msgstr "Po mbushet"
+
+#~ msgid "Loading datas for the proper functioning of EcclesiaCRM"
+#~ msgstr "Duke mbushur datat për funksionimin e duhur të EcclesiaCRM"
+
+#~ msgid "Importing data from Mailchimp"
+#~ msgstr "importon të dhënat nga mailchip"
+
+#~ msgid "EcclesiaCRM data integrity check"
+#~ msgstr "Kontroll i integritetit të të dhënave të EcclesiaCRM"
+
+#~ msgid ""
+#~ "Verification of the technical data of the hosting for the proper "
+#~ "functioning of EcclesiaCRM"
+#~ msgstr ""
+#~ "Verifikimi i të dhënave teknike të pritjes për funksionimin e duhur të "
+#~ "EcclesiaCRM"
+
 #~ msgid "Birthdates of the day"
 #~ msgstr "datat e ditës"
 
@@ -12640,9 +12777,6 @@ msgstr ""
 
 #~ msgid "Visit/Call your church members"
 #~ msgstr "Vizitoni dhe thirrni anëtarët e kishës"
-
-#~ msgid "Manage Pastoral Care"
-#~ msgstr "Menazh Pastoral Care"
 
 #~ msgid "Deposit Tracking"
 #~ msgstr "Gjurmimi i depozitave"
@@ -12719,9 +12853,6 @@ msgstr ""
 
 #~ msgid "Subscribed"
 #~ msgstr "është i shkruar në rresht."
-
-#~ msgid "Unsubscribed"
-#~ msgstr "E papërshkruara"
 
 #~ msgid "Add/Remove Tag"
 #~ msgstr "Shtoje dhe hiqe"
@@ -13015,9 +13146,6 @@ msgstr ""
 
 #~ msgid "Email Audiences"
 #~ msgstr "Audienca e email"
-
-#~ msgid "Email Audience"
-#~ msgstr "audienca e email"
 
 #~ msgid "Manage Email Audience"
 #~ msgstr "audienca e manage email"
