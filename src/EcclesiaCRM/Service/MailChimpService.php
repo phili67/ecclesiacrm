@@ -87,6 +87,13 @@ class MailChimpService
         $_SESSION['MailChimpCampaigns'] = $campaigns;
     }
 
+    public function getCampaignReport ($campaignID) {
+        $reports['unsubscribed'] = $this->myMailchimp->get("reports/".$campaignID."/unsubscribed");
+        $reports['email-activity'] = $this->myMailchimp->get("reports/".$campaignID."/email-activity");
+
+        return $reports;
+    }
+
     private function getCampaignsFromCache()
     {
         if (!isset($_SESSION['MailChimpCampaigns'])) {// the second part can be used to force update
