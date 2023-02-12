@@ -24,7 +24,7 @@ require $sRootDocument . '/Include/Header.php';
                     class="fas fa-print"></i> <?= _("Printable Page") ?></a>
         </div>
         <div class="col-sm-10" style="vertical-align: middle;">
-            <table>
+            <table class="outer">
                 <tr>
                     <td><label><?= _("GDPR DPO Signer") ?></label></td>
                     <td>&nbsp;:&nbsp;</td>
