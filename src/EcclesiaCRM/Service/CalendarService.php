@@ -488,7 +488,7 @@ class CalendarService
             $calendarid = implode(",",$calendarid);
         }
 
-        $event['icon_full'] = '<table class="table-responsive" style="width:120px">'.
+        $event['icon_full'] = '<table class="table-responsive outer" style="width:120px">'.
         '                <tbody><tr class="no-background-theme">'.
         '                  <td style="width:100px;padding: 7px 2px;border:none;text-align: center">'.
         '                     <div class="btn-group" role="group" aria-label="Basic example">'.
@@ -528,7 +528,7 @@ class CalendarService
             $ret = '';
 
             if ($realStats['attNumRows']) {
-                $ret = '<table width="100%" class="" align="center" style="font-size: 10px;padding: 0px;border-spacing: 0px;">'
+                $ret = '<table width="100%" class="outer" align="center" style="font-size: 10px;padding: 0px;border-spacing: 0px;">'
                     . '<tr class="no-background-theme">'
                     . '   <td style="padding: 7px 2px;border:none;"><b>' . _("Check-in") . '</b></td>'
                     . '   <td style="padding: 7px 2px;border:none;"><b>' . _("Check-out") . '</b></td>'
@@ -541,7 +541,7 @@ class CalendarService
                     . '</tr>'
                     . '<tr class="no-background-theme">'
                     . '    <td colspan="3" style="padding: 7px 0;border:none;">'
-                    . '        <table style="width:330px">'
+                    . '        <table style="width:330px" class="outer">'
                     . '            <tr class="no-background-theme">'
                     . '                <td style="padding: 7px 0;border:none;">';
 
@@ -603,7 +603,7 @@ class CalendarService
         $event['FreeStats'] = '';
 
         if ( !empty($freeStats) ) {
-            $ret = '<table width="100%" class="table-simple-padding" style="font-size: 10px;padding: 0px;border-spacing: 0px;">'
+            $ret = '<table width="100%" class="table-simple-padding outer" style="font-size: 10px;padding: 0px;border-spacing: 0px;">'
                 . '<tr class="no-background-theme">';
 
             if ( !empty($freeStats) ) {

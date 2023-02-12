@@ -96,7 +96,7 @@ $(document).ready(function () {
             var fmt = window.CRM.datePickerformat.toUpperCase();
             var date = moment(data.Date).format(fmt);
 
-            var message = "<table>";
+            var message = "<table class='outer'>";
 
             message += "<tr><td><label>" + i18next.t("Depid") + " </label> </td><td>&nbsp;:&nbsp;</td><td>" + data.Pledges[0].Depid + "</td></tr>";
             message += "<tr><td><label>" + i18next.t("Name") + " </label> </td><td>&nbsp;:&nbsp;</td><td>" + data.Pledges[0].FamilyName + "</td></tr>";

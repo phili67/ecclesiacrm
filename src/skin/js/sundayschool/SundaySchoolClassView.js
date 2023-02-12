@@ -370,7 +370,7 @@ $("document").ready(function () {
                 title: i18next.t('First name'),
                 data: 'kidId',
                 render: function (data, type, full, meta) {
-                    return '<table>'
+                    return '<table class="outer">'
                         + '<tr class="no-background-theme">'
                         + '  <td style="min-width:55px;border-width: 0px">'
                         + '    <img src="' + window.CRM.root + '/api/persons/' + data + '/thumbnail"'
@@ -396,7 +396,7 @@ $("document").ready(function () {
                 title: i18next.t('Action'),
                 data: 'kidId',
                 render: function (data, type, full, meta) {
-                    var res = '<table  style="width:100px;background-color: transparent !important;"><tr style="background-color: transparent !important;"><td>';
+                    var res = '<table  style="width:100px;background-color: transparent !important;" class="outer"><tr style="background-color: transparent !important;"><td>';
 
                     if (full.inCart == 0) {
                         res += '<a ' + (window.CRM.showCart ? 'class="AddOneStudentToCart"' : '') + ' data-cartpersonid="' + data + '">'

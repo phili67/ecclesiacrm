@@ -353,7 +353,7 @@ $(document).ready(function () {
                 title: i18next.t('Actions'),
                 data: 'actions',
                 render: function (data, type, full, meta) {
-                    return '<table width="150"><tbody><tr style="background-color: transparent !important;"><td style="border: 0px;">' + data + '</td></tr></tbody></<table>';
+                    return '<table width="150" class="outer"><tbody><tr style="background-color: transparent !important;"><td style="border: 0px;">' + data + '</td></tr></tbody></<table>';
                 }
             },
             {
