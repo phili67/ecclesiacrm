@@ -189,9 +189,8 @@ $("document").ready(function () {
             data: JSON.stringify({"userID": userId})
         },function (data) {
             if (data.success) {
-                window.location = window.CRM.root;
+                window.location = window.CRM.root + "/v2/users/";
             }
         });
     });
-
 });
