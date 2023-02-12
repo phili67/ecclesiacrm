@@ -13,20 +13,6 @@ $(document).ready(function () {
         });
     });
 
-    $('.control-account').click(function () {
-        var userId = $(this).data("userid");
-
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'users/controlAccount',
-            data: JSON.stringify({"userID": userId})
-        },function (data) {
-            if (data.success) {
-                window.location = window.CRM.root;
-            }
-        });
-    });
-
 
     $('#user-listing-table').on('click', 'tr', function () {
         $(this).toggleClass('selected');
@@ -72,7 +58,7 @@ $(document).ready(function () {
     });
 
 
-    $("#user-listing-table").on('click', '.webdavkey', function () {
+    $("#user-listing-table tbody").on('click', '.webdavkey', function () {
         var userID = $(this).data("userid");
 
         window.CRM.APIRequest({
@@ -100,7 +86,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#user-listing-table").on('click', '.lock-unlock', function () {
+    $("#user-listing-table tbody").on('click', '.lock-unlock', function () {
         var userID = $(this).data("userid");
         var userName = $(this).data("username");
         var button = $(this)
@@ -145,7 +131,7 @@ $(document).ready(function () {
         responsive: true
     });
 
-    $("#user-listing-table").on('click', '.deleteUser', function () {
+    $("#user-listing-table tbody").on('click', '.deleteUser', function () {
         var userId = $(this).data('id');
         var userName = $(this).data('name');
 
@@ -169,7 +155,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#user-listing-table").on('click', '.restUserLoginCount', function () {
+    $("#user-listing-table tbody").on('click', '.restUserLoginCount', function () {
         var userId = $(this).data('id');
         var userName = $(this).data('name');
         var parentTd = $(this).parent();
@@ -195,7 +181,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#user-listing-table").on('click', '.resetUserPassword', function () {
+    $("#user-listing-table tbody").on('click', '.resetUserPassword', function () {
         var userId = $(this).data('id');
         var userName = $(this).data('name');
 
@@ -219,7 +205,20 @@ $(document).ready(function () {
         });
     });
 
-    $("#user-listing-table").on('click', '.two-fa-manage', function () {
+    $('#user-listing-table tbody').on('click', '.control-account', function() {
+        var userId = $(this).data("userid");
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'users/controlAccount',
+            data: JSON.stringify({"userID": userId})
+        },function (data) {
+            if (data.success) {
+                window.location = window.CRM.root;
+            }
+        });
+    });
+
+    $("#user-listing-table tbody").on('click', '.two-fa-manage', function () {
         var userID = $(this).data('userid');
 
         var modal = bootbox.dialog({
