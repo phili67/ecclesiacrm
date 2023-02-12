@@ -332,7 +332,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
                         <td><?= $aDefStartTime[$row] ?></td>
                         <td><?= $cCountList[$row] ?></td>
                         <td>
-                            <table class='table-simple-padding'>
+                            <table class='table-simple-padding outer'>
                                 <tr class="no-background-theme">
                                     <td>
                                         <button value="<?= _('Create Event') ?>"
