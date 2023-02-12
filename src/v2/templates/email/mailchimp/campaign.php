@@ -16,6 +16,8 @@ require $sRootDocument . '/Include/Header.php';
 
 //print_r($campaign);
 
+//print_r($reports['email-activity']);
+
 ?>
 
 <?php
@@ -54,7 +56,7 @@ if ($campaign['status'] == 'sent') {
                     <h2 class="mailchimp-h2"><?= _("Bounced") ?></h2>
                 </div>
                 <div class="col-md-3 text-center">
-                    <h3 class="mailchimp-h3"><?= 0 /*$campaign['report_summary']['subscriber_clicks']*/ ?></h3>
+                    <h3 class="mailchimp-h3"><?= count($reports['unsubscribed']['unsubscribes']) ?></h3>
                     <h2 class="mailchimp-h2"><?= _("Unsubscribed") ?></h2>
                 </div>
             </div>

@@ -109,6 +109,7 @@ class VIEWMailchimpController {
     {
         $mailChimpStatus = $mailchimp->getConnectionStatus();
         $campaign        = $mailchimp->getCampaignFromId($campaignId);
+        $reports = $mailchimp->getCampaignReport($campaignId);
 
         $sPageTitle = _('Email Campaign').' : '.$campaign['settings']['title'];
         $sPageTitleSpan = _('Email Campaign').' : '.$campaign['settings']['title'].' <b><span style="color:'.(($campaign['status'] == "sent")?'green':'gray').';float:right" >('._($campaign['status']).')</span></b>';
@@ -125,7 +126,8 @@ class VIEWMailchimpController {
             'lang'              => substr(SystemConfig::getValue('sLanguage'),0,2),
             'isMenuOption'      => !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()),
             'bWithAddressPhone' => SystemConfig::getBooleanValue('bMailChimpWithAddressPhone'),
-            'sDateFormatLong'   => SystemConfig::getValue('sDateFormatLong')
+            'sDateFormatLong'   => SystemConfig::getValue('sDateFormatLong'),
+            'reports'           => $reports
         ];
 
         return $paramsArguments;
