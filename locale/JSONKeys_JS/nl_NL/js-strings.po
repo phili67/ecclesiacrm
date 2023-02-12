@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-09-26T18:43:51.146Z\n"
+"POT-Creation-Date: 2023-02-12T12:18:21.489Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -324,24 +324,20 @@ msgstr "Je hebt twee keer dezelfde naam gekozen"
 msgid "for this field. Chose another one."
 msgstr "voor dit veld. Kies een andere."
 
-#, fuzzy
 msgid "Remove Plugin"
-msgstr "Verwijder alle"
+msgstr "Plugin verwijderen"
 
-#, fuzzy
 msgid "You're about to remove the plugin from yout dashboard !!!"
-msgstr "Je staat op het punt om je campagne te verwijderen! Ben je zeker ?"
+msgstr "Je staat op het punt de plugin van je dashboard te verwijderen."
 
 msgid "Confirm"
 msgstr "Bevestig"
 
-#, fuzzy
 msgid "Dashboard Item"
-msgstr "Dashboard"
+msgstr "Dashboard-item"
 
-#, fuzzy
 msgid "Removed from your dashboard !"
-msgstr "Verwijderen uit winkelwagen"
+msgstr "Verwijderd van uw dashboard!"
 
 msgid "Please confirm deletion of this document"
 msgstr "Bevestig de verwijdering van dit document"
@@ -733,6 +729,9 @@ msgstr "Aanwezigheid Telt"
 msgid "Start Date"
 msgstr "Begindatum"
 
+msgid "All day"
+msgstr "De hele dag"
+
 msgid "End Date"
 msgstr "Einddatum"
 
@@ -834,9 +833,6 @@ msgstr "Laden klaar...."
 
 msgid "Month"
 msgstr "Maand"
-
-msgid "Info"
-msgstr "Info"
 
 msgid "Attendance Counts with real Attendees"
 msgstr "Aanwezigheid telt met echte aanwezigen"
@@ -2304,6 +2300,8 @@ msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
+"Zoektermen zoals : naam, voornaam, telefoonnummer, eigendom, groepsnaam, "
+"enz ..."
 
 msgid "Done !"
 msgstr "Klaar !"
@@ -2451,6 +2449,9 @@ msgstr "Schakel camera"
 
 msgid "Upload Image"
 msgstr "Afbeelding uploaden"
+
+#~ msgid "Info"
+#~ msgstr "Info"
 
 #, fuzzy
 #~ msgid "Moved!"
