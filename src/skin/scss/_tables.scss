@@ -13,3 +13,40 @@ table.horizontal-scroll {
 .no-background-theme {
     background-color: rgba(0, 0, 0, 0.0) !important;
 }
+
+table.dtr-inline td, table.dtr-inline th {
+    border-bottom: 1px solid lightgray !important;
+}
+
+table.dtr-inline.no-footer {
+    border-bottom: 1px solid #111;
+}
+
+table.dtr-inline thead th, table.dtr-inline thead td {
+    padding: 10px 18px !important;
+    border-bottom: 1px solid #111 !important;
+}
+
+/* table outer */
+table.outer td, table.outer th {
+    border-bottom: 0px solid lightgray !important;
+    border-left: 0px solid #111 !important;
+    border-right: 0px solid #111 !important;
+}
+
+table.outer.no-footer {
+    border-bottom: 0px solid #111 !important;
+    border-left: 0px solid #111 !important;
+    border-right: 0px solid #111 !important;
+}
+
+table.outer.no-footer {
+    border-bottom: 0px solid #111 !important;
+}
+
+table.outer thead th, table.outer thead td {
+    padding: 10px 18px !important;
+    border-bottom: 1px solid #111 !important;
+    border-left: 0px solid #111 !important;
+    border-right: 0px solid #111 !important;
+}
