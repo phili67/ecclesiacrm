@@ -78,8 +78,10 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                           if ( $user->getPersonId() != 1 || $user->getId() == $sessionUserId && $user->getPersonId() == 1) {
                         ?>
-                            <a href="<?= $sRootPath ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fas fa-pencil-alt"
-                                                                                   aria-hidden="true"></i></a>&nbsp;&nbsp;
+                            <a href="<?= $sRootPath ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"
+                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Manage user account") ?>"
+                                ><i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                            </a>&nbsp;&nbsp;
                         <?php
                           } else {
                         ?>
@@ -91,7 +93,8 @@ require $sRootDocument . '/Include/Header.php';
                            if ( $user->getPersonId() != 1) {
                          ?>
 
-                          <a class="webdavkey" data-userid="<?= $user->getId()?>">
+                          <a class="webdavkey" data-userid="<?= $user->getId()?>"
+                             data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("User account webdav key") ?>">
                              <i class="far fa-eye" aria-hidden="true"></i>
                           </a>
                          <?php
@@ -100,7 +103,8 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                           if ( $user->getId() != $sessionUserId && $user->getPersonId() != 1 ) {
                         ?>
-                            <a href="#" class="deleteUser" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
+                            <a href="#" class="deleteUser" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
+                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Remove user account (not the profile)") ?>"><i
                                         class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>
                         <?php
                           }
@@ -139,34 +143,41 @@ require $sRootDocument . '/Include/Header.php';
                         }
                         if ($user->getFailedLogins() > 0) {
                       ?>
-                            <a href="#" class="restUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
+                            <a href="#" class="restUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
+                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Reset failed login") ?>"><i
                                         class="fas fa-eraser" aria-hidden="true"></i></a>
                       <?php
                         }
                       ?>
                     </td>
                     <td>
-                        <a href="<?= $sRootPath ?>/UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"><i
+                        <a href="<?= $sRootPath ?>/UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"
+                           data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Change user account password") ?>"><i
                                     class="fas fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <?php
                           if ($user->getId() != $sessionUserId && !empty($user->getEmail())) {
                         ?>
-                            <a href="#" class="resetUserPassword" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
+                            <a href="#" class="resetUserPassword" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
+                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Reset and send new user password") ?>"><i
                                 class="far fa-paper-plane" aria-hidden="true"></i></a>
                         <?php
                           }
                         ?>
                     </td>
                     <td>
+
                         <?php if (SessionUser::isAdmin() and $user->getId() != $sessionUserId) { ?>
-                            <a href="#" class="control-account" data-userid="<?= $user->getId()?>">
+                            <a href="#" class="control-account" data-userid="<?= $user->getId()?>"
+                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Take control of the account") ?>">
                                 <i class="fa fa-gamepad"></i>
                             </a>
                         <?php } ?>
                     </td>
                     <td>
                         <?php if ($user->getTwoFaSecretConfirm()) { ?>
-                            <a href="#" class="two-fa-manage btn btn-secondary" data-userid="<?= $user->getId()?>" data-userName="<?= $user->getPerson()->getFullName() ?>" data-userid="<?= $user->getId()?>">
+                            <a href="#" class="two-fa-manage btn btn-secondary" data-userid="<?= $user->getId()?>"
+                               data-userName="<?= $user->getPerson()->getFullName() ?>" data-userid="<?= $user->getId()?>"
+                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Manage 2 factor secret") ?>">
                                 <i class="fas fa-key" aria-hidden="true"></i> <?= _("Management") ?>
                             </a>
                         <?php } else { ?>
@@ -177,7 +188,8 @@ require $sRootDocument . '/Include/Header.php';
                       <?php
                         if ( $user->getPersonId() != 1 && $user->getId() != $sessionUserId) {
                       ?>
-                          <a href="#" class="lock-unlock" data-userid="<?= $user->getId()?>" data-userName = "<?= $user->getPerson()->getFullName() ?>" data-locktype="<?= ($user->getIsDeactivated() == false)?'unlock':'lock' ?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>">
+                          <a href="#" class="lock-unlock" data-userid="<?= $user->getId()?>" data-userName = "<?= $user->getPerson()->getFullName() ?>" data-locktype="<?= ($user->getIsDeactivated() == false)?'unlock':'lock' ?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>"
+                             data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Lock/unlock user account") ?>">
                              <i class="fa <?= ($user->getIsDeactivated() == false)?'fa-unlock':'fa-lock' ?>" aria-hidden="true"></i>
                           </a>
                       <?php
@@ -197,3 +209,5 @@ require $sRootDocument . '/Include/Header.php';
 
 
 <script src="<?= $sRootPath ?>/skin/js/user/UserList.js" ></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
