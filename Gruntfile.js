@@ -25,6 +25,8 @@ module.exports = function (grunt) {
 
     const sass = require('node-sass');
 
+    var datatTablesVer = "1.12.1";
+
 // Project configuration.
     grunt.initConfig({
         package: grunt.file.readJSON('package.json'),
@@ -439,13 +441,11 @@ module.exports = function (grunt) {
         'curl-dir': {
             datatables: {
                 src: [
-                      "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js",
-                      "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js.map",
-                      "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js",
-                     /* "https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-html5-1.5.4/b-print-1.5.4/r-2.2.2/sl-1.2.6/datatables.min.css",
-                      "https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-html5-1.5.4/b-print-1.5.4/r-2.2.2/sl-1.2.6/datatables.min.js",
-                      "https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css",
-                      "https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"*/
+                  "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js",
+                  "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js.map",
+                  "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js",
+                  /*"https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-"+datatTablesVer+"/b-1.5.4/b-html5-1.5.4/b-print-1.5.4/r-2.2.2/sl-1.2.6/datatables.min.css",
+                  "https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-"+datatTablesVer+"/b-1.5.4/b-html5-1.5.4/b-print-1.5.4/r-2.2.2/sl-1.2.6/datatables.min.js"*/
                 ],
                 dest: 'src/skin/external/datatables'
             },
