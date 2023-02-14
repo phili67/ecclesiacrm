@@ -129,7 +129,9 @@ if (isset($_SESSION['iUserID'])) {
 }
 
 // we hold down the last type of login : lock or nothing
-if (isset($_SESSION['iLoginType'])) {
+if ( isset($_POST['iLoginType']) ) {
+    $type = $_POST['iLoginType'];
+} else if (isset($_SESSION['iLoginType'])) {
     $type = $_SESSION['iLoginType'];
 }
 
@@ -158,6 +160,11 @@ if (empty($urlPassword)) {
     }
 }
 
+if ( ((isset($_SESSION['iUserID']) and $_SESSION['iUserID'] == 0) or !isset($_SESSION['iUserID'])) and $type == 'Lock' and  isset($_SESSION['username']) ) {
+    $currentUser = UserQuery::create()->findOneByUserName($_SESSION['username']);
+    $id = $currentUser->getId();
+}
+
 // we destroy the session
 session_destroy();
 
@@ -170,9 +177,6 @@ $_SESSION['username'] = $urlUserName;
 $_SESSION['iUserID'] = $id;
 $_SESSION['lastPage'] = $lastPage;
 
-if ( $type == 'Lock' ) {
-}
-
 if ($type == "Lock" && $id > 0) {// this point is important for the photo in a lock session
     $user = UserQuery::create()->findOneByPersonId($_SESSION['iUserID']);
     $user->setIsLoggedIn(false);
@@ -180,8 +184,6 @@ if ($type == "Lock" && $id > 0) {// this point is important for the photo in a l
 
     $person = PersonQuery::Create()
         ->findOneByID($_SESSION['iUserID']);
-} else {
-    $type = $_SESSION['iLoginType'] = "";
 }
 
 // Set the page title and include HTML header
@@ -189,6 +191,8 @@ $sPageTitle = _('Login');
 require 'Include/HeaderNotLoggedIn.php';
 
 ?>
+
+<!-- login-box -->
 <div class="login-box" id="Login" <?= ($_SESSION['iLoginType'] != "Lock") ? "" : 'style="display: none;"' ?>>
     <!-- /.login-logo -->
     <div class="card login-box-body card card-outline card-primary">
@@ -218,17 +222,26 @@ require 'Include/HeaderNotLoggedIn.php';
 
             <form class="form-signin" role="form" method="post" name="LoginForm" action="Login.php">
                 <div class="form-group has-feedback">
-                    <input type="text" id="UserBox" name="User" class= "form-control form-control-sm" value="<?= $urlUserName ?>"
-                           placeholder="<?= _('Email/Username') ?>" required>
+                    <div class="input-group">
+                        <input type="text" name="User" class= "form-control form-control-sm" value="<?= $urlUserName ?>"
+                               placeholder="<?= _('Email/Username') ?>" required>
+                        <input type="hidden" name="iLoginType" class="form-control form-control-sm" value="<?= $type ?>">
+
+                        <div class="input-group-append" style="cursor: pointer;">
+                            <button tabindex="100" class="btn btn-outline-secondary" type="button" style="width: 39px;">
+                                <i class="icon-user fas fa-user"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" id="PasswordBox" name="Password" class= "form-control form-control-sm" data-toggle="password"
+                    <input type="password" name="Password" class= "form-control form-control-sm" data-toggle="password"
                            placeholder="<?= _('Password') ?>" required value="<?= $urlPassword ?>">
                 </div>
                 <?php if ($twofa): ?>
                 <div class="form-group has-feedback">
-                    <input type="text" id="TwoFaBox" name="twofafield" class= "form-control form-control-sm" data-toggle="TwoFaBox"
-                           placeholder="<?= _("2FA : OTP key") ?>" required autofocus style="border: 2px solid red /* red */">
+                    <input type="text" id="TwoFaBox" name="twofafield" class= "form-control form-control-sm twofact_textfield" data-toggle="TwoFaBox"
+                           placeholder="<?= _("2FA : OTP key") ?>" required autofocus>
                     <br/>
                 </div>
                 <?php endif ?>
@@ -267,6 +280,8 @@ require 'Include/HeaderNotLoggedIn.php';
     <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
+
+<!-- lockscreen-wrapper -->
 <div class="lockscreen-wrapper" id="Lock" <?= ($_SESSION['iLoginType'] == "Lock") ? "" : 'style="display: none;"' ?>>
     <div class="login-logo">
         Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
@@ -296,32 +311,42 @@ require 'Include/HeaderNotLoggedIn.php';
 
     <div class="lockscreen-name text-center"><?= $urlUserName ?></div>
 
-    <div class="lockscreen-item">
-
-        <!-- lockscreen image -->
-        <div class="lockscreen-image">
-            <?php if ($_SESSION['iLoginType'] == "Lock") {
-                ?>
-                <img src="<?= str_replace(SystemURLs::getDocumentRoot(), "", $person->getPhoto()->getThumbnailURI()) ?>"
-                     alt="User Image">
-                <?php
-            } ?>
-        </div>
-        <!-- /.lockscreen-image -->
-
-        <!-- lockscreen credentials (contains the form) -->
-        <form class="lockscreen-credentials" role="form" method="post" name="LoginForm" action="Login.php">
-            <div class="input-group">
-                <input type="hidden" id="UserBox" name="User" class= "form-control form-control-sm" value="<?= $urlUserName ?>">
-
-                <input type="password" id="PasswordBox" name="Password" class= "form-control form-control-sm"
-                       placeholder="<?= _('Password') ?>">
-
-                <div class="input-group-append"><button type="submit" class="btn btn-default"><i class="fas fa-arrow-right text-muted"></i></button></div>
+    <form class="lockscreen-credentials" role="form" method="post" name="LoginForm" action="Login.php">
+        <div class="lockscreen-item lockscreen-item-pos">
+            <!-- lockscreen image -->
+            <div class="lockscreen-image">
+                <?php if ($_SESSION['iLoginType'] == "Lock") {
+                    ?>
+                    <img src="<?= str_replace(SystemURLs::getDocumentRoot(), "", $person->getPhoto()->getThumbnailURI()) ?>"
+                         alt="User Image">
+                    <?php
+                } ?>
             </div>
-        </form>
-        <!-- /.lockscreen credentials -->
-    </div>
+            <!-- /.lockscreen-image -->
+
+            <!-- lockscreen credentials (contains the form) -->
+            <div class="lockscreen-credentials">
+                <div class="input-group">
+                    <input type="hidden" name="User" class="form-control form-control-sm" value="<?= $urlUserName ?>">
+                    <input type="hidden" name="iLoginType" class="form-control form-control-sm" value="<?= $type ?>">
+
+                    <input type="password" name="Password" class= "form-control form-control-sm"
+                           placeholder="<?= _('Password') ?>" required value="<?= $urlPassword ?>">
+
+                    <div class="input-group-append"><button type="submit" class="btn btn-default"><i class="fas fa-arrow-right text-muted"></i></button></div>
+                </div>
+            </div>
+            <!-- /.lockscreen credentials -->
+        </div>
+
+        <?php if ($twofa): ?>
+            <div class="form-group twofact">
+                <input type="text" id="TwoFaBox" name="twofafield" class= "form-control form-control-sm twofact_textfield" data-toggle="TwoFaBox"
+                       placeholder="<?= _("2FA : OTP key") ?>" required autofocus>
+                <br/>
+            </div>
+        <?php endif ?>
+    </form>
     <!-- /.lockscreen-item -->
     <div class="help-block text-center">
         <?= _("Enter your password to retrieve your session") ?>
@@ -332,6 +357,7 @@ require 'Include/HeaderNotLoggedIn.php';
     <!-- /.login-box-body -->
 </div>
 <!-- /.lockscreen-wrapper -->
+
 <script
     src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-show-password/bootstrap-show-password.min.js"></script>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
