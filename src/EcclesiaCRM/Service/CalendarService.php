@@ -414,8 +414,9 @@ class CalendarService
                         $dtStart = new \DateTime($start);
                         $dtEnd = new \DateTime($end);
 
-                        if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd
-                            and $dtOrigStart <= $dtEnd and $dtEnd <= $dtOrigEnd) {
+                        /*
+                         if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd
+                            and $dtOrigStart <= $dtEnd and $dtEnd <= $dtOrigEnd) {*/
 
                             $event = $this->createCalendarItemForGetEvents('event', $icon,
                                 $title, $start, $end,
@@ -426,7 +427,7 @@ class CalendarService
                                 $realStats, $freeStats, $status, $link, $allDay, $organizer, $attentees, $calendarType);// only the event id sould be edited and moved and have custom color
 
                             array_push($events, $event);
-                        }
+                        //}
                     }
                 }
             }
@@ -914,6 +915,9 @@ class CalendarService
         // new way to manage events
         // We set the BackEnd for sabre Backends
         $calendarBackend = new CalDavPDO();
+        if (is_string($calendarID)) {
+            $calendarID = explode(",", $calendarID);
+        }
         $event = $calendarBackend->getCalendarObjectById($calendarID, $eventID, $reccurenceID);
 
         if (!is_null($reccurenceID)) {
