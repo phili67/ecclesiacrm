@@ -414,9 +414,9 @@ class CalendarService
                         $dtStart = new \DateTime($start);
                         $dtEnd = new \DateTime($end);
 
-                        /*
-                         if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd
-                            and $dtOrigStart <= $dtEnd and $dtEnd <= $dtOrigEnd) {*/
+
+                        if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd
+                            and $dtOrigStart <= $dtEnd and $dtEnd <= $dtOrigEnd and $for_events_list) {// this code slow down the calendar
 
                             $event = $this->createCalendarItemForGetEvents('event', $icon,
                                 $title, $start, $end,
@@ -427,7 +427,17 @@ class CalendarService
                                 $realStats, $freeStats, $status, $link, $allDay, $organizer, $attentees, $calendarType);// only the event id sould be edited and moved and have custom color
 
                             array_push($events, $event);
-                        //}
+                        } elseif ($for_events_list == false) {
+                            $event = $this->createCalendarItemForGetEvents('event', $icon,
+                                $title, $start, $end,
+                                '', $id, $type, $grpID,
+                                $desc, $text, $calID, $calendarColor, 0, 0, 0, $rrule, $freq,
+                                $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category,
+                                $eventTypeName, $eventGroupName, $eventCalendarName, $eventRights, $loginName,
+                                $realStats, $freeStats, $status, $link, $allDay, $organizer, $attentees, $calendarType);// only the event id sould be edited and moved and have custom color
+
+                            array_push($events, $event);
+                        }
                     }
                 }
             }
