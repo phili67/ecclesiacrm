@@ -186,6 +186,11 @@ if ($type == "Lock" && $id > 0) {// this point is important for the photo in a l
         ->findOneByID($_SESSION['iUserID']);
 }
 
+if (is_null($person)) {
+    $type = "";
+    $_SESSION['iLoginType'] = "";
+}
+
 // Set the page title and include HTML header
 $sPageTitle = _('Login');
 require 'Include/HeaderNotLoggedIn.php';
