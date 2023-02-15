@@ -173,3 +173,25 @@ margin-bottom: 0px;
 .tooltip-fullcalendar-arrow {
     //background-color: #0c84ff !important;
 }
+
+/* new left and right sidebar */
+.event-infos-sidebar-calendar {
+    min-width: 300px;
+    max-width: 300px;
+    width:300px;
+}
+
+.text-center-calendar {
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+@media screen and (max-width: 800px) {
+    .event-infos-sidebar-calendar {
+        min-width: 300px;
+        max-width: 100%;
+        width:100%;
+    }
+}
+
+

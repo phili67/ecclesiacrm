@@ -21,7 +21,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="col">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col event-infos-sidebar-calendar">
             <div class="sticky-top">
                 <div class="card card-lightblue">
                     <div class="card-header border-0">
@@ -29,7 +29,7 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                     <div class="row" style="padding:5px">
                         <div class="col-md-3">
-                            <p class="text-center"><?= _("By Types") ?></p>
+                            <p class="text-center-calendar"><?= _("By Types") ?></p>
                         </div>
                         <div class="col-md-9">
                             <select type="text" id="EventTypeFilter" value="0"
@@ -273,7 +273,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col">
             <div class="card">
                 <!-- THE CALENDAR -->
                 <div id="calendar"></div>

@@ -783,7 +783,7 @@ function addPersonalCalendars() {
                 '   </div>' +
                 '   <div class="col-10">' +
                 '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
-                '           <div class="editCalendarName"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' + data[i].icon + ' ' + data[i].calendarName.substring(0, 22) + '</div>' +
+                '           <div class="editCalendarName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' + data[i].icon + ' ' + data[i].calendarName.substring(0, 22) + '</div>' +
                 '           <div class="input-group-addon">' +
                 '               <i style="background-color:' + data[i].calendarColor + ';"></i>' +
                 '           </div>' +
@@ -855,7 +855,7 @@ function addGroupCalendars() {
                 '   </div>' +
                 '   <div class="col-10">' +
                 '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
-                '           <div class="editGroupName"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
+                '           <div class="editGroupName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
                 data[i].icon + '<i class="fas fa-users"></i> ' +
                 data[i].calendarName.substring(0, 22) +
                 '</div>' +
@@ -941,7 +941,7 @@ function addReservationCalendars() {
                 '   </div>' +
                 '   <div class="col-9">' +
                 '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
-                '           <div class="editReservationName"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
+                '           <div class="editReservationName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
                 data[i].icon + icon + ' ' +
                 data[i].calendarName.substring(0, 22) +
                 '</div>' +
@@ -1034,7 +1034,7 @@ function addShareCalendars() {
                 '   </div>' +
                 '   <div class="col-10">' +
                 '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
-                '           <div class="editShareName"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
+                '           <div class="editShareName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
                 data[i].icon + icon + ' ' +
                 data[i].calendarName.substring(0, 22) +
                 '</div>' +
