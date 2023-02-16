@@ -138,16 +138,21 @@ $(document).ready(function () {
         });
     });
 
-    function BootboxContent() {
+    function BootboxContent(type, name = null) {
         var frm_str = '<section class="content">\n' +
-            '<form id="restoredatabase" action="' + window.CRM.root + '/api/plugins/add" method="POST" enctype="multipart/form-data">\n' +
+            '<form id="restoredatabase" action="' + window.CRM.root + '/api/plugins/' + type + '" method="POST" enctype="multipart/form-data">\n' +
             '<div class="card card-gray">\n' +
             '    <div class="card-header">\n' +
             '        <h3 class="card-title">' + i18next.t("Select your zipped plugin file") + '</h3>\n' +
             '    </div>\n' +
             '    <div class="card-body">\n' +
-            '            <input type="file" name="pluginFile" id="pluginFile" multiple="">\n' +
-            '    </div>\n' +
+            '            <input type="file" name="pluginFile" id="pluginFile" multiple="">\n';
+
+        if (name !== null) {
+            frm_str += '            <input type="hidden" name="name" value="' + name + '" />';
+        }
+
+        frm_str +=  '    </div>\n' +
             '    <div class="card-footer"">' +
             '            <button type="submit" class="btn btn-primary btn-small">' + i18next.t("Download the zipped file of the plugin") + '</button>\n' +
             '    </div>'
@@ -163,7 +168,22 @@ $(document).ready(function () {
     $('#add-plugin').click(function () {
         var modal = bootbox.dialog({
             title:i18next.t("Plugin download manager"),
-            message: BootboxContent(),
+            message: BootboxContent('add'),
+            size: 'large',
+            show: true,
+            onEscape: function () {
+                modal.modal("hide");
+            }
+        });
+    });
+
+
+    $('.update-plugin').click(function () {
+        var name = $(this).data("name");
+
+        var modal = bootbox.dialog({
+            title:i18next.t("Plugin download manager") + " : " + name,
+            message: BootboxContent('upgrade', name),
             size: 'large',
             show: true,
             onEscape: function () {
