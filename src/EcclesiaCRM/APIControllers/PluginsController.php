@@ -11,10 +11,14 @@
 namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\FileSystemUtils;
+use EcclesiaCRM\Plugin;
 use EcclesiaCRM\PluginUserRoleQuery;
+use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\SQLUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\Version;
 use Propel\Runtime\Propel;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -129,6 +133,107 @@ class PluginsController
         }
 
         return $response->withJson(["status" => "failed"]);
+    }
+
+    public function upgrade (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $logger = LoggerUtils::getAppLogger();
+
+        $folder = $file = $_FILES['pluginFile'];
+
+        $extraPluginName = $_POST['name'];
+
+        $uploadedFileDestination = SystemURLs::getDocumentRoot() . "/tmp_attach/" . $file['name'];
+
+        // move is at the end
+        move_uploaded_file($file['tmp_name'], $uploadedFileDestination);
+
+        $backupDir = SystemURLs::getDocumentRoot() . "/tmp_attach/";
+
+        $zip = new ZipArchive;
+        if ($zip->open($uploadedFileDestination) === TRUE) {
+            $res = $zip->extractTo($backupDir);
+            $zip->close();
+
+            $PluginName = pathinfo($file['name'], PATHINFO_FILENAME);
+
+            if ($PluginName == $extraPluginName ) {
+
+                try {
+
+                    $string = file_get_contents($backupDir . '/' . $PluginName . '/config.json');
+                    $json_a = json_decode($string, true);
+
+                    $new_version = $json_a['version'];
+
+                    LoggerUtils::getAppLogger()->info("Plugin  " . $new_version . " is installed");
+
+                    //the database isn't at the current version.  Start the upgrade
+                    $plugin = PluginQuery::create()->findOneByName($json_a['Name']);
+                    $old_version = $plugin->getVersion();
+
+                    $res = version_compare($old_version, $new_version);
+
+                    if ($res == -1) {
+                        $dbUpdatesFile = file_get_contents($backupDir . '/' . $PluginName . '/mysql/upgrade.json');
+                        $dbUpdates = json_decode($dbUpdatesFile, true);
+
+
+                        $connection = Propel::getConnection();
+
+                        // first : we apply the pre-scripts
+                        foreach ($dbUpdates as $dbUpdate) {
+                            foreach ($dbUpdate['prescripts'] as $dbScript) {
+                                $scriptName = $backupDir . '/' . $PluginName . '/mysql/' . $dbScript;
+                                $logger->info("Upgrade DB - " . $scriptName);
+                                if (pathinfo($scriptName, PATHINFO_EXTENSION) == "sql") {
+                                    SQLUtils::sqlImport($scriptName, $connection);
+                                } else {
+                                    require_once($scriptName);
+                                }
+                            }
+                        }
+
+                        // we can copy the code to the new place
+                        FileSystemUtils::recursiveCopyDirectory($backupDir . $PluginName . "/", SystemURLs::getDocumentRoot() . '/Plugins/' . $PluginName);
+
+                        // second the post scripts
+                        $dbUpdates = json_decode($dbUpdatesFile, true);
+                        foreach ($dbUpdates as $dbUpdate) {
+                            foreach ($dbUpdate['scripts'] as $dbScript) {
+                                $scriptName = $backupDir . '/' . $PluginName . '/mysql/' . $dbScript;
+                                $logger->info("Upgrade DB - " . $scriptName);
+                                if (pathinfo($scriptName, PATHINFO_EXTENSION) == "sql") {
+                                    SQLUtils::sqlImport($scriptName, $connection);
+                                } else {
+                                    require_once($scriptName);
+                                }
+                            }
+                        }
+
+                        // now we set the new version
+                        $plugin->setVersion($new_version);
+                        $plugin->save();
+
+
+                        // now we remove the bases
+                        FileSystemUtils::recursiveRemoveDirectory($backupDir . $PluginName);
+                        $filename = $backupDir . $PluginName . '.zip';
+                        unlink($filename);
+
+                        return $response->withHeader('Location', SystemURLs::getRootPath() . '/v2/plugins')->withStatus(302);
+                    }
+
+                } catch (\Exception $exc) {
+                    $logger->error(gettext("Databse upgrade failed") . ": " . $exc->getMessage());
+                    throw $exc; //allow the method requesting the upgrade to handle this failure also.
+                }
+            } else {
+                return $response->withJson(["status" => "failed : not same name"]);
+            }
+        }
+
+        return $response->withJson(["status" => "failed : something went wrong (version is the same, zip extraction failed, write access (www-data)...)"]);
     }
 
     public function addDashboardPlaces (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
