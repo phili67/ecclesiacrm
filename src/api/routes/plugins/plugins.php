@@ -26,6 +26,10 @@ $app->group('/plugins', function (RouteCollectorProxy $group) {
      */
     $group->post('/add', PluginsController::class . ':add' );
     /*
+     * @! update/upgrade a plugin (admin role), post $_FILES['pluginFile']
+     */
+    $group->post('/upgrade', PluginsController::class . ':upgrade' );
+    /*
      * @! Place dashboard items plugins on the dashboard
      * #! param: ref->array :: dashBoardItems
      */
