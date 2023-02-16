@@ -123,10 +123,11 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
                     </td>
                     <td>
                         <!--
-                        TODO : plugins remote manage
+                        TODO : plugins remote update
                         <a href="#" class="dropdown-item"><?= _("Add new plugin") ?></a>
                         <a class="dropdown-divider" style="color: #0c0c0c"></a>
                         -->
+                        <button class="btn btn-default update-plugin"  data-name="<?= $plugin->getName() ?>"><?= _("Update/upgrade") ?></button>
                     </td>
 
                 </tr>
