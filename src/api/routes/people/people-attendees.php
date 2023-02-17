@@ -86,6 +86,11 @@ $app->group('/attendees', function (RouteCollectorProxy $group) {
      */
     $group->post('/validate', PeopleAttendeesController::class . ':validateAttendees' );
     /*
+     * @! validate with checkout the event to close it definitely
+     * #! param: ref->int :: eventID
+     */
+    $group->post('/checkoutValidate', PeopleAttendeesController::class . ':checkoutValidateAttendees' );
+    /*
      * @! add free attendees to the event
      * #! param: ref->int :: eventID
      * #! param: ref->string :: fieldText
