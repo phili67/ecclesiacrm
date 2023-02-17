@@ -484,4 +484,54 @@ $(document).ready(function () {
             }
         });
     });
+
+    $(document).on("click", ".checkout-event", function () {
+        var eventId = $(this).data("id");
+        var foundDanger = $(this).hasClass('btn-danger');
+
+        var box = bootbox.dialog({
+            title: i18next.t("Edit/Make Check-out - Undo Check-out"),
+            message: i18next.t("You can checkout or undo the checkout of the attendees of an event"),
+            size: 'large',
+            buttons: {
+                delete: {
+                    label: '<i class="fas fa-pen"></i> ' + i18next.t("Edit/Validate Checkout"),
+                    className: 'btn btn-default',
+                    callback: function () {
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'attendees/checkoutValidate',
+                            data: JSON.stringify({"eventID": eventId})
+                        },function(data) {
+                            window.location.href = window.CRM.root + '/Checkin.php';
+                        });
+                    }
+                },
+                cancel: {
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('Validate'),
+                    className: 'btn btn-success',
+                    callback: function () {
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'attendees/validate',
+                            data: JSON.stringify({"eventID": eventId, "noteText": ""})
+                        },function (data) {
+                            if (foundDanger) {
+                                $(".checkout-button-"+eventId).removeClass("btn-danger");
+                                $(".checkout-button-"+eventId).addClass("btn-success");
+                                $(".checkout-button-"+eventId).html('<i class="fas fa-check-circle"></i> ' + i18next.t("Check-out done"))
+                            } else {
+                                $(".checkout-button-"+eventId).addClass("btn-danger");
+                                $(".checkout-button-"+eventId).removeClass("btn-success");
+                                $(".checkout-button-"+eventId).html('<i class="fas fa-check-circle"></i> ' + i18next.t("Make Check-out"))
+                            }
+                        });
+                    }
+                }
+            }
+        });
+
+        box.show();
+    });
+
 });
