@@ -11,7 +11,6 @@
 namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -146,6 +145,20 @@ class PeopleAttendeesController
 
     }
 
+    public function checkoutValidateAttendees(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+
+        $requestValues = (object)$request->getParsedBody();
+
+        if ( isset ($requestValues->eventID) ) {
+            $_SESSION['EventID'] = $requestValues->eventID;
+
+            return $response->withJson(['status' => "success"]);
+        }
+
+        return $response->withJson(['status' => "failed"]);
+    }
+
     public function validateAttendees(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
 
@@ -164,13 +177,22 @@ class PeopleAttendeesController
                 ->filterByEventId($requestValues->eventID)
                 ->find();
 
+            $res = "success";
+
             foreach ($eventAttents as $eventAttent) {
-                $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
+                if ( !is_null($eventAttent->getCheckoutId()) ) {
+                    $eventAttent->setCheckoutId(NULL);
+                    $eventAttent->setCheckoutDate(NULL);
+
+                    $res = "danger";
+                } else {
+                    $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
+                }
 
                 $eventAttent->save();
             }
 
-            return $response->withJson(['status' => "success"]);
+            return $response->withJson(['status' => "success", "state" => $res]);
         }
 
         return $response->withJson(['status' => "failed"]);
