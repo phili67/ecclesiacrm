@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-12T12:18:21.489Z\n"
+"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -845,6 +845,24 @@ msgstr "Tapahtumat tyypeittäin"
 msgid "Text for Event ID"
 msgstr "Tapahtuman ID:n teksti"
 
+msgid "Edit/Make Check-out - Undo Check-out"
+msgstr "Muokkaa/tehdä uloskirjaus - Peruuta uloskirjaus"
+
+msgid "You can checkout or undo the checkout of the attendees of an event"
+msgstr "Voit tarkistaa tai peruuttaa tapahtuman osallistujien tarkistuksen."
+
+msgid "Edit/Validate Checkout"
+msgstr "Muokkaa/Validoi kassa"
+
+msgid "Validate"
+msgstr "Validoi"
+
+msgid "Check-out done"
+msgstr "Uloskirjautuminen tehty"
+
+msgid "Make Check-out"
+msgstr "Tee lähtöselvitys"
+
 msgid "CKEditor Template Creation"
 msgstr "CKEditor-mallin luominen"
 
@@ -1515,9 +1533,6 @@ msgstr "Rahaston päätoimittaja"
 
 msgid "Add Fund"
 msgstr "Lisää rahasto"
-
-msgid "Validate"
-msgstr "Validoi"
 
 msgid "Place"
 msgstr "Paikka"

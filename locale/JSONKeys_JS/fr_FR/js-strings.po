@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-12T12:18:21.489Z\n"
+"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -856,6 +856,25 @@ msgstr "Événements par type"
 msgid "Text for Event ID"
 msgstr "Texte pour l'ID de l'événement"
 
+msgid "Edit/Make Check-out - Undo Check-out"
+msgstr "Editer/Valider un appel - Annuler un appel"
+
+msgid "You can checkout or undo the checkout of the attendees of an event"
+msgstr ""
+"Vous pourrez valider ou invalider un appel à un événement."
+
+msgid "Edit/Validate Checkout"
+msgstr "Modifier/Appel à valider"
+
+msgid "Validate"
+msgstr "Valider"
+
+msgid "Check-out done"
+msgstr "Appel validé"
+
+msgid "Make Check-out"
+msgstr "Appel à valider"
+
 msgid "CKEditor Template Creation"
 msgstr "Création de modèle CKEditor"
 
@@ -1533,9 +1552,6 @@ msgstr "Editeur de fond"
 
 msgid "Add Fund"
 msgstr "Ajouter un fond"
-
-msgid "Validate"
-msgstr "Valider"
 
 msgid "Place"
 msgstr "Position"

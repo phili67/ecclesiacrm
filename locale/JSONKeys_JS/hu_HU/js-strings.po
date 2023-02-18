@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-12T12:18:21.489Z\n"
+"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -851,6 +851,25 @@ msgstr "Események típus szerint"
 msgid "Text for Event ID"
 msgstr "Az esemény azonosítójának szövege"
 
+msgid "Edit/Make Check-out - Undo Check-out"
+msgstr "Kijelentkezés szerkesztése/készítése - Kijelentkezés visszavonása"
+
+msgid "You can checkout or undo the checkout of the attendees of an event"
+msgstr ""
+"Egy esemény résztvevőinek kijelentkezése vagy kijelentkezésének visszavonása."
+
+msgid "Edit/Validate Checkout"
+msgstr "Pénztár szerkesztése/érvényesítése"
+
+msgid "Validate"
+msgstr "Érvényesítse a  címet."
+
+msgid "Check-out done"
+msgstr "Kijelentkezés megtörtént"
+
+msgid "Make Check-out"
+msgstr "Kijelentkezés"
+
 msgid "CKEditor Template Creation"
 msgstr "CKEditor sablon létrehozása"
 
@@ -1523,9 +1542,6 @@ msgstr "Alap szerkesztő"
 
 msgid "Add Fund"
 msgstr "Alap hozzáadása"
-
-msgid "Validate"
-msgstr "Érvényesítse a  címet."
 
 msgid "Place"
 msgstr "Helyszín"

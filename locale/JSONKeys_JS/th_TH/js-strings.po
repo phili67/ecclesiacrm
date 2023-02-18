@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-12T12:18:21.489Z\n"
+"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -834,6 +834,26 @@ msgstr "วิชาพิมพ์"
 msgid "Text for Event ID"
 msgstr "ข้อความถึง Event ID"
 
+msgid "Edit/Make Check-out - Undo Check-out"
+msgstr ""
+
+msgid "You can checkout or undo the checkout of the attendees of an event"
+msgstr ""
+
+msgid "Edit/Validate Checkout"
+msgstr ""
+
+msgid "Validate"
+msgstr "ผู้สมัครใจ"
+
+#, fuzzy
+msgid "Check-out done"
+msgstr "ตรวจสอบเดท"
+
+#, fuzzy
+msgid "Make Check-out"
+msgstr "ตรวจสอบ"
+
 msgid "CKEditor Template Creation"
 msgstr "พวกรัฐเทมเปลสร้าง"
 
@@ -1486,9 +1506,6 @@ msgstr "บรรณาธิการการใช้งาน"
 
 msgid "Add Fund"
 msgstr "Add Fund"
-
-msgid "Validate"
-msgstr "ผู้สมัครใจ"
 
 msgid "Place"
 msgstr "ที่นั่น"

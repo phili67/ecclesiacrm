@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-12 16:29+0000\n"
+"POT-Creation-Date: 2023-02-17 21:19+0000\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,7 +121,7 @@ msgstr "Désactiver "
 #: FundRaiserEditor.php:173 PledgeEditor.php:599 Reports/ReminderReport.php:323
 #: Reports/ReminderReport.php:404 Reports/TaxReport.php:379
 #: SelectDelete.php:323 v2/templates/calendar/eventattendeesedit.php:36
-#: v2/templates/email/mailchimp/campaign.php:233
+#: v2/templates/email/mailchimp/campaign.php:235
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Date"
 msgstr "Date"
@@ -1629,8 +1629,8 @@ msgstr "Créer un annuaire"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:619
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:689
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:709
-#: EcclesiaCRM/Service/CalendarService.php:1090
-#: EcclesiaCRM/Service/CalendarService.php:1116
+#: EcclesiaCRM/Service/CalendarService.php:1100
+#: EcclesiaCRM/Service/CalendarService.php:1126
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr ""
 "Deux réservations de ressources ne peuvent pas se trouver dans le même "
@@ -1663,7 +1663,7 @@ msgid "Video"
 msgstr "Vidéo"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:222
-#: EcclesiaCRM/Service/CalendarService.php:670
+#: EcclesiaCRM/Service/CalendarService.php:677
 msgid "Share"
 msgstr "Partager"
 
@@ -1940,60 +1940,60 @@ msgstr "Groupes"
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "L'hôte SMTP est non configuré, aller dans la page de réglages"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:258
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:280
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Boy"
 msgstr "Garçon"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:259
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:281
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Girl"
 msgstr "Fille"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:261
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:283
 msgid "Man"
 msgstr "Homme"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:262
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:284
 msgid "Woman"
 msgstr "Femmme"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:340
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:372
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:362
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:394
 msgid "POST to cart requires a personID and an eventID"
 msgstr ""
 "Envoi au Panier requière un tableau de personnes ID famille ou ID de groupe."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:433
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:454
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:670
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:691
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:455
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:476
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:692
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:713
 msgid "Create From sunday school class view"
 msgstr "Créer à partir de la vue école du dimanche"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:457
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:694
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:479
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:716
 msgid "Attendance"
 msgstr "Présence"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:495
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:526
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:561
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:596
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:517
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:548
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:583
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:618
 msgid "POST to cart requires a EventID"
 msgstr ""
 "Envoi au Panier requière un tableau de personnes ID famille ou ID de groupe."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:510
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:532
 msgid "POST to delete attendees requires a EventID and personID"
 msgstr ""
 "Le POST pour supprimer les participants nécessite un EventID et un personID."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:738
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:760
 msgid "POST to cart requires an EventID"
 msgstr "Envoi au Panier requière un EventID"
 
@@ -2031,7 +2031,7 @@ msgstr "Oui"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:173
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Service/CalendarService.php:271
-#: EcclesiaCRM/Service/CalendarService.php:518
+#: EcclesiaCRM/Service/CalendarService.php:529
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:499
@@ -2056,10 +2056,16 @@ msgstr "Personne désactivée"
 msgid "Person Activated"
 msgstr "Personne activée"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:127
+#: EcclesiaCRM/APIControllers/PluginsController.php:131
 #: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
 msgid "Impossible to open"
 msgstr "Impossible à ouvrir"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:228
+#: EcclesiaCRM/Service/UpgradeService.php:64
+#: EcclesiaCRM/Service/UpgradeService.php:93
+msgid "Databse upgrade failed"
+msgstr "Mise à jour de la base de données a échoué"
 
 #: EcclesiaCRM/APIControllers/PublicRegisterController.php:90
 msgid "Write a message Here !"
@@ -2186,7 +2192,7 @@ msgstr "Gestionnaire des types de groupe"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:667
+#: EcclesiaCRM/Service/CalendarService.php:674
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:102 OptionManager.php:133
@@ -3485,8 +3491,8 @@ msgid "Invalid Family"
 msgstr "Mauvaise famille"
 
 #: EcclesiaCRM/dto/SystemConfig.php:47
-#: EcclesiaCRM/Service/CalendarService.php:821
-#: EcclesiaCRM/Service/CalendarService.php:1145
+#: EcclesiaCRM/Service/CalendarService.php:828
+#: EcclesiaCRM/Service/CalendarService.php:1155
 msgid "NONE"
 msgstr "AUCUN(E)"
 
@@ -4494,8 +4500,8 @@ msgid "Integration"
 msgstr "Intégration"
 
 #: EcclesiaCRM/dto/SystemConfig.php:300 EcclesiaCRM/MenuBar/MenuBar.php:111
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 #: v2/templates/dashboard/maindashboard.php:65
 msgid "GDPR"
 msgstr "RGPD"
@@ -4568,7 +4574,7 @@ msgstr "Votre compte a été supprimé"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "Votre compte EcclesiaCRM a été supprimé"
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:222
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:232
 msgid "Email/Username"
 msgstr "Email/Identifiant"
 
@@ -4669,12 +4675,12 @@ msgstr "Veuillez vérifier vos informations familiales"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:34
 #: external/templates/password/enter-username.php:46
-#: ident/templates/verify/login-info.php:44 Login.php:188 Login.php:239
+#: ident/templates/verify/login-info.php:44 Login.php:195 Login.php:257
 msgid "Login"
 msgstr "Connexion"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:35
-#: ident/templates/verify/login-info.php:38 Login.php:226 Login.php:318
+#: ident/templates/verify/login-info.php:38 Login.php:244 Login.php:339
 #: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "Mot de Passe"
@@ -5281,7 +5287,7 @@ msgstr "Adresses"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84
-#: EcclesiaCRM/Service/CalendarService.php:495 ElectronicPaymentList.php:215
+#: EcclesiaCRM/Service/CalendarService.php:506 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:258 EventNames.php:349 FamilyView.php:283
 #: PersonView.php:527 v2/templates/pastoralcare/pastoralcareperson.php:166
 msgid "Edit"
@@ -5306,7 +5312,7 @@ msgstr "Adresse"
 #: EcclesiaCRM/Search/PersonSearchRes.php:339
 #: EcclesiaCRM/Search/PersonSearchRes.php:340
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
-#: EcclesiaCRM/Service/MailChimpService.php:197
+#: EcclesiaCRM/Service/MailChimpService.php:204
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:395
 #: FamilyView.php:1069 PersonView.php:720 PersonView.php:1967
@@ -5479,14 +5485,14 @@ msgstr "Evénement"
 msgid "Anniversary"
 msgstr "Anniversaire de mariage"
 
-#: EcclesiaCRM/Service/CalendarService.php:498 ElectronicPaymentList.php:216
+#: EcclesiaCRM/Service/CalendarService.php:509 ElectronicPaymentList.php:216
 #: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
 #: EventNames.php:355 FamilyView.php:1096 FindDepositSlip.php:131
 #: ident/routes/verify.php:728 ident/routes/verify.php:795
 #: ident/templates/verify/verify-family-info.php:55
 #: ident/templates/verify/verify-family-info.php:161 PersonView.php:1905
 #: PersonView.php:1997 v2/templates/calendar/eventattendeesedit.php:101
-#: v2/templates/email/mailchimp/campaign.php:131
+#: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/group/groupview.php:287
 #: v2/templates/pastoralcare/pastoralcarefamily.php:350
@@ -5497,49 +5503,52 @@ msgstr "Anniversaire de mariage"
 msgid "Delete"
 msgstr "Supprimer"
 
-#: EcclesiaCRM/Service/CalendarService.php:501
+#: EcclesiaCRM/Service/CalendarService.php:512
 msgid "Info"
 msgstr "Info"
 
-#: EcclesiaCRM/Service/CalendarService.php:533
+#: EcclesiaCRM/Service/CalendarService.php:544
 msgid "Check-in"
 msgstr "Vérification à l'arrivée"
 
-#: EcclesiaCRM/Service/CalendarService.php:534
+#: EcclesiaCRM/Service/CalendarService.php:545
 msgid "Check-out"
 msgstr "Vérification à la sortie"
 
-#: EcclesiaCRM/Service/CalendarService.php:535
+#: EcclesiaCRM/Service/CalendarService.php:546
 msgid "Rest"
 msgstr "Différence"
 
-#: EcclesiaCRM/Service/CalendarService.php:556
-#: EcclesiaCRM/Service/CalendarService.php:593
+#: EcclesiaCRM/Service/CalendarService.php:567
+#: EcclesiaCRM/Service/CalendarService.php:600
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "Les participants"
 
-#: EcclesiaCRM/Service/CalendarService.php:572
-#: EcclesiaCRM/Service/CalendarService.php:573
+#: EcclesiaCRM/Service/CalendarService.php:578
+#: EcclesiaCRM/Service/CalendarService.php:579
+#: EcclesiaCRM/Service/CalendarService.php:582
+#: EcclesiaCRM/Service/CalendarService.php:583
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "Appel à valider"
 
-#: EcclesiaCRM/Service/CalendarService.php:573
+#: EcclesiaCRM/Service/CalendarService.php:579
+#: EcclesiaCRM/Service/CalendarService.php:583
 msgid "Check-out done"
 msgstr "Appel validé"
 
-#: EcclesiaCRM/Service/CalendarService.php:619
+#: EcclesiaCRM/Service/CalendarService.php:626
 msgid "No Attendance Recorded"
 msgstr "Aucune participation enregistrée"
 
-#: EcclesiaCRM/Service/CalendarService.php:633
+#: EcclesiaCRM/Service/CalendarService.php:640
 msgid "login"
 msgstr "Connexion"
 
-#: EcclesiaCRM/Service/CalendarService.php:664
+#: EcclesiaCRM/Service/CalendarService.php:671
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "Calendrier personnel"
@@ -5594,11 +5603,6 @@ msgstr "Fichier"
 #: EcclesiaCRM/Service/TimelineService.php:355
 msgid "Shared by"
 msgstr "Partagé par"
-
-#: EcclesiaCRM/Service/UpgradeService.php:64
-#: EcclesiaCRM/Service/UpgradeService.php:93
-msgid "Databse upgrade failed"
-msgstr "Mise à jour de la base de données a échoué"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
@@ -6077,27 +6081,27 @@ msgstr "Tableau de bord MailChimp"
 msgid "Debug Email Connection"
 msgstr "Déboguer La connexion Email"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:113
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:114
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:115
 msgid "Email Campaign"
 msgstr "Campagne de publipostage"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 msgid "Email List"
 msgstr "Listes de Diffusion"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:192
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:194
 #: v2/templates/email/mailchimp/dashboard.php:75
 msgid "Find Duplicate Emails"
 msgstr "Emails en doublon"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:218
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:220
 #: v2/templates/email/mailchimp/dashboard.php:78
 msgid "Persons Not In MailChimp"
 msgstr "Personnes non dans MailChimp"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:243
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:245
 #: v2/templates/email/mailchimp/dashboard.php:81
 msgid "Families Not In MailChimp"
 msgstr "Familles non dans MailChimp"
@@ -7821,7 +7825,7 @@ msgstr "Ancien Mot de Passe"
 msgid "Confirm New Password"
 msgstr "Confirmer le Nouveau Mot de Passe"
 
-#: ident/templates/verify/login-info.php:21 Login.php:202 Login.php:277
+#: ident/templates/verify/login-info.php:21 Login.php:211 Login.php:297
 msgid "Please Login"
 msgstr "Veuillez vous identifier"
 
@@ -7855,7 +7859,7 @@ msgid "We encountered an error submitting with your verification data"
 msgstr "Nous avons rencontré une erreur durant la vérification de vos données"
 
 #: ident/templates/verify/verify-family-info.php:202
-#: v2/templates/email/mailchimp/campaign.php:136
+#: v2/templates/email/mailchimp/campaign.php:138
 msgid "Send"
 msgstr "Envoyer"
 
@@ -8199,27 +8203,27 @@ msgstr ""
 msgid "This account has been deactiveted by an administrator."
 msgstr "Ce compte a été désactivé par un administrateur."
 
-#: Login.php:207 Login.php:284
+#: Login.php:216 Login.php:304
 msgid "Your previous session timed out.  Please login again."
 msgstr "Votre session a expiré. Veuillez vous reconnecter."
 
-#: Login.php:231
+#: Login.php:249 Login.php:350
 msgid "2FA : OTP key"
 msgstr "2FA : Clé OTP"
 
-#: Login.php:246
+#: Login.php:264
 msgid "I forgot my password"
 msgstr "Mot de passe oublié"
 
-#: Login.php:258
+#: Login.php:276
 msgid "Register a new Family"
 msgstr "Inscrire une nouvelle famille"
 
-#: Login.php:327
+#: Login.php:357
 msgid "Enter your password to retrieve your session"
 msgstr "Saisir votre mot de passe pour revenir à votre session"
 
-#: Login.php:330
+#: Login.php:360
 msgid "Or sign in as a different user"
 msgstr "Ou choisir un autre utilisateur afin de vous connecter"
 
@@ -9460,8 +9464,8 @@ msgstr "Annuler et retourner à la vue Personne"
 msgid "Move Donations to Selected Person"
 msgstr "Transférer les dépots à la Personne sélectionnée"
 
-#: SelectDelete.php:325 v2/templates/email/mailchimp/campaign.php:205
-#: v2/templates/email/mailchimp/campaign.php:212
+#: SelectDelete.php:325 v2/templates/email/mailchimp/campaign.php:207
+#: v2/templates/email/mailchimp/campaign.php:214
 msgid "Schedule"
 msgstr "Planification"
 
@@ -9745,6 +9749,14 @@ msgstr "Rapport de Taxe"
 #: TaxReport.php:43
 msgid "Calendar Year"
 msgstr "Année civile"
+
+#: tmp_attach/BirthdayAnniversaryDashboard/v2/templates/View.php:112
+msgid "Birthdates of the day"
+msgstr "Date de naissance du jour"
+
+#: tmp_attach/BirthdayAnniversaryDashboard/v2/templates/View.php:132
+msgid "Anniversaries of the day"
+msgstr "Anniversaires de mariage du jour"
 
 #: UpdateAllLatLon.php:15
 msgid "Update Latitude & Longitude"
@@ -10510,103 +10522,103 @@ msgstr "Gestion des plugins"
 msgid "Settings"
 msgstr "Paramètres"
 
-#: v2/templates/email/mailchimp/campaign.php:29
+#: v2/templates/email/mailchimp/campaign.php:31
 msgid "Recipients"
 msgstr "Bénéficiaires"
 
-#: v2/templates/email/mailchimp/campaign.php:34
+#: v2/templates/email/mailchimp/campaign.php:36
 msgid "Audience"
 msgstr "Audience"
 
-#: v2/templates/email/mailchimp/campaign.php:37
+#: v2/templates/email/mailchimp/campaign.php:39
 msgid "Delivered"
 msgstr "Livré"
 
-#: v2/templates/email/mailchimp/campaign.php:46
+#: v2/templates/email/mailchimp/campaign.php:48
 msgid "Opened"
 msgstr "Ouvert"
 
-#: v2/templates/email/mailchimp/campaign.php:50
+#: v2/templates/email/mailchimp/campaign.php:52
 msgid "Clicked"
 msgstr "Cliquez sur"
 
-#: v2/templates/email/mailchimp/campaign.php:54
+#: v2/templates/email/mailchimp/campaign.php:56
 msgid "Bounced"
 msgstr "Rebondissement"
 
-#: v2/templates/email/mailchimp/campaign.php:58
+#: v2/templates/email/mailchimp/campaign.php:60
 msgid "Unsubscribed"
 msgstr "Désabonner"
 
-#: v2/templates/email/mailchimp/campaign.php:64
+#: v2/templates/email/mailchimp/campaign.php:66
 msgid "Successful deliveries"
 msgstr "Des livraisons réussies"
 
-#: v2/templates/email/mailchimp/campaign.php:70
+#: v2/templates/email/mailchimp/campaign.php:72
 msgid "Total opens"
 msgstr "Total des ouvertures"
 
-#: v2/templates/email/mailchimp/campaign.php:73
+#: v2/templates/email/mailchimp/campaign.php:75
 msgid "Last opened"
 msgstr "Dernière ouverture"
 
-#: v2/templates/email/mailchimp/campaign.php:76
+#: v2/templates/email/mailchimp/campaign.php:78
 msgid "Forwarded"
 msgstr "Transféré"
 
-#: v2/templates/email/mailchimp/campaign.php:79
+#: v2/templates/email/mailchimp/campaign.php:81
 msgid "Forward opens"
 msgstr "L'avant s'ouvre"
 
-#: v2/templates/email/mailchimp/campaign.php:88
+#: v2/templates/email/mailchimp/campaign.php:90
 msgid "Clicks rate"
 msgstr "Taux de clics"
 
-#: v2/templates/email/mailchimp/campaign.php:91
+#: v2/templates/email/mailchimp/campaign.php:93
 msgid "Total clicks"
 msgstr "Total des clics"
 
-#: v2/templates/email/mailchimp/campaign.php:114
+#: v2/templates/email/mailchimp/campaign.php:116
 msgid "Email Campaign Management"
 msgstr "Gestion Campagne de Mailing"
 
-#: v2/templates/email/mailchimp/campaign.php:127
+#: v2/templates/email/mailchimp/campaign.php:129
 msgid "Save Campaign"
 msgstr "Enregistrer la campagne"
 
-#: v2/templates/email/mailchimp/campaign.php:145
+#: v2/templates/email/mailchimp/campaign.php:147
 msgid "Mail Subject"
 msgstr "Sujet du Mail"
 
-#: v2/templates/email/mailchimp/campaign.php:146
+#: v2/templates/email/mailchimp/campaign.php:148
 msgid "Content"
 msgstr "Contenu"
 
-#: v2/templates/email/mailchimp/campaign.php:151
+#: v2/templates/email/mailchimp/campaign.php:153
 msgid "Subject"
 msgstr "Sujet"
 
-#: v2/templates/email/mailchimp/campaign.php:154
+#: v2/templates/email/mailchimp/campaign.php:156
 msgid "Your Mail Subject"
 msgstr "Votre sujet de mail"
 
-#: v2/templates/email/mailchimp/campaign.php:164
+#: v2/templates/email/mailchimp/campaign.php:166
 msgid "You can use the button \"Merge Tags\" below, to customize your content"
 msgstr ""
 "Vous pourrez utiliser le bouton \"Champ de Fusion\" ci-dessous, pour "
 "personnaliser votre contenu"
 
-#: v2/templates/email/mailchimp/campaign.php:183
+#: v2/templates/email/mailchimp/campaign.php:185
 msgid "Tags"
 msgstr "Étiquettes"
 
-#: v2/templates/email/mailchimp/campaign.php:224
+#: v2/templates/email/mailchimp/campaign.php:226
 msgid "You've first to create a content below to schedule a campaign."
 msgstr ""
 "Vous devez dans un premier temps, créer un contenu en dessous, pour "
 "planifier une campagne."
 
-#: v2/templates/email/mailchimp/campaign.php:227
+#: v2/templates/email/mailchimp/campaign.php:229
 msgid ""
 "Campaigns may only be scheduled to send on the quarter-hour "
 "(:00, :15, :30, :45)."
@@ -10614,11 +10626,11 @@ msgstr ""
 "Les campagnes ne peuvent être programmées que pour être envoyées au quart "
 "d'heure (:00, :15, :30, :45)."
 
-#: v2/templates/email/mailchimp/campaign.php:253
+#: v2/templates/email/mailchimp/campaign.php:255
 msgid "Time"
 msgstr "Temps"
 
-#: v2/templates/email/mailchimp/campaign.php:270
+#: v2/templates/email/mailchimp/campaign.php:272
 msgid ""
 "To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
 "over."
@@ -11604,6 +11616,11 @@ msgstr "Plugin activé"
 #: v2/templates/plugins/plugins.php:122
 msgid "Deactivated Plugin"
 msgstr "Plugin désactivé"
+
+#: v2/templates/plugins/plugins.php:130
+#, fuzzy
+msgid "Update/upgrade"
+msgstr "Mis à jour"
 
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
@@ -12806,12 +12823,6 @@ msgstr "Plusieurs jours"
 #~ msgstr ""
 #~ "Vérification des données techniques de l'hébergement pour le bon "
 #~ "fonctionnement d'EcclesiaCRM"
-
-#~ msgid "Birthdates of the day"
-#~ msgstr "Date de naissance du jour"
-
-#~ msgid "Anniversaries of the day"
-#~ msgstr "Anniversaires de mariage du jour"
 
 #~ msgid "Unclassified birthdates"
 #~ msgstr "Date de naissance non classées"
