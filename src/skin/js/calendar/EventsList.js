@@ -489,6 +489,14 @@ $(document).ready(function () {
         var eventId = $(this).data("id");
         var foundDanger = $(this).hasClass('btn-danger');
 
+        var message = i18next.t("Undo Check-out");
+        var color = 'btn-danger'
+
+        if (foundDanger) {
+            message = i18next.t("Make Check-out");
+            color = 'btn-success';
+        }
+
         var box = bootbox.dialog({
             title: i18next.t("Edit/Make Check-out - Undo Check-out"),
             message: i18next.t("You can checkout or undo the checkout of the attendees of an event"),
@@ -508,8 +516,8 @@ $(document).ready(function () {
                     }
                 },
                 cancel: {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t('Validate'),
-                    className: 'btn btn-success',
+                    label: '<i class="fas fa-check"></i> ' + message,
+                    className: 'btn ' + color,
                     callback: function () {
                         window.CRM.APIRequest({
                             method: 'POST',
