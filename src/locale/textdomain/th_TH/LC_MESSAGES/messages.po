@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-12 12:18+0000\n"
+"POT-Creation-Date: 2023-02-17 21:19+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -119,7 +119,7 @@ msgstr "หยุด"
 #: FundRaiserEditor.php:173 PledgeEditor.php:599 Reports/ReminderReport.php:323
 #: Reports/ReminderReport.php:404 Reports/TaxReport.php:379
 #: SelectDelete.php:323 v2/templates/calendar/eventattendeesedit.php:36
-#: v2/templates/email/mailchimp/campaign.php:233
+#: v2/templates/email/mailchimp/campaign.php:235
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Date"
 msgstr "เดท"
@@ -1589,8 +1589,8 @@ msgstr "สร้างไดเรคเตอรี่"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:619
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:689
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:709
-#: EcclesiaCRM/Service/CalendarService.php:1090
-#: EcclesiaCRM/Service/CalendarService.php:1116
+#: EcclesiaCRM/Service/CalendarService.php:1100
+#: EcclesiaCRM/Service/CalendarService.php:1126
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "สองข้อจอง ไม่สามารถอยู่ในช่วงเดียวกันได้"
 
@@ -1620,7 +1620,7 @@ msgid "Video"
 msgstr "วิดีโอ"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:222
-#: EcclesiaCRM/Service/CalendarService.php:670
+#: EcclesiaCRM/Service/CalendarService.php:677
 msgid "Share"
 msgstr "แบ่งปัน"
 
@@ -1890,58 +1890,58 @@ msgstr "กลุ่ม"
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "SMTP โฮสท์ไม่ใช่การจัดฉาก โปรดไปเยี่ยมหน้าที่ตั้งค่าด้วย"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:258
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:280
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Boy"
 msgstr "เด็กน้อย"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:259
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:281
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Girl"
 msgstr "สาวน้อย"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:261
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:283
 msgid "Man"
 msgstr "ผู้ชาย"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:262
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:284
 msgid "Woman"
 msgstr "ผู้หญิง"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:340
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:372
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:362
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:394
 msgid "POST to cart requires a personID and an eventID"
 msgstr "ติดตั้งรถเข็น ต้องมีบุคคลและบัตรประชาชน"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:433
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:454
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:670
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:691
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:455
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:476
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:692
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:713
 msgid "Create From sunday school class view"
 msgstr "สร้าง จาก วิว วิว ของ วิว วิว ของ โรง เรียน วันอาทิตย์"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:457
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:694
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:479
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:716
 msgid "Attendance"
 msgstr "#Attendance#"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:495
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:526
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:561
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:596
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:517
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:548
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:583
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:618
 msgid "POST to cart requires a EventID"
 msgstr "ที่จอดรถเข็นต้องมีรายชื่อ"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:510
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:532
 #, fuzzy
 msgid "POST to delete attendees requires a EventID and personID"
 msgstr "ติดตั้งรถเข็น ต้องมีบุคคลและบัตรประชาชน"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:738
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:760
 msgid "POST to cart requires an EventID"
 msgstr "ที่จอดรถเข็น ต้องการรายชื่อ"
 
@@ -1979,7 +1979,7 @@ msgstr "ใช่"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:173
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Service/CalendarService.php:271
-#: EcclesiaCRM/Service/CalendarService.php:518
+#: EcclesiaCRM/Service/CalendarService.php:529
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:499
@@ -2004,10 +2004,16 @@ msgstr "คนหยุดการทำงาน"
 msgid "Person Activated"
 msgstr "ทำงานบุคคล"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:127
+#: EcclesiaCRM/APIControllers/PluginsController.php:131
 #: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
 msgid "Impossible to open"
 msgstr "เปิดไม่ได้"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:228
+#: EcclesiaCRM/Service/UpgradeService.php:64
+#: EcclesiaCRM/Service/UpgradeService.php:93
+msgid "Databse upgrade failed"
+msgstr "การอัพเกรดของข้าล้มเหลว"
 
 #: EcclesiaCRM/APIControllers/PublicRegisterController.php:90
 msgid "Write a message Here !"
@@ -2134,7 +2140,7 @@ msgstr "บรรณาธิการของกลุ่มประเภท
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:667
+#: EcclesiaCRM/Service/CalendarService.php:674
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:102 OptionManager.php:133
@@ -3426,8 +3432,8 @@ msgid "Invalid Family"
 msgstr "ครอบครัวไม่มีเหตุผล"
 
 #: EcclesiaCRM/dto/SystemConfig.php:47
-#: EcclesiaCRM/Service/CalendarService.php:821
-#: EcclesiaCRM/Service/CalendarService.php:1145
+#: EcclesiaCRM/Service/CalendarService.php:828
+#: EcclesiaCRM/Service/CalendarService.php:1155
 msgid "NONE"
 msgstr "ไม่มี"
 
@@ -4361,8 +4367,8 @@ msgid "Integration"
 msgstr "ความอึดอัด"
 
 #: EcclesiaCRM/dto/SystemConfig.php:300 EcclesiaCRM/MenuBar/MenuBar.php:111
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 #: v2/templates/dashboard/maindashboard.php:65
 msgid "GDPR"
 msgstr "GDPR"
@@ -4434,7 +4440,7 @@ msgstr "บัญชีของคุณถูกลบ"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "Ecclesiaบัญชีคุณถูกลบ"
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:222
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:232
 msgid "Email/Username"
 msgstr "อีเมล/อูสเนียม"
 
@@ -4533,12 +4539,12 @@ msgstr "กรุณาตรวจสอบข้อมูลของครอ
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:34
 #: external/templates/password/enter-username.php:46
-#: ident/templates/verify/login-info.php:44 Login.php:188 Login.php:239
+#: ident/templates/verify/login-info.php:44 Login.php:195 Login.php:257
 msgid "Login"
 msgstr "ล็อคจิ้น"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:35
-#: ident/templates/verify/login-info.php:38 Login.php:226 Login.php:318
+#: ident/templates/verify/login-info.php:38 Login.php:244 Login.php:339
 #: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "รหัสผ่าน"
@@ -5146,7 +5152,7 @@ msgstr "ที่อยู่"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84
-#: EcclesiaCRM/Service/CalendarService.php:495 ElectronicPaymentList.php:215
+#: EcclesiaCRM/Service/CalendarService.php:506 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:258 EventNames.php:349 FamilyView.php:283
 #: PersonView.php:527 v2/templates/pastoralcare/pastoralcareperson.php:166
 msgid "Edit"
@@ -5171,7 +5177,7 @@ msgstr "Addresse"
 #: EcclesiaCRM/Search/PersonSearchRes.php:339
 #: EcclesiaCRM/Search/PersonSearchRes.php:340
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
-#: EcclesiaCRM/Service/MailChimpService.php:197
+#: EcclesiaCRM/Service/MailChimpService.php:204
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:395
 #: FamilyView.php:1069 PersonView.php:720 PersonView.php:1967
@@ -5343,14 +5349,14 @@ msgstr "อีกที"
 msgid "Anniversary"
 msgstr "วันครบรอบ"
 
-#: EcclesiaCRM/Service/CalendarService.php:498 ElectronicPaymentList.php:216
+#: EcclesiaCRM/Service/CalendarService.php:509 ElectronicPaymentList.php:216
 #: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
 #: EventNames.php:355 FamilyView.php:1096 FindDepositSlip.php:131
 #: ident/routes/verify.php:728 ident/routes/verify.php:795
 #: ident/templates/verify/verify-family-info.php:55
 #: ident/templates/verify/verify-family-info.php:161 PersonView.php:1905
 #: PersonView.php:1997 v2/templates/calendar/eventattendeesedit.php:101
-#: v2/templates/email/mailchimp/campaign.php:131
+#: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/group/groupview.php:287
 #: v2/templates/pastoralcare/pastoralcarefamily.php:350
@@ -5361,50 +5367,53 @@ msgstr "วันครบรอบ"
 msgid "Delete"
 msgstr "ลบ"
 
-#: EcclesiaCRM/Service/CalendarService.php:501
+#: EcclesiaCRM/Service/CalendarService.php:512
 #, fuzzy
 msgid "Info"
 msgstr "อินโฟส"
 
-#: EcclesiaCRM/Service/CalendarService.php:533
+#: EcclesiaCRM/Service/CalendarService.php:544
 msgid "Check-in"
 msgstr "ตรวจสอบ"
 
-#: EcclesiaCRM/Service/CalendarService.php:534
+#: EcclesiaCRM/Service/CalendarService.php:545
 msgid "Check-out"
 msgstr "ดูนี่สิ"
 
-#: EcclesiaCRM/Service/CalendarService.php:535
+#: EcclesiaCRM/Service/CalendarService.php:546
 msgid "Rest"
 msgstr "พักผ่อน"
 
-#: EcclesiaCRM/Service/CalendarService.php:556
-#: EcclesiaCRM/Service/CalendarService.php:593
+#: EcclesiaCRM/Service/CalendarService.php:567
+#: EcclesiaCRM/Service/CalendarService.php:600
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "Attendees"
 
-#: EcclesiaCRM/Service/CalendarService.php:572
-#: EcclesiaCRM/Service/CalendarService.php:573
+#: EcclesiaCRM/Service/CalendarService.php:578
+#: EcclesiaCRM/Service/CalendarService.php:579
+#: EcclesiaCRM/Service/CalendarService.php:582
+#: EcclesiaCRM/Service/CalendarService.php:583
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "ให้ดูออก"
 
-#: EcclesiaCRM/Service/CalendarService.php:573
+#: EcclesiaCRM/Service/CalendarService.php:579
+#: EcclesiaCRM/Service/CalendarService.php:583
 msgid "Check-out done"
 msgstr "เสร็จแล้ว"
 
-#: EcclesiaCRM/Service/CalendarService.php:619
+#: EcclesiaCRM/Service/CalendarService.php:626
 msgid "No Attendance Recorded"
 msgstr "ไม่มีการตรวจสอบ"
 
-#: EcclesiaCRM/Service/CalendarService.php:633
+#: EcclesiaCRM/Service/CalendarService.php:640
 msgid "login"
 msgstr "ตระกูล"
 
-#: EcclesiaCRM/Service/CalendarService.php:664
+#: EcclesiaCRM/Service/CalendarService.php:671
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "ปฏิทินส่วนตัว"
@@ -5459,11 +5468,6 @@ msgstr "ไฟล์"
 #: EcclesiaCRM/Service/TimelineService.php:355
 msgid "Shared by"
 msgstr "ร่วมกัน"
-
-#: EcclesiaCRM/Service/UpgradeService.php:64
-#: EcclesiaCRM/Service/UpgradeService.php:93
-msgid "Databse upgrade failed"
-msgstr "การอัพเกรดของข้าล้มเหลว"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
@@ -5938,27 +5942,27 @@ msgstr "แมชชิมป์ ดาชบอร์ด"
 msgid "Debug Email Connection"
 msgstr "ลูก อีเมล์ คอนเนคติคอน"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:113
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:114
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:115
 msgid "Email Campaign"
 msgstr "อีเมล แคมเปญ"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 msgid "Email List"
 msgstr "รายชื่ออีเมล"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:192
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:194
 #: v2/templates/email/mailchimp/dashboard.php:75
 msgid "Find Duplicate Emails"
 msgstr "หาอีเมล์ดัพเลียส"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:218
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:220
 #: v2/templates/email/mailchimp/dashboard.php:78
 msgid "Persons Not In MailChimp"
 msgstr "ไม่ใช่ในไมล์ชิม"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:243
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:245
 #: v2/templates/email/mailchimp/dashboard.php:81
 msgid "Families Not In MailChimp"
 msgstr "ครอบครัวไม่ใช่ในไมล์ชิม"
@@ -7648,7 +7652,7 @@ msgstr "รหัสผ่านเก่า"
 msgid "Confirm New Password"
 msgstr "ยืนยัน รหัสผ่าน"
 
-#: ident/templates/verify/login-info.php:21 Login.php:202 Login.php:277
+#: ident/templates/verify/login-info.php:21 Login.php:211 Login.php:297
 msgid "Please Login"
 msgstr "ได้โปรด ล็อกกิ้น"
 
@@ -7682,7 +7686,7 @@ msgid "We encountered an error submitting with your verification data"
 msgstr "เราได้พบข้อผิดพลาด ที่ส่งข้อมูลข้อมูลของคุณ"
 
 #: ident/templates/verify/verify-family-info.php:202
-#: v2/templates/email/mailchimp/campaign.php:136
+#: v2/templates/email/mailchimp/campaign.php:138
 msgid "Send"
 msgstr "ส่ง"
 
@@ -8013,27 +8017,27 @@ msgstr "ตรรกะที่ล้มเหลวมากมาย บั�
 msgid "This account has been deactiveted by an administrator."
 msgstr "บัญชีนี้ถูกปิดโดยผู้บริหาร"
 
-#: Login.php:207 Login.php:284
+#: Login.php:216 Login.php:304
 msgid "Your previous session timed out.  Please login again."
 msgstr "เวลาผ่านมาของคุณเลิกแล้ว ได้โปรด ตระกูลอีกครั้ง"
 
-#: Login.php:231
+#: Login.php:249 Login.php:350
 msgid "2FA : OTP key"
 msgstr "2FA: กุญแจสำคัญ"
 
-#: Login.php:246
+#: Login.php:264
 msgid "I forgot my password"
 msgstr "ฉันลืมรหัสผ่าน"
 
-#: Login.php:258
+#: Login.php:276
 msgid "Register a new Family"
 msgstr "จดทะเบียนครอบครัวใหม่"
 
-#: Login.php:327
+#: Login.php:357
 msgid "Enter your password to retrieve your session"
 msgstr "เข้ามารับพาสเวิร์ด เพื่อรับช่วงต่อ"
 
-#: Login.php:330
+#: Login.php:360
 msgid "Or sign in as a different user"
 msgstr "หรือเป็นผู้ใช้อีกคนหนึ่ง"
 
@@ -9247,8 +9251,8 @@ msgstr "ยกเลิกและกลับไปยังวิว"
 msgid "Move Donations to Selected Person"
 msgstr "ย้ายบริจาคที่จะเลือกคน"
 
-#: SelectDelete.php:325 v2/templates/email/mailchimp/campaign.php:205
-#: v2/templates/email/mailchimp/campaign.php:212
+#: SelectDelete.php:325 v2/templates/email/mailchimp/campaign.php:207
+#: v2/templates/email/mailchimp/campaign.php:214
 msgid "Schedule"
 msgstr "กำหนด"
 
@@ -9513,6 +9517,14 @@ msgstr "รายงานภาษี"
 #: TaxReport.php:43
 msgid "Calendar Year"
 msgstr "ปีปฏิเสธ"
+
+#: tmp_attach/BirthdayAnniversaryDashboard/v2/templates/View.php:112
+msgid "Birthdates of the day"
+msgstr "วันเกิดของวัน"
+
+#: tmp_attach/BirthdayAnniversaryDashboard/v2/templates/View.php:132
+msgid "Anniversaries of the day"
+msgstr "วันครบรอบวันนี้"
 
 #: UpdateAllLatLon.php:15
 msgid "Update Latitude & Longitude"
@@ -10259,116 +10271,116 @@ msgstr "การจัดการวงกลม"
 msgid "Settings"
 msgstr "การตั้งแผนที่"
 
-#: v2/templates/email/mailchimp/campaign.php:29
+#: v2/templates/email/mailchimp/campaign.php:31
 #, fuzzy
 msgid "Recipients"
 msgstr "เหตุการณ์"
 
-#: v2/templates/email/mailchimp/campaign.php:34
+#: v2/templates/email/mailchimp/campaign.php:36
 #, fuzzy
 msgid "Audience"
 msgstr "ผู้ชม อีเมล์"
 
-#: v2/templates/email/mailchimp/campaign.php:37
+#: v2/templates/email/mailchimp/campaign.php:39
 msgid "Delivered"
 msgstr ""
 
-#: v2/templates/email/mailchimp/campaign.php:46
+#: v2/templates/email/mailchimp/campaign.php:48
 msgid "Opened"
 msgstr ""
 
-#: v2/templates/email/mailchimp/campaign.php:50
+#: v2/templates/email/mailchimp/campaign.php:52
 #, fuzzy
 msgid "Clicked"
 msgstr "คลิกที่"
 
-#: v2/templates/email/mailchimp/campaign.php:54
+#: v2/templates/email/mailchimp/campaign.php:56
 msgid "Bounced"
 msgstr ""
 
-#: v2/templates/email/mailchimp/campaign.php:58
+#: v2/templates/email/mailchimp/campaign.php:60
 msgid "Unsubscribed"
 msgstr "ไม่ได้รับการยอมรับ"
 
-#: v2/templates/email/mailchimp/campaign.php:64
+#: v2/templates/email/mailchimp/campaign.php:66
 msgid "Successful deliveries"
 msgstr ""
 
-#: v2/templates/email/mailchimp/campaign.php:70
+#: v2/templates/email/mailchimp/campaign.php:72
 #, fuzzy
 msgid "Total opens"
 msgstr "จ่ายเงินทั้งหมด"
 
-#: v2/templates/email/mailchimp/campaign.php:73
+#: v2/templates/email/mailchimp/campaign.php:75
 #, fuzzy
 msgid "Last opened"
 msgstr "ล็อกกิ้นสุดท้าย"
 
-#: v2/templates/email/mailchimp/campaign.php:76
+#: v2/templates/email/mailchimp/campaign.php:78
 msgid "Forwarded"
 msgstr ""
 
-#: v2/templates/email/mailchimp/campaign.php:79
+#: v2/templates/email/mailchimp/campaign.php:81
 msgid "Forward opens"
 msgstr ""
 
-#: v2/templates/email/mailchimp/campaign.php:88
+#: v2/templates/email/mailchimp/campaign.php:90
 #, fuzzy
 msgid "Clicks rate"
 msgstr "คลิกที่"
 
-#: v2/templates/email/mailchimp/campaign.php:91
+#: v2/templates/email/mailchimp/campaign.php:93
 #, fuzzy
 msgid "Total clicks"
 msgstr "ทั้งหมด ล็อกเกอร์"
 
-#: v2/templates/email/mailchimp/campaign.php:114
+#: v2/templates/email/mailchimp/campaign.php:116
 msgid "Email Campaign Management"
 msgstr "การจัดการให้แคมเปญ อีเมล"
 
-#: v2/templates/email/mailchimp/campaign.php:127
+#: v2/templates/email/mailchimp/campaign.php:129
 msgid "Save Campaign"
 msgstr "ช่วยชีวิตค่าเทพ"
 
-#: v2/templates/email/mailchimp/campaign.php:145
+#: v2/templates/email/mailchimp/campaign.php:147
 msgid "Mail Subject"
 msgstr "จดหมาย"
 
-#: v2/templates/email/mailchimp/campaign.php:146
+#: v2/templates/email/mailchimp/campaign.php:148
 msgid "Content"
 msgstr "คอนเทนต์"
 
-#: v2/templates/email/mailchimp/campaign.php:151
+#: v2/templates/email/mailchimp/campaign.php:153
 msgid "Subject"
 msgstr "เป้าหมาย"
 
-#: v2/templates/email/mailchimp/campaign.php:154
+#: v2/templates/email/mailchimp/campaign.php:156
 msgid "Your Mail Subject"
 msgstr "วิชาจดหมายของคุณ"
 
-#: v2/templates/email/mailchimp/campaign.php:164
+#: v2/templates/email/mailchimp/campaign.php:166
 msgid "You can use the button \"Merge Tags\" below, to customize your content"
 msgstr "คุณสามารถใช้ปุ่ม \"Merge Tags\" ข้างล่าง เพื่อให้คุณรักษาเนื้อหา"
 
-#: v2/templates/email/mailchimp/campaign.php:183
+#: v2/templates/email/mailchimp/campaign.php:185
 msgid "Tags"
 msgstr "แท็กส์"
 
-#: v2/templates/email/mailchimp/campaign.php:224
+#: v2/templates/email/mailchimp/campaign.php:226
 msgid "You've first to create a content below to schedule a campaign."
 msgstr "คุณ ต้อง สร้าง เนื้อหา ข้าง ล่าง เพื่อ กำหนด การ รณรงค์"
 
-#: v2/templates/email/mailchimp/campaign.php:227
+#: v2/templates/email/mailchimp/campaign.php:229
 msgid ""
 "Campaigns may only be scheduled to send on the quarter-hour "
 "(:00, :15, :30, :45)."
 msgstr "แคมเปญอาจมีส่วนส่ง 4 ชั่วโมง (:15:30:"
 
-#: v2/templates/email/mailchimp/campaign.php:253
+#: v2/templates/email/mailchimp/campaign.php:255
 msgid "Time"
 msgstr "เวลา"
 
-#: v2/templates/email/mailchimp/campaign.php:270
+#: v2/templates/email/mailchimp/campaign.php:272
 msgid ""
 "To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
 "over."
@@ -11319,6 +11331,11 @@ msgstr "ทำงานได้"
 #, fuzzy
 msgid "Deactivated Plugin"
 msgstr "ปลดเคลื่อนไหว"
+
+#: v2/templates/plugins/plugins.php:130
+#, fuzzy
+msgid "Update/upgrade"
+msgstr "อัพเดทแล้ว"
 
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
@@ -12477,12 +12494,6 @@ msgstr ""
 #~ "Verification of the technical data of the hosting for the proper "
 #~ "functioning of EcclesiaCRM"
 #~ msgstr "ข้อมูลทางเทคนิคของโฮสต์ที่ทำงานที่เหมาะสม EcclesiaCRM"
-
-#~ msgid "Birthdates of the day"
-#~ msgstr "วันเกิดของวัน"
-
-#~ msgid "Anniversaries of the day"
-#~ msgstr "วันครบรอบวันนี้"
 
 #~ msgid "Unclassified birthdates"
 #~ msgstr "เกิดลับไม่ได้"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-12T12:18:21.489Z\n"
+"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -847,6 +847,25 @@ msgstr "Begivenheder efter type"
 msgid "Text for Event ID"
 msgstr "Tekst til hændelses-ID"
 
+msgid "Edit/Make Check-out - Undo Check-out"
+msgstr "Rediger/tilbageføre udtjekning - Fortryd udtjekning"
+
+msgid "You can checkout or undo the checkout of the attendees of an event"
+msgstr ""
+"Du kan tjekke ud eller fortryde udcheckningen af deltagerne i en begivenhed"
+
+msgid "Edit/Validate Checkout"
+msgstr "Rediger/bekræft checkout"
+
+msgid "Validate"
+msgstr "Validér"
+
+msgid "Check-out done"
+msgstr "Check-ud udført"
+
+msgid "Make Check-out"
+msgstr "Foretag udtjekning"
+
 msgid "CKEditor Template Creation"
 msgstr "Oprettelse af CKEditor-skabeloner"
 
@@ -1516,9 +1535,6 @@ msgstr "Fondsredaktør"
 
 msgid "Add Fund"
 msgstr "Tilføj fond"
-
-msgid "Validate"
-msgstr "Validér"
 
 msgid "Place"
 msgstr "Sted"

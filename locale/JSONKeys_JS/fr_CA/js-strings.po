@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-12T12:18:21.489Z\n"
+"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -856,6 +856,25 @@ msgstr "Événements par type"
 msgid "Text for Event ID"
 msgstr "Texte pour l'ID de l'événement"
 
+msgid "Edit/Make Check-out - Undo Check-out"
+msgstr "Editer/Valider un appel - Annuler un appel"
+
+msgid "You can checkout or undo the checkout of the attendees of an event"
+msgstr ""
+"Vous pourrez valider ou invalider un appel à un événement."
+
+msgid "Edit/Validate Checkout"
+msgstr "Modifier/Appel à valider"
+
+msgid "Validate"
+msgstr "Valider"
+
+msgid "Check-out done"
+msgstr "Appel validé"
+
+msgid "Make Check-out"
+msgstr "Appel à valider"
+
 msgid "CKEditor Template Creation"
 msgstr "Création de modèle CKEditor"
 
@@ -1533,9 +1552,6 @@ msgstr "Editeur de fond"
 
 msgid "Add Fund"
 msgstr "Ajouter un fond"
-
-msgid "Validate"
-msgstr "Valider"
 
 msgid "Place"
 msgstr "Position"
@@ -2461,116 +2477,3 @@ msgstr "Changement de caméra"
 
 msgid "Upload Image"
 msgstr "Télécharger l'image"
-
-#~ msgid "Info"
-#~ msgstr "Info"
-
-#, fuzzy
-#~ msgid "Moved!"
-#~ msgstr "Déplacer"
-
-#~ msgid "Problem"
-#~ msgstr "Problème"
-
-#~ msgid ""
-#~ "Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
-#~ "webcam<br/>• Sharing your windows<br/> won't work with meeting."
-#~ msgstr ""
-#~ "Safari n'est pas supporté par Jitsi, utilisez un autre navigateur !<br/>• "
-#~ "Votre webcam<br/>• Partager des fenêtres<br/> ne fonctionnera pas pour le "
-#~ "moment."
-
-#~ msgid "Set a Jitsi room name"
-#~ msgstr "Créer un nom de salle Jitsi"
-
-#~ msgid "Delete all Rooms?"
-#~ msgstr "Supprimer toutes les salles"
-
-#~ msgid "You're about to delete all of your rooms."
-#~ msgstr "Vous êtes sur le point de supprimer toutes vos salles"
-
-#~ msgid "All"
-#~ msgstr "Tous"
-
-#~ msgid "You're about to remove a file"
-#~ msgstr "Vous êtes sur le point de supprimer un fichier"
-
-#~ msgid ""
-#~ "Deleting an event will also delete all attendance counts for that event."
-#~ msgstr "Effacer un événement supprimera tous les décomptes de présence."
-
-#~ msgid "Are you sure you want to DELETE the event ?"
-#~ msgstr "Etes vous sûr de vouloir SUPPRIMER cet événement ?"
-
-#~ msgid ""
-#~ "You can create the event automatically with the students<br> - OR - "
-#~ "<br>Add the students to the cart and create an event to add them after."
-#~ msgstr ""
-#~ "Vous pourrez créer l'événement directement avec les étudiants <br>- OU -"
-#~ "<br> Ajouter les étudiants dans le pannier, créer l'événement puis les "
-#~ "affecter."
-
-#~ msgid "Liste par mois"
-#~ msgstr "Création de liste"
-
-#~ msgid "Never"
-#~ msgstr "Jamais"
-
-#~ msgid "Attendances"
-#~ msgstr "Présence"
-
-#~ msgid "link"
-#~ msgstr "lien"
-
-#~ msgid "Present"
-#~ msgstr "Présent"
-
-#~ msgid "Absent"
-#~ msgstr "Absent"
-
-#~ msgid "Attendance"
-#~ msgstr "Présence"
-
-#~ msgid "Add all tags for the selected members in the list..."
-#~ msgstr "Ajouter toutes les étiquettes pour les membres sélectionnés ..."
-
-#~ msgid "Share your Document"
-#~ msgstr "Partager Votre document"
-
-#~ msgid "Sunday School Menu assignement"
-#~ msgstr "Affectation menu école du dimanche"
-
-#~ msgid "Sunday School Sub Menu"
-#~ msgstr "Les sous menus de l'école du dimanche"
-
-#~ msgid "Sunday School"
-#~ msgstr "École du dimanche"
-
-#~ msgid "List Details"
-#~ msgstr "Détails de la liste"
-
-#~ msgid "Edit Value"
-#~ msgstr "Editer Valeur"
-
-#~ msgid ""
-#~ "Warning!  Do not select this option if you plan to add to an existing "
-#~ "database.<br/>"
-#~ msgstr ""
-#~ "Ne pas sélectionner cette option si vous voulez ajouter les éléments à la "
-#~ "base de données.<br/>"
-
-#~ msgid ""
-#~ "Use only if unsatisfied with initial import.  All person and member data "
-#~ "will be destroyed!"
-#~ msgstr ""
-#~ "À utiliser que si vous êtes insatisfait de l'import. Toutes les données "
-#~ "personnes et membres seront détruites !"
-
-#~ msgid "Cart"
-#~ msgstr "Panier"
-
-#~ msgid "Are you sure, you want to delete this Person ?"
-#~ msgstr "Êtes-vous sûr de supprimer cette personne dur partage ?"
-
-#~ msgid "Set the year range to export"
-#~ msgstr "Saisir la période en année"
