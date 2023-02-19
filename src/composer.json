@@ -44,7 +44,6 @@
         "nexmo/client": "2.*",
         "slim/http-cache": "^1.1",
         "sabre/dav": "4.*",
-        "tuupola/slim-jwt-auth": "3.*",
         "phpoffice/phpword": "0.18.*",
         "defuse/php-encryption": "^2.2",
         "endroid/qr-code": "4.*",
@@ -58,7 +57,8 @@
         "slim/psr7": "^1.5",
         "slim/http": "^1.2",
         "tecnickcom/tcpdf": "^6.4",
-        "robthree/twofactorauth": "^1.8"
+        "robthree/twofactorauth": "^1.8",
+        "firebase/php-jwt": "^6.4"
     },
     "autoload": {
         "classmap": [
