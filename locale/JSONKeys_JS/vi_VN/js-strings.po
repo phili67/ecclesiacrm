@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -848,6 +848,14 @@ msgstr "Những sự kiện bằng Type"
 msgid "Text for Event ID"
 msgstr "Tin nhắn cho chứng minh thư"
 
+#, fuzzy
+msgid "Undo Check-out"
+msgstr "Kiểm tra"
+
+#, fuzzy
+msgid "Make Check-out"
+msgstr "Kiểm tra"
+
 msgid "Edit/Make Check-out - Undo Check-out"
 msgstr ""
 
@@ -857,16 +865,9 @@ msgstr ""
 msgid "Edit/Validate Checkout"
 msgstr ""
 
-msgid "Validate"
-msgstr "Xử lý"
-
 #, fuzzy
 msgid "Check-out done"
 msgstr "Ngày kiểm tra"
-
-#, fuzzy
-msgid "Make Check-out"
-msgstr "Kiểm tra"
 
 msgid "CKEditor Template Creation"
 msgstr "- Đội thiết kế Template Creation"
@@ -1541,6 +1542,9 @@ msgstr "Biên tập viên tài chính"
 
 msgid "Add Fund"
 msgstr "Quỹ cộng"
+
+msgid "Validate"
+msgstr "Xử lý"
 
 msgid "Place"
 msgstr "Vào vị trí"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -847,6 +847,12 @@ msgstr "Evenemang per typ"
 msgid "Text for Event ID"
 msgstr "Text för ID för evenemanget"
 
+msgid "Undo Check-out"
+msgstr "Ångra utcheckning"
+
+msgid "Make Check-out"
+msgstr "Gör en utcheckning"
+
 msgid "Edit/Make Check-out - Undo Check-out"
 msgstr "Redigera/genomföra utcheckning - Ångra utcheckning"
 
@@ -857,14 +863,8 @@ msgstr ""
 msgid "Edit/Validate Checkout"
 msgstr "Redigera/bekräfta kassan"
 
-msgid "Validate"
-msgstr "Validera"
-
 msgid "Check-out done"
 msgstr "Utcheckning utförd"
-
-msgid "Make Check-out"
-msgstr "Gör en utcheckning"
 
 msgid "CKEditor Template Creation"
 msgstr "Skapande av mallar i CKEditor"
@@ -1536,6 +1536,9 @@ msgstr "Fondredaktör"
 
 msgid "Add Fund"
 msgstr "Lägg till fond"
+
+msgid "Validate"
+msgstr "Validera"
 
 msgid "Place"
 msgstr "Plats"

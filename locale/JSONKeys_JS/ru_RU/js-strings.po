@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -849,6 +849,12 @@ msgstr "События по типу"
 msgid "Text for Event ID"
 msgstr "Текст для идентификатора события"
 
+msgid "Undo Check-out"
+msgstr "Отменить выезд"
+
+msgid "Make Check-out"
+msgstr "Сделать выезд"
+
 msgid "Edit/Make Check-out - Undo Check-out"
 msgstr "Редактировать/Сделать выезд - Отменить выезд"
 
@@ -858,14 +864,8 @@ msgstr "Вы можете проверить или отменить прове�
 msgid "Edit/Validate Checkout"
 msgstr "Редактировать/Валидировать кассу"
 
-msgid "Validate"
-msgstr "Проверить"
-
 msgid "Check-out done"
 msgstr "Выезд выполнен"
-
-msgid "Make Check-out"
-msgstr "Сделать выезд"
 
 msgid "CKEditor Template Creation"
 msgstr "Создание шаблонов в CKEditor"
@@ -1537,6 +1537,9 @@ msgstr "Редактор фонда"
 
 msgid "Add Fund"
 msgstr "Добавить фонд"
+
+msgid "Validate"
+msgstr "Проверить"
 
 msgid "Place"
 msgstr "Место"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -851,6 +851,12 @@ msgstr "Εκδηλώσεις ανά τύπο"
 msgid "Text for Event ID"
 msgstr "Κείμενο για το αναγνωριστικό συμβάντος"
 
+msgid "Undo Check-out"
+msgstr "Αναίρεση check-out"
+
+msgid "Make Check-out"
+msgstr "Κάντε Check-out"
+
 msgid "Edit/Make Check-out - Undo Check-out"
 msgstr "Επεξεργασία/Κάντε check-out - Αναίρεση check-out"
 
@@ -862,14 +868,8 @@ msgstr ""
 msgid "Edit/Validate Checkout"
 msgstr "Επεξεργασία/επικύρωση πληρωμής"
 
-msgid "Validate"
-msgstr "Επικύρωση"
-
 msgid "Check-out done"
 msgstr "Έγινε check-out"
-
-msgid "Make Check-out"
-msgstr "Κάντε Check-out"
 
 msgid "CKEditor Template Creation"
 msgstr "Δημιουργία προτύπου CKEditor"
@@ -1550,6 +1550,9 @@ msgstr "Συντάκτης Ταμείου"
 
 msgid "Add Fund"
 msgstr "Προσθήκη Ταμείου"
+
+msgid "Validate"
+msgstr "Επικύρωση"
 
 msgid "Place"
 msgstr "Τόπος"

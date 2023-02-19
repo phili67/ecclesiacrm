@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -834,6 +834,14 @@ msgstr "按类型划分的活动"
 msgid "Text for Event ID"
 msgstr "事件ID的文本"
 
+#, fuzzy
+msgid "Undo Check-out"
+msgstr "结账"
+
+#, fuzzy
+msgid "Make Check-out"
+msgstr "结账"
+
 msgid "Edit/Make Check-out - Undo Check-out"
 msgstr ""
 
@@ -843,16 +851,9 @@ msgstr ""
 msgid "Edit/Validate Checkout"
 msgstr ""
 
-msgid "Validate"
-msgstr "验证"
-
 #, fuzzy
 msgid "Check-out done"
 msgstr "结账日期"
-
-#, fuzzy
-msgid "Make Check-out"
-msgstr "结账"
 
 msgid "CKEditor Template Creation"
 msgstr "CKEditor模板创建"
@@ -1506,6 +1507,9 @@ msgstr "基金编辑"
 
 msgid "Add Fund"
 msgstr "添加基金"
+
+msgid "Validate"
+msgstr "验证"
 
 msgid "Place"
 msgstr "地点"

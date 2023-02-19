@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -855,6 +855,12 @@ msgstr "Evenementen per Type"
 msgid "Text for Event ID"
 msgstr "Tekst voor gebeurtenis-ID"
 
+msgid "Undo Check-out"
+msgstr "Check-out ongedaan maken"
+
+msgid "Make Check-out"
+msgstr "Maak Check-out"
+
 msgid "Edit/Make Check-out - Undo Check-out"
 msgstr "Check-out bewerken/maken - Check-out ongedaan maken"
 
@@ -866,14 +872,8 @@ msgstr ""
 msgid "Edit/Validate Checkout"
 msgstr "Edit/Validate Checkout"
 
-msgid "Validate"
-msgstr "Valideren"
-
 msgid "Check-out done"
 msgstr "Check-out gedaan"
-
-msgid "Make Check-out"
-msgstr "Maak Check-out"
 
 msgid "CKEditor Template Creation"
 msgstr "CKEditor Sjabloon Creatie"
@@ -1547,6 +1547,9 @@ msgstr "Fondsredacteur"
 
 msgid "Add Fund"
 msgstr "Fonds toevoegen"
+
+msgid "Validate"
+msgstr "Valideren"
 
 msgid "Place"
 msgstr "Plaats"

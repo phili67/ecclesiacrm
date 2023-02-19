@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -840,6 +840,12 @@ msgstr "タイプ別イベント"
 msgid "Text for Event ID"
 msgstr "イベントIDのテキスト"
 
+msgid "Undo Check-out"
+msgstr "チェックアウトの取り消し"
+
+msgid "Make Check-out"
+msgstr "チェックアウトを行う"
+
 msgid "Edit/Make Check-out - Undo Check-out"
 msgstr "チェックアウトの編集・作成 - チェックアウトの取り消し"
 
@@ -849,14 +855,8 @@ msgstr "イベントの参加者のチェックアウトや取り消しができ
 msgid "Edit/Validate Checkout"
 msgstr "チェックアウトの編集・有効化"
 
-msgid "Validate"
-msgstr "検証"
-
 msgid "Check-out done"
 msgstr "チェックアウト完了"
-
-msgid "Make Check-out"
-msgstr "チェックアウトを行う"
 
 msgid "CKEditor Template Creation"
 msgstr "CKEditorのテンプレート作成"
@@ -1527,6 +1527,9 @@ msgstr "ファンド・エディター"
 
 msgid "Add Fund"
 msgstr "ファンドの追加"
+
+msgid "Validate"
+msgstr "検証"
 
 msgid "Place"
 msgstr "場所"

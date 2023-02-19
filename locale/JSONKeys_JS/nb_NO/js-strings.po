@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -847,6 +847,14 @@ msgstr "Events av Type"
 msgid "Text for Event ID"
 msgstr "Tekst for Event ID"
 
+#, fuzzy
+msgid "Undo Check-out"
+msgstr "Utsjekking"
+
+#, fuzzy
+msgid "Make Check-out"
+msgstr "Utsjekking"
+
 msgid "Edit/Make Check-out - Undo Check-out"
 msgstr ""
 
@@ -856,16 +864,9 @@ msgstr ""
 msgid "Edit/Validate Checkout"
 msgstr ""
 
-msgid "Validate"
-msgstr "Vurderer"
-
 #, fuzzy
 msgid "Check-out done"
 msgstr "Sjekk-ut-date"
-
-#, fuzzy
-msgid "Make Check-out"
-msgstr "Utsjekking"
 
 msgid "CKEditor Template Creation"
 msgstr "CKreditor Templat Creation"
@@ -1536,6 +1537,9 @@ msgstr "Fund redaktør"
 
 msgid "Add Fund"
 msgstr "Legg til fond"
+
+msgid "Validate"
+msgstr "Vurderer"
 
 msgid "Place"
 msgstr "Sted"

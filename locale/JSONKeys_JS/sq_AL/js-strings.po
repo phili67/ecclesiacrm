@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -850,6 +850,14 @@ msgstr "ngjarje nga tipi"
 msgid "Text for Event ID"
 msgstr "Më dërgo mesazh për eventin e identitetit"
 
+#, fuzzy
+msgid "Undo Check-out"
+msgstr "Shiko"
+
+#, fuzzy
+msgid "Make Check-out"
+msgstr "Shiko"
+
 msgid "Edit/Make Check-out - Undo Check-out"
 msgstr ""
 
@@ -859,16 +867,9 @@ msgstr ""
 msgid "Edit/Validate Checkout"
 msgstr ""
 
-msgid "Validate"
-msgstr "Validate"
-
 #, fuzzy
 msgid "Check-out done"
 msgstr "shiko datën"
-
-#, fuzzy
-msgid "Make Check-out"
-msgstr "Shiko"
 
 msgid "CKEditor Template Creation"
 msgstr "Krijimi i tempullit të KEditorit"
@@ -1541,6 +1542,9 @@ msgstr "redaktor i fondeve"
 
 msgid "Add Fund"
 msgstr "Add Fund"
+
+msgid "Validate"
+msgstr "Validate"
 
 msgid "Place"
 msgstr "Vend."

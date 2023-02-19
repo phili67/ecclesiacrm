@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-17T21:19:04.367Z\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -847,6 +847,14 @@ msgstr "الأحداث من النوع"
 msgid "Text for Event ID"
 msgstr "رسالة من أجل بطاقة التعريف"
 
+#, fuzzy
+msgid "Undo Check-out"
+msgstr "تفقد"
+
+#, fuzzy
+msgid "Make Check-out"
+msgstr "تفقد"
+
 msgid "Edit/Make Check-out - Undo Check-out"
 msgstr ""
 
@@ -856,16 +864,9 @@ msgstr ""
 msgid "Edit/Validate Checkout"
 msgstr ""
 
-msgid "Validate"
-msgstr "المصادقة"
-
 #, fuzzy
 msgid "Check-out done"
 msgstr "تاريخ التحقق"
-
-#, fuzzy
-msgid "Make Check-out"
-msgstr "تفقد"
 
 msgid "CKEditor Template Creation"
 msgstr "CKEDITor Templeate Creation"
@@ -1531,6 +1532,9 @@ msgstr "محرر الصندوق"
 
 msgid "Add Fund"
 msgstr "إضافة الصندوق"
+
+msgid "Validate"
+msgstr "المصادقة"
 
 msgid "Place"
 msgstr "المكان"
