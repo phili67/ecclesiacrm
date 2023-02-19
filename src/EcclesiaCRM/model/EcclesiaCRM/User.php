@@ -8,6 +8,8 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
+use Firebase\JWT\JWT;
+
 use Sabre\DAV\Xml\Element\Sharee;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use EcclesiaCRM\MyPDO\CalDavPDO;
@@ -1060,6 +1062,36 @@ class User extends BaseUser
         // Pledge and payment preferences
         $_SESSION['sshowPledges'] = $this->getShowPledges();
         $_SESSION['sshowPayments'] = $this->getShowPayments();
+
+        // set the jwt token
+
+        // we create the token and secret
+        $secretKey  = MiscUtils::gen_uuid();
+        $issuedAt   = new \DateTimeImmutable();
+        $expire     = $issuedAt->modify('+2880 minutes')->getTimestamp();      // Ajoute 60 secondes
+        $serverName = $_SERVER['HTTP_ORIGIN'];
+        $username   = $this->getUserName();                                           // Récupéré à partir des données POST filtré
+
+        $data = [
+            'iat'  => $issuedAt->getTimestamp(),         // Issued at:  : heure à laquelle le jeton a été généré
+            'iss'  => $serverName,                       // Émetteur
+            'nbf'  => $issuedAt->getTimestamp(),         // Pas avant..
+            'exp'  => $expire,                           // Expiration
+            'userName' => $username,                     // Nom d'utilisateur
+        ];
+
+
+        $jwt = JWT::encode(
+            $data,
+            $secretKey,
+            'HS256'
+        );
+
+        $this->setJwtSecret($secretKey);
+        $this->setJwtToken($jwt);
+
+        $this->save();
+        setcookie($this->getUserName(), $this->getJwtToken());
 
         $this->setIsLoggedIn(true);
         $this->save();
