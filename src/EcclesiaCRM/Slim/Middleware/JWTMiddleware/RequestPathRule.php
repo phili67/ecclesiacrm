@@ -32,7 +32,7 @@ SOFTWARE.
  * @license   https://www.opensource.org/licenses/mit-license.php
  */
 
-namespace Tuupola\Middleware\JwtAuthentication;
+namespace EcclesiaCRM\Slim\Middleware\JWTMiddleware;
 
 use Psr\Http\Message\ServerRequestInterface;
 

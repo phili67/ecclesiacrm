@@ -3,13 +3,17 @@
 namespace EcclesiaCRM\Slim\Middleware;
 
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use EcclesiaCRM\Http\Factory\ResponseFactory;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Log\LogLevel;
-use EcclesiaCRM\Slim\Middleware\RequestMethodRule;
-use EcclesiaCRM\Slim\Middleware\RuleInterface;
+
+use EcclesiaCRM\Slim\Middleware\JWTMiddleware\RequestMethodRule;
+use EcclesiaCRM\Slim\Middleware\JWTMiddleware\RequestPathRule;
 
 class JWTMiddleware implements MiddlewareInterface {
     /**
@@ -19,8 +23,7 @@ class JWTMiddleware implements MiddlewareInterface {
      *   secret?: string|array<string>,
      *   secure: bool,
      *   relaxed: array<string>,
-     *   algorithm: array<string>,
-     *   header: string,
+     *   algorithm: string,
      *   regexp: string,
      *   cookie: string,
      *   attribute: string,
@@ -34,7 +37,7 @@ class JWTMiddleware implements MiddlewareInterface {
     private $options = [
         "secure" => true,
         "path" => ["/"],
-        "algorithm" => ["HS256", "HS512", "HS384"],
+        "algorithm" => "HS256",
         "regexp" => "/Bearer\s+(.*)$/i",
         "cookie" => "token",
         "ignore" => [],
@@ -49,7 +52,6 @@ class JWTMiddleware implements MiddlewareInterface {
      *   secure?: bool,
      *   relaxed?: array<string>,
      *   algorithm?: array<string>,
-     *   header?: string,
      *   regexp?: string,
      *   cookie?: string,
      *   attribute?: string,
@@ -125,7 +127,7 @@ class JWTMiddleware implements MiddlewareInterface {
                     "Insecure use of middleware over %s denied by configuration.",
                     strtoupper($scheme)
                 );
-                throw new RuntimeException($message);
+                throw new \RuntimeException($message);
             }
         }
 
@@ -133,7 +135,7 @@ class JWTMiddleware implements MiddlewareInterface {
         try {
             $token = $this->fetchToken($request);
             $decoded = $this->decodeToken($token);
-        } catch (RuntimeException | DomainException $exception) {
+        } catch (\RuntimeException | \DomainException $exception) {
             $response = (new ResponseFactory)->createResponse(401);
             return $this->processError($response, [
                 "message" => $exception->getMessage(),
@@ -191,7 +193,7 @@ class JWTMiddleware implements MiddlewareInterface {
 
         /* If everything fails log and throw. */
         $this->log(LogLevel::WARNING, "Token not found");
-        throw new RuntimeException("Token not found.");
+        throw new \RuntimeException("Token not found.");
     }
 
     /**
@@ -204,8 +206,10 @@ class JWTMiddleware implements MiddlewareInterface {
         try {
             $decoded = JWT::decode(
                 $token,
-                $this->options["secret"],
-                (array) $this->options["algorithm"]
+                new Key(
+                    $this->options["secret"],
+                    $this->options["algorithm"]
+                )
             );
             return (array) $decoded;
         } catch (Exception $exception) {

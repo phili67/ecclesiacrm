@@ -32,7 +32,7 @@ SOFTWARE.
  * @license   https://www.opensource.org/licenses/mit-license.php
  */
 
-namespace EcclesiaCRM\Slim\Middleware;
+namespace EcclesiaCRM\Slim\Middleware\JWTMiddleware;
 
 use Psr\Http\Message\ServerRequestInterface;
 
