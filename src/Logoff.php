@@ -19,13 +19,13 @@ if ( !is_null(SessionUser::getUser()) ) {
         $_SESSION['bSearchFamily'] = 0;
     }
 
-    // unset jwt token
-    if (isset($_COOKIE[$this->getUserName()])) {
-        unset($_COOKIE[$this->getUserName()]);
-        setcookie($this->getUserName(), null, -1, '/');
-    }
-
     $currentUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
+
+    // unset jwt token
+    if (isset($_COOKIE[$currentUser->getUserName()])) {
+        unset($_COOKIE[$currentUser->getUserName()]);
+        setcookie($currentUser->getUserName(), null, -1, '/');
+    }
 
     if (!is_null($currentUser)) {
 
