@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 21:19+0000\n"
+"POT-Creation-Date: 2023-02-20 11:53+0000\n"
 "Language: pt-pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5020,51 +5020,51 @@ msgstr "yr antigo"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM exportação"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:740
 msgid "system user created"
 msgstr "usuário do sistema criado"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
 msgid "system user updated"
 msgstr "usuário do sistema atualizado"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
 msgid "system user deleted"
 msgstr "usuário do sistema eliminado"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
 msgid "system user password reset"
 msgstr "redefinição da senha do usuário do sistema"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
 msgid "system user changed password"
 msgstr "usuário do sistema mudou a senha"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
 msgid "system user password changed by admin"
 msgstr "senha de usuário do sistema alterada por admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
 msgid "system user login reset"
 msgstr "redefinição do login do usuário do sistema"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:764
 msgid "Dav create file"
 msgstr "Dav criar arquivo"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:770
 msgid "Dav create directory"
 msgstr "Dav criar diretório"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:776
 msgid "Dav update file"
 msgstr "arquivo de atualização Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:789
 msgid "Dav move copy file"
 msgstr "Dav move copy file"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:796
 msgid "Dav delete file"
 msgstr "Dav apagar arquivo"
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 21:19+0000\n"
+"POT-Creation-Date: 2023-02-20 11:53+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4922,51 +4922,51 @@ msgstr "แก่"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM ส่งออก"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:740
 msgid "system user created"
 msgstr "ผู้ใช้ระบบสร้าง"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
 msgid "system user updated"
 msgstr "ผู้ใช้ระบบอัพเดทขึ้น"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
 msgid "system user deleted"
 msgstr "ผู้ใช้ระบบลบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
 msgid "system user password reset"
 msgstr "รหัสผ่านระบบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
 msgid "system user changed password"
 msgstr "ผู้ใช้ระบบเปลี่ยนรหัสผ่าน"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
 msgid "system user password changed by admin"
 msgstr "รหัสผ่านระบบ เปลี่ยนโดยเอพิษ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
 msgid "system user login reset"
 msgstr "ระบบรีเซ็ตผู้ใช้ระบบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:764
 msgid "Dav create file"
 msgstr "เดฟสร้างแฟ้มข้อมูล"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:770
 msgid "Dav create directory"
 msgstr "เดฟสร้างไดเรกทอรี่"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:776
 msgid "Dav update file"
 msgstr "แฟ้มข้อมูลดาว"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:789
 msgid "Dav move copy file"
 msgstr "เดฟย้ายประวัติ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:796
 msgid "Dav delete file"
 msgstr "เดฟลบไฟล์"
 

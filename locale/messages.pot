@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-18 09:12+0000\n"
+"POT-Creation-Date: 2023-02-20 11:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4881,51 +4881,51 @@ msgstr ""
 msgid "EcclesiaCRM export"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:740
 msgid "system user created"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
 msgid "system user updated"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
 msgid "system user deleted"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
 msgid "system user password reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
 msgid "system user changed password"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
 msgid "system user password changed by admin"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:764
 msgid "Dav create file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:770
 msgid "Dav create directory"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:776
 msgid "Dav update file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:789
 msgid "Dav move copy file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:796
 msgid "Dav delete file"
 msgstr ""
 

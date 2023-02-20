@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 21:19+0000\n"
+"POT-Creation-Date: 2023-02-20 11:53+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5080,52 +5080,52 @@ msgstr "ετών"
 msgid "EcclesiaCRM export"
 msgstr "Εξαγωγή EcclesiaCRM"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:740
 msgid "system user created"
 msgstr "χρήστης του συστήματος που δημιουργήθηκε"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
 msgid "system user updated"
 msgstr "χρήστης του συστήματος ενημερώθηκε"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
 msgid "system user deleted"
 msgstr "Διαγραφή χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
 msgid "system user password reset"
 msgstr "επαναφορά κωδικού πρόσβασης χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
 msgid "system user changed password"
 msgstr "ο χρήστης του συστήματος άλλαξε τον κωδικό πρόσβασης"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
 msgid "system user password changed by admin"
 msgstr ""
 "ο κωδικός πρόσβασης του χρήστη του συστήματος άλλαξε από τον διαχειριστή"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
 msgid "system user login reset"
 msgstr "επαναφορά σύνδεσης χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:764
 msgid "Dav create file"
 msgstr "Dav δημιουργήστε αρχείο"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:770
 msgid "Dav create directory"
 msgstr "Dav create directory"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:776
 msgid "Dav update file"
 msgstr "Αρχείο ενημέρωσης Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:789
 msgid "Dav move copy file"
 msgstr "Dav μετακίνηση αντιγραφή αρχείου"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:796
 msgid "Dav delete file"
 msgstr "Dav delete file"
 
