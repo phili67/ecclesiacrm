@@ -46,10 +46,10 @@ $app->setBasePath($rootPath . "/api");
 $app->add( new VersionMiddleware() );
 
 $app->add(new JWTMiddleware([
-    "secret" => SessionUser::getUser()->getJwtSecret(),
+    "secret" => SessionUser::getUser()->getJwtSecretForApi(),
     "secure" => true,
     "path" => "/api",
-    "cookie" => SessionUser::getUser()->getUserName(),
+    "cookie" => SessionUser::getUser()->getUserNameForApi(),
     //"ignore" => ["/api/families", "/api/persons/"],
     "algorithm" => "HS256",
     "error" => function ($response, $arguments) {
