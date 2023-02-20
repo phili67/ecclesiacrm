@@ -9,12 +9,12 @@ require_once dirname(__FILE__).'/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
 use Slim\HttpCache\Cache;
-use Tuupola\Middleware\JwtAuthentication;
 use Slim\Middleware\ContentLengthMiddleware;
 use DI\Container;
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
-use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\Slim\Middleware\JWTMiddleware;
+
 use EcclesiaCRM\PluginQuery;
 
 use EcclesiaCRM\Utils\RedirectUtils;
@@ -45,25 +45,21 @@ $app->setBasePath($rootPath . "/v2");
 
 $app->add(new VersionMiddleware());
 
-$tokenJWT = null;
-
-if ( !is_null (TokenQuery::Create()->findOneByType("secret")) ) {
-    $tokenJWT = TokenQuery::Create()->findOneByType("secret")->getToken();
-
-    $app->add(new JwtAuthentication([
-        "secret" => $tokenJWT,
-        "path" => "/v2",
-        "ignore" => ["/v2/"],
-        "algorithm" => ["HS256"],
-        "error" => function ($response, $arguments) {
-            $data["status"] = "error";
-            $data["message"] = $arguments["message"];
-            return $response
-                ->withHeader("Content-Type", "application/json")
-                ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) );
-        }
-    ]));
-}
+$app->add(new JWTMiddleware([
+    "secret" => SessionUser::getUser()->getJwtSecretForApi(),
+    "secure" => true,
+    "path" => "/api",
+    "cookie" => SessionUser::getUser()->getUserNameForApi(),
+    "ignore" => ["/api/families", "/api/persons/"],
+    "algorithm" => "HS256",
+    "error" => function ($response, $arguments) {
+        $data["status"] = "error";
+        $data["message"] = $arguments["message"];
+        return $response
+            ->withHeader("Content-Type", "application/json")
+            ->write( json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) );
+    }
+]));
 
 require_once __DIR__.'/../Include/slim/error-handler.php';
 

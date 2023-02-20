@@ -8,6 +8,8 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
+use Firebase\JWT\JWT;
+
 use Sabre\DAV\Xml\Element\Sharee;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use EcclesiaCRM\MyPDO\CalDavPDO;
@@ -1061,6 +1063,43 @@ class User extends BaseUser
         $_SESSION['sshowPledges'] = $this->getShowPledges();
         $_SESSION['sshowPayments'] = $this->getShowPayments();
 
+        // set the jwt token
+        // we create the token and secret, only when login in not as ControllerAdminUserId
+        if (!isset($_SESSION['ControllerAdminUserId'])) {
+            $secretKey = MiscUtils::gen_uuid();
+            $issuedAt = new \DateTimeImmutable();
+            $expire = $issuedAt->modify('+2880 minutes')->getTimestamp();      // Ajoute 60 secondes
+            $serverName = $_SERVER['HTTP_ORIGIN'];
+            $username = $this->getUserName();                                           // Récupéré à partir des données POST filtré
+
+            $data = [
+                'iat' => $issuedAt->getTimestamp(),         // Issued at:  : heure à laquelle le jeton a été généré
+                'iss' => $serverName,                       // Émetteur
+                'nbf' => $issuedAt->getTimestamp(),         // Pas avant..
+                'exp' => $expire,                           // Expiration
+                'userName' => $username,                     // Nom d'utilisateur
+            ];
+
+            $jwt = JWT::encode(
+                $data,
+                $secretKey,
+                'HS256'
+            );
+
+            if (is_null($this->getJwtSecret())) {
+                $this->setJwtSecret($secretKey);
+            }
+            if (is_null($this->getJwtToken())) {
+                $this->setJwtToken($jwt);
+            }
+
+            $this->save();
+
+            setcookie($this->getUserName(), $this->getJwtToken());
+        }
+        // end of JWT token activation
+
+
         $this->setIsLoggedIn(true);
         $this->save();
 
@@ -1254,5 +1293,34 @@ class User extends BaseUser
         }
 
         return false;
+    }
+
+    public function getJwtSecretForApi()
+    {
+        if (isset ($_SESSION['ControllerAdminUserSecret'])) {
+            return $_SESSION['ControllerAdminUserSecret'];
+        }
+
+        return parent::getJwtSecret();
+    }
+
+    public function getJwtTokenForApi()
+    {
+        if (isset ($_SESSION['ControllerAdminUserToken'])) {
+            return $_SESSION['ControllerAdminUserToken'];
+        }
+
+        return parent::getJwtToken();
+    }
+
+    public function getUserNameForApi()
+    {
+        if (isset ($_SESSION['ControllerAdminUserName'])) {
+            $userName = $_SESSION['ControllerAdminUserName'];
+        } else {
+            $userName = $this->getUserName();
+        }
+
+        return strtolower($userName);
     }
 }

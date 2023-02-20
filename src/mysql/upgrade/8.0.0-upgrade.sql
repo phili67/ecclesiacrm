@@ -169,5 +169,10 @@ ALTER TABLE `user_usr` ADD `usr_tLastOperation_date` datetime NOT NULL default '
 -- 2022-11-03
 ALTER TABLE `events_event` ADD `event_allday` BOOLEAN NOT NULL default 0;
 
+-- 2023-02-19
+ALTER TABLE `user_usr` ADD `usr_jwt_secret` VARCHAR(255) default NULL;
+ALTER TABLE `user_usr` ADD `usr_jwt_token` VARCHAR(255) default NULL;
+
+
 
 

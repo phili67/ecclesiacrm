@@ -288,6 +288,9 @@ class UserUsersController
             $user = UserQuery::create()->findOneByPersonId($params->userID);
 
             $_SESSION['ControllerAdminUserId'] = SessionUser::getId();
+            $_SESSION['ControllerAdminUserName'] = SessionUser::getUser()->getUserName();
+            $_SESSION['ControllerAdminUserSecret'] = SessionUser::getUser()->getJwtSecret();
+            $_SESSION['ControllerAdminUserToken'] = SessionUser::getUser()->getJwtToken();
 
             if ( !is_null($user) ) {
                 $user->LoginPhaseActivations(true);
@@ -307,6 +310,9 @@ class UserUsersController
             $user = UserQuery::create()->findOneByPersonId($params->userID);
 
             unset($_SESSION['ControllerAdminUserId']);
+            unset($_SESSION['ControllerAdminUserName']);
+            unset($_SESSION['ControllerAdminUserSecret']);
+            unset($_SESSION['ControllerAdminUserToken']);
 
             if ( !is_null($user) ) {
                 $user->LoginPhaseActivations(true);
