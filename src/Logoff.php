@@ -22,9 +22,18 @@ if ( !is_null(SessionUser::getUser()) ) {
     $currentUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
 
     // unset jwt token
-    if (isset($_COOKIE[$currentUser->getUserName()])) {
-        unset($_COOKIE[$currentUser->getUserName()]);
-        setcookie($currentUser->getUserName(), null, -1, '/');
+    $userName = $currentUser->getUserName();
+    if (isset($_COOKIE[$userName])) {
+        unset($_COOKIE[$userName]);
+        setcookie($userName, null, -1, '/');
+    }
+
+    if (isset($_SESSION['ControllerAdminUserId'])) {
+        // in the case the account is in control of an admin
+        unset($_SESSION['ControllerAdminUserId']);
+        unset($_SESSION['ControllerAdminUserName']);
+        unset($_SESSION['ControllerAdminUserSecret']);
+        unset($_SESSION['ControllerAdminUserToken']);
     }
 
     if (!is_null($currentUser)) {
@@ -34,6 +43,10 @@ if ( !is_null(SessionUser::getUser()) ) {
       $currentUser->setDefaultFY($_SESSION['idefaultFY']);
       $currentUser->setCurrentDeposit($_SESSION['iCurrentDeposit']);
       $currentUser->setIsLoggedIn(false);
+
+      // we've to leave the old jwt secret and token
+      $currentUser->setJwtToken(NULL);
+      $currentUser->setJwtSecret(NULL);
 
       $currentUser->save();
     }
