@@ -177,22 +177,33 @@ class PeopleAttendeesController
                 ->filterByEventId($requestValues->eventID)
                 ->find();
 
-            $res = "success";
+            $res['button'] = "success";
+
+            $stats = [
+                'total' => $eventAttents->count(),
+                'checkcout' => 0,
+                'difference' => $eventAttents->count()
+            ];
 
             foreach ($eventAttents as $eventAttent) {
-                if ( !is_null($eventAttent->getCheckoutId()) ) {
-                    $eventAttent->setCheckoutId(NULL);
-                    $eventAttent->setCheckoutDate(NULL);
+                if ( $eventAttent->getCheckinId() > 0 and !is_null($eventAttent->getCheckinDate()) and is_null($eventAttent->getCheckoutDate()) ) {
+                    $eventAttent->setCheckoutDate(date('Y-m-d H:i:s'));
+                    $stats['checkcout']++;
+                    $stats['difference']--;
 
-                    $res = "danger";
-                } else {
-                    $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
+                    $res['button'] = "danger";
+                } else if ( $eventAttent->getCheckinId() > 0 and !is_null($eventAttent->getCheckinDate()) and !is_null($eventAttent->getCheckoutDate()) ) {
+                    $eventAttent->setCheckoutDate(NULL);
                 }
+
+                $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
 
                 $eventAttent->save();
             }
 
-            return $response->withJson(['status' => "success", "state" => $res]);
+            $res['stats'] = $stats;
+
+            return $response->withJson(['status' => "success", "results" => $res]);
         }
 
         return $response->withJson(['status' => "failed"]);
@@ -380,7 +391,7 @@ class PeopleAttendeesController
 
             $returnData = "";
 
-            if ($eventAttent) {
+            if (!is_null($eventAttent)) {
                 $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
                 if ($requestValues->checked) {
                     $eventAttent->getEvent()->checkOutPerson($requestValues->personID);
