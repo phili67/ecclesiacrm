@@ -36,11 +36,10 @@ msgid "You have no more items in your cart."
 msgstr "Du har ikke flere gjenstander i vognen."
 
 msgid "Compose New Message"
-msgstr ""
+msgstr "Skriv ny melding"
 
-#, fuzzy
 msgid "Subject:"
-msgstr "Subjekt"
+msgstr "Emne:"
 
 msgid "Close"
 msgstr "Nær"
@@ -320,24 +319,20 @@ msgstr "Du har valgt to ganger samme navn"
 msgid "for this field. Chose another one."
 msgstr "for denne banen. Velg en annen."
 
-#, fuzzy
 msgid "Remove Plugin"
-msgstr "Fjern alle"
+msgstr "Fjern Plugin"
 
-#, fuzzy
 msgid "You're about to remove the plugin from yout dashboard !!!"
-msgstr "Du skal slette kampanjen din! Er du sikker?"
+msgstr "Du er i ferd med å fjerne pluginet fra dashbordet ditt !!!!"
 
 msgid "Confirm"
 msgstr "Bekreft"
 
-#, fuzzy
 msgid "Dashboard Item"
-msgstr "Dashboard"
+msgstr "Element på dashbordet"
 
-#, fuzzy
 msgid "Removed from your dashboard !"
-msgstr "Fjern deg fra Cart"
+msgstr "Fjernet fra dashbordet!"
 
 msgid "Please confirm deletion of this document"
 msgstr "Vennligst bekreft sletting av dette dokumentet"
@@ -720,9 +715,8 @@ msgstr "Oppmerksomhet grever"
 msgid "Start Date"
 msgstr "Start Date"
 
-#, fuzzy
 msgid "All day"
-msgstr "Alle Tags"
+msgstr "Hele dagen"
 
 msgid "End Date"
 msgstr "Avslutt Date"
@@ -847,26 +841,24 @@ msgstr "Events av Type"
 msgid "Text for Event ID"
 msgstr "Tekst for Event ID"
 
-#, fuzzy
 msgid "Undo Check-out"
-msgstr "Utsjekking"
+msgstr "Angre utsjekking"
 
-#, fuzzy
 msgid "Make Check-out"
-msgstr "Utsjekking"
+msgstr "Gjør utsjekking"
 
 msgid "Edit/Make Check-out - Undo Check-out"
-msgstr ""
+msgstr "Rediger/gjennomfør utsjekking - Angre utsjekking"
 
 msgid "You can checkout or undo the checkout of the attendees of an event"
 msgstr ""
+"Du kan sjekke ut eller angre utsjekkingen av deltakerne på et arrangement."
 
 msgid "Edit/Validate Checkout"
-msgstr ""
+msgstr "Rediger/valider kassa"
 
-#, fuzzy
 msgid "Check-out done"
-msgstr "Sjekk-ut-date"
+msgstr "Sjekk ut ferdig"
 
 msgid "CKEditor Template Creation"
 msgstr "CKreditor Templat Creation"
@@ -1292,7 +1284,7 @@ msgid "Are you sure you want to change this property?"
 msgstr "Er du sikker på at du vil endre denne eiendommen?"
 
 msgid "A kid should have a family in a sunday school group !"
-msgstr ""
+msgstr "Et barn bør ha en familie i en søndagsskolegruppe!"
 
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Er du sikker på at du vil fjerne de utvalgte medlemmene?"
@@ -1445,9 +1437,8 @@ msgstr "Vil du spare lappen din som en Ordseløp i EDrive?"
 msgid "Verification URL"
 msgstr "Bekreft URL"
 
-#, fuzzy
 msgid "Password"
-msgstr "Passordet er tilbakestilt"
+msgstr "Passord"
 
 msgid "Failed to add verification"
 msgstr "- Det ville ikke bekrefte det"
@@ -1666,10 +1657,10 @@ msgid "Activ"
 msgstr "Aktiv"
 
 msgid "Parent (hierarchy)"
-msgstr ""
+msgstr "Overordnet (hierarki)"
 
 msgid "Color"
-msgstr ""
+msgstr "Farge"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Legg til ny frivillig mulighet"
@@ -2240,22 +2231,22 @@ msgid "Deleting Subscribers..."
 msgstr "Slette subcribers..."
 
 msgid "Confirmation of plugin removal"
-msgstr ""
+msgstr "Bekreftelse på fjerning av plugin"
 
-#, fuzzy
 msgid ""
 "You are about to delete the selected plugins. This action cannot be undone!"
-msgstr "Vil du slette denne personen? Dette kan ikke gjøres ugjort."
+msgstr ""
+"Du er i ferd med å slette de valgte programtilleggene. Denne handlingen kan "
+"ikke angres!"
 
-#, fuzzy
 msgid "Select your zipped plugin file"
-msgstr "Velg rollen din"
+msgstr "Velg din zippede plugin-fil"
 
 msgid "Download the zipped file of the plugin"
-msgstr ""
+msgstr "Last ned den zippede filen til plugin-modulen"
 
 msgid "Plugin download manager"
-msgstr ""
+msgstr "Nedlastingsadministrator for plugin"
 
 msgid "You must enter a password"
 msgstr "Du må skrive inn et passord"
@@ -2294,7 +2285,7 @@ msgstr "Gjenopprett feil."
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
-msgstr ""
+msgstr "Søkeord som: navn, fornavn, telefonnummer, eiendom, gruppenavn osv ..."
 
 msgid "Done !"
 msgstr "Avtale!"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-20 11:53+0000\n"
-"Language: nl-nb\n"
+"POT-Creation-Date: 2023-02-21 17:10+0000\n"
+"Language: nb-no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1916,58 +1916,58 @@ msgstr "Grupper"
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "SMTP Host er ikke arrangert, vennligst gå til innstillingssiden"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:280
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:291
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Boy"
 msgstr "Gutt"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:281
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:292
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Girl"
 msgstr "Jente"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:283
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:294
 msgid "Man"
 msgstr "Mann"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:284
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:295
 msgid "Woman"
 msgstr "Kvinne"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:362
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:394
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:373
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:405
 msgid "POST to cart requires a personID and an eventID"
 msgstr "Det krever personID og en hendelse"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:455
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:476
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:692
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:713
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:466
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:487
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:703
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:724
 msgid "Create From sunday school class view"
 msgstr "Skape fra søndagsskolesyn"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:479
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:716
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:490
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:727
 msgid "Attendance"
 msgstr "Giv akt"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:517
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:548
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:583
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:618
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:528
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:559
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:594
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:629
 msgid "POST to cart requires a EventID"
 msgstr "Det krever en Eventid"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:532
-#, fuzzy
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:543
 msgid "POST to delete attendees requires a EventID and personID"
-msgstr "Det krever personID og en hendelse"
+msgstr ""
+"Le POST pour supprimer les participants nécessite un EventID et un personID."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:760
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:771
 msgid "POST to cart requires an EventID"
 msgstr "Det krever en Eventid"
 
@@ -3445,7 +3445,7 @@ msgstr "Minutter"
 #: EcclesiaCRM/dto/MenuEventsCount.php:144
 #: EcclesiaCRM/dto/MenuEventsCount.php:154
 msgid "hour"
-msgstr ""
+msgstr "heure"
 
 #: EcclesiaCRM/dto/MenuEventsCount.php:164
 #: EcclesiaCRM/dto/MenuEventsCount.php:174
@@ -4602,9 +4602,8 @@ msgid "Password"
 msgstr "Passord."
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:24
-#, fuzzy
 msgid "informations"
-msgstr "Informasjoner"
+msgstr "informations"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:92
 #: Include/Header.php:153
@@ -5420,9 +5419,8 @@ msgid "Delete"
 msgstr "Slett"
 
 #: EcclesiaCRM/Service/CalendarService.php:512
-#, fuzzy
 msgid "Info"
-msgstr "Infos"
+msgstr "Info"
 
 #: EcclesiaCRM/Service/CalendarService.php:544
 msgid "Check-in"
@@ -6059,7 +6057,7 @@ msgstr "Pastorale pleiemedlemmer liste etter klassifisering"
 #: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
 #: Include/Footer.php:234
 msgid "Plugins"
-msgstr ""
+msgstr "Plugins"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:60
 msgid "Sunday School Dashboard"
@@ -6112,18 +6110,16 @@ msgid "Save Name"
 msgstr "Redd navn"
 
 #: EditEventTypes.php:207
-#, fuzzy
 msgid "Event Type Color"
-msgstr "Eventyrtypen"
+msgstr "Type d'événement Couleur"
 
 #: EditEventTypes.php:213
-#, fuzzy
 msgid "Color"
-msgstr "Colombia"
+msgstr "Couleur"
 
 #: EditEventTypes.php:221
 msgid "Save Color"
-msgstr ""
+msgstr "Enregistrer la couleur"
 
 #: EditEventTypes.php:227 EventNames.php:189 EventNames.php:318
 msgid "Recurrence Pattern"
@@ -6382,7 +6378,7 @@ msgstr "År"
 
 #: EventNames.php:243
 msgid "DEFAULT COLOR"
-msgstr ""
+msgstr "COULEUR PAR DÉFAUT"
 
 #: EventNames.php:258
 msgid "DEFAULT START TIME"
@@ -7641,19 +7637,16 @@ msgid "Unable to load verification info"
 msgstr "Umulig å lade bekreftelsesopplysninger"
 
 #: ident/routes/verify.php:91
-#, fuzzy
 msgid "Wrong email or password"
-msgstr "Ugyldig innlogging eller passord"
+msgstr "Courriel ou mot de passe erroné"
 
 #: ident/routes/verify.php:106
-#, fuzzy
 msgid "Wrong old password"
-msgstr "Ugyldig passord"
+msgstr "Ancien mot de passe erroné"
 
 #: ident/routes/verify.php:111
-#, fuzzy
 msgid "The two passwords must be identical."
-msgstr "Ditt nye passord må være minst"
+msgstr "Les deux mots de passe doivent être identiques."
 
 #: ident/routes/verify.php:272 ident/routes/verify.php:275
 #: ident/routes/verify.php:690
@@ -7916,7 +7909,7 @@ msgstr "Bytt spalter"
 
 #: Include/Header.php:111
 msgid "Exit Control"
-msgstr ""
+msgstr "Arrêter prise en main"
 
 #: Include/Header.php:121
 msgid "Your Cart"
@@ -8025,7 +8018,7 @@ msgstr "Actual Hash"
 
 #: IntegrityCheck.php:89 v2/templates/plugins/plugins.php:81
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 #: IntegrityCheck.php:127
 msgid "Integrity Check Passed"
@@ -9428,18 +9421,16 @@ msgid "True"
 msgstr "Sant nok."
 
 #: SettingsIndividual.php:455
-#, fuzzy
 msgid "Specific settings"
-msgstr "Spar plassene"
+msgstr "Paramètres spécifiques"
 
 #: SettingsIndividual.php:464 UserEditor.php:1333
 msgid "Visibilities of the dashboard plugins"
-msgstr ""
+msgstr "Visibilités des plugins du tableau de bord"
 
 #: SettingsIndividual.php:506 UserEditor.php:1375
-#, fuzzy
 msgid "Top"
-msgstr "Til"
+msgstr "Haut"
 
 #: SettingsIndividual.php:536
 msgid "Two-factor authentication (2fa)"
@@ -9756,9 +9747,8 @@ msgid "User"
 msgstr "User"
 
 #: UserEditor.php:792 UserEditor.php:1399
-#, fuzzy
 msgid "Global Permissions"
-msgstr "Tillatelse"
+msgstr "Autorisations globales"
 
 #: UserEditor.php:802 v2/templates/user/userlist.php:181
 msgid "Management"
@@ -9801,9 +9791,8 @@ msgid "View, Add and Edit Notes"
 msgstr "Se, Add og Edit Notes"
 
 #: UserEditor.php:889
-#, fuzzy
 msgid "User Account Permissions"
-msgstr "Klart regnskap"
+msgstr "Autorisations du compte utilisateur"
 
 #: UserEditor.php:894
 msgid "Main Dashboard"
@@ -9834,9 +9823,8 @@ msgid "Allow to use the mail function and button in the CRM"
 msgstr "Tillat å bruke post funksjon og knapp i CRM"
 
 #: UserEditor.php:953
-#, fuzzy
 msgid "Permissions To View"
-msgstr "Tillatelse"
+msgstr "Autorisations d'affichage"
 
 #: UserEditor.php:959
 msgid "Show Cart"
@@ -9855,9 +9843,8 @@ msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr "Tillat brukeren å se privat data, E.G. Fødselsår, alder."
 
 #: UserEditor.php:997
-#, fuzzy
 msgid "Export Permissions"
-msgstr "Tillatelse"
+msgstr "Autorisations d'exportation"
 
 #: UserEditor.php:1005
 msgid "User permission to export CSV files"
@@ -9884,9 +9871,8 @@ msgid "User permission to export CSV files for the sunday school"
 msgstr "Bruker tillatelse til å eksportere CSV-filer til søndagsskolen"
 
 #: UserEditor.php:1057
-#, fuzzy
 msgid "Special Permissions"
-msgstr "Tillatelse"
+msgstr "Autorisations spéciales"
 
 #: UserEditor.php:1063
 msgid "Manage Donations and Finance"
@@ -9913,9 +9899,8 @@ msgid "General Data Protection Regulation in UE"
 msgstr "General Data Beskyttelse i UE"
 
 #: UserEditor.php:1136 UserEditor.php:1400
-#, fuzzy
 msgid "Modifiable Permissions"
-msgstr "Tillatelse"
+msgstr "Permissions modifiables"
 
 #: UserEditor.php:1142
 msgid ""
@@ -9930,9 +9915,8 @@ msgid "Permission"
 msgstr "Tillatelse"
 
 #: UserEditor.php:1293 UserEditor.php:1401
-#, fuzzy
 msgid "Plugin permissions"
-msgstr "Tillatelse"
+msgstr "Permissions des plugins"
 
 #: UserPasswordChange.php:58
 msgid "You must enter a password in both boxes"
@@ -10146,9 +10130,8 @@ msgstr "Legg til ny kalender"
 #: v2/templates/calendar/calendar.php:181
 #: v2/templates/calendar/calendar.php:218
 #: v2/templates/calendar/calendar.php:254
-#, fuzzy
 msgid "Check/Uncheck all Calendars"
-msgstr "Kirkekalenderen"
+msgstr "Cocher/décocher tous les calendriers"
 
 #: v2/templates/calendar/calendar.php:157
 msgid "Resources"
@@ -10358,41 +10341,37 @@ msgstr "Mer info"
 
 #: v2/templates/dashboard/maindashboard.php:244
 #: v2/templates/plugins/plugins.php:32
-#, fuzzy
 msgid "Plugins managements"
-msgstr "Rolleledelse"
+msgstr "Gestion des plugins"
 
 #: v2/templates/dashboard/maindashboard.php:251
 #: v2/templates/plugins/plugins.php:102
-#, fuzzy
 msgid "Settings"
-msgstr "Kart Settings"
+msgstr "Paramètres"
 
 #: v2/templates/email/mailchimp/campaign.php:31
-#, fuzzy
 msgid "Recipients"
-msgstr "Hendelser"
+msgstr "Bénéficiaires"
 
 #: v2/templates/email/mailchimp/campaign.php:36
 msgid "Audience"
-msgstr ""
+msgstr "Audience"
 
 #: v2/templates/email/mailchimp/campaign.php:39
 msgid "Delivered"
-msgstr ""
+msgstr "Livré"
 
 #: v2/templates/email/mailchimp/campaign.php:48
 msgid "Opened"
-msgstr ""
+msgstr "Ouvert"
 
 #: v2/templates/email/mailchimp/campaign.php:52
-#, fuzzy
 msgid "Clicked"
-msgstr "Klikk på"
+msgstr "Cliquez sur"
 
 #: v2/templates/email/mailchimp/campaign.php:56
 msgid "Bounced"
-msgstr ""
+msgstr "Rebondissement"
 
 #: v2/templates/email/mailchimp/campaign.php:60
 msgid "Unsubscribed"
@@ -10400,35 +10379,31 @@ msgstr "Ubekreftet"
 
 #: v2/templates/email/mailchimp/campaign.php:66
 msgid "Successful deliveries"
-msgstr ""
+msgstr "Des livraisons réussies"
 
 #: v2/templates/email/mailchimp/campaign.php:72
-#, fuzzy
 msgid "Total opens"
-msgstr "Totale betalinger"
+msgstr "Total des ouvertures"
 
 #: v2/templates/email/mailchimp/campaign.php:75
-#, fuzzy
 msgid "Last opened"
-msgstr "Siste Login"
+msgstr "Dernière ouverture"
 
 #: v2/templates/email/mailchimp/campaign.php:78
 msgid "Forwarded"
-msgstr ""
+msgstr "Transféré"
 
 #: v2/templates/email/mailchimp/campaign.php:81
 msgid "Forward opens"
-msgstr ""
+msgstr "L'avant s'ouvre"
 
 #: v2/templates/email/mailchimp/campaign.php:90
-#, fuzzy
 msgid "Clicks rate"
-msgstr "Klikk på"
+msgstr "Taux de clics"
 
 #: v2/templates/email/mailchimp/campaign.php:93
-#, fuzzy
 msgid "Total clicks"
-msgstr "Totale Logins"
+msgstr "Total des clics"
 
 #: v2/templates/email/mailchimp/campaign.php:116
 msgid "Email Campaign Management"
@@ -11393,34 +11368,28 @@ msgstr ""
 "disse donasjonene er knyttet til en annen person eller Familie."
 
 #: v2/templates/plugins/plugins.php:36
-#, fuzzy
 msgid "Add a plugin"
-msgstr "Legg til et nytt løfte"
+msgstr "Ajouter un plugin"
 
 #: v2/templates/plugins/plugins.php:41 v2/templates/plugins/plugins.php:127
-#, fuzzy
 msgid "Add new plugin"
-msgstr "Legg til et nytt løfte"
+msgstr "Ajouter un nouveau plugin"
 
 #: v2/templates/plugins/plugins.php:44
-#, fuzzy
 msgid "Upload A Plugin"
-msgstr "Uploat CSV-fil"
+msgstr "Télécharger un plugin"
 
 #: v2/templates/plugins/plugins.php:52
-#, fuzzy
 msgid "Select the grouped action"
-msgstr "Velg en gruppe"
+msgstr "Sélectionnez l'action groupée"
 
 #: v2/templates/plugins/plugins.php:54
-#, fuzzy
 msgid "Grouped actions"
-msgstr "Gruppe Functions"
+msgstr "Actions groupées"
 
 #: v2/templates/plugins/plugins.php:66
-#, fuzzy
 msgid "Activated"
-msgstr "Aktiver"
+msgstr "Activée"
 
 #: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:49
 msgid "Check all boxes"
@@ -11432,27 +11401,23 @@ msgstr "Oppdatering"
 
 #: v2/templates/plugins/plugins.php:107
 msgid "guided tour"
-msgstr ""
+msgstr "visite guidée"
 
 #: v2/templates/plugins/plugins.php:119
-#, fuzzy
 msgid "Details"
-msgstr "Detaljer:"
+msgstr "Détails"
 
 #: v2/templates/plugins/plugins.php:122
-#, fuzzy
 msgid "Activated Plugin"
-msgstr "Aktivert"
+msgstr "Plugin activé"
 
 #: v2/templates/plugins/plugins.php:122
-#, fuzzy
 msgid "Deactivated Plugin"
-msgstr "Deaktivert"
+msgstr "Plugin désactivé"
 
 #: v2/templates/plugins/plugins.php:130
-#, fuzzy
 msgid "Update/upgrade"
-msgstr "Oppdatert"
+msgstr "Oppdatering/oppgradering"
 
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
@@ -11792,16 +11757,15 @@ msgstr "Mislyktes Logins"
 
 #: v2/templates/user/userlist.php:59
 msgid "Take control"
-msgstr ""
+msgstr "Prendre le contrôle"
 
 #: v2/templates/user/userlist.php:61
 msgid "2FA authentication"
 msgstr "2FA autentisering"
 
 #: v2/templates/user/userlist.php:82
-#, fuzzy
 msgid "Manage user account"
-msgstr "Bankkontoen"
+msgstr "Gérer le compte utilisateur"
 
 #: v2/templates/user/userlist.php:88
 msgid "Not modifiable"
@@ -11809,39 +11773,35 @@ msgstr "Ikke modifisert"
 
 #: v2/templates/user/userlist.php:97
 msgid "User account webdav key"
-msgstr ""
+msgstr "Clé webdav du compte utilisateur"
 
 #: v2/templates/user/userlist.php:107
 msgid "Remove user account (not the profile)"
-msgstr ""
+msgstr "Supprimer le compte utilisateur (pas le profil)"
 
 #: v2/templates/user/userlist.php:147
-#, fuzzy
 msgid "Reset failed login"
-msgstr "Mislyktes Logins"
+msgstr "Réinitialisation de l'échec de la connexion"
 
 #: v2/templates/user/userlist.php:155
-#, fuzzy
 msgid "Change user account password"
-msgstr "Du kan endre passordet ditt"
+msgstr "Modifier le mot de passe du compte utilisateur"
 
 #: v2/templates/user/userlist.php:161
-#, fuzzy
 msgid "Reset and send new user password"
-msgstr "Ny passordet"
+msgstr "Réinitialiser et envoyer le nouveau mot de passe de l'utilisateur"
 
 #: v2/templates/user/userlist.php:171
 msgid "Take control of the account"
-msgstr ""
+msgstr "Prenez le contrôle du compte"
 
 #: v2/templates/user/userlist.php:180
-#, fuzzy
 msgid "Manage 2 factor secret"
-msgstr "Befal pastoral Care"
+msgstr "Gérer le secret à 2 facteurs"
 
 #: v2/templates/user/userlist.php:192
 msgid "Lock/unlock user account"
-msgstr ""
+msgstr "Verrouillage/déverrouillage du compte utilisateur"
 
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
@@ -12599,15 +12559,14 @@ msgstr "Penger"
 msgid "Custom Drop-Down List"
 msgstr "Tollvesen-nedgang List"
 
-#, fuzzy
 msgid "Event Workflow"
-msgstr "Event Sermon"
+msgstr "Flux d'événements"
 
 msgid "One Day"
-msgstr ""
+msgstr "Un jour"
 
 msgid "Several days"
-msgstr ""
+msgstr "Plusieurs jours"
 
 #~ msgid "Loading in progress"
 #~ msgstr "Lader på vei"

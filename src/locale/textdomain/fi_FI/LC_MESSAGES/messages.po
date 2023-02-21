@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-20 11:53+0000\n"
+"POT-Creation-Date: 2023-02-21 17:10+0000\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1928,57 +1928,57 @@ msgstr "Ryhmät"
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "SMTP-isäntää ei ole määritetty, käy asetussivulla."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:280
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:291
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Boy"
 msgstr "Poika"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:281
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:292
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Girl"
 msgstr "Tyttö"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:283
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:294
 msgid "Man"
 msgstr "Mies"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:284
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:295
 msgid "Woman"
 msgstr "Nainen"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:362
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:394
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:373
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:405
 msgid "POST to cart requires a personID and an eventID"
 msgstr "POST ostoskoriin vaatii personID:n ja eventID:n"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:455
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:476
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:692
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:713
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:466
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:487
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:703
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:724
 msgid "Create From sunday school class view"
 msgstr "Luo sunnuntaikoulun luokkanäkymä"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:479
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:716
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:490
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:727
 msgid "Attendance"
 msgstr "Osallistuminen"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:517
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:548
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:583
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:618
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:528
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:559
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:594
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:629
 msgid "POST to cart requires a EventID"
 msgstr "POST ostoskoriin vaatii EventID:n"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:532
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:543
 msgid "POST to delete attendees requires a EventID and personID"
 msgstr "POST osallistujien poistamiseksi vaatii EventID:n ja personID:n."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:760
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:771
 msgid "POST to cart requires an EventID"
 msgstr "POST ostoskoriin vaatii EventID:n"
 
