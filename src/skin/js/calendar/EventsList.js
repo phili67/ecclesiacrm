@@ -527,12 +527,15 @@ $(document).ready(function () {
                             if (foundDanger) {
                                 $(".checkout-button-"+eventId).removeClass("btn-danger");
                                 $(".checkout-button-"+eventId).addClass("btn-success");
-                                $(".checkout-button-"+eventId).html('<i class="fas fa-check-circle"></i> ' + i18next.t("Check-out done"))
+                                $(".checkout-button-"+eventId).html('<i class="fas fa-check-circle"></i> ' + i18next.t("Check-out done"));
                             } else {
                                 $(".checkout-button-"+eventId).addClass("btn-danger");
                                 $(".checkout-button-"+eventId).removeClass("btn-success");
-                                $(".checkout-button-"+eventId).html('<i class="fas fa-check-circle"></i> ' + i18next.t("Make Check-out"))
+                                $(".checkout-button-"+eventId).html('<i class="fas fa-check-circle"></i> ' + i18next.t("Make Check-out"));
                             }
+                            $("#allEventAttendees-"+eventId).html(data.results['stats']['total']);
+                            $("#checkoutEventAttendees-"+eventId).html(data.results['stats']['checkcout']);
+                            $("#differenceEventAttendees-"+eventId).html(data.results['stats']['difference']);
                         });
                     }
                 }
