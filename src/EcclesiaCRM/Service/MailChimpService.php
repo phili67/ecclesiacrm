@@ -685,7 +685,7 @@ class MailChimpService
                             $k = 0;
                             foreach ($listMember['tags'] as $tag) {
                                 if ($tag['id'] == $segment_id) {
-                                    array_splice($_SESSION['MailChimpLists'][$i]['members'][$j]['tags'], $k, $k);
+                                    array_splice($_SESSION['MailChimpLists'][$i]['members'][$j]['tags'], $k, 1);
                                     break;
                                 }
                                 $k++;
