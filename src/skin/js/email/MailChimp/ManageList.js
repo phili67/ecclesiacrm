@@ -34,7 +34,7 @@ $(document).ready(function () {
                 var len = data.result.length;
 
                 for (i = 0; i < len; ++i) {
-                    $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + data.result[i].id + '" data-name="' + data.result[i].name + '"><i class="fas fa-tag"></i> ' + data.result[i].name + '</a>');
+                    $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + data.result[i].id + '" data-name="' + data.result[i].name + '" id="dropdown-item-add-' + data.result[i].id + '"><i class="fas fa-tag"></i> ' + data.result[i].name + '</a>');
                     $("#allCampaignTags").append('<a class="dropdown-item CreateCampaign" data-id="' + data.result[i].id + '" data-name="' + data.result[i].name + '"><i class="fas fa-tag"></i> ' + data.result[i].name + '</a>');
 
                     $("#addCreateTagsDropAll").append('<a class="dropdown-item delete-tag" data-id="' + data.result[i].id + '" data-listid="' + data.result[i].list_id + '"><i class="fas fa-minus"></i> <i class="fas fa-tag"></i> ' + i18next.t("Delete tag") + ' : ' + data.result[i].name + '</a>');
@@ -156,9 +156,9 @@ $(document).ready(function () {
                     var tagsButtons = '';
 
                     if (lenTags) {
-                        tagsButtons += '<table width="100%">';
+                        tagsButtons += '<table width="100%" id="allTagsRightView">';
                         for (k = 0; k < lenTags; k++) {
-                            tagsButtons += '<tr>';
+                            tagsButtons += '<tr id="delete-tag-tr-' + tags[k].id + '">';
                             tagsButtons += '<td>&bullet; ' + tags[k].name + ' </td><td><a class="delete-tag btn btn btn-danger btn-xs" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '"><i style="cursor:pointer;" class="icon far fa-trash-alt"></i> </a></td>';
                             tagsButtons += '</tr>';
                         }
@@ -306,6 +306,7 @@ $(document).ready(function () {
             columns: columns,
             responsive: true,
             pageLength: 50,
+            rowId: 'email_address_column',
             order: [[3, "asc"]],
             createdRow: function (row, data, index) {
                 $(row).addClass("duplicateRow");
@@ -365,7 +366,7 @@ $(document).ready(function () {
     loadTableMembers();
 
     function addDataTableButtons() {
-        $('.addTagButton').click(function (event) {
+        $(document).on("click", ".addTagButton" , function() {
             $(".addTagButtonDrop").dropdown('toggle');
             var ev = event;
 
@@ -397,19 +398,23 @@ $(document).ready(function () {
                                 "emails": emails
                             })
                         }, function (data) {
-                            ev.stopPropagation();
+                            var result = data.result[0];
+
                             if (data.success) {
                                 window.CRM.dataListTable.ajax.reload(function (json) {
-                                    render_container();
-                                    //addTagsToMainDropdown();
-                                    //changeState();
                                     window.CRM.closeDialogLoadingFunction();
-                                    ev.startPropagation();
+                                    $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + result.id + '" data-name="' + result.name + '" id="dropdown-item-add-' + result.id + '"><i class="fas fa-tag"></i> ' + result.name + '</a>');
+
+                                    tagsButtons = '<tr id="delete-tag-tr-' + result.id + '">';
+                                    tagsButtons += '<td>&bullet; ' + result.name + ' </td><td><a class="delete-tag btn btn btn-danger btn-xs" data-id="' + result.id + '" data-listid="' + result.list_id + '"><i style="cursor:pointer;" class="icon far fa-trash-alt"></i> </a></td>';
+                                    tagsButtons += '</tr>';
+
+                                    $("#allTagsRightView").append(tagsButtons);
+                                    window.CRM.closeDialogLoadingFunction();
                                 }, false);
                             } else if (data.success == false && data.error) {
                                 window.CRM.closeDialogLoadingFunction();
                                 window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                                ev.startPropagation();
                             }
                         });
                     } else if (name != null) {
@@ -429,7 +434,6 @@ $(document).ready(function () {
                         }
                     },
                     callback: function (result) {
-                        ev.stopPropagation();
                         if (result) {
                             window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'));
                             window.CRM.APIRequest({
@@ -446,16 +450,12 @@ $(document).ready(function () {
                                     window.CRM.dataListTable.ajax.reload(function (json) {
                                         render_container();
                                         window.CRM.closeDialogLoadingFunction();
-                                        ev.startPropagation();
                                     }, false);
                                 } else if (data.success == false && data.error) {
                                     window.CRM.closeDialogLoadingFunction();
                                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                                    ev.startPropagation();
                                 }
                             });
-                        } else {
-                            ev.startPropagation();
                         }
                     }
                 });
@@ -500,7 +500,6 @@ $(document).ready(function () {
                     inputType: 'select',
                     inputOptions: res,
                     callback: function (tag) {
-                        ev.stopPropagation();
                         if (tag && tag != -1) {
                             console.log(tag);
                             window.CRM.dialogLoadingFunction(i18next.t('Removing tags...'));
@@ -516,15 +515,13 @@ $(document).ready(function () {
                             }, function (data) {
                                 if (data.success) {
                                     window.CRM.dataListTable.ajax.reload(function (json) {
-                                        render_container();
-                                        ev.startPropagation();
+                                        window.CRM.closeDialogLoadingFunction();
                                     }, false);
                                     //addTagsToMainDropdown();
                                     //changeState();
                                 } else if (data.success == false && data.error) {
                                     window.CRM.closeDialogLoadingFunction();
                                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                                    ev.startPropagation();
                                 }
                             });
                         } else if (tag != null) {
@@ -536,8 +533,7 @@ $(document).ready(function () {
                                 data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
                             }, function (data) {
                                 window.CRM.dataListTable.ajax.reload(function (json) {
-                                    render_container();
-                                    ev.startPropagation();
+                                    window.CRM.closeDialogLoadingFunction();
                                 }, false);
                             });
                         }
@@ -576,8 +572,9 @@ $(document).ready(function () {
                         data: JSON.stringify({"list_id": listID, "tag_ID": tagID})
                     }, function (data) {
                         window.CRM.dataListTable.ajax.reload(function () {
-                            render_container();
-                            //addTagsToMainDropdown();
+                            window.CRM.closeDialogLoadingFunction();
+                            $("#dropdown-item-add-"+tagID).remove();
+                            $("#delete-tag-tr-"+tagID).remove();
                         }, false);
                     });
                 }
