@@ -1,11 +1,40 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 14:30+0000\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 #: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:52
 msgid "Connected Users"
-msgstr ""
+msgstr "Tilkoblede brukere"
 
 #: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:63
 msgid "user is connected"
-msgstr ""
+msgstr "brukeren er tilkoblet"
 
 #: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:63
 msgid "users are connected"
-msgstr ""
+msgstr "brukerne er tilkoblet"
+
+#~ msgid "Latest Families"
+#~ msgstr "Siste familier"
+
+#~ msgid "Updated Families"
+#~ msgstr "Oppdaterte familier"
+
+#~ msgid "Family Name"
+#~ msgstr "Etternavn"
+
+#~ msgid "Address"
+#~ msgstr "Adresse"
+
+#~ msgid "Created"
+#~ msgstr "Opprettet"
+
+#~ msgid "Updated"
+#~ msgstr "Oppdatert"

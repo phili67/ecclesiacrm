@@ -1,35 +1,46 @@
-msgid "Remove"
+msgid ""
 msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22T14:30:50.889Z\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Remove"
+msgstr "Fjern"
 
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 msgid "News Editor"
-msgstr ""
+msgstr "Nyhetsredaktør"
 
 msgid "News Title"
-msgstr ""
+msgstr "Nyhetstittel"
 
 msgid "Set your News title"
-msgstr ""
+msgstr "Angi nyhetstittel"
 
 msgid "Choose your News Type"
-msgstr ""
+msgstr "Velg nyhetstype"
 
 msgid "Infos"
-msgstr ""
+msgstr "Informasjon"
 
 msgid "To plan"
-msgstr ""
+msgstr "For å planlegge"
 
 msgid "To note"
-msgstr ""
+msgstr "Å merke seg"
 
 msgid "Important"
-msgstr ""
+msgstr "Viktig"
 
 msgid "Very important"
-msgstr ""
+msgstr "Svært viktig"
 
 msgid "You have to set a Title for your news"
-msgstr ""
+msgstr "Du må angi en tittel for nyheten din"

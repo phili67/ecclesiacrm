@@ -1,32 +1,43 @@
-msgid "List name"
+msgid ""
 msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22T14:30:51.899Z\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "List name"
+msgstr "Navn på listen"
 
 msgid "Create a list"
-msgstr ""
+msgstr "Opprett en liste"
 
 msgid "Edit list"
-msgstr ""
+msgstr "Rediger liste"
 
 msgid "You're about to delete your list?"
-msgstr ""
+msgstr "Skal du slette listen din?"
 
 msgid "This can't be undone."
-msgstr ""
+msgstr "Dette kan ikke gjøres ugjort."
 
 msgid "Item name"
-msgstr ""
+msgstr "Varenavn"
 
 msgid "Date"
-msgstr ""
+msgstr "Dato"
 
 msgid "Create a list item"
-msgstr ""
+msgstr "Opprett et listeelement"
 
 msgid "Edit list item"
-msgstr ""
+msgstr "Rediger listeelement"
 
 msgid "Delete item?"
-msgstr ""
+msgstr "Slett element?"
 
 msgid "You're about to delete an item."
-msgstr ""
+msgstr "Du er i ferd med å slette et element."

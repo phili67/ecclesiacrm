@@ -32,10 +32,10 @@ msgid "You're about to delete all of your rooms."
 msgstr "Dere skal slette alle rommene deres."
 
 msgid "Settings"
-msgstr ""
+msgstr "Innstillinger"
 
 msgid "Saved"
-msgstr ""
+msgstr "Lagret"
 
 #~ msgid "Cancel"
 #~ msgstr "Avlys"

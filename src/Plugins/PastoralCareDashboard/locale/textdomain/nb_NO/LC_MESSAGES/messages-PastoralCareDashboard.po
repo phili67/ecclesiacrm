@@ -1,76 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 14:30+0000\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:67
 msgid "Pastoral Care"
-msgstr ""
+msgstr "Sjelesorg"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:84
 msgid "Latest"
-msgstr ""
+msgstr "Siste"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:84
 msgid "Individual Pastoral Care"
-msgstr ""
+msgstr "Individuell sjelesorg"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:130
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:186
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:140
 msgid "Last"
-msgstr ""
+msgstr "Siste"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:140
 msgid "Family Pastoral Care"
-msgstr ""
+msgstr "Familiepastoral omsorg"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:160
 msgid "Family"
-msgstr ""
+msgstr "Familie"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:193
 msgid "Statistics"
-msgstr ""
+msgstr "Statistikk"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:194
 msgid "Period  from"
-msgstr ""
+msgstr "Periode fra"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:194
 msgid "to"
-msgstr ""
+msgstr "til"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:196
 msgid "Members"
-msgstr ""
+msgstr "Medlemmer"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:199
 msgid "Persons not reached"
-msgstr ""
+msgstr "Personer som ikke nås"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:203
 msgid "Families not reached"
-msgstr ""
+msgstr "Familier som ikke nås"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:207
 msgid "Single Persons not reached"
-msgstr ""
+msgstr "Enslige personer som ikke nås"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:211
 msgid "Retired Persons not reached"
-msgstr ""
+msgstr "Pensjonister som ikke er nådd"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:215
 msgid "Young People"
-msgstr ""
+msgstr "Unge mennesker"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:218
 msgid "Young People not reached"
-msgstr ""
+msgstr "Unge som ikke nås"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:224
 msgid "Visit/Call your church members"
-msgstr ""
+msgstr "Besøk/ring dine menighetsmedlemmer"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:225
 msgid "Manage Pastoral Care"
-msgstr ""
+msgstr "Administrere sjelesorg"
