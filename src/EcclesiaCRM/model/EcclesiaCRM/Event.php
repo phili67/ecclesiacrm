@@ -110,7 +110,7 @@ class Event extends BaseEvent
     {
         // we get the PDO for the Sabre connection from the Propel connection
         if ($this->_alarm == -1) {
-            $data = VObjectExtract::calendarData($this->getCalendardata());
+            $data = VObjectExtract::calendarData($this->getCalendardata(), $this->getStart()->format('Y-m-d'), $this->getEnd()->format('Y-m-d'));
             $this->_alarm = $data['alarm'];
             $this->_freqlastOccurence = $data['freqlastOccurence'];
             $this->_freq = $data['freq'];
