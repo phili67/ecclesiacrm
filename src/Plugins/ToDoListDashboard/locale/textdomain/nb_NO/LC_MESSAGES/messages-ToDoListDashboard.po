@@ -1,39 +1,50 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 14:30+0000\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 #: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:27
 msgid "min(s)"
-msgstr ""
+msgstr "min(er)"
 
 #: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:29
 msgid "hour(s)"
-msgstr ""
+msgstr "time(r)"
 
 #: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:31
 msgid "day(s)"
-msgstr ""
+msgstr "dag(er)"
 
 #: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:33
 msgid "week(s)"
-msgstr ""
+msgstr "uke(r)"
 
 #: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:35
 msgid "month(s)"
-msgstr ""
+msgstr "måned(er)"
 
 #: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:38
 msgid "To Do List"
-msgstr ""
+msgstr "Liste over gjøremål"
 
 #: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:67
 msgid "Edit Name of Current To Do List"
-msgstr ""
+msgstr "Rediger navn på gjeldende gjøremålsliste"
 
 #: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:71
 msgid "Remove Current To Do List"
-msgstr ""
+msgstr "Fjern nåværende gjøremålsliste"
 
 #: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:75
 msgid "Add a To Do List"
-msgstr ""
+msgstr "Legg til en huskeliste"
 
 #: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:124
 msgid "Add item"
-msgstr ""
+msgstr "Legg til element"

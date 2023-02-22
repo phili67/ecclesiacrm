@@ -1,13 +1,13 @@
 {
-    "List name": "",
-    "Create a list": "",
-    "Edit list": "",
-    "You're about to delete your list?": "",
-    "This can't be undone.": "",
-    "Item name": "",
-    "Date": "",
-    "Create a list item": "",
-    "Edit list item": "",
-    "Delete item?": "",
-    "You're about to delete an item.": ""
+    "List name": "Navn på listen",
+    "Create a list": "Opprett en liste",
+    "Edit list": "Rediger liste",
+    "You're about to delete your list?": "Skal du slette listen din?",
+    "This can't be undone.": "Dette kan ikke gjøres ugjort.",
+    "Item name": "Varenavn",
+    "Date": "Dato",
+    "Create a list item": "Opprett et listeelement",
+    "Edit list item": "Rediger listeelement",
+    "Delete item?": "Slett element?",
+    "You're about to delete an item.": "Du er i ferd med å slette et element."
 }
