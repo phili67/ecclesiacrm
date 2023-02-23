@@ -1,80 +1,80 @@
 INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (64, 'sDistanceUnit', 'kilometers'),
-(65, 'sTimeZone', 'Europe/Paris'),
-(100, 'sPhoneFormat', '99 99 99 99 99'),
-(101, 'sPhoneFormatWithExt', '99 99 99 99 99'),
-(102, 'sDateFormatLong', 'd/m/Y'),
-(103, 'sDateFormatNoYear', 'd/m'),
-(105, 'sDateTimeFormat', 'j/m/y G:i'),
-(109, 'sDatePickerPlaceHolder', 'dd/mm/yyyy'),
-(110, 'sDatePickerFormat', 'd/m/Y'),
-(111, 'sPhoneFormatCell', '99 99 99 99 99'),
+(65, 'sTimeZone', 'Europe/Kyiv'),
+(100, 'sPhoneFormat', '999 99 99'),
+(101, 'sPhoneFormatWithExt', '999 999 99 99'),
+(102, 'sDateFormatLong', 'd.m.Y'),
+(103, 'sDateFormatNoYear', 'd.m'),
+(105, 'sDateTimeFormat', 'j.m.y G:i'),
+(109, 'sDatePickerPlaceHolder', 'dd.mm.yyyy'),
+(110, 'sDatePickerFormat', 'd.m.Y'),
+(111, 'sPhoneFormatCell', '999 999 99 99'),
 (112, 'sTimeFormat', '%H:%M'),
-(1011, 'sTaxReport1', 'Cette lettre est un rappel de tous les dons pour'),
-(1012, 'sTaxReport2', 'Merci de nous avoir soutenu cette année. Nous avons grandement apprécié votre dévouement !'),
-(1013, 'sTaxReport3', 'Si vous avez des questions ou des modifications à apporter concernant le rapport, contactez votre église au numéro ci-dessus pendant les heures de travail, entre 9h00 et 17h00.'),
-(1015, 'sReminder1', 'Cette lettre est un récapitulatif des informations envoyés pour l\'année fiscale en cours'),
-(1019, 'sConfirm1', 'Cette lettre résume les informations qui sont enregistrées dans notre base de données. Relisez  soigneusement, corrigez les et retournez-nous ce formulaire ci nécessaire à notre église.'),
-(1020, 'sConfirm2', 'Merci pour nous avoir aidé à compléter ces informations. Si vous voulez des renseignements concernant la base de données.'),
-(1021, 'sConfirm3', 'Email _____________________________________ mot de passe ________________'),
-(1022, 'sConfirm4', '[  ] Je ne veux plus être associé à l\'église (coché ici pour être effacé de vos enregistrements).'),
-(1026, 'sPledgeSummary1', 'Résumé des promesses de dons et paiement pour cette année fiscale'),
-(1027, 'sPledgeSummary2', 'pour le'),
-(1028, 'sDirectoryDisclaimer1', 'Nous avons travaillé à rendre ces données aussi exactes que possible. Si vous constatez des erreurs ou des omissions, contactez nous. Cet annuaire est utilisé pour les personnes de'),
-(1029, 'sDirectoryDisclaimer2', ', et les informations contenus ne seront pas utilisées à des fins commerciales.'),
-(1031, 'sZeroGivers', 'Cette lettre résume les paiements de'),
-(1032, 'sZeroGivers2', 'Merci de nous aider à faire la différence. Nous apprécions grandement  votre participation !'),
-(1033, 'sZeroGivers3', 'Si vous avez des questions ou à apporter des corrections à ce rapport, contactez notre église au numéro ci-dessus pendant les heures de 9h00 à 12h00 du lundi au vendredi.'),
-(1048, 'sConfirmSincerely', 'A très bientôt'),
-(1049, 'sDear', 'Cher (Chère)'),
+(1011, 'sTaxReport1', 'Цей лист є нагадуванням про всі пожертви для'),
+(1012, 'sTaxReport2', 'Дякуємо, що підтримали нас цього року. Ми дуже цінуємо вашу відданість!'),
+(1013, 'sTaxReport3', "Якщо у вас є запитання або зміни до звіту, будь ласка, зв'яжіться з вашою церквою за вищевказаним номером у робочий час, з 9:00 до 17:00."),
+(1015, 'sReminder1', 'Цей лист є узагальненням інформації, надісланої за поточний фінансовий рік'),
+(1019, 'sConfirm1', 'Цей лист узагальнює інформацію, яка міститься в нашій базі даних. Будь ласка, уважно вичитайте його, виправте і поверніть нашій церкві.'),
+(1020, 'sConfirm2', 'Дякуємо, що допомогли нам заповнити цю інформацію. Якщо вам потрібна інформація про базу даних.'),
+(1021, 'sConfirm3', 'Електронна пошта _____________________________________ пароль ________________'),
+(1022, 'sConfirm4', "[  ] Я більше не бажаю бути пов'язаним з церквою (поставте тут галочку, щоб бути видаленим з ваших записів)."),
+(1026, 'sPledgeSummary1', "Підсумки зобов'язань та виплат за цей фінансовий рік"),
+(1027, 'sPledgeSummary2', 'для'),
+(1028, 'sDirectoryDisclaimer1', "Ми працювали над тим, щоб зробити цю інформацію якомога точнішою. Якщо ви знайшли якісь помилки або пропуски, будь ласка, зв'яжіться з нами. Цим довідником користуються люди з"),
+(1029, 'sDirectoryDisclaimer2', ', а інформація, що міститься в ньому, не буде використана в комерційних цілях.'),
+(1031, 'sZeroGivers', 'У цьому листі підбито підсумки виплат'),
+(1032, 'sZeroGivers2', 'Дякуємо, що допомагаєте нам змінювати світ на краще. Ми дуже цінуємо вашу участь!'),
+(1033, 'sZeroGivers3',"Якщо у вас виникли питання або ви хочете внести виправлення до цього звіту, будь ласка, зв'яжіться з нашою церквою за вказаним вище номером з 9:00 до 12:00 з понеділка по п'ятницю."),
+(1048, 'sConfirmSincerely', 'До зустрічі.'),
+(1049, 'sDear', 'Шановний)'),
 (1051, 'bTimeEnglish', ''),
 (2050, 'bStateUnusefull', '1'),
-(2051, 'sCurrency', '€'),
-(2052, 'sUnsubscribeStart', 'Si vous ne voulez plus recevoir ces emails de'),
-(2053, 'sUnsubscribeEnd', 'dans le futur, contactez les administrateurs de l\'église'),
-(1017, 'sReminderNoPledge', 'Dons: Nous n\'avons aucun enregistrement de dons de votre part pour cette année fiscale.'),
-(1018, 'sReminderNoPayments', 'Paiements : Nous n\'avons aucun enregistrement de votre part pour cette année fiscale.')
+(2051, 'sCurrency', '₴'),
+(2052, 'sUnsubscribeStart', 'Якщо ви не бажаєте отримувати ці листи від'),
+(2053, 'sUnsubscribeEnd', 'в подальшому звертайтеся до адміністраторів церкви'),
+(1017, 'sReminderNoPledge', 'Пожертви: У нас немає записів про будь-які пожертви від вас за цей фінансовий рік.'),
+(1018, 'sReminderNoPayments', 'Платежі: У нас немає записів про будь-які платежі від вас за цей фінансовий рік.')
 ON DUPLICATE KEY UPDATE cfg_name=VALUES(cfg_name),cfg_value=VALUES(cfg_value);
 
 
 INSERT INTO `donationfund_fun` (`fun_ID`, `fun_Active`, `fun_Name`, `fun_Description`) VALUES
-  (1, 'true', 'Dîme', 'entrée d\'argent pour pour le budget.')
+  (1, 'true', 'Десятина.', 'гроші до бюджету.')
 ON DUPLICATE KEY UPDATE fun_Active=VALUES(fun_Active),fun_Name=VALUES(fun_Name),fun_Description=VALUES(fun_Description);
 
 INSERT INTO `event_types` (`type_id`, `type_name`) VALUES
-  (1, 'Service d\'église'),
-  (2, 'Ecole du dimanche')
+  (1, 'Церковна служба'),
+  (2, 'Недільна школа')
 ON DUPLICATE KEY UPDATE type_name=VALUES(type_name);
 
 INSERT INTO `eventcountnames_evctnm` (`evctnm_countid`, `evctnm_eventtypeid`, `evctnm_countname`, `evctnm_notes`) VALUES
-  (1, 1, 'Total', ''),
-  (2, 1, 'Membres', ''),
-  (3, 1, 'Visiteurs', ''),
-  (4, 2, 'Total', ''),
-  (5, 2, 'Membres', ''),
-  (6, 2, 'Visiteurs', '')
+  (1, 1, 'Всього', ''),
+  (2, 1, 'Члени', ''),
+  (3, 1, 'Відвідувачі', ''),
+  (4, 2, 'Всього', ''),
+  (5, 2, 'Члени', ''),
+  (6, 2, 'Відвідувачі', '')
 ON DUPLICATE KEY UPDATE evctnm_countname=VALUES(evctnm_countname),evctnm_notes=VALUES(evctnm_notes);
 
 DELETE FROM list_lst;
 
 INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Type`, `lst_OptionName`) VALUES
-  (1, 1, 1, 'normal', 'Responsable'),
-  (1, 2, 2, 'normal', 'Membre'),
-  (1, 3, 3, 'normal', 'Participant régulier'),
-  (1, 4, 4, 'normal', 'Invité'),
-  (1, 5, 5, 'normal', 'Non participant'),
-  (1, 6, 6, 'normal', 'Non participant (staff)'),
-  (1, 7, 7, 'normal', 'Décédé'),
-  (2, 1, 1, 'normal', 'Représentant famille'),
-  (2, 2, 2, 'normal', 'Conjoint(e)'),
-  (2, 3, 3, 'normal', 'Enfant'),
-  (2, 4, 4, 'normal', 'Autre membre de la famille'),
-  (2, 5, 5, 'normal', 'N\'est pas membre de la famille'),
-  (3, 1, 1, 'normal', 'Ministère'),
-  (3, 2, 2, 'normal', 'Equipe'),
-  (3, 3, 3, 'normal', 'Etude de la bible'),
-  (3, 4, 1, 'sunday_school', 'Groupe 1'),
-  (3, 5, 2, 'sunday_school', 'Groupe 2'),
+  (1, 1, 1, 'normal', 'Відповідає за'),
+  (1, 2, 2, 'normal', 'Учасник'),
+  (1, 3, 3, 'normal', 'Постійний учасник'),
+  (1, 4, 4, 'normal', 'Гість'),
+  (1, 5, 5, 'normal', 'Не беруть участь'),
+  (1, 6, 6, 'normal', 'Неучасники (команда)'),
+  (1, 7, 7, 'normal', 'Померла.'),
+  (2, 1, 1, 'normal', "Представник сім'ї"),
+  (2, 2, 2, 'normal', 'Чоловік'),
+  (2, 3, 3, 'normal', 'Дитинко.'),
+  (2, 4, 4, 'normal', "Інший член сім'ї"),
+  (2, 5, 5, 'normal', "Не є членом сім'ї"),
+  (3, 1, 1, 'normal', 'Міністерство'),
+  (3, 2, 2, 'normal', 'Команда'),
+  (3, 3, 3, 'normal', 'Вивчення Біблії'),
+  (3, 4, 1, 'sunday_school', 'Група 1'),
+  (3, 5, 2, 'sunday_school', 'Група 2'),
   (4, 1, 1, 'normal', 'True / False'),
   (4, 2, 2, 'normal', 'Date'),
   (4, 3, 3, 'normal', 'Text Field (50 char)'),
@@ -106,24 +106,24 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Typ
 ON DUPLICATE KEY UPDATE lst_OptionName=VALUES(lst_OptionName);
 
 INSERT INTO `propertytype_prt` (`prt_ID`, `prt_Class`, `prt_Name`, `prt_Description`) VALUES
-  (1, 'p', 'Personne', 'Propriétés générales de personnes'),
-  (2, 'f', 'Famille', 'Propriétés générales de familles'),
-  (3, 'g', 'Groupe', 'Propriétés générales de groupes'),
-  (4, 'm', 'Menu', 'Pour personnaliser le menu école du dimanche.')
+  (1, 'p', 'Людина', 'Загальні властивості осіб'),
+  (2, 'f', "Сім'я", 'Загальні властивості сімейств'),
+  (3, 'g', 'Група', 'Загальні властивості групи'),
+  (4, 'm', 'Меню', 'Персоналізувати меню недільної школи.')
 ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Description);
 
 INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`, `pro_Comment`) VALUES
-  (1, 'p', 1, 'Désactivé', 'A une invalidité.', 'Quelle en est sa nature ?',''),
-  (2, 'f', 2, 'Parent isolé', 'est un ménage monoparental.', '',''),
-  (3, 'g', 3, 'Jeune', 'est motivé pour travailler dans la jeunesse.', '','')
+  (1, 'p', 1, 'Вимкнено', 'Інвалідність.', 'Яка його природа?',''),
+  (2, 'f', 2, "Одинокий батько', 'є неповною сім'єю з одним із батьків.", '',''),
+  (3, 'g', 3, 'Молодий', 'має мотивацію працювати в молодіжній роботі.', '','')
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
-(1, 'Utilisateur Administrateur'),
-(2, 'Utilisateur Minimum'),
-(3, 'Utilisateur Max mais non Admin'),
-(4, 'Utilisateur Max mais non DPO et non Suivi pastoral'),
-(5, 'Utilisateur DPO')
+(1, 'Користувач Адміністратор'),
+(2, 'Мінімальний користувач'),
+(3, 'Користувач Max, але не Admin'),
+(4, 'Максимальний користувач, але не DPO і не душпастирська опіка'),
+(5, 'Користувач DPO')
 ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 
 --
@@ -131,12 +131,12 @@ ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 --
 
 INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`, `pst_cr_tp_comment`) VALUES
-(1, 'Note pastorale classique', '', 1, ''),
-(2, 'Pourquoi êtes-vous venu à l\'église', '', 1, ''),
-(3, 'Pourquoi continuez-vous de venir ?', '', 1, ''),
-(4, 'Avez-vous une requêtes à nous faire ?', '', 1, ''),
-(5, 'Comment avez-vous entendu parler de l\'église ?', '', 1, ''),
-(6, 'Baptême', 'Formation', 0, ''),
-(7, 'Mariage', 'Formation', 0, ''),
-(8, 'Relation d\'aide', 'Thérapie et suivi', 0, '')
+(1, 'Класична пасторальна нотатка', '', 1, ''),
+(2, 'Чому ви прийшли до церкви?', '', 1, ''),
+(3, 'Чому ви продовжуєте приходити?', '', 1, ''),
+(4, 'У вас є запит до нас?', '', 1, ''),
+(5, 'Як ви дізналися про церкву?', '', 1, ''),
+(6, 'Хрещення', 'Навчання', 0, ''),
+(7, 'Весілля', 'Навчання', 0, ''),
+(8, 'Допомагаючи стосункам', 'Терапія та подальше спостереження', 0, '')
 ON DUPLICATE KEY UPDATE pst_cr_tp_title=VALUES(pst_cr_tp_title),pst_cr_tp_desc=VALUES(pst_cr_tp_desc),pst_cr_tp_visible=VALUES(pst_cr_tp_visible);
