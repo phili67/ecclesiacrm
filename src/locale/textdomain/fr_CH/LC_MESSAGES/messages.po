@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 08:21+0000\n"
+"POT-Creation-Date: 2023-02-23 17:26+0000\n"
 "Language: fr_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1617,8 +1617,8 @@ msgstr "Créer un annuaire"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:619
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:689
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:709
-#: EcclesiaCRM/Service/CalendarService.php:1100
-#: EcclesiaCRM/Service/CalendarService.php:1126
+#: EcclesiaCRM/Service/CalendarService.php:1102
+#: EcclesiaCRM/Service/CalendarService.php:1128
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr ""
 "Deux réservations de ressources ne peuvent pas se trouver dans le même "
@@ -1651,7 +1651,6 @@ msgid "Video"
 msgstr "Vidéo"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:222
-#: EcclesiaCRM/Service/CalendarService.php:677
 msgid "Share"
 msgstr "Partager"
 
@@ -2019,7 +2018,7 @@ msgstr "Oui"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:173
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Service/CalendarService.php:271
-#: EcclesiaCRM/Service/CalendarService.php:529
+#: EcclesiaCRM/Service/CalendarService.php:531
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:499
@@ -2180,7 +2179,6 @@ msgstr "Gestionnaire des types de groupe"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:674
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:102 OptionManager.php:133
@@ -2953,7 +2951,7 @@ msgstr "Adresses"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84
-#: EcclesiaCRM/Service/CalendarService.php:506 ElectronicPaymentList.php:215
+#: EcclesiaCRM/Service/CalendarService.php:508 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:258 EventNames.php:349 FamilyView.php:283
 #: PersonView.php:527 v2/templates/pastoralcare/pastoralcareperson.php:166
 msgid "Edit"
@@ -3151,7 +3149,7 @@ msgstr "Evénement"
 msgid "Anniversary"
 msgstr "Anniversaire de mariage"
 
-#: EcclesiaCRM/Service/CalendarService.php:509 ElectronicPaymentList.php:216
+#: EcclesiaCRM/Service/CalendarService.php:511 ElectronicPaymentList.php:216
 #: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
 #: EventNames.php:355 FamilyView.php:1096 FindDepositSlip.php:131
 #: PersonView.php:1905 PersonView.php:1997 ident/routes/verify.php:728
@@ -3169,58 +3167,53 @@ msgstr "Anniversaire de mariage"
 msgid "Delete"
 msgstr "Supprimer"
 
-#: EcclesiaCRM/Service/CalendarService.php:512
+#: EcclesiaCRM/Service/CalendarService.php:514
 msgid "Info"
 msgstr "Info"
 
-#: EcclesiaCRM/Service/CalendarService.php:544
+#: EcclesiaCRM/Service/CalendarService.php:546
 msgid "Check-in"
 msgstr "Vérification à l'arrivée"
 
-#: EcclesiaCRM/Service/CalendarService.php:545
+#: EcclesiaCRM/Service/CalendarService.php:547
 msgid "Check-out"
 msgstr "Vérification à la sortie"
 
-#: EcclesiaCRM/Service/CalendarService.php:546
+#: EcclesiaCRM/Service/CalendarService.php:548
 msgid "Rest"
 msgstr "Différence"
 
-#: EcclesiaCRM/Service/CalendarService.php:567
-#: EcclesiaCRM/Service/CalendarService.php:600
+#: EcclesiaCRM/Service/CalendarService.php:569
+#: EcclesiaCRM/Service/CalendarService.php:602
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "Les participants"
 
-#: EcclesiaCRM/Service/CalendarService.php:578
-#: EcclesiaCRM/Service/CalendarService.php:579
-#: EcclesiaCRM/Service/CalendarService.php:582
-#: EcclesiaCRM/Service/CalendarService.php:583
+#: EcclesiaCRM/Service/CalendarService.php:580
+#: EcclesiaCRM/Service/CalendarService.php:581
+#: EcclesiaCRM/Service/CalendarService.php:584
+#: EcclesiaCRM/Service/CalendarService.php:585
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "Appel à valider"
 
-#: EcclesiaCRM/Service/CalendarService.php:579
-#: EcclesiaCRM/Service/CalendarService.php:583
+#: EcclesiaCRM/Service/CalendarService.php:581
+#: EcclesiaCRM/Service/CalendarService.php:585
 msgid "Check-out done"
 msgstr "Appel validé"
 
-#: EcclesiaCRM/Service/CalendarService.php:626
+#: EcclesiaCRM/Service/CalendarService.php:628
 msgid "No Attendance Recorded"
 msgstr "Aucune participation enregistrée"
 
-#: EcclesiaCRM/Service/CalendarService.php:640
+#: EcclesiaCRM/Service/CalendarService.php:642
 msgid "login"
 msgstr "Connexion"
 
-#: EcclesiaCRM/Service/CalendarService.php:671
-#: v2/templates/calendar/eventslist.php:44
-msgid "Personal Calendar"
-msgstr "Calendrier personnel"
-
-#: EcclesiaCRM/Service/CalendarService.php:828
-#: EcclesiaCRM/Service/CalendarService.php:1155
+#: EcclesiaCRM/Service/CalendarService.php:830
+#: EcclesiaCRM/Service/CalendarService.php:1157
 #: EcclesiaCRM/dto/SystemConfig.php:47
 msgid "NONE"
 msgstr "AUCUN(E)"
@@ -10349,6 +10342,10 @@ msgstr "Supprimer tous les participants"
 #: v2/templates/calendar/eventslist.php:37
 msgid "Select Event Types To Display"
 msgstr "Sélectionner les types d&#39;événements à afficher"
+
+#: v2/templates/calendar/eventslist.php:44
+msgid "Personal Calendar"
+msgstr "Calendrier personnel"
 
 #: v2/templates/calendar/eventslist.php:55
 msgid "Display Events in Month"
