@@ -22,8 +22,7 @@ use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Emails\CalendarEmail;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\PrincipalsQuery;
-
+use EcclesiaCRM\Utils\MiscUtils;
 
 use Sabre\CalDAV;
 use Sabre\DAV;
@@ -187,12 +186,12 @@ class CalendarV2Controller
                         break;
                 }
 
-                $typeSup = ucfirst($typeSup);
+                $typeSup = MiscUtils::mb_ucfirst($typeSup);
 
                 if ($typeSup != "") {
                     $calendarType = $typeSup;
                 } else {
-                    $calendarType = _(ucfirst($values['type']));
+                    $calendarType = _(MiscUtils::mb_ucfirst($values['type']));
                 }
 
                 $values['calendarNameForEventEditor']       = "(".$calendarType.") : ".$calendar['{DAV:}displayname'];

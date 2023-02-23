@@ -35,6 +35,7 @@ use EcclesiaCRM\EventCounts;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use http\Client\Curl\User;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
@@ -485,7 +486,7 @@ class CalendarService
         $event['month'] = (int)explode('-', $start)[1];
 
         $datefmt = new \IntlDateFormatter(SystemConfig::getValue('sLanguage'), NULL, NULL, NULL, NULL, 'MMMM');
-        $event['month_name'] = ucfirst($datefmt->format(\DateTime::createFromFormat('!m', $event['month'])));
+        $event['month_name'] = MiscUtils::mb_ucfirst($datefmt->format(\DateTime::createFromFormat('!m', $event['month'])));
 
 
 
