@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "true"
+
+msgid "false"
+msgstr "false"
+
+msgid "pm"
+msgstr "오후"
+
+msgid "am"
+msgstr "오전"
+
+msgid "Teachers"
+msgstr "교사"
+
+msgid "Students"
+msgstr "학생"
+
+msgid "Teacher"
+msgstr "교사"
+
+msgid "Student"
+msgstr "학생"
+
+msgid "Parents"
+msgstr "부모"
+
+msgid "Kids"
+msgstr "어린이"
+
+msgid "create"
+msgstr "create"
+
+msgid "edit"
+msgstr "편집"
+
+msgid "photo"
+msgstr "사진"
+
+msgid "group"
+msgstr "그룹"
+
+msgid "Group"
+msgstr "그룹"
+
+msgid "note"
+msgstr "참고"
+
+msgid "You have to set a Title for your event"
+msgstr "이벤트 제목을 설정해야 합니다."
+
+msgid "This event isn't modifiable !!!"
+msgstr "이 이벤트는 수정할 수 없습니다 !!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"이벤트를 추가하려면 먼저 캘린더를 만들거나 캘린더를 "
+"활성화해야 합니다."
+
+msgid "Event added"
+msgstr "이벤트 추가"
+
+msgid "Event was added successfully."
+msgstr "이벤트가 성공적으로 추가되었습니다."
+
+msgid "Electronic Transaction Details"
+msgstr "전자 거래 세부 정보"
+
+msgid "Daily"
+msgstr "매일"
+
+msgid "Weekly"
+msgstr "주간"
+
+msgid "Monthly"
+msgstr "월간"
+
+msgid "Quarterly"
+msgstr "분기별"
+
+msgid "Once"
+msgstr "한 번"
+
+msgid "Other"
+msgstr "기타"
+
+msgid "CREDITCARD"
+msgstr "신용카드"
+
+msgid "CASH"
+msgstr "현금"
+
+msgid "Bank"
+msgstr "은행"
+
+msgid "CreditCard"
+msgstr "신용 카드"
+
+msgid "BankDraft"
+msgstr "은행환어음"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"일부 가족은 '세대주' 역할 이름이 정의되어 있지 않거나 이 "
+"가족에 활성화된 구성원이 없습니다:"
+
+msgid "send"
+msgstr "보내기"
+
+msgid "save"
+msgstr "저장"
+
+msgid "subscribed"
+msgstr "구독"
+
+msgid "unsubscribed"
+msgstr "구독 취소"
+
+msgid "sent"
+msgstr "보낸"
+
+msgid "schedule"
+msgstr "일정"
+
+msgid "paused"
+msgstr "일시 중지됨"
+
+msgid "cleaned"
+msgstr "청소 완료"
+
+msgid "pending"
+msgstr "보류 중"
+
+msgid "Invalid date"
+msgstr "유효하지 않은 날짜"

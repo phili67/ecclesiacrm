@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 19:54+0000\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:23
+msgid "Latest Families"
+msgstr "최신 제품군"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:32
+msgid "Updated Families"
+msgstr "업데이트된 제품군"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:54
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:70
+msgid "Family Name"
+msgstr "가족 이름"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:55
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:71
+msgid "Address"
+msgstr "주소"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:56
+msgid "Created"
+msgstr "생성됨"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:72
+msgid "Updated"
+msgstr "업데이트됨"

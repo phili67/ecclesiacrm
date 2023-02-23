@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22T20:09:00.882Z\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Remove"
+msgstr "제거"
+
+msgid "Edit"
+msgstr "편집"
+
+msgid "News Editor"
+msgstr "뉴스 편집기"
+
+msgid "News Title"
+msgstr "뉴스 제목"
+
+msgid "Set your News title"
+msgstr "뉴스 제목 설정"
+
+msgid "Choose your News Type"
+msgstr "뉴스 유형 선택"
+
+msgid "Infos"
+msgstr "정보"
+
+msgid "To plan"
+msgstr "계획하려면"
+
+msgid "To note"
+msgstr "참고 사항"
+
+msgid "Important"
+msgstr "중요"
+
+msgid "Very important"
+msgstr "매우 중요"
+
+msgid "You have to set a Title for your news"
+msgstr "뉴스 제목을 설정해야 합니다."

@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 20:19+0000\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:20
+msgid "Latest Members"
+msgstr "최신 회원"
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:27
+msgid "Updated Members"
+msgstr "업데이트된 멤버"
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:49
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:64
+msgid "Name"
+msgstr "이름"
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:50
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:65
+msgid "Address"
+msgstr "주소"
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:51
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:66
+msgid "Updated"
+msgstr "업데이트됨"

@@ -1,0 +1,2504 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Are you sure, you want to delete this image ?"
+msgstr "정말 이 이미지를 삭제하시겠습니까?"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr ""
+"모든 그룹 구성원의 전화번호를 복사하려면 CTRL + C를 "
+"누릅니다."
+
+msgid "Name"
+msgstr "이름"
+
+msgid "Address"
+msgstr "주소"
+
+msgid "Email"
+msgstr "이메일"
+
+msgid "Remove"
+msgstr "제거"
+
+msgid "Classification"
+msgstr "분류"
+
+msgid "Family Role"
+msgstr "가족 역할"
+
+msgid "You have no more items in your cart."
+msgstr "장바구니에 더 이상 품목이 없습니다."
+
+msgid "Compose New Message"
+msgstr "새 메시지 작성"
+
+msgid "Subject:"
+msgstr "제목:"
+
+msgid "Close"
+msgstr "닫기"
+
+msgid "Send"
+msgstr "보내기"
+
+msgid "Error making API Call to"
+msgstr "API 호출에 오류가 발생했습니다."
+
+msgid "Error text"
+msgstr "오류 텍스트"
+
+msgid "Stack Trace"
+msgstr "스택 추적"
+
+msgid "ERROR"
+msgstr "오류"
+
+msgid "Mailchimp"
+msgstr "메일침프"
+
+msgid ""
+"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage "
+"them, click this notification !</b>"
+msgstr ""
+"이제 모든 목록이 Ecclesia<b>CRM</b>에 로드됩니다.<br><b>목록을 "
+"관리하려면 이 알림을 클릭하세요!</b>"
+
+msgid "There was a problem retrieving the requested object"
+msgstr "요청된 개체를 검색하는 데 문제가 있습니다."
+
+msgid "None"
+msgstr "없음"
+
+msgid "Select the method to add to a group"
+msgstr "그룹에 추가할 방법을 선택합니다."
+
+msgid "Select an existing Group"
+msgstr "기존 그룹 선택"
+
+msgid "or Create a new Group from the Cart"
+msgstr "또는 카트에서 새 그룹 만들기"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "카트를 추가할 그룹을 선택합니다."
+
+msgid "Select Group"
+msgstr "그룹 선택"
+
+msgid "Select Role"
+msgstr "역할 선택"
+
+msgid "Group Name"
+msgstr "그룹 이름"
+
+msgid "Default Name Group"
+msgstr "기본 이름 그룹"
+
+msgid "Add Cart to Group"
+msgstr "그룹에 카트 추가"
+
+msgid "Save"
+msgstr "저장"
+
+msgid "Error"
+msgstr "오류"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "원하는 경우 하나의 그룹과 그룹 역할을 선택해야 합니다."
+
+msgid "You have to set a Group Name"
+msgstr "그룹 이름을 설정해야 합니다."
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "정말 그 사람을 비활성화하시겠습니까?"
+
+msgid "This action can be undone !!!!"
+msgstr "이 작업은 취소할 수 있습니다 !!!!"
+
+msgid "No"
+msgstr "아니요"
+
+msgid "Yes : if you're sure"
+msgstr "예 : 확실하다면"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "CRM에서 해당 사람을 정말로 삭제하시겠습니까?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "이 작업은 취소할 수 없습니다 !!!!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "장바구니를 추가할 이벤트를 선택하세요."
+
+msgid "Create First A New Event"
+msgstr "먼저 새 이벤트 만들기"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Add to Event"
+msgstr "이벤트에 추가"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"아래에서 선택한 이벤트에 카트의 콘텐츠를 추가할 수 "
+"있습니다<br> - 또는 - <br>이벤트를 먼저 생성하고 나중에 "
+"추가합니다."
+
+msgid "Register"
+msgstr "등록하기"
+
+msgid "Register your software to EcclesiaCRM team."
+msgstr "에클레시아CRM 팀에 소프트웨어를 등록하세요."
+
+msgid "Simply click this"
+msgstr "여기를 클릭하기만 하면 됩니다."
+
+msgid "to register your software"
+msgstr "소프트웨어를 등록하려면"
+
+msgid "New Release"
+msgstr "새 릴리스"
+
+msgid "Installed version"
+msgstr "설치 버전"
+
+msgid "New One"
+msgstr "새로운 것"
+
+msgid "To upgrade simply click this Notification"
+msgstr "업그레이드하려면 이 알림을 클릭하기만 하면 됩니다."
+
+msgid "View Cart"
+msgstr "장바구니 보기"
+
+msgid "Empty Cart"
+msgstr "빈 카트"
+
+msgid "Empty Cart to Group"
+msgstr "그룹으로 카트 비우기"
+
+msgid "Empty Cart to Family"
+msgstr "가족에게 빈 카트 보내기"
+
+msgid "Empty Cart to Event"
+msgstr "이벤트에 빈 장바구니"
+
+msgid "Map Cart"
+msgstr "지도 카트"
+
+msgid "Deactivate Persons From Cart"
+msgstr "카트에서 사람 비활성화"
+
+msgid "Delete Persons From the CRM"
+msgstr "CRM에서 사람 삭제"
+
+msgid "View all"
+msgstr "모두 보기"
+
+msgid "Your Cart is Empty"
+msgstr "장바구니가 비어 있습니다."
+
+msgid "If you need to make changes to registration data, go to "
+msgstr "등록 데이터를 변경해야 하는 경우 다음 주소로 이동합니다."
+
+msgid "Admin->Edit General Settings"
+msgstr "관리자->일반 설정 편집"
+
+msgid ""
+"Please register your copy of EcclesiaCRM by checking over this information and "
+"pressing the Send button."
+msgstr ""
+"이 정보를 확인하고 보내기 버튼을 눌러 에클레시아CRM "
+"사본을 등록하세요."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"이 정보는 이 소프트웨어의 사용을 추적하기 위해서만 "
+"사용됩니다."
+
+msgid "Church Name"
+msgstr "교회 이름"
+
+msgid "Version"
+msgstr "버전"
+
+msgid "City"
+msgstr "도시"
+
+msgid "State"
+msgstr "상태"
+
+msgid "Zip"
+msgstr "Zip"
+
+msgid "Country"
+msgstr "국가"
+
+msgid "Church Email"
+msgstr "교회 이메일"
+
+msgid "Base URL"
+msgstr "기본 URL"
+
+msgid "Message"
+msgstr "메시지"
+
+msgid "Software Registration"
+msgstr "소프트웨어 등록"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "이제 소프트웨어가 등록되었습니다. 감사합니다!"
+
+msgid "OK"
+msgstr "확인"
+
+msgid "Please select target group for members"
+msgstr "회원 대상 그룹을 선택하세요."
+
+msgid "Please select target Role for members"
+msgstr "회원의 대상 역할을 선택하세요."
+
+msgid "GroupID required for role selection prompt"
+msgstr "역할 선택 프롬프트에 필요한 GroupID"
+
+msgid "Select Group and Role"
+msgstr "그룹 및 역할 선택"
+
+msgid "Add A Group Name"
+msgstr "그룹 이름 추가"
+
+msgid "Yes"
+msgstr "예"
+
+msgid "Calendar Event"
+msgstr "캘린더 이벤트"
+
+msgid "Attendees Checked In"
+msgstr "참석자 체크인"
+
+msgid "More info"
+msgstr "자세한 정보"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"경고! 기존 데이터베이스에 추가하려는 경우 이 옵션을 "
+"선택하지 마세요.<br/>."
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will be "
+"destroyed!"
+msgstr ""
+"초기 가져오기에 만족하지 않는 경우에만 사용하십시오. "
+"모든 개인 및 회원 데이터는 파기됩니다!"
+
+msgid "I Understand"
+msgstr "이해합니다"
+
+msgid "Clear Persons and Families"
+msgstr "개인 및 가족 지우기"
+
+msgid "Data Cleared Successfully!"
+msgstr "데이터 지우기에 성공했습니다!"
+
+msgid "success"
+msgstr "성공"
+
+msgid "Duplicate values"
+msgstr "중복 값"
+
+msgid "You've selected two times the same name"
+msgstr "동일한 이름을 두 번 선택했습니다."
+
+msgid "for this field. Chose another one."
+msgstr "을 선택합니다. 다른 것을 선택합니다."
+
+msgid "Remove Plugin"
+msgstr "플러그인 제거"
+
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "대시보드에서 플러그인을 제거하려고 합니다 !!!"
+
+msgid "Confirm"
+msgstr "확인"
+
+msgid "Dashboard Item"
+msgstr "대시보드 항목"
+
+msgid "Removed from your dashboard !"
+msgstr "대시보드에서 제거되었습니다!"
+
+msgid "Please confirm deletion of this document"
+msgstr "이 문서의 삭제를 확인해 주세요."
+
+msgid "Document Delete Confirmation"
+msgstr "문서 삭제 확인"
+
+msgid "Document Editor"
+msgstr "문서 편집기"
+
+msgid "Document Title"
+msgstr "문서 제목"
+
+msgid "Set your Document title"
+msgstr "문서 제목 설정"
+
+msgid "Choose your Document Type"
+msgstr "문서 유형 선택"
+
+msgid "document"
+msgstr "문서"
+
+msgid "video"
+msgstr "비디오"
+
+msgid "audio"
+msgstr "오디오"
+
+msgid "Private"
+msgstr "비공개"
+
+msgid "You have to set a Title for your document"
+msgstr "문서의 제목을 설정해야 합니다."
+
+msgid "Icon"
+msgstr "아이콘"
+
+msgid "Actions"
+msgstr "작업"
+
+msgid "Modification Date"
+msgstr "수정 날짜"
+
+msgid "Type"
+msgstr "유형"
+
+msgid "Size"
+msgstr "크기"
+
+msgid "Set a File/Folder name"
+msgstr "파일/폴더 이름 설정"
+
+msgid "You are about to delete several items together"
+msgstr "여러 항목을 함께 삭제하려고 합니다."
+
+msgid "You're about to remove an item"
+msgstr "항목을 제거하려고 합니다."
+
+msgid "This can't be undone !!!!"
+msgstr "취소할 수 없습니다 !!!!"
+
+msgid "Delete"
+msgstr "삭제"
+
+msgid "You've to select at least one line !!!"
+msgstr "한 줄 이상 선택해야 합니다 !!!"
+
+msgid "You're about to remove a folder and it's content"
+msgstr "폴더를 제거하려고 하는데 폴더에 콘텐츠가 있습니다."
+
+msgid "Set your Folder name"
+msgstr "폴더 이름 설정"
+
+msgid "Files input"
+msgstr "파일 입력"
+
+msgid "Upload your files"
+msgstr "파일 업로드"
+
+msgid "Upload"
+msgstr "업로드"
+
+msgid "Upload your Files"
+msgstr "파일 업로드"
+
+msgid "Share your File"
+msgstr "파일 공유"
+
+msgid "With"
+msgstr "와"
+
+msgid "Set Rights"
+msgstr "권한 설정"
+
+msgid "Select your rights"
+msgstr "권리 선택"
+
+msgid "or"
+msgstr "또는"
+
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "이메일 알림 보내기"
+
+msgid "Add persons/Family/groups"
+msgstr "사람/가족/그룹 추가"
+
+msgid "Person or Family or Group"
+msgstr "개인 또는 가족 또는 그룹"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "정말인가요? 이 사람을 삭제하시겠습니까?"
+
+msgid "Stop sharing"
+msgstr "공유 중지"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "정말인가요? 문서 공유를 중단하시겠습니까?"
+
+msgid "Ok"
+msgstr "확인"
+
+msgid "Tracking"
+msgstr "추적"
+
+msgid "Attention"
+msgstr "주의"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "현재 이미지 폴더는 이제 공용 폴더입니다 !!!"
+
+msgid "Add People"
+msgstr "사람 추가"
+
+msgid "This page is still in the cart."
+msgstr "이 페이지는 아직 장바구니에 있습니다."
+
+msgid "Wrong address format."
+msgstr "주소 형식이 잘못되었습니다."
+
+msgid "Set Calendar Name"
+msgstr "캘린더 이름 설정"
+
+msgid "Set Resource Name"
+msgstr "리소스 이름 설정"
+
+msgid "Select a resource type"
+msgstr "리소스 유형 선택"
+
+msgid "Room"
+msgstr "방"
+
+msgid "Computer"
+msgstr "컴퓨터"
+
+msgid "Video"
+msgstr "비디오"
+
+msgid "Description"
+msgstr "설명"
+
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "사이드바에서 캘린더 포함/제외하기"
+
+msgid "Calendars"
+msgstr "캘린더"
+
+msgid "Set Status"
+msgstr "상태 설정"
+
+msgid "Select [Exclude] or [Include]"
+msgstr "제외] 또는 [포함]을 선택합니다."
+
+msgid "[INCLUDE]"
+msgstr "[포함]"
+
+msgid "[EXCLUDE]"
+msgstr "[제외]"
+
+msgid "Share your Calendar"
+msgstr "캘린더 공유"
+
+msgid "Are you sure, you want to delete this Share ?"
+msgstr "정말 이 공유를 삭제하시겠습니까?"
+
+msgid "Are you sure, you want to stop sharing your document ?"
+msgstr "정말 문서 공유를 중단하시겠습니까?"
+
+msgid "Are you sure?"
+msgstr "확실하신가요?"
+
+msgid ""
+"You'll lose the calendar, the events and all the share calendars too. This "
+"cannot be undone."
+msgstr ""
+"캘린더, 이벤트 및 모든 공유 캘린더도 손실됩니다. 이 "
+"설정은 되돌릴 수 없습니다."
+
+msgid "Manage"
+msgstr "관리"
+
+msgid "Calendar Management for"
+msgstr "캘린더 관리"
+
+msgid "Modify Calendar Name"
+msgstr "캘린더 이름 수정"
+
+msgid "Modify Group Name"
+msgstr "그룹 이름 수정"
+
+msgid "Modify Resource Name"
+msgstr "리소스 이름 수정"
+
+msgid "Modify Share Name"
+msgstr "공유 이름 수정"
+
+msgid "Resource Info for"
+msgstr "리소스 정보"
+
+msgid "Only administrators have the right to change the Resource description"
+msgstr "관리자만 리소스 설명을 변경할 수 있는 권한이 있습니다."
+
+msgid "Actualize"
+msgstr "실제화"
+
+msgid "Today"
+msgstr "오늘"
+
+msgid "List"
+msgstr "목록"
+
+msgid "List Week"
+msgstr "목록 주간"
+
+msgid "List Month"
+msgstr "목록 월"
+
+msgid "This event isn't modifiable !!!"
+msgstr "이 이벤트는 수정할 수 없습니다 !!!"
+
+msgid "Modify Event"
+msgstr "이벤트 수정"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"어떻게 하시겠습니까? 삭제에 주의하세요, 되돌릴 수 "
+"없습니다 !!!"
+
+msgid "Delete Event"
+msgstr "이벤트 삭제"
+
+msgid "Are you sure to delete this event?"
+msgstr "이 이벤트를 삭제하시겠습니까?"
+
+msgid "Delete all repeated Events"
+msgstr "반복되는 모든 이벤트 삭제"
+
+msgid ""
+"You are about to delete all the repeated Events linked to this event. Are you "
+"sure? This can't be undone."
+msgstr ""
+"이 이벤트에 연결된 모든 반복 이벤트를 삭제하려고 합니다. "
+"정말 삭제하시겠습니까? 이 작업은 취소할 수 없습니다."
+
+msgid "Only this event"
+msgstr "이 이벤트만"
+
+msgid "Every Events linked to this Event"
+msgstr "이 이벤트에 연결된 모든 이벤트"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"이벤트를 추가하려면 먼저 캘린더를 만들거나 캘린더를 "
+"활성화해야 합니다."
+
+msgid "Add More Attendees"
+msgstr "참석자 추가"
+
+msgid "Make Attendance"
+msgstr "출석 만들기"
+
+msgid "Edit"
+msgstr "편집"
+
+msgid "Resize Event"
+msgstr "이벤트 크기 조정"
+
+msgid "Are you sure about this change?"
+msgstr "이 변경 사항에 대해 확신하시나요?"
+
+msgid "will be resized."
+msgstr "의 크기가 조정됩니다."
+
+msgid "You're about to resize all the events. Would you like to :"
+msgstr "모든 이벤트의 크기를 조정하려고 합니다. 하시겠습니까?"
+
+msgid "Only this Event"
+msgstr "이 이벤트만"
+
+msgid "All Events"
+msgstr "모든 이벤트"
+
+msgid "Move Event"
+msgstr "이동 이벤트"
+
+msgid "will be dropped."
+msgstr "가 삭제됩니다."
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr "모든 이벤트를 이동하려고 합니다. 하시겠습니까?"
+
+msgid "Event added"
+msgstr "이벤트 추가"
+
+msgid ""
+"Event was added successfully. Would you like to make the Attendance or to add "
+"attendees ?"
+msgstr ""
+"이벤트가 성공적으로 추가되었습니다. 참석을 설정하거나 "
+"참석자를 추가하시겠습니까?"
+
+msgid "Event was added successfully."
+msgstr "이벤트가 성공적으로 추가되었습니다."
+
+msgid "No attendees"
+msgstr "참석자 없음"
+
+msgid "From"
+msgstr "에서"
+
+msgid "to"
+msgstr "에"
+
+msgid "Attendance Notes: "
+msgstr "출석 노트:"
+
+msgid "Title"
+msgstr "제목"
+
+msgid "Calendar Title"
+msgstr "캘린더 제목"
+
+msgid "Location"
+msgstr "위치"
+
+msgid "To validate your address : <b>\"hit return\"</b>."
+msgstr "주소 유효성 검사하기: <b>\"return\"</b>."
+
+msgid "To see the Map click this text field."
+msgstr "지도를 보려면 이 텍스트 필드를 클릭합니다."
+
+msgid "Map"
+msgstr "지도"
+
+msgid "Desc"
+msgstr "Desc"
+
+msgid "Event description"
+msgstr "이벤트 설명"
+
+msgid "Event Type"
+msgstr "이벤트 유형"
+
+msgid "Personal"
+msgstr "개인"
+
+msgid "Attendance Counts"
+msgstr "출석 횟수"
+
+msgid "Start Date"
+msgstr "시작 날짜"
+
+msgid "All day"
+msgstr "하루 종일"
+
+msgid "End Date"
+msgstr "종료 날짜"
+
+msgid "Repeat"
+msgstr "반복"
+
+msgid "Daily"
+msgstr "매일"
+
+msgid "Weekly"
+msgstr "주간"
+
+msgid "Monthly"
+msgstr "월간"
+
+msgid "Quarterly"
+msgstr "분기별"
+
+msgid "Semesterly"
+msgstr "학기별"
+
+msgid "Yearly"
+msgstr "연간"
+
+msgid "End"
+msgstr "종료"
+
+msgid "Alarm"
+msgstr "알람"
+
+msgid "NONE"
+msgstr "없음"
+
+msgid "At time of event"
+msgstr "이벤트 시"
+
+msgid "5 minutes before"
+msgstr "5분 전"
+
+msgid "10 minutes before"
+msgstr "10분 전"
+
+msgid "15 minutes before"
+msgstr "15분 전"
+
+msgid "30 minutes before"
+msgstr "30분 전"
+
+msgid "1 hour before"
+msgstr "1시간 전"
+
+msgid "2 hour before"
+msgstr "2시간 전"
+
+msgid "1 day before"
+msgstr "1일 전"
+
+msgid "2 day before"
+msgstr "2일 전"
+
+msgid "Calendar"
+msgstr "캘린더"
+
+msgid "Add as attendees"
+msgstr "참석자로 추가"
+
+msgid "Notes"
+msgstr "참고"
+
+msgid "Status"
+msgstr "상태"
+
+msgid "Active"
+msgstr "활성"
+
+msgid "inactive"
+msgstr "비활성"
+
+msgid "Event Creation"
+msgstr "이벤트 생성"
+
+msgid "You've to chose a calendar."
+msgstr "캘린더를 선택해야 합니다."
+
+msgid "You have to set a Title for your event"
+msgstr "이벤트 제목을 설정해야 합니다."
+
+msgid "In progress...."
+msgstr "진행 중...."
+
+msgid "Events for"
+msgstr "다음 대상 이벤트"
+
+msgid "Event for"
+msgstr "대상 이벤트"
+
+msgid "Loading finished...."
+msgstr "로드 완료...."
+
+msgid "Month"
+msgstr "월"
+
+msgid "Attendance Counts with real Attendees"
+msgstr "실제 참석자가 있는 출석 카운트"
+
+msgid "Free Attendance Counts without Attendees"
+msgstr "참석자 없이도 무료 참석 횟수 계산"
+
+msgid "Calendar Type"
+msgstr "캘린더 유형"
+
+msgid "Events in Year"
+msgstr "연도별 이벤트"
+
+msgid "Events in month"
+msgstr "이달의 이벤트"
+
+msgid "Events by Type"
+msgstr "유형별 이벤트"
+
+msgid "Text for Event ID"
+msgstr "이벤트 ID 텍스트"
+
+msgid "Undo Check-out"
+msgstr "체크 아웃 취소"
+
+msgid "Make Check-out"
+msgstr "체크아웃하기"
+
+msgid "Edit/Make Check-out - Undo Check-out"
+msgstr "수정/체크아웃 - 체크아웃 취소"
+
+msgid "You can checkout or undo the checkout of the attendees of an event"
+msgstr "이벤트 참석자의 결제를 결제하거나 취소할 수 있습니다."
+
+msgid "Edit/Validate Checkout"
+msgstr "결제 수정/확인"
+
+msgid "Check-out done"
+msgstr "체크아웃 완료"
+
+msgid "CKEditor Template Creation"
+msgstr "CKEditor 템플릿 생성"
+
+msgid "Template Name"
+msgstr "템플릿 이름"
+
+msgid "Explanation field cannot be empty."
+msgstr "설명 필드는 비워 둘 수 없습니다."
+
+msgid "Template Description"
+msgstr "템플릿 설명"
+
+msgid "Save as Word file in EDrive"
+msgstr "EDrive에 Word 파일로 저장"
+
+msgid "Word file name"
+msgstr "Word 파일 이름"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test only "
+"<b>(Beta)</b>.</small>"
+msgstr ""
+"파일이 EDrive에 업로드됩니다<br><small>이 부분은 테스트 "
+"전용입니다<b>(베타)</b>.</small>."
+
+msgid "Your note is saved in your EDrive"
+msgstr "노트가 EDrive에 저장됩니다"
+
+msgid "(No templates defined)"
+msgstr "(정의된 템플릿 없음)"
+
+msgid "Content Templates"
+msgstr "콘텐츠 템플릿"
+
+msgid "Please select the template to open in the editor"
+msgstr "편집기에서 열 템플릿을 선택하세요."
+
+msgid "Template Options"
+msgstr "템플릿 옵션"
+
+msgid "Modify"
+msgstr "수정"
+
+msgid "Modify the template you select"
+msgstr "선택한 템플릿 수정"
+
+msgid "Delete the template you select"
+msgstr "선택한 템플릿 삭제"
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr ""
+"이 템플릿을 삭제하시겠습니까? 이 작업은 되돌릴 수 "
+"없습니다."
+
+msgid "Replace actual content"
+msgstr "실제 콘텐츠 교체"
+
+msgid "Manage templates"
+msgstr "템플릿 관리"
+
+msgid "Save templates"
+msgstr "템플릿 저장"
+
+msgid "Apply templates"
+msgstr "템플릿 적용"
+
+msgid "Save As Word File in EDrive"
+msgstr "EDrive에 Word 파일로 저장"
+
+msgid "First Name"
+msgstr "이름"
+
+msgid "Last Name"
+msgstr "성"
+
+msgid "Phone"
+msgstr "전화"
+
+msgid "Company"
+msgstr "회사"
+
+msgid "Unsub"
+msgstr "Unsub"
+
+msgid "VCard"
+msgstr "VCard"
+
+msgid "Date"
+msgstr "날짜"
+
+msgid "Language"
+msgstr "언어"
+
+msgid "Merge Tags"
+msgstr "태그 병합"
+
+msgid "Free Event Attendees"
+msgstr "무료 이벤트 참석자"
+
+msgid "Successfully Added!"
+msgstr "추가에 성공했습니다!"
+
+msgid "Photo"
+msgstr "사진"
+
+msgid "Action"
+msgstr "액션"
+
+msgid "Checkin"
+msgstr "체크인"
+
+msgid "Checkout"
+msgstr "결제"
+
+msgid "Gender"
+msgstr "성별"
+
+msgid "Checkin Date"
+msgstr "체크인 날짜"
+
+msgid "Checked In By"
+msgstr "체크인 기준"
+
+msgid "Checkout Date"
+msgstr "결제 날짜"
+
+msgid "Checkout By"
+msgstr "결제 기준"
+
+msgid "QR Code : Call the register"
+msgstr "QR 코드 : 계산대로 전화하기"
+
+msgid "Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"동영상 스트림에 액세스할 수 없습니다(웹캠이 활성화되어 "
+"있는지 확인하세요)."
+
+msgid "no detected QR Code"
+msgstr "감지된 QR코드 없음"
+
+msgid "Loading video..."
+msgstr "비디오 로드 중..."
+
+msgid "Failed"
+msgstr "실패"
+
+msgid "No event right now."
+msgstr "지금은 이벤트가 없습니다."
+
+msgid "Move one in the right range."
+msgstr "올바른 범위로 이동합니다."
+
+msgid "Create one."
+msgstr "생성합니다."
+
+msgid "Group"
+msgstr "그룹"
+
+msgid "User"
+msgstr "사용자"
+
+msgid "No event now."
+msgstr "지금은 이벤트가 없습니다."
+
+msgid "Success"
+msgstr "성공"
+
+msgid "Are you sure you want to DELETE all persons from Event ID:"
+msgstr "이벤트 ID에서 모든 사람을 삭제하시겠습니까?"
+
+msgid "Are you sure you want to DELETE this person from Event ID:"
+msgstr "이벤트 ID에서 이 사람을 삭제하시겠습니까?"
+
+msgid "Delete Event Type"
+msgstr "이벤트 유형 삭제"
+
+msgid "This action can never be undone !!!!"
+msgstr "이 작업은 절대 취소할 수 없습니다 !!!!"
+
+msgid "Confirm Delete"
+msgstr "삭제 확인"
+
+msgid "Are you sure ? You're about to delete the selected"
+msgstr "정말인가요? 선택한 항목을 삭제하려고 합니다."
+
+msgid "payments(s)?"
+msgstr "결제할 수 있나요?"
+
+msgid "This action CANNOT be undone, and may have legal implications!"
+msgstr ""
+"이 조치는 취소할 수 없으며 법적인 영향을 미칠 수 "
+"있습니다!"
+
+msgid "Please ensure this what you want to do."
+msgstr "이 작업을 수행하려는 것인지 확인하세요."
+
+msgid "Pledge"
+msgstr "서약"
+
+msgid "Selected Rows"
+msgstr "선택된 행"
+
+msgid "Payment"
+msgstr "결제"
+
+msgid "Depid"
+msgstr "Depid"
+
+msgid "Address1"
+msgstr "주소1"
+
+msgid "Bank Name"
+msgstr "은행 이름"
+
+msgid "Non deductible"
+msgstr "공제 불가"
+
+msgid "Statut"
+msgstr "Statut"
+
+msgid "Deposit"
+msgstr "입금"
+
+msgid "Schedule"
+msgstr "일정"
+
+msgid "Amount"
+msgstr "금액"
+
+msgid "Comment"
+msgstr "댓글"
+
+msgid "Electronic Transaction Details"
+msgstr "전자 거래 세부 정보"
+
+msgid "TOTAL"
+msgstr "총계"
+
+msgid "Family"
+msgstr "가족"
+
+msgid "Person"
+msgstr "사람"
+
+msgid "Anonymous"
+msgstr "익명"
+
+msgid "Fund"
+msgstr "펀드"
+
+msgid "Pledge or payment"
+msgstr "서약 또는 결제"
+
+msgid "Method"
+msgstr "방법"
+
+msgid "Check Number"
+msgstr "수표 번호"
+
+msgid "Details"
+msgstr "세부 정보"
+
+msgid "Deposit ID"
+msgstr "입금 ID"
+
+msgid "Deposit Date"
+msgstr "입금 날짜"
+
+msgid "Deposit Total"
+msgstr "입금액 합계"
+
+msgid "Deposit Comment"
+msgstr "댓글 남기기"
+
+msgid "Closed"
+msgstr "Closed"
+
+msgid "Deposit Type"
+msgstr "입금 유형"
+
+msgid "Export"
+msgstr "내보내기"
+
+msgid "Generate Deposit Slip for Selected"
+msgstr "선택한 항목에 대한 입금 전표 생성"
+
+msgid "Rows"
+msgstr "행"
+
+msgid "Your operation completed successfully."
+msgstr "작업이 성공적으로 완료되었습니다."
+
+msgid "Full Name"
+msgstr "전체 이름"
+
+msgid "Text"
+msgstr "텍스트"
+
+msgid "Date Entered"
+msgstr "입력한 날짜"
+
+msgid "Date Last Edited"
+msgstr "마지막 수정 날짜"
+
+msgid "Edited By Name"
+msgstr "이름으로 편집"
+
+msgid "Deactivated"
+msgstr "비활성화됨"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all group data "
+"assigned for this field!"
+msgstr ""
+"경고: 이 필드를 삭제하면 이 필드에 할당된 모든 그룹 "
+"데이터가 취소 불가능하게 손실됩니다!"
+
+msgid "Confirm Enable Group Specific Properties"
+msgstr "그룹별 속성 사용 확인"
+
+msgid ""
+"This will create a group-specific properties table for this group. You should "
+"then add needed properties with the Group-Specific Properties Form Editor."
+msgstr ""
+"그러면 이 그룹에 대한 그룹별 속성 테이블이 생성됩니다. "
+"그런 다음 그룹별 속성 양식 편집기를 사용하여 필요한 "
+"속성을 추가해야 합니다."
+
+msgid "Enable Group Specific Properties"
+msgstr "그룹별 속성 활성화"
+
+msgid "Confirm Disable Group Specific Properties"
+msgstr "그룹별 속성 비활성화 확인"
+
+msgid ""
+"Are you sure you want to remove the group-specific person properties? All group "
+"member properties data will be lost!"
+msgstr ""
+"그룹별 개인 속성을 제거하시겠습니까? 모든 그룹 구성원 "
+"속성 데이터가 손실됩니다!"
+
+msgid "Disable Group Specific Properties"
+msgstr "그룹별 속성 비활성화"
+
+msgid "Confirm Delete Role"
+msgstr "역할 삭제 확인"
+
+msgid "This will also delete all persons membership associated with this role."
+msgstr ""
+"이렇게 하면 이 역할과 관련된 모든 사용자 멤버십도 "
+"삭제됩니다."
+
+msgid "A group should have at least one role!"
+msgstr "그룹에는 하나 이상의 역할이 있어야 합니다!"
+
+msgid "Role Name"
+msgstr "역할 이름"
+
+msgid "The role name is now modified."
+msgstr "이제 역할 이름이 수정되었습니다."
+
+msgid "Make Default"
+msgstr "기본값 만들기"
+
+msgid "Default"
+msgstr "기본값"
+
+msgid "Sequence"
+msgstr "시퀀스"
+
+msgid "Members"
+msgstr "회원"
+
+msgid "Group Cart Status"
+msgstr "그룹 카트 상태"
+
+msgid "All members of this group are in the cart"
+msgstr "이 그룹의 모든 구성원이 카트에 있습니다."
+
+msgid "Remove all"
+msgstr "모두 제거"
+
+msgid "Not all members of this group are in the cart"
+msgstr "이 그룹의 모든 구성원이 카트에 있는 것은 아닙니다."
+
+msgid "Add all"
+msgstr "모두 추가"
+
+msgid "Cart isn't showable"
+msgstr "카트가 표시되지 않음"
+
+msgid "Group Type"
+msgstr "그룹 유형"
+
+msgid "Unassigned"
+msgstr "할당되지 않음"
+
+msgid "Value"
+msgstr "가치"
+
+msgid "Confirm Delete Group"
+msgstr "그룹 삭제 확인"
+
+msgid "Please confirm deletion of this group record"
+msgstr "이 그룹 레코드의 삭제를 확인해 주세요."
+
+msgid ""
+"This will also delete all Roles and Group-Specific Property data associated with "
+"this Group record."
+msgstr ""
+"이렇게 하면 이 그룹 레코드와 연결된 모든 역할 및 그룹별 "
+"속성 데이터도 삭제됩니다."
+
+msgid ""
+"All group membership and properties will be destroyed.  The group members "
+"themselves will not be altered."
+msgstr ""
+"모든 그룹 멤버십과 자산이 삭제됩니다.  그룹 멤버 자체는 "
+"변경되지 않습니다."
+
+msgid "Are you sure you want to unassign this property?"
+msgstr "이 속성의 할당을 취소하시겠습니까?"
+
+msgid "Are you sure you want to change this property?"
+msgstr "이 속성을 변경하시겠습니까?"
+
+msgid "A kid should have a family in a sunday school group !"
+msgstr "어린이는 일요일 학교 그룹에 가족이 있어야 합니다!"
+
+msgid "Are you sure you want to remove the selected group members?"
+msgstr "선택한 그룹 멤버를 제거하시겠습니까?"
+
+msgid "Group Role"
+msgstr "그룹 역할"
+
+msgid "Private Data"
+msgstr "개인 데이터"
+
+msgid "Zip Code"
+msgstr "우편 번호"
+
+msgid "Cell Phone"
+msgstr "휴대폰"
+
+msgid "Members from group"
+msgstr "그룹 구성원"
+
+msgid "Add"
+msgstr "추가"
+
+msgid "Members to another group"
+msgstr "다른 그룹으로 멤버 이동"
+
+msgid "Members to cart"
+msgstr "장바구니로 회원 추가"
+
+msgid "Move"
+msgstr "이동"
+
+msgid "Remove from Cart"
+msgstr "장바구니에서 제거"
+
+msgid "Add to Cart"
+msgstr "장바구니에 담기"
+
+msgid "No assigned Manager"
+msgstr "할당된 관리자 없음"
+
+msgid "Manage Group Managers"
+msgstr "그룹 관리자 관리"
+
+msgid "Add person"
+msgstr "사람 추가"
+
+msgid "Are you sure, you want to delete this Manager ?"
+msgstr "정말 이 관리자를 삭제하시겠습니까?"
+
+msgid "Delete Managers"
+msgstr "관리자 삭제"
+
+msgid "Are you sure, you want to delete all the managers ?"
+msgstr "정말 모든 관리자를 삭제하시겠습니까?"
+
+msgid "Appointment"
+msgstr "약속"
+
+msgid "Are you sure you want to remove this family from the CRM"
+msgstr "CRM에서 이 제품군을 제거하시겠습니까?"
+
+msgid "Are you sure you want to remove all families from the CRM"
+msgstr "CRM에서 모든 가족을 제거하시겠습니까?"
+
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations and "
+"may NOT be deleted until these donations are associated with another family."
+msgstr ""
+"모든 가족이 삭제된 것은 아닙니다: 일부 가족은 기부 "
+"기록이 남아 있으며 해당 기부금이 다른 가족과 연결될 "
+"때까지 삭제되지 않을 수 있습니다."
+
+msgid "Confirm Deactivation"
+msgstr "비활성화 확인"
+
+msgid "Confirm Activation"
+msgstr "활성화 확인"
+
+msgid "Please confirm deactivation of family"
+msgstr "가족 비활성화를 확인해 주세요."
+
+msgid "Please confirm activation of family"
+msgstr "가족 활성화를 확인해 주세요."
+
+msgid ""
+"Be carefull with the GDPR, when a family is de-activated, you have to ask all "
+"the persons of the family first, if you want to re-activate the account "
+"!<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS FAMILY "
+"ILLEGAL !!!!!"
+msgstr ""
+"가족을 비활성화할 경우, 계정을 다시 활성화하려면 먼저 "
+"모든 가족 구성원에게 물어봐야 합니다!<br><br>어떤 승인도 "
+"없이, GDPR에 따라 이 가족을 사용하는 것은 불법입니다 !!!!!."
+
+msgid "Family Photo"
+msgstr "가족 사진"
+
+msgid "Bank Draft"
+msgstr "은행환어음"
+
+msgid "Credit Card"
+msgstr "신용 카드"
+
+msgid "Disabled"
+msgstr "장애인"
+
+msgid "Next payment date"
+msgstr "다음 결제 날짜"
+
+msgid "Interval (months)"
+msgstr "간격(개월)"
+
+msgid "Updated By"
+msgstr "업데이트된 사람"
+
+msgid "Confirm Delete Automatic payment"
+msgstr "자동 결제 삭제 확인"
+
+msgid "Pledge or Payment"
+msgstr "서약 또는 결제"
+
+msgid "Dep ID"
+msgstr "Dep ID"
+
+msgid "Fiscal Year"
+msgstr "회계 연도"
+
+msgid "NonDeductible"
+msgstr "비공제"
+
+msgid "CHECK"
+msgstr "확인"
+
+msgid "Date Updated"
+msgstr "업데이트 날짜"
+
+msgid "Delete this person?"
+msgstr "이 사람을 삭제하시겠습니까?"
+
+msgid "Do you want to delete this person? This cannot be undone."
+msgstr ""
+"이 사람을 삭제하시겠습니까? 이 작업은 되돌릴 수 "
+"없습니다."
+
+msgid "Save your note"
+msgstr "노트 저장"
+
+msgid "Do you want to save your note as a Word File in your EDrive?"
+msgstr "노트를 EDrive에 Word 파일로 저장하시겠습니까?"
+
+msgid "Verification URL"
+msgstr "인증 URL"
+
+msgid "Password"
+msgstr "비밀번호"
+
+msgid "Failed to add verification"
+msgstr "인증 추가에 실패했습니다."
+
+msgid "Verification email sent"
+msgstr "확인 이메일 전송"
+
+msgid "Failed to send verification email"
+msgstr "확인 이메일을 보내지 못했습니다."
+
+msgid "Family Id"
+msgstr "가족 ID"
+
+msgid "Valid Until"
+msgstr "다음까지 유효"
+
+msgid "Are you sure you want to remove this person from the CRM"
+msgstr "이 사용자를 CRM에서 제거하시겠습니까?"
+
+msgid "Are you sure you want to remove all persons from the CRM"
+msgstr "CRM에서 모든 사람을 제거하시겠습니까?"
+
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations and "
+"may NOT be deleted until these donations are associated with another family."
+msgstr ""
+"모든 사람이 삭제된 것은 아닙니다: 일부 기부 기록이 남아 "
+"있어 다른 가족에게 기부할 때까지 삭제되지 않을 수 "
+"있습니다."
+
+msgid "Please confirm deactivation of person"
+msgstr "사용자 비활성화를 확인해 주세요."
+
+msgid "Please confirm activation of person"
+msgstr "본인 인증을 확인하세요."
+
+msgid ""
+"Be carefull with the GDPR, when a person is de-activated, you have to ask the "
+"person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
+"AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
+msgstr ""
+"비활성화된 계정을 다시 활성화하려면 먼저 당사자에게 "
+"문의해야 합니다!<br><br>어떤 승인도 없이, GDPR에 따라 이 "
+"개인을 사용하는 것은 불법입니다 !!!!!"
+
+msgid "Deactivate"
+msgstr "비활성화"
+
+msgid "Activate"
+msgstr "활성화"
+
+msgid "Are you sure you want to remove this person's membership from"
+msgstr "이 사람의 멤버십을 다음에서 삭제하시겠습니까?"
+
+msgid "Change classification"
+msgstr "분류 변경"
+
+msgid "Change role"
+msgstr "역할 변경"
+
+msgid "Confirm Delete volunteer Opportunity"
+msgstr "확인 자원봉사 기회 삭제"
+
+msgid "Comments"
+msgstr "댓글"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all family data "
+"assigned for this field!"
+msgstr ""
+"경고: 이 필드를 삭제하면 이 필드에 할당된 모든 가족 "
+"데이터를 취소할 수 없습니다!"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If you delete the fund, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"펀드를 삭제하면 연결된 모든 데이터를 잃게 "
+"됩니다.</b></u><br><b>확신하시겠습니까? 이 작업은 취소할 수 "
+"없습니다.</b>"
+
+msgid "Fund Editor"
+msgstr "펀드 편집기"
+
+msgid "Add Fund"
+msgstr "펀드 추가"
+
+msgid "Validate"
+msgstr "유효성 검사"
+
+msgid "Place"
+msgstr "장소"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "URI"
+msgstr "URI"
+
+msgid "This link should begin with : http://.... or https://...."
+msgstr "이 링크는 http://.... 또는 https://....로 시작해야 합니다."
+
+msgid "Global Custom Menus"
+msgstr "글로벌 사용자 지정 메뉴"
+
+msgid "Dashboard"
+msgstr "대시보드"
+
+msgid ""
+"If you delete the Menu Link, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"메뉴 링크를 삭제하면 연결된 모든 데이터가 "
+"손실됩니다.</b></u><br><b>확신하시겠습니까? 이 작업은 실행 "
+"취소할 수 없습니다.</b>"
+
+msgid "Custom Menu Link Editor"
+msgstr "사용자 지정 메뉴 링크 편집기"
+
+msgid "Add Custom Menu Link"
+msgstr "사용자 지정 메뉴 링크 추가"
+
+msgid "Delete Classification"
+msgstr "분류 삭제"
+
+msgid "Please confirm deletion of this classification"
+msgstr "이 분류의 삭제를 확인해 주세요."
+
+msgid "This will also delete this Classification for all the associated persons."
+msgstr ""
+"이렇게 하면 관련된 모든 사람에 대한 이 분류도 "
+"삭제됩니다."
+
+msgid "Map Icon GoogleMap"
+msgstr "지도 아이콘 구글맵"
+
+msgid "Select your classification icon"
+msgstr "분류 아이콘 선택"
+
+msgid "Visible"
+msgstr "표시됨"
+
+msgid "Visible for other authorized users"
+msgstr "다른 인증된 사용자에게 표시"
+
+msgid ""
+"If you delete the pastoral care type, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"사목 관리 유형을 삭제하면 연결된 모든 데이터가 "
+"손실됩니다.</b></u><br><b>확신하시겠습니까? 이 작업은 취소할 "
+"수 없습니다.</b>"
+
+msgid "Pastoral Care Type Editor"
+msgstr "사목 케어 유형 편집기"
+
+msgid "Add Pastoral Care Type"
+msgstr "목회자 케어 유형 추가"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all person data "
+"assigned for this field!"
+msgstr ""
+"경고: 이 필드를 삭제하면 이 필드에 할당된 모든 개인 "
+"데이터가 취소할 수 없게 됩니다!"
+
+msgid "with this Property..."
+msgstr "이 속성으로..."
+
+msgid "Prompt"
+msgstr "프롬프트"
+
+msgid "Select Property Type"
+msgstr "속성 유형 선택"
+
+msgid "with this property..."
+msgstr "이 속성으로..."
+
+msgid "You're about to delete this property. Would you like to continue ?"
+msgstr "이 속성을 삭제하려고 합니다. 계속하시겠습니까?"
+
+msgid "Property Type Editor"
+msgstr "속성 유형 편집기"
+
+msgid "Add a New Property"
+msgstr "새 속성 추가"
+
+msgid "Class"
+msgstr "클래스"
+
+msgid "You're about to delete this general properties. Would you like to continue ?"
+msgstr "이 일반 속성을 삭제하려고 합니다. 계속하시겠습니까?"
+
+msgid "This general property type is still being used by"
+msgstr "이 일반 속성 유형은 다음에서 여전히 사용되고 있습니다."
+
+msgid "property"
+msgstr "속성"
+
+msgid "properties"
+msgstr "속성"
+
+msgid "If you delete this type, you will also remove all properties using"
+msgstr ""
+"이 유형을 삭제하면 다음을 사용하는 모든 속성도 "
+"제거됩니다."
+
+msgid "it and lose any corresponding property assignments."
+msgstr "를 클릭하고 해당 속성 할당을 잃게 됩니다."
+
+msgid "Add a New Property Type"
+msgstr "새 속성 유형 추가"
+
+msgid "Activ"
+msgstr "Activ"
+
+msgid "Parent (hierarchy)"
+msgstr "상위(계층 구조)"
+
+msgid "Color"
+msgstr "색상"
+
+msgid "Add New Volunteer Opportunity"
+msgstr "새로운 자원봉사 기회 추가"
+
+msgid "Send Message"
+msgstr "메시지 보내기"
+
+msgid "View Profile"
+msgstr "프로필 보기"
+
+msgid "Teachers"
+msgstr "교사"
+
+msgid "Delete this Teacher?"
+msgstr "이 선생님을 삭제하시겠습니까?"
+
+msgid "Do you want to delete this teacher? This cannot be undone."
+msgstr ""
+"이 선생님을 삭제하시겠습니까? 이 작업은 되돌릴 수 "
+"없습니다."
+
+msgid "First name"
+msgstr "이름"
+
+msgid "Birth Date"
+msgstr "생년월일"
+
+msgid "Unknown"
+msgstr "알 수 없음"
+
+msgid "Boy"
+msgstr "소년"
+
+msgid "Girl"
+msgstr "소녀"
+
+msgid "Age"
+msgstr "나이"
+
+msgid "Mobile"
+msgstr "모바일"
+
+msgid "Home Phone"
+msgstr "집 전화"
+
+msgid "Home Address"
+msgstr "집 주소"
+
+msgid "Dad Name"
+msgstr "아빠 이름"
+
+msgid "Dad Mobile"
+msgstr "아빠 모바일"
+
+msgid "Dad Email"
+msgstr "아빠 이메일"
+
+msgid "Mom Name"
+msgstr "엄마 이름"
+
+msgid "Mom Mobile"
+msgstr "엄마 모바일"
+
+msgid "Mom Email"
+msgstr "엄마 이메일"
+
+msgid "Remove Students from Cart"
+msgstr "카트에서 학생 제거"
+
+msgid "Add Students to Cart"
+msgstr "장바구니에 학생 추가"
+
+msgid "Remove Teachers from Cart"
+msgstr "장바구니에서 교사 제거"
+
+msgid "Add Teachers to Cart"
+msgstr "장바구니에 교사 추가"
+
+msgid "Select the event Type you would like to use to create the Attendance"
+msgstr "출석을 생성하는 데 사용할 이벤트 유형을 선택합니다."
+
+msgid "Create Event With Students"
+msgstr "학생과 함께 이벤트 만들기"
+
+msgid ""
+"Be careful! You are about to create or recreate an event of this Sunday school "
+"class to call the register."
+msgstr ""
+"조심하세요! 이 주일학교 수업의 이벤트를 만들거나 "
+"재현하여 등록부에 전화하려고 합니다."
+
+msgid ""
+"If the event are already created, go to the \"Events\" menu and then \"Call the "
+"register\"."
+msgstr ""
+"이벤트가 이미 생성된 경우 '이벤트' 메뉴로 이동한 다음 "
+"'등록부에 전화하기'로 이동합니다."
+
+msgid "First, set your time range correctly to make the extraction."
+msgstr "먼저 추출할 시간 범위를 올바르게 설정합니다."
+
+msgid "Set year range to export"
+msgstr "내보낼 연도 범위 설정"
+
+msgid "First, set your date range correctly to make the extraction."
+msgstr "먼저, 추출을 위해 날짜 범위를 올바르게 설정합니다."
+
+msgid "Extra students"
+msgstr "추가 학생"
+
+msgid "export with photos"
+msgstr "사진과 함께 내보내기"
+
+msgid ""
+"Be careful! You are about to create or recreate all the events of all the Sunday "
+"school classes to call the register."
+msgstr ""
+"조심하세요! 모든 주일학교 반의 모든 이벤트를 만들거나 "
+"다시 만들어 등록부에 호출하려고 합니다."
+
+msgid ""
+"If the events are already created, go to the \"Events\" menu and then \"Call the "
+"register\"."
+msgstr ""
+"이벤트가 이미 생성된 경우 '이벤트' 메뉴로 이동한 다음 "
+"'등록부에 전화하기'로 이동합니다."
+
+msgid "First, set your date and time."
+msgstr "먼저 날짜와 시간을 설정합니다."
+
+msgid "Time"
+msgstr "시간"
+
+msgid "Call the Register for all sunday groups"
+msgstr "모든 일요일 그룹에 등록하기"
+
+msgid "At least one group must be selected to make class lists or attendance sheets."
+msgstr ""
+"수업 목록 또는 출석 시트를 만들려면 적어도 하나의 그룹을 "
+"선택해야 합니다."
+
+msgid "You have to set a Title and a Description for your issue."
+msgstr "이슈의 제목과 설명을 설정해야 합니다."
+
+msgid "Trigger Parent Alert"
+msgstr "부모 알림 트리거"
+
+msgid "Kiosk"
+msgstr "키오스크"
+
+msgid "No assignments for kiosk"
+msgstr "키오스크에 대한 할당 없음"
+
+msgid "Event"
+msgstr "이벤트"
+
+msgid "Kiosk Name"
+msgstr "키오스크 이름"
+
+msgid "Assignment"
+msgstr "할당"
+
+msgid "Last Heartbeat"
+msgstr "마지막 심장 박동"
+
+msgid "Accepted"
+msgstr "수락됨"
+
+msgid "True"
+msgstr "True"
+
+msgid "False"
+msgstr "False"
+
+msgid "Reload"
+msgstr "다시 로드"
+
+msgid "Identify"
+msgstr "식별"
+
+msgid "Accept"
+msgstr "수락"
+
+msgid "2 Factor Authentication Secret"
+msgstr "2단계 인증 비밀"
+
+msgid "Regenerate 2 Factor Authentication Secret"
+msgstr "2단계 인증 암호 다시 생성하기"
+
+msgid "Remove 2 Factor Authentication Secret"
+msgstr "2단계 인증 비밀 제거"
+
+msgid "Enter TOTP code to confirm enrollment"
+msgstr "등록 확인을 위해 TOTP 코드를 입력하세요."
+
+msgid ""
+"Keep these backup passwords in a safe place, in case you lose the OTP "
+"credentials."
+msgstr ""
+"OTP 자격 증명을 분실할 경우를 대비하여 백업 비밀번호를 "
+"안전한 곳에 보관하세요."
+
+msgid "The user must have an email address."
+msgstr "사용자에게 이메일 주소가 있어야 합니다."
+
+msgid "Role management"
+msgstr "역할 관리"
+
+msgid "Select your Role"
+msgstr "역할 선택"
+
+msgid "Are you sure? You're about to delete this Role."
+msgstr "정말인가요? 이 역할을 삭제하려고 합니다."
+
+msgid "Rename"
+msgstr "이름 바꾸기"
+
+msgid "Choose a Role Name"
+msgstr "역할 이름 선택"
+
+msgid ""
+"<center>You must set another Role Name <br>-- or --<br> this Role Name already "
+"exist !!!</center>"
+msgstr ""
+"<center>다른 역할 이름을 설정해야 합니다 <br>-- 또는 --<br> 이 "
+"역할 이름이 이미 존재합니다!!!</center>."
+
+msgid "You've to check at least one user."
+msgstr "적어도 한 명의 사용자를 확인해야 합니다."
+
+msgid "The WebDav Key is"
+msgstr "WebDav 키는 다음과 같습니다."
+
+msgid "The public WebDav Key is"
+msgstr "공개 WebDav 키는 다음과 같습니다."
+
+msgid "WebDav key"
+msgstr "WebDav 키"
+
+msgid "is now locked"
+msgstr "이제 잠겼습니다."
+
+msgid "is now unlocked"
+msgstr "이제 잠금이 해제되었습니다."
+
+msgid "User Delete Confirmation"
+msgstr "사용자 삭제 확인"
+
+msgid "Please confirm removal of user status from:"
+msgstr "다음에서 사용자 상태 삭제를 확인해 주세요:"
+
+msgid ""
+"Be carefull, You are about to lose the home folder and the associated files, the "
+"Calendars, the Share calendars and all the events too, for"
+msgstr ""
+"홈 폴더와 관련 파일, 캘린더, 공유 캘린더 및 모든 이벤트도 "
+"손실 될 수 있으니 조심하세요."
+
+msgid "This can't be undone"
+msgstr "되돌릴 수 없습니다."
+
+msgid "Action Confirmation"
+msgstr "작업 확인"
+
+msgid "Please confirm reset failed login count"
+msgstr "로그인 실패 횟수 재설정을 확인해 주세요."
+
+msgid "Reset failed login count for"
+msgstr "로그인 실패 횟수 재설정"
+
+msgid "done."
+msgstr "완료."
+
+msgid "Please confirm the password reset of this user"
+msgstr "이 사용자의 비밀번호 재설정을 확인해 주세요."
+
+msgid "Password reset for"
+msgstr "비밀번호 재설정 대상"
+
+msgid "Two factors authentications"
+msgstr "2단계 인증"
+
+msgid "to remove two-factor authentication"
+msgstr "2단계 인증을 제거하려면"
+
+msgid "Pending"
+msgstr "보류 중"
+
+msgid ""
+"Gives the user 60 seconds to log in with their recovery codes. The user will "
+"then have to delete or simply rescan the QR-code in the OTP Management "
+"application."
+msgstr ""
+"사용자에게 복구 코드를 사용하여 로그인할 수 있는 60초의 "
+"시간을 제공합니다. 그런 다음 사용자는 OTP 관리 "
+"애플리케이션에서 QR 코드를 삭제하거나 간단히 다시 "
+"스캔해야 합니다."
+
+msgid "The user has 60 seconds to use his recovery codes."
+msgstr "사용자는 60초 이내에 복구 코드를 사용할 수 있습니다."
+
+msgid "Saving Campaign ..."
+msgstr "절약 캠페인 ..."
+
+msgid "Campaign"
+msgstr "캠페인"
+
+msgid "saved successfully"
+msgstr "저장 성공"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "캠페인을 곧 전송할 예정입니다! 확실하신가요?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "캠페인을 삭제하려고 합니다! 정말인가요?"
+
+msgid "Loading datas ..."
+msgstr "데이터 로드 중 ..."
+
+msgid "No list are created with this account ...."
+msgstr "이 계정으로 생성된 목록이 없습니다 ...."
+
+msgid "Email List"
+msgstr "이메일 목록"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Subject"
+msgstr "제목"
+
+msgid "Members:"
+msgstr "회원:"
+
+msgid "Campaigns:"
+msgstr "캠페인:"
+
+msgid "Unsubscribed count:"
+msgstr "구독 취소 횟수:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "마지막 전송 이후 구독 취소 횟수입니다:"
+
+msgid "Cleaned count:"
+msgstr "청소 횟수:"
+
+msgid "Cleaned count since last send:"
+msgstr "마지막 전송 이후 정리된 횟수입니다:"
+
+msgid "Campaigns"
+msgstr "캠페인"
+
+msgid "Tags"
+msgstr "태그"
+
+msgid "is not configured"
+msgstr "가 구성되지 않았습니다."
+
+msgid "Please update the"
+msgstr "업데이트하세요."
+
+msgid "API key in Setting->"
+msgstr "설정-> API 키에서"
+
+msgid "Edit General Settings"
+msgstr "일반 설정 편집"
+
+msgid "then update"
+msgstr "를 클릭한 다음 업데이트"
+
+msgid "For more info see our "
+msgstr "자세한 내용은"
+
+msgid "support docs."
+msgstr "지원 문서."
+
+msgid "List Creation"
+msgstr "목록 생성"
+
+msgid "List Title"
+msgstr "목록 제목"
+
+msgid "Your List Title"
+msgstr "목록 제목"
+
+msgid "Your Subject"
+msgstr "제목"
+
+msgid "Permission Reminder"
+msgstr "권한 알림"
+
+msgid "Archive Bars"
+msgstr "아카이브 바"
+
+msgid "Public"
+msgstr "공개"
+
+msgid "People"
+msgstr "사람"
+
+msgid "Families"
+msgstr "가족"
+
+msgid "Add a new tag"
+msgstr "새 태그 추가"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "구독자에서 태그 삭제"
+
+msgid "Delete tag"
+msgstr "태그 삭제"
+
+msgid "Loading resources ..."
+msgstr "리소스 로드 중 ..."
+
+msgid "Check all boxes"
+msgstr "모든 상자에 체크"
+
+msgid "Subscribed"
+msgstr "구독"
+
+msgid "Unsubscribed"
+msgstr "구독 취소"
+
+msgid "Email Marketing"
+msgstr "이메일 마케팅"
+
+msgid "Add your tag name"
+msgstr "태그 이름 추가"
+
+msgid "Adding tag..."
+msgstr "태그 추가 중..."
+
+msgid "Name is empty !!"
+msgstr "이름이 비어 있습니다 !!"
+
+msgid "Add tag?"
+msgstr "태그를 추가하시겠습니까?"
+
+msgid "This will add the tag"
+msgstr "그러면 태그가 추가됩니다."
+
+msgid "to all the current selected members in the list."
+msgstr "를 목록에서 현재 선택된 모든 멤버로 변경합니다."
+
+msgid "Select One"
+msgstr "하나 선택"
+
+msgid "All Tags"
+msgstr "모든 태그"
+
+msgid "Choose the tag you want to delete :"
+msgstr "삭제할 태그를 선택합니다 :"
+
+msgid "Removing tags..."
+msgstr "태그 제거하기..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "목록에서 선택한 멤버에 대한 모든 태그 삭제..."
+
+msgid "You're about to delete a tag!"
+msgstr "태그를 삭제하려고 합니다!"
+
+msgid "This will also delete the tag for all the members in this list. Are you sure ?"
+msgstr ""
+"이렇게 하면 이 목록에 있는 모든 멤버의 태그도 "
+"삭제됩니다. 정말인가요?"
+
+msgid "Deleting tag"
+msgstr "태그 삭제하기"
+
+msgid "A person name or Family or Group"
+msgstr "사람 이름 또는 가족 또는 그룹"
+
+msgid "Loading subscriber"
+msgstr "구독자 로드 중"
+
+msgid "Loading subscribers from Group"
+msgstr "그룹에서 구독자 로드"
+
+msgid "Loading subscribers from family"
+msgstr "가족에서 구독자 로드"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"EcclesiaCRM에서 모든 사람을 로드하는 중입니다<br>시간이 걸릴 "
+"수 있습니다!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns "
+"after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"사실, CRM을 종료하고 5분 정도 기다린 후 캠페인을 만드는 "
+"것이 좋습니다.<br>대용량 데이터를 가져오려면 MailChimp API가 "
+"느립니다."
+
+msgid "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"에클레시아CRM에서 모든 뉴스레터 구독자를 로드하는 "
+"중입니다<br>시간이 걸릴 수 있습니다!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This could "
+"take a while !"
+msgstr ""
+"EcclesiaCRM에서 모든 가족 첫 번째 헤드피플 구독자를 "
+"로드하는 중<br>시간이 걸릴 수 있습니다!"
+
+msgid "Select status for : "
+msgstr "에 대한 상태를 선택합니다:"
+
+msgid "Changing status ..."
+msgstr "상태 변경 ..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "구독자를 삭제하려고 합니다! 정말인가요?"
+
+msgid "Deleting Subscriber..."
+msgstr "구독자 삭제..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "이 메일링 리스트를 정말 삭제하시겠습니까?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "모든 구독자를 삭제하시겠습니까?"
+
+msgid "Deleting all subscribers..."
+msgstr "모든 구독자 삭제 중..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open it "
+"to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"사실, CRM을 종료하고 한 시간 후에 다시 열어 목록을 "
+"관리하는 것이 좋습니다.<br>대용량 데이터를 삭제하려면 "
+"MailChimp API가 느립니다."
+
+msgid "Email Campaign Creation"
+msgstr "이메일 캠페인 생성"
+
+msgid "Campaign Title"
+msgstr "캠페인 제목"
+
+msgid "Your Campaign Title"
+msgstr "캠페인 제목"
+
+msgid "For Tag"
+msgstr "태그"
+
+msgid "Mail Subject"
+msgstr "메일 제목"
+
+msgid "Your Mail Subject"
+msgstr "메일 제목"
+
+msgid "All list members"
+msgstr "모든 목록 구성원"
+
+msgid "Adding Campaign ..."
+msgstr "캠페인 추가 ..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "이 새로운 캠페인을 직접 관리하고 싶으신가요?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "이메일 캠페인의 캠페인 제목을 설정해야 합니다."
+
+msgid "List Name"
+msgstr "목록 이름"
+
+msgid "Changing subscribers state..."
+msgstr "구독자 상태 변경 중..."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "구독자를 삭제하려고 합니다! 정말인가요?"
+
+msgid "Deleting Subscribers..."
+msgstr "구독자 삭제하기..."
+
+msgid "Confirmation of plugin removal"
+msgstr "플러그인 제거 확인"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"선택한 플러그인을 삭제하려고 합니다. 이 작업은 취소할 수 "
+"없습니다!"
+
+msgid "Select your zipped plugin file"
+msgstr "압축된 플러그인 파일 선택"
+
+msgid "Download the zipped file of the plugin"
+msgstr "플러그인 압축 파일 다운로드"
+
+msgid "Plugin download manager"
+msgstr "플러그인 다운로드 관리자"
+
+msgid "You must enter a password"
+msgstr "비밀번호를 입력해야 합니다."
+
+msgid "Passwords must match"
+msgstr "비밀번호가 일치해야 합니다."
+
+msgid "Backup Running, Please wait."
+msgstr "백업 실행 중, 잠시만 기다려주세요."
+
+msgid "Backup Generated and copied to remote server"
+msgstr "백업 생성 및 원격 서버에 복사"
+
+msgid "Backup Complete, Ready for Download."
+msgstr "백업 완료, 다운로드 준비 완료."
+
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "백업 다운로드됨, 서버에 복사본 제거됨"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "선택한 파일이 이 서버의 최대 업로드 크기를 초과합니다."
+
+msgid "Restore Running, Please wait."
+msgstr "실행 복원, 잠시만 기다려주세요."
+
+msgid "Restore Complete"
+msgstr "복원 완료"
+
+msgid "Login to restored Database"
+msgstr "복원된 데이터베이스에 로그인"
+
+msgid "Restore Error."
+msgstr "복원 오류."
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, etc "
+"..."
+msgstr "검색어 : 이름, 이름, 전화번호, 속성, 그룹명 등..."
+
+msgid "Done !"
+msgstr "완료!"
+
+msgid "All Groups"
+msgstr "모든 그룹"
+
+msgid "All Roles"
+msgstr "모든 역할"
+
+msgid "id"
+msgstr "id"
+
+msgid "Photos"
+msgstr "사진"
+
+msgid "Search result"
+msgstr "검색 결과"
+
+msgid "Property Name"
+msgstr "속성 이름"
+
+msgid "Loading people in cart...."
+msgstr "장바구니에 사람 적재하기...."
+
+msgid "Removing people in cart...."
+msgstr "장바구니에 있는 사람 제거하기...."
+
+msgid "Removing finished...."
+msgstr "제거 완료...."
+
+msgid "Remove People"
+msgstr "사람 제거"
+
+msgid "Nothing to remove."
+msgstr "제거할 항목이 없습니다."
+
+msgid "Visits/calls"
+msgstr "방문/전화"
+
+msgid "Last visit/call"
+msgstr "마지막 방문/통화"
+
+msgid "Delete Pastoral Care Type"
+msgstr "목회자 케어 유형 삭제"
+
+msgid "Pastoral Care Note Creation"
+msgstr "목회자 케어 노트 작성"
+
+msgid "For every administrator"
+msgstr "모든 관리자를 위한"
+
+msgid "Show"
+msgstr "표시"
+
+msgid "Hide"
+msgstr "숨기기"
+
+msgid "Include all the family members"
+msgstr "모든 가족 구성원 포함"
+
+msgid "Include"
+msgstr "포함"
+
+msgid "Last Name (Family Name)"
+msgstr "성(가족 이름)"
+
+msgid "Family Name"
+msgstr "가족 이름"
+
+msgid "Number"
+msgstr "번호"
+
+msgid "Item"
+msgstr "항목"
+
+msgid "Preview"
+msgstr "미리보기"
+
+msgid "Multiple"
+msgstr "여러"
+
+msgid "Donor"
+msgstr "기부자"
+
+msgid "Buyer"
+msgstr "구매자"
+
+msgid "Sale Price"
+msgstr "판매 가격"
+
+msgid "Estimated value"
+msgstr "예상 가치"
+
+msgid "Material Value"
+msgstr "재료 가치"
+
+msgid "Minimum Price"
+msgstr "최저 가격"
+
+msgid "Add buyer"
+msgstr "구매자 추가"
+
+msgid "Buyer Number"
+msgstr "구매자 번호"
+
+msgid "Save and Add"
+msgstr "저장 및 추가"
+
+msgid "Generate Statement"
+msgstr "명세서 생성"
+
+msgid "Buyer Number Editor"
+msgstr "구매자 번호 편집기"
+
+msgid "Select"
+msgstr "선택"
+
+msgid "You're about to delete all the group members ?"
+msgstr "모든 그룹 멤버를 삭제하시려고요?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "정말인가요? 이건 되돌릴 수 없습니다."
+
+msgid "Upload Photo"
+msgstr "사진 업로드"
+
+msgid "Upload an existing Photo"
+msgstr "기존 사진 업로드"
+
+msgid "Max photo size"
+msgstr "최대 사진 크기"
+
+msgid "Capture from Webcam"
+msgstr "웹캠에서 캡처"
+
+msgid "Snap Photo"
+msgstr "스냅 사진"
+
+msgid "Re-Take Photo"
+msgstr "사진 다시 찍기"
+
+msgid "Switch Camera"
+msgstr "카메라 전환"
+
+msgid "Upload Image"
+msgstr "이미지 업로드"
+
+
+#~ msgid "Info"
+#~ msgstr "情報"
+
+#, fuzzy
+#~ msgid "Moved!"
+#~ msgstr "移動"
+
+#~ msgid "Problem"
+#~ msgstr "問題点"
+
+#~ msgid ""
+#~ "Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+#~ "webcam<br/>• Sharing your windows<br/> won't work with meeting."
+#~ msgstr ""
+#~ "<br/>- ウェブカメラ<br/>- ウィンドウの共有<br/>はミーティングでは動作しま"
+#~ "せん。"
+
+#~ msgid "Set a Jitsi room name"
+#~ msgstr "Jitsiのルームネームの設定"
+
+#~ msgid "Delete all Rooms?"
+#~ msgstr "すべての部屋を削除しますか？"
+
+#~ msgid "You're about to delete all of your rooms."
+#~ msgstr "自分の部屋をすべて削除するところです。"
+
+#~ msgid "All"
+#~ msgstr "すべて"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "ファイルを削除しようとしている"
+
+#~ msgid ""
+#~ "Deleting an event will also delete all attendance counts for that event."
+#~ msgstr ""
+#~ "イベントを削除すると、そのイベントのすべての出席者数も削除されます。"
+
+#~ msgid "Are you sure you want to DELETE the event ?"
+#~ msgstr "本当にイベントを削除していいのですか？"
+
+#~ msgid ""
+#~ "You can create the event automatically with the students<br> - OR - "
+#~ "<br>Add the students to the cart and create an event to add them after."
+#~ msgstr ""
+#~ "生徒と一緒に自動的にイベントを作成することができます<br> - OR - <br>カート"
+#~ "に生徒を追加し、その後に追加するイベントを作成することができます。"
