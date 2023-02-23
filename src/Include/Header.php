@@ -238,7 +238,7 @@ Header_system_notifications();
                             <i class="nav-icon  fas fa-search"></i>
                             <p>
                                 <!-- search form -->
-                                <select class="form-control multiSearch select2-hidden-accessible" style="width:173px" data-select2-id="1" tabindex="-1" aria-hidden="true"></select>
+                                <select class="form-control multiSearch select2-hidden-accessible left-search-field-menu-bar" data-select2-id="1" tabindex="-1" aria-hidden="true"></select>
                                 <!-- /.search form -->
                             </p>
                         </a>
