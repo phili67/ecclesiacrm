@@ -322,5 +322,15 @@
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
+    },
+    "Ukraine": {
+        "poEditor": "uk",
+        "locale": "uk_UA",
+        "languageCode": "uk",
+        "countryCode": "uk",
+        "dataTables": "uk",
+        "fullCalendar": true,
+        "datePicker": true,
+        "select2": true
     }
 }

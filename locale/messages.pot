@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 20:22+0000\n"
+"POT-Creation-Date: 2023-02-23 16:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12094,6 +12094,10 @@ msgstr ""
 
 #: settings-locales.php:33
 msgid "Korean"
+msgstr ""
+
+#: settings-locales.php:34
+msgid "Ukraine"
 msgstr ""
 
 #: userconfig_ucfg.php:2

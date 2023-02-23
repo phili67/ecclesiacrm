@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-23T08:23:27.384Z\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Remove"
+msgstr "Видалити"
+
+msgid "Edit"
+msgstr "Редагувати"
+
+msgid "News Editor"
+msgstr "Редактор новин"
+
+msgid "News Title"
+msgstr "Назва новини"
+
+msgid "Set your News title"
+msgstr "Налаштуйте заголовок новини"
+
+msgid "Choose your News Type"
+msgstr "Виберіть тип новини"
+
+msgid "Infos"
+msgstr "Інформація"
+
+msgid "To plan"
+msgstr "Планувати"
+
+msgid "To note"
+msgstr "На замітку"
+
+msgid "Important"
+msgstr "Важливо"
+
+msgid "Very important"
+msgstr "Дуже важливо"
+
+msgid "You have to set a Title for your news"
+msgstr "Ви маєте встановити заголовок для вашої новини"

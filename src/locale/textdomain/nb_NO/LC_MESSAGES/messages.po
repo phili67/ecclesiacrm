@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 19:28+0000\n"
+"POT-Creation-Date: 2023-02-23 08:21+0000\n"
 "Language: nb-no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12402,6 +12402,10 @@ msgstr "Vietnamesisk"
 #: settings-locales.php:33
 msgid "Korean"
 msgstr "Koreansk"
+
+#: settings-locales.php:34
+msgid "Ukraine"
+msgstr ""
 
 #: userconfig_ucfg.php:2
 msgid "User permission to send email via mailto: links"

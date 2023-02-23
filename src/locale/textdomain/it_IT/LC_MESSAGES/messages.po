@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 16:24+0000\n"
+"POT-Creation-Date: 2023-02-23 08:21+0000\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12487,6 +12487,10 @@ msgstr "Vietnamita"
 
 #: settings-locales.php:33
 msgid "Korean"
+msgstr ""
+
+#: settings-locales.php:34
+msgid "Ukraine"
 msgstr ""
 
 #: userconfig_ucfg.php:2
