@@ -75,7 +75,10 @@ class ChurchInfoReportTCPDF extends TCPDF
     public function setFont ($family, $style='', $size=null, $fontfile='', $subset='default', $out=true)
     {
         $lang = SystemConfig::getValue('sLanguage');
-        if ($lang == 'ja_JP') {
+        if ($lang == 'ko_KR') {
+            $family = 'cid0kr';
+            $size = round($size*0.8);
+        } else if ($lang == 'ja_JP') {
             $family = 'cid0jp';
             $size = round($size*0.8);
         } else if ($lang == 'ru_RU') {
