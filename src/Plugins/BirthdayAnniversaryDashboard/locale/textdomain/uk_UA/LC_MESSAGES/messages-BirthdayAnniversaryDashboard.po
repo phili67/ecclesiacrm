@@ -1,0 +1,18 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-23 16:30+0000\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:112
+msgid "Birthdates of the day"
+msgstr "Іменинники дня"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:132
+msgid "Anniversaries of the day"
+msgstr "Ювілейні дати"

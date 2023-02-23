@@ -1,0 +1,156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "правда"
+
+msgid "false"
+msgstr "фальшивий"
+
+msgid "pm"
+msgstr "вечір"
+
+msgid "am"
+msgstr "вранці."
+
+msgid "Teachers"
+msgstr "Вчителі"
+
+msgid "Students"
+msgstr "Студенти"
+
+msgid "Teacher"
+msgstr "Учитель"
+
+msgid "Student"
+msgstr "Студент"
+
+msgid "Parents"
+msgstr "Батьки."
+
+msgid "Kids"
+msgstr "Діти."
+
+msgid "create"
+msgstr "створювати"
+
+msgid "edit"
+msgstr "редагувати"
+
+msgid "photo"
+msgstr "фото"
+
+msgid "group"
+msgstr "група"
+
+msgid "Group"
+msgstr "Група"
+
+msgid "note"
+msgstr "примітка"
+
+msgid "You have to set a Title for your event"
+msgstr "Ви маєте встановити назву для вашої події"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Ця подія не підлягає зміні!!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Щоб додати подію, спочатку потрібно "
+"створити або активувати календар."
+
+msgid "Event added"
+msgstr "Додано подію"
+
+msgid "Event was added successfully."
+msgstr "Подію успішно додано."
+
+msgid "Electronic Transaction Details"
+msgstr "Інформація про електронну транзакцію"
+
+msgid "Daily"
+msgstr "Щодня"
+
+msgid "Weekly"
+msgstr "Щотижня"
+
+msgid "Monthly"
+msgstr "Щомісяця"
+
+msgid "Quarterly"
+msgstr "Щоквартально"
+
+msgid "Once"
+msgstr "Одного разу"
+
+msgid "Other"
+msgstr "Інше"
+
+msgid "CREDITCARD"
+msgstr "КРЕДИТНА КАРТКА"
+
+msgid "CASH"
+msgstr "ГРОШІ"
+
+msgid "Bank"
+msgstr "Банк"
+
+msgid "CreditCard"
+msgstr "Кредитна картка"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"У деяких сім'ях не визначена рольова назва "
+"\"голова сім'ї\", або в них немає жодного "
+"активного члена сім'ї:"
+
+msgid "send"
+msgstr "відправити"
+
+msgid "save"
+msgstr "зберегти"
+
+msgid "subscribed"
+msgstr "підписано"
+
+msgid "unsubscribed"
+msgstr "відписався"
+
+msgid "sent"
+msgstr "відправлено"
+
+msgid "schedule"
+msgstr "розклад"
+
+msgid "paused"
+msgstr "призупинився"
+
+msgid "cleaned"
+msgstr "прибраний"
+
+msgid "pending"
+msgstr "на розгляді"
+
+msgid "Invalid date"
+msgstr "Невірна дата"

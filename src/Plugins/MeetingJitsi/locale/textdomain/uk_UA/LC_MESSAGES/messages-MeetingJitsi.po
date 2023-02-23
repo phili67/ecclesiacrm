@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-23 16:30+0000\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:52
+msgid "Meeting Dashboard"
+msgstr "Панель управління зустрічами"
+
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:98
+msgid "Meeting Settings"
+msgstr "Налаштування зустрічей"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:21
+msgid "Room names"
+msgstr "Назви кімнат"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:23
+msgid "Create first a room and manage theme with the arrow button"
+msgstr ""
+"Спочатку створіть кімнату та керуйте темою за допомогою кнопки зі стрілкою"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:24
+msgid "Create Room"
+msgstr "Створити кімнату"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:38
+msgid "This action will delete all your rooms"
+msgstr "Ця дія видалить всі ваші кімнати"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:39
+msgid "Delete all Rooms"
+msgstr "Видалити всі номери"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:42
+msgid "Appointment"
+msgstr "Призначення"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:53
+msgid "Room Name"
+msgstr "Назва кімнати"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:64
+msgid "First create a Jitsi room with the button above !"
+msgstr "Спочатку створіть кімнату Jitsi за допомогою кнопки вище!"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:24
+msgid "Settings"
+msgstr "Налаштування"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:39
+msgid "The Jitsi domain name, by default"
+msgstr "Доменне ім'я Jitsi, за замовчуванням"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:55
+msgid "The path for the script associated with the domain name"
+msgstr "Шлях для скрипта, пов'язаного з доменним ім'ям"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:65
+msgid "Save Changes"
+msgstr "Зберегти зміни"

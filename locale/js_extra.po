@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr_fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr " "
+
+msgid "false"
+msgstr " "
+
+msgid "pm"
+msgstr " "
+
+msgid "am"
+msgstr " "
+
+msgid "Teachers"
+msgstr "Moniteurs"
+
+msgid "Students"
+msgstr "Etudiants"
+
+msgid "Teacher"
+msgstr "Moniteur"
+
+msgid "Student"
+msgstr "Etudiant"
+
+msgid "Parents"
+msgstr "Parents"
+
+msgid "Kids"
+msgstr "Enfants"
+
+msgid "create"
+msgstr "création"
+
+msgid "edit"
+msgstr "édition"
+
+msgid "photo"
+msgstr "photo"
+
+msgid "group"
+msgstr "groupe"
+
+msgid "Group"
+msgstr "Groupe"
+
+msgid "note"
+msgstr "note"
+
+msgid "You have to set a Title for your event"
+msgstr "Vous devez saisir un titre pour votre événement"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Cet événement ne peut être modifié !!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Pour ajouter un événément, vous devez avoir créé un calendrier ou en "
+"cliquand un pour l'activer"
+
+msgid "Event added"
+msgstr "Evénement ajoutée"
+
+msgid "Event was added successfully."
+msgstr "Evénement ajouté avec succès"
+
+msgid "Electronic Transaction Details"
+msgstr "Détails de la transaction électronique"
+
+msgid "Daily"
+msgstr "Journalier"
+
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+msgid "Monthly"
+msgstr "Mensuel"
+
+msgid "Quarterly"
+msgstr "Trimestriel"
+
+msgid "Once"
+msgstr "Une fois"
+
+msgid "Other"
+msgstr "Autre"
+
+msgid "CREDITCARD"
+msgstr "Carte Crédit"
+
+msgid "CASH"
+msgstr "Espèce"
+
+msgid "Bank"
+msgstr "Chèque ou espèce"
+
+msgid "CreditCard"
+msgstr "Carte de crédit"
+
+msgid "BankDraft"
+msgstr "Virement bancaire"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's "
+"any activated members in this families:"
+msgstr ""
+"Certaine familles n'ont pas de nom de rôle \"Représentant Famille\" ou il "
+"n'y a pas de membres activés dans ces familles :"
+
+msgid "send"
+msgstr "envoyée"
+
+msgid "save"
+msgstr "enregistrée"
+
+msgid "subscribed"
+msgstr "abonné"
+
+msgid "unsubscribed"
+msgstr "désabonné"
+
+msgid "sent"
+msgstr "envoyée"
+
+msgid "schedule"
+msgstr "Planifiée"
+
+msgid "paused"
+msgstr "En pause"
+
+msgid "cleaned"
+msgstr "nettoyé"
+
+msgid "pending"
+msgstr "en attente"
+
+msgid "Invalid date"
+msgstr "Date incorrecte"
