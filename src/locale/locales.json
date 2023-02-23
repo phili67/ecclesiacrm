@@ -312,5 +312,15 @@
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
+    },
+    "Korean": {
+        "poEditor": "ko",
+        "locale": "ko_KR",
+        "languageCode": "ko",
+        "countryCode": "KO",
+        "dataTables": "ko",
+        "fullCalendar": true,
+        "datePicker": true,
+        "select2": true
     }
 }

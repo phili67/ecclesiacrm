@@ -1,0 +1,50 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 20:19+0000\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:27
+msgid "min(s)"
+msgstr "최소"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:29
+msgid "hour(s)"
+msgstr "시간"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:31
+msgid "day(s)"
+msgstr "일(일)"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:33
+msgid "week(s)"
+msgstr "주"
+
+#: ../src/Plugins/ToDoListDashboard/core/Service/ToDoListDashboardService.php:35
+msgid "month(s)"
+msgstr "개월(들)"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:38
+msgid "To Do List"
+msgstr "할 일 목록"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:67
+msgid "Edit Name of Current To Do List"
+msgstr "현재 할 일 목록의 이름 편집"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:71
+msgid "Remove Current To Do List"
+msgstr "현재 할 일 목록 제거"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:75
+msgid "Add a To Do List"
+msgstr "할 일 목록 추가"
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:124
+msgid "Add item"
+msgstr "항목 추가"
