@@ -13,11 +13,11 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (1011, 'sTaxReport1', 'Cette lettre est un rappel de tous les dons pour'),
 (1012, 'sTaxReport2', 'Merci de nous avoir soutenu cette année. Nous avons grandement apprécié votre dévouement !'),
 (1013, 'sTaxReport3', 'Si vous avez des questions ou des modifications à apporter concernant le rapport, contactez votre église au numéro ci-dessus pendant les heures de travail, entre 9h00 et 17h00.'),
-(1015, 'sReminder1', 'Cette lettre est un récapitulatif des informations envoyés pour l\'année fiscale en cours'),
+(1015, 'sReminder1', "Cette lettre est un récapitulatif des informations envoyés pour l'année fiscale en cours"),
 (1019, 'sConfirm1', 'Cette lettre résume les informations qui sont enregistrées dans notre base de données. Relisez  soigneusement, corrigez les et retournez-nous ce formulaire ci nécessaire à notre église.'),
 (1020, 'sConfirm2', 'Merci pour nous avoir aidé à compléter ces informations. Si vous voulez des renseignements concernant la base de données.'),
 (1021, 'sConfirm3', 'Email _____________________________________ mot de passe ________________'),
-(1022, 'sConfirm4', '[  ] Je ne veux plus être associé à l\'église (coché ici pour être effacé de vos enregistrements).'),
+(1022, 'sConfirm4', "[  ] Je ne veux plus être associé à l'église (coché ici pour être effacé de vos enregistrements)."),
 (1026, 'sPledgeSummary1', 'Résumé des promesses de dons et paiement pour cette année fiscale'),
 (1027, 'sPledgeSummary2', 'pour le'),
 (1028, 'sDirectoryDisclaimer1', 'Nous avons travaillé à rendre ces données aussi exactes que possible. Si vous constatez des erreurs ou des omissions, contactez nous. Cet annuaire est utilisé pour les personnes de'),
@@ -31,19 +31,19 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (2050, 'bStateUnusefull', '1'),
 (2051, 'sCurrency', '€'),
 (2052, 'sUnsubscribeStart', 'Si vous ne voulez plus recevoir ces emails de'),
-(2053, 'sUnsubscribeEnd', 'dans le futur, contactez les administrateurs de l\'église'),
-(1017, 'sReminderNoPledge', 'Dons: Nous n\'avons aucun enregistrement de dons de votre part pour cette année fiscale.'),
-(1018, 'sReminderNoPayments', 'Paiements : Nous n\'avons aucun enregistrement de votre part pour cette année fiscale.')
+(2053, 'sUnsubscribeEnd', "dans le futur, contactez les administrateurs de l'église"),
+(1017, 'sReminderNoPledge', "Dons: Nous n'avons aucun enregistrement de dons de votre part pour cette année fiscale."),
+(1018, 'sReminderNoPayments', "Paiements : Nous n'avons aucun enregistrement de votre part pour cette année fiscale.")
 ON DUPLICATE KEY UPDATE cfg_name=VALUES(cfg_name),cfg_value=VALUES(cfg_value);
 
 
 INSERT INTO `donationfund_fun` (`fun_ID`, `fun_Active`, `fun_Name`, `fun_Description`) VALUES
-  (1, 'true', 'Dîme', 'entrée d\'argent pour pour le budget.')
+  (1, 'true', 'Dîme', "entrée d'argent pour pour le budget.")
 ON DUPLICATE KEY UPDATE fun_Active=VALUES(fun_Active),fun_Name=VALUES(fun_Name),fun_Description=VALUES(fun_Description);
 
 INSERT INTO `event_types` (`type_id`, `type_name`) VALUES
-  (1, 'Service d\'église'),
-  (2, 'Ecole du dimanche')
+  (1, "Service d'église"),
+  (2, "Ecole du dimanche")
 ON DUPLICATE KEY UPDATE type_name=VALUES(type_name);
 
 INSERT INTO `eventcountnames_evctnm` (`evctnm_countid`, `evctnm_eventtypeid`, `evctnm_countname`, `evctnm_notes`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Typ
   (2, 2, 2, 'normal', 'Conjoint(e)'),
   (2, 3, 3, 'normal', 'Enfant'),
   (2, 4, 4, 'normal', 'Autre membre de la famille'),
-  (2, 5, 5, 'normal', 'N\'est pas membre de la famille'),
+  (2, 5, 5, 'normal', "N'est pas membre de la famille"),
   (3, 1, 1, 'normal', 'Ministère'),
   (3, 2, 2, 'normal', 'Equipe'),
   (3, 3, 3, 'normal', 'Etude de la bible'),
@@ -131,11 +131,11 @@ ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 
 INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`, `pst_cr_tp_comment`) VALUES
 (1, 'Note pastorale classique', '', 1, ''),
-(2, 'Pourquoi êtes-vous venu à l\'église', '', 1, ''),
+(2, "Pourquoi êtes-vous venu à l'église", '', 1, ''),
 (3, 'Pourquoi continuez-vous à venir ?', '', 1, ''),
 (4, 'Avez-vous une requêtes à nous faire ?', '', 1, ''),
-(5, 'Comment avez-vous entendu parler de l\'église ?', '', 1, ''),
+(5, "Comment avez-vous entendu parler de l'église ?", '', 1, ''),
 (6, 'Baptême', 'Formation', 0, ''),
 (7, 'Mariage', 'Formation', 0, ''),
-(8, 'Relation d\'aide', 'Thérapie et suivi', 0, '')
+(8, "Relation d'aide", 'Thérapie et suivi', 0, '')
 ON DUPLICATE KEY UPDATE pst_cr_tp_title=VALUES(pst_cr_tp_title),pst_cr_tp_desc=VALUES(pst_cr_tp_desc),pst_cr_tp_visible=VALUES(pst_cr_tp_visible);
