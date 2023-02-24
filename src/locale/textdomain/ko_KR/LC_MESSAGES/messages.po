@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 17:26+0000\n"
+"POT-Creation-Date: 2023-02-24 08:22+0000\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,9 +26,9 @@ msgstr "의 경우"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:220
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: Include/Footer.php:85 PledgeEditor.php:588
+#: ident/routes/verify.php:156 Include/Footer.php:85 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
-#: ident/routes/verify.php:156 v2/templates/gdpr/gdprdatastructure.php:56
+#: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:47
 msgid "Person"
@@ -38,6 +38,7 @@ msgstr "사람"
 #: ConvertIndividualToAddress.php:61 ConvertIndividualToAddress.php:129
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:73
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:223
+#: EcclesiaCRM/dto/ReportUtilities.php:71
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:31
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:24
@@ -47,13 +48,12 @@ msgstr "사람"
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
 #: EcclesiaCRM/Service/TimelineService.php:212
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
-#: EcclesiaCRM/dto/ReportUtilities.php:71 ElectronicPaymentList.php:217
-#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:68
-#: PersonView.php:940 PledgeEditor.php:588 PrintPastoralCarePerson.php:325
-#: PrintView.php:336 Reports/GDPR/GDPRDataStructureExport.php:123
-#: Reports/PDFLabel.php:174
+#: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: ident/routes/verify.php:345 members/404.php:16
+#: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:345
+#: Include/Footer.php:68 members/404.php:16 PersonView.php:940
+#: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
+#: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/templates/gdpr/gdprdatastructure.php:100
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:25
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:32
@@ -80,15 +80,15 @@ msgstr "경고! 자동 결제를 만들려면 개인 또는 가족을 선택해�
 #: EcclesiaCRM/APIControllers/SearchController.php:244
 #: EcclesiaCRM/APIControllers/SearchController.php:252
 #: EcclesiaCRM/APIControllers/SearchController.php:257
-#: EcclesiaCRM/MenuBar/MenuBar.php:256 EcclesiaCRM/MenuBar/MenuBar.php:330
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:79
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
+#: EcclesiaCRM/MenuBar/MenuBar.php:256 EcclesiaCRM/MenuBar/MenuBar.php:330
 #: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:79 eGive.php:345
 #: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
-#: PersonEditor.php:977 PersonEditor.php:997 PersonEditor.php:1587
-#: PrintPastoralCarePerson.php:332 PrintPastoralCarePerson.php:345
-#: PrintView.php:343 PrintView.php:356 SelectDelete.php:243
-#: SystemSettings.php:235 eGive.php:345 ident/routes/verify.php:213
+#: ident/routes/verify.php:213 PersonEditor.php:977 PersonEditor.php:997
+#: PersonEditor.php:1587 PrintPastoralCarePerson.php:332
+#: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
+#: SelectDelete.php:243 SystemSettings.php:235
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
@@ -150,7 +150,7 @@ msgid "Fund"
 msgstr "펀드"
 
 #: AutoPaymentEditor.php:891 CartToBadge.php:134
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:213
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:212
 #: EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php:37
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:239
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:240
@@ -173,10 +173,10 @@ msgid "inactive"
 msgstr "비활성"
 
 #: AutoPaymentEditor.php:905 CSVExport.php:76 CSVImport.php:235
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 PersonEditor.php:913
-#: Reports/MemberEmailExport.php:20
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: external/templates/registration/family-register-members.php:76
-#: ident/routes/verify.php:168 ident/routes/verify.php:173
+#: ident/routes/verify.php:168 ident/routes/verify.php:173 PersonEditor.php:913
+#: Reports/MemberEmailExport.php:20
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
@@ -185,59 +185,59 @@ msgid "First Name"
 msgstr "이름"
 
 #: AutoPaymentEditor.php:913 CSVExport.php:66 CSVImport.php:237
-#: ManageEnvelopes.php:171 PersonEditor.php:935
-#: Reports/MemberEmailExport.php:21
 #: external/templates/registration/family-register-members.php:81
 #: ident/routes/verify.php:191 ident/routes/verify.php:196
+#: ManageEnvelopes.php:171 PersonEditor.php:935
+#: Reports/MemberEmailExport.php:21
 #: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
 msgid "Last Name"
 msgstr "성"
 
-#: AutoPaymentEditor.php:921 AutoPaymentEditor.php:929 CSVExport.php:92
-#: CSVExport.php:98 CSVImport.php:241 CSVImport.php:242 CartToFamily.php:346
-#: CartToFamily.php:356 DirectoryReports.php:196 DirectoryReports.php:289
+#: AutoPaymentEditor.php:921 AutoPaymentEditor.php:929 CartToFamily.php:346
+#: CartToFamily.php:356 CSVExport.php:92 CSVExport.php:98 CSVImport.php:241
+#: CSVImport.php:242 DirectoryReports.php:196 DirectoryReports.php:289
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171 FamilyEditor.php:734
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
+#: external/templates/registration/family-register-done.php:28
+#: external/templates/registration/family-register.php:47 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:297 GeoPage.php:374 GroupReports.php:148
+#: ident/routes/verify.php:378 ident/routes/verify.php:433
 #: PersonEditor.php:1037 PersonEditor.php:1043 PersonEditor.php:1177
 #: PersonEditor.php:1201 PersonView.php:586 Reports/PDFLabel.php:859
-#: external/templates/registration/family-register-done.php:28
-#: external/templates/registration/family-register.php:47
-#: ident/routes/verify.php:378 ident/routes/verify.php:433
 #: v2/templates/pastoralcare/pastoralcarefamily.php:124
 #: v2/templates/pastoralcare/pastoralcareperson.php:220
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
 msgid "Address"
 msgstr "주소"
 
-#: AutoPaymentEditor.php:937 CSVExport.php:103 CSVImport.php:243
-#: CartToFamily.php:366 DirectoryReports.php:294 FamilyEditor.php:746
-#: PersonEditor.php:1049 PersonEditor.php:1225 Reports/PDFLabel.php:859
-#: external/templates/registration/family-register.php:58
-#: ident/routes/verify.php:388 queryparameteroptions_qpo.php:7
+#: AutoPaymentEditor.php:937 CartToFamily.php:366 CSVExport.php:103
+#: CSVImport.php:243 DirectoryReports.php:294
+#: external/templates/registration/family-register.php:58 FamilyEditor.php:746
+#: ident/routes/verify.php:388 PersonEditor.php:1049 PersonEditor.php:1225
+#: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "도시"
 
-#: AutoPaymentEditor.php:945 CSVExport.php:108 CSVImport.php:244
-#: CartToFamily.php:375 DirectoryReports.php:300 FamilyEditor.php:755
-#: PersonEditor.php:1058 PersonEditor.php:1253 Reports/PDFLabel.php:859
-#: external/templates/registration/family-register.php:62
-#: ident/routes/verify.php:400 queryparameteroptions_qpo.php:6
+#: AutoPaymentEditor.php:945 CartToFamily.php:375 CSVExport.php:108
+#: CSVImport.php:244 DirectoryReports.php:300
+#: external/templates/registration/family-register.php:62 FamilyEditor.php:755
+#: ident/routes/verify.php:400 PersonEditor.php:1058 PersonEditor.php:1253
+#: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "상태"
 
-#: AutoPaymentEditor.php:953 CSVExport.php:115 CSVImport.php:245
-#: CartToFamily.php:393 DirectoryReports.php:306 FamilyEditor.php:769
-#: PersonEditor.php:1073 PersonEditor.php:1287 Reports/PDFLabel.php:859
-#: external/templates/registration/family-register.php:73
-#: ident/routes/verify.php:413
+#: AutoPaymentEditor.php:953 CartToFamily.php:393 CSVExport.php:115
+#: CSVImport.php:245 DirectoryReports.php:306
+#: external/templates/registration/family-register.php:73 FamilyEditor.php:769
+#: ident/routes/verify.php:413 PersonEditor.php:1073 PersonEditor.php:1287
+#: Reports/PDFLabel.php:859
 msgid "Zip"
 msgstr "Zip"
 
-#: AutoPaymentEditor.php:961 CSVExport.php:125 CSVImport.php:246
-#: CartToFamily.php:402 FamilyEditor.php:779 PersonEditor.php:1083
-#: PersonEditor.php:1317 ident/routes/verify.php:425
+#: AutoPaymentEditor.php:961 CartToFamily.php:402 CSVExport.php:125
+#: CSVImport.php:246 FamilyEditor.php:779 ident/routes/verify.php:425
+#: PersonEditor.php:1083 PersonEditor.php:1317
 msgid "Country"
 msgstr "국가"
 
@@ -245,33 +245,33 @@ msgstr "국가"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/Reports/PDF_Directory.php:325
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
-#: EcclesiaCRM/Reports/PDF_Directory.php:456 Reports/DirectoryReport.php:317
+#: EcclesiaCRM/Reports/PDF_Directory.php:456
+#: external/templates/registration/family-register-members.php:114
+#: ident/routes/verify.php:447 Reports/DirectoryReport.php:317
 #: Reports/FundRaiserStatement.php:127 Reports/FundRaiserStatement.php:171
 #: Reports/GroupReport.php:124
-#: external/templates/registration/family-register-members.php:114
-#: ident/routes/verify.php:447
 msgid "Phone"
 msgstr "전화"
 
-#: AutoPaymentEditor.php:977 CSVExport.php:148 CSVImport.php:250
-#: CartToFamily.php:453 EcclesiaCRM/MenuBar/MenuBar.php:398
+#: AutoPaymentEditor.php:977 CartToFamily.php:453 CSVExport.php:148
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:398
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:246
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:264
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EventAttendance.php:206
+#: external/templates/registration/family-register-members.php:88
 #: FamilyEditor.php:861 FamilyView.php:380 FamilyView.php:463
-#: FamilyView.php:555 GroupReports.php:152 PersonEditor.php:1461
+#: FamilyView.php:555 GroupReports.php:152 ident/routes/verify.php:262
+#: ident/routes/verify.php:265 ident/routes/verify.php:686
+#: ident/templates/verify/login-info.php:34
+#: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1461
 #: PersonEditor.php:1465 PersonView.php:659 PersonView.php:787
 #: PersonView.php:1168 PrintPastoralCarePerson.php:385 PrintView.php:396
 #: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
 #: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
-#: external/templates/registration/family-register-members.php:88
-#: ident/routes/verify.php:262 ident/routes/verify.php:265
-#: ident/routes/verify.php:686 ident/templates/verify/login-info.php:34
-#: ident/templates/verify/verify-family-info.php:108
 #: v2/templates/calendar/eventattendeesedit.php:58
 #: v2/templates/pastoralcare/pastoralcarefamily.php:205
 #: v2/templates/pastoralcare/pastoralcareperson.php:291
@@ -323,10 +323,10 @@ msgstr "밴코에 개인 데이터 저장"
 #: FamilyEditor.php:715 FamilyEditor.php:813 FamilyEditor.php:888
 #: FamilyEditor.php:976 FamilyEditor.php:998 FamilyEditor.php:1072
 #: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:181
-#: PersonEditor.php:888 PersonEditor.php:970 PersonEditor.php:1157
-#: PersonEditor.php:1579 PersonEditor.php:1659 PersonEditor.php:1747
-#: PledgeEditor.php:793 SystemSettings.php:111 UserPasswordChange.php:225
-#: ident/templates/verify/change-password.php:56
+#: ident/templates/verify/change-password.php:56 PersonEditor.php:888
+#: PersonEditor.php:970 PersonEditor.php:1157 PersonEditor.php:1579
+#: PersonEditor.php:1659 PersonEditor.php:1747 PledgeEditor.php:793
+#: SystemSettings.php:111 UserPasswordChange.php:225
 #: v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
 msgstr "저장"
@@ -335,12 +335,11 @@ msgstr "저장"
 #: Checkin.php:459 DirectoryReports.php:339 EventNames.php:285
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
-#: LettersAndLabels.php:92 ManageEnvelopes.php:144 PersonEditor.php:1755
-#: PersonView.php:1996 PledgeEditor.php:800 ReminderReport.php:55
-#: SettingsIndividual.php:178 SettingsIndividual.php:444
-#: SettingsIndividual.php:520 TaxReport.php:53 UserEditor.php:1422
-#: ident/templates/verify/verify-family-info.php:201
-#: v2/templates/fundraiser/donatedItemEditor.php:178
+#: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
+#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1996
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
+#: SettingsIndividual.php:444 SettingsIndividual.php:520 TaxReport.php:53
+#: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -372,495 +371,21 @@ msgstr "가격"
 msgid "Enter Winners"
 msgstr "당첨자 입력"
 
-#: CSVExport.php:55 UserEditor.php:1003 v2/templates/cart/cartview.php:70
-msgid "CSV Export"
-msgstr "CSV 내보내기"
-
-#: CSVExport.php:61
-msgid "Field Selection"
-msgstr "필드 선택"
-
-#: CSVExport.php:67
-msgid "Required"
-msgstr "필수"
-
-#: CSVExport.php:71 CSVImport.php:234 CartToBadge.php:59 CartToBadge.php:62
-#: FundRaiserEditor.php:186 PersonEditor.php:904
-#: Reports/GDPR/GDPRListExport.php:66
-#: v2/templates/email/mailchimp/dashboard.php:30
-#: v2/templates/fundraiser/donatedItemEditor.php:60
-msgid "Title"
-msgstr "제목"
-
-#: CSVExport.php:82 CSVImport.php:236 PersonEditor.php:924
-#: ident/routes/verify.php:180 ident/routes/verify.php:185
-msgid "Middle Name"
-msgstr "중간 이름"
-
-#: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
-#: PersonEditor.php:946
-msgid "Suffix"
-msgstr "접미사"
-
-#: CSVExport.php:120
-msgid "Envelope"
-msgstr "봉투"
-
-#: CSVExport.php:132 CSVImport.php:247 CartToFamily.php:411
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:181 EventAttendance.php:207
-#: FamilyEditor.php:819 FamilyView.php:356 GroupReports.php:149
-#: PersonEditor.php:1359 PersonEditor.php:1363 PersonView.php:645
-#: PrintPastoralCarePerson.php:257 PrintView.php:268
-#: Reports/ConfirmReport.php:168
-#: external/templates/registration/family-register-done.php:29
-#: external/templates/registration/family-register.php:85
-#: ident/routes/verify.php:231 ident/routes/verify.php:234
-#: ident/routes/verify.php:670 ident/routes/verify.php:779
-#: ident/templates/verify/verify-family-info.php:36
-#: ident/templates/verify/verify-family-info.php:93
-#: sundayschool/SundaySchoolClassListExport.php:54
-#: v2/templates/calendar/eventattendeesedit.php:60
-#: v2/templates/pastoralcare/pastoralcarefamily.php:181
-#: v2/templates/pastoralcare/pastoralcareperson.php:277
-#: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
-#: queryparameteroptions_qpo.php:8
-msgid "Home Phone"
-msgstr "집 전화"
-
-#: CSVExport.php:137 CSVImport.php:248 CartToFamily.php:425
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:293 FamilyEditor.php:832
-#: FamilyView.php:362 GroupReports.php:150 PersonEditor.php:1388
-#: PersonEditor.php:1392 PersonView.php:673 PrintPastoralCarePerson.php:262
-#: PrintView.php:273 Reports/ConfirmReport.php:288 ident/routes/verify.php:242
-#: ident/routes/verify.php:245 ident/routes/verify.php:458
-#: ident/routes/verify.php:461 ident/routes/verify.php:675
-#: ident/templates/verify/verify-family-info.php:98
-#: v2/templates/pastoralcare/pastoralcarefamily.php:187
-#: v2/templates/pastoralcare/pastoralcareperson.php:305
-msgid "Work Phone"
-msgstr "업무용 전화"
-
-#: CSVExport.php:142 CartToFamily.php:439 FamilyEditor.php:846
-#: FamilyEditor.php:862 FamilyView.php:369 PersonEditor.php:1419
-#: PersonEditor.php:1423 PersonView.php:633 PrintPastoralCarePerson.php:267
-#: PrintView.php:278 ident/routes/verify.php:251 ident/routes/verify.php:467
-#: ident/routes/verify.php:680
-#: ident/templates/verify/verify-family-info.php:103
-#: v2/templates/pastoralcare/pastoralcarefamily.php:194
-#: v2/templates/pastoralcare/pastoralcareperson.php:265
-msgid "Mobile Phone"
-msgstr "휴대폰"
-
-#: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
-#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:680
-#: Reports/DirectoryReport.php:331
-#: v2/templates/pastoralcare/pastoralcareperson.php:312
-msgid "Work/Other Email"
-msgstr "업무/기타 이메일"
-
-#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1604
-#: PrintPastoralCarePerson.php:395 PrintView.php:406
-msgid "Membership Date"
-msgstr "회원 가입 날짜"
-
-#: CSVExport.php:165
-msgid "Birth / Anniversary Date"
-msgstr "생일/기념일 날짜"
-
-#: CSVExport.php:170
-msgid "Age / Years Married"
-msgstr "나이 / 결혼 기간"
-
-#: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
-#: EcclesiaCRM/APIControllers/SearchController.php:278
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
-#: FamilyEditor.php:1101 FamilyView.php:553 FinancialReports.php:153
-#: OptionManager.php:109 PersonEditor.php:1585 PrintPastoralCarePerson.php:400
-#: PrintView.php:411 ident/routes/verify.php:305
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:22
-#: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
-msgid "Classification"
-msgstr "분류"
-
-#: CSVExport.php:180 CSVExport.php:325
-#: EcclesiaCRM/APIControllers/SearchController.php:279
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:118
-#: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
-#: queryparameters_qrp.php:5
-msgid "Family Role"
-msgstr "가족 역할"
-
-#: CSVExport.php:183
-msgid "Depends whether using person or family output method"
-msgstr "개인 또는 가족 출력 방법 사용 여부에 따라 다름"
-
-#: CSVExport.php:196
-msgid "Custom Field Selection"
-msgstr "사용자 지정 필드 선택"
-
-#: CSVExport.php:204
-msgid "Custom Person Fields"
-msgstr "사용자 지정 인물 필드"
-
-#: CSVExport.php:229
-msgid "Custom Family Fields"
-msgstr "사용자 지정 패밀리 필드"
-
-#: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
-#: v2/templates/calendar/calendar.php:28
-#: v2/templates/fundraiser/findFundRaiser.php:18
-#: v2/templates/pastoralcare/pastoralcarefamily.php:95
-#: v2/templates/pastoralcare/pastoralcareperson.php:91
-#: v2/templates/people/peoplelist.php:28
-msgid "Filters"
-msgstr "필터"
-
-#: CSVExport.php:260
-msgid "Ignored if you come from the CartView"
-msgstr "카트뷰에서 온 경우 무시됨"
-
-#: CSVExport.php:274
-msgid "Records to export"
-msgstr "내보낼 레코드"
-
-#: CSVExport.php:286
-msgid "Based on filters below.."
-msgstr "아래 필터를 기준으로..."
-
-#: CSVExport.php:289
-msgid "People in Cart (filters ignored)"
-msgstr "카트에 있는 사람(필터 무시)"
-
-#: CSVExport.php:318 CSVExport.php:346 CSVExport.php:388
-#: DirectoryReports.php:96 DirectoryReports.php:116 DirectoryReports.php:139
-#: DirectoryReports.php:158 DirectoryReports.php:177 FinancialReports.php:357
-msgid "Use Ctrl Key to select multiple"
-msgstr "Ctrl 키를 사용하여 여러 개를 선택하려면"
-
-#: CSVExport.php:355 CSVImport.php:239
-#: EcclesiaCRM/APIControllers/SearchController.php:277 FamilyEditor.php:1096
-#: PersonEditor.php:895 PrintPastoralCarePerson.php:311
-#: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
-#: v2/templates/sundayschool/sundayschoolview.php:221
-#: v2/templates/sundayschool/sundayschoolview.php:313 queryparameters_qrp.php:4
-msgid "Gender"
-msgstr "성별"
-
-#: CSVExport.php:367
-msgid "Don't Filter"
-msgstr "필터링 안 함"
-
-#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:221
-#: EcclesiaCRM/Search/PersonSearchRes.php:337
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
-#: FamilyEditor.php:1150 PersonEditor.php:899 PrintPastoralCarePerson.php:315
-#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
-#: external/templates/registration/family-register-members.php:66
-#: queryparameteroptions_qpo.php:2
-msgid "Male"
-msgstr "남성"
-
-#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:221
-#: EcclesiaCRM/Search/PersonSearchRes.php:337
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
-#: FamilyEditor.php:1153 PersonEditor.php:900 PrintPastoralCarePerson.php:315
-#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
-#: external/templates/registration/family-register-members.php:67
-#: queryparameteroptions_qpo.php:3
-msgid "Female"
-msgstr "여성"
-
-#: CSVExport.php:377 DirectoryReports.php:113
-msgid "Group Membership"
-msgstr "그룹 멤버십"
-
-#: CSVExport.php:417 CSVExport.php:451 CSVExport.php:484 CSVExport.php:517
-msgid "From:"
-msgstr "에서:"
-
-#: CSVExport.php:422 CSVExport.php:456 CSVExport.php:489 CSVExport.php:522
-msgid "To:"
-msgstr "To:"
-
-#: CSVExport.php:438 PersonEditor.php:955
-msgid "Birthday Date"
-msgstr "생일 날짜"
-
-#: CSVExport.php:471
-msgid "Anniversary Date:"
-msgstr "기념일 날짜:"
-
-#: CSVExport.php:504
-msgid "Date Entered:"
-msgstr "입력한 날짜:"
-
-#: CSVExport.php:540 FinancialReports.php:472
-msgid "Output Method:"
-msgstr "출력 방법:"
-
-#: CSVExport.php:546
-msgid "CSV Individual Records"
-msgstr "CSV 개별 레코드"
-
-#: CSVExport.php:547
-msgid "CSV Combine Families"
-msgstr "CSV 결합 패밀리"
-
-#: CSVExport.php:548
-msgid "Add Individuals to Cart"
-msgstr "장바구니에 개인 추가"
-
-#: CSVExport.php:552
-msgid "Skip records with incomplete mail address"
-msgstr "메일 주소가 불완전한 레코드 건너뛰기"
-
-#: CSVExport.php:559
-msgid "Create File"
-msgstr "파일 만들기"
-
-#: CSVImport.php:121 Include/Footer.php:267
-msgid "CSV Import"
-msgstr "CSV 가져오기"
-
-#: CSVImport.php:126
-msgid "Import Data"
-msgstr "데이터 가져오기"
-
-#: CSVImport.php:149
-msgid "No file selected for upload."
-msgstr "업로드할 파일을 선택하지 않았습니다."
-
-#: CSVImport.php:176
-msgid "Total number of rows in the CSV file:"
-msgstr "CSV 파일의 총 행 수입니다:"
-
-#: CSVImport.php:233
-msgid "Ignore this Field"
-msgstr "이 필드 무시"
-
-#: CSVImport.php:240
-msgid "Donation Envelope"
-msgstr "기부 봉투"
-
-#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:248
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:266 GroupReports.php:151
-#: Reports/CanvassReports.php:280 ident/routes/verify.php:254
-#: ident/routes/verify.php:450 ident/routes/verify.php:470
-#: ident/routes/verify.php:480 v2/templates/people/familylist.php:58
-#: v2/templates/people/personlist.php:55
-msgid "Cell Phone"
-msgstr "휴대폰"
-
-#: CSVImport.php:251 PersonEditor.php:1487 PrintPastoralCarePerson.php:390
-#: PrintView.php:401
-msgid "Work / Other Email"
-msgstr "업무 / 기타 이메일"
-
-#: CSVImport.php:252 PersonView.php:603 PrintPastoralCarePerson.php:320
-#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
-#: v2/templates/pastoralcare/pastoralcareperson.php:235
-#: v2/templates/sundayschool/sundayschooldashboard.php:260
-#: v2/templates/sundayschool/sundayschoolview.php:312
-msgid "Birth Date"
-msgstr "생년월일"
-
-#: CSVImport.php:254 CartToFamily.php:312 DirectoryReports.php:197
-#: FamilyEditor.php:898 FamilyView.php:342 ident/routes/verify.php:487
-#: ident/routes/verify.php:787 ident/templates/verify/verify-family-info.php:45
-#: v2/templates/pastoralcare/pastoralcarefamily.php:167
-msgid "Wedding Date"
-msgstr "결혼 날짜"
-
-#: CSVImport.php:266
-msgid ""
-"An error occurs when you import the CSV file. You've to select values above "
-"in the select fields."
-msgstr ""
-"CSV 파일을 가져올 때 오류가 발생합니다. 위의 선택 필드에서 값을 선택해야 합니"
-"다."
-
-#: CSVImport.php:275
-msgid "Scroll right to see the other columns"
-msgstr "오른쪽으로 스크롤하면 다른 열을 볼 수 있습니다."
-
-#: CSVImport.php:276
-msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
-msgstr "!!!!! 에서 올바른 <b>날짜 형식</b>을 확인하고 선택하세요."
-
-#: CSVImport.php:277
-msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
-msgstr "<b>중요!</b> <b>성별</b>을 열에 연결합니다."
-
-#: CSVImport.php:282
-msgid "Important Options"
-msgstr "중요 옵션"
-
-#: CSVImport.php:287
-msgid "Ignore first CSV row (to exclude a header)"
-msgstr "첫 번째 CSV 행 무시(헤더 제외)"
-
-#: CSVImport.php:299
-msgid "Make Family records based on last name and address"
-msgstr "성 및 주소를 기반으로 가족 기록 만들기"
-
-#: CSVImport.php:324
-msgid "Date Format"
-msgstr "날짜 형식"
-
-#: CSVImport.php:324
-msgid "NOTE: Separators (dashes, etc.) or lack thereof do not matter"
-msgstr "참고: 구분 기호(대시 등)를 사용하거나 사용하지 않아도 상관없습니다."
-
-#: CSVImport.php:334
-msgid ""
-"Put all the persons in the cart, to import them in a group, sundayschool "
-"group, etc...."
-msgstr ""
-"모든 사람을 카트에 넣어 그룹, 일요일 학교 그룹 등으로 가져올 수 있습니다....."
-
-#: CSVImport.php:341
-msgid "Not usefull options"
-msgstr "유용하지 않은 옵션"
-
-#: CSVImport.php:350
-msgid "Patriarch"
-msgstr "족장"
-
-#: CSVImport.php:351
-msgid "Matriarch"
-msgstr "모계"
-
-#: CSVImport.php:355
-msgid "Family Type: used with Make Family records... option above"
-msgstr "가족 유형: 위의 가족 기록 만들기... 옵션과 함께 사용됩니다."
-
-#: CSVImport.php:371
-msgid "Default country if none specified otherwise"
-msgstr "별도로 지정하지 않은 경우 기본 국가"
-
-#: CSVImport.php:404
-msgid "Perform Import"
-msgstr "가져오기 수행"
-
-#: CSVImport.php:772 CSVImport.php:850
-msgid "Imported"
-msgstr "가져오기"
-
-#: CSVImport.php:945
-msgid "ERROR: the uploaded CSV file no longer exists!"
-msgstr "오류: 업로드한 CSV 파일이 더 이상 존재하지 않습니다!"
-
-#: CSVImport.php:955
-msgid "Steps to import users"
-msgstr "사용자 가져오기 단계"
-
-#: CSVImport.php:958
-msgid "Your CSV file should be prepared like"
-msgstr "CSV 파일은 다음과 같이 준비해야 합니다."
-
-#: CSVImport.php:961
-msgid ""
-"So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in "
-"the second one."
-msgstr ""
-"따라서 첫 번째 예제에서는 CSV 구분 기호가 <b>';'</b>이고 두 번째 예제에서는 "
-"<b>','</b>입니다."
-
-#: CSVImport.php:964
-msgid "Don't forget the <b>gender</b> and the <b>title</b>"
-msgstr "<b>성별</b>과 <b>제목</b>을 잊지 마세요."
-
-#: CSVImport.php:965
-msgid ""
-"You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
-"Title column and rename the label header to gender</b>"
-msgstr ""
-"Excel LibreOffice Calc에서 열의 서식을 지정하고 제목 열을 복제하고 레이블 헤"
-"더 이름을 성별로 변경할 수 있습니다."
-
-#: CSVImport.php:966
-msgid ""
-"The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
-"a women, girl, female</b> ..."
-msgstr ""
-"성별 열은 남자, 소년, 남성의 경우 <b>1로 설정하고 여자, 소녀, 여성의 경우 "
-"<b>2로 설정해야 합니다..."
-
-#: CSVImport.php:969
-msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
-msgstr ""
-"CRM을 준비하고 사용자 지정 사람 필드를 충분히 추가하려면 다음을 클릭합니다."
-
-#: CSVImport.php:969 v2/templates/map/MapUsingBing.php:46
-#: v2/templates/map/MapUsingGoogle.php:41
-#: v2/templates/map/MapUsingLeaflet.php:37
-msgid "here"
-msgstr "여기"
-
-#: CSVImport.php:972
-msgid ""
-"All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or "
-"7/1/2018"
-msgstr ""
-"모든 날짜는 2018-7-1 또는 1/7/2018 또는 7-1-2018 또는 7/1/2018과 같은 형식이"
-"어야 합니다."
-
-#: CSVImport.php:979
-msgid "The next step should be, if not select the other CSV seperator"
-msgstr ""
-"다음 단계는 다른 CSV 구분 기호를 선택하지 않으면 다음과 같이 해야 합니다."
-
-#: CSVImport.php:985 CSVImport.php:1023
-msgid "Upload CSV File"
-msgstr "CSV 파일 업로드"
-
-#: CSVImport.php:991
-msgid ""
-"<b>DON'T FORGET</b>\n"
-"              <br>• your CSV file must have a <b>Title</b> header name "
-"column (with M. Mr. Mlle. etc ...),\n"
-"              <br>• and a <b>gender</b> header name column (with 1 for a "
-"men, 2 for a women)"
-msgstr ""
-"<b>잊지 마세요</b>\n"
-"              <br>- CSV 파일에 <b>제목</b> 헤더 이름 열이 있어야 합니다(M. "
-"Mr. 등 ... 포함),\n"
-"              <br>- 및 <b>성별</b> 헤더 이름 열(남성의 경우 1, 여성의 경우 2 "
-"포함)이 있어야 합니다."
-
-#: CSVImport.php:996
-msgid "Select <b>NOW</b> your <b>CSV separator</b>"
-msgstr "<b>지금</b> CSV 구분 기호를 선택합니다."
-
-#: CSVImport.php:1007
-msgid ""
-"• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
-"b> ......... "
-msgstr ""
-"- 와 같은 모든 날짜를 마지막으로 올바르게 설정합니다: <b>YYYY-MM-DD 또는 DD/"
-"MM/YYYY</b> ........."
-
-#: CSVImport.php:1010
-msgid "This is proposed in the next step, read carefully your table."
-msgstr "다음 단계에서는 표를 주의 깊게 읽어보시기 바랍니다."
-
-#: CSVImport.php:1031
-msgid "Clear Data"
-msgstr "데이터 지우기"
-
-#: CSVImport.php:1034
-msgid "Clear Persons and Families"
-msgstr "개인 및 가족 지우기"
-
-#: CSVImport.php:1041
-msgid "Data import successful."
-msgstr "데이터 가져오기에 성공했습니다."
-
-#: CSVImport.php:1041
-msgid "persons were imported"
-msgstr "수입된 사람"
+#: browser/browse.php:31
+msgid "File Manager"
+msgstr "파일 관리자"
+
+#: browser/browse.php:42 PersonView.php:1892
+msgid "Upload a file in EDrive"
+msgstr "EDrive에서 파일 업로드"
+
+#: browser/browse.php:45
+msgid "Download"
+msgstr "다운로드"
+
+#: browser/browse.php:72 PersonView.php:1935
+msgid "Preview"
+msgstr "미리보기"
 
 #: CanvassAutomation.php:22 ReportList.php:56
 msgid "Canvass Automation"
@@ -1079,6 +604,14 @@ msgstr "실제로는 PNG와 JPEG만 관리됩니다 !!!"
 msgid "Generate Badges"
 msgstr "배지 생성"
 
+#: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:71 CSVImport.php:234
+#: FundRaiserEditor.php:186 PersonEditor.php:904
+#: Reports/GDPR/GDPRListExport.php:66
+#: v2/templates/email/mailchimp/dashboard.php:30
+#: v2/templates/fundraiser/donatedItemEditor.php:60
+msgid "Title"
+msgstr "제목"
+
 #: CartToBadge.php:67 CartToBadge.php:70
 msgid "Second Title"
 msgstr "두 번째 제목"
@@ -1150,7 +683,7 @@ msgid "Badge Type"
 msgstr "배지 유형"
 
 #: CartToBadge.php:169 EcclesiaCRM/utils/LabelUtils.php:83
-#: Reports/PDFBadge.php:128 Reports/PDFBadgeGroup.php:213
+#: Reports/PDFBadgeGroup.php:213 Reports/PDFBadge.php:128
 #: Reports/PDFLabel.php:793 v2/templates/group/groupbadge.php:174
 msgid "default"
 msgstr "기본값"
@@ -1183,13 +716,13 @@ msgstr "회원"
 #: EventNames.php:317 FamilyCustomFieldsEditor.php:349
 #: FamilyCustomFieldsEditor.php:471 GeoPage.php:373 GroupEditor.php:86
 #: GroupPropsEditor.php:235 GroupPropsFormEditor.php:350
-#: GroupPropsFormEditor.php:477 PersonCustomFieldsEditor.php:344
-#: PersonCustomFieldsEditor.php:471 PrintPastoralCarePerson.php:447
-#: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
-#: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
-#: Reports/FRBidSheets.php:102 Reports/FamilyPledgeSummary.php:230
-#: Reports/FundRaiserStatement.php:125 Reports/FundRaiserStatement.php:169
-#: Reports/PDFLabel.php:859 ident/routes/verify.php:365
+#: GroupPropsFormEditor.php:477 ident/routes/verify.php:365
+#: PersonCustomFieldsEditor.php:344 PersonCustomFieldsEditor.php:471
+#: PrintPastoralCarePerson.php:447 PrintPastoralCarePerson.php:612
+#: PrintView.php:458 PrintView.php:621 Reports/CanvassReports.php:90
+#: Reports/CanvassReports.php:275 Reports/FamilyPledgeSummary.php:230
+#: Reports/FRBidSheets.php:102 Reports/FundRaiserStatement.php:125
+#: Reports/FundRaiserStatement.php:169 Reports/PDFLabel.php:859
 #: v2/templates/calendar/eventattendeesedit.php:56
 #: v2/templates/group/groupview.php:398 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:51
@@ -1223,12 +756,19 @@ msgstr "새 가족을 추가하는 경우 아래에 데이터를 입력합니다
 
 #: CartToFamily.php:302
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161 FamilyEditor.php:722
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
+#: external/templates/registration/family-register.php:36 FamilyEditor.php:722
 #: LettersAndLabels.php:71 PersonEditor.php:1026 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
-#: external/templates/registration/family-register.php:36
 msgid "Family Name"
 msgstr "가족 이름"
+
+#: CartToFamily.php:312 CSVImport.php:254 DirectoryReports.php:197
+#: FamilyEditor.php:898 FamilyView.php:342 ident/routes/verify.php:487
+#: ident/routes/verify.php:787 ident/templates/verify/verify-family-info.php:45
+#: v2/templates/pastoralcare/pastoralcarefamily.php:167
+msgid "Wedding Date"
+msgstr "결혼 날짜"
 
 #: CartToFamily.php:324
 msgid "Use address/contact data from"
@@ -1246,12 +786,54 @@ msgstr "또는"
 msgid "(Use the textbox for countries other than US and Canada)"
 msgstr "(미국 및 캐나다 이외의 국가에서는 텍스트 상자 사용)"
 
+#: CartToFamily.php:411 CSVExport.php:132 CSVImport.php:247
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:181 EventAttendance.php:207
+#: external/templates/registration/family-register-done.php:29
+#: external/templates/registration/family-register.php:85 FamilyEditor.php:819
+#: FamilyView.php:356 GroupReports.php:149 ident/routes/verify.php:231
+#: ident/routes/verify.php:234 ident/routes/verify.php:670
+#: ident/routes/verify.php:779 ident/templates/verify/verify-family-info.php:36
+#: ident/templates/verify/verify-family-info.php:93 PersonEditor.php:1359
+#: PersonEditor.php:1363 PersonView.php:645 PrintPastoralCarePerson.php:257
+#: PrintView.php:268 Reports/ConfirmReport.php:168
+#: sundayschool/SundaySchoolClassListExport.php:54
+#: v2/templates/calendar/eventattendeesedit.php:60
+#: v2/templates/pastoralcare/pastoralcarefamily.php:181
+#: v2/templates/pastoralcare/pastoralcareperson.php:277
+#: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
+#: queryparameteroptions_qpo.php:8
+msgid "Home Phone"
+msgstr "집 전화"
+
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:433 FamilyEditor.php:829
 #: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1380
 #: PersonEditor.php:1410 PersonEditor.php:1439
 msgid "Do not auto-format"
 msgstr "자동 서식 지정 안 함"
+
+#: CartToFamily.php:425 CSVExport.php:137 CSVImport.php:248
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:293 FamilyEditor.php:832
+#: FamilyView.php:362 GroupReports.php:150 ident/routes/verify.php:242
+#: ident/routes/verify.php:245 ident/routes/verify.php:458
+#: ident/routes/verify.php:461 ident/routes/verify.php:675
+#: ident/templates/verify/verify-family-info.php:98 PersonEditor.php:1388
+#: PersonEditor.php:1392 PersonView.php:673 PrintPastoralCarePerson.php:262
+#: PrintView.php:273 Reports/ConfirmReport.php:288
+#: v2/templates/pastoralcare/pastoralcarefamily.php:187
+#: v2/templates/pastoralcare/pastoralcareperson.php:305
+msgid "Work Phone"
+msgstr "업무용 전화"
+
+#: CartToFamily.php:439 CSVExport.php:142 FamilyEditor.php:846
+#: FamilyEditor.php:862 FamilyView.php:369 ident/routes/verify.php:251
+#: ident/routes/verify.php:467 ident/routes/verify.php:680
+#: ident/templates/verify/verify-family-info.php:103 PersonEditor.php:1419
+#: PersonEditor.php:1423 PersonView.php:633 PrintPastoralCarePerson.php:267
+#: PrintView.php:278 v2/templates/pastoralcare/pastoralcarefamily.php:194
+#: v2/templates/pastoralcare/pastoralcareperson.php:265
+msgid "Mobile Phone"
+msgstr "휴대폰"
 
 #: CartToFamily.php:468
 msgid "Your cart is empty!"
@@ -1383,6 +965,436 @@ msgstr "다음 변환"
 msgid "Convert All"
 msgstr "모두 변환"
 
+#: CSVExport.php:55 UserEditor.php:1003 v2/templates/cart/cartview.php:70
+msgid "CSV Export"
+msgstr "CSV 내보내기"
+
+#: CSVExport.php:61
+msgid "Field Selection"
+msgstr "필드 선택"
+
+#: CSVExport.php:67
+msgid "Required"
+msgstr "필수"
+
+#: CSVExport.php:82 CSVImport.php:236 ident/routes/verify.php:180
+#: ident/routes/verify.php:185 PersonEditor.php:924
+msgid "Middle Name"
+msgstr "중간 이름"
+
+#: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
+#: PersonEditor.php:946
+msgid "Suffix"
+msgstr "접미사"
+
+#: CSVExport.php:120
+msgid "Envelope"
+msgstr "봉투"
+
+#: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
+#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:680
+#: Reports/DirectoryReport.php:331
+#: v2/templates/pastoralcare/pastoralcareperson.php:312
+msgid "Work/Other Email"
+msgstr "업무/기타 이메일"
+
+#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1604
+#: PrintPastoralCarePerson.php:395 PrintView.php:406
+msgid "Membership Date"
+msgstr "회원 가입 날짜"
+
+#: CSVExport.php:165
+msgid "Birth / Anniversary Date"
+msgstr "생일/기념일 날짜"
+
+#: CSVExport.php:170
+msgid "Age / Years Married"
+msgstr "나이 / 결혼 기간"
+
+#: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
+#: EcclesiaCRM/APIControllers/SearchController.php:278
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
+#: FamilyEditor.php:1101 FamilyView.php:553 FinancialReports.php:153
+#: ident/routes/verify.php:305 OptionManager.php:109 PersonEditor.php:1585
+#: PrintPastoralCarePerson.php:400 PrintView.php:411
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:22
+#: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
+msgid "Classification"
+msgstr "분류"
+
+#: CSVExport.php:180 CSVExport.php:325
+#: EcclesiaCRM/APIControllers/SearchController.php:279
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:118
+#: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
+#: queryparameters_qrp.php:5
+msgid "Family Role"
+msgstr "가족 역할"
+
+#: CSVExport.php:183
+msgid "Depends whether using person or family output method"
+msgstr "개인 또는 가족 출력 방법 사용 여부에 따라 다름"
+
+#: CSVExport.php:196
+msgid "Custom Field Selection"
+msgstr "사용자 지정 필드 선택"
+
+#: CSVExport.php:204
+msgid "Custom Person Fields"
+msgstr "사용자 지정 인물 필드"
+
+#: CSVExport.php:229
+msgid "Custom Family Fields"
+msgstr "사용자 지정 패밀리 필드"
+
+#: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
+#: v2/templates/calendar/calendar.php:28
+#: v2/templates/fundraiser/findFundRaiser.php:18
+#: v2/templates/pastoralcare/pastoralcarefamily.php:95
+#: v2/templates/pastoralcare/pastoralcareperson.php:91
+#: v2/templates/people/peoplelist.php:28
+msgid "Filters"
+msgstr "필터"
+
+#: CSVExport.php:260
+msgid "Ignored if you come from the CartView"
+msgstr "카트뷰에서 온 경우 무시됨"
+
+#: CSVExport.php:274
+msgid "Records to export"
+msgstr "내보낼 레코드"
+
+#: CSVExport.php:286
+msgid "Based on filters below.."
+msgstr "아래 필터를 기준으로..."
+
+#: CSVExport.php:289
+msgid "People in Cart (filters ignored)"
+msgstr "카트에 있는 사람(필터 무시)"
+
+#: CSVExport.php:318 CSVExport.php:346 CSVExport.php:388
+#: DirectoryReports.php:96 DirectoryReports.php:116 DirectoryReports.php:139
+#: DirectoryReports.php:158 DirectoryReports.php:177 FinancialReports.php:357
+msgid "Use Ctrl Key to select multiple"
+msgstr "Ctrl 키를 사용하여 여러 개를 선택하려면"
+
+#: CSVExport.php:355 CSVImport.php:239
+#: EcclesiaCRM/APIControllers/SearchController.php:277 FamilyEditor.php:1096
+#: PersonEditor.php:895 PrintPastoralCarePerson.php:311
+#: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
+#: v2/templates/sundayschool/sundayschoolview.php:221
+#: v2/templates/sundayschool/sundayschoolview.php:313 queryparameters_qrp.php:4
+msgid "Gender"
+msgstr "성별"
+
+#: CSVExport.php:367
+msgid "Don't Filter"
+msgstr "필터링 안 함"
+
+#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:221
+#: EcclesiaCRM/Search/PersonSearchRes.php:337
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
+#: external/templates/registration/family-register-members.php:66
+#: FamilyEditor.php:1150 PersonEditor.php:899 PrintPastoralCarePerson.php:315
+#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
+#: queryparameteroptions_qpo.php:2
+msgid "Male"
+msgstr "남성"
+
+#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:221
+#: EcclesiaCRM/Search/PersonSearchRes.php:337
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
+#: external/templates/registration/family-register-members.php:67
+#: FamilyEditor.php:1153 PersonEditor.php:900 PrintPastoralCarePerson.php:315
+#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
+#: queryparameteroptions_qpo.php:3
+msgid "Female"
+msgstr "여성"
+
+#: CSVExport.php:377 DirectoryReports.php:113
+msgid "Group Membership"
+msgstr "그룹 멤버십"
+
+#: CSVExport.php:417 CSVExport.php:451 CSVExport.php:484 CSVExport.php:517
+msgid "From:"
+msgstr "에서:"
+
+#: CSVExport.php:422 CSVExport.php:456 CSVExport.php:489 CSVExport.php:522
+msgid "To:"
+msgstr "To:"
+
+#: CSVExport.php:438 PersonEditor.php:955
+msgid "Birthday Date"
+msgstr "생일 날짜"
+
+#: CSVExport.php:471
+msgid "Anniversary Date:"
+msgstr "기념일 날짜:"
+
+#: CSVExport.php:504
+msgid "Date Entered:"
+msgstr "입력한 날짜:"
+
+#: CSVExport.php:540 FinancialReports.php:472
+msgid "Output Method:"
+msgstr "출력 방법:"
+
+#: CSVExport.php:546
+msgid "CSV Individual Records"
+msgstr "CSV 개별 레코드"
+
+#: CSVExport.php:547
+msgid "CSV Combine Families"
+msgstr "CSV 결합 패밀리"
+
+#: CSVExport.php:548
+msgid "Add Individuals to Cart"
+msgstr "장바구니에 개인 추가"
+
+#: CSVExport.php:552
+msgid "Skip records with incomplete mail address"
+msgstr "메일 주소가 불완전한 레코드 건너뛰기"
+
+#: CSVExport.php:559
+msgid "Create File"
+msgstr "파일 만들기"
+
+#: CSVImport.php:121 Include/Footer.php:267
+msgid "CSV Import"
+msgstr "CSV 가져오기"
+
+#: CSVImport.php:126
+msgid "Import Data"
+msgstr "데이터 가져오기"
+
+#: CSVImport.php:149
+msgid "No file selected for upload."
+msgstr "업로드할 파일을 선택하지 않았습니다."
+
+#: CSVImport.php:176
+msgid "Total number of rows in the CSV file:"
+msgstr "CSV 파일의 총 행 수입니다:"
+
+#: CSVImport.php:233
+msgid "Ignore this Field"
+msgstr "이 필드 무시"
+
+#: CSVImport.php:240
+msgid "Donation Envelope"
+msgstr "기부 봉투"
+
+#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:248
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:266 GroupReports.php:151
+#: ident/routes/verify.php:254 ident/routes/verify.php:450
+#: ident/routes/verify.php:470 ident/routes/verify.php:480
+#: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
+#: v2/templates/people/personlist.php:55
+msgid "Cell Phone"
+msgstr "휴대폰"
+
+#: CSVImport.php:251 PersonEditor.php:1487 PrintPastoralCarePerson.php:390
+#: PrintView.php:401
+msgid "Work / Other Email"
+msgstr "업무 / 기타 이메일"
+
+#: CSVImport.php:252 PersonView.php:603 PrintPastoralCarePerson.php:320
+#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
+#: v2/templates/pastoralcare/pastoralcareperson.php:235
+#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschoolview.php:312
+msgid "Birth Date"
+msgstr "생년월일"
+
+#: CSVImport.php:266
+msgid ""
+"An error occurs when you import the CSV file. You've to select values above "
+"in the select fields."
+msgstr ""
+"CSV 파일을 가져올 때 오류가 발생합니다. 위의 선택 필드에서 값을 선택해야 합니"
+"다."
+
+#: CSVImport.php:275
+msgid "Scroll right to see the other columns"
+msgstr "오른쪽으로 스크롤하면 다른 열을 볼 수 있습니다."
+
+#: CSVImport.php:276
+msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
+msgstr "!!!!! 에서 올바른 <b>날짜 형식</b>을 확인하고 선택하세요."
+
+#: CSVImport.php:277
+msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
+msgstr "<b>중요!</b> <b>성별</b>을 열에 연결합니다."
+
+#: CSVImport.php:282
+msgid "Important Options"
+msgstr "중요 옵션"
+
+#: CSVImport.php:287
+msgid "Ignore first CSV row (to exclude a header)"
+msgstr "첫 번째 CSV 행 무시(헤더 제외)"
+
+#: CSVImport.php:299
+msgid "Make Family records based on last name and address"
+msgstr "성 및 주소를 기반으로 가족 기록 만들기"
+
+#: CSVImport.php:324
+msgid "Date Format"
+msgstr "날짜 형식"
+
+#: CSVImport.php:324
+msgid "NOTE: Separators (dashes, etc.) or lack thereof do not matter"
+msgstr "참고: 구분 기호(대시 등)를 사용하거나 사용하지 않아도 상관없습니다."
+
+#: CSVImport.php:334
+msgid ""
+"Put all the persons in the cart, to import them in a group, sundayschool "
+"group, etc...."
+msgstr ""
+"모든 사람을 카트에 넣어 그룹, 일요일 학교 그룹 등으로 가져올 수 있습니다....."
+
+#: CSVImport.php:341
+msgid "Not usefull options"
+msgstr "유용하지 않은 옵션"
+
+#: CSVImport.php:350
+msgid "Patriarch"
+msgstr "족장"
+
+#: CSVImport.php:351
+msgid "Matriarch"
+msgstr "모계"
+
+#: CSVImport.php:355
+msgid "Family Type: used with Make Family records... option above"
+msgstr "가족 유형: 위의 가족 기록 만들기... 옵션과 함께 사용됩니다."
+
+#: CSVImport.php:371
+msgid "Default country if none specified otherwise"
+msgstr "별도로 지정하지 않은 경우 기본 국가"
+
+#: CSVImport.php:404
+msgid "Perform Import"
+msgstr "가져오기 수행"
+
+#: CSVImport.php:772 CSVImport.php:850
+msgid "Imported"
+msgstr "가져오기"
+
+#: CSVImport.php:945
+msgid "ERROR: the uploaded CSV file no longer exists!"
+msgstr "오류: 업로드한 CSV 파일이 더 이상 존재하지 않습니다!"
+
+#: CSVImport.php:955
+msgid "Steps to import users"
+msgstr "사용자 가져오기 단계"
+
+#: CSVImport.php:958
+msgid "Your CSV file should be prepared like"
+msgstr "CSV 파일은 다음과 같이 준비해야 합니다."
+
+#: CSVImport.php:961
+msgid ""
+"So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in "
+"the second one."
+msgstr ""
+"따라서 첫 번째 예제에서는 CSV 구분 기호가 <b>';'</b>이고 두 번째 예제에서는 "
+"<b>','</b>입니다."
+
+#: CSVImport.php:964
+msgid "Don't forget the <b>gender</b> and the <b>title</b>"
+msgstr "<b>성별</b>과 <b>제목</b>을 잊지 마세요."
+
+#: CSVImport.php:965
+msgid ""
+"You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
+"Title column and rename the label header to gender</b>"
+msgstr ""
+"Excel LibreOffice Calc에서 열의 서식을 지정하고 제목 열을 복제하고 레이블 헤"
+"더 이름을 성별로 변경할 수 있습니다."
+
+#: CSVImport.php:966
+msgid ""
+"The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
+"a women, girl, female</b> ..."
+msgstr ""
+"성별 열은 남자, 소년, 남성의 경우 <b>1로 설정하고 여자, 소녀, 여성의 경우 "
+"<b>2로 설정해야 합니다..."
+
+#: CSVImport.php:969
+msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
+msgstr ""
+"CRM을 준비하고 사용자 지정 사람 필드를 충분히 추가하려면 다음을 클릭합니다."
+
+#: CSVImport.php:969 v2/templates/map/MapUsingBing.php:46
+#: v2/templates/map/MapUsingGoogle.php:41
+#: v2/templates/map/MapUsingLeaflet.php:37
+msgid "here"
+msgstr "여기"
+
+#: CSVImport.php:972
+msgid ""
+"All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or "
+"7/1/2018"
+msgstr ""
+"모든 날짜는 2018-7-1 또는 1/7/2018 또는 7-1-2018 또는 7/1/2018과 같은 형식이"
+"어야 합니다."
+
+#: CSVImport.php:979
+msgid "The next step should be, if not select the other CSV seperator"
+msgstr ""
+"다음 단계는 다른 CSV 구분 기호를 선택하지 않으면 다음과 같이 해야 합니다."
+
+#: CSVImport.php:985 CSVImport.php:1023
+msgid "Upload CSV File"
+msgstr "CSV 파일 업로드"
+
+#: CSVImport.php:991
+msgid ""
+"<b>DON'T FORGET</b>\n"
+"              <br>• your CSV file must have a <b>Title</b> header name "
+"column (with M. Mr. Mlle. etc ...),\n"
+"              <br>• and a <b>gender</b> header name column (with 1 for a "
+"men, 2 for a women)"
+msgstr ""
+"<b>잊지 마세요</b>\n"
+"              <br>- CSV 파일에 <b>제목</b> 헤더 이름 열이 있어야 합니다(M. "
+"Mr. 등 ... 포함),\n"
+"              <br>- 및 <b>성별</b> 헤더 이름 열(남성의 경우 1, 여성의 경우 2 "
+"포함)이 있어야 합니다."
+
+#: CSVImport.php:996
+msgid "Select <b>NOW</b> your <b>CSV separator</b>"
+msgstr "<b>지금</b> CSV 구분 기호를 선택합니다."
+
+#: CSVImport.php:1007
+msgid ""
+"• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
+"b> ......... "
+msgstr ""
+"- 와 같은 모든 날짜를 마지막으로 올바르게 설정합니다: <b>YYYY-MM-DD 또는 DD/"
+"MM/YYYY</b> ........."
+
+#: CSVImport.php:1010
+msgid "This is proposed in the next step, read carefully your table."
+msgstr "다음 단계에서는 표를 주의 깊게 읽어보시기 바랍니다."
+
+#: CSVImport.php:1031
+msgid "Clear Data"
+msgstr "데이터 지우기"
+
+#: CSVImport.php:1034
+msgid "Clear Persons and Families"
+msgstr "개인 및 가족 지우기"
+
+#: CSVImport.php:1041
+msgid "Data import successful."
+msgstr "데이터 가져오기에 성공했습니다."
+
+#: CSVImport.php:1041
+msgid "persons were imported"
+msgstr "수입된 사람"
+
 #: DepositSlipEditor.php:65
 msgid "Deposit Slip Number: "
 msgstr "입금 전표 번호:"
@@ -1501,11 +1513,10 @@ msgstr "포함할 정보"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:247
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:265
-#: EcclesiaCRM/Service/CalendarService.php:59 FamilyView.php:554
-#: PersonView.php:1167 Reports/ConfirmReport.php:231
-#: Reports/ConfirmReport.php:251 ident/routes/verify.php:281
-#: ident/routes/verify.php:694
-#: ident/templates/verify/verify-family-info.php:115
+#: EcclesiaCRM/Service/CalendarService.php:60 FamilyView.php:554
+#: ident/routes/verify.php:281 ident/routes/verify.php:694
+#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1167
+#: Reports/ConfirmReport.php:231 Reports/ConfirmReport.php:251
 msgid "Birthday"
 msgstr "생일"
 
@@ -1522,8 +1533,9 @@ msgid "Family Cell Phone"
 msgstr "가족 휴대폰"
 
 #: DirectoryReports.php:203 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:202
-#: Reports/ConfirmReport.php:189 ident/routes/verify.php:477
-#: ident/routes/verify.php:782 ident/templates/verify/verify-family-info.php:39
+#: ident/routes/verify.php:477 ident/routes/verify.php:782
+#: ident/templates/verify/verify-family-info.php:39
+#: Reports/ConfirmReport.php:189
 msgid "Family Email"
 msgstr "가족 이메일"
 
@@ -1598,8 +1610,8 @@ msgstr "디렉토리 만들기"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:619
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:689
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:709
-#: EcclesiaCRM/Service/CalendarService.php:1102
-#: EcclesiaCRM/Service/CalendarService.php:1128
+#: EcclesiaCRM/Service/CalendarService.php:1101
+#: EcclesiaCRM/Service/CalendarService.php:1127
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "두 개의 리소스 예약은 같은 시간 슬롯에 있을 수 없습니다."
 
@@ -1614,66 +1626,67 @@ msgstr ""
 "이 리소스 예약은 회원님이 직접 생성하지 않았습니다. 소유하지 않은 리소스는 수"
 "정, 이동 또는 삭제할 수 없습니다."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:180
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:179
 #: v2/templates/calendar/calendar.php:51
 msgid "Room"
 msgstr "방"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:183
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:182
 #: v2/templates/calendar/calendar.php:52
 msgid "Computer"
 msgstr "컴퓨터"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:186
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:185
 #: v2/templates/calendar/calendar.php:53
 msgid "Video"
 msgstr "비디오"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:222
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:221
+#: EcclesiaCRM/Service/CalendarService.php:678
 msgid "Share"
 msgstr "공유"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:278
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:277
 msgid "Owner"
 msgstr "소유자"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:281
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:283
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:280
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:282
 msgid "Access"
 msgstr "액세스"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:281
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:280
 msgid "Full access in Read and write for all the events of this calendar."
 msgstr ""
 "이 캘린더의 모든 이벤트에 대한 읽기 및 쓰기 전체 액세스 권한이 있습니다."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:283
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:282
 msgid "You can only read the events of this calendar."
 msgstr "이 캘린더의 이벤트만 읽을 수 있습니다."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:287
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:286
 msgid "This address can be used only with a CalDav server."
 msgstr "이 주소는 CalDav 서버에서만 사용할 수 있습니다."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:287
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:286
 msgid "For thunderbird the URL is"
 msgstr "썬더버드의 경우 URL은 다음과 같습니다."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:288
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:287
 msgid "For a share calendar (only in read mode)"
 msgstr "공유 캘린더의 경우(읽기 모드에서만)"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:290
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:289
 msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
 msgstr "에서 \"bEnableExternalCalendarAPI\" 설정을 활성화해야 합니다."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:290
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:289
 msgid "General Settings/Integration"
 msgstr "일반 설정/통합"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:538
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:589
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:640
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:537
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:588
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:639
 msgid "You can visualize it in your account, in the Calendar."
 msgstr "계정의 캘린더에서 시각화할 수 있습니다."
 
@@ -1885,8 +1898,8 @@ msgstr "가족"
 #: EcclesiaCRM/APIControllers/SearchController.php:89
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:201 EcclesiaCRM/Search/GroupSearchRes.php:21
-#: PersonView.php:498 ident/routes/verify.php:309 ident/routes/verify.php:711
-#: ident/templates/verify/verify-family-info.php:145
+#: ident/routes/verify.php:309 ident/routes/verify.php:711
+#: ident/templates/verify/verify-family-info.php:145 PersonView.php:498
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/dashboard/maindashboard.php:226
 #: v2/templates/group/grouplist.php:53
@@ -1976,7 +1989,7 @@ msgstr "그룹에 추가됨"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:151
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:171
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Service/CalendarService.php:271
+#: EcclesiaCRM/Service/CalendarService.php:272
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:500
@@ -1987,8 +2000,8 @@ msgstr "예"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:164
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:173
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Service/CalendarService.php:271
-#: EcclesiaCRM/Service/CalendarService.php:531
+#: EcclesiaCRM/Service/CalendarService.php:272
+#: EcclesiaCRM/Service/CalendarService.php:530
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:499
@@ -2034,7 +2047,7 @@ msgstr "여기에 메시지를 작성하세요!"
 #: v2/templates/dashboard/maindashboard.php:147
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:95
 #: v2/templates/people/peopledashboard.php:91
-#: v2/templates/people/peoplelist.php:44
+#: v2/templates/people/peoplelist.php:22 v2/templates/people/peoplelist.php:44
 msgid "Singles"
 msgstr "싱글"
 
@@ -2149,6 +2162,7 @@ msgstr "그룹 유형 편집기"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
+#: EcclesiaCRM/Service/CalendarService.php:675
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:102 OptionManager.php:133
@@ -2344,1146 +2358,6 @@ msgid ""
 msgstr ""
 "복원의 일부로 외부 백업이 비활성화되었습니다.  자동 백업을 계속하려면 "
 "bEnableExternalBackupTarget 설정을 수동으로 다시 활성화해야 합니다."
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
-msgid "New Person Added"
-msgstr "새로운 사람 추가"
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
-msgid "New Family Added"
-msgstr "새로운 제품군 추가"
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
-msgid "Church Greeter"
-msgstr "교회 인사말"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
-msgid "Notification"
-msgstr "알림"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
-msgid "Guardian(s) of"
-msgstr "보호자(들)"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
-msgid "A notification was triggered by the classroom teacher at"
-msgstr "다음 주소의 담임 교사가 알림을 트리거했습니다."
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
-msgid "Please go to this location"
-msgstr "이 위치로 이동하세요."
-
-#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
-msgid "Your Account was Deleted"
-msgstr "계정이 삭제되었습니다."
-
-#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
-msgid "Your EcclesiaCRM Account was Deleted."
-msgstr "에클레시아CRM 계정이 삭제되었습니다."
-
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:232
-msgid "Email/Username"
-msgstr "이메일/사용자 이름"
-
-#: EcclesiaCRM/Emails/users/CalendarEmail.php:23
-msgid "A Calendar is shared with you"
-msgstr "캘린더가 공유됩니다."
-
-#: EcclesiaCRM/Emails/users/CalendarEmail.php:28
-msgid "I've shared a calendar with you in"
-msgstr "캘린더를 공유해 드렸습니다."
-
-#: EcclesiaCRM/Emails/users/DocumentEmail.php:23
-msgid "A document is shared with you"
-msgstr "문서가 공유됩니다."
-
-#: EcclesiaCRM/Emails/users/DocumentEmail.php:28
-msgid "I've shared a document with you in"
-msgstr "에서 문서를 공유해 드렸습니다."
-
-#: EcclesiaCRM/Emails/users/LockedEmail.php:11
-msgid "Account Locked"
-msgstr "계정 잠김"
-
-#: EcclesiaCRM/Emails/users/LockedEmail.php:16
-msgid "Your EcclesiaCRM account was locked."
-msgstr "에클레시아CRM 계정이 잠겼습니다."
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
-msgid "Your New Account"
-msgstr "새 계정"
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:24
-msgid "A EcclesiaCRM account was created for you"
-msgstr "에클레시아CRM 계정이 생성되었습니다."
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
-#: UserPasswordChange.php:214 ident/templates/verify/change-password.php:44
-msgid "New Password"
-msgstr "새 비밀번호"
-
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
-msgid "Password Changed"
-msgstr "비밀번호 변경"
-
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
-msgid "Your EcclesiaCRM password was changed"
-msgstr "에클레시아CRM 비밀번호가 변경되었습니다."
-
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
-msgid "Password Reset"
-msgstr "비밀번호 재설정"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
-msgid "You EcclesiaCRM updated password has been changed"
-msgstr "에클레시아CRM 업데이트 비밀번호가 변경되었습니다."
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
-msgid "Password Reset Link"
-msgstr "비밀번호 재설정 링크"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
-msgid "You can reset your EcclesiaCRM password by clicking this link"
-msgstr "다음 링크를 클릭하여 EcclesiaCRM 비밀번호를 재설정할 수 있습니다."
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
-msgid "Reset Password"
-msgstr "비밀번호 재설정"
-
-#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
-msgid "Account Unlocked"
-msgstr "계정 잠금 해제"
-
-#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
-msgid "Your EcclesiaCRM account was unlocked."
-msgstr "에클레시아CRM 계정이 잠금 해제되었습니다."
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
-msgid "Your Account"
-msgstr "계정"
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
-msgid "Your EcclesiaCRM account was updated"
-msgstr "에클레시아CRM 계정이 업데이트되었습니다."
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:83
-#: v2/templates/user/userlist.php:62
-msgid "Status"
-msgstr "상태"
-
-#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
-msgid "Please verify your family's information"
-msgstr "가족 정보를 확인해 주세요."
-
-#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:34 Login.php:195
-#: Login.php:257 external/templates/password/enter-username.php:46
-#: ident/templates/verify/login-info.php:44
-msgid "Login"
-msgstr "로그인"
-
-#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:35 Login.php:244
-#: Login.php:339 ident/templates/verify/login-info.php:38
-#: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:57
-msgid "Password"
-msgstr "비밀번호"
-
-#: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:24
-msgid "informations"
-msgstr "정보"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:92
-#: Include/Header.php:153
-msgid "Private Space"
-msgstr "개인 공간"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:467
-#: external/templates/registration/family-register-members.php:104
-msgid "Home"
-msgstr "홈"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:91 Include/Header.php:155 PersonView.php:802
-msgid "Change Password"
-msgstr "비밀번호 변경"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:92 Include/Header.php:157 PersonView.php:800
-msgid "Change Settings"
-msgstr "설정 변경"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1030
-msgid "Documents"
-msgstr "문서"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1044 UserEditor.php:917
-msgid "EDrive"
-msgstr "EDrive"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:111
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
-#: EcclesiaCRM/dto/SystemConfig.php:300
-#: v2/templates/dashboard/maindashboard.php:65
-msgid "GDPR"
-msgstr "GDPR"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:112 EcclesiaCRM/MenuBar/MenuBar.php:151
-#: EcclesiaCRM/MenuBar/MenuBar.php:276 EcclesiaCRM/MenuBar/MenuBar.php:372
-#: EcclesiaCRM/MenuBar/MenuBar.php:382 EcclesiaCRM/MenuBar/MenuBar.php:404
-#: EcclesiaCRM/MenuBar/MenuBar.php:497
-msgid "Dashboard"
-msgstr "대시보드"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:113
-msgid "Data Structure"
-msgstr "데이터 구조"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:114 EcclesiaCRM/MenuBar/MenuBar.php:178
-msgid "View Inactive Persons"
-msgstr "비활성 사용자 보기"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:115 EcclesiaCRM/MenuBar/MenuBar.php:184
-msgid "View Inactive Families"
-msgstr "비활성 패밀리 보기"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:125
-msgid "Events"
-msgstr "이벤트"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:131 v2/templates/map/MapUsingBing.php:75
-#: v2/templates/map/MapUsingBing.php:121 v2/templates/map/MapUsingGoogle.php:77
-#: v2/templates/map/MapUsingGoogle.php:124
-#: v2/templates/map/MapUsingLeaflet.php:66
-#: v2/templates/map/MapUsingLeaflet.php:114
-msgid "Calendar"
-msgstr "캘린더"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:134 EcclesiaCRM/MenuBar/MenuBar.php:167
-#: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
-msgid "View on Map"
-msgstr "지도에서 보기"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:137
-msgid "List Church Events"
-msgstr "교회 이벤트 나열"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:138
-msgid "List Event Types"
-msgstr "이벤트 유형 나열"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:149
-#: v2/templates/dashboard/maindashboard.php:182
-#: v2/templates/people/familylist.php:46
-#: v2/templates/people/peopledashboard.php:127
-msgid "People"
-msgstr "사람"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:165
-msgid "Meta Search Engine"
-msgstr "메타 검색 엔진"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:174 v2/templates/people/personlist.php:23
-msgid "Add New Person"
-msgstr "새 사람 추가"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:175
-msgid "View Single Persons"
-msgstr "독신자 보기"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:176
-msgid "View Active Persons"
-msgstr "활성 사용자 보기"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:181
-msgid "Add New Family"
-msgstr "새 가족 추가"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:182
-msgid "View Active Families"
-msgstr "활성 패밀리 보기"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:186
-msgid "Empty Addresses"
-msgstr "빈 주소"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:189
-msgid "Convert Individual to Address"
-msgstr "개인을 주소로 변환"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:203
-msgid "List Groups"
-msgstr "그룹 목록"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:265
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:195
-msgid "Group Assignment Helper"
-msgstr "그룹 과제 도우미"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:274
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
-msgid "Sunday School"
-msgstr "주일학교"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:354 EcclesiaCRM/MenuBar/MenuBar.php:361
-#: Include/Footer.php:177
-msgid "Global Custom Menus"
-msgstr "글로벌 사용자 지정 메뉴"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:371
-msgid "Custom Menus"
-msgstr "사용자 지정 메뉴"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:381 EcclesiaCRM/dto/SystemConfig.php:297
-#: FamilyView.php:473 PersonView.php:826 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1114
-#: v2/templates/gdpr/gdprdatastructure.php:141
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
-msgid "Pastoral Care"
-msgstr "사목 케어"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:383
-msgid "By Classifications"
-msgstr "분류별"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1092
-#: v2/templates/pastoralcare/pastoralcarefamily.php:211
-msgid "MailChimp"
-msgstr "MailChimp"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:411
-msgid "Email Lists"
-msgstr "이메일 목록"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:439
-#: EcclesiaCRM/Search/PledgeSearchRes.php:63
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
-#: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
-#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
-#: Reports/AdvancedDeposit.php:523
-msgid "Deposit"
-msgstr "입금"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:452
-msgid "Current"
-msgstr "현재"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:457 ManageEnvelopes.php:25
-msgid "Envelope Manager"
-msgstr "봉투 관리자"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:458
-msgid "View All Deposits"
-msgstr "모든 입금 보기"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:459 ElectronicPaymentList.php:55
-msgid "Electronic Payment Listing"
-msgstr "전자 결제 목록"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:460
-msgid "Deposit Reports"
-msgstr "입금 보고서"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:461
-msgid "Edit Deposit Slip"
-msgstr "입금 전표 편집"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:473 FundRaiserEditor.php:38
-msgid "Fundraiser"
-msgstr "모금 행사"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:475
-msgid "Create New Fundraiser"
-msgstr "새 모금 행사 만들기"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:476
-msgid "View All Fundraisers"
-msgstr "모든 모금 행사 보기"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:478
-#: v2/templates/fundraiser/donatedItemEditor.php:87
-msgid "Edit Last Fundraiser"
-msgstr "마지막 모금 행사 편집"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:539
-msgid "Data/Reports"
-msgstr "데이터/보고서"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:541
-msgid "Reports Menu"
-msgstr "보고서 메뉴"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:542 UserEditor.php:1082
-msgid "Query Menu"
-msgstr "쿼리 메뉴"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-#: EcclesiaCRM/dto/CanvassUtilities.php:100
-#: EcclesiaCRM/dto/CanvassUtilities.php:136 PrintPastoralCarePerson.php:515
-#: PrintView.php:524
-msgid "Group Name"
-msgstr "그룹 이름"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-#: v2/templates/calendar/calendar.php:79
-msgid "Birthdate"
-msgstr "생년월일"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-#: PrintPastoralCarePerson.php:450 PrintView.php:461
-#: Reports/CanvassReports.php:278
-#: v2/templates/sundayschool/sundayschooldashboard.php:261
-msgid "Age"
-msgstr "나이"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-msgid "Props"
-msgstr "소품"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-msgid "Stats"
-msgstr "통계"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:103
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:105
-#: Reports/ClassAttendance.php:97 Reports/ClassAttendance.php:256
-#: Reports/ClassList.php:218 Reports/PhotoBook.php:70
-#: v2/templates/sundayschool/sundayschooldashboard.php:38
-#: v2/templates/sundayschool/sundayschooldashboard.php:208
-#: v2/templates/sundayschool/sundayschoolview.php:143
-msgid "Teachers"
-msgstr "교사"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:177
-msgid "of"
-msgstr "의"
-
-#: EcclesiaCRM/Reports/PDF_Attendance.php:218
-#: EcclesiaCRM/Reports/PDF_Attendance.php:626
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
-#: sundayschool/SundaySchoolAttendeesExport.php:184
-msgid "Totals"
-msgstr "합계"
-
-#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
-msgid "Certificate of Ownership"
-msgstr "소유권 증명서"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176
-#: Reports/ConfirmReport.php:163
-msgid "City, State, Zip"
-msgstr "도시, 주, 우편번호"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186 FamilyEditor.php:874
-#: FamilyView.php:333 PersonEditor.php:1445 PersonView.php:652
-#: Reports/ConfirmReport.php:173 ident/routes/verify.php:505
-#: ident/routes/verify.php:792 ident/templates/verify/verify-family-info.php:52
-#: v2/templates/pastoralcare/pastoralcarefamily.php:158
-#: v2/templates/pastoralcare/pastoralcareperson.php:284
-msgid "Send Newsletter"
-msgstr "뉴스레터 보내기"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:196
-#: Reports/ConfirmReport.php:183
-msgid "Anniversary Date"
-msgstr "기념일 날짜"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:243
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:261
-#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
-msgid "Member Name"
-msgstr "회원 이름"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:244
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:262
-#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
-#: Reports/ConfirmReport.php:248
-msgid "M/F"
-msgstr "M/F"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:245
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:263
-#: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
-msgid "Adult/Child"
-msgstr "성인/어린이"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:249
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:267
-#: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
-msgid "Member/Friend"
-msgstr "회원/친구"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:378
-#: Reports/ConfirmReport.php:375
-msgid "Assigned groups for"
-msgstr "다음에 할당된 그룹"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:64
-#: EcclesiaCRM/Reports/PDF_Directory.php:100
-msgid "Directory"
-msgstr "디렉토리"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:83 Reports/AdvancedDeposit.php:345
-msgid "Page"
-msgstr "페이지"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:328
-#: EcclesiaCRM/Reports/PDF_Directory.php:403
-#: EcclesiaCRM/Reports/PDF_Directory.php:460 PersonView.php:687
-#: Reports/DirectoryReport.php:321 Reports/GroupReport.php:129
-#: external/templates/registration/family-register-members.php:105
-msgid "Work"
-msgstr "업무"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:331
-#: EcclesiaCRM/Reports/PDF_Directory.php:407
-#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:325
-#: Reports/GroupReport.php:134
-msgid "Cell"
-msgstr "셀"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:337
-#: v2/templates/calendar/calendar.php:97
-msgid "Wedding"
-msgstr "웨딩"
-
-#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:50
-msgid "Group Directory"
-msgstr "그룹 디렉토리"
-
-#: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:109
-#: Reports/PDFBadge.php:112 Reports/PDFBadgeGroup.php:197
-#: Reports/PDFLabel.php:779
-msgid "Tractor"
-msgstr "트랙터"
-
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:269
-#: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
-#: Reports/PhotoBook.php:72
-#: v2/templates/sundayschool/sundayschooldashboard.php:49
-#: v2/templates/sundayschool/sundayschooldashboard.php:209
-#: v2/templates/sundayschool/sundayschoolview.php:245
-msgid "Students"
-msgstr "학생"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:19
-#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-msgid "Addresses"
-msgstr "주소"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:77
-#: EcclesiaCRM/Search/AddressSearchRes.php:116
-#: EcclesiaCRM/Search/AddressSearchRes.php:144
-#: EcclesiaCRM/Search/DepositSearchRes.php:74
-#: EcclesiaCRM/Search/DepositSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:88
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:100
-#: EcclesiaCRM/Search/FamilySearchRes.php:135
-#: EcclesiaCRM/Search/FamilySearchRes.php:166
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
-#: EcclesiaCRM/Search/GroupSearchRes.php:78
-#: EcclesiaCRM/Search/GroupSearchRes.php:113
-#: EcclesiaCRM/Search/GroupSearchRes.php:126
-#: EcclesiaCRM/Search/PaymentSearchRes.php:48
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:87
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:136
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:83
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:132
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:93
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
-#: EcclesiaCRM/Search/PersonSearchRes.php:263
-#: EcclesiaCRM/Search/PersonSearchRes.php:332
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
-#: EcclesiaCRM/Search/PledgeSearchRes.php:69
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84
-#: EcclesiaCRM/Service/CalendarService.php:508 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:258 EventNames.php:349 FamilyView.php:283
-#: PersonView.php:527 v2/templates/pastoralcare/pastoralcareperson.php:166
-msgid "Edit"
-msgstr "편집"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:144
-msgid "Addresse"
-msgstr "주소"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:145
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:126
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
-#: EcclesiaCRM/Search/FamilySearchRes.php:167
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:131
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
-#: EcclesiaCRM/Search/PersonSearchRes.php:334
-#: EcclesiaCRM/Search/PersonSearchRes.php:338
-#: EcclesiaCRM/Search/PersonSearchRes.php:339
-#: EcclesiaCRM/Search/PersonSearchRes.php:340
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
-#: EcclesiaCRM/Service/MailChimpService.php:204
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:395
-#: FamilyView.php:1069 PersonView.php:720 PersonView.php:1967
-#: PrintPastoralCarePerson.php:654
-#: v2/templates/pastoralcare/pastoralcarefamily.php:220
-#: v2/templates/pastoralcare/pastoralcareperson.php:352
-#: v2/templates/people/familylist.php:106
-#: v2/templates/people/familylist.php:107
-#: v2/templates/people/familylist.php:108
-#: v2/templates/people/familylist.php:109
-#: v2/templates/people/familylist.php:110
-#: v2/templates/people/familylist.php:111 v2/templates/people/personlist.php:98
-#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
-#: v2/templates/people/personlist.php:101
-#: v2/templates/people/personlist.php:102
-#: v2/templates/people/personlist.php:103
-#: v2/templates/sundayschool/sundayschooldashboard.php:296
-#: v2/templates/sundayschool/sundayschooldashboard.php:297
-#: v2/templates/sundayschool/sundayschooldashboard.php:298
-#: v2/templates/sundayschool/sundayschoolview.php:156
-msgid "Private Data"
-msgstr "개인 데이터"
-
-#: EcclesiaCRM/Search/DepositSearchRes.php:23
-msgid "Deposits"
-msgstr "예금"
-
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
-msgid "Family Custom Field"
-msgstr "가족 사용자 지정 필드"
-
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
-msgid "Family Pastoral Cares"
-msgstr "가족 사목 케어"
-
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
-msgid "Family Pastoral Care"
-msgstr "가족 사목 돌봄"
-
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
-msgid "Families Properties"
-msgstr "패밀리 속성"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:45
-#: EcclesiaCRM/Search/FamilySearchRes.php:54
-#: EcclesiaCRM/Search/FamilySearchRes.php:168
-msgid "single"
-msgstr "single"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:45
-#: EcclesiaCRM/Search/FamilySearchRes.php:54
-#: EcclesiaCRM/Search/FamilySearchRes.php:168
-msgid "singles"
-msgstr "싱글"
-
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
-msgid "Groups Properties"
-msgstr "그룹 속성"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:30
-msgid "group"
-msgstr "그룹"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:30
-msgid "groups"
-msgstr "그룹"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:35
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-msgid "sunday group"
-msgstr "일요일 그룹"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:35
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-msgid "sunday groups"
-msgstr "일요일 그룹"
-
-#: EcclesiaCRM/Search/PaymentSearchRes.php:20 Reports/PledgeSummary.php:252
-#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
-msgid "Payments"
-msgstr "결제"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
-msgid "Person Group role assignments"
-msgstr "개인 그룹 역할 할당"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
-msgid "Teacher"
-msgstr "교사"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
-msgid "Student"
-msgstr "학생"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:123
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:190
-msgid "Print"
-msgstr "인쇄"
-
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
-msgid "Person Custom Field"
-msgstr "사람 사용자 지정 필드"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
-msgid "Group Manager"
-msgstr "그룹 관리자"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-msgid "groupmaster"
-msgstr "그룹마스터"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-msgid "groupmanagers"
-msgstr "그룹 관리자"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-msgid "groupmanager"
-msgstr "그룹 관리자"
-
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
-msgid "Individual Pastoral Cares"
-msgstr "개별 목회 케어"
-
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
-msgid "Person Properties"
-msgstr "개인 속성"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:147 PersonView.php:985
-msgid "Volunteer Opportunities"
-msgstr "자원 봉사 기회"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
-msgid "volunteers"
-msgstr "자원 봉사자"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
-msgid "volunteer"
-msgstr "자원봉사자"
-
-#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
-#: Reports/PledgeSummary.php:253
-msgid "Pledges"
-msgstr "서약"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
-#: EcclesiaCRM/Service/AppIntegrityService.php:73
-msgid "Signature definition file signature failed validation"
-msgstr "서명 정의 파일 서명 유효성 검사 실패"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
-#: EcclesiaCRM/Service/AppIntegrityService.php:76
-msgid "Signature definition File Missing"
-msgstr "서명 정의 파일 누락"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:40
-#: EcclesiaCRM/Service/AppIntegrityService.php:82
-msgid "One or more files failed signature validation"
-msgstr "하나 이상의 파일이 서명 유효성 검사에 실패했습니다."
-
-#: EcclesiaCRM/Service/CalendarService.php:58
-msgid "Event"
-msgstr "이벤트"
-
-#: EcclesiaCRM/Service/CalendarService.php:60
-msgid "Anniversary"
-msgstr "기념일"
-
-#: EcclesiaCRM/Service/CalendarService.php:511 ElectronicPaymentList.php:216
-#: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
-#: EventNames.php:355 FamilyView.php:1096 FindDepositSlip.php:131
-#: PersonView.php:1905 PersonView.php:1997 ident/routes/verify.php:728
-#: ident/routes/verify.php:795 ident/templates/verify/verify-family-info.php:55
-#: ident/templates/verify/verify-family-info.php:161
-#: v2/templates/calendar/eventattendeesedit.php:101
-#: v2/templates/email/mailchimp/campaign.php:133
-#: v2/templates/email/mailchimp/managelist.php:45
-#: v2/templates/group/groupview.php:287
-#: v2/templates/pastoralcare/pastoralcarefamily.php:350
-#: v2/templates/pastoralcare/pastoralcarefamily.php:357
-#: v2/templates/pastoralcare/pastoralcareperson.php:477
-#: v2/templates/pastoralcare/pastoralcareperson.php:484
-#: v2/templates/plugins/plugins.php:57
-msgid "Delete"
-msgstr "삭제"
-
-#: EcclesiaCRM/Service/CalendarService.php:514
-msgid "Info"
-msgstr "정보"
-
-#: EcclesiaCRM/Service/CalendarService.php:546
-msgid "Check-in"
-msgstr "체크인"
-
-#: EcclesiaCRM/Service/CalendarService.php:547
-msgid "Check-out"
-msgstr "체크아웃"
-
-#: EcclesiaCRM/Service/CalendarService.php:548
-msgid "Rest"
-msgstr "휴식"
-
-#: EcclesiaCRM/Service/CalendarService.php:569
-#: EcclesiaCRM/Service/CalendarService.php:602
-#: v2/templates/calendar/eventattendeesedit.php:45
-msgid "Attendees"
-msgstr "참석자"
-
-#: EcclesiaCRM/Service/CalendarService.php:580
-#: EcclesiaCRM/Service/CalendarService.php:581
-#: EcclesiaCRM/Service/CalendarService.php:584
-#: EcclesiaCRM/Service/CalendarService.php:585
-#: v2/templates/calendar/eventattendeesedit.php:142
-#: v2/templates/calendar/eventattendeesedit.php:143
-#: v2/templates/calendar/eventattendeesedit.php:146
-msgid "Make Check-out"
-msgstr "체크아웃하기"
-
-#: EcclesiaCRM/Service/CalendarService.php:581
-#: EcclesiaCRM/Service/CalendarService.php:585
-msgid "Check-out done"
-msgstr "체크아웃 완료"
-
-#: EcclesiaCRM/Service/CalendarService.php:628
-msgid "No Attendance Recorded"
-msgstr "출석 기록 없음"
-
-#: EcclesiaCRM/Service/CalendarService.php:642
-msgid "login"
-msgstr "로그인"
-
-#: EcclesiaCRM/Service/CalendarService.php:830
-#: EcclesiaCRM/Service/CalendarService.php:1157
-#: EcclesiaCRM/dto/SystemConfig.php:47
-msgid "NONE"
-msgstr "없음"
-
-#: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
-msgid "NonDeductible amount can't be greater than total amount."
-msgstr "공제 불가 금액은 총액보다 클 수 없습니다."
-
-#: EcclesiaCRM/Service/FinancialService.php:493 PledgeEditor.php:331
-msgid "At least one fund must have a non-zero amount."
-msgstr "적어도 하나의 펀드에는 0이 아닌 금액이 있어야 합니다."
-
-#: EcclesiaCRM/Service/FinancialService.php:518 PledgeEditor.php:348
-msgid "Must specify non-zero check number"
-msgstr "0이 아닌 수표 번호를 지정해야 합니다."
-
-#: EcclesiaCRM/Service/FinancialService.php:523 PledgeEditor.php:355
-msgid "Check number not valid for 'CASH' payment"
-msgstr "수표 번호는 '현금' 결제에 유효하지 않습니다."
-
-#: EcclesiaCRM/Service/PersonService.php:47
-msgid "Part"
-msgstr "Part"
-
-#: EcclesiaCRM/Service/PersonService.php:49
-msgid " of the"
-msgstr " 의"
-
-#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:571
-#: v2/templates/pastoralcare/pastoralcareperson.php:207
-msgid "(No assigned family)"
-msgstr "(할당된 가족 없음)"
-
-#: EcclesiaCRM/Service/TimelineService.php:216
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:624
-#: EcclesiaCRM/utils/OutputUtils.php:298 EcclesiaCRM/utils/OutputUtils.php:541
-#: EcclesiaCRM/utils/OutputUtils.php:559 FamilyEditor.php:1177
-msgid "Unknown"
-msgstr "알 수 없음"
-
-#: EcclesiaCRM/Service/TimelineService.php:218
-msgid "Self Registration"
-msgstr "셀프 등록"
-
-#: EcclesiaCRM/Service/TimelineService.php:220
-msgid "Self Verification"
-msgstr "자체 인증"
-
-#: EcclesiaCRM/Service/TimelineService.php:257
-#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
-msgid "by"
-msgstr "으로"
-
-#: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:758 EcclesiaCRM/utils/MiscUtils.php:861
-msgid "File"
-msgstr "파일"
-
-#: EcclesiaCRM/Service/TimelineService.php:355
-msgid "Shared by"
-msgstr "공유자"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:135 PledgeEditor.php:646
-msgid "Other"
-msgstr "기타"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:576 v2/templates/pastoralcare/pastoralcarefamily.php:288
-#: v2/templates/pastoralcare/pastoralcareperson.php:417
-msgid "Head of Household"
-msgstr "세대주"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:577 v2/templates/pastoralcare/pastoralcarefamily.php:289
-#: v2/templates/pastoralcare/pastoralcareperson.php:418
-msgid "Spouse"
-msgstr "배우자"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:579 v2/templates/pastoralcare/pastoralcarefamily.php:291
-#: v2/templates/pastoralcare/pastoralcareperson.php:420
-msgid "Child"
-msgstr "자식"
-
-#: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:258
-msgid "Backup Database"
-msgstr "백업 데이터베이스"
-
-#: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:250
-msgid "Restore Database"
-msgstr "데이터베이스 복원"
-
-#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:160
-#: v2/templates/dashboard/maindashboard.php:139
-#: v2/templates/people/peopledashboard.php:83
-#: v2/templates/people/peoplelist.php:22
-msgid "Single Persons"
-msgstr "독신자"
-
-#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: FamilyView.php:219
-#: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:16
-msgid "Family List"
-msgstr "가족 목록"
-
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:121
-msgid "People Dashboard"
-msgstr "사람 대시보드"
-
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
-#: query_qry.php:8 query_qry.php:53
-msgid "Advanced Search"
-msgstr "고급 검색"
-
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:193
-msgid "Person Listing"
-msgstr "사람 목록"
-
-#: EcclesiaCRM/VIEWControllers/People/VIEWPersonListController.php:95
-#: PersonView.php:346
-#: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:16
-msgid "Person List"
-msgstr "사람 목록"
-
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWFundListController.php:44
-msgid "Donation Fund Editor"
-msgstr "기부금 편집기"
-
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWMenuLinkListController.php:52
-msgid "Custom Menus List"
-msgstr "사용자 지정 메뉴 목록"
-
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWMenuLinkListController.php:55
-#: Reports/GDPR/GDPRDataStructureExport.php:73
-#: v2/templates/gdpr/gdprdatastructure.php:41
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:52
-msgid "For"
-msgstr "For"
-
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPastoralcareListController.php:45
-msgid "Pastoral Care Type Editor"
-msgstr "사목 케어 유형 편집기"
-
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:69
-msgid "Property List"
-msgstr "속성 목록"
-
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyTypeListController.php:44
-msgid "Property Type List"
-msgstr "속성 유형 목록"
-
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWVolunteerOpportunityEditorController.php:44
-msgid "Volunteer Opportunity Editor"
-msgstr "자원 봉사 기회 편집자"
-
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:66
-msgid "Church Calendar"
-msgstr "교회 캘린더"
-
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:124
-msgid "Listing All Church Events"
-msgstr "모든 교회 행사 목록"
-
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:174
-#: EventAttendance.php:36
-msgid "Event Attendees"
-msgstr "이벤트 참석자"
-
-#: EcclesiaCRM/VIEWControllers/VIEWCartController.php:141
-msgid "View Your Cart"
-msgstr "장바구니 보기"
-
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:119
-msgid "Welcome to"
-msgstr "에 오신 것을 환영합니다."
-
-#: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:55
-#: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:79
-#: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:177
-msgid "Donated Item Editor"
-msgstr "기부 아이템 편집기"
-
-#: EcclesiaCRM/VIEWControllers/VIEWGdprController.php:52
-msgid "GDPR Dashboard"
-msgstr "GDPR 대시보드"
-
-#: EcclesiaCRM/VIEWControllers/VIEWGdprController.php:97
-msgid "GDPR Data Structure"
-msgstr "GDPR 데이터 구조"
-
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:51
-msgid "Group Listing"
-msgstr "그룹 목록"
-
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:167
-msgid "Sunday School Badges for"
-msgstr "주일학교 배지"
-
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:169
-msgid "Badges for Group"
-msgstr "그룹용 배지"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:46
-msgid "MailChimp Dashboard"
-msgstr "MailChimp 대시보드"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:79
-msgid "Debug Email Connection"
-msgstr "이메일 연결 디버그"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:114
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:115
-msgid "Email Campaign"
-msgstr "이메일 캠페인"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
-msgid "Email List"
-msgstr "이메일 목록"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:194
-#: v2/templates/email/mailchimp/dashboard.php:75
-msgid "Find Duplicate Emails"
-msgstr "중복 이메일 찾기"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:220
-#: v2/templates/email/mailchimp/dashboard.php:78
-msgid "Persons Not In MailChimp"
-msgstr "MailChimp에 없는 사람"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:245
-#: v2/templates/email/mailchimp/dashboard.php:81
-msgid "Families Not In MailChimp"
-msgstr "MailChimp에 없는 가족"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMeetingController.php:44
-msgid "Meeting Dashboard"
-msgstr "미팅 대시보드"
-
-#: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
-#: Include/Footer.php:234
-msgid "Plugins"
-msgstr "플러그인"
-
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:46
-msgid "Pastoral care list of members for"
-msgstr "다음 회원에 대한 목회적 돌봄 목록"
-
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:142
-msgid "Period  from"
-msgstr "기간"
-
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:142
-msgid "to"
-msgstr "에"
-
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:171
-msgid "Pastoral care Dashboard"
-msgstr "목회자 케어 대시보드"
-
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:352
-msgid "Individual Pastoral care"
-msgstr "개인 사목 관리"
-
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:489
-msgid "Family Pastoral care"
-msgstr "가족 사목 돌봄"
-
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:543
-msgid "Pastoral care members list by classification"
-msgstr "분류별 목회자 돌봄 회원 목록"
-
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:60
-msgid "Sunday School Dashboard"
-msgstr "주일학교 대시보드"
-
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:252
-msgid ""
-"At least one group must be selected to make class lists or attendance sheets."
-msgstr ""
-"수업 목록 또는 출석 시트를 만들려면 적어도 하나의 그룹을 선택해야 합니다."
-
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:306
-msgid "Sunday School Reports"
-msgstr "주일학교 보고서"
-
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:67
-msgid "System Users Listing"
-msgstr "시스템 사용자 목록"
 
 #: EcclesiaCRM/data/Countries.php:15
 msgid "Afghanistan (‫افغانستان‬‎)"
@@ -4511,6 +3385,13 @@ msgstr "짐바브웨"
 
 #: EcclesiaCRM/dto/CanvassUtilities.php:100
 #: EcclesiaCRM/dto/CanvassUtilities.php:136
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
+#: PrintPastoralCarePerson.php:515 PrintView.php:524
+msgid "Group Name"
+msgstr "그룹 이름"
+
+#: EcclesiaCRM/dto/CanvassUtilities.php:100
+#: EcclesiaCRM/dto/CanvassUtilities.php:136
 msgid "doesn't exist !"
 msgstr "존재하지 않습니다!"
 
@@ -4572,6 +3453,12 @@ msgstr "대상 알림"
 #: EcclesiaCRM/dto/ReportUtilities.php:34
 msgid "Invalid Family"
 msgstr "유효하지 않은 가족"
+
+#: EcclesiaCRM/dto/SystemConfig.php:47
+#: EcclesiaCRM/Service/CalendarService.php:829
+#: EcclesiaCRM/Service/CalendarService.php:1156
+msgid "NONE"
+msgstr "없음"
 
 #: EcclesiaCRM/dto/SystemConfig.php:48
 msgid "DEBUG"
@@ -5506,6 +4393,14 @@ msgstr "이메일 설정"
 msgid "Map Settings"
 msgstr "지도 설정"
 
+#: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:381
+#: FamilyView.php:473 PersonView.php:826 PrintPastoralCarePerson.php:639
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1114
+#: v2/templates/gdpr/gdprdatastructure.php:141
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
+msgid "Pastoral Care"
+msgstr "사목 케어"
+
 #: EcclesiaCRM/dto/SystemConfig.php:298
 msgid "Sundayschool Attendance"
 msgstr "일요일 학교 출석"
@@ -5513,6 +4408,13 @@ msgstr "일요일 학교 출석"
 #: EcclesiaCRM/dto/SystemConfig.php:299
 msgid "Integration"
 msgstr "통합"
+
+#: EcclesiaCRM/dto/SystemConfig.php:300 EcclesiaCRM/MenuBar/MenuBar.php:111
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
+#: v2/templates/dashboard/maindashboard.php:65
+msgid "GDPR"
+msgstr "GDPR"
 
 #: EcclesiaCRM/dto/SystemConfig.php:301
 msgid "Quick Search"
@@ -5543,6 +4445,364 @@ msgstr "잘못된 구성 이름을 요청했습니다."
 msgid "An invalid configuration id has been requested"
 msgstr "잘못된 구성 ID를 요청했습니다."
 
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+msgid "New Person Added"
+msgstr "새로운 사람 추가"
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
+msgid "New Family Added"
+msgstr "새로운 제품군 추가"
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
+msgid "Church Greeter"
+msgstr "교회 인사말"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
+msgid "Notification"
+msgstr "알림"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
+msgid "Guardian(s) of"
+msgstr "보호자(들)"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
+msgid "A notification was triggered by the classroom teacher at"
+msgstr "다음 주소의 담임 교사가 알림을 트리거했습니다."
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
+msgid "Please go to this location"
+msgstr "이 위치로 이동하세요."
+
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
+msgid "Your Account was Deleted"
+msgstr "계정이 삭제되었습니다."
+
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
+msgid "Your EcclesiaCRM Account was Deleted."
+msgstr "에클레시아CRM 계정이 삭제되었습니다."
+
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:232
+msgid "Email/Username"
+msgstr "이메일/사용자 이름"
+
+#: EcclesiaCRM/Emails/users/CalendarEmail.php:23
+msgid "A Calendar is shared with you"
+msgstr "캘린더가 공유됩니다."
+
+#: EcclesiaCRM/Emails/users/CalendarEmail.php:28
+msgid "I've shared a calendar with you in"
+msgstr "캘린더를 공유해 드렸습니다."
+
+#: EcclesiaCRM/Emails/users/DocumentEmail.php:23
+msgid "A document is shared with you"
+msgstr "문서가 공유됩니다."
+
+#: EcclesiaCRM/Emails/users/DocumentEmail.php:28
+msgid "I've shared a document with you in"
+msgstr "에서 문서를 공유해 드렸습니다."
+
+#: EcclesiaCRM/Emails/users/LockedEmail.php:11
+msgid "Account Locked"
+msgstr "계정 잠김"
+
+#: EcclesiaCRM/Emails/users/LockedEmail.php:16
+msgid "Your EcclesiaCRM account was locked."
+msgstr "에클레시아CRM 계정이 잠겼습니다."
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
+msgid "Your New Account"
+msgstr "새 계정"
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:24
+msgid "A EcclesiaCRM account was created for you"
+msgstr "에클레시아CRM 계정이 생성되었습니다."
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
+#: ident/templates/verify/change-password.php:44 UserPasswordChange.php:214
+msgid "New Password"
+msgstr "새 비밀번호"
+
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
+msgid "Password Changed"
+msgstr "비밀번호 변경"
+
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
+msgid "Your EcclesiaCRM password was changed"
+msgstr "에클레시아CRM 비밀번호가 변경되었습니다."
+
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
+msgid "Password Reset"
+msgstr "비밀번호 재설정"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
+msgid "You EcclesiaCRM updated password has been changed"
+msgstr "에클레시아CRM 업데이트 비밀번호가 변경되었습니다."
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
+msgid "Password Reset Link"
+msgstr "비밀번호 재설정 링크"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
+msgid "You can reset your EcclesiaCRM password by clicking this link"
+msgstr "다음 링크를 클릭하여 EcclesiaCRM 비밀번호를 재설정할 수 있습니다."
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
+msgid "Reset Password"
+msgstr "비밀번호 재설정"
+
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
+msgid "Account Unlocked"
+msgstr "계정 잠금 해제"
+
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
+msgid "Your EcclesiaCRM account was unlocked."
+msgstr "에클레시아CRM 계정이 잠금 해제되었습니다."
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
+msgid "Your Account"
+msgstr "계정"
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
+msgid "Your EcclesiaCRM account was updated"
+msgstr "에클레시아CRM 계정이 업데이트되었습니다."
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:83
+#: v2/templates/user/userlist.php:62
+msgid "Status"
+msgstr "상태"
+
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
+msgid "Please verify your family's information"
+msgstr "가족 정보를 확인해 주세요."
+
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:34
+#: external/templates/password/enter-username.php:46
+#: ident/templates/verify/login-info.php:44 Login.php:195 Login.php:257
+msgid "Login"
+msgstr "로그인"
+
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:35
+#: ident/templates/verify/login-info.php:38 Login.php:244 Login.php:339
+#: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:57
+msgid "Password"
+msgstr "비밀번호"
+
+#: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:24
+msgid "informations"
+msgstr "정보"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:92
+#: Include/Header.php:153
+msgid "Private Space"
+msgstr "개인 공간"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:467
+#: external/templates/registration/family-register-members.php:104
+msgid "Home"
+msgstr "홈"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:91 Include/Header.php:155 PersonView.php:802
+msgid "Change Password"
+msgstr "비밀번호 변경"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:92 Include/Header.php:157 PersonView.php:800
+msgid "Change Settings"
+msgstr "설정 변경"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1030
+msgid "Documents"
+msgstr "문서"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1044 UserEditor.php:917
+msgid "EDrive"
+msgstr "EDrive"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:112 EcclesiaCRM/MenuBar/MenuBar.php:151
+#: EcclesiaCRM/MenuBar/MenuBar.php:276 EcclesiaCRM/MenuBar/MenuBar.php:372
+#: EcclesiaCRM/MenuBar/MenuBar.php:382 EcclesiaCRM/MenuBar/MenuBar.php:404
+#: EcclesiaCRM/MenuBar/MenuBar.php:497
+msgid "Dashboard"
+msgstr "대시보드"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:113
+msgid "Data Structure"
+msgstr "데이터 구조"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:114 EcclesiaCRM/MenuBar/MenuBar.php:178
+msgid "View Inactive Persons"
+msgstr "비활성 사용자 보기"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:115 EcclesiaCRM/MenuBar/MenuBar.php:184
+msgid "View Inactive Families"
+msgstr "비활성 패밀리 보기"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:125
+msgid "Events"
+msgstr "이벤트"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:131 v2/templates/map/MapUsingBing.php:75
+#: v2/templates/map/MapUsingBing.php:121 v2/templates/map/MapUsingGoogle.php:77
+#: v2/templates/map/MapUsingGoogle.php:124
+#: v2/templates/map/MapUsingLeaflet.php:66
+#: v2/templates/map/MapUsingLeaflet.php:114
+msgid "Calendar"
+msgstr "캘린더"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:134 EcclesiaCRM/MenuBar/MenuBar.php:167
+#: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
+msgid "View on Map"
+msgstr "지도에서 보기"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:137
+msgid "List Church Events"
+msgstr "교회 이벤트 나열"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:138
+msgid "List Event Types"
+msgstr "이벤트 유형 나열"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:149
+#: v2/templates/dashboard/maindashboard.php:182
+#: v2/templates/people/familylist.php:46
+#: v2/templates/people/peopledashboard.php:127
+msgid "People"
+msgstr "사람"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:165
+msgid "Meta Search Engine"
+msgstr "메타 검색 엔진"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:174 v2/templates/people/personlist.php:23
+msgid "Add New Person"
+msgstr "새 사람 추가"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:175
+msgid "View Single Persons"
+msgstr "독신자 보기"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:176
+msgid "View Active Persons"
+msgstr "활성 사용자 보기"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:181
+msgid "Add New Family"
+msgstr "새 가족 추가"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:182
+msgid "View Active Families"
+msgstr "활성 패밀리 보기"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:186
+msgid "Empty Addresses"
+msgstr "빈 주소"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:189
+msgid "Convert Individual to Address"
+msgstr "개인을 주소로 변환"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:203
+msgid "List Groups"
+msgstr "그룹 목록"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:265
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:195
+msgid "Group Assignment Helper"
+msgstr "그룹 과제 도우미"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:274
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
+msgid "Sunday School"
+msgstr "주일학교"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:354 EcclesiaCRM/MenuBar/MenuBar.php:361
+#: Include/Footer.php:177
+msgid "Global Custom Menus"
+msgstr "글로벌 사용자 지정 메뉴"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:371
+msgid "Custom Menus"
+msgstr "사용자 지정 메뉴"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:383
+msgid "By Classifications"
+msgstr "분류별"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:402 FamilyView.php:386 UserEditor.php:1092
+#: v2/templates/pastoralcare/pastoralcarefamily.php:211
+msgid "MailChimp"
+msgstr "MailChimp"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:411
+msgid "Email Lists"
+msgstr "이메일 목록"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:439
+#: EcclesiaCRM/Search/PledgeSearchRes.php:63
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
+#: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
+#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
+#: Reports/AdvancedDeposit.php:523
+msgid "Deposit"
+msgstr "입금"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:452
+msgid "Current"
+msgstr "현재"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:457 ManageEnvelopes.php:25
+msgid "Envelope Manager"
+msgstr "봉투 관리자"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:458
+msgid "View All Deposits"
+msgstr "모든 입금 보기"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:459 ElectronicPaymentList.php:55
+msgid "Electronic Payment Listing"
+msgstr "전자 결제 목록"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:460
+msgid "Deposit Reports"
+msgstr "입금 보고서"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:461
+msgid "Edit Deposit Slip"
+msgstr "입금 전표 편집"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:473 FundRaiserEditor.php:38
+msgid "Fundraiser"
+msgstr "모금 행사"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:475
+msgid "Create New Fundraiser"
+msgstr "새 모금 행사 만들기"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:476
+msgid "View All Fundraisers"
+msgstr "모든 모금 행사 보기"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:478
+#: v2/templates/fundraiser/donatedItemEditor.php:87
+msgid "Edit Last Fundraiser"
+msgstr "마지막 모금 행사 편집"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:539
+msgid "Data/Reports"
+msgstr "데이터/보고서"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:541
+msgid "Reports Menu"
+msgstr "보고서 메뉴"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:542 UserEditor.php:1082
+msgid "Query Menu"
+msgstr "쿼리 메뉴"
+
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:100
 msgid "Coin"
 msgstr "코인"
@@ -5551,6 +4811,14 @@ msgstr "코인"
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:117
 msgid "Counts"
 msgstr "카운트"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
+#: EcclesiaCRM/Reports/PDF_Attendance.php:218
+#: EcclesiaCRM/Reports/PDF_Attendance.php:626
+#: sundayschool/SundaySchoolAttendeesExport.php:184
+msgid "Totals"
+msgstr "합계"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:110
 msgid "Total Coin"
@@ -5660,6 +4928,17 @@ msgstr "프로필 이미지 업로드"
 msgid "Member"
 msgstr "회원"
 
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:624
+#: EcclesiaCRM/Service/TimelineService.php:216
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
+#: EcclesiaCRM/utils/OutputUtils.php:298 EcclesiaCRM/utils/OutputUtils.php:541
+#: EcclesiaCRM/utils/OutputUtils.php:559 FamilyEditor.php:1177
+msgid "Unknown"
+msgstr "알 수 없음"
+
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
 #: EcclesiaCRM/utils/OutputUtils.php:566
 msgid "mos old"
@@ -5732,6 +5011,533 @@ msgstr "Dav 이동 복사 파일"
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:796
 msgid "Dav delete file"
 msgstr "Dav 파일 삭제"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
+#: v2/templates/calendar/calendar.php:79
+msgid "Birthdate"
+msgstr "생년월일"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
+#: PrintPastoralCarePerson.php:450 PrintView.php:461
+#: Reports/CanvassReports.php:278
+#: v2/templates/sundayschool/sundayschooldashboard.php:261
+msgid "Age"
+msgstr "나이"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
+msgid "Props"
+msgstr "소품"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
+msgid "Stats"
+msgstr "통계"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:103
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:105
+#: Reports/ClassAttendance.php:97 Reports/ClassAttendance.php:256
+#: Reports/ClassList.php:218 Reports/PhotoBook.php:70
+#: v2/templates/sundayschool/sundayschooldashboard.php:38
+#: v2/templates/sundayschool/sundayschooldashboard.php:208
+#: v2/templates/sundayschool/sundayschoolview.php:143
+msgid "Teachers"
+msgstr "교사"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:177
+msgid "of"
+msgstr "의"
+
+#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
+msgid "Certificate of Ownership"
+msgstr "소유권 증명서"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176
+#: Reports/ConfirmReport.php:163
+msgid "City, State, Zip"
+msgstr "도시, 주, 우편번호"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186 FamilyEditor.php:874
+#: FamilyView.php:333 ident/routes/verify.php:505 ident/routes/verify.php:792
+#: ident/templates/verify/verify-family-info.php:52 PersonEditor.php:1445
+#: PersonView.php:652 Reports/ConfirmReport.php:173
+#: v2/templates/pastoralcare/pastoralcarefamily.php:158
+#: v2/templates/pastoralcare/pastoralcareperson.php:284
+msgid "Send Newsletter"
+msgstr "뉴스레터 보내기"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:196
+#: Reports/ConfirmReport.php:183
+msgid "Anniversary Date"
+msgstr "기념일 날짜"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:243
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:261
+#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
+msgid "Member Name"
+msgstr "회원 이름"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:244
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:262
+#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
+#: Reports/ConfirmReport.php:248
+msgid "M/F"
+msgstr "M/F"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:245
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:263
+#: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
+msgid "Adult/Child"
+msgstr "성인/어린이"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:249
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:267
+#: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
+msgid "Member/Friend"
+msgstr "회원/친구"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:378
+#: Reports/ConfirmReport.php:375
+msgid "Assigned groups for"
+msgstr "다음에 할당된 그룹"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:64
+#: EcclesiaCRM/Reports/PDF_Directory.php:100
+msgid "Directory"
+msgstr "디렉토리"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:83 Reports/AdvancedDeposit.php:345
+msgid "Page"
+msgstr "페이지"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:328
+#: EcclesiaCRM/Reports/PDF_Directory.php:403
+#: EcclesiaCRM/Reports/PDF_Directory.php:460
+#: external/templates/registration/family-register-members.php:105
+#: PersonView.php:687 Reports/DirectoryReport.php:321
+#: Reports/GroupReport.php:129
+msgid "Work"
+msgstr "업무"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:331
+#: EcclesiaCRM/Reports/PDF_Directory.php:407
+#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:325
+#: Reports/GroupReport.php:134
+msgid "Cell"
+msgstr "셀"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:337
+#: v2/templates/calendar/calendar.php:97
+msgid "Wedding"
+msgstr "웨딩"
+
+#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:50
+msgid "Group Directory"
+msgstr "그룹 디렉토리"
+
+#: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:109
+#: Reports/PDFBadgeGroup.php:197 Reports/PDFBadge.php:112
+#: Reports/PDFLabel.php:779
+msgid "Tractor"
+msgstr "트랙터"
+
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:269
+#: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:72
+#: v2/templates/sundayschool/sundayschooldashboard.php:49
+#: v2/templates/sundayschool/sundayschooldashboard.php:209
+#: v2/templates/sundayschool/sundayschoolview.php:245
+msgid "Students"
+msgstr "학생"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:19
+#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
+msgid "Addresses"
+msgstr "주소"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:77
+#: EcclesiaCRM/Search/AddressSearchRes.php:116
+#: EcclesiaCRM/Search/AddressSearchRes.php:144
+#: EcclesiaCRM/Search/DepositSearchRes.php:74
+#: EcclesiaCRM/Search/DepositSearchRes.php:87
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:88
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
+#: EcclesiaCRM/Search/FamilySearchRes.php:100
+#: EcclesiaCRM/Search/FamilySearchRes.php:135
+#: EcclesiaCRM/Search/FamilySearchRes.php:166
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
+#: EcclesiaCRM/Search/GroupSearchRes.php:78
+#: EcclesiaCRM/Search/GroupSearchRes.php:113
+#: EcclesiaCRM/Search/GroupSearchRes.php:126
+#: EcclesiaCRM/Search/PaymentSearchRes.php:48
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:87
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:136
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:83
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:132
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:93
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
+#: EcclesiaCRM/Search/PersonSearchRes.php:263
+#: EcclesiaCRM/Search/PersonSearchRes.php:332
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
+#: EcclesiaCRM/Search/PledgeSearchRes.php:69
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84
+#: EcclesiaCRM/Service/CalendarService.php:507 ElectronicPaymentList.php:215
+#: ElectronicPaymentList.php:258 EventNames.php:349 FamilyView.php:283
+#: PersonView.php:527 v2/templates/pastoralcare/pastoralcareperson.php:166
+msgid "Edit"
+msgstr "편집"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:144
+msgid "Addresse"
+msgstr "주소"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:145
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:126
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
+#: EcclesiaCRM/Search/FamilySearchRes.php:167
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:131
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
+#: EcclesiaCRM/Search/PersonSearchRes.php:334
+#: EcclesiaCRM/Search/PersonSearchRes.php:338
+#: EcclesiaCRM/Search/PersonSearchRes.php:339
+#: EcclesiaCRM/Search/PersonSearchRes.php:340
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
+#: EcclesiaCRM/Service/MailChimpService.php:204
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:395
+#: FamilyView.php:1069 PersonView.php:720 PersonView.php:1967
+#: PrintPastoralCarePerson.php:654
+#: v2/templates/pastoralcare/pastoralcarefamily.php:220
+#: v2/templates/pastoralcare/pastoralcareperson.php:352
+#: v2/templates/people/familylist.php:106
+#: v2/templates/people/familylist.php:107
+#: v2/templates/people/familylist.php:108
+#: v2/templates/people/familylist.php:109
+#: v2/templates/people/familylist.php:110
+#: v2/templates/people/familylist.php:111 v2/templates/people/personlist.php:98
+#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
+#: v2/templates/people/personlist.php:101
+#: v2/templates/people/personlist.php:102
+#: v2/templates/people/personlist.php:103
+#: v2/templates/sundayschool/sundayschooldashboard.php:296
+#: v2/templates/sundayschool/sundayschooldashboard.php:297
+#: v2/templates/sundayschool/sundayschooldashboard.php:298
+#: v2/templates/sundayschool/sundayschoolview.php:156
+msgid "Private Data"
+msgstr "개인 데이터"
+
+#: EcclesiaCRM/Search/DepositSearchRes.php:23
+msgid "Deposits"
+msgstr "예금"
+
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
+msgid "Family Custom Field"
+msgstr "가족 사용자 지정 필드"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
+msgid "Family Pastoral Cares"
+msgstr "가족 사목 케어"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
+msgid "Family Pastoral Care"
+msgstr "가족 사목 돌봄"
+
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
+msgid "Families Properties"
+msgstr "패밀리 속성"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:54
+#: EcclesiaCRM/Search/FamilySearchRes.php:168
+msgid "single"
+msgstr "single"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:54
+#: EcclesiaCRM/Search/FamilySearchRes.php:168
+msgid "singles"
+msgstr "싱글"
+
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
+msgid "Groups Properties"
+msgstr "그룹 속성"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:30
+msgid "group"
+msgstr "그룹"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:30
+msgid "groups"
+msgstr "그룹"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday group"
+msgstr "일요일 그룹"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday groups"
+msgstr "일요일 그룹"
+
+#: EcclesiaCRM/Search/PaymentSearchRes.php:20 Reports/PledgeSummary.php:252
+#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
+msgid "Payments"
+msgstr "결제"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
+msgid "Person Group role assignments"
+msgstr "개인 그룹 역할 할당"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
+msgid "Teacher"
+msgstr "교사"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
+msgid "Student"
+msgstr "학생"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:123
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:190
+msgid "Print"
+msgstr "인쇄"
+
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
+msgid "Person Custom Field"
+msgstr "사람 사용자 지정 필드"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
+msgid "Group Manager"
+msgstr "그룹 관리자"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+msgid "groupmaster"
+msgstr "그룹마스터"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+msgid "groupmanagers"
+msgstr "그룹 관리자"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+msgid "groupmanager"
+msgstr "그룹 관리자"
+
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
+msgid "Individual Pastoral Cares"
+msgstr "개별 목회 케어"
+
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
+msgid "Person Properties"
+msgstr "개인 속성"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
+#: Include/Footer.php:147 PersonView.php:985
+msgid "Volunteer Opportunities"
+msgstr "자원 봉사 기회"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
+msgid "volunteers"
+msgstr "자원 봉사자"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
+msgid "volunteer"
+msgstr "자원봉사자"
+
+#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
+#: Reports/PledgeSummary.php:253
+msgid "Pledges"
+msgstr "서약"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:28
+#: EcclesiaCRM/Service/AppIntegrityService.php:73
+msgid "Signature definition file signature failed validation"
+msgstr "서명 정의 파일 서명 유효성 검사 실패"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:31
+#: EcclesiaCRM/Service/AppIntegrityService.php:76
+msgid "Signature definition File Missing"
+msgstr "서명 정의 파일 누락"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:40
+#: EcclesiaCRM/Service/AppIntegrityService.php:82
+msgid "One or more files failed signature validation"
+msgstr "하나 이상의 파일이 서명 유효성 검사에 실패했습니다."
+
+#: EcclesiaCRM/Service/CalendarService.php:59
+msgid "Event"
+msgstr "이벤트"
+
+#: EcclesiaCRM/Service/CalendarService.php:61
+msgid "Anniversary"
+msgstr "기념일"
+
+#: EcclesiaCRM/Service/CalendarService.php:510 ElectronicPaymentList.php:216
+#: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
+#: EventNames.php:355 FamilyView.php:1096 FindDepositSlip.php:131
+#: ident/routes/verify.php:728 ident/routes/verify.php:795
+#: ident/templates/verify/verify-family-info.php:55
+#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1905
+#: PersonView.php:1997 v2/templates/calendar/eventattendeesedit.php:101
+#: v2/templates/email/mailchimp/campaign.php:133
+#: v2/templates/email/mailchimp/managelist.php:45
+#: v2/templates/group/groupview.php:287
+#: v2/templates/pastoralcare/pastoralcarefamily.php:350
+#: v2/templates/pastoralcare/pastoralcarefamily.php:357
+#: v2/templates/pastoralcare/pastoralcareperson.php:477
+#: v2/templates/pastoralcare/pastoralcareperson.php:484
+#: v2/templates/plugins/plugins.php:57
+msgid "Delete"
+msgstr "삭제"
+
+#: EcclesiaCRM/Service/CalendarService.php:513
+msgid "Info"
+msgstr "정보"
+
+#: EcclesiaCRM/Service/CalendarService.php:545
+msgid "Check-in"
+msgstr "체크인"
+
+#: EcclesiaCRM/Service/CalendarService.php:546
+msgid "Check-out"
+msgstr "체크아웃"
+
+#: EcclesiaCRM/Service/CalendarService.php:547
+msgid "Rest"
+msgstr "휴식"
+
+#: EcclesiaCRM/Service/CalendarService.php:568
+#: EcclesiaCRM/Service/CalendarService.php:601
+#: v2/templates/calendar/eventattendeesedit.php:45
+msgid "Attendees"
+msgstr "참석자"
+
+#: EcclesiaCRM/Service/CalendarService.php:579
+#: EcclesiaCRM/Service/CalendarService.php:580
+#: EcclesiaCRM/Service/CalendarService.php:583
+#: EcclesiaCRM/Service/CalendarService.php:584
+#: v2/templates/calendar/eventattendeesedit.php:142
+#: v2/templates/calendar/eventattendeesedit.php:143
+#: v2/templates/calendar/eventattendeesedit.php:146
+msgid "Make Check-out"
+msgstr "체크아웃하기"
+
+#: EcclesiaCRM/Service/CalendarService.php:580
+#: EcclesiaCRM/Service/CalendarService.php:584
+msgid "Check-out done"
+msgstr "체크아웃 완료"
+
+#: EcclesiaCRM/Service/CalendarService.php:627
+msgid "No Attendance Recorded"
+msgstr "출석 기록 없음"
+
+#: EcclesiaCRM/Service/CalendarService.php:641
+msgid "login"
+msgstr "로그인"
+
+#: EcclesiaCRM/Service/CalendarService.php:672
+#: v2/templates/calendar/eventslist.php:44
+msgid "Personal Calendar"
+msgstr "개인 캘린더"
+
+#: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
+msgid "NonDeductible amount can't be greater than total amount."
+msgstr "공제 불가 금액은 총액보다 클 수 없습니다."
+
+#: EcclesiaCRM/Service/FinancialService.php:493 PledgeEditor.php:331
+msgid "At least one fund must have a non-zero amount."
+msgstr "적어도 하나의 펀드에는 0이 아닌 금액이 있어야 합니다."
+
+#: EcclesiaCRM/Service/FinancialService.php:518 PledgeEditor.php:348
+msgid "Must specify non-zero check number"
+msgstr "0이 아닌 수표 번호를 지정해야 합니다."
+
+#: EcclesiaCRM/Service/FinancialService.php:523 PledgeEditor.php:355
+msgid "Check number not valid for 'CASH' payment"
+msgstr "수표 번호는 '현금' 결제에 유효하지 않습니다."
+
+#: EcclesiaCRM/Service/PersonService.php:47
+msgid "Part"
+msgstr "Part"
+
+#: EcclesiaCRM/Service/PersonService.php:49
+msgid " of the"
+msgstr " 의"
+
+#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:571
+#: v2/templates/pastoralcare/pastoralcareperson.php:207
+msgid "(No assigned family)"
+msgstr "(할당된 가족 없음)"
+
+#: EcclesiaCRM/Service/TimelineService.php:218
+msgid "Self Registration"
+msgstr "셀프 등록"
+
+#: EcclesiaCRM/Service/TimelineService.php:220
+msgid "Self Verification"
+msgstr "자체 인증"
+
+#: EcclesiaCRM/Service/TimelineService.php:257
+#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
+msgid "by"
+msgstr "으로"
+
+#: EcclesiaCRM/Service/TimelineService.php:320
+#: EcclesiaCRM/utils/MiscUtils.php:758 EcclesiaCRM/utils/MiscUtils.php:861
+msgid "File"
+msgstr "파일"
+
+#: EcclesiaCRM/Service/TimelineService.php:355
+msgid "Shared by"
+msgstr "공유자"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
+#: Include/Footer.php:135 PledgeEditor.php:646
+msgid "Other"
+msgstr "기타"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
+#: FamilyView.php:576 v2/templates/pastoralcare/pastoralcarefamily.php:288
+#: v2/templates/pastoralcare/pastoralcareperson.php:417
+msgid "Head of Household"
+msgstr "세대주"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
+#: FamilyView.php:577 v2/templates/pastoralcare/pastoralcarefamily.php:289
+#: v2/templates/pastoralcare/pastoralcareperson.php:418
+msgid "Spouse"
+msgstr "배우자"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
+#: FamilyView.php:579 v2/templates/pastoralcare/pastoralcarefamily.php:291
+#: v2/templates/pastoralcare/pastoralcareperson.php:420
+msgid "Child"
+msgstr "자식"
 
 #: EcclesiaCRM/tasks/CheckUploadSizeTask.php:35
 msgid "PHP Max File size too small"
@@ -6050,6 +5856,218 @@ msgstr "m 나이"
 msgid "1 yr old"
 msgstr "1세"
 
+#: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
+#: Include/Footer.php:258
+msgid "Backup Database"
+msgstr "백업 데이터베이스"
+
+#: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
+#: Include/Footer.php:250
+msgid "Restore Database"
+msgstr "데이터베이스 복원"
+
+#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:160
+#: v2/templates/dashboard/maindashboard.php:139
+#: v2/templates/people/peopledashboard.php:83
+msgid "Single Persons"
+msgstr "독신자"
+
+#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
+#: FamilyView.php:219
+#: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:16
+msgid "Family List"
+msgstr "가족 목록"
+
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:121
+msgid "People Dashboard"
+msgstr "사람 대시보드"
+
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
+#: query_qry.php:8 query_qry.php:53
+msgid "Advanced Search"
+msgstr "고급 검색"
+
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:193
+msgid "Person Listing"
+msgstr "사람 목록"
+
+#: EcclesiaCRM/VIEWControllers/People/VIEWPersonListController.php:95
+#: PersonView.php:346
+#: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:16
+msgid "Person List"
+msgstr "사람 목록"
+
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWFundListController.php:44
+msgid "Donation Fund Editor"
+msgstr "기부금 편집기"
+
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWMenuLinkListController.php:52
+msgid "Custom Menus List"
+msgstr "사용자 지정 메뉴 목록"
+
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWMenuLinkListController.php:55
+#: Reports/GDPR/GDPRDataStructureExport.php:73
+#: v2/templates/gdpr/gdprdatastructure.php:41
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:52
+msgid "For"
+msgstr "For"
+
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPastoralcareListController.php:45
+msgid "Pastoral Care Type Editor"
+msgstr "사목 케어 유형 편집기"
+
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:69
+msgid "Property List"
+msgstr "속성 목록"
+
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyTypeListController.php:44
+msgid "Property Type List"
+msgstr "속성 유형 목록"
+
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWVolunteerOpportunityEditorController.php:44
+msgid "Volunteer Opportunity Editor"
+msgstr "자원 봉사 기회 편집자"
+
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:66
+msgid "Church Calendar"
+msgstr "교회 캘린더"
+
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:124
+msgid "Listing All Church Events"
+msgstr "모든 교회 행사 목록"
+
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:174
+#: EventAttendance.php:36
+msgid "Event Attendees"
+msgstr "이벤트 참석자"
+
+#: EcclesiaCRM/VIEWControllers/VIEWCartController.php:141
+msgid "View Your Cart"
+msgstr "장바구니 보기"
+
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:119
+msgid "Welcome to"
+msgstr "에 오신 것을 환영합니다."
+
+#: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:55
+#: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:79
+#: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:177
+msgid "Donated Item Editor"
+msgstr "기부 아이템 편집기"
+
+#: EcclesiaCRM/VIEWControllers/VIEWGdprController.php:52
+msgid "GDPR Dashboard"
+msgstr "GDPR 대시보드"
+
+#: EcclesiaCRM/VIEWControllers/VIEWGdprController.php:97
+msgid "GDPR Data Structure"
+msgstr "GDPR 데이터 구조"
+
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:51
+msgid "Group Listing"
+msgstr "그룹 목록"
+
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:167
+msgid "Sunday School Badges for"
+msgstr "주일학교 배지"
+
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:169
+msgid "Badges for Group"
+msgstr "그룹용 배지"
+
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:46
+msgid "MailChimp Dashboard"
+msgstr "MailChimp 대시보드"
+
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:79
+msgid "Debug Email Connection"
+msgstr "이메일 연결 디버그"
+
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:114
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:115
+msgid "Email Campaign"
+msgstr "이메일 캠페인"
+
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
+msgid "Email List"
+msgstr "이메일 목록"
+
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:194
+#: v2/templates/email/mailchimp/dashboard.php:75
+msgid "Find Duplicate Emails"
+msgstr "중복 이메일 찾기"
+
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:220
+#: v2/templates/email/mailchimp/dashboard.php:78
+msgid "Persons Not In MailChimp"
+msgstr "MailChimp에 없는 사람"
+
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:245
+#: v2/templates/email/mailchimp/dashboard.php:81
+msgid "Families Not In MailChimp"
+msgstr "MailChimp에 없는 가족"
+
+#: EcclesiaCRM/VIEWControllers/VIEWMeetingController.php:44
+msgid "Meeting Dashboard"
+msgstr "미팅 대시보드"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:46
+msgid "Pastoral care list of members for"
+msgstr "다음 회원에 대한 목회적 돌봄 목록"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:142
+msgid "Period  from"
+msgstr "기간"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:142
+msgid "to"
+msgstr "에"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:171
+msgid "Pastoral care Dashboard"
+msgstr "목회자 케어 대시보드"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:352
+msgid "Individual Pastoral care"
+msgstr "개인 사목 관리"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:489
+msgid "Family Pastoral care"
+msgstr "가족 사목 돌봄"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:543
+msgid "Pastoral care members list by classification"
+msgstr "분류별 목회자 돌봄 회원 목록"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
+#: Include/Footer.php:234
+msgid "Plugins"
+msgstr "플러그인"
+
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:60
+msgid "Sunday School Dashboard"
+msgstr "주일학교 대시보드"
+
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:252
+msgid ""
+"At least one group must be selected to make class lists or attendance sheets."
+msgstr ""
+"수업 목록 또는 출석 시트를 만들려면 적어도 하나의 그룹을 선택해야 합니다."
+
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:306
+msgid "Sunday School Reports"
+msgstr "주일학교 보고서"
+
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:67
+msgid "System Users Listing"
+msgstr "시스템 사용자 목록"
+
 #: EditEventTypes.php:36 EventNames.php:37
 msgid "Edit Event Types"
 msgstr "이벤트 유형 편집"
@@ -6119,6 +6137,46 @@ msgstr "카운터 추가"
 #: EditEventTypes.php:276
 msgid "Return to Event Types"
 msgstr "이벤트 유형으로 돌아가기"
+
+#: eGive.php:79
+msgid "eGive Import"
+msgstr "전자 기부 가져오기"
+
+#: eGive.php:267
+msgid "Start Date: "
+msgstr "시작 날짜:"
+
+#: eGive.php:269
+msgid "End Date: "
+msgstr "종료 날짜:"
+
+#: eGive.php:356
+msgid "Re-import to selected family"
+msgstr "선택한 가족으로 다시 가져오기"
+
+#: eGive.php:360
+msgid "Data import results: "
+msgstr "데이터 가져오기 결과:"
+
+#: eGive.php:360
+msgid " gifts were imported, "
+msgstr " 선물을 가져왔습니다,"
+
+#: eGive.php:360
+msgid " gifts unchanged, and "
+msgstr " 선물은 변경되지 않으며"
+
+#: eGive.php:360
+msgid " gifts not imported due to problems"
+msgstr " 문제로 인해 가져올 수 없는 선물"
+
+#: eGive.php:361 eGive.php:390
+msgid "Back to Deposit Slip"
+msgstr "입금 전표로 돌아가기"
+
+#: eGive.php:389
+msgid "Fatal error in eGive API datastream: '"
+msgstr "eGive API 데이터 스트림에 치명적인 오류: '"
 
 #: ElectronicPaymentList.php:63
 msgid "Delete automatic payment for"
@@ -6375,6 +6433,120 @@ msgstr "이벤트 생성"
 msgid "Add Event Type"
 msgstr "이벤트 유형 추가"
 
+#: external/routes/password.php:73
+msgid "Unable to reset password"
+msgstr "비밀번호를 재설정할 수 없습니다."
+
+#: external/templates/404.php:4 ident/templates/404.php:4
+#: kiosk/templates/404.php:4
+msgid "Page not fond"
+msgstr "마음에 들지 않는 페이지"
+
+#: external/templates/404.php:14 ident/templates/404.php:14
+#: kiosk/templates/404.php:14
+msgid "Oops! Page not found."
+msgstr "죄송합니다! 페이지를 찾을 수 없습니다."
+
+#: external/templates/password/enter-username.php:7
+#: external/templates/password/password-check-email.php:7
+#: external/templates/registration/family-register-done.php:6
+#: external/templates/registration/family-register-members.php:8
+#: external/templates/registration/family-register.php:10
+msgid "Family Registration"
+msgstr "가족 등록"
+
+#: external/templates/password/enter-username.php:28
+msgid "Reset your password"
+msgstr "비밀번호 재설정"
+
+#: external/templates/password/enter-username.php:32 UserEditor.php:713
+#: UserEditor.php:772
+msgid "Login Name"
+msgstr "로그인 이름"
+
+#: external/templates/password/enter-username.php:41
+#: v2/templates/fundraiser/donatedItemEditor.php:124
+msgid "Go"
+msgstr "이동"
+
+#: external/templates/password/enter-username.php:60
+msgid "Check your email for a password reset link"
+msgstr "이메일에서 비밀번호 재설정 링크를 확인하세요."
+
+#: external/templates/password/enter-username.php:66
+msgid "Sorry, we are unable to process your request at this point in time."
+msgstr "죄송합니다만, 현재로서는 요청을 처리할 수 없습니다."
+
+#: external/templates/password/enter-username.php:69
+msgid "Login Name is Required"
+msgstr "로그인 이름은 필수입니다."
+
+#: external/templates/password/password-check-email.php:27
+msgid "A new password was sent to you. Please check your email"
+msgstr "새 비밀번호가 전송되었습니다. 이메일을 확인해 주세요."
+
+#: external/templates/registration/family-register-done.php:18
+msgid "Registration Complete"
+msgstr "등록 완료"
+
+#: external/templates/registration/family-register-done.php:24
+msgid "Thank you for registering your family."
+msgstr "가족을 등록해 주셔서 감사합니다."
+
+#: external/templates/registration/family-register-done.php:30
+msgid "Member(s)"
+msgstr "회원(들)"
+
+#: external/templates/registration/family-register-done.php:45
+#: Reports/CanvassReports.php:91
+msgid "Done"
+msgstr "완료"
+
+#: external/templates/registration/family-register-members.php:20
+msgid "Register"
+msgstr "등록하기"
+
+#: external/templates/registration/family-register-members.php:20
+#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1165
+#: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
+#: v2/templates/pastoralcare/pastoralcarefamily.php:262
+#: v2/templates/pastoralcare/pastoralcareperson.php:390
+msgid "Family Members"
+msgstr "가족 구성원"
+
+#: external/templates/registration/family-register-members.php:35
+msgid "Family Member"
+msgstr "가족 구성원"
+
+#: external/templates/registration/family-register-members.php:103
+#: sundayschool/SundaySchoolClassListExport.php:53
+msgid "Mobile"
+msgstr "모바일"
+
+#: external/templates/registration/family-register-members.php:132
+#: PersonEditor.php:959 Reports/ConfirmReport.php:232
+#: Reports/ConfirmReport.php:252
+msgid "Hide Age"
+msgstr "나이 숨기기"
+
+#: external/templates/registration/family-register-members.php:156
+#: external/templates/registration/family-register.php:118
+#: FinancialReports.php:94 GroupReports.php:103
+msgid "Next"
+msgstr "다음"
+
+#: external/templates/registration/family-register.php:30
+msgid "Register your family"
+msgstr "가족 등록하기"
+
+#: external/templates/registration/family-register.php:95
+msgid "How many people are in your family"
+msgstr "가족 구성원 수"
+
+#: external/templates/registration/family-register.php:113
+msgid "This will be my primary church."
+msgstr "이곳이 제 주 교회가 될 것입니다."
+
 #: FamilyCustomFieldsEditor.php:41
 msgid "Custom Family Fields Editor"
 msgstr "사용자 지정 패밀리 필드 편집기"
@@ -6500,8 +6672,8 @@ msgstr "가족을 통해 업데이트"
 msgid "Family Info"
 msgstr "가족 정보"
 
-#: FamilyEditor.php:762 PersonEditor.php:1066 PersonEditor.php:1269
-#: ident/routes/verify.php:407
+#: FamilyEditor.php:762 ident/routes/verify.php:407 PersonEditor.php:1066
+#: PersonEditor.php:1269
 msgid "None US/CND State"
 msgstr "없음 미국/CND 주"
 
@@ -6545,14 +6717,6 @@ msgstr "봉투 번호"
 #: FamilyEditor.php:996 PersonEditor.php:1657
 msgid "Custom Fields"
 msgstr "사용자 지정 필드"
-
-#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1165
-#: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
-#: external/templates/registration/family-register-members.php:20
-#: v2/templates/pastoralcare/pastoralcarefamily.php:262
-#: v2/templates/pastoralcare/pastoralcareperson.php:390
-msgid "Family Members"
-msgstr "가족 구성원"
 
 #: FamilyEditor.php:1084
 msgid ""
@@ -6772,10 +6936,10 @@ msgstr "새 속성 할당"
 msgid "Select"
 msgstr "선택"
 
-#: FamilyView.php:825 PersonView.php:1479 QueryView.php:457 QueryView.php:474
+#: FamilyView.php:825 PersonView.php:1479
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:343
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:360
-#: v2/templates/group/groupview.php:343
+#: QueryView.php:457 QueryView.php:474 v2/templates/group/groupview.php:343
 msgid "select an option"
 msgstr "옵션 선택"
 
@@ -6915,12 +7079,6 @@ msgstr "개인 입금 보고서"
 #: FinancialReports.php:82
 msgid "Advanced Deposit Report"
 msgstr "고급 입금 보고서"
-
-#: FinancialReports.php:94 GroupReports.php:103
-#: external/templates/registration/family-register-members.php:156
-#: external/templates/registration/family-register.php:118
-msgid "Next"
-msgstr "다음"
 
 #: FinancialReports.php:171
 msgid "Add All Classes"
@@ -7461,17 +7619,140 @@ msgstr "그룹 역할"
 msgid "Group-Specific Property Fields"
 msgstr "그룹별 속성 필드"
 
-#: Include/Footer.php:31
-msgid "Version"
-msgstr "버전"
+#: ident/routes/verify.php:51 ident/routes/verify.php:60
+#: ident/routes/verify.php:78 ident/routes/verify.php:133
+msgid "Unable to load verification info"
+msgstr "인증 정보를 로드할 수 없습니다."
 
-#: Include/Footer.php:33 Include/FooterNotLoggedIn.php:7
+#: ident/routes/verify.php:91
+msgid "Wrong email or password"
+msgstr "잘못된 이메일 또는 비밀번호"
+
+#: ident/routes/verify.php:106
+msgid "Wrong old password"
+msgstr "잘못된 이전 비밀번호"
+
+#: ident/routes/verify.php:111
+msgid "The two passwords must be identical."
+msgstr "두 비밀번호는 동일해야 합니다."
+
+#: ident/routes/verify.php:272 ident/routes/verify.php:275
+#: ident/routes/verify.php:690
+#: ident/templates/verify/verify-family-info.php:112
+msgid "Work Email"
+msgstr "업무용 이메일"
+
+#: ident/routes/verify.php:378 ident/routes/verify.php:388
+#: ident/routes/verify.php:433 ident/routes/verify.php:777
+#: ident/templates/verify/verify-family-info.php:34
+#: sundayschool/SundaySchoolClassListExport.php:55
+#: v2/templates/sundayschool/sundayschooldashboard.php:262
+msgid "Home Address"
+msgstr "집 주소"
+
+#: ident/routes/verify.php:729 ident/routes/verify.php:796
+#: ident/templates/verify/verify-family-info.php:56
+#: ident/templates/verify/verify-family-info.php:162
+#: v2/templates/pastoralcare/pastoralcarefamily.php:348
+#: v2/templates/pastoralcare/pastoralcareperson.php:475
+msgid "Modify"
+msgstr "수정"
+
+#: ident/routes/verify.php:797 ident/templates/verify/verify-family-info.php:57
+#: OptionManager.php:527 OptionManager.php:532
+#: v2/templates/sundayschool/sundayschoolview.php:26
+msgid "Exit"
+msgstr "종료"
+
+#: ident/routes/verify.php:819
+msgid "No Changes"
+msgstr "변경 사항 없음"
+
+#: ident/templates/verify/change-password.php:17 UserPasswordChange.php:177
+msgid "Alert"
+msgstr "알림"
+
+#: ident/templates/verify/change-password.php:18 UserPasswordChange.php:178
+msgid ""
+"Your account record indicates that you need to change your password before "
+"proceding."
+msgstr ""
+"계정 기록에 따르면 절차를 진행하기 전에 비밀번호를 변경해야 한다고 표시되어 "
+"있습니다."
+
+#: ident/templates/verify/change-password.php:22 UserPasswordChange.php:192
+msgid ""
+"Enter your current password, then your new password twice.  Passwords must "
+"be at least"
+msgstr ""
+"현재 비밀번호를 입력한 다음 새 비밀번호를 두 번 입력합니다.  비밀번호는 다음 "
+"중 하나 이상이어야 합니다."
+
+#: ident/templates/verify/change-password.php:22 UserPasswordChange.php:192
+msgid "characters in length."
+msgstr "문자 길이입니다."
+
+#: ident/templates/verify/change-password.php:38 UserPasswordChange.php:208
+msgid "Old Password"
+msgstr "이전 비밀번호"
+
+#: ident/templates/verify/change-password.php:50 UserPasswordChange.php:218
+msgid "Confirm New Password"
+msgstr "새 비밀번호 확인"
+
+#: ident/templates/verify/login-info.php:21 Login.php:211 Login.php:297
+msgid "Please Login"
+msgstr "로그인하세요"
+
+#: ident/templates/verify/verify-family-info.php:10
+msgid "Family Verification"
+msgstr "가족 인증"
+
+#: ident/templates/verify/verify-family-info.php:24
+#: ident/templates/verify/verify-family-info.php:180 ManageEnvelopes.php:143
+msgid "Confirm"
+msgstr "확인"
+
+#: ident/templates/verify/verify-family-info.php:70
+msgid "Family Member(s)"
+msgstr "가족 구성원"
+
+#: ident/templates/verify/verify-family-info.php:122
+msgid "Age Hidden"
+msgstr "나이 숨김"
+
+#: ident/templates/verify/verify-family-info.php:187
+msgid "Please let us know what information to update if any"
+msgstr "업데이트할 정보가 있으면 알려주세요."
+
+#: ident/templates/verify/verify-family-info.php:192
+msgid "Your verification request is complete"
+msgstr "인증 요청이 완료되었습니다."
+
+#: ident/templates/verify/verify-family-info.php:196
+msgid "We encountered an error submitting with your verification data"
+msgstr "인증 데이터를 제출하는 동안 오류가 발생했습니다."
+
+#: ident/templates/verify/verify-family-info.php:202
+#: v2/templates/email/mailchimp/campaign.php:138
+msgid "Send"
+msgstr "보내기"
+
+#: ident/templates/verify/verify-family-info.php:204
+msgid "Visit our Site"
+msgstr "사이트 방문하기"
+
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:33
 msgid "Copyright"
 msgstr "저작권"
 
-#: Include/Footer.php:36 Include/FooterNotLoggedIn.php:7
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:36
 msgid "All rights reserved"
 msgstr "모든 권리 보유"
+
+#: Include/Footer.php:31
+msgid "Version"
+msgstr "버전"
 
 #: Include/Footer.php:76
 msgid "Family Properties"
@@ -7741,6 +8022,10 @@ msgstr ""
 "이전 무결성 검사가 통과되었습니다.  모든 시스템 파일 해시가 예상 값과 일치합"
 "니다."
 
+#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
+msgid "End Time"
+msgstr "종료 시간"
+
 #: LettersAndLabels.php:26 v2/templates/people/peopledashboard.php:220
 msgid "Letters and Mailing Labels"
 msgstr "편지 및 메일링 라벨"
@@ -7788,10 +8073,6 @@ msgstr ""
 msgid "This account has been deactiveted by an administrator."
 msgstr "이 계정은 관리자에 의해 비활성화되었습니다."
 
-#: Login.php:211 Login.php:297 ident/templates/verify/login-info.php:21
-msgid "Please Login"
-msgstr "로그인하세요"
-
 #: Login.php:216 Login.php:304
 msgid "Your previous session timed out.  Please login again."
 msgstr "이전 세션이 시간 초과되었습니다.  다시 로그인해 주세요."
@@ -7832,11 +8113,6 @@ msgstr ""
 "이렇게 하면 데이터베이스의 가족 봉투 번호를 이 페이지에서 선택한 번호로 덮어"
 "씁니다.  계속하시겠습니까?"
 
-#: ManageEnvelopes.php:143 ident/templates/verify/verify-family-info.php:24
-#: ident/templates/verify/verify-family-info.php:180
-msgid "Confirm"
-msgstr "확인"
-
 #: ManageEnvelopes.php:152
 msgid "Family Select"
 msgstr "가족 선택"
@@ -7864,6 +8140,39 @@ msgstr "제로"
 #: ManageEnvelopes.php:195
 msgid "Assign starting at #"
 msgstr "부터 할당"
+
+#: members/404.php:22 members/404.php:31
+msgid "Not Found"
+msgstr "찾을 수 없음"
+
+#: members/404.php:31
+msgid "Oops!"
+msgstr "웁스!"
+
+#: members/404.php:34
+msgid "We could not find the member(s) you were looking for."
+msgstr "찾고 계신 회원을 찾을 수 없습니다."
+
+#: members/404.php:35 v2/templates/error/404.php:21
+msgid "Meanwhile, you may"
+msgstr "한편, 다음과 같은 일이 발생할 수 있습니다."
+
+#: members/404.php:35 v2/templates/error/404.php:21
+msgid "return to member dashboard"
+msgstr "회원 대시보드로 돌아가기"
+
+#: members/online-pending-verify.php:13
+#: v2/templates/people/peopledashboard.php:260
+msgid "Pending Self Verify"
+msgstr "보류 중인 본인 인증"
+
+#: members/self-register.php:13
+msgid "Families Self Registration"
+msgstr "가족 셀프 등록"
+
+#: members/self-verify-updates.php:13
+msgid "Self Verify"
+msgstr "자체 인증"
 
 #: OptionManager.php:358
 msgid ""
@@ -7917,12 +8226,6 @@ msgstr "기본값 만들기"
 #: OptionManager.php:501 OptionManager.php:513
 msgid "Visible only in PersonView"
 msgstr "PersonView에서만 표시"
-
-#: OptionManager.php:527 OptionManager.php:532 ident/routes/verify.php:797
-#: ident/templates/verify/verify-family-info.php:57
-#: v2/templates/sundayschool/sundayschoolview.php:26
-msgid "Exit"
-msgstr "종료"
 
 #: OptionManager.php:541
 msgid "Name for New"
@@ -7995,12 +8298,6 @@ msgstr "씨, 부인, 박사, 목사."
 #: PersonEditor.php:949
 msgid "Jr., Sr., III"
 msgstr "주니어, 시니어, III"
-
-#: PersonEditor.php:959 Reports/ConfirmReport.php:232
-#: Reports/ConfirmReport.php:252
-#: external/templates/registration/family-register-members.php:132
-msgid "Hide Age"
-msgstr "나이 숨기기"
 
 #: PersonEditor.php:968
 msgid "Person or Family Info"
@@ -8222,10 +8519,6 @@ msgstr "마지막 수정자"
 msgid "All Files"
 msgstr "모든 파일"
 
-#: PersonView.php:1892 browser/browse.php:42
-msgid "Upload a file in EDrive"
-msgstr "EDrive에서 파일 업로드"
-
 #: PersonView.php:1900
 msgid "Create a Folder"
 msgstr "폴더 만들기"
@@ -8237,10 +8530,6 @@ msgstr "한 단계 업그레이드"
 #: PersonView.php:1917
 msgid "Actualize files"
 msgstr "파일 실제화"
-
-#: PersonView.php:1935 browser/browse.php:72
-msgid "Preview"
-msgstr "미리보기"
 
 #: PledgeEditor.php:525
 msgid "Pledge Editor"
@@ -8368,6 +8657,74 @@ msgstr "입력했습니다:"
 msgid "Last Edited"
 msgstr "마지막 편집"
 
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:31
+#: QueryView.php:32
+msgid "Query View"
+msgstr "쿼리 보기"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:108
+#: QueryView.php:102
+msgid "This value is required."
+msgstr "이 값은 필수입니다."
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:121
+#: QueryView.php:113
+msgid "This value must be numeric."
+msgstr "이 값은 숫자여야 합니다."
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:126
+#: QueryView.php:118
+msgid "This value must be at least "
+msgstr "이 값은 최소한"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:131
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:144
+#: QueryView.php:122 QueryView.php:135
+msgid "This value cannot be more than "
+msgstr "이 값은 다음보다 클 수 없습니다."
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:144
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:149
+#: QueryView.php:135 QueryView.php:139
+msgid " characters long"
+msgstr " 문자 길이"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:149
+#: QueryView.php:139
+msgid "This value cannot be less than "
+msgstr "이 값은 다음보다 작을 수 없습니다."
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
+#: QuerySQL.php:123 QueryView.php:185 QueryView.php:283
+msgid " record(s) returned"
+msgstr " 반환된 레코드"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
+#: QueryView.php:292
+msgid "Add To Cart"
+msgstr "장바구니에 담기"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
+#: QueryView.php:294
+msgid "Intersect With Cart"
+msgstr "장바구니와 교차"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
+#: QueryView.php:296
+msgid "Remove From Cart"
+msgstr "장바구니에서 제거"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
+#: QueryView.php:301
+msgid "Run Query Again"
+msgstr "쿼리 다시 실행"
+
+#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:407
+#: QueryView.php:519
+msgid "Execute Query"
+msgstr "쿼리 실행"
+
 #: QueryList.php:27
 msgid "Query Listing"
 msgstr "쿼리 목록"
@@ -8396,12 +8753,6 @@ msgstr "SQL 실행"
 msgid "An error occured: "
 msgstr "오류가 발생했습니다:"
 
-#: QuerySQL.php:123 QueryView.php:185 QueryView.php:283
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
-msgid " record(s) returned"
-msgstr " 반환된 레코드"
-
 #: QuerySQL.php:189
 msgid "Add Results To Cart"
 msgstr "장바구니에 결과 추가"
@@ -8417,68 +8768,6 @@ msgstr "장바구니에서 결과 제거"
 #: QuerySQL.php:196
 msgid "Return to Query Menu"
 msgstr "쿼리 메뉴로 돌아가기"
-
-#: QueryView.php:32
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:31
-msgid "Query View"
-msgstr "쿼리 보기"
-
-#: QueryView.php:102
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:108
-msgid "This value is required."
-msgstr "이 값은 필수입니다."
-
-#: QueryView.php:113
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:121
-msgid "This value must be numeric."
-msgstr "이 값은 숫자여야 합니다."
-
-#: QueryView.php:118
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:126
-msgid "This value must be at least "
-msgstr "이 값은 최소한"
-
-#: QueryView.php:122 QueryView.php:135
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:131
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:144
-msgid "This value cannot be more than "
-msgstr "이 값은 다음보다 클 수 없습니다."
-
-#: QueryView.php:135 QueryView.php:139
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:144
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:149
-msgid " characters long"
-msgstr " 문자 길이"
-
-#: QueryView.php:139
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:149
-msgid "This value cannot be less than "
-msgstr "이 값은 다음보다 작을 수 없습니다."
-
-#: QueryView.php:292
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
-msgid "Add To Cart"
-msgstr "장바구니에 담기"
-
-#: QueryView.php:294
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
-msgid "Intersect With Cart"
-msgstr "장바구니와 교차"
-
-#: QueryView.php:296
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
-msgid "Remove From Cart"
-msgstr "장바구니에서 제거"
-
-#: QueryView.php:301
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
-msgid "Run Query Again"
-msgstr "쿼리 다시 실행"
-
-#: QueryView.php:519
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:407
-msgid "Execute Query"
-msgstr "쿼리 실행"
 
 #: ReminderReport.php:28 v2/templates/people/peopledashboard.php:214
 msgid "Pledge Reminder Report"
@@ -8580,11 +8869,6 @@ msgstr "보고서 합계"
 msgid "Canvass Progress Report"
 msgstr "캔버스 진행 보고서"
 
-#: Reports/CanvassReports.php:91
-#: external/templates/registration/family-register-done.php:45
-msgid "Done"
-msgstr "완료"
-
 #: Reports/CanvassReports.php:92
 msgid "Assigned"
 msgstr "할당됨"
@@ -8666,28 +8950,6 @@ msgstr ""
 msgid "Envelope Numbers for all Families"
 msgstr "모든 가족을 위한 봉투 번호"
 
-#: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
-#: Reports/FRCertificates.php:52
-msgid "Estimated value "
-msgstr "예상 가치"
-
-#: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
-#: Reports/FRCertificates.php:55
-msgid "Donated by "
-msgstr "기부자"
-
-#: Reports/FRBidSheets.php:103
-msgid "Paddle"
-msgstr "패들"
-
-#: Reports/FRBidSheets.php:104
-msgid "Bid"
-msgstr "입찰"
-
-#: Reports/FRCatalog.php:108
-msgid "Minimum bid "
-msgstr "최소 입찰가"
-
 #: Reports/FamilyPledgeSummary.php:157 Reports/ReminderReport.php:169
 msgid "All Funds"
 msgstr "모든 펀드"
@@ -8715,6 +8977,28 @@ msgstr "유료"
 #: Reports/FamilyPledgeSummary.php:235
 msgid "Owe"
 msgstr "Owe"
+
+#: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
+#: Reports/FRCertificates.php:52
+msgid "Estimated value "
+msgstr "예상 가치"
+
+#: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
+#: Reports/FRCertificates.php:55
+msgid "Donated by "
+msgstr "기부자"
+
+#: Reports/FRBidSheets.php:103
+msgid "Paddle"
+msgstr "패들"
+
+#: Reports/FRBidSheets.php:104
+msgid "Bid"
+msgstr "입찰"
+
+#: Reports/FRCatalog.php:108
+msgid "Minimum bid "
+msgstr "최소 입찰가"
 
 #: Reports/FundRaiserStatement.php:96
 msgid "Donated Items:"
@@ -9225,6 +9509,34 @@ msgstr "안전한 장소에 보관하세요."
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "2단계 인증 등록 시작하기"
 
+#: sundayschool/SundaySchoolClassListExport.php:56
+msgid "Dad Name"
+msgstr "아빠 이름"
+
+#: sundayschool/SundaySchoolClassListExport.php:57
+msgid "Dad Mobile"
+msgstr "아빠 모바일"
+
+#: sundayschool/SundaySchoolClassListExport.php:58
+msgid "Dad Email"
+msgstr "아빠 이메일"
+
+#: sundayschool/SundaySchoolClassListExport.php:59
+msgid "Mom Name"
+msgstr "엄마 이름"
+
+#: sundayschool/SundaySchoolClassListExport.php:60
+msgid "Mom Mobile"
+msgstr "엄마 모바일"
+
+#: sundayschool/SundaySchoolClassListExport.php:61
+msgid "Mom Email"
+msgstr "엄마 이메일"
+
+#: sundayschool/SundaySchoolClassListExport.php:62
+msgid "Properties"
+msgstr "속성"
+
 #: SystemDBUpdate.php:31
 msgid "System Upgrade"
 msgstr "시스템 업그레이드"
@@ -9277,15 +9589,13 @@ msgstr "세금 신고"
 msgid "Calendar Year"
 msgstr "달력 연도"
 
-#: USISTAddressVerification.php:51
-msgid "US Address Verification"
-msgstr "미국 주소 확인"
+#: tmp_attach/BirthdayAnniversaryDashboard/v2/templates/View.php:112
+msgid "Birthdates of the day"
+msgstr "오늘의 생년월일"
 
-#: USISTAddressVerification.php:104
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
-msgstr ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
+#: tmp_attach/BirthdayAnniversaryDashboard/v2/templates/View.php:132
+msgid "Anniversaries of the day"
+msgstr "오늘의 기념일"
 
 #: UpdateAllLatLon.php:15
 msgid "Update Latitude & Longitude"
@@ -9414,11 +9724,6 @@ msgstr "현재 사용자에 역할 추가"
 #: UserEditor.php:694
 msgid "Person to Make User"
 msgstr "사용자를 만들 사람"
-
-#: UserEditor.php:713 UserEditor.php:772
-#: external/templates/password/enter-username.php:32
-msgid "Login Name"
-msgstr "로그인 이름"
 
 #: UserEditor.php:730
 msgid "Note: Changes will not take effect until next logon."
@@ -9641,322 +9946,19 @@ msgstr "새 비밀번호가 이전 비밀번호와 너무 비슷합니다.  창�
 msgid "User Password Change"
 msgstr "사용자 비밀번호 변경"
 
-#: UserPasswordChange.php:177 ident/templates/verify/change-password.php:17
-msgid "Alert"
-msgstr "알림"
-
-#: UserPasswordChange.php:178 ident/templates/verify/change-password.php:18
-msgid ""
-"Your account record indicates that you need to change your password before "
-"proceding."
-msgstr ""
-"계정 기록에 따르면 절차를 진행하기 전에 비밀번호를 변경해야 한다고 표시되어 "
-"있습니다."
-
-#: UserPasswordChange.php:192 ident/templates/verify/change-password.php:22
-msgid ""
-"Enter your current password, then your new password twice.  Passwords must "
-"be at least"
-msgstr ""
-"현재 비밀번호를 입력한 다음 새 비밀번호를 두 번 입력합니다.  비밀번호는 다음 "
-"중 하나 이상이어야 합니다."
-
-#: UserPasswordChange.php:192 ident/templates/verify/change-password.php:22
-msgid "characters in length."
-msgstr "문자 길이입니다."
-
 #: UserPasswordChange.php:196
 msgid "Enter a new password for this user."
 msgstr "이 사용자의 새 비밀번호를 입력합니다."
 
-#: UserPasswordChange.php:208 ident/templates/verify/change-password.php:38
-msgid "Old Password"
-msgstr "이전 비밀번호"
-
-#: UserPasswordChange.php:218 ident/templates/verify/change-password.php:50
-msgid "Confirm New Password"
-msgstr "새 비밀번호 확인"
-
-#: browser/browse.php:31
-msgid "File Manager"
-msgstr "파일 관리자"
-
-#: browser/browse.php:45
-msgid "Download"
-msgstr "다운로드"
-
-#: eGive.php:79
-msgid "eGive Import"
-msgstr "전자 기부 가져오기"
-
-#: eGive.php:267
-msgid "Start Date: "
-msgstr "시작 날짜:"
-
-#: eGive.php:269
-msgid "End Date: "
-msgstr "종료 날짜:"
-
-#: eGive.php:356
-msgid "Re-import to selected family"
-msgstr "선택한 가족으로 다시 가져오기"
-
-#: eGive.php:360
-msgid "Data import results: "
-msgstr "데이터 가져오기 결과:"
-
-#: eGive.php:360
-msgid " gifts were imported, "
-msgstr " 선물을 가져왔습니다,"
-
-#: eGive.php:360
-msgid " gifts unchanged, and "
-msgstr " 선물은 변경되지 않으며"
-
-#: eGive.php:360
-msgid " gifts not imported due to problems"
-msgstr " 문제로 인해 가져올 수 없는 선물"
-
-#: eGive.php:361 eGive.php:390
-msgid "Back to Deposit Slip"
-msgstr "입금 전표로 돌아가기"
-
-#: eGive.php:389
-msgid "Fatal error in eGive API datastream: '"
-msgstr "eGive API 데이터 스트림에 치명적인 오류: '"
-
-#: external/routes/password.php:73
-msgid "Unable to reset password"
-msgstr "비밀번호를 재설정할 수 없습니다."
-
-#: external/templates/404.php:4 ident/templates/404.php:4
-#: kiosk/templates/404.php:4
-msgid "Page not fond"
-msgstr "마음에 들지 않는 페이지"
-
-#: external/templates/404.php:14 ident/templates/404.php:14
-#: kiosk/templates/404.php:14
-msgid "Oops! Page not found."
-msgstr "죄송합니다! 페이지를 찾을 수 없습니다."
-
-#: external/templates/password/enter-username.php:7
-#: external/templates/password/password-check-email.php:7
-#: external/templates/registration/family-register-done.php:6
-#: external/templates/registration/family-register-members.php:8
-#: external/templates/registration/family-register.php:10
-msgid "Family Registration"
-msgstr "가족 등록"
-
-#: external/templates/password/enter-username.php:28
-msgid "Reset your password"
-msgstr "비밀번호 재설정"
-
-#: external/templates/password/enter-username.php:41
-#: v2/templates/fundraiser/donatedItemEditor.php:124
-msgid "Go"
-msgstr "이동"
-
-#: external/templates/password/enter-username.php:60
-msgid "Check your email for a password reset link"
-msgstr "이메일에서 비밀번호 재설정 링크를 확인하세요."
-
-#: external/templates/password/enter-username.php:66
-msgid "Sorry, we are unable to process your request at this point in time."
-msgstr "죄송합니다만, 현재로서는 요청을 처리할 수 없습니다."
-
-#: external/templates/password/enter-username.php:69
-msgid "Login Name is Required"
-msgstr "로그인 이름은 필수입니다."
-
-#: external/templates/password/password-check-email.php:27
-msgid "A new password was sent to you. Please check your email"
-msgstr "새 비밀번호가 전송되었습니다. 이메일을 확인해 주세요."
-
-#: external/templates/registration/family-register-done.php:18
-msgid "Registration Complete"
-msgstr "등록 완료"
-
-#: external/templates/registration/family-register-done.php:24
-msgid "Thank you for registering your family."
-msgstr "가족을 등록해 주셔서 감사합니다."
-
-#: external/templates/registration/family-register-done.php:30
-msgid "Member(s)"
-msgstr "회원(들)"
-
-#: external/templates/registration/family-register-members.php:20
-msgid "Register"
-msgstr "등록하기"
-
-#: external/templates/registration/family-register-members.php:35
-msgid "Family Member"
-msgstr "가족 구성원"
-
-#: external/templates/registration/family-register-members.php:103
-#: sundayschool/SundaySchoolClassListExport.php:53
-msgid "Mobile"
-msgstr "모바일"
-
-#: external/templates/registration/family-register.php:30
-msgid "Register your family"
-msgstr "가족 등록하기"
-
-#: external/templates/registration/family-register.php:95
-msgid "How many people are in your family"
-msgstr "가족 구성원 수"
-
-#: external/templates/registration/family-register.php:113
-msgid "This will be my primary church."
-msgstr "이곳이 제 주 교회가 될 것입니다."
-
-#: ident/routes/verify.php:51 ident/routes/verify.php:60
-#: ident/routes/verify.php:78 ident/routes/verify.php:133
-msgid "Unable to load verification info"
-msgstr "인증 정보를 로드할 수 없습니다."
-
-#: ident/routes/verify.php:91
-msgid "Wrong email or password"
-msgstr "잘못된 이메일 또는 비밀번호"
-
-#: ident/routes/verify.php:106
-msgid "Wrong old password"
-msgstr "잘못된 이전 비밀번호"
-
-#: ident/routes/verify.php:111
-msgid "The two passwords must be identical."
-msgstr "두 비밀번호는 동일해야 합니다."
-
-#: ident/routes/verify.php:272 ident/routes/verify.php:275
-#: ident/routes/verify.php:690
-#: ident/templates/verify/verify-family-info.php:112
-msgid "Work Email"
-msgstr "업무용 이메일"
-
-#: ident/routes/verify.php:378 ident/routes/verify.php:388
-#: ident/routes/verify.php:433 ident/routes/verify.php:777
-#: ident/templates/verify/verify-family-info.php:34
-#: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:262
-msgid "Home Address"
-msgstr "집 주소"
-
-#: ident/routes/verify.php:729 ident/routes/verify.php:796
-#: ident/templates/verify/verify-family-info.php:56
-#: ident/templates/verify/verify-family-info.php:162
-#: v2/templates/pastoralcare/pastoralcarefamily.php:348
-#: v2/templates/pastoralcare/pastoralcareperson.php:475
-msgid "Modify"
-msgstr "수정"
-
-#: ident/routes/verify.php:819
-msgid "No Changes"
-msgstr "변경 사항 없음"
-
-#: ident/templates/verify/verify-family-info.php:10
-msgid "Family Verification"
-msgstr "가족 인증"
-
-#: ident/templates/verify/verify-family-info.php:70
-msgid "Family Member(s)"
-msgstr "가족 구성원"
-
-#: ident/templates/verify/verify-family-info.php:122
-msgid "Age Hidden"
-msgstr "나이 숨김"
-
-#: ident/templates/verify/verify-family-info.php:187
-msgid "Please let us know what information to update if any"
-msgstr "업데이트할 정보가 있으면 알려주세요."
-
-#: ident/templates/verify/verify-family-info.php:192
-msgid "Your verification request is complete"
-msgstr "인증 요청이 완료되었습니다."
-
-#: ident/templates/verify/verify-family-info.php:196
-msgid "We encountered an error submitting with your verification data"
-msgstr "인증 데이터를 제출하는 동안 오류가 발생했습니다."
-
-#: ident/templates/verify/verify-family-info.php:202
-#: v2/templates/email/mailchimp/campaign.php:138
-msgid "Send"
-msgstr "보내기"
-
-#: ident/templates/verify/verify-family-info.php:204
-msgid "Visit our Site"
-msgstr "사이트 방문하기"
-
-#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
-msgid "End Time"
-msgstr "종료 시간"
-
-#: members/404.php:22 members/404.php:31
-msgid "Not Found"
-msgstr "찾을 수 없음"
-
-#: members/404.php:31
-msgid "Oops!"
-msgstr "웁스!"
-
-#: members/404.php:34
-msgid "We could not find the member(s) you were looking for."
-msgstr "찾고 계신 회원을 찾을 수 없습니다."
-
-#: members/404.php:35 v2/templates/error/404.php:21
-msgid "Meanwhile, you may"
-msgstr "한편, 다음과 같은 일이 발생할 수 있습니다."
-
-#: members/404.php:35 v2/templates/error/404.php:21
-msgid "return to member dashboard"
-msgstr "회원 대시보드로 돌아가기"
-
-#: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:260
-msgid "Pending Self Verify"
-msgstr "보류 중인 본인 인증"
-
-#: members/self-register.php:13
-msgid "Families Self Registration"
-msgstr "가족 셀프 등록"
-
-#: members/self-verify-updates.php:13
-msgid "Self Verify"
-msgstr "자체 인증"
-
-#: sundayschool/SundaySchoolClassListExport.php:56
-msgid "Dad Name"
-msgstr "아빠 이름"
-
-#: sundayschool/SundaySchoolClassListExport.php:57
-msgid "Dad Mobile"
-msgstr "아빠 모바일"
-
-#: sundayschool/SundaySchoolClassListExport.php:58
-msgid "Dad Email"
-msgstr "아빠 이메일"
-
-#: sundayschool/SundaySchoolClassListExport.php:59
-msgid "Mom Name"
-msgstr "엄마 이름"
-
-#: sundayschool/SundaySchoolClassListExport.php:60
-msgid "Mom Mobile"
-msgstr "엄마 모바일"
-
-#: sundayschool/SundaySchoolClassListExport.php:61
-msgid "Mom Email"
-msgstr "엄마 이메일"
-
-#: sundayschool/SundaySchoolClassListExport.php:62
-msgid "Properties"
-msgstr "속성"
-
-#: tmp_attach/BirthdayAnniversaryDashboard/v2/templates/View.php:112
-msgid "Birthdates of the day"
-msgstr "오늘의 생년월일"
-
-#: tmp_attach/BirthdayAnniversaryDashboard/v2/templates/View.php:132
-msgid "Anniversaries of the day"
-msgstr "오늘의 기념일"
+#: USISTAddressVerification.php:51
+msgid "US Address Verification"
+msgstr "미국 주소 확인"
+
+#: USISTAddressVerification.php:104
+msgid ""
+"http://www.intelligentsearch.com/address_verification/verify_address.html"
+msgstr ""
+"http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: v2/templates/backup/backup.php:22
 msgid ""
@@ -10161,10 +10163,6 @@ msgstr "모든 참석자 삭제"
 #: v2/templates/calendar/eventslist.php:37
 msgid "Select Event Types To Display"
 msgstr "표시할 이벤트 유형 선택"
-
-#: v2/templates/calendar/eventslist.php:44
-msgid "Personal Calendar"
-msgstr "개인 캘린더"
 
 #: v2/templates/calendar/eventslist.php:55
 msgid "Display Events in Month"
@@ -10805,9 +10803,9 @@ msgid "Group Badges"
 msgstr "그룹 배지"
 
 #: v2/templates/group/groupview.php:121
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:70
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcareperson.php:69
 msgid "Appointment"
 msgstr "약속"
@@ -10979,18 +10977,6 @@ msgstr "클릭"
 msgid "Legend"
 msgstr "범례"
 
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
-msgid "Filter by member types"
-msgstr "멤버 유형별 필터링"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
-msgid "All persons"
-msgstr "모든 사람"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
-msgid "Only the visited/called persons"
-msgstr "방문/전화한 사람만"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:22
 msgid "Visit/Call randomly"
 msgstr "무작위로 방문/전화"
@@ -11096,6 +11082,18 @@ msgstr "PastoralCare 대시보드로 돌아가기"
 #: v2/templates/pastoralcare/pastoralcareperson.php:515
 msgid "Return To PastoralCare Members List"
 msgstr "PastoralCare 회원 목록으로 돌아가기"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
+msgid "Filter by member types"
+msgstr "멤버 유형별 필터링"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
+msgid "All persons"
+msgstr "모든 사람"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
+msgid "Only the visited/called persons"
+msgstr "방문/전화한 사람만"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:508
 msgid "Return To Person View"
@@ -11791,183 +11789,6 @@ msgstr "2단계 비밀 관리"
 msgid "Lock/unlock user account"
 msgstr "사용자 계정 잠금/잠금 해제"
 
-#: query_qry.php:2 query_qry.php:47
-msgid "Family With Work Phone"
-msgstr "업무용 휴대폰을 사용하는 가족"
-
-#: query_qry.php:3 query_qry.php:48
-msgid "Family Member Count"
-msgstr "가족 구성원 수"
-
-#: query_qry.php:4 query_qry.php:49
-msgid "Person by Age"
-msgstr "연령별 사람"
-
-#: query_qry.php:5 query_qry.php:50
-msgid "Total By Gender"
-msgstr "성별 합계"
-
-#: query_qry.php:6 query_qry.php:51
-msgid "Person by Role and Gender"
-msgstr "역할 및 성별에 따른 사람"
-
-#: query_qry.php:7 query_qry.php:52
-msgid "Person by Property"
-msgstr "속성별 사람"
-
-#: query_qry.php:9 query_qry.php:54
-msgid "Birthdays"
-msgstr "생일"
-
-#: query_qry.php:10 query_qry.php:55 queryparameters_qrp.php:13
-msgid "Registered students"
-msgstr "등록 학생"
-
-#: query_qry.php:11 query_qry.php:56
-msgid "Membership anniversaries"
-msgstr "멤버십 기념일"
-
-#: query_qry.php:12 query_qry.php:57
-msgid "Select database users"
-msgstr "데이터베이스 사용자 선택"
-
-#: query_qry.php:13 query_qry.php:58
-msgid "Select all members"
-msgstr "모든 구성원 선택"
-
-#: query_qry.php:15 query_qry.php:60
-msgid "Recent friends"
-msgstr "최근 친구"
-
-#: query_qry.php:16 query_qry.php:61
-msgid "Families to Canvass"
-msgstr "캔버스할 가족"
-
-#: query_qry.php:17 query_qry.php:62
-msgid "Pledge comparison"
-msgstr "공약 비교"
-
-#: query_qry.php:18 query_qry.php:63
-msgid "Missing pledges"
-msgstr "누락된 공약"
-
-#: query_qry.php:19 query_qry.php:64
-msgid "Credit Card People"
-msgstr "신용 카드 사람들"
-
-#: query_qry.php:20 query_qry.php:65
-msgid "Family Pledge by Fiscal Year"
-msgstr "회계연도별 가족 서약"
-
-#: query_qry.php:21 query_qry.php:66
-msgid "Person not assigned to a group"
-msgstr "그룹에 할당되지 않은 사람"
-
-#: query_qry.php:22 query_qry.php:67
-msgid "Person assigned to a group"
-msgstr "그룹에 할당된 사람"
-
-#: query_qry.php:23 query_qry.php:68
-msgid "CustomSearch"
-msgstr "사용자 지정 검색"
-
-#: query_qry.php:24 query_qry.php:69
-msgid "Returns each family with a work phone"
-msgstr "각 가정에 업무용 전화기 반환"
-
-#: query_qry.php:25 query_qry.php:70
-msgid "Returns each family and the total number of people assigned to them."
-msgstr "각 가족과 해당 가족에 할당된 총 인원 수를 반환합니다."
-
-#: query_qry.php:26 query_qry.php:71
-msgid "Returns any person records with ages between two given ages."
-msgstr "주어진 두 연령 사이의 연령을 가진 모든 사람 레코드를 반환합니다."
-
-#: query_qry.php:27 query_qry.php:72
-msgid "Total of records matching a given gender."
-msgstr "지정된 성별과 일치하는 레코드의 총합입니다."
-
-#: query_qry.php:28 query_qry.php:73
-msgid "Selects person records with the family role and gender specified."
-msgstr "가족 역할 및 성별이 지정된 사람 기록을 선택합니다."
-
-#: query_qry.php:29 query_qry.php:74
-msgid "Returns person records which are assigned the given property."
-msgstr "지정된 속성이 할당된 사람 레코드를 반환합니다."
-
-#: query_qry.php:30 query_qry.php:75
-msgid ""
-"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
-"Email."
-msgstr ""
-"이름, 도시, 주, 우편번호, 집 전화, 이메일, 회사 이메일 중 원하는 부분으로 검"
-"색하세요."
-
-#: query_qry.php:31 query_qry.php:76
-msgid "People with birthdays in a particular month"
-msgstr "특정 월에 생일이 있는 사람"
-
-#: query_qry.php:32 query_qry.php:77
-msgid "Find Registered students"
-msgstr "등록된 학생 찾기"
-
-#: query_qry.php:33 query_qry.php:78
-msgid "Members who joined in a particular month"
-msgstr "특정 월에 가입한 회원"
-
-#: query_qry.php:34 query_qry.php:79
-msgid "People who are registered as database users"
-msgstr "데이터베이스 사용자로 등록된 사람"
-
-#: query_qry.php:35 query_qry.php:80
-msgid "People who are members"
-msgstr "회원인 사람"
-
-#: query_qry.php:36 query_qry.php:81
-msgid "Find volunteers for a particular opportunity"
-msgstr "특정 기회를 위한 자원 봉사자 찾기"
-
-#: query_qry.php:37 query_qry.php:82
-msgid "Friends who signed up in previous months"
-msgstr "지난 달에 가입한 친구"
-
-#: query_qry.php:38 query_qry.php:83
-msgid "People in families that are ok to canvass."
-msgstr "가족 구성원 중 설문조사를 해도 괜찮은 사람."
-
-#: query_qry.php:39 query_qry.php:84
-msgid "Compare pledges between two fiscal years"
-msgstr "두 회계연도 간의 공약 비교"
-
-#: query_qry.php:40 query_qry.php:85
-msgid "Find people who pledged one year but not another"
-msgstr "한 해에는 서약했지만 다른 해에는 서약하지 않은 사람 찾기"
-
-#: query_qry.php:41 query_qry.php:86
-msgid "People who are configured to pay by credit card."
-msgstr "신용카드로 결제하도록 설정한 사람."
-
-#: query_qry.php:42 query_qry.php:87
-msgid ""
-"Pledge summary by family name for each fund for the selected fiscal year"
-msgstr "선택한 회계 연도의 각 기금에 대한 가족 이름별 서약 요약"
-
-#: query_qry.php:43 query_qry.php:88
-msgid "Returns all the persons not assigned to a group."
-msgstr "그룹에 할당되지 않은 모든 사람을 반환합니다."
-
-#: query_qry.php:44 query_qry.php:89
-msgid "Returns all persons assigned to a group."
-msgstr "그룹에 할당된 모든 사람을 반환합니다."
-
-#: query_qry.php:45 query_qry.php:90
-msgid "Find volunteers for who match two specific opportunity codes"
-msgstr "두 개의 특정 기회 코드와 일치하는 지원자 찾기"
-
-#: query_qry.php:46 query_qry.php:91
-msgid "Find people with a custom field value"
-msgstr "사용자 지정 필드 값을 가진 사람 찾기"
-
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
 msgstr "우편 번호"
@@ -12027,6 +11848,10 @@ msgstr "종료 날짜"
 #: queryparameters_qrp.php:10
 msgid "Field"
 msgstr "필드"
+
+#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:55
+msgid "Registered students"
+msgstr "등록 학생"
 
 #: queryparameters_qrp.php:14
 msgid "Volunteer opportunities"
@@ -12172,6 +11997,179 @@ msgstr "고객 개인 필드 선택"
 #: queryparameters_qrp.php:49
 msgid "Match custom field to this value"
 msgstr "사용자 지정 필드를 이 값에 일치시킵니다."
+
+#: query_qry.php:2 query_qry.php:47
+msgid "Family With Work Phone"
+msgstr "업무용 휴대폰을 사용하는 가족"
+
+#: query_qry.php:3 query_qry.php:48
+msgid "Family Member Count"
+msgstr "가족 구성원 수"
+
+#: query_qry.php:4 query_qry.php:49
+msgid "Person by Age"
+msgstr "연령별 사람"
+
+#: query_qry.php:5 query_qry.php:50
+msgid "Total By Gender"
+msgstr "성별 합계"
+
+#: query_qry.php:6 query_qry.php:51
+msgid "Person by Role and Gender"
+msgstr "역할 및 성별에 따른 사람"
+
+#: query_qry.php:7 query_qry.php:52
+msgid "Person by Property"
+msgstr "속성별 사람"
+
+#: query_qry.php:9 query_qry.php:54
+msgid "Birthdays"
+msgstr "생일"
+
+#: query_qry.php:11 query_qry.php:56
+msgid "Membership anniversaries"
+msgstr "멤버십 기념일"
+
+#: query_qry.php:12 query_qry.php:57
+msgid "Select database users"
+msgstr "데이터베이스 사용자 선택"
+
+#: query_qry.php:13 query_qry.php:58
+msgid "Select all members"
+msgstr "모든 구성원 선택"
+
+#: query_qry.php:15 query_qry.php:60
+msgid "Recent friends"
+msgstr "최근 친구"
+
+#: query_qry.php:16 query_qry.php:61
+msgid "Families to Canvass"
+msgstr "캔버스할 가족"
+
+#: query_qry.php:17 query_qry.php:62
+msgid "Pledge comparison"
+msgstr "공약 비교"
+
+#: query_qry.php:18 query_qry.php:63
+msgid "Missing pledges"
+msgstr "누락된 공약"
+
+#: query_qry.php:19 query_qry.php:64
+msgid "Credit Card People"
+msgstr "신용 카드 사람들"
+
+#: query_qry.php:20 query_qry.php:65
+msgid "Family Pledge by Fiscal Year"
+msgstr "회계연도별 가족 서약"
+
+#: query_qry.php:21 query_qry.php:66
+msgid "Person not assigned to a group"
+msgstr "그룹에 할당되지 않은 사람"
+
+#: query_qry.php:22 query_qry.php:67
+msgid "Person assigned to a group"
+msgstr "그룹에 할당된 사람"
+
+#: query_qry.php:23 query_qry.php:68
+msgid "CustomSearch"
+msgstr "사용자 지정 검색"
+
+#: query_qry.php:24 query_qry.php:69
+msgid "Returns each family with a work phone"
+msgstr "각 가정에 업무용 전화기 반환"
+
+#: query_qry.php:25 query_qry.php:70
+msgid "Returns each family and the total number of people assigned to them."
+msgstr "각 가족과 해당 가족에 할당된 총 인원 수를 반환합니다."
+
+#: query_qry.php:26 query_qry.php:71
+msgid "Returns any person records with ages between two given ages."
+msgstr "주어진 두 연령 사이의 연령을 가진 모든 사람 레코드를 반환합니다."
+
+#: query_qry.php:27 query_qry.php:72
+msgid "Total of records matching a given gender."
+msgstr "지정된 성별과 일치하는 레코드의 총합입니다."
+
+#: query_qry.php:28 query_qry.php:73
+msgid "Selects person records with the family role and gender specified."
+msgstr "가족 역할 및 성별이 지정된 사람 기록을 선택합니다."
+
+#: query_qry.php:29 query_qry.php:74
+msgid "Returns person records which are assigned the given property."
+msgstr "지정된 속성이 할당된 사람 레코드를 반환합니다."
+
+#: query_qry.php:30 query_qry.php:75
+msgid ""
+"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
+"Email."
+msgstr ""
+"이름, 도시, 주, 우편번호, 집 전화, 이메일, 회사 이메일 중 원하는 부분으로 검"
+"색하세요."
+
+#: query_qry.php:31 query_qry.php:76
+msgid "People with birthdays in a particular month"
+msgstr "특정 월에 생일이 있는 사람"
+
+#: query_qry.php:32 query_qry.php:77
+msgid "Find Registered students"
+msgstr "등록된 학생 찾기"
+
+#: query_qry.php:33 query_qry.php:78
+msgid "Members who joined in a particular month"
+msgstr "특정 월에 가입한 회원"
+
+#: query_qry.php:34 query_qry.php:79
+msgid "People who are registered as database users"
+msgstr "데이터베이스 사용자로 등록된 사람"
+
+#: query_qry.php:35 query_qry.php:80
+msgid "People who are members"
+msgstr "회원인 사람"
+
+#: query_qry.php:36 query_qry.php:81
+msgid "Find volunteers for a particular opportunity"
+msgstr "특정 기회를 위한 자원 봉사자 찾기"
+
+#: query_qry.php:37 query_qry.php:82
+msgid "Friends who signed up in previous months"
+msgstr "지난 달에 가입한 친구"
+
+#: query_qry.php:38 query_qry.php:83
+msgid "People in families that are ok to canvass."
+msgstr "가족 구성원 중 설문조사를 해도 괜찮은 사람."
+
+#: query_qry.php:39 query_qry.php:84
+msgid "Compare pledges between two fiscal years"
+msgstr "두 회계연도 간의 공약 비교"
+
+#: query_qry.php:40 query_qry.php:85
+msgid "Find people who pledged one year but not another"
+msgstr "한 해에는 서약했지만 다른 해에는 서약하지 않은 사람 찾기"
+
+#: query_qry.php:41 query_qry.php:86
+msgid "People who are configured to pay by credit card."
+msgstr "신용카드로 결제하도록 설정한 사람."
+
+#: query_qry.php:42 query_qry.php:87
+msgid ""
+"Pledge summary by family name for each fund for the selected fiscal year"
+msgstr "선택한 회계 연도의 각 기금에 대한 가족 이름별 서약 요약"
+
+#: query_qry.php:43 query_qry.php:88
+msgid "Returns all the persons not assigned to a group."
+msgstr "그룹에 할당되지 않은 모든 사람을 반환합니다."
+
+#: query_qry.php:44 query_qry.php:89
+msgid "Returns all persons assigned to a group."
+msgstr "그룹에 할당된 모든 사람을 반환합니다."
+
+#: query_qry.php:45 query_qry.php:90
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr "두 개의 특정 기회 코드와 일치하는 지원자 찾기"
+
+#: query_qry.php:46 query_qry.php:91
+msgid "Find people with a custom field value"
+msgstr "사용자 지정 필드 값을 가진 사람 찾기"
 
 #: settings-locales.php:2
 msgid "Albanian"
