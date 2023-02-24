@@ -18,8 +18,8 @@ if ($sMode == 'person') {
     $mode = "*";
 } else if ($sMode == 'family') {
     $mode = _("Families");
-} else if ($sMode == 'single') {
-    $mode = _("Single Persons");
+} else if ($sMode == 'single' or $sMode == 'singles') {
+    $mode = _("Singles");
 }
 ?>
 <div
