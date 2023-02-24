@@ -87,7 +87,7 @@ require $sRootDocument . '/Include/Header.php';
                 <i class="fas fa-male"></i>
             </div>
             <div class="small-box-footer">
-                <a href="<?= $sRootPath ?>/v2/people/list/single" style="color:#ffffff">
+                <a href="<?= $sRootPath ?>/v2/people/list/singles" style="color:#ffffff">
                     <?= _('View') ?> <?= _("Singles") ?> <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
