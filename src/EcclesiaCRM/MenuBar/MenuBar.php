@@ -172,7 +172,7 @@ class MenuBar extends Menu
         if (SessionUser::getUser()->isEditRecordsEnabled()) {
             $menuItem = new Menu (_("Persons"), "fas fa-angle-double-right", "#", true, $menu);
             $menuItemItem = new Menu (_("Add New Person"), "fas fa-tachometer-alt", "PersonEditor.php", SessionUser::getUser()->isAddRecordsEnabled(), $menuItem);
-            $menuItemItem = new Menu (_("View Single Persons"), "fas fa-user", "v2/people/list/single", true, $menuItem);
+            $menuItemItem = new Menu (_("View Single Persons"), "fas fa-user", "v2/people/list/singles", true, $menuItem);
             $menuItemItem = new Menu (_("View Active Persons"), "far fa-circle", "v2/people/list/person", true, $menuItem);
             $menuItemItem->addLink("v2/personlist");
             $menuItemItem = new Menu (_("View Inactive Persons"), "fas fa-user-slash", "v2/personlist/inactive", true, $menuItem);
