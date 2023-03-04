@@ -985,31 +985,14 @@ class User extends BaseUser
 
     public function LoginPhaseActivations($takeControl = false)
     {
-        $token = TokenQuery::Create()->findOneByType("secret");
-
-        if (is_null($token)) {
-            $token = new Token ();
-            $token->buildSecret();
-            $token->save();
-        }
-
-        $dateNow = new DateTime("now");
-
-        if ($dateNow > $token->getValidUntilDate()) {// the token expire
-            // we delete the old token
-            $token->delete();
-            // we create a new one
-            $token = new Token ();
-            $token->buildSecret();
-            $token->save();
-        }
-
         // Set the LastLogin and Increment the LoginCount
         if ($takeControl == false) {
             $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
             $this->setLastLogin($date->format('Y-m-d H:i:s'));
             $this->setLoginCount($this->getLoginCount() + 1);
             $this->setFailedLogins(0);
+
+            $this->setIsLoggedIn(true);
         }
         $this->save();
 
@@ -1086,10 +1069,10 @@ class User extends BaseUser
                 'HS256'
             );
 
-            if (is_null($this->getJwtSecret())) {
+            if (is_null($this->getJwtSecret()) or $takeControl == false) {
                 $this->setJwtSecret($secretKey);
             }
-            if (is_null($this->getJwtToken())) {
+            if (is_null($this->getJwtToken())  or $takeControl == false) {
                 $this->setJwtToken($jwt);
             }
 
@@ -1099,8 +1082,6 @@ class User extends BaseUser
         }
         // end of JWT token activation
 
-
-        $this->setIsLoggedIn(true);
         $this->save();
 
         if (is_null($_SESSION['user']->getShowSince())) {

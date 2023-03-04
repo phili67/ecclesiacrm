@@ -22,7 +22,6 @@ class Token extends BaseToken
 
     const typeFamilyVerify = "verifyFamily";
     const typePassword     = "password";
-    const typeSecret       = "secret";
 
     public function build($type, $referenceId, $path=NULL)
     {
@@ -44,15 +43,6 @@ class Token extends BaseToken
                 break;
         }
         $this->setType($type);
-    }
-
-    public function buildSecret()
-    {
-        $this->setReferenceId(-1);
-        $this->setToken(MiscUtils::gen_uuid());
-        $this->setValidUntilDate(strtotime("+1 week"));
-        $this->setRemainingUses(5);
-        $this->setType("secret");
     }
 
     public function isVerifyFamilyToken()
