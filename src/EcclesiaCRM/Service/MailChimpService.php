@@ -985,7 +985,7 @@ class MailChimpService
 
         $result = $this->myMailchimp->post("campaigns/$campaignID/actions/send");
 
-        if (!array_key_exists('title', $result)) {
+        if ( $result ) {
             $this->send_Campaign($campaignID);
         }
 

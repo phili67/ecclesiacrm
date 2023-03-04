@@ -550,7 +550,7 @@ class MailchimpController
 
             $res = $mailchimp->sendCampaign ($input->campaign_id);
 
-            if ( !array_key_exists ('title',$res) ) {
+            if ( $res ) {
                 return $response->withJson(['success' => true,'content' => $res]);
             }
         }
