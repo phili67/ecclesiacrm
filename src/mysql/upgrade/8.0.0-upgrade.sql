@@ -171,7 +171,7 @@ ALTER TABLE `events_event` ADD `event_allday` BOOLEAN NOT NULL default 0;
 
 -- 2023-02-19
 ALTER TABLE `user_usr` ADD `usr_jwt_secret` VARCHAR(255) default NULL;
-ALTER TABLE `user_usr` ADD `usr_jwt_token` VARCHAR(255) default NULL;
+ALTER TABLE `user_usr` ADD `usr_jwt_token` VARCHAR(2000) default NULL;
 
 
 
