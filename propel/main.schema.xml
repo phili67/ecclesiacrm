@@ -937,7 +937,7 @@
         <column name="usr_TwoFaRescuePasswords" phpName="TwoFaRescuePasswords" type="VARCHAR" size="255"/>
         <column name="usr_TwoFaRescueDateTime" phpName="TwoFaRescueDateTime" type="TIMESTAMP" description="Only 60 seconds to validate the rescue password" required="true" defaultValue="2000-01-01 00:00:00"/>
         <column name="usr_jwt_secret" phpName="JwtSecret" type="VARCHAR" size="255"/>
-        <column name="usr_jwt_token" phpName="JwtToken" type="VARCHAR" size="255"/>
+        <column name="usr_jwt_token" phpName="JwtToken" type="VARCHAR" size="2000"/>
         <column name="usr_Canvasser" phpName="Canvasser" type="BOOLEAN" size="1" required="true" defaultValue="0"/>
         <column name="usr_ShowCart" phpName="ShowCart" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_ShowMap" phpName="ShowMap" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
