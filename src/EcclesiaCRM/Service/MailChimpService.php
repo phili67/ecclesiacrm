@@ -748,7 +748,7 @@ class MailChimpService
             return ($var['status'] == 'sent');
         });
         $res_save = array_filter($res, function ($var) {
-            return ($var['status'] == 'save');
+            return ($var['status'] == 'save' or $var['status'] == 'paused' or $var['status'] == 'schedule');
         });;
 
         $your_date_field_name = 'send_time';
