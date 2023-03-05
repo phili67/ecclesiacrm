@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased](https://github.com/phili67/ecclesiacrm/tree/HEAD)
+## [8.0](https://github.com/phili67/ecclesiacrm/tree/HEAD)
 
 [Full Changelog](https://github.com/phili67/ecclesiacrm/compare/7.6.0...HEAD)
 
