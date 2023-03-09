@@ -1,4 +1,4 @@
-<img src="https://avatars-02.gitter.im/group/iv/6/5a48f6ebd73408ce4f857d8e" width="32" height="32" style="bottom:-15px"> Welcome to Ecclesia<b>CRM</b> Web CRM
+<img src="https://www.ecclesiacrm.com/favicon-32.png" width="32" height="32" style="bottom:-15px"> Welcome to Ecclesia<b>CRM</b> Web CRM
 ---
 
 # Important
