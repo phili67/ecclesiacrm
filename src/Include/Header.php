@@ -224,7 +224,7 @@ Header_system_notifications();
         <!-- sidebar: style can be found in sidebar.less -->
         <a href="<?= SystemURLs::getRootPath() ?>/v2/dashboard" class="brand-link <?= Theme::getCurrentNavBrandLinkColor() ?>">
             <img src="<?= SystemURLs::getRootPath() ?>/icon-small.png" alt="EcclesiaCRM Logo"
-                 class="brand-image img-circle elevation-3" style="opacity: .8">
+                 class="brand-image img-circle-20 elevation-1" style="opacity: .8">
             <span
                 class="brand-text font-weight-light">Ecclesia<b>CRM</b> <?= SystemService::getDBMainVersion() ?> (B34)</span>
         </a>
@@ -251,7 +251,7 @@ Header_system_notifications();
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <section class="content-header">
-            <h1><?= (strlen($sPageTitleSpan)) ? $sPageTitleSpan : $sPageTitle ?></h1>
+            <h1><?= (!empty($sPageTitleSpan)) ? $sPageTitleSpan : $sPageTitle ?></h1>
         </section>
         <!-- Main content -->
         <section class="content">
