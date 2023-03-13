@@ -122,7 +122,7 @@ class MenuBar extends Menu
     public function addEventMenu()
     {
         // the Events Menu
-        $menu = new Menu (_("Events") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "fas fa-ticket-alt pull-right&quot;", "", true);
+        $menu = new Menu (_("Events") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "fas fa-ticket &quot;", "", true);
         // add the badges
         $menu->addBadge('badge badge-warning', 'EventsNumber', 0);
         $menu->addBadge('badge badge-danger', 'BirthdateNumber', 0);
@@ -436,7 +436,7 @@ class MenuBar extends Menu
 
     private function addDepositMenu()
     {
-        $menu = new Menu (_("Deposit") . "&nbsp;&nbsp;&nbsp;", "fas fa-university", "#", SessionUser::getUser()->isFinanceEnabled());
+        $menu = new Menu (_("Deposit") . "&nbsp;&nbsp;&nbsp;", "fa fa-cash-register", "#", SessionUser::getUser()->isFinanceEnabled());
         // add the badges
         $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
         $deposits = DepositQuery::Create()->find();
