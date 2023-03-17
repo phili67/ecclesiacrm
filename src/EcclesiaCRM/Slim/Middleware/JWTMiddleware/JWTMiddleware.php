@@ -10,12 +10,31 @@ use Psr\Http\Message\ServerRequestInterface;
 use EcclesiaCRM\Http\Factory\ResponseFactory;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
 use EcclesiaCRM\Slim\Middleware\JWTMiddleware\RequestMethodRule;
 use EcclesiaCRM\Slim\Middleware\JWTMiddleware\RequestPathRule;
 
 class JWTMiddleware implements MiddlewareInterface {
+    /**
+     * PSR-3 compliant logger.
+     * @var LoggerInterface|null
+     */
+    private $logger;
+
+    /**
+     * Last error message.
+     * @var string
+     */
+    private $message;
+
+    /**
+     * The rules stack.
+     * @var SplStack<RuleInterface>
+     */
+    private $rules;
+
     /**
      * Stores all the options passed to the middleware.
      *
@@ -149,7 +168,7 @@ class JWTMiddleware implements MiddlewareInterface {
         ];
 
         /* Add decoded token to request as attribute when requested. */
-        if ($this->options["attribute"]) {
+        if (array_key_exists('attribute', $this->options)) {
             $request = $request->withAttribute($this->options["attribute"], $decoded);
         }
 
@@ -246,6 +265,14 @@ class JWTMiddleware implements MiddlewareInterface {
             }
         }
         return true;
+    }
+
+    /**
+     * Set the logger.
+     */
+    private function logger(LoggerInterface $logger = null): void
+    {
+        $this->logger = $logger;
     }
 
     /**
