@@ -184,8 +184,12 @@ class DashboardItemService
         $femaleKidsCNT = 0;
 
         foreach ($classStats as $class) {
-            $kidsCNT = $kidsCNT + $class['kids'];
-            $teachersCNT = $teachersCNT + $class['teachers'];
+            if (array_key_exists('kids', $class)) {
+                $kidsCNT = $kidsCNT + $class['kids'];                
+            }
+            if (array_key_exists('teachers', $class)) {
+                $teachersCNT = $teachersCNT + $class['teachers'];
+            }
             $classKids = $sundaySchoolService->getKidsFullDetails($class['id']);
             foreach ($classKids as $kid) {
                 if ($kid['kidGender'] == '1') {
