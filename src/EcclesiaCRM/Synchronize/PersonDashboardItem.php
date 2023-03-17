@@ -153,7 +153,11 @@ class PersonDashboardItem implements DashboardItemInterface {
         $stats = [];
         foreach($persons as $person) {
             if ($person->getAge(false) != '') {
-                $stats[$person->getAge(false)]++;
+                if (array_key_exists($person->getAge(false), $stats)) {
+                    $stats[$person->getAge(false)]++;
+                } else {
+                    $stats[$person->getAge(false)] = 0;
+                }
             }
         }
         ksort($stats);
