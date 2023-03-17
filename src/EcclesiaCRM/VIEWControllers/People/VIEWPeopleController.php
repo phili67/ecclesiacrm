@@ -110,7 +110,11 @@ class VIEWPeopleController {
                     $sEmailLink .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
                     $virt_RoleName = $emailAccount['virt_RoleName'];
 
-                    $roleEmails[$virt_RoleName] .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
+                    if (array_key_exists($virt_RoleName, $roleEmails)) {
+                        $roleEmails[$virt_RoleName] .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
+                    } else {
+                        $roleEmails[$virt_RoleName] = '';
+                    }
                 }
             }
         }
