@@ -1,6 +1,7 @@
 <?php
 
 namespace EcclesiaCRM\Service;
+
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 
@@ -13,11 +14,16 @@ class NotificationService
      */
     if (!empty(SystemConfig::getValue("sCloudURL"))) {
       try {
-        $TempNotificaions = json_decode(file_get_contents(SystemConfig::getValue("sCloudURL")."notifications.json" ));
-        if (isset($TempNotificaions->TTL) ) {
-          $_SESSION['SystemNotifications'] = $TempNotificaions;
-          $_SESSION['SystemNotifications']->expires = new \DateTime();
-          $_SESSION['SystemNotifications']->expires->add(new \DateInterval("PT".$_SESSION['SystemNotifications']->TTL."S"));
+        $cloudURL = SystemConfig::getValue("sCloudURL");
+        if (!isset($_SESSION['SystemNotifications']) and !empty ($cloudURL) ) {
+          $TempNotificaions = json_decode(file_get_contents(SystemConfig::getValue("sCloudURL")."notifications.json" ));
+          if (!is_null($TempNotificaions) and isset($TempNotificaions->TTL)) {
+            $_SESSION['SystemNotifications'] = $TempNotificaions;
+            $_SESSION['SystemNotifications']->expires = new \DateTime();
+            $_SESSION['SystemNotifications']->expires->add(new \DateInterval("PT".$_SESSION['SystemNotifications']->TTL."S"));
+          } else {
+            $_SESSION['SystemNotifications'] = NULL;
+          }
         }
       } catch (\Exception $ex) {
         //a failure here should never prevent the page from loading.
@@ -35,13 +41,15 @@ class NotificationService
     if (isset($_SESSION['SystemNotifications']))
     {
       $notifications = array();
-      foreach ($_SESSION['SystemNotifications']->messages as $message)
-      {
-        if($message->targetVersion == $_SESSION['sSoftwareInstalledVersion'])
+      if ( !is_null($_SESSION['SystemNotifications']) and isset($_SESSION['SystemNotifications']->messages) ) {
+        foreach ($_SESSION['SystemNotifications']->messages as $message)
         {
-          if (! $message->adminOnly ||  SessionUser::getUser()->isAdmin())
+          if($message->targetVersion == $_SESSION['sSoftwareInstalledVersion'])
           {
-            array_push($notifications, $message);
+            if (! $message->adminOnly ||  SessionUser::getUser()->isAdmin())
+            {
+              array_push($notifications, $message);
+            }
           }
         }
       }
@@ -64,7 +72,8 @@ class NotificationService
      * If session does not contain notifications, or if the notification TTL has expired, return true
      * otherwise return false.
      */
-    if (!isset($_SESSION['SystemNotifications']) || $_SESSION['SystemNotifications']->expires < new \DateTime())
+    if ( !isset($_SESSION['SystemNotifications']) 
+        || (isset($_SESSION['SystemNotifications']->expires) && $_SESSION['SystemNotifications']->expires < new \DateTime()) )
     {
       return true;
     }
