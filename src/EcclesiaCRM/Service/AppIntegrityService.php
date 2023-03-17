@@ -163,6 +163,8 @@ class AppIntegrityService
   {
       if (function_exists('apache_get_modules')) {
           return in_array($module, apache_get_modules());
+      } else {
+          return true;
       }
 
       return false;
