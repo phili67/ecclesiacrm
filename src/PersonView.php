@@ -70,6 +70,7 @@ $maxMainTimeLineItems = 20; // max number
 
 $timelineService = new TimelineService();
 $timelineServiceItems = $timelineService->getForPerson($iPersonID);
+
 $timelineNotesServiceItems = $timelineService->getNotesForPerson($iPersonID);
 
 // we get the MailChimp Service
@@ -331,6 +332,8 @@ foreach ($ormNextPersons as $ormNextPerson) {
         $last_id = $pid;
     }
 }
+
+$sAssignedGroups = "";
 
 // Set the page title and include HTML header
 $sPageTitle = _('Person Profile');
@@ -1115,7 +1118,7 @@ if (!is_null($family)) {
 
                                                 <h3 class="timeline-header">
                                                     <?php
-                                                    if (in_array('headerlink', $item) && $item['type'] != 'file') {
+                                                    if (array_key_exists('headerlink', $item) && $item['type'] != 'file') {
                                                         ?>
                                                         <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
                                                         <?php
@@ -1780,7 +1783,7 @@ if (!is_null($family)) {
                                             <h3 class="timeline-header">
 
                                                 <?php
-                                                if (in_array('headerlink', $item) && !isset($item['sharePersonID'])) {
+                                                if (array_key_exists('headerlink', $item) && !isset($item['sharePersonID'])) {
                                                     ?>
                                                     <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
                                                     <?php
