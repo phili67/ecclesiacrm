@@ -145,6 +145,7 @@ require $sRootDocument . '/Include/Header.php';
         $statement->execute();
 
         $sEmailLink = '';
+        $roleEmails = new stdClass();
         while (list($per_Email, $fam_Email, $virt_RoleName) = $statement->fetch( \PDO::FETCH_BOTH )) {
             $sEmail = MiscUtils::SelectWhichInfo($per_Email, $fam_Email, false);
             if ($sEmail) {
@@ -153,8 +154,7 @@ require $sRootDocument . '/Include/Header.php';
                 // Add email only if email address is not already in string
                 if (!stristr($sEmailLink, $sEmail)) {
                     $sEmailLink .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
-
-                    $roleEmails = new stdClass();
+                    
                     $roleEmails->$virt_RoleName .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
                 }
             }
