@@ -42,7 +42,7 @@ class CheckUploadSizeTask
 
     static function return_bytes($val)
     {
-        $val = trim($val);
+        $val = substr($val, 0, -1);
         $last = strtolower($val[strlen($val) - 1]);
         switch ($last) {
             case 'g':
