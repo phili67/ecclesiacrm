@@ -288,6 +288,7 @@ class Person extends BasePerson implements iPhoto
             case "edit":
               $note->setText(gettext('Updated'));
               $note->setDateEntered($this->getDateLastEdited());
+              $note->setEditedBy(SessionUser::getId());
               break;
         }
 
