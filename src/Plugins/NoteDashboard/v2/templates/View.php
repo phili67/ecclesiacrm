@@ -2,7 +2,10 @@
 
 // we've to load the model make the plugin to workmv
 spl_autoload_register(function ($className) {
-    include_once str_replace(array('PluginStore', '\\'), array(__DIR__.'/../../core/model', '/'), $className) . '.php';
+    $res = str_replace(array('PluginStore', '\\'), array(__DIR__.'/../../core/model', '/'), $className) . '.php';
+    if (is_file($res)) {
+        include_once $res;
+    }
 });
 
 use EcclesiaCRM\PluginQuery;

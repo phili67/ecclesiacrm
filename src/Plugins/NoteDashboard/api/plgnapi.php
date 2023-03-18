@@ -19,8 +19,13 @@ use Slim\Routing\RouteCollectorProxy;
 
 // in practice you would require the composer loader if it was not already part of your framework or project
 spl_autoload_register(function ($className) {
-    include_once str_replace(array('Plugins\\APIControllers', '\\'), array(__DIR__.'/../core/APIControllers', '/'), $className) . '.php';
+    $res = str_replace(array('Plugins\\APIControllers', '\\'), array(__DIR__.'/../core/APIControllers', '/'), $className) . '.php';
+    if (is_file($res)) {
+        include_once $res;
+    }
 });
+
+
 
 use Plugins\APIControllers\NoteDashboardController;
 
