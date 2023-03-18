@@ -203,6 +203,7 @@ class TimelineService
         $famID    = $dbNote->getFamId();
         $person   = PersonQuery::create()->findPk($dbNote->getPerId());
         $family   = FamilyQuery::create()->findPk($dbNote->getFamId());
+        $currentUserName = "";
 
         if (!is_null($person)) {
           // in the case of the Person notes
@@ -212,6 +213,7 @@ class TimelineService
           $userName = _('Family').' '.$family->getName();
         }
 
+
         if ( $this->currentUser->isAdmin() || $dbNote->isVisualableBy ($this->currentUser->getPersonId()) || !is_null($sharePerson) ) {
             $displayEditedBy = _('Unknown');
             if ($dbNote->getDisplayEditedBy() == Person::SELF_REGISTER) {
@@ -219,7 +221,11 @@ class TimelineService
             } else if ($dbNote->getDisplayEditedBy() == Person::SELF_VERIFY) {
                 $displayEditedBy = _('Self Verification');
             } else {
-                $editor = PersonQuery::create()->findPk($dbNote->getDisplayEditedBy());
+                $editByUserID = $dbNote->getDisplayEditedBy();
+                if ($editByUserID == 0) {
+                    $editByUserID = $dbNote->getEnteredBy();
+                }
+                $editor = PersonQuery::create()->findOneById($editByUserID);
                 if ($editor != null) {
                   $displayEditedBy = $editor->getFullName();
                 }
