@@ -131,6 +131,10 @@ $fam_Country = '';
 $bNoFormat_HomePhone = false;
 $bNoFormat_WorkPhone = false;
 $bNoFormat_CellPhone = false;
+$bFacebookID = $sFacebookError = 0;
+$sTwitter = $sTwitterError = 0;
+$sLinkedIn = $sLinkedInError = 0;
+$type_ID = 0;
 
 
 //Is this the second pass?
@@ -846,6 +850,8 @@ if ($iFamily == 0 && isset($_GET['FamilyID'])) {
     $iFamily = $_GET['FamilyID'];
 }
 
+$sFamName = '';
+
 if ($iFamily != 0) {
     $bShowAddress = true;
     $theFamily = FamilyQuery::Create()
@@ -1003,7 +1009,7 @@ require 'Include/Header.php';
                     as $ormFamily) {
                     ?>
                     <option value="<?= $ormFamily->getId() ?>"
-                        <?= ($iFamily == $ormFamily->getId() || $_GET['FamilyID'] == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?>
+                        <?= ($iFamily == $ormFamily->getId() || isset($_GET['FamilyID']) && $_GET['FamilyID'] == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?>
                         &nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
                         <?php
                         }
@@ -1093,7 +1099,7 @@ require 'Include/Header.php';
 
             <!-- canvasser -->
             <div class="row">
-                <?php if (SessionUser::getUser()->isCanvasserEnabled() && !is_null($person) && !is_null($person->getFamily()) && $person->getFamily()->getPeople()->count() == 1) { // Only show this field if the current user is a canvasser?>
+                <?php if (SessionUser::getUser()->isCanvasserEnabled() && !empty($person) && !is_null($person->getFamily()) && $person->getFamily()->getPeople()->count() == 1) { // Only show this field if the current user is a canvasser?>
                     <div class="form-group col-md-4">
                         <label><?= _('Ok To Canvass') ?>: </label>
                         <input type="checkbox" Name="OkToCanvass" value="1" <?= ($bOkToCanvass) ? ' checked ' : '' ?>>

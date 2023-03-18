@@ -94,6 +94,12 @@ class Event extends BaseEvent
 
     public function getLatitude()
     {
+        $res = $this->getCoordinates();
+
+        if (empty($res)) {
+            return "";
+        }
+        
         $LatLong = explode(' commaGMAP ', $this->getCoordinates());
 
         return $LatLong[0];
@@ -101,7 +107,13 @@ class Event extends BaseEvent
 
     public function getLongitude()
     {
-        $LatLong = explode(' commaGMAP ', $this->getCoordinates());
+        $res = $this->getCoordinates();
+
+        if (empty($res)) {
+            return "";
+        }
+
+        $LatLong = explode(' commaGMAP ', $res);
 
         return $LatLong[1];
     }

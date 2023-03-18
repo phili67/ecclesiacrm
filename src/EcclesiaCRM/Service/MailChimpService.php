@@ -985,7 +985,7 @@ class MailChimpService
 
         $result = $this->myMailchimp->post("campaigns/$campaignID/actions/send");
 
-        if ( $result ) {
+        if ( (is_bool($result) and $result) or !array_key_exists('title', $result) ) {
             $this->send_Campaign($campaignID);
         }
 
@@ -1035,7 +1035,7 @@ class MailChimpService
                 'merge_fields' => $merge_fields
             ]);
 
-            if (!array_key_exists('title', $result)) {
+            if ( (is_bool($result) and $result) or !array_key_exists('title', $result) ) {
                 $this->add_list_member($list_id, $result);
             }
 

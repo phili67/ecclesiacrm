@@ -310,8 +310,17 @@ class CalendarService
                                 $realStats['realAttCheckOut'] = $attendees2->count();
                             }
 
-                            $AVG_stats[$month]['numAVG_CheckIn'] += $realStats['attNumRows'];
-                            $AVG_stats[$month]['numAVG_CheckOut'] += $realStats['attCheckOut'];
+                            if (is_array($AVG_stats[$month]) && array_key_exists('numAVG_CheckIn', $AVG_stats[$month])) {
+                                $AVG_stats[$month]['numAVG_CheckIn'] += $realStats['attNumRows'];
+                            } else {
+                                $AVG_stats[$month]['numAVG_CheckIn'] = 0;
+                            }
+
+                            if (is_array($AVG_stats[$month]) &&  array_key_exists('numAVG_CheckOut', $AVG_stats[$month])) {
+                                $AVG_stats[$month]['numAVG_CheckOut'] += $realStats['attCheckOut'];
+                            } else {
+                                $AVG_stats[$month]['numAVG_CheckOut'] = 0;
+                            }
                         }
 
                         if ($realStats['attNumRows']) {

@@ -169,7 +169,7 @@ print_r($cCountID);
 print_r($cCountName);*/
 
 
-if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
+if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
     ?>
     <div class='card card-primary'>
         <div class='card-body'>
@@ -375,19 +375,13 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
     </div>
 </div>
 
-<?php
-if (InputUtils::LegacyFilterInput($_POST['Action']) != 'NEW') {
-    ?>
-    <div class="text-center">
-        <form name="AddEventNames" action="EventNames.php" method="POST">
-            <button type="submit" Name="Action" value="NEW" class="btn btn-primary">
-                <?= _('Add Event Type') ?>
-            </button
-        </form>
-    </div>
-    <?php
-}
-?>
+<div class="text-center">
+    <form name="AddEventNames" action="EventNames.php" method="POST">
+        <button type="submit" Name="Action" value="NEW" class="btn btn-primary">
+            <?= _('Add Event Type') ?>
+        </button
+    </form>
+</div>
 
 <script
     src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>

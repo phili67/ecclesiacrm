@@ -111,10 +111,10 @@ class PersonSearchRes extends BaseSearchRes
                     }
 
                     if (!is_null($this->query_elements)) {
-                        if (!is_null($this->query_elements['Gender'])) {
+                        if (array_key_exists('Gender',$this->query_elements)) {
                             $people->_and()->filterByGender($this->query_elements['Gender']);
                         }
-                        if (!is_null($this->query_elements['Classification'])) {
+                        if (array_key_exists('Classification',$this->query_elements)) {
                             if ($this->query_elements['Classification'] < 0) {
                                 $criteria = Criteria::NOT_EQUAL;
                                 $this->query_elements['Classification'] += $iTenThousand;
@@ -123,7 +123,7 @@ class PersonSearchRes extends BaseSearchRes
                                 $people->_and()->filterByClsId($this->query_elements['Classification']);
                             }
                         }
-                        if (!is_null($this->query_elements['FamilyRole'])) {
+                        if (array_key_exists('FamilyRole',$this->query_elements)) {
                             if ($this->query_elements['FamilyRole'] < 0) {
                                 $criteria = Criteria::NOT_EQUAL;
                                 $this->query_elements['FamilyRole'] += $iTenThousand;
@@ -133,7 +133,7 @@ class PersonSearchRes extends BaseSearchRes
                             }
                         }
 
-                        if (!is_null($this->query_elements['GroupType'])) {
+                        if (array_key_exists('GroupType',$this->query_elements)) {
 
                             if ($this->query_elements['GroupType'] < 0) {
                                 /*$sGroupWhereExt = ' AND per_ID NOT IN (SELECT p2g2r_per_ID '.

@@ -130,6 +130,7 @@ class VIEWCalendarController {
             'eType'       => $eType,
             'yVal'        => $yVal,
             'years'       => $years,
+            'EventMonth'  => 0,
             'coordinates' => [
                 'lat' => $lat,
                 'lng' => $lng

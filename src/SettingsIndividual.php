@@ -26,6 +26,7 @@ use EcclesiaCRM\UserConfig;
 use EcclesiaCRM\UserConfigChoicesQuery;
 use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\PluginUserRoleQuery;
+use EcclesiaCRM\PluginUserRole;
 
 
 use Propel\Runtime\ActiveQuery\Criteria;

@@ -35,6 +35,7 @@ if (!Bootstrapper::isDBCurrent()) {
 }
 
 $twofa = false;
+$urlUserName = "";
 
 // Get the UserID out of user name submitted in form results
 if (isset($_POST['User'])) {
@@ -186,7 +187,7 @@ if ($type == "Lock" && $id > 0) {// this point is important for the photo in a l
         ->findOneByID($_SESSION['iUserID']);
 }
 
-if (is_null($person)) {
+if (empty($person)) {
     $type = "";
     $_SESSION['iLoginType'] = "";
 }

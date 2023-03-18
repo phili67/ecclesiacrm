@@ -49,7 +49,7 @@ $rsGroupTypes = ListOptionQuery::create()
    ->orderByOptionSequence()
    ->filterByOptionType(($theCurrentGroup->isSundaySchool())?'sunday_school':'normal')->find();     // Get Group Types for the drop-down
 
-$rsGroupRoleSeed = GroupQuery::create()->filterByRoleListId(['min'=>0], $comparison)->find();         //Group Group Role List
+$rsGroupRoleSeed = GroupQuery::create()->filterByRoleListId(['min'=>0])->find();         //Group Group Role List
 require 'Include/Header.php';
 ?>
 <!-- GROUP SPECIFIC PROPERTIES MODAL-->
