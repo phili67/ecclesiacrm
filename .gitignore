@@ -94,3 +94,6 @@ body_archive.txt
 src/Plugins/EventWorkflow
 locale/JSONKeys_JS_Plugins/EventWorkflow
 propel/eventworkflow.schema.xml
+
+# ignore vscode parameters
+.vscode
