@@ -77,5 +77,10 @@
             "url": "https://packagist.org",
             "type": "composer"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }

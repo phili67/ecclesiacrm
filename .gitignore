@@ -95,5 +95,5 @@ src/Plugins/EventWorkflow
 locale/JSONKeys_JS_Plugins/EventWorkflow
 propel/eventworkflow.schema.xml
 
-# ignore .vscode
+# ignore vscode parameters
 .vscode
