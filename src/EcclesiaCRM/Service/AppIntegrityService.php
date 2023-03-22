@@ -3,6 +3,7 @@
 namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\LoggerUtils;
 
 class AppIntegrityService
 {
@@ -163,11 +164,37 @@ class AppIntegrityService
   {
       if (function_exists('apache_get_modules')) {
           return in_array($module, apache_get_modules());
-      } else {
-          return true;
+      } else {        
+        return self::is_mod_rewrite_enabled();
       }
 
       return false;
+  }
+
+  public static function is_mod_rewrite_enabled() {
+    if ($_SERVER['HTTP_MOD_REWRITE'] == 'On') {
+      return TRUE;
+    } else {
+      /*
+          put this code in vhost ...
+
+          <IfModule mod_env.c>
+		          ## Tell PHP that the mod_rewrite module is ENABLED.
+		          SetEnv HTTP_MOD_REWRITE On
+	        </IfModule>
+        */
+        LoggerUtils::getAppLogger()->info("put this code in vhost ...
+
+        <IfModule mod_env.c>
+            ## Tell PHP that the mod_rewrite module is ENABLED.
+            SetEnv HTTP_MOD_REWRITE On
+        </IfModule>
+        
+        before :
+        RewriteEngine  on");
+        
+      return FALSE;
+    }
   }
 
   public static function hasModRewrite()
