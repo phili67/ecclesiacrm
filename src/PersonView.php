@@ -1251,6 +1251,7 @@ if (!is_null($family)) {
                                 <div class="main-box-body clearfix">
                                     <?php
                                     //Was anything returned?
+                                    $i = 1;
                                     if ($ormAssignedGroups->count() == 0) {
                                         ?>
                                         <br>
@@ -1263,8 +1264,6 @@ if (!is_null($family)) {
                                         ?>
                                         <?php
                                         // Loop through the rows
-                                        $i = 1;
-
                                         $ids = SessionUser::getUser()->getGroupManagerIds();
 
                                         foreach ($ormAssignedGroups as $ormAssignedGroup) {
