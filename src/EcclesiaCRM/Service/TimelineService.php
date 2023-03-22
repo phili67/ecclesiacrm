@@ -285,6 +285,7 @@ class TimelineService
         $item['perID']           = $perID;
         $item['famID']           = $famID;
         $item['lastEditedBy']    = $displayEditedBy;
+        $item['style2']          = "";
 
         $item['header'] = $header;
 
