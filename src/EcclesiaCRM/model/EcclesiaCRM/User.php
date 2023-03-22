@@ -17,6 +17,8 @@ use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\Service\NotificationService;
 use EcclesiaCRM\Service\SystemService;
 
+use EcclesiaCRM\Utils\LoggerUtils;
+
 use DateTime;
 use DateTimeZone;
 
@@ -155,8 +157,8 @@ class User extends BaseUser
                 $principal->save();
               }
 
-         } catch (Exception $e) {
-              throw new PropelException('Unable to change email for : '.strtolower($this->getUserName()).'.', 0, $e);
+         } catch (\Exception $e) {
+            LoggerUtils::getAppLogger()->info('Unable to change email for : '.strtolower($this->getUserName()).'.'.$e->getMessage());              
          }
       }
     }
@@ -187,8 +189,8 @@ class User extends BaseUser
               // We delete the principal user => it will delete the calendars and events too.
               $principalBackend->deletePrincipal('principals/'.$oldUserName);
 
-         } catch (Exception $e) {
-              throw new PropelException('Unable to rename home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
+         } catch (\Exception $e) {
+              LoggerUtils::getAppLogger()->info('Unable to rename home dir for user: '.strtolower($this->getUserName()).'.'.$e->getMessage());
          }
       }
     }
@@ -203,8 +205,9 @@ class User extends BaseUser
     public function createHomeDir()
     {
        try {
-
-            mkdir(dirname(__FILE__)."/../../../".$this->getUserDir(), 0755, true);
+            if (!is_dir(dirname(__FILE__)."/../../../".$this->getUserDir())) {
+                mkdir(dirname(__FILE__)."/../../../".$this->getUserDir(), 0755, true);
+            }
             $this->setHomedir($this->getUserDir());
             $this->save();
 
@@ -225,8 +228,8 @@ class User extends BaseUser
             // create the home public folder
             $this->createHomePublicDir();
 
-       } catch (Exception $e) {
-            throw new PropelException('Unable to create home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
+       } catch (\Exception $e) {
+            LoggerUtils::getAppLogger()->info('Unable to create home dir for user: '.strtolower($this->getUserName()).'.'.$e->getMessage());
        }
     }
 
@@ -825,7 +828,9 @@ class User extends BaseUser
         $new_dir = $this->private_path.$this->getWebdavkey()."/".strtolower($this->getUserName());
 
         // in this case we have to create the create the folder
-        mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
+        if (!is_dir(dirname(__FILE__)."/../../../".$new_dir)) {
+            mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
+        }
         $this->setHomedir($new_dir);
         $this->save();
 
@@ -868,7 +873,9 @@ class User extends BaseUser
         $new_dir = $this->public_path.$this->getWebdavPublickey()."/";
 
         // in this case we have to create the create the folder
-        mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
+        if (!is_dir(dirname(__FILE__)."/../../../".$new_dir)) {
+            mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
+        }
 
         // then we move the files
         if (file_exists(dirname(__FILE__)."/../../../".$old_dir) && is_dir(dirname(__FILE__)."/../../../".$old_dir)) {
@@ -886,8 +893,12 @@ class User extends BaseUser
       // now we can create the symlink in the real home folder
       $public_dir = dirname(__FILE__)."/../../../".$this->public_path.$this->getWebdavPublickey();
       $public_dir_target_link = dirname(__FILE__)."/../../../".$this->getUserDir()."/public";
-      if ( !is_link($public_dir_target_link) or is_dir($public_dir_target_link) or !is_dir($public_dir_target_link) ) {
-          //MiscUtils::delTree($public_dir_target_link);
+
+      if ( is_dir($public_dir_target_link) and !is_link($public_dir_target_link) ) {
+          MiscUtils::delTree($public_dir_target_link);
+      }
+
+      if ( !is_link($public_dir_target_link) ) {
           symlink($public_dir."/", $public_dir_target_link);
       }
 
