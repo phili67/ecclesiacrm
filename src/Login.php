@@ -28,7 +28,6 @@ use EcclesiaCRM\Bootstrapper;
 
 use RobThree\Auth\TwoFactorAuth;
 
-
 if (!Bootstrapper::isDBCurrent()) {
     RedirectUtils::Redirect('SystemDBUpdate.php');
     exit;
@@ -36,6 +35,7 @@ if (!Bootstrapper::isDBCurrent()) {
 
 $twofa = false;
 $urlUserName = "";
+$urlPassword = "";
 
 // Get the UserID out of user name submitted in form results
 if (isset($_POST['User'])) {
