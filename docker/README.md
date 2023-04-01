@@ -27,7 +27,7 @@ As of now, we have several different PHP versions. Use appropriate php version a
 
 ```shell
 git clone https://github.com/phili67/ecclesiacrm.git
-cd ecclesiacrm/
+cd ecclesiacrm/docker/
 cp sample.env .env
 // modify sample.env as needed
 sudo bash install_or_launch_docker.sh
