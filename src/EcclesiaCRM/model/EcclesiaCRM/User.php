@@ -1041,6 +1041,8 @@ class User extends BaseUser
         $_SESSION['bEDrive'] = $this->isEDriveEnabled();               //ok
         $_SESSION['bShowMenuQuery'] = $this->isShowMenuQueryEnabled();        //ok
 
+        $_SESSION['isSecure'] = MiscUtils::isSecure();
+
 
         // Create the Cart
         $_SESSION['aPeopleCart'] = [];
@@ -1314,5 +1316,15 @@ class User extends BaseUser
         }
 
         return strtolower($userName);
+    }
+
+    public function isSecure()
+    {
+        // check if https is active
+        if (isset ($_SESSION['isSecure'])) {
+            return $_SESSION['isSecure'];
+        }
+
+        return false;
     }
 }
