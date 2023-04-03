@@ -47,7 +47,7 @@ $app->add( new VersionMiddleware() );
 
 $app->add(new JWTMiddleware([
     "secret" => SessionUser::getUser()->getJwtSecretForApi(),
-    "secure" => true,
+    "secure" => SessionUser::getUser()->isSecure(),
     "path" => "/api",
     "cookie" => SessionUser::getUser()->getUserNameForApi(),
     //"ignore" => ["/api/families", "/api/persons/"],
