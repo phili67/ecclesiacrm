@@ -1778,4 +1778,11 @@ class MiscUtils
     {
         return mb_strtoupper(mb_substr($string, 0, 1)) . mb_substr($string, 1);
     }
+
+    // check if https is available
+    public static function isSecure() {
+        return
+          (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+          || $_SERVER['SERVER_PORT'] == 443;
+    }
 }
