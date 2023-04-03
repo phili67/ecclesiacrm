@@ -1041,6 +1041,7 @@ class User extends BaseUser
         $_SESSION['bEDrive'] = $this->isEDriveEnabled();               //ok
         $_SESSION['bShowMenuQuery'] = $this->isShowMenuQueryEnabled();        //ok
 
+        // for https : usefull in apis
         $_SESSION['isSecure'] = MiscUtils::isSecure();
 
 
