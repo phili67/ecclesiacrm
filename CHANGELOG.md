@@ -1,6 +1,6 @@
 # Changelog
 
-## [8.0](https://github.com/phili67/ecclesiacrm/tree/HEAD)
+## [Unreleased](https://github.com/phili67/ecclesiacrm/tree/HEAD)
 
 [Full Changelog](https://github.com/phili67/ecclesiacrm/compare/7.6.0...HEAD)
 
@@ -86,7 +86,12 @@
 
 **Fixed bugs:**
 
-- slim laminas write bug res [\#2350](https://github.com/phili67/ecclesiacrm/pull/2350) ([phili67](https://github.com/phili67))
+- src/EcclesiaCRM/Service/TimelineService.php : update [\#2363](https://github.com/phili67/ecclesiacrm/pull/2363) ([phili67](https://github.com/phili67))
+- src/PersonView.php : minor update [\#2362](https://github.com/phili67/ecclesiacrm/pull/2362) ([phili67](https://github.com/phili67))
+- src/EcclesiaCRM/model/EcclesiaCRM/User.php : update [\#2361](https://github.com/phili67/ecclesiacrm/pull/2361) ([phili67](https://github.com/phili67))
+- src/EcclesiaCRM/Service/AppIntegrityService.php : update [\#2360](https://github.com/phili67/ecclesiacrm/pull/2360) ([phili67](https://github.com/phili67))
+- PersonView timeline bug res -\> author [\#2357](https://github.com/phili67/ecclesiacrm/pull/2357) ([phili67](https://github.com/phili67))
+- JWT : slim laminas write bug res [\#2350](https://github.com/phili67/ecclesiacrm/pull/2350) ([phili67](https://github.com/phili67))
 - Mailchimp bug res [\#2349](https://github.com/phili67/ecclesiacrm/pull/2349) ([phili67](https://github.com/phili67))
 - Phili67 mailchimp bug optimization [\#2332](https://github.com/phili67/ecclesiacrm/pull/2332) ([phili67](https://github.com/phili67))
 - Phili67 list event stats [\#2330](https://github.com/phili67/ecclesiacrm/pull/2330) ([phili67](https://github.com/phili67))
@@ -141,6 +146,7 @@
 
 **Security fixes:**
 
+- Font awesome 6 update [\#2355](https://github.com/phili67/ecclesiacrm/pull/2355) ([phili67](https://github.com/phili67))
 - Private folder is protected too [\#2309](https://github.com/phili67/ecclesiacrm/pull/2309) ([phili67](https://github.com/phili67))
 - Phili67 excecute php file forbidden [\#2308](https://github.com/phili67/ecclesiacrm/pull/2308) ([phili67](https://github.com/phili67))
 - Phili67 public folder hack resolution [\#2307](https://github.com/phili67/ecclesiacrm/pull/2307) ([phili67](https://github.com/phili67))
@@ -165,6 +171,12 @@
 
 **Merged pull requests:**
 
+- signatures : plugins [\#2359](https://github.com/phili67/ecclesiacrm/pull/2359) ([phili67](https://github.com/phili67))
+- Phili67 composer update http discovery [\#2358](https://github.com/phili67/ecclesiacrm/pull/2358) ([phili67](https://github.com/phili67))
+- Phili67 warning messages cleanup [\#2356](https://github.com/phili67/ecclesiacrm/pull/2356) ([phili67](https://github.com/phili67))
+- src/skin/scss/\_adminLTE\_update.scss : update [\#2354](https://github.com/phili67/ecclesiacrm/pull/2354) ([phili67](https://github.com/phili67))
+- new icon [\#2353](https://github.com/phili67/ecclesiacrm/pull/2353) ([phili67](https://github.com/phili67))
+- Phili67 changelog v8.0 [\#2352](https://github.com/phili67/ecclesiacrm/pull/2352) ([phili67](https://github.com/phili67))
 - Phili67 schema jwt upgrade [\#2347](https://github.com/phili67/ecclesiacrm/pull/2347) ([phili67](https://github.com/phili67))
 - composer.lock upgrade [\#2346](https://github.com/phili67/ecclesiacrm/pull/2346) ([phili67](https://github.com/phili67))
 - sql install languages update [\#2345](https://github.com/phili67/ecclesiacrm/pull/2345) ([phili67](https://github.com/phili67))
