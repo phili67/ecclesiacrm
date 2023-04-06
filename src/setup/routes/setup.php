@@ -163,7 +163,7 @@ $app->group('/', function (RouteCollectorProxy $group) {
         $files = scandir(__DIR__ . "/../../Plugins/");
 
         foreach ($files as $file) {
-            if (!in_array($file, [".", ".."])) {
+            if (!in_array($file, [".", "..", ".DS_Store"])) {
                 $filename = SystemURLs::getDocumentRoot().'/Plugins/' . $file . '/mysql/Install.sql';
                 $logger->info("filename sql : \n".  $filename);
 
