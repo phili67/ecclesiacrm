@@ -97,3 +97,9 @@ propel/eventworkflow.schema.xml
 
 # ignore vscode parameters
 .vscode
+
+# ignore docker datas
+docker/data/
+docker/.env
+docker/logs/
+
