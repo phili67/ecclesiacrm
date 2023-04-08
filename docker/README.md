@@ -39,6 +39,10 @@ Pass the different pannel, but at this pannel, set your datas like this :
 
 <img width="1109" alt="Welcome to EcclesiaCRM8 setup wizard" src="https://user-images.githubusercontent.com/20263693/198359399-02f91826-bfe0-42ff-a293-0e3e2939744f.png">
 
+Database Server Name : **database**
+Mysql Port : **3306**
+Database Name : **docker**
+Database User : **root**
 The password is **tiger**
 
 At this end, your should be on this page
@@ -46,6 +50,7 @@ At this end, your should be on this page
 <img width="695" alt="Capture d’écran 2022-10-27 à 15 55 12" src="https://user-images.githubusercontent.com/20263693/198359955-002f3992-0e43-4574-b18a-58291a91c165.png">
 
 The default login is : admin
+
 The default password is : changeme
 
 Last you should see :
@@ -185,7 +190,7 @@ May differ for PHP Versions <7.x.x
 
 phpMyAdmin is configured to run on port 8080. Use following default credentials.
 
-http://localhost:8080/
+**http**://localhost:8080/
 username: root
 password: tiger
 
