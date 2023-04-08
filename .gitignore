@@ -103,3 +103,5 @@ docker/data/
 docker/.env
 docker/logs/
 
+docker/config/ssl/
+
