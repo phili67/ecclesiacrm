@@ -40,9 +40,13 @@ Pass the different pannel, but at this pannel, set your datas like this :
 <img width="1109" alt="Welcome to EcclesiaCRM8 setup wizard" src="https://user-images.githubusercontent.com/20263693/198359399-02f91826-bfe0-42ff-a293-0e3e2939744f.png">
 
 Database Server Name : **database**
+
 Mysql Port : **3306**
+
 Database Name : **docker**
+
 Database User : **root**
+
 The password is **tiger**
 
 At this end, your should be on this page
