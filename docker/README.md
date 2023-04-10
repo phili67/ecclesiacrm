@@ -270,6 +270,10 @@ Support for `https` domains is built-in but disabled by default. There are 3 way
 
 To enable `https` on `localhost` (https://localhost) you will need to:
 
+first you've to create the ssl folder in the config folder :
+
+- `mkdir config/ssl`
+
 1. Use a tool like [mkcert](https://github.com/FiloSottile/mkcert#installation) to create an SSL certificate for `localhost`:
    - With `mkcert`, in the terminal run `mkcert localhost 127.0.0.1 ::1`.
    - Rename the files that were generated `cert.pem` and `cert-key.pem` respectively.
