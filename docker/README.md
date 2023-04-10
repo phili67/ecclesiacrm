@@ -23,6 +23,7 @@ As of now, we have several different PHP versions. Use appropriate php version a
 
 - Clone this repository on your local computer
 - configure .env as needed
+- It's better to activate directly the https protocol (see the https part).
 - follow the lines here :
 
 ```shell
