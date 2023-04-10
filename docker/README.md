@@ -1,4 +1,4 @@
-# LAMP stack built with Docker Compose
+# DEV : EcclesiaCRM LAMP stack built with Docker Compose
 
 A basic LAMP stack environment built using Docker Compose. It consists of the following:
 
