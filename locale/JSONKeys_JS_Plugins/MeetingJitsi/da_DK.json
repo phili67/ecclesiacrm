@@ -1,10 +1,4 @@
 {
-    "Problem": "Problem",
-    "Safari isn't yet supported with Jitsi, use something else !<br/>• Your webcam<br/>• Sharing your windows<br/> won't work with meeting.": "Safari er endnu ikke understøttet af Jitsi, brug noget andet !<br/>- Dit webcam<br/>- Deling af dine vinduer<br/>- Det virker ikke med meeting.",
-    "Appointment": "Udnævnelse",
-    "Set a Jitsi room name": "Angiv et Jitsi-rumnavn",
-    "Delete all Rooms?": "Slet alle værelser?",
-    "You're about to delete all of your rooms.": "Du er ved at slette alle dine værelser.",
-    "Settings": "Indstillinger",
-    "Saved": "Gemte"
+    "Cancel": "Annuller",
+    "Confirm": "Bekræft"
 }

@@ -2,48 +2,57 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-23T20:34:03.981Z\n"
+"POT-Creation-Date: 2023-04-15T08:16:15.490Z\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-msgid "Remove"
-msgstr "Αφαιρέστε το"
+msgid "Close"
+msgstr ""
 
-msgid "Edit"
-msgstr "Επεξεργασία"
+msgid "Save"
+msgstr ""
 
-msgid "News Editor"
-msgstr "Συντάκτης ειδήσεων"
+msgid "Error"
+msgstr ""
 
-msgid "News Title"
-msgstr "Τίτλος ειδήσεων"
+#~ msgid "Remove"
+#~ msgstr "Αφαιρέστε το"
 
-msgid "Set your News title"
-msgstr "Ορίστε τον τίτλο των Ειδήσεων σας"
+#~ msgid "Edit"
+#~ msgstr "Επεξεργασία"
 
-msgid "Choose your News Type"
-msgstr "Επιλέξτε τον τύπο ειδήσεων σας"
+#~ msgid "News Editor"
+#~ msgstr "Συντάκτης ειδήσεων"
 
-msgid "Infos"
-msgstr "Πληροφορίες"
+#~ msgid "News Title"
+#~ msgstr "Τίτλος ειδήσεων"
 
-msgid "To plan"
-msgstr "Για να σχεδιάσετε"
+#~ msgid "Set your News title"
+#~ msgstr "Ορίστε τον τίτλο των Ειδήσεων σας"
 
-msgid "To note"
-msgstr "Να σημειωθεί"
+#~ msgid "Choose your News Type"
+#~ msgstr "Επιλέξτε τον τύπο ειδήσεων σας"
 
-msgid "Important"
-msgstr "Σημαντικό"
+#~ msgid "Infos"
+#~ msgstr "Πληροφορίες"
 
-msgid "Very important"
-msgstr "Πολύ σημαντικό"
+#~ msgid "To plan"
+#~ msgstr "Για να σχεδιάσετε"
 
-msgid "You have to set a Title for your news"
-msgstr "Πρέπει να ορίσετε έναν τίτλο για τις ειδήσεις σας"
+#~ msgid "To note"
+#~ msgstr "Να σημειωθεί"
+
+#~ msgid "Important"
+#~ msgstr "Σημαντικό"
+
+#~ msgid "Very important"
+#~ msgstr "Πολύ σημαντικό"
+
+#~ msgid "You have to set a Title for your news"
+#~ msgstr "Πρέπει να ορίσετε έναν τίτλο για τις ειδήσεις σας"
 
 #~ msgid "Last modification on"
 #~ msgstr "Τελευταία τροποποίηση στις"

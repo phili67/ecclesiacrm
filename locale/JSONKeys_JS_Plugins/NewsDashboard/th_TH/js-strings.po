@@ -1,35 +1,8 @@
-msgid "Remove"
+msgid "Close"
 msgstr ""
 
-msgid "Edit"
+msgid "Save"
 msgstr ""
 
-msgid "News Editor"
-msgstr ""
-
-msgid "News Title"
-msgstr ""
-
-msgid "Set your News title"
-msgstr ""
-
-msgid "Choose your News Type"
-msgstr ""
-
-msgid "Infos"
-msgstr ""
-
-msgid "To plan"
-msgstr ""
-
-msgid "To note"
-msgstr ""
-
-msgid "Important"
-msgstr ""
-
-msgid "Very important"
-msgstr ""
-
-msgid "You have to set a Title for your news"
+msgid "Error"
 msgstr ""

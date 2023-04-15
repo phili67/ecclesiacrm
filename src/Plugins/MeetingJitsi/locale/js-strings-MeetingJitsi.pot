@@ -5,31 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-02-24T08:25:08.324Z\n"
-"PO-Revision-Date: 2023-02-24T08:25:08.324Z\n"
+"POT-Creation-Date: 2023-04-15T08:37:19.675Z\n"
+"PO-Revision-Date: 2023-04-15T08:37:19.675Z\n"
 
-msgid "Problem"
+msgid "Cancel"
 msgstr ""
 
-msgid ""
-"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
-"webcam<br/>• Sharing your windows<br/> won't work with meeting."
-msgstr ""
-
-msgid "Appointment"
-msgstr ""
-
-msgid "Set a Jitsi room name"
-msgstr ""
-
-msgid "Delete all Rooms?"
-msgstr ""
-
-msgid "You're about to delete all of your rooms."
-msgstr ""
-
-msgid "Settings"
-msgstr ""
-
-msgid "Saved"
+msgid "Confirm"
 msgstr ""

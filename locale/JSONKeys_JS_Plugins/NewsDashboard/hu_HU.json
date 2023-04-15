@@ -1,14 +1,5 @@
 {
-    "Remove": "Távolítsa el a",
-    "Edit": "Szerkesztés",
-    "News Editor": "Hírszerkesztő",
-    "News Title": "Hírek címe",
-    "Set your News title": "Hírek címének beállítása",
-    "Choose your News Type": "Válassza ki a hír típusát",
-    "Infos": "Infos",
-    "To plan": "Tervezni",
-    "To note": "Megjegyzendő",
-    "Important": "Fontos",
-    "Very important": "Nagyon fontos",
-    "You have to set a Title for your news": "Be kell állítania egy címet a híreknek"
+    "Close": "",
+    "Save": "",
+    "Error": ""
 }

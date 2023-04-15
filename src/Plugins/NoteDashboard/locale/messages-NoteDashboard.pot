@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-24 08:25+0000\n"
+"POT-Creation-Date: 2023-04-15 08:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Plugins/NoteDashboard/v2/templates/View.php:36
+#: ../src/Plugins/NoteDashboard/v2/templates/View.php:39
 msgid "Note"
 msgstr ""
 
-#: ../src/Plugins/NoteDashboard/v2/templates/View.php:50
+#: ../src/Plugins/NoteDashboard/v2/templates/View.php:53
 msgid "Save"
 msgstr ""

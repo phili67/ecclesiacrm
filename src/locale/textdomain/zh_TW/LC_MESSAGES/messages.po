@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-24 08:22+0000\n"
+"POT-Creation-Date: 2023-04-15 08:23+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,12 +46,12 @@ msgstr "个人"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
-#: EcclesiaCRM/Service/TimelineService.php:212
+#: EcclesiaCRM/Service/TimelineService.php:213
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:345
-#: Include/Footer.php:68 members/404.php:16 PersonView.php:940
+#: Include/Footer.php:68 members/404.php:16 PersonView.php:943
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/templates/gdpr/gdprdatastructure.php:100
@@ -61,7 +61,7 @@ msgstr "个人"
 msgid "Family"
 msgstr "家庭"
 
-#: AutoPaymentEditor.php:814 PersonEditor.php:1026 PledgeEditor.php:588
+#: AutoPaymentEditor.php:814 PersonEditor.php:1032 PledgeEditor.php:588
 msgid "or"
 msgstr "或"
 
@@ -85,8 +85,8 @@ msgstr "警告!你必须选择一个人或一个家庭来创建一个自动付�
 #: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:79 eGive.php:345
 #: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
-#: ident/routes/verify.php:213 PersonEditor.php:977 PersonEditor.php:997
-#: PersonEditor.php:1587 PrintPastoralCarePerson.php:332
+#: ident/routes/verify.php:213 PersonEditor.php:983 PersonEditor.php:1003
+#: PersonEditor.php:1593 PrintPastoralCarePerson.php:332
 #: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
 #: SelectDelete.php:243 SystemSettings.php:235
 #: v2/templates/fundraiser/donatedItemEditor.php:43
@@ -175,7 +175,7 @@ msgstr "不活跃"
 #: AutoPaymentEditor.php:905 CSVExport.php:76 CSVImport.php:235
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: external/templates/registration/family-register-members.php:76
-#: ident/routes/verify.php:168 ident/routes/verify.php:173 PersonEditor.php:913
+#: ident/routes/verify.php:168 ident/routes/verify.php:173 PersonEditor.php:919
 #: Reports/MemberEmailExport.php:20
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
@@ -187,7 +187,7 @@ msgstr "名字"
 #: AutoPaymentEditor.php:913 CSVExport.php:66 CSVImport.php:237
 #: external/templates/registration/family-register-members.php:81
 #: ident/routes/verify.php:191 ident/routes/verify.php:196
-#: ManageEnvelopes.php:171 PersonEditor.php:935
+#: ManageEnvelopes.php:171 PersonEditor.php:941
 #: Reports/MemberEmailExport.php:21
 #: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
@@ -203,8 +203,8 @@ msgstr "姓氏"
 #: external/templates/registration/family-register.php:47 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:297 GeoPage.php:374 GroupReports.php:148
 #: ident/routes/verify.php:378 ident/routes/verify.php:433
-#: PersonEditor.php:1037 PersonEditor.php:1043 PersonEditor.php:1177
-#: PersonEditor.php:1201 PersonView.php:586 Reports/PDFLabel.php:859
+#: PersonEditor.php:1043 PersonEditor.php:1049 PersonEditor.php:1183
+#: PersonEditor.php:1207 PersonView.php:589 Reports/PDFLabel.php:859
 #: v2/templates/pastoralcare/pastoralcarefamily.php:124
 #: v2/templates/pastoralcare/pastoralcareperson.php:220
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
@@ -214,7 +214,7 @@ msgstr "地址"
 #: AutoPaymentEditor.php:937 CartToFamily.php:366 CSVExport.php:103
 #: CSVImport.php:243 DirectoryReports.php:294
 #: external/templates/registration/family-register.php:58 FamilyEditor.php:746
-#: ident/routes/verify.php:388 PersonEditor.php:1049 PersonEditor.php:1225
+#: ident/routes/verify.php:388 PersonEditor.php:1055 PersonEditor.php:1231
 #: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "城市"
@@ -222,7 +222,7 @@ msgstr "城市"
 #: AutoPaymentEditor.php:945 CartToFamily.php:375 CSVExport.php:108
 #: CSVImport.php:244 DirectoryReports.php:300
 #: external/templates/registration/family-register.php:62 FamilyEditor.php:755
-#: ident/routes/verify.php:400 PersonEditor.php:1058 PersonEditor.php:1253
+#: ident/routes/verify.php:400 PersonEditor.php:1064 PersonEditor.php:1259
 #: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "国家"
@@ -230,14 +230,14 @@ msgstr "国家"
 #: AutoPaymentEditor.php:953 CartToFamily.php:393 CSVExport.php:115
 #: CSVImport.php:245 DirectoryReports.php:306
 #: external/templates/registration/family-register.php:73 FamilyEditor.php:769
-#: ident/routes/verify.php:413 PersonEditor.php:1073 PersonEditor.php:1287
+#: ident/routes/verify.php:413 PersonEditor.php:1079 PersonEditor.php:1293
 #: Reports/PDFLabel.php:859
 msgid "Zip"
 msgstr "邮编"
 
 #: AutoPaymentEditor.php:961 CartToFamily.php:402 CSVExport.php:125
 #: CSVImport.php:246 FamilyEditor.php:779 ident/routes/verify.php:425
-#: PersonEditor.php:1083 PersonEditor.php:1317
+#: PersonEditor.php:1089 PersonEditor.php:1323
 msgid "Country"
 msgstr "国家"
 
@@ -265,9 +265,9 @@ msgstr "电话"
 #: FamilyView.php:555 GroupReports.php:152 ident/routes/verify.php:262
 #: ident/routes/verify.php:265 ident/routes/verify.php:686
 #: ident/templates/verify/login-info.php:34
-#: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1461
-#: PersonEditor.php:1465 PersonView.php:659 PersonView.php:787
-#: PersonView.php:1168 PrintPastoralCarePerson.php:385 PrintView.php:396
+#: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1467
+#: PersonEditor.php:1471 PersonView.php:662 PersonView.php:790
+#: PersonView.php:1171 PrintPastoralCarePerson.php:385 PrintView.php:396
 #: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
 #: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
@@ -323,9 +323,9 @@ msgstr "在Vanco存储私人数据"
 #: FamilyEditor.php:715 FamilyEditor.php:813 FamilyEditor.php:888
 #: FamilyEditor.php:976 FamilyEditor.php:998 FamilyEditor.php:1072
 #: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:181
-#: ident/templates/verify/change-password.php:56 PersonEditor.php:888
-#: PersonEditor.php:970 PersonEditor.php:1157 PersonEditor.php:1579
-#: PersonEditor.php:1659 PersonEditor.php:1747 PledgeEditor.php:793
+#: ident/templates/verify/change-password.php:56 PersonEditor.php:894
+#: PersonEditor.php:976 PersonEditor.php:1163 PersonEditor.php:1585
+#: PersonEditor.php:1665 PersonEditor.php:1753 PledgeEditor.php:793
 #: SystemSettings.php:111 UserPasswordChange.php:225
 #: v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
@@ -336,9 +336,9 @@ msgstr "拯救"
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1996
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
-#: SettingsIndividual.php:444 SettingsIndividual.php:520 TaxReport.php:53
+#: ManageEnvelopes.php:144 PersonEditor.php:1761 PersonView.php:1998
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:179
+#: SettingsIndividual.php:445 SettingsIndividual.php:521 TaxReport.php:53
 #: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -375,7 +375,7 @@ msgstr "输入赢家"
 msgid "File Manager"
 msgstr "文件管理器"
 
-#: browser/browse.php:42 PersonView.php:1892
+#: browser/browse.php:42 PersonView.php:1894
 msgid "Upload a file in EDrive"
 msgstr "在EDrive中上传一个文件"
 
@@ -383,7 +383,7 @@ msgstr "在EDrive中上传一个文件"
 msgid "Download"
 msgstr "下载"
 
-#: browser/browse.php:72 PersonView.php:1935
+#: browser/browse.php:72 PersonView.php:1937
 msgid "Preview"
 msgstr "预览"
 
@@ -545,7 +545,7 @@ msgid "Canvasser"
 msgstr "拉票员"
 
 #: CanvassEditor.php:177 FamilyEditor.php:930 FamilyEditor.php:952
-#: PersonEditor.php:1109 PersonEditor.php:1131
+#: PersonEditor.php:1115 PersonEditor.php:1137
 msgid "None selected"
 msgstr "没有选择"
 
@@ -595,7 +595,7 @@ msgid "Generate Badges"
 msgstr "生成徽章"
 
 #: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:71 CSVImport.php:234
-#: FundRaiserEditor.php:186 PersonEditor.php:904
+#: FundRaiserEditor.php:186 PersonEditor.php:910
 #: Reports/GDPR/GDPRListExport.php:66
 #: v2/templates/email/mailchimp/dashboard.php:30
 #: v2/templates/fundraiser/donatedItemEditor.php:60
@@ -652,7 +652,7 @@ msgstr "图像位置"
 
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
-#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:507
+#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:508
 #: UserEditor.php:1376 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "左边"
@@ -663,7 +663,7 @@ msgstr "中心"
 
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
-#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:508
+#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:509
 #: UserEditor.php:1377 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "对"
@@ -748,7 +748,7 @@ msgstr "如果增加一个新的家庭，请在下面输入数据。"
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
 #: external/templates/registration/family-register.php:36 FamilyEditor.php:722
-#: LettersAndLabels.php:71 PersonEditor.php:1026 Reports/ConfirmReport.php:148
+#: LettersAndLabels.php:71 PersonEditor.php:1032 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
 msgid "Family Name"
 msgstr "姓氏"
@@ -783,8 +783,8 @@ msgstr "(美国和加拿大以外的国家请使用文本框)"
 #: FamilyView.php:356 GroupReports.php:149 ident/routes/verify.php:231
 #: ident/routes/verify.php:234 ident/routes/verify.php:670
 #: ident/routes/verify.php:779 ident/templates/verify/verify-family-info.php:36
-#: ident/templates/verify/verify-family-info.php:93 PersonEditor.php:1359
-#: PersonEditor.php:1363 PersonView.php:645 PrintPastoralCarePerson.php:257
+#: ident/templates/verify/verify-family-info.php:93 PersonEditor.php:1365
+#: PersonEditor.php:1369 PersonView.php:648 PrintPastoralCarePerson.php:257
 #: PrintView.php:268 Reports/ConfirmReport.php:168
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/calendar/eventattendeesedit.php:60
@@ -797,8 +797,8 @@ msgstr "家庭电话"
 
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:433 FamilyEditor.php:829
-#: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1380
-#: PersonEditor.php:1410 PersonEditor.php:1439
+#: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1386
+#: PersonEditor.php:1416 PersonEditor.php:1445
 msgid "Do not auto-format"
 msgstr "不要自动格式化"
 
@@ -807,8 +807,8 @@ msgstr "不要自动格式化"
 #: FamilyView.php:362 GroupReports.php:150 ident/routes/verify.php:242
 #: ident/routes/verify.php:245 ident/routes/verify.php:458
 #: ident/routes/verify.php:461 ident/routes/verify.php:675
-#: ident/templates/verify/verify-family-info.php:98 PersonEditor.php:1388
-#: PersonEditor.php:1392 PersonView.php:673 PrintPastoralCarePerson.php:262
+#: ident/templates/verify/verify-family-info.php:98 PersonEditor.php:1394
+#: PersonEditor.php:1398 PersonView.php:676 PrintPastoralCarePerson.php:262
 #: PrintView.php:273 Reports/ConfirmReport.php:288
 #: v2/templates/pastoralcare/pastoralcarefamily.php:187
 #: v2/templates/pastoralcare/pastoralcareperson.php:305
@@ -818,8 +818,8 @@ msgstr "工作电话"
 #: CartToFamily.php:439 CSVExport.php:142 FamilyEditor.php:846
 #: FamilyEditor.php:862 FamilyView.php:369 ident/routes/verify.php:251
 #: ident/routes/verify.php:467 ident/routes/verify.php:680
-#: ident/templates/verify/verify-family-info.php:103 PersonEditor.php:1419
-#: PersonEditor.php:1423 PersonView.php:633 PrintPastoralCarePerson.php:267
+#: ident/templates/verify/verify-family-info.php:103 PersonEditor.php:1425
+#: PersonEditor.php:1429 PersonView.php:636 PrintPastoralCarePerson.php:267
 #: PrintView.php:278 v2/templates/pastoralcare/pastoralcarefamily.php:194
 #: v2/templates/pastoralcare/pastoralcareperson.php:265
 msgid "Mobile Phone"
@@ -968,12 +968,12 @@ msgid "Required"
 msgstr "需要"
 
 #: CSVExport.php:82 CSVImport.php:236 ident/routes/verify.php:180
-#: ident/routes/verify.php:185 PersonEditor.php:924
+#: ident/routes/verify.php:185 PersonEditor.php:930
 msgid "Middle Name"
 msgstr "中间名"
 
 #: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
-#: PersonEditor.php:946
+#: PersonEditor.php:952
 msgid "Suffix"
 msgstr "后缀"
 
@@ -982,13 +982,13 @@ msgid "Envelope"
 msgstr "信封"
 
 #: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
-#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:680
+#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:683
 #: Reports/DirectoryReport.php:331
 #: v2/templates/pastoralcare/pastoralcareperson.php:312
 msgid "Work/Other Email"
 msgstr "工作/其他电子邮件"
 
-#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1604
+#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1610
 #: PrintPastoralCarePerson.php:395 PrintView.php:406
 msgid "Membership Date"
 msgstr "成员日期"
@@ -1005,7 +1005,7 @@ msgstr "年龄/结婚年限"
 #: EcclesiaCRM/APIControllers/SearchController.php:278
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
 #: FamilyEditor.php:1101 FamilyView.php:553 FinancialReports.php:153
-#: ident/routes/verify.php:305 OptionManager.php:109 PersonEditor.php:1585
+#: ident/routes/verify.php:305 OptionManager.php:109 PersonEditor.php:1591
 #: PrintPastoralCarePerson.php:400 PrintView.php:411
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
 #: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
@@ -1069,7 +1069,7 @@ msgstr "使用Ctrl键选择多个"
 
 #: CSVExport.php:355 CSVImport.php:239
 #: EcclesiaCRM/APIControllers/SearchController.php:277 FamilyEditor.php:1096
-#: PersonEditor.php:895 PrintPastoralCarePerson.php:311
+#: PersonEditor.php:901 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:221
 #: v2/templates/sundayschool/sundayschoolview.php:313 queryparameters_qrp.php:4
@@ -1085,7 +1085,7 @@ msgstr "不要过滤"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
 #: external/templates/registration/family-register-members.php:66
-#: FamilyEditor.php:1150 PersonEditor.php:899 PrintPastoralCarePerson.php:315
+#: FamilyEditor.php:1150 PersonEditor.php:905 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
 #: queryparameteroptions_qpo.php:2
 msgid "Male"
@@ -1096,7 +1096,7 @@ msgstr "男性"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
 #: external/templates/registration/family-register-members.php:67
-#: FamilyEditor.php:1153 PersonEditor.php:900 PrintPastoralCarePerson.php:315
+#: FamilyEditor.php:1153 PersonEditor.php:906 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
 #: queryparameteroptions_qpo.php:3
 msgid "Female"
@@ -1114,7 +1114,7 @@ msgstr "来自。"
 msgid "To:"
 msgstr "敬请关注。"
 
-#: CSVExport.php:438 PersonEditor.php:955
+#: CSVExport.php:438 PersonEditor.php:961
 msgid "Birthday Date"
 msgstr "生日日期"
 
@@ -1183,12 +1183,12 @@ msgstr "捐赠信封"
 msgid "Cell Phone"
 msgstr "手机"
 
-#: CSVImport.php:251 PersonEditor.php:1487 PrintPastoralCarePerson.php:390
+#: CSVImport.php:251 PersonEditor.php:1493 PrintPastoralCarePerson.php:390
 #: PrintView.php:401
 msgid "Work / Other Email"
 msgstr "工作/其他电子邮件"
 
-#: CSVImport.php:252 PersonView.php:603 PrintPastoralCarePerson.php:320
+#: CSVImport.php:252 PersonView.php:606 PrintPastoralCarePerson.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
 #: v2/templates/pastoralcare/pastoralcareperson.php:235
 #: v2/templates/sundayschool/sundayschooldashboard.php:260
@@ -1431,7 +1431,7 @@ msgstr "加载授权的交易"
 msgid "Run Transactions"
 msgstr "运行交易"
 
-#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1305
+#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1307
 #: v2/templates/calendar/eventattendeesedit.php:62
 msgid "Action"
 msgstr "行动"
@@ -1493,7 +1493,7 @@ msgstr "应包括的信息"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:265
 #: EcclesiaCRM/Service/CalendarService.php:60 FamilyView.php:554
 #: ident/routes/verify.php:281 ident/routes/verify.php:694
-#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1167
+#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1170
 #: Reports/ConfirmReport.php:231 Reports/ConfirmReport.php:251
 msgid "Birthday"
 msgstr "生日"
@@ -1588,8 +1588,8 @@ msgstr "创建目录"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:619
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:689
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:709
-#: EcclesiaCRM/Service/CalendarService.php:1101
-#: EcclesiaCRM/Service/CalendarService.php:1127
+#: EcclesiaCRM/Service/CalendarService.php:1110
+#: EcclesiaCRM/Service/CalendarService.php:1136
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "两个资源保留不能在同一时间段。"
 
@@ -1618,7 +1618,7 @@ msgid "Video"
 msgstr "视频"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:221
-#: EcclesiaCRM/Service/CalendarService.php:678
+#: EcclesiaCRM/Service/CalendarService.php:687
 msgid "Share"
 msgstr "分享"
 
@@ -1721,12 +1721,12 @@ msgid "Create file"
 msgstr "创建文件"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
-#: EcclesiaCRM/Service/TimelineService.php:246
+#: EcclesiaCRM/Service/TimelineService.php:252
 msgid "This document is opened by"
 msgstr "本文件由以下人员打开"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
-#: EcclesiaCRM/Service/TimelineService.php:246
+#: EcclesiaCRM/Service/TimelineService.php:252
 msgid "Minutes left"
 msgstr "还剩几分钟"
 
@@ -1874,7 +1874,7 @@ msgstr "家庭"
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:201 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: ident/routes/verify.php:309 ident/routes/verify.php:711
-#: ident/templates/verify/verify-family-info.php:145 PersonView.php:498
+#: ident/templates/verify/verify-family-info.php:145 PersonView.php:501
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/dashboard/maindashboard.php:226
 #: v2/templates/group/grouplist.php:53
@@ -1967,7 +1967,7 @@ msgstr "添加到组"
 #: EcclesiaCRM/Service/CalendarService.php:272
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:500
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:501
 #: UserEditor.php:1369
 msgid "Yes"
 msgstr "是"
@@ -1976,10 +1976,10 @@ msgstr "是"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:173
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Service/CalendarService.php:272
-#: EcclesiaCRM/Service/CalendarService.php:530
+#: EcclesiaCRM/Service/CalendarService.php:539
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:499
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:500
 #: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:184
 msgid "No"
 msgstr "没有"
@@ -2061,7 +2061,7 @@ msgstr "集团类型"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:157
 #: FamilyEditor.php:1097 FamilyView.php:552 OptionManager.php:100
-#: OptionManager.php:141 PersonView.php:1166 PrintPastoralCarePerson.php:449
+#: OptionManager.php:141 PersonView.php:1169 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
@@ -2137,7 +2137,7 @@ msgstr "组别类型编辑"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:675
+#: EcclesiaCRM/Service/CalendarService.php:684
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:102 OptionManager.php:133
@@ -3430,8 +3430,8 @@ msgid "Invalid Family"
 msgstr "无效的家庭"
 
 #: EcclesiaCRM/dto/SystemConfig.php:47
-#: EcclesiaCRM/Service/CalendarService.php:829
-#: EcclesiaCRM/Service/CalendarService.php:1156
+#: EcclesiaCRM/Service/CalendarService.php:838
+#: EcclesiaCRM/Service/CalendarService.php:1165
 msgid "NONE"
 msgstr "无"
 
@@ -4346,7 +4346,7 @@ msgid "Map Settings"
 msgstr "地图设置"
 
 #: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:381
-#: FamilyView.php:473 PersonView.php:826 PrintPastoralCarePerson.php:639
+#: FamilyView.php:473 PersonView.php:829 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1114
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
@@ -4435,7 +4435,7 @@ msgstr "你的账户被删除了"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "你的EcclesiaCRM账户被删除了。"
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:232
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:234
 msgid "Email/Username"
 msgstr "电子邮件/用户名"
 
@@ -4534,12 +4534,12 @@ msgstr "请核实你的家庭信息"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:34
 #: external/templates/password/enter-username.php:46
-#: ident/templates/verify/login-info.php:44 Login.php:195 Login.php:257
+#: ident/templates/verify/login-info.php:44 Login.php:197 Login.php:259
 msgid "Login"
 msgstr "登录"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:35
-#: ident/templates/verify/login-info.php:38 Login.php:244 Login.php:339
+#: ident/templates/verify/login-info.php:38 Login.php:246 Login.php:341
 #: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "密码"
@@ -4558,19 +4558,19 @@ msgstr "私人空间"
 msgid "Home"
 msgstr "首页"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:91 Include/Header.php:155 PersonView.php:802
+#: EcclesiaCRM/MenuBar/MenuBar.php:91 Include/Header.php:155 PersonView.php:805
 msgid "Change Password"
 msgstr "更改密码"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:92 Include/Header.php:157 PersonView.php:800
+#: EcclesiaCRM/MenuBar/MenuBar.php:92 Include/Header.php:157 PersonView.php:803
 msgid "Change Settings"
 msgstr "更改设置"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1030
+#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1033
 msgid "Documents"
 msgstr "文件"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1044 UserEditor.php:917
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1047 UserEditor.php:917
 msgid "EDrive"
 msgstr "驱动器"
 
@@ -4662,7 +4662,7 @@ msgid "List Groups"
 msgstr "列表组"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:265
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:195
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:199
 msgid "Group Assignment Helper"
 msgstr "小组分配帮助者"
 
@@ -4846,13 +4846,13 @@ msgid "Witness"
 msgstr "证人"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:236
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:284
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:291
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "创建"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:241
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:289
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:296
 msgid "Updated"
 msgstr "更新"
 
@@ -4865,12 +4865,12 @@ msgid "Verification email sent"
 msgstr "发送验证邮件"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:327
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:452
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:460
 msgid "Profile Image Deleted"
 msgstr "删去的个人资料图片"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:340
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:476
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:484
 msgid "Profile Image uploaded"
 msgstr "上传的个人资料图片"
 
@@ -4880,8 +4880,8 @@ msgstr "上传的个人资料图片"
 msgid "Member"
 msgstr "会员"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:624
-#: EcclesiaCRM/Service/TimelineService.php:216
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:632
+#: EcclesiaCRM/Service/TimelineService.php:218
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
@@ -4891,76 +4891,76 @@ msgstr "会员"
 msgid "Unknown"
 msgstr "不详"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:639
 #: EcclesiaCRM/utils/OutputUtils.php:566
 msgid "mos old"
 msgstr "几个月大"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:633
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:641
 #: EcclesiaCRM/utils/OutputUtils.php:568
 msgid "mo old"
 msgstr "老人"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:637
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:645
 #: EcclesiaCRM/utils/OutputUtils.php:536 EcclesiaCRM/utils/OutputUtils.php:538
 #: EcclesiaCRM/utils/OutputUtils.php:572
 msgid "yrs old"
 msgstr "岁"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:639
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:647
 #: EcclesiaCRM/utils/OutputUtils.php:574
 msgid "yr old"
 msgstr "岁"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:667
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:675
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM出口"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:740
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
 msgid "system user created"
 msgstr "创建的系统用户"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
 msgid "system user updated"
 msgstr "系统用户更新"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
 msgid "system user deleted"
 msgstr "系统用户删除"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
 msgid "system user password reset"
 msgstr "系统用户密码重置"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
 msgid "system user changed password"
 msgstr "系统用户改变了密码"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
 msgid "system user password changed by admin"
 msgstr "系统用户密码被管理员修改"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:761
 msgid "system user login reset"
 msgstr "系统用户登录重置"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:764
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:767
 msgid "Dav create file"
 msgstr "Dav创建文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:770
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:773
 msgid "Dav create directory"
 msgstr "Dav创建目录"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:776
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:779
 msgid "Dav update file"
 msgstr "Dav更新文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:789
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:792
 msgid "Dav move copy file"
 msgstr "Dav移动复制文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:796
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:799
 msgid "Dav delete file"
 msgstr "Dav删除文件"
 
@@ -5009,8 +5009,8 @@ msgstr "城市，州，邮编"
 
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186 FamilyEditor.php:874
 #: FamilyView.php:333 ident/routes/verify.php:505 ident/routes/verify.php:792
-#: ident/templates/verify/verify-family-info.php:52 PersonEditor.php:1445
-#: PersonView.php:652 Reports/ConfirmReport.php:173
+#: ident/templates/verify/verify-family-info.php:52 PersonEditor.php:1451
+#: PersonView.php:655 Reports/ConfirmReport.php:173
 #: v2/templates/pastoralcare/pastoralcarefamily.php:158
 #: v2/templates/pastoralcare/pastoralcareperson.php:284
 msgid "Send Newsletter"
@@ -5064,7 +5064,7 @@ msgstr "页码"
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460
 #: external/templates/registration/family-register-members.php:105
-#: PersonView.php:687 Reports/DirectoryReport.php:321
+#: PersonView.php:690 Reports/DirectoryReport.php:321
 #: Reports/GroupReport.php:129
 msgid "Work"
 msgstr "工作"
@@ -5146,9 +5146,9 @@ msgstr "地址"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84
-#: EcclesiaCRM/Service/CalendarService.php:507 ElectronicPaymentList.php:215
+#: EcclesiaCRM/Service/CalendarService.php:516 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:258 EventNames.php:349 FamilyView.php:283
-#: PersonView.php:527 v2/templates/pastoralcare/pastoralcareperson.php:166
+#: PersonView.php:530 v2/templates/pastoralcare/pastoralcareperson.php:166
 msgid "Edit"
 msgstr "编辑"
 
@@ -5174,7 +5174,7 @@ msgstr "地址"
 #: EcclesiaCRM/Service/MailChimpService.php:204
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:395
-#: FamilyView.php:1069 PersonView.php:720 PersonView.php:1967
+#: FamilyView.php:1069 PersonView.php:723 PersonView.php:1969
 #: PrintPastoralCarePerson.php:654
 #: v2/templates/pastoralcare/pastoralcarefamily.php:220
 #: v2/templates/pastoralcare/pastoralcareperson.php:352
@@ -5303,7 +5303,7 @@ msgid "Person Properties"
 msgstr "人员属性"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:147 PersonView.php:985
+#: Include/Footer.php:147 PersonView.php:988
 msgid "Volunteer Opportunities"
 msgstr "志愿者机会"
 
@@ -5320,18 +5320,18 @@ msgstr "志愿者"
 msgid "Pledges"
 msgstr "认捐"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
-#: EcclesiaCRM/Service/AppIntegrityService.php:73
+#: EcclesiaCRM/Service/AppIntegrityService.php:29
+#: EcclesiaCRM/Service/AppIntegrityService.php:74
 msgid "Signature definition file signature failed validation"
 msgstr "签名定义文件签名验证失败"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
-#: EcclesiaCRM/Service/AppIntegrityService.php:76
+#: EcclesiaCRM/Service/AppIntegrityService.php:32
+#: EcclesiaCRM/Service/AppIntegrityService.php:77
 msgid "Signature definition File Missing"
 msgstr "签名定义文件缺失"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:40
-#: EcclesiaCRM/Service/AppIntegrityService.php:82
+#: EcclesiaCRM/Service/AppIntegrityService.php:41
+#: EcclesiaCRM/Service/AppIntegrityService.php:83
 msgid "One or more files failed signature validation"
 msgstr "一个或多个文件没有通过签名验证"
 
@@ -5343,13 +5343,13 @@ msgstr "活动"
 msgid "Anniversary"
 msgstr "纪念日"
 
-#: EcclesiaCRM/Service/CalendarService.php:510 ElectronicPaymentList.php:216
+#: EcclesiaCRM/Service/CalendarService.php:519 ElectronicPaymentList.php:216
 #: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
 #: EventNames.php:355 FamilyView.php:1096 FindDepositSlip.php:131
 #: ident/routes/verify.php:728 ident/routes/verify.php:795
 #: ident/templates/verify/verify-family-info.php:55
-#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1905
-#: PersonView.php:1997 v2/templates/calendar/eventattendeesedit.php:101
+#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1907
+#: PersonView.php:1999 v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/group/groupview.php:287
@@ -5361,52 +5361,52 @@ msgstr "纪念日"
 msgid "Delete"
 msgstr "删除"
 
-#: EcclesiaCRM/Service/CalendarService.php:513
+#: EcclesiaCRM/Service/CalendarService.php:522
 msgid "Info"
 msgstr "信息"
 
-#: EcclesiaCRM/Service/CalendarService.php:545
+#: EcclesiaCRM/Service/CalendarService.php:554
 msgid "Check-in"
 msgstr "报到"
 
-#: EcclesiaCRM/Service/CalendarService.php:546
+#: EcclesiaCRM/Service/CalendarService.php:555
 msgid "Check-out"
 msgstr "退房"
 
-#: EcclesiaCRM/Service/CalendarService.php:547
+#: EcclesiaCRM/Service/CalendarService.php:556
 msgid "Rest"
 msgstr "休息"
 
-#: EcclesiaCRM/Service/CalendarService.php:568
-#: EcclesiaCRM/Service/CalendarService.php:601
+#: EcclesiaCRM/Service/CalendarService.php:577
+#: EcclesiaCRM/Service/CalendarService.php:610
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "参会人员"
 
-#: EcclesiaCRM/Service/CalendarService.php:579
-#: EcclesiaCRM/Service/CalendarService.php:580
-#: EcclesiaCRM/Service/CalendarService.php:583
-#: EcclesiaCRM/Service/CalendarService.php:584
+#: EcclesiaCRM/Service/CalendarService.php:588
+#: EcclesiaCRM/Service/CalendarService.php:589
+#: EcclesiaCRM/Service/CalendarService.php:592
+#: EcclesiaCRM/Service/CalendarService.php:593
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "办理退房手续"
 
-#: EcclesiaCRM/Service/CalendarService.php:580
-#: EcclesiaCRM/Service/CalendarService.php:584
+#: EcclesiaCRM/Service/CalendarService.php:589
+#: EcclesiaCRM/Service/CalendarService.php:593
 msgid "Check-out done"
 msgstr "退房完成"
 
-#: EcclesiaCRM/Service/CalendarService.php:627
+#: EcclesiaCRM/Service/CalendarService.php:636
 msgid "No Attendance Recorded"
 msgstr "没有出勤记录"
 
-#: EcclesiaCRM/Service/CalendarService.php:641
+#: EcclesiaCRM/Service/CalendarService.php:650
 msgid "login"
 msgstr "登录"
 
-#: EcclesiaCRM/Service/CalendarService.php:672
+#: EcclesiaCRM/Service/CalendarService.php:681
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "个人日历"
@@ -5435,30 +5435,30 @@ msgstr "部分"
 msgid " of the"
 msgstr "的。"
 
-#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:571
+#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:574
 #: v2/templates/pastoralcare/pastoralcareperson.php:207
 msgid "(No assigned family)"
 msgstr "(无指定家庭)"
 
-#: EcclesiaCRM/Service/TimelineService.php:218
+#: EcclesiaCRM/Service/TimelineService.php:220
 msgid "Self Registration"
 msgstr "自行注册"
 
-#: EcclesiaCRM/Service/TimelineService.php:220
+#: EcclesiaCRM/Service/TimelineService.php:222
 msgid "Self Verification"
 msgstr "自我验证"
 
-#: EcclesiaCRM/Service/TimelineService.php:257
-#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
+#: EcclesiaCRM/Service/TimelineService.php:263
+#: EcclesiaCRM/Service/TimelineService.php:266 PrintView.php:658
 msgid "by"
 msgstr "由"
 
-#: EcclesiaCRM/Service/TimelineService.php:320
+#: EcclesiaCRM/Service/TimelineService.php:327
 #: EcclesiaCRM/utils/MiscUtils.php:758 EcclesiaCRM/utils/MiscUtils.php:861
 msgid "File"
 msgstr "文件"
 
-#: EcclesiaCRM/Service/TimelineService.php:355
+#: EcclesiaCRM/Service/TimelineService.php:362
 msgid "Shared by"
 msgstr "分享者"
 
@@ -5829,21 +5829,21 @@ msgstr "单身人士"
 msgid "Family List"
 msgstr "家庭名单"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:121
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:125
 msgid "People Dashboard"
 msgstr "人员仪表板"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:195
 #: query_qry.php:8 query_qry.php:53
 msgid "Advanced Search"
 msgstr "高级搜索"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:193
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:197
 msgid "Person Listing"
 msgstr "人员名单"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPersonListController.php:95
-#: PersonView.php:346
+#: PersonView.php:349
 #: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:16
 msgid "Person List"
 msgstr "人员名单"
@@ -5887,7 +5887,7 @@ msgstr "教会日历"
 msgid "Listing All Church Events"
 msgstr "列出所有教会活动"
 
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:174
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:175
 #: EventAttendance.php:36
 msgid "Event Attendees"
 msgstr "活动出席者"
@@ -6379,7 +6379,7 @@ msgstr "开始时间"
 msgid "Create Event"
 msgstr "创建活动"
 
-#: EventNames.php:384
+#: EventNames.php:381
 msgid "Add Event Type"
 msgstr "添加事件类型"
 
@@ -6457,7 +6457,7 @@ msgid "Register"
 msgstr "注册"
 
 #: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1165
+#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1168
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:262
 #: v2/templates/pastoralcare/pastoralcareperson.php:390
@@ -6474,7 +6474,7 @@ msgid "Mobile"
 msgstr "手机"
 
 #: external/templates/registration/family-register-members.php:132
-#: PersonEditor.php:959 Reports/ConfirmReport.php:232
+#: PersonEditor.php:965 Reports/ConfirmReport.php:232
 #: Reports/ConfirmReport.php:252
 msgid "Hide Age"
 msgstr "隐藏年龄"
@@ -6521,7 +6521,7 @@ msgstr "还没有添加自定义家庭字段"
 
 #: FamilyCustomFieldsEditor.php:341 GroupPropsEditor.php:226
 #: GroupPropsFormEditor.php:340 OptionManager.php:391
-#: PersonCustomFieldsEditor.php:333 PersonEditor.php:880
+#: PersonCustomFieldsEditor.php:333 PersonEditor.php:886
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
@@ -6591,11 +6591,11 @@ msgstr "家庭编辑"
 msgid "First name must be entered"
 msgstr "必须输入名字"
 
-#: FamilyEditor.php:247 PersonEditor.php:302
+#: FamilyEditor.php:247 PersonEditor.php:306
 msgid "Invalid Year: allowable values are 1901 to 2155"
 msgstr "无效年份：允许的值是1901至2155年"
 
-#: FamilyEditor.php:251 PersonEditor.php:306
+#: FamilyEditor.php:251 PersonEditor.php:310
 msgid "Invalid Birth Date."
 msgstr "无效的出生日期。"
 
@@ -6603,7 +6603,7 @@ msgstr "无效的出生日期。"
 msgid "Not a valid Wedding Date"
 msgstr "不是有效的结婚日期"
 
-#: FamilyEditor.php:282 PersonEditor.php:339
+#: FamilyEditor.php:282 PersonEditor.php:343
 msgid "Email is Not Valid"
 msgstr "电子邮件无效"
 
@@ -6619,8 +6619,8 @@ msgstr "通过家庭更新"
 msgid "Family Info"
 msgstr "家庭信息"
 
-#: FamilyEditor.php:762 ident/routes/verify.php:407 PersonEditor.php:1066
-#: PersonEditor.php:1269
+#: FamilyEditor.php:762 ident/routes/verify.php:407 PersonEditor.php:1072
+#: PersonEditor.php:1275
 msgid "None US/CND State"
 msgstr "无 美国/CND州"
 
@@ -6632,7 +6632,7 @@ msgstr "纬度"
 msgid "Longitude"
 msgstr "经度"
 
-#: FamilyEditor.php:811 PersonEditor.php:1155
+#: FamilyEditor.php:811 PersonEditor.php:1161
 msgid "Contact Info"
 msgstr "联系信息"
 
@@ -6640,15 +6640,15 @@ msgstr "联系信息"
 msgid "Other Info"
 msgstr "其他信息"
 
-#: FamilyEditor.php:919 PersonEditor.php:1098
+#: FamilyEditor.php:919 PersonEditor.php:1104
 msgid "Ok To Canvass"
 msgstr "可以拉票"
 
-#: FamilyEditor.php:928 PersonEditor.php:1107
+#: FamilyEditor.php:928 PersonEditor.php:1113
 msgid "Assign a Canvasser"
 msgstr "指定一名拉票员"
 
-#: FamilyEditor.php:949 PersonEditor.php:1128
+#: FamilyEditor.php:949 PersonEditor.php:1134
 msgid "Assign a Brave Canvasser"
 msgstr "指派一名勇敢的拉票员"
 
@@ -6661,7 +6661,7 @@ msgstr "信封信息"
 msgid "Envelope Number"
 msgstr "信封编号"
 
-#: FamilyEditor.php:996 PersonEditor.php:1657
+#: FamilyEditor.php:996 PersonEditor.php:1663
 msgid "Custom Fields"
 msgstr "自定义字段"
 
@@ -6688,7 +6688,7 @@ msgstr "最后一次"
 msgid "Day"
 msgstr "天"
 
-#: FamilyEditor.php:1147 PersonEditor.php:897
+#: FamilyEditor.php:1147 PersonEditor.php:903
 msgid "Select Gender"
 msgstr "选择性别"
 
@@ -6748,7 +6748,7 @@ msgstr "12月"
 msgid "Unk"
 msgstr "未知"
 
-#: FamilyEditor.php:1294 PersonEditor.php:1751 PledgeEditor.php:795
+#: FamilyEditor.php:1294 PersonEditor.php:1757 PledgeEditor.php:795
 #: v2/templates/fundraiser/donatedItemEditor.php:173
 msgid "Save and Add"
 msgstr "保存和添加"
@@ -6769,15 +6769,15 @@ msgstr "下一个家庭"
 msgid " This Family is Deactivated"
 msgstr "这个家庭已经停用了"
 
-#: FamilyView.php:261 PersonView.php:426
+#: FamilyView.php:261 PersonView.php:429
 msgid "View Photo"
 msgstr "查看照片"
 
-#: FamilyView.php:265 PersonView.php:430
+#: FamilyView.php:265 PersonView.php:433
 msgid "Upload Photo"
 msgstr "上传照片"
 
-#: FamilyView.php:269 PersonView.php:434
+#: FamilyView.php:269 PersonView.php:437
 msgid "Delete Photo"
 msgstr "删除照片"
 
@@ -6789,35 +6789,35 @@ msgstr "教会的<br>"
 msgid "Latitude/Longitude"
 msgstr "纬度/经度"
 
-#: FamilyView.php:371 PersonView.php:636
+#: FamilyView.php:371 PersonView.php:639
 #: v2/templates/pastoralcare/pastoralcarefamily.php:196
 #: v2/templates/pastoralcare/pastoralcareperson.php:268
 msgid "Text Message"
 msgstr "短信"
 
-#: FamilyView.php:373 PersonView.php:638
+#: FamilyView.php:373 PersonView.php:641
 #: v2/templates/pastoralcare/pastoralcarefamily.php:198
 #: v2/templates/pastoralcare/pastoralcareperson.php:270
 msgid "EcclesiaCRM text message"
 msgstr "EcclesiaCRM文本信息"
 
-#: FamilyView.php:442 PersonView.php:770 v2/templates/group/groupview.php:82
+#: FamilyView.php:442 PersonView.php:773 v2/templates/group/groupview.php:82
 msgid "Remove from Cart"
 msgstr "从购物车中删除"
 
-#: FamilyView.php:449 PersonView.php:778 QueryView.php:219
+#: FamilyView.php:449 PersonView.php:781 QueryView.php:219
 #: v2/templates/group/groupview.php:86
 msgid "Add to Cart"
 msgstr "添加到购物车"
 
-#: FamilyView.php:465 PersonView.php:790 v2/templates/cart/cartview.php:86
+#: FamilyView.php:465 PersonView.php:793 v2/templates/cart/cartview.php:86
 #: v2/templates/group/groupview.php:184
 #: v2/templates/sundayschool/sundayschooldashboard.php:116
 #: v2/templates/sundayschool/sundayschoolview.php:51
 msgid "Email (BCC)"
 msgstr "电子邮件 (BCC)"
 
-#: FamilyView.php:481 PersonView.php:816
+#: FamilyView.php:481 PersonView.php:819
 msgid "Verify Info"
 msgstr "验证信息"
 
@@ -6825,7 +6825,7 @@ msgstr "验证信息"
 msgid "Add New Member"
 msgstr "添加新成员"
 
-#: FamilyView.php:498 FamilyView.php:499 PersonView.php:835 PersonView.php:836
+#: FamilyView.php:498 FamilyView.php:499 PersonView.php:838 PersonView.php:839
 msgid "Create a document"
 msgstr "创建一个文件"
 
@@ -6833,16 +6833,16 @@ msgstr "创建一个文件"
 msgid "Get the vCard of the family"
 msgstr "获得家庭的VCard"
 
-#: FamilyView.php:510 PersonView.php:856 v2/templates/cart/cartview.php:63
+#: FamilyView.php:510 PersonView.php:859 v2/templates/cart/cartview.php:63
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:518 PersonView.php:883 v2/templates/plugins/plugins.php:56
+#: FamilyView.php:518 PersonView.php:886 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:105
 msgid "Deactivate"
 msgstr "停用"
 
-#: FamilyView.php:518 PersonView.php:883 v2/templates/plugins/plugins.php:55
+#: FamilyView.php:518 PersonView.php:886 v2/templates/plugins/plugins.php:55
 #: v2/templates/plugins/plugins.php:105
 msgid "Activate"
 msgstr "激活"
@@ -6855,78 +6855,78 @@ msgstr "这个家庭"
 msgid "Delete this Family"
 msgstr "删除这个家庭"
 
-#: FamilyView.php:659 PersonView.php:928
+#: FamilyView.php:659 PersonView.php:931
 msgid "Timeline"
 msgstr "时间轴"
 
-#: FamilyView.php:662 PersonView.php:973 PrintPastoralCarePerson.php:594
+#: FamilyView.php:662 PersonView.php:976 PrintPastoralCarePerson.php:594
 #: PrintView.php:603 v2/templates/group/groupview.php:325
 #: v2/templates/group/groupview.php:383
 msgid "Assigned Properties"
 msgstr "分配的属性"
 
-#: FamilyView.php:669 PersonView.php:1003
+#: FamilyView.php:669 PersonView.php:1006
 msgid "Automatic Payments"
 msgstr "自动付款"
 
-#: FamilyView.php:672 PersonView.php:1010
+#: FamilyView.php:672 PersonView.php:1013
 msgid "Pledges and Payments"
 msgstr "认捐和支付"
 
-#: FamilyView.php:815 PersonView.php:1471 v2/templates/group/groupview.php:338
+#: FamilyView.php:815 PersonView.php:1473 v2/templates/group/groupview.php:338
 msgid "Assign a New Property"
 msgstr "指定一个新属性"
 
-#: FamilyView.php:822 PersonView.php:1477 PersonView.php:1548
-#: PersonView.php:1687
+#: FamilyView.php:822 PersonView.php:1479 PersonView.php:1550
+#: PersonView.php:1689
 msgid "Select"
 msgstr "选择"
 
-#: FamilyView.php:825 PersonView.php:1479
+#: FamilyView.php:825 PersonView.php:1481
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:343
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:360
 #: QueryView.php:457 QueryView.php:474 v2/templates/group/groupview.php:343
 msgid "select an option"
 msgstr "选择一个选项"
 
-#: FamilyView.php:846 PersonView.php:1500 PersonView.php:1563
+#: FamilyView.php:846 PersonView.php:1502 PersonView.php:1565
 #: v2/templates/group/groupview.php:359
 msgid "Assign"
 msgstr "指定"
 
-#: FamilyView.php:874 PersonView.php:1595
+#: FamilyView.php:874 PersonView.php:1597
 msgid "Add a new automatic payment"
 msgstr "添加一个新的自动付款"
 
-#: FamilyView.php:883 PersonView.php:1616
+#: FamilyView.php:883 PersonView.php:1618
 msgid "Show Pledges"
 msgstr "显示认捐情况"
 
-#: FamilyView.php:887 PersonView.php:1620
+#: FamilyView.php:887 PersonView.php:1622
 msgid "Show Payments"
 msgstr "显示付款"
 
-#: FamilyView.php:890 PersonView.php:1623
+#: FamilyView.php:890 PersonView.php:1625
 msgid "From"
 msgstr "来自"
 
-#: FamilyView.php:899 PersonView.php:1632
+#: FamilyView.php:899 PersonView.php:1634
 msgid "To"
 msgstr "拟"
 
-#: FamilyView.php:922 PersonView.php:1645
+#: FamilyView.php:922 PersonView.php:1647
 msgid "Add a new pledge"
 msgstr "增加一个新的认捐"
 
-#: FamilyView.php:924 PersonView.php:1647
+#: FamilyView.php:924 PersonView.php:1649
 msgid "Add a new payment"
 msgstr "添加一个新的付款"
 
-#: FamilyView.php:932 PersonView.php:1663
+#: FamilyView.php:932 PersonView.php:1665
 msgid " Canvass Entry"
 msgstr "拉票入场"
 
-#: FamilyView.php:1066 PersonView.php:541 PersonView.php:1964
+#: FamilyView.php:1066 PersonView.php:544 PersonView.php:1966
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
@@ -6934,47 +6934,47 @@ msgstr "拉票入场"
 msgid "Informations"
 msgstr "信息"
 
-#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1984
+#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1986
 msgid "Confirm Delete"
 msgstr "确认删除"
 
-#: FamilyView.php:1091 PersonView.php:1990
+#: FamilyView.php:1091 PersonView.php:1992
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "你即将删除个人资料照片，这个过程是不可逆的。"
 
-#: FamilyView.php:1092 PersonView.php:1992
+#: FamilyView.php:1092 PersonView.php:1994
 msgid "Do you want to proceed?"
 msgstr "你想继续吗？"
 
-#: FamilyView.php:1107 PersonView.php:2010
+#: FamilyView.php:1107 PersonView.php:2012
 msgid "Request Family Info Verification"
 msgstr "申请家庭信息验证"
 
-#: FamilyView.php:1112 PersonView.php:2015
+#: FamilyView.php:1112 PersonView.php:2017
 msgid "Select how do you want to request the family information to be verified"
 msgstr "选择你要如何要求核实家庭信息的方式"
 
-#: FamilyView.php:1117 PersonView.php:2020
+#: FamilyView.php:1117 PersonView.php:2022
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
 msgstr "你即将把家庭信息的副本以pdf格式发到以下邮箱中"
 
-#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2042
-#: PersonView.php:2046
+#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2044
+#: PersonView.php:2048
 msgid "Online Verification"
 msgstr "在线验证"
 
-#: FamilyView.php:1149 PersonView.php:2052
+#: FamilyView.php:1149 PersonView.php:2054
 msgid "URL"
 msgstr "URL"
 
-#: FamilyView.php:1152 PersonView.php:2055
+#: FamilyView.php:1152 PersonView.php:2057
 msgid "PDF Report"
 msgstr "PDF报告"
 
-#: FamilyView.php:1156 PersonView.php:2059
+#: FamilyView.php:1156 PersonView.php:2061
 msgid "Verified In Person"
 msgstr "亲自验证"
 
@@ -7122,7 +7122,7 @@ msgstr "最低总金额。"
 msgid "0 - No Minimum"
 msgstr "0 - 没有最低限度"
 
-#: FinancialReports.php:389 SettingsIndividual.php:197
+#: FinancialReports.php:389 SettingsIndividual.php:198
 msgid "Other Settings"
 msgstr "其他设置"
 
@@ -7503,7 +7503,7 @@ msgstr "返回到集团"
 msgid "Show in"
 msgstr "显示在"
 
-#: GroupPropsFormEditor.php:353 PersonView.php:336
+#: GroupPropsFormEditor.php:353 PersonView.php:339
 msgid "Person Profile"
 msgstr "个人简介"
 
@@ -7640,7 +7640,7 @@ msgstr "旧密码"
 msgid "Confirm New Password"
 msgstr "确认新密码"
 
-#: ident/templates/verify/login-info.php:21 Login.php:211 Login.php:297
+#: ident/templates/verify/login-info.php:21 Login.php:213 Login.php:299
 msgid "Please Login"
 msgstr "请登录"
 
@@ -7991,41 +7991,45 @@ msgstr "确认数据标签"
 msgid "Confirm data Email"
 msgstr "确认数据 电子邮件"
 
-#: Login.php:46 Login.php:64
+#: Login.php:47 Login.php:65
 msgid "Invalid login or password"
 msgstr "无效的登录或密码"
 
-#: Login.php:49
+#: Login.php:50
 msgid ""
 "Too many failed logins: your account has been locked.  Please contact an "
 "administrator."
 msgstr "登录失败次数过多：您的账户已被锁定。  请联系管理员。"
 
-#: Login.php:52
+#: Login.php:53
 msgid "This account has been deactiveted by an administrator."
 msgstr "该账户已被管理员停用。"
 
-#: Login.php:216 Login.php:304
+#: Login.php:102
+msgid "Invalid 2FA code"
+msgstr "无效的2FA代码"
+
+#: Login.php:218 Login.php:306
 msgid "Your previous session timed out.  Please login again."
 msgstr "您的上一次会话已超时。  请重新登录。"
 
-#: Login.php:249 Login.php:350
+#: Login.php:251 Login.php:352
 msgid "2FA : OTP key"
 msgstr "2FA : OTP密钥"
 
-#: Login.php:264
+#: Login.php:266
 msgid "I forgot my password"
 msgstr "我忘记了我的密码"
 
-#: Login.php:276
+#: Login.php:278
 msgid "Register a new Family"
 msgstr "注册一个新的家庭"
 
-#: Login.php:357
+#: Login.php:359
 msgid "Enter your password to retrieve your session"
 msgstr "输入你的密码以检索你的会话"
 
-#: Login.php:360
+#: Login.php:362
 msgid "Or sign in as a different user"
 msgstr "或以不同的用户身份登录"
 
@@ -8188,67 +8192,67 @@ msgstr "人观面"
 msgid "Person Editor"
 msgstr "人物编辑"
 
-#: PersonEditor.php:290
+#: PersonEditor.php:294
 msgid "You must enter a Last Name if no Family is selected."
 msgstr "如果没有选择家庭，你必须输入一个姓氏。"
 
-#: PersonEditor.php:317
+#: PersonEditor.php:321
 msgid "Not a valid Friend Date"
 msgstr "不是有效的朋友约会"
 
-#: PersonEditor.php:328
+#: PersonEditor.php:332
 msgid "Not a valid Membership Date"
 msgstr "不是有效的会员日期"
 
-#: PersonEditor.php:350
+#: PersonEditor.php:354
 msgid "Work Email is Not Valid"
 msgstr "工作邮箱无效"
 
-#: PersonEditor.php:873
+#: PersonEditor.php:879
 msgid "Red text"
 msgstr "红色文本"
 
-#: PersonEditor.php:873 PersonView.php:755
+#: PersonEditor.php:879 PersonView.php:758
 msgid "indicates items inherited from the associated family record."
 msgstr "表示从相关家族记录中继承的项目。"
 
-#: PersonEditor.php:886
+#: PersonEditor.php:892
 msgid "Personal Info"
 msgstr "个人资料"
 
-#: PersonEditor.php:907
+#: PersonEditor.php:913
 msgid "Mr., Mrs., Dr., Rev."
 msgstr "先生，夫人，博士，牧师。"
 
-#: PersonEditor.php:949
+#: PersonEditor.php:955
 msgid "Jr., Sr., III"
 msgstr "小，老，三"
 
-#: PersonEditor.php:968
+#: PersonEditor.php:974
 msgid "Person or Family Info"
 msgstr "个人或家庭信息"
 
-#: PersonEditor.php:975
+#: PersonEditor.php:981
 msgid "Person or Family Role"
 msgstr "个人或家庭角色"
 
-#: PersonEditor.php:995
+#: PersonEditor.php:1001
 msgid "Person or Family address"
 msgstr "个人或家庭地址"
 
-#: PersonEditor.php:998
+#: PersonEditor.php:1004
 msgid "Create a new Address or A new family (using last name)"
 msgstr "创建一个新的地址或一个新的家庭（使用姓）。"
 
-#: PersonEditor.php:1020
+#: PersonEditor.php:1026
 msgid "Person or Family Address"
 msgstr "个人或家庭地址"
 
-#: PersonEditor.php:1026 SelectDelete.php:234 SelectDelete.php:366
+#: PersonEditor.php:1032 SelectDelete.php:234 SelectDelete.php:366
 msgid "Person Name"
 msgstr "人名"
 
-#: PersonEditor.php:1032
+#: PersonEditor.php:1038
 msgid ""
 "A person could have a different name as his family.<br>• In this case set "
 "the Family Name in this field.<br>• In the other case, leave this field "
@@ -8257,202 +8261,202 @@ msgstr ""
 "一个人可能有一个不同的名字作为他的家人。<br>- 在这种情况下，在这个字段中设置"
 "家庭名称。<br>- 在其他情况下，让这个字段空白。"
 
-#: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:695
-#: PersonView.php:697 v2/templates/pastoralcare/pastoralcareperson.php:327
+#: PersonEditor.php:1517 PersonEditor.php:1521 PersonView.php:698
+#: PersonView.php:700 v2/templates/pastoralcare/pastoralcareperson.php:327
 #: v2/templates/pastoralcare/pastoralcareperson.php:329
 msgid "Facebook"
 msgstr "脸书"
 
-#: PersonEditor.php:1537 PersonView.php:704 PersonView.php:705
+#: PersonEditor.php:1543 PersonView.php:707 PersonView.php:708
 #: v2/templates/pastoralcare/pastoralcareperson.php:336
 #: v2/templates/pastoralcare/pastoralcareperson.php:337
 msgid "Twitter"
 msgstr "推特"
 
-#: PersonEditor.php:1555 PersonView.php:712 PersonView.php:713
+#: PersonEditor.php:1561 PersonView.php:715 PersonView.php:716
 #: v2/templates/pastoralcare/pastoralcareperson.php:344
 #: v2/templates/pastoralcare/pastoralcareperson.php:345
 msgid "LinkedIn"
 msgstr "ǞǞǞ"
 
-#: PersonEditor.php:1577
+#: PersonEditor.php:1583
 msgid "Membership Info"
 msgstr "会员信息"
 
-#: PersonEditor.php:1627 PersonView.php:620
+#: PersonEditor.php:1633 PersonView.php:623
 #: v2/templates/pastoralcare/pastoralcareperson.php:252
 msgid "Friend Date"
 msgstr "朋友约会"
 
-#: PersonView.php:301
+#: PersonView.php:302
 msgid "Not assigned"
 msgstr "未指定"
 
-#: PersonView.php:339
+#: PersonView.php:342
 msgid "Previous Person"
 msgstr "上一个人"
 
-#: PersonView.php:353
+#: PersonView.php:356
 msgid "Next Person"
 msgstr "下一个人"
 
-#: PersonView.php:384
+#: PersonView.php:387
 msgid "This Person is Deactivated"
 msgstr "此人已被停用"
 
-#: PersonView.php:462 v2/templates/pastoralcare/pastoralcareperson.php:114
+#: PersonView.php:465 v2/templates/pastoralcare/pastoralcareperson.php:114
 #: v2/templates/user/userlist.php:128
 msgid "Undefined"
 msgstr "未定义"
 
-#: PersonView.php:476 v2/templates/pastoralcare/pastoralcareperson.php:122
+#: PersonView.php:479 v2/templates/pastoralcare/pastoralcareperson.php:122
 msgid "Member Since"
 msgstr "会员以来"
 
-#: PersonView.php:555 v2/templates/pastoralcare/pastoralcareperson.php:198
+#: PersonView.php:558 v2/templates/pastoralcare/pastoralcareperson.php:198
 msgid "Family:"
 msgstr "家庭。"
 
-#: PersonView.php:808 v2/templates/gdpr/dashboard.php:24
+#: PersonView.php:811 v2/templates/gdpr/dashboard.php:24
 #: v2/templates/gdpr/gdprdatastructure.php:19
 #: v2/templates/pastoralcare/pastoralcarefamily.php:73
 #: v2/templates/pastoralcare/pastoralcareperson.php:68
 msgid "Printable Page"
 msgstr "可打印的页面"
 
-#: PersonView.php:825
+#: PersonView.php:828
 msgid "Add a pastoral care note"
 msgstr "添加牧民关怀说明"
 
-#: PersonView.php:843
+#: PersonView.php:846
 msgid "Assign this user to a group"
 msgstr "将该用户分配到一个组"
 
-#: PersonView.php:845
+#: PersonView.php:848
 msgid "Assign New Group"
 msgstr "指派新的组别"
 
-#: PersonView.php:853 v2/templates/cart/cartview.php:60
+#: PersonView.php:856 v2/templates/cart/cartview.php:60
 msgid "Get the vCard of the person"
 msgstr "获取该人的VCard"
 
-#: PersonView.php:866
+#: PersonView.php:869
 msgid "Create a CRM user"
 msgstr "创建一个CRM用户"
 
-#: PersonView.php:867
+#: PersonView.php:870
 msgid "Make User"
 msgstr "使用户"
 
-#: PersonView.php:873
+#: PersonView.php:876
 msgid "Add rights to this user"
 msgstr "为该用户添加权限"
 
-#: PersonView.php:874
+#: PersonView.php:877
 msgid "Edit User"
 msgstr "编辑用户"
 
-#: PersonView.php:883
+#: PersonView.php:886
 msgid " this Person"
 msgstr "这个人"
 
-#: PersonView.php:896 PersonView.php:903
+#: PersonView.php:899 PersonView.php:906
 msgid "Delete this Record"
 msgstr "删除该记录"
 
-#: PersonView.php:957 PrintPastoralCarePerson.php:497 PrintView.php:506
+#: PersonView.php:960 PrintPastoralCarePerson.php:497 PrintView.php:506
 msgid "Assigned Groups"
 msgstr "分配的小组"
 
-#: PersonView.php:1141
+#: PersonView.php:1144
 msgid "click to download"
 msgstr "点击下载"
 
-#: PersonView.php:1256 PrintPastoralCarePerson.php:509 PrintView.php:518
+#: PersonView.php:1260 PrintPastoralCarePerson.php:509 PrintView.php:518
 msgid "No group assignments."
 msgstr "没有小组作业。"
 
-#: PersonView.php:1315
+#: PersonView.php:1317
 msgid "Change Role"
 msgstr "改变角色"
 
-#: PersonView.php:1322
+#: PersonView.php:1324
 msgid "Update Properties"
 msgstr "更新属性"
 
-#: PersonView.php:1358
+#: PersonView.php:1360
 msgid "Group Informations"
 msgstr "集团信息"
 
-#: PersonView.php:1389
+#: PersonView.php:1391
 msgid "Person Informations"
 msgstr "人员信息"
 
-#: PersonView.php:1412
+#: PersonView.php:1414
 msgid "Modify Specific Properties"
 msgstr "修改特定属性"
 
-#: PersonView.php:1455 PrintPastoralCarePerson.php:606 PrintView.php:615
+#: PersonView.php:1457 PrintPastoralCarePerson.php:606 PrintView.php:615
 msgid "No property assignments."
 msgstr "没有财产分配。"
 
-#: PersonView.php:1525
+#: PersonView.php:1527
 msgid "No volunteer opportunity assignments."
 msgstr "没有志愿者机会的分配。"
 
-#: PersonView.php:1540
+#: PersonView.php:1542
 msgid "Assign a New Volunteer Opportunity"
 msgstr "指定一个新的志愿者机会"
 
-#: PersonView.php:1600 PersonView.php:1652
+#: PersonView.php:1602 PersonView.php:1654
 msgid "You must set an address for this person"
 msgstr "你必须为这个人设置一个地址"
 
-#: PersonView.php:1688
+#: PersonView.php:1690
 msgid "Filter your documents by : "
 msgstr "通过以下方式过滤你的文件。"
 
-#: PersonView.php:1689
+#: PersonView.php:1691
 msgid "All type"
 msgstr "所有类型"
 
-#: PersonView.php:1694
+#: PersonView.php:1696
 msgid "Shared documents"
 msgstr "共享的文件"
 
-#: PersonView.php:1730
+#: PersonView.php:1732
 msgid "Edit this document"
 msgstr "编辑本文件"
 
-#: PersonView.php:1740
+#: PersonView.php:1742
 msgid "Delete this document"
 msgstr "删除此文件"
 
-#: PersonView.php:1751
+#: PersonView.php:1753
 msgid "Share this document to another user"
 msgstr "分享此文件给另一个用户"
 
-#: PersonView.php:1764
+#: PersonView.php:1766
 msgid "Export this document to word Format"
 msgstr "将此文件导出为word格式"
 
-#: PersonView.php:1807
+#: PersonView.php:1809
 msgid "Last modification by"
 msgstr "最后修改的是"
 
-#: PersonView.php:1883
+#: PersonView.php:1885
 msgid "All Files"
 msgstr "所有文件"
 
-#: PersonView.php:1900
+#: PersonView.php:1902
 msgid "Create a Folder"
 msgstr "创建一个文件夹"
 
-#: PersonView.php:1910
+#: PersonView.php:1912
 msgid "Up One Level"
 msgstr "提高一个级别"
 
-#: PersonView.php:1917
+#: PersonView.php:1919
 msgid "Actualize files"
 msgstr "实现文件"
 
@@ -9289,63 +9293,63 @@ msgstr "不，取消这次删除"
 msgid "Delete Person Record"
 msgstr "删除个人记录"
 
-#: SettingsIndividual.php:133
+#: SettingsIndividual.php:134
 msgid "My User Settings"
 msgstr "我的用户设置"
 
-#: SettingsIndividual.php:146
+#: SettingsIndividual.php:147
 msgid "Classic User Profile Settings"
 msgstr "经典用户资料设置"
 
-#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1151
+#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1151
 msgid "Notes"
 msgstr "笔记"
 
-#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1150
+#: SettingsIndividual.php:152 SettingsIndividual.php:203 UserEditor.php:1150
 msgid "Current Value"
 msgstr "当前价值"
 
-#: SettingsIndividual.php:152 SettingsIndividual.php:203 SystemSettings.php:146
+#: SettingsIndividual.php:153 SettingsIndividual.php:204 SystemSettings.php:146
 #: UserEditor.php:1149
 msgid "Variable name"
 msgstr "变量名称"
 
-#: SettingsIndividual.php:179 SettingsIndividual.php:445
-#: SettingsIndividual.php:523 SystemSettings.php:132 UserEditor.php:1419
+#: SettingsIndividual.php:180 SettingsIndividual.php:446
+#: SettingsIndividual.php:524 SystemSettings.php:132 UserEditor.php:1419
 msgid "Save Settings"
 msgstr "保存设置"
 
-#: SettingsIndividual.php:197
+#: SettingsIndividual.php:198
 msgid "Skin"
 msgstr "皮肤"
 
-#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1186
+#: SettingsIndividual.php:397 SystemSettings.php:215 UserEditor.php:1186
 #: UserEditor.php:1239
 msgid "False"
 msgstr "假的"
 
-#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1187
+#: SettingsIndividual.php:398 SystemSettings.php:216 UserEditor.php:1187
 #: UserEditor.php:1240
 msgid "True"
 msgstr "真"
 
-#: SettingsIndividual.php:455
+#: SettingsIndividual.php:456
 msgid "Specific settings"
 msgstr "具体设置"
 
-#: SettingsIndividual.php:464 UserEditor.php:1333
+#: SettingsIndividual.php:465 UserEditor.php:1333
 msgid "Visibilities of the dashboard plugins"
 msgstr "仪表板插件的可视性"
 
-#: SettingsIndividual.php:506 UserEditor.php:1375
+#: SettingsIndividual.php:507 UserEditor.php:1375
 msgid "Top"
 msgstr "返回顶部"
 
-#: SettingsIndividual.php:536
+#: SettingsIndividual.php:537
 msgid "Two-factor authentication (2fa)"
 msgstr "双因素认证（2fa）"
 
-#: SettingsIndividual.php:539
+#: SettingsIndividual.php:540
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -9354,29 +9358,29 @@ msgstr ""
 "将你的EcclesiaCRM用户账户注册为双因素认证，为EcclesiaCRM提供了一个防御层，防"
 "止坏人试图访问你的账户。"
 
-#: SettingsIndividual.php:540
+#: SettingsIndividual.php:541
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "EcclesiaCRM双因素支持任何TOTP认证器应用程序"
 
-#: SettingsIndividual.php:545
+#: SettingsIndividual.php:546
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
 msgstr "当你登录到EcclesiaCRM时，你仍然会像平常一样输入你的用户名和密码"
 
-#: SettingsIndividual.php:548
+#: SettingsIndividual.php:549
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
 msgstr "然而，你还需要从你的认证器设备上提供一个一次性代码来完成你的登录。"
 
-#: SettingsIndividual.php:551
+#: SettingsIndividual.php:552
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
 msgstr "在成功输入你的凭证和一次性代码后，你将会像往常一样登录。"
 
-#: SettingsIndividual.php:554
+#: SettingsIndividual.php:555
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -9384,41 +9388,41 @@ msgstr ""
 "为了防止被锁定你的EcclesiaCRM账户，请确保你在点击开始之前准备好完成双因素注"
 "册。"
 
-#: SettingsIndividual.php:557
+#: SettingsIndividual.php:558
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
 msgstr "开始注册将使以前注册的任何2因素设备和恢复代码无效。"
 
-#: SettingsIndividual.php:559
+#: SettingsIndividual.php:560
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
 msgstr "当你点击下一步时，你会被提示扫描一个二维码来注册你的认证器应用程序。"
 
-#: SettingsIndividual.php:561
+#: SettingsIndividual.php:562
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
 msgstr "为了确认注册，你需要输入由你的认证器应用程序生成的代码"
 
-#: SettingsIndividual.php:563
+#: SettingsIndividual.php:564
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
 msgstr "在确认应用程序的注册后，将生成并显示一次性恢复代码。"
 
-#: SettingsIndividual.php:565
+#: SettingsIndividual.php:566
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
 msgstr "可以使用恢复代码，而不是从你的认证器应用程序生成的代码。"
 
-#: SettingsIndividual.php:567
+#: SettingsIndividual.php:568
 msgid "Store these in a secure location"
 msgstr "将这些东西存放在一个安全的地方"
 
-#: SettingsIndividual.php:574
+#: SettingsIndividual.php:575
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "开始双因素认证的注册工作"
 

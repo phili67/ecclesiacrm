@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-08 18:45+0000\n"
+"POT-Creation-Date: 2023-04-15 08:15+0000\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,22 +29,22 @@ msgstr "周(次)"
 msgid "month(s)"
 msgstr "月（ ）。"
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:38
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:44
 msgid "To Do List"
 msgstr "待办事项列表"
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:67
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:73
 msgid "Edit Name of Current To Do List"
 msgstr "编辑当前待办事项清单的名称"
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:71
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:77
 msgid "Remove Current To Do List"
 msgstr "删除当前待办事项清单"
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:75
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:81
 msgid "Add a To Do List"
 msgstr "添加一个待办事项列表"
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:124
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:130
 msgid "Add item"
 msgstr "添加项目"

@@ -1,13 +1,5 @@
 {
-    "List name": "Névjegyzék neve",
-    "Create a list": "Létrehoz egy listát",
-    "Edit list": "Lista szerkesztése",
-    "You're about to delete your list?": "Törölni készülsz a listádat?",
-    "This can't be undone.": "Ezt nem lehet visszacsinálni.",
-    "Item name": "Tétel neve",
-    "Date": "Dátum",
-    "Create a list item": "Listaelem létrehozása",
-    "Edit list item": "Listaelem szerkesztése",
-    "Delete item?": "Elem törlése?",
-    "You're about to delete an item.": "Egy elem törlésére készül."
+    "Cancel": "",
+    "OK": "",
+    "Confirm": ""
 }
