@@ -99,6 +99,7 @@ if (isset($_POST['User'])) {
                     $_SESSION['password'] = $_POST['Password'];
 
                     $twofa = true;
+                    $sErrorText = _('Invalid 2FA code');
                 }
             } else {
                 $validate2FA = true;
