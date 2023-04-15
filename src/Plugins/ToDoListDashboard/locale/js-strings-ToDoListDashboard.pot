@@ -5,38 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-02-24T08:25:13.322Z\n"
-"PO-Revision-Date: 2023-02-24T08:25:13.322Z\n"
+"POT-Creation-Date: 2023-04-15T08:37:20.991Z\n"
+"PO-Revision-Date: 2023-04-15T08:37:20.991Z\n"
 
-msgid "List name"
+msgid "Cancel"
 msgstr ""
 
-msgid "Create a list"
+msgid "OK"
 msgstr ""
 
-msgid "Edit list"
-msgstr ""
-
-msgid "You're about to delete your list?"
-msgstr ""
-
-msgid "This can't be undone."
-msgstr ""
-
-msgid "Item name"
-msgstr ""
-
-msgid "Date"
-msgstr ""
-
-msgid "Create a list item"
-msgstr ""
-
-msgid "Edit list item"
-msgstr ""
-
-msgid "Delete item?"
-msgstr ""
-
-msgid "You're about to delete an item."
+msgid "Confirm"
 msgstr ""

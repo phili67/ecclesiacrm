@@ -1,13 +1,5 @@
 {
-    "List name": "Name der Liste",
-    "Create a list": "Eine Liste erstellen",
-    "Edit list": "Liste bearbeiten",
-    "You're about to delete your list?": "Sie sind dabei, Ihre Liste zu löschen?",
-    "This can't be undone.": "Das kann nicht rückgängig gemacht werden.",
-    "Item name": "Name des Gegenstands",
-    "Date": "Datum",
-    "Create a list item": "Ein Listenelement erstellen",
-    "Edit list item": "Listenelement bearbeiten",
-    "Delete item?": "Artikel löschen?",
-    "You're about to delete an item.": "Sie sind dabei, ein Objekt zu löschen."
+    "Cancel": "",
+    "OK": "",
+    "Confirm": ""
 }

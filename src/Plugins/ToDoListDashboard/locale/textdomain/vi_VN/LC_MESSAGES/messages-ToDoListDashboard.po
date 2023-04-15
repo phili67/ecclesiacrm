@@ -18,22 +18,22 @@ msgstr ""
 msgid "month(s)"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:38
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:44
 msgid "To Do List"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:67
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:73
 msgid "Edit Name of Current To Do List"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:71
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:77
 msgid "Remove Current To Do List"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:75
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:81
 msgid "Add a To Do List"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:124
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:130
 msgid "Add item"
 msgstr ""

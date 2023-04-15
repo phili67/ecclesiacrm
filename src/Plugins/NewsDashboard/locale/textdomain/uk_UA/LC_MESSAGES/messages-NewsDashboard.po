@@ -2,29 +2,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 16:30+0000\n"
+"POT-Creation-Date: 2023-04-15 08:17+0000\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:42
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:49
 msgid "News"
 msgstr "Новини"
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:55
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:62
 msgid "No news at this time"
 msgstr "Наразі немає новин"
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:74
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:81
 msgid "Remove"
 msgstr "Видалити"
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:75
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:82
 msgid "Edit"
 msgstr "Редагувати"
 
-#: ../src/Plugins/NewsDashboard/v2/templates/View.php:91
+#: ../src/Plugins/NewsDashboard/v2/templates/View.php:98
 msgid "Add News"
 msgstr "Додати новину"

@@ -1,14 +1,5 @@
 {
-    "Remove": "Fjern",
-    "Edit": "Rediger",
-    "News Editor": "Nyhetsredaktør",
-    "News Title": "Nyhetstittel",
-    "Set your News title": "Angi nyhetstittel",
-    "Choose your News Type": "Velg nyhetstype",
-    "Infos": "Informasjon",
-    "To plan": "For å planlegge",
-    "To note": "Å merke seg",
-    "Important": "Viktig",
-    "Very important": "Svært viktig",
-    "You have to set a Title for your news": "Du må angi en tittel for nyheten din"
+    "Close": "",
+    "Save": "",
+    "Error": ""
 }

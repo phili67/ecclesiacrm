@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-24 08:25+0000\n"
+"POT-Creation-Date: 2023-04-15 08:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:52
+#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:55
 msgid "Connected Users"
 msgstr ""
 
-#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:63
+#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:66
 msgid "user is connected"
 msgstr ""
 
-#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:63
+#: ../src/Plugins/CurrentUsersDashboard/v2/templates/View.php:66
 msgid "users are connected"
 msgstr ""

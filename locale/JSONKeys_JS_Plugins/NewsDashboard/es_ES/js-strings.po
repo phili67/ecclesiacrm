@@ -2,48 +2,57 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-23T20:34:29.304Z\n"
+"POT-Creation-Date: 2023-04-15T08:17:10.799Z\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-msgid "Remove"
-msgstr "Eliminar"
+msgid "Close"
+msgstr ""
 
-msgid "Edit"
-msgstr "Editar"
+msgid "Save"
+msgstr ""
 
-msgid "News Editor"
-msgstr "Editor de noticias"
+msgid "Error"
+msgstr ""
 
-msgid "News Title"
-msgstr "Título de la noticia"
+#~ msgid "Remove"
+#~ msgstr "Eliminar"
 
-msgid "Set your News title"
-msgstr "Establezca el título de sus noticias"
+#~ msgid "Edit"
+#~ msgstr "Editar"
 
-msgid "Choose your News Type"
-msgstr "Elija su tipo de noticia"
+#~ msgid "News Editor"
+#~ msgstr "Editor de noticias"
 
-msgid "Infos"
-msgstr "Información"
+#~ msgid "News Title"
+#~ msgstr "Título de la noticia"
 
-msgid "To plan"
-msgstr "Para planificar"
+#~ msgid "Set your News title"
+#~ msgstr "Establezca el título de sus noticias"
 
-msgid "To note"
-msgstr "A tener en cuenta"
+#~ msgid "Choose your News Type"
+#~ msgstr "Elija su tipo de noticia"
 
-msgid "Important"
-msgstr "Importante"
+#~ msgid "Infos"
+#~ msgstr "Información"
 
-msgid "Very important"
-msgstr "Muy importante"
+#~ msgid "To plan"
+#~ msgstr "Para planificar"
 
-msgid "You have to set a Title for your news"
-msgstr "Tienes que poner un título a tus noticias"
+#~ msgid "To note"
+#~ msgstr "A tener en cuenta"
+
+#~ msgid "Important"
+#~ msgstr "Importante"
+
+#~ msgid "Very important"
+#~ msgstr "Muy importante"
+
+#~ msgid "You have to set a Title for your news"
+#~ msgstr "Tienes que poner un título a tus noticias"
 
 #~ msgid "Last modification on"
 #~ msgstr "Última modificación en"

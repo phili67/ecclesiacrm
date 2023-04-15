@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-24 08:22+0000\n"
+"POT-Creation-Date: 2023-04-15 08:23+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,12 +46,12 @@ msgstr "Πρόσωπο"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
-#: EcclesiaCRM/Service/TimelineService.php:212
+#: EcclesiaCRM/Service/TimelineService.php:213
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:345
-#: Include/Footer.php:68 members/404.php:16 PersonView.php:940
+#: Include/Footer.php:68 members/404.php:16 PersonView.php:943
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/templates/gdpr/gdprdatastructure.php:100
@@ -61,7 +61,7 @@ msgstr "Πρόσωπο"
 msgid "Family"
 msgstr "Οικογένεια"
 
-#: AutoPaymentEditor.php:814 PersonEditor.php:1026 PledgeEditor.php:588
+#: AutoPaymentEditor.php:814 PersonEditor.php:1032 PledgeEditor.php:588
 msgid "or"
 msgstr "ή"
 
@@ -87,8 +87,8 @@ msgstr ""
 #: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:79 eGive.php:345
 #: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
-#: ident/routes/verify.php:213 PersonEditor.php:977 PersonEditor.php:997
-#: PersonEditor.php:1587 PrintPastoralCarePerson.php:332
+#: ident/routes/verify.php:213 PersonEditor.php:983 PersonEditor.php:1003
+#: PersonEditor.php:1593 PrintPastoralCarePerson.php:332
 #: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
 #: SelectDelete.php:243 SystemSettings.php:235
 #: v2/templates/fundraiser/donatedItemEditor.php:43
@@ -177,7 +177,7 @@ msgstr "ανενεργό"
 #: AutoPaymentEditor.php:905 CSVExport.php:76 CSVImport.php:235
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: external/templates/registration/family-register-members.php:76
-#: ident/routes/verify.php:168 ident/routes/verify.php:173 PersonEditor.php:913
+#: ident/routes/verify.php:168 ident/routes/verify.php:173 PersonEditor.php:919
 #: Reports/MemberEmailExport.php:20
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
@@ -189,7 +189,7 @@ msgstr "Όνομα"
 #: AutoPaymentEditor.php:913 CSVExport.php:66 CSVImport.php:237
 #: external/templates/registration/family-register-members.php:81
 #: ident/routes/verify.php:191 ident/routes/verify.php:196
-#: ManageEnvelopes.php:171 PersonEditor.php:935
+#: ManageEnvelopes.php:171 PersonEditor.php:941
 #: Reports/MemberEmailExport.php:21
 #: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
@@ -205,8 +205,8 @@ msgstr "Επώνυμο"
 #: external/templates/registration/family-register.php:47 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:297 GeoPage.php:374 GroupReports.php:148
 #: ident/routes/verify.php:378 ident/routes/verify.php:433
-#: PersonEditor.php:1037 PersonEditor.php:1043 PersonEditor.php:1177
-#: PersonEditor.php:1201 PersonView.php:586 Reports/PDFLabel.php:859
+#: PersonEditor.php:1043 PersonEditor.php:1049 PersonEditor.php:1183
+#: PersonEditor.php:1207 PersonView.php:589 Reports/PDFLabel.php:859
 #: v2/templates/pastoralcare/pastoralcarefamily.php:124
 #: v2/templates/pastoralcare/pastoralcareperson.php:220
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
@@ -216,7 +216,7 @@ msgstr "Διεύθυνση"
 #: AutoPaymentEditor.php:937 CartToFamily.php:366 CSVExport.php:103
 #: CSVImport.php:243 DirectoryReports.php:294
 #: external/templates/registration/family-register.php:58 FamilyEditor.php:746
-#: ident/routes/verify.php:388 PersonEditor.php:1049 PersonEditor.php:1225
+#: ident/routes/verify.php:388 PersonEditor.php:1055 PersonEditor.php:1231
 #: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Πόλη"
@@ -224,7 +224,7 @@ msgstr "Πόλη"
 #: AutoPaymentEditor.php:945 CartToFamily.php:375 CSVExport.php:108
 #: CSVImport.php:244 DirectoryReports.php:300
 #: external/templates/registration/family-register.php:62 FamilyEditor.php:755
-#: ident/routes/verify.php:400 PersonEditor.php:1058 PersonEditor.php:1253
+#: ident/routes/verify.php:400 PersonEditor.php:1064 PersonEditor.php:1259
 #: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Κράτος"
@@ -232,14 +232,14 @@ msgstr "Κράτος"
 #: AutoPaymentEditor.php:953 CartToFamily.php:393 CSVExport.php:115
 #: CSVImport.php:245 DirectoryReports.php:306
 #: external/templates/registration/family-register.php:73 FamilyEditor.php:769
-#: ident/routes/verify.php:413 PersonEditor.php:1073 PersonEditor.php:1287
+#: ident/routes/verify.php:413 PersonEditor.php:1079 PersonEditor.php:1293
 #: Reports/PDFLabel.php:859
 msgid "Zip"
 msgstr "Zip"
 
 #: AutoPaymentEditor.php:961 CartToFamily.php:402 CSVExport.php:125
 #: CSVImport.php:246 FamilyEditor.php:779 ident/routes/verify.php:425
-#: PersonEditor.php:1083 PersonEditor.php:1317
+#: PersonEditor.php:1089 PersonEditor.php:1323
 msgid "Country"
 msgstr "Χώρα"
 
@@ -267,9 +267,9 @@ msgstr "Τηλέφωνο"
 #: FamilyView.php:555 GroupReports.php:152 ident/routes/verify.php:262
 #: ident/routes/verify.php:265 ident/routes/verify.php:686
 #: ident/templates/verify/login-info.php:34
-#: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1461
-#: PersonEditor.php:1465 PersonView.php:659 PersonView.php:787
-#: PersonView.php:1168 PrintPastoralCarePerson.php:385 PrintView.php:396
+#: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1467
+#: PersonEditor.php:1471 PersonView.php:662 PersonView.php:790
+#: PersonView.php:1171 PrintPastoralCarePerson.php:385 PrintView.php:396
 #: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
 #: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
@@ -325,9 +325,9 @@ msgstr "Αποθήκευση ιδιωτικών δεδομένων στη Vanco"
 #: FamilyEditor.php:715 FamilyEditor.php:813 FamilyEditor.php:888
 #: FamilyEditor.php:976 FamilyEditor.php:998 FamilyEditor.php:1072
 #: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:181
-#: ident/templates/verify/change-password.php:56 PersonEditor.php:888
-#: PersonEditor.php:970 PersonEditor.php:1157 PersonEditor.php:1579
-#: PersonEditor.php:1659 PersonEditor.php:1747 PledgeEditor.php:793
+#: ident/templates/verify/change-password.php:56 PersonEditor.php:894
+#: PersonEditor.php:976 PersonEditor.php:1163 PersonEditor.php:1585
+#: PersonEditor.php:1665 PersonEditor.php:1753 PledgeEditor.php:793
 #: SystemSettings.php:111 UserPasswordChange.php:225
 #: v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
@@ -338,9 +338,9 @@ msgstr "Αποθήκευση"
 #: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
 #: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1996
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:178
-#: SettingsIndividual.php:444 SettingsIndividual.php:520 TaxReport.php:53
+#: ManageEnvelopes.php:144 PersonEditor.php:1761 PersonView.php:1998
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:179
+#: SettingsIndividual.php:445 SettingsIndividual.php:521 TaxReport.php:53
 #: UserEditor.php:1422 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -377,7 +377,7 @@ msgstr "Εισάγετε νικητές"
 msgid "File Manager"
 msgstr "Διαχείριση αρχείων"
 
-#: browser/browse.php:42 PersonView.php:1892
+#: browser/browse.php:42 PersonView.php:1894
 msgid "Upload a file in EDrive"
 msgstr "Ανεβάστε ένα αρχείο στο EDrive"
 
@@ -385,7 +385,7 @@ msgstr "Ανεβάστε ένα αρχείο στο EDrive"
 msgid "Download"
 msgstr "Λήψη"
 
-#: browser/browse.php:72 PersonView.php:1935
+#: browser/browse.php:72 PersonView.php:1937
 msgid "Preview"
 msgstr "Προεπισκόπηση"
 
@@ -563,7 +563,7 @@ msgid "Canvasser"
 msgstr "Εξερευνητής"
 
 #: CanvassEditor.php:177 FamilyEditor.php:930 FamilyEditor.php:952
-#: PersonEditor.php:1109 PersonEditor.php:1131
+#: PersonEditor.php:1115 PersonEditor.php:1137
 msgid "None selected"
 msgstr "Δεν έχει επιλεγεί καμία"
 
@@ -613,7 +613,7 @@ msgid "Generate Badges"
 msgstr "Δημιουργία κονκάρδων"
 
 #: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:71 CSVImport.php:234
-#: FundRaiserEditor.php:186 PersonEditor.php:904
+#: FundRaiserEditor.php:186 PersonEditor.php:910
 #: Reports/GDPR/GDPRListExport.php:66
 #: v2/templates/email/mailchimp/dashboard.php:30
 #: v2/templates/fundraiser/donatedItemEditor.php:60
@@ -670,7 +670,7 @@ msgstr "Θέση εικόνας"
 
 #: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
 #: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
-#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:507
+#: PersonCustomFieldsEditor.php:517 SettingsIndividual.php:508
 #: UserEditor.php:1376 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Αριστερά"
@@ -681,7 +681,7 @@ msgstr "Κέντρο"
 
 #: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
 #: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
-#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:508
+#: PersonCustomFieldsEditor.php:518 SettingsIndividual.php:509
 #: UserEditor.php:1377 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Δεξιά"
@@ -766,7 +766,7 @@ msgstr "Εάν προσθέσετε μια νέα οικογένεια, κατα
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
 #: external/templates/registration/family-register.php:36 FamilyEditor.php:722
-#: LettersAndLabels.php:71 PersonEditor.php:1026 Reports/ConfirmReport.php:148
+#: LettersAndLabels.php:71 PersonEditor.php:1032 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
 msgid "Family Name"
 msgstr "Όνομα οικογένειας"
@@ -802,8 +802,8 @@ msgstr ""
 #: FamilyView.php:356 GroupReports.php:149 ident/routes/verify.php:231
 #: ident/routes/verify.php:234 ident/routes/verify.php:670
 #: ident/routes/verify.php:779 ident/templates/verify/verify-family-info.php:36
-#: ident/templates/verify/verify-family-info.php:93 PersonEditor.php:1359
-#: PersonEditor.php:1363 PersonView.php:645 PrintPastoralCarePerson.php:257
+#: ident/templates/verify/verify-family-info.php:93 PersonEditor.php:1365
+#: PersonEditor.php:1369 PersonView.php:648 PrintPastoralCarePerson.php:257
 #: PrintView.php:268 Reports/ConfirmReport.php:168
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/calendar/eventattendeesedit.php:60
@@ -816,8 +816,8 @@ msgstr "Οικιακό τηλέφωνο"
 
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:433 FamilyEditor.php:829
-#: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1380
-#: PersonEditor.php:1410 PersonEditor.php:1439
+#: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1386
+#: PersonEditor.php:1416 PersonEditor.php:1445
 msgid "Do not auto-format"
 msgstr "Μη αυτόματη μορφοποίηση"
 
@@ -826,8 +826,8 @@ msgstr "Μη αυτόματη μορφοποίηση"
 #: FamilyView.php:362 GroupReports.php:150 ident/routes/verify.php:242
 #: ident/routes/verify.php:245 ident/routes/verify.php:458
 #: ident/routes/verify.php:461 ident/routes/verify.php:675
-#: ident/templates/verify/verify-family-info.php:98 PersonEditor.php:1388
-#: PersonEditor.php:1392 PersonView.php:673 PrintPastoralCarePerson.php:262
+#: ident/templates/verify/verify-family-info.php:98 PersonEditor.php:1394
+#: PersonEditor.php:1398 PersonView.php:676 PrintPastoralCarePerson.php:262
 #: PrintView.php:273 Reports/ConfirmReport.php:288
 #: v2/templates/pastoralcare/pastoralcarefamily.php:187
 #: v2/templates/pastoralcare/pastoralcareperson.php:305
@@ -837,8 +837,8 @@ msgstr "Τηλέφωνο εργασίας"
 #: CartToFamily.php:439 CSVExport.php:142 FamilyEditor.php:846
 #: FamilyEditor.php:862 FamilyView.php:369 ident/routes/verify.php:251
 #: ident/routes/verify.php:467 ident/routes/verify.php:680
-#: ident/templates/verify/verify-family-info.php:103 PersonEditor.php:1419
-#: PersonEditor.php:1423 PersonView.php:633 PrintPastoralCarePerson.php:267
+#: ident/templates/verify/verify-family-info.php:103 PersonEditor.php:1425
+#: PersonEditor.php:1429 PersonView.php:636 PrintPastoralCarePerson.php:267
 #: PrintView.php:278 v2/templates/pastoralcare/pastoralcarefamily.php:194
 #: v2/templates/pastoralcare/pastoralcareperson.php:265
 msgid "Mobile Phone"
@@ -987,12 +987,12 @@ msgid "Required"
 msgstr "Απαιτούμενο"
 
 #: CSVExport.php:82 CSVImport.php:236 ident/routes/verify.php:180
-#: ident/routes/verify.php:185 PersonEditor.php:924
+#: ident/routes/verify.php:185 PersonEditor.php:930
 msgid "Middle Name"
 msgstr "Μεσαίο όνομα"
 
 #: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
-#: PersonEditor.php:946
+#: PersonEditor.php:952
 msgid "Suffix"
 msgstr "Κατάληξη"
 
@@ -1001,13 +1001,13 @@ msgid "Envelope"
 msgstr "Φάκελος"
 
 #: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
-#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:680
+#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:683
 #: Reports/DirectoryReport.php:331
 #: v2/templates/pastoralcare/pastoralcareperson.php:312
 msgid "Work/Other Email"
 msgstr "Εργασία/Άλλο Email"
 
-#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1604
+#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1610
 #: PrintPastoralCarePerson.php:395 PrintView.php:406
 msgid "Membership Date"
 msgstr "Ημερομηνία μέλους"
@@ -1024,7 +1024,7 @@ msgstr "Ηλικία / Έτη γάμου"
 #: EcclesiaCRM/APIControllers/SearchController.php:278
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
 #: FamilyEditor.php:1101 FamilyView.php:553 FinancialReports.php:153
-#: ident/routes/verify.php:305 OptionManager.php:109 PersonEditor.php:1585
+#: ident/routes/verify.php:305 OptionManager.php:109 PersonEditor.php:1591
 #: PrintPastoralCarePerson.php:400 PrintView.php:411
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
 #: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
@@ -1089,7 +1089,7 @@ msgstr "Χρησιμοποιήστε το πλήκτρο Ctrl για να επι
 
 #: CSVExport.php:355 CSVImport.php:239
 #: EcclesiaCRM/APIControllers/SearchController.php:277 FamilyEditor.php:1096
-#: PersonEditor.php:895 PrintPastoralCarePerson.php:311
+#: PersonEditor.php:901 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:221
 #: v2/templates/sundayschool/sundayschoolview.php:313 queryparameters_qrp.php:4
@@ -1105,7 +1105,7 @@ msgstr "Μην φιλτράρετε"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
 #: external/templates/registration/family-register-members.php:66
-#: FamilyEditor.php:1150 PersonEditor.php:899 PrintPastoralCarePerson.php:315
+#: FamilyEditor.php:1150 PersonEditor.php:905 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
 #: queryparameteroptions_qpo.php:2
 msgid "Male"
@@ -1116,7 +1116,7 @@ msgstr "Αρσενικό"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
 #: external/templates/registration/family-register-members.php:67
-#: FamilyEditor.php:1153 PersonEditor.php:900 PrintPastoralCarePerson.php:315
+#: FamilyEditor.php:1153 PersonEditor.php:906 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
 #: queryparameteroptions_qpo.php:3
 msgid "Female"
@@ -1134,7 +1134,7 @@ msgstr "Από:"
 msgid "To:"
 msgstr "Προς:"
 
-#: CSVExport.php:438 PersonEditor.php:955
+#: CSVExport.php:438 PersonEditor.php:961
 msgid "Birthday Date"
 msgstr "Ημερομηνία γενεθλίων"
 
@@ -1203,12 +1203,12 @@ msgstr "Φάκελος δωρεάς"
 msgid "Cell Phone"
 msgstr "Κινητό τηλέφωνο"
 
-#: CSVImport.php:251 PersonEditor.php:1487 PrintPastoralCarePerson.php:390
+#: CSVImport.php:251 PersonEditor.php:1493 PrintPastoralCarePerson.php:390
 #: PrintView.php:401
 msgid "Work / Other Email"
 msgstr "Εργασία / Άλλο Email"
 
-#: CSVImport.php:252 PersonView.php:603 PrintPastoralCarePerson.php:320
+#: CSVImport.php:252 PersonView.php:606 PrintPastoralCarePerson.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
 #: v2/templates/pastoralcare/pastoralcareperson.php:235
 #: v2/templates/sundayschool/sundayschooldashboard.php:260
@@ -1471,7 +1471,7 @@ msgstr "Φόρτωση εξουσιοδοτημένων συναλλαγών"
 msgid "Run Transactions"
 msgstr "Εκτέλεση συναλλαγών"
 
-#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1305
+#: DepositSlipEditor.php:218 EventNames.php:321 PersonView.php:1307
 #: v2/templates/calendar/eventattendeesedit.php:62
 msgid "Action"
 msgstr "Δράση"
@@ -1533,7 +1533,7 @@ msgstr "Πληροφορίες που πρέπει να συμπεριληφθο
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:265
 #: EcclesiaCRM/Service/CalendarService.php:60 FamilyView.php:554
 #: ident/routes/verify.php:281 ident/routes/verify.php:694
-#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1167
+#: ident/templates/verify/verify-family-info.php:115 PersonView.php:1170
 #: Reports/ConfirmReport.php:231 Reports/ConfirmReport.php:251
 msgid "Birthday"
 msgstr "Γενέθλια"
@@ -1628,8 +1628,8 @@ msgstr "Δημιουργία καταλόγου"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:619
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:689
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:709
-#: EcclesiaCRM/Service/CalendarService.php:1101
-#: EcclesiaCRM/Service/CalendarService.php:1127
+#: EcclesiaCRM/Service/CalendarService.php:1110
+#: EcclesiaCRM/Service/CalendarService.php:1136
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "Δύο κρατήσεις πόρων δεν μπορούν να βρίσκονται στην ίδια χρονοθυρίδα."
 
@@ -1660,7 +1660,7 @@ msgid "Video"
 msgstr "Βίντεο"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:221
-#: EcclesiaCRM/Service/CalendarService.php:678
+#: EcclesiaCRM/Service/CalendarService.php:687
 msgid "Share"
 msgstr "Μοιραστείτε το"
 
@@ -1765,12 +1765,12 @@ msgid "Create file"
 msgstr "Δημιουργία αρχείου"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
-#: EcclesiaCRM/Service/TimelineService.php:246
+#: EcclesiaCRM/Service/TimelineService.php:252
 msgid "This document is opened by"
 msgstr "Αυτό το έγγραφο ανοίγει από"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
-#: EcclesiaCRM/Service/TimelineService.php:246
+#: EcclesiaCRM/Service/TimelineService.php:252
 msgid "Minutes left"
 msgstr "Απέμειναν λεπτά"
 
@@ -1920,7 +1920,7 @@ msgstr "Οικογένειες"
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:201 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: ident/routes/verify.php:309 ident/routes/verify.php:711
-#: ident/templates/verify/verify-family-info.php:145 PersonView.php:498
+#: ident/templates/verify/verify-family-info.php:145 PersonView.php:501
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/dashboard/maindashboard.php:226
 #: v2/templates/group/grouplist.php:53
@@ -2016,7 +2016,7 @@ msgstr "Προστέθηκε στην ομάδα"
 #: EcclesiaCRM/Service/CalendarService.php:272
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:500
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:501
 #: UserEditor.php:1369
 msgid "Yes"
 msgstr "Ναι"
@@ -2025,10 +2025,10 @@ msgstr "Ναι"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:173
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Service/CalendarService.php:272
-#: EcclesiaCRM/Service/CalendarService.php:530
+#: EcclesiaCRM/Service/CalendarService.php:539
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:499
+#: Reports/GDPR/GDPRListExport.php:88 SettingsIndividual.php:500
 #: UserEditor.php:1316 UserEditor.php:1368 v2/templates/user/userlist.php:184
 msgid "No"
 msgstr "Όχι"
@@ -2110,7 +2110,7 @@ msgstr "Τύπος ομάδας"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:157
 #: FamilyEditor.php:1097 FamilyView.php:552 OptionManager.php:100
-#: OptionManager.php:141 PersonView.php:1166 PrintPastoralCarePerson.php:449
+#: OptionManager.php:141 PersonView.php:1169 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
@@ -2186,7 +2186,7 @@ msgstr "Επεξεργαστής τύπων ομάδων"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:675
+#: EcclesiaCRM/Service/CalendarService.php:684
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:102 OptionManager.php:133
@@ -3486,8 +3486,8 @@ msgid "Invalid Family"
 msgstr "Άκυρη οικογένεια"
 
 #: EcclesiaCRM/dto/SystemConfig.php:47
-#: EcclesiaCRM/Service/CalendarService.php:829
-#: EcclesiaCRM/Service/CalendarService.php:1156
+#: EcclesiaCRM/Service/CalendarService.php:838
+#: EcclesiaCRM/Service/CalendarService.php:1165
 msgid "NONE"
 msgstr "ΚΑΝΕΝΑΣ"
 
@@ -4508,7 +4508,7 @@ msgid "Map Settings"
 msgstr "Ρυθμίσεις χάρτη"
 
 #: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:381
-#: FamilyView.php:473 PersonView.php:826 PrintPastoralCarePerson.php:639
+#: FamilyView.php:473 PersonView.php:829 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1114
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
@@ -4597,7 +4597,7 @@ msgstr "Ο λογαριασμός σας διαγράφηκε"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "Ο λογαριασμός σας στο EcclesiaCRM διαγράφηκε."
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:232
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:234
 msgid "Email/Username"
 msgstr "Email/Όνομα χρήστη"
 
@@ -4698,12 +4698,12 @@ msgstr "Παρακαλούμε επαληθεύστε τα στοιχεία τη
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:34
 #: external/templates/password/enter-username.php:46
-#: ident/templates/verify/login-info.php:44 Login.php:195 Login.php:257
+#: ident/templates/verify/login-info.php:44 Login.php:197 Login.php:259
 msgid "Login"
 msgstr "Σύνδεση"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:35
-#: ident/templates/verify/login-info.php:38 Login.php:244 Login.php:339
+#: ident/templates/verify/login-info.php:38 Login.php:246 Login.php:341
 #: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
@@ -4722,19 +4722,19 @@ msgstr "Ιδιωτικός χώρος"
 msgid "Home"
 msgstr "Αρχική σελίδα"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:91 Include/Header.php:155 PersonView.php:802
+#: EcclesiaCRM/MenuBar/MenuBar.php:91 Include/Header.php:155 PersonView.php:805
 msgid "Change Password"
 msgstr "Αλλαγή κωδικού πρόσβασης"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:92 Include/Header.php:157 PersonView.php:800
+#: EcclesiaCRM/MenuBar/MenuBar.php:92 Include/Header.php:157 PersonView.php:803
 msgid "Change Settings"
 msgstr "Αλλαγή ρυθμίσεων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1030
+#: EcclesiaCRM/MenuBar/MenuBar.php:93 FamilyView.php:678 PersonView.php:1033
 msgid "Documents"
 msgstr "Έγγραφα"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1044 UserEditor.php:917
+#: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1047 UserEditor.php:917
 msgid "EDrive"
 msgstr "EDrive"
 
@@ -4826,7 +4826,7 @@ msgid "List Groups"
 msgstr "Λίστα ομάδων"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:265
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:195
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:199
 msgid "Group Assignment Helper"
 msgstr "Βοηθός ανάθεσης ομάδας"
 
@@ -5010,13 +5010,13 @@ msgid "Witness"
 msgstr "Μάρτυρας"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:236
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:284
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:291
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "Δημιουργήθηκε"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:241
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:289
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:296
 msgid "Updated"
 msgstr "Ενημερωμένο"
 
@@ -5029,12 +5029,12 @@ msgid "Verification email sent"
 msgstr "Αποστολή email επαλήθευσης"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:327
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:452
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:460
 msgid "Profile Image Deleted"
 msgstr "Διαγραφή εικόνας προφίλ"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:340
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:476
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:484
 msgid "Profile Image uploaded"
 msgstr "Ανεβασμένη εικόνα προφίλ"
 
@@ -5044,8 +5044,8 @@ msgstr "Ανεβασμένη εικόνα προφίλ"
 msgid "Member"
 msgstr "Μέλος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:624
-#: EcclesiaCRM/Service/TimelineService.php:216
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:632
+#: EcclesiaCRM/Service/TimelineService.php:218
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
@@ -5055,77 +5055,77 @@ msgstr "Μέλος"
 msgid "Unknown"
 msgstr "Άγνωστος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:639
 #: EcclesiaCRM/utils/OutputUtils.php:566
 msgid "mos old"
 msgstr "mos old"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:633
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:641
 #: EcclesiaCRM/utils/OutputUtils.php:568
 msgid "mo old"
 msgstr "mo παλιά"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:637
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:645
 #: EcclesiaCRM/utils/OutputUtils.php:536 EcclesiaCRM/utils/OutputUtils.php:538
 #: EcclesiaCRM/utils/OutputUtils.php:572
 msgid "yrs old"
 msgstr "ετών"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:639
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:647
 #: EcclesiaCRM/utils/OutputUtils.php:574
 msgid "yr old"
 msgstr "ετών"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:667
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:675
 msgid "EcclesiaCRM export"
 msgstr "Εξαγωγή EcclesiaCRM"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:740
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
 msgid "system user created"
 msgstr "χρήστης του συστήματος που δημιουργήθηκε"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
 msgid "system user updated"
 msgstr "χρήστης του συστήματος ενημερώθηκε"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
 msgid "system user deleted"
 msgstr "Διαγραφή χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
 msgid "system user password reset"
 msgstr "επαναφορά κωδικού πρόσβασης χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
 msgid "system user changed password"
 msgstr "ο χρήστης του συστήματος άλλαξε τον κωδικό πρόσβασης"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
 msgid "system user password changed by admin"
 msgstr ""
 "ο κωδικός πρόσβασης του χρήστη του συστήματος άλλαξε από τον διαχειριστή"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:761
 msgid "system user login reset"
 msgstr "επαναφορά σύνδεσης χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:764
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:767
 msgid "Dav create file"
 msgstr "Dav δημιουργήστε αρχείο"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:770
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:773
 msgid "Dav create directory"
 msgstr "Dav create directory"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:776
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:779
 msgid "Dav update file"
 msgstr "Αρχείο ενημέρωσης Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:789
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:792
 msgid "Dav move copy file"
 msgstr "Dav μετακίνηση αντιγραφή αρχείου"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:796
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:799
 msgid "Dav delete file"
 msgstr "Dav delete file"
 
@@ -5174,8 +5174,8 @@ msgstr "Πόλη, κράτος, ταχυδρομικός κώδικας"
 
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186 FamilyEditor.php:874
 #: FamilyView.php:333 ident/routes/verify.php:505 ident/routes/verify.php:792
-#: ident/templates/verify/verify-family-info.php:52 PersonEditor.php:1445
-#: PersonView.php:652 Reports/ConfirmReport.php:173
+#: ident/templates/verify/verify-family-info.php:52 PersonEditor.php:1451
+#: PersonView.php:655 Reports/ConfirmReport.php:173
 #: v2/templates/pastoralcare/pastoralcarefamily.php:158
 #: v2/templates/pastoralcare/pastoralcareperson.php:284
 msgid "Send Newsletter"
@@ -5229,7 +5229,7 @@ msgstr "Σελίδα"
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460
 #: external/templates/registration/family-register-members.php:105
-#: PersonView.php:687 Reports/DirectoryReport.php:321
+#: PersonView.php:690 Reports/DirectoryReport.php:321
 #: Reports/GroupReport.php:129
 msgid "Work"
 msgstr "Εργασία"
@@ -5311,9 +5311,9 @@ msgstr "Διευθύνσεις"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84
-#: EcclesiaCRM/Service/CalendarService.php:507 ElectronicPaymentList.php:215
+#: EcclesiaCRM/Service/CalendarService.php:516 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:258 EventNames.php:349 FamilyView.php:283
-#: PersonView.php:527 v2/templates/pastoralcare/pastoralcareperson.php:166
+#: PersonView.php:530 v2/templates/pastoralcare/pastoralcareperson.php:166
 msgid "Edit"
 msgstr "Επεξεργασία"
 
@@ -5339,7 +5339,7 @@ msgstr "Διεύθυνση"
 #: EcclesiaCRM/Service/MailChimpService.php:204
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:395
-#: FamilyView.php:1069 PersonView.php:720 PersonView.php:1967
+#: FamilyView.php:1069 PersonView.php:723 PersonView.php:1969
 #: PrintPastoralCarePerson.php:654
 #: v2/templates/pastoralcare/pastoralcarefamily.php:220
 #: v2/templates/pastoralcare/pastoralcareperson.php:352
@@ -5468,7 +5468,7 @@ msgid "Person Properties"
 msgstr "Ιδιότητες προσώπου"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:147 PersonView.php:985
+#: Include/Footer.php:147 PersonView.php:988
 msgid "Volunteer Opportunities"
 msgstr "Ευκαιρίες εθελοντισμού"
 
@@ -5485,18 +5485,18 @@ msgstr "εθελοντής"
 msgid "Pledges"
 msgstr "Υποσχέσεις"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
-#: EcclesiaCRM/Service/AppIntegrityService.php:73
+#: EcclesiaCRM/Service/AppIntegrityService.php:29
+#: EcclesiaCRM/Service/AppIntegrityService.php:74
 msgid "Signature definition file signature failed validation"
 msgstr "Η επικύρωση της υπογραφής του αρχείου ορισμού υπογραφής απέτυχε"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
-#: EcclesiaCRM/Service/AppIntegrityService.php:76
+#: EcclesiaCRM/Service/AppIntegrityService.php:32
+#: EcclesiaCRM/Service/AppIntegrityService.php:77
 msgid "Signature definition File Missing"
 msgstr "Έλλειψη αρχείου ορισμού υπογραφής"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:40
-#: EcclesiaCRM/Service/AppIntegrityService.php:82
+#: EcclesiaCRM/Service/AppIntegrityService.php:41
+#: EcclesiaCRM/Service/AppIntegrityService.php:83
 msgid "One or more files failed signature validation"
 msgstr "Ένα ή περισσότερα αρχεία απέτυχαν στην επικύρωση υπογραφής"
 
@@ -5508,13 +5508,13 @@ msgstr "Εκδήλωση"
 msgid "Anniversary"
 msgstr "Επέτειος"
 
-#: EcclesiaCRM/Service/CalendarService.php:510 ElectronicPaymentList.php:216
+#: EcclesiaCRM/Service/CalendarService.php:519 ElectronicPaymentList.php:216
 #: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
 #: EventNames.php:355 FamilyView.php:1096 FindDepositSlip.php:131
 #: ident/routes/verify.php:728 ident/routes/verify.php:795
 #: ident/templates/verify/verify-family-info.php:55
-#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1905
-#: PersonView.php:1997 v2/templates/calendar/eventattendeesedit.php:101
+#: ident/templates/verify/verify-family-info.php:161 PersonView.php:1907
+#: PersonView.php:1999 v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/group/groupview.php:287
@@ -5526,52 +5526,52 @@ msgstr "Επέτειος"
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: EcclesiaCRM/Service/CalendarService.php:513
+#: EcclesiaCRM/Service/CalendarService.php:522
 msgid "Info"
 msgstr "Πληροφορίες"
 
-#: EcclesiaCRM/Service/CalendarService.php:545
+#: EcclesiaCRM/Service/CalendarService.php:554
 msgid "Check-in"
 msgstr "Check-in"
 
-#: EcclesiaCRM/Service/CalendarService.php:546
+#: EcclesiaCRM/Service/CalendarService.php:555
 msgid "Check-out"
 msgstr "Check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:547
+#: EcclesiaCRM/Service/CalendarService.php:556
 msgid "Rest"
 msgstr "Ανάπαυση"
 
-#: EcclesiaCRM/Service/CalendarService.php:568
-#: EcclesiaCRM/Service/CalendarService.php:601
+#: EcclesiaCRM/Service/CalendarService.php:577
+#: EcclesiaCRM/Service/CalendarService.php:610
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "Συμμετέχοντες"
 
-#: EcclesiaCRM/Service/CalendarService.php:579
-#: EcclesiaCRM/Service/CalendarService.php:580
-#: EcclesiaCRM/Service/CalendarService.php:583
-#: EcclesiaCRM/Service/CalendarService.php:584
+#: EcclesiaCRM/Service/CalendarService.php:588
+#: EcclesiaCRM/Service/CalendarService.php:589
+#: EcclesiaCRM/Service/CalendarService.php:592
+#: EcclesiaCRM/Service/CalendarService.php:593
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "Κάντε Check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:580
-#: EcclesiaCRM/Service/CalendarService.php:584
+#: EcclesiaCRM/Service/CalendarService.php:589
+#: EcclesiaCRM/Service/CalendarService.php:593
 msgid "Check-out done"
 msgstr "Έγινε check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:627
+#: EcclesiaCRM/Service/CalendarService.php:636
 msgid "No Attendance Recorded"
 msgstr "Δεν καταγράφηκε συμμετοχή"
 
-#: EcclesiaCRM/Service/CalendarService.php:641
+#: EcclesiaCRM/Service/CalendarService.php:650
 msgid "login"
 msgstr "Σύνδεση"
 
-#: EcclesiaCRM/Service/CalendarService.php:672
+#: EcclesiaCRM/Service/CalendarService.php:681
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "Προσωπικό ημερολόγιο"
@@ -5601,30 +5601,30 @@ msgstr "Μέρος"
 msgid " of the"
 msgstr " του"
 
-#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:571
+#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:574
 #: v2/templates/pastoralcare/pastoralcareperson.php:207
 msgid "(No assigned family)"
 msgstr "(Δεν έχει οριστεί οικογένεια)"
 
-#: EcclesiaCRM/Service/TimelineService.php:218
+#: EcclesiaCRM/Service/TimelineService.php:220
 msgid "Self Registration"
 msgstr "Αυτοεγγραφή"
 
-#: EcclesiaCRM/Service/TimelineService.php:220
+#: EcclesiaCRM/Service/TimelineService.php:222
 msgid "Self Verification"
 msgstr "Αυτοεπιβεβαίωση"
 
-#: EcclesiaCRM/Service/TimelineService.php:257
-#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
+#: EcclesiaCRM/Service/TimelineService.php:263
+#: EcclesiaCRM/Service/TimelineService.php:266 PrintView.php:658
 msgid "by"
 msgstr "από"
 
-#: EcclesiaCRM/Service/TimelineService.php:320
+#: EcclesiaCRM/Service/TimelineService.php:327
 #: EcclesiaCRM/utils/MiscUtils.php:758 EcclesiaCRM/utils/MiscUtils.php:861
 msgid "File"
 msgstr "Αρχείο"
 
-#: EcclesiaCRM/Service/TimelineService.php:355
+#: EcclesiaCRM/Service/TimelineService.php:362
 msgid "Shared by"
 msgstr "Κοινή χρήση από"
 
@@ -6002,21 +6002,21 @@ msgstr "Άτομα που είναι μόνοι τους"
 msgid "Family List"
 msgstr "Οικογενειακός κατάλογος"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:121
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:125
 msgid "People Dashboard"
 msgstr "People Dashboard"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:195
 #: query_qry.php:8 query_qry.php:53
 msgid "Advanced Search"
 msgstr "Σύνθετη αναζήτηση"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:193
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:197
 msgid "Person Listing"
 msgstr "Κατάλογος προσώπων"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPersonListController.php:95
-#: PersonView.php:346
+#: PersonView.php:349
 #: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:16
 msgid "Person List"
 msgstr "Κατάλογος προσώπων"
@@ -6060,7 +6060,7 @@ msgstr "Ημερολόγιο Εκκλησίας"
 msgid "Listing All Church Events"
 msgstr "Λίστα όλων των εκδηλώσεων της Εκκλησίας"
 
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:174
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:175
 #: EventAttendance.php:36
 msgid "Event Attendees"
 msgstr "Συμμετέχοντες στην εκδήλωση"
@@ -6559,7 +6559,7 @@ msgstr "Ώρα έναρξης"
 msgid "Create Event"
 msgstr "Δημιουργία συμβάντος"
 
-#: EventNames.php:384
+#: EventNames.php:381
 msgid "Add Event Type"
 msgstr "Προσθήκη τύπου συμβάντος"
 
@@ -6639,7 +6639,7 @@ msgid "Register"
 msgstr "Εγγραφή"
 
 #: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1165
+#: FamilyEditor.php:1070 FamilyView.php:541 PersonView.php:1168
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:262
 #: v2/templates/pastoralcare/pastoralcareperson.php:390
@@ -6656,7 +6656,7 @@ msgid "Mobile"
 msgstr "Κινητό"
 
 #: external/templates/registration/family-register-members.php:132
-#: PersonEditor.php:959 Reports/ConfirmReport.php:232
+#: PersonEditor.php:965 Reports/ConfirmReport.php:232
 #: Reports/ConfirmReport.php:252
 msgid "Hide Age"
 msgstr "Απόκρυψη Ηλικία"
@@ -6704,7 +6704,7 @@ msgstr "Δεν έχουν προστεθεί ακόμη προσαρμοσμέν
 
 #: FamilyCustomFieldsEditor.php:341 GroupPropsEditor.php:226
 #: GroupPropsFormEditor.php:340 OptionManager.php:391
-#: PersonCustomFieldsEditor.php:333 PersonEditor.php:880
+#: PersonCustomFieldsEditor.php:333 PersonEditor.php:886
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
@@ -6776,11 +6776,11 @@ msgstr "Οικογενειακός συντάκτης"
 msgid "First name must be entered"
 msgstr "Πρέπει να εισαχθεί το όνομα"
 
-#: FamilyEditor.php:247 PersonEditor.php:302
+#: FamilyEditor.php:247 PersonEditor.php:306
 msgid "Invalid Year: allowable values are 1901 to 2155"
 msgstr "Μη έγκυρο έτος: οι επιτρεπόμενες τιμές είναι 1901 έως 2155"
 
-#: FamilyEditor.php:251 PersonEditor.php:306
+#: FamilyEditor.php:251 PersonEditor.php:310
 msgid "Invalid Birth Date."
 msgstr "Μη έγκυρη ημερομηνία γέννησης."
 
@@ -6788,7 +6788,7 @@ msgstr "Μη έγκυρη ημερομηνία γέννησης."
 msgid "Not a valid Wedding Date"
 msgstr "Δεν είναι έγκυρη ημερομηνία γάμου"
 
-#: FamilyEditor.php:282 PersonEditor.php:339
+#: FamilyEditor.php:282 PersonEditor.php:343
 msgid "Email is Not Valid"
 msgstr "Το email δεν είναι έγκυρο"
 
@@ -6804,8 +6804,8 @@ msgstr "Ενημερώθηκε μέσω Family"
 msgid "Family Info"
 msgstr "Οικογενειακές πληροφορίες"
 
-#: FamilyEditor.php:762 ident/routes/verify.php:407 PersonEditor.php:1066
-#: PersonEditor.php:1269
+#: FamilyEditor.php:762 ident/routes/verify.php:407 PersonEditor.php:1072
+#: PersonEditor.php:1275
 msgid "None US/CND State"
 msgstr "Κανένα κράτος ΗΠΑ/CND"
 
@@ -6817,7 +6817,7 @@ msgstr "Γεωγραφικό πλάτος"
 msgid "Longitude"
 msgstr "Γεωγραφικό μήκος"
 
-#: FamilyEditor.php:811 PersonEditor.php:1155
+#: FamilyEditor.php:811 PersonEditor.php:1161
 msgid "Contact Info"
 msgstr "Πληροφορίες επικοινωνίας"
 
@@ -6825,15 +6825,15 @@ msgstr "Πληροφορίες επικοινωνίας"
 msgid "Other Info"
 msgstr "Άλλες πληροφορίες"
 
-#: FamilyEditor.php:919 PersonEditor.php:1098
+#: FamilyEditor.php:919 PersonEditor.php:1104
 msgid "Ok To Canvass"
 msgstr "Εντάξει για να Canvass"
 
-#: FamilyEditor.php:928 PersonEditor.php:1107
+#: FamilyEditor.php:928 PersonEditor.php:1113
 msgid "Assign a Canvasser"
 msgstr "Ορίστε έναν Canvasser"
 
-#: FamilyEditor.php:949 PersonEditor.php:1128
+#: FamilyEditor.php:949 PersonEditor.php:1134
 msgid "Assign a Brave Canvasser"
 msgstr "Ορίστε έναν γενναίο Canvasser"
 
@@ -6846,7 +6846,7 @@ msgstr "Πληροφορίες φακέλου"
 msgid "Envelope Number"
 msgstr "Αριθμός φακέλου"
 
-#: FamilyEditor.php:996 PersonEditor.php:1657
+#: FamilyEditor.php:996 PersonEditor.php:1663
 msgid "Custom Fields"
 msgstr "Προσαρμοσμένα πεδία"
 
@@ -6874,7 +6874,7 @@ msgstr "Τελευταία"
 msgid "Day"
 msgstr "Ημέρα"
 
-#: FamilyEditor.php:1147 PersonEditor.php:897
+#: FamilyEditor.php:1147 PersonEditor.php:903
 msgid "Select Gender"
 msgstr "Επιλέξτε φύλο"
 
@@ -6934,7 +6934,7 @@ msgstr "Δεκέμβριος"
 msgid "Unk"
 msgstr "Unk"
 
-#: FamilyEditor.php:1294 PersonEditor.php:1751 PledgeEditor.php:795
+#: FamilyEditor.php:1294 PersonEditor.php:1757 PledgeEditor.php:795
 #: v2/templates/fundraiser/donatedItemEditor.php:173
 msgid "Save and Add"
 msgstr "Αποθήκευση και προσθήκη"
@@ -6955,15 +6955,15 @@ msgstr "Επόμενη οικογένεια"
 msgid " This Family is Deactivated"
 msgstr " Αυτή η οικογένεια είναι απενεργοποιημένη"
 
-#: FamilyView.php:261 PersonView.php:426
+#: FamilyView.php:261 PersonView.php:429
 msgid "View Photo"
 msgstr "Προβολή φωτογραφίας"
 
-#: FamilyView.php:265 PersonView.php:430
+#: FamilyView.php:265 PersonView.php:433
 msgid "Upload Photo"
 msgstr "Φόρτωση φωτογραφίας"
 
-#: FamilyView.php:269 PersonView.php:434
+#: FamilyView.php:269 PersonView.php:437
 msgid "Delete Photo"
 msgstr "Διαγραφή φωτογραφίας"
 
@@ -6975,35 +6975,35 @@ msgstr " της εκκλησίας<br>"
 msgid "Latitude/Longitude"
 msgstr "Γεωγραφικό πλάτος/μήκος"
 
-#: FamilyView.php:371 PersonView.php:636
+#: FamilyView.php:371 PersonView.php:639
 #: v2/templates/pastoralcare/pastoralcarefamily.php:196
 #: v2/templates/pastoralcare/pastoralcareperson.php:268
 msgid "Text Message"
 msgstr "Μήνυμα κειμένου"
 
-#: FamilyView.php:373 PersonView.php:638
+#: FamilyView.php:373 PersonView.php:641
 #: v2/templates/pastoralcare/pastoralcarefamily.php:198
 #: v2/templates/pastoralcare/pastoralcareperson.php:270
 msgid "EcclesiaCRM text message"
 msgstr "Μήνυμα κειμένου EcclesiaCRM"
 
-#: FamilyView.php:442 PersonView.php:770 v2/templates/group/groupview.php:82
+#: FamilyView.php:442 PersonView.php:773 v2/templates/group/groupview.php:82
 msgid "Remove from Cart"
 msgstr "Αφαίρεση από το καλάθι"
 
-#: FamilyView.php:449 PersonView.php:778 QueryView.php:219
+#: FamilyView.php:449 PersonView.php:781 QueryView.php:219
 #: v2/templates/group/groupview.php:86
 msgid "Add to Cart"
 msgstr "Προσθήκη στο καλάθι"
 
-#: FamilyView.php:465 PersonView.php:790 v2/templates/cart/cartview.php:86
+#: FamilyView.php:465 PersonView.php:793 v2/templates/cart/cartview.php:86
 #: v2/templates/group/groupview.php:184
 #: v2/templates/sundayschool/sundayschooldashboard.php:116
 #: v2/templates/sundayschool/sundayschoolview.php:51
 msgid "Email (BCC)"
 msgstr "Ηλεκτρονικό ταχυδρομείο (BCC)"
 
-#: FamilyView.php:481 PersonView.php:816
+#: FamilyView.php:481 PersonView.php:819
 msgid "Verify Info"
 msgstr "Επαλήθευση πληροφοριών"
 
@@ -7011,7 +7011,7 @@ msgstr "Επαλήθευση πληροφοριών"
 msgid "Add New Member"
 msgstr "Προσθήκη νέου μέλους"
 
-#: FamilyView.php:498 FamilyView.php:499 PersonView.php:835 PersonView.php:836
+#: FamilyView.php:498 FamilyView.php:499 PersonView.php:838 PersonView.php:839
 msgid "Create a document"
 msgstr "Δημιουργία εγγράφου"
 
@@ -7019,16 +7019,16 @@ msgstr "Δημιουργία εγγράφου"
 msgid "Get the vCard of the family"
 msgstr "Αποκτήστε την vCard της οικογένειας"
 
-#: FamilyView.php:510 PersonView.php:856 v2/templates/cart/cartview.php:63
+#: FamilyView.php:510 PersonView.php:859 v2/templates/cart/cartview.php:63
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:518 PersonView.php:883 v2/templates/plugins/plugins.php:56
+#: FamilyView.php:518 PersonView.php:886 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:105
 msgid "Deactivate"
 msgstr "Απενεργοποίηση"
 
-#: FamilyView.php:518 PersonView.php:883 v2/templates/plugins/plugins.php:55
+#: FamilyView.php:518 PersonView.php:886 v2/templates/plugins/plugins.php:55
 #: v2/templates/plugins/plugins.php:105
 msgid "Activate"
 msgstr "Ενεργοποίηση"
@@ -7041,78 +7041,78 @@ msgstr " αυτή η οικογένεια"
 msgid "Delete this Family"
 msgstr "Διαγραφή αυτής της οικογένειας"
 
-#: FamilyView.php:659 PersonView.php:928
+#: FamilyView.php:659 PersonView.php:931
 msgid "Timeline"
 msgstr "Χρονοδιάγραμμα"
 
-#: FamilyView.php:662 PersonView.php:973 PrintPastoralCarePerson.php:594
+#: FamilyView.php:662 PersonView.php:976 PrintPastoralCarePerson.php:594
 #: PrintView.php:603 v2/templates/group/groupview.php:325
 #: v2/templates/group/groupview.php:383
 msgid "Assigned Properties"
 msgstr "Εκχωρημένες ιδιότητες"
 
-#: FamilyView.php:669 PersonView.php:1003
+#: FamilyView.php:669 PersonView.php:1006
 msgid "Automatic Payments"
 msgstr "Αυτόματες πληρωμές"
 
-#: FamilyView.php:672 PersonView.php:1010
+#: FamilyView.php:672 PersonView.php:1013
 msgid "Pledges and Payments"
 msgstr "Υποσχέσεις και πληρωμές"
 
-#: FamilyView.php:815 PersonView.php:1471 v2/templates/group/groupview.php:338
+#: FamilyView.php:815 PersonView.php:1473 v2/templates/group/groupview.php:338
 msgid "Assign a New Property"
 msgstr "Ανάθεση νέας ιδιότητας"
 
-#: FamilyView.php:822 PersonView.php:1477 PersonView.php:1548
-#: PersonView.php:1687
+#: FamilyView.php:822 PersonView.php:1479 PersonView.php:1550
+#: PersonView.php:1689
 msgid "Select"
 msgstr "Επιλέξτε"
 
-#: FamilyView.php:825 PersonView.php:1479
+#: FamilyView.php:825 PersonView.php:1481
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:343
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:360
 #: QueryView.php:457 QueryView.php:474 v2/templates/group/groupview.php:343
 msgid "select an option"
 msgstr "επιλέξτε μια επιλογή"
 
-#: FamilyView.php:846 PersonView.php:1500 PersonView.php:1563
+#: FamilyView.php:846 PersonView.php:1502 PersonView.php:1565
 #: v2/templates/group/groupview.php:359
 msgid "Assign"
 msgstr "Ανάθεση"
 
-#: FamilyView.php:874 PersonView.php:1595
+#: FamilyView.php:874 PersonView.php:1597
 msgid "Add a new automatic payment"
 msgstr "Προσθέστε μια νέα αυτόματη πληρωμή"
 
-#: FamilyView.php:883 PersonView.php:1616
+#: FamilyView.php:883 PersonView.php:1618
 msgid "Show Pledges"
 msgstr "Εμφάνιση υποσχέσεων"
 
-#: FamilyView.php:887 PersonView.php:1620
+#: FamilyView.php:887 PersonView.php:1622
 msgid "Show Payments"
 msgstr "Εμφάνιση πληρωμών"
 
-#: FamilyView.php:890 PersonView.php:1623
+#: FamilyView.php:890 PersonView.php:1625
 msgid "From"
 msgstr "Από το"
 
-#: FamilyView.php:899 PersonView.php:1632
+#: FamilyView.php:899 PersonView.php:1634
 msgid "To"
 msgstr "Προς"
 
-#: FamilyView.php:922 PersonView.php:1645
+#: FamilyView.php:922 PersonView.php:1647
 msgid "Add a new pledge"
 msgstr "Προσθέστε μια νέα υπόσχεση"
 
-#: FamilyView.php:924 PersonView.php:1647
+#: FamilyView.php:924 PersonView.php:1649
 msgid "Add a new payment"
 msgstr "Προσθήκη νέας πληρωμής"
 
-#: FamilyView.php:932 PersonView.php:1663
+#: FamilyView.php:932 PersonView.php:1665
 msgid " Canvass Entry"
 msgstr " Είσοδος Canvass"
 
-#: FamilyView.php:1066 PersonView.php:541 PersonView.php:1964
+#: FamilyView.php:1066 PersonView.php:544 PersonView.php:1966
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
@@ -7120,31 +7120,31 @@ msgstr " Είσοδος Canvass"
 msgid "Informations"
 msgstr "Πληροφορίες"
 
-#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1984
+#: FamilyView.php:1088 FindDepositSlip.php:121 PersonView.php:1986
 msgid "Confirm Delete"
 msgstr "Επιβεβαίωση Διαγραφή"
 
-#: FamilyView.php:1091 PersonView.php:1990
+#: FamilyView.php:1091 PersonView.php:1992
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 "Πρόκειται να διαγράψετε τη φωτογραφία προφίλ, αυτή η διαδικασία είναι μη "
 "αναστρέψιμη."
 
-#: FamilyView.php:1092 PersonView.php:1992
+#: FamilyView.php:1092 PersonView.php:1994
 msgid "Do you want to proceed?"
 msgstr "Θέλετε να προχωρήσετε;"
 
-#: FamilyView.php:1107 PersonView.php:2010
+#: FamilyView.php:1107 PersonView.php:2012
 msgid "Request Family Info Verification"
 msgstr "Αίτημα επαλήθευσης οικογενειακών πληροφοριών"
 
-#: FamilyView.php:1112 PersonView.php:2015
+#: FamilyView.php:1112 PersonView.php:2017
 msgid "Select how do you want to request the family information to be verified"
 msgstr ""
 "Επιλέξτε πώς θέλετε να ζητήσετε την επαλήθευση των οικογενειακών πληροφοριών"
 
-#: FamilyView.php:1117 PersonView.php:2020
+#: FamilyView.php:1117 PersonView.php:2022
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
@@ -7152,20 +7152,20 @@ msgstr ""
 "Πρόκειται να στείλετε αντίγραφο των οικογενειακών πληροφοριών σε μορφή pdf "
 "στα ακόλουθα emails"
 
-#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2042
-#: PersonView.php:2046
+#: FamilyView.php:1139 FamilyView.php:1143 PersonView.php:2044
+#: PersonView.php:2048
 msgid "Online Verification"
 msgstr "Διαδικτυακή επαλήθευση"
 
-#: FamilyView.php:1149 PersonView.php:2052
+#: FamilyView.php:1149 PersonView.php:2054
 msgid "URL"
 msgstr "URL"
 
-#: FamilyView.php:1152 PersonView.php:2055
+#: FamilyView.php:1152 PersonView.php:2057
 msgid "PDF Report"
 msgstr "Έκθεση PDF"
 
-#: FamilyView.php:1156 PersonView.php:2059
+#: FamilyView.php:1156 PersonView.php:2061
 msgid "Verified In Person"
 msgstr "Επαληθεύτηκε αυτοπροσώπως"
 
@@ -7313,7 +7313,7 @@ msgstr "Ελάχιστο συνολικό ποσό:"
 msgid "0 - No Minimum"
 msgstr "0 - Χωρίς ελάχιστο"
 
-#: FinancialReports.php:389 SettingsIndividual.php:197
+#: FinancialReports.php:389 SettingsIndividual.php:198
 msgid "Other Settings"
 msgstr "Άλλες ρυθμίσεις"
 
@@ -7708,7 +7708,7 @@ msgstr "Επιστροφή στην ομάδα"
 msgid "Show in"
 msgstr "Εμφάνιση σε"
 
-#: GroupPropsFormEditor.php:353 PersonView.php:336
+#: GroupPropsFormEditor.php:353 PersonView.php:339
 msgid "Person Profile"
 msgstr "Προφίλ προσώπου"
 
@@ -7850,7 +7850,7 @@ msgstr "Παλαιός κωδικός πρόσβασης"
 msgid "Confirm New Password"
 msgstr "Επιβεβαίωση νέου κωδικού πρόσβασης"
 
-#: ident/templates/verify/login-info.php:21 Login.php:211 Login.php:297
+#: ident/templates/verify/login-info.php:21 Login.php:213 Login.php:299
 msgid "Please Login"
 msgstr "Παρακαλώ συνδεθείτε"
 
@@ -8216,11 +8216,11 @@ msgstr "Επιβεβαίωση ετικετών δεδομένων"
 msgid "Confirm data Email"
 msgstr "Επιβεβαίωση δεδομένων Email"
 
-#: Login.php:46 Login.php:64
+#: Login.php:47 Login.php:65
 msgid "Invalid login or password"
 msgstr "Μη έγκυρη σύνδεση ή κωδικός πρόσβασης"
 
-#: Login.php:49
+#: Login.php:50
 msgid ""
 "Too many failed logins: your account has been locked.  Please contact an "
 "administrator."
@@ -8228,31 +8228,35 @@ msgstr ""
 "Πάρα πολλές αποτυχημένες συνδέσεις: ο λογαριασμός σας έχει κλειδωθεί.  "
 "Παρακαλούμε επικοινωνήστε με έναν διαχειριστή."
 
-#: Login.php:52
+#: Login.php:53
 msgid "This account has been deactiveted by an administrator."
 msgstr "Αυτός ο λογαριασμός έχει απενεργοποιηθεί από έναν διαχειριστή."
 
-#: Login.php:216 Login.php:304
+#: Login.php:102
+msgid "Invalid 2FA code"
+msgstr "Μη έγκυρος κωδικός 2FA"
+
+#: Login.php:218 Login.php:306
 msgid "Your previous session timed out.  Please login again."
 msgstr "Η προηγούμενη συνεδρία σας έχει λήξει.  Παρακαλώ συνδεθείτε ξανά."
 
-#: Login.php:249 Login.php:350
+#: Login.php:251 Login.php:352
 msgid "2FA : OTP key"
 msgstr "2FA : κλειδί OTP"
 
-#: Login.php:264
+#: Login.php:266
 msgid "I forgot my password"
 msgstr "Ξέχασα τον κωδικό μου"
 
-#: Login.php:276
+#: Login.php:278
 msgid "Register a new Family"
 msgstr "Εγγραφή νέας οικογένειας"
 
-#: Login.php:357
+#: Login.php:359
 msgid "Enter your password to retrieve your session"
 msgstr "Εισάγετε τον κωδικό πρόσβασής σας για να ανακτήσετε τη συνεδρία σας"
 
-#: Login.php:360
+#: Login.php:362
 msgid "Or sign in as a different user"
 msgstr "Ή συνδεθείτε ως διαφορετικός χρήστης"
 
@@ -8425,69 +8429,69 @@ msgstr "Πλευρά προβολής προσώπου"
 msgid "Person Editor"
 msgstr "Πρόσωπο Εκδότης"
 
-#: PersonEditor.php:290
+#: PersonEditor.php:294
 msgid "You must enter a Last Name if no Family is selected."
 msgstr "Πρέπει να εισαγάγετε ένα Επώνυμο εάν δεν έχει επιλεγεί Οικογένεια."
 
-#: PersonEditor.php:317
+#: PersonEditor.php:321
 msgid "Not a valid Friend Date"
 msgstr "Δεν είναι έγκυρο Ραντεβού Φίλου"
 
-#: PersonEditor.php:328
+#: PersonEditor.php:332
 msgid "Not a valid Membership Date"
 msgstr "Δεν είναι έγκυρη ημερομηνία μέλους"
 
-#: PersonEditor.php:350
+#: PersonEditor.php:354
 msgid "Work Email is Not Valid"
 msgstr "Το email εργασίας δεν είναι έγκυρο"
 
-#: PersonEditor.php:873
+#: PersonEditor.php:879
 msgid "Red text"
 msgstr "Κόκκινο κείμενο"
 
-#: PersonEditor.php:873 PersonView.php:755
+#: PersonEditor.php:879 PersonView.php:758
 msgid "indicates items inherited from the associated family record."
 msgstr ""
 "υποδεικνύει στοιχεία που κληρονομούνται από τη σχετική οικογενειακή εγγραφή."
 
-#: PersonEditor.php:886
+#: PersonEditor.php:892
 msgid "Personal Info"
 msgstr "Προσωπικές πληροφορίες"
 
-#: PersonEditor.php:907
+#: PersonEditor.php:913
 msgid "Mr., Mrs., Dr., Rev."
 msgstr "Κύριε, κυρία, Δρ, Αιδεσιμότατος."
 
-#: PersonEditor.php:949
+#: PersonEditor.php:955
 msgid "Jr., Sr., III"
 msgstr "Jr., Sr., III"
 
-#: PersonEditor.php:968
+#: PersonEditor.php:974
 msgid "Person or Family Info"
 msgstr "Στοιχεία ατόμου ή οικογένειας"
 
-#: PersonEditor.php:975
+#: PersonEditor.php:981
 msgid "Person or Family Role"
 msgstr "Πρόσωπο ή οικογένεια Ρόλος"
 
-#: PersonEditor.php:995
+#: PersonEditor.php:1001
 msgid "Person or Family address"
 msgstr "Διεύθυνση ατόμου ή οικογένειας"
 
-#: PersonEditor.php:998
+#: PersonEditor.php:1004
 msgid "Create a new Address or A new family (using last name)"
 msgstr ""
 "Δημιουργία νέας διεύθυνσης ή νέας οικογένειας (χρησιμοποιώντας το επώνυμο)"
 
-#: PersonEditor.php:1020
+#: PersonEditor.php:1026
 msgid "Person or Family Address"
 msgstr "Διεύθυνση ατόμου ή οικογένειας"
 
-#: PersonEditor.php:1026 SelectDelete.php:234 SelectDelete.php:366
+#: PersonEditor.php:1032 SelectDelete.php:234 SelectDelete.php:366
 msgid "Person Name"
 msgstr "Όνομα προσώπου"
 
-#: PersonEditor.php:1032
+#: PersonEditor.php:1038
 msgid ""
 "A person could have a different name as his family.<br>• In this case set "
 "the Family Name in this field.<br>• In the other case, leave this field "
@@ -8497,202 +8501,202 @@ msgstr ""
 "περίπτωση, ορίστε το όνομα οικογένειας σε αυτό το πεδίο.<br>- Στην άλλη "
 "περίπτωση, αφήστε αυτό το πεδίο κενό."
 
-#: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:695
-#: PersonView.php:697 v2/templates/pastoralcare/pastoralcareperson.php:327
+#: PersonEditor.php:1517 PersonEditor.php:1521 PersonView.php:698
+#: PersonView.php:700 v2/templates/pastoralcare/pastoralcareperson.php:327
 #: v2/templates/pastoralcare/pastoralcareperson.php:329
 msgid "Facebook"
 msgstr "Facebook"
 
-#: PersonEditor.php:1537 PersonView.php:704 PersonView.php:705
+#: PersonEditor.php:1543 PersonView.php:707 PersonView.php:708
 #: v2/templates/pastoralcare/pastoralcareperson.php:336
 #: v2/templates/pastoralcare/pastoralcareperson.php:337
 msgid "Twitter"
 msgstr "Twitter"
 
-#: PersonEditor.php:1555 PersonView.php:712 PersonView.php:713
+#: PersonEditor.php:1561 PersonView.php:715 PersonView.php:716
 #: v2/templates/pastoralcare/pastoralcareperson.php:344
 #: v2/templates/pastoralcare/pastoralcareperson.php:345
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: PersonEditor.php:1577
+#: PersonEditor.php:1583
 msgid "Membership Info"
 msgstr "Πληροφορίες για τα μέλη"
 
-#: PersonEditor.php:1627 PersonView.php:620
+#: PersonEditor.php:1633 PersonView.php:623
 #: v2/templates/pastoralcare/pastoralcareperson.php:252
 msgid "Friend Date"
 msgstr "Ραντεβού με φίλο"
 
-#: PersonView.php:301
+#: PersonView.php:302
 msgid "Not assigned"
 msgstr "Δεν έχει οριστεί"
 
-#: PersonView.php:339
+#: PersonView.php:342
 msgid "Previous Person"
 msgstr "Προηγούμενο πρόσωπο"
 
-#: PersonView.php:353
+#: PersonView.php:356
 msgid "Next Person"
 msgstr "Επόμενο πρόσωπο"
 
-#: PersonView.php:384
+#: PersonView.php:387
 msgid "This Person is Deactivated"
 msgstr "Αυτό το άτομο είναι απενεργοποιημένο"
 
-#: PersonView.php:462 v2/templates/pastoralcare/pastoralcareperson.php:114
+#: PersonView.php:465 v2/templates/pastoralcare/pastoralcareperson.php:114
 #: v2/templates/user/userlist.php:128
 msgid "Undefined"
 msgstr "Απροσδιόριστο"
 
-#: PersonView.php:476 v2/templates/pastoralcare/pastoralcareperson.php:122
+#: PersonView.php:479 v2/templates/pastoralcare/pastoralcareperson.php:122
 msgid "Member Since"
 msgstr "Μέλος από"
 
-#: PersonView.php:555 v2/templates/pastoralcare/pastoralcareperson.php:198
+#: PersonView.php:558 v2/templates/pastoralcare/pastoralcareperson.php:198
 msgid "Family:"
 msgstr "Οικογένεια:"
 
-#: PersonView.php:808 v2/templates/gdpr/dashboard.php:24
+#: PersonView.php:811 v2/templates/gdpr/dashboard.php:24
 #: v2/templates/gdpr/gdprdatastructure.php:19
 #: v2/templates/pastoralcare/pastoralcarefamily.php:73
 #: v2/templates/pastoralcare/pastoralcareperson.php:68
 msgid "Printable Page"
 msgstr "Εκτυπώσιμη σελίδα"
 
-#: PersonView.php:825
+#: PersonView.php:828
 msgid "Add a pastoral care note"
 msgstr "Προσθέστε ένα σημείωμα ποιμαντικής φροντίδας"
 
-#: PersonView.php:843
+#: PersonView.php:846
 msgid "Assign this user to a group"
 msgstr "Εκχώρηση αυτού του χρήστη σε μια ομάδα"
 
-#: PersonView.php:845
+#: PersonView.php:848
 msgid "Assign New Group"
 msgstr "Ανάθεση νέας ομάδας"
 
-#: PersonView.php:853 v2/templates/cart/cartview.php:60
+#: PersonView.php:856 v2/templates/cart/cartview.php:60
 msgid "Get the vCard of the person"
 msgstr "Λάβετε την κάρτα vCard του ατόμου"
 
-#: PersonView.php:866
+#: PersonView.php:869
 msgid "Create a CRM user"
 msgstr "Δημιουργία ενός χρήστη CRM"
 
-#: PersonView.php:867
+#: PersonView.php:870
 msgid "Make User"
 msgstr "Κάντε Χρήστη"
 
-#: PersonView.php:873
+#: PersonView.php:876
 msgid "Add rights to this user"
 msgstr "Προσθήκη δικαιωμάτων σε αυτόν τον χρήστη"
 
-#: PersonView.php:874
+#: PersonView.php:877
 msgid "Edit User"
 msgstr "Επεξεργασία χρήστη"
 
-#: PersonView.php:883
+#: PersonView.php:886
 msgid " this Person"
 msgstr " αυτό το άτομο"
 
-#: PersonView.php:896 PersonView.php:903
+#: PersonView.php:899 PersonView.php:906
 msgid "Delete this Record"
 msgstr "Διαγραφή αυτής της εγγραφής"
 
-#: PersonView.php:957 PrintPastoralCarePerson.php:497 PrintView.php:506
+#: PersonView.php:960 PrintPastoralCarePerson.php:497 PrintView.php:506
 msgid "Assigned Groups"
 msgstr "Εκχωρημένες ομάδες"
 
-#: PersonView.php:1141
+#: PersonView.php:1144
 msgid "click to download"
 msgstr "κάντε κλικ για να κατεβάσετε"
 
-#: PersonView.php:1256 PrintPastoralCarePerson.php:509 PrintView.php:518
+#: PersonView.php:1260 PrintPastoralCarePerson.php:509 PrintView.php:518
 msgid "No group assignments."
 msgstr "Δεν υπάρχουν ομαδικές εργασίες."
 
-#: PersonView.php:1315
+#: PersonView.php:1317
 msgid "Change Role"
 msgstr "Αλλαγή ρόλου"
 
-#: PersonView.php:1322
+#: PersonView.php:1324
 msgid "Update Properties"
 msgstr "Ενημέρωση ιδιοτήτων"
 
-#: PersonView.php:1358
+#: PersonView.php:1360
 msgid "Group Informations"
 msgstr "Πληροφορίες ομάδας"
 
-#: PersonView.php:1389
+#: PersonView.php:1391
 msgid "Person Informations"
 msgstr "Πληροφορίες προσώπου"
 
-#: PersonView.php:1412
+#: PersonView.php:1414
 msgid "Modify Specific Properties"
 msgstr "Τροποποίηση συγκεκριμένων ιδιοτήτων"
 
-#: PersonView.php:1455 PrintPastoralCarePerson.php:606 PrintView.php:615
+#: PersonView.php:1457 PrintPastoralCarePerson.php:606 PrintView.php:615
 msgid "No property assignments."
 msgstr "Δεν υπάρχουν εκχωρήσεις ακινήτων."
 
-#: PersonView.php:1525
+#: PersonView.php:1527
 msgid "No volunteer opportunity assignments."
 msgstr "Δεν υπάρχουν αναθέσεις εθελοντικών ευκαιριών."
 
-#: PersonView.php:1540
+#: PersonView.php:1542
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Αναθέστε μια νέα ευκαιρία εθελοντισμού"
 
-#: PersonView.php:1600 PersonView.php:1652
+#: PersonView.php:1602 PersonView.php:1654
 msgid "You must set an address for this person"
 msgstr "Πρέπει να ορίσετε μια διεύθυνση για αυτό το άτομο"
 
-#: PersonView.php:1688
+#: PersonView.php:1690
 msgid "Filter your documents by : "
 msgstr "Φιλτράρετε τα έγγραφά σας με βάση :"
 
-#: PersonView.php:1689
+#: PersonView.php:1691
 msgid "All type"
 msgstr "Όλοι οι τύποι"
 
-#: PersonView.php:1694
+#: PersonView.php:1696
 msgid "Shared documents"
 msgstr "Κοινόχρηστα έγγραφα"
 
-#: PersonView.php:1730
+#: PersonView.php:1732
 msgid "Edit this document"
 msgstr "Επεξεργασία αυτού του εγγράφου"
 
-#: PersonView.php:1740
+#: PersonView.php:1742
 msgid "Delete this document"
 msgstr "Διαγραφή αυτού του εγγράφου"
 
-#: PersonView.php:1751
+#: PersonView.php:1753
 msgid "Share this document to another user"
 msgstr "Μοιραστείτε αυτό το έγγραφο με άλλον χρήστη"
 
-#: PersonView.php:1764
+#: PersonView.php:1766
 msgid "Export this document to word Format"
 msgstr "Εξαγωγή αυτού του εγγράφου σε μορφή word"
 
-#: PersonView.php:1807
+#: PersonView.php:1809
 msgid "Last modification by"
 msgstr "Τελευταία τροποποίηση από"
 
-#: PersonView.php:1883
+#: PersonView.php:1885
 msgid "All Files"
 msgstr "Όλα τα αρχεία"
 
-#: PersonView.php:1900
+#: PersonView.php:1902
 msgid "Create a Folder"
 msgstr "Δημιουργία φακέλου"
 
-#: PersonView.php:1910
+#: PersonView.php:1912
 msgid "Up One Level"
 msgstr "Ένα επίπεδο πάνω"
 
-#: PersonView.php:1917
+#: PersonView.php:1919
 msgid "Actualize files"
 msgstr "Επικαιροποίηση αρχείων"
 
@@ -9550,63 +9554,63 @@ msgstr "Όχι, ακυρώστε αυτή τη διαγραφή"
 msgid "Delete Person Record"
 msgstr "Διαγραφή εγγραφής προσώπου"
 
-#: SettingsIndividual.php:133
+#: SettingsIndividual.php:134
 msgid "My User Settings"
 msgstr "Οι ρυθμίσεις χρήστη μου"
 
-#: SettingsIndividual.php:146
+#: SettingsIndividual.php:147
 msgid "Classic User Profile Settings"
 msgstr "Κλασικές ρυθμίσεις προφίλ χρήστη"
 
-#: SettingsIndividual.php:150 SettingsIndividual.php:201 UserEditor.php:1151
+#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1151
 msgid "Notes"
 msgstr "Σημειώσεις"
 
-#: SettingsIndividual.php:151 SettingsIndividual.php:202 UserEditor.php:1150
+#: SettingsIndividual.php:152 SettingsIndividual.php:203 UserEditor.php:1150
 msgid "Current Value"
 msgstr "Τρέχουσα αξία"
 
-#: SettingsIndividual.php:152 SettingsIndividual.php:203 SystemSettings.php:146
+#: SettingsIndividual.php:153 SettingsIndividual.php:204 SystemSettings.php:146
 #: UserEditor.php:1149
 msgid "Variable name"
 msgstr "Όνομα μεταβλητής"
 
-#: SettingsIndividual.php:179 SettingsIndividual.php:445
-#: SettingsIndividual.php:523 SystemSettings.php:132 UserEditor.php:1419
+#: SettingsIndividual.php:180 SettingsIndividual.php:446
+#: SettingsIndividual.php:524 SystemSettings.php:132 UserEditor.php:1419
 msgid "Save Settings"
 msgstr "Αποθήκευση ρυθμίσεων"
 
-#: SettingsIndividual.php:197
+#: SettingsIndividual.php:198
 msgid "Skin"
 msgstr "Δέρμα"
 
-#: SettingsIndividual.php:396 SystemSettings.php:215 UserEditor.php:1186
+#: SettingsIndividual.php:397 SystemSettings.php:215 UserEditor.php:1186
 #: UserEditor.php:1239
 msgid "False"
 msgstr "Ψευδές"
 
-#: SettingsIndividual.php:397 SystemSettings.php:216 UserEditor.php:1187
+#: SettingsIndividual.php:398 SystemSettings.php:216 UserEditor.php:1187
 #: UserEditor.php:1240
 msgid "True"
 msgstr "Αλήθεια"
 
-#: SettingsIndividual.php:455
+#: SettingsIndividual.php:456
 msgid "Specific settings"
 msgstr "Ειδικές ρυθμίσεις"
 
-#: SettingsIndividual.php:464 UserEditor.php:1333
+#: SettingsIndividual.php:465 UserEditor.php:1333
 msgid "Visibilities of the dashboard plugins"
 msgstr "Ορατότητες των plugins του ταμπλό"
 
-#: SettingsIndividual.php:506 UserEditor.php:1375
+#: SettingsIndividual.php:507 UserEditor.php:1375
 msgid "Top"
 msgstr "Κορυφή"
 
-#: SettingsIndividual.php:536
+#: SettingsIndividual.php:537
 msgid "Two-factor authentication (2fa)"
 msgstr "Έλεγχος ταυτότητας δύο παραγόντων (2fa)"
 
-#: SettingsIndividual.php:539
+#: SettingsIndividual.php:540
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -9616,12 +9620,12 @@ msgstr ""
 "παραγόντων παρέχει ένα επίπεδο άμυνας του EcclesiaCRM έναντι των κακοποιών "
 "που προσπαθούν να αποκτήσουν πρόσβαση στο λογαριασμό σας."
 
-#: SettingsIndividual.php:540
+#: SettingsIndividual.php:541
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr ""
 "Το EcclesiaCRM Two factor υποστηρίζει οποιαδήποτε εφαρμογή επικύρωσης TOTP"
 
-#: SettingsIndividual.php:545
+#: SettingsIndividual.php:546
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -9629,7 +9633,7 @@ msgstr ""
 "Όταν συνδέεστε στο EcclesiaCRM, θα εξακολουθείτε να εισάγετε το όνομα χρήστη "
 "και τον κωδικό πρόσβασής σας κανονικά."
 
-#: SettingsIndividual.php:548
+#: SettingsIndividual.php:549
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -9637,7 +9641,7 @@ msgstr ""
 "Ωστόσο, θα πρέπει επίσης να δώσετε έναν κωδικό μιας χρήσης από τη συσκευή "
 "ελέγχου ταυτότητας για να ολοκληρώσετε τη σύνδεσή σας."
 
-#: SettingsIndividual.php:551
+#: SettingsIndividual.php:552
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -9645,7 +9649,7 @@ msgstr ""
 "Αφού εισαγάγετε με επιτυχία τα διαπιστευτήριά σας και τον κωδικό μιας "
 "χρήσης, θα συνδεθείτε κανονικά."
 
-#: SettingsIndividual.php:554
+#: SettingsIndividual.php:555
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -9654,7 +9658,7 @@ msgstr ""
 "βεβαιωθείτε ότι είστε έτοιμοι να ολοκληρώσετε την εγγραφή με δύο παράγοντες "
 "πριν κάνετε κλικ στο κουμπί Έναρξη."
 
-#: SettingsIndividual.php:557
+#: SettingsIndividual.php:558
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
@@ -9662,7 +9666,7 @@ msgstr ""
 "Η έναρξη της εγγραφής θα ακυρώσει τυχόν προηγουμένως εγγεγραμμένες συσκευές "
 "2 παραγόντων και κωδικούς ανάκτησης."
 
-#: SettingsIndividual.php:559
+#: SettingsIndividual.php:560
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -9670,7 +9674,7 @@ msgstr ""
 "Όταν κάνετε κλικ στο επόμενο κουμπί, θα σας ζητηθεί να σαρώσετε έναν κωδικό "
 "QR για να εγγραφείτε στην εφαρμογή ελέγχου ταυτότητας."
 
-#: SettingsIndividual.php:561
+#: SettingsIndividual.php:562
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
@@ -9678,7 +9682,7 @@ msgstr ""
 "Για να επιβεβαιώσετε την εγγραφή, θα πρέπει να εισαγάγετε τον κωδικό που "
 "δημιουργείται από την εφαρμογή ελέγχου ταυτότητας."
 
-#: SettingsIndividual.php:563
+#: SettingsIndividual.php:564
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -9686,7 +9690,7 @@ msgstr ""
 "Μετά την επιβεβαίωση της εγγραφής στην εφαρμογή, θα δημιουργηθούν και θα "
 "εμφανιστούν κωδικοί ανάκτησης μίας χρήσης."
 
-#: SettingsIndividual.php:565
+#: SettingsIndividual.php:566
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -9694,11 +9698,11 @@ msgstr ""
 "Οι κωδικοί ανάκτησης μπορούν να χρησιμοποιηθούν αντί για έναν κωδικό που "
 "δημιουργείται από την εφαρμογή ελέγχου ταυτότητας."
 
-#: SettingsIndividual.php:567
+#: SettingsIndividual.php:568
 msgid "Store these in a secure location"
 msgstr "Αποθηκεύστε τα σε ασφαλές μέρος"
 
-#: SettingsIndividual.php:574
+#: SettingsIndividual.php:575
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Έναρξη εγγραφής αυθεντικοποίησης δύο παραγόντων"
 
