@@ -394,11 +394,12 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
 
             $family->setSendNewsletter($bSendNewsLetterString);
 
-            // bSendNewsLetterString : When you activate the family all members are deactivated
-            if ($bSendNewsLetterString == "TRUE") {
-                foreach ($family->getPeople() as $person) {
-                    $person->setSendNewsletter("FALSE");
-                }
+            // head persons and spouse get the news letter in a family not the childrens
+            // you can add them individually
+            $familyMembersParents = array_merge($family->getHeadPeople(), $family->getSpousePeople());
+
+            foreach ($familyMembersParents as $person) {
+                $person->setSendNewsletter($bSendNewsLetterString);
             }
 
             if (SessionUser::getUser()->isCanvasserEnabled()) {
