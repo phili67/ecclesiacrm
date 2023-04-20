@@ -291,8 +291,8 @@ class Photo {
     if (strpos($this->photoURI, "initials") || strpos($this->photoURI, "remote")) {
       $this->delete();
     }
-    $this->photoURI = $this->photoHunt(SystemURLs::getImagesRoot() . "/" . $photoType . "/" . $id);
-    $this->photoThumbURI = SystemURLs::getImagesRoot() . "/" . $photoType . "/thumbnails/" . $id . ".jpg";
+    $this->photoURI = $this->photoHunt(SystemURLs::getImagesRoot() . "/" . $this->photoType . "/" . $this->id);
+    $this->photoThumbURI = SystemURLs::getImagesRoot() . "/" . $this->photoType . "/thumbnails/" . $this->id . ".jpg";
   }
 
 }
