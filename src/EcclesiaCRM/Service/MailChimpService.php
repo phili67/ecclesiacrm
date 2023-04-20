@@ -2,6 +2,9 @@
 // copyright Philippe Logel not MIT
 namespace EcclesiaCRM\Service;
 
+use EcclesiaCRM\Base\PersonQuery;
+use EcclesiaCRM\SendNewsLetterUserUpdateQuery;
+
 use EcclesiaCRM\dto\SystemConfig;
 use \DrewM\MailChimp\MailChimp;
 use EcclesiaCRM\Utils\LoggerUtils;
@@ -31,8 +34,12 @@ class MailChimpService
 {
     private $isActive = false;
     private $myMailchimp;
+    private $updateRequire = false;
     private $lists;
     private $campaigns;
+    private $nlsAdds = null;
+    private $nlsDeletes = null;
+
 
     public function __construct()
     {
@@ -55,9 +62,41 @@ class MailChimpService
 
     private function getListsFromCache()
     {
+        $this->nlsAdds = SendNewsLetterUserUpdateQuery::create()
+            ->filterByState('Add')
+            ->find();
+
+        $this->nlsDeletes = SendNewsLetterUserUpdateQuery::create()
+            ->filterByState('Delete')
+            ->find();
+
+        if ($this->nlsAdds->count() > 0 || $this->nlsDeletes->count() > 0) {
+            $this->updateRequire = true;
+        }
+    
         if (!isset($_SESSION['MailChimpLists']) && !is_null($this->myMailchimp)) {// the second part can be used to force update
             LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
             $lists = $this->myMailchimp->get("lists")['lists'];
+            if (count($lists) == 1) {// now at this time only one list can be manage, you've to manage other the members manually
+                foreach ($this->nlsAdds as $nlsAdd) {
+                    $person = PersonQuery::create()
+                        ->findOneById($nlsAdd->getPersonId());
+
+                    $res = $this->postMember($lists[0]['id'],32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(), 'subscribed');                    
+                    // we clean up the members
+                    $nlsAdd->delete();
+                }
+
+                foreach ($this->nlsDeletes as $nlsDel) {
+                    $person = PersonQuery::create()
+                        ->findOneById($nlsDel->getPersonId());
+
+                        $res = $this->deleteMember($lists[0]['id'],$person->getEmail());
+                    
+                    // we clean up the members
+                    $nlsDel->delete();
+                }
+            }
             foreach ($lists as &$list) {
                 $listmembers = $this->getMembersFromList($list['id'], SystemConfig::getValue('iMailChimpRequestTimeOut'));
                 $list['members'] = $listmembers['members'];

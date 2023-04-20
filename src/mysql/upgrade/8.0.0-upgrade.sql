@@ -173,6 +173,20 @@ ALTER TABLE `events_event` ADD `event_allday` BOOLEAN NOT NULL default 0;
 ALTER TABLE `user_usr` ADD `usr_jwt_secret` VARCHAR(255) default NULL;
 ALTER TABLE `user_usr` ADD `usr_jwt_token` VARCHAR(2000) default NULL;
 
+-- 2023-04-19
+
+--
+-- Table structure for table `send_news_letter_user_update`
+--
+
+CREATE TABLE `send_news_letter_user_update` (
+  `snl_ID` mediumint(9) unsigned NOT NULL auto_increment,
+  `snl_person_ID` mediumint(9) unsigned NOT NULL,
+  `snl_state` enum('Add','Delete') NOT NULL default 'Add',
+  PRIMARY KEY  (`snl_ID`),
+  CONSTRAINT fk_snl_person_ID FOREIGN KEY (snl_person_ID) REFERENCES person_per(per_id) ON DELETE CASCADE  
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci PACK_KEYS=0 AUTO_INCREMENT=1 ;
+
 
 
 

@@ -257,11 +257,15 @@ class PeoplePersonController
         // we get the MailChimp Service
         $mailchimp = $this->container->get('MailChimpService');
 
-        if ( isset ($input->personId) && isset ($input->email) && $mailchimp->isLoaded() ){
+        if ( isset ($input->personId) && isset ($input->email) ){
             $person = PersonQuery::create()->findPk($input->personId);
 
-            if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
-                return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'statusLists' => $mailchimp->getListNameAndStatus($input->email)]);
+            if ($mailchimp->isLoaded()) {
+                if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
+                    return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'statusLists' => $mailchimp->getListNameAndStatus($input->email)]);
+                } else {
+                    return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
+                }
             } else {
                 return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
             }
