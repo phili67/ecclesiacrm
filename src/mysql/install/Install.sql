@@ -1991,6 +1991,18 @@ CREATE TABLE `plugin_user_role` (
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
+-- Table structure for table `send_news_letter_user_update`
+--
+
+CREATE TABLE `send_news_letter_user_update` (
+  `snl_ID` mediumint(9) unsigned NOT NULL auto_increment,
+  `snl_person_ID` mediumint(9) unsigned NOT NULL,
+  `snl_state` enum('Add','Delete') NOT NULL default 'Add',
+  PRIMARY KEY  (`snl_ID`),
+  CONSTRAINT fk_snl_person_ID FOREIGN KEY (snl_person_ID) REFERENCES person_per(per_id) ON DELETE CASCADE  
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci PACK_KEYS=0 AUTO_INCREMENT=1 ;
+
+--
 -- Dumping data for table `plugin_user_role`
 --
 
