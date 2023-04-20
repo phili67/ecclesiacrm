@@ -10,6 +10,8 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\SendNewsLetterUserUpdateQuery;
+use EcclesiaCRM\SendNewsLetterUserUpdate;
 
 use EcclesiaCRM\Utils\LoggerUtils;
 
@@ -90,6 +92,51 @@ class Person extends BasePerson implements iPhoto
 
       return $ret;
     }
+
+    // this part is use in mailchimp to know which people shoud be added or deleted
+    public function setSendNewsletter($v, $avoidsnl = false)
+    {
+        
+        if ( !$avoidsnl && $this->getEmail() ) {
+          // to get a newletter : you must have an email
+          $mailchimp = new MailChimpService();
+
+          if ( $mailchimp->isActive() ) {
+            $sEmail = $this->getEmail();
+
+            if (mb_strlen($sEmail) > 0) {
+                $lists = $mailchimp->getLists();
+                if (count($lists) == 1) {// now at this time only one list can be manage, you've to manage other the members manually
+                  if ( $v == "TRUE") {
+                    $res = $mailchimp->postMember($lists[0]['id'],32,$this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getAddressForMailChimp(), $this->getHomePhone(), 'subscribed');
+                  } else {
+                    $res = $mailchimp->deleteMember($lists[0]['id'],$this->getEmail());
+                  }
+                }
+            } 
+          } else {
+            $snl = SendNewsLetterUserUpdateQuery::create()->findOneByPersonId($this->getId());
+
+            if (is_null($snl)) {
+              $snl = new SendNewsLetterUserUpdate();
+            }
+
+            $snl->setPersonId($this->getId());
+
+            if ($v == "FALSE") { 
+                $snl->setState('Delete');
+            } else {
+                $snl->setState('Add');
+            }
+            
+            $snl->save();
+          }
+        }
+
+        $ret = parent::setSendNewsletter($v);
+
+        return $ret;
+    } 
 
     public function isDeactivated()
     {
