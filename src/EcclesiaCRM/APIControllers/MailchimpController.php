@@ -10,7 +10,6 @@
 
 namespace EcclesiaCRM\APIControllers;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -663,6 +662,11 @@ class MailchimpController
             $mailchimp = $this->container->get('MailChimpService');
 
             $res = $mailchimp->deleteMember($input->list_id,$input->email);
+
+            // suppress a person from mailchimp turn send newsletter to false
+            $person = PersonQuery::create()->findOneByEmail($input->email);
+            $person->setSendNewsletter("FALSE");
+            $person->save();
 
             if ( gettype($res) == 'boolean' and $res == true  ) {
                 return $response->withJson(['success' => true, "result" => $res]);
