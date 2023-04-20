@@ -87,15 +87,19 @@ class PeopleFamilyController
         // we get the MailChimp Service
         $mailchimp = $this->container->get('MailChimpService');
 
-        if ( isset ($input->familyId) && isset ($input->email) && $mailchimp->isLoaded() ){
+        if ( isset ($input->familyId) && isset ($input->email) ){
 
             $family = FamilyQuery::create()->findPk($input->familyId);
             $isIncludedInMailing = $family->getSendNewsletter();
 
-            if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
-                return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'statusLists' => $mailchimp->getListNameAndStatus($input->email)]);
+            if ($mailchimp->isLoaded()) {
+                if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
+                    return $response->withJson(['success' => true,'isIncludedInMailing' => ($isIncludedInMailing == 'TRUE')?true:false, 'mailChimpActiv' => true, 'statusLists' => $mailchimp->getListNameAndStatus($input->email)]);
+                } else {
+                    return $response->withJson(['success' => true,'isIncludedInMailing' => ($isIncludedInMailing == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
+                }
             } else {
-                return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
+                return $response->withJson(['success' => true,'isIncludedInMailing' => ($isIncludedInMailing == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
             }
         }
 
