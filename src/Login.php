@@ -220,10 +220,10 @@ require 'Include/HeaderNotLoggedIn.php';
 
             // output warning and error messages
             if (isset($sErrorText)) {
-                echo '<div class="alert alert-error text-center">' . $sErrorText . '</div>';
+                echo '<div class="alert alert-error-text text-center">' . $sErrorText . '</div>';
             }
             if (isset($loginPageMsg)) {
-                echo '<div class="alert alert-warning text-center">' . $loginPageMsg . '</div>';
+                echo '<div class="alert alert-warning-text text-center">' . $loginPageMsg . '</div>';
             }
             ?>
 
@@ -308,10 +308,10 @@ require 'Include/HeaderNotLoggedIn.php';
 
         // output warning and error messages
         if (isset($sErrorText)) {
-            echo '<div class="alert alert-error text-center">' . $sErrorText . '</div>';
+            echo '<div class="alert alert-error-text text-center">' . $sErrorText . '</div>';
         }
         if (isset($loginPageMsg)) {
-            echo '<div class="alert alert-warning text-center">' . $loginPageMsg . '</div>';
+            echo '<div class="alert alert-warning-text text-center">' . $loginPageMsg . '</div>';
         }
         ?>
     </div>
