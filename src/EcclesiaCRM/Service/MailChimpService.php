@@ -78,6 +78,7 @@ class MailChimpService
             LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
             $lists = $this->myMailchimp->get("lists")['lists'];
             if (count($lists) == 1) {// now at this time only one list can be manage, you've to manage other the members manually
+                #TODO : terminer le cas de plusieurs listes
                 foreach ($this->nlsAdds as $nlsAdd) {
                     $person = PersonQuery::create()
                         ->findOneById($nlsAdd->getPersonId());
@@ -358,7 +359,7 @@ class MailChimpService
         $result = $this->myMailchimp->post('lists', $data);
 
 
-        if (!array_key_exists('title', $result)) {
+        if (!(is_array($result) and array_key_exists('title', $result)) ) {
             // we add the list in the cache
             $_SESSION['MailChimpLists'][] = $result;
         }
@@ -600,7 +601,7 @@ class MailChimpService
     {
         $result = $this->myMailchimp->get("lists/$list_id/segments");
 
-        if (!array_key_exists('title', $result)) {
+        if (!(is_array($result) and array_key_exists('title', $result))) {
             // we've to add the modification to the list
             $resultContent = $result['segments'];
 
@@ -634,7 +635,7 @@ class MailChimpService
 
         $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
 
-        if (!array_key_exists('title', $result)) {
+        if (!(is_array($result) and array_key_exists('title', $result)) ) {
             // we've to add the modification to the list
             $i = 0;
             $lists = $_SESSION['MailChimpLists'];
@@ -668,7 +669,7 @@ class MailChimpService
         );
         $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
 
-        if (!array_key_exists('title', $result)) {
+        if (!(is_array($result) and array_key_exists('title', $result))) {
             // we've to add the modification to the list
             $i = 0;
             $lists = $_SESSION['MailChimpLists'];
@@ -744,7 +745,7 @@ class MailChimpService
     {
         $result = $this->myMailchimp->get("lists/$list_id/segments/$segment_id/members");
 
-        if (!array_key_exists('title', $result)) {
+        if (!(is_array($result) and array_key_exists('title', $result))) {
             // we've to add the modification to the list
             $resultContent = $result['members'];
         }
@@ -874,7 +875,7 @@ class MailChimpService
 
         $result = $this->myMailchimp->post("campaigns", $data);
 
-        if (!array_key_exists('title', $result)) {
+        if (!(is_array($result) and array_key_exists('title', $result))) {
 
             $campaignID = $result['id'];// we get the campaign ID
 
@@ -989,7 +990,7 @@ class MailChimpService
 
         $result = $this->myMailchimp->patch("campaigns/$campaignID", $data);
 
-        if (!array_key_exists('title', $result)) {
+        if ( !(is_array($result) and array_key_exists('title', $result)) ) {
             $this->set_Campaign_MailSubject($campaignID, $subject);
         }
 
@@ -1024,7 +1025,7 @@ class MailChimpService
 
         $result = $this->myMailchimp->post("campaigns/$campaignID/actions/send");
 
-        if ( (is_bool($result) and $result) or !array_key_exists('title', $result) ) {
+        if ( (is_bool($result) and $result) or (is_array($result) and !array_key_exists('title', $result) ) ) {
             $this->send_Campaign($campaignID);
         }
 
@@ -1074,7 +1075,7 @@ class MailChimpService
                 'merge_fields' => $merge_fields
             ]);
 
-            if ( (is_bool($result) and $result) or !array_key_exists('title', $result) ) {
+            if ( (is_bool($result) and $result) or (is_array($result) and !array_key_exists('title', $result)) ) {
                 $this->add_list_member($list_id, $result);
             }
 
@@ -1248,7 +1249,7 @@ class MailChimpService
             ]);
         }
 
-        if (!array_key_exists('title', $result)) {
+        if ( !(is_array($result) and array_key_exists('title', $result)) ) {
             $res = $this->update_list_member($list_id, $mail, $status);
         }
 

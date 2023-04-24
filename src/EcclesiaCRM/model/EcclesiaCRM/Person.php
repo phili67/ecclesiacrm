@@ -107,6 +107,7 @@ class Person extends BasePerson implements iPhoto
             if (mb_strlen($sEmail) > 0) {
                 $lists = $mailchimp->getLists();
                 if (count($lists) == 1) {// now at this time only one list can be manage, you've to manage other the members manually
+                  #TODO : terminer le cas de plusieurs listes
                   if ( $v == "TRUE") {
                     $res = $mailchimp->postMember($lists[0]['id'],32,$this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getAddressForMailChimp(), $this->getHomePhone(), 'subscribed');
                   } else {
