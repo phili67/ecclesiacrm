@@ -286,7 +286,7 @@ class CalendarV2Controller
             $message .= "<p><label>"._("This address can be used only with a CalDav server.")." "._("For thunderbird the URL is")." : </label><br>".$protocol."://".$_SERVER['HTTP_HOST'].$root."calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
             $message .= "<p><label>"._("For a share calendar (only in read mode)")." : </label><br>".$protocol."://".$_SERVER['HTTP_HOST'].$root."external/calendar/events/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."<p>";
             if (SessionUser::getUser()->isAdmin()) {
-                $message .= "<p><label>"._("You've to activate the \"bEnableExternalCalendarAPI\" setting in")." <a href=\"".$root."SystemSettings.php\">"._("General Settings/Integration")."</a>.";
+                $message .= "<p><label>"._("You've to activate the \"bEnableExternalCalendarAPI\" setting in")." <a href=\"".$root."v2/systemsettings\">"._("General Settings/Integration")."</a>.";
             }
 
             $title = $calendar->getDisplayname();
