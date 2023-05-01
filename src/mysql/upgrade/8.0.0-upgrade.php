@@ -49,7 +49,8 @@ MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/meeting/");
 unlink(SystemURLs::getDocumentRoot()."/external/routes/verify.php");
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/external/templates/verify/");
 
-//exec('cd ../.. && composer dump-autoload');
+// 2023-05-01 now the systemsettings are in v2 arch
+unlink(SystemURLs::getDocumentRoot()."/SystemSettings.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
