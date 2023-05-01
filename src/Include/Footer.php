@@ -204,7 +204,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
             if (SessionUser::getUser()->isAdmin()) {
                 ?>
                 <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/SystemSettings.php">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/systemsettings">
                         <i class="menu-icon fas fa-cogs bg-red"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('Edit General Settings') ?></h4>
