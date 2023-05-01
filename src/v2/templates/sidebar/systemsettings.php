@@ -1,96 +1,26 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : SystemSettings.php
- *  description : setup de systema settings
- *
- *  http://www.ecclesiacrm.com/
- *  Copyright 2001-2002 Phillip Hullquist, Deane Barker
+ *  filename    : systemsettings.php
+ *  last change : 2023-05-01
+ *  website     : http://www.ecclesiacrm.com
+ *  copyright   : Copyright 2001, 2002 Deane Barker
+ *                          2023 Philippe Logel
  *
  ******************************************************************************/
 
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use EcclesiaCRM\dto\LocaleInfo;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\Bootstrapper;
 
-// Security
-if (!SessionUser::getUser()->isAdmin()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
+if ($saved) {
+    $sGlobalMessage = _('Setting saved');
 }
 
-// Set the page title and include HTML header
-$sPageTitle = gettext("General Settings");
+require $sRootDocument . '/Include/Header.php';
 
-// Save Settings
-if (isset($_POST['save'])) {
-    $new_value = $_POST['new_value'];
-    $type = $_POST['type'];
-    ksort($type);
-    reset($type);
-
-    $iHTMLHeaderRow = SystemConfig::getConfigItem('sHeader')->getId();
-
-    while ($current_type = current($type)) {
-        $id = key($type);
-        // Filter Input
-        if ($id == $iHTMLHeaderRow) {  // Special handling of header value so HTML doesn't get removed
-            $value = InputUtils::FilterHTML($new_value[$id]);
-        } elseif ($current_type == 'text' || $current_type == 'textarea' || $current_type == 'password') {
-            $value = InputUtils::FilterString($new_value[$id]);
-        } elseif ($current_type == 'number') {
-            $value = InputUtils::FilterFloat($new_value[$id]);
-        } elseif ($current_type == 'date') {
-            $value = InputUtils::FilterDate($new_value[$id]);
-        } elseif ($current_type == 'json') {
-            $value = $new_value[$id];
-        } elseif ($current_type == 'choice') {
-            $value = InputUtils::FilterString($new_value[$id]);
-        } elseif ($current_type == 'ajax') {
-            $value = InputUtils::FilterString($new_value[$id]);
-        } elseif ($current_type == 'boolean') {
-            if ($new_value[$id] != '1') {
-                $value = '';
-            } else {
-                $value = '1';
-            }
-        }
-
-        // If changing the locale, translate the menu options
-        if ($id == 39 && $value != Bootstrapper::GetCurrentLocale()->getLocale()) {
-            $localeInfo = new LocaleInfo($value);
-            setlocale(LC_ALL, $localeInfo->getLocale());
-            $aLocaleInfo = $localeInfo->getLocaleInfo();
-        }
-
-        if ($id == 65 && !(in_array($value, timezone_identifiers_list()))) {
-            $value = date_default_timezone_get();
-        }
-
-        SystemConfig::setValueById($id, $value);
-        next($type);
-    }
-    RedirectUtils::Redirect("SystemSettings.php?saved=true");
-}
-
-if (isset($_GET['saved'])) {
-    $sGlobalMessage = gettext('Setting saved');
-}
-
-require 'Include/Header.php';
-
-// Get settings
 ?>
 
-<form method=post action=SystemSettings.php>
+<form method=post action="<?= $sRootPath ?>/v2/systemsettings">
 
 <div class="card">
     <div class="card-body">
@@ -282,8 +212,6 @@ require 'Include/Header.php';
 </div>
 
 </form>
-
-
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     $(document).ready(function () {
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
@@ -306,6 +234,6 @@ require 'Include/Header.php';
     });
 </script>
 
-<script src="skin/js/system/SystemSettings.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/system/SystemSettings.js"></script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

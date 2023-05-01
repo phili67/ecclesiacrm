@@ -967,7 +967,7 @@
         function BootboxContentRegister(data){
             var frm_str = '<div class="card card-warning">'
                 + '  <div class="card-body">'
-                + '  ' + i18next.t('If you need to make changes to registration data, go to ') + '<a href="'+ window.CRM.root + '/SystemSettings.php">'+ i18next.t('Admin->Edit General Settings') + '</a>'
+                + '  ' + i18next.t('If you need to make changes to registration data, go to ') + '<a href="'+ window.CRM.root + '/v2/systemsettings">'+ i18next.t('Admin->Edit General Settings') + '</a>'
                 + '  </div>'
                 + '</div>'
                 + '<div class="card card-primary">'

@@ -14,7 +14,7 @@ class ChurchNameTask implements iTask
     return true;
   }
   public function getLink(){
-    return SystemURLs::getRootPath() . '/SystemSettings.php';
+    return SystemURLs::getRootPath() . '/v2/systemsettings';
   }
   public function getTitle(){
     return gettext('Update Church Info');
