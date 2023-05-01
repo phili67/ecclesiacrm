@@ -1,11 +1,11 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : FundList.php
- *  last change : 2003-01-07
+ *  filename    : systemsettings.php
+ *  last change : 2023-05-01
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker
- *                          2018 Philippe Logel
+ *                          2023 Philippe Logel
  *
  ******************************************************************************/
 
