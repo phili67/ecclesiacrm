@@ -80,6 +80,7 @@ require_once __DIR__ . '/routes/sidebar/volunteeropportunityeditor.php';
 require_once __DIR__ . '/routes/sidebar/propertylist.php';
 require_once __DIR__ . '/routes/sidebar/propertytypelist.php';
 require_once __DIR__ . '/routes/sidebar/kioskmanager.php';
+require_once __DIR__ . '/routes/sidebar/systemsettings.php';
 
 // people
 require_once __DIR__ . '/routes/people/people.php';
