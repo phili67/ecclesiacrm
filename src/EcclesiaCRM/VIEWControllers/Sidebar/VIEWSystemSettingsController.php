@@ -111,4 +111,36 @@ class VIEWSystemSettingsController {
         ];
         return $paramsArguments;
     }
+
+    public function renderSettingsMode (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/sidebar/');
+
+        if (!SessionUser::getUser()->isAdmin()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $sMode = $args['mode'];
+
+        return $renderer->render($response, 'systemsettings.php', $this->argumentsSystemSettingsModeArray($sMode));
+    }
+    
+    public function argumentsSystemSettingsModeArray ($sMode)
+    {
+        $saved = false;
+
+        //Set the page title
+        $sPageTitle = _("General Settings");
+
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+
+        $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
+            'sRootDocument' => $sRootDocument,
+            'sPageTitle'    => $sPageTitle,
+            'isMenuOption'  => SessionUser::getUser()->isMenuOptionsEnabled(),
+            'Mode'         => $sMode
+        ];
+        
+        return $paramsArguments;
+    }
+    
 }

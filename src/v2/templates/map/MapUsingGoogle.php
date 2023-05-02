@@ -26,7 +26,7 @@ require $sRootDocument . '/Include/Header.php';
     if (SystemConfig::getValue('sGoogleMapKey') == '') {
         ?>
         <div class="alert alert-warning">
-            <a href="<?= $sRootPath ?>/v2/systemsettings"><?= _('Google Map API key is not set. The Map will work for smaller set of locations. Please create a Key in the maps sections of the setting menu.') ?></a>
+            <a href="<?= $sRootPath ?>/v2/systemsettings/mapsettings"><?= _('Google Map API key is not set. The Map will work for smaller set of locations. Please create a Key in the maps sections of the setting menu.') ?></a>
         </div>
         <?php
     }

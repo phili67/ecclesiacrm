@@ -49,7 +49,13 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
                     <?php foreach (SystemConfig::getCategories() as $category => $settings) {
                         ?>
-                            <a class="nav-link <?= ($category == 'Church Information') ? 'active' : "" ?>"
+                            <a class="nav-link <?= ($category == 'Church Information' && $Mode == "" 
+                            || $category == "Email Setup" && $Mode == "mailsettings"
+                            || $category == "Integration" && $Mode == "Integration"
+                            || $category == "Map Settings" && $Mode == "mapsettings"
+                            || $category == "Pastoral Care" && $Mode == "pastoralcare"
+                            || $category == "GDPR" && $Mode == "GDPR"
+                            ) ? 'active' : "" ?>"
                                href="#<?= str_replace(" ", '', $category) ?>"
                                data-toggle="pill" role="tab" aria-controls="custom-tabs-three-messages"
                                aria-selected="<?= ($category == 'Church Information') ? 'true' : "false" ?>">
@@ -66,9 +72,16 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="tab-content" id="vert-tabs-tabContent">
                     <?php
                     // Build Category Pages
+                    $categories = SystemConfig::getCategories();
                     foreach (SystemConfig::getCategories() as $category => $settings) {
                         ?>
-                        <div class="tab-pane <?= ($category == 'Church Information') ? 'active' : '' ?>"
+                        <div class="tab-pane <?= ($category == 'Church Information' && $Mode == "" 
+                            || $category == "Email Setup" && $Mode == "mailsettings"
+                            || $category == "Integration" && $Mode == "Integration"
+                            || $category == "Map Settings" && $Mode == "mapsettings"
+                            || $category == "Pastoral Care" && $Mode == "pastoralcare"
+                            || $category == "GDPR" && $Mode == "GDPR"
+                            ) ? 'active' : '' ?>"
                              id="<?= str_replace(" ", '', $category) ?>">
                             <div class="table-responsive">
                                 <table class="table table-striped">

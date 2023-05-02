@@ -20,7 +20,7 @@ class EmailTask implements iTask
 
   public function getLink()
   {
-    return SystemURLs::getRootPath() . '/v2/systemsettings';
+    return SystemURLs::getRootPath() . '/v2/systemsettings/mailsettings';
   }
 
   public function getTitle()
