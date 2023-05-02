@@ -48,7 +48,7 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <?php if ( SessionUser::getUser()->isAdmin() ) { ?>
             <div class="btn-group pull-right">
-                <a class="btn btn-app" href="<?= $sRootPath ?>/v2/systemsettings/pastoralcare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care with a familly. You can validated all the persons together.") ?>"><i
+                <a class="btn btn-app" href="<?= $sRootPath ?>/v2/systemsettings/pastoralcare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care Settings.") ?>"><i
                     class="fas fa-gear"></i><?= _("Settings") ?></a>
             </div>            
             <?php } ?>

@@ -106,7 +106,6 @@ class VIEWSystemSettingsController {
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
             'sPageTitle'    => $sPageTitle,
-            'isMenuOption'  => SessionUser::getUser()->isMenuOptionsEnabled(),
             'saved'         => $saved
         ];
         return $paramsArguments;
@@ -136,7 +135,6 @@ class VIEWSystemSettingsController {
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
             'sPageTitle'    => $sPageTitle,
-            'isMenuOption'  => SessionUser::getUser()->isMenuOptionsEnabled(),
             'Mode'         => $sMode
         ];
         
