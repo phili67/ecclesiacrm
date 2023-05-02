@@ -14,6 +14,8 @@
  *
  ******************************************************************************/
 
+ use EcclesiaCRM\SessionUser;
+
 require $sRootDocument . '/Include/Header.php';
 ?>
 
@@ -23,7 +25,7 @@ require $sRootDocument . '/Include/Header.php';
             <a class="btn btn-app" href="<?= $sRootPath ?>/Reports/GDPR/GDPRListExport.php"><i
                     class="fas fa-print"></i> <?= _("Printable Page") ?></a>
         </div>
-        <div class="col-sm-10" style="vertical-align: middle;">
+        <div class="col-sm-9" style="vertical-align: middle;">
             <table class="outer">
                 <tr>
                     <td><label><?= _("GDPR DPO Signer") ?></label></td>
@@ -36,7 +38,13 @@ require $sRootDocument . '/Include/Header.php';
                     <td><?= $gdprSignerEmail ?></td>
                 </tr>
             </table>
-        </div>
+        </div>        
+        <?php if ( SessionUser::getUser()->isAdmin() ) { ?>
+                <div class="col-sm-1 pull-right" style="vertical-align: middle;">
+                    <a class="btn btn-app" href="<?= $sRootPath ?>/v2/systemsettings/GDPR" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("GDPR Settings") ?>"><i
+                        class="fas fa-gear"></i><?= _("Settings") ?></a>
+                </div>            
+            <?php } ?>
     </div>
 </div>
 

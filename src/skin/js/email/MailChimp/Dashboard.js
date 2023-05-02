@@ -130,7 +130,7 @@ $(document).ready(function () {
                 + '  <div class="card card-body">'
                 + '    <div class="alert alert-danger alert-dismissible">'
                 + '      <h4><i class="fas fa-ban"></i> MailChimp ' + i18next.t('is not configured') + '</h4>'
-                + '      ' + i18next.t('Please update the') + ' MailChimp ' + i18next.t('API key in Setting->') + '<a href="' + window.CRM.root + '/v2/systemsettings">' + i18next.t('Edit General Settings') + '</a>,'
+                + '      ' + i18next.t('Please update the') + ' MailChimp ' + i18next.t('API key in Setting->') + '<a href="' + window.CRM.root + '/v2/systemsettings/Integration">' + i18next.t('Edit General Settings') + '</a>,'
                 + '      ' + i18next.t('then update') + ' sMailChimpApiKey. ' + i18next.t('For more info see our ') + '<a href="' + window.CRM.getSupportURL + '"> MailChimp +' + i18next.t('support docs.') + '</a>'
                 + '    </div>'
                 + '  </div>'

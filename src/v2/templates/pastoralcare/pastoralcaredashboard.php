@@ -46,6 +46,12 @@ require $sRootDocument . '/Include/Header.php';
                    title="<?= _("Pastoral care list of members for")." ".SessionUser::getUser()->getPerson()->getFullName() ?>"><i class="fas fa-list"></i><?= _("Lists") ?></a>
             <?php } ?>
         </div>
+        <?php if ( SessionUser::getUser()->isAdmin() ) { ?>
+            <div class="btn-group pull-right">
+                <a class="btn btn-app" href="<?= $sRootPath ?>/v2/systemsettings/pastoralcare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care Settings.") ?>"><i
+                    class="fas fa-gear"></i><?= _("Settings") ?></a>
+            </div>            
+            <?php } ?>
     </div>
 </div>
 
