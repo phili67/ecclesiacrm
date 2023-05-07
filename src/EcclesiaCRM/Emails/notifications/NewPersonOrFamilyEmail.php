@@ -61,7 +61,7 @@ class NewPersonOrFamilyEmail extends BaseEmail
         elseif (get_class($this->relatedObject) == "EcclesiaCRM\Person")
         {
           $myTokens['body'] = gettext("New Person Added")."\r\n". gettext("Name").": ". $this->relatedObject->getFullName();
-          $myTokens['personLink'] = SystemURLs::getURL()."/PersonView.php?PersonID=".$this->relatedObject->getId();
+          $myTokens['personLink'] = SystemURLs::getURL()."/v2/people/person/view/".$this->relatedObject->getId();
         }
         
         return array_merge($this->getCommonTokens(), $myTokens);

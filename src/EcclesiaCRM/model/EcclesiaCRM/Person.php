@@ -248,7 +248,7 @@ class Person extends BasePerson implements iPhoto
 
     public function getViewURI()
     {
-        return SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $this->getId();
+        return SystemURLs::getRootPath() . '/v2/people/person/view/' . $this->getId();
     }
 
     public function getFamilyRole()

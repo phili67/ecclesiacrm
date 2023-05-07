@@ -71,7 +71,7 @@ $persons = PersonQuery::Create()->filterByDateDeactivated(null)->findByFamId($iF
 if (!is_null($persons) && $persons->count() == 1) {
     $person = PersonQuery::Create()->findOneByFamId($iFamilyID);
 
-    RedirectUtils::Redirect("PersonView.php?PersonID=" . $person->getId());
+    RedirectUtils::Redirect("v2/people/person/view/" . $person->getId());
 }
 
 $ormNextFamilies = PersonQuery::Create()

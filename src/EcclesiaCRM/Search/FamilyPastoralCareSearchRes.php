@@ -78,7 +78,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
 
                             foreach ($members as $member) {
                                 $res_members[] = $member->getId();
-                                $globalMembers .= '• <a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $member->getId() . '">' . $member->getFirstName() . " " . $member->getLastName() . "</a><br>";
+                                $globalMembers .= '• <a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $member->getId() . '">' . $member->getFirstName() . " " . $member->getLastName() . "</a><br>";
                             }
 
                             $inCart = Cart::FamilyInCart($care->getFamily()->getId());

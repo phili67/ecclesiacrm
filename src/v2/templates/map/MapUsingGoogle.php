@@ -362,7 +362,7 @@ require $sRootDocument . '/Include/Footer.php';
         if (plot.type == 'family') {
             imghref = window.CRM.root + "/FamilyView.php?FamilyID=" + plot.ID;
         } else if (plot.type == 'person') {
-            imghref = window.CRM.root + "/PersonView.php?PersonID=" + plot.ID;
+            imghref = window.CRM.root + "/v2/people/person/view/" + plot.ID;
         } else if (plot.type == 'event') {
             imghref = window.CRM.root + "/v2/calendar";
         }

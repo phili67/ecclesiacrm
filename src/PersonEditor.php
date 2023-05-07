@@ -651,7 +651,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             RedirectUtils::Redirect($sPreviousPage . $iPersonID);
         } elseif (isset($_POST['PersonSubmit'])) {
             //Send to the view of this person
-            RedirectUtils::Redirect('PersonView.php?PersonID=' . $iPersonID);
+            RedirectUtils::Redirect('v2/people/person/view/' . $iPersonID);
         } else {
             //Reload to editor to add another record
             RedirectUtils::Redirect('PersonEditor.php');

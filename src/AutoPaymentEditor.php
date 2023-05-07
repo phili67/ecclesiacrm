@@ -230,7 +230,7 @@ if (isset($_POST['Submit'])) {
                }
 
                if ($personId > 0) {
-                  RedirectUtils::Redirect("PersonView.php?PersonID=".$personId);
+                  RedirectUtils::Redirect("v2/people/person/view/".$personId);
                }
             }
           }

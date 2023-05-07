@@ -1,413 +1,25 @@
 <?php
-
 /*******************************************************************************
  *
- *  filename    : PersonView.php
- *  last change : 2003-04-14
- *  description : Displays all the information about a single person
- *
- *  http://www.ecclesiacrm.com/
- *  Copyright 2001-2003 Phillip Hullquist, Deane Barker, Chris Gebhardt
- *  Copyright : 2019 Philippe Logel
+ *  filename    : familylist.php
+ *  last change : 2019-06-16
+ *  website     : http://www.ecclesiacrm.com
+ *  copyright   : 2019 Philippe Logel all right reserved not MIT licence
+ *                This code can't be incoprorated in another software without authorization
  *
  ******************************************************************************/
-
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use Propel\Runtime\Propel;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\PropertyQuery;
-use EcclesiaCRM\Record2propertyR2pQuery;
-use EcclesiaCRM\Map\Record2propertyR2pTableMap;
-use EcclesiaCRM\Map\PropertyTableMap;
-use EcclesiaCRM\Map\PropertyTypeTableMap;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Service\MailChimpService;
-use EcclesiaCRM\Service\TimelineService;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\dto\Cart;
-use EcclesiaCRM\AutoPaymentQuery;
-use EcclesiaCRM\Person2group2roleP2g2rQuery;
-use EcclesiaCRM\GroupPropMasterQuery;
-use EcclesiaCRM\VolunteerOpportunityQuery;
-use EcclesiaCRM\UserQuery;
-use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\PersonCustomQuery;
-use EcclesiaCRM\FamilyQuery;
-
-
-use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
-use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
-use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
-use EcclesiaCRM\Map\GroupTableMap;
-use EcclesiaCRM\Map\ListOptionTableMap;
-use EcclesiaCRM\Map\PersonTableMap;
-use EcclesiaCRM\Map\ListOptionIconTableMap;
-
-use EcclesiaCRM\Theme;
-
-use Propel\Runtime\ActiveQuery\Criteria;
-
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemConfig;
 
-// for ckeditor fonts
-$contentsExternalCssFont = SystemConfig::getValue("sMailChimpContentsExternalCssFont");
-$extraFont = SystemConfig::getValue("sMailChimpExtraFont");
+use EcclesiaCRM\GroupPropMasterQuery;
 
-// Get the person ID from the querystring
-$iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Theme;
+use EcclesiaCRM\dto\Cart;
 
-$user = UserQuery::Create()->findPk($iPersonID);
-
-// we get the TimelineService
-$maxMainTimeLineItems = 20; // max number
-
-$timelineService = new TimelineService();
-$timelineServiceItems = $timelineService->getForPerson($iPersonID);
-
-$timelineNotesServiceItems = $timelineService->getNotesForPerson($iPersonID);
-
-// we get the MailChimp Service
-$mailchimp = new MailChimpService();
-
-// person informations
-$userName = '';
-$userDir = '';
-$Currentpath = '';
-$currentNoteDir = '';
-$directories = [];
-
-if (!is_null($user)) {
-    $realNoteDir = $userDir = $user->getUserRootDir();
-    $userName = $user->getUserName();
-    $currentpath = $user->getCurrentpath();
-
-    $currentNoteDir = SystemURLs::getRootPath() . "/" . $realNoteDir . "/" . $userName;
-
-    $directories = MiscUtils::getDirectoriesInPath($currentNoteDir . $currentpath);
-}
-
-$bDocuments = false;
-
-if (array_key_exists('documents', $_GET)) {
-    $bDocuments = true;
-}
-
-$bEDrive = false;
-
-if (array_key_exists('edrive', $_GET)) {
-    $bEDrive = true;
-}
-
-$bGroup = false;
-
-if (array_key_exists('group', $_GET)) {
-    $bGroup = true;
-}
-
-// Get this person's data
-$person = PersonQuery::create('a')
-    ->leftJoinFamily()
-    ->addAlias('cls', ListOptionTableMap::TABLE_NAME)
-    ->addMultipleJoin(array(
-            array(PersonTableMap::alias('a', PersonTableMap::COL_PER_CLS_ID),
-                ListOptionTableMap::alias('cls', ListOptionTableMap::COL_LST_OPTIONID)),
-            array(ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_ID), 1)
-        )
-        , Criteria::LEFT_JOIN)
-    ->addAsColumn('ClassName', 'COALESCE('. ListOptionTableMap::alias( 'cls', ListOptionTableMap::COL_LST_OPTIONNAME." , 'Unassigned')"))
-    ->addAsColumn('ClassID', 'COALESCE('. ListOptionTableMap::alias( 'cls', ListOptionTableMap::COL_LST_OPTIONID." , 'Unassigned')"))
-    ->addAlias('clsicon', ListOptionIconTableMap::TABLE_NAME)
-    ->addJoin(ListOptionTableMap::alias('cls', ListOptionTableMap::COL_LST_OPTIONID),
-        ListOptionTableMap::alias('clsicon', ListOptionIconTableMap::COL_LST_IC_LST_OPTION_ID),
-        Criteria::LEFT_JOIN)
-    ->addAsColumn('ClassIcon', ListOptionIconTableMap::COL_LST_IC_LST_URL)
-    ->addAlias('fmr', ListOptionTableMap::TABLE_NAME)
-    ->addMultipleJoin(array(
-            array(PersonTableMap::alias('a', PersonTableMap::COL_PER_FMR_ID),
-                ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONID)),
-            array(ListOptionTableMap::Alias("fmr",ListOptionTableMap::COL_LST_ID), 2)
-        )
-        , Criteria::LEFT_JOIN)
-    ->addAsColumn('FamRole', ListOptionTableMap::Alias("fmr",ListOptionTableMap::COL_LST_OPTIONNAME))
-    ->addAlias('b', PersonTableMap::TABLE_NAME)
-    ->addJoin(PersonTableMap::alias('a', PersonTableMap::COL_PER_ENTEREDBY),
-        PersonTableMap::alias('b', PersonTableMap::COL_PER_ID), Criteria::LEFT_JOIN)
-    ->addAsColumn('EnteredFirstName', PersonTableMap::alias('b',PersonTableMap::COL_PER_FIRSTNAME))
-    ->addAsColumn('EnteredLastName', PersonTableMap::alias('b',PersonTableMap::COL_PER_LASTNAME))
-    ->addAsColumn('EnteredId', PersonTableMap::alias('b',PersonTableMap::COL_PER_ID))
-    ->addAlias('c', PersonTableMap::TABLE_NAME)
-    ->addJoin(PersonTableMap::alias('a', PersonTableMap::COL_PER_EDITEDBY),
-        PersonTableMap::alias('c', PersonTableMap::COL_PER_ID), Criteria::LEFT_JOIN)
-    ->addAsColumn('EditedFirstName', PersonTableMap::alias('c',PersonTableMap::COL_PER_FIRSTNAME))
-    ->addAsColumn('EditedLastName', PersonTableMap::alias('c',PersonTableMap::COL_PER_LASTNAME))
-    ->addAsColumn('EditedId', PersonTableMap::alias('c',PersonTableMap::COL_PER_ID))
-    ->filterById($iPersonID)
-    ->findOne();
-
-$connection = Propel::getConnection();
-
-if (is_null($person)) {
-    RedirectUtils::Redirect('members/404.php?type=Person');
-    exit;
-}
-
-if ($person->getDateDeactivated() != null) {
-    $time = new DateTime('now');
-    $new_time = $time->modify('-' . SystemConfig::getValue('iGdprExpirationDate') . ' year')->format('Y-m-d');
-
-    if ($new_time > $person->getDateDeactivated()) {
-        if (!SessionUser::getUser()->isGdrpDpoEnabled()) {
-            RedirectUtils::Redirect('members/404.php?type=Person');
-            exit;
-        }
-    } else if (!SessionUser::getUser()->isEditRecordsEnabled()) {
-        RedirectUtils::Redirect('members/404.php?type=Person');
-        exit;
-    }
-}
-
-$ormAssignedProperties = Record2propertyR2pQuery::Create()
-    ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID, PropertyTableMap::COL_PRO_ID, Criteria::LEFT_JOIN)
-    ->addJoin(PropertyTableMap::COL_PRO_PRT_ID, PropertyTypeTableMap::COL_PRT_ID, Criteria::LEFT_JOIN)
-    ->addAsColumn('ProName', PropertyTableMap::COL_PRO_NAME)
-    ->addAsColumn('ProId', PropertyTableMap::COL_PRO_ID)
-    ->addAsColumn('ProPrtId', PropertyTableMap::COL_PRO_PRT_ID)
-    ->addAsColumn('ProPrompt', PropertyTableMap::COL_PRO_PROMPT)
-    ->addAsColumn('ProName', PropertyTableMap::COL_PRO_NAME)
-    ->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
-    ->where(PropertyTableMap::COL_PRO_CLASS . "='p'")
-    ->addAscendingOrderByColumn('ProName')
-    ->addAscendingOrderByColumn('ProTypeName')
-    ->findByR2pRecordId($iPersonID);
-
-$iFamilyID = $person->getFamId();
-
-//Get the automatic payments for this family
-$ormAutoPayments = AutoPaymentQuery::create()
-    ->leftJoinPerson()
-    ->withColumn('Person.FirstName', 'EnteredFirstName')
-    ->withColumn('Person.LastName', 'EnteredLastName')
-    ->withColumn('Person.FirstName', 'EnteredFirstName')
-    ->withColumn('Person.LastName', 'EnteredLastName')
-    ->leftJoinDonationFund()
-    ->withColumn('DonationFund.Name', 'fundName')
-    ->orderByNextPayDate()
-    ->findByFamilyid($iFamilyID);
-
-
-// Get the lists of custom person fields
-$ormPersonCustomFields = PersonCustomMasterQuery::Create()
-    ->orderByCustomOrder()
-    ->find();
-
-// Get the custom field data for this person.
-$rawQry = PersonCustomQuery::create();
-foreach ($ormPersonCustomFields as $customfield) {
-    $rawQry->withColumn($customfield->getCustomField());
-}
-
-if (!is_null($rawQry->findOneByPerId($iPersonID))) {
-    $aCustomData = $rawQry->findOneByPerId($iPersonID)->toArray();
-}
-
-// Get the Groups this Person is assigned to
-$ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
-    ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
-    ->addMultipleJoin(
-        array(
-            array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID, ListOptionTableMap::COL_LST_OPTIONID),
-            array(GroupTableMap::COL_GRP_ROLELISTID, ListOptionTableMap::COL_LST_ID)),
-        Criteria::LEFT_JOIN)
-    ->add(ListOptionTableMap::COL_LST_OPTIONNAME, null, Criteria::ISNOTNULL)
-    ->Where(Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID . ' = ' . $iPersonID . ' ORDER BY grp_Name')
-    ->addAsColumn('roleName', ListOptionTableMap::COL_LST_OPTIONNAME)
-    ->addAsColumn('groupName', GroupTableMap::COL_GRP_NAME)
-    ->addAsColumn('hasSpecialProps', GroupTableMap::COL_GRP_HASSPECIALPROPS)
-    ->find();
-
-// Get the volunteer opportunities this Person is assigned to
-$ormAssignedVolunteerOpps = VolunteerOpportunityQuery::Create()
-    ->addJoin(VolunteerOpportunityTableMap::COL_VOL_ID, PersonVolunteerOpportunityTableMap::COL_P2VO_VOL_ID, Criteria::LEFT_JOIN)
-    ->Where(PersonVolunteerOpportunityTableMap::COL_P2VO_PER_ID . ' = ' . $iPersonID)
-    ->find();
-
-// Get all the volunteer opportunities
-$ormVolunteerOpps = VolunteerOpportunityQuery::Create()->orderByName()->find();
-
-//Get all the properties
-$ormProperties = PropertyQuery::Create()
-    ->filterByProClass('p')
-    ->orderByProName()
-    ->find();
-
-$dBirthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', $person->getFlags());
-
-// Assign the values locally, after selecting whether to display the family or person information
-
-if (!is_null($person->getFamily())) {
-    $famAddress1 = $person->getFamily()->getAddress1();
-    $famAddress2 = $person->getFamily()->getAddress2();
-    $famCity = $person->getFamily()->getCity();
-    $famSate = $person->getFamily()->getState();
-    $famZip = $person->getFamily()->getZip();
-    $famCountry = $person->getFamily()->getCountry();
-    $famHompePhone = $person->getFamily()->getHomePhone();
-    $famWorkPhone = $person->getFamily()->getWorkPhone();
-    $famCellPhone = $person->getFamily()->getCellPhone();
-    $famEmail = $person->getFamily()->getEmail();
-}
-
-//Get an unformatted mailing address to pass as a parameter to a google maps search
-MiscUtils::SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, false);
-$sCity = MiscUtils::SelectWhichInfo($person->getCity(), $famCity, false);
-$sState = MiscUtils::SelectWhichInfo($person->getState(), $famSate, false);
-$sZip = MiscUtils::SelectWhichInfo($person->getZip(), $famZip, false);
-$sCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $famCountry, false);
-$plaintextMailingAddress = $person->getAddress();
-
-//Get a formatted mailing address to use as display to the user.
-MiscUtils::SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, true);
-$sCity = MiscUtils::SelectWhichInfo($person->getCity(), $famCity, true);
-$sState = MiscUtils::SelectWhichInfo($person->getState(), $famSate, true);
-$sZip = MiscUtils::SelectWhichInfo($person->getZip(), $famZip, true);
-$sCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $famCountry, true);
-$formattedMailingAddress = $person->getAddress();
-
-$sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $famCountry, false);
-$sHomePhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
-    MiscUtils::ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), true);
-$sHomePhoneUnformatted = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
-    MiscUtils::ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), false);
-$sWorkPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
-    MiscUtils::ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), true);
-$sWorkPhoneUnformatted = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
-    MiscUtils::ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), false);
-$sCellPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
-    MiscUtils::ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), true);
-$sCellPhoneUnformatted = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
-    MiscUtils::ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), false);
-$sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $famEmail, true);
-$sUnformattedEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $famEmail, false);
-
-if ($person->getEnvelope() > 0) {
-    $sEnvelope = $person->getEnvelope();
-} else {
-    $sEnvelope = _('Not assigned');
-}
-
-$iTableSpacerWidth = 10;
-
-$isMailChimpActive = $mailchimp->isActive();
-
-$bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
-    (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId()) ||
-    (SessionUser::getUser()->isEditSelfEnabled() && $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())
-);
-
-$ormNextPersons = PersonQuery::Create()
-    ->orderByLastName()
-    ->find();
-
-$last_id = 0;
-$next_id = 0;
-$capture_next = 0;
-
-foreach ($ormNextPersons as $ormNextPerson) {
-    $pid = $ormNextPerson->getId();
-    if ($capture_next == 1) {
-        $next_id = $pid;
-        break;
-    }
-    if ($pid == $iPersonID) {
-        $previous_id = $last_id;
-        $capture_next = 1;
-    } else {
-        $last_id = $pid;
-    }
-}
-
-$sAssignedGroups = "";
-
-// Set the page title and include HTML header
-$sPageTitle = _('Person Profile');
-$sPageTitleSpan = $sPageTitle . '<span style="float:right"><div class="btn-group">';
-if ($previous_id > 0) {
-    $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $previous_id . '\'">
-<span class="mat-button-wrapper"><i class="far fa-hand-point-left"></i></span>
-<div class="mat-button-ripple mat-ripple" ></div>
-<div class="mat-button-focus-overlay"></div>
-</button>';
-}
-
-$sPageTitleSpan .= '<button title="' . _('Person List') . '" class="btn btn-round btn-info mat-raised-button"  type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/personlist\'">
-<span class="mat-button-wrapper"><i class="fas fa-list-ul"></i></span>
-<div class="mat-button-ripple mat-ripple" ></div>
-<div class="mat-button-focus-overlay"></div>
-</button>';
-
-if ($next_id > 0) {
-    $sPageTitleSpan .= '<button title="' . _('Next Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $next_id . '\'">
-<span class="mat-button-wrapper"><i class="far fa-hand-point-right"></i></span>
-<div class="mat-button-ripple mat-ripple"></div>
-<div class="mat-button-focus-overlay"></div>
-</button>
-</div>';
-}
-
-/* location and MAP */
-$location_available = false;
-
-if ( ! is_null($person->getFamily()) ) {
-    $lat = str_replace(",",".",$person->getFamily()->getLatitude());
-    $lng = str_replace(",",".",$person->getFamily()->getLongitude());
-
-    $iLittleMapZoom = SystemConfig::getValue("iLittleMapZoom");
-    $sMapProvider = SystemConfig::getValue('sMapProvider');
-    $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
-
-    if ( !empty($lat) && !empty($lng) ) {
-        $location_available = true;
-    }
-}
-
-$sPageTitleSpan .= '</span>';
-
-require 'Include/Header.php';
-
-if (!empty($person->getDateDeactivated())) {
-    ?>
-    <div class="alert alert-warning">
-        <strong><?= _("This Person is Deactivated") ?> </strong>
-    </div>
-    <?php
-}
-
-
-$persons = PersonQuery::Create()->filterByDateDeactivated(null)->findByFamId($iFamilyID);
-
-$singlePerson = false;
-if (!is_null($persons) && $persons->count() == 1) {
-    $singlePerson = true;
-}
-
-$sFamilyEmails = [];
-$family = FamilyQuery::create()->findOneById($iFamilyID);
-
-if (!is_null($family)) {
-    foreach ($family->getActivatedPeople() as $per) {
-        $tmpEmail = $per->getEmail();
-        if ($tmpEmail != "") {
-            $sFamilyEmails[] = $tmpEmail;
-        }
-    }
-}
+require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="container-fluid">
@@ -418,7 +30,7 @@ if (!is_null($family)) {
                     <div class="card-body box-profile">
                         <div class="text-center">
                             <img
-                                src="<?= SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/photo' ?>"
+                                src="<?= $sRootPath . '/api/persons/' . $PersonInfos['person']->getId() . '/photo' ?>"
                                 class="initials-image profile-user-img img-responsive img-rounded img-circle" alt="">
                             <?php
                             if ($bOkToEdit) {
@@ -445,51 +57,51 @@ if (!is_null($family)) {
                         </div>
                         <h3 class="profile-username text-center">
                             <?php
-                            if ($person->isMale()) {
+                            if ($PersonInfos['person']->isMale()) {
                                 ?>
                                 <i class="fas fa-male"></i>
                                 <?php
-                            } elseif ($person->isFemale()) {
+                            } elseif ($PersonInfos['person']->isFemale()) {
                                 ?>
                                 <i class="fas fa-female"></i>
                                 <?php
                             }
                             ?>
-                            <?= $person->getFullName() ?>
+                            <?= $PersonInfos['person']->getFullName() ?>
                         </h3>
 
                         <?php
-                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isEditRecordsEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isEditRecordsEnabled()) {
                             ?>
                             <p class="text-muted text-center">
-                                <?= empty($person->getFamilyRoleName()) ? _('Undefined') : _($person->getFamilyRoleName()); ?>
+                                <?= empty($PersonInfos['person']->getFamilyRoleName()) ? _('Undefined') : _($PersonInfos['person']->getFamilyRoleName()); ?>
                                 &nbsp;
-                                <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>"
-                                   data-family_role="<?= $person->getFamilyRoleName() ?>"
-                                   data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>">
+                                <a id="edit-role-btn" data-person_id="<?= $PersonInfos['person']->getId() ?>"
+                                   data-family_role="<?= $PersonInfos['person']->getFamilyRoleName() ?>"
+                                   data-family_role_id="<?= $PersonInfos['person']->getFmrId() ?>" class="btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </p>
                             <?php
                         }
-                        if ($person->getMembershipDate()) {
+                        if ($PersonInfos['person']->getMembershipDate()) {
                             ?>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b><?= _('Member Since') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?></a>
+                                    <b><?= _('Member Since') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($PersonInfos['person']->getMembershipDate()->format('Y-m-d'), false) ?></a>
                                 </li>
                                 <li class="list-group-item">
                                     <b><img
-                                            src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $person->getClassIcon() ?>"
+                                            src="<?= $sRootPath . "/skin/icons/markers/" . $PersonInfos['person']->getClassIcon() ?>"
                                             width="18" alt="">
-                                        <?= _($person->getClassName()) ?>
+                                        <?= _($PersonInfos['person']->getClassName()) ?>
                                     </b>
 
                                     <div class="float-right">
                                         <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
-                                           data-person_id="<?= $person->getId() ?>"
-                                           data-classification_id="<?= $person->getClassID() ?>"
-                                           data-classification_role="<?= $person->getClassName() ?>">
+                                           data-person_id="<?= $PersonInfos['person']->getId() ?>"
+                                           data-classification_id="<?= $PersonInfos['person']->getClassID() ?>"
+                                           data-classification_role="<?= $PersonInfos['person']->getClassName() ?>">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                     </div>
@@ -507,7 +119,7 @@ if (!is_null($family)) {
                             ?>
                             <li class="list-group-item">
                                 <b>
-                                    <i class="fas fa-users"></i> <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $groupAssigment->getGroupId()?>/view"><?= $groupAssigment->getGroupName() ?>
+                                    <i class="fas fa-users"></i> <a href="<?= $sRootPath ?>/v2/group/<?= $groupAssigment->getGroupId()?>/view"><?= $groupAssigment->getGroupName() ?>
                                 </b>
 
                                 <div class="float-right">
@@ -526,7 +138,7 @@ if (!is_null($family)) {
                         <?php
                         if ($bOkToEdit) {
                             ?>
-                            <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
+                            <a href="<?= $sRootPath ?>/PersonEditor.php?PersonID=<?= $PersonInfos['person']->getId() ?>"
                                class="btn btn-primary btn-block"><b><?php echo _('Edit'); ?></b></a>
                             <?php
                         }
@@ -536,7 +148,7 @@ if (!is_null($family)) {
                 </div>
                 <!-- About card -->
                 <?php
-                $can_see_privatedata = ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
+                $can_see_privatedata = ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
                 ?>
                 <div class="card">
                     <div class="card-header border-1">
@@ -552,16 +164,16 @@ if (!is_null($family)) {
                         <ul class="fa-ul">
                             <?php
                             if ($can_see_privatedata) {
-                            if (count($person->getOtherFamilyMembers()) > 0) {
+                            if (count($PersonInfos['person']->getOtherFamilyMembers()) > 0) {
                                 ?>
                                 <li style="left:-28px"><strong><i class="fas fa-male"></i><i class="fas fa-female"></i><i
                                             class="fas fa-child"></i> <?php echo _('Family:'); ?></strong>
                                     <span>
             <?php
-            if (!is_null($person->getFamily()) && $person->getFamily()->getId() != '') {
+            if (!is_null($PersonInfos['person']->getFamily()) && $PersonInfos['person']->getFamily()->getId() != '') {
                 ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $person->getFamily()->getId() ?>"><?= $person->getFamily()->getName() ?> </a>
-                <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>"
+                <a href="<?= $sRootPath ?>/FamilyView.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>"><?= $PersonInfos['person']->getFamily()->getName() ?> </a>
+                <a href="<?= $sRootPath ?>/FamilyEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>"
                    class="table-link">
                   <span class="fa-stack">
                     <i class="fas fa-square fa-stack-2x"></i>
@@ -580,8 +192,8 @@ if (!is_null($family)) {
                                 <?php
                             }
 
-                            if (!empty($formattedMailingAddress)) {
-                                $adresses = explode('<br>',$plaintextMailingAddress);
+                            if (!empty($PersonInfos['formattedMailingAddress'])) {
+                                $adresses = explode('<br>',$PersonInfos['plaintextMailingAddress']);
                                 $count = count($adresses);
                                 ?>
                                 <li>
@@ -593,7 +205,7 @@ if (!is_null($family)) {
                                         <?= $count>1?'•':'' ?> <?= OutputUtils::GetLinkMapFromAddress($adress) ?><br>
                                     <?php } ?>
                                 </span>
-                                <?php if ($location_available) { ?>
+                                <?php if ($PersonInfos['location_available']) { ?>
                                     <div id="MyMap" style="width:100%"></div>
                                 <?php } ?>
                                 </li>
@@ -607,10 +219,10 @@ if (!is_null($family)) {
                                     <br>
                                     <p class="text-muted"><?= $dBirthDate ?>
                                         <?php
-                                        if (!$person->hideAge()) {
+                                        if (!$PersonInfos['person']->hideAge()) {
                                             ?>
                                             (<span
-                                                data-birth-date="<?= $person->getBirthDate()->format('Y-m-d') ?>"></span> <?= OutputUtils::FormatAgeSuffix($person->getBirthDate(), $person->getFlags()) ?>)
+                                                data-birth-date="<?= $PersonInfos['person']->getBirthDate()->format('Y-m-d') ?>"></span> <?= OutputUtils::FormatAgeSuffix($PersonInfos['person']->getBirthDate(), $PersonInfos['person']->getFlags()) ?>)
                                             <?php
                                         }
                                         ?>
@@ -618,10 +230,10 @@ if (!is_null($family)) {
                                 </li>
                                 <?php
                             }
-                            if (!SystemConfig::getValue('bHideFriendDate') && $person->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */
+                            if (!SystemConfig::getValue('bHideFriendDate') && $PersonInfos['person']->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */
                                 ?>
                                 <li><strong><i class="fa-li fas fa-tasks"></i><?= _('Friend Date') ?>:</strong>
-                                    <span><?= OutputUtils::FormatDate($person->getFriendDate()->format('Y-m-d'), false) ?></span>
+                                    <span><?= OutputUtils::FormatDate($PersonInfos['person']->getFriendDate()->format('Y-m-d'), false) ?></span>
                                 </li>
                                 <?php
                             }
@@ -631,22 +243,22 @@ if (!is_null($family)) {
                         <ul class="fa-ul">
                             <?php
 
-                            if ($sCellPhone) {
+                            if ($PersonInfos['sCellPhone']) {
                                 ?>
                                 <li><strong><i class="fa-li fas fa-mobile"></i><?= _('Mobile Phone') ?>:</strong>
                                     <span><a
-                                            href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
+                                            href="tel:<?= $PersonInfos['sCellPhoneUnformatted'] ?>"><?= $PersonInfos['sCellPhone'] ?></a></span></li>
                                 <li><strong><i class="fa-li fas fa-mobile"></i><?= _('Text Message') ?>:</strong>
                                     <span><a
-                                            href="sms:<?= str_replace(' ', '', $sCellPhoneUnformatted) ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span>
+                                            href="sms:<?= str_replace(' ', '', $PersonInfos['sCellPhoneUnformatted']) ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $PersonInfos['sCellPhone'] ?></a></span>
                                 </li>
                                 <?php
                             }
 
-                            if ($sHomePhone) {
+                            if ($PersonInfos['sHomePhone']) {
                                 ?>
                                 <li><strong><i class="fa-li fas fa-phone"></i><?= _('Home Phone') ?>:</strong> <span><a
-                                            href="tel:<?= $sHomePhoneUnformatted ?>"><?= $sHomePhone ?></a></span></li>
+                                            href="tel:<?= $PersonInfos['sHomePhoneUnformatted'] ?>"><?= $PersonInfos['sHomePhone'] ?></a></span></li>
                                 <?php
                             }
 
@@ -657,10 +269,10 @@ if (!is_null($family)) {
                                 </li>
                                 <?php
                             }
-                            if ($sEmail != '') {
+                            if ($PersonInfos['sEmail'] != '') {
                                 ?>
                                 <li><strong><i class="fa-li far fa-envelope"></i><?= _('Email') ?>:</strong> <span><a
-                                            href="mailto:<?= $sUnformattedEmail ?>" target="_blank"><?= $sEmail ?></a></span></li>
+                                            href="mailto:<?= $PersonInfos['sUnformattedEmail'] ?>" target="_blank"><?= $PersonInfos['sEmail'] ?></a></span></li>
                                 <?php
                                 if ($isMailChimpActive) {
                                     ?>
@@ -671,18 +283,18 @@ if (!is_null($family)) {
                                 }
                             }
 
-                            if ($sWorkPhone) {
+                            if ($PersonInfos['sWorkPhone']) {
                                 ?>
                                 <li><strong><i class="fa-li fas fa-phone"></i><?= _('Work Phone') ?>:</strong> <span><a
-                                            href="tel:<?= $sWorkPhoneUnformatted ?>"><?= $sWorkPhone ?></a></span></li>
+                                            href="tel:<?= $PersonInfos['sWorkPhoneUnformatted'] ?>"><?= $PersonInfos['sWorkPhone'] ?></a></span></li>
                                 <?php
                             }
 
-                            if ($person->getWorkEmail() != '') {
+                            if ($PersonInfos['person']->getWorkEmail() != '') {
                                 ?>
                                 <li><strong><i class="fa-li far fa-envelope"></i><?= _('Work/Other Email') ?>:</strong>
                                     <span><a
-                                            href="mailto:<?= $person->getWorkEmail() ?>"  target="_blank"><?= $person->getWorkEmail() ?></a></span>
+                                            href="mailto:<?= $PersonInfos['person']->getWorkEmail() ?>"  target="_blank"><?= $PersonInfos['person']->getWorkEmail() ?></a></span>
                                 </li>
                                 <?php
                                 if ($isMailChimpActive) {
@@ -693,27 +305,27 @@ if (!is_null($family)) {
                                 }
                             }
 
-                            if ($person->getFacebookID() > 0) {
+                            if ($PersonInfos['person']->getFacebookID() > 0) {
                                 ?>
                                 <li><strong><i class="fa-li fab fa-facebook"></i><?= _('Facebook') ?>:</strong>
                                     <span><a
-                                            href="https://www.facebook.com/<?= InputUtils::FilterInt($person->getFacebookID()) ?>"><?= _('Facebook') ?></a></span>
+                                            href="https://www.facebook.com/<?= InputUtils::FilterInt($PersonInfos['person']->getFacebookID()) ?>"><?= _('Facebook') ?></a></span>
                                 </li>
                                 <?php
                             }
 
-                            if (strlen($person->getTwitter()) > 0) {
+                            if (strlen($PersonInfos['person']->getTwitter()) > 0) {
                                 ?>
                                 <li><strong><i class="fa-li fas fa-twitter"></i><?= _('Twitter') ?>:</strong> <span><a
-                                            href="https://www.twitter.com/<?= InputUtils::FilterString($person->getTwitter()) ?>"><?= _('Twitter') ?></a></span>
+                                            href="https://www.twitter.com/<?= InputUtils::FilterString($PersonInfos['person']->getTwitter()) ?>"><?= _('Twitter') ?></a></span>
                                 </li>
                                 <?php
                             }
 
-                            if (strlen($person->getLinkedIn()) > 0) {
+                            if (strlen($PersonInfos['person']->getLinkedIn()) > 0) {
                                 ?>
                                 <li><strong><i class="fa-li fab fa-linkedin"></i><?= _('LinkedIn') ?>:</strong> <span><a
-                                            href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($person->getLinkedIn()) ?>"><?= _('LinkedIn') ?></a></span>
+                                            href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($PersonInfos['person']->getLinkedIn()) ?>"><?= _('LinkedIn') ?></a></span>
                                 </li>
                                 <?php
                             }
@@ -765,18 +377,18 @@ if (!is_null($family)) {
                     <?php
                     $buttons = 0;
 
-                    if (Cart::PersonInCart($iPersonID) && SessionUser::getUser()->isShowCartEnabled()) {
+                    if (Cart::PersonInCart($PersonInfos['iPersonID']) && SessionUser::getUser()->isShowCartEnabled()) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart"
-                           data-onecartpersonid="<?= $iPersonID ?>"> <i class="fas fa-times"></i> <span
+                           data-onecartpersonid="<?= $PersonInfos['iPersonID'] ?>"> <i class="fas fa-times"></i> <span
                                 class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
                         <?php
                     } else if (SessionUser::getUser()->isShowCartEnabled()) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app AddOneToPeopleCart" id="AddPersonToCart"
-                           data-onecartpersonid="<?= $iPersonID ?>"><i
+                           data-onecartpersonid="<?= $PersonInfos['iPersonID'] ?>"><i
                                 class="fas fa-cart-plus"></i><span
                                 class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
                         <?php
@@ -786,28 +398,28 @@ if (!is_null($family)) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app"
-                           href="mailto:<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $sEmail)) ?>"  target="_blank"><i
+                           href="mailto:<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $PersonInfos['sEmail'])) ?>"  target="_blank"><i
                                 class="far fa-paper-plane"></i><?= _('Email') ?></a>
                         <a class="btn btn-app"
-                           href="mailto:?bcc=<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $sEmail)) ?>"  target="_blank"><i
+                           href="mailto:?bcc=<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $PersonInfos['sEmail'])) ?>"  target="_blank"><i
                                 class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
                         <?php
                     }
 
-                    if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
-                        if ($person->getId() == SessionUser::getUser()->getPersonId()) {
+                    if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()) {
 
                             $buttons++;
                             ?>
-                            <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i
+                            <a class="btn btn-app" href="<?= $sRootPath ?>/SettingsIndividual.php"><i
                                     class="fas fa-cog"></i> <?= _("Change Settings") ?></a>
-                            <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i
+                            <a class="btn btn-app" href="<?= $sRootPath ?>/UserPasswordChange.php"><i
                                     class="fas fa-key"></i> <?= _("Change Password") ?></a>
                             <?php
                         }
                         ?>
                         <a class="btn btn-app"
-                           href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i
+                           href="<?= $sRootPath ?>/PrintView.php?PersonID=<?= $PersonInfos['iPersonID'] ?>"><i
                                 class="fas fa-print"></i> <?= _("Printable Page") ?></a>
                         <?php
                     }
@@ -824,13 +436,13 @@ if (!is_null($family)) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-gradient-purple"
-                           href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $iPersonID ?>"
+                           href="<?= $sRootPath ?>/v2/pastoralcare/person/<?= $PersonInfos['iPersonID'] ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Add a pastoral care note") ?>"><i
                                 class="far fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
                         <?php
                     }
 
-                    if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
+                    if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-gradient-green" href="#" id="createDocument" data-toggle="tooltip"
@@ -842,7 +454,7 @@ if (!is_null($family)) {
                     if (SessionUser::getUser()->isManageGroupsEnabled() or SessionUser::getUser()->isGroupManagerEnabled() ) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app addGroup" data-personid="<?= $iPersonID ?>"
+                        <a class="btn btn-app addGroup" data-personid="<?= $PersonInfos['iPersonID'] ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Assign this user to a group") ?>"><i
                                 class="fas fa-users">
                             </i> <?= _("Assign New Group") ?></a>
@@ -852,57 +464,57 @@ if (!is_null($family)) {
                     if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                          $buttons++;
                         ?>
-                        <a class="btn btn-app bg-yellow-gradient <?= (mb_strlen($person->getAddress1()) == 0 || !is_null($person->getFamily()) && mb_strlen($person->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
+                        <a class="btn btn-app bg-yellow-gradient <?= (mb_strlen($PersonInfos['person']->getAddress1()) == 0 || !is_null($PersonInfos['person']->getFamily()) && mb_strlen($PersonInfos['person']->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
-                           href="<?= SystemURLs::getRootPath() ?>/api/persons/addressbook/extract/<?= $iPersonID ?>"><i
+                           href="<?= $sRootPath ?>/api/persons/addressbook/extract/<?= $PersonInfos['iPersonID'] ?>"><i
                                 class="far fa-id-card">
                             </i> <?= _("vCard") ?></a>
                         <?php
                     }
 
                     if (SessionUser::getUser()->isAdmin()) {
-                        if (!$person->isUser()) {
+                        if (!$PersonInfos['person']->isUser()) {
                             $buttons++;
                             ?>
                             <a class="btn btn-app"
-                               href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?NewPersonID=<?= $iPersonID ?>"
+                               href="<?= $sRootPath ?>/UserEditor.php?NewPersonID=<?= $PersonInfos['iPersonID'] ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Create a CRM user") ?>"><i
                                     class="fas fa-user-secret"></i> <?= _('Make User') ?></a>
                             <?php
                         } else {
                             ?>
                             <a class="btn btn-app"
-                               href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $iPersonID ?>"
+                               href="<?= $sRootPath ?>/UserEditor.php?PersonID=<?= $PersonInfos['iPersonID'] ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Add rights to this user") ?>"><i
                                     class="fas fa-user-secret"></i> <?= _('Edit User') ?></a>
                             <?php
                         }
                     }
 
-                    if ($bOkToEdit && SessionUser::getUser()->isGdrpDpoEnabled() && $iPersonID != 1) {// the super user can't be deactivated
+                    if ($bOkToEdit && SessionUser::getUser()->isGdrpDpoEnabled() && $PersonInfos['iPersonID'] != 1) {// the super user can't be deactivated
                         $buttons++;
                         ?>
                         <button class="btn btn-app bg-gradient-orange" id="activateDeactivate">
-                            <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " . _(' this Person')); ?>
+                            <i class="fa <?= (empty($PersonInfos['person']->getDateDeactivated()) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo((empty($PersonInfos['person']->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " . _(' this Person')); ?>
                         </button>
                         <?php
                     }
 
-                    if (SessionUser::getUser()->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
+                    if (SessionUser::getUser()->isDeleteRecordsEnabled() && $PersonInfos['iPersonID'] != 1) {// the super user can't be deleted
                         $buttons++;
 
-                        if (count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily())) {
+                        if (count($PersonInfos['person']->getOtherFamilyMembers()) > 0 || is_null($PersonInfos['person']->getFamily())) {
                             ?>
                             <a class="btn btn-app bg-gradient-maroon delete-person"
-                               data-person_name="<?= $person->getFullName() ?>"
-                               data-person_id="<?= $iPersonID ?>"><i
+                               data-person_name="<?= $PersonInfos['person']->getFullName() ?>"
+                               data-person_id="<?= $PersonInfos['iPersonID'] ?>"><i
                                     class="far fa-trash-alt"></i> <?= _("Delete this Record") ?>
                             </a>
                             <?php
                         } else {
                             ?>
                             <a class="btn btn-app bg-maroon"
-                               href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i
+                               href="<?= $sRootPath ?>/SelectDelete.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>"><i
                                     class="far fa-trash-alt"></i><?= _("Delete this Record") ?></a>
                             <?php
                         }
@@ -912,7 +524,7 @@ if (!is_null($family)) {
             </div>
 
             <?php
-            if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled())) {
+            if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled())) {
             ?>
             <div class="card">
                 <div class="card-header  border-1">
@@ -920,8 +532,8 @@ if (!is_null($family)) {
                     <ul class="nav nav-pills">
                         <?php
                         $activeTab = "";
-                        if (($person->getId() == SessionUser::getUser()->getPersonId()
-                            || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId()
+                        if (($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()
+                            || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()
                             || SessionUser::getUser()->isSeePrivacyDataEnabled())) {
                             $activeTab = "timeline";
                             ?>
@@ -933,7 +545,7 @@ if (!is_null($family)) {
                         }
                         ?>
                         <?php
-                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || count($person->getOtherFamilyMembers()) > 0 && SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || count($PersonInfos['person']->getOtherFamilyMembers()) > 0 && SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
@@ -949,7 +561,7 @@ if (!is_null($family)) {
                         }
                         ?>
                         <?php
-                        if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabled() || $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId()) {
+                        if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabled() || $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= ($bGroup) ? 'active' : '' ?>"
@@ -966,7 +578,7 @@ if (!is_null($family)) {
                         ?>
 
                         <?php
-                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                         ?>
                         <li class="nav-item">
                             <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
@@ -980,7 +592,7 @@ if (!is_null($family)) {
                         ?>
 
                         <?php
-                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isCanvasserEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isCanvasserEnabled()) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link"
@@ -995,7 +607,7 @@ if (!is_null($family)) {
                         }
                         ?>
                         <?php
-                        if (count($person->getOtherFamilyMembers()) == 0 && SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
+                        if (count($PersonInfos['person']->getOtherFamilyMembers()) == 0 && SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
@@ -1021,7 +633,7 @@ if (!is_null($family)) {
                         }
                         ?>
                         <?php
-                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isNotesEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isNotesEnabled()) {
                             if ($bDocuments) $activeTab = 'notes';
                             ?>
                             <li class="nav-item">
@@ -1035,7 +647,7 @@ if (!is_null($family)) {
                         }
                         ?>
                         <?php
-                        if (SessionUser::getUser()->isEDriveEnabled($iPersonID)) {
+                        if (SessionUser::getUser()->isEDriveEnabled($PersonInfos['iPersonID'])) {
                             if ($bEDrive) $activeTab = 'edrive';
                             ?>
                             <li class="nav-item">
@@ -1055,7 +667,7 @@ if (!is_null($family)) {
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <?php
-                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                             ?>
                             <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'timeline') ? "active" : "" ?>"
                                  id="timeline">
@@ -1141,7 +753,7 @@ if (!is_null($family)) {
                                                     } else {
                                                         ?>
                                                         <span
-                                                            style="line-height: 1.2;"><?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . '<a href="' . SystemURLs::getRootPath() . '/api/filemanager/getFile/' . $item['perID'] . "/" . $item['text'] . '"><i class="fa ' . $item['style2'] . 'share-type-2"></i> "' . _("click to download") . '"</a>' ?></span>
+                                                            style="line-height: 1.2;"><?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . '<a href="' . $sRootPath . '/api/filemanager/getFile/' . $item['perID'] . "/" . $item['text'] . '"><i class="fa ' . $item['style2'] . 'share-type-2"></i> "' . _("click to download") . '"</a>' ?></span>
                                                         <?php
                                                     }
                                                     ?>
@@ -1160,7 +772,7 @@ if (!is_null($family)) {
                         <div role="tab-pane fade <?= ($activeTab == 'family') ? "active" : "" ?>" class="tab-pane"
                              id="family">
                             <?php
-                            if ($person->getFamId() != '') {
+                            if ($PersonInfos['person']->getFamId() != '') {
                                 ?>
                                 <table class="table user-list table-hover">
                                     <thead>
@@ -1174,15 +786,15 @@ if (!is_null($family)) {
                                     </thead>
                                     <tbody>
                                     <?php
-                                    foreach ($person->getOtherFamilyMembers() as $familyMember) {
+                                    foreach ($PersonInfos['person']->getOtherFamilyMembers() as $familyMember) {
                                         $tmpPersonId = $familyMember->getId();
                                         ?>
                                         <tr>
                                             <td>
                                                 <img style="width:40px; height:40px;display:inline-block"
-                                                     src="<?= SystemURLs::getRootPath() . '/api/persons/' . $familyMember->getId() . '/thumbnail' ?>"
+                                                     src="<?= $sRootPath . '/api/persons/' . $familyMember->getId() . '/thumbnail' ?>"
                                                      class="initials-image profile-user-img img-responsive img-circle no-border" alt="">
-                                                <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $tmpPersonId ?>"
+                                                <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $tmpPersonId ?>"
                                                    class="user-link"><?= $familyMember->getFullName() ?> </a>
                                             </td>
                                             <td class="text-center">
@@ -1217,7 +829,7 @@ if (!is_null($family)) {
 
                                                 if ($bOkToEdit) {
                                                     ?>
-                                                    <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $tmpPersonId ?>">
+                                                    <a href="<?= $sRootPath ?>/PersonEditor.php?PersonID=<?= $tmpPersonId ?>">
                       <span class="fa-stack" style="color:green">
                         <i class="fas fa-square fa-stack-2x"></i>
                         <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
@@ -1281,7 +893,7 @@ if (!is_null($family)) {
                                                 <div class="card card-info">
                                                     <div class="card-header  border-1">
                                                         <h3 class="card-title" style="font-size:small"><a
-                                                                href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"><?= $ormAssignedGroup->getGroupName() ?></a>
+                                                                href="<?= $sRootPath ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"><?= $ormAssignedGroup->getGroupName() ?></a>
                                                         </h3>
 
                                                         <div class="pull-right">
@@ -1298,7 +910,7 @@ if (!is_null($family)) {
                                                             <div class="text-center">
 
                                                                 <code>
-                                                                    <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"
+                                                                    <a href="<?= $sRootPath ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"
                                                                        class="btn btn-default" role="button"><i
                                                                             class="fas fa-list"></i>
                                                                     </a>
@@ -1320,7 +932,7 @@ if (!is_null($family)) {
                                                                             if ($ormAssignedGroup->getHasSpecialProps()) {
                                                                                 ?>
                                                                                 <a class="dropdown-item"
-                                                                                   href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>">
+                                                                                   href="<?= $sRootPath ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $PersonInfos['iPersonID'] ?>">
                                                                                     <?= _('Update Properties') ?>
                                                                                 </a>
                                                                                 <?php
@@ -1379,7 +991,7 @@ if (!is_null($family)) {
                                                                 // now we add only the personnal group prop
                                                                 $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
 
-                                                                $sSQL = 'SELECT * FROM groupprop_' . $ormAssignedGroup->getGroupId() . ' WHERE per_ID = ' . $iPersonID;
+                                                                $sSQL = 'SELECT * FROM groupprop_' . $ormAssignedGroup->getGroupId() . ' WHERE per_ID = ' . $PersonInfos['iPersonID'];
 
                                                                 $statement = $connection->prepare($sSQL);
                                                                 $statement->execute();
@@ -1410,7 +1022,7 @@ if (!is_null($family)) {
                                                                         ?>
                                                                     </ul>
                                                                     <div class="text-center">
-                                                                        <a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>"
+                                                                        <a href="<?= $sRootPath ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $PersonInfos['iPersonID'] ?>"
                                                                            class="btn btn-primary"><?= _("Modify Specific Properties") ?></a>
                                                                     </div>
                                                                     <?php
@@ -1477,7 +1089,7 @@ if (!is_null($family)) {
                                                             class="form-control input-person-properties select2"
                                                             style="width:100%"
                                                             data-placeholder="<?= _("Select") ?> ..."
-                                                            data-personID="<?= $iPersonID ?>">
+                                                            data-personID="<?= $PersonInfos['iPersonID'] ?>">
                                                         <option disabled selected> -- <?= _('select an option') ?>--
                                                         </option>
                                                         <?php
@@ -1583,7 +1195,7 @@ if (!is_null($family)) {
                                 <div class="main-box-body clearfix">
 
                                     <?php
-                                    if (!is_null($person->getFamily())) {
+                                    if (!is_null($PersonInfos['person']->getFamily())) {
                                         if ($ormAutoPayments->count() > 0) {
                                             ?>
                                             <table class="table table-striped table-bordered"
@@ -1594,7 +1206,7 @@ if (!is_null($family)) {
                                         ?>
                                         <p align="center">
                                             <a class="btn btn-primary"
-                                               href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= _("Add a new automatic payment") ?></a>
+                                               href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>"><?= _("Add a new automatic payment") ?></a>
                                         </p>
                                         <?php
                                     } else {
@@ -1612,7 +1224,7 @@ if (!is_null($family)) {
                                     <?php
                                     $tog = 0;
 
-                                    if (($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) && !is_null($person->getFamily())) {
+                                    if (($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) && !is_null($PersonInfos['person']->getFamily())) {
                                         ?>
                                         <input type="checkbox" name="ShowPledges" id="ShowPledges"
                                                value="1" <?= ($_SESSION['sshowPledges']) ? " checked" : "" ?>><?= _("Show Pledges") ?>
@@ -1644,9 +1256,9 @@ if (!is_null($family)) {
                                                cellspacing="0" width="100%"></table>
                                         <p align="center">
                                             <a class="btn btn-primary"
-                                               href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
+                                               href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
                                             <a class="btn btn-default"
-                                               href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
+                                               href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
                                         </p>
                                         <?php
                                     } else {
@@ -1658,11 +1270,11 @@ if (!is_null($family)) {
 
 
                                     <?php
-                                    if (SessionUser::getUser()->isCanvasserEnabled() && !is_null($person->getFamily())) {
+                                    if (SessionUser::getUser()->isCanvasserEnabled() && !is_null($PersonInfos['person']->getFamily())) {
                                         ?>
                                         <p align="center">
                                             <a class="btn btn-default"
-                                               href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                                               href="<?= $sRootPath ?>/CanvassEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                         </p>
                                         <?php
                                     }
@@ -1724,7 +1336,7 @@ if (!is_null($family)) {
                      <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
                       &nbsp;
                      <?php
-                     if ($item['slim'] && (!isset($item['currentUserName']) || $item['userName'] == $person->getFullName())) {
+                     if ($item['slim'] && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
                          if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2)) {
                              ?>
                              <!--<a href="<?= $item['editLink'] ?>">-->
@@ -1736,7 +1348,7 @@ if (!is_null($family)) {
                              </a>
                              <?php
                          }
-                         if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $person->getFullName())) {
+                         if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
                              ?>
                              <?= $item['deleteLink'] ?>
                              <span class="fa-stack" data-toggle="tooltip" data-placement="bottom" title="<?= _("Delete this document") ?>">
@@ -1746,7 +1358,7 @@ if (!is_null($family)) {
                              </a>
                              <?php
                          }
-                         if (!isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $person->getFullName())) {
+                         if (!isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
                              ?>
                              <span class="fa-stack shareNote" data-id="<?= $item['id'] ?>"
                                    data-shared="<?= $item['isShared'] ?>"
@@ -1759,7 +1371,7 @@ if (!is_null($family)) {
                          }
                      } ?>
                                                     <?php
-                                                    if ($item['type'] == 'note' && $person->getId() == SessionUser::getUser()->getPersonId()) {
+                                                    if ($item['type'] == 'note' && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()) {
                                                         ?>
                                                         <span class="fa-stack saveNoteAsWordFile"
                                                               data-id="<?= $item['id'] ?>"
@@ -1872,7 +1484,7 @@ if (!is_null($family)) {
                         </div>
                     </div>
                     <?php
-                    if (SessionUser::getUser()->isEDriveEnabled($iPersonID)) {
+                    if (SessionUser::getUser()->isEDriveEnabled($PersonInfos['iPersonID'])) {
                         ?>
                         <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'edrive') ? "active" : "" ?>"
                              id="edrive">
@@ -1889,28 +1501,28 @@ if (!is_null($family)) {
 
                                                 <div class="btn-group">
                                                   <?php
-                                                    if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
+                                                    if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
                                                   ?>
-                                                        <button type="button" id="uploadFile" class="btn btn-success btn-sm drag-elements" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" title="<?= _("Upload a file in EDrive") ?>">
+                                                        <button type="button" id="uploadFile" class="btn btn-success btn-sm drag-elements" data-personid="<?= $PersonInfos['iPersonID'] ?>" data-toggle="tooltip" data-placement="top" title="<?= _("Upload a file in EDrive") ?>">
                                                             &nbsp;&nbsp;<i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;
                                                         </button>
                                                   <?php
                                                     }
                                                     ?>
 
-                                                    <button type="button" class="btn btn-primary btn-sm drag-elements new-folder" data-personid="<?= $iPersonID ?>"
+                                                    <button type="button" class="btn btn-primary btn-sm drag-elements new-folder" data-personid="<?= $PersonInfos['iPersonID'] ?>"
                                                             data-toggle="tooltip" data-placement="top" title="<?= _("Create a Folder") ?>">
                                                         &nbsp;&nbsp;<i class="far fa-folder"></i>&nbsp;&nbsp;
                                                     </button>
 
-                                                    <button type="button" class="btn btn-danger btn-sm drag-elements trash-drop" data-personid="<?= $iPersonID ?>"
+                                                    <button type="button" class="btn btn-danger btn-sm drag-elements trash-drop" data-personid="<?= $PersonInfos['iPersonID'] ?>"
                                                             data-toggle="tooltip" data-placement="top" title="<?= _("Delete") ?>">
                                                         &nbsp;&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;
                                                     </button>
 
-                                                    <button type="button" class="btn btn-info btn-sm drag-elements folder-back-drop" data-personid="<?= $iPersonID ?>"
+                                                    <button type="button" class="btn btn-info btn-sm drag-elements folder-back-drop" data-personid="<?= $PersonInfos['iPersonID'] ?>"
                                                             data-toggle="tooltip" data-placement="top" title="<?= _("Up One Level") ?>"
-                                                        <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
+                                                        <?= (!is_null($PersonInfos['user']) && $PersonInfos['user']->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
                                                         &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
                                                     </button>
 
@@ -1946,7 +1558,7 @@ if (!is_null($family)) {
                             <div class="row">
                                 <div class="col-md-12">
                 <span class="float-left" id="currentPath">
-                  <?= !is_null($user) ? MiscUtils::pathToPathWithIcons($user->getCurrentpath()) : "" ?>
+                  <?= !is_null($PersonInfos['user']) ? MiscUtils::pathToPathWithIcons($PersonInfos['user']->getCurrentpath()) : "" ?>
                 </span>
                                 </div>
                             </div>
@@ -2017,13 +1629,13 @@ if (!is_null($family)) {
                     <b><?= _("Select how do you want to request the family information to be verified") ?></b>
                 </p>
                 <?php
-                if (count($sFamilyEmails) > 0) {
+                if (count($familyInfos['sFamilyEmails']) > 0) {
                     ?>
                     <?= _("You are about to email copy of the family information in pdf to the following emails") ?>
 
                     <ul>
                         <?php
-                        foreach ($sFamilyEmails as $tmpEmail) {
+                        foreach ($familyInfos['sFamilyEmails'] as $tmpEmail) {
                             ?>
                             <li><?= $tmpEmail ?></li>
                             <?php
@@ -2037,7 +1649,7 @@ if (!is_null($family)) {
             </div>
             <div class="modal-footer text-center">
                 <?php
-                if (count($sFamilyEmails) > 0 && !empty(SystemConfig::getValue('sSMTPHost'))) {
+                if (count($familyInfos['sFamilyEmails']) > 0 && !empty(SystemConfig::getValue('sSMTPHost'))) {
                     ?>
                     <button type="button" id="onlineVerify" class="btn btn-warning warning">
                         <i class="far fa-envelope"></i>
@@ -2065,54 +1677,54 @@ if (!is_null($family)) {
     </div>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/jquery-photo-uploader/PhotoUploader.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/AddRemoveCart.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonView.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/jquery-photo-uploader/PhotoUploader.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/people/MemberView.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/filemanager.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/people/AddRemoveCart.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/people/PersonView.js"></script>
 
 
 <!-- Document editor -->
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/document.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/document.js"></script>
 <!-- !Document editor -->
 
 <!-- Drag and drop -->
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
 <script
-    src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    src="<?= $sRootPath ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 <!-- !Drag and Drop -->
 
 <?php
 if ($sMapProvider == 'OpenStreetMap') {
     ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
     <?php
 } else if ($sMapProvider == 'GoogleMaps') {
     ?>
     <!--Google Map Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?key=<?= $sGoogleMapKey ?>"></script>
 
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
     <?php
 } else if ($sMapProvider == 'BingMaps') {
     ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/BingMapEvent.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
     <?php
 }
 ?>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    window.CRM.currentPersonID = <?= $iPersonID ?>;
-    window.CRM.currentFamily = <?= $iFamilyID ?>;
+<script nonce="<?= $sCSPNonce ?>">
+    window.CRM.currentPersonID = <?= $PersonInfos['iPersonID'] ?>;
+    window.CRM.currentFamily = <?= $familyInfos['iFamilyID'] ?>;
     window.CRM.docType = 'person';
     window.CRM.iPhotoHeight = <?= SystemConfig::getValue("iPhotoHeight") ?>;
     window.CRM.iPhotoWidth = <?= SystemConfig::getValue("iPhotoWidth") ?>;
-    window.CRM.currentActive = <?= (empty($person->getDateDeactivated()) ? 'true' : 'false') ?>;
-    window.CRM.personFullName = "<?= $person->getFullName() ?>";
-    window.CRM.normalMail = "<?= $sEmail ?>";
-    window.CRM.workMail = "<?= $person->getWorkEmail() ?>";
+    window.CRM.currentActive = <?= (empty($PersonInfos['person']->getDateDeactivated()) ? 'true' : 'false') ?>;
+    window.CRM.personFullName = "<?= $PersonInfos['person']->getFullName() ?>";
+    window.CRM.normalMail = "<?= $PersonInfos['sEmail'] ?>";
+    window.CRM.workMail = "<?= $PersonInfos['person']->getWorkEmail() ?>";
     window.CRM.browserImage = false;
 
     window.CRM.contentsExternalCssFont = '<?= $contentsExternalCssFont ?>';
@@ -2123,16 +1735,16 @@ if ($sMapProvider == 'OpenStreetMap') {
         $(".fa-special-icon").addClass("fa-2x");
     }
 
-    <?php if ($location_available){ ?>
+    <?php if ($PersonInfos['location_available']){ ?>
         // location and MAP
         window.CRM.churchloc = {
-            lat: <?= $lat ?>,
-            lng: <?= $lng ?>
+            lat: <?= $PersonInfos['lat'] ?>,
+            lng: <?= $PersonInfos['lng'] ?>
         };
         window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
 
-        initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, 'titre', "<?= $person->getFullName() ?>", '');
+        initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, 'titre', "<?= $PersonInfos['person']->getFullName() ?>", '');
     <?php } ?>
 </script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

@@ -18,7 +18,7 @@ $(document).ready(function () {
                 if (window.CRM.bThumbnailIconPresence) {
                     res += '<img src="/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
                 }
-                return res + '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
+                return res + '<a href="' + window.CRM.root + "/v2/people/person/view/" + full.PersonID + '">'+ data + '</a>';
             }
         },
         {
@@ -26,7 +26,7 @@ $(document).ready(function () {
             title:i18next.t("First Name"),
             data:'FirstName',
             render: function(data, type, full, meta) {
-                return '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
+                return '<a href="' + window.CRM.root + "/v2/people/person/view/" + full.PersonID + '">'+ data + '</a>';
             }
         }
     ];

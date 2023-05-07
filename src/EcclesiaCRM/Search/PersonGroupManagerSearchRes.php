@@ -136,7 +136,7 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                                 "id" => $per->getPerson()->getId(),
                                 "img" => '<img src="/api/persons/' . $per->getPerson()->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
                                 "searchresult" => _("Group")." : ". '<a href="'.SystemURLs::getRootPath().'/v2/group/'.$per->getGroup()->getId().'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$per->getGroup()->getName().'</a>'
-                                            ." (".'<a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getPerson()->getTitle(), $per->getPerson()->getFirstName(), $per->getPerson()->getMiddleName(), $per->getPerson()->getLastName(), $per->getPerson()->getSuffix(), 3) . '</a>'.")",
+                                            ." (".'<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getPerson()->getTitle(), $per->getPerson()->getFirstName(), $per->getPerson()->getMiddleName(), $per->getPerson()->getLastName(), $per->getPerson()->getSuffix(), 3) . '</a>'.")",
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $address,
                                 "type" => " " . _($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),

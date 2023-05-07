@@ -331,7 +331,7 @@ $sFamilyEmails = [];
 
                             <h3 class="timeline-header">
                                 <b><?= $ormPastoralCare->getPastoralCareType()->getTitle() . "</b>  : " ?><a
-                                        href="<?= $sRootPath . "/PersonView.php?PersonID=" . $ormPastoralCare->getPastorId() ?>"><?= $ormPastoralCare->getPastorName() ?></a>
+                                        href="<?= $sRootPath . "/v2/people/person/view/" . $ormPastoralCare->getPastorId() ?>"><?= $ormPastoralCare->getPastorName() ?></a>
                             </h3>
                             <div class="timeline-body">
                                 <?php if ($ormPastoralCare->getVisible()) {

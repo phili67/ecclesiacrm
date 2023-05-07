@@ -52,5 +52,8 @@ MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/external/templates/ve
 // 2023-05-01 now the systemsettings are in v2 arch
 unlink(SystemURLs::getDocumentRoot()."/SystemSettings.php");
 
+// 2023-05-07
+unlink(SystemURLs::getDocumentRoot()."/PersonView.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>

@@ -69,7 +69,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                         if ( $this->isQuickSearch() ) {
                             $elt = ['id' => "person-vol-id-" . $id++,
                                 'text' => $per->getTitle() . " : " . $per->getLastName() . " " . $per->getFirstName(),
-                                'uri' => SystemURLs::getRootPath() . "/PersonView.php?PersonID=" . $per->getId()];
+                                'uri' => SystemURLs::getRootPath() . "/v2/people/person/view/" . $per->getId()];
                         } else {
                             $fam = $per->getFamily();
 
@@ -84,7 +84,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
 
                             $res = "";
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $per->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $per->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fas fa-square fa-stack-2x"></i>'
@@ -121,7 +121,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                             $elt = [
                                 "id" => $per->getId(),
                                 "img" => '<img src="/api/persons/'.$per->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$per->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3).'</a> ('.$per->getOpportunityName().")",
+                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/v2/people/person/view/'.$per->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3).'</a> ('.$per->getOpportunityName().")",
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address,
                                 "type" => " "._($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),

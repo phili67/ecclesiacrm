@@ -207,7 +207,7 @@ require 'Include/Header.php';
               <p class="LargeText">
                  <?= _('Sorry, there are records of donations from this Person. This Person may not be deleted.') ?>
                  <br><br>
-                 <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?=  $iPersonId ?>"><?= _('Return to Person View') ?></a>
+                 <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?=  $iPersonId ?>"><?= _('Return to Person View') ?></a>
               </p>
         <?php
             }
@@ -394,7 +394,7 @@ require 'Include/Header.php';
           ?>
               <p class="text-center">
                 <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?Confirmed=Yes&Members=Yes&FamilyID=<?= $iFamilyID ?>"><?= _('Delete Person Record') ?></a>
-                <a class="btn btn-info" href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $iPersonId ?>"><?= _('No, cancel this deletion') ?></a>
+                <a class="btn btn-info" href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= $iPersonId ?>"><?= _('No, cancel this deletion') ?></a>
               </p>
           <?php
             }

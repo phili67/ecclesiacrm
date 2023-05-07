@@ -18,4 +18,6 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/dashboard', VIEWPeopleController::class . ':peopleDashboard' );
     $group->get('/list/{mode}', VIEWPeopleController::class . ':peopleList' );
     $group->get('/list/{mode}/{gender}/{familyRole}/{classification}', VIEWPeopleController::class . ':peopleList' );
+
+    $group->get('/person/view/{personId:[0-9]+}', VIEWPeopleController::class . ':personview' );
 });
