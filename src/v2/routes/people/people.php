@@ -20,4 +20,5 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/list/{mode}/{gender}/{familyRole}/{classification}', VIEWPeopleController::class . ':peopleList' );
 
     $group->get('/person/view/{personId:[0-9]+}', VIEWPeopleController::class . ':personview' );
+    $group->get('/person/view/{personId:[0-9]+}/{mode}', VIEWPeopleController::class . ':personviewmode' );
 });

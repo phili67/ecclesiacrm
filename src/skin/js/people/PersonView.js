@@ -250,7 +250,7 @@ $(document).ready(function () {
         if (result)
         {
           window.CRM.groups.removePerson(targetGroupID,window.CRM.currentPersonID, function(){
-              window.location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '&group=true';
+              window.location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '/Group';
             }
           );
         }
