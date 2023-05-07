@@ -87,13 +87,13 @@ class MenuBar extends Menu
         // home Area
         $menu = new Menu (_("Private Space"), "fas fa-home", "", true);
 
-        $menuItem = new Menu (_("Home"), "fas fa-user", "PersonView.php?PersonID=" . SessionUser::getUser()->getPersonId(), true, $menu);
+        $menuItem = new Menu (_("Home"), "fas fa-user", "v2/people/person/view/" . SessionUser::getUser()->getPersonId(), true, $menu);
         $menuItem = new Menu (_("Change Password"), "fas fa-key", "UserPasswordChange.php", true, $menu);
         $menuItem = new Menu (_("Change Settings"), "fas fa-cog", "SettingsIndividual.php", true, $menu);
-        $menuItem = new Menu (_("Documents"), "fas fa-file", "PersonView.php?PersonID=" . SessionUser::getUser()->getPersonId() . "&documents=true", true, $menu);
+        $menuItem = new Menu (_("Documents"), "fas fa-file", "v2/people/person/view/" . SessionUser::getUser()->getPersonId() . "&documents=true", true, $menu);
 
         if (SessionUser::getUser()->isEDrive()) {
-            $menuItem = new Menu (_("EDrive"), "fas fa-cloud", "PersonView.php?PersonID=" . SessionUser::getUser()->getPersonId() . "&edrive=true", true, $menu);
+            $menuItem = new Menu (_("EDrive"), "fas fa-cloud", "v2/people/person/view/" . SessionUser::getUser()->getPersonId() . "&edrive=true", true, $menu);
         }
 
         if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {

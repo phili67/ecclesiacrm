@@ -240,7 +240,7 @@ echo $sError;
                 <td>
                     <img src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $ormCartItem->getId() ?>/thumbnail"
                          class="direct-chat-img"> &nbsp <a
-                        href="PersonView.php?PersonID=<?= $ormCartItem->getId() ?>"><?= OutputUtils::FormatFullName($ormCartItem->getTitle(), $ormCartItem->getFirstName(), $ormCartItem->getMiddleName(), $ormCartItem->getLastName(), $ormCartItem->getSuffix(), 1) ?></a>
+                        href="v2/people/person/view/<?= $ormCartItem->getId() ?>"><?= OutputUtils::FormatFullName($ormCartItem->getTitle(), $ormCartItem->getFirstName(), $ormCartItem->getMiddleName(), $ormCartItem->getLastName(), $ormCartItem->getSuffix(), 1) ?></a>
                 </td>
                 <td align="center">
                     <?php

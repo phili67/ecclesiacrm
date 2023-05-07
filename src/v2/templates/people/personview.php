@@ -794,7 +794,7 @@ require $sRootDocument . '/Include/Header.php';
                                                 <img style="width:40px; height:40px;display:inline-block"
                                                      src="<?= $sRootPath . '/api/persons/' . $familyMember->getId() . '/thumbnail' ?>"
                                                      class="initials-image profile-user-img img-responsive img-circle no-border" alt="">
-                                                <a href="<?= $sRootPath ?>/PersonView.php?PersonID=<?= $tmpPersonId ?>"
+                                                <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $tmpPersonId ?>"
                                                    class="user-link"><?= $familyMember->getFullName() ?> </a>
                                             </td>
                                             <td class="text-center">
@@ -1206,7 +1206,7 @@ require $sRootDocument . '/Include/Header.php';
                                         ?>
                                         <p align="center">
                                             <a class="btn btn-primary"
-                                               href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $PersonInfos['iPersonID'] ?>"><?= _("Add a new automatic payment") ?></a>
+                                               href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>"><?= _("Add a new automatic payment") ?></a>
                                         </p>
                                         <?php
                                     } else {
@@ -1256,9 +1256,9 @@ require $sRootDocument . '/Include/Header.php';
                                                cellspacing="0" width="100%"></table>
                                         <p align="center">
                                             <a class="btn btn-primary"
-                                               href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $PersonInfos['iPersonID'] ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
+                                               href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
                                             <a class="btn btn-default"
-                                               href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $PersonInfos['iPersonID'] ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
+                                               href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
                                         </p>
                                         <?php
                                     } else {
@@ -1274,7 +1274,7 @@ require $sRootDocument . '/Include/Header.php';
                                         ?>
                                         <p align="center">
                                             <a class="btn btn-default"
-                                               href="<?= $sRootPath ?>/CanvassEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $PersonInfos['iPersonID'] ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                                               href="<?= $sRootPath ?>/CanvassEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                         </p>
                                         <?php
                                     }
@@ -1629,13 +1629,13 @@ require $sRootDocument . '/Include/Header.php';
                     <b><?= _("Select how do you want to request the family information to be verified") ?></b>
                 </p>
                 <?php
-                if (count($sFamilyEmails) > 0) {
+                if (count($familyInfos['sFamilyEmails']) > 0) {
                     ?>
                     <?= _("You are about to email copy of the family information in pdf to the following emails") ?>
 
                     <ul>
                         <?php
-                        foreach ($sFamilyEmails as $tmpEmail) {
+                        foreach ($familyInfos['sFamilyEmails'] as $tmpEmail) {
                             ?>
                             <li><?= $tmpEmail ?></li>
                             <?php
@@ -1649,7 +1649,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="modal-footer text-center">
                 <?php
-                if (count($sFamilyEmails) > 0 && !empty(SystemConfig::getValue('sSMTPHost'))) {
+                if (count($familyInfos['sFamilyEmails']) > 0 && !empty(SystemConfig::getValue('sSMTPHost'))) {
                     ?>
                     <button type="button" id="onlineVerify" class="btn btn-warning warning">
                         <i class="far fa-envelope"></i>
@@ -1717,7 +1717,7 @@ if ($sMapProvider == 'OpenStreetMap') {
 
 <script nonce="<?= $sCSPNonce ?>">
     window.CRM.currentPersonID = <?= $PersonInfos['iPersonID'] ?>;
-    window.CRM.currentFamily = <?= $iFamilyID ?>;
+    window.CRM.currentFamily = <?= $familyInfos['iFamilyID'] ?>;
     window.CRM.docType = 'person';
     window.CRM.iPhotoHeight = <?= SystemConfig::getValue("iPhotoHeight") ?>;
     window.CRM.iPhotoWidth = <?= SystemConfig::getValue("iPhotoWidth") ?>;

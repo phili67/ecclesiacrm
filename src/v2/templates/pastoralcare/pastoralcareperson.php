@@ -460,7 +460,7 @@ $sFamilyEmails = [];
 
                             <h3 class="timeline-header">
                                 <b><?= $ormPastoralCare->getPastoralCareType()->getTitle() . "</b>  : " ?><a
-                                        href="<?= $sRootPath . "/PersonView.php?PersonID=" . $ormPastoralCare->getPastorId() ?>"><?= $ormPastoralCare->getPastorName() ?></a>
+                                        href="<?= $sRootPath . "/v2/people/person/view/" . $ormPastoralCare->getPastorId() ?>"><?= $ormPastoralCare->getPastorName() ?></a>
                             </h3>
                             <div class="timeline-body">
                                 <?php if ($ormPastoralCare->getVisible()): ?>
@@ -506,7 +506,7 @@ $sFamilyEmails = [];
         ?>
         <div class="text-center">
             <input type="button" class="btn btn-success" value="<?= _('Return To Person View') ?>" name="Cancel"
-                   onclick="javascript:document.location='<?= $sRootPath . '/PersonView.php?PersonID=' . $currentPersonID ?>';">
+                   onclick="javascript:document.location='<?= $sRootPath . '/v2/people/person/view/' . $currentPersonID ?>';">
 
             <input type="button" class="btn btn-default" value="<?= _('Return To PastoralCare Dashboard') ?>"
                    name="Cancel"

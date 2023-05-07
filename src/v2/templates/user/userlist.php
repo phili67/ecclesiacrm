@@ -111,10 +111,10 @@ require $sRootDocument . '/Include/Header.php';
                         ?>
                       </td>
                     <td>
-                        <a href="<?= $sRootPath ?>/PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getLastName() ?></a>
+                        <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $user->getId() ?>"> <?= $user->getPerson()->getLastName() ?></a>
                     </td>
                     <td>
-                        <a href="<?= $sRootPath ?>/PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
+                        <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
                     </td>
 
                     <td class="role<?=$user->getPersonId()?>">

@@ -544,7 +544,7 @@ class VIEWPeopleController {
         $sPageTitle = _('Person Profile');
         $sPageTitleSpan = $sPageTitle . '<span style="float:right"><div class="btn-group">';
         if ($previous_id > 0) {
-            $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $previous_id . '\'">
+            $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $previous_id . '\'">
         <span class="mat-button-wrapper"><i class="far fa-hand-point-left"></i></span>
         <div class="mat-button-ripple mat-ripple" ></div>
         <div class="mat-button-focus-overlay"></div>
@@ -558,7 +558,7 @@ class VIEWPeopleController {
         </button>';
 
         if ($next_id > 0) {
-            $sPageTitleSpan .= '<button title="' . _('Next Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $next_id . '\'">
+            $sPageTitleSpan .= '<button title="' . _('Next Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $next_id . '\'">
         <span class="mat-button-wrapper"><i class="far fa-hand-point-right"></i></span>
         <div class="mat-button-ripple mat-ripple"></div>
         <div class="mat-button-focus-overlay"></div>
@@ -632,12 +632,10 @@ class VIEWPeopleController {
             'maxMainTimeLineItems'    => $maxMainTimeLineItems,
             'timelineServiceItems'    => $timelineServiceItems,
             'timelineNotesServiceItems' => $timelineNotesServiceItems,
-            'userName'              => $userName,
-            'Currentpath'           => $Currentpath,
-            'directories'           => $directories,
             'bDocuments'            => $bDocuments,
             'bEDrive'               => $bEDrive,
             'bGroup'                => $bGroup,
+            'bOkToEdit'                 => $bOkToEdit,        
             'ormAssignedProperties' => $ormAssignedProperties,
             'ormAutoPayments'       => $ormAutoPayments,
             'ormPersonCustomFields' => $ormPersonCustomFields,
@@ -648,22 +646,10 @@ class VIEWPeopleController {
             'ormVolunteerOpps'      => $ormVolunteerOpps,
             'ormProperties'         => $ormProperties,
             'dBirthDate'            => $dBirthDate,
-            //'familyInfos'           => [
+            'familyInfos'           => [
                 'iFamilyID'             => $iFamilyID,
-                'family'                => $family,
-                'sFamilyEmails'         => $sFamilyEmails,
-                'famAddress1'           => $famAddress1,
-                'famAddress2'           => $famAddress2,
-                'famCity'               => $famCity,
-                'famSate'               => $famSate,
-                'famZip'                => $famZip,
-                'famCountry'            => $famCountry,
-                'famHompePhone'         => $famHompePhone,
-                'famWorkPhone'          => $famWorkPhone,
-                'famCellPhone'          => $famCellPhone,
-                'famEmail'              => $famEmail,
-                'persons'               => $persons,
-            //],
+                'sFamilyEmails'         => $sFamilyEmails
+            ],
             'PersonInfos'           => [
                 'iPersonID'             => $iPersonID,
                 'person'                => $person,            
@@ -683,12 +669,10 @@ class VIEWPeopleController {
                 'lat'                   => $lat,
                 'lng'                   => $lng,                
             ],
-            'iTableSpacerWidth'         => $iTableSpacerWidth,
             'isMailChimpActive'         => $isMailChimpActive,
-            'bOkToEdit'                 => $bOkToEdit,
             'iLittleMapZoom'            => $iLittleMapZoom,
             'sMapProvider'              => $sMapProvider,
-            'sGoogleMapKey'             => $sGoogleMapKey,
+            'sGoogleMapKey'             => $sGoogleMapKey
         ];
 
         return $paramsArguments;

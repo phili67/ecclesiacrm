@@ -69,7 +69,7 @@ require $sRootDocument . '/Include/Header.php';
             foreach ($persons as $person) {
           ?>
             <tr>
-                <td><a href='<?= $sRootPath ?>/PersonView.php?PersonID=<?= $person->getId() ?>'>
+                <td><a href='<?= $sRootPath ?>/v2/people/person/view/<?= $person->getId() ?>'>
                         <span class="fa-stack">
                             <i class="fas fa-square fa-stack-2x"></i>
                             <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>

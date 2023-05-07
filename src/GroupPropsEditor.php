@@ -213,7 +213,7 @@ if (isset($_POST['SaveChanges'])) {
 if ($numRows == 0) {
     ?>
   <center><h2><?= _('No properties have been added yet') ?></h2>
-      <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
+      <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
   </center>
 <?php
 } else {
@@ -295,7 +295,7 @@ if ($numRows == 0) {
         <tr>
           <td width="10%"></td>
           <td width="40%" align="center" valign="bottom">
-            <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
+            <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
           </td>
           <td width="40%" align="center" valign="bottom">
             <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">

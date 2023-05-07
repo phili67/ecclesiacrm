@@ -247,7 +247,7 @@ class OutputUtils
                         return '';
                     }
                     if ($with_link) {
-                        return '<a target="_top" href="PersonView.php?PersonID=' . $data . '">' . $person->getFirstName() . ' ' . $person->getLastName() . '</a>';
+                        return '<a target="_top" href="v2/people/person/view/' . $data . '">' . $person->getFirstName() . ' ' . $person->getLastName() . '</a>';
                     } else {
                         return $person->getFirstName() . ' ' . $person->getLastName();
                     }

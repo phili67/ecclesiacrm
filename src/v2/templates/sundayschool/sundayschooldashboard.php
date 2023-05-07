@@ -275,7 +275,7 @@ require $sRootDocument . '/Include/Header.php';
 
                 <tr>
                     <td>
-                        <a href="<?= $sRootPath ?>/PersonView.php?PersonID=<?= $kidId ?>">
+                        <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $kidId ?>">
                 <span class="fa-stack">
                   <i class="fas fa-square fa-stack-2x"></i>
                   <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>

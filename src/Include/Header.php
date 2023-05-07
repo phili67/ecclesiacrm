@@ -89,7 +89,7 @@ Header_system_notifications();
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>" class="nav-link"><?= _("Private Space") ?></a>
+                <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= SessionUser::getUser()->getPersonId() ?>" class="nav-link"><?= _("Private Space") ?></a>
             </li>
         </ul>
         <!--<form class="form-inline ml-3">
@@ -148,7 +148,7 @@ Header_system_notifications();
                                          alt="User Image" style="width:85px;height:85px">
                                 </td>
                                 <td valign="middle" align="left" style="width:183px">
-                                    <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>"
+                                    <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= SessionUser::getUser()->getPersonId() ?>"
                                        class="dropdown-item main-help-menu">
                                         <p><i class="fas fa-user"></i> <?= _("Private Space") ?></p></a>
                                     <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="dropdown-item main-help-menu">
