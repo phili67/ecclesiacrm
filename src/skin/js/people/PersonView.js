@@ -83,7 +83,7 @@ $(document).ready(function () {
                       encode: true
                   }).done(function (data) {
                     if (data.success == true) {
-                        window.location.href = window.CRM.root + "/PersonView.php?PersonID=" + window.CRM.currentPersonID;
+                        window.location.href = window.CRM.root + "/v2/people/person/view/" + window.CRM.currentPersonID;
                     }
                   });
               }
@@ -250,7 +250,7 @@ $(document).ready(function () {
         if (result)
         {
           window.CRM.groups.removePerson(targetGroupID,window.CRM.currentPersonID, function(){
-              window.location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&group=true';
+              window.location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '&group=true';
             }
           );
         }
@@ -890,7 +890,7 @@ $(document).ready(function () {
         title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a href="' + window.CRM.root +'/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>'
+          return '<a href="' + window.CRM.root +'/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=v2/people/person/view/'+window.CRM.currentPersonID+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>'
                 +'&nbsp;&nbsp;&nbsp;<a class="delete-payment" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
         }
       },
@@ -1057,7 +1057,7 @@ $(document).ready(function () {
         title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          var ret = '<a class="" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
+          var ret = '<a class="" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=v2/people/person/view/'+window.CRM.currentPersonID+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
 
           if (full.Closed != "1") {
             ret += '&nbsp;&nbsp;&nbsp;<a class="delete-pledge" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';

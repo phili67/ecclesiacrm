@@ -69,7 +69,7 @@ $("document").ready(function () {
                 }
                 res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" class="btn primary btn-sm btn-block"><i' +
                     '      class="far fa-envelope" target="_blank"></i> ' + i18next.t('Send Message') + '</a>' +
-                    '        <a href="' + window.CRM.root + '/PersonView.php?PersonID=' + data.teachers[i]['per_ID'] + '" ' +
+                    '        <a href="' + window.CRM.root + '/v2/people/person/view/' + data.teachers[i]['per_ID'] + '" ' +
                     '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fas fa-user"></i> ' + i18next.t('View Profile') + '</a>' +
                     '        <a href="#" data-id="' + data.teachers[i]['per_ID'] + '" data-person_name="' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '" ' +
                     '      class="btn btn-primary btn-danger btn-sm btn-block deleteTeacher"><i class="fas fa-trash-alt"></i> ' + i18next.t('Delete') + '</a>' +
@@ -377,7 +377,7 @@ $("document").ready(function () {
                         + '        alt="User Image" class="user-image initials-image" width="50" height="50" />'
                         + '  </td>'
                         + '  <td align="left" style="border-width: 0px">'
-                        + '    <a href="' + window.CRM.root + '/PersonView.php?PersonID=' + data + '">' + full.firstName + '</a>'
+                        + '    <a href="' + window.CRM.root + '/v2/people/person/view/' + data + '">' + full.firstName + '</a>'
                         + '  </dt>'
                         + '</tr>'
                         + '</table>';
@@ -542,7 +542,7 @@ $("document").ready(function () {
                     }
 
                     if (full.dadFirstName != null && full.dadLastName != null) {
-                        return '<a href="' + window.CRM.root + '/PersonView.php?PersonID=' + full.dadId + '">' + full.dadFirstName + ' ' + full.dadLastName + '</a>';
+                        return '<a href="' + window.CRM.root + '/v2/people/person/view/' + full.dadId + '">' + full.dadFirstName + ' ' + full.dadLastName + '</a>';
                     }
 
                     return "";
@@ -590,7 +590,7 @@ $("document").ready(function () {
                     }
 
                     if (full.momFirstName != null && full.momLastName != null) {
-                        return '<a href="' + window.CRM.root + '/PersonView.php?PersonID=' + full.momId + '">' + full.momFirstName + ' ' + full.momLastName + '</a>';
+                        return '<a href="' + window.CRM.root + '/v2/people/person/view/' + full.momId + '">' + full.momFirstName + ' ' + full.momLastName + '</a>';
                     }
 
                     return '';

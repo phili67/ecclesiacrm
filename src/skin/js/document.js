@@ -149,7 +149,7 @@ $(document).ready(function () {
                                     data: JSON.stringify({"docID": docID})
                                 },function (data) {
                                     if (window.CRM.docType == 'person') {
-                                        location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&documents=true';
+                                        location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '&documents=true';
                                     } else if (window.CRM.docType == 'family') {
                                         location.href = window.CRM.root + '/FamilyView.php?FamilyID=' + window.CRM.currentFamily + '&documents=true';
                                     }
@@ -256,7 +256,7 @@ $(document).ready(function () {
                                 },function (data) {
                                     if (data.success) {
                                         if (window.CRM.docType == 'person') {
-                                            location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&documents=true';
+                                            location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '&documents=true';
                                         } else if (window.CRM.docType == 'family') {
                                             location.href = window.CRM.root + '/FamilyView.php?FamilyID=' + window.CRM.currentFamily + '&documents=true';
                                         }
@@ -276,7 +276,7 @@ $(document).ready(function () {
                                 },function (data) {
                                     if (data.success) {
                                         if (window.CRM.docType == 'person') {
-                                            location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&documents=true';
+                                            location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '&documents=true';
                                         } else if (window.CRM.docType == 'family') {
                                             location.href = window.CRM.root + '/FamilyView.php?FamilyID=' + window.CRM.currentFamily + '&documents=true';
                                         }

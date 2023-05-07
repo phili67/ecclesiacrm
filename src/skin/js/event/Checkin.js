@@ -413,7 +413,7 @@ $(document).ready(function () {
             if (perArr) {
                 element.html(
                     '<div class="text-center">' +
-                    '<a target="_top" href="PersonView.php?PersonID=' + perArr.objid + '"><h4>' + perArr.text + '</h4></a>' +
+                    '<a target="_top" href="v2/people/person/view/' + perArr.objid + '"><h4>' + perArr.text + '</h4></a>' +
                     '<img src="' + window.CRM.root + '/api/persons/' + perArr.objid + '/thumbnail"' +
                     'class="initials-image profile-user-img img-responsive img-circle"> </div>'
                 );

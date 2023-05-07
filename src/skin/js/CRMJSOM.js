@@ -1481,9 +1481,9 @@
                               data: 'LastName',
                               render: function (data, type, row, meta) {
                                   if (window.CRM.bThumbnailIconPresence) {
-                                      return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                                      return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
                                   } else {
-                                      return '<a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                                      return '<a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
                                   }
                               }
                           },
@@ -1531,9 +1531,9 @@
                               data: 'LastName',
                               render: function (data, type, row, meta) {
                                   if (window.CRM.bThumbnailIconPresence) {
-                                      return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                                      return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
                                   } else {
-                                      return '<a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                                      return '<a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
                                   }
                               }
                           },

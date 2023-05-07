@@ -15,7 +15,7 @@ $(document).ready(function () {
         title:i18next.t('Full Name'),
         data:'fullNamePerson',
         render: function(data, type, full, meta) {
-          return "<a href=\""+window.CRM.root+"/PersonView.php?PersonID="+full.personId+"\">"+data+"</a>";
+          return "<a href=\""+window.CRM.root+"/v2/people/person/view/"+full.personId+"\">"+data+"</a>";
         }
       },
       {
