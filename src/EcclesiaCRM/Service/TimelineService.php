@@ -13,9 +13,10 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemURLs;
 use \Datetime;
 
-require_once 'Include/Functions.php';
+require_once SystemURLs::getDocumentRoot() . '/Include/Functions.php';
 
 class TimelineService
 {
