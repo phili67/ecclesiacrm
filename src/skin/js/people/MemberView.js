@@ -91,7 +91,7 @@ $(".addGroup").click(function() {
              if (data.status == "failed") {
                  window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("A kid should have a family in a sunday school group !"));
              } else {
-                 window.location.href = window.CRM.root +'/v2/people/person/view/' + personID + '&group=true';
+                 window.location.href = window.CRM.root +'/v2/people/person/view/' + personID + '/Group';
              }
          });
       });

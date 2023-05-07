@@ -90,10 +90,10 @@ class MenuBar extends Menu
         $menuItem = new Menu (_("Home"), "fas fa-user", "v2/people/person/view/" . SessionUser::getUser()->getPersonId(), true, $menu);
         $menuItem = new Menu (_("Change Password"), "fas fa-key", "UserPasswordChange.php", true, $menu);
         $menuItem = new Menu (_("Change Settings"), "fas fa-cog", "SettingsIndividual.php", true, $menu);
-        $menuItem = new Menu (_("Documents"), "fas fa-file", "v2/people/person/view/" . SessionUser::getUser()->getPersonId() . "&documents=true", true, $menu);
+        $menuItem = new Menu (_("Documents"), "fas fa-file", "v2/people/person/view/" . SessionUser::getUser()->getPersonId() . "/Documents", true, $menu);
 
         if (SessionUser::getUser()->isEDrive()) {
-            $menuItem = new Menu (_("EDrive"), "fas fa-cloud", "v2/people/person/view/" . SessionUser::getUser()->getPersonId() . "&edrive=true", true, $menu);
+            $menuItem = new Menu (_("EDrive"), "fas fa-cloud", "v2/people/person/view/" . SessionUser::getUser()->getPersonId() . "/eDrive", true, $menu);
         }
 
         if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {

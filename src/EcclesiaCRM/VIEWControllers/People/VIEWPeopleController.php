@@ -256,7 +256,22 @@ class VIEWPeopleController {
         return $renderer->render($response, 'personview.php', $res);
     }
 
-    public function argumentsPeoplePersonViewArray ($iPersonID)
+    public function personviewmode (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        $personId = $args['personId'];
+        $mode = $args['mode'];
+
+        $res = $this->argumentsPeoplePersonViewArray($personId, $mode);
+
+        if ( $res['error'] ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/' . $res['link']);
+        }
+
+        return $renderer->render($response, 'personview.php', $res);
+    }
+
+    public function argumentsPeoplePersonViewArray ($iPersonID, $mode = 'none')
     {
         // for ckeditor fonts
         $contentsExternalCssFont = SystemConfig::getValue("sMailChimpContentsExternalCssFont");
@@ -294,19 +309,19 @@ class VIEWPeopleController {
 
         $bDocuments = false;
 
-        if (array_key_exists('documents', $_GET)) {
+        if ( $mode == 'Documents' ) {
             $bDocuments = true;
         }
 
         $bEDrive = false;
 
-        if (array_key_exists('edrive', $_GET)) {
+        if ( $mode == 'eDrive' ) {
             $bEDrive = true;
         }
 
         $bGroup = false;
 
-        if (array_key_exists('group', $_GET)) {
+        if ( $mode == 'Group' ) {
             $bGroup = true;
         }
 
