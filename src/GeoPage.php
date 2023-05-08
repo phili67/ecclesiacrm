@@ -396,7 +396,7 @@ $families = FamilyQuery::create()
                                 <td><?= OutputUtils::number_localized($oneResult['Distance']) ?> </td>
                                 <td><?= $oneResult['Bearing'] ?> <?= OutputUtils::GetRouteFromCoordinates($oneResult['fam_Latitude'], $oneResult['fam_Longitude']) ?>
                                 </td>
-                                <td><b><a href="<?= SystemURLs::getRootPath()?>/FamilyView.php?FamilyID=<?= $oneResult['fam_ID'] ?>"><?= $oneResult['fam_Name'] ?> </a> </b></td>
+                                <td><b><a href="<?= SystemURLs::getRootPath()?>/v2/people/family/view/<?= $oneResult['fam_ID'] ?>"><?= $oneResult['fam_Name'] ?> </a> </b></td>
                                 <td>
                                     <?= OutputUtils::GetLinkMapFromCoordinates($oneResult['fam_Latitude'], $oneResult['fam_Longitude'], $oneResult['fam_Address']) ?>
                                 </td>
