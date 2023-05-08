@@ -1,13 +1,14 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : familylist.php
- *  last change : 2019-06-16
+ *  filename    : personview.php
+ *  last change : 2023-05-07
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : 2019 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without authorization
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
+ *                This code can't be included in another software
  *
  ******************************************************************************/
+
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemConfig;
 
