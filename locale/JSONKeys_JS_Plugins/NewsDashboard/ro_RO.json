@@ -1,5 +1,14 @@
 {
-    "Close": "",
-    "Save": "",
-    "Error": ""
+    "Remove": "Eliminați",
+    "Edit": "Editați",
+    "News Editor": "Redactor de știri",
+    "News Title": "Titlu știre",
+    "Set your News title": "Setați titlul Știrilor",
+    "Choose your News Type": "Alegeți tipul de știri",
+    "Infos": "Informații",
+    "To plan": "Pentru a planifica",
+    "To note": "De reținut",
+    "Important": "Important",
+    "Very important": "Foarte important",
+    "You have to set a Title for your news": "Trebuie să setați un titlu pentru știrile dvs."
 }

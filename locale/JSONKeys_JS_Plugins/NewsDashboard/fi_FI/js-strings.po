@@ -2,57 +2,48 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15T08:15:57.089Z\n"
+"POT-Creation-Date: 2023-05-08T12:26:15.367Z\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-msgid "Close"
-msgstr ""
+msgid "Remove"
+msgstr "Poista"
 
-msgid "Save"
-msgstr ""
+msgid "Edit"
+msgstr "Muokkaa"
 
-msgid "Error"
-msgstr ""
+msgid "News Editor"
+msgstr "Uutistoimittaja"
 
-#~ msgid "Remove"
-#~ msgstr "Poista"
+msgid "News Title"
+msgstr "Uutisen otsikko"
 
-#~ msgid "Edit"
-#~ msgstr "Muokkaa"
+msgid "Set your News title"
+msgstr "Aseta uutisen otsikko"
 
-#~ msgid "News Editor"
-#~ msgstr "Uutistoimittaja"
+msgid "Choose your News Type"
+msgstr "Valitse uutistyyppi"
 
-#~ msgid "News Title"
-#~ msgstr "Uutisen otsikko"
+msgid "Infos"
+msgstr "Infos"
 
-#~ msgid "Set your News title"
-#~ msgstr "Aseta uutisen otsikko"
+msgid "To plan"
+msgstr "Suunnitella"
 
-#~ msgid "Choose your News Type"
-#~ msgstr "Valitse uutistyyppi"
+msgid "To note"
+msgstr "Huomioitavaa"
 
-#~ msgid "Infos"
-#~ msgstr "Infos"
+msgid "Important"
+msgstr "Tärkeä"
 
-#~ msgid "To plan"
-#~ msgstr "Suunnitella"
+msgid "Very important"
+msgstr "Erittäin tärkeä"
 
-#~ msgid "To note"
-#~ msgstr "Huomioitavaa"
-
-#~ msgid "Important"
-#~ msgstr "Tärkeä"
-
-#~ msgid "Very important"
-#~ msgstr "Erittäin tärkeä"
-
-#~ msgid "You have to set a Title for your news"
-#~ msgstr "Sinun on määritettävä uutisellesi otsikko"
+msgid "You have to set a Title for your news"
+msgstr "Sinun on määritettävä uutisellesi otsikko"
 
 #~ msgid "Last modification on"
 #~ msgstr "Viimeisin muutos"

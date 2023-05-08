@@ -1,1 +1,1 @@
-try {window.CRM.NewsDashboard_i18keys = {    "Close": "",    "Save": "",    "Error": ""};} catch(e) {};
+try {window.CRM.NewsDashboard_i18keys = {    "Remove": "",    "Edit": "",    "News Editor": "",    "News Title": "",    "Set your News title": "",    "Choose your News Type": "",    "Infos": "",    "To plan": "",    "To note": "",    "Important": "",    "Very important": "",    "You have to set a Title for your news": ""};} catch(e) {};

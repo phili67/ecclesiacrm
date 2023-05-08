@@ -1,8 +1,32 @@
-msgid "Cancel"
+msgid "List name"
 msgstr ""
 
-msgid "OK"
+msgid "Create a list"
 msgstr ""
 
-msgid "Confirm"
+msgid "Edit list"
+msgstr ""
+
+msgid "You're about to delete your list?"
+msgstr ""
+
+msgid "This can't be undone."
+msgstr ""
+
+msgid "Item name"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Create a list item"
+msgstr ""
+
+msgid "Edit list item"
+msgstr ""
+
+msgid "Delete item?"
+msgstr ""
+
+msgid "You're about to delete an item."
 msgstr ""

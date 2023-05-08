@@ -1,5 +1,13 @@
 {
-    "Cancel": "",
-    "OK": "",
-    "Confirm": ""
+    "List name": "Naam van de lijst",
+    "Create a list": "Maak een lijst",
+    "Edit list": "Lijst bewerken",
+    "You're about to delete your list?": "Je staat op het punt om je lijst te verwijderen?",
+    "This can't be undone.": "Dit kan niet ongedaan gemaakt worden.",
+    "Item name": "Naam van het item",
+    "Date": "Datum",
+    "Create a list item": "Maak een lijst item",
+    "Edit list item": "Wijzig lijst item",
+    "Delete item?": "Item verwijderen?",
+    "You're about to delete an item.": "Je staat op het punt om een item te verwijderen."
 }

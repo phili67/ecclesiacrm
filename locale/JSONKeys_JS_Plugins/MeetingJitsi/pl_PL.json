@@ -1,4 +1,10 @@
 {
-    "Cancel": "Anuluj",
-    "Confirm": "Potwierdź"
+    "Problem": "Problem",
+    "Safari isn't yet supported with Jitsi, use something else !<br/>• Your webcam<br/>• Sharing your windows<br/> won't work with meeting.": "Safari nie jest jeszcze obsługiwany z Jitsi, użyj czegoś innego !<br/>- Twoja kamera internetowa<br/>- Udostępnianie okien<br/> nie będzie działać z posiedzeniem.",
+    "Appointment": "Powołanie",
+    "Set a Jitsi room name": "Ustaw nazwę pokoju Jitsi",
+    "Delete all Rooms?": "Usunąć wszystkie pokoje?",
+    "You're about to delete all of your rooms.": "Za chwilę usuniesz wszystkie swoje pokoje.",
+    "Settings": "Ustawienia",
+    "Saved": "Zapisane"
 }

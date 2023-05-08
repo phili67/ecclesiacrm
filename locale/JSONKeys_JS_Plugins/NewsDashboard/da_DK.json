@@ -1,5 +1,14 @@
 {
-    "Close": "",
-    "Save": "",
-    "Error": ""
+    "Remove": "Fjern",
+    "Edit": "Rediger",
+    "News Editor": "Nyhedsredaktør",
+    "News Title": "Nyheder Titel",
+    "Set your News title": "Indstil din nyhedstitel",
+    "Choose your News Type": "Vælg din nyhedstype",
+    "Infos": "Info",
+    "To plan": "At planlægge",
+    "To note": "Til efterretning",
+    "Important": "Vigtigt",
+    "Very important": "Meget vigtigt",
+    "You have to set a Title for your news": "Du skal angive en titel for din nyhed"
 }

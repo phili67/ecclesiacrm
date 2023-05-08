@@ -1,5 +1,14 @@
 {
-    "Close": "",
-    "Save": "",
-    "Error": ""
+    "Remove": "Verwijder",
+    "Edit": "Bewerken",
+    "News Editor": "Nieuwsredacteur",
+    "News Title": "Nieuws Titel",
+    "Set your News title": "Stel uw nieuwstitel in",
+    "Choose your News Type": "Kies uw nieuwstype",
+    "Infos": "Info",
+    "To plan": "Om te plannen",
+    "To note": "Om op te merken",
+    "Important": "Belangrijk",
+    "Very important": "Zeer belangrijk",
+    "You have to set a Title for your news": "Je moet een Titel instellen voor je nieuws"
 }

@@ -1,5 +1,13 @@
 {
-    "Cancel": "",
-    "OK": "",
-    "Confirm": ""
+    "List name": "Όνομα λίστας",
+    "Create a list": "Δημιουργήστε μια λίστα",
+    "Edit list": "Επεξεργασία λίστας",
+    "You're about to delete your list?": "Ετοιμάζεστε να διαγράψετε τη λίστα σας;",
+    "This can't be undone.": "Αυτό δεν μπορεί να αναιρεθεί.",
+    "Item name": "Όνομα στοιχείου",
+    "Date": "Ημερομηνία",
+    "Create a list item": "Δημιουργήστε ένα στοιχείο λίστας",
+    "Edit list item": "Επεξεργασία στοιχείου λίστας",
+    "Delete item?": "Διαγραφή αντικειμένου;",
+    "You're about to delete an item.": "Πρόκειται να διαγράψετε ένα στοιχείο."
 }
