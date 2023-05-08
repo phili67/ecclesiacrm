@@ -248,7 +248,7 @@ if (!$load_Elements) {
                 <a href="#" class="dropdown-item">Ajouter un nouveau plugin</a>
                 <a class="dropdown-divider" style="color: #0c0c0c"></a>
                 -->
-                <a href="<?= $sRootPath?>/SettingsIndividual.php" class="dropdown-item" id="add-plugin"><?= _("Settings") ?></a>
+                <a href="<?= $sRootPath?>/v2/users/settings" class="dropdown-item" id="add-plugin"><?= _("Settings") ?></a>
             </div>
         </div>
     </div>
