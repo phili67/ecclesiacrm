@@ -56,7 +56,7 @@ class NewPersonOrFamilyEmail extends BaseEmail
         {
           $myTokens['body'] = gettext("New Family Added")."\r\n".
                   gettext("Family Name").": ".$this->relatedObject->getName();
-          $myTokens["familyLink"] = SystemURLs::getURL()."/FamilyView.php?FamilyID=".$this->relatedObject->getId();
+          $myTokens["familyLink"] = SystemURLs::getURL()."/v2/people/family/view/".$this->relatedObject->getId();
         }
         elseif (get_class($this->relatedObject) == "EcclesiaCRM\Person")
         {
