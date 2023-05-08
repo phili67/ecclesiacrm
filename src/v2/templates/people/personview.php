@@ -412,7 +412,7 @@ require $sRootDocument . '/Include/Header.php';
 
                             $buttons++;
                             ?>
-                            <a class="btn btn-app" href="<?= $sRootPath ?>/SettingsIndividual.php"><i
+                            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/users/settings"><i
                                     class="fas fa-cog"></i> <?= _("Change Settings") ?></a>
                             <a class="btn btn-app" href="<?= $sRootPath ?>/UserPasswordChange.php"><i
                                     class="fas fa-key"></i> <?= _("Change Password") ?></a>
