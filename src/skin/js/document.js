@@ -151,7 +151,7 @@ $(document).ready(function () {
                                     if (window.CRM.docType == 'person') {
                                         location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '&documents=true';
                                     } else if (window.CRM.docType == 'family') {
-                                        location.href = window.CRM.root + '/FamilyView.php?FamilyID=' + window.CRM.currentFamily + '&documents=true';
+                                        location.href = window.CRM.root + '/v2/people/family/view/' + window.CRM.currentFamily + '&documents=true';
                                     }
                                 });
                             }
@@ -258,7 +258,7 @@ $(document).ready(function () {
                                         if (window.CRM.docType == 'person') {
                                             location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '&documents=true';
                                         } else if (window.CRM.docType == 'family') {
-                                            location.href = window.CRM.root + '/FamilyView.php?FamilyID=' + window.CRM.currentFamily + '&documents=true';
+                                            location.href = window.CRM.root + '/v2/people/family/view/' + window.CRM.currentFamily + '&documents=true';
                                         }
                                     }
                                 });
@@ -278,7 +278,7 @@ $(document).ready(function () {
                                         if (window.CRM.docType == 'person') {
                                             location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '&documents=true';
                                         } else if (window.CRM.docType == 'family') {
-                                            location.href = window.CRM.root + '/FamilyView.php?FamilyID=' + window.CRM.currentFamily + '&documents=true';
+                                            location.href = window.CRM.root + '/v2/people/family/view/' + window.CRM.currentFamily + '&documents=true';
                                         }
                                     }
                                 });

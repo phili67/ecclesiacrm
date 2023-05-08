@@ -79,7 +79,7 @@ require $sRootDocument . '/Include/Header.php';
               foreach ($families as $family) {
             ?>
             <tr>
-                <td><a href='<?= $sRootPath ?>/FamilyView.php?FamilyID=<?= $family->getId() ?>'>
+                <td><a href='<?= $sRootPath ?>/v2/people/family/view/<?= $family->getId() ?>'>
                         <span class="fa-stack">
                             <i class="fas fa-square fa-stack-2x"></i>
                             <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>

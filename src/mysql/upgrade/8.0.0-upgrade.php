@@ -55,5 +55,8 @@ unlink(SystemURLs::getDocumentRoot()."/SystemSettings.php");
 // 2023-05-07
 unlink(SystemURLs::getDocumentRoot()."/PersonView.php");
 
+// 2023-05-08
+unlink(SystemURLs::getDocumentRoot()."/FamilyView.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>

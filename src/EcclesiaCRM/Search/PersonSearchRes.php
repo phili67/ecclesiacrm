@@ -251,7 +251,7 @@ class PersonSearchRes extends BaseSearchRes
 
                             $address = "";
                             if (!is_null($fam)) {
-                                $address = '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $fam->getID() . '">' .
+                                $address = '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $fam->getID() . '">' .
                                     $fam->getName() . MiscUtils::FormatAddressLine($person->getFamily()->getAddress1(), $person->getFamily()->getCity(), $person->getFamily()->getState()) .
                                     "</a>";
                             }

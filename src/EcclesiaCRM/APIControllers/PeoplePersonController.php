@@ -506,7 +506,7 @@ class PeoplePersonController
                 foreach ($persons as $Person) {
                     $mailchimpList = $mailchimp->getListNameFromEmail($Person->getEmail());
                     if ($mailchimpList == '') {
-                        array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $family->getId() . '">' . $family->getSaluation() . '</a>', "email" => $Person->getEmail()]);
+                        array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '">' . $family->getSaluation() . '</a>', "email" => $Person->getEmail()]);
                     }
                 }
             }

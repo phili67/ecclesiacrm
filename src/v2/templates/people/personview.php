@@ -172,7 +172,7 @@ require $sRootDocument . '/Include/Header.php';
             <?php
             if (!is_null($PersonInfos['person']->getFamily()) && $PersonInfos['person']->getFamily()->getId() != '') {
                 ?>
-                <a href="<?= $sRootPath ?>/FamilyView.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>"><?= $PersonInfos['person']->getFamily()->getName() ?> </a>
+                <a href="<?= $sRootPath ?>/v2/people/family/view/<?= $PersonInfos['person']->getFamily()->getId() ?>"><?= $PersonInfos['person']->getFamily()->getName() ?> </a>
                 <a href="<?= $sRootPath ?>/FamilyEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>"
                    class="table-link">
                   <span class="fa-stack">

@@ -10,7 +10,7 @@ $(document).ready(function () {
                 data: 'Family.Id',
                 searchable: false,
                 render: function (data, type, full, meta) {
-                    return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + data + '>' + data + '</a>';
+                    return '<a href=' + window.CRM.root + '/v2/people/family/view/' + data + '>' + data + '</a>';
                 }
             },
             {

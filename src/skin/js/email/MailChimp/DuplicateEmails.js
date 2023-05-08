@@ -48,7 +48,7 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           var render ="<ul>";
           $.each( data, function( key, value ) {
-              render += "<li><a href='"+ window.CRM.root + "/FamilyView.php?FamilyID=" +value.id + "' target='family' />"+ value.name + "</a></li>";
+              render += "<li><a href='"+ window.CRM.root + "/v2/people/family/view/" +value.id + "' target='family' />"+ value.name + "</a></li>";
           });
           render += "</ul>"
           return render;

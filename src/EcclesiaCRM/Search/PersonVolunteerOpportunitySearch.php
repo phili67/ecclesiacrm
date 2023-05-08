@@ -75,7 +75,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
 
                             $address = "";
                             if (!is_null($fam)) {
-                                $address = '<a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$fam->getId().'">'.
+                                $address = '<a href="'.SystemURLs::getRootPath().'/v2/people/family/view/'.$fam->getId().'">'.
                                     $fam->getName().MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState()).
                                     "</a>";
                             }

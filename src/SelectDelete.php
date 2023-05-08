@@ -62,7 +62,7 @@ if (!empty($_GET['mode'])) {
 }
 
 if (isset($_GET['CancelFamily'])) {
-    RedirectUtils::Redirect("FamilyView.php?FamilyID=$iFamilyID");
+    RedirectUtils::Redirect("v2/people/family/view/$iFamilyID");
     exit;
 }
 
@@ -199,7 +199,7 @@ require 'Include/Header.php';
               <p class="LargeText">
                  <?= _('Sorry, there are records of donations from this family. This family may not be deleted.') ?>
                  <br><br>
-                 <a href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= _('Return to Family View') ?></a>
+                 <a href="<?= SystemURLs::getRootPath() ?>/v2/people/family/view/<?= $iFamilyID ?>"><?= _('Return to Family View') ?></a>
               </p>
         <?php
             } else {
@@ -387,7 +387,7 @@ require 'Include/Header.php';
               <p class="text-center">
                 <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?Confirmed=Yes&FamilyID=<?= $iFamilyID ?>"><?= _('Delete Family Record ONLY') ?></a>
                 <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?Confirmed=Yes&Members=Yes&FamilyID=<?= $iFamilyID ?>"><?= _('Delete Family Record AND Family Members') ?></a>
-                <a class="btn btn-info" href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= _('No, cancel this deletion') ?></a>
+                <a class="btn btn-info" href="<?= SystemURLs::getRootPath() ?>/v2/people/family/view/<?= $iFamilyID ?>"><?= _('No, cancel this deletion') ?></a>
               </p>
           <?php
             } else {

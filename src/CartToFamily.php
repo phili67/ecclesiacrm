@@ -181,7 +181,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
             $_SESSION['aPeopleCart'] = [];
         }
 
-        RedirectUtils::Redirect('FamilyView.php?FamilyID=' . $iFamilyID . '&Action=EmptyCart');
+        RedirectUtils::Redirect('v2/people/family/view/' . $iFamilyID . '&Action=EmptyCart');
     }
 }
 

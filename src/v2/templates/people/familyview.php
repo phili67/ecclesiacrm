@@ -1,239 +1,24 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : FamilyView.php
- *  last change : 2013-02-02
+ *  filename    : familyview.php
+ *  last change : 2023-05-08
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2001, 2002 Deane Barker, 2003 Chris Gebhardt, 2004-2005 Michael Wilt
- *                Copyright 2019 Philippe Logel
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
+ *                This code can't be incoprorated in another software without authorization
  *
  ******************************************************************************/
-
-//Include the function library
-require "Include/Config.php";
-require "Include/Functions.php";
-
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\PropertyQuery;
-use EcclesiaCRM\AutoPaymentQuery;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\Service\MailChimpService;
-use EcclesiaCRM\Service\TimelineService;
-use EcclesiaCRM\Utils\GeoUtils;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\dto\Cart;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\FamilyCustomQuery;
-use EcclesiaCRM\FamilyCustomMasterQuery;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemConfig;
 
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\Utils\GeoUtils;
 
-//Get the FamilyID out of the querystring
-if (!empty($_GET['FamilyID'])) {
-    $iFamilyID = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
-}
-
-// we get the TimelineService
-$maxMainTimeLineItems = 20; // max number
-
-$timelineService = new TimelineService();
-$timelineServiceItems = $timelineService->getForFamily($iFamilyID);
-$timelineNotesServiceItems = $timelineService->getNotesForFamily($iFamilyID);
-
-$mailchimp = new MailChimpService();
-$curYear = (new DateTime)->format("Y");
-
-//Deactivate/Activate Family
-if (SessionUser::getUser()->isDeleteRecordsEnabled() && !empty($_POST['FID']) && !empty($_POST['Action'])) {
-    $family = FamilyQuery::create()->findOneById($_POST['FID']);
-    if ($_POST['Action'] == "Deactivate") {
-        $family->deactivate();
-    } elseif ($_POST['Action'] == "Activate") {
-        $family->activate();
-    }
-    $family->save();
-    RedirectUtils::Redirect("FamilyView.php?FamilyID=" . $_POST['FID']);
-    exit;
-}
-
-if (SessionUser::getUser()->isFinanceEnabled()) {
-    $_SESSION['sshowPledges'] = 1;
-    $_SESSION['sshowPayments'] = 1;
-}
-
-$persons = PersonQuery::Create()->filterByDateDeactivated(null)->findByFamId($iFamilyID);
-
-if (!is_null($persons) && $persons->count() == 1) {
-    $person = PersonQuery::Create()->findOneByFamId($iFamilyID);
-
-    RedirectUtils::Redirect("v2/people/person/view/" . $person->getId());
-}
-
-$ormNextFamilies = PersonQuery::Create()
-    ->useFamilyQuery()
-    ->orderByName()
-    ->endUse()
-    ->withColumn('COUNT(*)', 'count')
-    ->groupByFamId()
-    ->find();
-
-/*$ormNextFamilies = PersonQuery::Create ()
-                      ->useFamilyQuery()
-                        ->orderByName()
-                      ->endUse()
-                      ->groupByFamId()
-                      ->withColumn('COUNT(*)', 'count')
-                      ->find();*/
-//echo $ormNextFamilies;
-
-$last_id = 0;
-$next_id = 0;
-$capture_next = 0;
-
-foreach ($ormNextFamilies as $nextFamily) {
-    $fid = $nextFamily->getFamId();
-    $numberMembers = $nextFamily->getCount();
-    if ($capture_next == 1 && $numberMembers > 1) {
-        $next_id = $fid;
-        break;
-    }
-    if ($fid == $iFamilyID) {
-        $previous_id = $last_id;
-        $capture_next = 1;
-    }
-    if ($numberMembers > 1) {
-        $last_id = $fid;
-    }
-}
-
-$iCurrentUserFamID = SessionUser::getUser()->getPerson()->getFamId();
-
-// Get the lists of custom person fields
-$ormFamCustomFields = FamilyCustomMasterQuery::Create()
-    ->orderByCustomOrder()
-    ->find();
-
-// get family with all the extra columns created
-$rawQry = FamilyCustomQuery::create();
-foreach ($ormFamCustomFields as $customfield) {
-    $rawQry->withColumn($customfield->getCustomField());
-}
-
-if (!is_null($rawQry->findOneByFamId($iFamilyID))) {
-    $aFamCustomDataArr = $rawQry->findOneByFamId($iFamilyID)->toArray();
-}
-
-
-$family = FamilyQuery::create()->findPk($iFamilyID);
-
-if (empty($family)) {
-    RedirectUtils::Redirect('members/404.php');
-    exit;
-}
-
-
-if ($family->getDateDeactivated() != null) {
-    $time = new DateTime('now');
-    $newtime = $time->modify('-' . SystemConfig::getValue('iGdprExpirationDate') . ' year')->format('Y-m-d');
-
-    if ($newtime > $family->getDateDeactivated()) {
-        if (!SessionUser::getUser()->isGdrpDpoEnabled()) {
-            RedirectUtils::Redirect('members/404.php?type=Person');
-            exit;
-        }
-    } else if (!SessionUser::getUser()->isEditRecordsEnabled()) {
-        RedirectUtils::Redirect('members/404.php?type=Person');
-        exit;
-    }
-}
-
-//Get the automatic payments for this family
-$ormAutoPayments = AutoPaymentQuery::create()
-    ->leftJoinPerson()
-    ->withColumn('Person.FirstName', 'EnteredFirstName')
-    ->withColumn('Person.LastName', 'EnteredLastName')
-    ->withColumn('Person.FirstName', 'EnteredFirstName')
-    ->withColumn('Person.LastName', 'EnteredLastName')
-    ->leftJoinDonationFund()
-    ->withColumn('DonationFund.Name', 'fundName')
-    ->orderByNextPayDate()
-    ->findByFamilyid($iFamilyID);
-
-
-//Get all the properties
-$ormProperties = PropertyQuery::Create()
-    ->filterByProClass('f')
-    ->orderByProName()
-    ->find();
-
-//Get classifications
-$ormClassifications = ListOptionQuery::Create()
-    ->orderByOptionSequence()
-    ->findById(1);
-
-
-//Set the spacer cell width
-$iTableSpacerWidth = 10;
-
-// Format the phone numbers
-$sHomePhone = MiscUtils::ExpandPhoneNumber($family->getHomePhone(), $family->getCountry(), $dummy);
-$sWorkPhone = MiscUtils::ExpandPhoneNumber($family->getWorkPhone(), $family->getCountry(), $dummy);
-$sCellPhone = MiscUtils::ExpandPhoneNumber($family->getCellPhone(), $family->getCountry(), $dummy);
-
-$sFamilyEmails = array();
-
-$bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && ($iFamilyID == SessionUser::getUser()->getPerson()->getFamId())));
-
-/* location and MAP */
-$location_available = false;
-
-if (!is_null($family)) {
-    $lat = str_replace(",", ".", $family->getLatitude());
-    $lng = str_replace(",", ".", $family->getLongitude());
-
-    $iLittleMapZoom = SystemConfig::getValue("iLittleMapZoom");
-    $sMapProvider = SystemConfig::getValue('sMapProvider');
-    $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
-
-    if ( !empty($lat) && !empty($lng) ) {
-        $location_available = true;
-    }
-}
-
-// Set the page title and include HTML header
-$sPageTitle = _("Family View");
-$sPageTitleSpan = $sPageTitle . '<span style="float:right"><div class="btn-group">';
-if ($previous_id > 0) {
-    $sPageTitleSpan .= '<button title="' . _('Previous Family') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $previous_id . '\'">
-<span class="mat-button-wrapper"><i class="far fa-hand-point-left"></i></span>
-<div class="mat-button-ripple mat-ripple" matripple=""></div>
-<div class="mat-button-focus-overlay"></div>
-</button>';
-}
-
-$sPageTitleSpan .= '<button title="' . _('Family List') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/familylist\'">
-<span class="mat-button-wrapper"><i class="fas fa-list-ul"></i></span>
-<div class="mat-button-ripple mat-ripple" matripple=""></div>
-<div class="mat-button-focus-overlay"></div>
-</button>';
-
-if ($next_id > 0) {
-    $sPageTitleSpan .= '<button title="' . _('Next Family') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $next_id . '\'">
-<span class="mat-button-wrapper"><i class="far fa-hand-point-right"></i></span>
-<div class="mat-button-ripple mat-ripple" matripple=""></div>
-<div class="mat-button-focus-overlay"></div>
-</button>
-</div>';
-}
-
-$sPageTitleSpan .= '</span>';
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 ?>
+
 
 <?php if (!empty($family->getDateDeactivated())) {
     ?>
@@ -250,7 +35,7 @@ require 'Include/Header.php';
                 <div class="card card-primary card-outline">
                 <div class="card-body  box-profile">
                     <div class="text-center">
-                        <img src="<?= SystemURLs::getRootPath() ?>/api/families/<?= $family->getId() ?>/photo"
+                        <img src="<?= $sRootPath ?>/api/families/<?= $family->getId() ?>/photo"
                              class="initials-image profile-user-img img-responsive img-rounded img-circle"/>
                         <?php
                         if ($bOkToEdit) {
@@ -279,7 +64,7 @@ require 'Include/Header.php';
                     <?php
                     if ($bOkToEdit) {
                         ?>
-                        <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $family->getId() ?>"
+                        <a href="<?= $sRootPath ?>/FamilyEditor.php?FamilyID=<?= $family->getId() ?>"
                            class="btn btn-primary btn-block"><b><?= _("Edit") ?></b></a>
                         <?php
                     }
@@ -360,7 +145,7 @@ require 'Include/Header.php';
                         if ($sWorkPhone != "") {
                             ?>
                             <li><strong><i class="fa-li fas fa-building"></i><?= _("Work Phone") ?>:</strong> <span>
-          <a href="tel:<?= $sWorkPhone ?>"><?= $sWorkPhone ?></a></span>
+                                <a href="tel:<?= $sWorkPhone ?>"><?= $sWorkPhone ?></a></span>
                             </li>
                             <?php
                         }
@@ -416,8 +201,9 @@ require 'Include/Header.php';
                                 ?>
                                 <li><strong><i class="fa-li fas fa-tag"></i>
                                         <?= $rowCustomField->getCustomName() ?>:</strong>
-                                    <span><?= OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $fam_custom_Special) ?>
-            </span>
+                                    <span>
+                                        <?= OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $fam_custom_Special) ?>
+                                    </span>
                                 </li>
                                 <?php
                             }
@@ -469,7 +255,7 @@ require 'Include/Header.php';
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-gradient-purple"
-                           href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $iFamilyID ?>"><i
+                           href="<?= $sRootPath ?>/v2/pastoralcare/family/<?= $iFamilyID ?>"><i
                                 class="far fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
                         <?php
                     }
@@ -486,7 +272,7 @@ require 'Include/Header.php';
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-gradient-blue"
-                           href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i
+                           href="<?= $sRootPath ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i
                                 class="fas fa-plus-square"></i> <?= _('Add New Member') ?></a>
                         <?php
                     }
@@ -505,7 +291,7 @@ require 'Include/Header.php';
                         ?>
                         <a class="btn btn-app bg-yellow-gradient <?= (mb_strlen($family->getAddress1()) == 0)?'disabled':'' ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the family") ?>"
-                           href="<?= SystemURLs::getRootPath() ?>/api/families/addressbook/extract/<?= $iFamilyID ?>"><i
+                           href="<?= $sRootPath ?>/api/families/addressbook/extract/<?= $iFamilyID ?>"><i
                                 class="far fa-id-card">
                             </i> <?= _("vCard") ?></a>
                         <?php
@@ -524,7 +310,7 @@ require 'Include/Header.php';
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-gradient-maroon"
-                           href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i
+                           href="<?= $sRootPath ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i
                                 class="far fa-trash-alt"></i><?= _('Delete this Family') ?></a>
                         <?php
                     }
@@ -563,7 +349,7 @@ require 'Include/Header.php';
                                 <tr>
                                     <td>
                                         <img
-                                            src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $person->getId() ?>/thumbnail"
+                                            src="<?= $sRootPath ?>/api/persons/<?= $person->getId() ?>/thumbnail"
                                             width="40" height="40"
                                             class="initials-image img-circle"/>
                                         <a href="<?= $person->getViewURI() ?>"
@@ -604,10 +390,10 @@ require 'Include/Header.php';
                                         if (SessionUser::getUser()->isShowCartEnabled()) {
                                             ?>
                                             <a class="AddToPeopleCart" data-cartpersonid="<?= $person->getId() ?>">
-                    <span class="fa-stack">
-                      <i class="fas fa-square fa-stack-2x"></i>
-                      <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
-                    </span>
+                                                <span class="fa-stack">
+                                                <i class="fas fa-square fa-stack-2x"></i>
+                                                <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
+                                                </span>
                                             </a>
                                             <?php
                                         }
@@ -615,19 +401,19 @@ require 'Include/Header.php';
                                         <?php
                                         if ($bOkToEdit) {
                                             ?>
-                                            <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
+                                            <a href="<?= $sRootPath ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
                                                class="table-link">
-                    <span class="fa-stack" style="color:green">
-                      <i class="fas fa-square fa-stack-2x"></i>
-                      <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
-                    </span>
+                                                <span class="fa-stack" style="color:green">
+                                                <i class="fas fa-square fa-stack-2x"></i>
+                                                <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
+                                                </span>
                                             </a>
                                             <a class="delete-person" data-person_name="<?= $person->getFullName() ?>"
                                                data-person_id="<?= $person->getId() ?>" data-view="family">
-                    <span class="fa-stack" style="color:red">
-                        <i class="fas fa-square fa-stack-2x"></i>
-                        <i class="far fa-trash-alt fa-stack-1x fa-inverse"></i>
-                    </span>
+                                                <span class="fa-stack" style="color:red">
+                                                    <i class="fas fa-square fa-stack-2x"></i>
+                                                    <i class="far fa-trash-alt fa-stack-1x fa-inverse"></i>
+                                                </span>
                                             </a>
                                             <?php
                                         }
@@ -686,9 +472,9 @@ require 'Include/Header.php';
                                         <div class="timeline">
                                             <!-- timeline time label -->
                                             <div class="time-label">
-                  <span class="bg-red">
-                    <?= $curYear ?>
-                  </span>
+                                                <span class="bg-red">
+                                                    <?= $curYear ?>
+                                                </span>
                                             </div>
                                             <!-- /.timeline-label -->
 
@@ -704,9 +490,9 @@ require 'Include/Header.php';
                                                     $curYear = $item['year'];
                                                     ?>
                                                     <div class="time-label">
-                    <span class="bg-gray">
-                        <?= $curYear ?>
-                    </span>
+                                                        <span class="bg-gray">
+                                                            <?= $curYear ?>
+                                                        </span>
                                                     </div>
                                                     <?php
                                                 }
@@ -716,20 +502,20 @@ require 'Include/Header.php';
                                                     <i class="fa <?= $item['style'] ?>"></i>
 
                                                     <div class="timeline-item">
-                    <span class="time"><i class="fas fa-clock"></i><?= $item['datetime'] ?>
-                        <?php
-                        if ((SessionUser::getUser()->isNotesEnabled()) && (isset($item["editLink"]) || isset($item["deleteLink"])) && $item['slim']) {
-                            ?>
-                            &nbsp;
-                            <?php
-                            if (isset($item["editLink"])) {
-                                ?>
-                                <?= $item["editLink"] ?>
-                                <span class="fa-stack">
-                        <i class="fas fa-square fa-stack-2x"></i>
-                        <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
-                      </span>
-                                </a>
+                                                        <span class="time"><i class="fas fa-clock"></i><?= $item['datetime'] ?>
+                                                            <?php
+                                                            if ((SessionUser::getUser()->isNotesEnabled()) && (isset($item["editLink"]) || isset($item["deleteLink"])) && $item['slim']) {
+                                                                ?>
+                                                                &nbsp;
+                                                                <?php
+                                                                if (isset($item["editLink"])) {
+                                                                    ?>
+                                                                    <?= $item["editLink"] ?>
+                                                                    <span class="fa-stack">
+                                                            <i class="fas fa-square fa-stack-2x"></i>
+                                                            <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
+                                                        </span>
+                                                    </div>
                                 <?php
                             }
 
@@ -737,10 +523,9 @@ require 'Include/Header.php';
                                 ?>
                                 <?= $item["deleteLink"] ?>
                                 <span class="fa-stack">
-                        <i class="fas fa-square fa-stack-2x" style="color:red"></i>
-                        <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
-                      </span>
-                                </a>
+                                    <i class="fas fa-square fa-stack-2x" style="color:red"></i>
+                                    <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
+                                </span>
                                 <?php
                             }
                         } ?>
@@ -871,7 +656,7 @@ require 'Include/Header.php';
                                                     ?>
                                                     <p align="center">
                                                         <a class="btn btn-primary"
-                                                           href="<?= SystemURLs::getRootPath() ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= _("Add a new automatic payment") ?></a>
+                                                           href="<?= $sRootPath ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $family->getId() ?>&amp;linkBack=v2/people/family/view/<?= $iFamilyID ?>"><?= _("Add a new automatic payment") ?></a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -919,9 +704,9 @@ require 'Include/Header.php';
 
                                                     <p align="center">
                                                         <a class="btn btn-primary"
-                                                           href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
+                                                           href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=v2/people/family/view/<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
                                                         <a class="btn btn-default"
-                                                           href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
+                                                           href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=v2/people/family/view/<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
                                                     </p>
 
                                                     <?php
@@ -929,7 +714,7 @@ require 'Include/Header.php';
                                                         ?>
                                                         <p align="center">
                                                             <a class="btn btn-default"
-                                                               href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $family->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                                                               href="<?= $sRootPath ?>/CanvassEditor.php?FamilyID=<?= $family->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=v2/people/family/view/<?= $iFamilyID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                                         </p>
                                                         <?php
                                                     }
@@ -1160,36 +945,36 @@ require 'Include/Header.php';
     </div>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/jquery-photo-uploader/PhotoUploader.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyView.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/jquery-photo-uploader/PhotoUploader.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/people/FamilyView.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/people/MemberView.js"></script>
 
 <!-- Document editor -->
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/document.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/document.js"></script>
 <!-- !Document editor -->
 
 <?php
 if ($sMapProvider == 'OpenStreetMap') {
     ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
     <?php
 } else if ($sMapProvider == 'GoogleMaps') {
     ?>
     <!--Google Map Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?key=<?= $sGoogleMapKey ?>"></script>
 
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
     <?php
 } else if ($sMapProvider == 'BingMaps') {
     ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/BingMapEvent.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
     <?php
 }
 ?>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= $sCSPNonce ?>">
     window.CRM.currentPersonID = 0;
     window.CRM.currentFamily = <?= $iFamilyID ?>;
     window.CRM.docType = 'family';
@@ -1214,6 +999,7 @@ if ($sMapProvider == 'OpenStreetMap') {
     initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, "<?= $family->getName() ?>", '', '');
     <?php } ?>
 </script>
+    
+</script>
 
-<?php require "Include/Footer.php" ?>
-
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

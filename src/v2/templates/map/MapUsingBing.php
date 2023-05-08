@@ -215,7 +215,7 @@ require $sRootDocument . '/Include/Header.php';
                     $member = $family->getHeadPeople()[0];
 
                     if (is_null($member)) {
-                      $familiesLack .= "<a href=\"".$sRootPath."/FamilyView.php?FamilyID=".$family->getId()."\">".$family->getName()."</a>, ";
+                      $familiesLack .= "<a href=\"".$sRootPath."/v2/people/family/view/".$family->getId()."\">".$family->getName()."</a>, ";
                       continue;
                     }
 
@@ -339,7 +339,7 @@ require $sRootDocument . '/Include/Header.php';
     //Infowindow Content
     var imghref, contentString;
     if (plot.type == 'family') {
-        imghref = window.CRM.root+"/FamilyView.php?FamilyID=" + plot.ID;
+        imghref = window.CRM.root+"/v2/people/family/view/" + plot.ID;
     } else if (plot.type == 'person') {
         imghref = window.CRM.root+"/v2/people/person/view/" + plot.ID;
     } else if (plot.type == 'event') {

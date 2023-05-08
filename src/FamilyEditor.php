@@ -560,7 +560,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         //Which submit button did they press?
         if (isset($_POST['FamilySubmit'])) {
             //Send to the view of this person
-            RedirectUtils::Redirect('FamilyView.php?FamilyID=' . $iFamilyID);
+            RedirectUtils::Redirect('v2/people/family/view/' . $iFamilyID);
         } else {
             //Reload to editor to add another record
             RedirectUtils::Redirect('FamilyEditor.php');
@@ -1297,7 +1297,7 @@ require 'Include/Header.php';
         }
         echo ' <input type="button" class="btn btn-default" value="' . _('Cancel') . '" Name="FamilyCancel"';
         if ($iFamilyID > 0) {
-            echo " onclick=\"javascript:document.location='FamilyView.php?FamilyID=$iFamilyID';\">";
+            echo " onclick=\"javascript:document.location='v2/people/family/view/$iFamilyID';\">";
         } else {
             echo " onclick=\"javascript:document.location='v2/familylist';\">";
         }

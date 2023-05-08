@@ -53,6 +53,9 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\ListOptionIconTableMap;
 
+use EcclesiaCRM\FamilyCustomQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
+
 use Slim\Views\PhpRenderer;
 
 class VIEWPeopleController {
@@ -692,4 +695,267 @@ class VIEWPeopleController {
 
         return $paramsArguments;
     }
+
+
+    public function familyview (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        $iFamilyID = $args['famId'];
+        
+        $res = $this->argumentsPeopleFamilyViewArray($iFamilyID);
+
+        //Deactivate/Activate Family
+        if (SessionUser::getUser()->isDeleteRecordsEnabled() && !empty($_POST['FID']) && !empty($_POST['Action'])) {
+            $family = FamilyQuery::create()->findOneById($_POST['FID']);
+            if ($_POST['Action'] == "Deactivate") {
+                $family->deactivate();
+            } elseif ($_POST['Action'] == "Activate") {
+                $family->activate();
+            }
+            $family->save();
+            
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/people/family/view/' . $_POST['FID']);
+        }
+
+        if ( $res['error'] ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/' . $res['link']);
+        }
+
+        return $renderer->render($response, 'familyview.php', $res);
+    }
+
+    public function argumentsPeopleFamilyViewArray ($iFamilyID)
+    {
+        // we get the TimelineService
+        $maxMainTimeLineItems = 20; // max number
+
+        $timelineService = new TimelineService();
+        $timelineServiceItems = $timelineService->getForFamily($iFamilyID);
+        $timelineNotesServiceItems = $timelineService->getNotesForFamily($iFamilyID);
+
+        $mailchimp = new MailChimpService();
+        $curYear = (new \DateTime)->format("Y");
+
+        
+
+        if (SessionUser::getUser()->isFinanceEnabled()) {
+            $_SESSION['sshowPledges'] = 1;
+            $_SESSION['sshowPayments'] = 1;
+        }
+
+        $persons = PersonQuery::Create()->filterByDateDeactivated(null)->findByFamId($iFamilyID);
+
+        if (!is_null($persons) && $persons->count() == 1) {
+            $person = PersonQuery::Create()->findOneByFamId($iFamilyID);
+
+            return [
+                'error' => true,
+                'link'  => "v2/people/person/view/" . $person->getId()
+            ];
+        }
+
+        $ormNextFamilies = PersonQuery::Create()
+            ->useFamilyQuery()
+            ->orderByName()
+            ->endUse()
+            ->withColumn('COUNT(*)', 'count')
+            ->groupByFamId()
+            ->find();
+
+        /*$ormNextFamilies = PersonQuery::Create ()
+                            ->useFamilyQuery()
+                                ->orderByName()
+                            ->endUse()
+                            ->groupByFamId()
+                            ->withColumn('COUNT(*)', 'count')
+                            ->find();*/
+        //echo $ormNextFamilies;
+
+        $last_id = 0;
+        $next_id = 0;
+        $capture_next = 0;
+
+        foreach ($ormNextFamilies as $nextFamily) {
+            $fid = $nextFamily->getFamId();
+            $numberMembers = $nextFamily->getCount();
+            if ($capture_next == 1 && $numberMembers > 1) {
+                $next_id = $fid;
+                break;
+            }
+            if ($fid == $iFamilyID) {
+                $previous_id = $last_id;
+                $capture_next = 1;
+            }
+            if ($numberMembers > 1) {
+                $last_id = $fid;
+            }
+        }
+
+        $iCurrentUserFamID = SessionUser::getUser()->getPerson()->getFamId();
+
+        // Get the lists of custom person fields
+        $ormFamCustomFields = FamilyCustomMasterQuery::Create()
+            ->orderByCustomOrder()
+            ->find();
+
+        // get family with all the extra columns created
+        $rawQry = FamilyCustomQuery::create();
+        foreach ($ormFamCustomFields as $customfield) {
+            $rawQry->withColumn($customfield->getCustomField());
+        }
+
+        if (!is_null($rawQry->findOneByFamId($iFamilyID))) {
+            $aFamCustomDataArr = $rawQry->findOneByFamId($iFamilyID)->toArray();
+        }
+
+
+        $family = FamilyQuery::create()->findPk($iFamilyID);
+
+        if (empty($family)) {
+            return [
+                'error' => true,
+                'link'  => 'members/404.php'
+            ];
+        }
+
+
+        if ($family->getDateDeactivated() != null) {
+            $time = new \DateTime('now');
+            $newtime = $time->modify('-' . SystemConfig::getValue('iGdprExpirationDate') . ' year')->format('Y-m-d');
+
+            if ($newtime > $family->getDateDeactivated()) {
+                if (!SessionUser::getUser()->isGdrpDpoEnabled()) {
+                    return [
+                        'error' => true,
+                        'link'  => 'members/404.php?type=Person'
+                    ];
+                }
+            } else if (!SessionUser::getUser()->isEditRecordsEnabled()) {
+                return [
+                    'error' => true,
+                    'link'  => 'members/404.php?type=Person'
+                ];
+            }
+        }
+
+        //Get the automatic payments for this family
+        $ormAutoPayments = AutoPaymentQuery::create()
+            ->leftJoinPerson()
+            ->withColumn('Person.FirstName', 'EnteredFirstName')
+            ->withColumn('Person.LastName', 'EnteredLastName')
+            ->withColumn('Person.FirstName', 'EnteredFirstName')
+            ->withColumn('Person.LastName', 'EnteredLastName')
+            ->leftJoinDonationFund()
+            ->withColumn('DonationFund.Name', 'fundName')
+            ->orderByNextPayDate()
+            ->findByFamilyid($iFamilyID);
+
+
+        //Get all the properties
+        $ormProperties = PropertyQuery::Create()
+            ->filterByProClass('f')
+            ->orderByProName()
+            ->find();
+
+        //Get classifications
+        $ormClassifications = ListOptionQuery::Create()
+            ->orderByOptionSequence()
+            ->findById(1);
+
+
+        //Set the spacer cell width
+        $iTableSpacerWidth = 10;
+
+        // Format the phone numbers
+        $sHomePhone = MiscUtils::ExpandPhoneNumber($family->getHomePhone(), $family->getCountry(), $dummy);
+        $sWorkPhone = MiscUtils::ExpandPhoneNumber($family->getWorkPhone(), $family->getCountry(), $dummy);
+        $sCellPhone = MiscUtils::ExpandPhoneNumber($family->getCellPhone(), $family->getCountry(), $dummy);
+
+        $sFamilyEmails = array();
+
+        $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && ($iFamilyID == SessionUser::getUser()->getPerson()->getFamId())));
+
+        /* location and MAP */
+        $location_available = false;
+
+        if (!is_null($family)) {
+            $lat = str_replace(",", ".", $family->getLatitude());
+            $lng = str_replace(",", ".", $family->getLongitude());
+
+            $iLittleMapZoom = SystemConfig::getValue("iLittleMapZoom");
+            $sMapProvider = SystemConfig::getValue('sMapProvider');
+            $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
+
+            if ( !empty($lat) && !empty($lng) ) {
+                $location_available = true;
+            }
+        }
+
+        // Set the page title and include HTML header
+        $sPageTitle = _("Family View");
+        $sPageTitleSpan = $sPageTitle . '<span style="float:right"><div class="btn-group">';
+        if ($previous_id > 0) {
+            $sPageTitleSpan .= '<button title="' . _('Previous Family') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $previous_id . '\'">
+        <span class="mat-button-wrapper"><i class="far fa-hand-point-left"></i></span>
+        <div class="mat-button-ripple mat-ripple" matripple=""></div>
+        <div class="mat-button-focus-overlay"></div>
+        </button>';
+        }
+
+        $sPageTitleSpan .= '<button title="' . _('Family List') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/familylist\'">
+        <span class="mat-button-wrapper"><i class="fas fa-list-ul"></i></span>
+        <div class="mat-button-ripple mat-ripple" matripple=""></div>
+        <div class="mat-button-focus-overlay"></div>
+        </button>';
+
+        if ($next_id > 0) {
+            $sPageTitleSpan .= '<button title="' . _('Next Family') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $next_id . '\'">
+        <span class="mat-button-wrapper"><i class="far fa-hand-point-right"></i></span>
+        <div class="mat-button-ripple mat-ripple" matripple=""></div>
+        <div class="mat-button-focus-overlay"></div>
+        </button>
+        </div>';
+        }
+
+        $sPageTitleSpan .= '</span>';
+
+        $sRootDocument   = SystemURLs::getDocumentRoot();
+        $sCSPNonce       = SystemURLs::getCSPNonce();
+
+        return [
+            'error'                     => false,
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'sPageTitle'                => $sPageTitle,
+            'sPageTitleSpan'            => $sPageTitleSpan,
+            'sCSPNonce'                 => $sCSPNonce,
+            'iFamilyID'                 => $iFamilyID,
+            'family'                    => $family,
+            'iCurrentUserFamID'         => $iCurrentUserFamID,
+            'maxMainTimeLineItems'      => $maxMainTimeLineItems,
+            'timelineService'           => $timelineService,
+            'timelineServiceItems'      => $timelineServiceItems,
+            'mailchimp'                 => $mailchimp,
+            'curYear'                   => $curYear,
+            'iCurrentUserFamID'         => $iCurrentUserFamID,
+            'ormAutoPayments'           => $ormAutoPayments,
+            'ormProperties'             => $ormProperties,
+            'ormClassifications'        => $ormClassifications,
+            'iTableSpacerWidth'         => $iTableSpacerWidth,
+            'sHomePhone'                => $sHomePhone,
+            'sWorkPhone'                => $sWorkPhone,
+            'sCellPhone'                => $sCellPhone,
+            'sFamilyEmails'             => $sFamilyEmails,
+            'bOkToEdit'                 => $bOkToEdit,
+            'location_available'        => $location_available,
+            'lat'                       => $lat,
+            'lng'                       => $lng,
+            'iLittleMapZoom'            => $iLittleMapZoom,
+            'sMapProvider'              => $sMapProvider,
+            'sGoogleMapKey'             => $sGoogleMapKey,
+            'sPageTitle'                => $sPageTitle,
+            'sPageTitleSpan'            => $sPageTitleSpan,
+        ];
+    }
+    
 }

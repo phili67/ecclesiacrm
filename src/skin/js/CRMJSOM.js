@@ -1387,9 +1387,9 @@
                                 data: 'Name',
                                 render: function (data, type, row, meta) {
                                     if (window.CRM.bThumbnailIconPresence) {
-                                        return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                                        return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';
                                     } else {
-                                        return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                                        return '<a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';
                                     }
                                 }
                             },
@@ -1431,9 +1431,9 @@
                                 data: 'Name',
                                 render: function (data, type, row, meta) {
                                     if (window.CRM.bThumbnailIconPresence) {
-                                        return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                                        return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';
                                     } else {
-                                        return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                                        return '<a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';
                                     }
                                 }
                             },

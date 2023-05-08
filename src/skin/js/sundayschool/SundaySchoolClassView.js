@@ -388,7 +388,7 @@ $("document").ready(function () {
                 title: i18next.t('Name'),
                 data: 'famID',
                 render: function (data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + '/FamilyView.php?FamilyID=' + data + '">' + full.LastName + '</a>';
+                    return '<a href="' + window.CRM.root + '/v2/people/family/view/' + data + '">' + full.LastName + '</a>';
                 }
             },
             {
