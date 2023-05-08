@@ -121,7 +121,7 @@ class FamilyPropsSearchRes extends BaseSearchRes
                             }
 
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 . '<i class="fas fa-square fa-stack-2x"></i>'
@@ -134,7 +134,7 @@ class FamilyPropsSearchRes extends BaseSearchRes
                             $elt = [
                                 "id" => $family->getId(),
                                 "img" => '<img src="/api/families/' . $family->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                "searchresult" => _("Family") . ' : <a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
+                                "searchresult" => _("Family") . ' : <a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                                 "type" => _($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),

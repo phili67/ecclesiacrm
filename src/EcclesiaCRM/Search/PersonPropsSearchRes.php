@@ -83,7 +83,7 @@ class PersonPropsSearchRes extends BaseSearchRes
 
                             $address = "";
                             if (!is_null($fam)) {
-                                $address = '<a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$fam->getID().'">'.
+                                $address = '<a href="'.SystemURLs::getRootPath().'/v2/people/family/view/'.$fam->getID().'">'.
                                     $fam->getName().MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState()).
                                     "</a>";
                             }
