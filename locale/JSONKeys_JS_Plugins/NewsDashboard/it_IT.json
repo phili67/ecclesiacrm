@@ -1,5 +1,14 @@
 {
-    "Close": "",
-    "Save": "",
-    "Error": ""
+    "Remove": "Rimuovere",
+    "Edit": "Modifica",
+    "News Editor": "Editore di notizie",
+    "News Title": "Titolo della notizia",
+    "Set your News title": "Impostare il titolo delle notizie",
+    "Choose your News Type": "Scegliete il tipo di notizia",
+    "Infos": "Informazioni",
+    "To plan": "Pianificare",
+    "To note": "Da notare",
+    "Important": "Importante",
+    "Very important": "Molto importante",
+    "You have to set a Title for your news": "È necessario impostare un titolo per le notizie"
 }

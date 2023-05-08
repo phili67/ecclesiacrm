@@ -1,5 +1,14 @@
 {
-    "Close": "",
-    "Save": "",
-    "Error": ""
+    "Remove": "Poista",
+    "Edit": "Muokkaa",
+    "News Editor": "Uutistoimittaja",
+    "News Title": "Uutisen otsikko",
+    "Set your News title": "Aseta uutisen otsikko",
+    "Choose your News Type": "Valitse uutistyyppi",
+    "Infos": "Infos",
+    "To plan": "Suunnitella",
+    "To note": "Huomioitavaa",
+    "Important": "Tärkeä",
+    "Very important": "Erittäin tärkeä",
+    "You have to set a Title for your news": "Sinun on määritettävä uutisellesi otsikko"
 }

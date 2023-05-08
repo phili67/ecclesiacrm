@@ -2,57 +2,48 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15T08:15:49.688Z\n"
+"POT-Creation-Date: 2023-05-08T12:26:08.418Z\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-msgid "Close"
-msgstr ""
+msgid "Remove"
+msgstr "Fjern"
 
-msgid "Save"
-msgstr ""
+msgid "Edit"
+msgstr "Rediger"
 
-msgid "Error"
-msgstr ""
+msgid "News Editor"
+msgstr "Nyhedsredaktør"
 
-#~ msgid "Remove"
-#~ msgstr "Fjern"
+msgid "News Title"
+msgstr "Nyheder Titel"
 
-#~ msgid "Edit"
-#~ msgstr "Rediger"
+msgid "Set your News title"
+msgstr "Indstil din nyhedstitel"
 
-#~ msgid "News Editor"
-#~ msgstr "Nyhedsredaktør"
+msgid "Choose your News Type"
+msgstr "Vælg din nyhedstype"
 
-#~ msgid "News Title"
-#~ msgstr "Nyheder Titel"
+msgid "Infos"
+msgstr "Info"
 
-#~ msgid "Set your News title"
-#~ msgstr "Indstil din nyhedstitel"
+msgid "To plan"
+msgstr "At planlægge"
 
-#~ msgid "Choose your News Type"
-#~ msgstr "Vælg din nyhedstype"
+msgid "To note"
+msgstr "Til efterretning"
 
-#~ msgid "Infos"
-#~ msgstr "Info"
+msgid "Important"
+msgstr "Vigtigt"
 
-#~ msgid "To plan"
-#~ msgstr "At planlægge"
+msgid "Very important"
+msgstr "Meget vigtigt"
 
-#~ msgid "To note"
-#~ msgstr "Til efterretning"
-
-#~ msgid "Important"
-#~ msgstr "Vigtigt"
-
-#~ msgid "Very important"
-#~ msgstr "Meget vigtigt"
-
-#~ msgid "You have to set a Title for your news"
-#~ msgstr "Du skal angive en titel for din nyhed"
+msgid "You have to set a Title for your news"
+msgstr "Du skal angive en titel for din nyhed"
 
 #~ msgid "Last modification on"
 #~ msgstr "Sidste ændring den"

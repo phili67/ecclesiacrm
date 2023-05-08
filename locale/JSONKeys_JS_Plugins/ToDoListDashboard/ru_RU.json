@@ -1,5 +1,13 @@
 {
-    "Cancel": "",
-    "OK": "",
-    "Confirm": ""
+    "List name": "Название списка",
+    "Create a list": "Создайте список",
+    "Edit list": "Список редактирования",
+    "You're about to delete your list?": "Вы собираетесь удалить свой список?",
+    "This can't be undone.": "Этого нельзя отменить.",
+    "Item name": "Название предмета",
+    "Date": "Дата",
+    "Create a list item": "Создайте элемент списка",
+    "Edit list item": "Редактирование элемента списка",
+    "Delete item?": "Удалить элемент?",
+    "You're about to delete an item.": "Вы собираетесь удалить элемент."
 }

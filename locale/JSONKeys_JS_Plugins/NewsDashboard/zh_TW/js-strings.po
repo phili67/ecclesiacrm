@@ -2,57 +2,48 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15T08:15:46.068Z\n"
+"POT-Creation-Date: 2023-05-08T12:26:05.040Z\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-msgid "Close"
-msgstr ""
+msgid "Remove"
+msgstr "移除"
 
-msgid "Save"
-msgstr ""
+msgid "Edit"
+msgstr "编辑"
 
-msgid "Error"
-msgstr ""
+msgid "News Editor"
+msgstr "新闻编辑"
 
-#~ msgid "Remove"
-#~ msgstr "移除"
+msgid "News Title"
+msgstr "新闻标题"
 
-#~ msgid "Edit"
-#~ msgstr "编辑"
+msgid "Set your News title"
+msgstr "设置你的新闻标题"
 
-#~ msgid "News Editor"
-#~ msgstr "新闻编辑"
+msgid "Choose your News Type"
+msgstr "选择你的新闻类型"
 
-#~ msgid "News Title"
-#~ msgstr "新闻标题"
+msgid "Infos"
+msgstr "信息"
 
-#~ msgid "Set your News title"
-#~ msgstr "设置你的新闻标题"
+msgid "To plan"
+msgstr "要计划"
 
-#~ msgid "Choose your News Type"
-#~ msgstr "选择你的新闻类型"
+msgid "To note"
+msgstr "要注意的是"
 
-#~ msgid "Infos"
-#~ msgstr "信息"
+msgid "Important"
+msgstr "重要的是"
 
-#~ msgid "To plan"
-#~ msgstr "要计划"
+msgid "Very important"
+msgstr "非常重要"
 
-#~ msgid "To note"
-#~ msgstr "要注意的是"
-
-#~ msgid "Important"
-#~ msgstr "重要的是"
-
-#~ msgid "Very important"
-#~ msgstr "非常重要"
-
-#~ msgid "You have to set a Title for your news"
-#~ msgstr "你必须为你的新闻设置一个标题"
+msgid "You have to set a Title for your news"
+msgstr "你必须为你的新闻设置一个标题"
 
 #~ msgid "Last modification on"
 #~ msgstr "最后一次修改是在"

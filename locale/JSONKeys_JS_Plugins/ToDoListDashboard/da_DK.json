@@ -1,5 +1,13 @@
 {
-    "Cancel": "",
-    "OK": "",
-    "Confirm": ""
+    "List name": "Liste navn",
+    "Create a list": "Opret en liste",
+    "Edit list": "Rediger liste",
+    "You're about to delete your list?": "Er du ved at slette din liste?",
+    "This can't be undone.": "Dette kan ikke gøres om.",
+    "Item name": "Varenavn",
+    "Date": "Dato",
+    "Create a list item": "Opret et element på listen",
+    "Edit list item": "Rediger listeelement",
+    "Delete item?": "Slet emne?",
+    "You're about to delete an item.": "Du er ved at slette et element."
 }
