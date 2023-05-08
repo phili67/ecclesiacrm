@@ -379,7 +379,7 @@ $sFamilyEmails = [];
         ?>
         <div class="text-center">
             <input type="button" class="btn btn-success" value="<?= _('Return to Family View') ?>" name="Cancel"
-                   onclick="javascript:document.location='<?= $sRootPath . '/FamilyView.php?FamilyID=' . $currentFamilyID ?>';">
+                   onclick="javascript:document.location='<?= $sRootPath . '/v2/people/family/view/' . $currentFamilyID ?>';">
 
             <input type="button" class="btn btn-default" value="<?= _('Return To PastoralCare Dashboard') ?>"
                    name="Cancel"
