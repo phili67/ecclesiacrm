@@ -260,7 +260,7 @@ foreach ($ormAutopayments as $payment) {
       <button onclick="ConfirmDeleteAutoPayment(<?= $payment->getId() ?>)" class="btn btn-danger"><?= _('Delete') ?></button>
     </td>
     <td>
-        <a id="FamName<?= $payment->getId() ?>" href="FamilyView.php?FamilyID=<?= $payment->getFamilyid() ?>"><?= $payment->getFamName().' '.$payment->getFamAddress1().', '.$payment->getFamCity().', '.$payment->getFamState() ?></a>
+        <a id="FamName<?= $payment->getId() ?>" href="v2/people/family/view/<?= $payment->getFamilyid() ?>"><?= $payment->getFamName().' '.$payment->getFamAddress1().', '.$payment->getFamCity().', '.$payment->getFamState() ?></a>
     <td>
     <?php
       if ($payment->getEnableBankDraft()) {
