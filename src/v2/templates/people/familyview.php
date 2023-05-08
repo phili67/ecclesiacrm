@@ -5,7 +5,7 @@
  *  last change : 2023-05-08
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without authorization
+ *                This code can't be included in another software
  *
  ******************************************************************************/
 use EcclesiaCRM\SessionUser;
