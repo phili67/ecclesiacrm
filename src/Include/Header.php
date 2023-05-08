@@ -153,7 +153,7 @@ Header_system_notifications();
                                         <p><i class="fas fa-user"></i> <?= _("Private Space") ?></p></a>
                                     <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="dropdown-item main-help-menu">
                                         <p><i class="fas fa-key"></i> <?= _('Change Password') ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="dropdown-item main-help-menu">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/v2/users/settings" class="dropdown-item main-help-menu">
                                         <p><i class="fas fa-cog"></i> <?= _('Change Settings') ?></p></a>
                                     <a href="<?= SystemURLs::getRootPath() ?>/Login.php?session=Lock" class="dropdown-item main-help-menu">
                                         <p><i class="fas fa-pause"></i> <?= _('Lock') ?></p></a>
