@@ -478,14 +478,14 @@ require $sRootDocument . '/Include/Header.php';
                             $buttons++;
                             ?>
                             <a class="btn btn-app"
-                               href="<?= $sRootPath ?>/UserEditor.php?NewPersonID=<?= $PersonInfos['iPersonID'] ?>"
+                               href="<?= $sRootPath ?>/v2/users/editor/new/<?= $PersonInfos['iPersonID'] ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Create a CRM user") ?>"><i
                                     class="fas fa-user-secret"></i> <?= _('Make User') ?></a>
                             <?php
                         } else {
                             ?>
                             <a class="btn btn-app"
-                               href="<?= $sRootPath ?>/UserEditor.php?PersonID=<?= $PersonInfos['iPersonID'] ?>"
+                               href="<?= $sRootPath ?>/v2/users/editor/<?= $PersonInfos['iPersonID'] ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Add rights to this user") ?>"><i
                                     class="fas fa-user-secret"></i> <?= _('Edit User') ?></a>
                             <?php
