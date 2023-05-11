@@ -17,7 +17,7 @@ require $sRootDocument . '/Include/Header.php';
 <!-- Default box -->
 <div class="card">
     <div class="card-header  border-1">
-        <a href="<?= $sRootPath ?>/UserEditor.php" class="btn btn-app"><i class="fas fa-user-plus"></i><?= _('New User') ?></a>
+        <a href="<?= $sRootPath ?>/v2/users/editor/new" class="btn btn-app"><i class="fas fa-user-plus"></i><?= _('New User') ?></a>
 
       <div class="btn-group pull-right">
         <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fas fa-arrow-circle-down"></i><?= _("Add Role to Selected User(s)") ?></a>
@@ -78,7 +78,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                           if ( $user->getPersonId() != 1 || $user->getId() == $sessionUserId && $user->getPersonId() == 1) {
                         ?>
-                            <a href="<?= $sRootPath ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"
+                            <a href="<?= $sRootPath ?>/v2/users/editor/<?= $user->getId() ?>"
                                data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Manage user account") ?>"
                                 ><i class="fas fa-pencil-alt" aria-hidden="true"></i>
                             </a>&nbsp;&nbsp;
