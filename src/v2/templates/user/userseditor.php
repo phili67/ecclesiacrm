@@ -131,7 +131,7 @@ require $sRootDocument . '/Include/Header.php';
                     ?>
                     <tr>
                         <td>
-                            <span style="color:red;" id="PasswordError"><?= $sErrorText ?>)</span>
+                            <span style="color:red;" id="PasswordError"><?= $sErrorText ?></span>
                         </td>
                         <td>
                         </td>
