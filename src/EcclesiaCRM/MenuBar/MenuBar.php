@@ -88,7 +88,7 @@ class MenuBar extends Menu
         $menu = new Menu (_("Private Space"), "fas fa-home", "", true);
 
         $menuItem = new Menu (_("Home"), "fas fa-user", "v2/people/person/view/" . SessionUser::getUser()->getPersonId(), true, $menu);
-        $menuItem = new Menu (_("Change Password"), "fas fa-key", "UserPasswordChange.php", true, $menu);
+        $menuItem = new Menu (_("Change Password"), "fas fa-key", "v2/users/change/password", true, $menu);
         $menuItem = new Menu (_("Change Settings"), "fas fa-cog", "v2/users/settings", true, $menu);
         $menuItem = new Menu (_("Documents"), "fas fa-file", "v2/people/person/view/" . SessionUser::getUser()->getPersonId() . "/Documents", true, $menu);
 
