@@ -14,6 +14,7 @@ use DI\Container;
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
 use EcclesiaCRM\Slim\Middleware\JWTMiddleware;
+use EcclesiaCRM\dto\SystemURLs;
 
 use EcclesiaCRM\PluginQuery;
 
@@ -70,7 +71,7 @@ if ( SessionUser::getUser()->getNeedPasswordChange() and !SessionUser::getMustCh
         SessionUser::setMustChangePasswordRedirect(true);
 
         $uri = $request->getUri();        
-        $path = '/v2/users/change/password/'.SessionUser::getUser()->getPersonId();
+        $path = SystemURLs::getRootPath().'/v2/users/change/password/'.SessionUser::getUser()->getPersonId();
         $uri = $uri->withPath($path);
 
         $response = new Response();

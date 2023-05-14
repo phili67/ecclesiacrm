@@ -962,6 +962,7 @@ class VIEWUserController
         }
 
         $iPersonID = -1;
+        $bAdminOtherUser = false;
 
         // Get the PersonID out of the querystring if they are an admin user; otherwise, use session.
         if (SessionUser::getUser()->isAdmin() && isset($args['PersonID'])) {
@@ -991,6 +992,7 @@ class VIEWUserController
         }
 
         $iPersonID = -1;
+        $bAdminOtherUser = false;
 
         // Get the PersonID out of the querystring if they are an admin user; otherwise, use session.
         if (SessionUser::getUser()->isAdmin() && isset($args['PersonID'])) {
