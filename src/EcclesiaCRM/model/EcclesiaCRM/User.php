@@ -1007,6 +1007,8 @@ class User extends BaseUser
         }
         $this->save();
 
+        SessionUser::setMustChangePasswordRedirect(false);
+
         $_SESSION['user'] = $this;
 
         // Set the UserID

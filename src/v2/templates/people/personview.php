@@ -414,7 +414,7 @@ require $sRootDocument . '/Include/Header.php';
                             ?>
                             <a class="btn btn-app" href="<?= $sRootPath ?>/v2/users/settings"><i
                                     class="fas fa-cog"></i> <?= _("Change Settings") ?></a>
-                            <a class="btn btn-app" href="<?= $sRootPath ?>/UserPasswordChange.php"><i
+                            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/users/change/password/<?= $PersonInfos['iPersonID'] ?>"><i
                                     class="fas fa-key"></i> <?= _("Change Password") ?></a>
                             <?php
                         }

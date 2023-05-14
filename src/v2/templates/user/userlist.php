@@ -151,7 +151,7 @@ require $sRootDocument . '/Include/Header.php';
                       ?>
                     </td>
                     <td>
-                        <a href="<?= $sRootPath ?>/UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"
+                        <a href="<?= $sRootPath ?>/v2/users/change/password/<?= $user->getId() ?>/FromUserList"
                            data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Change user account password") ?>"><i
                                     class="fas fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <?php

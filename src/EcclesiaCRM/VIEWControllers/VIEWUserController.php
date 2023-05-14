@@ -31,11 +31,14 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\LoggerUtils;
 
 use EcclesiaCRM\Emails\NewAccountEmail;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
+use EcclesiaCRM\Emails\PasswordChangeEmail;
 
 use Propel\Runtime\ActiveQuery\Criteria;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class VIEWUserController
 {
@@ -54,10 +57,10 @@ class VIEWUserController
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
-        return $renderer->render($response, 'userlist.php', $this->argumentsrenderUserListArray() );
+        return $renderer->render($response, 'userlist.php', $this->argumentsRenderUserListArray() );
     }
 
-    public function argumentsrenderUserListArray ($usr_role_id = null)
+    public function argumentsRenderUserListArray ($usr_role_id = null)
     {
         // Get all the User records
         $rsUsers = UserQuery::create()
@@ -99,9 +102,7 @@ class VIEWUserController
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
-        $res = $this->argumentsrenderUserSettingsArray();
-
-        return $renderer->render($response, 'usersettings.php',  );
+        return $renderer->render($response, 'usersettings.php', $this->argumentsrenderUserSettingsArray() );
     }
 
     public function argumentsrenderUserSettingsArray ()
@@ -945,6 +946,244 @@ class VIEWUserController
             'usr_ExportSundaySchoolCSV'  => $usr_ExportSundaySchoolCSV,
             'usr_EditSelf'      => $usr_EditSelf,
             'usr_Canvasser'     => $usr_Canvasser,
+        ];
+
+        return $paramsArguments;
+    }
+
+    
+
+    public function renderChangePassword (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/user/');
+
+        if ( !( SessionUser::getUser()->isAdmin() ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $iPersonID = -1;
+
+        // Get the PersonID out of the querystring if they are an admin user; otherwise, use session.
+        if (SessionUser::getUser()->isAdmin() && isset($args['PersonID'])) {
+            $iPersonID = InputUtils::LegacyFilterInput($args['PersonID'], 'int');
+            if ($iPersonID != SessionUser::getUser()->getPersonId()) {
+                $bAdminOtherUser = true;
+            }
+        } else {
+            $iPersonID = SessionUser::getUser()->getPersonId();
+        }
+
+        $res = $this->argumentsRenderChangePasswordArray($iPersonID, $bAdminOtherUser);
+
+        if ( $res['error'] ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/' . $res['link']);
+        }
+
+        return $renderer->render($response, 'changepassword.php', $res );
+    }
+
+    public function renderChangePasswordFromUserList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/user/');
+
+        if ( !( SessionUser::getUser()->isAdmin() ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $iPersonID = -1;
+
+        // Get the PersonID out of the querystring if they are an admin user; otherwise, use session.
+        if (SessionUser::getUser()->isAdmin() && isset($args['PersonID'])) {
+            $iPersonID = InputUtils::LegacyFilterInput($args['PersonID'], 'int');
+            if ($iPersonID != SessionUser::getUser()->getPersonId()) {
+                $bAdminOtherUser = true;
+            }
+        } else {
+            $iPersonID = SessionUser::getUser()->getPersonId();
+        }
+
+        $res = $this->argumentsRenderChangePasswordArray($iPersonID, $bAdminOtherUser, true);
+
+        if ( $res['error'] ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/' . $res['link']);
+        }
+
+        return $renderer->render($response, 'changepassword.php', $res );
+    }
+
+    public function argumentsRenderChangePasswordArray ($iPersonID, $bAdminOtherUser, $fromUserList = false)
+    {
+        $bError = false;
+        $sOldPasswordError = false;
+        $sNewPasswordError = false;
+
+        // Was the form submitted?
+
+        if (isset($_POST['Submit'])) {
+            // Assign all the stuff locally
+            $sOldPassword = '';
+            if (array_key_exists('OldPassword', $_POST)) {
+                $sOldPassword = $_POST['OldPassword'];
+            }
+            $sNewPassword1 = $_POST['NewPassword1'];
+            $sNewPassword2 = $_POST['NewPassword2'];
+
+            // Administrators can change other users' passwords without knowing the old ones.
+            // No password strength test is done, we assume this administrator knows what the
+            // user wants so there is no need to prompt the user to change it on next login.
+            if ($bAdminOtherUser) {
+                // Did they enter a new password in both boxes?
+                if (strlen($sNewPassword1) == 0 && strlen($sNewPassword2) == 0) {
+                    $sNewPasswordError = '<br><font color="red">'.gettext('You must enter a password in both boxes').'</font>';
+                    $bError = true;
+                }
+
+                // Do the two new passwords match each other?
+                elseif ($sNewPassword1 != $sNewPassword2) {
+                    $sNewPasswordError = '<br><font color="red">'.gettext('You must enter the same password in both boxes').'</font>';
+                    $bError = true;
+                } else {
+                    // Update the user record with the password hash
+                    $curUser = UserQuery::create()->findPk($iPersonID);
+                    $curUser->updatePassword($sNewPassword1);
+                    $curUser->setNeedPasswordChange(false);
+                    $curUser->save();
+                    $curUser->createTimeLineNote("password-changed-admin");
+                    // Set the session variable so they don't get sent back here
+                    SessionUser::getUser()->setNeedPasswordChange(false);
+
+
+                    if (!empty($curUser->getEmail())) {
+                        $email = new PasswordChangeEmail($curUser, $sNewPassword1);
+                        if (!$email->send()) {
+                            LoggerUtils::getAppLogger()->warn($email->getError());
+                        }
+                    }
+
+                    // Route back to the list
+                    if ($fromUserList == true) {
+                        return [
+                            'error' => true,
+                            'link'  => 'v2/users'
+                        ];
+                        //RedirectUtils::Redirect('v2/users');
+                    } else {
+                        return [
+                            'error' => true,
+                            'link'  => 'v2/dashboard'
+                        ];
+                        //RedirectUtils::Redirect('v2/dashboard');
+                    }
+                }
+            }
+
+            // Otherwise, a user must know their own existing password to change it.
+            else {
+                $curUser = UserQuery::create()->findPk($iPersonID);
+
+                // Build the array of bad passwords
+                $aBadPasswords = explode(',', strtolower(SystemConfig::getValue('aDisallowedPasswords')));
+                $aBadPasswords[] = strtolower($curUser->getPerson()->getFirstName());
+                $aBadPasswords[] = strtolower($curUser->getPerson()->getMiddleName());
+                $aBadPasswords[] = strtolower($curUser->getPerson()->getLastName());
+
+                $bPasswordMatch = $curUser->isPasswordValid($sOldPassword);
+
+                // Does the old password match?
+                if (!$bPasswordMatch) {
+                    $sOldPasswordError = '<br><font color="red">'.gettext('Invalid password').'</font>';
+                    $bError = true;
+                }
+
+                // Did they enter a new password in both boxes?
+                elseif (strlen($sNewPassword1) == 0 && strlen($sNewPassword2) == 0) {
+                    $sNewPasswordError = '<br><font color="red">'.gettext('You must enter your new password in both boxes').'</font>';
+                    $bError = true;
+                }
+
+                // Do the two new passwords match each other?
+                elseif ($sNewPassword1 != $sNewPassword2) {
+                    $sNewPasswordError = '<br><font color="red">'.gettext('You must enter the same password in both boxes').'</font>';
+                    $bError = true;
+                }
+
+                // Is the user trying to change to something too obvious?
+                elseif (in_array(strtolower($sNewPassword1), $aBadPasswords)) {
+                    $sNewPasswordError = '<br><font color="red">'.gettext('Your password choice is too obvious. Please choose something else.').'</font>';
+                    $bError = true;
+                }
+
+                // Is the password valid for length?
+                elseif (strlen($sNewPassword1) < SystemConfig::getValue('iMinPasswordLength')) {
+                    $sNewPasswordError = '<br><font color="red">'.gettext('Your new password must be at least').' '.SystemConfig::getValue('iMinPasswordLength').' '.gettext('characters').'</font>';
+                    $bError = true;
+                }
+
+                // Did they actually change their password?
+                elseif ($sNewPassword1 == $sOldPassword) {
+                    $sNewPasswordError = '<br><font color="red">'.gettext('You need to actually change your password (nice try, though!)').'</font>';
+                    $bError = true;
+                } elseif (levenshtein(strtolower($sNewPassword1), strtolower($sOldPassword)) < SystemConfig::getValue('iMinPasswordChange')) {
+                    $sNewPasswordError = '<br><font color="red">'.gettext('Your new password is too similar to your old one.  Be more creative!').'</font>';
+                    $bError = true;
+                }
+
+                // If no errors, update
+                if (!$bError) {
+                    // Update the user record with the password hash
+                    $curUser->updatePassword($sNewPassword1);
+                    $curUser->setNeedPasswordChange(false);
+                    $curUser->save();
+                    $curUser->createTimeLineNote("password-changed");
+                    // Set the session variable so they don't get sent back here
+                    SessionUser::getUser()->setNeedPasswordChange(false);
+                    SessionUser::setMustChangePasswordRedirect(false);
+
+                    // Route back to the list
+                    if ($fromUserList == true) {
+                        return [
+                            'error' => true,
+                            'link'  => 'v2/users'
+                        ];
+                        //RedirectUtils::Redirect('v2/users');
+                    } else {
+                        return [
+                            'error' => true,
+                            'link'  => 'v2/dashboard'
+                        ];
+                        //RedirectUtils::Redirect('v2/dashboard');
+                    }
+                }
+            }
+        } else {
+            // initialize stuff since this is the first time showing the form
+            $sOldPassword = '';
+            $sNewPassword1 = '';
+            $sNewPassword2 = '';
+        }
+
+        $cSPNonce = SystemURLs::getCSPNonce();
+
+        // Set the page title and include HTML header
+        $sPageTitle = _('User Editor');
+
+        $paramsArguments = [
+            'error'             => false,
+            'sRootPath'         => SystemURLs::getRootPath(),
+            'sRootDocument'     => SystemURLs::getDocumentRoot(),
+            'sPageTitle'        => $sPageTitle,
+            'cSPNonce'          => $cSPNonce,
+            'iPersonID'         => $iPersonID,
+            'FromUserList'      => $fromUserList,
+            'bAdminOtherUser'   => $bAdminOtherUser,
+            'sOldPassword'      => $sOldPassword,
+            'sOldPasswordError' => $sOldPasswordError,
+            'sNewPassword1'     => $sNewPassword1,
+            'sNewPassword2'     => $sNewPassword2,
+            'sNewPasswordError' => $sNewPasswordError
+
+
+
         ];
 
         return $paramsArguments;

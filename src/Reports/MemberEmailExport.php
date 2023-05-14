@@ -4,10 +4,14 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\SessionUser;
+
+
+$personService = new PersonService();
 
 $sundaySchoolService = new SundaySchoolService();
 $groups = GroupQuery::create()->filterByActive(true)->filterByIncludeInEmailExport(true)->find();

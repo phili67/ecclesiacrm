@@ -886,7 +886,7 @@
             }
           });
 
-          if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && window.CRM.showCart) {// the first time it's unusefull
+          if (window.CRM.PageName.indexOf("v2/users/change/password") !== -1 && window.CRM.showCart) {// the first time it's unusefull
             return;
           }
 
@@ -1699,7 +1699,7 @@
         }
       },
       refresh: function () {
-        if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1) {
+        if (window.CRM.PageName.indexOf("v2/users/change/password") !== -1) {
           return;
         }
         window.CRM.APIRequest({

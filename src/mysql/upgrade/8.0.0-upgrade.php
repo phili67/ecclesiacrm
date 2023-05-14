@@ -62,5 +62,8 @@ unlink(SystemURLs::getDocumentRoot()."/SettingsIndividual.php");
 // 2023-05-11
 unlink(SystemURLs::getDocumentRoot()."/UserEditor.php");
 
+// 2023-05-14
+unlink(SystemURLs::getDocumentRoot()."/UserPasswordChange.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>

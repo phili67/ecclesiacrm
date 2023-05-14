@@ -10,14 +10,10 @@
  ******************************************************************************/
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\dto\Cart;
 
-$personService = new PersonService();
-$systemService = new SystemService();
 
 $_SESSION['sSoftwareInstalledVersion'] = SystemService::getInstalledVersion();
 
@@ -48,12 +44,6 @@ if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
             $_SESSION['user']->save();
             $_SESSION['tLastOperation'] = $t;
         }
-    }
-
-    // If this user needs to change password, send to that page
-    if (SessionUser::getUser()->getNeedPasswordChange() && !isset($bNoPasswordRedirect)) {
-        RedirectUtils::Redirect('UserPasswordChange.php?PersonID='.SessionUser::getUser()->getPersonId());
-        exit;
     }
 
     // Check if https is required
