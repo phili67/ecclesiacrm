@@ -20,7 +20,10 @@ use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
+use Slim\Psr7\Response;
+
 use Propel\Runtime\ActiveQuery\Criteria;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 if (SessionUser::getId() ==  0) RedirectUtils::Redirect('Login.php');
 
@@ -60,6 +63,24 @@ $app->add(new JWTMiddleware([
             ->write( json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) );
     }
 ]));
+
+// If this user needs to change password, send to that page
+if ( SessionUser::getUser()->getNeedPasswordChange() and !SessionUser::getMustChangePasswordRedirect() ) {
+    $app->add(function ($request, $handler) {
+        SessionUser::setMustChangePasswordRedirect(true);
+
+        $uri = $request->getUri();        
+        $path = '/v2/users/change/password/'.SessionUser::getUser()->getPersonId();
+        $uri = $uri->withPath($path);
+
+        $response = new Response();
+            return $response
+                ->withHeader('Location', (string) $uri)
+                ->withStatus(301);        
+    
+        return $handler->handle($request);
+    });
+}
 
 require_once __DIR__.'/../Include/slim/error-handler.php';
 
