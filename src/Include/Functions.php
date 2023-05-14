@@ -10,13 +10,10 @@
  ******************************************************************************/
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
-$personService = new PersonService();
-$systemService = new SystemService();
 
 $_SESSION['sSoftwareInstalledVersion'] = SystemService::getInstalledVersion();
 
