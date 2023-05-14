@@ -15,6 +15,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemConfig;
 
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
