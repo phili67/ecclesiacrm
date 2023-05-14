@@ -151,7 +151,7 @@ Header_system_notifications();
                                     <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= SessionUser::getUser()->getPersonId() ?>"
                                        class="dropdown-item main-help-menu">
                                         <p><i class="fas fa-user"></i> <?= _("Private Space") ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="dropdown-item main-help-menu">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/v2/users/change/password" class="dropdown-item main-help-menu">
                                         <p><i class="fas fa-key"></i> <?= _('Change Password') ?></p></a>
                                     <a href="<?= SystemURLs::getRootPath() ?>/v2/users/settings" class="dropdown-item main-help-menu">
                                         <p><i class="fas fa-cog"></i> <?= _('Change Settings') ?></p></a>
