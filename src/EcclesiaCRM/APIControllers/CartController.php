@@ -371,6 +371,7 @@ class CartController
         $sEmailLink = [];
         $sPhoneLink = '';
         $sPhoneLinkSMS = '';
+        $sMessage   = '';
 
         if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
         {
