@@ -32,6 +32,12 @@ class SessionUser
         }
         $_SESSION['currentPageName'] = $pageName;
     }
+    public static function setMustChangePasswordRedirect ($flag = false) {
+        $_SESSION['MustChangePasswordRedirect'] = $flag;
+    }
+    public static function getMustChangePasswordRedirect () {
+        return $_SESSION['MustChangePasswordRedirect'];
+    }
     public static function getCurrentPageName() {
         return $_SESSION['currentPageName'];
     }
