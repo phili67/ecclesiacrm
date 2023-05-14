@@ -102,9 +102,7 @@ class VIEWUserController
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
-        $res = $this->argumentsrenderUserSettingsArray();
-
-        return $renderer->render($response, 'usersettings.php', $res );
+        return $renderer->render($response, 'usersettings.php', $this->argumentsrenderUserSettingsArray() );
     }
 
     public function argumentsrenderUserSettingsArray ()
