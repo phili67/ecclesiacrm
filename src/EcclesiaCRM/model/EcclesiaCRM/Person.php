@@ -39,6 +39,8 @@ class Person extends BasePerson implements iPhoto
     const SELF_REGISTER = -1;
     const SELF_VERIFY = -2;
     private $photo;
+    private $newsLetterFlag = false;
+    private $newsLetterState = 'None';
 
     public function preDelete(ConnectionInterface $con = null)
     {
@@ -97,6 +99,8 @@ class Person extends BasePerson implements iPhoto
     public function setSendNewsletter($v, $avoidsnl = false)
     {
         
+        $id = $this->getId();
+
         if ( !$avoidsnl && $this->getEmail() ) {
           // to get a newletter : you must have an email
           $mailchimp = new MailChimpService();
@@ -115,7 +119,7 @@ class Person extends BasePerson implements iPhoto
                   }
                 }
             } 
-          } else {
+          } elseif ( !is_null($id) ) {
             $snl = SendNewsLetterUserUpdateQuery::create()->findOneByPersonId($this->getId());
 
             if (is_null($snl)) {
@@ -131,6 +135,11 @@ class Person extends BasePerson implements iPhoto
             }
             
             $snl->save();
+          } elseif ( is_null($id) ) {
+              $this->newsLetterFlag = true;
+              if ($v == "TRUE") { 
+                $this->newsLetterState = 'Add';
+              }
           }
         }
 
@@ -303,6 +312,20 @@ class Person extends BasePerson implements iPhoto
             $logger = LoggerUtils::getAppLogger();
             $logger->warn($NotificationEmail->getError());
         }
+      }
+
+      if ( $this->newsLetterFlag and $this->newsLetterState == 'Add' ) {
+        $snl = SendNewsLetterUserUpdateQuery::create()->findOneByPersonId($this->getId());
+
+        if (is_null($snl)) {
+          $snl = new SendNewsLetterUserUpdate();
+        }
+
+        $snl->setPersonId($this->getId());
+
+        $snl->setState('Add');
+
+        $snl->save();
       }
     }
 
