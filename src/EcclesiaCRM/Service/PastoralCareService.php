@@ -415,7 +415,7 @@ WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
 
         $allSingle = $this->getAllSingle();
 
-        $percentViewPersons = $percentViewFamilies = 0;
+        $percentViewPersons = $percentViewFamilies = $percentSinglePersons = 0;
 
         if ($allPersons->count() > 0) {
             $percentViewPersons = $personsWithoutPastoralCare->count() / $allPersons->count() * 100;
