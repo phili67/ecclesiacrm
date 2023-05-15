@@ -883,9 +883,6 @@ class VIEWUserController
             //RedirectUtils::Redirect('v2/users');
         }
 
-        // Set the page title and include HTML header
-        $sPageTitle = _('User Editor');
-        
         $first_roleID = 0;
         foreach ($userRoles as $userRole) {
             $first_roleID = $userRole->getId();
@@ -1167,7 +1164,7 @@ class VIEWUserController
         $cSPNonce = SystemURLs::getCSPNonce();
 
         // Set the page title and include HTML header
-        $sPageTitle = _('User Editor');
+        $sPageTitle = _('User Password Change');
 
         $paramsArguments = [
             'error'             => false,

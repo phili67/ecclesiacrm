@@ -24,7 +24,7 @@
         "docs": "https://github.com/phili67/ecclesiacrm/wiki"
     },
     "require": {
-        "php": ">=7.4.0",
+        "php": ">=8.0.0",
         "symfony/framework-bundle": "5.3.15",
         "symfony/http-kernel": "5.4.20.*",
         "propel/propel": "2.0.0-beta1",
@@ -50,7 +50,7 @@
         "ext-gettext": "*",
         "laminas/laminas-escaper": "2.*",
         "php-http/curl-client": "^2.2",
-        "knplabs/github-api": "^3.0",
+        "knplabs/github-api": "^3.11.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "http-interop/http-factory-guzzle": "^1.0",
         "php-di/php-di": "^6.3",
