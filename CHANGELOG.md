@@ -6,6 +6,17 @@
 
 **Implemented enhancements:**
 
+- Phili67 php8.0 min [\#2396](https://github.com/phili67/ecclesiacrm/pull/2396) ([phili67](https://github.com/phili67))
+- personview is now in v2 [\#2385](https://github.com/phili67/ecclesiacrm/pull/2385) ([phili67](https://github.com/phili67))
+- SystemSettings tab choices [\#2383](https://github.com/phili67/ecclesiacrm/pull/2383) ([phili67](https://github.com/phili67))
+- Phili67 systemsetting v2 [\#2382](https://github.com/phili67/ecclesiacrm/pull/2382) ([phili67](https://github.com/phili67))
+- Phili67 mailchimp newslette checkbox [\#2379](https://github.com/phili67/ecclesiacrm/pull/2379) ([phili67](https://github.com/phili67))
+- Docker update v3 [\#2371](https://github.com/phili67/ecclesiacrm/pull/2371) ([phili67](https://github.com/phili67))
+- first setup/install : docker [\#2370](https://github.com/phili67/ecclesiacrm/pull/2370) ([phili67](https://github.com/phili67))
+- .gitignore : update for docker [\#2369](https://github.com/phili67/ecclesiacrm/pull/2369) ([phili67](https://github.com/phili67))
+- Phili67 docker8 [\#2367](https://github.com/phili67/ecclesiacrm/pull/2367) ([phili67](https://github.com/phili67))
+- Phili67 docker  [\#2366](https://github.com/phili67/ecclesiacrm/pull/2366) ([phili67](https://github.com/phili67))
+- api update for docker : https/http [\#2365](https://github.com/phili67/ecclesiacrm/pull/2365) ([phili67](https://github.com/phili67))
 - schedule + paused campaign [\#2351](https://github.com/phili67/ecclesiacrm/pull/2351) ([phili67](https://github.com/phili67))
 - Token simplifications [\#2348](https://github.com/phili67/ecclesiacrm/pull/2348) ([phili67](https://github.com/phili67))
 - Phili67 single bug res [\#2343](https://github.com/phili67/ecclesiacrm/pull/2343) ([phili67](https://github.com/phili67))
@@ -86,6 +97,12 @@
 
 **Fixed bugs:**
 
+- src/EcclesiaCRM/model/EcclesiaCRM/Person.php : bug res [\#2394](https://github.com/phili67/ecclesiacrm/pull/2394) ([phili67](https://github.com/phili67))
+- Phili67 changepassword v2 bug [\#2393](https://github.com/phili67/ecclesiacrm/pull/2393) ([phili67](https://github.com/phili67))
+- Phili67 settingsindividual v2 [\#2389](https://github.com/phili67/ecclesiacrm/pull/2389) ([phili67](https://github.com/phili67))
+- Phili67 mailchimp bug add all members [\#2381](https://github.com/phili67/ecclesiacrm/pull/2381) ([phili67](https://github.com/phili67))
+- src/EcclesiaCRM/dto/Photo.php : bug resolution [\#2380](https://github.com/phili67/ecclesiacrm/pull/2380) ([phili67](https://github.com/phili67))
+- 2FA fail warning message [\#2374](https://github.com/phili67/ecclesiacrm/pull/2374) ([phili67](https://github.com/phili67))
 - src/EcclesiaCRM/Service/TimelineService.php : update [\#2363](https://github.com/phili67/ecclesiacrm/pull/2363) ([phili67](https://github.com/phili67))
 - src/PersonView.php : minor update [\#2362](https://github.com/phili67/ecclesiacrm/pull/2362) ([phili67](https://github.com/phili67))
 - src/EcclesiaCRM/model/EcclesiaCRM/User.php : update [\#2361](https://github.com/phili67/ecclesiacrm/pull/2361) ([phili67](https://github.com/phili67))
@@ -146,6 +163,7 @@
 
 **Security fixes:**
 
+- install\_or\_launch\_docker.sh : upadte for signatures [\#2373](https://github.com/phili67/ecclesiacrm/pull/2373) ([phili67](https://github.com/phili67))
 - Font awesome 6 update [\#2355](https://github.com/phili67/ecclesiacrm/pull/2355) ([phili67](https://github.com/phili67))
 - Private folder is protected too [\#2309](https://github.com/phili67/ecclesiacrm/pull/2309) ([phili67](https://github.com/phili67))
 - Phili67 excecute php file forbidden [\#2308](https://github.com/phili67/ecclesiacrm/pull/2308) ([phili67](https://github.com/phili67))
@@ -163,6 +181,7 @@
 
 **Closed issues:**
 
+- test [\#2397](https://github.com/phili67/ecclesiacrm/issues/2397)
 - Coucouc [\#2299](https://github.com/phili67/ecclesiacrm/issues/2299)
 - Database first install issue [\#2278](https://github.com/phili67/ecclesiacrm/issues/2278)
 - Breaking behavior change in PHP8 : empty string are not equal to 0 anymore [\#2170](https://github.com/phili67/ecclesiacrm/issues/2170)
@@ -171,6 +190,22 @@
 
 **Merged pull requests:**
 
+- EcclesiaCRM/VIEWControllers/VIEWUserController.php : security update [\#2399](https://github.com/phili67/ecclesiacrm/pull/2399) ([phili67](https://github.com/phili67))
+- Phili67 update latlon v2 [\#2398](https://github.com/phili67/ecclesiacrm/pull/2398) ([phili67](https://github.com/phili67))
+- changepassword enhancement [\#2395](https://github.com/phili67/ecclesiacrm/pull/2395) ([phili67](https://github.com/phili67))
+- changepassword v2 [\#2392](https://github.com/phili67/ecclesiacrm/pull/2392) ([phili67](https://github.com/phili67))
+- UserEditor V2 [\#2391](https://github.com/phili67/ecclesiacrm/pull/2391) ([phili67](https://github.com/phili67))
+- terms [\#2388](https://github.com/phili67/ecclesiacrm/pull/2388) ([phili67](https://github.com/phili67))
+- family view v2 [\#2387](https://github.com/phili67/ecclesiacrm/pull/2387) ([phili67](https://github.com/phili67))
+- add Edrive/Documents/Group in the route [\#2386](https://github.com/phili67/ecclesiacrm/pull/2386) ([phili67](https://github.com/phili67))
+- terms [\#2384](https://github.com/phili67/ecclesiacrm/pull/2384) ([phili67](https://github.com/phili67))
+- Login css update [\#2378](https://github.com/phili67/ecclesiacrm/pull/2378) ([phili67](https://github.com/phili67))
+- Bump guzzlehttp/psr7 from 2.4.3 to 2.5.0 in /src [\#2377](https://github.com/phili67/ecclesiacrm/pull/2377) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump slim/psr7 from 1.6 to 1.6.1 in /src [\#2376](https://github.com/phili67/ecclesiacrm/pull/2376) ([dependabot[bot]](https://github.com/apps/dependabot))
+- terms [\#2375](https://github.com/phili67/ecclesiacrm/pull/2375) ([phili67](https://github.com/phili67))
+- package.json : update [\#2372](https://github.com/phili67/ecclesiacrm/pull/2372) ([phili67](https://github.com/phili67))
+- README.md : for vscode xdebug [\#2368](https://github.com/phili67/ecclesiacrm/pull/2368) ([phili67](https://github.com/phili67))
+- Changelog.md [\#2364](https://github.com/phili67/ecclesiacrm/pull/2364) ([phili67](https://github.com/phili67))
 - signatures : plugins [\#2359](https://github.com/phili67/ecclesiacrm/pull/2359) ([phili67](https://github.com/phili67))
 - Phili67 composer update http discovery [\#2358](https://github.com/phili67/ecclesiacrm/pull/2358) ([phili67](https://github.com/phili67))
 - Phili67 warning messages cleanup [\#2356](https://github.com/phili67/ecclesiacrm/pull/2356) ([phili67](https://github.com/phili67))
