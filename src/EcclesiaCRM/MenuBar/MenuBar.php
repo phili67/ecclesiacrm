@@ -151,7 +151,7 @@ class MenuBar extends Menu
         $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/people/dashboard", SessionUser::getUser()->isAddRecordsEnabled(), $menu);
 
         $menuItem->addLink("GeoPage.php");
-        $menuItem->addLink("v2/people/v2/people/UpdateAllLatLon");
+        $menuItem->addLink("v2/people/UpdateAllLatLon");
         $menuItem->addLink("members/self-register.php");
         $menuItem->addLink("members/self-verify-updates.php");
         $menuItem->addLink("members/online-pending-verify.php");
