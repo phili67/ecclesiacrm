@@ -66,11 +66,15 @@ $app->add(new JWTMiddleware([
 ]));
 
 // If this user needs to change password, send to that page
-if ( SessionUser::getUser()->getNeedPasswordChange() and !SessionUser::getMustChangePasswordRedirect() ) {
-    $app->add(function ($request, $handler) {
-        SessionUser::setMustChangePasswordRedirect(true);
+$app->add(function ($request, $handler) {
+    $uri = $request->getUri();    
+    $path = $uri->getPath();
 
-        $uri = $request->getUri();        
+    $pos = strpos($path, "/v2/users/change/password/" );
+
+    if ( SessionUser::getUser()->getNeedPasswordChange() and $pos === false and !SessionUser::getMustChangePasswordRedirect() ) {
+        SessionUser::setMustChangePasswordRedirect(true);
+        
         $path = SystemURLs::getRootPath().'/v2/users/change/password/'.SessionUser::getUser()->getPersonId();
         $uri = $uri->withPath($path);
 
@@ -78,10 +82,13 @@ if ( SessionUser::getUser()->getNeedPasswordChange() and !SessionUser::getMustCh
             return $response
                 ->withHeader('Location', (string) $uri)
                 ->withStatus(301);        
-    
-        return $handler->handle($request);
-    });
-}
+    } else {
+        SessionUser::setMustChangePasswordRedirect(false);
+    }
+
+    return $handler->handle($request);
+
+});
 
 require_once __DIR__.'/../Include/slim/error-handler.php';
 
