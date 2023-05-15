@@ -28,7 +28,7 @@ class UpdateFamilyCoordinatesTask
 
     public function getLink()
     {
-        return SystemURLs::getRootPath() . '/UpdateAllLatLon.php';
+        return SystemURLs::getRootPath() . '/v2/people/UpdateAllLatLon';
     }
 
     public function getTitle()
