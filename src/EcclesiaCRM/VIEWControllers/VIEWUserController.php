@@ -98,10 +98,6 @@ class VIEWUserController
     {
         $renderer = new PhpRenderer('templates/user/');
 
-        if ( !( SessionUser::getUser()->isAdmin() ) ) {
-            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
-        }
-
         return $renderer->render($response, 'usersettings.php', $this->argumentsrenderUserSettingsArray() );
     }
 
@@ -954,10 +950,6 @@ class VIEWUserController
     {
         $renderer = new PhpRenderer('templates/user/');
 
-        if ( !( SessionUser::getUser()->isAdmin() ) ) {
-            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
-        }
-
         $iPersonID = -1;
         $bAdminOtherUser = false;
 
@@ -1187,5 +1179,4 @@ class VIEWUserController
 
         return $paramsArguments;
     }
-
 }
