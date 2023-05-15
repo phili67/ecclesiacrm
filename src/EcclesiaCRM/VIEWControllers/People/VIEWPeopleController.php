@@ -957,5 +957,27 @@ class VIEWPeopleController {
             'sPageTitleSpan'            => $sPageTitleSpan,
         ];
     }
+
+    public function UpdateAllLatLon (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        if (!SessionUser::getUser()->isShowMapEnabled()) {            
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
     
+        return $renderer->render($response, 'UpdateAllLatLon.php', $this->argumentsPeopleUpdateAllLatLonArray());
+    }
+
+    public function argumentsPeopleUpdateAllLatLonArray () {
+        $sRootDocument   = SystemURLs::getDocumentRoot();
+
+        $sPageTitle = _("Update Latitude & Longitude");
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'sPageTitle'                => $sPageTitle        
+        ];
+
+    }    
 }

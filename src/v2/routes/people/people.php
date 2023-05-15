@@ -23,4 +23,6 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/person/view/{personId:[0-9]+}/{mode}', VIEWPeopleController::class . ':personviewmode' );
 
     $group->get('/family/view/{famId:[0-9]+}', VIEWPeopleController::class . ':familyview' );
+
+    $group->get('/UpdateAllLatLon', VIEWPeopleController::class . ':UpdateAllLatLon' );
 });

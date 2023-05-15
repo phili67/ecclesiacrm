@@ -3,24 +3,26 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//  Updated     : 2018/06/27
+//  Updated     : 2023/05/15
 //
-
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\FamilyQuery;
 
 use EcclesiaCRM\EventQuery;
 
 require $sRootDocument . '/Include/Header.php';
+
+$families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitude(0)->find();
+
 ?>
 
-
-
+<?php if ($families->count()) { ?>
 <div class="alert alert-info">
-    <a href="<?= $sRootPath ?>/UpdateAllLatLon.php" class="btn bg-green-active"><i class="fas fa-map-marker-alt"></i> </a>
-    <?= _('Missing Families?').'<a href="'.$sRootPath.'/UpdateAllLatLon.php" >'.' '._('Update Family Latitude or Longitude now.') ?></a>
+    <a href="<?= $sRootPath ?>/v2/people/UpdateAllLatLon" class="btn bg-green-active"><i class="fas fa-map-marker-alt"></i> </a>
+    <?= _('Missing Families?').'<a href="'.$sRootPath.'/v2/people/UpdateAllLatLon" >'.' '._('Update Family Latitude or Longitude now.'). ' : ' . $families->count() ?></a>
 </div>
 
 <?php if (ChurchMetaData::getChurchLatitude() == '') {

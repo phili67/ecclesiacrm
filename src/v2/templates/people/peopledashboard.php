@@ -13,7 +13,12 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\MiscUtils;
 
+use EcclesiaCRM\FamilyQuery;
+
 require $sRootDocument . '/Include/Header.php';
+
+$families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitude(0)->find();
+
 ?>
 
 <!-- Default box -->
@@ -64,7 +69,7 @@ require $sRootDocument . '/Include/Header.php';
             ?>
             <a href="<?= $sRootPath ?>/GeoPage.php" class="btn btn-app"><i class="fas fa-globe-africa"></i> <?= _('Family Geographic') ?></a>
             <a href="<?= $sRootPath ?>/v2/map/-1" class="btn btn-app"><i class="far fa-map"></i><?= _('Family Map') ?></a>
-            <a href="<?= $sRootPath ?>/UpdateAllLatLon.php" class="btn btn-app"><i class="fas fa-map-pin"></i><?= _('Update All Family Coordinates') ?></a>
+            <a href="<?= $sRootPath ?>/v2/people/UpdateAllLatLon" class="btn btn-app"><?= ($families->count() > 0)?'<span class="badge bg-danger">'.$families->count().'</span>':'' ?><i class="fas fa-map-pin"></i><?= _('Update All Family Coordinates') ?></a>
             <?php
         }
         ?>

@@ -2,18 +2,18 @@
 /*******************************************************************************
  *
  *  filename    : UpdateAllLatLon.php
- *  last change : 2013-02-02
+ *  last change : 2023-05-15
  *  website     : http://www.ecclesiacrm.com
+ *  copyright   : 2019 Philippe Logel all right reserved not MIT licence                
  *
  ******************************************************************************/
 
+use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemConfig;
+
 use EcclesiaCRM\FamilyQuery;
 
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-$sPageTitle = _('Update Latitude & Longitude');
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 
 $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitude(0)->limit(100)->find();
 
@@ -73,5 +73,6 @@ if ($families->count() > 0) {
     </div>
 <?php
 }
+?>
 
-require 'Include/Footer.php';
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
