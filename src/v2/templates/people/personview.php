@@ -23,6 +23,14 @@ use EcclesiaCRM\dto\Cart;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
+<?php if (!empty($PersonInfos['person']->getDateDeactivated())) {
+    ?>
+    <div class="alert alert-warning">
+        <strong><?= _("This Person is Deactivated") ?> </strong>
+    </div>
+    <?php
+} ?>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">

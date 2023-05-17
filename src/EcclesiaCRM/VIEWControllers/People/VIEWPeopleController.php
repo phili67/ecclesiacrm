@@ -56,6 +56,9 @@ use EcclesiaCRM\Map\ListOptionIconTableMap;
 use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\FamilyCustomMasterQuery;
 
+use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\Utils\InputUtils;
+
 use Slim\Views\PhpRenderer;
 
 class VIEWPeopleController {
@@ -602,15 +605,6 @@ class VIEWPeopleController {
 
         $sPageTitleSpan .= '</span>';
 
-        if (!empty($person->getDateDeactivated())) {
-            ?>
-            <div class="alert alert-warning">
-                <strong><?= _("This Person is Deactivated") ?> </strong>
-            </div>
-            <?php
-        }
-
-
         $persons = PersonQuery::Create()->filterByDateDeactivated(null)->findByFamId($iFamilyID);
 
         $singlePerson = false;
@@ -668,8 +662,9 @@ class VIEWPeopleController {
                 'iFamilyID'             => $iFamilyID,
                 'sFamilyEmails'         => $sFamilyEmails
             ],
-            'PersonInfos'           => [
+            'PersonInfos'   => [
                 'iPersonID'             => $iPersonID,
+                'singlePerson'          => $singlePerson,
                 'person'                => $person,            
                 'sPhoneCountry'         => $sPhoneCountry,
                 'sHomePhone'            => $sHomePhone,
@@ -979,5 +974,5 @@ class VIEWPeopleController {
             'sPageTitle'                => $sPageTitle        
         ];
 
-    }    
+    }
 }
