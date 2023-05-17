@@ -56,6 +56,9 @@ use EcclesiaCRM\Map\ListOptionIconTableMap;
 use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\FamilyCustomMasterQuery;
 
+use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\Utils\InputUtils;
+
 use Slim\Views\PhpRenderer;
 
 class VIEWPeopleController {
@@ -602,15 +605,6 @@ class VIEWPeopleController {
 
         $sPageTitleSpan .= '</span>';
 
-        if (!empty($person->getDateDeactivated())) {
-            ?>
-            <div class="alert alert-warning">
-                <strong><?= _("This Person is Deactivated") ?> </strong>
-            </div>
-            <?php
-        }
-
-
         $persons = PersonQuery::Create()->filterByDateDeactivated(null)->findByFamId($iFamilyID);
 
         $singlePerson = false;
@@ -668,8 +662,9 @@ class VIEWPeopleController {
                 'iFamilyID'             => $iFamilyID,
                 'sFamilyEmails'         => $sFamilyEmails
             ],
-            'PersonInfos'           => [
+            'PersonInfos'   => [
                 'iPersonID'             => $iPersonID,
+                'singlePerson'          => $singlePerson,
                 'person'                => $person,            
                 'sPhoneCountry'         => $sPhoneCountry,
                 'sHomePhone'            => $sHomePhone,
@@ -977,6 +972,173 @@ class VIEWPeopleController {
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'sPageTitle'                => $sPageTitle        
+        ];
+
+    }    
+
+    public function geopage (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        if (!SessionUser::getUser()->isShowMapEnabled()) {            
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+    
+        return $renderer->render($response, 'geopage.php', $this->argumentsPeopleGeoPageArray());
+    }
+
+    public function argumentsPeopleGeoPageArray () {
+        // Create array with Classification Information (lst_ID = 1)
+        $classifications = ListOptionQuery::create()
+        ->filterById(1)
+        ->orderByOptionSequence()
+        ->find();
+
+        unset($aClassificationName);
+        $aClassificationName[0] = _('Unassigned');
+        foreach ($classifications as $classification) {
+            $aClassificationName[intval($classification->getOptionId())] = $classification->getOptionName();
+        }
+
+        // Create array with Family Role Information (lst_ID = 2)
+        $familyRoles = ListOptionQuery::create()
+        ->filterById(2)
+        ->orderByOptionSequence()
+        ->find();
+
+        unset($aFamilyRoleName);
+        $aFamilyRoleName[0] = _('Unassigned');
+        foreach ($familyRoles as $familyRole) {
+            $aFamilyRoleName[intval($familyRole->getOptionId())] = $familyRole->getOptionName();
+        }
+
+        // Get the Family if specified in the query string
+        $iFamily = -1;
+        $iNumNeighbors = 15;
+        $nMaxDistance = 10;
+        if (array_key_exists('Family', $_GET)) {
+            $iFamily = InputUtils::LegacyFilterInput($_GET['Family'], 'int');
+        }
+        if (array_key_exists('NumNeighbors', $_GET)) {
+            $iNumNeighbors = InputUtils::LegacyFilterInput($_GET['NumNeighbors'], 'int');
+        }
+
+        $bClassificationPost = false;
+        $sClassificationList = [];
+        $sCoordFileFormat = '';
+        $sCoordFileFamilies = '';
+        $sCoordFileName = '';
+
+        //Is this the second pass?
+        if (isset($_POST['FindNeighbors']) || isset($_POST['DataFile']) || isset($_POST['PersonIDList'])) {
+            //Get all the variables from the request object and assign them locally
+            $delemiter = SessionUser::getUser()->CSVExportDelemiter();
+            $charset   = SessionUser::getUser()->CSVExportCharset();
+
+            $iFamily = InputUtils::LegacyFilterInput($_POST['Family']);
+            $iNumNeighbors = InputUtils::LegacyFilterInput($_POST['NumNeighbors']);
+            $nMaxDistance = InputUtils::LegacyFilterInput($_POST['MaxDistance']);
+            $sCoordFileName = InputUtils::LegacyFilterInput($_POST['CoordFileName']);
+            if (array_key_exists('CoordFileFormat', $_POST)) {
+                $sCoordFileFormat = InputUtils::LegacyFilterInput($_POST['CoordFileFormat']);
+            }
+            if (array_key_exists('CoordFileFamilies', $_POST)) {
+                $sCoordFileFamilies = InputUtils::LegacyFilterInput($_POST['CoordFileFamilies']);
+            }
+
+            foreach ($aClassificationName as $key => $value) {
+                $sClassNum = 'Classification' . $key;
+                if (isset($_POST["$sClassNum"])) {
+                    $bClassificationPost = true;
+                    $sClassificationList[] = $key;
+                }
+            }
+            }
+
+            if (isset($_POST['DataFile'])) {
+            $resultsByDistance = GeoUtils::FamilyInfoByDistance($iFamily);
+
+            $texttype = 'plain';
+
+            if ($sCoordFileFormat == 'GPSVisualizer') {
+                $filename = $sCoordFileName . '.csv';
+                $texttype = 'csv';
+            } elseif ($sCoordFileFormat == 'StreetAtlasUSA') {
+                $filename = $sCoordFileName . '.txt';
+                $texttype = 'plain';
+            }
+
+            
+
+            // Export file
+            header('Pragma: no-cache');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Content-Description: File Transfer');
+            header('Content-Type: text'.$texttype.';charset='.$charset);
+            header("Content-Disposition: attachment; filename=".$filename);
+            header('Content-Transfer-Encoding: binary');
+
+
+            if ($sCoordFileFormat == 'GPSVisualizer') {
+                echo "Name".$delemiter."Latitude".$delemiter."Longitude\n";
+            }
+
+            $counter = 0;
+
+            foreach ($resultsByDistance as $oneResult) {
+                if ($sCoordFileFamilies == 'NeighborFamilies') {
+                    if ($counter++ == $iNumNeighbors) {
+                        break;
+                    }
+                    if ($oneResult['Distance'] > $nMaxDistance) {
+                        break;
+                    }
+                }
+
+                // Skip over the ones with no data
+                if ($oneResult['fam_Latitude'] == 0) {
+                    continue;
+                }
+
+                if ($sCoordFileFormat == 'GPSVisualizer') {
+                    echo $oneResult['fam_Name'] . $delemiter . $oneResult['fam_Latitude'] . $delemiter . $oneResult['fam_Longitude'] . "\n";
+                } elseif ($sCoordFileFormat == 'StreetAtlasUSA') {
+                    echo "BEGIN SYMBOL\n";
+                    echo $oneResult['fam_Latitude'] . ',' . $oneResult['fam_Longitude'] . ',' . $oneResult['fam_Name'] . ',' . "Green Star\n";
+                    echo "END\n";
+                }
+            }
+
+            exit;
+        }
+
+        $families = FamilyQuery::create()
+            ->filterByDateDeactivated(null)
+            ->orderByName()
+            ->find();
+
+
+        $sRootDocument   = SystemURLs::getDocumentRoot();
+
+        $sPageTitle = _("Family Geographic Utilities");
+                    
+        $sCSPNonce = SystemURLs::getCSPNonce();    
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'sCSPNonce'                 => $sCSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'iFamily'                   => $iFamily,
+            'families'                  => $families,
+            'iNumNeighbors'             => $iNumNeighbors,
+            'nMaxDistance'              => $nMaxDistance,
+            'bClassificationPost'       => $bClassificationPost,
+            'sCoordFileFormat'          => $sCoordFileFormat,
+            'sCoordFileFamilies'        => $sCoordFileFamilies,
+            'sCoordFileName'            => $sCoordFileName,
+            'sClassificationList'       => $sClassificationList,
+            'aClassificationName'       => $aClassificationName
         ];
 
     }    
