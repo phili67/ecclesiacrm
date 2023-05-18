@@ -332,7 +332,7 @@ class CartController
     }
 
     public function deactivatePersonCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        if (!SessionUser::getUser()->isAdmin()) {
+        if (!SessionUser::getUser()->isDeleteRecordsEnabled()) {
             return $response->withStatus(401);
         }
 
