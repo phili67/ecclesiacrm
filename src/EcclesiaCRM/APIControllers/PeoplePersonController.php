@@ -530,6 +530,10 @@ class PeoplePersonController
     }
 
     public function activateDeacticate (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!SessionUser::getUser()->isDeleteRecordsEnabled()) {
+            return $response->withStatus(401);
+        }
+
         $personId = $args["personId"];
         $newStatus = $args["status"];
 
