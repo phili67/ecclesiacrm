@@ -954,10 +954,14 @@ class VIEWUserController
         $bAdminOtherUser = false;
 
         // Get the PersonID out of the querystring if they are an admin user; otherwise, use session.
-        if (SessionUser::getUser()->isAdmin() && isset($args['PersonID'])) {
-            $iPersonID = InputUtils::LegacyFilterInput($args['PersonID'], 'int');
-            if ($iPersonID != SessionUser::getUser()->getPersonId()) {
-                $bAdminOtherUser = true;
+        if ( isset($args['PersonID']) ) {
+            if ( SessionUser::getUser()->isAdmin() ) {
+                $iPersonID = InputUtils::LegacyFilterInput($args['PersonID'], 'int');
+                if ($iPersonID != SessionUser::getUser()->getPersonId()) {
+                    $bAdminOtherUser = true;
+                }
+            } else {
+                return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
             }
         } else {
             $iPersonID = SessionUser::getUser()->getPersonId();
@@ -990,7 +994,7 @@ class VIEWUserController
                 $bAdminOtherUser = true;
             }
         } else {
-            $iPersonID = SessionUser::getUser()->getPersonId();
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
         $res = $this->argumentsRenderChangePasswordArray($iPersonID, $bAdminOtherUser, true);
