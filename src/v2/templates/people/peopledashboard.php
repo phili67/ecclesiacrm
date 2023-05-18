@@ -67,7 +67,7 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
         <?php
         if (SessionUser::getUser()->isShowMapEnabled()) {
             ?>
-            <a href="<?= $sRootPath ?>/GeoPage.php" class="btn btn-app"><i class="fas fa-globe-africa"></i> <?= _('Family Geographic') ?></a>
+            <a href="<?= $sRootPath ?>/v2/people/geopage" class="btn btn-app"><i class="fas fa-globe-africa"></i> <?= _('Family Geographic') ?></a>
             <a href="<?= $sRootPath ?>/v2/map/-1" class="btn btn-app"><i class="far fa-map"></i><?= _('Family Map') ?></a>
             <a href="<?= $sRootPath ?>/v2/people/UpdateAllLatLon" class="btn btn-app"><?= ($families->count() > 0)?'<span class="badge bg-danger">'.$families->count().'</span>':'' ?><i class="fas fa-map-pin"></i><?= _('Update All Family Coordinates') ?></a>
             <?php
