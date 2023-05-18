@@ -68,5 +68,8 @@ unlink(SystemURLs::getDocumentRoot()."/UserPasswordChange.php");
 // 2023-05-15
 unlink(SystemURLs::getDocumentRoot()."/UpdateAllLatLon.php");
 
+// 2023-05-18
+unlink(SystemURLs::getDocumentRoot()."/GeoPage.php"); 
+
 $logger->info("End of delete :  all unusefull files");
 ?>
