@@ -71,5 +71,14 @@ unlink(SystemURLs::getDocumentRoot()."/UpdateAllLatLon.php");
 // 2023-05-18
 unlink(SystemURLs::getDocumentRoot()."/GeoPage.php"); 
 
+// 2023-05-18
+unlink(SystemURLs::getDocumentRoot()."/favicon.ico"); 
+
+unlink(SystemURLs::getDocumentRoot()."/PaddleNumEditor.php"); 
+
+unlink(SystemURLs::getDocumentRoot()."/GroupPropsFormRowOps.php"); 
+
+unlink(SystemURLs::getDocumentRoot()."/DonationFundEditor.php"); 
+
 $logger->info("End of delete :  all unusefull files");
 ?>
