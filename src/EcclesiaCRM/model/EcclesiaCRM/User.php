@@ -501,7 +501,7 @@ class User extends BaseUser
 
     public function isDeleteRecordsEnabled()
     {
-        return $this->isAdmin() || $this->isDeleteRecords();
+        return $this->isAdmin() || $this->isDeleteRecords() || $this->isGdrpDpo();
     }
 
     public function isMenuOptionsEnabled()
