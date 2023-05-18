@@ -3,12 +3,12 @@
 namespace EcclesiaCRM\Utils;
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\LocaleInfo;
 use EcclesiaCRM\Bootstrapper;
 use Geocoder\Provider\BingMaps\BingMaps;
 use Geocoder\Provider\GoogleMaps\GoogleMaps;
 use Geocoder\Provider\Nominatim\Nominatim;
 use Geocoder\StatefulGeocoder;
+use EcclesiaCRM\FamilyQuery;
 use Http\Client\Curl\Client;
 use Geocoder\Query\GeocodeQuery;
 
@@ -209,6 +209,13 @@ class GeoUtils
         // Convert to directions
         // -180=S   -135=SW   -90=W   -45=NW   0=N   45=NE   90=E   135=SE   180=S
         if ($bearing < -191.25) {
+            $bearing += 360;
+        }
+        if ($bearing >= 191.25) {
+            $bearing -= 360;
+        }
+
+        if ($bearing < -191.25) {
             $direction = '---';
         } elseif ($bearing < -168.75) {
             $direction = gettext('S');
@@ -251,5 +258,61 @@ class GeoUtils
 //    $direction  = $bearing . " " . $direction;
 
         return $direction;
+    }
+
+    public static function CompareDistance($elem1, $elem2)
+    {
+        if ($elem1['Distance'] > $elem2['Distance']) {
+            return 1;
+        } elseif ($elem1['Distance'] == $elem2['Distance']) {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+
+    public static function SortByDistance($array)
+    {
+        $newArr = $array;
+        usort($newArr, array(GeoUtils::class,"CompareDistance"));
+        return $newArr;
+    }
+
+    // Create an associated array of family information sorted by distance from
+    // a particular family.
+    public static function FamilyInfoByDistance($iFamily)
+    {
+        // Handle the degenerate case of no family selected by just making the array without
+        // distance and bearing data, and don't bother to sort it.
+        if ($iFamily) {
+            // Get info for the selected family
+            $selectedFamily = FamilyQuery::create()
+                ->findOneById($iFamily);
+        }
+
+        // Compute distance and bearing from the selected family to all other families
+        $families = FamilyQuery::create()
+            ->filterByDateDeactivated(null)
+            ->find();
+
+        foreach ($families as $family) {
+            $familyID = $family->getId();
+            if ($iFamily) {
+                $results[$familyID]['Distance'] = GeoUtils::LatLonDistance($selectedFamily->getLatitude(), $selectedFamily->getLongitude(), $family->getLatitude(), $family->getLongitude());
+                $results[$familyID]['Bearing'] = GeoUtils::LatLonBearing($selectedFamily->getLatitude(), $selectedFamily->getLongitude(), $family->getLatitude(), $family->getLongitude());
+            }
+            $results[$familyID]['fam_Name'] = $family->getName();
+            $results[$familyID]['fam_Address'] = $family->getAddress();
+            $results[$familyID]['fam_Latitude'] = $family->getLatitude();
+            $results[$familyID]['fam_Longitude'] = $family->getLongitude();
+            $results[$familyID]['fam_ID'] = $familyID;
+        }
+
+        if ($iFamily) {
+            $resultsByDistance = GeoUtils::SortByDistance($results);
+        } else {
+            $resultsByDistance = $results;
+        }
+        return $resultsByDistance;
     }
 }

@@ -25,4 +25,7 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/family/view/{famId:[0-9]+}', VIEWPeopleController::class . ':familyview' );
 
     $group->get('/UpdateAllLatLon', VIEWPeopleController::class . ':UpdateAllLatLon' );
+
+    $group->get('/geopage', VIEWPeopleController::class . ':geopage' );
+    $group->post('/geopage', VIEWPeopleController::class . ':geopage' );
 });
