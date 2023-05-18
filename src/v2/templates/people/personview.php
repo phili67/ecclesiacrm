@@ -500,7 +500,7 @@ require $sRootDocument . '/Include/Header.php';
                         }
                     }
 
-                    if ($bOkToEdit && SessionUser::getUser()->isGdrpDpoEnabled() && $PersonInfos['iPersonID'] != 1) {// the super user can't be deactivated
+                    if ($bOkToEdit && SessionUser::getUser()->isDeleteRecordsEnabled() && $PersonInfos['iPersonID'] != 1) {// the super user can't be deactivated
                         $buttons++;
                         ?>
                         <button class="btn btn-app bg-gradient-orange" id="activateDeactivate">
