@@ -22,8 +22,8 @@ if (file_exists($integrityCheckFile)) {
     $appIntegrity = AppIntegrityService::verifyApplicationIntegrity();
     file_put_contents($integrityCheckFile, json_encode($appIntegrity));
 
-    /*$IntegrityCheckDetails->status = 'failure';
-    $IntegrityCheckDetails->message = 'integrityCheck.json file missing';*/
+    $IntegrityCheckDetails->status = 'failure';
+    $IntegrityCheckDetails->message = 'integrityCheck.json file missing';
 
     $IntegrityCheckDetails = json_decode(file_get_contents($integrityCheckFile));
 }
