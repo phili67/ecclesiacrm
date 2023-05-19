@@ -80,7 +80,7 @@ unlink(SystemURLs::getDocumentRoot()."/GroupPropsFormRowOps.php");
 
 unlink(SystemURLs::getDocumentRoot()."/DonationFundEditor.php"); 
 
-unlink(SystemURLs::getDocumentRoot()."/IntegrityCheck.php "); 
+unlink(SystemURLs::getDocumentRoot()."/IntegrityCheck.php"); 
 
 $logger->info("End of delete :  all unusefull files");
 ?>
