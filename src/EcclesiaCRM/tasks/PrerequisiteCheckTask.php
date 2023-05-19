@@ -20,7 +20,7 @@ class PrerequisiteCheckTask implements iTask
 
   public function getLink()
   {
-    return SystemURLs::getRootPath() . '/IntegrityCheck.php';
+    return SystemURLs::getRootPath() . '/v2/system/integritycheck';
   }
 
   public function getTitle()
