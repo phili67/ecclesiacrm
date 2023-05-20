@@ -1035,7 +1035,7 @@ $("document").ready(function () {
                                     "rangeInHours": 2
                                 })
                             },function (data) {
-                                location.href = window.CRM.root + '/Checkin.php';
+                                location.href = window.CRM.root + '/v2/calendar/events/checkin';
                             });
                         }
                     }

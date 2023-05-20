@@ -920,8 +920,8 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
 
                             if (page.includes("v2/calendar/events/list") ) {
                                 window.CRM.reloadListEventPage();
-                            } else if ( page.includes("Checkin.php") ) {
-                                window.location.href = window.CRM.root + '/Checkin.php';
+                            } else if ( page.includes("v2/calendar/events/checkin") ) {
+                                window.location.href = window.CRM.root + '/v2/calendar/events/checkin';
                             } else if (page.includes("/v2/calendar")) {
                                 // we reload all the events
                                 window.CRM.calendar.refetchEvents();
