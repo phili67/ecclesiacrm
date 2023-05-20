@@ -136,7 +136,7 @@ class MenuBar extends Menu
 
         $menuItem = new Menu (_("List Church Events"), "far fa-calendar", "v2/calendar/events/list", true, $menu);
         $menuItem = new Menu (_("List Event Types"), "fas fa-cog", "EventNames.php", SessionUser::getUser()->isAdmin(), $menu);
-        $menuItem = new Menu (_("Call the Register"), "fas fa-bullhorn", "Checkin.php", true, $menu);
+        $menuItem = new Menu (_("Call the Register"), "fas fa-bullhorn", "v2/calendar/events/checkin", true, $menu);
 
         $this->addPluginMenus('Events', $menu);
 

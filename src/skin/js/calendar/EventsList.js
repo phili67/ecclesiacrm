@@ -511,7 +511,7 @@ $(document).ready(function () {
                             path: 'attendees/checkoutValidate',
                             data: JSON.stringify({"eventID": eventId})
                         },function(data) {
-                            window.location.href = window.CRM.root + '/Checkin.php';
+                            window.location.href = window.CRM.root + '/v2/calendar/events/checkin';
                         });
                     }
                 },

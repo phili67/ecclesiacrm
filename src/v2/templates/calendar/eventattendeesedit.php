@@ -136,7 +136,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="col-md-2"></div>
             <div class="col-md-3">
                 <?php if ($numAttRows - $countCheckout > 0) { ?>
-                <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
+                <form action="<?= SystemURLs::getRootPath() ?>/v2/calendar/events/checkin" method="POST">
                     <input type="hidden" name="EventID" value="<?= $EventID ?>">
                     <?php } ?>
                     <button type="submit" name="Action" title="<?= _('Make Check-out') ?>"

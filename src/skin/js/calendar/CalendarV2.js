@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                             "eventID": event.extendedProps.eventID
                                         })
                                     },function (data) {
-                                        location.href = window.CRM.root + '/Checkin.php';
+                                        location.href = window.CRM.root + '/v2/calendar/events/checkin';
                                     });
 
                                 }
@@ -812,7 +812,7 @@ $(document).ready(function () {
                  label: '<i class="fas fa-check"></i> ' + i18next.t('Make Attendance'),
                  className: 'btn btn-success',
                  callback: function () {
-                    location.href = window.CRM.root + '/Checkin.php';
+                    location.href = window.CRM.root + '/v2/calendar/events/checkin';
                  }
               }
             }

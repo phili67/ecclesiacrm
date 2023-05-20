@@ -21,7 +21,7 @@ $(document).ready(function () {
                     window.CRM.editor = null;
                 }
 
-                modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'Checkin.php');
+                modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'v2/calendar/events/checkin');
 
                 // we add the calendars and the types
                 addCalendars();
@@ -192,12 +192,22 @@ $(document).ready(function () {
         var personId = $(this).data('id');
         var eventId = $(this).data('eventid');
 
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'attendees/deletePerson',
-            data: JSON.stringify({"eventID": eventId, "personID": personId})
-        },function (data) {
-            window.CRM.dataT.ajax.reload();
+        bootbox.confirm({
+            title: i18next.t("User Delete Confirmation"),
+            message: '<p style="color: red">' +
+                i18next.t("Be carefull, You are about to delete a user from the group and therefore the entire call history. This is strongly to be avoided.") + '<br><br>' +
+                i18next.t("This can't be undone") + ' !!!!!!</p>',
+            callback: function (result) {
+                if (result) {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'attendees/deletePerson',
+                        data: JSON.stringify({"eventID": eventId, "personID": personId})
+                    },function (data) {
+                        window.CRM.dataT.ajax.reload();
+                    });
+                }
+            }
         });
     });
 
@@ -254,7 +264,7 @@ $(document).ready(function () {
                             '              data-eventid="' + window.CRM.EventID + '"\n' +
                             '              class="PersonCheckinChangeState"\n' +
                             '              id="PersonCheckinChangeState-' + data + '">\n' +
-                            '       <span id="presenceID' + data + '"> ' + i18next.t("Checkin") + '</span>\n' +
+                            '       <span id="presenceID' + data + '" style="color:blue"> ' + i18next.t("Checkin") + '</span>\n' +
                             '       </label>\n' +
                             '       <br/>\n' +
                             '       <label>\n' +
@@ -263,7 +273,7 @@ $(document).ready(function () {
                             '               data-eventid="' + window.CRM.EventID + '"\n' +
                             '               class="PersonCheckoutChangeState"\n' +
                             '               id="PersonCheckoutChangeState-' + data + '">\n' +
-                            '               <span id="presenceID' + data + '"> ' + i18next.t("Checkout") + '</span>\n' +
+                            '               <span id="presenceID' + data + '" style="color:green"> ' + i18next.t("Checkout") + '</span>\n' +
                             '       </label>';
                     }
                 },
@@ -322,9 +332,7 @@ $(document).ready(function () {
                     title: i18next.t('Delete'),
                     data: 'Id',
                     render: function (data, type, full, meta) {
-                        return '<button class="btn btn-danger btn-sm DeleteBtn" type="submit" name="DeleteBtn"'
-                            + ' data-id="' + full.Id + '" + data-eventid="' + window.CRM.EventID + '" ' + (window.CRM.isSundaySchool ? 'disabled' : '') + '>'
-                            + '<i class="far fa-trash-alt"></i> ' + i18next.t("Delete") + '</button>';
+                        return '<i class="far fa-trash-alt DeleteBtn"' + ' data-id="' + full.Id + '" + data-eventid="' + window.CRM.EventID + '" style="color:red"></i>';
                     }
                 },
 
