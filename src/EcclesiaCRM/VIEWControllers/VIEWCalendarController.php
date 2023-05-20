@@ -15,7 +15,10 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
+use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\EventTypesQuery;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\EventCountNameQuery;
 
 use EcclesiaCRM\Map\EventTypesTableMap;
 use EcclesiaCRM\Map\EventTableMap;
@@ -25,6 +28,7 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\InputUtils;
 
 
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -182,6 +186,130 @@ class VIEWCalendarController {
             'EvtName'     => $EvtName,
             'EvtDesc'     => $EvtDesc,
             'EvtDate'     => $EvtDate
+        ];
+
+        return $paramsArguments;
+    }
+
+    
+
+    public function renderCalendarEventCheckin (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/calendar/');
+
+        return $renderer->render($response, 'checkin.php', $this->argumentsCalendarCheckinArray());
+    }
+
+    public function argumentsCalendarCheckinArray ()
+    {
+        $EventID = 0;
+        $event = null;
+
+        // for ckeditor fonts
+        $contentsExternalCssFont = SystemConfig::getValue("sMailChimpContentsExternalCssFont");
+        $extraFont = SystemConfig::getValue("sMailChimpExtraFont");
+
+        if (array_key_exists('EventID', $_POST)) {
+            // from ListEvents button=Attendees
+            $EventID = InputUtils::FilterInt($_POST['EventID']);
+            $_SESSION['EventID'] = $EventID;
+        } else if (isset ($_SESSION['EventID'])) {
+            // from api/routes/events.php
+            $EventID = InputUtils::FilterInt($_SESSION['EventID']);
+        } else {
+            $Event = EventQuery::create()
+                ->filterByStart(date("Y-m-d 00:00:00"), Criteria::GREATER_EQUAL)
+                ->filterByEnd(date("Y-m-d 23:59:59"), Criteria::LESS_EQUAL)
+                ->findOne();
+
+            if (!is_null($Event)) {
+                $_SESSION['EventID'] = $Event->getId();
+                $EventID = $_SESSION['EventID'];
+            }
+        }
+
+        if ($EventID > 0) {
+            $event = EventQuery::Create()
+                ->findOneById($EventID);
+
+            if ($event == null) {
+                $_SESSION['EventID'] = 0;
+                $EventID = 0;
+            } else {
+                // for EditEventAttendees.php
+                $_SESSION['Action'] = "EditEvent";
+                $_SESSION['EID'] = $EventID;
+                $_SESSION['EName'] = $event->getTitle();
+                $_SESSION['EDesc'] = $event->getDesc();
+                $_SESSION['EDate'] = $event->getStart()->format('YYYY-MM-DD');
+            }
+        }
+
+        $bSundaySchool = false;
+
+        if (!is_null($event) && $event->getGroupId() > 0) {
+            $bSundaySchool = GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool();
+        }
+
+        if (isset($_SESSION['CartToEventEventID'])) {
+            $EventID = InputUtils::LegacyFilterInput($_SESSION['CartToEventEventID'], 'int');
+        }
+
+
+        //
+        // process the action inputs
+        //
+
+
+        //Start off by first picking the event to check people in for
+        $activeEvents = EventQuery::Create()
+            ->filterByInActive(1, Criteria::NOT_EQUAL)
+            ->Where('MONTH(event_start) = ' . date('m') . ' AND YEAR(event_start)=' . date('Y'))// We filter only the events from the current month
+            ->orderByStart('desc')
+            ->find();
+
+        $searchEventInActivEvent = EventQuery::Create()
+            ->filterByInActive(1, Criteria::NOT_EQUAL)
+            ->Where('MONTH(event_start) = ' . date('m') . ' AND YEAR(event_start)=' . date('Y'))// We filter only the events from the current month
+            ->findOneById($EventID);
+
+        //get Event Details
+        $event = EventQuery::Create()
+            ->findOneById($EventID);
+
+        if (!is_null($event)) {
+            $sTitle = $event->getTitle();
+            $sNoteText = $event->getText();
+        }
+
+        $eventCountNames = null;
+
+        if ($EventID > 0) {
+            $eventCountNames = EventCountNameQuery::Create()
+                ->leftJoinEventTypes()
+                ->Where('type_id=' . $event->getType())
+                ->find();
+        }
+
+        if (!is_null($event)) {
+            $sPageTitle = _('Call the Register'). " : " . $event->getTitle()." (".$event->getStart()->format(SystemConfig::getValue('sDatePickerFormat')).")";
+        } else {
+            $sPageTitle = _('Call the Register');
+        }
+
+        $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
+            'sRootDocument' => SystemURLs::getDocumentRoot(),
+            'CSPNonce' => SystemURLs::getCSPNonce(),
+            'sPageTitle'  => $sPageTitle,
+            'contentsExternalCssFont' => $contentsExternalCssFont,
+            'extraFont'   => $extraFont,
+            'EventID'     => $EventID,
+            'event'       => $event,
+            'bSundaySchool' => $bSundaySchool,
+            'activeEvents' => $activeEvents,
+            'searchEventInActivEvent' => $searchEventInActivEvent,
+            'sTitle'      => $sTitle,
+            'sNoteText'   => $sNoteText,
+            'eventCountNames' => $eventCountNames,
         ];
 
         return $paramsArguments;
