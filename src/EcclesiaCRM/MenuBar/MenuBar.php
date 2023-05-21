@@ -231,7 +231,7 @@ class MenuBar extends Menu
                     }
 
                     $menuItemItem = new Menu ($str, "far fa-circle", "v2/group/" . $group->getID() . "/view", true, $menuItem);
-                    $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
+                    $menuItemItem->addLink("v2/group/editor/" . $group->getID());
                     $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
                     $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/normal");
                     $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/0/normal");
@@ -257,7 +257,7 @@ class MenuBar extends Menu
 
             foreach ($groups as $group) {
                 $menuItemItem = new Menu ($group->getName(), "fas fa-angle-double-right", "v2/group/" . $group->getID() . "/view", true, $menuItem);
-                $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
+                $menuItemItem->addLink("v2/group/editor/" . $group->getID());
                 $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
             }
         }
@@ -305,7 +305,7 @@ class MenuBar extends Menu
                     }
 
                     $menuItemItem = new Menu ($str, "far fa-circle", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
-                    $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
+                    $menuItemItem->addLink("v2/group/editor/" . $group->getID());
                     $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
                     $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/sundayschool");
                     $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/0/sundayschool");
@@ -336,7 +336,7 @@ class MenuBar extends Menu
                 }
 
                 $menuItemItem = new Menu ($str, "fas fa-angle-double-right", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
-                $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
+                $menuItemItem->addLink("v2/group/editor/" . $group->getID());
                 $menuItemItem->addLink("v2/group/" . $group->getID() . "/view");
             }
         }

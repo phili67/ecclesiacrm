@@ -64,7 +64,7 @@ if (SessionUser::getUser()->isAddRecords()) {
         <?php
         if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabledForId($iGroupId)) {
             ?>
-            <a class="btn btn-app" href="<?= $sRootPath ?>/GroupEditor.php?GroupID=<?= $iGroupId ?>"><i
+            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/group/editor/<?= $iGroupId ?>"><i
                     class="fas fa-pencil-alt"></i><?= _("Edit this Class") ?></a>
             <button class="btn btn-app bg-maroon" id="deleteClassButton"><i
                     class="fas fa-trash-alt"></i><?= _("Delete this Class") ?></button>

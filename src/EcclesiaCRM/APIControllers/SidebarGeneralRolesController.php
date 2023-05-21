@@ -153,7 +153,7 @@ class SidebarGeneralRolesController
                 $listID = 5;
                 $embedded = false;
                 break;
-            case 'grproles':// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
+            case 'grproles':// unusefull : dead code : This can be defined in v2/group/editor/id
                 $noun = _('Role');
                 $adjplusname = _('Group Member Role');
                 $adjplusnameplural = _('Group Member Roles');
@@ -504,7 +504,7 @@ class SidebarGeneralRolesController
 
                         // If group roles mode, check if we've deleted the old group default role.  If so, reset default to role ID 1
                         // Next, if any group members were using the deleted role, reset their role to the group default.
-                        if ($mode == 'grproles') {// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
+                        if ($mode == 'grproles') {// unusefull : dead code : This can be defined in v2/group/editor/id
                             // Reset if default role was just removed.
                             $grp = GroupQuery::Create()->filterByRoleListId($listID)->findOneByDefaultRole($iID);
 
@@ -547,7 +547,7 @@ class SidebarGeneralRolesController
                     break;
 
                 // Currently this is used solely for group roles
-                case 'makedefault':// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
+                case 'makedefault':// unusefull : dead code : This can be defined in v2/group/editor/id
                     $grp = GroupQuery::Create()->findOneByRoleListId($listID);
                     $grp->setDefaultRole($iID)->save();
                     break;

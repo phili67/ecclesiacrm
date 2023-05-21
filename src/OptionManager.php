@@ -137,7 +137,7 @@ switch ($mode) {
         $listID = 5;
         $embedded = false;
         break;
-    case 'grproles':// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
+    case 'grproles':// unusefull : dead code : This can be defined in v2/group/editor/id
         $noun = _('Role');
         $adjplusname = _('Group Member Role');
         $adjplusnameplural = _('Group Member Roles');
