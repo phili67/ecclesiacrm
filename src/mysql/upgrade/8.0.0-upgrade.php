@@ -84,5 +84,7 @@ unlink(SystemURLs::getDocumentRoot()."/IntegrityCheck.php");
 
 unlink(SystemURLs::getDocumentRoot()."/Checkin.php");
 
+unlink(SystemURLs::getDocumentRoot()."/GroupEditor.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>

@@ -220,7 +220,7 @@ require $sRootDocument . '/Include/Header.php';
               <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>
             </span>
                         </a>
-                        <a href="<?= $sRootPath ?>/GroupEditor.php?GroupID=<?= $class['id'] ?>">
+                        <a href="<?= $sRootPath ?>/v2/group/editor/<?= $class['id'] ?>">
             <span class="fa-stack">
               <i class="fas fa-square fa-stack-2x"></i>
               <i class="fa fas fa-pencil-alt fa-stack-1x fa-inverse"></i>

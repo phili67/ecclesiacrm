@@ -1,57 +1,21 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : GroupEditor.php
- *  last change : 2003-04-15
- *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2001, 2002, 2003 Deane Barker, Chris Gebhardt
- *                Copyright 2004-2012 Michael Wilt
- *                Copyright 2019 Philippe Logel
+ *  filename    : groupedit.php
+ *  last change : 2023-05-21
+ *  description : edit a group
+ *
+ *  http://www.ecclesiacrm.com/
+ *
+ *  This code is under copyright not under MIT Licence
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
  *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\Service\GroupService;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
-
-
-// Security: User must have Manage Groups permission
-if (!SessionUser::getUser()->isManageGroupsEnabled()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-//Set the page title
-$sPageTitle = _('Group Editor');
-$groupService = new GroupService();
-//Get the GroupID from the querystring.  Redirect to Menu if no groupID is present, since this is an edit-only form.
-if (array_key_exists('GroupID', $_GET)) {
-    $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
-} else {
-    RedirectUtils::Redirect('v2/group/list');
-}
-
-$theCurrentGroup = GroupQuery::create()
-   ->findOneById($iGroupID);   //get this group from the group service.
-
-$optionId = $theCurrentGroup->getListOptionId();
-
-$rsGroupTypes = ListOptionQuery::create()
-   ->filterById('3') // only the groups
-   ->orderByOptionSequence()
-   ->filterByOptionType(($theCurrentGroup->isSundaySchool())?'sunday_school':'normal')->find();     // Get Group Types for the drop-down
-
-$rsGroupRoleSeed = GroupQuery::create()->filterByRoleListId(['min'=>0])->find();         //Group Group Role List
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 ?>
+
 <!-- GROUP SPECIFIC PROPERTIES MODAL-->
 <div class="modal fade" id="groupSpecificPropertiesModal" tabindex="-1" role="dialog" aria-labelledby="deleteGroup" aria-hidden="true">
   <div class="modal-dialog">
@@ -160,7 +124,7 @@ require 'Include/Header.php';
                         <?= _('Disable Group Specific Properties') ?></button><br/>
                   </div>
                   <div class="col-sm-4">
-                    <a  class="btn btn-success" href="GroupPropsFormEditor.php?GroupID=<?= $iGroupID?>"
+                    <a  class="btn btn-success" href="<?= $sRootPath ?>/GroupPropsFormEditor.php?GroupID=<?= $iGroupID?>"
                         data-toggle="tooltip"  data-placement="bottom" title="<?= _("Group-specific properties are useful to make a sort of doodle") ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
                   </div>
                 </div>
@@ -203,13 +167,14 @@ require 'Include/Header.php';
     <button type="button" id="addNewRole" class="btn btn-primary"><?= _('Add New Role')?></button>
   </div>
 </div>
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+
+<script nonce="<?= $CSPNonce ?>">
   //setup some document-global variables for later on in the javascript
   var defaultRoleID = <?= ($theCurrentGroup->getDefaultRole() ? $theCurrentGroup->getDefaultRole() : 1) ?>;
   var groupRoleData = <?= json_encode($groupService->getGroupRoles($iGroupID)); ?>;
   window.CRM.roleCount = groupRoleData.length;
   window.CRM.groupID =<?= $iGroupID ?>;
 </script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/group/GroupEditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/group/GroupEditor.js"></script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

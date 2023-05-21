@@ -90,7 +90,7 @@ require $sRootDocument . '/Include/Header.php';
         <?php
         if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
             ?>
-            <a class="btn btn-app" href="<?= $sRootPath ?>/GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"
+            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/group/editor/<?= $thisGroup->getId()?>"
                data-toggle="tooltip"  data-placement="bottom" title="<?= _("To add special Group roles or to modify the role by default or to enable Group-specific properties") ?>"><i class="fas fa-pencil-alt"></i><?= _("Edit this Group") ?></a>
             <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fas fa-trash-alt"></i><?= _("Delete this Group") ?></button>
             <?php
