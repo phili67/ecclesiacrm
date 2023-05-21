@@ -16,6 +16,7 @@ use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\GroupService;
 
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
@@ -182,6 +183,59 @@ class VIEWGroupController {
             'group'                     => $group,
             'groups'                    => $groups,
             'isSundaySchool'            => $group->isSundaySchool()
+        ];
+
+        return $paramsArguments;
+    }
+
+    public function groupEdit (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/group/');
+
+        if (!isset($args['groupId'])) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/group/list');
+        }
+
+        $groupId = $args['groupId'];
+
+        if ( !( SessionUser::getUser()->isGroupManagerEnabled() ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'groupedit.php', $this->argumentsGroupEditArray($groupId));
+    }
+
+    public function argumentsGroupEditArray ($iGroupID)
+    {
+        $groupService = new GroupService();
+        
+        $theCurrentGroup = GroupQuery::create()
+            ->findOneById($iGroupID);   //get this group from the group service.
+
+        $optionId = $theCurrentGroup->getListOptionId();
+
+        $rsGroupTypes = ListOptionQuery::create()
+            ->filterById('3') // only the groups
+            ->orderByOptionSequence()
+            ->filterByOptionType(($theCurrentGroup->isSundaySchool())?'sunday_school':'normal')->find();     // Get Group Types for the drop-down
+
+        $rsGroupRoleSeed = GroupQuery::create()->filterByRoleListId(['min'=>0])->find();         //Group Group Role List
+
+        // Set the page title and include HTML header
+        $sPageTitle = _('Group Editor');
+
+        $sRootDocument = SystemURLs::getDocumentRoot();
+        $CSPNonce = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'iGroupID'                  => $iGroupID,
+            'theCurrentGroup'           => $theCurrentGroup,
+            'groupService'              => $groupService,
+            'optionId'                  => $optionId,
+            'rsGroupTypes'              => $rsGroupTypes,
+            'rsGroupRoleSeed'           => $rsGroupRoleSeed
         ];
 
         return $paramsArguments;
