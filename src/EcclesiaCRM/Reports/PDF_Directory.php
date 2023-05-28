@@ -11,6 +11,7 @@ use EcclesiaCRM\PersonCustomQuery;
 class PDF_Directory extends ChurchInfoReportTCPDF
 {
     // Private properties
+    public $sRecordName = "";
     public $_Margin_Left = 16;        // Left Margin
     public $_Margin_Top = 0;         // Top margin
     public $_Char_Size = 10;        // Character size
@@ -24,6 +25,7 @@ class PDF_Directory extends ChurchInfoReportTCPDF
     public $_Custom;
     public $_NCols = 3;
     public $_PS = 'Letter';
+    public $cMargin = 0;
     public $sSortBy = '';
 
     // Constructor
@@ -55,7 +57,7 @@ class PDF_Directory extends ChurchInfoReportTCPDF
 
         if (($this->PageNo() > 1) || ($bDirUseTitlePage == false)) {
             //Select Arial bold 15
-            $this->SetFont($this->_Font, 'B', 15);
+            $this->SetFont("Helvetica", 'B', 15);
             //Line break
             $this->Ln(7);
             //Move to the right
@@ -216,24 +218,22 @@ class PDF_Directory extends ChurchInfoReportTCPDF
     public function Add_Header($sLetter)
     {
         $this->Check_Lines(2, 0, 0);
-        $this->SetTextColor(255);
+        $this->SetTextColor(50);// color gray for the letter header//$this->SetTextColor(255);
         $this->SetFont($this->_Font, 'B', $this->_Char_Size);
-//        $_PosX = $this->_Column == 0 ? $this->_Margin_Left : $this->w - $this->_Margin_Left - $this->_ColWidth;
         $_PosX = ($this->_Column * ($this->_ColWidth + $this->_Gutter)) + $this->_Margin_Left;
         $_PosY = $this->GetY();
         $this->SetXY($_PosX, $_PosY);
-//        $this->Cell($this->_ColWidth, 5, $sLetter, 1, 1, "C", 1) ;
+        $this->setFillColor(220,220,220);// light gray in background
         $this->Cell($this->_ColWidth, $this->_LS, $sLetter, 1, 1, 'C', 1);
         $this->SetTextColor(0);
         $this->SetFont($this->_Font, '', $this->_Char_Size);
-//        $this->SetY($this->GetY() + 5);
         $this->SetY($this->GetY() + $this->_LS);
     }
 
     // This prints the family name in BOLD
     public function Print_Name($sName)
     {
-        $this->SetFont($this->_Font, 'BU', $this->_Char_Size);
+        $this->SetFont("Helvetica", 'B', $this->_Char_Size);//'BU'
 //        $_PosX = $this->_Column == 0 ? $this->_Margin_Left : $this->w - $this->_Margin_Left - $this->_ColWidth;
         $_PosX = ($this->_Column * ($this->_ColWidth + $this->_Gutter)) + $this->_Margin_Left;
         $_PosY = $this->GetY();
