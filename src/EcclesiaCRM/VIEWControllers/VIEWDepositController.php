@@ -14,11 +14,12 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\DepositQuery;
+
+use EcclesiaCRM\DonationFundQuery;
 
 use Slim\Views\PhpRenderer;
 
@@ -125,6 +126,40 @@ class VIEWDepositController {
             'dep_Closed'                => $dep_Closed,
             'funds'                     => $funds
 
+        ];
+
+        return $paramsArguments;
+    }
+
+    public function renderDepositFind (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/deposit/');
+
+        // Security: User must have finance permission or be the one who created this deposit
+        if ( !(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') )) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'finddepositslip.php', $this->argumentsFindDepositArray());
+    }
+
+    public function argumentsFindDepositArray ()
+    {
+        $iDepositSlipID = $_SESSION['iCurrentDeposit'];
+        $donationFunds = DonationFundQuery::Create()->find();
+
+        //Set the page title
+        $sPageTitle = _("Deposit Listing");
+
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,            
+            'iDepositSlipID'            => $iDepositSlipID,
+            'donationFunds'             => $donationFunds
         ];
 
         return $paramsArguments;

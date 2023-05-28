@@ -178,7 +178,7 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 <div>
-    <a href="<?= $sRootPath ?>/FindDepositSlip.php" class="btn btn-default">
+    <a href="<?= $sRootPath ?>/v2/deposit/find" class="btn btn-default">
         <i class="fas fa-chevron-left"></i>
         <?= _('Return to Deposit Listing') ?></a>
 </div>

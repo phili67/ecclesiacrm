@@ -23,4 +23,6 @@ $app->group('/deposit', function (RouteCollectorProxy $group) {
 
     $group->get('/slipeditor/{DepositSlipID:[0-9]+}', VIEWDepositController::class . ':renderDepositSlipEditor');
     $group->post('/slipeditor/{DepositSlipID:[0-9]+}', VIEWDepositController::class . ':renderDepositSlipEditor');
+
+    $group->get('/find', VIEWDepositController::class . ':renderDepositFind');
 });
