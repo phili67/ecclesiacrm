@@ -1140,6 +1140,35 @@ class VIEWPeopleController {
             'sClassificationList'       => $sClassificationList,
             'aClassificationName'       => $aClassificationName
         ];
+    }        
 
-    }    
+    public function directoryreport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        if (!SessionUser::getUser()->isCreateDirectoryEnabled()) {            
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $cartdir = "";
+
+        if (isset ($args['cartdir'])) {
+            $cartdir = $args['cartdir'];
+        }
+    
+        return $renderer->render($response, 'directoryreport.php', $this->argumentsPeopleDirectoryReportArray($cartdir));
+    }
+
+    public function argumentsPeopleDirectoryReportArray ($cartdir) {
+        $sRootDocument   = SystemURLs::getDocumentRoot();
+
+        $sPageTitle = _("Directory reports");
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'sPageTitle'                => $sPageTitle,
+            'cartdir'                   => $cartdir
+        ];
+
+    }  
 }
