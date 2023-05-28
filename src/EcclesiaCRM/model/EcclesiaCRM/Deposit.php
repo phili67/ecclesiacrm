@@ -547,6 +547,8 @@ class Deposit extends BaseDeposit
             $pledge->setDatelastedited($date->format('Y-m-d'));
             $pledge->setSchedule('Once');
             $pledge->setFyid($autoPayement->getFyid());
+            $pledge->setPledgeorpayment('Payment');
+            $pledge->setNondeductible(0.0);// by default
             $pledge->setComment("");
             $pledge->setScanstring("");
             $pledge->setEditedby(SessionUser::getUser()->getId());

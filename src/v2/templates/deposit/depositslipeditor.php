@@ -115,29 +115,39 @@ require $sRootDocument . '/Include/Header.php';
     <div class="card-header border-1">
         <h3 class="card-title"><?= _('Payments on this deposit slip:') ?></h3>
         <div class="pull-right">
+            <div class="row">
             <?php
             if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
                 if ($thisDeposit->getType() == 'eGive') {
                     ?>
+                    <div class="col-md-3">
                     <input type=button class="btn btn-default" value="<?= _('Import eGive') ?>" name=ImporteGive
                            onclick="javascript:document.location='<?= $sRootPath ?>/eGive.php?DepositSlipID=<?= $iDepositSlipID ?>&linkBack=<?= $sRootPath ?>/v2/deposit/slipeditor/<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&CurrentDeposit=<?= $iDepositSlipID ?>';">
+                    </div>
                     <?php
                 } else {
                     ?>
+                    <div class="col-md-3">
                     <input type=button class="btn btn-success" value="<?= _('Add Payment') ?> " name=AddPayment
                            onclick="javascript:document.location='<?= $sRootPath ?>/PledgeEditor.php?CurrentDeposit=<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&linkBack=<?= $sRootPath ?>/v2/deposit/slipeditor/<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&CurrentDeposit=<?= $iDepositSlipID ?>';">
+                    </div>
                     <?php
                 }
                 if ($thisDeposit->getType() == 'BankDraft' || $thisDeposit->getType() == 'CreditCard') {
                     ?>
-                    <input type="submit" class="btn btn-success"
-                           value="<?php echo _('Load Authorized Transactions'); ?>" name="DepositSlipLoadAuthorized">
-                    <input type="submit" class="btn btn-warning" value="<?php echo _('Run Transactions'); ?>"
-                           name="DepositSlipRunTransactions">
+                    <div class="col-md-9">
+                    <form method="post" action="<?= $sRootPath ?>/v2/deposit/slipeditor/<?= $iDepositSlipID ?>" name="DepositSlipEditor">
+                        <input type="submit" class="btn btn-primary"
+                            value="<?php echo _('Load Authorized Transactions'); ?>" name="DepositSlipLoadAuthorized">
+                        <input type="submit" class="btn btn-warning" value="<?php echo _('Run Transactions'); ?>"
+                            name="DepositSlipRunTransactions">
+                    </form>
+                    </div>
                     <?php
                 }
             }
             ?>
+            </div>
         </div>
     </div>
     <div class="card-body">
