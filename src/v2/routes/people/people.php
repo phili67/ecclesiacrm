@@ -28,4 +28,13 @@ $app->group('/people', function (RouteCollectorProxy $group) {
 
     $group->get('/geopage', VIEWPeopleController::class . ':geopage' );
     $group->post('/geopage', VIEWPeopleController::class . ':geopage' );
+
+
+    $group->get('/directory/report', VIEWPeopleController::class . ':directoryreport' );
+    $group->post('/directory/report', VIEWPeopleController::class . ':directoryreport' );
+
+
+    $group->get('/directory/report/{cartdir}', VIEWPeopleController::class . ':directoryreport' );
+    $group->post('/directory/report/{cartdir}', VIEWPeopleController::class . ':directoryreport' );
+
 });
