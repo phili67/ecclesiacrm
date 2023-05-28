@@ -1,45 +1,32 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : DirectoryReports.php
- *  last change : 2003-09-03
+ *  filename    : directoryreport.php
+ *  last change : 2023-05-28
  *  description : form to invoke directory report
  *
  *  http://www.ecclesiacrm.com/
  *  Copyright 2003 Chris Gebhardt
  *  Copyright 2004-2012 Michael Wilt
+ *  Copyright 2022-2023 Philippe Logel
  *
  ******************************************************************************/
 
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Utils\OutputUtils;
+ 
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
 
-// Check for Create Directory user permission.
-if (!SessionUser::getUser()->isCreateDirectoryEnabled()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-// Set the page title and include HTML header
-$sPageTitle = _('Directory reports');
-require 'Include/Header.php';
-
+require $sRootDocument . '/Include/Header.php';
 ?>
+
 <div class="card">
     <div class="card-header  border-1">
         <h3 class="card-title"><i class="fas fa-book"></i> <i class="fas fa-filter"></i> <?= _('Filters') ?></h3>
     </div>
     <div class="card-body">
-        <form method="POST" action="Reports/DirectoryReport.php">
+        <form method="POST" action="<?= $sRootPath?>/Reports/DirectoryReport.php">
 
             <?php
 
@@ -77,7 +64,7 @@ require 'Include/Header.php';
 
             ?>
             <?php
-            if (!array_key_exists('cartdir', $_GET)) {
+            if (!empty($cartdir)) {
                 ?>
                 <div class="row">
                     <div class="col-sm-4">
@@ -325,7 +312,7 @@ require 'Include/Header.php';
 
 
             <?php
-            if (array_key_exists('cartdir', $_GET)) {
+            if (!empty($cartdir)) {
                 ?>
                 <input type="hidden" name="cartdir" value="M">
                 <?php
@@ -343,4 +330,6 @@ require 'Include/Header.php';
     </form>
 </div>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+

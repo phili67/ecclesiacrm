@@ -90,5 +90,7 @@ unlink(SystemURLs::getDocumentRoot()."/DepositSlipEditor.php");
 
 unlink(SystemURLs::getDocumentRoot()."/FindDepositSlip.php");
 
+unlink(SystemURLs::getDocumentRoot()."/DirectoryReports.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>

@@ -156,7 +156,8 @@ class MenuBar extends Menu
         $menuItem->addLink("members/self-verify-updates.php");
         $menuItem->addLink("members/online-pending-verify.php");
         $menuItem->addLink("GroupReports.php");
-        $menuItem->addLink("DirectoryReports.php");
+        $menuItem->addLink("v2/people/directory/report/Cart+Directory");
+        $menuItem->addLink("v2/people/directory/report");
         $menuItem->addLink("ReminderReport.php");
         $menuItem->addLink("LettersAndLabels.php");
         $menuItem->addLink("USISTAddressVerification.php");
@@ -167,7 +168,7 @@ class MenuBar extends Menu
             $menuItem = new Menu (_("View on Map"), "far fa-map", "v2/map/-1", true, $menu);
         }
 
-        $menuItem = new Menu (_("Directory reports"), "fas fa-book", "DirectoryReports.php", true, $menu);
+        $menuItem = new Menu (_("Directory reports"), "fas fa-book", "v2/people/directory/report", true, $menu);
 
         if (SessionUser::getUser()->isEditRecordsEnabled()) {
             $menuItem = new Menu (_("Persons"), "fas fa-angle-double-right", "#", true, $menu);

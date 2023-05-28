@@ -154,7 +154,7 @@ if ($bExcludeInactive && SessionUser::getUser()->isGdrpDpoEnabled()) {// only DP
 }
 
 if (array_key_exists('cartdir', $_POST)) {
-    $sWhereExt .= 'AND per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).')';
+    $sWhereExt .= ' AND per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).')';
 }
 
 //Exclude inactive families GDRP
