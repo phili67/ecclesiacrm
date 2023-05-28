@@ -455,7 +455,7 @@ class FinancialService
 
     public function getViewURI($Id)
     {
-        return SystemURLs::getRootPath().'/DepositSlipEditor.php?DepositSlipID='.$Id;
+        return SystemURLs::getRootPath().'/v2/deposit/slipeditor/'.$Id;
     }
 
     private function validateDate($payment)

@@ -61,7 +61,7 @@ class PledgeSearchRes extends BaseSearchRes
                             if ( $this->isQuickSearch() ) {
                                 $elt = ['id' => 'pledges-' . $id++,
                                     'text' => $Pledge->getFamily()->getName() . " (" . _("Deposit") . " #" . $Pledge->getDepositId() . ")",
-                                    'uri' => SystemURLs::getRootPath() . "/PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=" . $Pledge->getDepositId() . "&GroupKey=" . $Pledge->getGroupkey()];
+                                    'uri' => SystemURLs::getRootPath() . "/PledgeEditor.php?linkBack=".SystemURLs::getRootPath()."/2/deposit/slipeditor/" . $Pledge->getDepositId() . "&GroupKey=" . $Pledge->getGroupkey()];
                             } else {
                                 if (!is_null($Pledge->getDepositId())) {
                                     $res = "";
@@ -81,7 +81,7 @@ class PledgeSearchRes extends BaseSearchRes
                                     $elt = [
                                         'id' => $Pledge->getDepositId(),
                                         'img' => '<i class="fas fa-university fa-2x"></i>',
-                                        'searchresult' => '<a href="'.SystemURLs::getRootPath()."/PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=".$Pledge->getDepositId()."&GroupKey=".$Pledge->getGroupkey().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Pledge->getFamily()->getName()." ("._("Deposit")." #".$Pledge->getDepositId().")".'</a>',
+                                        'searchresult' => '<a href="'.SystemURLs::getRootPath()."/PledgeEditor.php?linkBack=".SystemURLs::getRootPath()."/v2/deposit/slipeditor/".$Pledge->getDepositId()."&GroupKey=".$Pledge->getGroupkey().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Pledge->getFamily()->getName()." ("._("Deposit")." #".$Pledge->getDepositId().")".'</a>',
                                         'address' => "",
                                         'type' => " "._($this->getGlobalSearchType()),
                                         'realType' => $this->getGlobalSearchType(),

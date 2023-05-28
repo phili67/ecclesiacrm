@@ -17,6 +17,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 
 // Security
@@ -358,12 +359,14 @@ function importDoneFixOrContinue()
     } ?>
 
 	<p class="MediumLargeText"> <?= _('Data import results: ').$importCreated._(' gifts were imported, ').$importNoChange._(' gifts unchanged, and ').$importError._(' gifts not imported due to problems') ?></p>
-	<input type="button" class="btn btn-default" value="<?= _('Back to Deposit Slip') ?>" onclick="javascript:document.location='DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>'"
+	<input type="button" class="btn btn-default" value="<?= _('Back to Deposit Slip') ?>" onclick="javascript:document.location='<?= SystemURLs::getRootPath() ?>/v2/deposit/slipeditor/<?= $iDepositSlipID ?>'"
 <?php
 }
 
 function get_api_data($json)
 {
+    global $iDepositSlipID;
+
     $result = json_decode($json, true);
 
     $rc = json_last_error();
@@ -387,7 +390,7 @@ function get_api_data($json)
     } else {
         ?>
 		<font color="red"><?= _("Fatal error in eGive API datastream: '").$error ?>"'</font><br><br>
- 		<input type="button" class="btn btn-default" value="<?= _('Back to Deposit Slip') ?>" onclick="javascript:document.location='DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>'"
+ 		<input type="button" class="btn btn-default" value="<?= _('Back to Deposit Slip') ?>" onclick="javascript:document.location='<?= SystemURLs::getRootPath() ?>/v2/deposit/slipeditor/<?= $iDepositSlipID ?>'"
 	<?php
         return 0;
     }
