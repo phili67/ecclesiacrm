@@ -207,7 +207,7 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
                 if (SessionUser::getUser()->isCreateDirectoryEnabled()) {
                     ?>
                     <p><a class="MediumText"
-                          href="<?= $sRootPath ?>/DirectoryReports.php"><?= _('People Directory') ?></a><br><?= _('Printable directory of all people, grouped by family where assigned') ?>
+                          href="<?= $sRootPath ?>/v2/people/directory/report"><?= _('People Directory') ?></a><br><?= _('Printable directory of all people, grouped by family where assigned') ?>
                     </p>
                     <?php
                 }

@@ -108,7 +108,7 @@ if ($iNumPersons > 0) {
                     <?php
                 }
             } ?>
-            <a href="<?= $sRootPath ?>/DirectoryReports.php?cartdir=Cart+Directory"
+            <a href="<?= $sRootPath ?>/v2/people/directory/report/Cart+Directory"
                class="btn btn-app"><i
                     class="fas fa-book"></i><?= _('Create Directory From Cart') ?></a>
 
