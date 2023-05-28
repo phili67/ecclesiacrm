@@ -49,7 +49,7 @@ class DepositSearchRes extends BaseSearchRes
                     }*/
 
                     $Deposits->withColumn('CONCAT("#",Deposit.Id," ",Deposit.Comment)', 'displayName')
-                        ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/DepositSlipEditor.php?DepositSlipID=",Deposit.Id)', 'uri')
+                        ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/deposit/slipeditor/",Deposit.Id)', 'uri')
                         ->leftJoinPledge()
                         ->where( DepositTableMap::COL_DEP_COMMENT." LIKE  '".$searchLikeString."' OR ".DepositTableMap::COL_DEP_ID." = '".$qry."' OR ".PledgeTableMap::COL_PLG_CHECKNO." LIKE  '".$searchLikeString."'");
 
@@ -66,7 +66,7 @@ class DepositSearchRes extends BaseSearchRes
                         foreach ($Deposits as $Deposit) {
                             $elt = ['id'=>'deposit-'.$id++,
                                 'text'=>$Deposit->getComment(),
-                                'uri'=> SystemURLs::getRootPath() . "/DepositSlipEditor.php?DepositSlipID=".$Deposit->getId()];
+                                'uri'=> SystemURLs::getRootPath() . "/v2/deposit/slipeditor/".$Deposit->getId()];
 
                             if ($this->isGlobalSearch()) {
                                 $res = "";
@@ -84,7 +84,7 @@ class DepositSearchRes extends BaseSearchRes
                                 $elt = [
                                     "id" => -1,
                                     "img" => '<i class="fas fa-money-bill-alt fa-2x"></i>',
-                                    "searchresult" => '<a href="'.SystemURLs::getRootPath()."/DepositSlipEditor.php?DepositSlipID=".$Deposit->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Deposit->getComment().'</a>',
+                                    "searchresult" => '<a href="'.SystemURLs::getRootPath()."/v2/deposit/slipeditor/".$Deposit->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Deposit->getComment().'</a>',
                                     "address" => "",
                                     "type" => _($this->getGlobalSearchType()),
                                     "realType" => $this->getGlobalSearchType(),

@@ -1,90 +1,25 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : DepositSlipEditor.php
- *  last change : 2014-12-14
- *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2001, 2002, 2003-2014 Deane Barker, Chris Gebhardt, Michael Wilt
+ *  filename    : depositslipeditor.php
+ *  description : menu that appears after login, shows login attempts
+ *
+ *  http://www.ecclesiacrm.com/
+ *
+ *  2023 Philippe Logel
  *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use EcclesiaCRM\DepositQuery;
+// Include the function library
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\utils\InputUtils;
-use EcclesiaCRM\utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\utils\MiscUtils;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\OutputUtils;
 
-$iDepositSlipID = 0;
-$thisDeposit = 0;
-$dep_Closed = false;
-
-// Security: User must have finance permission or be the one who created this deposit
-if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance'))) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-if (array_key_exists('DepositSlipID', $_GET)) {
-    $iDepositSlipID = InputUtils::LegacyFilterInput($_GET['DepositSlipID'], 'int');
-}
-
-// Get the current deposit slip data
-if ($iDepositSlipID) {
-    $thisDeposit = DepositQuery::create()->findOneById($iDepositSlipID);
-    // Set the session variable for default payment type so the new payment form will come up correctly
-    if ($thisDeposit->getType() == 'Bank') {
-        $_SESSION['idefaultPaymentMethod'] = 'CHECK';
-    } elseif ($thisDeposit->getType() == 'CreditCard') {
-        $_SESSION['idefaultPaymentMethod'] = 'CREDITCARD';
-    } elseif ($thisDeposit->getType() == 'BankDraft') {
-        $_SESSION['idefaultPaymentMethod'] = 'BANKDRAFT';
-    } elseif ($thisDeposit->getType() == 'eGive') {
-        $_SESSION['idefaultPaymentMethod'] = 'EGIVE';
-    }
-
-    // Security: User must have finance permission or be the one who created this deposit
-    if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->getPersonId() == $thisDeposit->getEnteredby()) && SystemConfig::getBooleanValue('bEnabledFinance')) {
-        RedirectUtils::Redirect('v2/dashboard');
-        exit;
-    }
-} else {
-    RedirectUtils::Redirect('v2/dashboard');
-}
-
-
-$funds = $thisDeposit->getFundTotals();
-
-//Set the page title
-$sPageTitle = _($thisDeposit->getType()) . ' : ' . _('Deposit Slip Number: ') . "#" . $iDepositSlipID;
-
-if ($thisDeposit->getClosed()) {
-    $sPageTitle .= ' &nbsp; <font color=red>' . _('Deposit closed') . " (" . $thisDeposit->getDate()->format(SystemConfig::getValue('sDateFormatLong')) . ')</font>';
-}
-
-//Is this the second pass?
-
-if (isset($_POST['DepositSlipLoadAuthorized'])) {
-    $thisDeposit->loadAuthorized($thisDeposit->getType());
-} elseif (isset($_POST['DepositSlipRunTransactions'])) {
-    $thisDeposit->runTransactions();
-}
-
-$_SESSION['iCurrentDeposit'] = $iDepositSlipID;  // Probably redundant
-
-/* @var $currentUser \EcclesiaCRM\User */
-$currentUser = SessionUser::getUser();
-$currentUser->setCurrentDeposit($iDepositSlipID);
-$currentUser->save();
-
-require 'Include/Header.php';
+// we place this part to avoid a problem during the upgrade process
+// Set the page title
+require $sRootDocument . '/Include/Header.php';
 ?>
+
 <div class="row">
     <div class="col-lg-7">
         <div class="card">
@@ -121,7 +56,7 @@ require 'Include/Header.php';
                             <?php
                             if (count($funds)) {
                                 ?>
-                                <a href="<?= SystemURLs::getRootPath() ?>/api/deposits/<?= $thisDeposit->getId() ?>/pdf"
+                                <a href="<?= $sRootPath ?>/api/deposits/<?= $thisDeposit->getId() ?>/pdf"
                                    class="btn btn-default" name="DepositSlipGeneratePDF">
                                     <?= _('Deposit Slip Report') ?>
                                 </a>
@@ -185,12 +120,12 @@ require 'Include/Header.php';
                 if ($thisDeposit->getType() == 'eGive') {
                     ?>
                     <input type=button class="btn btn-default" value="<?= _('Import eGive') ?>" name=ImporteGive
-                           onclick="javascript:document.location='eGive.php?DepositSlipID=$iDepositSlipID&linkBack=DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&CurrentDeposit=<?= $iDepositSlipID ?>';">
+                           onclick="javascript:document.location='<?= $sRootPath ?>/eGive.php?DepositSlipID=<?= $iDepositSlipID ?>&linkBack=<?= $sRootPath ?>/v2/deposit/slipeditor/<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&CurrentDeposit=<?= $iDepositSlipID ?>';">
                     <?php
                 } else {
                     ?>
                     <input type=button class="btn btn-success" value="<?= _('Add Payment') ?> " name=AddPayment
-                           onclick="javascript:document.location='PledgeEditor.php?CurrentDeposit=$iDepositSlipID&PledgeOrPayment=Payment&linkBack=DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&CurrentDeposit=<?= $iDepositSlipID ?>';">
+                           onclick="javascript:document.location='<?= $sRootPath ?>/PledgeEditor.php?CurrentDeposit=<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&linkBack=<?= $sRootPath ?>/v2/deposit/slipeditor/<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&CurrentDeposit=<?= $iDepositSlipID ?>';">
                     <?php
                 }
                 if ($thisDeposit->getType() == 'BankDraft' || $thisDeposit->getType() == 'CreditCard') {
@@ -243,14 +178,14 @@ require 'Include/Header.php';
 </div>
 
 <div>
-    <a href="<?= SystemURLs::getRootPath() ?>/FindDepositSlip.php" class="btn btn-default">
+    <a href="<?= $sRootPath ?>/FindDepositSlip.php" class="btn btn-default">
         <i class="fas fa-chevron-left"></i>
         <?= _('Return to Deposit Listing') ?></a>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/finance/DepositSlipEditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/finance/DepositSlipEditor.js"></script>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= $CSPNonce ?>">
     var depositType = '<?php echo $thisDeposit->getType(); ?>';
     var depositSlipID = <?php echo $iDepositSlipID; ?>;
     var isDepositClosed = Boolean(<?=  $thisDeposit->getClosed(); ?>);
@@ -259,6 +194,9 @@ require 'Include/Header.php';
     var is_closed = <?= ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) ? 0 : 1 ?>;
     var DepositType = '<?= $thisDeposit->getType() ?>';
 </script>
-<?php
-require 'Include/Footer.php';
-?>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+
+
+

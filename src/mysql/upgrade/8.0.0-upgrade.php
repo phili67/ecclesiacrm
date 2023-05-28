@@ -86,5 +86,7 @@ unlink(SystemURLs::getDocumentRoot()."/Checkin.php");
 
 unlink(SystemURLs::getDocumentRoot()."/GroupEditor.php");
 
+unlink(SystemURLs::getDocumentRoot()."/DepositSlipEditor.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
