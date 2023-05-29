@@ -32,6 +32,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 class PDF_ConfirmReport extends ChurchInfoReportTCPDF
 {
     private $incrY;
+    public $leftX;
 
     // Constructor
     public function __construct()

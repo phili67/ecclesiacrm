@@ -162,7 +162,7 @@ $("document").ready(function () {
     });
 
     /* Badge creation */
-    $(document).on("click", "#studentbadge", function () {
+    $(document).on("click", ".studentbadge", function () {
         var sundayGroupId = $(this).data("groupid");
         window.CRM.APIRequest({
             method: "GET",
@@ -1255,6 +1255,13 @@ $("document").ready(function () {
 
         $('.date-picker').datepicker({format: window.CRM.datePickerformat, language: window.CRM.lang});
     });
+
+    $(document).on("click",".PhotoBook", function(){
+        var groupID = [$(this).data('groupid')];
+        
+        window.location = window.CRM.root + "/Reports/PhotoBook.php?GroupID=" + groupID + '&FYID=' + iFYID;
+                               
+      });
 
 
     // listener : when the delete member is invocated

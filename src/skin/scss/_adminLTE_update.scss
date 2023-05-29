@@ -386,3 +386,22 @@ a {
     margin-left: -1px;
     background: rgb(241, 241, 241);
 }
+
+.fas-red {
+    color:red;
+}
+
+.fas-green {
+    color:green;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .fas-red {
+        color:red;
+    }
+    
+    .fas-green {
+        color:green;
+    }
+}
