@@ -155,7 +155,7 @@ class MenuBar extends Menu
         $menuItem->addLink("members/self-register.php");
         $menuItem->addLink("members/self-verify-updates.php");
         $menuItem->addLink("members/online-pending-verify.php");
-        $menuItem->addLink("GroupReports.php");
+        $menuItem->addLink("v2/group/reports");
         $menuItem->addLink("v2/people/directory/report/Cart+Directory");
         $menuItem->addLink("v2/people/directory/report");
         $menuItem->addLink("ReminderReport.php");

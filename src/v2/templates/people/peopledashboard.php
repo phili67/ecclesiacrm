@@ -199,7 +199,7 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
             </div>
             <div class="card-body">
                 <p>
-                    <a class="MediumText" href="<?= $sRootPath ?>/GroupReports.php"><?= _('Reports on groups and roles') ?></a>
+                    <a class="MediumText" href="<?= $sRootPath ?>/v2/group/reports"><?= _('Reports on groups and roles') ?></a>
                     <br>
                     <?= _('Report on group and roles selected (it may be a multi-page PDF).') ?>
                 </p>

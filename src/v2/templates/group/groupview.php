@@ -98,9 +98,9 @@ require $sRootDocument . '/Include/Header.php';
         ?>
 
         <?php
-        if ( $_SESSION['bManageGroups'] ) {// use session variable for an current group manager
+        if ( SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups'] ) {// use session variable for an current group manager
             ?>
-            <form method="POST" action="<?= $sRootPath ?>/GroupReports.php" style="display:inline">
+            <form method="POST" action="<?= $sRootPath ?>/v2/group/reports" style="display:inline">
                 <input type="hidden" id="GroupID" name="GroupID" value="<?= $iGroupID?>">
                 <button type="submit" class="btn btn-app bg-green exportCheckOutCSV"><i class="fas fa-file-pdf"></i><?= _("Group reports") ?></button>
             </form>
