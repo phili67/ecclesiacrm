@@ -17,6 +17,7 @@ use Psr\Container\ContainerInterface;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\GroupService;
+use EcclesiaCRM\Utils\InputUtils;
 
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
@@ -236,6 +237,48 @@ class VIEWGroupController {
             'optionId'                  => $optionId,
             'rsGroupTypes'              => $rsGroupTypes,
             'rsGroupRoleSeed'           => $rsGroupRoleSeed
+        ];
+
+        return $paramsArguments;
+    }    
+
+    public function groupReport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/group/');
+
+        if ( !( SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups']  ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $groupName = "";
+        $iGroupID = -1;
+
+        if (isset($_POST['GroupID'])) {
+            $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int');
+            $groupName = " : ".GroupQuery::Create()->findOneById($_POST['GroupID'])->getName();
+        }
+
+        return $renderer->render($response, 'groupreports.php', $this->argumentsGroupReportArray($groupName,$iGroupID));
+    }
+
+    public function argumentsGroupReportArray ($groupName, $iGroupID)
+    {
+        // Set the page title and include HTML header
+        $sPageTitle = ('Group reports').$groupName;
+
+        // Get all the groups
+        $groups = GroupQuery::Create()->orderByName()->find();
+
+
+        $sRootDocument = SystemURLs::getDocumentRoot();
+        $CSPNonce = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'iGroupID'                  => $iGroupID,
+            'groupName'                 => $groupName,
+            'groups'                    => $groups,
         ];
 
         return $paramsArguments;
