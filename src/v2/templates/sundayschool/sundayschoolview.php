@@ -11,6 +11,7 @@
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\Utils\MiscUtils;
 
 require $sRootDocument . '/Include/Header.php';
 
@@ -84,23 +85,27 @@ if (SessionUser::getUser()->isAddRecords()) {
         }
         ?>
         <?php
-        if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled())) {
+        if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled()) {
             ?>
-            <a class="btn btn-app bg-green exportCheckOutCSV disabled" id="exportCheckOutCSV"
-               data-callRegistergroupid="<?= $iGroupId ?>"> <i class="fas fa-file-excel"></i> <span
-                    class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
-            <?php
-        }
-        if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && SessionUser::getUser()->isExportSundaySchoolPDFEnabled()) {
-            ?>
-            <a class="btn btn-app bg-red exportCheckOutPDF disabled" id="exportCheckOutPDF"
-               data-callRegistergroupid="<?= $iGroupId ?>"> <i class="fas fa-file-pdf"></i> <span
-                    class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
-
-            <a class="btn btn-app bg-purple" id="studentbadge" data-groupid="<?= $iGroupId ?>"
-               data-toggle="tooltip"  data-placement="bottom" title="<?= _("Create here your badges or QR-Code to call the register with them") ?>"> <i
-                    class="fas fa-id-badge"></i> <span
-                    class="cartActionDescription"><?= _("Student Badges") ?></span></a>
+            <div class="btn-group show">
+                    <a class="btn btn-app exportCheckOutPDF" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Export") ?>"><i class="fas fa-file-pdf fas-red"></i> <?= _("Export") ?></a>
+                    <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                    <span class="caret"></span>
+                    <span class="sr-only">Menu déroulant</span>
+                </button>
+                <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(193px, 60px, 0px);">
+                    <?php  if ( SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isCSVExportEnabled() ) {
+                    ?>
+                        <a class="dropdown-item exportCheckOutCSV" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Export Attendance") ?>"><i class="fas fa-file-excel fas-green"></i> <?= _("Export Attendance") ?></a>
+                    <?php } ?>
+                    <?php  if ( SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isCSVExportEnabled() ) { ?>
+                        <a class="dropdown-item exportCheckOutPDF" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Export Attendance") ?>"><i class="fas fa-file-pdf fas-red"></i> <?= _("Export Attendance") ?></a>
+                        <a class="dropdown-item studentbadge" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Student Badges") ?>"><i class="fas fa-id-badge fas-red"></i> <?= _("Student Badges") ?></a>
+                        <a class="dropdown-item PhotoBook" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("PhotoBook") ?>"><i class="fas fa-file-pdf fas-red"></i>  <?= _("PhotoBook") ?></a>
+                    <?php } ?>
+                </div>
+            </div>  
+            
             <?php
         }
         ?>
@@ -312,6 +317,7 @@ if (SessionUser::getUser()->isAddRecords()) {
     var birthDateColumnText = '<?= _("Birth Date") ?>';
     var genderColumnText = '<?= _("Gender") ?>';
     var sundayGroupId = <?= $iGroupId ?>;
+    var iFYID = <?= MiscUtils::CurrentFY() ?>;
     var canSeePrivacyData = <?= (SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) ? 1 : 0 ?>;
     var canDeleteMembers = <?= SessionUser::getUser()->isDeleteRecordsEnabled() ? 1 : 0 ?>;
     var sundayGroupName = "<?= $iGroupName ?>";
