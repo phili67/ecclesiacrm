@@ -22,7 +22,7 @@ require $sRootDocument . '/Include/Header.php';
             <?php
                 if (SessionUser::getUser()->isAdmin()) {
             ?>
-              <a href="QuerySQL.php" class="text-red"><?= _('Run a Free-Text Query') ?></a>
+              <a href="<?= $sRootPath ?>/QuerySQL.php" class="text-red"><?= _('Run a Free-Text Query') ?></a>
             <?php
                 }
             ?>

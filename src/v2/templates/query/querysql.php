@@ -1,82 +1,29 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : QuerySQL.php
- *  last change : 2003-01-04
+ *  filename    : querylist.php
+ *  last change : 2023-05-30
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2001, 2002, 2003 Deane Barker, Chris Gebhardt
-  *
+ *  copyright   : Copyright 2001, 2002 Deane Barker
+ *                2023 Philippe Logel
+ *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
+ use EcclesiaCRM\dto\SystemConfig;
+ use EcclesiaCRM\dto\SystemURLs;
+ use EcclesiaCRM\Utils\MiscUtils;
+ use EcclesiaCRM\SessionUser;
 
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\dto\SystemURLs;
+ // to get $cnInfoCentral
+require $sRootDocument . '/Include/Header.php';
 
-//Set the page title
-$sPageTitle = _('Free-Text Query');
-
-// Security: User must be an Admin to access this page.  It allows unrestricted database access!
-// Otherwise, re-direct them to the main menu.
-if (!SessionUser::getUser()->isAdmin()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-if (isset($_POST['SQL'])) {
-    //Assign the value locally
-    $sSQL = stripslashes(trim($_POST['SQL']));
-} else {
-    $sSQL = '';
-}
-
-if (isset($_POST['CSV'])) {
-    ExportQueryResults();
-    exit;
-}
-
-$rsQueryResults = false;
-
-require 'Include/Header.php';
-?>
-
-<form method="post">
-
-<center><table><tr>
-    <td class="LabelColumn"> <?= _('Export Results to CSV file') ?> </td>
-    <td class="TextColumn"><input name="CSV" type="checkbox" id="CSV" value="1"></td>
-</tr></table></center>
-
-<p align="center">
-	<textarea style="font-family:courier,fixed; font-size:9pt; padding:1px;" cols="60" rows="10" name="SQL"><?= $sSQL ?></textarea>
-</p>
-<p align="center">
-	<input type="submit" class="btn btn-default" name="Submit" value="<?= _('Execute SQL') ?>">
-</p>
-
-</form>
-
-<?php
+$cnInfoCentral = $GLOBALS['cnInfoCentral'];
 
 
-if (isset($_POST['SQL'])) {
-    if (strtolower(mb_substr($sSQL, 0, 6)) == 'select') {
-        RunFreeQuery();
-    }
-}
-
-function ExportQueryResults()
+function ExportQueryResults($cnInfoCentral, $aRowClass, $rsQueryResults, $sSQL, $iQueryID)
 {
-    global $cnInfoCentral;
-    global $aRowClass;
-    global $rsQueryResults;
-    global $sSQL;
-    global $iQueryID;
+    $delimiter = SessionUser::getUser()->CSVExportDelemiter();
+    $charset   = SessionUser::getUser()->CSVExportCharset();
 
     $sCSVstring = '';
 
@@ -90,7 +37,7 @@ function ExportQueryResults()
         //Loop through the fields and write the header row
         for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
             $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
-            $sCSVstring .= $fieldInfo->name.',';
+            $sCSVstring .= $fieldInfo->name.$delimiter;
         }
 
         $sCSVstring .= "\n";
@@ -100,38 +47,34 @@ function ExportQueryResults()
             //Loop through the fields and write each one
             for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
                 $outStr = str_replace('"', '""', $aRow[$iCount]);
-                $sCSVstring .= '"'.$outStr.'",';
+                $sCSVstring .= '"'.$outStr.'"'.$delimiter;
             }
 
             $sCSVstring .= "\n";
         }
     }
 
-    header('Content-type: application/csv');
+    ob_clean();
+
+    ob_start();
+            
+    header('Content-type: application/csv;charset='.$charset);
     header('Content-Disposition: attachment; filename=Query-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
+    
     echo $sCSVstring;
+
+    $result = ob_get_clean();
+
+    echo $result;
     exit;
 }
 
-//Display the count of the recordset
-    echo '<p align="center">';
-    if ($rsQueryResults != false) {
-        echo mysqli_num_rows($rsQueryResults) . _(' record(s) returned');
-    }
-    echo '</p>';
-
-function RunFreeQuery()
+function RunFreeQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $sSQL, $iQueryID)
 {
-    global $cnInfoCentral;
-    global $aRowClass;
-    global $rsQueryResults;
-    global $sSQL;
-    global $iQueryID;
-
     //Run the SQL
     $rsQueryResults = MiscUtils::RunQuery($sSQL);
 
@@ -139,6 +82,8 @@ function RunFreeQuery()
         echo _('An error occured: ').mysqli_errno($cnInfoCentral).'--'.mysqli_error($cnInfoCentral);
     } else {
         $sRowClass = 'RowColorA';
+
+        $aHiddenFormField = [];
 
         echo '<table align="center" cellpadding="5" cellspacing="0" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline">';
 
@@ -199,5 +144,58 @@ function RunFreeQuery()
     }
 }
 
-require 'Include/Footer.php';
+if (isset($_POST['SQL'])) {
+    //Assign the value locally
+    $sSQL = stripslashes(trim($_POST['SQL']));
+} else {
+    $sSQL = '';
+}
+
+if (isset($_POST['CSV'])) {
+    ExportQueryResults($cnInfoCentral, $aRowClass, $rsQueryResults, $sSQL, $iQueryID);
+    exit;
+}
+
+$rsQueryResults = false;
+
 ?>
+
+<form method="post">
+
+    <center><table><tr>
+        <td class="LabelColumn"> <?= _('Export Results to CSV file') ?> </td>
+        <td class="TextColumn"><input name="CSV" type="checkbox" id="CSV" value="1"></td>
+    </tr></table></center>
+
+    <p align="center">
+        <textarea style="font-family:courier,fixed; font-size:9pt; padding:1px;" cols="60" rows="20" name="SQL" class="form-control"><?= $sSQL ?></textarea>
+    </p>
+    <p align="center">
+        <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Execute SQL') ?>">
+    </p>
+
+    </form>
+<?php
+
+
+if (isset($_POST['SQL'])) {
+    if (strtolower(mb_substr($sSQL, 0, 6)) == 'select') {
+        RunFreeQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $sSQL, $iQueryID);
+    }
+}
+
+//Display the count of the recordset
+echo '<p align="center">';
+if ($rsQueryResults != false) {
+    echo mysqli_num_rows($rsQueryResults) . _(' record(s) returned');
+}
+echo '</p>';
+?>
+
+<script nonce="<?= $CSPNonce ?>">
+    $(document).ready(function () {
+        window.CRM.queryTable = $("#query-table").DataTable(window.CRM.plugin.dataTable);
+    });
+</script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
