@@ -41,7 +41,7 @@ if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValu
     exit;
 }
 
-if (SystemConfig::getValue('bUseScannedChecks')) { // Instantiate the MICR class
+if (SystemConfig::getValue('bUseScannedChecks')) { // Instantiate the MICR class dead code ?
     $micrObj = new MICRReader();
 }
 
