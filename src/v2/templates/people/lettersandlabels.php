@@ -79,7 +79,7 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
                     <i class="fas fa-paper-plane"></i> <?= gettext('Confirm data Email') ?>
                 </button>
 
-                <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'v2/dashboard';">
+                <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/v2/dashboard';">
             </div>
         </form>
       </div>
