@@ -91,6 +91,7 @@ unlink(SystemURLs::getDocumentRoot()."/GroupReports.php");
 unlink(SystemURLs::getDocumentRoot()."/LettersAndLabels.php");
 unlink(SystemURLs::getDocumentRoot()."/ReminderReport.php");
 unlink(SystemURLs::getDocumentRoot()."/QueryList.php");
+unlink(SystemURLs::getDocumentRoot()."/QueryView.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>

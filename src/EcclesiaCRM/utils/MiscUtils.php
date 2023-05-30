@@ -11,8 +11,6 @@ use EcclesiaCRM\PledgeQuery;
 use PhpOffice\PhpWord\IOFactory;
 use Propel\Runtime\Propel;
 
-use PhpOffice\PhpWord\Shared\PhpWordHTMLExtension;
-
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Html;
 use PhpOffice\PhpWord\Style\ListItem;

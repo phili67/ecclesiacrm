@@ -1,89 +1,22 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : QueryView.php
- *  last change : 2012-07-22
+ *  filename    : querylist.php
+ *  last change : 2023-05-30
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker
- *                Copyright 2004-2012 Michael Wilt
+ *                2023 Philippe Logel
  *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
+ use EcclesiaCRM\dto\SystemConfig;
+ use EcclesiaCRM\Utils\InputUtils;
+ use EcclesiaCRM\Utils\MiscUtils;
+ use EcclesiaCRM\dto\Cart;
 
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\Cart;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\SessionUser;
-
-
-// Security
-if (!(SessionUser::getUser()->isShowMenuQueryEnabled())) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-//Set the page title
-$sPageTitle = _('Query View');
-
-//Get the QueryID from the querystring
-$iQueryID = InputUtils::LegacyFilterInput($_GET['QueryID'], 'int');
-
-$aFinanceQueries = explode(',', SystemConfig::getValue('aFinanceQueries'));
-
-if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) && in_array($iQueryID, $aFinanceQueries)) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-//Include the header
-require 'Include/Header.php';
-
-//Get the query information
-$sSQL = 'SELECT * FROM query_qry WHERE qry_ID = ' . $iQueryID;
-$rsSQL = MiscUtils::RunQuery($sSQL);
-extract(mysqli_fetch_array($rsSQL));
-
-//Get the parameters for this query
-$sSQL = 'SELECT * FROM queryparameters_qrp WHERE qrp_qry_ID = ' . $iQueryID . ' ORDER BY qrp_ID';
-$rsParameters = MiscUtils::RunQuery($sSQL);
-
-//If the form was submitted or there are no parameters, run the query
-if (isset($_POST['Submit']) || mysqli_num_rows($rsParameters) == 0) {
-    //Check that all validation rules were followed
-    ValidateInput();
-
-    //Any errors?
-    if (count($aErrorText) == 0) {
-        //No errors; process the SQL, run the query, and display the results
-        DisplayQueryInfo();
-        ProcessSQL();
-        DoQuery();
-    } else {
-        //Yes, there were errors; re-display the parameter form (the DisplayParameterForm function will
-        //pick up and display any error messages)
-        DisplayQueryInfo();
-        DisplayParameterForm();
-    }
-} else {
-    //Display the parameter form
-    DisplayQueryInfo();
-    DisplayParameterForm();
-}
-
-//Loops through all the parameters and ensures validation rules have been followed
-function ValidateInput()
+ //Loops through all the parameters and ensures validation rules have been followed
+function ValidateInput($rsParameters, $POST)
 {
-    global $rsParameters;
-    global $_POST;
-    global $vPOST;
-    global $aErrorText;
-
     //Initialize the validated post array, error text array, and the error flag
     $vPOST = [];
     $aErrorText = [];
@@ -97,7 +30,7 @@ function ValidateInput()
         extract($aRow);
 
         //Is the value required?
-        if ($qrp_Required && strlen(trim($_POST[$qrp_Alias])) < 1) {
+        if ($qrp_Required && strlen(trim($POST[$qrp_Alias])) < 1) {
             $bError = true;
             $aErrorText[$qrp_Alias] = _('This value is required.');
         } //Assuming there was no error above...
@@ -108,55 +41,53 @@ function ValidateInput()
                 case 'n':
 
                     //Is it a number?
-                    if (!is_numeric($_POST[$qrp_Alias])) {
+                    if (!is_numeric($POST[$qrp_Alias])) {
                         $bError = true;
                         $aErrorText[$qrp_Alias] = _('This value must be numeric.');
                     } else {
                         //Is it more than the minimum?
-                        if ($_POST[$qrp_Alias] < $qrp_NumericMin) {
+                        if ($POST[$qrp_Alias] < $qrp_NumericMin) {
                             $bError = true;
                             $aErrorText[$qrp_Alias] = _('This value must be at least ') . $qrp_NumericMin;
                         } //Is it less than the maximum?
-                        elseif ($_POST[$qrp_Alias] > $qrp_NumericMax) {
+                        elseif ($POST[$qrp_Alias] > $qrp_NumericMax) {
                             $bError = true;
                             $aErrorText[$qrp_Alias] = _('This value cannot be more than ') . $qrp_NumericMax;
                         }
                     }
 
-                    $vPOST[$qrp_Alias] = InputUtils::LegacyFilterInput($_POST[$qrp_Alias], 'int');
+                    $vPOST[$qrp_Alias] = InputUtils::LegacyFilterInput($POST[$qrp_Alias], 'int');
                     break;
 
                 //Alpha validation
                 case 'a':
 
                     //Is the length less than the maximum?
-                    if (strlen($_POST[$qrp_Alias]) > $qrp_AlphaMaxLength) {
+                    if (strlen($POST[$qrp_Alias]) > $qrp_AlphaMaxLength) {
                         $bError = true;
                         $aErrorText[$qrp_Alias] = _('This value cannot be more than ') . $qrp_AlphaMaxLength . _(' characters long');
                     } //is the length more than the minimum?
-                    elseif (strlen($_POST[$qrp_Alias]) < $qrp_AlphaMinLength) {
+                    elseif (strlen($POST[$qrp_Alias]) < $qrp_AlphaMinLength) {
                         $bError = true;
                         $aErrorText[$qrp_Alias] = _('This value cannot be less than ') . $qrp_AlphaMinLength . _(' characters long');
                     }
 
-                    $vPOST[$qrp_Alias] = InputUtils::LegacyFilterInput($_POST[$qrp_Alias]);
+                    $vPOST[$qrp_Alias] = InputUtils::LegacyFilterInput($POST[$qrp_Alias]);
                     break;
 
                 default:
-                    $vPOST[$qrp_Alias] = $_POST[$qrp_Alias];
+                    $vPOST[$qrp_Alias] = $POST[$qrp_Alias];
                     break;
             }
         }
     }
+
+    return [$aErrorText, $vPOST];
 }
 
 //Loops through the list of parameters and replaces their alias in the SQL with the value given for the parameter
-function ProcessSQL()
+function ProcessSQL($vPOST, $qry_SQL, $rsParameters)
 {
-    global $vPOST;
-    global $qry_SQL;
-    global $rsParameters;
-
     //Loop through the list of parameters
     if (mysqli_num_rows($rsParameters)) {
         mysqli_data_seek($rsParameters, 0);
@@ -170,14 +101,13 @@ function ProcessSQL()
         //Replace the placeholder with the parameter value
         $qry_SQL = str_replace('~' . $qrp_Alias . '~', $vPOST[$qrp_Alias], $qry_SQL);
     }
+
+    return $qry_SQL;
 }
 
 //Checks if a count is to be displayed, and displays it if required
-function DisplayRecordCount()
+function DisplayRecordCount($qry_Count, $rsQueryResults)
 {
-    global $qry_Count;
-    global $rsQueryResults;
-
     //Are we supposed to display a count for this query?
     if ($qry_Count == 1) {
         //Display the count of the recordset
@@ -188,17 +118,9 @@ function DisplayRecordCount()
 }
 
 //Runs the parameterized SQL and display the results
-function DoQuery()
+function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryID, $qry_Name, $qry_Count, $CSPNonce) 
 {
-    global $cnInfoCentral;
-    global $aRowClass;
-    global $rsQueryResults;
-    global $qry_SQL;
-    global $iQueryID;
-    global $qry_Name;
-    global $qry_Count;
-
-    //Run the SQL
+   //Run the SQL
     $rsQueryResults = MiscUtils::RunQuery($qry_SQL); ?>
     <div class="card card-primary">
 
@@ -313,7 +235,7 @@ function DoQuery()
         </div>
     </div>
 
-    <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    <script nonce="<?= $CSPNonce ?>">
         $("#addResultsToCart").click(function () {
             var selectedPersons = <?= json_encode($aAddToCartIDs, JSON_NUMERIC_CHECK) ?>;
             window.CRM.cart.addPerson(selectedPersons, function (data) {
@@ -417,10 +339,9 @@ function DoQuery()
 
 
 //Displays the name and description of the query
-function DisplayQueryInfo()
+function DisplayQueryInfo($qry_Name, $qry_Description)
 {
-    global $qry_Name;
-    global $qry_Description; ?>
+?>
     <div class="card card-info">
         <div class="card-body">
             <p><strong><?= _($qry_Name); ?></strong></p>
@@ -433,8 +354,6 @@ function DisplayQueryInfo()
 
 function getQueryFormInput($queryParameters)
 {
-    global $aErrorText;
-
     extract($queryParameters);
 
     $input = '';
@@ -487,32 +406,30 @@ function getQueryFormInput($queryParameters)
     if ($aErrorText[$qrp_Alias]) {
         $errorMsg = '<div>' . $aErrorText[$qrp_Alias] . '</div>';
         $helpBlock = '<div class="help-block">' . $helpMsg . $errorMsg . '</div>';
-        return '<div class="form-group has-error">' . $label . $input . $helpBlock . '</div>';
+        return [$aErrorText, '<div class="form-group has-error">' . $label . $input . $helpBlock . '</div>'];
     }
 
-    return '<div class="form-group">' . $label . $input . $helpBlock . '</div>';
+    return [$aErrorText, '<div class="form-group">' . $label . $input . $helpBlock . '</div>'];
 }
 
 //Displays a form to enter values for each parameter, creating INPUT boxes and SELECT drop-downs as necessary
-function DisplayParameterForm()
-{
-    global $rsParameters;
-    global $iQueryID; ?>
+function DisplayParameterForm($rsParameters, $iQueryID, $sRootPath)
+{ ?>
     <div class="row">
         <div class="col-md-8">
-
             <div class="card card-primary">
-
                 <div class="card-body">
-
-                    <form method="post" action="QueryView.php?QueryID=<?= $iQueryID ?>">
+                    <form method="post" action="<?= $sRootPath ?>/v2/query/view/<?= $iQueryID ?>">
                         <?php
                         //Loop through the parameters and display an entry box for each one
                         if (mysqli_num_rows($rsParameters)) {
                             mysqli_data_seek($rsParameters, 0);
                         }
                         while ($aRow = mysqli_fetch_array($rsParameters)) {
-                            echo getQueryFormInput($aRow);
+                            $res = getQueryFormInput($aRow);
+
+                            echo $res[1];
+                            
                         } ?>
 
                         <div class="form-group text-right">
@@ -531,18 +448,50 @@ function DisplayParameterForm()
     <?php
 }
 
+require $sRootDocument . '/Include/Header.php';
+
+//Get the query information
+$sSQL = 'SELECT * FROM query_qry WHERE qry_ID = ' . $iQueryID;
+$rsSQL = MiscUtils::RunQuery($sSQL);
+extract(mysqli_fetch_array($rsSQL));
+
+//Get the parameters for this query
+$sSQL = 'SELECT * FROM queryparameters_qrp WHERE qrp_qry_ID = ' . $iQueryID . ' ORDER BY qrp_ID';
+$rsParameters = MiscUtils::RunQuery($sSQL);
+
+//If the form was submitted or there are no parameters, run the query
+if (isset($_POST['Submit']) || mysqli_num_rows($rsParameters) == 0) {
+    //Check that all validation rules were followed
+    $res = ValidateInput($rsParameters, $_POST);
+    $aErrorText = $res[0];
+    $vPOST = $res[1];
+
+    //Any errors?
+    if (count($aErrorText) == 0) {
+        //No errors; process the SQL, run the query, and display the results
+        DisplayQueryInfo($qry_Name, $qry_Description);
+        $qry_SQL = ProcessSQL($vPOST, $qry_SQL, $rsParameters);
+        DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryID, $qry_Name, $qry_Count, $CSPNonce);
+    } else {
+        //Yes, there were errors; re-display the parameter form (the DisplayParameterForm function will
+        //pick up and display any error messages)
+        DisplayQueryInfo($qry_Name, $qry_Description);
+        DisplayParameterForm($rsParameters, $iQueryID, $sRootPath);
+    }
+} else {
+    //Display the parameter form
+    DisplayQueryInfo($qry_Name, $qry_Description);
+    DisplayParameterForm($rsParameters, $iQueryID, $sRootPath);
+}
 ?>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/AddRemoveCart.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/people/AddRemoveCart.js"></script>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= $CSPNonce ?>">
     $(document).ready(function () {
         window.CRM.queryTable = $("#query-table").DataTable(window.CRM.plugin.dataTable);
     });
 </script>
 
-<?php
-require 'Include/Footer.php';
-?>
 
-
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
