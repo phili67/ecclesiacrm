@@ -303,9 +303,10 @@ $(document).ready(function () {
                 contentType: "application/json",
                 dataSrc: "MailChimpMembers"
             },
+            deferRender: true,
             columns: columns,
             responsive: true,
-            pageLength: 50,
+            pageLength: 25,
             rowId: 'email_address_column',
             order: [[3, "asc"]],
             createdRow: function (row, data, index) {

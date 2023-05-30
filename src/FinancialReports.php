@@ -51,7 +51,7 @@ if ($sReportType) {
 }
 require 'Include/Header.php';
 ?>
-<div class=card card-body">
+<div class="card card-body">
 <br>
 <?php
 

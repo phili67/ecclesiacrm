@@ -38,12 +38,12 @@ if (isset($_POST['Submit'])) {
 
 ?>
 
-<div class="box box-body">
+<div class="card card-body">
     <form class="form-horizontal" method="post" action="TaxReport.php">
         <div class="form-group">
             <label class="control-label col-sm-2" for="Year"><?= gettext('Calendar Year') ?>:</label>
             <div class="col-sm-2">
-                <input type="text" name="Year" id="Year" value="<?= $iYear ?>">
+                <input class="form-control" type="text" name="Year" id="Year" value="<?= $iYear ?>">
             </div>
         </div>
 
