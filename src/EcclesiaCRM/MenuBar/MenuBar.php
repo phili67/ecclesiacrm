@@ -159,7 +159,7 @@ class MenuBar extends Menu
         $menuItem->addLink("v2/people/directory/report/Cart+Directory");
         $menuItem->addLink("v2/people/directory/report");
         $menuItem->addLink("ReminderReport.php");
-        $menuItem->addLink("LettersAndLabels.php");
+        $menuItem->addLink("v2/people/LettersAndLabels");
         $menuItem->addLink("USISTAddressVerification.php");
 
 

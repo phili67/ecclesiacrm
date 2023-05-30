@@ -222,7 +222,7 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
                 }
                 ?>
                 <p>
-                    <a class="MediumText" href="<?= $sRootPath ?>/LettersAndLabels.php"><?= _('Letters and Mailing Labels') ?></a>
+                    <a class="MediumText" href="<?= $sRootPath ?>/v2/people/LettersAndLabels"><?= _('Letters and Mailing Labels') ?></a>
                     <br><?= _('Generate letters and mailing labels.') ?>
                 </p>
                 <?php
