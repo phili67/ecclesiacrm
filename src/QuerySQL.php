@@ -192,9 +192,10 @@ function RunFreeQuery()
 			</p></form>
 			<?php
         }
-
-        echo '<p align="center"><a href="<?= SystemURLs::getRootPath() ?>/QueryList.php">'._('Return to Query Menu').'</a></p>';
-        echo '<br><p class="ShadedBox" style="border-style: solid; margin-left: 50px; margin-right: 50px; border-width: 1px;"><span class="SmallText">'.str_replace(chr(13), '<br>', htmlspecialchars($sSQL)).'</span></p>';
+        ?>
+            <p align="center"><a href="<?= SystemURLs::getRootPath() ?>/v2/query/list"><?= _('Return to Query Menu') ?></a></p>
+            <br><p class="ShadedBox" style="border-style: solid; margin-left: 50px; margin-right: 50px; border-width: 1px;"><span class="SmallText"><?= str_replace(chr(13),'<br>', htmlspecialchars($sSQL)) ?></span></p>
+        <?php
     }
 }
 

@@ -147,6 +147,9 @@ require_once __DIR__ . '/routes/system/system.php';
 // deposits
 require_once __DIR__ . '/routes/deposit/deposit.php';
 
+// queries
+require_once __DIR__ . '/routes/query/query.php';
+
 // plugins routes
 require_once __DIR__ . '/routes/plugins/plugins.php';
 
