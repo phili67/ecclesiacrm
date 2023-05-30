@@ -75,24 +75,20 @@ unlink(SystemURLs::getDocumentRoot()."/GeoPage.php");
 unlink(SystemURLs::getDocumentRoot()."/favicon.ico"); 
 
 unlink(SystemURLs::getDocumentRoot()."/PaddleNumEditor.php"); 
-
 unlink(SystemURLs::getDocumentRoot()."/GroupPropsFormRowOps.php"); 
-
 unlink(SystemURLs::getDocumentRoot()."/DonationFundEditor.php"); 
-
 unlink(SystemURLs::getDocumentRoot()."/IntegrityCheck.php"); 
-
 unlink(SystemURLs::getDocumentRoot()."/Checkin.php");
-
 unlink(SystemURLs::getDocumentRoot()."/GroupEditor.php");
-
 unlink(SystemURLs::getDocumentRoot()."/DepositSlipEditor.php");
-
 unlink(SystemURLs::getDocumentRoot()."/FindDepositSlip.php");
 
+// 2023-05-28
 unlink(SystemURLs::getDocumentRoot()."/DirectoryReports.php");
-
 unlink(SystemURLs::getDocumentRoot()."/GroupReports.php");
+
+// 2023-05-30
+unlink(SystemURLs::getDocumentRoot()."/LettersAndLabels.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
