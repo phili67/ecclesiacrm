@@ -40,4 +40,7 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/LettersAndLabels', VIEWPeopleController::class . ':lettersandlabels' );
     $group->post('/LettersAndLabels', VIEWPeopleController::class . ':lettersandlabels' );
 
+    $group->get('/ReminderReport', VIEWPeopleController::class . ':reminderreport' );
+    $group->post('/ReminderReport', VIEWPeopleController::class . ':reminderreport' );
+
 });

@@ -216,7 +216,7 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
                 if (SessionUser::getUser()->isFinanceEnabled()) {
                     ?>
                     <p><a class="MediumText"
-                          href="<?= $sRootPath ?>/ReminderReport.php"><?= _('Pledge Reminder Report') ?></a><br><?= _('Printable Pledge Reminder of all people, grouped by family where assigned') ?>
+                          href="<?= $sRootPath ?>/v2/people/ReminderReport"><?= _('Pledge Reminder Report') ?></a><br><?= _('Printable Pledge Reminder of all people, grouped by family where assigned') ?>
                     </p>
                     <?php
                 }

@@ -1193,5 +1193,30 @@ class VIEWPeopleController {
             'sPageTitle'                => $sPageTitle
         ];
 
-    }      
+    }  
+    
+    public function reminderreport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        if (!SessionUser::getUser()->isFinanceEnabled()) {            
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+    
+        return $renderer->render($response, 'reminderreport.php', $this->argumentsPeopleReminderReportArray());
+    }
+
+    public function argumentsPeopleReminderReportArray () {
+        $sRootDocument   = SystemURLs::getDocumentRoot();
+
+        $sPageTitle = _("Pledge Reminder Report");
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'sPageTitle'                => $sPageTitle
+        ];
+
+    }  
+
+    
 }
