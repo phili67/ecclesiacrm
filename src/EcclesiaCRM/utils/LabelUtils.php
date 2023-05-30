@@ -87,15 +87,17 @@ class LabelUtils {
           <div class="col-md-6">
              <select name="<?= $fieldname ?>" class="form-control form-control-sm">
              <?php
+                $place = 0;
                 foreach ($sizes as $s) {
                     $sel = '';
                     if (array_key_exists($fieldname, $_COOKIE) && $_COOKIE[$fieldname] == $s) {
                         $sel = ' selected';
                     }
               ?>
-                <option value="<?= $s ?>"<?= $sel ?>><?= gettext("$s") ?></option>
+                <option value="<?= ($place == 0)?'12':$s ?>"<?= $sel ?>><?= gettext("$s") ?></option>
             <?php
-                }
+                    $place++;
+                  }
             ?>
             </select>
           </div>
