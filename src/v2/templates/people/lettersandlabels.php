@@ -1,30 +1,20 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : LettersAndLabels.php
+ *  filename    : lettersandlabels.php
+ *                2006 Ed Davis
+ *  last change : 2023-05-30
  *  website     : http://www.ecclesiacrm.com
- *
- *  Contributors:
- *  2006 Ed Davis
- *
- *
- *  Copyright 2006 Contributors
-  *
-
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
  *
  ******************************************************************************/
 
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\utils\LabelUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\LabelUtils;
 
-// Set the page title and include HTML header
-$sPageTitle = gettext('Letters and Mailing Labels');
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 
 // Is this the second pass?
 if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) || isset($_POST['SubmitConfirmLabels']) || isset($_POST['SubmitConfirmReportEmail'])) {
@@ -54,7 +44,7 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
         <h3 class="card-title"><?= gettext('People Reports')?></h3>
       </div>
       <div class="card-body">
-        <form method="post" action="LettersAndLabels.php">
+        <form method="post" action="<?= $sRootPath ?>/v2/people/LettersAndLabels">
             <div class="table-responsive">
 
           <table class="table" cellpadding="3" align="left">
@@ -97,4 +87,6 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
   </div>
 </div>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+

@@ -1171,4 +1171,27 @@ class VIEWPeopleController {
         ];
 
     }  
+
+    public function lettersandlabels (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        if (!SessionUser::getUser()->isFinanceEnabled()) {            
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+    
+        return $renderer->render($response, 'lettersandlabels.php', $this->argumentsPeopleLettersAndLabelsArray());
+    }
+
+    public function argumentsPeopleLettersAndLabelsArray () {
+        $sRootDocument   = SystemURLs::getDocumentRoot();
+
+        $sPageTitle = _("Letters and Mailing Labels");
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'sPageTitle'                => $sPageTitle
+        ];
+
+    }      
 }
