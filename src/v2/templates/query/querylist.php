@@ -63,7 +63,7 @@ require $sRootDocument . '/Include/Header.php';
                         // Display the query name and description
                     ?>
                     <li>
-                        <a href="<?= $sRootPath ?>/QueryView.php?QueryID=<?= $qry_ID ?>"><?= _($qry_Name) ?></a>:
+                        <a href="<?= $sRootPath ?>/v2/query/view/<?= $qry_ID ?>"><?= _($qry_Name) ?></a>:
                         <br>
                         <?= _($qry_Description) ?>
                     </li>
