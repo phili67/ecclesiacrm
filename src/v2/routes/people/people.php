@@ -37,4 +37,7 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/directory/report/{cartdir}', VIEWPeopleController::class . ':directoryreport' );
     $group->post('/directory/report/{cartdir}', VIEWPeopleController::class . ':directoryreport' );
 
+    $group->get('/LettersAndLabels', VIEWPeopleController::class . ':lettersandlabels' );
+    $group->post('/LettersAndLabels', VIEWPeopleController::class . ':lettersandlabels' );
+
 });
