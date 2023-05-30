@@ -23,4 +23,7 @@ $app->group('/query', function (RouteCollectorProxy $group) {
     
     $group->get('/view/{queryID:[0-9]+}', VIEWQueryController::class . ':queryview');
     $group->post('/view/{queryID:[0-9]+}', VIEWQueryController::class . ':queryview');
+
+    $group->get('/sql', VIEWQueryController::class . ':querysql');
+    $group->post('/sql', VIEWQueryController::class . ':querysql');
 });

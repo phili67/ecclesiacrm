@@ -113,4 +113,36 @@ class VIEWQueryController {
 
         return $paramsArguments;
     }
+
+    public function querysql (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/query/');
+
+        //Set the page title
+        if (!SessionUser::getUser()->isAdmin()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'querysql.php', $this->argumentsQuerySQLArray());
+    }
+
+    public function argumentsQuerySQLArray ()
+    {
+        //Set the page title
+        $sPageTitle    = _('Free-Text Query');
+        
+
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle
+        ];
+
+        return $paramsArguments;
+    }
+
+    
 }
