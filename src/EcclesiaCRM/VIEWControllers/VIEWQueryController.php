@@ -17,6 +17,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Propel\Runtime\Propel;
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\InputUtils;
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemConfig;
@@ -68,6 +69,46 @@ class VIEWQueryController {
             'aFinanceQueries'           => $aFinanceQueries,
             'connection'                => $connection,
             'statement'                 => $statement
+        ];
+
+        return $paramsArguments;
+    }
+
+    public function queryview (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/query/');
+
+        //Set the page title
+        if (!SessionUser::getUser()->isShowMenuQueryEnabled()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $iQueryID = $args['queryID'];
+
+        $aFinanceQueries = explode(',', SystemConfig::getValue('aFinanceQueries'));
+
+        if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) && in_array($iQueryID, $aFinanceQueries)) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'queryview.php', $this->argumentsQueryViewArray($iQueryID, $aFinanceQueries));
+    }
+
+    public function argumentsQueryViewArray ($iQueryID, $aFinanceQueries)
+    {
+        //Set the page title
+        $sPageTitle    = _('Query View');
+        
+
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'iQueryID'                  => $iQueryID,
+            'aFinanceQueries'           => $aFinanceQueries
         ];
 
         return $paramsArguments;
