@@ -90,6 +90,7 @@ unlink(SystemURLs::getDocumentRoot()."/GroupReports.php");
 // 2023-05-30
 unlink(SystemURLs::getDocumentRoot()."/LettersAndLabels.php");
 unlink(SystemURLs::getDocumentRoot()."/ReminderReport.php");
+unlink(SystemURLs::getDocumentRoot()."/QueryList.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
