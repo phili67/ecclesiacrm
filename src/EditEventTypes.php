@@ -116,7 +116,7 @@ $eventType = EventTypesQuery::Create()
     ->findOneById($tyid);
 
 if (empty($eventType)) {
-    RedirectUtils::Redirect('EventNames.php'); // clear POST
+    RedirectUtils::Redirect('v2/calendar/events/names'); // clear POST
 }
 
 
@@ -271,7 +271,7 @@ print_r($cCountID);*/
 </div>
 
 <div>
-    <a href="EventNames.php" class='btn btn-default'>
+    <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar/events/names" class='btn btn-default'>
         <i class='fas fa-chevron-left'></i>
         <?= _('Return to Event Types') ?>
     </a>
