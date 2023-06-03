@@ -15,6 +15,10 @@ $app->group('/calendar', function (RouteCollectorProxy $group) {
     $group->get('/events/checkin', VIEWCalendarController::class . ':renderCalendarEventCheckin');
     $group->post('/events/checkin', VIEWCalendarController::class . ':renderCalendarEventCheckin');
 
-    $group->get('/events/names', VIEWCalendarController::class . ':renderCalendarEventNamesEdit');
-    $group->post('/events/names', VIEWCalendarController::class . ':renderCalendarEventNamesEdit');
+    $group->get('/events/names', VIEWCalendarController::class . ':renderCalendarEventNames');
+    $group->post('/events/names', VIEWCalendarController::class . ':renderCalendarEventNames');
+
+    $group->get('/events/types/edit', VIEWCalendarController::class . ':renderCalendarEventTypesEdit');
+    $group->post('/events/types/edit', VIEWCalendarController::class . ':renderCalendarEventTypesEdit');
+
 });

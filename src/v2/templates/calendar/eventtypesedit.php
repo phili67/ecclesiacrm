@@ -1,40 +1,28 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : EventNames.php
- *  last change : 2005-09-10
- *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2005 Todd Pillars
+ *  filename    : templates/eventtypesedit.php
+ *  last change : 2023-06-23
+ *  description : manage the full Calendar
  *
- *  function    : List all Church Events
+ *  http://www.ecclesiacrm.com/
  *
- *
- *  Modified by Stephen Shaffer, Oct 2006
- *  Modified by Philippe Logel, Oct 2018-01-08 and copyright
- *  feature changes - added recurring defaults and customizable attendance count
- *  fields
+ *  This code is under copyright not under MIT Licence
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
+ *                This code can't be incorporated in another software authorization
  *
  ******************************************************************************/
-require 'Include/Config.php';
-require 'Include/Functions.php';
 
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\EventTypes;
-use EcclesiaCRM\EventTypesQuery;
+
 use EcclesiaCRM\EventCountName;
 use EcclesiaCRM\EventCountNameQuery;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\EventTypesQuery;
+use EcclesiaCRM\Utils\RedirectUtils;
 
-
-if (!SessionUser::getUser()->isAdmin()) {
-    header('Location: v2/dashboard');
-}
-$sPageTitle = _('Edit Event Types');
-require 'Include/Header.php';
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 //
 //  process the ACTION button inputs from the form page
@@ -49,6 +37,8 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
 
     if (!empty($eventCountName)) {
         $eventCountName->delete();
+
+        $sGlobalMessage = " "._("Event count name deleted");
     }
 } else {
     switch ($_POST['Action']) {
@@ -59,6 +49,8 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
             $eventCountName->setTypeId($_POST['EN_tyid']);
 
             $eventCountName->save();
+
+            $sGlobalMessage = " "._("Event count name added");
 
             break;
 
@@ -75,6 +67,9 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
 
             $theID = '';
             $_POST['Action'] = '';
+
+            $sGlobalMessage = " "._("Name changed");
+
             break;
 
         case 'COLOR':
@@ -90,6 +85,8 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
 
             $theID = '';
             $_POST['Action'] = '';
+
+            $sGlobalMessage = " "._("Color changed");
             break;
 
         case 'TIME':
@@ -106,6 +103,8 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
 
             $theID = '';
             $_POST['Action'] = '';
+
+            $sGlobalMessage = " "._("Event time modified");
             break;
     }
 }
@@ -176,6 +175,8 @@ if ($numCounts) {
 /*print_r($cCountName);
 print_r($cCountID);*/
 
+require $sRootDocument . '/Include/Header.php';
+
 // Construct the form
 ?>
 <div class='card'>
@@ -183,7 +184,7 @@ print_r($cCountID);*/
         <h3 class='card-title'><?= _('Edit Event Type') ?></h3>
     </div>
 
-    <form method="POST" action="EditEventTypes.php" name="EventTypeEditForm">
+    <form method="POST" action="<?= $sRootPath ?>/v2/calendar/events/types/edit" name="EventTypeEditForm">
         <input type="hidden" name="EN_tyid" value="<?= $aTypeID ?>">
         <input type="hidden" name="EN_ctid" value="<?= $cCountID[$c] ?>">
 
@@ -198,7 +199,7 @@ print_r($cCountID);*/
                 </td>
                 <td class="TextColumn" width="50%">
                     <button type="submit" Name="Action" value="NAME"
-                            class="btn btn-primary"><?= _('Save Name') ?></button>
+                            class="btn btn-primary"><i class="fas fa-save"></i> <?= _('Save Name') ?></button>
                 </td>
             </tr>
 
@@ -218,7 +219,7 @@ print_r($cCountID);*/
                 </td>
                 <td class="TextColumn" width="50%">
                     <button type="submit" Name="Action" value="COLOR"
-                            class="btn btn-primary"><?= _('Save Color') ?></button>
+                            class="btn btn-primary"><i class="fas fa-save"></i>  <?= _('Save Color') ?></button>
                 </td>
             </tr>
 
@@ -250,7 +251,7 @@ print_r($cCountID);*/
                     <td class="TextColumn" width="35%"><?= $cCountName[$c] ?></td>
                     <td class="TextColumn" width="50%">
                         <button type="submit" name="Action" value="DELETE_<?= $cCountID[$c] ?>"
-                                class="btn btn-danger"><?= _('Remove') ?></button>
+                                class="btn btn-danger"><i class="fas fa-trash-alt"></i>  <?= _('Remove') ?></button>
                     </td>
                 </tr>
                 <?php
@@ -263,7 +264,7 @@ print_r($cCountID);*/
                 </td>
                 <td class="TextColumn" width="50%">
                     <button type="submit" name="Action" value="ADD"
-                            class="btn btn-success"><?= _('Add counter') ?></button>
+                            class="btn btn-success"><i class="fas fa-plus"></i>  <?= _('Add counter') ?></button>
                 </td>
             </tr>
         </table>
@@ -271,18 +272,18 @@ print_r($cCountID);*/
 </div>
 
 <div>
-    <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar/events/names" class='btn btn-default'>
+    <a href="<?= $sRootPath ?>/v2/calendar/events/names" class='btn btn-default'>
         <i class='fas fa-chevron-left'></i>
         <?= _('Return to Event Types') ?>
     </a>
 </div>
 
 <script
-    src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
-<link href="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css"
+    src="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
+<link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css"
       rel="stylesheet">
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= $CSPNonce ?>">
     $(".my-colorpicker-event").colorpicker({
         inline: false,
         horizontal: true,
@@ -290,4 +291,5 @@ print_r($cCountID);*/
     });
 </script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
