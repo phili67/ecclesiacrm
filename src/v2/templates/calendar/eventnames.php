@@ -2,14 +2,14 @@
 
 /*******************************************************************************
  *
- *  filename    : templates/Calendar.php
- *  last change : 2019-02-5
+ *  filename    : templates/eventnames.php
+ *  last change : 2023-06-23
  *  description : manage the full Calendar
  *
  *  http://www.ecclesiacrm.com/
  *
  *  This code is under copyright not under MIT Licence
- *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
  *                This code can't be incorporated in another software authorization
  *
  ******************************************************************************/
@@ -334,7 +334,7 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
                                         </button>
                                     </td>
                                     <td>
-                                        <form name="ProcessEventType" action="<?= $sRootPath ?>/EditEventTypes.php" method="POST"
+                                        <form name="ProcessEventType" action="<?= $sRootPath ?>/v2/calendar/events/types/edit" method="POST"
                                               class="pull-left">
                                             <input type="hidden" name="EN_tyid" value="<?= $aTypeID[$row] ?>">
                                             <button type="submit" class="btn btn-success btn-sm" name="Action"
