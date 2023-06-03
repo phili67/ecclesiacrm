@@ -317,7 +317,7 @@ class VIEWCalendarController {
 
     
 
-    public function renderCalendarEventNamesEdit (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderCalendarEventNames (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $renderer = new PhpRenderer('templates/calendar/');
 
         if (!SessionUser::getUser()->isAdmin()) {
@@ -328,6 +328,31 @@ class VIEWCalendarController {
     }
 
     public function argumentsEventNamesArray ()
+    {
+        $sPageTitle = _('List Event Types');
+    
+
+        $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
+            'sRootDocument' => SystemURLs::getDocumentRoot(),
+            'CSPNonce' => SystemURLs::getCSPNonce(),
+            'sPageTitle'  => $sPageTitle
+        ];
+
+        return $paramsArguments;
+    }
+
+    
+    public function renderCalendarEventTypesEdit (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/calendar/');
+
+        if (!SessionUser::getUser()->isAdmin()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'eventtypesedit.php', $this->argumentsEventTypesEditArray());
+    }
+
+    public function argumentsEventTypesEditArray ()
     {
         $sPageTitle = _('Edit Event Types');
     
