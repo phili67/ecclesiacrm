@@ -1,46 +1,31 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : EventNames.php
- *  last change : 2005-09-10
- *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2005 Todd Pillars
+ *  filename    : templates/Calendar.php
+ *  last change : 2019-02-5
+ *  description : manage the full Calendar
  *
- *  function    : List all Church Events
+ *  http://www.ecclesiacrm.com/
  *
- *  Modified by Stephen Shaffer, Oct 2006
- *  Modified by Philippe Logel, Oct 2018-01-08 and copyright
- *  feature changes - added recurring defaults and customizable attendance count
- *  fields
+ *  This code is under copyright not under MIT Licence
+ *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+ *                This code can't be incorporated in another software authorization
  *
  ******************************************************************************/
 
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\EventTypes;
-use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\EventCountName;
 use EcclesiaCRM\EventCountNameQuery;
+use EcclesiaCRM\EventTypesQuery;
+use EcclesiaCRM\Utils\RedirectUtils;
+
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
 
-if (!SessionUser::getUser()->isAdmin()) {
-    RedirectUtils::Redirect('v2/dashboard');
-}
-
-$sPageTitle = _('Edit Event Types');
-
-require 'Include/Header.php';
-
-//
-//  process the ACTION button inputs from the form page
-//
+require $sRootDocument . '/Include/Header.php';
 
 if (isset($_POST['Action'])) {
     switch (InputUtils::LegacyFilterInput($_POST['Action'])) {
@@ -87,7 +72,7 @@ if (isset($_POST['Action'])) {
             }
 
             $_POST = array();
-            RedirectUtils::Redirect('EventNames.php'); // clear POST
+            RedirectUtils::Redirect('v2/calendar/events/names'); // clear POST
             break;
     }
 }
@@ -173,7 +158,7 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
     ?>
     <div class='card card-primary'>
         <div class='card-body'>
-            <form name="UpdateEventNames" action="EventNames.php" method="POST" class='form-horizontal'>
+            <form name="UpdateEventNames" action="<?= $sRootPath ?>/v2/calendar/events/names" method="POST" class='form-horizontal'>
                 <input type="hidden" name="theID" value="<?= $aTypeID[$row] ?>">
                 <div class='row form-group'>
                     <div class='col-sm-4 control-label text-bold'>
@@ -281,7 +266,7 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
                 </div>
                 <div class='row form-group'>
                     <div class='col-sm-8 col-sm-offset-4'>
-                        <a href="EventNames.php" class='btn btn-default'>
+                        <a href="<?= $sRootPath ?>/v2/calendar/events/names" class='btn btn-default'>
                             <?= _('Cancel') ?>
                         </a>
                         <button type="submit" Name="Action" value="CREATE" class="btn btn-primary">
@@ -327,7 +312,14 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
                     ?>
                     <tr>
                         <!--<td><?= $aTypeID[$row] ?></td>-->
-                        <td><?= $aTypeName[$row] ?></td>
+                        <td>
+                            <table class='table-simple-padding outer'>
+                                    <tr class="no-background-theme">
+                                        <td><div style="background-color:<?= $aDefColorType[$row] ?>;width:30px;height:30px;border: 2px solid black;"></div></td>
+                                        <td><?= $aTypeName[$row] ?></td>
+                                    </tr>
+                            </table>
+                        </td>
                         <!--<td><?= $recur[$row] ?></td>-->
                         <td><?= $aDefStartTime[$row] ?></td>
                         <td><?= $cCountList[$row] ?></td>
@@ -338,11 +330,11 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
                                         <button value="<?= _('Create Event') ?>"
                                                 class="btn btn-primary btn-sm add-event"
                                                 data-typeid="<?= $aTypeID[$row] ?>">
-                                            <?= _('Create Event') ?>
+                                            <i class="fas fa-ticket-alt"></i> <?= _('Create Event') ?>
                                         </button>
                                     </td>
                                     <td>
-                                        <form name="ProcessEventType" action="EditEventTypes.php" method="POST"
+                                        <form name="ProcessEventType" action="<?= $sRootPath ?>/EditEventTypes.php" method="POST"
                                               class="pull-left">
                                             <input type="hidden" name="EN_tyid" value="<?= $aTypeID[$row] ?>">
                                             <button type="submit" class="btn btn-success btn-sm" name="Action"
@@ -356,10 +348,6 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
                                                 data-tooltip name="Action" data-typeid="<?= $aTypeID[$row] ?>">
                                             <i class='fas fa-trash-alt'></i>
                                         </button>
-                                    </td>
-                                    <td>
-                                        <div
-                                            style="background-color:<?= $aDefColorType[$row] ?>;width:30px;height:30px"></div>
                                     </td>
                                 </tr>
                             </table>
@@ -376,19 +364,19 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
 </div>
 
 <div class="text-center">
-    <form name="AddEventNames" action="EventNames.php" method="POST">
+    <form name="AddEventNames" action="<?= $sRootPath ?>/v2/calendar/events/names" method="POST">
         <button type="submit" Name="Action" value="NEW" class="btn btn-primary">
             <?= _('Add Event Type') ?>
-        </button
+        </button>
     </form>
 </div>
 
 <script
-    src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
-<link href="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css"
+    src="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
+<link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css"
       rel="stylesheet">
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= $CSPNonce ?>">
     $(document).ready(function () {
         //Added by @saulowulhynek to translation of datatable nav terms
         $('#eventNames').DataTable(window.CRM.plugin.dataTable);
@@ -402,12 +390,12 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
 
 </script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= $CSPNonce ?>">
     window.CRM.isModifiable = true;
 
     window.CRM.churchloc = {
@@ -419,29 +407,32 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
 </script>
 
 <script
-    src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"
+    src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"
         type="text/javascript"></script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/EventEditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/event/EventNames.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/publicfolder.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/event/EventNames.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
 
 <?php
 if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
     <?php
 } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps') {
     ?>
     <!--Google Map Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
 
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
     <?php
 } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
     ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/BingMapEvent.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
     <?php
 }
 ?>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+

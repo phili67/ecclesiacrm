@@ -94,5 +94,8 @@ unlink(SystemURLs::getDocumentRoot()."/QueryList.php");
 unlink(SystemURLs::getDocumentRoot()."/QueryView.php");
 unlink(SystemURLs::getDocumentRoot()."/QuerySQL.php");
 
+// 2023-06-03
+unlink(SystemURLs::getDocumentRoot()."/EventNames.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>

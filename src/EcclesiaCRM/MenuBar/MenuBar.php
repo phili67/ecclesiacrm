@@ -135,7 +135,8 @@ class MenuBar extends Menu
         }
 
         $menuItem = new Menu (_("List Church Events"), "far fa-calendar", "v2/calendar/events/list", true, $menu);
-        $menuItem = new Menu (_("List Event Types"), "fas fa-cog", "EventNames.php", SessionUser::getUser()->isAdmin(), $menu);
+        $menuItem = new Menu (_("List Event Types"), "fas fa-cog", "v2/calendar/events/names", SessionUser::getUser()->isAdmin(), $menu);
+        $menuItem->addLink("EditEventTypes.php");
         $menuItem = new Menu (_("Call the Register"), "fas fa-bullhorn", "v2/calendar/events/checkin", true, $menu);
 
         $this->addPluginMenus('Events', $menu);
@@ -542,9 +543,11 @@ class MenuBar extends Menu
         $menuItem = new Menu (_("Reports Menu"), "far fa-circle", "ReportList.php", SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool'), $menu);
         $menuItem = new Menu (_("Query Menu"), "fas fa-database", "v2/query/list", SessionUser::getUser()->isShowMenuQueryEnabled(), $menu);
 
-        for ($i=1;$i <700;$i++) {
+        for ($i=1;$i <100;$i++) {
             $menuItem->addLink('v2/query/view/'.$i);
         }
+
+        $menuItem->addLink('v2/query/sql');
 
         if (SessionUser::getUser()->isShowMenuQueryEnabled()) {
             $this->addMenu($menu);

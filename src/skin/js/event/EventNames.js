@@ -21,7 +21,7 @@ $(document).ready(function () {
                     window.CRM.editor = null;
                 }
 
-                modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'EventNames.php');
+                modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'v2/calendar/events/names');
 
                 // we add the calendars and the types
                 addCalendars();
