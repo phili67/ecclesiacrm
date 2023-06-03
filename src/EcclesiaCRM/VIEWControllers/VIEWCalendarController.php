@@ -315,5 +315,31 @@ class VIEWCalendarController {
         return $paramsArguments;
     }
 
+    
+
+    public function renderCalendarEventNamesEdit (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/calendar/');
+
+        if (!SessionUser::getUser()->isAdmin()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'eventnames.php', $this->argumentsEventNamesArray());
+    }
+
+    public function argumentsEventNamesArray ()
+    {
+        $sPageTitle = _('Edit Event Types');
+    
+
+        $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
+            'sRootDocument' => SystemURLs::getDocumentRoot(),
+            'CSPNonce' => SystemURLs::getCSPNonce(),
+            'sPageTitle'  => $sPageTitle
+        ];
+
+        return $paramsArguments;
+    }
+
 
 }
