@@ -100,6 +100,7 @@ unlink(SystemURLs::getDocumentRoot()."/EditEventTypes.php");
 
 // 2023-06-06
 unlink(SystemURLs::getDocumentRoot()."/ManageEnvelopes.php");
+unlink(SystemURLs::getDocumentRoot()."/FinancialReports.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
