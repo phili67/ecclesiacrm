@@ -44,7 +44,7 @@ require $sRootDocument . '/Include/Header.php';
                             <label for="GroupID"><?= _('Select Group') ?>:</label>
                             <select id="GroupID" class="form-control form-control-sm" name="GroupID" onChange="UpdateRoles();">
                                 // Create the group select drop-down
-                                <option value="0"><?= _('None') ?></option>
+                                <option value="-1"><?= _('None') ?></option>
                               <?php
                                 foreach ($groups as $group) {
                               ?>
