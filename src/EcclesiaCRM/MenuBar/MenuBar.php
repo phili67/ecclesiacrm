@@ -459,7 +459,7 @@ class MenuBar extends Menu
         $menuItem = new Menu (_("Envelope Manager"), "fas fa-envelope", "v2/deposit/manage/envelopes", SessionUser::getUser()->isFinanceEnabled(), $menu);
         $menuItem = new Menu (_("View All Deposits"), "fas fa-tachometer-alt", "v2/deposit/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
         $menuItem = new Menu (_("Electronic Payment Listing"), "fas fa-credit-card", "ElectronicPaymentList.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("Deposit Reports"), "fas fa-file-pdf", "FinancialReports.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        $menuItem = new Menu (_("Deposit Reports"), "fas fa-file-pdf", "v2/deposit/financial/reports", SessionUser::getUser()->isFinanceEnabled(), $menu);
         $menuItem = new Menu (_("Edit Deposit Slip") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentDeposit'] . '</small>', "fas fa-file-invoice-dollar", "v2/deposit/slipeditor/" . $_SESSION['iCurrentDeposit'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
 
         $this->addPluginMenus('Deposit', $menu);

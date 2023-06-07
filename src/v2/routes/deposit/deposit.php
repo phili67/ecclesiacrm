@@ -28,4 +28,10 @@ $app->group('/deposit', function (RouteCollectorProxy $group) {
 
     $group->get('/manage/envelopes', VIEWDepositController::class . ':renderManageEnvelopes');
     $group->post('/manage/envelopes', VIEWDepositController::class . ':renderManageEnvelopes');
+
+    $group->get('/financial/reports', VIEWDepositController::class . ':renderFinancialReports');
+
+    $group->get('/financial/reports/NoRows/{ReportType}', VIEWDepositController::class . ':renderFinancialReportsNoRows');
+
+    $group->post('/financial/reports', VIEWDepositController::class . ':renderFinancialReports');
 });

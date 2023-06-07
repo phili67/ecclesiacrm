@@ -213,7 +213,7 @@ $statement->execute();
 // Exit if no rows returned
 $iCountRows = $statement->rowCount();
 if ($iCountRows < 1) {
-    header('Location: ../FinancialReports.php?ReturnMessage=NoRows&ReportType=Advanced%20Deposit%20Report');
+    RedirectUtils::Redirect('v2/deposit/financial/reports/NoRows/Advanced%20Deposit%20Report');
 }
 
 // Create PDF Report -- PDF

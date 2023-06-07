@@ -1,71 +1,44 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : FinancialReports.php
- *  last change : 2005-03-26
- *  description : form to invoke financial reports
+ *  filename    : financialReports.php
+ *  last change : 2023-06-06
+ *  website     : http://www.ecclesiacrm.com
+ *  copyright   : Copyright 2023 EcclesiaCRM
  *
  ******************************************************************************/
 
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
+ use EcclesiaCRM\Utils\MiscUtils;
+ use EcclesiaCRM\dto\SystemConfig;
+ use EcclesiaCRM\SessionUser;
+ use EcclesiaCRM\ListOptionQuery;
+ use EcclesiaCRM\DepositQuery;
+ use EcclesiaCRM\FamilyQuery;
+ use EcclesiaCRM\DonationFundQuery;
+ 
+ use Propel\Runtime\Propel;
+ use Propel\Runtime\ActiveQuery\Criteria;
 
-
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\DepositQuery;
-use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\DonationFundQuery;
-
-use Propel\Runtime\Propel;
-use Propel\Runtime\ActiveQuery\Criteria;
-
-
-
-// Security
-if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-$sReportType = '';
-
-if (array_key_exists('ReportType', $_POST)) {
-    $sReportType = InputUtils::LegacyFilterInput($_POST['ReportType']);
-}
-
-if ($sReportType == '' && array_key_exists('ReportType', $_GET)) {
-    $sReportType = InputUtils::LegacyFilterInput($_GET['ReportType']);
-}
-
-// Set the page title and include HTML header
-$sPageTitle = _("Financial Reports");
-if ($sReportType) {
-    $sPageTitle .= ': '._($sReportType);
-}
-require 'Include/Header.php';
+// we place this part to avoid a problem during the upgrade process
+// Set the page title
+require $sRootDocument . '/Include/Header.php';
 ?>
+
 <div class="card card-body">
 <br>
 <?php
 
 // No Records Message if previous report returned no records.
-if (array_key_exists('ReturnMessage', $_GET) && $_GET['ReturnMessage'] == 'NoRows') {
+if ($ReturnMessage == 'NoRows') {
 ?>
-    <h3><font color=red><?= _("No records were returned from the previous report.")?></font></h3>
+    <h3 style="color:red"><?= _("No records were returned from the previous report.")?></h3>
 <?php
 }
 
 if ($sReportType == '') {
     // First Pass - Choose report type
 ?>
-<form method=post action='<?= SystemURLs::getRootPath()?>/FinancialReports.php'>
+<form method=post action='<?= $sRootPath?>/v2/deposit/financial/reports'>
   <table cellpadding=3 align=left>
     <tr>
       <td class=LabelColumn><?= _("Report Type:") ?>&nbsp;&nbsp;</td>
@@ -83,14 +56,13 @@ if ($sReportType == '') {
         </select>
       </td>
     </tr>
-
 <?php
     // First Pass Cancel, Next Buttons
 ?>
     <tr>
       <td>&nbsp;</td>
       <td><br><input type=button class='btn btn-default' name=Cancel value='<?= _("Cancel")?>'
-        onclick="javascript:document.location='<?= SystemURLs::getRootPath() ?>/ReportList.php';">
+        onclick="javascript:document.location='<?= $sRootPath ?>/ReportList.php';">
         <input type=submit class='btn btn-primary' name=Submit1 value='<?= _("Next") ?>'>
       </td>
     </tr>
@@ -104,28 +76,28 @@ if ($sReportType == '') {
     // Set report destination, based on report type
     switch ($sReportType) {
         case 'Giving Report':
-            $action = SystemURLs::getRootPath().'/Reports/TaxReport.php';
+            $action = $sRootPath.'/Reports/TaxReport.php';
         break;
         case 'Zero Givers':
-            $action = SystemURLs::getRootPath().'/Reports/ZeroGivers.php';
+            $action = $sRootPath.'/Reports/ZeroGivers.php';
         break;
         case 'Pledge Summary':
-            $action = SystemURLs::getRootPath().'/Reports/PledgeSummary.php';
+            $action = $sRootPath.'/Reports/PledgeSummary.php';
         break;
         case 'Pledge Family Summary':
-            $action = SystemURLs::getRootPath().'/Reports/FamilyPledgeSummary.php';
+            $action = $sRootPath.'/Reports/FamilyPledgeSummary.php';
         break;
         case 'Pledge Reminders':
-            $action = SystemURLs::getRootPath().'/Reports/ReminderReport.php';
+            $action = $sRootPath.'/Reports/ReminderReport.php';
         break;
         case 'Voting Members':
-            $action = SystemURLs::getRootPath().'/Reports/VotingMembers.php';
+            $action = $sRootPath.'/Reports/VotingMembers.php';
         break;
         case 'Individual Deposit Report':
-            $action = SystemURLs::getRootPath().'/Reports/PrintDeposit.php';
+            $action = $sRootPath.'/Reports/PrintDeposit.php';
         break;
         case 'Advanced Deposit Report':
-            $action = SystemURLs::getRootPath().'/Reports/AdvancedDeposit.php';
+            $action = $sRootPath.'/Reports/AdvancedDeposit.php';
         break;
     }
 ?>
@@ -486,7 +458,7 @@ if ($sReportType == '') {
     <tr>
       <td>&nbsp;</td>
       <td><input type=button class='btn btn-default' name=Cancel value='<?= _("Back") ?>'
-        onclick="javascript:document.location='<?= SystemURLs::getRootPath()?>/FinancialReports.php';">
+        onclick="javascript:document.location='<?= $sRootPath?>/v2/deposit/financial/reports';">
         <input type=submit class='btn btn-primary' name=Submit2 value='<?= _("Create Report") ?>'>
       </td>
     </tr>
@@ -498,7 +470,7 @@ if ($sReportType == '') {
 ?>
 <br/>
 </div>
-<?php
-require 'Include/Footer.php';
-?>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/finance/FinancialReports.js"></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+<script src="<?= $sRootPath ?>/skin/js/finance/FinancialReports.js"></script>
