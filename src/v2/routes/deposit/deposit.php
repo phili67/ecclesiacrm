@@ -25,4 +25,7 @@ $app->group('/deposit', function (RouteCollectorProxy $group) {
     $group->post('/slipeditor/{DepositSlipID:[0-9]+}', VIEWDepositController::class . ':renderDepositSlipEditor');
 
     $group->get('/find', VIEWDepositController::class . ':renderDepositFind');
+
+    $group->get('/manage/envelopes', VIEWDepositController::class . ':renderManageEnvelopes');
+    $group->post('/manage/envelopes', VIEWDepositController::class . ':renderManageEnvelopes');
 });
