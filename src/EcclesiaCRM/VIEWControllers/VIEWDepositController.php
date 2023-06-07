@@ -19,6 +19,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\DepositQuery;
 
+use EcclesiaCRM\Utils\InputUtils;
+
 use EcclesiaCRM\DonationFundQuery;
 
 use Slim\Views\PhpRenderer;
@@ -165,8 +167,6 @@ class VIEWDepositController {
         return $paramsArguments;
     }
 
-    
-
     public function renderManageEnvelopes (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $renderer = new PhpRenderer('templates/deposit/');
@@ -191,6 +191,65 @@ class VIEWDepositController {
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
             'sPageTitle'                => $sPageTitle
+        ];
+
+        return $paramsArguments;
+    }
+
+    public function renderFinancialReports (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/deposit/');
+
+        // Security: User must have finance permission or be the one who created this deposit
+        if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'financialReports.php', $this->argumentsFinancialReportsArray());
+    }
+
+    public function renderFinancialReportsNoRows (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/deposit/');
+
+        // Security: User must have finance permission or be the one who created this deposit
+        if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        if (isset($args['ReportType'])) {
+            $sReportType = InputUtils::LegacyFilterInput($args['ReportType']);
+        }
+
+        return $renderer->render($response, 'financialReports.php', $this->argumentsFinancialReportsArray('NoRows', $sReportType));
+    }
+
+    public function argumentsFinancialReportsArray ($ReturnMessage = '', $sReportType = '')
+    {
+        //Set the page title
+        if (array_key_exists('ReportType', $_POST)) {
+            $sReportType = InputUtils::LegacyFilterInput($_POST['ReportType']);
+        }
+        
+        if ($sReportType == '' && array_key_exists('ReportType', $_GET)) {
+            $sReportType = InputUtils::LegacyFilterInput($_GET['ReportType']);
+        }
+        
+        // Set the page title and include HTML header
+        $sPageTitle = _("Financial Reports");
+        if ($sReportType) {
+            $sPageTitle .= ': '._($sReportType);
+        }
+
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'sReportType'               => $sReportType,
+            'ReturnMessage'             => $ReturnMessage
         ];
 
         return $paramsArguments;
