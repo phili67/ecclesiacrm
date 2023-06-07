@@ -19,6 +19,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemURLs;
 
 
 // Security
@@ -47,7 +48,7 @@ require 'Include/Header.php';
         </div>
         <div class="card-body">
           <p>
-            <a class="MediumText" href="FinancialReports.php">
+            <a class="MediumText" href="<?= SystemURLs::getRootPath() ?>/v2/deposit/financial/reports">
           </p>
           <?php
           if (SessionUser::getUser()->isAdmin()) {

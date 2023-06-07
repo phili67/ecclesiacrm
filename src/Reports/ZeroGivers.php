@@ -76,7 +76,7 @@ $rsReport->execute();
 // Exit if no rows returned
 $iCountRows = $rsReport->rowCount();
 if ($iCountRows < 1) {
-    header('Location: ../FinancialReports.php?ReturnMessage=NoRows&ReportType=Zero%20Givers');
+    RedirectUtils::Redirect('v2/deposit/financial/reports/NoRows/Zero%20Givers');
 }
 
 // Create Giving Report -- PDF
