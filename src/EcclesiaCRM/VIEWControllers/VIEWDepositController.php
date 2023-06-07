@@ -217,6 +217,8 @@ class VIEWDepositController {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
+        $sReportType = '';
+        
         if (isset($args['ReportType'])) {
             $sReportType = InputUtils::LegacyFilterInput($args['ReportType']);
         }
