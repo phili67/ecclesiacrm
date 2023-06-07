@@ -29,10 +29,6 @@ class EnvelopeUtilities
       foreach ($persons as $person) {
         $famArr[$ind++] = $person->getFamId();
       }
-      while ($aRow = mysqli_fetch_array($rsPeople)) {
-          extract($aRow);
-          $famArr[$ind++] = $per_fam_ID;
-      }
       
       $famUnique = array_unique($famArr);
       

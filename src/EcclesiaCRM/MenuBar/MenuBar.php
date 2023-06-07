@@ -456,7 +456,7 @@ class MenuBar extends Menu
         $menu->addBadge('badge badge-success  count-deposit', '', $numberDeposit);
 
 
-        $menuItem = new Menu (_("Envelope Manager"), "fas fa-envelope", "ManageEnvelopes.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        $menuItem = new Menu (_("Envelope Manager"), "fas fa-envelope", "v2/deposit/manage/envelopes", SessionUser::getUser()->isFinanceEnabled(), $menu);
         $menuItem = new Menu (_("View All Deposits"), "fas fa-tachometer-alt", "v2/deposit/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
         $menuItem = new Menu (_("Electronic Payment Listing"), "fas fa-credit-card", "ElectronicPaymentList.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
         $menuItem = new Menu (_("Deposit Reports"), "fas fa-file-pdf", "FinancialReports.php", SessionUser::getUser()->isFinanceEnabled(), $menu);

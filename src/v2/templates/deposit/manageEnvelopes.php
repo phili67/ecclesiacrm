@@ -1,34 +1,22 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : ManageEnvelopes.php
- *  last change : 2005-02-21
+ *  filename    : manageEnvelopes.php
+ *  last change : 2023-06-07
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2006 Michael Wilt
-  *
+ *  copyright   : Copyright 2023 EcclesiaCRM
+ *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\EnvelopeUtilities;
-use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\ListOptionQuery;
 
-//Set the page title
-$sPageTitle = _('Envelope Manager');
+use EcclesiaCRM\Utils\RedirectUtils;
 
-// Security: User must have finance permission to use this form
-if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
+require $sRootDocument . '/Include/Header.php';
 
 if (isset($_POST['Classification'])) {
     $iClassification = $_POST['Classification'];
@@ -96,12 +84,10 @@ foreach ($ormClassifications as $ormClassification) {
   $classification[$ormClassification->getOptionId()] = $ormClassification->getOptionName();
 }
 
-require 'Include/Header.php';
-
 ?>
 
 <div class="card card-body">
-<form method="post" action="<?= SystemURLs::getRootPath() ?>/ManageEnvelopes.php" name="ManageEnvelopes">
+<form method="post" action="<?= $sRootPath ?>/v2/deposit/manage/envelopes" name="ManageEnvelopes">
 <?php
 
 $duplicateEnvelopeHash = [];
@@ -112,7 +98,7 @@ if (isset($_POST['PrintReport'])) {
     RedirectUtils::Redirect('Reports/EnvelopeReport.php');
 } elseif (isset($_POST['AssignAllFamilies'])) {
     EnvelopeUtilities::EnvelopeAssignAllFamilies($iClassificationFamily);
-    RedirectUtils::Redirect('ManageEnvelopes.php');
+    RedirectUtils::Redirect('v2/deposit/manage/envelopes');
 } elseif (isset($_POST['ZeroAll'])) {
     $envelopesByFamID = []; // zero it out
     foreach ($familyArray as $fam_ID => $fam_Data) {
@@ -133,8 +119,8 @@ if (isset($_POST['PrintReport'])) {
   <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="upload-Image-label"><?= _('Update Envelopes') ?></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
         <span style="color:red"><?= _('This will overwrite the family envelope numbers in the database with those selected on this page.  Continue?')?></span>
@@ -239,6 +225,8 @@ foreach ($arrayToLoop as $fam_ID => $value) {
 </form>
 </div>
 
-<?php
-require 'Include/Footer.php';
-?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+
+
+

@@ -98,5 +98,8 @@ unlink(SystemURLs::getDocumentRoot()."/QuerySQL.php");
 unlink(SystemURLs::getDocumentRoot()."/EventNames.php");
 unlink(SystemURLs::getDocumentRoot()."/EditEventTypes.php");
 
+// 2023-06-06
+unlink(SystemURLs::getDocumentRoot()."/ManageEnvelopes.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>

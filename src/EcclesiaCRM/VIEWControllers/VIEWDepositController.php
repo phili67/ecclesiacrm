@@ -164,4 +164,35 @@ class VIEWDepositController {
 
         return $paramsArguments;
     }
+
+    
+
+    public function renderManageEnvelopes (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/deposit/');
+
+        // Security: User must have finance permission or be the one who created this deposit
+        if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'manageEnvelopes.php', $this->argumentsManageEnvelopesArray());
+    }
+
+    public function argumentsManageEnvelopesArray ()
+    {
+        //Set the page title
+        $sPageTitle = _("Envelope Manager");
+
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle
+        ];
+
+        return $paramsArguments;
+    }
 }
