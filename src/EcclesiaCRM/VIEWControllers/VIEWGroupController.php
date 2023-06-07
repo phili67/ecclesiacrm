@@ -254,7 +254,9 @@ class VIEWGroupController {
 
         if (isset($_POST['GroupID'])) {
             $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int');
-            $groupName = " : ".GroupQuery::Create()->findOneById($_POST['GroupID'])->getName();
+            if ($iGroupID > 0) {
+                $groupName = " : ".GroupQuery::Create()->findOneById($_POST['GroupID'])->getName();
+            }
         }
 
         return $renderer->render($response, 'groupreports.php', $this->argumentsGroupReportArray($groupName,$iGroupID));
