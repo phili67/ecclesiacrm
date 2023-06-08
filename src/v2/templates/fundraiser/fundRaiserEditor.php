@@ -1,44 +1,23 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : FundRaiserEditor.php
- *  last change : 2009-04-15
+ *  filename    : fundRaiserEditor.php
+ *  last change : 2023-06-08
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2009 Michael Wilt
+ *  copyright   : Copyright 2023s Philippe Logel
  *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\FundRaiser;
+use EcclesiaCRM\FundRaiserQuery;
+ 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\RedirectUtils;
 
-use EcclesiaCRM\FundRaiserQuery;
-use EcclesiaCRM\FundRaiser;
-
 use Propel\Runtime\Propel;
-
-$linkBack = InputUtils::LegacyFilterInputArr($_GET, 'linkBack');
-$iFundRaiserID = InputUtils::LegacyFilterInputArr($_GET, 'FundRaiserID');
-
-if ($iFundRaiserID > 0) {
-    // Get the current fund raiser record
-    $ormFRR = FundRaiserQuery::create()
-        ->findOneById($iFundRaiserID);
-    // Set current fundraiser
-    $_SESSION['iCurrentFundraiser'] = $iFundRaiserID;
-}
-
-if ($iFundRaiserID > 0) {
-    $sPageTitle = _('Fundraiser') . ' #' . $iFundRaiserID . ' ' . $ormFRR->getTitle();
-} else {
-    $sPageTitle = _('Create New Fund Raiser');
-}
 
 $sDateError = '';
 
@@ -101,7 +80,7 @@ if (isset($_POST['FundRaiserSubmit'])) {
                 RedirectUtils::Redirect($linkBack);
             } else {
                 //Send to the view of this FundRaiser
-                RedirectUtils::Redirect('FundRaiserEditor.php?FundRaiserID=' . $iFundRaiserID);
+                RedirectUtils::Redirect('v2/fundraiser/editor/' . $iFundRaiserID);
             }
         }
     }
@@ -151,7 +130,7 @@ if ($iFundRaiserID > 0) {
     $_SESSION['iCurrentFundraiser'] = $iFundRaiserID;        // Probably redundant
 }
 
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 
 ?>
 <div class="card">
@@ -160,7 +139,7 @@ require 'Include/Header.php';
     </div>
     <div class="card-body">
         <form method="post"
-              action="FundRaiserEditor.php?<?= 'linkBack=' . $linkBack . '&FundRaiserID=' . $iFundRaiserID ?>"
+              action="<?= $sRootPath ?>/v2/fundraiser/editor<?= ($iFundRaiserID != -1)?('/'.$iFundRaiserID):'' ?><?=  ($linkBack != '')?('/'.$linkBack):'' ?>"
               name="FundRaiserEditor">
 
             <table cellpadding="3" align="center">
@@ -210,20 +189,20 @@ require 'Include/Header.php';
                         <input type="button" class="btn btn-default btn-sm" value="<?= _('Cancel') ?>"
                                name="FundRaiserCancel"
                                onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
-                                   echo $linkBack;
+                                   echo $sRootPath.'/'.$linkBack;
                                } else {
-                                   echo 'v2/dashboard';
+                                   echo $sRootPath.'/v2/dashboard';
                                } ?>';">
                         <?php
                         if ($iFundRaiserID > 0) {
                             ?>
-                            <input type=button class="btn btn-success btn-sm" value="<?= _('Add Donated Item') ?>" name=AddDonatedItem onclick="javascript:document.location='v2/fundraiser/donatedItemEditor/0/<?= $iFundRaiserID ?>';">
-                            <input type=button class="btn btn-danger btn-sm" value="<?= _('Buyers') ?>" name=AddDonatedItem onclick="javascript:document.location='v2/fundraiser/paddlenum/list/<?= $iFundRaiserID ?>';" data-toggle="tooltip" data-placement="bottom" title="<?= _("Add buyers to your Fundraiser") ?>">
+                            <input type=button class="btn btn-success btn-sm" value="<?= _('Add Donated Item') ?>" name=AddDonatedItem onclick="javascript:document.location='<?= $sRootPath ?>/v2/fundraiser/donatedItemEditor/0/<?= $iFundRaiserID ?>';">
+                            <input type=button class="btn btn-danger btn-sm" value="<?= _('Buyers') ?>" name=AddDonatedItem onclick="javascript:document.location='<?= $sRootPath ?>/v2/fundraiser/paddlenum/list/<?= $iFundRaiserID ?>';" data-toggle="tooltip" data-placement="bottom" title="<?= _("Add buyers to your Fundraiser") ?>">
                             <br/><br/>
-                            <input type=button class="btn btn-success btn-sm" value="<?= _('Generate Catalog') ?>" name=GenerateCatalog onclick="javascript:document.location='Reports/FRCatalog.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
-                            <input type=button class="btn btn-info btn-sm" value="<?= _('Generate Bid Sheets') ?>" name=GenerateBidSheets onclick="javascript:document.location='Reports/FRBidSheets.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
-                            <input type=button class="btn btn-warning btn-sm" value="<?=  _('Generate Certificates') ?>" name=GenerateCertificates onclick="javascript:document.location='Reports/FRCertificates.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
-                            <input type=button class="btn btn-success btn-sm" value="<?= _('Batch Winner Entry') ?>" name=BatchWinnerEntry onclick="javascript:document.location='BatchWinnerEntry.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=FundRaiserEditor.php?FundRaiserID=<?= $iFundRaiserID ?>&CurrentFundraiser=<?= $iFundRaiserID ?>';">
+                            <input type=button class="btn btn-success btn-sm" value="<?= _('Generate Catalog') ?>" name=GenerateCatalog onclick="javascript:document.location='<?= $sRootPath ?>/Reports/FRCatalog.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
+                            <input type=button class="btn btn-info btn-sm" value="<?= _('Generate Bid Sheets') ?>" name=GenerateBidSheets onclick="javascript:document.location='<?= $sRootPath ?>/Reports/FRBidSheets.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
+                            <input type=button class="btn btn-warning btn-sm" value="<?=  _('Generate Certificates') ?>" name=GenerateCertificates onclick="javascript:document.location='<?= $sRootPath ?>/Reports/FRCertificates.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
+                            <input type=button class="btn btn-success btn-sm" value="<?= _('Batch Winner Entry') ?>" name=BatchWinnerEntry onclick="javascript:document.location='<?= $sRootPath ?>/BatchWinnerEntry.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=v2/fundraiser/editor/<?= $iFundRaiserID ?>';">
                         <?php
                         }
                         ?>
@@ -251,13 +230,14 @@ require 'Include/Header.php';
         </div>
     </div>
 
-    <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    <script nonce="<?= $sCSPNonce ?>">
         $(document).ready(function () {
             window.CRM.fundraiserID = <?= $iFundRaiserID ?>;
         });
     </script>
 
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/fundraiser/fundraiserEditor.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/fundraiser/fundraiserEditor.js"></script>
 <?php } ?>
 
-<?php require 'Include/Footer.php' ?>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
