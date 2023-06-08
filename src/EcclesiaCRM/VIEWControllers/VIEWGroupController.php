@@ -18,13 +18,15 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\SessionUser;
 
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PropertyQuery;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\PersonQuery;
+
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\CalendarinstancesQuery;
 
@@ -281,6 +283,68 @@ class VIEWGroupController {
             'iGroupID'                  => $iGroupID,
             'groupName'                 => $groupName,
             'groups'                    => $groups,
+        ];
+
+        return $paramsArguments;
+    }
+
+    public function renderGroupPropsEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/group/');
+
+        if ( !( SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups']  ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        // Get the Group from the querystring
+        $iGroupID = -1;
+        if (isset($args['GroupID'])) {
+            $iGroupID = InputUtils::LegacyFilterInput($args['GroupID'], 'int');
+        }
+
+        $iPersonID = -1;
+        if (isset($args['PersonID'])) {
+            $iPersonID = InputUtils::LegacyFilterInput($args['PersonID'], 'int');
+        }
+
+        $person = PersonQuery::Create()->findOneById($iPersonID);
+
+        // Get the group information
+        $group = GroupQuery::Create()->findOneById ($iGroupID);
+
+        // Abort if user tries to load with group having no special properties.
+        if ($group->getHasSpecialProps() == false) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . 'v2/group/'.$iGroupID.'/view');
+        }
+        
+
+        // Security: user must be allowed to edit records to use this page.
+        if ( !( SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->getPersonId() == $iPersonID ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'groupPropsEditor.php', $this->argumentsGroupPropsEditorArray($iGroupID,$iPersonID, $person, $group));
+    }
+
+    public function argumentsGroupPropsEditorArray ($iGroupID, $iPersonID, $person, $group)
+    {
+        // Set the page title and include HTML header
+        $sPageTitle = _('Group-Specific Properties Form Editor:').'  : "'.$group->getName().'" '._("for")." : ".$person->getFullName();
+
+        // Get all the groups
+        $groups = GroupQuery::Create()->orderByName()->find();
+
+        $sRootDocument = SystemURLs::getDocumentRoot();
+        $CSPNonce = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'iGroupID'                  => $iGroupID,
+            'iPersonID'                 => $iPersonID,
+            'person'                    => $person,
+            'group'                     => $group,
+            'groups'                    => $groups
         ];
 
         return $paramsArguments;
