@@ -52,7 +52,7 @@ $(document).ready(function () {
                 title: i18next.t('Edit'),
                 data: 'Id',
                 render: function (data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + '/FundRaiserEditor.php?FundRaiserID=' + full.Id +'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
+                    return '<a href="' + window.CRM.root + '/v2/fundraiser/editor/' + full.Id +'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
                 }
             },
             {

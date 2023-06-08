@@ -42,7 +42,7 @@ $(document).ready(function () {
             data: JSON.stringify({"DonatedItemID": donatedItem, "count": count})
         },function (data) {
             if (data.status == "success") {
-                window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + window.CRM.currentFundraiser;
+                window.location.href = window.CRM.root + "/v2/fundraiser/editor/" + window.CRM.currentFundraiser;
             }
         });
 
@@ -76,7 +76,7 @@ $(document).ready(function () {
             })
         },function (data) {
             if (data.status == "success") {
-                window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + window.CRM.currentFundraiser;
+                window.location.href = window.CRM.root + "/v2/fundraiser/editor/" + window.CRM.currentFundraiser;
             }
         });
     });
@@ -115,6 +115,6 @@ $(document).ready(function () {
     });
 
     $("#DonatedItemCancel").click(function () {
-        window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + window.CRM.currentFundraiser;
+        window.location.href = window.CRM.root + "/v2/fundraiser/editor/" + window.CRM.currentFundraiser;
     })
 });
