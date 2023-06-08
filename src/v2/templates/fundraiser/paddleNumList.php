@@ -15,7 +15,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <form method="post"
-      action="<?= $sRootPath ?>/Reports/FundRaiserStatement.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=FundRaiserEditor.php?FundRaiserID=<?= $iFundRaiserID ?> &CurrentFundraiser=<?= $iFundRaiserID ?>\">
+      action="<?= $sRootPath ?>/Reports/FundRaiserStatement.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=v2/fundraiser/editor/<?= $iFundRaiserID ?>\">
     <div class="card card-body">
         <div class="row">
 
