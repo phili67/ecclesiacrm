@@ -1,56 +1,28 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : GroupPropsEditor.php
- *  last change : 2019-05-01
- *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2019 Philippe Logel
+ *  filename    : groupPropsEditor.php
+ *  last change : 2023-06-08
+ *  description : modify de group props
  *
- *  function    : Editor for group-person-specific properties form
+ *  http://www.ecclesiacrm.com/
  *
-******************************************************************************/
+ *  This code is under copyright not under MIT Licence
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
+ *
+ ******************************************************************************/
 
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\GroupPropMasterQuery;
-use EcclesiaCRM\utils\RedirectUtils;
-
 use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\SessionUser;
 
+use EcclesiaCRM\GroupPropMasterQuery;
 
-// Get the Group from the querystring
-$iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
-$iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
+use Propel\Runtime\Propel;
 
-$person = PersonQuery::Create()->findOneById($iPersonID);
-
-// Security: user must be allowed to edit records to use this page.
-if ( !( SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->getPersonId() == $iPersonID ) ) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-
-// Get the group information
-$group = GroupQuery::Create()->findOneById ($iGroupID);
-$groups = GroupQuery::Create()->orderByName()->find();
-
-// Abort if user tries to load with group having no special properties.
-if ($group->getHasSpecialProps() == false) {
-    RedirectUtils::Redirect('v2/group/'.$iGroupID.'/view');
-}
-
-$sPageTitle = _('Group-Specific Properties Form Editor:').'  : "'.$group->getName().'" '._("for")." : ".$person->getFullName();
-
-require 'Include/Header.php'; ?>
+require $sRootDocument . '/Include/Header.php';
+?>
 
 <p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></p>
 
@@ -203,7 +175,7 @@ if (isset($_POST['SaveChanges'])) {
 // Construct the form
 ?>
 
-<form method="post" action="GroupPropsEditor.php?GroupID=<?= $iGroupID ?>&PersonID=<?= $iPersonID ?>" name="GroupPersonPropsFormEditor">
+<form method="post" action="<?= $sRootPath ?>/v2/group/props/editor/<?= $iGroupID ?>/<?= $iPersonID ?>" name="GroupPersonPropsFormEditor">
 
 <center>
 <div class="table-responsive">
@@ -213,7 +185,7 @@ if (isset($_POST['SaveChanges'])) {
 if ($numRows == 0) {
     ?>
   <center><h2><?= _('No properties have been added yet') ?></h2>
-      <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
+      <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
   </center>
 <?php
 } else {
@@ -279,7 +251,7 @@ if ($numRows == 0) {
                 }
             } elseif ($aTypeFields[$row] == 12) {
           ?>
-                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _("Edit List Options") ?></a>
+                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _("Edit List Options") ?></a>
           <?php
             } else {
                 echo '&nbsp;';
@@ -295,7 +267,7 @@ if ($numRows == 0) {
         <tr>
           <td width="10%"></td>
           <td width="40%" align="center" valign="bottom">
-            <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
+            <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
           </td>
           <td width="40%" align="center" valign="bottom">
             <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
@@ -315,10 +287,10 @@ if ($numRows == 0) {
 </div>
 </form>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+<script nonce="<?= $CSPNonce ?>" >
   $(function() {
     $("[data-mask]").inputmask();
   });
 </script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

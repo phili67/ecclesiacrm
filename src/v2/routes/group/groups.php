@@ -13,4 +13,8 @@ $app->group('/group', function (RouteCollectorProxy $group) {
 
     $group->get('/reports', VIEWGroupController::class . ':groupReport' );
     $group->post('/reports', VIEWGroupController::class . ':groupReport' );
+
+    $group->get('/props/editor/{GroupID:[0-9]+}/{PersonID:[0-9]+}', VIEWGroupController::class . ':renderGroupPropsEditor');
+    $group->post('/props/editor/{GroupID:[0-9]+}/{PersonID:[0-9]+}', VIEWGroupController::class . ':renderGroupPropsEditor');
+    
 });
