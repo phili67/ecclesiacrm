@@ -941,7 +941,7 @@ require $sRootDocument . '/Include/Header.php';
                                                                             if ($ormAssignedGroup->getHasSpecialProps()) {
                                                                                 ?>
                                                                                 <a class="dropdown-item"
-                                                                                   href="<?= $sRootPath ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $PersonInfos['iPersonID'] ?>">
+                                                                                   href="<?= $sRootPath ?>/v2/group/props/editor/<?= $ormAssignedGroup->getGroupID() ?>/<?= $PersonInfos['iPersonID'] ?>">
                                                                                     <?= _('Update Properties') ?>
                                                                                 </a>
                                                                                 <?php
@@ -1031,7 +1031,7 @@ require $sRootDocument . '/Include/Header.php';
                                                                         ?>
                                                                     </ul>
                                                                     <div class="text-center">
-                                                                        <a href="<?= $sRootPath ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $PersonInfos['iPersonID'] ?>"
+                                                                        <a href="<?= $sRootPath ?>/v2/group/props/editor/<?= $ormAssignedGroup->getGroupId() ?>/<?= $PersonInfos['iPersonID'] ?>"
                                                                            class="btn btn-primary"><?= _("Modify Specific Properties") ?></a>
                                                                     </div>
                                                                     <?php
