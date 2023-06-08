@@ -202,4 +202,58 @@ class VIEWFundraiserController {
 
         return $paramsArguments;
     }
+
+    
+
+    public function renderFundraiserEditor(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/fundraiser/');
+
+        if (!(SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $iFundRaiserID = -1;
+
+        if (isset($args['FundRaiserID'])) {
+            $iFundRaiserID = $args['FundRaiserID'];
+        }
+
+        $linkBack = '';
+        if (isset($args['linkBack'])) {
+            $linkBack = $args['linkBack'];
+        }
+
+        return $renderer->render($response, 'fundRaiserEditor.php', $this->argumentsFundRaiserEditorArray($iFundRaiserID, $linkBack));
+    }
+
+    public function argumentsFundRaiserEditorArray($iFundRaiserID, $linkBack)
+    {       
+
+        if ($iFundRaiserID > 0) {
+            // Get the current fund raiser record
+            $ormFRR = FundRaiserQuery::create()
+                ->findOneById($iFundRaiserID);
+            // Set current fundraiser
+            $_SESSION['iCurrentFundraiser'] = $iFundRaiserID;
+        }
+
+        if ($iFundRaiserID > 0) {
+            $sPageTitle = _('Fundraiser') . ' #' . $iFundRaiserID . ' ' . $ormFRR->getTitle();
+        } else {
+            $sPageTitle = _('Create New Fund Raiser');
+        }
+
+        $sCSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument' => SystemURLs::getDocumentRoot(),
+            'sCSPNonce'     => $sCSPNonce,
+            'sPageTitle'    => $sPageTitle,
+            'iFundRaiserID' => $iFundRaiserID,
+            'linkBack'      => $linkBack
+        ];
+
+        return $paramsArguments;
+    }
 }
