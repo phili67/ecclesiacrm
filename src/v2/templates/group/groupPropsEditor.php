@@ -251,7 +251,7 @@ if ($numRows == 0) {
                 }
             } elseif ($aTypeFields[$row] == 12) {
           ?>
-                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _("Edit List Options") ?></a>
+                <!--<a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _("Edit List Options") ?></a>-->
           <?php
             } else {
                 echo '&nbsp;';
