@@ -11,7 +11,8 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
+
+use EcclesiaCRM\Reports\PDF_FRBidSheetsReport;
 
 use EcclesiaCRM\Utils\OutputUtils;
 
@@ -25,39 +26,13 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 $iCurrentFundraiser = $_GET['CurrentFundraiser'];
 
-class PDF_FRBidSheetsReport extends ChurchInfoReportTCPDF
-{
-    private $fundraiser = null;
-
-    // Constructor
-    public function __construct($fundraiser)
-    {
-        parent::__construct('P', 'mm', $this->paperFormat);
-        $this->fundraiser = $fundraiser;
-        $this->leftX = 10;
-        $this->SetFont('Times', '', 10);
-        $this->SetMargins(15, 25);
-
-        $this->SetAutoPageBreak(true, 25);
-    }
-
-    public function AddPage($orientation = '', $format = '')
-    {
-        parent::AddPage($orientation, $format);
-
-        //$this->SetFont("Times",'B',16);
-    	//$this->Write (8, $this->fundraiser->getTitle()."\n");
-		//$curY += 8;
-		//$this->Write (8, $this->fundraiser->getDescription()."\n\n");
-		//$curY += 8;
-   	    //$this->SetFont("Times",'',10);
-    }
-}
-
 $currency = SystemConfig::getValue("sCurrency");
 
 // Get the information about this fundraiser
 $thisFRORM = FundRaiserQuery::create()->findOneById($iCurrentFundraiser);
+
+$fundTitle = $thisFRORM->getTitle();
+$fundDescription = $thisFRORM->getDescription();
 
 // Get all the donated items
 $ormItems = DonatedItemQuery::create()
@@ -72,7 +47,7 @@ $ormItems = DonatedItemQuery::create()
     ->orderBy('cri3')
     ->findByFrId($iCurrentFundraiser);
 
-$pdf = new PDF_FRBidSheetsReport($thisFRORM);
+$pdf = new PDF_FRBidSheetsReport($fundTitle, $fundDescription);
 $pdf->SetTitle($thisFRORM->getTitle());
 
 // Loop through items

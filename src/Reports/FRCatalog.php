@@ -12,7 +12,6 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Utils\OutputUtils;
 
 use EcclesiaCRM\FundRaiserQuery;
@@ -21,43 +20,19 @@ use EcclesiaCRM\DonatedItemQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\DonatedItemTableMap;
 
+use EcclesiaCRM\Reports\PDF_FRCatalogReport;
+
 use Propel\Runtime\ActiveQuery\Criteria;
 
 $iCurrentFundraiser = $_GET['CurrentFundraiser'];
 
 $curY = 0;
 
-class PDF_FRCatalogReport extends ChurchInfoReportTCPDF
-{
-    // Constructor
-    public function __construct()
-    {
-        parent::__construct('P', 'mm', $this->paperFormat);
-        $this->leftX = 10;
-        $this->SetFont('Times', '', 10);
-        $this->SetMargins(10, 20);
-
-        $this->AddPage();
-        $this->SetAutoPageBreak(true, 25);
-    }
-
-    public function AddPage($orientation = '', $format = '')
-    {
-        global $fr_title, $fr_description, $curY;
-
-        parent::AddPage($orientation, $format);
-
-        $this->SetFont('Times', 'B', 16);
-        $this->Write(8, $fr_title."\n");
-        $curY += 8;
-        $this->Write(8, $fr_description."\n\n");
-        $curY += 8;
-        $this->SetFont('Times', '', 12);
-    }
-}
-
 // Get the information about this fundraiser
 $thisFRORM = FundRaiserQuery::create()->findOneById($iCurrentFundraiser);
+
+$fundTitle = $thisFRORM->getTitle();
+$fundDescription = $thisFRORM->getDescription();
 
 $currency = SystemConfig::getValue("sCurrency");
 
@@ -74,8 +49,8 @@ $ormItems = DonatedItemQuery::create()
     ->orderBy('cri3')
     ->findByFrId($iCurrentFundraiser);
 
-$pdf = new PDF_FRCatalogReport();
-$pdf->SetTitle($thisFRORM->getTitle());
+$pdf = new PDF_FRCatalogReport($fundTitle, $fundDescription);
+$pdf->SetTitle($fundTitle);
 
 // Loop through items
 $idFirstChar = '';
@@ -97,9 +72,11 @@ foreach ($ormItems as $item) {
 
     if ($item->getPicture() != '' && strlen($item->getPicture()) > 5) {
         $s = getimagesize($item->getPicture());
-        $h = (100.0 / $s[0]) * $s[1];
-        $pdf->Image($item->getPicture(), $pdf->GetX(), $pdf->GetY(), 100.0, $h);
-        $pdf->SetY($pdf->GetY() + $h);
+        if ($s[0]>0) {
+            $h = (100.0 / $s[0]) * $s[1];
+            $pdf->Image($item->getPicture(), $pdf->GetX(), $pdf->GetY(), 100.0, $h);
+            $pdf->SetY($pdf->GetY() + $h);
+        }
     }
 
     $pdf->SetFont('Times', '', 12);

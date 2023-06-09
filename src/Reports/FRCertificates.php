@@ -27,6 +27,10 @@ $curY = 0;
 // Get the information about this fundraiser
 $thisFRORM = FundRaiserQuery::create()->findOneById($iCurrentFundraiser);
 
+$fundTitle = $thisFRORM->getTitle();
+$fundDescription = $thisFRORM->getDescription();
+
+
 // Get all the donated items
 $ormItems = DonatedItemQuery::create()
         ->addJoin(DonatedItemTableMap::COL_DI_DONOR_ID, PersonTableMap::COL_PER_ID, Criteria::LEFT_JOIN)
@@ -35,7 +39,7 @@ $ormItems = DonatedItemQuery::create()
         ->orderByItem()
         ->findByFrId($iCurrentFundraiser);
 
-$pdf = new PDF_CertificatesReport();
+$pdf = new PDF_CertificatesReport($fundTitle, $fundDescription);
 $pdf->SetTitle($thisFRORM->getTitle());
 
 $currency = SystemConfig::getValue("sCurrency");
