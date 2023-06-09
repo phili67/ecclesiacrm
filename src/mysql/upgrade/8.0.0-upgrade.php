@@ -102,6 +102,8 @@ unlink(SystemURLs::getDocumentRoot()."/EditEventTypes.php");
 unlink(SystemURLs::getDocumentRoot()."/ManageEnvelopes.php");
 unlink(SystemURLs::getDocumentRoot()."/FinancialReports.php");
 
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/Reports/PDF_CertificatesReport.php");
+
 // 2023-06-08
 unlink(SystemURLs::getDocumentRoot()."/FundRaiserEditor.php");
 unlink(SystemURLs::getDocumentRoot()."/GroupPropsEditor.php");
