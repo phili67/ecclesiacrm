@@ -108,5 +108,8 @@ unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/Reports/PDF_CertificatesRepor
 unlink(SystemURLs::getDocumentRoot()."/FundRaiserEditor.php");
 unlink(SystemURLs::getDocumentRoot()."/GroupPropsEditor.php");
 
+// 2023-06-10
+unlink(SystemURLs::getDocumentRoot()."/CartToBadge.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
