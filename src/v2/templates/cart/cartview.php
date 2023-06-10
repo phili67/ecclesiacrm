@@ -73,7 +73,7 @@ if ($iNumPersons > 0) {
             <a href="<?= $sRootPath ?>/Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36"
                class="btn btn-app bg-gradient-blue"><i
                     class="fas fa-file-pdf"></i><?= _('Name Tags') ?></a>
-            <a class="btn btn-app bg-gradient-purple" href="<?= $sRootPath ?>/CartToBadge.php"> <i
+            <a class="btn btn-app bg-gradient-purple" href="<?= $sRootPath ?>/v2/cart/to/badge"> <i
                     class="fas fa-id-badge"></i> <span class="cartActionDescription"><?= _("Badges") ?></span></a>
             <?php
 
