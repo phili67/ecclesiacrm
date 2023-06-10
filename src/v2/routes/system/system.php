@@ -17,6 +17,9 @@ use EcclesiaCRM\VIEWControllers\VIEWSystemController;
 
 $app->group('/system', function (RouteCollectorProxy $group) {
     $group->get('/integritycheck', VIEWSystemController::class . ':integritycheck' );
+
+    $group->get('/report/list', VIEWSystemController::class . ':reportList' );
+    $group->post('/report/list', VIEWSystemController::class . ':reportList' );
 });
 
 
