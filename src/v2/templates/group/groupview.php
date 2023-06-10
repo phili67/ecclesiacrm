@@ -427,7 +427,7 @@ if ( $_SESSION['bManageGroups'] ) {
                     <?php
                     if ($thisGroup->getHasSpecialProps() && (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) ) {
                         ?>
-                        <a class="btn btn-primary" href="<?= $sRootPath ?>/GroupPropsFormEditor.php?GroupID=<?= $thisGroup->getId() ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
+                        <a class="btn btn-primary" href="<?= $sRootPath ?>/v2/group/props/Form/editor/<?= $thisGroup->getId() ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
                         <?php
                     }
                     ?>
