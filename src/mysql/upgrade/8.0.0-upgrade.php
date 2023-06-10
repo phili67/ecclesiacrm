@@ -110,6 +110,7 @@ unlink(SystemURLs::getDocumentRoot()."/GroupPropsEditor.php");
 
 // 2023-06-10
 unlink(SystemURLs::getDocumentRoot()."/CartToBadge.php");
+unlink(SystemURLs::getDocumentRoot()."/GroupPropsFormEditor.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>

@@ -349,4 +349,60 @@ class VIEWGroupController {
 
         return $paramsArguments;
     }
+
+    
+
+    public function renderGroupPropsFormEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/group/');
+
+        // Get the Group from the querystring
+        $iGroupID = -1;
+        if (isset($args['GroupID'])) {
+            $iGroupID = InputUtils::LegacyFilterInput($args['GroupID'], 'int');
+        }
+
+        // Get manager infos
+        $manager = GroupManagerPersonQuery::Create()->filterByPersonID(SessionUser::getUser()->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+
+        $is_group_manager = false;
+
+        if (!empty($manager)) {
+            $is_group_manager = true;
+        }
+
+        // Security: user must be allowed to edit records to use this page.
+        if ( !(SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        // Get the group information
+        $groupInfo = GroupQuery::Create()->findOneById ($iGroupID);
+
+        // Abort if user tries to load with group having no special properties.
+        if ($groupInfo->getHasSpecialProps() == false) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . 'v2/group/'.$iGroupID.'/view');
+        }
+
+        return $renderer->render($response, 'groupPropsFormEditor.php', $this->argumentsGroupPropsFormEditorArray($iGroupID, $groupInfo, $is_group_manager));
+    }
+
+    public function argumentsGroupPropsFormEditorArray ($iGroupID, $groupInfo, $is_group_manager)
+    {
+        // Set the page title and include HTML header
+        $sPageTitle = _('Group-Specific Properties Form Editor:').'  : '.$groupInfo->getName();
+
+        $sRootDocument = SystemURLs::getDocumentRoot();
+        $CSPNonce = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'iGroupID'                  => $iGroupID,
+            'groupInfo'                 => $groupInfo,
+            'is_group_manager'          => $is_group_manager
+        ];
+
+        return $paramsArguments;
+    }
 }

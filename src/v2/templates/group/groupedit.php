@@ -124,7 +124,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?= _('Disable Group Specific Properties') ?></button><br/>
                   </div>
                   <div class="col-sm-4">
-                    <a  class="btn btn-success" href="<?= $sRootPath ?>/GroupPropsFormEditor.php?GroupID=<?= $iGroupID?>"
+                    <a  class="btn btn-success" href="<?= $sRootPath ?>/v2/group/props/Form/editor/<?= $iGroupID?>"
                         data-toggle="tooltip"  data-placement="bottom" title="<?= _("Group-specific properties are useful to make a sort of doodle") ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
                   </div>
                 </div>

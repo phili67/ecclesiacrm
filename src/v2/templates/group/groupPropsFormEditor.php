@@ -1,67 +1,35 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : GroupPropsFormEditor.php
- *  last change : 2003-02-09
- *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
- *                Copyright 2013 Michael Wilt
- *                Copyright 2019 Philippe Logel
+ *  filename    : groupPropsFormEditor.php.php
+ *  last change : 2023-06-10
+ *  description : manage the group list
  *
- *  function    : Editor for group-specific properties form
+ *  http://www.ecclesiacrm.com/
  *
-******************************************************************************/
+ *  This code is under copyright not under MIT Licence
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
+ *
+ ******************************************************************************/
 
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use Propel\Runtime\Propel;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\GroupManagerPersonQuery;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\GroupPropMaster;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\Map\GroupPropMasterTableMap;
-use EcclesiaCRM\GroupPropMaster;
-use EcclesiaCRM\Map\ListOptionTableMap;
-use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOption;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\Map\ListOptionTableMap;
+use EcclesiaCRM\GroupQuery;
 
+use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
+use Propel\Runtime\Propel;
 
-// Get the Group from the querystring
-$iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
-
-$manager = GroupManagerPersonQuery::Create()->filterByPersonID(SessionUser::getUser()->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
-
-$is_group_manager = false;
-
-if (!empty($manager)) {
-  $is_group_manager = true;
-}
-
-// Security: user must be allowed to edit records to use this page.
-if ( !(SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) ) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-
-// Get the group information
-$groupInfo = GroupQuery::Create()->findOneById ($iGroupID);
-
-// Abort if user tries to load with group having no special properties.
-if ($groupInfo->getHasSpecialProps() == false) {
-    RedirectUtils::Redirect('v2/group/'.$iGroupID.'/view');
-}
-
-$sPageTitle = _('Group-Specific Properties Form Editor:').'  : '.$groupInfo->getName();
-
-require 'Include/Header.php'; ?>
+require $sRootDocument . '/Include/Header.php';
+?>
 
 <p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></p>
 
@@ -317,7 +285,7 @@ if (isset($_POST['SaveChanges'])) {
 // Construct the form
 ?>
 
-<form method="post" action="GroupPropsFormEditor.php?GroupID=<?= $iGroupID ?>" name="GroupPropFormEditor">
+<form method="post" action="<?= $sRootPath ?>/v2/group/props/Form/editor/<?= $iGroupID ?>" name="GroupPropFormEditor">
 
 <center>
 <div class="table-responsive">
@@ -327,7 +295,7 @@ if (isset($_POST['SaveChanges'])) {
 if ($numRows == 0) {
     ?>
   <center><h2><?= _('No properties have been added yet') ?></h2>
-            <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-success"><?= _("Return to Group") ?></a>
+            <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-success"><?= _("Return to Group") ?></a>
   </center>
 <?php
 } else {
@@ -363,16 +331,16 @@ if ($numRows == 0) {
         <?php
           if ($row != 1) {
         ?>
-            <img src="Images/uparrow.gif" border="0" class="up-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
+            <img src="<?= $sRootPath ?>/Images/uparrow.gif" border="0" class="up-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
         <?php
           }
           if ($row < $numRows) {
         ?>
-            <img src="Images/downarrow.gif" border="0" class="down-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
+            <img src="<?= $sRootPath ?>/Images/downarrow.gif" border="0" class="down-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
         <?php
           }
         ?>
-            <img src="Images/x.gif" border="0" class="delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
+            <img src="<?= $sRootPath ?>/Images/x.gif" border="0" class="delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
       </td>
       <td class="TextColumn" style="font-size:70%;">
           <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
@@ -422,7 +390,7 @@ if ($numRows == 0) {
                 }
             } elseif ($aTypeFields[$row] == 12) {
           ?>
-                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _("Edit List Options") ?></a>
+                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _("Edit List Options") ?></a>
           <?php
             } else {
           ?>
@@ -443,7 +411,7 @@ if ($numRows == 0) {
         <tr>
           <td width="10%"></td>
           <td width="40%" align="center" valign="bottom">
-            <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-default"><?= _("Return to Group") ?></a>
+            <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-default"><?= _("Return to Group") ?></a>
           </td>
           <td width="40%" align="center" valign="bottom">
             <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
@@ -526,12 +494,12 @@ if ($numRows == 0) {
 </div>
 </form>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+<script nonce="<?= $CSPNonce ?>" >
   $(function() {
     $("[data-mask]").inputmask();
   });
 </script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/group/GroupCustomFieldsEditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/group/GroupCustomFieldsEditor.js"></script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
