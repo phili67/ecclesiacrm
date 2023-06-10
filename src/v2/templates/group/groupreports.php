@@ -82,7 +82,7 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="row">
                         <div class="col-xs-6">
                             <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Next') ?>">
-                            <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/ReportList.php';">
+                            <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/v2/system/report/list';">
                         </div>
                     </div>
                 </form>

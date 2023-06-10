@@ -75,7 +75,7 @@ require 'Include/Header.php';
 ?>
 <table cellpadding="4" align="center" cellspacing="0" width="100%">
   <tr>
-    <td align="center"><input type="button" class="btn btn-default" value="<?= _('Back to Report Menu') ?>" Name="Exit" onclick="javascript:document.location='ReportList.php';"></td>
+    <td align="center"><input type="button" class="btn btn-default" value="<?= _('Back to Report Menu') ?>" Name="Exit" onclick="javascript:document.location='/v2/system/report/list';"></td>
   </tr>
 </table>
 <?php
