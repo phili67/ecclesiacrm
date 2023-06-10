@@ -51,7 +51,7 @@ class ReportingService
 
     public function getViewURI($Id)
     {
-        return SystemURLs::getRootPath().'/ReportList.php';
+        return SystemURLs::getRootPath().'/v2/system/report/list';
     }
 
     public function getReportJSON($reports)

@@ -17,6 +17,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemConfig;
 
 use Slim\Views\PhpRenderer;
 
@@ -54,6 +55,42 @@ class VIEWSystemController {
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
             'sPageTitle'                => $sPageTitle
+        ];
+
+        return $paramsArguments;
+    }
+
+
+    public function reportList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/system/');
+
+        //Set the page title
+        if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool') ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'reportlist.php', $this->argumentsReportListArray());
+    }
+
+    public function argumentsReportListArray ()
+    {
+        //Set the page title
+        $sPageTitle    = _('Report Menu');
+        
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $today = getdate();
+        $year = $today['year'];
+
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'today'                     => $today,
+            'year'                      => $year
         ];
 
         return $paramsArguments;

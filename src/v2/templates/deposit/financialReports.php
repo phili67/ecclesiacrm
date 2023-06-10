@@ -62,7 +62,7 @@ if ($sReportType == '') {
     <tr>
       <td>&nbsp;</td>
       <td><br><input type=button class='btn btn-default' name=Cancel value='<?= _("Cancel")?>'
-        onclick="javascript:document.location='<?= $sRootPath ?>/ReportList.php';">
+        onclick="javascript:document.location='<?= $sRootPath ?>/v2/system/report/list';">
         <input type=submit class='btn btn-primary' name=Submit1 value='<?= _("Next") ?>'>
       </td>
     </tr>

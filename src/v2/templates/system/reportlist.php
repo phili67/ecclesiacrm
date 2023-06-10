@@ -1,43 +1,28 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : ReportList.php
- *  last change : 2003-03-20
+ *  filename    : reportlist.php
+ *  last change : 2023-06-10
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2003 Chris Gebhardt
-  *
+ *                © 2023 Philippe Logel
+ *
  ******************************************************************************/
-
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
 
 use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\Map\EventTableMap;
 use EcclesiaCRM\Map\EventTypesTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\utils\RedirectUtils;
+
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 
+use Propel\Runtime\ActiveQuery\Criteria;
 
-// Security
-if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool') ) ) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-//Set the page title
-$sPageTitle = _('Report Menu');
-
-$today = getdate();
-$year = $today['year'];
-
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 ?>
+
   <!-- ./col -->
-<?php
+  <?php
     if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
 ?>
 <div class="row">
@@ -48,14 +33,16 @@ require 'Include/Header.php';
         </div>
         <div class="card-body">
           <p>
-            <a class="MediumText" href="<?= SystemURLs::getRootPath() ?>/v2/deposit/financial/reports">
+            <a class="MediumText" href="<?= $sRootPath ?>/v2/deposit/financial/reports">
           </p>
           <?php
           if (SessionUser::getUser()->isAdmin()) {
-              echo '<p>';
-              echo '<a class="MediumText" href="CanvassAutomation.php">';
-              echo _('Canvass Automation').'</a><br>';
-              echo _('Automated support for conducting an every-member canvass.');
+            ?>
+              <p>
+              <a class="MediumText" href="<?= $sRootPath ?>/CanvassAutomation.php">
+              <?= _('Canvass Automation') ?></a><br>
+              <?= _('Automated support for conducting an every-member canvass.') ?>
+              <?php
           } ?>
         </div>
       </div>
@@ -82,10 +69,11 @@ if ( SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
           <?php
           // List all events
           foreach ($ormOpps as $ormOpp) {
-              echo '&nbsp;&nbsp;&nbsp;<a href="EventAttendance.php?Action=List&Event='.
-            $ormOpp->getId().'&Type='.$ormOpp->getName().'" title="List All '.
-            $ormOpp->getName().' Events"><strong>'.$ormOpp->getName().
-            '</strong></a>'."<br>\n";
+            ?>
+              &nbsp;&nbsp;&nbsp;<a href="<?= $sRootPath ?>/EventAttendance.php?Action=List&Event=<?=
+            $ormOpp->getId()?>&Type=<?= $ormOpp->getName() ?>" title="List All <?=
+            $ormOpp->getName() ?> Events"><strong><?= $ormOpp->getName()?></strong></a><br>
+            <?php
           } ?>
         </div>
       </div>
@@ -96,5 +84,4 @@ if ( SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
   ?>
 </div>
 
-
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
