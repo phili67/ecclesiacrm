@@ -347,6 +347,9 @@ $sRowClass = 'RowColorA';
 // Use a minimal page header if this form is going to be used within a frame
 if ($embedded) {
     include 'Include/Header-Minimal.php';
+    ?>
+     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CRMJSOM.js"></script>
+    <?php
 } else {    //It don't work for postuguese because in it adjective come after noum
     //$sPageTitle = $adj . ' ' . $noun . "s "._("Editor");
     include 'Include/Header.php';
@@ -374,7 +377,7 @@ if ($mode == 'classes') {
     <?php
 }
 ?>
-<form method="post" action="OptionManager.php?<?= "mode=$mode&ListID=$listID" ?>" name="OptionManager">
+<form method="post" action="<?= SystemURLs::getRootPath() ?>/OptionManager.php?<?= "mode=$mode&ListID=$listID" ?>" name="OptionManager">
 <div class="card">
     <div class="card-body">
         <?php
@@ -482,7 +485,7 @@ if ($mode == 'classes') {
                                                       data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
                                                       data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>"
                                                       data-action="makedefault" type="button"
-                                                      class="btn btn-default" value="<?= _('Make Default') ?>"
+                                                      class="btn btn-default btn-sm" value="<?= _('Make Default') ?>"
                                                       Name="default">
                         </td>
                         <?php
@@ -521,15 +524,15 @@ if ($mode == 'classes') {
             } ?>
         </table>
         <br/>
-        <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
+        <input type="submit" class="btn btn-primary btn-sm" value="<?= _('Save Changes') ?>" Name="SaveChanges">
         <?php if ($mode == 'groupcustom' || $mode == 'custom' || $mode == 'famcustom') {
             ?>
-            <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit"
+            <input type="button" class="btn btn-default btn-sm" value="<?= _('Exit') ?>" Name="Exit"
                    onclick="javascript:window.close();">
             <?php
         } elseif ($mode != 'grproles') {// dead code
             ?>
-            <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit"
+            <input type="button" class="btn btn-default btn-sm" value="<?= _('Exit') ?>" Name="Exit"
                    onclick="javascript:document.location='<?= 'v2/dashboard' ?>';">
             <?php
         } ?>
@@ -543,7 +546,7 @@ if ($mode == 'classes') {
             <input class="form-control form-control form-control-sm" type="text" name="newFieldName" size="30" maxlength="40">
         </span>
         <p></p>
-        <input type="submit" class="btn btn-success" value="<?= _('Add New') . ' ' . $adjplusname ?>" Name="AddField">
+        <input type="submit" class="btn btn-success btn-sm" value="<?= _('Add New') . ' ' . $adjplusname ?>" Name="AddField">
         <?php
         if ($iNewNameError > 0) {
         ?>
@@ -575,7 +578,7 @@ if ($embedded) {
     </body></html>
     <?php
 } else {
-    include 'Include/Footer.php';
+    include SystemURLs::getRootPath() . '/Include/Footer.php';
 }
 ?>
 
