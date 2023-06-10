@@ -10,7 +10,6 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Container\ContainerInterface;
@@ -145,6 +144,36 @@ class VIEWCartController {
             'sPhoneLink' => $sPhoneLink,
             'sPhoneLinkSMS' => $sPhoneLinkSMS,
             'sCommaDelimiter' => $sCommaDelimiter
+        ];
+
+        return $paramsArguments;
+    }
+
+    
+
+    public function renderCarToBadge (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/cart/');
+
+        if ( !( SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isCreateDirectoryEnabled() ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $typeProblem = 0;
+        if (isset ($args['flag'])) {
+            $typeProblem = ($args['flag']>0)?1:0;
+        }
+
+        return $renderer->render($response, 'carttobadge.php', $this->argumentsCartToBadgeArray($typeProblem));
+    }
+
+    public function argumentsCartToBadgeArray ($typeProblem)
+    {
+
+        $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
+            'sRootDocument' => SystemURLs::getDocumentRoot(),
+            'CSPNonce' => SystemURLs::getCSPNonce(),
+            'sPageTitle'  => _('Cart to Badges'),
+            'typeProblem' => $typeProblem
         ];
 
         return $paramsArguments;

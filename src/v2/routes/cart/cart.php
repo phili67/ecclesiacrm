@@ -21,4 +21,8 @@ use EcclesiaCRM\VIEWControllers\VIEWCartController;
 $app->group('/cart', function (RouteCollectorProxy $group) {
     $group->get('/view', VIEWCartController::class . ':renderCarView');
     $group->post('/view', VIEWCartController::class . ':renderCarView');
+
+    $group->get('/to/badge[/typeProblem/{flag:[0-9]+}]', VIEWCartController::class . ':renderCarToBadge');
+    $group->post('/to/badge[/typeProblem/{flag:[0-9]+}]', VIEWCartController::class . ':renderCarToBadge');
+
 });

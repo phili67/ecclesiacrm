@@ -50,14 +50,14 @@ if ( !empty($_FILES["stickerBadgeInputFile"]["name"]) ) {
 
     setcookie('imageSC', $sImage , time() + 60 * 60 * 24 * 90, '/');
 
-    $page = str_replace("?typeProblem=1","",$_SERVER['HTTP_REFERER']);
+    $page = str_replace("/typeProblem/1","",$_SERVER['HTTP_REFERER']);
 
     header('Location: ' . $page);
 
     exit;
   }
 
-  header('Location: ' . $_SERVER['HTTP_REFERER'] . "?typeProblem=1");
+  header('Location: ' . $_SERVER['HTTP_REFERER'] . "/typeProblem/1");
 
   exit;
 }
