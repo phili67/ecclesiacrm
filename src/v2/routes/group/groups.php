@@ -17,4 +17,7 @@ $app->group('/group', function (RouteCollectorProxy $group) {
     $group->get('/props/editor/{GroupID:[0-9]+}/{PersonID:[0-9]+}', VIEWGroupController::class . ':renderGroupPropsEditor');
     $group->post('/props/editor/{GroupID:[0-9]+}/{PersonID:[0-9]+}', VIEWGroupController::class . ':renderGroupPropsEditor');
     
+    $group->get('/props/Form/editor/{GroupID:[0-9]+}', VIEWGroupController::class . ':renderGroupPropsFormEditor');
+    $group->post('/props/Form/editor/{GroupID:[0-9]+}', VIEWGroupController::class . ':renderGroupPropsFormEditor');
+    
 });
