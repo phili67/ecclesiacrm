@@ -1,38 +1,27 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : OptionsManager.php
- *  last change : 2003-04-16
+ *  filename    : integritycheck.php
+ *  last change : 2023-05-19
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2003 Chris Gebhardt
- *                Copyright 2019 Philippe Logel
- *
- *  OptionName : Interface for editing simple selection options such as those
- *              : used for Family Roles, Classifications, and Group Types
+ *                          © 2023 Philippe Logel
  *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\GroupManagerPersonQuery;
-use EcclesiaCRM\ListOptionIconQuery;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\ListOption;
-use EcclesiaCRM\Map\ListOptionTableMap;
-use EcclesiaCRM\FamilyCustomMasterQuery;
-use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\Map\ListOptionTableMap;
+use EcclesiaCRM\ListOption;
+use EcclesiaCRM\ListOptionIconQuery;
+
+use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\SessionUser;
-
-$mode = trim($_GET['mode']);
-
-$listID = 0;
+use EcclesiaCRM\Utils\RedirectUtils;
 
 $list_type = 'normal';
 
@@ -53,11 +42,11 @@ switch ($mode) {
         $list_type = ($mode == 'grptypesSundSchool') ? 'sunday_school' : 'normal';
     case 'grproles':// dead code : http://ip/OptionManager.php?mode=grproles&ListID=22
         if (!$listID) {
-            $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
+            $listID = $listID;
         }
     case 'groupcustom':
         if (!$listID) {
-            $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
+            $listID = $listID;
         }
 
         $iGroupID = 0;
@@ -142,7 +131,7 @@ switch ($mode) {
         $adjplusname = _('Group Member Role');
         $adjplusnameplural = _('Group Member Roles');
         $sPageTitle = _('Group Member Roles Editor');
-        $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
+        $listID = $listID;
         $embedded = true;
 
         $ormGroupList = GroupQuery::Create()->findOneByRoleListId($listID);
@@ -159,7 +148,7 @@ switch ($mode) {
         $adjplusname = _('Person Custom List Option');
         $adjplusnameplural = _('Person Custom List Options');
         $sPageTitle = _('Person Custom List Options Editor');
-        $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
+        $listID = $listID;
         $embedded = true;
 
         $per_cus = PersonCustomMasterQuery::Create()->filterByTypeId(12)->findByCustomSpecial($listID);
@@ -175,7 +164,7 @@ switch ($mode) {
         $adjplusname = _('Custom List Option');
         $adjplusnameplural = _('Custom List Options');
         $sPageTitle = _('Custom List Options Editor');
-        $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
+        $listID = $listID;
         $embedded = true;
 
         $group_cus = GroupPropMasterQuery::Create()->filterByTypeId(12)->findBySpecial($listID);
@@ -191,7 +180,7 @@ switch ($mode) {
         $adjplusname = _('Family Custom List Option');
         $adjplusnameplural = _('Family Custom List Options');
         $sPageTitle = _('Family Custom List Options Editor');
-        $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
+        $listID = $listID;
         $embedded = true;
 
         $fam_cus = FamilyCustomMasterQuery::Create()->filterByTypeId(12)->findByCustomSpecial($listID);
@@ -346,13 +335,13 @@ $sRowClass = 'RowColorA';
 
 // Use a minimal page header if this form is going to be used within a frame
 if ($embedded) {
-    include 'Include/Header-Minimal.php';
+    require $sRootDocument . '/Include/Header-Minimal.php';
     ?>
-     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CRMJSOM.js"></script>
+     <script src="<?= $sRootPath ?>/skin/js/CRMJSOM.js"></script>
     <?php
 } else {    //It don't work for postuguese because in it adjective come after noum
     //$sPageTitle = $adj . ' ' . $noun . "s "._("Editor");
-    include 'Include/Header.php';
+    require $sRootDocument . '/Include/Header.php';
 }
 
 if ($mode == 'classes') {
@@ -377,7 +366,7 @@ if ($mode == 'classes') {
     <?php
 }
 ?>
-<form method="post" action="<?= SystemURLs::getRootPath() ?>/OptionManager.php?<?= "mode=$mode&ListID=$listID" ?>" name="OptionManager">
+<form method="post" action="<?= $sRootPath ?>/v2/system/option/manager/<?= $mode?><?= ($listID > 0)?("/".$listID):"" ?>" name="OptionManager">
 <div class="card">
     <div class="card-body">
         <?php
@@ -397,7 +386,7 @@ if ($mode == 'classes') {
         ?>
 
         <br>
-        <table cellpadding="3" width="50%" align="center">
+        <table cellpadding="3" width="50%" align="center" id="example">
             <?php
             for ($row = 1; $row <= $numRows; $row++) {
                 $icon=null;
@@ -427,14 +416,14 @@ if ($mode == 'classes') {
                         <?php
                         if ($row != 1) {
                             ?>
-                            <img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"
+                            <img src="<?= $sRootPath ?>/Images/uparrow.gif" border="0"
                                  class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
                                  data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up">
                             <?php
                         }
                         if ($row < $numRows) {
                             ?>
-                            <img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"
+                            <img src="<?= $sRootPath ?>/Images/downarrow.gif" border="0"
                                  class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
                                  data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down">
                             <?php
@@ -444,13 +433,13 @@ if ($mode == 'classes') {
                             <?php
                             if ($embedded) {
                                 ?>
-                                <img src="Images/x.gif" border="0" class="row-action" data-mode="<?= $mode ?>"
+                                <img src="<?= $sRootPath ?>/Images/x.gif" border="0" class="row-action" data-mode="<?= $mode ?>"
                                      data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>"
                                      data-id="<?= $aIDs[$row] ?>" data-action="delete">
                                 <?php
                             } else {
                                 ?>
-                                <img src="<?= SystemURLs::getRootPath() ?>/Images/x.gif"
+                                <img src="<?= $sRootPath ?>/Images/x.gif"
                                      class="RemoveClassification" data-mode="<?= $mode ?>"
                                      data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>"
                                      data-id="<?= $aIDs[$row] ?>"
@@ -492,7 +481,7 @@ if ($mode == 'classes') {
                     } else if ($mode == 'classes') {
                         if (is_null($icon) || !is_null($icon) && $icon->getUrl() == '') {
                             ?>
-                            <td><img src="Images/+.png" border="0" class="AddImage" data-ID="<?= $listID ?>"
+                            <td><img src="<?= $sRootPath ?>/Images/+.png" border="0" class="AddImage" data-ID="<?= $listID ?>"
                                      data-optionID="<?= $aIDs[$row] ?>"
                                      data-name="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>">
                             </td>
@@ -506,7 +495,7 @@ if ($mode == 'classes') {
                             <?php
                         } else {
                             ?>
-                            <td><img src="Images/x.gif" border="0" class="RemoveImage" data-ID="<?= $listID ?>"
+                            <td><img src="<?= $sRootPath ?>/Images/x.gif" border="0" class="RemoveImage" data-ID="<?= $listID ?>"
                                      data-optionID="<?= $aIDs[$row] ?>"></td>
                             <td><img src="/skin/icons/markers/<?= $icon->getUrl() ?>" border="0" height="25"></td>
                             <td>&nbsp;</td>
@@ -524,18 +513,25 @@ if ($mode == 'classes') {
             } ?>
         </table>
         <br/>
-        <input type="submit" class="btn btn-primary btn-sm" value="<?= _('Save Changes') ?>" Name="SaveChanges">
-        <?php if ($mode == 'groupcustom' || $mode == 'custom' || $mode == 'famcustom') {
-            ?>
-            <input type="button" class="btn btn-default btn-sm" value="<?= _('Exit') ?>" Name="Exit"
-                   onclick="javascript:window.close();">
-            <?php
-        } elseif ($mode != 'grproles') {// dead code
-            ?>
-            <input type="button" class="btn btn-default btn-sm" value="<?= _('Exit') ?>" Name="Exit"
-                   onclick="javascript:document.location='<?= 'v2/dashboard' ?>';">
-            <?php
-        } ?>
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-3">
+                <input type="submit" class="btn btn-primary btn-sm" value="<?= _('Save Changes') ?>" Name="SaveChanges">
+            </div>
+            <?php if ($mode == 'groupcustom' || $mode == 'custom' || $mode == 'famcustom') {
+                ?>
+                <div class="col col-lg-2">
+                    <input type="button" class="btn btn-default btn-sm" value="<?= _('Exit') ?>" Name="Exit" id="exit">
+                </div>
+                <?php
+            } elseif ($mode != 'grproles') {// dead code
+                ?>
+                <div class="col col-lg-2">
+                <input type="button" class="btn btn-default btn-sm" value="<?= _('Exit') ?>" Name="Exit"
+                    onclick="javascript:document.location='<?= 'v2/dashboard' ?>';">
+                </div>
+                <?php
+            } ?>
+        </div>
     </div>
 </div>
 
@@ -575,12 +571,20 @@ if ($mode == 'classes') {
 <?php
 if ($embedded) {
     ?>
+    <script nonce="<?= $CSPNonce ?>">
+        $(document).ready(function () {
+            $('#exit').click(function () {
+                window.opener.location.reload(true);
+                window.close();
+            });
+        });
+    </script>
     </body></html>
     <?php
 } else {
-    include SystemURLs::getRootPath() . '/Include/Footer.php';
+    require $sRootDocument . '/Include/Footer.php';
 }
 ?>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/IconPicker.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/OptionManager.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/sidebar/IconPicker.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/sidebar/OptionManager.js"></script>

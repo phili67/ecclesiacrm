@@ -410,7 +410,7 @@ if ($numRows == 0) {
             } elseif ($aTypeFields[$row] == 12) {
                 // TLH 6-23-07 Added scrollbars to the popup so long lists can be edited.
             ?>
-                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=famcustom&ListID=<?=$aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500,scrollbars=1')"><?= _('Edit List Options') ?></a>
+                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/v2/system/option/manager/famcustom/<?=$aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500,scrollbars=1')"><?= _('Edit List Options') ?></a>
             <?php
             } else {
             ?>

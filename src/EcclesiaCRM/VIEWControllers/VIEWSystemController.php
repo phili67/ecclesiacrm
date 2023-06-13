@@ -18,6 +18,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
 
 use Slim\Views\PhpRenderer;
 
@@ -95,4 +96,42 @@ class VIEWSystemController {
 
         return $paramsArguments;
     }
+
+    public function optionManager (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/system/');
+
+        $mode = '';
+        if (isset($args['mode'])) {
+            $mode = InputUtils::LegacyFilterInput($args['mode']);
+        }
+
+        $listID = 0;
+        if (isset($args['ListID'])) {
+            $listID = InputUtils::LegacyFilterInput($args['ListID'], 'int');;
+        }
+        
+        return $renderer->render($response, 'optionManager.php', $this->argumentsOptionManagerArray($mode, $listID));
+    }
+
+    public function argumentsOptionManagerArray ($mode, $listID)
+    {
+        //Set the page title
+        $sPageTitle    = _('System');
+        
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'mode'                      => $mode,
+            'listID'                    => $listID
+        ];
+
+        return $paramsArguments;
+    }
+
+    
 }

@@ -67,7 +67,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 ?>
                 <h5><i class="fas fa-cogs"></i> <?= _('Family') ?></h5>
                 <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=famroles">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/famroles">
                         <i class="fas fa-cog"></i> <?= _('Family Roles') ?>
                     </a>
                 </div>
@@ -84,7 +84,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 <br>
                 <h5><i class="fas fa-cogs"></i> <?= _('Person') ?></h5>
                 <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=classes">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/classes">
                         <i class="fas fa-cog"></i> <?= _('Classifications Manager') ?>
                     </a>
                 </div>
@@ -114,7 +114,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 if (SessionUser::getUser()->isManageGroupsEnabled()) {
                     ?>
                     <div class="mb-1">
-                        <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypes">
+                        <a href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/grptypes">
                             <i class="fas fa-cog"></i> <?= _('Group Types') ?>
                         </a>
                     </div>
@@ -124,7 +124,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 if (SystemConfig::getBooleanValue("bEnabledSundaySchool") || SessionUser::getUser()->isManageGroupsEnabled()) {
                     ?>
                     <div class="mb-1">
-                        <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypesSundSchool">
+                        <a href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/grptypesSundSchool">
                             <i class="fas fa-cog"></i> <?= _('Sunday School Group Types') ?>
                         </a>
                     </div>

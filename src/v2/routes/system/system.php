@@ -20,6 +20,9 @@ $app->group('/system', function (RouteCollectorProxy $group) {
 
     $group->get('/report/list', VIEWSystemController::class . ':reportList' );
     $group->post('/report/list', VIEWSystemController::class . ':reportList' );
+
+    $group->get('/option/manager/{mode}[/{ListID:[0-9]+}]', VIEWSystemController::class . ':optionManager' );
+    $group->post('/option/manager/{mode}[/{ListID:[0-9]+}]', VIEWSystemController::class . ':optionManager' );
 });
 
 
