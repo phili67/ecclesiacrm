@@ -203,8 +203,9 @@ class MenuBar extends Menu
         $menu = new Menu (_("Groups"), "fas fa-users", "#", true);
 
         $menuItem = new Menu (_("List Groups"), "fas fa-tachometer-alt", "v2/group/list", SessionUser::getUser()->isAddRecordsEnabled(), $menu);
-        $menuItem->addLink("OptionManager.php?mode=grptypes");
-        $menuItem->addLink("OptionManager.php?mode=grptypes&ListID=3");
+        $menuItem->addLink("v2/system/option/manager/grptypes");
+        $menuItem->addLink("v2/system/option/manager/grptypes/3");
+        $menuItem->addLink("v2/system/option/manager/grptypes/3#");
 
 
         $listOptions = ListOptionQuery::Create()
@@ -277,8 +278,9 @@ class MenuBar extends Menu
 
         $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/sundayschool/dashboard", true, $menu);
         $menuItem->addLink("v2/sundayschool/reports");
-        $menuItem->addLink("OptionManager.php?mode=grptypesSundSchool");
-        $menuItem->addLink("OptionManager.php?mode=grptypesSundSchool&ListID=3");
+        $menuItem->addLink("v2/system/option/manager/grptypesSundSchool");
+        $menuItem->addLink("v2/system/option/manager/grptypesSundSchool/3");
+        $menuItem->addLink("v2/system/option/manager/grptypesSundSchool/3#");
 
 
         $listOptions = ListOptionQuery::Create()

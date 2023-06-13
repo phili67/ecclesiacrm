@@ -39,8 +39,8 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
       if ($icon->getUrl() == null) {
         ?>
            <div class="alert alert-danger">
-                <a href="<?= $sRootPath ?>/OptionManager.php?mode=classes" class="btn bg-info-active"><img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>' height=20/></a>
-                <?= _("Missing Person Map classification icon for")." : \"".$icon->getOptionName()."\". "._("Clik").' <a href="'.$sRootPath.'/OptionManager.php?mode=classes">'._("here").'</a> '._("to solve the problem.") ?>
+                <a href="<?= $sRootPath ?>/v2/system/option/manager/classes" class="btn bg-info-active"><img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>' height=20/></a>
+                <?= _("Missing Person Map classification icon for")." : \"".$icon->getOptionName()."\". "._("Clik").' <a href="'.$sRootPath.'/v2/system/option/manager/classes">'._("here").'</a> '._("to solve the problem.") ?>
             </div>
         <?php
         break;

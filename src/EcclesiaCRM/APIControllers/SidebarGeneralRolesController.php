@@ -70,7 +70,7 @@ class SidebarGeneralRolesController
                 // the difference between the grptypes and the grptypesSundSchool is the optionType : 'grptypes' and 'grptypesSundSchool'
                 $listID = 3;
                 $list_type = ($mode == 'grptypesSundSchool') ? 'sunday_school' : 'normal';
-            case 'grproles':// dead code : http://ip/OptionManager.php?mode=grproles&ListID=22
+            case 'grproles':// dead code : http://ip/v2/system/option/manager/grproles/22
                 if (!$listID) {
                     $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
                 }
