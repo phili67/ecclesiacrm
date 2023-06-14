@@ -251,22 +251,12 @@ class VIEWPeopleController {
     public function personview (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $renderer = new PhpRenderer('templates/people/');
 
-        $personId = $args['personId'];
+        $personId = InputUtils::LegacyFilterInput($args['personId'], 'int');
 
-        $res = $this->argumentsPeoplePersonViewArray($personId);
-
-        if ( $res['error'] ) {
-            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/' . $res['link']);
+        $mode = 'none';
+        if (isset($args['mode'])) {
+            $mode = InputUtils::LegacyFilterInput($args['mode']);
         }
-
-        return $renderer->render($response, 'personview.php', $res);
-    }
-
-    public function personviewmode (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        $renderer = new PhpRenderer('templates/people/');
-
-        $personId = $args['personId'];
-        $mode = $args['mode'];
 
         $res = $this->argumentsPeoplePersonViewArray($personId, $mode);
 
@@ -1218,5 +1208,31 @@ class VIEWPeopleController {
 
     }  
 
+    public function personPrint (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        $iPersonID = InputUtils::LegacyFilterInput($args['personId'], 'int');
+
+        if ( !(SessionUser::getUser()->isEditRecordsEnabled() ||
+            (SessionUser::getUser()->isEditSelfEnabled() && $iPersonID == SessionUser::getUser()->getPersonId()) ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'personPrint.php', $this->argumentsPeoplePersonPrintArray($iPersonID));
+    }
+
+    public function argumentsPeoplePersonPrintArray ($iPersonID) {
+        $sRootDocument   = SystemURLs::getDocumentRoot();
+
+        $sPageTitle = _("Printable View");
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'sPageTitle'                => $sPageTitle,
+            'iPersonID'                 => $iPersonID
+        ];
+
+    }  
     
 }
