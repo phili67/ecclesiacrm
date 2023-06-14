@@ -20,4 +20,5 @@ $app->group('/pastoralcare', function (RouteCollectorProxy $group) {
     $group->get('/dashboard', VIEWPastoralCareController::class . ':renderPastoralCareDashboard' );
     $group->get('/membersList', VIEWPastoralCareController::class . ':renderPastoralCareMembersList' );
     $group->get('/listforuser/{UserID:[0-9]+}', VIEWPastoralCareController::class . ':renderPastoralCareListForUser' );
+    $group->get('/person/print/{personId:[0-9]+}', VIEWPastoralCareController::class . ':renderPastoralCarePersonPrint' );
 });

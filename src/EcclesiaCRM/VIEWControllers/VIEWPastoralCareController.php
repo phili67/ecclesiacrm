@@ -21,8 +21,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\OutputUtils;
-
-use EcclesiaCRM\Theme;
+use EcclesiaCRM\Utils\InputUtils;
 
 
 use EcclesiaCRM\PastoralCareQuery;
@@ -562,4 +561,30 @@ class VIEWPastoralCareController {
 
         return $paramsArguments;
     }
+
+    public function renderPastoralCarePersonPrint (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/pastoralcare/');
+
+        $iPersonID = InputUtils::LegacyFilterInput($args['personId'], 'int');
+
+        if ( !(SessionUser::getUser()->isPastoralCareEnabled()) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'pastoralcarePersonPrint.php', $this->argumentsPastoralCarePersonPrintArray($iPersonID));
+    }
+
+    public function argumentsPastoralCarePersonPrintArray ($iPersonID) {
+        $sRootDocument   = SystemURLs::getDocumentRoot();
+
+        $sPageTitle = _("Printable View");
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'sPageTitle'                => $sPageTitle,
+            'iPersonID'                 => $iPersonID
+        ];
+
+    } 
 }
