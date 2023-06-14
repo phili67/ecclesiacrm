@@ -1,48 +1,37 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : PrintPastoralCare.php
- *  last change : 2018-07/13
- *
+ *  filename    : pastoralcarePersonPrint.php
+ *  last change : 2023-06-14
+ *  website     : http://www.ecclesiacrm.com
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
+ *                This code can't be incorporated in another software without authorization
  *
  ******************************************************************************/
 
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
+ use Propel\Runtime\Propel;
+ use EcclesiaCRM\dto\SystemURLs;
+ use EcclesiaCRM\Utils\OutputUtils;
+ use EcclesiaCRM\Utils\MiscUtils;
+ use EcclesiaCRM\Utils\RedirectUtils;
+ use EcclesiaCRM\dto\SystemConfig;
+ use EcclesiaCRM\PersonQuery;
+ use EcclesiaCRM\SessionUser;
+ use EcclesiaCRM\PersonCustomMasterQuery;
+ use EcclesiaCRM\PersonCustomQuery;
+ use EcclesiaCRM\Person2group2roleP2g2rQuery;
+ use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
+ use EcclesiaCRM\Map\Record2propertyR2pTableMap;
+ use EcclesiaCRM\Map\PropertyTableMap;
+ use EcclesiaCRM\Map\PropertyTypeTableMap;
+ use EcclesiaCRM\Map\GroupTableMap;
+ use EcclesiaCRM\Map\ListOptionTableMap;
+ use EcclesiaCRM\PastoralCareQuery;
+ use Propel\Runtime\ActiveQuery\Criteria;
+ 
+ use EcclesiaCRM\GroupPropMasterQuery;
+ use EcclesiaCRM\Record2propertyR2pQuery;
 
-use Propel\Runtime\Propel;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\PersonCustomQuery;
-use EcclesiaCRM\Person2group2roleP2g2rQuery;
-use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
-use EcclesiaCRM\Map\Record2propertyR2pTableMap;
-use EcclesiaCRM\Map\PropertyTableMap;
-use EcclesiaCRM\Map\PropertyTypeTableMap;
-use EcclesiaCRM\Map\GroupTableMap;
-use EcclesiaCRM\Map\ListOptionTableMap;
-use EcclesiaCRM\PastoralCareQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
-
-use EcclesiaCRM\GroupPropMasterQuery;
-use EcclesiaCRM\Record2propertyR2pQuery;
-
-
-// Get the person ID from the querystring
-$iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
-
-if ( !(SessionUser::getUser()->isPastoralCareEnabled()) ) {
-  RedirectUtils::Redirect('v2/dashboard');
-  exit;
-}
 
 $connection = Propel::getConnection();
 
@@ -174,10 +163,8 @@ if ($fam_ID) {
     WHERE per_fam_ID = '.$iFamilyID.' ORDER BY fmr.lst_OptionSequence';
 }
 
-// Set the page title and include HTML header
-$sPageTitle = _('Printable View');
 $iTableSpacerWidth = 10;
-require 'Include/Header-Short.php';
+require $sRootDocument . '/Include/Header-Short.php';
 ?>
 
 <table width="400">
@@ -199,72 +186,58 @@ require 'Include/Header-Short.php';
         ?>
           <table>
             <tr>
-               <td  style="padding:5px;">
-                 <img src=<?= $imgName ?> width=110/>
+               <td style="padding:5px;margin-top:-10px">
+                 <img src="<?= $imgName ?>" width=130 style="margin-top:-25px">
                </td>
-               <td>
-                 <b><font size="4"><?= $personSheet->getFullName() ?></font></b><br>
-               </td>
-            </tr>
-          </table>
+               <td style="padding:20px;">
+                  <h4><?= $personSheet->getFullName() ?></h4>
         <?php
         } else {
         ?>
-            <b><font size="4"><?= $personSheet->getFullName() ?></font></b><br>
+            <h4><?= $personSheet->getFullName() ?></h4>
         <?php
         }
 
         // Print the name and address header
         ?>
-        <font size="3">
-        <?php
-        if ($sAddress1 != '') {
-            echo $sAddress1.'<br>';
-        }
-        if ($sAddress2 != '') {
-            echo $sAddress2.'<br>';
-        }
-        if ($sCity != '') {
-            echo $sCity.', ';
-        }
-        if ($sState != '') {
-            echo $sState;
-        }
-
-        // bevand10 2012-04-28 Replace space with &nbsp; in zip/postcodes, to ensure they do not wrap on output.
-        if ($sZip != '') {
-            echo ' '.str_replace(' ', '&nbsp;', trim($sZip));
-        }
-
-        if ($sCountry != '') {
-        ?>
-            <br><?= $sCountry ?>
-        <?php
-        }
-        ?>
-        </font>
+        <p>
+            <?= ($sAddress1 != '')?$sAddress1.'<br>':"" ?>
+            <?= ($sAddress2 != '')?$sAddress2.'<br>':"" ?>
+            <?= ($sCity != '')?$sCity.'<br>':"" ?>
+            <?= ($sState != '')?$sState.'<br>':"" ?>
+            <!-- bevand10 2012-04-28 Replace space with &nbsp; in zip/postcodes, to ensure they do not wrap on output.-->
+            <?= ($sZip != '')?(' '.str_replace(' ', '&nbsp;', trim($sZip))):"" ?>
+            <?= ($sCountry != '')?$sCountry.'<br>':"" ?>
+        </p>
+        <?php if ($personSheet) { ?>
+          </td>
+            </tr>
+          </table>
+        <?php } ?>
       </p>
     </td>
   </tr>
 </table>
-<BR>
+<BR/>
 
-<table border="0" width="100%" cellspacing="0" cellpadding="0">
+<h4 class="print-h2"><span class="smalltext">&#9724;</span> <?= _('Informations') ?>:</h2>
+
+<table width="100%" cellspacing="0" cellpadding="0">
 <tr>
-  <td width="33%" valign="top" align="left">
+  <td width="33%" valign="top" >
     <table cellspacing="1" cellpadding="4">
     <tr>
-      <td class="LabelColumn"><?= _('Home Phone') ?>:</td>
+      <td class="LabelColumn"><label><?= _('Home Phone') ?>:</label></td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn"><?= $sHomePhone ?>&nbsp;</td>
     </tr>
     <tr>
-      <td class="LabelColumn"><?= _('Work Phone') ?>:</td>
+      <td class="LabelColumn"><label><?= _('Work Phone') ?>:</label></td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn"><?= $sWorkPhone ?>&nbsp;</td>
     </tr>
     <tr>
-      <td class="LabelColumn"><?= _('Mobile Phone') ?>:</td>
+      <td class="LabelColumn"><label><?= _('Mobile Phone') ?>:</label></td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn"><?= $sCellPhone ?>&nbsp;</td>
     </tr>
@@ -285,7 +258,7 @@ require 'Include/Header-Short.php';
           }
 ?>
       <tr>
-        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td class="LabelColumn"><label><?= $ormPersonCustomFields[$i]['CustomName'] ?>:</label></td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumn"><?= OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false)?></td>
       </tr>
@@ -293,7 +266,7 @@ require 'Include/Header-Short.php';
         } else {
 ?>
       <tr>
-        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td class="LabelColumn"><label><?= $ormPersonCustomFields[$i]['CustomName'] ?>:</label></td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumn"></td>
       </tr>
@@ -305,10 +278,10 @@ require 'Include/Header-Short.php';
     </table>
   </td>
 
-  <td width="33%" valign="top" align="left">
+  <td width="33%" valign="top" >
     <table cellspacing="1" cellpadding="4">
     <tr>
-      <td class="LabelColumn"><?= _('Gender') ?>:</td>
+      <td class="LabelColumn"><label><?= _('Gender') ?>:</label></td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn">
         <?php
@@ -317,35 +290,19 @@ require 'Include/Header-Short.php';
       </td>
     </tr>
     <tr>
-      <td class="LabelColumn"><?= _('Birth Date') ?>:</td>
+      <td class="LabelColumn"><label><?= _('Birth Date') ?>:</label></td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn"><?= $dBirthDate ?>&nbsp;</td>
     </tr>
     <tr>
-      <td class="LabelColumn"><?= _('Family') ?>:</td>
+      <td class="LabelColumn"><label><?= _('Family') ?>:</label></td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
-      <td class="TextColumn">
-      <?php
-        if ($fam_Name != '') {
-          echo $fam_Name;
-        } else {
-          echo _('Unassigned');
-        }
-      ?>
-      &nbsp;</td>
+      <td class="TextColumn"><?= ($fam_Name != '')?$fam_Name:_('Unassigned') ?>&nbsp;</td>
     </tr>
     <tr>
-      <td class="LabelColumn"><?= _('Family Role') ?>:</td>
+      <td class="LabelColumn"><label><?= _('Family Role') ?>:</label></td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
-      <td class="TextColumnWithBottomBorder">
-      <?php
-        if ($sFamRole != '') {
-          echo $sFamRole;
-        } else {
-          echo _('Unassigned');
-        }
-      ?>&nbsp;
-      </td>
+      <td class="TextColumnWithBottomBorder"><?= ($sFamRole != '')?$sFamRole:_('Unassigned') ?>&nbsp;</td>      
     </tr>
 <?php
   for ($i = $numColumn1Fields ; $i < $numColumn1Fields+$numColumn2Fields ; $i++) {
@@ -360,7 +317,7 @@ require 'Include/Header-Short.php';
           }
 ?>
       <tr>
-        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td class="LabelColumn"><label><?= $ormPersonCustomFields[$i]['CustomName'] ?>:</label></td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumn"><?= OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false)?></td>
       </tr>
@@ -368,7 +325,7 @@ require 'Include/Header-Short.php';
         } else {
 ?>
       <tr>
-        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td class="LabelColumn"><label><?= $ormPersonCustomFields[$i]['CustomName'] ?>:</label></td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumn"></td>
       </tr>
@@ -379,25 +336,25 @@ require 'Include/Header-Short.php';
 ?>
     </table>
   </td>
-  <td width="33%" valign="top" align="left">
+  <td width="33%" valign="top" >
     <table cellspacing="1" cellpadding="4">
       <tr>
-        <td class="LabelColumn"><?= _('Email') ?>:</td>
+        <td class="LabelColumn"><label><?= _('Email') ?>:</label></td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumnWithBottomBorder"><?= $sUnformattedEmail ?>&nbsp;</td>
       </tr>
       <tr>
-        <td class="LabelColumn"><?= _('Work / Other Email') ?>:</td>
+        <td class="LabelColumn"><label><?= _('Work / Other Email') ?>:</label></td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumnWithBottomBorder"><?= $sWorkEmail ?>&nbsp;</td>
       </tr>
       <tr>
-        <td class="LabelColumn"><?= _('Membership Date') ?>:</td>
+        <td class="LabelColumn"><label><?= _('Membership Date') ?>:</label></td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumn"><?= OutputUtils::FormatDate($per_MembershipDate, false) ?>&nbsp;</td>
       </tr>
       <tr>
-        <td class="LabelColumn"><?= _('Classification') ?>:</td>
+        <td class="LabelColumn"><label><?= _('Classification') ?>:</label></td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumnWithBottomBorder"><?= $sClassName ?>&nbsp;</td>
       </tr>
@@ -414,7 +371,7 @@ require 'Include/Header-Short.php';
           }
 ?>
       <tr>
-        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td class="LabelColumn"><label><?= $ormPersonCustomFields[$i]['CustomName'] ?>:</label></td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumn"><?= OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false)?></td>
       </tr>
@@ -422,7 +379,7 @@ require 'Include/Header-Short.php';
         } else {
 ?>
       <tr>
-        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td class="LabelColumn"><label><?= $ormPersonCustomFields[$i]['CustomName'] ?>:</label></td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumn"></td>
       </tr>
@@ -441,9 +398,10 @@ require 'Include/Header-Short.php';
   if ($fam_ID) {
 ?>
 
-<b><?= _('Family Members') ?>:</b>
-<table cellpadding=5 cellspacing=0 width="100%">
-  <tr class="TableHeader">
+<!-- family members -->
+<h4 class="print-h2"><span class="smalltext">&#9724;</span> <?= _('Family Members') ?>:</h2>
+<table cellpadding=5 cellspacing=0 width="100%" class="table table-bordered">
+  <tr class="print-table-header">
     <td><?= _('Name') ?></td>
     <td><?= _('Gender') ?></td>
     <td><?= _('Role') ?></td>
@@ -494,7 +452,7 @@ require 'Include/Header-Short.php';
 ?>
 
 <BR>
-<b><?= _('Assigned Groups') ?>:</b>
+<h4 class="print-h2"><span class="smalltext">&#9724;</span> <?= _('Assigned Groups') ?>:</h2>
 
 <?php
 
@@ -506,12 +464,12 @@ $sAssignedGroups = ',';
 //Was anything returned?
 if ($ormAssignedGroups->count() == 0) {
 ?>
-  <p align"center"><?= _('No group assignments.') ?></p>
+  <p class="print-p-center"><?= _('No group assignments.') ?></p>
 <?php
 } else {
 ?>
-  <table width="100%" cellpadding="4" cellspacing="0">
-    <tr class="TableHeader">
+  <table width="100%" cellpadding="4" cellspacing="0" class="table table-bordered">
+    <tr class="print-table-header">
       <td width="15%"><b><?= _('Group Name') ?></b>
       <td><b><?= _('Role') ?></b></td>
     </tr>
@@ -524,7 +482,7 @@ if ($ormAssignedGroups->count() == 0) {
         // DISPLAY THE ROW
 ?>
     <tr class="<?= $sRowClass ?>">
-      <td><?= $ormAssignedGroup->getGroupName() ?></td>
+      <td>&bullet; <?= $ormAssignedGroup->getGroupName() ?></td>
       <td><?= _($ormAssignedGroup->getRoleName()) ?></td>
     </tr>
 <?php
@@ -549,8 +507,7 @@ if ($ormAssignedGroups->count() == 0) {
       <tr>
          <td colspan="2">
             <table width="50%">
-               <tr><td width="15%"></td>
-               <td>
+               <td style="border:0px solid #dee2e6">
                  <table width="90%" cellspacing="0">
                     <tr class="TinyTableHeader">
                       <td><?= _('Property')?></td>
@@ -591,8 +548,7 @@ if ($ormAssignedGroups->count() == 0) {
 }
 ?>
 <BR>
-<b><?= _('Assigned Properties') ?>:</b>
-
+<h4 class="print-h2"><span class="smalltext">&#9724;</span> <?= _('Assigned Properties') ?>:</h2>
 <?php
 
 //Initialize row shading
@@ -603,12 +559,12 @@ $sAssignedProperties = ',';
 //Was anything returned?
 if ($ormAssignedProperties->count() == 0) {
 ?>
-    <p align"center"><?= _('No property assignments.') ?></p>
+    <p class="print-p-center"><?= _('No property assignments.') ?></p>
 <?php
 } else {
 ?>
-    <table width="100%" cellpadding="4" cellspacing="0">
-      <tr class="TableHeader">
+    <table width="100%" cellpadding="4" cellspacing="0" class="table table-bordered">
+      <tr class="print-table-header">
         <td width="25%" valign="top"><b><?= _('Name') ?></b>
         <td valign="top"><b><?=_('Value') ?></td>
       </tr>
@@ -636,22 +592,23 @@ $currentPastorId = SessionUser::getUser()->getPerson()->getID();
 
 if (SessionUser::getUser()->isPastoralCareEnabled()) {
 ?>
-  <br><br><p style="text-transform: uppercase;font-size:24px"><b><?= _('Pastoral Care') ?></b></p>
+  <h4 class="print-h2"><span class="smalltext">&#9724;</span> <?= _('Pastoral Care') ?>:</h2>
 
 <?php
   if ($ormPastoralCares->count() > 0) {
 
     foreach ($ormPastoralCares as $ormPastoralCare) {
+        $icon = '<i class="fa-solid fa-comment"></i>';
 ?>
-       <p class="ShadedBox"><b><?= $ormPastoralCare->getPastoralCareType()->getTitle() ?></b> : <?= $ormPastoralCare->getPastorName() ?>></p>
+       <h4 class="print-h4"><span class="smalltext"><?= $icon ?></span>  <?= $ormPastoralCare->getPastoralCareType()->getTitle() ?></b> : <?= $ormPastoralCare->getPastorName() ?></h4>
     <?php
        if ($ormPastoralCare->getVisible() || $ormPastoralCare->getPastorId() == $currentPastorId) {
     ?>
-        <p class="ShadedBox"><?= $ormPastoralCare->getText() ?></p>
+        <p class="SmallText"><?= $ormPastoralCare->getText() ?></p>
     <?php
        } else {
     ?>
-        <p class="ShadedBox"><?= _("Private Data") ?></p>
+        <p class="SmallText"><?= _("Private Data") ?></p>
     <?php
        }
     ?>
@@ -664,4 +621,8 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
     echo _("None");
   }
 }
-require 'Include/Footer-Short.php';
+?>
+
+<?php require $sRootDocument . '/Include/Footer-Short.php'; ?>
+
+
