@@ -129,7 +129,7 @@ class PersonPropsSearchRes extends BaseSearchRes
                             }
 
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/PrintView.php?PersonID=' . $per->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
+                                $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/v2/people/person/print/' . $per->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fas fa-square fa-stack-2x"></i>'

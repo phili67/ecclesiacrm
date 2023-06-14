@@ -428,7 +428,7 @@ require $sRootDocument . '/Include/Header.php';
                         }
                         ?>
                         <a class="btn btn-app"
-                           href="<?= $sRootPath ?>/PrintView.php?PersonID=<?= $PersonInfos['iPersonID'] ?>"><i
+                           href="<?= $sRootPath ?>/v2/people/person/print/<?= $PersonInfos['iPersonID'] ?>"><i
                                 class="fas fa-print"></i> <?= _("Printable Page") ?></a>
                         <?php
                     }
