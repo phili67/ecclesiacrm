@@ -724,7 +724,9 @@ if (SessionUser::getUser()->isNotesEnabled()) {
       $fullName = "";
       if ($note->getEnteredBy() > 0) {
         $per = PersonQuery::create()->findOneById($note->getEnteredBy());
-        $fullName = $per->getFullName();
+        if (!is_null($per)) {
+          $fullName = $per->getFullName();
+        }
       }
     ?>
       <h4 class="print-h4"><span class="smalltext"><?= $icon ?></span>  <?= _("Title") ?> : <?= $note->getText() ?></h4>
