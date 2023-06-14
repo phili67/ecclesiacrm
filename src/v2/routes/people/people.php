@@ -19,9 +19,8 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/list/{mode}', VIEWPeopleController::class . ':peopleList' );
     $group->get('/list/{mode}/{gender}/{familyRole}/{classification}', VIEWPeopleController::class . ':peopleList' );
 
-    $group->get('/person/view/{personId:[0-9]+}', VIEWPeopleController::class . ':personview' );
-    $group->get('/person/view/{personId:[0-9]+}/{mode}', VIEWPeopleController::class . ':personviewmode' );
-
+    $group->get('/person/view/{personId:[0-9]+}[/{mode}]', VIEWPeopleController::class . ':personview' );
+    
     $group->get('/family/view/{famId:[0-9]+}', VIEWPeopleController::class . ':familyview' );
 
     $group->get('/UpdateAllLatLon', VIEWPeopleController::class . ':UpdateAllLatLon' );
@@ -43,4 +42,5 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/ReminderReport', VIEWPeopleController::class . ':reminderreport' );
     $group->post('/ReminderReport', VIEWPeopleController::class . ':reminderreport' );
 
+    $group->get('/person/print/{personId:[0-9]+}', VIEWPeopleController::class . ':personPrint' );
 });
