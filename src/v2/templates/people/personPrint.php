@@ -477,7 +477,7 @@ if ($ormAssignedGroups->count() == 0) {
         // DISPLAY THE ROW
 ?>
     <tr class="<?= $sRowClass ?>">
-      <td><?= $ormAssignedGroup->getGroupName() ?></td>
+      <td>&bullet; <?= $ormAssignedGroup->getGroupName() ?></td>
       <td><?= _($ormAssignedGroup->getRoleName()) ?></td>
     </tr>
 <?php
@@ -502,8 +502,7 @@ if ($ormAssignedGroups->count() == 0) {
       <tr>
          <td colspan="2">
             <table width="50%">
-               <tr><td width="5%"></td>
-               <td>
+               <td  style="border:0px solid #dee2e6">
                  <table width="90%" cellspacing="0">
                     <tr class="TinyTableHeader">
                       <td><?= _('Property')?></td>
