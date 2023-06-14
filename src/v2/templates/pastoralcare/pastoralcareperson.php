@@ -64,7 +64,7 @@ $sFamilyEmails = [];
             ?>
         </div>
     </div>
-    <a class="btn btn-app" href="<?= $sRootPath ?>/PrintPastoralCarePerson.php?PersonID=<?= $currentPersonID ?>"><i
+    <a class="btn btn-app" href="<?= $sRootPath ?>/v2/pastoralcare/person/print/<?= $currentPersonID ?>"><i
             class="fas fa-print"></i> <?= _("Printable Page") ?></a>
     <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
 
