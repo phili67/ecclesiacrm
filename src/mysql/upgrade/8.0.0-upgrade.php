@@ -115,7 +115,7 @@ unlink(SystemURLs::getDocumentRoot()."/ReportList.php");
 
 // 2023-06-13
 unlink(SystemURLs::getDocumentRoot()."/OptionManager.php");
-unlink(SystemURLs::getDocumentRoot()."PrintView.php");
+unlink(SystemURLs::getDocumentRoot()."/PrintView.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
