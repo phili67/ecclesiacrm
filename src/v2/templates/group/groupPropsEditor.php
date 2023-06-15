@@ -128,13 +128,24 @@ if (isset($_POST['SaveChanges'])) {
                 $temp = 'false';
             }
 
-            if ($aTypeFields[$iPropID] == 2) {
-               $aDescFields[$iPropID] = InputUtils::FilterDate($aDescFields[$iPropID]);
-            }
+            if ($aTypeFields[$iPropID] == 1) {
+               if (empty($aDescFields[$iPropID])) {
+                  $aDescFields[$iPropID] = 'null';
+                  $sSQL = "UPDATE groupprop_".$iGroupID."
+                    SET `".$aPropFields[$iPropID]."` = null
+                    WHERE `per_ID` = '".$iPersonID."';";
+               }              
+            } else {
+              if ($aTypeFields[$iPropID] == 2) {
+                 $aDescFields[$iPropID] = InputUtils::FilterDate($aDescFields[$iPropID]);
+              }
 
-            $sSQL = "UPDATE groupprop_".$iGroupID."
+              $sSQL = "UPDATE groupprop_".$iGroupID."
               SET `".$aPropFields[$iPropID]."` = '".$aDescFields[$iPropID]."'
               WHERE `per_ID` = '".$iPersonID."';";
+            }
+
+            
 
             $statement = $connection->prepare($sSQL);
             $statement->execute();
@@ -267,7 +278,7 @@ if ($numRows == 0) {
         <tr>
           <td width="10%"></td>
           <td width="40%" align="center" valign="bottom">
-            <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
+            <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>/Group" class="btn btn-default"><?= _("Return to Person") ?></a>
           </td>
           <td width="40%" align="center" valign="bottom">
             <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">

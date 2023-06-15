@@ -295,7 +295,7 @@ class OutputUtils
                 echo '<div class="form-group">' .
                     '<div class="radio"><label><input type="radio" Name="' . $fieldname . '" value="true"' . ($data == 'true' ? 'checked' : '') . '>' . _('Yes') . '</label></div>' .
                     '<div class="radio"><label><input type="radio" Name="' . $fieldname . '" value="false"' . ($data == 'false' ? 'checked' : '') . '>' . _('No') . '</label></div>' .
-                    '<div class="radio"><label><input type="radio" Name="' . $fieldname . '" value=""' . (strlen($data) == 0 ? 'checked' : '') . '>' . _('Unknown') . '</label></div>' .
+                    '<div class="radio"><label><input type="radio" Name="' . $fieldname . '" value=""' . (($data == "null" or $data == "Null" or $data == "NULL") ? 'checked' : '') . '>' . _('Unknown') . '</label></div>' .
                     '</div>';
                 break;
             // Handler for date fields

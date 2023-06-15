@@ -327,7 +327,7 @@ class InputUtils {
     // Attempts to take a date in any format and convert it to YYYY-MM-DD format
     // Logel Philippe
     if (empty($sInput))
-      return "";
+      return "1900-01-01";
     else {
       $date = DateTime::createFromFormat(SystemConfig::getValue('sDatePickerFormat'), $sInput);
       if ($date != false) {
