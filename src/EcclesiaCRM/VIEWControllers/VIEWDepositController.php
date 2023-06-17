@@ -212,6 +212,11 @@ class VIEWDepositController {
     {
         $renderer = new PhpRenderer('templates/deposit/');
 
+        $year = -1;
+        if (isset($args['year'])) {
+            $year = $args['year'];
+        }
+
         // Security: User must have finance permission or be the one who created this deposit
         if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
@@ -223,10 +228,10 @@ class VIEWDepositController {
             $sReportType = InputUtils::LegacyFilterInput($args['ReportType']);
         }
 
-        return $renderer->render($response, 'financialReports.php', $this->argumentsFinancialReportsArray('NoRows', $sReportType));
+        return $renderer->render($response, 'financialReports.php', $this->argumentsFinancialReportsArray('NoRows', $sReportType, $year));
     }
 
-    public function argumentsFinancialReportsArray ($ReturnMessage = '', $sReportType = '')
+    public function argumentsFinancialReportsArray ($ReturnMessage = '', $sReportType = '', $year = -1)
     {
         //Set the page title
         if (array_key_exists('ReportType', $_POST)) {
@@ -251,7 +256,47 @@ class VIEWDepositController {
             'CSPNonce'                  => $CSPNonce,
             'sPageTitle'                => $sPageTitle,
             'sReportType'               => $sReportType,
-            'ReturnMessage'             => $ReturnMessage
+            'ReturnMessage'             => $ReturnMessage,
+            'year'                      => $year
+        ];
+
+        return $paramsArguments;
+    }
+
+    
+
+    public function renderTaxReport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/deposit/');
+
+        // Security: User must have finance permission or be the one who created this deposit
+        if (!SessionUser::getUser()->isAdmin() && SystemConfig::getValue('bCSVAdminOnly')) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $sReportType = '';
+        
+        if (isset($args['ReportType'])) {
+            $sReportType = InputUtils::LegacyFilterInput($args['ReportType']);
+        }
+
+        return $renderer->render($response, 'taxReport.php', $this->argumentsTaxReportArray());
+    }
+
+    public function argumentsTaxReportArray ()
+    {
+        
+        
+        // Set the page title and include HTML header
+        $sPageTitle = _("Tax Report");
+
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle
         ];
 
         return $paramsArguments;
