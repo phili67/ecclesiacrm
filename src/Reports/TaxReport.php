@@ -26,6 +26,12 @@ if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanVa
     exit;
 }
 
+$year = -1;
+
+if (isset($_GET['Year'])) {
+    $year = $_GET['Year'];
+}
+
 $delimiter = SessionUser::getUser()->CSVExportDelemiter();
 $charset   = SessionUser::getUser()->CSVExportCharset();
 
@@ -175,7 +181,11 @@ $statement->execute();
 // Exit if no rows returned
 $iCountRows = $statement->rowCount();
 if ($iCountRows < 1) {
-    RedirectUtils::Redirect('v2/deposit/financial/reports/NoRows/Giving%20Report');
+    if ($year != -1) {
+        RedirectUtils::Redirect('v2/deposit/financial/reports/NoRows/Giving%20Report/'.$year);
+    } else {
+        RedirectUtils::Redirect('v2/deposit/financial/reports/NoRows/Giving%20Report');
+    }
 }
 
 // Create Giving Report -- PDF

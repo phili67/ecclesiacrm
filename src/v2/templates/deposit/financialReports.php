@@ -39,7 +39,7 @@ if ($sReportType == '') {
     // First Pass - Choose report type
 ?>
 <form method=post action='<?= $sRootPath?>/v2/deposit/financial/reports'>
-  <table cellpadding=3 align=left>
+  <table cellpadding=3>
     <tr>
       <td class=LabelColumn><?= _("Report Type:") ?>&nbsp;&nbsp;</td>
       <td class=TextColumn>
@@ -71,7 +71,11 @@ if ($sReportType == '') {
 <?php
 } else {
     $iFYID = $_SESSION['idefaultFY'];
-    $iCalYear = date('Y');
+    if ($year != -1) {
+      $iCalYear = $year;
+    } else {
+      $iCalYear = date('Y');
+    }
     // 2nd Pass - Display filters and other settings
     // Set report destination, based on report type
     switch ($sReportType) {
@@ -103,7 +107,7 @@ if ($sReportType == '') {
 ?>
 <form method=post action="<?= $action ?>">
   <input type=hidden name=ReportType value='<?= $sReportType?>'>
-  <table cellpadding=3 align=left>
+  <table cellpadding=3>
     <tr>
       <td>
         <h3><?= _("Filters")?></h3>
@@ -212,7 +216,15 @@ if ($sReportType == '') {
 
     // Starting and Ending Dates for Report
     if ($sReportType == 'Giving Report' || $sReportType == 'Advanced Deposit Report' || $sReportType == 'Zero Givers') {
-        $today = date(SystemConfig::getValue('sDateFormatLong'));
+      if ($iCalYear == -1) {
+        $date = new \DateTime('now');
+        $today = $date->format(SystemConfig::getValue('sDateFormatLong'));
+      } else {
+        $date = new \DateTime($iCalYear."-01-02");
+        $today = $date->format(SystemConfig::getValue('sDateFormatLong'));
+      }
+
+      $one_year_after  = ($date->add(new \DateInterval('P366D')))->format(SystemConfig::getValue('sDateFormatLong'));
   ?>
     <tr>
       <td class=LabelColumn><?= _("Report Start Date:")?></td>
@@ -223,7 +235,7 @@ if ($sReportType == '') {
     <tr>
       <td class=LabelColumn><?= _("Report End Date:") ?></td>
       <td class=TextColumn>
-        <input type=text name=DateEnd class='date-picker form-control' maxlength=10 id=DateEnd size=11 value='<?= $today?>'>
+        <input type=text name=DateEnd class='date-picker form-control' maxlength=10 id=DateEnd size=11 value='<?= $one_year_after?>'>
       </td>
     </tr>
 

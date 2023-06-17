@@ -1,33 +1,19 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : TaxReport.php
- *  last change : 2003-09-03
- *  description : form to invoke tax letter generation
- *
+ *  filename    : taxReport.php
+ *  last change : 2023-06-17
+ *  website     : http://www.ecclesiacrm.com
+ *  copyright   : Copyright 2023 EcclesiaCRM
  *
  ******************************************************************************/
 
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\RedirectUtils;
 
-
-// If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
-if (!SessionUser::getUser()->isAdmin() && SystemConfig::getValue('bCSVAdminOnly')) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-// Set the page title and include HTML header
-$sPageTitle = gettext('Tax Report');
-require 'Include/Header.php';
-
+// we place this part to avoid a problem during the upgrade process
+// Set the page title
+require $sRootDocument . '/Include/Header.php';
 // Is this the second pass?
 if (isset($_POST['Submit'])) {
     $iYear = InputUtils::LegacyFilterInput($_POST['Year'], 'int');
@@ -35,11 +21,10 @@ if (isset($_POST['Submit'])) {
 } else {
     $iYear = date('Y') - 1;
 }
-
 ?>
 
 <div class="card card-body">
-    <form class="form-horizontal" method="post" action="TaxReport.php">
+    <form class="form-horizontal" method="post" action="<?= $sRootPath ?>/v2/deposit/tax/report">
         <div class="form-group">
             <label class="control-label col-sm-2" for="Year"><?= gettext('Calendar Year') ?>:</label>
             <div class="col-sm-2">
@@ -57,4 +42,9 @@ if (isset($_POST['Submit'])) {
 
     </form>
 </div>
-<?php require 'Include/Footer.php' ?>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+
+
+

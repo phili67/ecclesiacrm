@@ -31,7 +31,10 @@ $app->group('/deposit', function (RouteCollectorProxy $group) {
 
     $group->get('/financial/reports', VIEWDepositController::class . ':renderFinancialReports');
 
-    $group->get('/financial/reports/NoRows/{ReportType}', VIEWDepositController::class . ':renderFinancialReportsNoRows');
+    $group->get('/financial/reports/NoRows/{ReportType}[/{year:[0-9]+}]', VIEWDepositController::class . ':renderFinancialReportsNoRows');
 
     $group->post('/financial/reports', VIEWDepositController::class . ':renderFinancialReports');
+
+    $group->get('/tax/report', VIEWDepositController::class . ':renderTaxReport');
+    $group->post('/tax/report', VIEWDepositController::class . ':renderTaxReport');
 });
