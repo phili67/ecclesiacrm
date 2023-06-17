@@ -21,6 +21,11 @@ class Cart
         return array_map('intval',$_SESSION['aPeopleCart']);
     }
 
+    public static function CleanCart()
+    {
+        $_SESSION['aPeopleCart'] = [];
+    }
+
     public static function FamiliesInCart()
     {
         $fam = [];
