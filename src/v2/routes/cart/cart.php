@@ -25,4 +25,7 @@ $app->group('/cart', function (RouteCollectorProxy $group) {
     $group->get('/to/badge[/typeProblem/{flag:[0-9]+}]', VIEWCartController::class . ':renderCarToBadge');
     $group->post('/to/badge[/typeProblem/{flag:[0-9]+}]', VIEWCartController::class . ':renderCarToBadge');
 
+    $group->get('/to/family', VIEWCartController::class . ':renderCarToFamily');
+    $group->post('/to/family', VIEWCartController::class . ':renderCarToFamily');
+
 });
