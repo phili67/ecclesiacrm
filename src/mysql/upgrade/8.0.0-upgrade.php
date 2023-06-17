@@ -118,5 +118,8 @@ unlink(SystemURLs::getDocumentRoot()."/OptionManager.php");
 unlink(SystemURLs::getDocumentRoot()."/PrintView.php");
 unlink(SystemURLs::getDocumentRoot()."/PrintPastoralCarePerson.php");
 
+// 2023-06-17
+unlink(SystemURLs::getDocumentRoot()."/CartToFamily.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
