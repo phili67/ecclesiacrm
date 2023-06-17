@@ -118,7 +118,7 @@ function DisplayRecordCount($qry_Count, $rsQueryResults)
 }
 
 //Runs the parameterized SQL and display the results
-function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryID, $qry_Name, $qry_Count, $CSPNonce) 
+function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryID, $qry_Name, $qry_Count, $CSPNonce, $sRootPath) 
 {
    //Run the SQL
     $rsQueryResults = MiscUtils::RunQuery($qry_SQL); ?>
@@ -192,7 +192,13 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
                         } //...otherwise just render the field
                         else if ($fieldInfo->name != 'GDPR') {
                             //Write the actual value of this row
-                            echo '<td>' . $aRow[$iCount] . '</td>';
+                            if ( mb_strpos($aRow[$iCount],"<a href=") !== false) {
+                                $res = str_replace("<a href=", "<a href=".$sRootPath."/", $aRow[$iCount]);
+                                echo '<td>' . $res . '</td>';
+                            } else {
+                                echo '<td>' . $aRow[$iCount] . '</td>';
+                            }
+                            
                         }
                     }
 
@@ -220,7 +226,7 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
             </p>
             <?php } ?>
             <p class="text-right">
-                <?= '<a href="QueryView.php?QueryID=' . $iQueryID . '">' . _('Run Query Again') . '</a>'; ?>
+                <?= '<a href="' . $sRootPath . '/v2/query/view/' . $iQueryID . '">' . _('Run Query Again') . '</a>'; ?>
             </p>
         </div>
 
@@ -471,7 +477,7 @@ if (isset($_POST['Submit']) || mysqli_num_rows($rsParameters) == 0) {
         //No errors; process the SQL, run the query, and display the results
         DisplayQueryInfo($qry_Name, $qry_Description);
         $qry_SQL = ProcessSQL($vPOST, $qry_SQL, $rsParameters);
-        DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryID, $qry_Name, $qry_Count, $CSPNonce);
+        DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryID, $qry_Name, $qry_Count, $CSPNonce, $sRootPath);
     } else {
         //Yes, there were errors; re-display the parameter form (the DisplayParameterForm function will
         //pick up and display any error messages)
