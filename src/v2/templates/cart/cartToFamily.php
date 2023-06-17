@@ -1,19 +1,18 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : CartToFamily.php
- *  last change : 2003-10-09
- *  description : Add cart records to a family
+ *  filename    : templates/cartToFamily.php
+ *  last change : 2023-06-15
+ *  description : manage the cart to family
  *
  *  http://www.ecclesiacrm.com/
- *  Copyright 2003 Chris Gebhardt
- *            2018 Philippe Logel
+ *
+ *  This code is under copyright not under MIT Licence
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
  *
  ******************************************************************************/
 
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
@@ -30,13 +29,8 @@ use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Bootstrapper;
 
-
-// Security: User must have add records permission
-if (!SessionUser::getUser()->isAddRecordsEnabled()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
 
 // Was the form submitted?
 if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
@@ -117,9 +111,11 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         $sEmail = MiscUtils::SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['Email']), $per_Email);
 
         if (strlen($sFamilyName) == 0) {
-            $sError = '<p class="alert alert-warning" align="center" style="color:red;">' . _('No family name entered!') . '</p>';
+            $sError = '<p class="alert alert-warning" class="text-center" style="color:red;">' . _('No family name entered!') . '</p>';
             $bError = true;
         } else {
+            $dWeddingDate = InputUtils::parseAndValidateDate($dWeddingDate, Bootstrapper::getCurrentLocale()->getCountryCode(), $pasfut = 'past');
+
             $fam = new Family();
 
             $fam->setName($sFamilyName);
@@ -176,26 +172,24 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
 
         $sGlobalMessage = $iCount . ' records(s) successfully added to selected Family.';
 
-        // empty the cart
-        if (sizeof($_SESSION['aPeopleCart']) > 0) {
-            $_SESSION['aPeopleCart'] = [];
-        }
+        // empty the cart        
+        Cart::CleanCart();
 
-        RedirectUtils::Redirect('v2/people/family/view/' . $iFamilyID . '&Action=EmptyCart');
+        RedirectUtils::Redirect('v2/people/family/view/' . $iFamilyID);
     }
 }
 
 // Set the page title and include HTML header
-$sPageTitle = _('Add Cart to Family');
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 
 echo $sError;
 ?>
-<form method="post">
+<form method="post" action="<?= $sRootPath ?>/v2/cart/to/family">
     <div class="card">
         <div class="card-header  border-1">
             <h3 class="card-title"><label><?= _("Members") ?></label></h3>
         </div>
+        <div class="card-body">
         <?php
         if (count($_SESSION['aPeopleCart']) > 0) {
 
@@ -223,11 +217,11 @@ echo $sError;
             ->orderByLastName()
             ->find();
         ?>
-        <table class='table table-hover dt-responsive'>
-            <tr>
+        <table class='table table-hover dt-responsive table-bordered'>
+            <tr class="print-table-header">
                 <td>&nbsp;</td>
                 <td><b><?= _('Name') ?></b></td>
-                <td align="center"><b><?= _('Assign Role') ?></b></td>
+                <td class="text-center"><b><?= _('Assign Role') ?></b></td>
 
                 <?php
                 $count = 1;
@@ -236,13 +230,13 @@ echo $sError;
                 as $ormCartItem) {
                 ?>
             <tr>
-                <td align="center"><?= $count++ ?></td>
+                <td class="text-center"><?= $count++ ?></td>
                 <td>
                     <img src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $ormCartItem->getId() ?>/thumbnail"
                          class="direct-chat-img"> &nbsp <a
-                        href="v2/people/person/view/<?= $ormCartItem->getId() ?>"><?= OutputUtils::FormatFullName($ormCartItem->getTitle(), $ormCartItem->getFirstName(), $ormCartItem->getMiddleName(), $ormCartItem->getLastName(), $ormCartItem->getSuffix(), 1) ?></a>
+                        href="<?= $sRootPath ?>/v2/people/person/view/<?= $ormCartItem->getId() ?>"><?= OutputUtils::FormatFullName($ormCartItem->getTitle(), $ormCartItem->getFirstName(), $ormCartItem->getMiddleName(), $ormCartItem->getLastName(), $ormCartItem->getSuffix(), 1) ?></a>
                 </td>
-                <td align="center">
+                <td class="text-center">
                     <?php
                     if ($ormCartItem->getFamId() == 0) {
                         ?>
@@ -261,6 +255,7 @@ echo $sError;
             }
             ?>
         </table>
+        </div>
     </div>
 
     <div class="card">
@@ -270,10 +265,10 @@ echo $sError;
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <?= _('Add to Family') ?>:
+                    <label><?= _('Add to Family') ?>:</label>
                 </div>
                 <div class="col-md-6">
-                    <select name="FamilyID" class= "form-control form-control-sm" id="FamilyID">
+                    <select name="FamilyID" class= "form-control select2" id="FamilyID">
                         <option value="0"><?= _('Create new family') ?></option>
                         <option value="—————————————" disabled="disabled">—————————————</option>
                         <?php
@@ -287,7 +282,7 @@ echo $sError;
                     </select>
                 </div>
             </div>
-            <br class="family-class" / >
+            <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
 
@@ -299,32 +294,42 @@ echo $sError;
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('Family Name') ?>:
+                    <label><?= _('Family Name') ?>:</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" Name="FamilyName" value="<?= $sName ?>" maxlength="48" class= "form-control form-control-sm">
+                    <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" Name="FamilyName" value="<?= $sName ?>" maxlength="48" class= "form-control form-control-sm">
+                    </div>                     
                     <label color="red"><?= $sNameError ?></label>
                 </div>
             </div>
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('Wedding Date') ?>:
+                    <label><?= _('Wedding Date') ?>:</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" Name="WeddingDate" value="<?= $dWeddingDate ?>" maxlength="10" id="sel1"
+                    <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa-solid fa-calendar-days"></i></span>
+                            </div>
+                            <input type="text" Name="WeddingDate" value="<?= $dWeddingDate ?>" maxlength="10" id="sel1"
                            size="15"
                            class="form-control active date-picker">
+                    </div> 
                     <label color="red"><BR><?= $sWeddingDateError ?></label>
                 </div>
             </div>
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('Use address/contact data from') ?>:
+                    <label><?= _('Use address/contact data from') ?>:</label>
                 </div>
                 <div class="col-md-6">
-                    <select name="PersonAddress" class= "form-control form-control-sm">
+                    <select name="PersonAddress" class= "form-control select2" id="PersonAddress">
                         <option value="0"><?= _('Only the new data below') ?></option>
 
                         <?php
@@ -343,7 +348,7 @@ echo $sError;
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('Address') ?> 1:
+                    <label><?= _('Address') ?> 1:</label>
                 </div>
                 <div class="col-md-6">
                     <input type="text" Name="Address1" value="<?= $sAddress1 ?>" size="50" maxlength="250"
@@ -353,7 +358,7 @@ echo $sError;
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('Address') ?> 2:
+                    <label><?= _('Address') ?> 2:</label>
                 </div>
                 <div class="col-md-6">
                     <input type="text" Name="Address2" value="<?= $sAddress2 ?>" size="50" maxlength="250"
@@ -363,21 +368,26 @@ echo $sError;
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('City') ?>:
+                    <label><?= _('City') ?>:</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" Name="City" value="<?= $sCity ?>" maxlength="50" class= "form-control form-control-sm">
+                    <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa-solid fa-city"></i></span>
+                            </div>
+                            <input type="text" Name="City" value="<?= $sCity ?>" maxlength="50" class= "form-control form-control-sm">
+                    </div>                     
                 </div>
             </div>
             <br class="family-class" />
             <div class="row family-class state-class" <?= (SystemConfig::getValue('bStateUnusefull')) ? 'style="display: none;"' : "" ?>>
                 <div class="col-md-6">
-                    <?= _('State') ?>:
+                    <label><?= _('State') ?>:</label>
                 </div>
                 <div class="col-md-6">
                     <?php
                     $statesDD = new StateDropDown();
-                    echo $statesDD->getDropDown($sState);
+                    echo $statesDD->getDropDown($sState, "State", "");
                     ?>
                     <?= _("OR") ?>
                     <input class= "form-control form-control-sm" type="text" name="StateTextbox"
@@ -390,30 +400,40 @@ echo $sError;
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('Zip') ?>:
+                    <label><?= _('Zip') ?>:</label>
                 </div>
                 <div class="col-md-6">
-                    <input class= "form-control form-control-sm" type="text" Name="Zip" value="<?= $sZip ?>" maxlength="10" size="8">
-                </div>
-            </div>
-            <br class="family-class" />
-            <div class="row family-class">
-                <div class="col-md-6">
-                    <?= _('Country') ?>:
-                </div>
-                <div class="col-md-6">
-                    <?= CountryDropDown::getDropDown($sCountry); ?>
+                    <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa-solid fa-city"></i></span>
+                            </div>
+                            <input class= "form-control form-control-sm" type="text" Name="Zip" value="<?= $sZip ?>" maxlength="10" size="8">
+                    </div>                     
                 </div>
             </div>
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('Home Phone') ?>:
+                    <label><?= _('Country') ?>:</label>
                 </div>
                 <div class="col-md-6">
-                    <input class= "form-control form-control-sm" type="text" Name="HomePhone" value="<?= $sHomePhone ?>" size="30"
+                    <?= CountryDropDown::getDropDown($sCountry, "Country", ""); ?>
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <label><?= _('Home Phone') ?>:</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fas fa-phone"></i></span>
+                            </div>
+                            <input class= "form-control form-control-sm" type="text" Name="HomePhone" value="<?= $sHomePhone ?>" size="30"
                            maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'"
                            data-mask>
+                    </div>                    
                     <input type="checkbox" name="NoFormat_HomePhone" value="1" <?php if ($bNoFormat_HomePhone) {
                         echo ' checked';
                     } ?>><?= _('Do not auto-format') ?>
@@ -422,12 +442,18 @@ echo $sError;
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('Work Phone') ?>:
+                    <label><?= _('Work Phone') ?>:</label>
                 </div>
                 <div class="col-md-6">
-                    <input class= "form-control form-control-sm" type="text" name="WorkPhone" value="<?php echo $sWorkPhone ?>" size="30"
+                    <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fas fa-phone"></i></span>
+                            </div>
+                            <input class= "form-control form-control-sm" type="text" name="WorkPhone" value="<?php echo $sWorkPhone ?>" size="30"
                            maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'"
                            data-mask>
+                    </div>    
+                    
                     <input type="checkbox" name="NoFormat_WorkPhone" value="1" <?php if ($bNoFormat_WorkPhone) {
                         echo ' checked';
                     } ?>><?= _('Do not auto-format') ?>
@@ -436,12 +462,17 @@ echo $sError;
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('Mobile Phone') ?>:
+                    <label><?= _('Mobile Phone') ?>:</label>
                 </div>
                 <div class="col-md-6">
-                    <input class= "form-control form-control-sm" type="text" name="CellPhone" value="<?php echo $sCellPhone ?>" size="30"
+                    <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fas fa-phone"></i></span>
+                            </div>
+                            <input class= "form-control form-control-sm" type="text" name="CellPhone" value="<?php echo $sCellPhone ?>" size="30"
                            maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'"
                            data-mask>
+                    </div>                     
                     <input type="checkbox" name="NoFormat_CellPhone" value="1" <?php if ($bNoFormat_CellPhone) {
                         echo ' checked';
                     } ?>><?= _('Do not auto-format') ?>
@@ -450,22 +481,32 @@ echo $sError;
             <br class="family-class" />
             <div class="row family-class">
                 <div class="col-md-6">
-                    <?= _('Email') ?>:
+                    <label><?= _('Email') ?>:</label>
                 </div>
                 <div class="col-md-6">
-                    <input class= "form-control form-control-sm" type="text" Name="Email" value="<?= $sEmail ?>" size="30"
+                    <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="far fa-envelope"></i></span>
+                            </div>
+                            <input class= "form-control form-control-sm" type="text" Name="Email" value="<?= $sEmail ?>" size="30"
                            maxlength="50">
+                    </div> 
+                    
                 </div>
             </div>
         </div>
 
         <div class="card-footer">
-            <p align="center">
-                <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Add to Family') ?>">
+            <p class="text-center">
+                <input type="submit" class="btn btn-primary" name="Submit" value="&#x2b;  <?= _('Add to Family') ?>">
             </p>
             <?php
             } else {
-                echo "<p align=\"center\" class='alert alert-warning'>" . _('Your cart is empty!') . '</p>';
+            ?>
+                <div class="alert alert-warning">
+                    <p class="text-center"><?= _('Your cart is empty!') ?></p>
+                </div>
+            <?php
             }
             ?>
         </div>
@@ -480,6 +521,10 @@ echo $sError;
     $(document).ready(function () {
         $("#country-input").select2();
         $("#state-input").select2();
+        $("#FamilyID").select2();
+        $("#PersonAddress").select2();
+        $("#Country").select2();
+        $("#State").select2();
 
         $(function () {
             $("[data-mask]").inputmask();
@@ -520,4 +565,5 @@ echo $sError;
         });
     });
 </script>
-<?php require 'Include/Footer.php'; ?>
+    
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

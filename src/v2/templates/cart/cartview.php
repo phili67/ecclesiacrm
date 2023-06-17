@@ -39,7 +39,7 @@ if ($iNumPersons > 0) {
             }
             if (SessionUser::getUser()->isAddRecordsEnabled()) {
                 ?>
-                <a href="<?= $sRootPath ?>/CartToFamily.php" class="btn btn-app"><i
+                <a href="<?= $sRootPath ?>/v2/cart/to/family" class="btn btn-app"><i
                         class="fas fa-users"></i><?= _('Empty Cart to Family') ?></a>
                 <?php
             } ?>

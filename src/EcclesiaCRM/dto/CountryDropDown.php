@@ -5,14 +5,14 @@ use EcclesiaCRM\data\Countries;
 
 class CountryDropDown extends Countries
 {
-    public static function getDropDown($selected_country="",$countryname= "Country")
+    public static function getDropDown($selected_country="",$countryname= "Country", $class_form="form-control-sm")
     {
       $country = $countryname;
       $id_input = strtolower($country)."-input";
 
       $res = "";
 
-      $res .= '<select name="'.$country.'" id="'.$country.'" class="form-control form-control-sm select2" id="'.$id_input.'" style="width:100%">';
+      $res .= '<select name="'.$country.'" id="'.$country.'" class="form-control '.$class_form.' select2" id="'.$id_input.'" style="width:100%">';
       $res .= '<option value="">'.gettext('Unassigned').'</option>';
       $res .= '<option value="" disabled>--------------------</option>';
         foreach (self::getNames() as $county) {

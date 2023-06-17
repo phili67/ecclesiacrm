@@ -195,13 +195,18 @@
                   window.CRM.dataTableList.ajax.reload();
               } else if (data.cartPeople) {// this part should be written like this, the code will crash at this point without this test and crash the js code
                   console.log(data.cartPeople);
-                  $(data.cartPeople).each(function(index,data){
-                      personButton = $("a[data-cartpersonid='" + data + "']");
-                      $(personButton).addClass("AddToPeopleCart");
-                      $(personButton).removeClass("RemoveFromPeopleCart");
-                      $('span i:nth-child(2)',personButton).removeClass("fa-times");
-                      $('span i:nth-child(2)',personButton).addClass("fa-cart-plus");
-                  });
+
+                  if (data.cartPeople.length > 0) {
+                    $(data.cartPeople).each(function(index,data){
+                        personButton = $("a[data-cartpersonid='" + data + "']");
+                        $(personButton).addClass("AddToPeopleCart");
+                        $(personButton).removeClass("RemoveFromPeopleCart");
+                        $('span i:nth-child(2)',personButton).removeClass("fa-times");
+                        $('span i:nth-child(2)',personButton).addClass("fa-cart-plus");
+                    });
+                  } else {
+                    location.reload();              
+                  }            
               }
           });
       },
@@ -917,7 +922,7 @@
                         <i class="fas fa-tag text-info"></i> ' + i18next.t("Empty Cart to Group") + '\
                     </a>\
                     <div class="dropdown-divider"></div>\
-                    <a href="' + window.CRM.root+ '/CartToFamily.php" class="dropdown-item">\
+                    <a href="' + window.CRM.root+ '/v2/cart/to/family" class="dropdown-item">\
                         <i class="fas fa-users text-info"></i> ' + i18next.t("Empty Cart to Family") + '\
                     </a>\
                     <div class="dropdown-divider"></div>\

@@ -178,4 +178,27 @@ class VIEWCartController {
 
         return $paramsArguments;
     }
+
+    
+    public function renderCarToFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/cart/');
+
+        if (!SessionUser::getUser()->isAddRecordsEnabled()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'cartToFamily.php', $this->argumentsCartToFamilyArray());
+    }
+
+    public function argumentsCartToFamilyArray ()
+    {
+
+        $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
+            'sRootDocument' => SystemURLs::getDocumentRoot(),
+            'CSPNonce' => SystemURLs::getCSPNonce(),
+            'sPageTitle'  => _('Add Cart to Family')
+        ];
+
+        return $paramsArguments;
+    }
 }
