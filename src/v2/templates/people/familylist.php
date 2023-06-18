@@ -19,8 +19,8 @@ require $sRootDocument . '/Include/Header.php';
   if ($bNotGDRPNotEmpty) {
 ?>
 <div class="pull-right">
-  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/FamilyEditor.php"> <span class="fas fa-plus"
-                                                                          aria-hidden="true"></span><?= _('Add Family') ?>
+  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/v2/people/family/editor"> <span class="fas fa-plus"
+    aria-hidden="true"></span><?= _('Add Family') ?>
   </a>
 </div>
 <p><br/><br/></p>
@@ -85,7 +85,7 @@ require $sRootDocument . '/Include/Header.php';
                             <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
-                    <a href='<?= $sRootPath ?>/FamilyEditor.php?FamilyID=<?= $family->getId() ?>'>
+                    <a href='<?= $sRootPath ?>/v2/people/family/editor/<?= $family->getId() ?>'>
                         <span class="fa-stack">
                             <i class="fas fa-square fa-stack-2x"></i>
                             <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>

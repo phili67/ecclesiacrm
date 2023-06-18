@@ -1,58 +1,42 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : FamilyEditor.php
- *  last change : 2003-01-04
- *  website     : http://www.ecclesiacrm.com
+ *  filename    : templates/familyEditor.php
+ *  last change : 2023-06-18
+ *
+ *  http://www.ecclesiacrm.com/
  *  copyright   : Copyright 2001, 2002, 2003 Deane Barker, Chris Gebhardt
  *                Philippe Logel 2017-12-13
  *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
+ use EcclesiaCRM\dto\SystemConfig;
+ use EcclesiaCRM\dto\CanvassUtilities;
+ use EcclesiaCRM\dto\StateDropDown;
+ use EcclesiaCRM\dto\CountryDropDown;
+ use EcclesiaCRM\Utils\InputUtils;
+ use EcclesiaCRM\Utils\OutputUtils;
+ use EcclesiaCRM\Utils\MiscUtils;
+ use EcclesiaCRM\Utils\RedirectUtils;
+ use EcclesiaCRM\Utils\LoggerUtils;
+ use EcclesiaCRM\SessionUser;
+ use EcclesiaCRM\Bootstrapper;
+ use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
+ 
+ use EcclesiaCRM\Note;
+ use EcclesiaCRM\FamilyQuery;
+ use EcclesiaCRM\PersonQuery;
+ use EcclesiaCRM\Person;
+ use EcclesiaCRM\Family;
+ use EcclesiaCRM\ListOptionQuery;
+ use EcclesiaCRM\PersonCustom;
+ use EcclesiaCRM\FamilyCustomMasterQuery;
+ use EcclesiaCRM\FamilyCustom;
+ use EcclesiaCRM\FamilyCustomQuery;
+ use EcclesiaCRM\Record2propertyR2p;
+ 
+ use Propel\Runtime\Propel;
 
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\dto\CanvassUtilities;
-use EcclesiaCRM\dto\StateDropDown;
-use EcclesiaCRM\dto\CountryDropDown;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\Utils\LoggerUtils;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\Bootstrapper;
-use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
-
-use EcclesiaCRM\Note;
-use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Person;
-use EcclesiaCRM\Family;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\PersonCustom;
-use EcclesiaCRM\FamilyCustomMaster;
-use EcclesiaCRM\FamilyCustomMasterQuery;
-use EcclesiaCRM\FamilyCustom;
-use EcclesiaCRM\FamilyCustomQuery;
-use EcclesiaCRM\Record2propertyR2pQuery;
-use EcclesiaCRM\Record2propertyR2p;
-
-use Propel\Runtime\Propel;
-
-
-//Set the page title
-$sPageTitle = _('Family Editor');
-
-$iFamilyID = -1;
-
-//Get the FamilyID from the querystring
-if (array_key_exists('FamilyID', $_GET)) {
-    $iFamilyID = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
-}
 
 // Security: User must have Add or Edit Records permission to use this form in those manners
 // Clean error handling: (such as somebody typing an incorrect URL ?PersonID= manually)
@@ -563,7 +547,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             RedirectUtils::Redirect('v2/people/family/view/' . $iFamilyID);
         } else {
             //Reload to editor to add another record
-            RedirectUtils::Redirect('FamilyEditor.php');
+            RedirectUtils::Redirect('v2/people/family/editor');
         }
     }
 } else {
@@ -620,6 +604,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $persons = PersonQuery::Create()
             ->leftJoinWithFamily()
             ->orderByFmrId()
+            ->filterByDateDeactivated(NULL)
             ->findByFamId($iFamilyID);
 
         $iCount = 0;
@@ -702,11 +687,10 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     }
 }
 
-require 'Include/Header.php';
-
+require $sRootDocument . '/Include/Header.php';
 ?>
 
-<form method="post" action="FamilyEditor.php?FamilyID=<?= $iFamilyID ?>">
+<form method="post" action="<?= $sRootPath ?>/v2/people/family/editor<?= ($iFamilyID != -1)?("/".$iFamilyID):"" ?>">
     <input type="hidden" Name="iFamilyID" value="<?= $iFamilyID ?>">
     <input type="hidden" name="FamCount" value="<?= $iFamilyMemberRows ?>">
     <div class="card card-info clearfix">
@@ -801,7 +785,7 @@ require 'Include/Header.php';
             </div>
         </div>
     </div>
-    <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    <script nonce="<?= $CSPNonce ?>">
         $(document).ready(function () {
             $("#country-input").select2();
             $("#state-input").select2();
@@ -1089,9 +1073,9 @@ require 'Include/Header.php';
                         <table cellpadding="3" cellspacing="0" width="100%">
                             <thead>
                             <tr class="TableHeader" align="center">
-                                <th><?= _('First') ?></th>
-                                <th><?= _('Middle') ?></th>
-                                <th><?= _('Last') ?></th>
+                                <th><?= _('First Name') ?></th>
+                                <th><?= _('Middle Name') ?></th>
+                                <th><?= _('Last Name') ?></th>
                                 <th><?= _('Suffix') ?></th>
                                 <th><?= _('Gender') ?></th>
                                 <th><?= _('Role') ?></th>
@@ -1294,20 +1278,19 @@ require 'Include/Header.php';
             <input type="submit" class="btn btn-info" value="<?= _('Save and Add') ?>" name="FamilySubmitAndAdd">
             <?php
         }
-        echo ' <input type="button" class="btn btn-default" value="' . _('Cancel') . '" Name="FamilyCancel"';
-        if ($iFamilyID > 0) {
-            echo " onclick=\"javascript:document.location='v2/people/family/view/$iFamilyID';\">";
-        } else {
-            echo " onclick=\"javascript:document.location='v2/familylist';\">";
-        }
         ?>
+        <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" Name="FamilyCancel"
+            <?= ($iFamilyID > 0)?" onclick=\"javascript:document.location='". $sRootPath ."/v2/people/family/view/$iFamilyID';\">":" onclick=\"javascript:document.location='". $sRootPath ."/v2/familylist';\">" ?>
     </td>
     </tr></form></table>
     <br/>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= $CSPNonce ?>">
     $(function () {
         $("[data-mask]").inputmask();
     });
 </script>
-<?php require 'Include/Footer.php' ?>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+

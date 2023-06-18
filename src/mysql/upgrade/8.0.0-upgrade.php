@@ -122,6 +122,9 @@ unlink(SystemURLs::getDocumentRoot()."/PrintPastoralCarePerson.php");
 unlink(SystemURLs::getDocumentRoot()."/CartToFamily.php");
 unlink(SystemURLs::getDocumentRoot()."/TaxReport.php");
 
+// 2023-06-18
+unlink(SystemURLs::getDocumentRoot()."/FamilyEditor.php");
+
 
 $logger->info("End of delete :  all unusefull files");
 ?>

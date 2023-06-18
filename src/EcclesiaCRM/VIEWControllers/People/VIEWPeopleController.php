@@ -1235,4 +1235,33 @@ class VIEWPeopleController {
 
     }  
     
+    public function familyEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        $iFamilyID = -1;
+
+        if (isset ($args['famId'])) {
+            $iFamilyID = InputUtils::LegacyFilterInput($args['famId'], 'int');
+        }
+
+        if ( !(SessionUser::getUser()->isEditRecordsEnabled() ||
+            SessionUser::getUser()->isEditSelfEnabled() )  ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'familyEditor.php', $this->argumentsPeopleFamilyEditorArray($iFamilyID));
+    }
+
+    public function argumentsPeopleFamilyEditorArray ($iFamilyID) {
+        $sPageTitle = _("Family Editor");
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => SystemURLs::getDocumentRoot(),
+            'CSPNonce'                  => SystemURLs::getCSPNonce(),
+            'sPageTitle'                => $sPageTitle,
+            'iFamilyID'                 => $iFamilyID
+        ];
+    }  
+    
 }

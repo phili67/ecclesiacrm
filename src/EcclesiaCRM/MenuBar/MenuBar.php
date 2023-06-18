@@ -182,7 +182,7 @@ class MenuBar extends Menu
             $menuItemItem = new Menu (_("View Inactive Persons"), "fas fa-user-slash", "v2/personlist/inactive", true, $menuItem);
 
             $menuItem = new Menu (_("Families"), "fas fa-angle-double-right", "#", true, $menu);
-            $menuItemItem = new Menu (_("Add New Family"), "fas fa-tachometer-alt", "FamilyEditor.php", SessionUser::getUser()->isAddRecordsEnabled(), $menuItem);
+            $menuItemItem = new Menu (_("Add New Family"), "fas fa-tachometer-alt", "v2/people/family/editor", SessionUser::getUser()->isAddRecordsEnabled(), $menuItem);
             $menuItemItem = new Menu (_("View Active Families"), "fas fa-user-friends", "v2/people/list/family", true, $menuItem);
             $menuItemItem->addLink("v2/familylist");
             $menuItemItem = new Menu (_("View Inactive Families"), "fas fa-users-slash", "v2/familylist/inactive", true, $menuItem);
