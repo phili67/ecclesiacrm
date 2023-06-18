@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -967,6 +967,17 @@ msgstr "Gratis deltagere i en begivenhed"
 msgid "Successfully Added!"
 msgstr "Tilføjet med succes!"
 
+msgid "User Delete Confirmation"
+msgstr "Bekræftelse af sletning af bruger"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "Dette kan ikke gøres om"
+
 msgid "Photo"
 msgstr "Foto"
 
@@ -1915,9 +1926,6 @@ msgstr "er nu låst"
 msgid "is now unlocked"
 msgstr "er nu låst op"
 
-msgid "User Delete Confirmation"
-msgstr "Bekræftelse af sletning af bruger"
-
 msgid "Please confirm removal of user status from:"
 msgstr "Bekræft venligst fjernelse af brugerstatus fra:"
 
@@ -1927,9 +1935,6 @@ msgid ""
 msgstr ""
 "Vær forsigtig, du er ved at miste hjemmemappen og de tilknyttede filer, "
 "kalendere, delekalendere og alle begivenhederne også, for"
-
-msgid "This can't be undone"
-msgstr "Dette kan ikke gøres om"
 
 msgid "Action Confirmation"
 msgstr "Handling Bekræftelse"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -973,6 +973,17 @@ msgstr "Δωρεάν Συμμετέχοντες στην εκδήλωση"
 msgid "Successfully Added!"
 msgstr "Προστέθηκε επιτυχώς!"
 
+msgid "User Delete Confirmation"
+msgstr "Επιβεβαίωση διαγραφής χρήστη"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "Αυτό δεν μπορεί να αναιρεθεί"
+
 msgid "Photo"
 msgstr "Φωτογραφία"
 
@@ -1934,9 +1945,6 @@ msgstr "είναι τώρα κλειδωμένο"
 msgid "is now unlocked"
 msgstr "είναι τώρα ξεκλείδωτη"
 
-msgid "User Delete Confirmation"
-msgstr "Επιβεβαίωση διαγραφής χρήστη"
-
 msgid "Please confirm removal of user status from:"
 msgstr "Παρακαλούμε επιβεβαιώστε την αφαίρεση της κατάστασης χρήστη από:"
 
@@ -1947,9 +1955,6 @@ msgstr ""
 "Να είστε προσεκτικοί, Πρόκειται να χάσετε το φάκελο home και τα σχετικά "
 "αρχεία, τα ημερολόγια, τα ημερολόγια κοινής χρήσης και όλα τα συμβάντα "
 "επίσης, για"
-
-msgid "This can't be undone"
-msgstr "Αυτό δεν μπορεί να αναιρεθεί"
 
 msgid "Action Confirmation"
 msgstr "Επιβεβαίωση δράσης"

@@ -193,3 +193,6 @@ msgstr ""
 
 msgid "Several days"
 msgstr ""
+
+msgid "Giving Report"
+msgstr ""

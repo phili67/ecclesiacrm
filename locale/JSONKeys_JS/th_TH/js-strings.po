@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -956,6 +956,17 @@ msgstr "ผู้ที่ถูกต้อง"
 msgid "Successfully Added!"
 msgstr "สำเร็จแล้ว!"
 
+msgid "User Delete Confirmation"
+msgstr "ผู้ใช้ลบ ยืนยัน"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "นี่มันไม่สามารถแก้ไขได้"
+
 msgid "Photo"
 msgstr "รูปถ่าย"
 
@@ -1869,9 +1880,6 @@ msgstr "ตอนนี้ล็อคแล้ว"
 msgid "is now unlocked"
 msgstr "ตอนนี้ไม่ได้ล็อค"
 
-msgid "User Delete Confirmation"
-msgstr "ผู้ใช้ลบ ยืนยัน"
-
 msgid "Please confirm removal of user status from:"
 msgstr "กรุณายืนยันสถานะผู้ใช้ที่"
 
@@ -1879,9 +1887,6 @@ msgid ""
 "Be carefull, You are about to lose the home folder and the associated files, "
 "the Calendars, the Share calendars and all the events too, for"
 msgstr "ระวังตัวด้วยนะ คุณกำลังจะเสียแฟ้มที่เกี่ยวข้อง และแฟ้มที่เกี่ยวข้อง ปฏิทิน ปฏิทิน ปฏิทิน"
-
-msgid "This can't be undone"
-msgstr "นี่มันไม่สามารถแก้ไขได้"
 
 msgid "Action Confirmation"
 msgstr "ยืนยัน"

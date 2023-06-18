@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -968,6 +968,17 @@ msgstr "Participantes de Eventos Gratuitos"
 msgid "Successfully Added!"
 msgstr "Adicionado com sucesso!"
 
+msgid "User Delete Confirmation"
+msgstr "Confirmação de eliminação do utilizador"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "Isto não pode ser desfeito."
+
 msgid "Photo"
 msgstr "Foto"
 
@@ -1924,9 +1935,6 @@ msgstr "está agora trancado"
 msgid "is now unlocked"
 msgstr "está agora desbloqueado"
 
-msgid "User Delete Confirmation"
-msgstr "Confirmação de eliminação do utilizador"
-
 msgid "Please confirm removal of user status from:"
 msgstr "Por favor, confirme a remoção do status de usuário de:"
 
@@ -1937,9 +1945,6 @@ msgstr ""
 "Tenha cuidado, você está prestes a perder a pasta principal e os arquivos "
 "associados, os calendários, os calendários de compartilhamento e todos os "
 "eventos também, para"
-
-msgid "This can't be undone"
-msgstr "Isto não pode ser desfeito."
 
 msgid "Action Confirmation"
 msgstr "Confirmação da ação"

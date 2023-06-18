@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -968,6 +968,17 @@ msgstr "Gratis deltagare i evenemanget"
 msgid "Successfully Added!"
 msgstr "Tillagd med framgång!"
 
+msgid "User Delete Confirmation"
+msgstr "Bekräftelse för radering av användare"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "Detta kan inte göras ogjort"
+
 msgid "Photo"
 msgstr "Foto"
 
@@ -1914,9 +1925,6 @@ msgstr "är nu låst"
 msgid "is now unlocked"
 msgstr "är nu upplåst"
 
-msgid "User Delete Confirmation"
-msgstr "Bekräftelse för radering av användare"
-
 msgid "Please confirm removal of user status from:"
 msgstr "Vänligen bekräfta att du har tagit bort din användarstatus från:"
 
@@ -1926,9 +1934,6 @@ msgid ""
 msgstr ""
 "Var försiktig, du är på väg att förlora hemmappen och de associerade "
 "filerna, kalendrarna, delningskalendrarna och alla händelser också, för"
-
-msgid "This can't be undone"
-msgstr "Detta kan inte göras ogjort"
 
 msgid "Action Confirmation"
 msgstr "Åtgärd Bekräftelse"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -975,6 +975,17 @@ msgstr "Kostenlose Veranstaltungsteilnehmer"
 msgid "Successfully Added!"
 msgstr "Erfolgreich hinzugefügt!"
 
+msgid "User Delete Confirmation"
+msgstr "Benutzer Löschbestätigung"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "Das kann nicht rückgängig gemacht werden"
+
 msgid "Photo"
 msgstr "Foto"
 
@@ -1945,9 +1956,6 @@ msgstr "ist jetzt gesperrt"
 msgid "is now unlocked"
 msgstr "ist jetzt freigeschaltet"
 
-msgid "User Delete Confirmation"
-msgstr "Benutzer Löschbestätigung"
-
 msgid "Please confirm removal of user status from:"
 msgstr "Bitte bestätigen Sie die Aufhebung des Benutzerstatus von:"
 
@@ -1958,9 +1966,6 @@ msgstr ""
 "Seien Sie vorsichtig, Sie werden den Privatordner und die zugehörigen "
 "Dateien, die Kalender, die freigegebenen Kalender und alle Ereignisse "
 "verlieren, denn"
-
-msgid "This can't be undone"
-msgstr "Das kann nicht rückgängig gemacht werden"
 
 msgid "Action Confirmation"
 msgstr "Aktion Bestätigung"

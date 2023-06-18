@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -969,6 +969,17 @@ msgstr "Những người Attendees tự do"
 msgid "Successfully Added!"
 msgstr "Cộng thành công rồi!"
 
+msgid "User Delete Confirmation"
+msgstr "Xác nhận Xóa Xóa"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "Chuyện này không thể hủy được"
+
 msgid "Photo"
 msgstr "Chụp ảnh."
 
@@ -1919,9 +1930,6 @@ msgstr "giờ thì khóa rồi"
 msgid "is now unlocked"
 msgstr "giờ thì không khóa"
 
-msgid "User Delete Confirmation"
-msgstr "Xác nhận Xóa Xóa"
-
 msgid "Please confirm removal of user status from:"
 msgstr "Xin xác nhận việc loại bỏ tình trạng người dùng từ:"
 
@@ -1932,9 +1940,6 @@ msgstr ""
 "Cẩn thận, anh sắp mất tập tài liệu và các tập tin liên quan, lịch, lịch, và "
 "tất cả các sự kiện, vì vậy, vì vậy, vì vậy, vì vậy, chúng tôi sẽ không thể "
 "làm gì được"
-
-msgid "This can't be undone"
-msgstr "Chuyện này không thể hủy được"
 
 msgid "Action Confirmation"
 msgstr "Xác nhận hành động"
