@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-23T08:21:49.381Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -965,6 +965,17 @@ msgstr "Безкоштовне відвідування заходу"
 msgid "Successfully Added!"
 msgstr "Успішно додано!"
 
+msgid "User Delete Confirmation"
+msgstr "Підтвердження видалення користувача"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "Це не можна скасувати"
+
 msgid "Photo"
 msgstr "Фото"
 
@@ -1909,9 +1920,6 @@ msgstr "зараз заблоковано."
 msgid "is now unlocked"
 msgstr "тепер розблоковано"
 
-msgid "User Delete Confirmation"
-msgstr "Підтвердження видалення користувача"
-
 msgid "Please confirm removal of user status from:"
 msgstr "Будь ласка, підтвердіть видалення статусу користувача з:"
 
@@ -1921,9 +1929,6 @@ msgid ""
 msgstr ""
 "Будьте обережні, ви втратите домашню папку і пов'язані з нею файли, "
 "Календарі, Календарі спільного доступу і всі події, тому що"
-
-msgid "This can't be undone"
-msgstr "Це не можна скасувати"
 
 msgid "Action Confirmation"
 msgstr "Підтвердження дії"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -971,6 +971,17 @@ msgstr "të ndjekurit për të ndjekur lirinë"
 msgid "Successfully Added!"
 msgstr "Shtuar me sukses!"
 
+msgid "User Delete Confirmation"
+msgstr "Konfirmimi Delete"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "kjo nuk mund të prishet"
+
 msgid "Photo"
 msgstr "fotografi"
 
@@ -1920,9 +1931,6 @@ msgstr "është e mbyllur"
 msgid "is now unlocked"
 msgstr "është e hapur"
 
-msgid "User Delete Confirmation"
-msgstr "Konfirmimi Delete"
-
 msgid "Please confirm removal of user status from:"
 msgstr "Ju lutem konfirmoni heqjen e statusit të përdoruesit:"
 
@@ -1932,9 +1940,6 @@ msgid ""
 msgstr ""
 "Kujdes, do të humbasësh dosjet e shtëpisë, Kalendarët, kalendarët, "
 "kalendarët e Ndryer dhe të gjitha ngjarjet gjithashtu"
-
-msgid "This can't be undone"
-msgstr "kjo nuk mund të prishet"
 
 msgid "Action Confirmation"
 msgstr "Aksioni u konfirmua"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -969,6 +969,17 @@ msgstr "Partecipanti all'evento gratuito"
 msgid "Successfully Added!"
 msgstr "Aggiunto con successo!"
 
+msgid "User Delete Confirmation"
+msgstr "Conferma di cancellazione dell'utente"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "Questo non può essere annullato"
+
 msgid "Photo"
 msgstr "Foto"
 
@@ -1923,9 +1934,6 @@ msgstr "è ora bloccato"
 msgid "is now unlocked"
 msgstr "è ora sbloccato"
 
-msgid "User Delete Confirmation"
-msgstr "Conferma di cancellazione dell'utente"
-
 msgid "Please confirm removal of user status from:"
 msgstr "Si prega di confermare la rimozione dello stato di utente da:"
 
@@ -1935,9 +1943,6 @@ msgid ""
 msgstr ""
 "Fate attenzione, state per perdere la cartella home e i file associati, i "
 "calendari, i calendari di condivisione e anche tutti gli eventi, per"
-
-msgid "This can't be undone"
-msgstr "Questo non può essere annullato"
 
 msgid "Action Confirmation"
 msgstr "Conferma dell'azione"

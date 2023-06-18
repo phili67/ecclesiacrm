@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -968,6 +968,17 @@ msgstr "حضور مناسبة مجانية"
 msgid "Successfully Added!"
 msgstr "! نجح بالإضافة"
 
+msgid "User Delete Confirmation"
+msgstr "تأكيد المستخدم"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "لا يمكن إلغاء هذا"
+
 msgid "Photo"
 msgstr "صورة"
 
@@ -1901,9 +1912,6 @@ msgstr "الآن مغلق"
 msgid "is now unlocked"
 msgstr "الآن مفتوح"
 
-msgid "User Delete Confirmation"
-msgstr "تأكيد المستخدم"
-
 msgid "Please confirm removal of user status from:"
 msgstr "يرجى التأكيد على نقل مركز المستخدم من:"
 
@@ -1913,9 +1921,6 @@ msgid ""
 msgstr ""
 "كن حذرا، أنت على وشك أن تفقد ملف المنزل والملفات المرتبطة به، وتقويمات "
 "الأسهم، وجميع الأحداث أيضا، بالنسبة لها"
-
-msgid "This can't be undone"
-msgstr "لا يمكن إلغاء هذا"
 
 msgid "Action Confirmation"
 msgstr "تأكيد العمل"

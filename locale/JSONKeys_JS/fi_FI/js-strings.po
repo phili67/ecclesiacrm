@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-18T09:05:16.885Z\n"
+"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -963,6 +963,17 @@ msgstr "Ilmaiset tapahtuman osallistujat"
 msgid "Successfully Added!"
 msgstr "Onnistuneesti lisätty!"
 
+msgid "User Delete Confirmation"
+msgstr "Käyttäjän poiston vahvistus"
+
+msgid ""
+"Be carefull, You are about to delete a user from the group and therefore the "
+"entire call history. This is strongly to be avoided."
+msgstr ""
+
+msgid "This can't be undone"
+msgstr "Tätä ei voi perua"
+
 msgid "Photo"
 msgstr "Kuva"
 
@@ -1913,9 +1924,6 @@ msgstr "on nyt lukittu"
 msgid "is now unlocked"
 msgstr "on nyt avattu"
 
-msgid "User Delete Confirmation"
-msgstr "Käyttäjän poiston vahvistus"
-
 msgid "Please confirm removal of user status from:"
 msgstr "Vahvistakaa käyttäjän aseman poistaminen seuraavalta:"
 
@@ -1926,9 +1934,6 @@ msgstr ""
 "Ole varovainen, Olet menettämässä kotikansiota ja siihen liittyviä "
 "tiedostoja, kalentereita, jaettuja kalentereita ja kaikkia tapahtumia myös, "
 "sillä"
-
-msgid "This can't be undone"
-msgstr "Tätä ei voi perua"
 
 msgid "Action Confirmation"
 msgstr "Toiminnan vahvistus"
