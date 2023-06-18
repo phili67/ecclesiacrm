@@ -248,6 +248,44 @@ class VIEWPeopleController {
         return $paramsArguments;
     }
 
+    
+
+    public function personEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        $iPersonID = -1;
+
+        if (isset ($args['personId'])) {
+            $iPersonID = InputUtils::LegacyFilterInput($args['personId'], 'int');
+        }
+
+        $iFamilyID = -1;
+
+        if (isset ($args['FamilyID'])) {
+            $iFamilyID = InputUtils::LegacyFilterInput($args['FamilyID'], 'int');
+        }        
+
+        if ( !(SessionUser::getUser()->isEditRecordsEnabled() ||
+            SessionUser::getUser()->isEditSelfEnabled() )  ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'personEditor.php', $this->argumentsPeoplePersonEditorArray($iPersonID, $iFamilyID));
+    }
+
+    public function argumentsPeoplePersonEditorArray ($iPersonID, $iFamilyID) {
+        $sPageTitle = _("Person Editor");
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => SystemURLs::getDocumentRoot(),
+            'CSPNonce'                  => SystemURLs::getCSPNonce(),
+            'sPageTitle'                => $sPageTitle,
+            'iPersonID'                 => $iPersonID,
+            'iFamilyID'                 => $iFamilyID
+        ];
+    }
+
     public function personview (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $renderer = new PhpRenderer('templates/people/');
 
@@ -741,6 +779,7 @@ class VIEWPeopleController {
 
         $ormNextFamilies = PersonQuery::Create()
             ->useFamilyQuery()
+            ->filterByDateDeactivated(NULL)
             ->orderByName()
             ->endUse()
             ->withColumn('COUNT(*)', 'count')

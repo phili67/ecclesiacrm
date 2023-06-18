@@ -19,7 +19,15 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/list/{mode}', VIEWPeopleController::class . ':peopleList' );
     $group->get('/list/{mode}/{gender}/{familyRole}/{classification}', VIEWPeopleController::class . ':peopleList' );
 
+    $group->get('/person/editor[/{personId:[0-9]+}]', VIEWPeopleController::class . ':personEditor' );
+    $group->post('/person/editor[/{personId:[0-9]+}]', VIEWPeopleController::class . ':personEditor' );
+
+    $group->get('/person/editor/AddFamily/{FamilyID:[0-9]+}', VIEWPeopleController::class . ':personEditor' );
+    $group->post('/person/editor/AddFamily/{FamilyID:[0-9]+}', VIEWPeopleController::class . ':personEditor' );
+
+
     $group->get('/person/view/{personId:[0-9]+}[/{mode}]', VIEWPeopleController::class . ':personview' );
+    $group->get('/person/print/{personId:[0-9]+}', VIEWPeopleController::class . ':personPrint' );
     
     $group->get('/family/editor[/{famId:[0-9]+}]', VIEWPeopleController::class . ':familyEditor' );
     $group->post('/family/editor[/{famId:[0-9]+}]', VIEWPeopleController::class . ':familyEditor' );
@@ -45,5 +53,4 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/ReminderReport', VIEWPeopleController::class . ':reminderreport' );
     $group->post('/ReminderReport', VIEWPeopleController::class . ':reminderreport' );
 
-    $group->get('/person/print/{personId:[0-9]+}', VIEWPeopleController::class . ':personPrint' );
 });
