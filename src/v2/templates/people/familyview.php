@@ -272,7 +272,7 @@ require $sRootDocument . '/Include/Header.php';
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-gradient-blue"
-                           href="<?= $sRootPath ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i
+                           href="<?= $sRootPath ?>/v2/people/person/editor/AddToFamily/<?= $iFamilyID ?>"><i
                                 class="fas fa-plus-square"></i> <?= _('Add New Member') ?></a>
                         <?php
                     }
@@ -401,7 +401,7 @@ require $sRootDocument . '/Include/Header.php';
                                         <?php
                                         if ($bOkToEdit) {
                                             ?>
-                                            <a href="<?= $sRootPath ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
+                                            <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $person->getId() ?>"
                                                class="table-link">
                                                 <span class="fa-stack" style="color:green">
                                                 <i class="fas fa-square fa-stack-2x"></i>

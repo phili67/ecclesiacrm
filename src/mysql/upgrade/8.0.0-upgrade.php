@@ -124,6 +124,7 @@ unlink(SystemURLs::getDocumentRoot()."/TaxReport.php");
 
 // 2023-06-18
 unlink(SystemURLs::getDocumentRoot()."/FamilyEditor.php");
+unlink(SystemURLs::getDocumentRoot()."/PersonEditor.php");
 
 
 $logger->info("End of delete :  all unusefull files");

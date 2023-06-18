@@ -1,58 +1,41 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : PersonEditor.php
+ *  filename    : templates/personEditor.php
+ *  last change : 2023-06-18
+ * 
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002, 2003 Deane Barker, Chris Gebhardt
  *                Copyright 2004-2005 Michael Wilt
- *                2017 Philippe Logel
- *
+ *                2023 Philippe Logel
+ * 
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
+ use EcclesiaCRM\dto\SystemConfig;
+ use EcclesiaCRM\Utils\InputUtils;
+ use EcclesiaCRM\Utils\OutputUtils;
+ use EcclesiaCRM\Utils\MiscUtils;
+ use EcclesiaCRM\Utils\LoggerUtils;
+ use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
+ use EcclesiaCRM\PersonQuery;
+ use EcclesiaCRM\Person;
+ use EcclesiaCRM\dto\Photo;
+ use EcclesiaCRM\dto\SystemURLs;
+ use EcclesiaCRM\FamilyQuery;
+ use EcclesiaCRM\Family;
+ use EcclesiaCRM\ListOptionQuery;
+ use EcclesiaCRM\PersonCustomQuery;
+ use EcclesiaCRM\PersonCustom;
+ use EcclesiaCRM\PersonCustomMasterQuery;
+ use EcclesiaCRM\dto\StateDropDown;
+ use EcclesiaCRM\dto\CountryDropDown;
+ use EcclesiaCRM\utils\RedirectUtils;
+ use EcclesiaCRM\SessionUser;
+ use EcclesiaCRM\UserQuery;
+ use EcclesiaCRM\dto\CanvassUtilities;
+ 
+ use Propel\Runtime\Propel;
 
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\Utils\LoggerUtils;
-use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Person;
-use EcclesiaCRM\dto\Photo;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\Family;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\PersonCustomQuery;
-use EcclesiaCRM\PersonCustom;
-use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\dto\StateDropDown;
-use EcclesiaCRM\dto\CountryDropDown;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\UserQuery;
-use EcclesiaCRM\dto\CanvassUtilities;
-
-
-use Propel\Runtime\Propel;
-
-
-//Set the page title
-$sPageTitle = _('Person Editor');
-//Get the PersonID out of the querystring
-if (array_key_exists('PersonID', $_GET)) {
-    $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
-} else {
-    $iPersonID = 0;
-}
-
-$sPreviousPage = '';
-if (array_key_exists('previousPage', $_GET)) {
-    $sPreviousPage = InputUtils::LegacyFilterInput($_GET['previousPage']);
-}
 
 // Security: User must have Add or Edit Records permission to use this form in those manners
 // Clean error handling: (such as somebody typing an incorrect URL ?PersonID= manually)
@@ -645,16 +628,12 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             }
         }
 
-        // Check for redirection to another page after saving information: (ie. PersonEditor.php?previousPage=prev.php?a=1;b=2;c=3)
-        if ($sPreviousPage != '') {
-            $sPreviousPage = str_replace(';', '&', $sPreviousPage);
-            RedirectUtils::Redirect($sPreviousPage . $iPersonID);
-        } elseif (isset($_POST['PersonSubmit'])) {
+        if (isset($_POST['PersonSubmit']) && $iPersonID > 0) {
             //Send to the view of this person
             RedirectUtils::Redirect('v2/people/person/view/' . $iPersonID);
         } else {
             //Reload to editor to add another record
-            RedirectUtils::Redirect('PersonEditor.php');
+            RedirectUtils::Redirect('v2/people/person/editor');
         }
     }
 
@@ -846,8 +825,8 @@ $ormFamilyRoles = ListOptionQuery::Create()
 
 
 $bShowAddress = false;
-if ($iFamily == 0 && isset($_GET['FamilyID'])) {
-    $iFamily = $_GET['FamilyID'];
+if ($iFamily == 0 && $iFamilyID != -1) {
+    $iFamily = $iFamilyID;
 }
 
 $sFamName = '';
@@ -868,10 +847,10 @@ if ($iFamily != 0) {
     }
 }
 
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 
 ?>
-<form method="post" action="PersonEditor.php?PersonID=<?= $iPersonID ?>" name="PersonEditor">
+<form method="post" action="<?= $sRootPath ?>/v2/people/person/editor<?= ($iPersonID != -1)?("/".$iPersonID):"" ?>" name="PersonEditor">
     <div class="alert alert-info alert-dismissable">
         <i class="fas fa-info"></i>
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -1009,7 +988,7 @@ require 'Include/Header.php';
                     as $ormFamily) {
                     ?>
                     <option value="<?= $ormFamily->getId() ?>"
-                        <?= ($iFamily == $ormFamily->getId() || isset($_GET['FamilyID']) && $_GET['FamilyID'] == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?>
+                        <?= ($iFamily == $ormFamily->getId() || $iFamilyID != -1 && $iFamilyID == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?>
                         &nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
                         <?php
                         }
@@ -1769,4 +1748,6 @@ require 'Include/Header.php';
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonEditor.js"></script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+

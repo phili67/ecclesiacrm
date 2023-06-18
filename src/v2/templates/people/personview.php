@@ -147,7 +147,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         if ($bOkToEdit) {
                             ?>
-                            <a href="<?= $sRootPath ?>/PersonEditor.php?PersonID=<?= $PersonInfos['person']->getId() ?>"
+                            <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $PersonInfos['person']->getId() ?>"
                                class="btn btn-primary btn-block"><b><?php echo _('Edit'); ?></b></a>
                             <?php
                         }
@@ -838,7 +838,7 @@ require $sRootDocument . '/Include/Header.php';
 
                                                 if ($bOkToEdit) {
                                                     ?>
-                                                    <a href="<?= $sRootPath ?>/PersonEditor.php?PersonID=<?= $tmpPersonId ?>">
+                                                    <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $tmpPersonId ?>">
                       <span class="fa-stack" style="color:green">
                         <i class="fas fa-square fa-stack-2x"></i>
                         <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>

@@ -575,6 +575,6 @@ $(document).ready(function () {
     );
 
     $(document).on("click", "#addVisitor", function () {
-        window.location = window.CRM.root + '/PersonEditor.php';
+        window.location = window.CRM.root + '/v2/people/person/editor';
     });
 });

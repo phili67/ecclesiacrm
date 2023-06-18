@@ -162,7 +162,7 @@ $sFamilyEmails = [];
                 <?php
                 if ($bOkToEdit) {
                     ?>
-                    <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/editor/<?= $person->getId() ?>"
                        class="btn btn-primary btn-block"><b><?php echo _('Edit'); ?></b></a>
                     <?php
                 }
