@@ -364,7 +364,7 @@ class MiscUtils
             $head_criteria .= " OR per_fmr_ID = $sDirRoleSpouse";
         }
         // Build array of Head of Households and Spouses with fam_ID as the key
-        $sSQL = 'SELECT per_FirstName as head_firstname, per_fam_ID as head_famid FROM person_per WHERE per_fam_ID > 0 AND (' . $head_criteria . ') ORDER BY per_fam_ID';
+        $sSQL = 'SELECT per_FirstName as head_firstname, per_fam_ID as head_famid FROM person_per WHERE per_DateDeactivated IS NULL AND per_fam_ID > 0 AND (' . $head_criteria . ') ORDER BY per_fam_ID';
 
         $pdo_head = $connection->prepare($sSQL);
         $pdo_head->execute();

@@ -132,7 +132,7 @@ require $sRootDocument . '/Include/Header.php';
             LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID
             LEFT JOIN family_fam ON per_fam_ID = family_fam.fam_ID
             INNER JOIN list_lst on  grp_RoleListID = lst_ID AND p2g2r_rle_ID = lst_OptionID
-        WHERE per_ID NOT IN
+        WHERE per_DateDeactivated IS NULL AND per_ID NOT IN
             (SELECT per_ID
                 FROM person_per
                 INNER JOIN record2property_r2p ON r2p_record_ID = per_ID
@@ -201,7 +201,7 @@ require $sRootDocument . '/Include/Header.php';
             LEFT JOIN person2group2role_p2g2r ON per_ID = p2g2r_per_ID
             LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID
             LEFT JOIN family_fam ON per_fam_ID = family_fam.fam_ID
-        WHERE per_ID NOT IN
+        WHERE per_DateDeactivated IS NULL AND per_ID NOT IN
             (SELECT per_ID
             FROM person_per
             INNER JOIN record2property_r2p ON r2p_record_ID = per_ID
@@ -224,6 +224,7 @@ require $sRootDocument . '/Include/Header.php';
                 }
             }
         }
+
         if ($sPhoneLink) {
             if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
                 // Display link
