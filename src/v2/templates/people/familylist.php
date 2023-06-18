@@ -19,7 +19,7 @@ require $sRootDocument . '/Include/Header.php';
   if ($bNotGDRPNotEmpty) {
 ?>
 <div class="pull-right">
-  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>//v2/people/family/editor/"> <span class="fas fa-plus"
+  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/v2/people/family/editor"> <span class="fas fa-plus"
     aria-hidden="true"></span><?= _('Add Family') ?>
   </a>
 </div>
