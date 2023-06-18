@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : directoryreport.php
+ *  filename    : templates/directoryreport.php
  *  last change : 2023-05-28
  *  description : form to invoke directory report
  *
