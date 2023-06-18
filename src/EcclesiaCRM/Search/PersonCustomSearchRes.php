@@ -80,7 +80,7 @@ class PersonCustomSearchRes extends BaseSearchRes
 
                                 $res = "";
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
-                                    $res = '<a href="' . SystemURLs::getRootPath() . '/PersonEditor.php?PersonID=' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                    $res = '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/editor/' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                                 }
 
                                 $res .= '<span class="fa-stack">'

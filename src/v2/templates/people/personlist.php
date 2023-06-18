@@ -19,7 +19,7 @@ require $sRootDocument . '/Include/Header.php';
   if ( $bNotGDRP ) {
 ?>
 <div class="pull-right">
-  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/PersonEditor.php">
+  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/v2/people/person/editor">
     <span class="fas fa-plus" aria-hidden="true"></span><?= _('Add New Person') ?>
   </a>
 </div>
@@ -75,7 +75,7 @@ require $sRootDocument . '/Include/Header.php';
                             <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
-                    <a href='<?= $sRootPath ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>'>
+                    <a href='<?= $sRootPath ?>/v2/people/person/editor/<?= $person->getId() ?>'>
                         <span class="fa-stack">
                             <i class="fas fa-square fa-stack-2x"></i>
                             <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
