@@ -97,7 +97,7 @@ class FamilySearchRes extends BaseSearchRes
 
                             $res = "";
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyEditor.php?FamilyID=' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/editor/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 . '<i class="fas fa-square fa-stack-2x"></i>'

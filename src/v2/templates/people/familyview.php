@@ -64,7 +64,7 @@ require $sRootDocument . '/Include/Header.php';
                     <?php
                     if ($bOkToEdit) {
                         ?>
-                        <a href="<?= $sRootPath ?>/FamilyEditor.php?FamilyID=<?= $family->getId() ?>"
+                        <a href="<?= $sRootPath ?>/v2/people/family/editor/<?= $family->getId() ?>"
                            class="btn btn-primary btn-block"><b><?= _("Edit") ?></b></a>
                         <?php
                     }
