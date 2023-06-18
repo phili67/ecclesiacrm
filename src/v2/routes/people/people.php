@@ -22,8 +22,8 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/person/editor[/{personId:[0-9]+}]', VIEWPeopleController::class . ':personEditor' );
     $group->post('/person/editor[/{personId:[0-9]+}]', VIEWPeopleController::class . ':personEditor' );
 
-    $group->get('/person/editor/AddFamily/{FamilyID:[0-9]+}', VIEWPeopleController::class . ':personEditor' );
-    $group->post('/person/editor/AddFamily/{FamilyID:[0-9]+}', VIEWPeopleController::class . ':personEditor' );
+    $group->get('/person/editor/AddToFamily/{FamilyID:[0-9]+}', VIEWPeopleController::class . ':personEditor' );
+    $group->post('/person/editor/AddToFamily/{FamilyID:[0-9]+}', VIEWPeopleController::class . ':personEditor' );
 
 
     $group->get('/person/view/{personId:[0-9]+}[/{mode}]', VIEWPeopleController::class . ':personview' );

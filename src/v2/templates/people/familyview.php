@@ -272,7 +272,7 @@ require $sRootDocument . '/Include/Header.php';
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-gradient-blue"
-                           href="<?= $sRootPath ?>/v2/people/person/editor/AddFamily/<?= $iFamilyID ?>"><i
+                           href="<?= $sRootPath ?>/v2/people/person/editor/AddToFamily/<?= $iFamilyID ?>"><i
                                 class="fas fa-plus-square"></i> <?= _('Add New Member') ?></a>
                         <?php
                     }
