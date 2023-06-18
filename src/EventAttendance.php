@@ -31,7 +31,7 @@ if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !emp
     if ($_POST['Choice'] == 'Attendees') {
         $sSQL = 'SELECT t1.per_ID, t1.per_Title, t1.per_FirstName, t1.per_MiddleName, t1.per_LastName, t1.per_Suffix, t1.per_Email, t1.per_HomePhone, t1.per_Country, t1.per_MembershipDate, t4.fam_HomePhone, t4.fam_Country
                 FROM person_per AS t1, events_event AS t2, event_attend AS t3, family_fam AS t4
-                WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$_POST['Event']." AND t1.per_fam_ID = t4.fam_ID AND per_cls_ID IN ('1','2','5')
+                WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$_POST['Event']." AND t1.per_fam_ID = t4.fam_ID AND per_cls_ID IN ('1','2','5') AND  t1.per_DateDeactivated IS NULL
                 ORDER BY t1.per_LastName, t1.per_ID";
         $sPageTitle = _('Event Attendees');
     } elseif ($_POST['Choice'] == 'Nonattendees') {
@@ -54,14 +54,14 @@ if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !emp
         } else {
             $sSQL = "SELECT t1.per_ID, t1.per_Title, t1.per_FirstName, t1.per_MiddleName, t1.per_LastName, t1.per_Suffix, t1.per_Email, t1.per_HomePhone, t1.per_Country, t1.per_MembershipDate, t2.fam_HomePhone, t2.fam_Country
                         FROM person_per AS t1, family_fam AS t2
-                        WHERE t1.per_fam_ID = t2.fam_ID AND per_cls_ID IN ('1','2','5')
+                        WHERE t1.per_fam_ID = t2.fam_ID AND per_cls_ID IN ('1','2','5') AND  t1.per_DateDeactivated IS NULL
                         ORDER BY t1.per_LastName, t1.per_ID";
         }
         $sPageTitle = _('Event Nonattendees');
     } elseif ($_POST['Choice'] == 'Guests') {
         $sSQL = 'SELECT t1.per_ID, t1.per_Title, t1.per_FirstName, t1.per_MiddleName, t1.per_LastName, t1.per_Suffix, t1.per_HomePhone, t1.per_Country
                 FROM person_per AS t1, events_event AS t2, event_attend AS t3
-                WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$_POST['Event']." AND per_cls_ID IN ('0','3')
+                WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$_POST['Event']." AND per_cls_ID IN ('0','3') AND  t1.per_DateDeactivated IS NULL
                 ORDER BY t1.per_LastName, t1.per_ID";
         $sPageTitle = _('Event Guests');
     }
@@ -145,11 +145,11 @@ if (array_key_exists('Action', $_GET) && $_GET['Action'] == 'List' && $numRows >
 <?php
 $cSQL = 'SELECT COUNT(per_ID) AS cCount
          FROM person_per as t1, events_event as t2, event_attend as t3
-         WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$aEventID[$row]." AND per_cls_ID IN ('1','2','5')";
+         WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$aEventID[$row]." AND per_cls_ID IN ('1','2','5') AND  t1.per_DateDeactivated IS NULL";
 
 $tSQL = "SELECT COUNT(per_ID) AS tCount
          FROM person_per
-         WHERE per_cls_ID IN ('1','2','5')";
+         WHERE per_cls_ID IN ('1','2','5') AND  per_DateDeactivated IS NULL";
 
 $cOpps = $connection->prepare($cSQL);
 $cOpps->execute();
@@ -183,7 +183,7 @@ $tNumTotal = $tOpps->fetch( \PDO::FETCH_BOTH )['tCount'];
 <?php
 $gSQL = 'SELECT COUNT(per_ID) AS gCount
          FROM person_per as t1, events_event as t2, event_attend as t3
-         WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$aEventID[$row].' AND per_cls_ID = 3';
+         WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$aEventID[$row].' AND per_cls_ID = 3 AND  t1.per_DateDeactivated IS NULL';
 
         $gOpps = $connection->prepare($gSQL);
         $gOpps->execute();

@@ -386,7 +386,12 @@ class CartController
                         LEFT JOIN person2group2role_p2g2r ON per_ID = p2g2r_per_ID
                         LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID
                         LEFT JOIN family_fam ON per_fam_ID = family_fam.fam_ID
-                    WHERE per_ID NOT IN (SELECT per_ID FROM person_per INNER JOIN record2property_r2p ON r2p_record_ID = per_ID INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not Email') AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
+                    WHERE per_DateDeactivated IS NULL AND per_ID NOT IN (
+                        SELECT per_ID 
+                        FROM person_per 
+                        INNER JOIN record2property_r2p ON r2p_record_ID = per_ID 
+                        INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not Email') 
+                        AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
 
                 $statementEmails = $connection->prepare($sSQL);
                 $statementEmails->execute();
@@ -410,7 +415,11 @@ class CartController
                 $sSQL = "SELECT per_CellPhone, fam_CellPhone
                             FROM person_per LEFT
                             JOIN family_fam ON person_per.per_fam_ID = family_fam.fam_ID
-                        WHERE per_ID NOT IN (SELECT per_ID FROM person_per INNER JOIN record2property_r2p ON r2p_record_ID = per_ID INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not SMS') AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
+                        WHERE per_DateDeactivated IS NULL AND per_ID NOT IN (
+                            SELECT per_ID FROM person_per 
+                            INNER JOIN record2property_r2p ON r2p_record_ID = per_ID 
+                            INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not SMS') 
+                            AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
 
                 $statement = $connection->prepare($sSQL);
                 $statement->execute();

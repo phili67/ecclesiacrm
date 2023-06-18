@@ -860,10 +860,9 @@ require 'Include/Header.php';
             <div class="row">
                 <div class="form-group col-md-4">
                     <label><?= _('Email') ?>:</label>
-                    <label><?= _('Mobile Phone') ?>:</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         </div>
                         <input type="text" Name="Email" class="form-control form-control-sm"
                                value="<?= htmlentities(stripslashes($sEmail)) ?>" size="30" maxlength="100"><font
