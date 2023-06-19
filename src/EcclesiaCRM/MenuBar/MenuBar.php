@@ -507,7 +507,7 @@ class MenuBar extends Menu
         $this->addMenu($menuItem);
 
         $this->addHomeArea();
-        if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getValue('bGDPR')) {
+        if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR')) {
             $this->addGDPRMenu();
         }
 

@@ -599,7 +599,7 @@ class User extends BaseUser
 
     public function isGdrpDpoEnabled()
     {
-        return $this->isAdmin() || $this->isGdrpDpo();
+        return $this->isAdmin() || $this->isGdrpDpo() || !SystemConfig::getBooleanValue('bGDPR');
     }
 
     public function isMainDashboardEnabled()
