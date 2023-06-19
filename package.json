@@ -71,7 +71,7 @@
         "icheck": "^1.0.2",
         "initial-js": "0.3.4",
         "is-my-json-valid": "^2.20.5",
-        "jquery": "^3.7.0",
+        "jquery": "^3.6.3",
         "jquery-steps": "^1.1.0",
         "jquery-ui-touch-punch": "^0.2.3",
         "jquery-validation": "^1.19.4",
