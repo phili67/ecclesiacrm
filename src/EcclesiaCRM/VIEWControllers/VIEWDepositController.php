@@ -305,7 +305,7 @@ class VIEWDepositController {
         $renderer = new PhpRenderer('templates/deposit/');
 
         // Security: User must have finance permission or be the one who created this deposit
-        if (!SessionUser::getUser()->isFinanceEnabled()) {
+        if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
@@ -347,6 +347,35 @@ class VIEWDepositController {
             'linkBack'                  => str_replace("-","/", $linkBack),
             'origLinkBack'              => $linkBack
 
+        ];
+
+        return $paramsArguments;
+    }
+
+    public function renderElectronicPaymentList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/deposit/');
+
+        // Security: User must have finance permission or be the one who created this deposit
+        if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'electronicPaymentList.php', $this->argumentsElectronicPaymentListArray());
+    }
+
+    public function argumentsElectronicPaymentListArray ()
+    {
+        // Set the page title and include HTML header
+        $sPageTitle = _("Electronic Payment Listing");
+
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle
         ];
 
         return $paramsArguments;

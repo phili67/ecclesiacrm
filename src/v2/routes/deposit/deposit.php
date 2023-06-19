@@ -38,6 +38,8 @@ $app->group('/deposit', function (RouteCollectorProxy $group) {
     $group->get('/tax/report', VIEWDepositController::class . ':renderTaxReport');
     $group->post('/tax/report', VIEWDepositController::class . ':renderTaxReport');
 
+    $group->get('/electronic/payment/list', VIEWDepositController::class . ':renderElectronicPaymentList');
+
     /*
     * @! AutoPaymentEditor
     * #! param: ref->int :: AuthID
