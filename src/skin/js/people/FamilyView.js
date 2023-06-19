@@ -500,7 +500,7 @@ $(document).ready(function () {
         title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a class="" href="' + window.CRM.root + '/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=v2/people/family/view/'+full.Familyid+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>'
+          return '<a class="" href="' + window.CRM.root + '/v2/deposit/autopayment/editor/'+data+'/'+full.Familyid+'/v2-people-family-view-'+full.Familyid+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>'
                 +'&nbsp;&nbsp;&nbsp;<a class="delete-payment" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
         }
       },

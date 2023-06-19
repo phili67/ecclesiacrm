@@ -7,7 +7,7 @@ require 'Include/VancoConfig.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\SessionUser;
 
-// set into the Vanco interface by AutoPaymentEditor.php
+// set into the Vanco interface by /v2/deposit/autopayment/editor/....
 $iVancoAutID = InputUtils::LegacyFilterInputArr($_POST, 'customerid', 'int');
 
 // this is what we are really after- this handle can be used to initiate authorized transactions

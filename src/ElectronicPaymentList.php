@@ -204,7 +204,7 @@ function CreatePaymentMethodsForChecked()
 </script>
 <div class="card card-body">
 
-<p align="center"><a href="AutoPaymentEditor.php?linkBack=ElectronicPaymentList.php" class="btn btn-primary"><?= _('Add a New Electronic Payment Method') ?></a></p>
+<p align="center"><a href="<?= SystemURLs::getRootPath() ?>/v2/deposit/autopayment/editor/-1/-1/ElectronicPaymentList.php" class="btn btn-primary"><?= _('Add a New Electronic Payment Method') ?></a></p>
 <div class="table-responsive">
 <table class="table table-hover dt-responsive" id="PaymentMethodTable"  style="width:100%;">
   <thead>
@@ -255,7 +255,7 @@ foreach ($ormAutopayments as $payment) {
     <td>
       <input type=checkbox id=Select<?= $payment->getId() ?> name="SelectForAction" />
     </td>
-    <td><a href="AutoPaymentEditor.php?AutID=<?= $payment->getId() ?>&amp;FamilyID=<?php echo $payment->getFamilyid() ?>&amp;linkBack=ElectronicPaymentList.php" class="btn btn-success"><?= _('Edit') ?></a></td>
+    <td><a href="<?= SystemURLs::getRootPath() ?>/v2/deposit/autopayment/editor/<?= $payment->getId() ?>/<?= $payment->getFamilyid() ?>/ElectronicPaymentList.php" class="btn btn-success"><?= _('Edit') ?></a></td>
     <td>
       <button onclick="ConfirmDeleteAutoPayment(<?= $payment->getId() ?>)" class="btn btn-danger"><?= _('Delete') ?></button>
     </td>

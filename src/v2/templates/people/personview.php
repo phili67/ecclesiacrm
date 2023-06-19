@@ -1215,7 +1215,7 @@ require $sRootDocument . '/Include/Header.php';
                                         ?>
                                         <p align="center">
                                             <a class="btn btn-primary"
-                                               href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>"><?= _("Add a new automatic payment") ?></a>
+                                               href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $PersonInfos['person']->getFamily()->getId() ?>/v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>"><?= _("Add a new automatic payment") ?></a>
                                         </p>
                                         <?php
                                     } else {

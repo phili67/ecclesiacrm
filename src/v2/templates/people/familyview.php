@@ -656,7 +656,7 @@ require $sRootDocument . '/Include/Header.php';
                                                     ?>
                                                     <p align="center">
                                                         <a class="btn btn-primary"
-                                                           href="<?= $sRootPath ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $family->getId() ?>&amp;linkBack=v2/people/family/view/<?= $iFamilyID ?>"><?= _("Add a new automatic payment") ?></a>
+                                                           href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $family->getId() ?>/v2-people-family-view-<?= $iFamilyID ?>"><?= _("Add a new automatic payment") ?></a>
                                                     </p>
                                                 </div>
                                             </div>
