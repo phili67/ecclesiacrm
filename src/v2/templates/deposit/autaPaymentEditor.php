@@ -122,8 +122,6 @@ if ($iAutID <= 0) {  // Need to create the record so there is a place to store t
     }
 }
 
-$sPageTitle = _('Automatic payment configuration');
-
 //Is this the second pass?
 if (isset($_POST['Submit'])) {
     $iFamily = InputUtils::LegacyFilterInput($_POST['Family']);
@@ -223,9 +221,9 @@ if (isset($_POST['Submit'])) {
                  $personId = $person->getId();
                }
 
-               if ($personId > 0) {
+               /*if ($personId > 0) {
                   RedirectUtils::Redirect("v2/people/person/view/".$personId);
-               }
+               }*/
             }
           }
           RedirectUtils::Redirect($linkBack);
@@ -234,6 +232,8 @@ if (isset($_POST['Submit'])) {
             RedirectUtils::Redirect($sRootPath."/".$iAutID."/".$iFamily."/".$origLinkBack);
         }
     }
+} else if (isset($_POST['Cancel'])) {
+    RedirectUtils::Redirect($linkBack);
 } else if ($iAutID > 0) {// not submitting, just get ready to build the page
     $autoPayment = AutoPaymentQuery::Create()->findOneById($iAutID);
 
@@ -1086,7 +1086,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
              </div>
              <div class="col-md-4">
                     <input type="button" class="btn btn-default" value="x <?= _('Cancel') ?>" name="Cancel"
-                           onclick="javascript:document.location='<?= (strlen($linkBack) > 0)?:'v2/dashboard' ?>';">
+                           onclick="javascript:document.location='<?= !empty($linkBack)?$sRootPath."/". $linkBack:"" ?>';">
              </div>
              <div class="col-md-4">
              </div>
