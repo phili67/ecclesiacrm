@@ -37,4 +37,15 @@ $app->group('/deposit', function (RouteCollectorProxy $group) {
 
     $group->get('/tax/report', VIEWDepositController::class . ':renderTaxReport');
     $group->post('/tax/report', VIEWDepositController::class . ':renderTaxReport');
+
+    /*
+    * @! AutoPaymentEditor
+    * #! param: ref->int :: AuthID
+    * #! param: ref->int :: FamilyID
+    * #! param: ref->string :: linkBack 
+    #
+    # Important : the linkBack must be : v2-people-family-view-64 for v2/people/family/view/64
+    */
+    $group->get('/autopayment/editor/{AutID}/{FamilyID}/{linkBack}', VIEWDepositController::class . ':renderAutoPaymentEditor');
+    $group->post('/autopayment/editor/{AutID}/{FamilyID}/{linkBack}', VIEWDepositController::class . ':renderAutoPaymentEditor');
 });

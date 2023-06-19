@@ -263,8 +263,6 @@ class VIEWDepositController {
         return $paramsArguments;
     }
 
-    
-
     public function renderTaxReport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $renderer = new PhpRenderer('templates/deposit/');
@@ -297,6 +295,58 @@ class VIEWDepositController {
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
             'sPageTitle'                => $sPageTitle
+        ];
+
+        return $paramsArguments;
+    }
+
+    public function renderAutoPaymentEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/deposit/');
+
+        // Security: User must have finance permission or be the one who created this deposit
+        if (!SessionUser::getUser()->isFinanceEnabled()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $iAutID = -1;
+        
+        if (isset($args['AutID'])) {
+            $iAutID = InputUtils::LegacyFilterInput($args['AutID'], 'int');
+        }
+
+        $iFamily = -1;
+        
+        if (isset($args['FamilyID'])) {
+            $iFamily = InputUtils::LegacyFilterInput($args['FamilyID'], 'int');
+        }
+
+        $linkBack = '';
+        
+        if (isset($args['linkBack'])) {
+            $linkBack = InputUtils::LegacyFilterInput($args['linkBack']);            
+        }
+
+        return $renderer->render($response, 'autaPaymentEditor.php', $this->argumentsAutoPaymentEditorArray($iAutID, $iFamily, $linkBack));
+    }
+
+    public function argumentsAutoPaymentEditorArray ($iAutID, $iFamily, $linkBack)
+    {
+        // Set the page title and include HTML header
+        $sPageTitle = _("Automatic payment configuration");
+
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'iAutID'                    => $iAutID, 
+            'iFamily'                   => $iFamily, 
+            'linkBack'                  => str_replace("-","/", $linkBack),
+            'origLinkBack'              => $linkBack
+
         ];
 
         return $paramsArguments;
