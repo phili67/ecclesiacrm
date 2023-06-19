@@ -31,6 +31,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\NoteQuery;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 $connection = Propel::getConnection();
 
@@ -641,6 +642,9 @@ if (SessionUser::getUser()->isNotesEnabled()) {
     ?>
     
 
+
+    <?php if (SessionUser::getUser()->isGdrpDpoEnabled()) { ?>
+    <!-- only for a dpo -->
     <!-- file folder -->
     <h4 class="print-h2"><span class="smalltext">&#9724;</span> <?= _("Files & folders") ?></h2>
     <hr/>
@@ -741,5 +745,7 @@ if (SessionUser::getUser()->isNotesEnabled()) {
     }
 }
 ?>
+
+<?php } ?>
 
 <?php require $sRootDocument . '/Include/Footer-Short.php'; ?>

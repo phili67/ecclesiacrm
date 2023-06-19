@@ -64,7 +64,7 @@ class VIEWPersonListController {
                 ->find();
 
         } else if (strtolower($sMode) == 'inactive') {
-            if (SystemConfig::getValue('bGDPR')) {
+            if (SystemConfig::getBooleanValue('bGDPR')) {
                 $time = new \DateTime('now');
                 $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
 
