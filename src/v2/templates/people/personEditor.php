@@ -1729,16 +1729,16 @@ require $sRootDocument . '/Include/Header.php';
         <?php
     }
     ?>
-    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+    <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PersonSubmit">
     <?php
     if (SessionUser::getUser()->isAddRecordsEnabled()) {
         ?>
-        <input type="submit" class="btn btn-success" value="<?= _('Save and Add') ?>" name="PersonSubmitAndAdd">
+        <input type="submit" class="btn btn-success" value="+ <?= _('Save and Add') ?>" name="PersonSubmitAndAdd">
         <?php
     }
     ?>
-    <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="PersonCancel"
-           onclick="javascript:document.location='v2/people/list/person';">
+    <input type="button" class="btn btn-default" value="x <?= _('Cancel') ?>" name="PersonCancel"
+           onclick="javascript:document.location='<?= $sRootPath ?>/v2/people/list/person';">
 </form>
 <br/>
 
