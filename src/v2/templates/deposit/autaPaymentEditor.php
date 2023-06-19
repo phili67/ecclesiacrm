@@ -1,34 +1,28 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : AutoPaymentEditor.php
- *  copyright   : Copyright 2001, 2002, 2003, 2004 - 2014 Deane Barker, Chris Gebhardt, Michael Wilt
- *                Copyright 2018 Philippe Logel
+ *  filename    : depositslipeditor.php
+ *  description : menu that appears after login, shows login attempts
+ *
+ *  http://www.ecclesiacrm.com/
+ *
+ *  2023 Philippe Logel
  *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-require 'bin/vancowebservices.php';
+ require $sRootDocument . '/bin/vancowebservices.php';
 
+// Include the function library
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\Family;
 use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\AutoPayment;
 use EcclesiaCRM\DonationFundQuery;
-use EcclesiaCRM\DonationFund;
 use EcclesiaCRM\SessionUser;
-
-
-$linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
-$iFamily  = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
-$iAutID   = InputUtils::LegacyFilterInput($_GET['AutID'], 'int');
 
 //Get Family name
 if ($iFamily) {
@@ -135,7 +129,7 @@ if (isset($_POST['Submit'])) {
     $iFamily = InputUtils::LegacyFilterInput($_POST['Family']);
 
     if ($iFamily == 0) {
-      RedirectUtils::Redirect('AutoPaymentEditor.php?AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=', $linkBack);
+        RedirectUtils::Redirect($sRootPath."/".$iAutID."/".$iFamily."/".$origLinkBack);
     }
 
     $enableCode = InputUtils::LegacyFilterInput($_POST['EnableButton']);
@@ -216,7 +210,7 @@ if (isset($_POST['Submit'])) {
 
     if (isset($_POST['Submit'])) {
         // Check for redirection to another page after saving information: (ie. PledgeEditor.php?previousPage=prev.php?a=1;b=2;c=3)
-        if ($linkBack == "ElectronicPaymentList.php") {
+        if ($linkBack == "v2/deposit/autopayment/editor/".$iAutID."/".$iFamily."/".$origLinkBack) {
           RedirectUtils::Redirect($linkBack);
         } else if ($linkBack != '') {
           $ormFamily = FamilyQuery::Create()->findOneById($iFamily);
@@ -237,7 +231,7 @@ if (isset($_POST['Submit'])) {
           RedirectUtils::Redirect($linkBack);
         } else {
             //Send to the view of this pledge
-            RedirectUtils::Redirect('AutoPaymentEditor.php?AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=', $linkBack);
+            RedirectUtils::Redirect($sRootPath."/".$iAutID."/".$iFamily."/".$origLinkBack);
         }
     }
 } else if ($iAutID > 0) {// not submitting, just get ready to build the page
@@ -271,7 +265,10 @@ if (isset($_POST['Submit'])) {
     $tAccountVanco = $autoPayment->getAccountVanco();
 }
 
-require 'Include/Header.php';
+// we place this part to avoid a problem during the upgrade process
+// Set the page title
+require $sRootDocument . '/Include/Header.php';
+
 
 //Get Families for the drop-down
 $ormFamilies = FamilyQuery::Create()->orderByName()->find();
@@ -728,11 +725,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
             $.ajax({
                 type: "POST",
-                url: "<?php if ($VancoTest) {
-        echo 'https://www.vancodev.com/cgi-bin/wsnvptest.vps';
-    } else {
-        echo 'https://www.vancoservices.com/cgi-bin/wsnvp.vps';
-    } ?>",
+                url: "<?= ($VancoTest)?'https://www.vancodev.com/cgi-bin/wsnvptest.vps':'https://www.vancoservices.com/cgi-bin/wsnvp.vps' ?>",
                 data: {
                     "sessionid": "<?= $sessionid ?>",
                     "nvpvar": "<?= $nvpvarcontent ?>",
@@ -780,7 +773,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                                 for (var i = 0; i < errorArr.length; i++)
                                     errorStr += "Error " + errorArr[i] + ": " + VancoErrorString(Number(errorArr[i])) + "\n";
                                 alert(errorStr);
-                                window.location = "<?= RedirectUtils::RedirectURL('AutoPaymentEditor.php') . "?AutID=$iAutID&FamilyID=$aut_FamID$&linkBack=$linkBack" ?>";
+                                window.location = "<?= $sRootPath ?>/<?= $iAutID ?>/<?=  $iFamily ?>/<$= $origLinkBack ?>";
                             }
                         },
                         error: function (jqXHR, textStatus, errorThrown, nashuadata) {
@@ -800,15 +793,14 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 }
 ?>
 
+<form method="post"  style="padding:10px"
+          action="<?= $sRootPath ?>/v2/deposit/autopayment/editor/<?= $iAutID ?>/<?=  $iFamily ?>/<?= $origLinkBack ?>"
+          name="AutoPaymentEditor">
 <div class="card card-info">
   <div class="card-header border-1">
     <h3 class="card-title"><?= _("For the").' '.(($onePersonFamily == true)?_('Person'):_('Family'))?> : <?=  $fam_Name ?></h3>
   </div>
-  <div class="card-text">
-    <form method="post"  style="padding:10px"
-          action="AutoPaymentEditor.php?<?= 'AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=' . $linkBack ?>"
-          name="AutoPaymentEditor">
-
+  <div class="card-body">    
           <div class="row">
             <div class="col-md-3">
                 <label><?= _('Person').' '._('or').' '._('Family') ?>:</label>
@@ -892,7 +884,8 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                       <?php
                       foreach ($ormFunds as $fund) {
                           ?>
-                          <option value="<?= $fund->getId()?>" <?= (($iFund == $fund->getId())?' selected':'').">".$fund->getName().(($fund->getActive() != 'true')?' (' . _('inactive') . ')':'') ?>
+                          <option value="<?= $fund->getId()?>" <?= (($iFund == $fund->getId())?' selected':'') ?>>
+                            <?= $fund->getName().(($fund->getActive() != 'true')?' (' . _('inactive') . ')':'') ?>
                           </option>
                       <?php
                       }
@@ -1078,7 +1071,9 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
       <?php
         }
       ?>
-          <div class="row">
+  </div>
+  <div class="card-footer">
+    <div class="row">
              <div class="col-md-12">
                &nbsp;
              </div>
@@ -1087,19 +1082,18 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
              <div class="col-md-1">
              </div>
              <div class="col-md-4">
-                    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="Submit">
+                    <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="Submit">
              </div>
              <div class="col-md-4">
-                    <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="Cancel"
+                    <input type="button" class="btn btn-default" value="x <?= _('Cancel') ?>" name="Cancel"
                            onclick="javascript:document.location='<?= (strlen($linkBack) > 0)?:'v2/dashboard' ?>';">
              </div>
              <div class="col-md-4">
              </div>
           </div>
-
-    </form>
   </div>
 </div>
+</form>
 
 <script>
    var iFamily  = <?= (empty($iFamily)?0:$iFamily) ?>;
@@ -1184,4 +1178,8 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
     });
 </script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+
+
+
