@@ -550,6 +550,8 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             RedirectUtils::Redirect('v2/people/family/editor');
         }
     }
+} else if (isset($_POST['FamilySubmitAndAddPerson']) and $iFamilyID > 0) {
+    RedirectUtils::Redirect('v2/people/person/editor/AddToFamily/'.$iFamilyID);
 } else {
     //FirstPass
     //Are we editing or adding?
@@ -1072,7 +1074,7 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="table-responsive">
                         <table cellpadding="3" cellspacing="0" width="100%">
                             <thead>
-                            <tr class="TableHeader" align="center">
+                            <tr class="TableHeader" >
                                 <th><?= _('First Name') ?></th>
                                 <th><?= _('Middle Name') ?></th>
                                 <th><?= _('Last Name') ?></th>
@@ -1269,18 +1271,19 @@ require $sRootDocument . '/Include/Header.php';
 }
 ?>
 
-    <td colspan="2" align="center">
+    <td colspan="2" >
         <input type="hidden" Name="UpdateBirthYear" value="<?= $UpdateBirthYear ?>">
-        <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" Name="FamilySubmit">
+        <input type="submit" class="btn btn-success" value="&check; <?= _('Save') ?>" Name="FamilySubmit">
         <?php
         if (SessionUser::getUser()->isAddRecordsEnabled()) {
             ?>
-            <input type="submit" class="btn btn-info" value="<?= _('Save and Add') ?>" name="FamilySubmitAndAdd">
+            <input type="submit" class="btn btn-primary" value="+ <?= _('Save and Add Family') ?>" name="FamilySubmitAndAdd">
+            <input type="submit" class="btn btn-primary" value="+ <?= _('Save and Add Person To Family') ?>" name="FamilySubmitAndAddPerson">
             <?php
         }
         ?>
-        <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" Name="FamilyCancel"
-            <?= ($iFamilyID > 0)?" onclick=\"javascript:document.location='". $sRootPath ."/v2/people/family/view/$iFamilyID';\">":" onclick=\"javascript:document.location='". $sRootPath ."/v2/familylist';\">" ?>
+        <input type="button" class="btn btn-default" value="X <?= _('Cancel') ?>" Name="FamilyCancel"
+            <?= ($iFamilyID > 0)?" onclick=\"javascript:document.location='". $sRootPath ."/v2/people/family/view/$iFamilyID';\"":" onclick=\"javascript:document.location='". $sRootPath ."/v2/familylist';\"" ?>>
     </td>
     </tr></form></table>
     <br/>
