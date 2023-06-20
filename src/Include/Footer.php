@@ -77,7 +77,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                     </a>
                 </div>
                 <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/FamilyCustomFieldsEditor.php">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/people/family/customfield/editor">
                         <i class="fas fa-cog"></i> <?= _('Edit Custom Family Fields') ?>
                     </a>
                 </div>

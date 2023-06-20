@@ -1,20 +1,17 @@
 <?php
 /*******************************************************************************
-*
-*  filename    : FamilyCustomFieldsEditor.php
-*  website     : http://www.ecclesiacrm.com
-*  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
+ *
+ *  filename    : templates/familyCustomFieldEditor.php
+ *  last change : 2023-06-20
+ *  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
 *  Clone from PersonCustomFieldsEditor.php
 *
 *  function    : Editor for family custom fields
 *
 *  Additional Contributors:
-*  2007 Ed Davis
-*                copyright 2019-05-19 Philippe Logel
-******************************************************************************/
-
-require 'Include/Config.php';
-require 'Include/Functions.php';
+*  2007 Ed Davis + copyright 2023-06-20 Philippe Logel
+*
+ ******************************************************************************/
 
 use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\InputUtils;
@@ -26,21 +23,12 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOption;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Map\ListOptionTableMap;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
 
 use EcclesiaCRM\Utils\MiscUtils;
+ 
 
-
-// Security: user must be administrator to use this page
-if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-$sPageTitle = _('Custom Family Fields Editor');
-
-require 'Include/Header.php'; ?>
+require $sRootDocument . '/Include/Header.php';
+?>
 
 <div class="alert alert-warning">
     <i class="fas fa-ban"></i>
@@ -321,16 +309,16 @@ function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
 // Construct the form
 ?>
 
-<form method="post" action="FamilyCustomFieldsEditor.php" name="FamilyCustomFieldsEditor">
+<form method="post" action="<?= $sRootPath ?>/v2/people/family/customfield/editor" name="FamilyCustomFieldsEditor">
     <div class="table-responsive">
 <table class="table" class="table">
 
 <?php
 if ($numRows == 0) {
     ?>
-    <center>
+    <p class="align-center">
        <h2><?= _('No custom Family fields have been added yet') ?></h2>
-    </center>
+    </p>
 <?php
 } else {
         ?>
@@ -369,12 +357,12 @@ if ($numRows == 0) {
             <img class="down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0">
         <?php
         } ?>
-                <img class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="Images/x.gif" border="0">
+                <img class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= SystemURLs::getRootPath() ?>/Images/x.gif" border="0">
             </td>
             <td class="TextColumn">
                 <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
             </td>
-            <td class="TextColumn" align="center">
+            <td class="TextColumn">
                 <input type="text" class= "form-control form-control-sm" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35" maxlength="40">
                 <?php
                 if ($aNameErrors[$row]) {
@@ -384,7 +372,7 @@ if ($numRows == 0) {
                 }
                 ?>
             </td>
-            <td class="TextColumn" align="center">
+            <td class="TextColumn">
 
             <?php
             if ($aTypeFields[$row] == 9) {
@@ -420,7 +408,7 @@ if ($numRows == 0) {
             ?>
 
             </td>
-            <td class="TextColumn" align="center" nowrap>
+            <td class="TextColumn" nowrap>
                 <?php
                 if (isset($aSecurityType[$aFieldSecurity[$row]])) {
               ?>
@@ -432,7 +420,7 @@ if ($numRows == 0) {
               <?php
               } ?>
             </td>
-            <td class="TextColumn" align="center" nowrap>
+            <td class="TextColumn" nowrap>
                 <input type="radio" Name="<?= $row ?>side" value="0" <?= !$aSideFields[$row] ? ' checked' : ''?>><?= _('Left') ?>
                 <input type="radio" Name="<?= $row ?>side" value="1" <?= $aSideFields[$row] ? ' checked' : ''?>><?= _('Right') ?>
             </td>
@@ -446,7 +434,7 @@ if ($numRows == 0) {
             <table width="100%">
                 <tr>
                     <td width="30%"></td>
-                    <td width="40%" align="center" valign="bottom">
+                    <td width="40%" valign="bottom">
                         <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
                     </td>
                     <td width="30%"></td>
@@ -537,4 +525,6 @@ if ($numRows == 0) {
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/FamilyCustomFieldsEditor.js"></script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+

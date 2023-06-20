@@ -56,4 +56,7 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/person/customfield/editor', VIEWPeopleController::class . ':personCustomFieldEditor' );
     $group->post('/person/customfield/editor', VIEWPeopleController::class . ':personCustomFieldEditor' );
 
+    $group->get('/family/customfield/editor', VIEWPeopleController::class . ':familyCustomFieldEditor' );
+    $group->post('/family/customfield/editor', VIEWPeopleController::class . ':familyCustomFieldEditor' );
+
 });
