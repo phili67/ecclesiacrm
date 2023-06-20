@@ -1323,5 +1323,28 @@ class VIEWPeopleController {
             'sPageTitle'                => $sPageTitle
         ];
     } 
+
+    public function familyCustomFieldEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'familyCustomFieldEditor.php', $this->argumentsFamilyCustomEditorArray());
+    }
+
+    public function argumentsFamilyCustomEditorArray () {
+        $sPageTitle = _("Custom Family Fields Editor");
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => SystemURLs::getDocumentRoot(),
+            'CSPNonce'                  => SystemURLs::getCSPNonce(),
+            'sPageTitle'                => $sPageTitle
+        ];
+    } 
+
+    
     
 }
