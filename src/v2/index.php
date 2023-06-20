@@ -24,9 +24,8 @@ use EcclesiaCRM\SessionUser;
 use Slim\Psr7\Response;
 
 use Propel\Runtime\ActiveQuery\Criteria;
-use Symfony\Component\HttpFoundation\Session\Session;
 
-if (SessionUser::getId() ==  0) RedirectUtils::Redirect('Login.php');
+if (SessionUser::getId() ==  0) RedirectUtils::Redirect('session/login');
 
 $rootPath = str_replace('/v2/index.php', '', $_SERVER['SCRIPT_NAME']);
 
