@@ -53,4 +53,7 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/ReminderReport', VIEWPeopleController::class . ':reminderreport' );
     $group->post('/ReminderReport', VIEWPeopleController::class . ':reminderreport' );
 
+    $group->get('/person/customfield/editor', VIEWPeopleController::class . ':personCustomFieldEditor' );
+    $group->post('/person/customfield/editor', VIEWPeopleController::class . ':personCustomFieldEditor' );
+
 });
