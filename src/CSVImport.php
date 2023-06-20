@@ -966,7 +966,7 @@ if ($iStage == 1) {
                 <?= _("The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for a women, girl, female</b> ...") ?>
               </li>
               <li>
-                 <?= _("Prepare your CRM and add enough custom Person Fields, to do this click") ?> : <b><a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsEditor.php"><?= _("here") ?></a></b><br>
+                 <?= _("Prepare your CRM and add enough custom Person Fields, to do this click") ?> : <b><a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/customfield/editor"><?= _("here") ?></a></b><br>
               </li>
               <li>
                  <p style="color: red"><?= _("All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or 7/1/2018") ?></p>

@@ -1,45 +1,34 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : PersonCustomFieldsEditor.php
- *  last change : 2003-03-28
- *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
+ *  filename    : templates/personCustomEditor.php
+ *  last change : 2023-06-20
+ *  description : form to invoke directory report
  *
- *  function    : Editor for custom person fields
- *                copyright 2019-05-19 Philippe Logel
+ *  http://www.ecclesiacrm.com/
+ *  Copyright 2003 Chris Gebhardt
+ *  Copyright 2004-2012 Michael Wilt
+ *  Copyright 2022-2023 Philippe Logel
+ *
  ******************************************************************************/
 
-require 'Include/Config.php';
-require 'Include/Functions.php';
+ use Propel\Runtime\Propel;
+ use EcclesiaCRM\Utils\InputUtils;
+ use EcclesiaCRM\dto\SystemURLs;
+ use EcclesiaCRM\PersonCustomMasterQuery;
+ use EcclesiaCRM\PersonCustomMaster;
+ use EcclesiaCRM\ListOptionQuery;
+ use EcclesiaCRM\ListOption;
+ use EcclesiaCRM\GroupQuery;
+ use EcclesiaCRM\Map\ListOptionTableMap;
+ use EcclesiaCRM\Map\PersonCustomMasterTableMap;
+ use EcclesiaCRM\Utils\MiscUtils;
+ 
 
+require $sRootDocument . '/Include/Header.php';
+?>
 
-use Propel\Runtime\Propel;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\PersonCustomMaster;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\ListOption;
-use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\Map\ListOptionTableMap;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\Map\PersonCustomMasterTableMap;
-use EcclesiaCRM\Utils\MiscUtils;
-
-
-// Security: user must be administrator to use this page
-if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-$sPageTitle = _('Custom Person Fields Editor');
-
-require 'Include/Header.php'; ?>
-
-  <div class="alert alert-warning">
+<div class="alert alert-warning">
     <i class="fas fa-ban"></i>
     <?= _("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
   </div>
@@ -314,7 +303,7 @@ require 'Include/Header.php'; ?>
   // Construct the form
   ?>
 
-  <form method="post" action="PersonCustomFieldsEditor.php" name="PersonCustomFieldsEditor">
+  <form method="post" action="<?= $sRootPath ?>/v2/people/person/customfield/editor" name="PersonCustomFieldsEditor">
   <div class="table-responsive">
     <table class="table">
 
@@ -357,20 +346,20 @@ require 'Include/Header.php'; ?>
               <?php
               if ($row != 1) {
               ?>
-                <img class="up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0">
+                <img class="up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= $sRootPath ?>/Images/uparrow.gif" border="0">
               <?php
               }
             if ($row < $numRows) {
               ?>
-                <img class="down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0">
+                <img class="down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= $sRootPath ?>/Images/downarrow.gif" border="0">
             <?php
             } ?>
-                <img class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="Images/x.gif" border="0">
+                <img class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= $sRootPath ?>/Images/x.gif" border="0">
             </td>
             <td class="TextColumnFam">
               <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
             </td>
-            <td class="TextColumnFam" align="center">
+            <td class="TextColumnFam" >
               <input type="text" name="<?= $row ?>name"
                      value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35"
                      maxlength="40" class= "form-control form-control-sm">
@@ -382,7 +371,7 @@ require 'Include/Header.php'; ?>
                 }
               ?>
             </td>
-            <td class="TextColumnFam" align="center">
+            <td class="TextColumnFam" >
               <?php
                 if ($aTypeFields[$row] == 9) {
               ?>
@@ -416,7 +405,7 @@ require 'Include/Header.php'; ?>
               ?>
 
             </td>
-            <td class="TextColumnFam" align="center" nowrap>
+            <td class="TextColumnFam"  nowrap>
               <?php
                 if (isset($aSecurityType[$aFieldSecurity[$row]])) {
               ?>
@@ -428,7 +417,7 @@ require 'Include/Header.php'; ?>
               <?php
               } ?>
             </td>
-            <td class="TextColumnFam" align="center" nowrap>
+            <td class="TextColumnFam"  nowrap>
                 <input type="radio" Name="<?= $row ?>side" value="0" <?= !$aSideFields[$row] ? ' checked' : ''?>><?= _('Left') ?>
                 <input type="radio" Name="<?= $row ?>side" value="1" <?= $aSideFields[$row] ? ' checked' : ''?>><?= _('Right') ?>
             </td>
@@ -441,7 +430,7 @@ require 'Include/Header.php'; ?>
             <table width="100%">
               <tr>
                 <td width="30%"></td>
-                <td width="40%" align="center" valign="bottom">
+                <td width="40%"  valign="bottom">
                   <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>"
                          Name="SaveChanges">
                 </td>
@@ -533,10 +522,10 @@ require 'Include/Header.php'; ?>
     </table>
 </div>
   </form>
-
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/PersonCustomFieldsEditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/sidebar/PersonCustomFieldsEditor.js"></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
 
 
-<?php require 'Include/Footer.php'; ?>

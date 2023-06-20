@@ -94,7 +94,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                     </a>
                 </div>
                 <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsEditor.php">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/customfield/editor">
                         <i class="fas fa-cog"></i> <?= _('Edit Custom Person Fields') ?>
                     </a>
                 </div>
