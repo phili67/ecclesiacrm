@@ -24,7 +24,7 @@ AppFactory::setContainer($container);
 $app = AppFactory::create();
 
 // Register the http cache middleware.
-$app->add( new Cache('private', 3600) );
+//$app->add( new Cache('private', 0) );
 
 $app->setBasePath($rootPath . "/session");
 
