@@ -3,12 +3,10 @@
  *
  *  filename    : templates/personCustomEditor.php
  *  last change : 2023-06-20
- *  description : form to invoke directory report
+ *  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
  *
- *  http://www.ecclesiacrm.com/
- *  Copyright 2003 Chris Gebhardt
- *  Copyright 2004-2012 Michael Wilt
- *  Copyright 2022-2023 Philippe Logel
+ *  function    : Editor for custom person fields
+ *                copyright 2023-06-20 Philippe Logel
  *
  ******************************************************************************/
 
