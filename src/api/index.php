@@ -21,7 +21,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\RedirectUtils;
 
 // security access, if no user exit
-if (SessionUser::getId() ==  0) RedirectUtils::Redirect('Login.php');
+if (SessionUser::getId() ==  0) RedirectUtils::Redirect('session/login');
 
 $rootPath = str_replace('/api/index.php', '', $_SERVER['SCRIPT_NAME']);
 

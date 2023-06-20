@@ -1712,7 +1712,7 @@
           path: 'synchronize/page?currentpagename=' + window.CRM.PageName.replace(window.CRM.root,''),
         },function (data) {
           if (data[0].timeOut) {
-            window.location.replace(window.CRM.root+'/Login.php?session=Lock');
+            window.location.replace(window.CRM.root+'/session/Lock');
           } else {
             for (var key in data[1]) {
                 try {

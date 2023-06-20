@@ -56,5 +56,5 @@ $_COOKIE = [];
 $_SESSION = [];
 session_destroy();
 
-RedirectUtils::Redirect('Login.php');
+RedirectUtils::Redirect('session/login');
 exit;
