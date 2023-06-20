@@ -8,6 +8,8 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use Slim\Factory\AppFactory;
 use DI\Container;
 
+use Slim\HttpCache\Cache;
+
 
 $rootPath = str_replace('/session/index.php', '', $_SERVER['SCRIPT_NAME']);
 
@@ -22,7 +24,7 @@ AppFactory::setContainer($container);
 $app = AppFactory::create();
 
 // Register the http cache middleware.
-//$app->add( new Cache('private', 0) );
+$app->add( new Cache('private', 3600) );
 
 $app->setBasePath($rootPath . "/session");
 

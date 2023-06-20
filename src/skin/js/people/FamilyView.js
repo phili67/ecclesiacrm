@@ -789,8 +789,6 @@ $(document).ready(function () {
         pledgePaymentTable.column(0).search(i18next.t("Pledge")).draw();
       } else if (showPayments) {
         pledgePaymentTable.column(0).search(i18next.t("Payment")).draw();
-      } else {
-        pledgePaymentTable.column(0).search("toto").draw();
       }
     }
 
