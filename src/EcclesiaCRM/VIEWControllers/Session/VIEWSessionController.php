@@ -29,14 +29,22 @@ class VIEWSessionController {
         $this->container = $container;
     }
 
+    
+
+    public function renderLoginLock (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/');
+
+        $session = 'Lock';
+        $username = '';
+        $timeout = '';
+
+        return $renderer->render($response, 'session.php', $this->argumentsLoginArray($session, $username, $timeout));
+    }
+
     public function renderLogin (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $renderer = new PhpRenderer('templates/');
 
         $session = 'none';
-
-        if (isset($args['session'])) {
-            $session = InputUtils::LegacyFilterInput($args['session']);
-        }
 
         $username = '';
 

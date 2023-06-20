@@ -8,6 +8,7 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use Slim\Factory\AppFactory;
 use DI\Container;
 
+
 $rootPath = str_replace('/session/index.php', '', $_SERVER['SCRIPT_NAME']);
 
 // Instantiate the app

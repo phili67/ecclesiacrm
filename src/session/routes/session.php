@@ -20,14 +20,17 @@ use Slim\Routing\RouteCollectorProxy;
 use EcclesiaCRM\VIEWControllers\VIEWSessionController;
 
 $app->group('', function (RouteCollectorProxy $group) {
-    $group->get('/login[/{session}]', VIEWSessionController::class . ':renderLogin');
-    $group->post('/login[/{session}]', VIEWSessionController::class . ':renderLogin');
+    $group->get('/login', VIEWSessionController::class . ':renderLogin');
+    $group->post('/login', VIEWSessionController::class . ':renderLogin');
     
-    $group->get('/login/username/{usr_name}]', VIEWSessionController::class . ':renderLogin');
-    $group->post('/login/username/{usr_name}]', VIEWSessionController::class . ':renderLogin');
+    $group->get('/Lock', VIEWSessionController::class . ':renderLoginLock');
+    $group->post('/Lock', VIEWSessionController::class . ':renderLoginLock');
     
-    $group->get('/login/timeout/{time}]', VIEWSessionController::class . ':renderLogin');
-    $group->post('/login/timeout/{time}]', VIEWSessionController::class . ':renderLogin');
+    $group->get('/login/username/{usr_name}', VIEWSessionController::class . ':renderLogin');
+    $group->post('/login/username/{usr_name}', VIEWSessionController::class . ':renderLogin');
+    
+    $group->get('/login/timeout/{time}', VIEWSessionController::class . ':renderLogin');
+    $group->post('/login/timeout/{time}', VIEWSessionController::class . ':renderLogin');
     
 
     $group->get('/logout', VIEWSessionController::class . ':renderLogout');
