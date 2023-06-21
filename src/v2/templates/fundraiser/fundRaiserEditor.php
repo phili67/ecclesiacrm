@@ -188,22 +188,18 @@ require $sRootDocument . '/Include/Header.php';
                                name="FundRaiserSubmit">
                         <input type="button" class="btn btn-default btn-sm" value="<?= _('Cancel') ?>"
                                name="FundRaiserCancel"
-                               onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
-                                   echo $sRootPath.'/'.$linkBack;
-                               } else {
-                                   echo $sRootPath.'/v2/dashboard';
-                               } ?>';">
+                               onclick="javascript:document.location='<?= (strlen($linkBack) > 0)?($sRootPath.'/'.$linkBack):($sRootPath.'/v2/dashboard') ?>';">
                         <?php
-                        if ($iFundRaiserID > 0) {
-                            ?>
-                            <input type=button class="btn btn-success btn-sm" value="<?= _('Add Donated Item') ?>" name=AddDonatedItem onclick="javascript:document.location='<?= $sRootPath ?>/v2/fundraiser/donatedItemEditor/0/<?= $iFundRaiserID ?>';">
-                            <input type=button class="btn btn-danger btn-sm" value="<?= _('Buyers') ?>" name=AddDonatedItem onclick="javascript:document.location='<?= $sRootPath ?>/v2/fundraiser/paddlenum/list/<?= $iFundRaiserID ?>';" data-toggle="tooltip" data-placement="bottom" title="<?= _("Add buyers to your Fundraiser") ?>">
-                            <br/><br/>
-                            <input type=button class="btn btn-success btn-sm" value="<?= _('Generate Catalog') ?>" name=GenerateCatalog onclick="javascript:document.location='<?= $sRootPath ?>/Reports/FRCatalog.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
-                            <input type=button class="btn btn-info btn-sm" value="<?= _('Generate Bid Sheets') ?>" name=GenerateBidSheets onclick="javascript:document.location='<?= $sRootPath ?>/Reports/FRBidSheets.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
-                            <input type=button class="btn btn-warning btn-sm" value="<?=  _('Generate Certificates') ?>" name=GenerateCertificates onclick="javascript:document.location='<?= $sRootPath ?>/Reports/FRCertificates.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
-                            <input type=button class="btn btn-success btn-sm" value="<?= _('Batch Winner Entry') ?>" name=BatchWinnerEntry onclick="javascript:document.location='<?= $sRootPath ?>/BatchWinnerEntry.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=v2/fundraiser/editor/<?= $iFundRaiserID ?>';">
-                        <?php
+                            if ($iFundRaiserID > 0) {
+                                ?>
+                                <input type=button class="btn btn-success btn-sm" value="<?= _('Add Donated Item') ?>" name=AddDonatedItem onclick="javascript:document.location='<?= $sRootPath ?>/v2/fundraiser/donatedItemEditor/0/<?= $iFundRaiserID ?>';">
+                                <input type=button class="btn btn-danger btn-sm" value="<?= _('Buyers') ?>" name=AddDonatedItem onclick="javascript:document.location='<?= $sRootPath ?>/v2/fundraiser/paddlenum/list/<?= $iFundRaiserID ?>';" data-toggle="tooltip" data-placement="bottom" title="<?= _("Add buyers to your Fundraiser") ?>">
+                                <br/><br/>
+                                <input type=button class="btn btn-success btn-sm" value="<?= _('Generate Catalog') ?>" name=GenerateCatalog onclick="javascript:document.location='<?= $sRootPath ?>/Reports/FRCatalog.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
+                                <input type=button class="btn btn-info btn-sm" value="<?= _('Generate Bid Sheets') ?>" name=GenerateBidSheets onclick="javascript:document.location='<?= $sRootPath ?>/Reports/FRBidSheets.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
+                                <input type=button class="btn btn-warning btn-sm" value="<?=  _('Generate Certificates') ?>" name=GenerateCertificates onclick="javascript:document.location='<?= $sRootPath ?>/Reports/FRCertificates.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
+                                <input type=button class="btn btn-success btn-sm" value="<?= _('Batch Winner Entry') ?>" name=BatchWinnerEntry onclick="javascript:document.location='<?= $sRootPath ?>/v2/fundraiser/batch/winner/entry/<?= $iFundRaiserID ?>/v2-fundraiser-editor-<?= $iFundRaiserID ?>';">
+                            <?php
                         }
                         ?>
                         <br>

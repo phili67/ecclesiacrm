@@ -1,20 +1,14 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : BatchWinnerEntry.php
+ *  filename    : templates/batchWinnerEntry.php
  *  last change : 2011-04-01
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2011 Michael Wilt
  *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\dto\SystemURLs;
 
 use EcclesiaCRM\DonatedItemQuery;
 use EcclesiaCRM\PaddleNumQuery;
@@ -26,17 +20,11 @@ use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 
-$linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
-$iCurrentFundraiser = InputUtils::LegacyFilterInput($_GET['CurrentFundraiser']);
-
 if ($iCurrentFundraiser) {
     $_SESSION['iCurrentFundraiser'] = $iCurrentFundraiser;
 } else {
     $iCurrentFundraiser = $_SESSION['iCurrentFundraiser'];
 }
-
-//Set the page title
-$sPageTitle = _('Batch Winner Entry');
 
 //Is this the second pass?
 if (isset($_POST['EnterWinners'])) {
@@ -73,11 +61,13 @@ $ormPaddles = PaddleNumQuery::create()
     ->orderByNum()
     ->findByFrId($iCurrentFundraiser);
 
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 
+echo $ormDonatedItems->count();
 ?>
+
 <form method="post"
-      action="<?= SystemURLs::getRootPath() ?>/BatchWinnerEntry.php?<?= 'CurrentFundraiser=' . '&linkBack=' . $linkBack ?>"
+      action="<?= $sRootPath ?>/v2/fundraiser/batch/winner/entry/<?= $iCurrentFundraiser ?>/<?= $origLinkBack ?>"
       name="BatchWinnerEntry">
 <div class="card">
     <div class="card-header  border-1">
@@ -135,19 +125,16 @@ require 'Include/Header.php';
             <div class="col-md-2">
             </div>
             <div class="col-md-2">
-                <input type="submit" class="btn btn-primary" value="<?= _('Enter Winners') ?>" name="EnterWinners">
+                <input type="submit" class="btn btn-primary" value="&check; <?= _('Enter Winners') ?>" name="EnterWinners">
             </div>
             <div class="col-md-2">
-                <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="Cancel"
-                       onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
-                           echo $linkBack;
-                       } else {
-                           echo 'v2/dashboard';
-                       } ?>';">
+                <input type="button" class="btn btn-default" value="x <?= _('Cancel') ?>" name="Cancel"
+                       onclick="javascript:document.location='<?= $sRootPath ?>/<?= (strlen($linkBack) > 0)?$linkBack:'v2/dashboard' ?>';">
             </div>
         </div>
     </div>
 </div>
 </form>
 
-<?php require 'Include/Footer.php' ?>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

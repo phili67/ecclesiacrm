@@ -16,6 +16,7 @@ use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\InputUtils;
 
 
 use EcclesiaCRM\PersonQuery;
@@ -216,12 +217,12 @@ class VIEWFundraiserController {
         $iFundRaiserID = -1;
 
         if (isset($args['FundRaiserID'])) {
-            $iFundRaiserID = $args['FundRaiserID'];
+            $iFundRaiserID = InputUtils::LegacyFilterInput($args['FundRaiserID']);
         }
 
         $linkBack = '';
         if (isset($args['linkBack'])) {
-            $linkBack = $args['linkBack'];
+            $linkBack = InputUtils::LegacyFilterInput($args['linkBack']);
         }
 
         return $renderer->render($response, 'fundRaiserEditor.php', $this->argumentsFundRaiserEditorArray($iFundRaiserID, $linkBack));
@@ -251,7 +252,47 @@ class VIEWFundraiserController {
             'sCSPNonce'     => $sCSPNonce,
             'sPageTitle'    => $sPageTitle,
             'iFundRaiserID' => $iFundRaiserID,
-            'linkBack'      => $linkBack
+            'linkBack'      => str_replace("-","/", $linkBack),
+            'origLinkBack'  => $linkBack
+        ];
+
+        return $paramsArguments;
+    }
+
+    public function renderBatchWinnerEntry(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/fundraiser/');
+
+        if (!(SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $iFundRaiserID = -1;
+
+        if (isset($args['FundRaiserID'])) {
+            $iFundRaiserID = InputUtils::LegacyFilterInput($args['FundRaiserID']);
+        }
+
+        $linkBack = '';
+        if (isset($args['linkBack'])) {
+            $linkBack = InputUtils::LegacyFilterInput($args['linkBack']);
+        }
+
+        return $renderer->render($response, 'batchWinnerEntry.php', $this->argumentsFundRaiserBatchWinnerEntryArray($iFundRaiserID, $linkBack));
+    }
+
+    public function argumentsFundRaiserBatchWinnerEntryArray($iFundRaiserID, $linkBack)
+    {       
+        $sPageTitle = _('Batch Winner Entry');
+        
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument' => SystemURLs::getDocumentRoot(),
+            'sCSPNonce'     => SystemURLs::getCSPNonce(),
+            'sPageTitle'    => $sPageTitle,
+            'iFundRaiserID' => $iFundRaiserID,
+            'linkBack'      => str_replace("-","/", $linkBack),
+            'origLinkBack'  => $linkBack
+
         ];
 
         return $paramsArguments;

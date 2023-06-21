@@ -138,6 +138,7 @@ unlink(SystemURLs::getDocumentRoot()."/FamilyCustomFieldsEditor.php");
 unlink(SystemURLs::getDocumentRoot()."/CanvassEditor.php");
 unlink(SystemURLs::getDocumentRoot()."/CanvassAutomation.php");
 unlink(SystemURLs::getDocumentRoot()."/ConvertIndividualToAddress.php");
+unlink(SystemURLs::getDocumentRoot()."/BatchWinnerEntry.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
