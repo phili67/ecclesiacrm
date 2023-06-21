@@ -71,4 +71,7 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->post('/canvass/editor/{FamilyID}/{FYID}/{linkBack}[/{CanvassID}]', VIEWPeopleController::class . ':canvassEditor' );
 
 
+    $group->get('/canvass/automation', VIEWPeopleController::class . ':canvassAutomation' );
+    $group->post('/canvass/automation', VIEWPeopleController::class . ':canvassAutomation' );
+
 });

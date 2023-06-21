@@ -1403,4 +1403,26 @@ class VIEWPeopleController {
             'iCanvassID'                => $iCanvassID
         ];
     }     
+
+    public function canvassAutomation (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        if (!SessionUser::getUser()->isCanvasserEnabled()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'canvassAutomation.php', $this->argumentsCanvassAutomationArray());
+    }
+
+    public function argumentsCanvassAutomationArray () 
+    {
+        $sPageTitle = _('Canvass Automation');
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => SystemURLs::getDocumentRoot(),
+            'CSPNonce'                  => SystemURLs::getCSPNonce(),
+            'sPageTitle'                => $sPageTitle
+        ];
+    } 
 }
