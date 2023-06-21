@@ -1344,7 +1344,63 @@ class VIEWPeopleController {
             'sPageTitle'                => $sPageTitle
         ];
     } 
+    
+    public function canvassEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
 
-    
-    
+        if (!SessionUser::getUser()->isCanvasserEnabled()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $iFamily = -1;
+        
+        if (isset($args['FamilyID'])) {
+            $iFamily = InputUtils::LegacyFilterInput($args['FamilyID'], 'int');
+        }
+
+        $iFYID = -1;
+        
+        if (isset($args['FYID'])) {
+            $iFYID = InputUtils::LegacyFilterInput($args['FYID'], 'int');
+        }
+
+        $linkBack = '';
+        
+        if (isset($args['linkBack'])) {
+            $linkBack = InputUtils::LegacyFilterInput($args['linkBack']);            
+        }
+
+        $iCanvassID = 0;
+        if (isset($args['CanvassID'])) {
+            $iCanvassID = InputUtils::LegacyFilterInput($args['CanvassID']);            
+        }
+
+        return $renderer->render($response, 'canvassEditor.php', $this->argumentsCanvassEditorArray($iFamily, $iFYID, $linkBack, $iCanvassID));
+    }
+
+    public function argumentsCanvassEditorArray ($iFamily, $iFYID, $linkBack, $iCanvassID) {
+
+        //Get Family name
+        $family = FamilyQuery::Create()->findOneById ($iFamily);
+
+        $fyStr = MiscUtils::MakeFYString($iFYID);
+
+        if ($family->getPeople()->count() == 1) {
+            $sPageTitle = $fyStr.' : '._('Canvass Input for the').' '.$family->getName()." ".$family->getPeople()[0]->getFirstName().' ('._('Person').")";
+        } else {
+            $sPageTitle = $fyStr.' : '._('Canvass Input for the').' '.$family->getName().' ('._('family').')';
+        }
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => SystemURLs::getDocumentRoot(),
+            'CSPNonce'                  => SystemURLs::getCSPNonce(),
+            'sPageTitle'                => $sPageTitle,
+            'iFYID'                     => $iFYID, 
+            'iFamily'                   => $iFamily, 
+            'linkBack'                  => str_replace("-","/", $linkBack),
+            'origLinkBack'              => $linkBack,
+            'iCanvassID'                => $iCanvassID
+        ];
+    }     
 }
