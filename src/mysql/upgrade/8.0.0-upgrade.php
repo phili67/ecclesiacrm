@@ -137,7 +137,7 @@ unlink(SystemURLs::getDocumentRoot()."/FamilyCustomFieldsEditor.php");
 // 2023-06-21
 unlink(SystemURLs::getDocumentRoot()."/CanvassEditor.php");
 unlink(SystemURLs::getDocumentRoot()."/CanvassAutomation.php");
-
+unlink(SystemURLs::getDocumentRoot()."/ConvertIndividualToAddress.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>

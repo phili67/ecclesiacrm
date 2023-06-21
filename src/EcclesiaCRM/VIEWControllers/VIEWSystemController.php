@@ -133,5 +133,39 @@ class VIEWSystemController {
         return $paramsArguments;
     }
 
+    public function convertIndividualToAddress (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/system/');
+
+        if (!SessionUser::getUser()->isAdmin()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $all = 'False';
+        if (isset($args['all'])) {
+            $all = InputUtils::LegacyFilterInput($args['all']);
+        }
+        
+        
+        return $renderer->render($response, 'convertIndividualToAddress.php', $this->argumentsIndividualToAddressArray($all));
+    }
+
+    public function argumentsIndividualToAddressArray ($all)
+    {
+        //Set the page title
+        $sPageTitle    = _('Convert Individuals to Addresses');
+        
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'all'                       => $all
+        ];
+
+        return $paramsArguments;
+    }
     
 }

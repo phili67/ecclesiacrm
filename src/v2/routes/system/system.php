@@ -23,6 +23,14 @@ $app->group('/system', function (RouteCollectorProxy $group) {
 
     $group->get('/option/manager/{mode}[/{ListID:[0-9]+}]', VIEWSystemController::class . ':optionManager' );
     $group->post('/option/manager/{mode}[/{ListID:[0-9]+}]', VIEWSystemController::class . ':optionManager' );
+
+    /*
+    * @! CanvassEditor
+    * #! param: ref->string :: True/False (all optional)
+    */
+    $group->get('/convert/individual/address[/{all}]', VIEWSystemController::class . ':convertIndividualToAddress' );
+    $group->post('/convert/individual/address[/{all}]', VIEWSystemController::class . ':convertIndividualToAddress' );
+
 });
 
 

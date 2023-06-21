@@ -190,7 +190,8 @@ class MenuBar extends Menu
             $menuItem = new Menu (_("Empty Addresses"), "fas fa-angle-double-right", "v2/familylist/empty", true, $menu);
 
             if (SessionUser::getUser()->isAdmin()) {
-                $menuItem = new Menu (_("Convert Individual to Address"), "fas fa-angle-double-right", "ConvertIndividualToAddress.php", true, $menu);
+                $menuItem = new Menu (_("Convert Individual to Address"), "fas fa-angle-double-right", "v2/system/convert/individual/address", true, $menu);
+                $menuItem->addLink("v2/system/convert/individual/address/True");
             }
         }
 
