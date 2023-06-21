@@ -59,4 +59,16 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/family/customfield/editor', VIEWPeopleController::class . ':familyCustomFieldEditor' );
     $group->post('/family/customfield/editor', VIEWPeopleController::class . ':familyCustomFieldEditor' );
 
+    /*
+    * @! CanvassEditor
+    * #! param: ref->int :: FamilyID
+    * #! param: ref->int :: FYID
+    * #! param: ref->string :: linkBack 
+    #
+    # Important : the linkBack must be : v2-people-family-view-64 for v2/people/family/view/64
+    */
+    $group->get('/canvass/editor/{FamilyID}/{FYID}/{linkBack}[/{CanvassID}]', VIEWPeopleController::class . ':canvassEditor' );
+    $group->post('/canvass/editor/{FamilyID}/{FYID}/{linkBack}[/{CanvassID}]', VIEWPeopleController::class . ':canvassEditor' );
+
+
 });

@@ -714,7 +714,7 @@ require $sRootDocument . '/Include/Header.php';
                                                         ?>
                                                         <p align="center">
                                                             <a class="btn btn-default"
-                                                               href="<?= $sRootPath ?>/CanvassEditor.php?FamilyID=<?= $family->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=v2/people/family/view/<?= $iFamilyID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                                                               href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $family->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-family-view-<?= $iFamilyID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                                         </p>
                                                         <?php
                                                     }

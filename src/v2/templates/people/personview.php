@@ -1283,7 +1283,7 @@ require $sRootDocument . '/Include/Header.php';
                                         ?>
                                         <p align="center">
                                             <a class="btn btn-default"
-                                               href="<?= $sRootPath ?>/CanvassEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                                               href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $PersonInfos['person']->getFamily()->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                         </p>
                                         <?php
                                     }
