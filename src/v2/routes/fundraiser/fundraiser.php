@@ -12,6 +12,16 @@ $app->group('/fundraiser', function (RouteCollectorProxy $group) {
 
     $group->get('/editor[/{FundRaiserID:[0-9]+}[/{linkback}]]', VIEWFundraiserController::class . ':renderFundraiserEditor');
     $group->post('/editor[/{FundRaiserID:[0-9]+}[/{linkback}]]', VIEWFundraiserController::class . ':renderFundraiserEditor');
-    
+
+    /*
+    * @! AutoPaymentEditor
+    * #! param: ref->int :: FundRaiserID
+    * #! param: ref->string :: linkBack 
+    #
+    # Important : the linkBack must be : v2-fundraiser-editor-32 for v2/fundraiser/editor/32
+    */
+    $group->get('/batch/winner/entry/{FundRaiserID:[0-9]+}/{linkBack}', VIEWFundraiserController::class . ':renderBatchWinnerEntry');
+    $group->post('/batch/winner/entry/{FundRaiserID:[0-9]+}/{linkBack}', VIEWFundraiserController::class . ':renderBatchWinnerEntry');
+
 });
 
