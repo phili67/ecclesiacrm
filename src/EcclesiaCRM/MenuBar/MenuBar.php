@@ -546,6 +546,8 @@ class MenuBar extends Menu
         $menu = new Menu (_("Data/Reports"), "far fa-file-pdf", "#", SessionUser::getUser()->isShowMenuQueryEnabled());
 
         $menuItem = new Menu (_("Reports Menu"), "far fa-circle", "v2/system/report/list", SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool'), $menu);
+        $menuItem->addLink('v2/people/canvass/automation');
+
         $menuItem = new Menu (_("Query Menu"), "fas fa-database", "v2/query/list", SessionUser::getUser()->isShowMenuQueryEnabled(), $menu);
 
         for ($i=1;$i <100;$i++) {
