@@ -1,31 +1,17 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : CanvassAutomation.php
- *  last change : 2005-02-21
+ *  filename    : templates/canvassAutomation.php
+ *  last change : 2023-06-21
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2001-2005 Deane Barker, Chris Gebhardt, Michael Wilt, Tim Dearborn
+ *  copyright   : Copyright 2001, 2002, 2003, 2013, 2023 Deane Barker, Chris Gebhardt, Michael Wilt, Philippe Logel
  *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\CanvassUtilities;
 use EcclesiaCRM\utils\MiscUtils;
-
-//Set the page title
-$sPageTitle = _('Canvass Automation');
-
-// Security: User must have canvasser permission to use this form
-if (!SessionUser::getUser()->isCanvasserEnabled()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
 
 $iFYID = MiscUtils::CurrentFY();
 if (array_key_exists('idefaultFY', $_SESSION)) {
@@ -38,7 +24,6 @@ if (array_key_exists('FYID', $_POST)) {
 $_SESSION['idefaultFY'] = $iFYID; // Remember default fiscal year
 
 $processNews = '';
-
 
 // Service the action buttons
 if (isset($_POST['SetDefaultFY'])) {
@@ -100,7 +85,7 @@ if (isset($_POST['NotInterestedReport'])) {
     RedirectUtils::Redirect('Reports/CanvassReports.php?FYID=' . $iFYID . '&WhichReport=NotInterested');
 }
 
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 
 if ($processNews != '') {
     ?>
@@ -120,7 +105,7 @@ if ($processNews != '') {
                 <h3 class="card-title"><?= _('Report Details') ?></h3>
             </div>
             <div class="card-body">
-                <form method="post" action="CanvassAutomation.php" name="CanvassAutomation">
+                <form method="post" action="<?= $sRootPath ?>/v2/people/canvass/automation" name="CanvassAutomation">
 
                     <div class="row">
                         <div class="col-md-3">
@@ -254,7 +239,8 @@ if ($processNews != '') {
                 </form>
             </div>
         </div>
-
     </div>
 </div>
-<?php require 'Include/Footer.php' ?>
+
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

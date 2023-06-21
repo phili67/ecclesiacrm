@@ -39,7 +39,7 @@ require $sRootDocument . '/Include/Header.php';
           if (SessionUser::getUser()->isAdmin()) {
             ?>
               <p>
-              <a class="MediumText" href="<?= $sRootPath ?>/CanvassAutomation.php">
+              <a class="MediumText" href="<?= $sRootPath ?>/v2/people/canvass/automation">
               <?= _('Canvass Automation') ?></a><br>
               <?= _('Automated support for conducting an every-member canvass.') ?>
               <?php
