@@ -388,6 +388,7 @@ require_once $sRootDocument . '/Include/Header.php';
                                     name="new_plugin_place[<?= $plugin->getId() ?>]">
                                 <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
                                 <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
+                                <option value="center" <?= ($place == 'center')?'SELECTED':'' ?>><?= _('Center') ?>
                                 <option value="right" <?= ($place == 'right')?'SELECTED':'' ?>><?= _('Right') ?>
                             </select>
                         </div>
