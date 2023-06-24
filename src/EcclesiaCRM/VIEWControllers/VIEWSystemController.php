@@ -167,5 +167,36 @@ class VIEWSystemController {
 
         return $paramsArguments;
     }
+
+    public function csvExport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/system/');
+
+        if (!SessionUser::getUser()->isCSVExportEnabled()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $Source = '';
+        if (isset($args['Source'])) {
+            $Source = InputUtils::LegacyFilterInput($args['Source']);
+        }
+        
+        return $renderer->render($response, 'csvExport.php', $this->argumentsCSVExportArray($Source));
+    }
+
+    public function argumentsCSVExportArray ($Source)
+    {
+        //Set the page title
+        $sPageTitle    = _('CSV Export');
+        
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => SystemURLs::getDocumentRoot(),
+            'CSPNonce'                  => SystemURLs::getCSPNonce(),
+            'sPageTitle'                => $sPageTitle,
+            'Source'                       => $Source
+        ];
+
+        return $paramsArguments;
+    }
     
 }

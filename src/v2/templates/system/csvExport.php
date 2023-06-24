@@ -1,35 +1,22 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : CSVExport.php
- *  description : options for creating csv file
- *
- *  http://www.ecclesiacrm.com/
- *  Copyright 2001-2002 Phillip Hullquist, Deane Barker
+ *  filename    : templates/csvExport.php
+ *  last change : 2023-06-24
+ *  website     : http://www.ecclesiacrm.com
+ *                          © 2023 Philippe Logel
  *
  ******************************************************************************/
 
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\utils\RedirectUtils;
-
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\FamilyCustomMasterQuery;
-use EcclesiaCRM\SessionUser;
-
-
-// If user does not have CSV Export permission, redirect to the menu.
-if (!SessionUser::getUser()->isCSVExportEnabled()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
+ use EcclesiaCRM\Utils\OutputUtils;
+ use EcclesiaCRM\dto\SystemConfig;
+ 
+ use EcclesiaCRM\ListOptionQuery;
+ use EcclesiaCRM\GroupQuery;
+ use EcclesiaCRM\PersonCustomMasterQuery;
+ use EcclesiaCRM\FamilyCustomMasterQuery;
+ 
 
 //Get Classifications for the drop-down
 $ormClassifications = ListOptionQuery::Create()
@@ -53,9 +40,9 @@ $numFamCustomFields = $famCustomFields->count();
 
 // Set the page title and include HTML header
 $sPageTitle = _('CSV Export');
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 ?>
-<form method="post" action="<?= SystemURLs::getRootPath() ?>/CSVCreateFile.php">
+<form method="post" action="<?= $sRootPath ?>/Reports/CSVCreateFile.php">
     <div class="card">
         <div class="card-header border-1">
             <h3 class="card-title"><?= _('Field Selection') ?></h3>
@@ -285,7 +272,7 @@ require 'Include/Header.php';
                             <select name="Source" class="form-control form-control-sm">
                                 <option value="filters"><?= _('Based on filters below..') ?></option>
                                 <option
-                                    value="cart" <?= (array_key_exists('Source', $_GET) && $_GET['Source'] == 'cart') ? 'selected' : '' ?>>
+                                    value="cart" <?= (!empty($Source) && $Source == 'cart') ? 'selected' : '' ?>>
                                     <?= _('People in Cart (filters ignored)') ?>
                                 </option>
                             </select>
@@ -563,4 +550,4 @@ require 'Include/Header.php';
     </div>
 </form>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

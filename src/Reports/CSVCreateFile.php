@@ -10,8 +10,8 @@
  ******************************************************************************/
 
 // Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
+require '../Include/Config.php';
+require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
@@ -24,6 +24,27 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\ReportUtilities;
 
 use Propel\Runtime\Propel;
+
+if (!SessionUser::getUser()->isCSVExportEnabled()) {
+    // Turn ON output buffering
+    ob_start();
+    $headerString = mb_substr($headerString, 0, -1);
+    $headerString .= "\n";
+
+    header('Content-type: text/x-csv;charset='.$charset);
+    header('Content-Disposition: attachment; filename=ecclesiacrm-export-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
+
+    //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
+    if ($charset == "UTF-8") {
+        echo "\xEF\xBB\xBF";
+    }
+
+    echo $headerString;
+    echo "Forbidden";
+    // Turn OFF output buffering
+    ob_end_flush();
+    exit;
+}
 
 $delimiter = SessionUser::getUser()->CSVExportDelemiter();
 $charset   = SessionUser::getUser()->CSVExportCharset();

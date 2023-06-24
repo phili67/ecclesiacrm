@@ -291,7 +291,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
             if (SessionUser::getUser()->isAdmin()) {
                 ?>
                 <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/CSVExport.php">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/system/csv/export">
                         <i class="menu-icon fas fa-download bg-green"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('CSV Export Records') ?></h4>

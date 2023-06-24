@@ -66,7 +66,7 @@ if ($iNumPersons > 0) {
                     ?>
             <?php if (SessionUser::getUser()->isCSVExportEnabled()) {
                 ?>
-                <a href="<?= $sRootPath ?>/CSVExport.php?Source=cart" class="btn btn-app bg-gradient-green"><i
+                <a href="<?= $sRootPath ?>/v2/system/csv/export/cart" class="btn btn-app bg-gradient-green"><i
                         class="fas fa-file-excel"></i><?= _('CSV Export') ?></a>
                 <?php
             } ?>

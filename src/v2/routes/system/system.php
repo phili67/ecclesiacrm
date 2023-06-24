@@ -31,6 +31,13 @@ $app->group('/system', function (RouteCollectorProxy $group) {
     $group->get('/convert/individual/address[/{all}]', VIEWSystemController::class . ':convertIndividualToAddress' );
     $group->post('/convert/individual/address[/{all}]', VIEWSystemController::class . ':convertIndividualToAddress' );
 
+    /*
+    * @! CSVExport
+    * #! param: ref->string :: Source -> cart
+    */
+    $group->get('/csv/export[/{Source}]', VIEWSystemController::class . ':csvExport' );
+    $group->post('/csv/export[/{Source}]', VIEWSystemController::class . ':csvExport' );
+    
 });
 
 
