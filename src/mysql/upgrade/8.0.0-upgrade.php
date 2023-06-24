@@ -140,5 +140,9 @@ unlink(SystemURLs::getDocumentRoot()."/CanvassAutomation.php");
 unlink(SystemURLs::getDocumentRoot()."/ConvertIndividualToAddress.php");
 unlink(SystemURLs::getDocumentRoot()."/BatchWinnerEntry.php");
 
+// 2023-06-24
+unlink(SystemURLs::getDocumentRoot()."/CSVExport.php");
+unlink(SystemURLs::getDocumentRoot()."/CSVCreateFile.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
