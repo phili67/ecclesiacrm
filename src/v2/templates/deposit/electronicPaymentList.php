@@ -19,21 +19,21 @@
  
  // Get all the electronic payment records
  $ormAutopayments = AutoPaymentQuery::Create()
-                  ->leftJoinFamily()
-                  ->leftJoinDonationFund()
-                  ->useFamilyQuery()
-                    ->orderByName()
-                    ->addAsColumn('FamName',FamilyTableMap::COL_FAM_NAME)
-                    ->addAsColumn('FamAddress1',FamilyTableMap::COL_FAM_ADDRESS1)
-                    ->addAsColumn('FamAddress2',FamilyTableMap::COL_FAM_ADDRESS2)
-                    ->addAsColumn('FamCity',FamilyTableMap::COL_FAM_CITY)
-                    ->addAsColumn('FamCity',FamilyTableMap::COL_FAM_CITY)
-                    ->addAsColumn('FamState',FamilyTableMap::COL_FAM_STATE)
-                  ->endUse()
-                  ->useDonationFundQuery()
-                    ->addAsColumn('FunName',DonationFundTableMap::COL_FUN_NAME)
-                  ->enduse()
-                  ->find();
+        ->leftJoinFamily()
+        ->leftJoinDonationFund()
+        ->useFamilyQuery()
+          ->orderByName()
+          ->addAsColumn('FamName',FamilyTableMap::COL_FAM_NAME)
+          ->addAsColumn('FamAddress1',FamilyTableMap::COL_FAM_ADDRESS1)
+          ->addAsColumn('FamAddress2',FamilyTableMap::COL_FAM_ADDRESS2)
+          ->addAsColumn('FamCity',FamilyTableMap::COL_FAM_CITY)
+          ->addAsColumn('FamCity',FamilyTableMap::COL_FAM_CITY)
+          ->addAsColumn('FamState',FamilyTableMap::COL_FAM_STATE)
+        ->endUse()
+        ->useDonationFundQuery()
+          ->addAsColumn('FunName',DonationFundTableMap::COL_FUN_NAME)
+        ->enduse()
+        ->find();
 
 // we place this part to avoid a problem during the upgrade process
 // Set the page title
@@ -42,140 +42,140 @@ require $sRootDocument . '/Include/Header.php';
 
 <script nonce="<?= $CSPNonce ?>" >
   function ConfirmDeleteAutoPayment (AutID)
-{
-  var FamName = document.getElementById("FamName"+AutID).innerHTML;
-  var r = confirm("<?= _('Delete automatic payment for') ?> " + FamName );
-  if (r == true) {
-    DeleteAutoPayment (AutID);
+  {
+    var FamName = document.getElementById("FamName"+AutID).innerHTML;
+    var r = confirm("<?= _('Delete automatic payment for') ?> " + FamName );
+    if (r == true) {
+      DeleteAutoPayment (AutID);
+    }
   }
-}
 
-function ConfirmClearAccounts (AutID)
-{
-  var FamName = document.getElementById("FamName"+AutID).innerHTML;
-  var r = confirm("<?= _('Clear account numbers for')?> "+FamName);
-  if (r == true) {
-    ClearAccounts (AutID);
+  function ConfirmClearAccounts (AutID)
+  {
+    var FamName = document.getElementById("FamName"+AutID).innerHTML;
+    var r = confirm("<?= _('Clear account numbers for')?> "+FamName);
+    if (r == true) {
+      ClearAccounts (AutID);
+    }
   }
-}
 
-function ClearAccounts (AutID)
-{
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.uniqueid = AutID;
+  function ClearAccounts (AutID)
+  {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.uniqueid = AutID;
 
-    xmlhttp.open("GET","<?= RedirectUtils::RedirectURL('AutoPaymentClearAccounts.php') ?>?customerid="+AutID,true);
-    xmlhttp.PaymentID = AutID; // So we can see it when the request finishes
+      xmlhttp.open("GET",window.CRM.root + '/v2/deposit/auto/payment/clear/Account/' + AutID,true);
+      xmlhttp.PaymentID = AutID; // So we can see it when the request finishes
 
-    xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) { // Hide them as the requests come back, deleting would mess up the outside loop
-            document.getElementById("Select"+this.PaymentID).checked = false;
-          ccVal = document.getElementById("CreditCard"+this.PaymentID).innerHTML;
-          document.getElementById("CreditCard"+this.PaymentID).innerHTML = "************" + ccVal.substr (ccVal.length-4,4);
-          aVal = document.getElementById("Account"+this.PaymentID).innerHTML;
-          document.getElementById("Account"+this.PaymentID).innerHTML = "*****" + aVal.substr (aVal.length-4,4);
+      xmlhttp.onreadystatechange=function() {
+      if (this.readyState==4 && this.status==200) { // Hide them as the requests come back, deleting would mess up the outside loop
+              document.getElementById("Select"+this.PaymentID).checked = false;
+            ccVal = document.getElementById("CreditCard"+this.PaymentID).innerHTML;
+            document.getElementById("CreditCard"+this.PaymentID).innerHTML = "************" + ccVal.substr (ccVal.length-4,4);
+            aVal = document.getElementById("Account"+this.PaymentID).innerHTML;
+            document.getElementById("Account"+this.PaymentID).innerHTML = "*****" + aVal.substr (aVal.length-4,4);
+          }
+      };
+      xmlhttp.send();
+  }
+
+  function DeleteAutoPayment (AutID)
+  {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.uniqueid = AutID;
+
+      xmlhttp.open("GET","/api/payments/delete/"+AutID,true);
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttp.PaymentID = AutID; // So we can see it when the request finishes
+
+      xmlhttp.onreadystatechange=function() {
+        if (this.readyState==2 && this.status==200) { // Hide them as the requests come back, deleting would mess up the outside loop
+          document.getElementById("Select"+this.PaymentID).checked = false;
+          document.getElementById("PaymentMethodRow"+this.PaymentID).style.display = 'none';
         }
-    };
-    xmlhttp.send();
-}
-
-function DeleteAutoPayment (AutID)
-{
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.uniqueid = AutID;
-
-    xmlhttp.open("GET","/api/payments/delete/"+AutID,true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.PaymentID = AutID; // So we can see it when the request finishes
-
-    xmlhttp.onreadystatechange=function() {
-      if (this.readyState==2 && this.status==200) { // Hide them as the requests come back, deleting would mess up the outside loop
-        document.getElementById("Select"+this.PaymentID).checked = false;
-        document.getElementById("PaymentMethodRow"+this.PaymentID).style.display = 'none';
-      }
-    };
-    xmlhttp.send();
-}
-
-function DeleteChecked()
-{
-  var checkboxes = document.getElementsByName("SelectForAction");
-  for(var i=0, n=checkboxes.length;i<n;i++) {
-      if (checkboxes[i].checked) {
-        var id = checkboxes[i].id.split("Select")[1];
-        ConfirmDeleteAutoPayment (id);
-      }
+      };
+      xmlhttp.send();
   }
-}
 
-function ClearAccountsChecked()
-{
-  var checkboxes = document.getElementsByName("SelectForAction");
-  for(var i=0, n=checkboxes.length;i<n;i++) {
-      if (checkboxes[i].checked) {
-        var id = checkboxes[i].id.split("Select")[1];
-        ConfirmClearAccounts (id);
-      }
+  function DeleteChecked()
+  {
+    var checkboxes = document.getElementsByName("SelectForAction");
+    for(var i=0, n=checkboxes.length;i<n;i++) {
+        if (checkboxes[i].checked) {
+          var id = checkboxes[i].id.split("Select")[1];
+          ConfirmDeleteAutoPayment (id);
+        }
+    }
   }
-}
 
-<?php
-  if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
-?>
-function CreatePaymentMethodsForChecked()
-{
-  var checkboxes = document.getElementsByName("SelectForAction");
-  for(var i=0, n=checkboxes.length;i<n;i++) {
-      if (checkboxes[i].checked) {
-        var id = checkboxes[i].id.split("Select")[1];
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.uniqueid = id;
-        xmlhttp.open("GET","<?= RedirectUtils::RedirectURL('ConvertOnePaymentXML.php') ?>?autid="+id,true);
-        xmlhttp.onreadystatechange=function() {
-        if (this.readyState==4 && this.status==200) {
-                var jsonresp=JSON.parse(this.response);
-                var index;
+  function ClearAccountsChecked()
+  {
+    var checkboxes = document.getElementsByName("SelectForAction");
+    for(var i=0, n=checkboxes.length;i<n;i++) {
+        if (checkboxes[i].checked) {
+          var id = checkboxes[i].id.split("Select")[1];
+          ConfirmClearAccounts (id);
+        }
+    }
+  }
 
-                var Success = false;
-                var ErrStr = "";
-                var AutID = 0;
-                var PaymentMethod = 0;
-                var PaymentType = "";
+  <?php
+    if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
+  ?>
+  function CreatePaymentMethodsForChecked()
+  {
+    var checkboxes = document.getElementsByName("SelectForAction");
+    for(var i=0, n=checkboxes.length;i<n;i++) {
+        if (checkboxes[i].checked) {
+          var id = checkboxes[i].id.split("Select")[1];
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.uniqueid = id;
+          xmlhttp.open("GET","<?= RedirectUtils::RedirectURL('ConvertOnePaymentXML.php') ?>?autid="+id,true);
+          xmlhttp.onreadystatechange=function() {
+          if (this.readyState==4 && this.status==200) {
+                  var jsonresp=JSON.parse(this.response);
+                  var index;
 
-                for (index = 0; index < jsonresp.length; ++index) {
-                    var oneResp = jsonresp[index];
-                    if (oneResp.hasOwnProperty("Error"))
-                      ErrStr += oneResp.Error;
-                    if (oneResp.hasOwnProperty("AutID"))
-                      AutID = oneResp.AutID;
-                    if (oneResp.hasOwnProperty("PaymentMethod"))
-                      PaymentMethod = oneResp.PaymentMethod[0];
-                    if (oneResp.hasOwnProperty("Success"))
-                      Success = oneResp.Success;
-                    if (oneResp.hasOwnProperty("PaymentType"))
-                      PaymentType = oneResp.PaymentType;
+                  var Success = false;
+                  var ErrStr = "";
+                  var AutID = 0;
+                  var PaymentMethod = 0;
+                  var PaymentType = "";
+
+                  for (index = 0; index < jsonresp.length; ++index) {
+                      var oneResp = jsonresp[index];
+                      if (oneResp.hasOwnProperty("Error"))
+                        ErrStr += oneResp.Error;
+                      if (oneResp.hasOwnProperty("AutID"))
+                        AutID = oneResp.AutID;
+                      if (oneResp.hasOwnProperty("PaymentMethod"))
+                        PaymentMethod = oneResp.PaymentMethod[0];
+                      if (oneResp.hasOwnProperty("Success"))
+                        Success = oneResp.Success;
+                      if (oneResp.hasOwnProperty("PaymentType"))
+                        PaymentType = oneResp.PaymentType;
+                  }
+
+                  // Update fields on the page to show status of this action
+                  if (Success && PaymentType=="CC")
+                    document.getElementById("CreditCardVanco"+AutID).innerHTML = PaymentMethod;
+                  if (Success && PaymentType=="C")
+                    document.getElementById("AccountVanco"+AutID).innerHTML = PaymentMethod;
+
+                  if (!Success && PaymentType=="CC")
+                    document.getElementById("CreditCardVanco"+AutID).innerHTML = ErrStr;
+                  if (!Success && PaymentType=="C")
+                    document.getElementById("AccountVanco"+AutID).innerHTML = ErrStr;
+
+                  document.getElementById("Select"+AutID).checked = false;
                 }
-
-                // Update fields on the page to show status of this action
-                if (Success && PaymentType=="CC")
-                  document.getElementById("CreditCardVanco"+AutID).innerHTML = PaymentMethod;
-                if (Success && PaymentType=="C")
-                  document.getElementById("AccountVanco"+AutID).innerHTML = PaymentMethod;
-
-                if (!Success && PaymentType=="CC")
-                  document.getElementById("CreditCardVanco"+AutID).innerHTML = ErrStr;
-                if (!Success && PaymentType=="C")
-                  document.getElementById("AccountVanco"+AutID).innerHTML = ErrStr;
-
-                document.getElementById("Select"+AutID).checked = false;
-              }
-        };
-        xmlhttp.send();
-      }
+          };
+          xmlhttp.send();
+        }
+    }
   }
-}
-<?php
-} ?>
+  <?php
+  } ?>
 </script>
 
 <script nonce="<?= $CSPNonce ?>" >
@@ -196,8 +196,7 @@ function CreatePaymentMethodsForChecked()
       <th>
         <input type=checkbox onclick="toggle(this, 'SelectForAction')" />
       </th>
-      <th><b><?= _('Edit') ?></b></th>
-      <th><b><?= _('Delete') ?></b></th>
+      <th><b><?= _('Action') ?></b></th>
       <th><b><?= _('Family') ?></b></th>
       <th><b><?= _('Type') ?></b></th>
       <th><b><?= _('Fiscal Year') ?></b></th>
@@ -239,9 +238,9 @@ foreach ($ormAutopayments as $payment) {
     <td>
       <input type=checkbox id=Select<?= $payment->getId() ?> name="SelectForAction" />
     </td>
-    <td><a href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/<?= $payment->getId() ?>/<?= $payment->getFamilyid() ?>/v2-deposit-electronic-payment-list" class="btn btn-success"><?= _('Edit') ?></a></td>
     <td>
-      <button onclick="ConfirmDeleteAutoPayment(<?= $payment->getId() ?>)" class="btn btn-danger"><?= _('Delete') ?></button>
+      <a href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/<?= $payment->getId() ?>/<?= $payment->getFamilyid() ?>/v2-deposit-electronic-payment-list" data-typeid="2" class="edit-prop"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>      
+      &nbsp;<a href="#" onclick="ConfirmDeleteAutoPayment(<?= $payment->getId() ?>)"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a></td>
     </td>
     <td>
         <a id="FamName<?= $payment->getId() ?>" href="v2/people/family/view/<?= $payment->getFamilyid() ?>"><?= $payment->getFamName().' '.$payment->getFamAddress1().', '.$payment->getFamCity().', '.$payment->getFamState() ?></a>
