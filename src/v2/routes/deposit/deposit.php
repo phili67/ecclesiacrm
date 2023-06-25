@@ -39,6 +39,8 @@ $app->group('/deposit', function (RouteCollectorProxy $group) {
     $group->post('/tax/report', VIEWDepositController::class . ':renderTaxReport');
 
     $group->get('/electronic/payment/list', VIEWDepositController::class . ':renderElectronicPaymentList');
+    
+    $group->get('/auto/payment/clear/Account/{customerid:[0-9]+}', VIEWDepositController::class . ':renderAutoPaymentClearAccount');
 
     /*
     * @! AutoPaymentEditor

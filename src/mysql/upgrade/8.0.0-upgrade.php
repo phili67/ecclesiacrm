@@ -144,5 +144,8 @@ unlink(SystemURLs::getDocumentRoot()."/BatchWinnerEntry.php");
 unlink(SystemURLs::getDocumentRoot()."/CSVExport.php");
 unlink(SystemURLs::getDocumentRoot()."/CSVCreateFile.php");
 
+// 2023-06-25
+unlink(SystemURLs::getDocumentRoot()."/AutoPaymentClearAccounts.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
