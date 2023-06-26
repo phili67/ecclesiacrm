@@ -198,5 +198,54 @@ class VIEWSystemController {
 
         return $paramsArguments;
     }
+
+    public function eventAttendance (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/system/');
+
+        if (!SystemConfig::getBooleanValue('bEnabledSundaySchool')) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $Action = '';
+        if (isset($args['Action'])) {
+            $Action = InputUtils::LegacyFilterInput($args['Action']);
+        }
+
+        $Event = -1;
+        if (isset($args['Event'])) {
+            $Event = InputUtils::LegacyFilterInput($args['Event'], 'int');
+        }
+
+        $Type = '';
+        if (isset($args['Type'])) {
+            $Type = InputUtils::LegacyFilterInput($args['Type']);
+        }
+
+        $Choice = '';
+        if (isset($args['Choice'])) {
+            $Choice = InputUtils::LegacyFilterInput($args['Choice']);
+        }      
+
+        return $renderer->render($response, 'eventAttendance.php', $this->argumentsEventAttendanceArray($Action, $Event, $Type, $Choice));
+    }
+
+    public function argumentsEventAttendanceArray ($Action, $Event, $Type, $Choice)
+    {
+        //Set the page title
+        $sPageTitle    = _('CSV Export');
+        
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => SystemURLs::getDocumentRoot(),
+            'CSPNonce'                  => SystemURLs::getCSPNonce(),
+            'sPageTitle'                => $sPageTitle,
+            'Action'                    => $Action,
+            'Event'                     => $Event,
+            'Type'                      => $Type,
+            'Choice'                    => $Choice
+        ];
+
+        return $paramsArguments;
+    }
     
 }

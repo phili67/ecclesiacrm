@@ -37,6 +37,14 @@ $app->group('/system', function (RouteCollectorProxy $group) {
     */
     $group->get('/csv/export[/{Source}]', VIEWSystemController::class . ':csvExport' );
     $group->post('/csv/export[/{Source}]', VIEWSystemController::class . ':csvExport' );
+
+
+    /*
+    * @! CSVExport
+    * #! param: ref->string :: Source -> cart
+    */
+    $group->get('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );
+    $group->post('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );
     
 });
 
