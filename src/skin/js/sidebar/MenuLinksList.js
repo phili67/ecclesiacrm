@@ -26,10 +26,10 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           var res = "<center>";
           if (full.place == "first" || full.place == "intermediate") {
-            res += '<a href="#" class="down_action" data-id="'+full.Id+'" data-order="'+full.Order+'"><img src="' + window.CRM.root + '/Images/downarrow.gif" border="0"></a>';
+            res += '<a href="#" class="down_action" data-id="'+full.Id+'" data-order="'+full.Order+'"><i class="fa-solid fa-arrow-down"></i></a>';
           }
           if (full.place == "last" || full.place == "intermediate") {
-            res += '<a href="#" class="up_action" data-id="'+full.Id+'" data-order="'+full.Order+'"><img src="' + window.CRM.root + '/Images/uparrow.gif" border="0"></a>';
+            res += '<a href="#" class="up_action" data-id="'+full.Id+'" data-order="'+full.Order+'"><i class="fa-solid fa-arrow-up"></i></a>';
           }
           return res+"</center>";
         }

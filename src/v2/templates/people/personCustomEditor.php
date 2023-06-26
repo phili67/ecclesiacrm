@@ -317,7 +317,7 @@ require $sRootDocument . '/Include/Header.php';
             <?php
               if ($bErrorFlag) {
             ?>
-                <span class="LargeText" style="color: red;"><BR><?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?></span>
+                <span class="LargeText" class="text-red"><BR><?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?></span>
             <?php
               }
             ?>
@@ -344,15 +344,15 @@ require $sRootDocument . '/Include/Header.php';
               <?php
               if ($row != 1) {
               ?>
-                <img class="up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= $sRootPath ?>/Images/uparrow.gif" border="0">
+                <i class="fa-solid fa-arrow-up up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
               <?php
               }
             if ($row < $numRows) {
               ?>
-                <img class="down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= $sRootPath ?>/Images/downarrow.gif" border="0">
+                <i class="fa-solid fa-arrow-down down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
             <?php
             } ?>
-                <img class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= $sRootPath ?>/Images/x.gif" border="0">
+                <i class="fa fa-trash-can text-red delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
             </td>
             <td class="TextColumnFam">
               <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
@@ -364,7 +364,7 @@ require $sRootDocument . '/Include/Header.php';
               <?php
                 if (array_key_exists($row, $aNameErrors) && $aNameErrors[$row]) {
               ?>
-                  <span style="color: red;"><BR><?= _('You must enter a name') ?></span>
+                  <span class="text-red"><BR><?= _('You must enter a name') ?></span>
               <?php
                 }
               ?>
@@ -388,7 +388,7 @@ require $sRootDocument . '/Include/Header.php';
               <?php
                   if ($aSpecialErrors[$row]) {
               ?>
-                      <span style="color: red;"><BR><?= _('You must select a group.') ?></span>
+                      <span class="text-red"><BR><?= _('You must select a group.') ?></span>
               <?php
                   }
                 } elseif ($aTypeFields[$row] == 12) {
@@ -429,7 +429,7 @@ require $sRootDocument . '/Include/Header.php';
               <tr>
                 <td width="30%"></td>
                 <td width="40%"  valign="bottom">
-                  <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>"
+                  <input type="submit" class="btn btn-primary" value="&check; <?= _('Save Changes') ?>"
                          Name="SaveChanges">
                 </td>
                 <td width="30%"></td>
@@ -489,12 +489,12 @@ require $sRootDocument . '/Include/Header.php';
                 <?php
                 if ($bNewNameError) {
                 ?>
-                    <div><span style="color: red;"><BR><?= _('You must enter a name') ?></span></div>
+                    <div><span class="text-red"><BR><?= _('You must enter a name') ?></span></div>
                 <?php
                 }
                 if ($bDuplicateNameError) {
                 ?>
-                    <div><span style="color: red;"><BR><?= _('That field name already exists.') ?></span></div>
+                    <div><span class="text-red"><BR><?= _('That field name already exists.') ?></span></div>
                 <?php
                 }
                 ?>
@@ -509,7 +509,7 @@ require $sRootDocument . '/Include/Header.php';
                 <?= GetSecurityList($aSecurityGrp, 'newFieldSec') ?>
               </td>
               <td valign="top">
-                <input type="submit" class="btn btn-primary" value="<?= _('Add New Field') ?>" Name="AddField">
+                <input type="submit" class="btn btn-success" value="+ <?= _('Add New Field') ?>" Name="AddField">
               </td>
               <td width="15%"></td>
             </tr>
