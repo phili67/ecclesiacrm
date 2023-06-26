@@ -153,5 +153,7 @@ unlink(SystemURLs::getDocumentRoot()."/Images/downarrow.gif");
 unlink(SystemURLs::getDocumentRoot()."/Images/uparrow.gif");
 unlink(SystemURLs::getDocumentRoot()."/Images/x.gif");
 
+unlink(SystemURLs::getDocumentRoot()."/EventAttendance.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
