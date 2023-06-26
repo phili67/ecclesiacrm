@@ -11,6 +11,7 @@
 
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\Cart;
  
 use Propel\Runtime\Propel;
 
@@ -112,7 +113,7 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
         <h2 class="card-title"?><?= _("Results") ?></h2>
     </div>
     <div class="card-body">
-        <table id="tableEventAttendance" cellpadding="4" cellspacing="0" width="60%" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline">
+        <table id="tableEventAttendance" cellpadding="4" cellspacing="0" width="60%" class="table table-bordered">
 
         <?php
         if ($Action == 'List' && $numRows > 0) {
@@ -120,10 +121,10 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
             <caption>
                     <h3><?= ($numRows == 1 ? _('There is') : _('There are')).' '.$numRows.' '.($numRows == 1 ? _('event') : _('events'))._(' in this category.') ?></h3>
             </caption>
-                <tr class="TableHeader">
-                <td width="33%"><strong><?= _('Event Title') ?></strong></td>
-                <td width="33%"><strong><?= _('Event Date') ?></strong></td>
-                <td colspan="3" width="34%"><strong><?= _('Generate Report') ?></strong></td>
+                <tr class="print-table-header">
+                    <td width="33%"><strong><?= _('Event Title') ?></strong></td>
+                    <td width="33%"><strong><?= _('Event Date') ?></strong></td>
+                    <td colspan="3" width="34%"><strong><?= _('Generate Report') ?></strong></td>
                 </tr>
                 <?php
                 //Set the initial row color
@@ -191,11 +192,11 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
             <caption>
                 <h3><?= _('There '.($numRows == 1 ? 'was '.$numRows.' '.$Choice : 'were '.$numRows.' '.$Choice)).' for this Event' ?></h3>
             </caption>
-                <tr class="TableHeader">
-                <td width="35%"><strong><?= _('Name') ?></strong></td>
-                <td width="25%"><strong><?= _('Email') ?></strong></td>
-                <td width="25%"><strong><?= _('Home Phone') ?></strong></td>
-                <td width="15%" nowrap><strong><?php /* echo _("Cart"); */ ?>&nbsp;</strong></td>
+                <tr class="print-table-header">
+                    <td width="35%"><strong><?= _('Name') ?></strong></td>
+                    <td width="25%"><strong><?= _('Email') ?></strong></td>
+                    <td width="25%"><strong><?= _('Home Phone') ?></strong></td>
+                    <td width="15%" nowrap><strong><?php  _("Cart"); ?>&nbsp;</strong></td>
                 </tr>
         <?php
                 //Set the initial row color
@@ -215,7 +216,29 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
         <?php
         // AddToCart call to go here
         ?>
-                <td class="TextColumn"><?php /* echo '<a onclick="return AddToCart('.$aPersonID[$row].');" href="blank.html">'._("Add to Cart").'</a>'; */ ?>&nbsp;</td>
+                <td class="TextColumn">
+                    <?php
+                        if (!Cart::PersonInCart($aRow[$iCount])) {
+                            ?>
+                                <a class="AddToPeopleCart" data-cartpersonid="<?= $aPersonID[$row] ?>">
+                                     <span class="fa-stack">
+                                     <i class="fas fa-square fa-stack-2x"></i>
+                                     <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
+                                     </span>
+                                </a>
+                            <?php
+                        } else {
+                            ?>
+                                <a class="RemoveFromPeopleCart" data-cartpersonid="<?= $aPersonID[$row] ?>">
+                                    <span class="fa-stack">
+                                    <i class="fas fa-square fa-stack-2x"></i>
+                                    <i class="fas fa-times fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            <?php
+                        }
+                    ?>
+                </td>
                 </tr>
         <?php
                 }
@@ -232,11 +255,6 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
     </div>
 </div>
 
-<script nonce="<?= $CSPNonce ?>">
-    $(document).ready(function () {
-        //Added by @saulowulhynek to translation of datatable nav terms
-        //$('#eventNames').DataTable(window.CRM.plugin.dataTable);
-    });
-</script>
+<script src="<?= $sRootPath ?>/skin/js/people/AddRemoveCart.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
