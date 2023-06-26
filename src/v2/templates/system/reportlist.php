@@ -70,8 +70,7 @@ if ( SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
           // List all events
           foreach ($ormOpps as $ormOpp) {
             ?>
-              &nbsp;&nbsp;&nbsp;<a href="<?= $sRootPath ?>/EventAttendance.php?Action=List&Event=<?=
-            $ormOpp->getId()?>&Type=<?= $ormOpp->getName() ?>" title="List All <?=
+              &nbsp;&nbsp;&nbsp;<a href="<?= $sRootPath ?>/v2/system/event/attendance/List/<?=$ormOpp->getId()?>/<?= $ormOpp->getName() ?>" title="List All <?=
             $ormOpp->getName() ?> Events"><strong><?= $ormOpp->getName()?></strong></a><br>
             <?php
           } ?>
