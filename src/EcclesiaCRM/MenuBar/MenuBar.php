@@ -124,7 +124,7 @@ class MenuBar extends Menu
     public function addEventMenu()
     {
         // the Events Menu
-        $menu = new Menu (_("Events") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "fas fa-ticket &quot;", "", true);
+        $menu = new Menu (_("Events") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "fa fa-calendar", "", true);
         // add the badges
         $menu->addBadge('badge badge-warning', 'EventsNumber', 0);
         $menu->addBadge('badge badge-danger', 'BirthdateNumber', 0);
