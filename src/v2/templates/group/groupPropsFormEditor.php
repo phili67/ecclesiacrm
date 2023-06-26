@@ -331,16 +331,16 @@ if ($numRows == 0) {
         <?php
           if ($row != 1) {
         ?>
-            <img src="<?= $sRootPath ?>/Images/uparrow.gif" border="0" class="up-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
+            <i class="fa-solid fa-arrow-up up-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
         <?php
           }
           if ($row < $numRows) {
         ?>
-            <img src="<?= $sRootPath ?>/Images/downarrow.gif" border="0" class="down-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
+            <i class="fa-solid fa-arrow-down down-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
         <?php
           }
         ?>
-            <img src="<?= $sRootPath ?>/Images/x.gif" border="0" class="delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
+            <i class="fa fa-trash-can text-red delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
       </td>
       <td class="TextColumn" style="font-size:70%;">
           <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
@@ -350,7 +350,7 @@ if ($numRows == 0) {
         <?php
           if (array_key_exists($row, $aNameErrors) && $aNameErrors[$row]) {
         ?>
-            <span style="color: red;"><BR><?= _('You must enter a name') ?> </span>
+            <span class="text-red"><BR><?= _('You must enter a name') ?> </span>
         <?php
           }
         ?>
@@ -385,7 +385,7 @@ if ($numRows == 0) {
 
                 if ($aSpecialErrors[$row]) {
               ?>
-                    <span style="color: red;"><BR><?= _('You must select a group.') ?></span>
+                    <span class="text-red"><BR><?= _('You must select a group.') ?></span>
               <?php
                 }
             } elseif ($aTypeFields[$row] == 12) {
@@ -411,10 +411,10 @@ if ($numRows == 0) {
         <tr>
           <td width="10%"></td>
           <td width="40%" align="center" valign="bottom">
-            <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-default"><?= _("Return to Group") ?></a>
+            <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-default"><i class="fa-solid fa-backward"></i> <?= _("Return to Group") ?></a>
           </td>
           <td width="40%" align="center" valign="bottom">
-            <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
+            <input type="submit" class="btn btn-primary" value="&check; <?= _('Save Changes') ?>" Name="SaveChanges">
           </td>
           <td width="10%"></td>
         </tr>
@@ -466,12 +466,12 @@ if ($numRows == 0) {
             <?php
               if ($bNewNameError) {
             ?>
-                  <div><span style="color: red;"><BR><?= _('You must enter a name')?></span></div>
+                  <div><span class="text-red"><BR><?= _('You must enter a name')?></span></div>
             <?php
               }
               if ($bDuplicateNameError) {
             ?>
-                  <div><span style="color: red;"><BR><?= _('That field name already exists.')?></span></div>
+                  <div><span class="text-red"><BR><?= _('That field name already exists.')?></span></div>
             <?php
               }
             ?>
@@ -482,7 +482,7 @@ if ($numRows == 0) {
             &nbsp;
           </td>
           <td valign="top">
-            <input type="submit" class="btn btn-primary" value="<?= _('Add New Field') ?>" Name="AddField">
+            <input type="submit" class="btn btn-success" value="+ <?= _('Add New Field') ?>" Name="AddField">
           </td>
           <td width="15%"></td>
         </tr>

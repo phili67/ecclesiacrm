@@ -372,7 +372,7 @@ if ($mode == 'classes') {
         <?php
         if ($bErrorFlag) {
         ?>
-           <span class="MediumLargeText" style="color: red;">
+           <span class="MediumLargeText" class="text-red">
         <?php
         if ($bDuplicateFound) {
             ?>
@@ -386,7 +386,7 @@ if ($mode == 'classes') {
         ?>
 
         <br>
-        <table cellpadding="3" width="50%" align="center" id="example">
+        <table cellpadding="3" width="100%" align="center" id="example">
             <?php
             for ($row = 1; $row <= $numRows; $row++) {
                 $icon=null;
@@ -416,16 +416,14 @@ if ($mode == 'classes') {
                         <?php
                         if ($row != 1) {
                             ?>
-                            <img src="<?= $sRootPath ?>/Images/uparrow.gif" border="0"
-                                 class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
-                                 data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up">
+                            <i class="fa-solid fa-arrow-up row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
+                                 data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up"></i>
                             <?php
                         }
                         if ($row < $numRows) {
                             ?>
-                            <img src="<?= $sRootPath ?>/Images/downarrow.gif" border="0"
-                                 class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
-                                 data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down">
+                            <i class="fa-solid fa-arrow-down row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
+                                 data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down"></i>
                             <?php
                         }
                         if ($numRows > 1) {
@@ -433,17 +431,16 @@ if ($mode == 'classes') {
                             <?php
                             if ($embedded) {
                                 ?>
-                                <img src="<?= $sRootPath ?>/Images/x.gif" border="0" class="row-action" data-mode="<?= $mode ?>"
+                                <i class="fa fa-trash-can row-action text-red" data-mode="<?= $mode ?>"
                                      data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>"
-                                     data-id="<?= $aIDs[$row] ?>" data-action="delete">
+                                     data-id="<?= $aIDs[$row] ?>" data-action="delete" aria-hidden="true"></i>
                                 <?php
                             } else {
                                 ?>
-                                <img src="<?= $sRootPath ?>/Images/x.gif"
-                                     class="RemoveClassification" data-mode="<?= $mode ?>"
+                                <i class="fa fa-trash-can RemoveClassification text-red" data-mode="<?= $mode ?>"
                                      data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>"
                                      data-id="<?= $aIDs[$row] ?>"
-                                     data-name="<?= htmlentities(stripslashes($aNameFields[$row])) ?>" border="0">
+                                     data-name="<?= htmlentities(stripslashes($aNameFields[$row])) ?>" aria-hidden="true"></i>
                                 <?php
                             }
                         }
@@ -459,11 +456,11 @@ if ($mode == 'classes') {
 
                         if ($aNameErrors[$row] == 1) {
                             ?>
-                            <span style="color: red;"><BR><?= _('You must enter a name') ?> </span>
+                            <span class="text-red"><BR><?= _('You must enter a name') ?> </span>
                             <?php
                         } elseif ($aNameErrors[$row] == 2) {
                             ?>
-                            <span style="color: red;"><BR><?= _('Duplicate name found.') ?> </span>
+                            <span class="text-red"><BR><?= _('Duplicate name found.') ?> </span>
                             <?php
                         } ?>
                     </td>
@@ -481,13 +478,15 @@ if ($mode == 'classes') {
                     } else if ($mode == 'classes') {
                         if (is_null($icon) || !is_null($icon) && $icon->getUrl() == '') {
                             ?>
-                            <td><img src="<?= $sRootPath ?>/Images/+.png" border="0" class="AddImage" data-ID="<?= $listID ?>"
+                            <td>
+                                <i class="fa-regular fa-plus AddImage" data-ID="<?= $listID ?>"
                                      data-optionID="<?= $aIDs[$row] ?>"
-                                     data-name="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>">
+                                     data-name="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>"></i>
                             </td>
                             <td></td>
                             <td>&nbsp;</td>
-                            <td align="left"><input type="checkbox" class="checkOnlyPersonView"
+                            <td align="left">
+                                <input type="checkbox" class="checkOnlyPersonView"
                                                     data-ID="<?= $listID ?>"
                                                     data-optionID="<?= $aIDs[$row] ?>" <?= ($icon != null && $icon->getOnlyVisiblePersonView()) ? "checked" : "" ?> />
                                 <?= _("Visible only in PersonView") ?>
@@ -495,9 +494,10 @@ if ($mode == 'classes') {
                             <?php
                         } else {
                             ?>
-                            <td><img src="<?= $sRootPath ?>/Images/x.gif" border="0" class="RemoveImage" data-ID="<?= $listID ?>"
-                                     data-optionID="<?= $aIDs[$row] ?>"></td>
                             <td><img src="/skin/icons/markers/<?= $icon->getUrl() ?>" border="0" height="25"></td>
+                            <td><i class="fa fa-trash-can RemoveImage text-red" data-ID="<?= $listID ?>"
+                                     data-optionID="<?= $aIDs[$row] ?>"></i>
+                            </td>
                             <td>&nbsp;</td>
                             <td align="left"><input type="checkbox" class="checkOnlyPersonView"
                                                     data-ID="<?= $listID ?>"
@@ -515,18 +515,18 @@ if ($mode == 'classes') {
         <br/>
         <div class="row justify-content-md-center">
             <div class="col col-lg-3">
-                <input type="submit" class="btn btn-primary btn-sm" value="<?= _('Save Changes') ?>" Name="SaveChanges">
+                <input type="submit" class="btn btn-primary btn-sm" value="&check; <?= _('Save Changes') ?>" Name="SaveChanges">
             </div>
             <?php if ($mode == 'groupcustom' || $mode == 'custom' || $mode == 'famcustom') {
                 ?>
                 <div class="col col-lg-2">
-                    <input type="button" class="btn btn-default btn-sm" value="<?= _('Exit') ?>" Name="Exit" id="exit">
+                    <input type="button" class="btn btn-default btn-sm" value="x <?= _('Exit') ?>" Name="Exit" id="exit">
                 </div>
                 <?php
             } elseif ($mode != 'grproles') {// dead code
                 ?>
                 <div class="col col-lg-2">
-                <input type="button" class="btn btn-default btn-sm" value="<?= _('Exit') ?>" Name="Exit"
+                <input type="button" class="btn btn-default btn-sm" value="X <?= _('Exit') ?>" Name="Exit"
                     onclick="javascript:document.location='<?= 'v2/dashboard' ?>';">
                 </div>
                 <?php
@@ -542,12 +542,12 @@ if ($mode == 'classes') {
             <input class="form-control form-control form-control-sm" type="text" name="newFieldName" size="30" maxlength="40">
         </span>
         <p></p>
-        <input type="submit" class="btn btn-success btn-sm" value="<?= _('Add New') . ' ' . $adjplusname ?>" Name="AddField">
+        <input type="submit" class="btn btn-success btn-sm" value="+ <?= _('Add New') . ' ' . $adjplusname ?>" Name="AddField">
         <?php
         if ($iNewNameError > 0) {
         ?>
             <div>
-                <span style="color: red;">
+                <span class="text-red">
                     <BR>
                 <?php
                     if ($iNewNameError == 1) {

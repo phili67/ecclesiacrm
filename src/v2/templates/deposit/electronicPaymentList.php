@@ -190,13 +190,13 @@ require $sRootDocument . '/Include/Header.php';
 
 <p><a href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/-1/v2-deposit-electronic-payment-list" class="btn btn-primary"><?= _('Add a New Electronic Payment Method') ?></a></p>
 <div class="table-responsive">
-<table class="table table-hover dt-responsive" id="PaymentMethodTable"  style="width:100%;">
+<table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="PaymentMethodTable"  style="width:100%;">
   <thead>
     <tr>
       <th>
         <input type=checkbox onclick="toggle(this, 'SelectForAction')" />
       </th>
-      <th><b><?= _('Action') ?></b></th>
+      <th style="min-width:80px"><b><?= _('Action') ?></b></th>
       <th><b><?= _('Family') ?></b></th>
       <th><b><?= _('Type') ?></b></th>
       <th><b><?= _('Fiscal Year') ?></b></th>
@@ -239,8 +239,8 @@ foreach ($ormAutopayments as $payment) {
       <input type=checkbox id=Select<?= $payment->getId() ?> name="SelectForAction" />
     </td>
     <td>
-      <a href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/<?= $payment->getId() ?>/<?= $payment->getFamilyid() ?>/v2-deposit-electronic-payment-list" data-typeid="2" class="edit-prop"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>      
-      &nbsp;<a href="#" onclick="ConfirmDeleteAutoPayment(<?= $payment->getId() ?>)"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a></td>
+      <a class="btn btn-primary btn-sm" href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/<?= $payment->getId() ?>/<?= $payment->getFamilyid() ?>/v2-deposit-electronic-payment-list" data-typeid="2" class="edit-prop"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>      
+      &nbsp;<a class="btn btn-danger btn-sm" href="#" onclick="ConfirmDeleteAutoPayment(<?= $payment->getId() ?>)"><i class="far fa-trash-alt" aria-hidden="true"></i></a></td>
     </td>
     <td>
         <a id="FamName<?= $payment->getId() ?>" href="v2/people/family/view/<?= $payment->getFamilyid() ?>"><?= $payment->getFamName().' '.$payment->getFamAddress1().', '.$payment->getFamCity().', '.$payment->getFamState() ?></a>

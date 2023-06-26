@@ -379,7 +379,7 @@ function initDataTable() {
                     })[0];
 
                     if (isShowable) {
-                        return ((thisRole != undefined) ? i18next.t(thisRole.OptionName) : '') + '<button class="btn btn-primary btn-sm changeMembership" data-personid=' + full.PersonId + '><i class="fas fa-pencil-alt"></i></button>';
+                        return  ' <a href="#" class="changeMembership btn btn-primary btn-sm" data-personid=' + full.PersonId + '><i class="fas fa-pencil-alt"></i></a> ' + ((thisRole != undefined) ? '<label>' + i18next.t(thisRole.OptionName)+'</label>' : '');
                     } else {
                         return i18next.t("Private Data");
                     }
