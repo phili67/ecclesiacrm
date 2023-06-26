@@ -466,6 +466,9 @@ class OutputUtils
 
     public static function change_date_for_place_holder($string)
     {
+        if ($string == "1900-01-01") {
+            $string = "";
+        }
         return ((strtotime($string) != "") ? date(SystemConfig::getValue("sDatePickerFormat"), strtotime($string)) : strtotime($string));
     }
 
@@ -583,7 +586,7 @@ class OutputUtils
     // bWithtime 1 to be displayed
     public static function FormatDate($dDate, $bWithTime = false)
     {
-        if ($dDate == '' || $dDate == '0000-00-00 00:00:00' || $dDate == '0000-00-00') {
+        if ($dDate == '' || $dDate == '0000-00-00 00:00:00' || $dDate == '0000-00-00' || $dDate == '1900-01-01') {
             return '';
         }
 
