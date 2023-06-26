@@ -147,5 +147,11 @@ unlink(SystemURLs::getDocumentRoot()."/CSVCreateFile.php");
 // 2023-06-25
 unlink(SystemURLs::getDocumentRoot()."/AutoPaymentClearAccounts.php");
 
+// 2023-06-26
+unlink(SystemURLs::getDocumentRoot()."/Images/+.png");
+unlink(SystemURLs::getDocumentRoot()."/Images/downarrow.gif");
+unlink(SystemURLs::getDocumentRoot()."/Images/uparrow.gif");
+unlink(SystemURLs::getDocumentRoot()."/Images/x.gif");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
