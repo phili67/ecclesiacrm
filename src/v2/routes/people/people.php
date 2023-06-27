@@ -59,6 +59,8 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/family/customfield/editor', VIEWPeopleController::class . ':familyCustomFieldEditor' );
     $group->post('/family/customfield/editor', VIEWPeopleController::class . ':familyCustomFieldEditor' );
 
+    $group->get('/family/verify/{famId:[0-9]+}', VIEWPeopleController::class . ':familyVerify' );
+
     /*
     * @! CanvassEditor
     * #! param: ref->int :: FamilyID

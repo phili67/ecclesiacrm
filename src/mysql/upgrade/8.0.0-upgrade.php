@@ -155,5 +155,8 @@ unlink(SystemURLs::getDocumentRoot()."/Images/x.gif");
 
 unlink(SystemURLs::getDocumentRoot()."/EventAttendance.php");
 
+// 2023-06-27
+unlink(SystemURLs::getDocumentRoot()."/FamilyVerify.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
