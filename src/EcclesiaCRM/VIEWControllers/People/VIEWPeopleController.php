@@ -1425,4 +1425,25 @@ class VIEWPeopleController {
             'sPageTitle'                => $sPageTitle
         ];
     } 
+
+    public function familyVerify (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        $iFamilyID = -1;
+
+        if (isset ($args['famId'])) {
+            $iFamilyID = InputUtils::LegacyFilterInput($args['famId'], 'int');
+        }
+
+        if (!SessionUser::getUser()->isAdmin() or $iFamilyID == -1) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'familyVerify.php', $this->argumentsFamilyVerifyArray($iFamilyID));
+    }
+
+    public function argumentsFamilyVerifyArray ($iFamilyID) 
+    {        
+        return ['iFamilyID' => $iFamilyID];
+    } 
 }
