@@ -163,7 +163,7 @@ class MenuBar extends Menu
         $menuItem->addLink("v2/people/directory/report");
         $menuItem->addLink("v2/people/ReminderReport");
         $menuItem->addLink("v2/people/LettersAndLabels");
-        $menuItem->addLink("USISTAddressVerification.php");
+        $menuItem->addLink("v2/system/USISTAddress/Verification");
 
 
         $menuItem = new Menu (_("Meta Search Engine"), "fas fa-search", "v2/people/list/none", true, $menu);

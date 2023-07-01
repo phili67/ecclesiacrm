@@ -45,6 +45,9 @@ $app->group('/system', function (RouteCollectorProxy $group) {
     */
     $group->get('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );
     $group->post('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );
+
+    $group->get('/USISTAddress/Verification[/{DoLookup}]', VIEWSystemController::class . ':USISTAddressVerification' );
+    $group->post('/USISTAddress/Verification[/{DoLookup}]', VIEWSystemController::class . ':USISTAddressVerification' );
     
 });
 
