@@ -229,7 +229,7 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
                 if (SessionUser::getUser()->isUSAddressVerificationEnabled()) {
                     ?>
                     <p>
-                        <a class="MediumText" href="<?= $sRootPath ?>/USISTAddressVerification.php">
+                        <a class="MediumText" href="<?= $sRootPath ?>/v2/system/USISTAddress/Verification">
                             <?= _('US Address Verification Report') ?>
                         </a>
                         <br>

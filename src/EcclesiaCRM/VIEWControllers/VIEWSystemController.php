@@ -247,5 +247,38 @@ class VIEWSystemController {
 
         return $paramsArguments;
     }
+
+    
+
+    public function USISTAddressVerification (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $renderer = new PhpRenderer('templates/system/');
+
+        if (!SessionUser::getUser()->isAdmin()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $DoLookup = '';
+        if (isset($args['DoLookup'])) {
+            $DoLookup = InputUtils::LegacyFilterInput($args['DoLookup']);
+        }  
+
+        return $renderer->render($response, 'USISTAddressVerification.php', $this->argumentsUSISTAddressVerificationArray($DoLookup));
+    }
+
+    public function argumentsUSISTAddressVerificationArray ($DoLookup)
+    {
+        //Set the page title
+        $sPageTitle = _('US Address Verification');
+        
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => SystemURLs::getDocumentRoot(),
+            'CSPNonce'                  => SystemURLs::getCSPNonce(),
+            'sPageTitle'                => $sPageTitle,
+            'DoLookup'                  => $DoLookup
+        ];
+
+        return $paramsArguments;
+    }
     
 }

@@ -33,7 +33,7 @@ if ($_POST['MismatchReport']) {
     $sWhere = "WHERE fam_Country NOT IN ('United States') ";
     $sMissing = 'Unable to perform lookup for non-US address';
 } else {
-    RedirectUtils::Redirect('USISTAddressVerification.php');
+    RedirectUtils::Redirect('v2/system//USISTAddress/Verification');
 }
 
 // Instantiate the class and build the report.

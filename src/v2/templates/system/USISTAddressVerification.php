@@ -1,26 +1,18 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : USISTAddressVerification.php
+ *  filename    : templates/USISTAddressVerification.php
+ *  last change : 2023-06-28
  *  website     : http://www.ecclesiacrm.com
- *  description : USPS address verification
+ *                © 2023 Philippe Logel
  *
  ******************************************************************************/
 
-// This file verifies family address information using an on-line XML
-// service provided by Intelligent Search Technology, Ltd.  Fees required.
-// See https://www.intelligentsearch.com/Hosted/User/
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ISTAddressLookup;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\SQLUtils;
 use EcclesiaCRM\Utils\MiscUtils;
-
 
 function XMLparseIST($xmlstr, $xmlfield)
 {
@@ -41,15 +33,7 @@ function XMLparseIST($xmlstr, $xmlfield)
     return '';
 }
 
-// If user is not admin, redirect to the menu.
-if (!SessionUser::getUser()->isAdmin()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-// Set the page title and include HTML header
-$sPageTitle = _('US Address Verification');
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 
 if (strlen(SystemConfig::getValue('sISTusername')) && strlen(SystemConfig::getValue('sISTpassword'))) {
     $myISTAddressLookup = new ISTAddressLookup();
@@ -68,11 +52,11 @@ if ($myISTReturnCode == '4') {
       <div class="card card-body">
         <div class="alert alert-danger alert-dismissible">
           <h4><i class="icon fas fa-ban"></i>The Intelligent Search Technology, Ltd. XML web service is temporarily unavailable.</h4>
-  <?php echo 'getAccountInfo ReturnCode = '.$myISTReturnCode ?>
-          Please try again in 30 minutes.
-          You may follow the URL below to log in and manage your Intelligent Search ';
-          Technology account settings.  This link may also provide information pertaining to ';
-          this service disruption.<br><br>
+            <?= 'getAccountInfo ReturnCode = '.$myISTReturnCode ?>
+                Please try again in 30 minutes.
+                You may follow the URL below to log in and manage your Intelligent Search ';
+                  Technology account settings.  This link may also provide information pertaining to ';
+                this service disruption.<br><br>
           <a href="https://www.intelligentsearch.com/Hosted/User/">https://www.intelligentsearch.com/Hosted/User/</a>';
         </div>
       </div>
@@ -86,7 +70,7 @@ if ($myISTReturnCode == '4') {
       <div class="card card-body">
         <div class="alert alert-danger alert-dismissible">
           <h4><i class="icon fas fa-ban"></i>The Intelligent Search Technology, Ltd. XML web service is temporarily unavailable.</h4>
-          <p><?php echo 'getAccountInfo ReturnCode = '.$myISTReturnCode ?></p>
+          <p><?='getAccountInfo ReturnCode = '.$myISTReturnCode ?></p>
           <p><?= $myISTSearchesLeft ?></p>
           <p>Please verify that your Intelligent Search Technology, Ltd. username and password are correct</p>
           <p><i>Admin -> Edit General Settings -> sISTusername</i></p>
@@ -108,28 +92,30 @@ if ($myISTReturnCode == '4') {
   </div>
   <?php
     } elseif ($myISTSearchesLeft == 'X') {
-        echo "<br>\n";
-        echo "Searches Left = $myISTSearchesLeft<br><br>\n";
-        echo 'Follow the URL below to log in and manage your Intelligent Search Technology account ';
-        echo "settings.<br>\n";
+        ?>
+        <br>
+        Searches Left = <?=$myISTSearchesLeft ?><br><br>
+        Follow the URL below to log in and manage your Intelligent Search Technology account settings.<br>
 
-        echo '<a href="https://www.intelligentsearch.com/Hosted/User/">';
-        echo 'https://www.intelligentsearch.com/Hosted/User/</a><br><br><br>\n';
+        <a href="https://www.intelligentsearch.com/Hosted/User/">
+            https://www.intelligentsearch.com/Hosted/User/</a><br><br><br>
 
-        echo 'This software was written to work best with the service CorrectAddress(R) ';
-        echo 'with Addons. <br><br><br>';
+        This software was written to work best with the service CorrectAddress(R)
+        with Addons. <br><br><br>
+    <?php
     } else {
         // IST account is valid and working.  Time to get to work.
+    ?>        
+        <h3>
+        To conserve funds the following rules are used to determine if
+        an address lookup should be performed.<br>
+        1) The family record has been added since the last lookup<br>
+        2) The family record has been edited since the last lookup<br>
+        3) It's been more than two years since the family record has been verified<br>
+        4) The address must be a US address (Country = United States)<br><br>
+        </h3>
 
-        echo "<h3>\n";
-        echo 'To conserve funds the following rules are used to determine if ';
-        echo "an address lookup should be performed.<br>\n";
-        echo "1) The family record has been added since the last lookup<br>\n";
-        echo "2) The family record has been edited since the last lookup<br>\n";
-        echo "3) It's been more than two years since the family record has been verified<br>\n";
-        echo "4) The address must be a US address (Country = United States)<br><br>\n";
-        echo "</h3>\n";
-
+        <?php
         // Housekeeping ... Delete families from the table istlookup_lu that
         // do not exist in the table family_fam.  This happens whenever
         // a family is deleted from family_fam.  (Or, more rarely, if a family
@@ -153,9 +139,14 @@ if ($myISTReturnCode == '4') {
                 $iOrphanCount++;
             }
         }
-        echo "<h4>\n";
+        ?>
+        
+        <h4>
+        <?php
         if ($iOrphanCount) {
-            echo $iOrphanCount." Orphaned IDs deleted.<br>\n";
+            ?>
+            <?= $iOrphanCount ?> Orphaned IDs deleted.<br>
+        <?php    
         }
 
         // More Housekeeping ... Delete families from the table istlookup_lu that
@@ -189,7 +180,9 @@ if ($myISTReturnCode == '4') {
             }
         }
         if ($iUpdatedCount) {
-            echo $iUpdatedCount." Updated IDs deleted.<br>\n";
+        ?>
+            <?= $iUpdatedCount ?> Updated IDs deleted.<br>
+        <?php
         }
 
         // More Housekeeping ... Delete families from the table istlookup_lu that
@@ -209,7 +202,9 @@ if ($myISTReturnCode == '4') {
             $iOutdatedCount++;
         }
         if ($iOutdatedCount) {
-            echo $iOutdatedCount." Outdated IDs deleted.<br>\n";
+        ?>
+            <?= $iOutdatedCount ?> Outdated IDs deleted.<br>
+        <?php
         }
 
         // All housekeeping is finished !!!
@@ -220,7 +215,9 @@ if ($myISTReturnCode == '4') {
         extract(mysqli_fetch_array($rsResult));
         $iNonUSCount = intval($nonustotal);
         if ($iNonUSCount) {
-            echo $iNonUSCount." Non US addresses in database will not be verified.<br>\n";
+            ?>
+            <?= $iNonUSCount ?> Non US addresses in database will not be verified.<br>
+        <?php
         }
 
         // Get count of US addresses
@@ -230,7 +227,9 @@ if ($myISTReturnCode == '4') {
         extract(mysqli_fetch_array($rsResult));
         $iUSCount = intval($ustotal);
         if ($iUSCount) {
-            echo $iUSCount." Total US addresses in database.<br>\n";
+        ?>
+            <?= $iUSCount ?> Total US addresses in database.<br>
+        <?php
         }
 
         // Get count of US addresses that do not require a fresh lookup
@@ -239,7 +238,9 @@ if ($myISTReturnCode == '4') {
         extract(mysqli_fetch_array($rsResult));
         $iUSOkay = intval($usokay);
         if ($iUSOkay) {
-            echo $iUSOkay." US addresses have had lookups performed.<br>\n";
+        ?>
+            <?= $iUSOkay ?> US addresses have had lookups performed.<br>
+        <?php
         }
 
         // Get count of US addresses ready for lookup
@@ -250,19 +251,32 @@ if ($myISTReturnCode == '4') {
         extract(mysqli_fetch_array($rs));
         $iEligible = intval($newcount);
         if ($iEligible) {
-            echo $iEligible." US addresses are eligible for lookup.<br>\n";
+        ?>
+          <?= $iEligible ?> US addresses are eligible for lookup.<br>
+        <?php
         } else {
-            echo "There are no US addresses eligible for lookup.<br>\n";
+        ?>
+           There are no US addresses eligible for lookup.<br>
+        <?php
         }
-        echo '</h4>';
-
-        if ($_GET['DoLookup']) {
+        ?>
+        </h4>
+        <?php
+        if (!empty($DoLookup)) {
             $startTime = time();  // keep tabs on how long this runs to avoid server timeouts
 
-            echo "Lookups in process, screen refresh scheduled every 20 seconds.<br>\n"; ?>
-    <table><tr><td><form method="POST" action="USISTAddressVerification.php">
-            <input type=submit class=btn name=StopLookup value="Stop Lookups">
-          </form></td></tr></table>
+            ?>
+            Lookups in process, screen refresh scheduled every 20 seconds.<br>
+
+            <table>
+                <tr>
+                    <td>
+                        <form method="POST" action="<?= $sRootPath ?>/v2/sytem/USISTAddress/Verification">
+                            <input type=submit class=btn name=StopLookup value="Stop Lookups">
+                        </form>
+                    </td>
+                </tr>
+            </table>
     <?php
     // Get list of fam_ID that do not exist in table istlookup_lu
     $sSQL = 'SELECT fam_ID, fam_Address1, fam_Address2, fam_City, fam_State ';
@@ -278,9 +292,12 @@ if ($myISTReturnCode == '4') {
                     $fam_Address1 = $fam_Address2;
                     $fam_Address2 = '';
                 }
-                echo "Sent: $fam_Address1 $fam_Address2 ";
-                echo "$fam_City $fam_State";
-                echo "<br>\n";
+                ?>
+                Sent: <?= $fam_Address1?> <?= $fam_Address2 ?>
+                <?= $fam_City ?> <?= $fam_State ?>
+                <br>
+
+                <?php
                 $myISTAddressLookup = new ISTAddressLookup();
                 $myISTAddressLookup->SetAddress($fam_Address1, $fam_Address2, $fam_City, $fam_State);
 
@@ -312,15 +329,22 @@ if ($myISTReturnCode == '4') {
                 } else {
                     $iSearchesLeft = intval($iSearchesLeft);
                 }
+                ?>
+                Received:  <?= $myISTAddressLookup->GetAddress1() ?>
+                <?= $myISTAddressLookup->GetAddress2() ?> 
+                <?= $myISTAddressLookup->GetLastLine() ?> <?= $iSearchesLeft ?>
 
-                echo 'Received: '.$myISTAddressLookup->GetAddress1().' ';
-                echo $myISTAddressLookup->GetAddress2().' ';
-                echo $myISTAddressLookup->GetLastLine().' '.$iSearchesLeft;
+                <?php
                 if ($lu_ErrorDesc != 'NULL') {
-                    echo ' '.$myISTAddressLookup->GetErrorDesc();
+                ?>
+                    <?= $myISTAddressLookup->GetErrorDesc() ?>
+                <?php
                 }
-                echo '<br><br>';
+                ?>
+                
+                <br><br>
 
+                <?php
                 if ($lu_ErrorCodes != "'xx'") {
                     // Error code xx is one of the following
                     // 1) Connection failure 2) Invalid username or password 3) No searches left
@@ -347,36 +371,41 @@ if ($myISTReturnCode == '4') {
 
                 if ($iSearchesLeft < 30) {
                     if ($lu_ErrorCodes != "'xx'") {
-                        echo '<h3>There are '.$iSearchesLeft.' searches remaining ';
-                        echo 'in your account.  Searches will be performed one at a time until ';
-                        echo 'your account balance is zero.  To enable bulk lookups you will ';
-                        echo 'need to add funds to your Intelligent Search Technology account ';
-                        echo 'at the following link.<br>';
-                        echo '<a href="https://www.intelligentsearch.com/Hosted/User/">';
-                        echo 'https://www.intelligentsearch.com/Hosted/User/</a><br></h3>';
+                    ?>
+                        <h3>There are <?= $iSearchesLeft ?> searches remaining 
+                            in your account.  Searches will be performed one at a time until 
+                            your account balance is zero.  To enable bulk lookups you will 
+                            need to add funds to your Intelligent Search Technology account 
+                            at the following link.<br>
+                            <a href="https://www.intelligentsearch.com/Hosted/User/">
+                                https://www.intelligentsearch.com/Hosted/User/</a><br>
+                        </h3>
+                    <?php
                     } else {
-                        echo '<h4>Lookup failed.  There is a problem with the connection or with your account.</h4>';
-                        echo 'Please verify that your Intelligent Search Technology, Ltd. username and password ';
-                        echo 'are correct.<br><br>';
-                        echo 'Admin -> Edit General Settings -> sISTusername<br>';
-                        echo 'Admin -> Edit General Settings -> sISTpassword<br><br>';
-                        echo 'Follow the URL below to log in and manage your Intelligent Search Technology account ';
-                        echo 'settings.  If you do not already have an account you may establish an account at this ';
-                        echo 'URL. This software was written to work best with the service CorrectAddress(R) ';
-                        echo 'with Addons. <br><br><br>';
+                    ?>
+                        <h4>Lookup failed.  There is a problem with the connection or with your account.</h4><br>
+                        Please verify that your Intelligent Search Technology, Ltd. username and password 
+                        are correct.<br><br>
+                        Admin -> Edit General Settings -> sISTusername<br>
+                        Admin -> Edit General Settings -> sISTpassword<br><br>
+                        Follow the URL below to log in and manage your Intelligent Search Technology account 
+                        settings.  If you do not already have an account you may establish an account at this 
+                        URL. This software was written to work best with the service CorrectAddress(R) 
+                        with Addons. <br><br><br>
 
-                        echo '<a href="https://www.intelligentsearch.com/Hosted/User/">https://www.intelligentsearch.com/Hosted/User/</a><br><br>';
+                        <a href="https://www.intelligentsearch.com/Hosted/User/">https://www.intelligentsearch.com/Hosted/User/</a><br><br>
 
-                        echo 'If you are sure that your account username and password are correct and that your ';
-                        echo 'account is in good standing it is possible that the server is currently unavailable ';
-                        echo "but may be back online if you try again later.<br><br>\n";
+                        If you are sure that your account username and password are correct and that your 
+                        account is in good standing it is possible that the server is currently unavailable 
+                        but may be back online if you try again later.<br><br>
+                    <?php    
                     }
 
                     if ($iSearchesLeft) {
                         ?>
-          <form method="GET" action="USISTAddressVerification.php">
-            <input type=submit class=btn name=DoLookup value="Perform Next Lookup">
-          </form><br><br>
+                        <form method="GET" action="<?= $sRootPath ?>/v2/sytem/USISTAddress/Verification/DoLookup">
+                            <input type=submit class=btn name=DoLookup value="Perform Next Lookup">
+                        </form><br><br>
           <?php
                     }
                     $bNormalFinish = false;
@@ -398,27 +427,33 @@ if ($myISTReturnCode == '4') {
         } ?>
   <table><tr>
   <?php
-  if (!$_GET['DoLookup'] && $iEligible) {
+  if (!empty($DoLookup) && $iEligible) {
       ?>
-        <td><form method="GET" action="USISTAddressVerification.php">
+        <td>
+          <form method="GET" action="<?= $sRootPath ?>/v2/sytem/USISTAddress/Verification/DoLookup">
             <input type=submit class=btn name=DoLookup value="Perform Lookups">
-          </form></td>
+          </form>
+        </td>
   <?php
   } ?>
 
   <?php if ($iUSOkay) {
       ?>
-        <td><form method="POST" action="Reports/USISTAddressReport.php">
-            <input type=submit class=btn name=MismatchReport value="View Mismatch Report">
-          </form></td>
+        <td>
+            <form method="POST" action="<?= $sRootPath ?>/Reports/USISTAddressReport.php">
+                <input type=submit class=btn name=MismatchReport value="View Mismatch Report">
+            </form>
+        </td>
   <?php
   } ?>
 
   <?php if ($iNonUSCount) {
       ?>
-        <td><form method="POST" action="Reports/USISTAddressReport.php">
-            <input type=submit class=btn name=NonUSReport value="View Non-US Address Report">
-          </form></td>
+        <td>
+            <form method="POST" action="<?= $sRootPath ?>/Reports/USISTAddressReport.php">
+                <input type=submit class=btn name=NonUSReport value="View Non-US Address Report">
+            </form>
+        </td>
   <?php
   } ?>
 
@@ -426,5 +461,6 @@ if ($myISTReturnCode == '4') {
 
   <?php
     }
-require 'Include/Footer.php';
 ?>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
