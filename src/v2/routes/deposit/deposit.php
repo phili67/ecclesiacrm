@@ -52,4 +52,24 @@ $app->group('/deposit', function (RouteCollectorProxy $group) {
     */
     $group->get('/autopayment/editor/{AutID}/{FamilyID}/{linkBack}', VIEWDepositController::class . ':renderAutoPaymentEditor');
     $group->post('/autopayment/editor/{AutID}/{FamilyID}/{linkBack}', VIEWDepositController::class . ':renderAutoPaymentEditor');
+
+    /*
+    * @! PledgeEditor
+    * #! param: ref->int :: CurrentDeposit
+    * #! param: ref->int :: FamilyID
+    * #! param: ref->string :: PledgeOrPayment
+    * #! param: ref->string :: GroupKey
+    * #! param: ref->string :: linkBack 
+    #
+    # Important : the linkBack must be : v2-people-family-view-64 for v2/people/family/view/64
+    */
+    $group->get('/pledge/editor/CurrentDeposit/{CurrentDeposit:[0-9]+}/{PledgeOrPayment}/{linkBack}[/{GroupKey}]', VIEWDepositController::class . ':renderPledgeEditor');
+    $group->post('/pledge/editor/CurrentDeposit/{CurrentDeposit:[0-9]+}/{PledgeOrPayment}/{linkBack}[/{GroupKey}]', VIEWDepositController::class . ':renderPledgeEditor');
+
+    $group->get('/pledge/editor/family/{FamilyID:[0-9]+}/{PledgeOrPayment}/{linkBack}', VIEWDepositController::class . ':renderPledgeEditor');
+    $group->post('/pledge/editor/family/{FamilyID:[0-9]+}/linkBack}', VIEWDepositController::class . ':renderPledgeEditor');
+
+    $group->get('/pledge/editor/GroupKey/{GroupKey}[/{linkBack}]', VIEWDepositController::class . ':renderPledgeEditor');
+    $group->post('/pledge/editor/GroupKey/{GroupKey}[/{linkBack}]', VIEWDepositController::class . ':renderPledgeEditor');
+
 });
