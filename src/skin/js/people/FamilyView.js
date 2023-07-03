@@ -666,7 +666,7 @@ $(document).ready(function () {
         title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          var ret = '<a class="" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=v2/people/family/view/'+full.FamId+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
+          var ret = '<a class="" href="' + window.CRM.root + '/v2/deposit/pledge/editor/GroupKey/'+full.Groupkey+'/v2-people-family-view-'+full.FamId+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
           if (full.Closed != "1") {
             ret += '&nbsp;&nbsp;&nbsp;<a class="delete-pledge" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
           }

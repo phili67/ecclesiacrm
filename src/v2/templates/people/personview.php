@@ -1265,9 +1265,9 @@ require $sRootDocument . '/Include/Header.php';
                                                cellspacing="0" width="100%"></table>
                                         <p align="center">
                                             <a class="btn btn-primary"
-                                               href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
+                                               href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Pledge/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><?= _("Add a new pledge") ?></a>
                                             <a class="btn btn-default"
-                                               href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>&amp;linkBack=v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
+                                               href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Payment/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><?= _("Add a new payment") ?></a>
                                         </p>
                                         <?php
                                     } else {

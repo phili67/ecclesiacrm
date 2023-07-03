@@ -184,12 +184,10 @@ $(document).ready(function () {
                 data: 'FamilyString',
                 render: function (data, type, full, meta) {
                     var familyName = data ? data : i18next.t('Anonymous');
-                    /*var res = ((is_closed == 0)?'<a href=\''+ window.CRM.root + '/PledgeEditor.php?linkBack=' + window.CRM.root + '/v2/deposit/slipeditor/' + depositSlipID +
-                        '&GroupKey=' + full.Groupkey + '\'><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas '+  (isDepositClosed ? "fa-search-plus": "fa-pencil-alt" ) +' fa-stack-1x fa-inverse"></i></span></a>':'');
+                    /*var res = ((is_closed == 0)?'<a href=\''+ window.CRM.root + '/v2/deposit/pledge/editor/GroupKey/' + full.Groupkey + '/v2-deposit-slipeditor-' + depositSlipID + '\'><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas '+  (isDepositClosed ? "fa-search-plus": "fa-pencil-alt" ) +' fa-stack-1x fa-inverse"></i></span></a>':'');
                     res+=familyName;*/
 
-                    var res = '<a href=\''+ window.CRM.root + '/PledgeEditor.php?linkBack=' + window.CRM.root + '/v2/deposit/slipeditor/' + depositSlipID +
-                        '&GroupKey=' + full.Groupkey + '\'><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas ' + (isDepositClosed ? "fa-search-plus" : "fa-pencil-alt") + ' fa-stack-1x fa-inverse"></i></span></a>';
+                    var res = '<a href=\''+ window.CRM.root + '/v2/deposit/pledge/editor/GroupKey/' + full.Groupkey + '/v2-deposit-slipeditor-' + depositSlipID +'\'><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas ' + (isDepositClosed ? "fa-search-plus" : "fa-pencil-alt") + ' fa-stack-1x fa-inverse"></i></span></a>';
 
                     res += familyName;
 

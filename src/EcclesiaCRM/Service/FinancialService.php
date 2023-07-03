@@ -450,7 +450,7 @@ class FinancialService
 
     public function getPaymentViewURI($groupKey)
     {
-        return SystemURLs::getRootPath().'/PledgeEditor.php?GroupKey='.$groupKey;
+        return SystemURLs::getRootPath().'/v2/deposit/pledge/editor/GroupKey/'.$groupKey;
     }
 
     public function getViewURI($Id)

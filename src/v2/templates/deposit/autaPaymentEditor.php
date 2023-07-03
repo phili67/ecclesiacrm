@@ -207,7 +207,7 @@ if (isset($_POST['Submit'])) {
     $autoPayment->save();
 
     if (isset($_POST['Submit'])) {
-        // Check for redirection to another page after saving information: (ie. PledgeEditor.php?previousPage=prev.php?a=1;b=2;c=3)
+        // Check for redirection to another page after saving information:
         if ($linkBack == "v2/deposit/autopayment/editor/".$iAutID."/".$iFamily."/".$origLinkBack) {
           RedirectUtils::Redirect($linkBack);
         } else if ($linkBack != '') {
