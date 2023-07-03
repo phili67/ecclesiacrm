@@ -129,7 +129,7 @@ require $sRootDocument . '/Include/Header.php';
                     ?>
                     <div class="col-md-3">
                     <input type=button class="btn btn-success" value="<?= _('Add Payment') ?> " name=AddPayment
-                           onclick="javascript:document.location='<?= $sRootPath ?>/PledgeEditor.php?CurrentDeposit=<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&linkBack=<?= $sRootPath ?>/v2/deposit/slipeditor/<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&CurrentDeposit=<?= $iDepositSlipID ?>';">
+                           onclick="javascript:document.location='<?= $sRootPath ?>/v2/deposit/pledge/editor/CurrentDeposit/<?= $iDepositSlipID ?>/Payment/v2-deposit-slipeditor-<?= $iDepositSlipID ?>';">
                     </div>
                     <?php
                 }

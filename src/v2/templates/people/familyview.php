@@ -704,9 +704,9 @@ require $sRootDocument . '/Include/Header.php';
 
                                                     <p align="center">
                                                         <a class="btn btn-primary"
-                                                           href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=v2/people/family/view/<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
+                                                           href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $family->getId() ?>/Pledge/v2-people-family-view-<?= $iFamilyID ?>"><?= _("Add a new pledge") ?></a>
                                                         <a class="btn btn-default"
-                                                           href="<?= $sRootPath ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=v2/people/family/view/<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
+                                                           href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $family->getId() ?>/Payment/v2-people-family-view-<?= $iFamilyID ?>"><?= _("Add a new payment") ?></a>
                                                     </p>
 
                                                     <?php
