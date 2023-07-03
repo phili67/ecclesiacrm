@@ -270,16 +270,16 @@ require $sRootDocument . '/Include/Header.php';
                     <table id="FundTable" style="border-spacing: 10px;border-collapse: separate;">
                         <thead>
                         <tr>
-                            <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Fund Name') ?></th>
-                            <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Amount') ?></th>
+                            <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Fund Name') ?><br></th>
+                            <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Amount') ?><br></th>
 
                             <?php if ($bEnableNonDeductible) {
                                 ?>
-                                <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Non-deductible amount') ?></th>
+                                <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Non-deductible amount') ?><br></th>
                                 <?php
                             } ?>
 
-                            <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Comment') ?></th>
+                            <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Comment') ?><br></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -287,7 +287,7 @@ require $sRootDocument . '/Include/Header.php';
                         foreach ($fundId2Name as $fun_id => $fun_name) {
                             ?>
                             <tr>
-                                <td class="TextColumn"><?= _($fun_name) ?></td>
+                                <td class="TextColumn"><label><?= _($fun_name) ?></label><br></td>
                                 <td class="TextColumn">
                                     <input class="form-control form-control-sm FundAmount" type="number" step="any"
                                            name="<?= $fun_id ?>_Amount" id="<?= $fun_id ?>_Amount"
