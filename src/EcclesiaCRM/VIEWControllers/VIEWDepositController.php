@@ -460,7 +460,7 @@ class VIEWDepositController {
 
         $iFamily = 0;
         if (isset($args['FamilyID'])) {
-            $iFamily = InputUtils::LegacyFilterInput(isset($args['FamilyID']), 'int');
+            $iFamily = InputUtils::LegacyFilterInput($args['FamilyID'], 'int');
         }
         
         if (isset($_SESSION['iCurrentDeposit'])) {
