@@ -28,22 +28,22 @@
  use Propel\Runtime\ActiveQuery\Criteria;
 
 
+ //Get the family record in question
+$theFamily = FamilyQuery::Create()->findOneById ($iFamilyID);
 
 $DonationMessage = '';
 
 // Move Donations from 1 family to another
-if (SessionUser::getUser()->isFinanceEnabled() && isset($_POST['MoveDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
+if (isset($_POST['MoveDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
     $today = date('Y-m-d');
 
     $pledges = PledgeQuery::Create()->findByFamId($iFamilyID);
-
-    $family = FamilyQuery::create()->findOneById($iFamilyID);
 
     foreach ($pledges as $pledge) {
       $pledge->setFamId ($iDonationFamilyID);
       $pledge->setDatelastedited ($today);
       $pledge->setEditedby (SessionUser::getUser()->getPersonId());
-      $pledge->setMoveDonationsComment(_("Donations transferred from family") .":" .$family->getName(). " (" . $family->getAddress().")");
+      $pledge->setMoveDonationsComment(_("Donations transferred from family") .":" .$theFamily->getName(). " (" . $theFamily->getAddress().")");
       $pledge->save();
     }
 
@@ -53,11 +53,30 @@ if (SessionUser::getUser()->isFinanceEnabled() && isset($_POST['MoveDonations'])
       $egive->setFamId ($iDonationFamilyID);
       $egive->setDateLastEdited ($today);
       $egive->setEditedby (SessionUser::getUser()->getPersonId());
-      $pledge->setMoveDonationsComment(_("eGives transferred from family") .":" .$family->getName(). " (" . $family->getAddress().")");
+      $pledge->setMoveDonationsComment(_("eGives transferred from family") .":" .$theFamily->getName(). " (" . $theFamily->getAddress().")");
       $egive->save();
     }
 
     $DonationMessage = '<p><b><font color=red>' . _('All donations from this family have been moved to another family.') . '</font></b></p>';
+}
+
+// Move Donations from 1 family to another
+if (isset($_POST['DeleteDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
+  $today = date('Y-m-d');
+
+  $pledges = PledgeQuery::Create()->findByFamId($iFamilyID);
+
+  foreach ($pledges as $pledge) {
+    $pledge->delete();
+  }
+
+  $egives = EgiveQuery::Create()->findByFamId($iFamilyID);
+
+  foreach ($egives as $egive) {
+    $egive->delete();
+  }
+
+  $DonationMessage = '<p><b><font color=red>' . _('All donations from this family have been deleted.') . '</font></b></p>';
 }
 
 //Do we have deletion confirmation?
@@ -123,9 +142,6 @@ if ($Confirmed == 'Yes') {
     RedirectUtils::Redirect('/v2/familylist');
 }
 
-
-//Get the family record in question
-$theFamily = FamilyQuery::Create()->findOneById ($iFamilyID);
 
 require $sRootDocument . '/Include/Header.php';
 ?>
@@ -234,13 +250,15 @@ require $sRootDocument . '/Include/Header.php';
           <?php
             if (!is_null ($theFamily)) {
           ?>
-              <input type="submit" class="btn btn-primary" name="CancelFamily" value="<?= _("Cancel and Return to Family View") ?>"> &nbsp; &nbsp;
-              <input type="submit" class="btn btn-danger" name="MoveDonations" value="<?= _("Move Donations to Selected Family") ?>">
+              <input type="submit" class="btn btn-default" name="CancelFamily" value="<?= _("Cancel and Return to Family View") ?>"> &nbsp; &nbsp;
+              <input type="submit" class="btn btn-primary" name="MoveDonations" value="<?= _("Move Donations to Selected Family") ?>"> &nbsp; &nbsp;
+              <input type="submit" class="btn btn-danger" name="DeleteDonations" value="<?= _("Delete Donations to Selected Family") ?>">              
           <?php
             } else {
           ?>
-              <input type="submit" class="btn btn-primary" name="CancelFamily" value="<?= _("Cancel and Return to Person View") ?>"> &nbsp; &nbsp;
-              <input type="submit" class="btn btn-danger" name="MoveDonations" value="<?= _("Move Donations to Selected Person") ?>">
+              <input type="submit" class="btn btn-default" name="CancelFamily" value="<?= _("Cancel and Return to Person View") ?>"> &nbsp; &nbsp;
+              <input type="submit" class="btn btn-primary" name="MoveDonations" value="<?= _("Move Donations to Selected Person") ?>"> &nbsp; &nbsp;
+              <input type="submit" class="btn btn-danger" name="DeleteDonations" value="<?= _("Delete Donations to Selected Family") ?>">              
           <?php
             }
           ?>
