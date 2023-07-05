@@ -57,11 +57,11 @@ if (isset($_POST['MoveDonations']) && $iFamilyID && $iDonationFamilyID && $iFami
       $egive->save();
     }
 
-    $DonationMessage = '<p><b><font color=red>' . _('All donations from this family have been moved to another family.') . '</font></b></p>';
+    $DonationMessage =  _('All donations from this family have been moved to another family.');
 }
 
 // Move Donations from 1 family to another
-if (isset($_POST['DeleteDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
+if (isset($_POST['DeleteDonations']) && $iFamilyID) {
   $today = date('Y-m-d');
 
   $pledges = PledgeQuery::Create()->findByFamId($iFamilyID);
@@ -76,7 +76,7 @@ if (isset($_POST['DeleteDonations']) && $iFamilyID && $iDonationFamilyID && $iFa
     $egive->delete();
   }
 
-  $DonationMessage = '<p><b><font color=red>' . _('All donations from this family have been deleted.') . '</font></b></p>';
+  $DonationMessage = _('All donations from this family have been deleted.');
 }
 
 //Do we have deletion confirmation?
@@ -178,15 +178,15 @@ require $sRootDocument . '/Include/Header.php';
             // Select another family to move donations to.
             if ($numberPersons > 1) {
           ?>
-              <p class="LargeText">
+              <div class="alert alert-danger">
                 <?= _('WARNING: This family has records of donations and may NOT be deleted until these donations are associated with another family.') ?>
-              </p>
+              </div>
           <?php
             } else {
           ?>
-              <p class="LargeText">
+              <div class="alert alert-danger">
                 <?= _('WARNING: This person has records of donations and may NOT be deleted until these donations are associated with another person or another family.') ?>
-              </p>
+              </div>
           <?php
             }
           ?>
@@ -248,17 +248,17 @@ require $sRootDocument . '/Include/Header.php';
                 </select>
                 <br><br>
           <?php
-            if (!is_null ($theFamily)) {
+            if ($numberPersons > 1) {
           ?>
-              <input type="submit" class="btn btn-default" name="CancelFamily" value="<?= _("Cancel and Return to Family View") ?>"> &nbsp; &nbsp;
-              <input type="submit" class="btn btn-primary" name="MoveDonations" value="<?= _("Move Donations to Selected Family") ?>"> &nbsp; &nbsp;
-              <input type="submit" class="btn btn-danger" name="DeleteDonations" value="<?= _("Delete Donations to Selected Family") ?>">              
+              <button type="submit" class="btn btn-default" name="CancelFamily"><i class="fa fa-times"></i>  <?= _("Cancel and Return to Family View") ?></button> &nbsp; &nbsp;
+              <button type="submit" class="btn btn-success" name="MoveDonations"><i class="fa fa-shuffle"></i>  <?= _("Move Donations to Selected Family") ?></button> &nbsp; &nbsp;
+              <button type="submit" class="btn btn-danger" name="DeleteDonations"><i class="fa fa-trash-can"></i> <?= _("Delete Donations of Selected Family") ?></button>
           <?php
             } else {
           ?>
-              <input type="submit" class="btn btn-default" name="CancelFamily" value="<?= _("Cancel and Return to Person View") ?>"> &nbsp; &nbsp;
-              <input type="submit" class="btn btn-primary" name="MoveDonations" value="<?= _("Move Donations to Selected Person") ?>"> &nbsp; &nbsp;
-              <input type="submit" class="btn btn-danger" name="DeleteDonations" value="<?= _("Delete Donations to Selected Family") ?>">              
+              <button type="submit" class="btn btn-default" name="CancelFamily"><i class="fa fa-times"></i>  <?= _("Cancel and Return to Person View") ?></button> &nbsp; &nbsp;
+              <button type="submit" class="btn btn-success" name="MoveDonations"><i class="fa fa-shuffle"></i>  <?= _("Move Donations to Selected Person") ?></button> &nbsp; &nbsp;
+              <button type="submit" class="btn btn-danger" name="DeleteDonations"><i class="fa fa-trash-can"></i> <?= _("Delete Donations of Selected Person") ?></button>
           <?php
             }
           ?>
@@ -319,13 +319,17 @@ require $sRootDocument . '/Include/Header.php';
           } else {
             // No Donations from family.  Normal delete confirmation
         ?>
-            <?= $DonationMessage ?>
-            <p class='alert alert-warning'>
+            <?php if (!empty($DonationMessage)) { ?>
+              <div class="alert alert-danger">
+                <?= $DonationMessage ?>
+              </div>
+            <?php } ?>
+            <div class='alert alert-danger'>
               <b><?= (!is_null ($theFamily)?_('Please confirm deletion of this family record:'):_('Please confirm deletion of this Person record:')) ?></b>
               <br/>
               <?= (!is_null ($theFamily)?_('Note: This will also delete all Notes associated with this Family record.'):_('Note: This will also delete all Notes associated with this Person record.')) ?>
               <?= _('(this action cannot be undone)') ?>
-            </p>
+          </div>
             <div>
                <strong><?= (!is_null ($theFamily)?_('Family Name'):_('Person Name')) ?>:</strong>
                &nbsp;<?= (!is_null ($theFamily)?$theFamily->getName():$person->getFirstName()." ".$person->getLastName()) ?>
@@ -349,16 +353,16 @@ require $sRootDocument . '/Include/Header.php';
             if (!is_null ($theFamily)) {
           ?>
               <p class="text-center">
-                <a class="btn btn-danger" href="<?= $sRootPath ?>/v2/people/family/delete/<?= $iFamilyID ?>/Yes"><?= _('Delete Family Record ONLY') ?></a>
-                <a class="btn btn-danger" href="<?= $sRootPath ?>/v2/people/family/delete/<?= $iFamilyID ?>/Yes/Yes"><?= _('Delete Family Record AND Family Members') ?></a>
-                <a class="btn btn-info" href="<?= $sRootPath ?>/v2/people/family/view/<?= $iFamilyID ?>"><?= _('No, cancel this deletion') ?></a>
+                <a class="btn btn-danger" href="<?= $sRootPath ?>/v2/people/family/delete/<?= $iFamilyID ?>/Yes"><i class="fa fa-trash-can"></i> <?= _('Delete Family Record ONLY') ?></a>
+                <a class="btn btn-danger" href="<?= $sRootPath ?>/v2/people/family/delete/<?= $iFamilyID ?>/Yes/Yes"><i class="fa fa-trash-can"></i>  <?= _('Delete Family Record AND Family Members') ?></a>
+                <a class="btn btn-info" href="<?= $sRootPath ?>/v2/people/family/view/<?= $iFamilyID ?>"><i class="fa fa-times"></i>  <?= _('No, cancel this deletion') ?></a>
               </p>
           <?php
             } else {
           ?>
               <p class="text-center">
-                <a class="btn btn-danger" href="<?= $sRootPath ?>/v2/people/family/delete/<?= $iFamilyID ?>/Yes/Yes"><?= _('Delete Person Record') ?></a>
-                <a class="btn btn-info" href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonId ?>"><?= _('No, cancel this deletion') ?></a>
+                <a class="btn btn-danger" href="<?= $sRootPath ?>/v2/people/family/delete/<?= $iFamilyID ?>/Yes/Yes"><i class="fa fa-trash-can"></i> <?= _('Delete Person Record') ?></a>
+                <a class="btn btn-info" href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonId ?>"><i class="fa fa-delete"></i> <?= _('No, cancel this deletion') ?></a>
               </p>
           <?php
             }

@@ -1202,7 +1202,6 @@ require $sRootDocument . '/Include/Header.php';
                         <div role="tab-pane fade" class="tab-pane" id="finance">
                             <div class="main-box clearfix">
                                 <div class="main-box-body clearfix">
-
                                     <?php
                                     if (!is_null($PersonInfos['person']->getFamily())) {
                                         if ($ormAutoPayments->count() > 0) {
@@ -1213,9 +1212,9 @@ require $sRootDocument . '/Include/Header.php';
                                             <?php
                                         }
                                         ?>
-                                        <p align="center">
+                                        <p class="text-center">
                                             <a class="btn btn-primary"
-                                               href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $PersonInfos['person']->getFamily()->getId() ?>/v2/people/person/view/<?= $PersonInfos['iPersonID'] ?>"><?= _("Add a new automatic payment") ?></a>
+                                               href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $PersonInfos['person']->getFamily()->getId() ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new automatic payment") ?></a>
                                         </p>
                                         <?php
                                     } else {
@@ -1263,11 +1262,11 @@ require $sRootDocument . '/Include/Header.php';
                                         </div>
                                         <table id="pledgePaymentTable" class="table table-striped table-bordered"
                                                cellspacing="0" width="100%"></table>
-                                        <p align="center">
+                                        <p class="text-center">
                                             <a class="btn btn-primary"
-                                               href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Pledge/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><?= _("Add a new pledge") ?></a>
+                                               href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Pledge/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new pledge") ?></a>
                                             <a class="btn btn-default"
-                                               href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Payment/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><?= _("Add a new payment") ?></a>
+                                               href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Payment/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new payment") ?></a>
                                         </p>
                                         <?php
                                     } else {
@@ -1281,9 +1280,9 @@ require $sRootDocument . '/Include/Header.php';
                                     <?php
                                     if (SessionUser::getUser()->isCanvasserEnabled() && !is_null($PersonInfos['person']->getFamily())) {
                                         ?>
-                                        <p align="center">
+                                        <p class="text-center">
                                             <a class="btn btn-default"
-                                               href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $PersonInfos['person']->getFamily()->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                                               href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $PersonInfos['person']->getFamily()->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-eye"></i> <?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                         </p>
                                         <?php
                                     }

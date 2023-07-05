@@ -667,7 +667,7 @@ require $sRootDocument . '/Include/Header.php';
                                                     ?>
                                                     <p class="text-center">
                                                         <a class="btn btn-primary"
-                                                           href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $family->getId() ?>/v2-people-family-view-<?= $iFamilyID ?>"><?= _("Add a new automatic payment") ?></a>
+                                                           href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $family->getId() ?>/v2-people-family-view-<?= $iFamilyID ?>"><i class="fa fa-plus"></i> <?= _("Add a new automatic payment") ?></a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -715,9 +715,9 @@ require $sRootDocument . '/Include/Header.php';
 
                                                     <p class="text-center">
                                                         <a class="btn btn-primary"
-                                                           href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $family->getId() ?>/Pledge/v2-people-family-view-<?= $iFamilyID ?>"><?= _("Add a new pledge") ?></a>
+                                                           href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $family->getId() ?>/Pledge/v2-people-family-view-<?= $iFamilyID ?>"><i class="fa fa-plus"></i> <?= _("Add a new pledge") ?></a>
                                                         <a class="btn btn-default"
-                                                           href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $family->getId() ?>/Payment/v2-people-family-view-<?= $iFamilyID ?>"><?= _("Add a new payment") ?></a>
+                                                           href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $family->getId() ?>/Payment/v2-people-family-view-<?= $iFamilyID ?>"><i class="fa fa-plus"></i> <?= _("Add a new payment") ?></a>
                                                     </p>
 
                                                     <?php
@@ -725,7 +725,7 @@ require $sRootDocument . '/Include/Header.php';
                                                         ?>
                                                         <p class="text-center">
                                                             <a class="btn btn-default"
-                                                               href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $family->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-family-view-<?= $iFamilyID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                                                               href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $family->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-family-view-<?= $iFamilyID ?>"><i class="fa fa-eye"></i> <?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                                         </p>
                                                         <?php
                                                     }
