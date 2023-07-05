@@ -181,7 +181,14 @@ class VIEWPeopleController {
     public function peopleList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $renderer = new PhpRenderer('templates/people/');
 
-        $sMode = $args['mode'];
+        $sMode = 'none';
+
+        if (isset($args['mode'])) {
+            $sMode = $args['mode'];
+        } else {
+            $sMode = $_SESSION['SelectListMode'];
+        }
+
         if (isset($args['gender'])) {
             $iGender = $args['gender'];
         } else {
@@ -200,17 +207,14 @@ class VIEWPeopleController {
             $iClassification = -1;
         }
 
-        /*if (array_key_exists('mode', $args)) {
-            $sMode = InputUtils::LegacyFilterInput($args['mode']);
-        } elseif (array_key_exists('SelectListMode', $_SESSION)) {
-            $sMode = $_SESSION['SelectListMode'];
-        }*/
-
         switch ($sMode) {
             case 'groupassign':
                 $_SESSION['SelectListMode'] = $sMode;
                 break;
             case 'family':
+                $_SESSION['SelectListMode'] = $sMode;
+                break;
+            case 'person':
                 $_SESSION['SelectListMode'] = $sMode;
                 break;
             default:
