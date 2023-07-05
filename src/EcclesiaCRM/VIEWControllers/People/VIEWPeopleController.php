@@ -182,7 +182,6 @@ class VIEWPeopleController {
         $renderer = new PhpRenderer('templates/people/');
 
         $sMode = 'none';
-
         if (isset($args['mode'])) {
             $sMode = $args['mode'];
         } else {
