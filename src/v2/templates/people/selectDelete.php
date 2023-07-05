@@ -37,10 +37,13 @@ if (SessionUser::getUser()->isFinanceEnabled() && isset($_POST['MoveDonations'])
 
     $pledges = PledgeQuery::Create()->findByFamId($iFamilyID);
 
+    $family = FamilyQuery::create()->findOneById($iFamilyID);
+
     foreach ($pledges as $pledge) {
       $pledge->setFamId ($iDonationFamilyID);
       $pledge->setDatelastedited ($today);
       $pledge->setEditedby (SessionUser::getUser()->getPersonId());
+      $pledge->setMoveDonationsComment(_("Donations transferred from family") .":" .$family->getName(). " (" . $family->getAddress().")");
       $pledge->save();
     }
 
@@ -50,6 +53,7 @@ if (SessionUser::getUser()->isFinanceEnabled() && isset($_POST['MoveDonations'])
       $egive->setFamId ($iDonationFamilyID);
       $egive->setDateLastEdited ($today);
       $egive->setEditedby (SessionUser::getUser()->getPersonId());
+      $pledge->setMoveDonationsComment(_("eGives transferred from family") .":" .$family->getName(). " (" . $family->getAddress().")");
       $egive->save();
     }
 
