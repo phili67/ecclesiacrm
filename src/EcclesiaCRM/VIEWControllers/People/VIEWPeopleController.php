@@ -218,7 +218,7 @@ class VIEWPeopleController {
                 $_SESSION['SelectListMode'] = $sMode;
                 break;
             default:
-                $_SESSION['SelectListMode'] = 'person';
+                $_SESSION['SelectListMode'] = 'none';
                 break;
         }
 
