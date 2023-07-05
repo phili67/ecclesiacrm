@@ -163,6 +163,7 @@ unlink(SystemURLs::getDocumentRoot()."/USISTAddressVerification.php");
 
 // 2023-07-03
 unlink(SystemURLs::getDocumentRoot()."/PledgeEditor.php");
+unlink(SystemURLs::getDocumentRoot()."/SelectDelete.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
