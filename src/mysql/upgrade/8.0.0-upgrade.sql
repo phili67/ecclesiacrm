@@ -200,3 +200,12 @@ UPDATE `query_qry` SET qry_SQL = 'SELECT per_ID as AddToCart, CONCAT(''<a href=v
 UPDATE `query_qry` SET qry_SQL = 'SELECT per_ID as AddToCart, CONCAT(''<a href=v2/people/person/view/'',per_ID,''>'',per_FirstName,'' '',per_LastName,''</a>'') AS Name, per_DateDeactivated as ''GDPR'' FROM person_per LEFT JOIN person2volunteeropp_p2vo ON per_id = p2vo_per_ID WHERE p2vo_vol_ID = ~volopp~ ORDER BY per_LastName' WHERE qry_ID = 25;
 UPDATE `query_qry` SET qry_SQL = 'SELECT a.per_ID as AddToCart, CONCAT(''<a href=v2/people/person/view/'',a.per_ID,''>'',a.per_FirstName,'' '',a.per_LastName,''</a>'') AS Name, a.per_DateDeactivated as ''GDPR''  FROM person_per AS a LEFT JOIN person2volunteeropp_p2vo p2v1 ON (a.per_id = p2v1.p2vo_per_ID AND p2v1.p2vo_vol_ID = ~volopp1~) LEFT JOIN person2volunteeropp_p2vo p2v2 ON (a.per_id = p2v2.p2vo_per_ID AND p2v2.p2vo_vol_ID = ~volopp2~) WHERE p2v1.p2vo_per_ID=p2v2.p2vo_per_ID ORDER BY per_LastName' WHERE qry_ID = 100;
 UPDATE `query_qry` SET qry_SQL = 'SELECT a.per_ID as AddToCart, CONCAT(''<a href=v2/people/person/view/'',a.per_ID,''>'',a.per_FirstName,'' '',a.per_LastName,''</a>'') AS Name, a.per_DateDeactivated as ''GDPR''  FROM person_per AS a LEFT JOIN person_custom pc ON a.per_id = pc.per_ID WHERE pc.~custom~ LIKE ''%~value~%'' ORDER BY per_LastName' WHERE qry_ID = 200;
+
+
+--
+-- Update Pledges and add comments
+-- 
+
+ALTER TABLE `pledge_plg` ADD `plg_MoveDonations_Comment` text NOT NULL default 'None';
+ALTER TABLE `egive_egv` ADD `egv_MoveDonations_Comment` text NOT NULL default 'None';
+

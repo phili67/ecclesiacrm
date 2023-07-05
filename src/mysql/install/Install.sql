@@ -903,6 +903,7 @@ CREATE TABLE `pledge_plg` (
   `plg_aut_ResultID` mediumint(9) NOT NULL default '0',
   `plg_NonDeductible` decimal(8,2) NOT NULL,
   `plg_GroupKey` VARCHAR( 64 ) NOT NULL,
+  `plg_MoveDonations_Comment` text NOT NULL default 'None',
   PRIMARY KEY  (`plg_plgID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -1560,6 +1561,7 @@ CREATE TABLE `egive_egv` (
   `egv_DateLastEdited` datetime NOT NULL,
   `egv_EnteredBy` smallint(6) NOT NULL default '0',
   `egv_EditedBy` smallint(6) NOT NULL default '0',
+  `egv_MoveDonations_Comment` text NOT NULL default 'None',
   PRIMARY KEY  (`egv_ID`),
   CONSTRAINT fk_egv_famID
     FOREIGN KEY (egv_famID) REFERENCES family_fam(fam_ID)
