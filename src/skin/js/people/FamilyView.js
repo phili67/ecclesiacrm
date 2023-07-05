@@ -691,6 +691,14 @@ $(document).ready(function () {
           return data+" "+full.EnteredLastName;
         }
       },
+      {
+        width: 'auto',
+        title:i18next.t('Donations/eGives Moved by'),
+        data:'MoveDonationsComment',
+        render: function(data, type, full, meta) {
+          return i18next.t(data);
+        }
+      }
     ],
     responsive: true,
     createdRow : function (row,data,index) {
@@ -702,7 +710,7 @@ $(document).ready(function () {
      clickedButton = $(this);
      var paymentId = clickedButton.data("id");
 
-     bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
+     bootbox.confirm('<span style="color:red">' + i18next.t("Confirm Delete") + '</span>', function(confirmed) {
         if (confirmed) {
           window.CRM.APIRequest({
             method: 'POST',

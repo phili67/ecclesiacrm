@@ -15,6 +15,7 @@ use Slim\Routing\RouteCollectorProxy;
 use EcclesiaCRM\VIEWControllers\VIEWPeopleController;
 
 $app->group('/people', function (RouteCollectorProxy $group) {
+
     $group->get('/dashboard', VIEWPeopleController::class . ':peopleDashboard' );
     $group->get('/list/{mode}', VIEWPeopleController::class . ':peopleList' );
     $group->get('/list/{mode}/{gender}/{familyRole}/{classification}', VIEWPeopleController::class . ':peopleList' );
@@ -25,14 +26,23 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/person/editor/AddToFamily/{FamilyID:[0-9]+}', VIEWPeopleController::class . ':personEditor' );
     $group->post('/person/editor/AddToFamily/{FamilyID:[0-9]+}', VIEWPeopleController::class . ':personEditor' );
 
-
     $group->get('/person/view/{personId:[0-9]+}[/{mode}]', VIEWPeopleController::class . ':personview' );
     $group->get('/person/print/{personId:[0-9]+}', VIEWPeopleController::class . ':personPrint' );
     
     $group->get('/family/editor[/{famId:[0-9]+}]', VIEWPeopleController::class . ':familyEditor' );
     $group->post('/family/editor[/{famId:[0-9]+}]', VIEWPeopleController::class . ':familyEditor' );
 
-    $group->get('/family/view/{famId:[0-9]+}', VIEWPeopleController::class . ':familyview' );
+
+    $group->get('/family/delete/{FamilyID:[0-9]+}[/{Confirmed}[/{Members}]]', VIEWPeopleController::class . ':peopleDelete' );
+    $group->post('/family/delete/{FamilyID:[0-9]+}[/{Confirmed}[/{Members}]]', VIEWPeopleController::class . ':peopleDelete' );
+
+    $group->get('/family/donate/{FamilyID:[0-9]+}', VIEWPeopleController::class . ':peopleDelete' );
+    $group->post('/family/donate/{FamilyID:[0-9]+}', VIEWPeopleController::class . ':peopleDelete' );
+
+    ///to/{DonationFamilyID:[0-9]+}[/{Confirmed}[/{Members}]]
+
+
+    $group->get('/family/view/{famId:[0-9]+}[/{mode}]', VIEWPeopleController::class . ':familyview' );
 
     $group->get('/UpdateAllLatLon', VIEWPeopleController::class . ':UpdateAllLatLon' );
 

@@ -1,88 +1,40 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : SelectDelete
- *  last change : 2003-01-07
+ *  filename    : templates/selectDelete.php
+ *  last change : 2023-07-03
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2001-2003 Deane Barker, Lewis Franklin
+ * 
+ *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
+ *                This code can't be incoprorated in another software without authorization
  *
  ******************************************************************************/
 
-//Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
+ use EcclesiaCRM\SessionUser;
+ use EcclesiaCRM\dto\SystemConfig;
+ use EcclesiaCRM\Utils\MiscUtils;
+ use EcclesiaCRM\Utils\OutputUtils;
 
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\PledgeQuery;
-use EcclesiaCRM\EgiveQuery;
-use EcclesiaCRM\NoteQuery;
-use EcclesiaCRM\PropertyQuery;
-use EcclesiaCRM\Record2propertyR2pQuery;
-use EcclesiaCRM\FamilyCustomQuery;
+ use EcclesiaCRM\PledgeQuery;
+ use EcclesiaCRM\EgiveQuery;
+ use EcclesiaCRM\NoteQuery;
+ use EcclesiaCRM\PropertyQuery;
+ use EcclesiaCRM\Record2propertyR2pQuery;
+ use EcclesiaCRM\PersonQuery;
+ use EcclesiaCRM\FamilyQuery;
+ use EcclesiaCRM\FamilyCustomQuery;
+ use EcclesiaCRM\Utils\RedirectUtils;
 
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\SessionUser;
-
-use Propel\Runtime\Propel;
-use Propel\Runtime\ActiveQuery\Criteria;
+ use Propel\Runtime\ActiveQuery\Criteria;
 
 
-
-// Security: User must have Delete records permission
-// Otherwise, re-direct them to the main menu.
-if (!SessionUser::getUser()->isDeleteRecordsEnabled()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-// default values to make the newer versions of php happy
-$iFamilyID = 0;
-$iDonationFamilyID = 0;
-$sMode = 'family';
-
-if (!empty($_GET['FamilyID'])) {
-    $iFamilyID = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
-}
-
-if (!empty($_GET['PersonID'])) {
-    $iPersonId = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
-}
-
-if (!empty($_GET['DonationFamilyID'])) {
-    $iDonationFamilyID = InputUtils::LegacyFilterInput($_GET['DonationFamilyID'], 'int');
-}
-if (!empty($_GET['mode'])) {
-    $sMode = $_GET['mode'];
-}
-
-if (isset($_GET['CancelFamily'])) {
-    RedirectUtils::Redirect("v2/people/family/view/$iFamilyID");
-    exit;
-}
-
-$numberPersons = 0;
-
-if ( $sMode == 'person' ) {
-  $person    = PersonQuery::Create()->findOneById($iPersonId);
-  $iFamilyID = $person->getFamId();
-} else {
-  $family = FamilyQuery::Create()->findOneById($iFamilyID);
-  $numberPersons = $family->getPeople()->count();
-  if (PersonQuery::Create()->findOneByFamId($iFamilyID)) {
-    $iPersonId = PersonQuery::Create()->findOneByFamId($iFamilyID)->getId();
-  }
-}
+ //Get the family record in question
+$theFamily = FamilyQuery::Create()->findOneById ($iFamilyID);
 
 $DonationMessage = '';
 
 // Move Donations from 1 family to another
-if (SessionUser::getUser()->isFinanceEnabled() && isset($_GET['MoveDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
+if (isset($_POST['MoveDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
     $today = date('Y-m-d');
 
     $pledges = PledgeQuery::Create()->findByFamId($iFamilyID);
@@ -91,6 +43,7 @@ if (SessionUser::getUser()->isFinanceEnabled() && isset($_GET['MoveDonations']) 
       $pledge->setFamId ($iDonationFamilyID);
       $pledge->setDatelastedited ($today);
       $pledge->setEditedby (SessionUser::getUser()->getPersonId());
+      $pledge->setMoveDonationsComment(_("Donations transferred from family") .":" .$theFamily->getName(). " (" . $theFamily->getAddress().")");
       $pledge->save();
     }
 
@@ -100,21 +53,34 @@ if (SessionUser::getUser()->isFinanceEnabled() && isset($_GET['MoveDonations']) 
       $egive->setFamId ($iDonationFamilyID);
       $egive->setDateLastEdited ($today);
       $egive->setEditedby (SessionUser::getUser()->getPersonId());
+      $pledge->setMoveDonationsComment(_("eGives transferred from family") .":" .$theFamily->getName(). " (" . $theFamily->getAddress().")");
       $egive->save();
     }
 
-    $DonationMessage = '<p><b><font color=red>' . _('All donations from this family have been moved to another family.') . '</font></b></p>';
+    $DonationMessage =  _('All donations from this family have been moved to another family.');
 }
 
-//Set the Page Title
-if ($numberPersons > 1) {
-   $sPageTitle = _('Family Delete Confirmation');
-} else {
-   $sPageTitle = _('Person Delete Confirmation');
+// Move Donations from 1 family to another
+if (isset($_POST['DeleteDonations']) && $iFamilyID) {
+  $today = date('Y-m-d');
+
+  $pledges = PledgeQuery::Create()->findByFamId($iFamilyID);
+
+  foreach ($pledges as $pledge) {
+    $pledge->delete();
+  }
+
+  $egives = EgiveQuery::Create()->findByFamId($iFamilyID);
+
+  foreach ($egives as $egive) {
+    $egive->delete();
+  }
+
+  $DonationMessage = _('All donations from this family have been deleted.');
 }
 
 //Do we have deletion confirmation?
-if (isset($_GET['Confirmed'])) {
+if ($Confirmed == 'Yes') {
     // Delete Family
     // Delete all associated Notes associated with this Family record
     $notes = NoteQuery::Create()->findByFamId($iFamilyID);
@@ -138,7 +104,7 @@ if (isset($_GET['Confirmed'])) {
       $records->delete();
     }
 
-    if (isset($_GET['Members'])) {
+    if ($Members == 'Yes') {
         // Delete all persons that were in this family
         PersonQuery::create()->filterByFamId($iFamilyID)->find()->delete();
     } else {
@@ -163,11 +129,11 @@ if (isset($_GET['Confirmed'])) {
     }
 
     // Delete the photo files, if they exist
-    $photoThumbnail = 'Images/Family/thumbnails/' . $iFamilyID . '.jpg';
+    $photoThumbnail = $sRootDocument . '/Images/Family/thumbnails/' . $iFamilyID . '.jpg';
     if (file_exists($photoThumbnail)) {
         unlink($photoThumbnail);
     }
-    $photoFile = 'Images/Family/' . $iFamilyID . '.jpg';
+    $photoFile = $sRootDocument . '/Images/Family/' . $iFamilyID . '.jpg';
     if (file_exists($photoFile)) {
         unlink($photoFile);
     }
@@ -177,11 +143,7 @@ if (isset($_GET['Confirmed'])) {
 }
 
 
-//Get the family record in question
-$theFamily = FamilyQuery::Create()->findOneById ($iFamilyID);
-
-require 'Include/Header.php';
-
+require $sRootDocument . '/Include/Header.php';
 ?>
 <div class="card">
     <div class="card-body">
@@ -199,7 +161,7 @@ require 'Include/Header.php';
               <p class="LargeText">
                  <?= _('Sorry, there are records of donations from this family. This family may not be deleted.') ?>
                  <br><br>
-                 <a href="<?= SystemURLs::getRootPath() ?>/v2/people/family/view/<?= $iFamilyID ?>"><?= _('Return to Family View') ?></a>
+                 <a href="<?= $args ?>/v2/people/family/view/<?= $iFamilyID ?>"><?= _('Return to Family View') ?></a>
               </p>
         <?php
             } else {
@@ -207,7 +169,7 @@ require 'Include/Header.php';
               <p class="LargeText">
                  <?= _('Sorry, there are records of donations from this Person. This Person may not be deleted.') ?>
                  <br><br>
-                 <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?=  $iPersonId ?>"><?= _('Return to Person View') ?></a>
+                 <a href="<?= $sRootPath ?>/v2/people/person/view/<?=  $iPersonId ?>"><?= _('Return to Person View') ?></a>
               </p>
         <?php
             }
@@ -216,19 +178,19 @@ require 'Include/Header.php';
             // Select another family to move donations to.
             if ($numberPersons > 1) {
           ?>
-              <p class="LargeText">
+              <div class="alert alert-danger">
                 <?= _('WARNING: This family has records of donations and may NOT be deleted until these donations are associated with another family.') ?>
-              </p>
+              </div>
           <?php
             } else {
           ?>
-              <p class="LargeText">
+              <div class="alert alert-danger">
                 <?= _('WARNING: This person has records of donations and may NOT be deleted until these donations are associated with another person or another family.') ?>
-              </p>
+              </div>
           <?php
             }
           ?>
-          <form name=SelectFamily method=get action=SelectDelete.php>
+          <form name=SelectFamily method="post" action="<?= $sRootPath ?>/v2/people/family/donate/<?= $iFamilyID?>">
             <div class="ShadedBox">
                <div class="LightShadedBox">
                  <strong><?= (!is_null ($theFamily)?_('Family Name'):_('Person Name')) ?> : <?= $theFamily->getName() ?></strong>
@@ -286,15 +248,17 @@ require 'Include/Header.php';
                 </select>
                 <br><br>
           <?php
-            if (!is_null ($theFamily)) {
+            if ($numberPersons > 1) {
           ?>
-              <input type="submit" class="btn btn-primary" name="CancelFamily" value="<?= _("Cancel and Return to Family View") ?>"> &nbsp; &nbsp;
-              <input type="submit" class="btn btn-danger" name="MoveDonations" value="<?= _("Move Donations to Selected Family") ?>">
+              <button type="submit" class="btn btn-default" name="CancelFamily"><i class="fa fa-times"></i>  <?= _("Cancel and Return to Family View") ?></button> &nbsp; &nbsp;
+              <button type="submit" class="btn btn-success" name="MoveDonations"><i class="fa fa-shuffle"></i>  <?= _("Move Donations to Selected Family") ?></button> &nbsp; &nbsp;
+              <button type="submit" class="btn btn-danger" name="DeleteDonations"><i class="fa fa-trash-can"></i> <?= _("Delete Donations of Selected Family") ?></button>
           <?php
             } else {
           ?>
-              <input type="submit" class="btn btn-primary" name="CancelFamily" value="<?= _("Cancel and Return to Person View") ?>"> &nbsp; &nbsp;
-              <input type="submit" class="btn btn-danger" name="MoveDonations" value="<?= _("Move Donations to Selected Person") ?>">
+              <button type="submit" class="btn btn-default" name="CancelFamily"><i class="fa fa-times"></i>  <?= _("Cancel and Return to Person View") ?></button> &nbsp; &nbsp;
+              <button type="submit" class="btn btn-success" name="MoveDonations"><i class="fa fa-shuffle"></i>  <?= _("Move Donations to Selected Person") ?></button> &nbsp; &nbsp;
+              <button type="submit" class="btn btn-danger" name="DeleteDonations"><i class="fa fa-trash-can"></i> <?= _("Delete Donations of Selected Person") ?></button>
           <?php
             }
           ?>
@@ -355,13 +319,17 @@ require 'Include/Header.php';
           } else {
             // No Donations from family.  Normal delete confirmation
         ?>
-            <?= $DonationMessage ?>
-            <p class='alert alert-warning'>
+            <?php if (!empty($DonationMessage)) { ?>
+              <div class="alert alert-danger">
+                <?= $DonationMessage ?>
+              </div>
+            <?php } ?>
+            <div class='alert alert-danger'>
               <b><?= (!is_null ($theFamily)?_('Please confirm deletion of this family record:'):_('Please confirm deletion of this Person record:')) ?></b>
               <br/>
               <?= (!is_null ($theFamily)?_('Note: This will also delete all Notes associated with this Family record.'):_('Note: This will also delete all Notes associated with this Person record.')) ?>
               <?= _('(this action cannot be undone)') ?>
-            </p>
+          </div>
             <div>
                <strong><?= (!is_null ($theFamily)?_('Family Name'):_('Person Name')) ?>:</strong>
                &nbsp;<?= (!is_null ($theFamily)?$theFamily->getName():$person->getFirstName()." ".$person->getLastName()) ?>
@@ -385,16 +353,16 @@ require 'Include/Header.php';
             if (!is_null ($theFamily)) {
           ?>
               <p class="text-center">
-                <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?Confirmed=Yes&FamilyID=<?= $iFamilyID ?>"><?= _('Delete Family Record ONLY') ?></a>
-                <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?Confirmed=Yes&Members=Yes&FamilyID=<?= $iFamilyID ?>"><?= _('Delete Family Record AND Family Members') ?></a>
-                <a class="btn btn-info" href="<?= SystemURLs::getRootPath() ?>/v2/people/family/view/<?= $iFamilyID ?>"><?= _('No, cancel this deletion') ?></a>
+                <a class="btn btn-danger" href="<?= $sRootPath ?>/v2/people/family/delete/<?= $iFamilyID ?>/Yes"><i class="fa fa-trash-can"></i> <?= _('Delete Family Record ONLY') ?></a>
+                <a class="btn btn-danger" href="<?= $sRootPath ?>/v2/people/family/delete/<?= $iFamilyID ?>/Yes/Yes"><i class="fa fa-trash-can"></i>  <?= _('Delete Family Record AND Family Members') ?></a>
+                <a class="btn btn-info" href="<?= $sRootPath ?>/v2/people/family/view/<?= $iFamilyID ?>"><i class="fa fa-times"></i>  <?= _('No, cancel this deletion') ?></a>
               </p>
           <?php
             } else {
           ?>
               <p class="text-center">
-                <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?Confirmed=Yes&Members=Yes&FamilyID=<?= $iFamilyID ?>"><?= _('Delete Person Record') ?></a>
-                <a class="btn btn-info" href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= $iPersonId ?>"><?= _('No, cancel this deletion') ?></a>
+                <a class="btn btn-danger" href="<?= $sRootPath ?>/v2/people/family/delete/<?= $iFamilyID ?>/Yes/Yes"><i class="fa fa-trash-can"></i> <?= _('Delete Person Record') ?></a>
+                <a class="btn btn-info" href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonId ?>"><i class="fa fa-delete"></i> <?= _('No, cancel this deletion') ?></a>
               </p>
           <?php
             }
@@ -403,14 +371,17 @@ require 'Include/Header.php';
     </div>
 </div>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
-$(document).ready(function () {
-  $(".data-table-pledges").DataTable({
-    "language": {
-      "url": window.CRM.plugin.dataTable.language.url
-    },
-    responsive: true});
-});
+
+<script nonce="<?= $sCSPNonce ?>" >
+    $(document).ready(function () {
+    $(".data-table-pledges").DataTable({
+        "language": {
+        "url": window.CRM.plugin.dataTable.language.url
+        },
+        responsive: true});
+    });
 </script>
 
-<?php require 'Include/Footer.php' ?>
+<script src="<?= $sRootPath ?>/skin/js/people/FamilyList.js" ></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

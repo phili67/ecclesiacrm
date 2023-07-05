@@ -441,7 +441,7 @@ class VIEWDepositController {
         $PledgeOrPayment = "Pledge";
 
         if (isset ($args['PledgeOrPayment'])) {
-            $PledgeOrPayment = InputUtils::LegacyFilterInput($args['PledgeOrPayment'], 'int');
+            $PledgeOrPayment = InputUtils::LegacyFilterInput($args['PledgeOrPayment']);
         }
 
 

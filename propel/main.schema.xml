@@ -627,6 +627,7 @@
         <column name="egv_DateLastEdited" phpName="DateLastEdited" type="TIMESTAMP" required="true"/>
         <column name="egv_EnteredBy" phpName="EnteredBy" type="SMALLINT" required="true" defaultValue="0"/>
         <column name="egv_EditedBy" phpName="EditedBy" type="SMALLINT" required="true" defaultValue="0"/>
+        <column name="egv_MoveDonations_Comment" phpName="MoveDonationsComment" type="LONGVARCHAR" required="true"/>
         <foreign-key foreignTable="family_fam" name="fk_egv_famID" onDelete="CASCADE">
           <reference local="egv_famID" foreign="fam_ID"/>
         </foreign-key>
@@ -803,6 +804,7 @@
         <column name="plg_aut_ResultID" phpName="AutResultid" type="SMALLINT" size="9" required="true" defaultValue="0"/>
         <column name="plg_NonDeductible" phpName="Nondeductible" type="DECIMAL" size="8" scale="2" required="true"/>
         <column name="plg_GroupKey" phpName="Groupkey" type="VARCHAR" size="64" required="true"/>
+        <column name="plg_MoveDonations_Comment" phpName="MoveDonationsComment" type="LONGVARCHAR" required="true"/>
         <foreign-key foreignTable="deposit_dep">
             <reference local="plg_depID" foreign="dep_ID"/>
         </foreign-key>
