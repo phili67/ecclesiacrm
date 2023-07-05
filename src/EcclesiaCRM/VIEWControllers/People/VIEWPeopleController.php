@@ -200,8 +200,8 @@ class VIEWPeopleController {
             $iClassification = -1;
         }
 
-        /*if (array_key_exists('mode', $_GET)) {
-            $sMode = InputUtils::LegacyFilterInput($_GET['mode']);
+        /*if (array_key_exists('mode', $args)) {
+            $sMode = InputUtils::LegacyFilterInput($args['mode']);
         } elseif (array_key_exists('SelectListMode', $_SESSION)) {
             $sMode = $_SESSION['SelectListMode'];
         }*/
@@ -724,8 +724,17 @@ class VIEWPeopleController {
         $renderer = new PhpRenderer('templates/people/');
 
         $iFamilyID = $args['famId'];
+
+        if (!empty($args['famId'])) {
+            $iFamilyID = InputUtils::LegacyFilterInput($args['famId'], 'int');
+        }
+
+        $mode = 'TimeLine';
+        if (!empty($args['mode'])) {
+            $mode = InputUtils::LegacyFilterInput($args['mode'], 'string');
+        }
         
-        $res = $this->argumentsPeopleFamilyViewArray($iFamilyID);
+        $res = $this->argumentsPeopleFamilyViewArray($iFamilyID, $mode);
 
         //Deactivate/Activate Family
         if (SessionUser::getUser()->isDeleteRecordsEnabled() && !empty($_POST['FID']) && !empty($_POST['Action'])) {
@@ -747,7 +756,7 @@ class VIEWPeopleController {
         return $renderer->render($response, 'familyview.php', $res);
     }
 
-    public function argumentsPeopleFamilyViewArray ($iFamilyID)
+    public function argumentsPeopleFamilyViewArray ($iFamilyID, $mode)
     {
         // we get the TimelineService
         $maxMainTimeLineItems = 20; // max number
@@ -979,6 +988,8 @@ class VIEWPeopleController {
             'sGoogleMapKey'             => $sGoogleMapKey,
             'sPageTitle'                => $sPageTitle,
             'sPageTitleSpan'            => $sPageTitleSpan,
+            'mode'                      => $mode,
+            'timelineNotesServiceItems' => $timelineNotesServiceItems
         ];
     }
 
@@ -1445,5 +1456,89 @@ class VIEWPeopleController {
     public function argumentsFamilyVerifyArray ($iFamilyID) 
     {        
         return ['iFamilyID' => $iFamilyID];
+    } 
+
+
+    public function peopleDelete (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/people/');
+
+        if (!SessionUser::getUser()->isDeleteRecordsEnabled()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        // default values to make the newer versions of php happy
+        $iFamilyID = 0;
+        $iDonationFamilyID = 0;
+        $iPersonId = 0;
+        $Members = 'No';
+        $Confirmed = 'No';
+
+        if (!empty($args['Confirmed'])) {
+            $Confirmed = InputUtils::LegacyFilterInput($args['Confirmed'], 'string');
+        }
+        
+        if (!empty($args['Members'])) {
+            $Members = InputUtils::LegacyFilterInput($args['Members'], 'string');
+        }
+
+        if (!empty($args['FamilyID'])) {
+            $iFamilyID = InputUtils::LegacyFilterInput($args['FamilyID'], 'int');
+        }
+
+        if (!empty($args['PersonID'])) {
+            $iPersonId = InputUtils::LegacyFilterInput($args['PersonID'], 'int');
+        }
+
+        if (isset($_POST['DonationFamilyID'])) {
+            $iDonationFamilyID = InputUtils::LegacyFilterInput($_POST['DonationFamilyID'], 'int');
+        }
+        
+        if (isset($_POST['CancelFamily'])) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . "/v2/people/family/view/".$iFamilyID);
+        }
+
+        return $renderer->render($response, 'selectDelete.php', $this->argumentsPeopleDeleteArray($iFamilyID, $iDonationFamilyID, $iPersonId, $Members, $Confirmed));
+    }
+
+    public function argumentsPeopleDeleteArray ($iFamilyID, $iDonationFamilyID, $iPersonId, $Members, $Confirmed) 
+    {        
+        $numberPersons = 0;
+
+        if ( $iPersonId > 0 ) {
+            $person    = PersonQuery::Create()->findOneById($iPersonId);
+            $iFamilyID = $person->getFamId();
+        } else {
+            $family = FamilyQuery::Create()->findOneById($iFamilyID);
+
+            if (!is_null($family)) {
+                $numberPersons = $family->getPeople()->count();
+            }
+
+            if (PersonQuery::Create()->findOneByFamId($iFamilyID)) {
+                $iPersonId = PersonQuery::Create()->findOneByFamId($iFamilyID)->getId();
+            }
+        }
+
+        //Set the Page Title
+        if ($numberPersons > 1) {
+            $sPageTitle = _('Family Delete Confirmation');
+        } elseif ($numberPersons == 1) {
+            $sPageTitle = _('Person Delete Confirmation');
+        } else {
+            $sPageTitle = _('Remove Address');
+        }
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => SystemURLs::getDocumentRoot(),
+            'CSPNonce'                  => SystemURLs::getCSPNonce(),
+            'sPageTitle'                => $sPageTitle,
+            'iFamilyID'                 => $iFamilyID,
+            'iDonationFamilyID'         => $iDonationFamilyID,
+            'iPersonId'                 => $iPersonId,
+            'numberPersons'             => $numberPersons,
+            'Confirmed'                 => $Confirmed,
+            'Members'                   => $Members
+        ];
     } 
 }
