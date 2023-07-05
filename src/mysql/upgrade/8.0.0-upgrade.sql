@@ -203,7 +203,7 @@ UPDATE `query_qry` SET qry_SQL = 'SELECT a.per_ID as AddToCart, CONCAT(''<a href
 
 
 --
--- Update Pledges and add comments
+-- Update Pledges/eGive and add comments : 2023-07-05
 -- 
 
 ALTER TABLE `pledge_plg` ADD `plg_MoveDonations_Comment` text NOT NULL default 'None';
