@@ -523,7 +523,7 @@ require $sRootDocument . '/Include/Header.php';
                         } else {
                             ?>
                             <a class="btn btn-app bg-maroon"
-                               href="<?= $sRootPath ?>/SelectDelete.php?FamilyID=<?= $PersonInfos['person']->getFamily()->getId() ?>"><i
+                               href="<?= $sRootPath ?>/v2/people/family/delete/<?= $PersonInfos['person']->getFamily()->getId() ?>"><i
                                     class="far fa-trash-alt"></i><?= _("Delete this Record") ?></a>
                             <?php
                         }

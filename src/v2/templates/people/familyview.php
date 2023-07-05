@@ -310,7 +310,7 @@ require $sRootDocument . '/Include/Header.php';
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-gradient-maroon"
-                           href="<?= $sRootPath ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i
+                           href="<?= $sRootPath ?>/v2/people/family/delete/<?= $iFamilyID ?>"><i
                                 class="far fa-trash-alt"></i><?= _('Delete this Family') ?></a>
                         <?php
                     }
@@ -441,34 +441,46 @@ require $sRootDocument . '/Include/Header.php';
                                 <ul class="nav nav-pills">
                                     <li class="nav-item">
                                         <a href="#timeline" aria-controls="timeline" role="tab"
-                                           data-toggle="tab" class="nav-link active">
+                                           data-toggle="tab" class="nav-link <?= ($mode == "TimeLine")?"active":"" ?>">
                                             <i class="fas fa-clock"></i> <?= _("Timeline") ?>
                                         </a></li>
-                                    <li class="nav-item"><a href="#properties" aria-controls="properties" role="tab"
-                                                            data-toggle="tab" class="nav-link"><i class="fas fa-user-cog"></i> <?= _("Assigned Properties") ?></a>
+                                    <li class="nav-item">
+                                        <a href="#properties" aria-controls="properties" role="tab"
+                                            data-toggle="tab" class="nav-link <?= ($mode == "Properties")?"active":"" ?>">
+                                            <i class="fas fa-user-cog"></i> <?= _("Assigned Properties") ?>
+                                        </a>
                                     </li>
                                     <?php
                                     if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
                                         ?>
-                                        <li class="nav-item"><a href="#finance" aria-controls="finance" role="tab"
-                                                                data-toggle="tab" class="nav-link"><i
-                                                    class="far fa-credit-card"></i> <?= _("Automatic Payments") ?></a></li>
-                                        <li class="nav-item"><a href="#pledges" aria-controls="pledges" role="tab"
-                                                                data-toggle="tab" class="nav-link"><i
-                                                    class="fas fa-university"></i> <?= _("Pledges and Payments") ?></a></li>
+                                        <li class="nav-item">
+                                            <a href="#finance" aria-controls="finance" role="tab"
+                                                data-toggle="tab" class="nav-link <?= ($mode == "Finance")?"active":"" ?>">
+                                                <i class="far fa-credit-card"></i> <?= _("Automatic Payments") ?>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#pledges" aria-controls="pledges" role="tab"
+                                                data-toggle="tab" class="nav-link <?= ($mode == "Pledges")?"active":"" ?>">
+                                                <i class="fas fa-university"></i> <?= _("Pledges and Payments") ?>
+                                            </a>
+                                        </li>
                                         <?php
                                     }
                                     ?>
-                                    <li role="presentation" class="nav-item"><a href="#notes" aria-controls="notes" role="tab"
-                                                                                data-toggle="tab" class="nav-link"><i
-                                                class="far fa-copy"></i> <?= _("Documents") ?></a></li>
+                                    <li role="presentation" class="nav-item">
+                                        <a href="#notes" aria-controls="notes" role="tab"
+                                                data-toggle="tab" class="nav-link <?= ($mode == "Documents")?"active":"" ?>">
+                                            <i class="far fa-copy"></i> <?= _("Documents") ?>
+                                        </a>
+                                    </li>
                                 </ul>
 
                             </div>
                             <div class="card-body">
                                 <!-- Tab panes -->
                                 <div class="tab-content">
-                                    <div role="tab-pane fade" class="tab-pane active" id="timeline">
+                                    <div role="tab-pane fade" class="tab-pane <?= ($mode == "TimeLine")?"active":"" ?>" id="timeline">
                                         <div class="timeline">
                                             <!-- timeline time label -->
                                             <div class="time-label">
@@ -512,24 +524,23 @@ require $sRootDocument . '/Include/Header.php';
                                                                     ?>
                                                                     <?= $item["editLink"] ?>
                                                                     <span class="fa-stack">
-                                                            <i class="fas fa-square fa-stack-2x"></i>
-                                                            <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
-                                                        </span>
-                                                    </div>
-                                <?php
-                            }
+                                                                        <i class="fas fa-square fa-stack-2x"></i>
+                                                                        <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
+                                                                    </span>                                                                
+                                                                <?php
+                                                                }
 
-                            if (isset($item["deleteLink"])) {
-                                ?>
-                                <?= $item["deleteLink"] ?>
-                                <span class="fa-stack">
-                                    <i class="fas fa-square fa-stack-2x" style="color:red"></i>
-                                    <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
-                                </span>
-                                <?php
-                            }
-                        } ?>
-                  </span>
+                                                                if (isset($item["deleteLink"])) {
+                                                                    ?>
+                                                                    <?= $item["deleteLink"] ?>
+                                                                    <span class="fa-stack">
+                                                                        <i class="fas fa-square fa-stack-2x" style="color:red"></i>
+                                                                        <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
+                                                                    </span>
+                                                                    <?php
+                                                                }
+                                                            } ?>
+                                                        </span>                                                    
 
                                                         <h3 class="timeline-header">
                                                             <?php
@@ -584,7 +595,7 @@ require $sRootDocument . '/Include/Header.php';
                                             <!-- END timeline item -->
                                         </div>
                                     </div>
-                                    <div role="tab-pane fade" class="tab-pane" id="properties">
+                                    <div role="tab-pane fade" class="tab-pane <?= ($mode == "Properties")?"active":"" ?>" id="properties">
                                         <div class="main-box clearfix">
                                             <div class="main-box-body clearfix">
                                                 <?php
@@ -642,7 +653,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <?php
                                     if (SessionUser::getUser()->isFinanceEnabled()) {
                                         ?>
-                                        <div role="tab-pane fade" class="tab-pane" id="finance">
+                                        <div role="tab-pane fade" class="tab-pane <?= ($mode == "Finance")?"active":"" ?>" id="finance">
                                             <div class="main-box clearfix">
                                                 <div class="main-box-body clearfix">
                                                     <?php
@@ -654,14 +665,14 @@ require $sRootDocument . '/Include/Header.php';
                                                         <?php
                                                     }
                                                     ?>
-                                                    <p align="center">
+                                                    <p class="text-center">
                                                         <a class="btn btn-primary"
                                                            href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $family->getId() ?>/v2-people-family-view-<?= $iFamilyID ?>"><?= _("Add a new automatic payment") ?></a>
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div role="tab-pane fade" class="tab-pane" id="pledges">
+                                        <div role="tab-pane fade" class="tab-pane <?= ($mode == "Pledges")?"active":"" ?>" id="pledges">
                                             <div class="main-box clearfix">
                                                 <div class="main-box-body clearfix">
                                                     <input type="checkbox" name="ShowPledges" id="ShowPledges"
@@ -702,7 +713,7 @@ require $sRootDocument . '/Include/Header.php';
                                                     } // if bShowPledges
                                                     ?>
 
-                                                    <p align="center">
+                                                    <p class="text-center">
                                                         <a class="btn btn-primary"
                                                            href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $family->getId() ?>/Pledge/v2-people-family-view-<?= $iFamilyID ?>"><?= _("Add a new pledge") ?></a>
                                                         <a class="btn btn-default"
@@ -712,7 +723,7 @@ require $sRootDocument . '/Include/Header.php';
                                                     <?php
                                                     if (SessionUser::getUser()->isCanvasserEnabled()) {
                                                         ?>
-                                                        <p align="center">
+                                                        <p class="text-center">
                                                             <a class="btn btn-default"
                                                                href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $family->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-family-view-<?= $iFamilyID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                                         </p>
@@ -725,13 +736,13 @@ require $sRootDocument . '/Include/Header.php';
                                         <?php
                                     }
                                     ?>
-                                    <div role="tab-pane fade" class="tab-pane" id="notes">
+                                    <div role="tab-pane fade" class="tab-pane <?= ($mode == "Documents")?"active":"" ?>" id="notes">
                                         <div class="timeline">
                                             <!-- note time label -->
                                             <div class="time-label">
-                  <span class="bg-yellow">
-                    <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
-                  </span>
+                                                <span class="bg-yellow">
+                                                    <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
+                                                </span>
                                             </div>
                                             <!-- /.note-label -->
 
@@ -743,38 +754,38 @@ require $sRootDocument . '/Include/Header.php';
                                                     <!-- timeline icon -->
                                                     <i class="fa <?= $item['style'] ?>"></i>
                                                     <div class="timeline-item">
-                                            <span class="time">
-                      <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
-                      &nbsp;
+                                                        <span class="time">
+                                                            <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
+                                                            &nbsp;
 
-                    <?php
-                    if ($item['slim']) {
-                        if ($item['editLink'] != '') {
-                            ?>
-                            <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
-                               data-famid="<?= $item['famID'] ?>" class="editDocument">
-                        <span class="fa-stack">
-                          <i class="fas fa-square fa-stack-2x"></i>
-                          <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                            <?php
-                        }
+                                                            <?php
+                                                            if ($item['slim']) {
+                                                                if ($item['editLink'] != '') {
+                                                                    ?>
+                                                                    <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
+                                                                    data-famid="<?= $item['famID'] ?>" class="editDocument">
+                                                                <span class="fa-stack">
+                                                                <i class="fas fa-square fa-stack-2x"></i>
+                                                                <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </a>
+                                                                    <?php
+                                                                }
 
-                        if ($item['deleteLink'] != '') {
-                            ?>
-                            <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
-                               data-famid="<?= $item['famID'] ?>" class="deleteDocument">
-                        <span class="fa-stack">
-                          <i class="fas fa-square fa-stack-2x" style="color:red"></i>
-                          <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                            <?php
-                        }
-                    }
-                    ?>
-                  </span>
+                                                                if ($item['deleteLink'] != '') {
+                                                                    ?>
+                                                                    <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
+                                                                        data-famid="<?= $item['famID'] ?>" class="deleteDocument">
+                                                                        <span class="fa-stack">
+                                                                            <i class="fas fa-square fa-stack-2x" style="color:red"></i>
+                                                                            <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                <?php
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </span>
                                                         <h3 class="timeline-header">
                                                             <?php
                                                             if (in_array('headerlink', $item)) {
