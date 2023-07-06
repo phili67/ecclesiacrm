@@ -1452,7 +1452,7 @@
         </vendor>
     </table>
 
-    <table name="plugin_menu_barre" idMethod="native" phpName="PluginMenuBarre">
+    <table name="plugin_menu_bar" idMethod="native" phpName="PluginMenuBar">
         <column name="plgn_mb_ID" phpName="bId" type="SMALLINT" sqlType="mediumint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="plgn_mb_plugin_name" phpName="Name" type="VARCHAR" size="255" defaultValue=""/>
         <column name="plgn_mb_plugin_Display_name" phpName="DisplayName" type="VARCHAR" size="255" defaultValue=""/>

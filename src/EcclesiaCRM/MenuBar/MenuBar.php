@@ -20,7 +20,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\MenuLinkQuery;
 use EcclesiaCRM\PluginQuery;
-use EcclesiaCRM\PluginMenuBarreQuery;
+use EcclesiaCRM\PluginMenuBarQuery;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\MailChimpService;
@@ -48,7 +48,7 @@ class MenuBar extends Menu
             if ( !( SessionUser::getUser()->isEnableForPlugin($plugin->getName())
                 or SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName()) ) ) break;
 
-            $menuBarItems = PluginMenuBarreQuery::create()->filterByName($plugin->getName())->find();
+            $menuBarItems = PluginMenuBarQuery::create()->filterByName($plugin->getName())->find();
             $first_One = true;
             $menu_count = $menuBarItems->count();
             $menu = null;

@@ -4,7 +4,7 @@ namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\PluginQuery as BasePluginQuery;
 
-use EcclesiaCRM\PluginMenuBarreQuery;
+use EcclesiaCRM\PluginMenuBarQuery;
 use Propel\Runtime\Connection\ConnectionInterface;
 
 /**
@@ -20,7 +20,7 @@ class PluginQuery extends BasePluginQuery
 {
     protected function preDelete(ConnectionInterface $con)
     {
-        $pluginMenuBarItems = PluginMenuBarreQuery::create()->findByPluginName($this->getName());
+        $pluginMenuBarItems = PluginMenuBarQuery::create()->findByPluginName($this->getName());
 
         foreach ($pluginMenuBarItems as $pluginMenuBarItem) {
             $pluginMenuBarItem->delete();
