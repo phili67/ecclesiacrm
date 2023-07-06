@@ -95,6 +95,10 @@ src/Plugins/EventWorkflow
 locale/JSONKeys_JS_Plugins/EventWorkflow
 propel/eventworkflow.schema.xml
 
+src/Plugins/SendInBlue
+locale/JSONKeys_JS_Plugins/SendInBlue
+propel/SendInBlue.schema.xml
+
 # ignore vscode parameters
 .vscode
 
