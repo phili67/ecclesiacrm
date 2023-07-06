@@ -2,10 +2,10 @@
 
 namespace EcclesiaCRM;
 
-use EcclesiaCRM\Base\PluginMenuBarreQuery as BasePluginMenuBarreQuery;
+use EcclesiaCRM\Base\PluginMenuBar as BasePluginMenuBar;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'plugin_menu_barre' table.
+ * Skeleton subclass for representing a row from the 'plugin_menu_bar' table.
  *
  *
  *
@@ -13,7 +13,7 @@ use EcclesiaCRM\Base\PluginMenuBarreQuery as BasePluginMenuBarreQuery;
  * application requirements.  This class will only be generated as
  * long as it does not already exist in the output directory.
  */
-class PluginMenuBarreQuery extends BasePluginMenuBarreQuery
+class PluginMenuBar extends BasePluginMenuBar
 {
 
 }

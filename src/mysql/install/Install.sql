@@ -1956,10 +1956,10 @@ CREATE TABLE `plugin` (
 
 
 --
--- Table structure for table `plugin_menu_barre`
+-- Table structure for table `plugin_menu_bar`
 --
 
-CREATE TABLE `plugin_menu_barre` (
+CREATE TABLE `plugin_menu_bar` (
   `plgn_mb_ID` mediumint(8) unsigned NOT NULL auto_increment,
   `plgn_mb_plugin_name` varchar(255) DEFAULT '',
   `plgn_mb_plugin_Display_name` varchar(255) DEFAULT '',
@@ -1970,7 +1970,7 @@ CREATE TABLE `plugin_menu_barre` (
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `plugin_menu_barre`
+-- Dumping data for table `plugin_menu_bar`
 --
 
 --
