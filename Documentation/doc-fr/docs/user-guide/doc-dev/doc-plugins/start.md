@@ -5,18 +5,20 @@
 Une commande shell a été développé pour faciliter le travail : **createPluginArch.sh**
 
 
-**Attention**
-
-- les routes pour chaque plugins sont prévues et sont incluses dans la gestion complète des routes dans **api/plgnapi.php** (voir plus bas) et sont prévues pour être géré via contrôleurs dans l'arberscence **core/APIControllers**).
-- pour les vues des routes sont préétablies aussi **v2/routes/v2route.php** (elles sont liés éventuellement à vos propres contrôleurs **core/VIEWControllers**).
-- ce mécanisme garantie un maximum de sécurité.
-- il est impératif de suivre le fait que chaque plugin doit avoir une signature qui est validé par le crm (voir pour cela la documentation plugin).
-
-**Pour créer un plugin**
+## Pour créer un plugin
 
 ```
 bash createPluginArch.sh *NameOfPlugin*
 ```
+
+**Attention : lire attentivement avant de démarrer**
+
+- les **routes** pour chaque plugins **sont prévues et sont incluses** dans la gestion complète des routes dans **api/plgnapi.php** (voir plus bas) et sont prévues pour être géré via contrôleurs dans l'arborescence **core/APIControllers**).
+- pour les vues des routes sont préétablies aussi **v2/routes/v2route.php** (elles sont liés éventuellement à vos propres contrôleurs **core/VIEWControllers**).
+- ce mécanisme garantie un maximum de sécurité.
+- il est impératif de suivre le fait que chaque plugin doit avoir une signature qui est validé par le crm (voir pour cela la documentation plugin).
+
+**Vous devez utiliser ce Script**
 
 Ce script va créer **NameOfPlugin** dans le répertoire **Plugins** du répertoire **src**.
 
@@ -104,7 +106,7 @@ INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_i
 VALUES ('MeetingJitsi', 'Plugin for jitsi Meeting', 'Meeting', NULL, '', '0', '1.0', 'jm_', 'after_category_menu');
 ```
 
-Pour créer les entrées dans la barre de menus supplémentaires dans la table ` `plugin_menu_barre` `, on doit
+Pour créer les entrées dans la barre de menus supplémentaires dans la table ` `plugin_menu_bar` `, on doit
 
 - fixer le nom du plugin dans ``` `plgn_mb_plugin_name` ``` par exemple à 'MeetingJitsi'
 - Le nom de l'item de menu : ``` `plgn_mb_plugin_Display_name` ``` à 'Settings' par exemple
@@ -146,7 +148,7 @@ Voci un exemple complet
 ```
 -- insert the menu item
 -- the first one is the main menu !!!
-INSERT INTO `plugin_menu_barre` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
+INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
 ('MeetingJitsi', 'Jitsi', 'v2/meeting/dashboard', 'fas fa-video', ''),
 ('MeetingJitsi', 'Dashboard', 'v2/meeting/dashboard', 'fas fa-tachometer-alt', ''),
 ('MeetingJitsi', 'Settings', 'v2/meeting/settings', 'fas fa-cogs', 'usr_admin');
