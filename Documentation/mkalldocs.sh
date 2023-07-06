@@ -1,9 +1,9 @@
 #!/bin/bash
 
 cd doc-en/
-./mkdoc.sh
+bash mkdoc.sh
 
 cd ../doc-fr/
-./mkdoc.sh
+bash mkdoc.sh
 
 cd ..

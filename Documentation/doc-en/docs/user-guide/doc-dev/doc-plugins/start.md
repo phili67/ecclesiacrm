@@ -4,15 +4,16 @@
 
 A shell command has been developed to facilitate the work: **createPluginArch.sh**
 
+## To create a plugin
 
-**Please note**
+**Read carrefully before starting**
 
-- the routes for each plugin are planned and are included in the complete management of the routes in **api/plgnapi.php** (see below) and are planned to be managed via controllers in the **core/APIControllers** arberscence.)
+- the **routes** for each plugin are planned and are included in the complete management of the routes in **api/plgnapi.php** (see below) and are planned to be managed via controllers in the **core/APIControllers** path.
 - for the views of the routes are predefined also **v2/routes/v2route.php** (they are possibly linked to your own controllers **core/VIEWControllers**).
 - this mechanism guarantees maximum security.
 - it is imperative to follow the fact that each plugin must have a signature which is validated by the crm (see for that the plugin documentation).
 
-**To create a plugin
+**You have to use this Script**
 
 ```
 bash createPluginArch.sh *NameOfPlugin*
@@ -104,7 +105,7 @@ INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_i
 VALUES ('MeetingJitsi', 'Plugin for jitsi Meeting', 'Meeting', NULL, '', '0', '1.0', 'jm_', 'after_category_menu');
 ```
 
-To create additional menu bar entries in the `plugin_menu_barre` table, we must
+To create additional menu bar entries in the `plugin_menu_bar` table, we must
 
 - set the name of the plugin in ``plgn_mb_plugin_name`` for example to ``MeetingJitsi``.
 - The name of the menu item: ```plgn_mb_plugin_Display_name`` to ``Settings'' for example
@@ -168,7 +169,7 @@ INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_na
 3\. Be careful with the autoload for propel or personal classes:
 
 ```
-// we've to load the model make the plugin to workmv
+// we've to load the model to make sure the plugin will work
 spl_autoload_register(function ($className) {
     include_once str_replace(array('Plugins\Service', '\'), array(__DIR__.'/../../core/Service', '/'), $className) . '.php';
     include_once str_replace(array('PluginStore', '\\'), array(__DIR__.'/../../core/model', '/'), $className) . '.php';
@@ -290,10 +291,10 @@ $plugin = PluginQuery::create()
 Cela évite des chargements sales en plein milieu du code.
 
 
-## Dernières recommandations pour les deux types de plugins
+## Final recommendations for both types of plugins
 
 
-1\. Pour les traductions
+1\. For translations
 
 - For the PHP code: We don't use `gettext` but with dgettext and an associated domain `dgettext("messages-NewsDashboard", "News")` and we work with separate po code for each plugin to avoid conflicts.
 - For the JS code: We use `i18next.t('News Title', {ns: 'NewsDashboard'})` with `namespace` also.
@@ -315,7 +316,7 @@ spl_autoload_register(function ($className) {
 
 3\. The signatures
 
-The signature of a plugin is created via the tool provided by the CRM : **grunt genPluginsSignatures** at the root.
+The signature of a plugin is created via the tool provided by the CRM : **grunt genPluginsSignatures** at the root path of your dev env.
 
 Good development of plugins.
 
