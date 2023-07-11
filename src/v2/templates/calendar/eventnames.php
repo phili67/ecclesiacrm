@@ -433,6 +433,3 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     <?php
 }
 ?>
-
-<?php require $sRootDocument . '/Include/Footer.php'; ?>
-
