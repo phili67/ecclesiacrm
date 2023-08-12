@@ -236,7 +236,7 @@ END:VCARD';
                         'principal' => 'principals/' . strtolower($user->getUserName()),
                         'access' => \Sabre\DAV\Sharing\Plugin::ACCESS_READWRITE,
                         'inviteStatus' => \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED,
-                        'properties' => ['{DAV:}displayname' => strtolower($user->getFullName())],
+                        'properties' => ['{DAV:}displayname' => strtolower($user->getUserName())],
                     ])
                 ]
             );
