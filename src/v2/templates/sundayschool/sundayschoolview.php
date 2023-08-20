@@ -100,7 +100,7 @@ if (SessionUser::getUser()->isAddRecords()) {
                     <?php } ?>
                     <?php  if ( SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isCSVExportEnabled() ) { ?>
                         <a class="dropdown-item exportCheckOutPDF" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Export Attendance") ?>"><i class="fas fa-file-pdf fas-red"></i> <?= _("Export Attendance") ?></a>
-                        <a class="dropdown-item studentbadge" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Student Badges") ?>"><i class="fas fa-id-badge fas-red"></i> <?= _("Student Badges") ?></a>
+                        <a class="dropdown-item studentbadge" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Student Badges") ?>"><i class="fas fa-id-badge fas-purple"></i> <?= _("Student Badges") ?></a>
                         <a class="dropdown-item PhotoBook" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("PhotoBook") ?>"><i class="fas fa-file-pdf fas-red"></i>  <?= _("PhotoBook") ?></a>
                     <?php } ?>
                 </div>
