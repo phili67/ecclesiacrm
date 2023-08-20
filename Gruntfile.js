@@ -131,7 +131,7 @@ module.exports = function (grunt) {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
-                        src: ['node_modules/bootstrap/dist/css/bootstrap.min.css', 'node_modules/bootstrap/dist/css/bootstrap.min.css.map', 'node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/bootstrap/dist/js/bootstrap.min.js.map'],
+                        src: ['node_modules/bootstrap/dist/css/bootstrap.min.css', 'node_modules/bootstrap/dist/css/bootstrap.min.css.map', 'node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/bootstrap/dist/js/bootstrap.min.js.map', 'node_modules/bootstrap/js/dist/*'],
                         dest: 'src/skin/external/bootstrap/'
                     },
                     {
