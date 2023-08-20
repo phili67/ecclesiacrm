@@ -347,6 +347,21 @@ use Propel\Runtime\ActiveQuery\Criteria;
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/popper/popper.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/bootstrap.min.js"></script>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/util.js"></script>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/alert.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/button.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/carousel.js"></script>
+<!--<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/dropdown.js"></script>-->
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/modal.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/scrollspy.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/tab.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/toast.js"></script>
+
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/tooltip.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/popover.js"></script>
+
 <!-- AdminLTE App -->
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/adminlte/adminlte.min.js"></script>
 
