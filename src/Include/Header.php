@@ -68,7 +68,7 @@ Header_system_notifications();
     $MenuFirst = 1;
     ?>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-        <!-- for the theme before jquery load is finished -->
+        /* for the theme before jquery load is finished */
         if (window.CRM.sLightDarkMode == "automatic") {
             let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -226,7 +226,7 @@ Header_system_notifications();
             <img src="<?= SystemURLs::getRootPath() ?>/icon-small.png" alt="EcclesiaCRM Logo"
                  class="brand-image img-circle-20 elevation-1" style="opacity: .8">
             <span
-                class="brand-text font-weight-light">Ecclesia<b>CRM</b> <?= SystemService::getDBMainVersion() ?> (B34)</span>
+                class="brand-text font-weight-light">Ecclesia<b>CRM</b> <?= SystemService::getDBMainVersion() ?> (B35)</span>
         </a>
 
         <section class="sidebar">
