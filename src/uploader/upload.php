@@ -65,7 +65,7 @@ else
 
     $rec = ImageTreatment::imageCreateFromAny(dirname(__FILE__)."/../".$dropDir."/" . $fileName);
     ImageTreatment::saveImageCreateFromAny($rec, "../".$dropDir."/" . $fileName);
-    imagedestroy($res['image']);
+    imagedestroy($rec['image']);
 
 
     // now we create the note
