@@ -10,6 +10,7 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (110, 'sDatePickerFormat', 'Y-m-d'),
 (111, 'sPhoneFormatCell', '999 9999 9999'),
 (112, 'sTimeFormat', '%H.%M'),
+(113, 'sPhoneCountryCallingCode', '0082'),
 (1011, 'sTaxReport1', '이 편지는 다음과 같은 모든 기부에 대한 알림입니다.'),
 (1012, 'sTaxReport2', '올 한 해 저희를 응원해주셔서 감사합니다. 여러분의 헌신에 진심으로 감사드립니다!'),
 (1013, 'sTaxReport3', '보고서에 대한 질문이나 변경 사항이 있는 경우, 근무 시간인 오전 9시부터 오후 5시 사이에 위의 번호로 교회에 연락하세요.'),
