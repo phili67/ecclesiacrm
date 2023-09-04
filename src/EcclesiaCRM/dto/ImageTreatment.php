@@ -37,6 +37,9 @@ class ImageTreatment
   }
 
   public static function saveImageCreateFromAny($rec,$filepath) { 
+       if ($rec == false) {
+          return false;
+       }
        switch ($rec['type']) { 
            case 1 : 
                $im = imageCreateFromGif($filepath); 
@@ -52,6 +55,6 @@ class ImageTreatment
            break; 
        }
      
-       return ['image' => $im,'type' => $type];
+       return ['image' => $im,'type' => $rec['type']];
   }
 }
