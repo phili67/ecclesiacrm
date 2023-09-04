@@ -71,6 +71,16 @@ class Person extends BasePerson implements iPhoto
       return parent::preDelete($con);
     }
 
+    public function getEmailForNewsLetter()
+    {
+      if ($this->getEmail()) {
+        return $this->getEmail();
+      } else if ($this->getWorkEmail()) {
+        return $this->getWorkEmail();
+      }
+      return "";
+    }
+
     public function postDelete(ConnectionInterface $con = null)
     {
       $family = null;
@@ -101,21 +111,21 @@ class Person extends BasePerson implements iPhoto
         
         $id = $this->getId();
 
-        if ( !$avoidsnl && $this->getEmail() ) {
+        if ( !$avoidsnl && $this->getEmailForNewsLetter() ) {
           // to get a newletter : you must have an email
           $mailchimp = new MailChimpService();
 
           if ( $mailchimp->isActive() ) {
-            $sEmail = $this->getEmail();
+            $sEmail = $this->getEmailForNewsLetter();
 
             if (mb_strlen($sEmail) > 0) {
                 $lists = $mailchimp->getLists();
                 if (count($lists) == 1) {// now at this time only one list can be manage, you've to manage other the members manually
                   #TODO : terminer le cas de plusieurs listes
                   if ( $v == "TRUE") {
-                    $res = $mailchimp->postMember($lists[0]['id'],32,$this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getAddressForMailChimp(), $this->getHomePhone(), 'subscribed');
+                    $res = $mailchimp->postMember($lists[0]['id'],32,$this->getFirstName(),$this->getLastName(),$this->getEmailForNewsLetter(),$this->getAddressForMailChimp(), $this->getHomePhone(), 'subscribed');
                   } else {
-                    $res = $mailchimp->deleteMember($lists[0]['id'],$this->getEmail());
+                    $res = $mailchimp->deleteMember($lists[0]['id'],$this->getEmailForNewsLetter());
                   }
                 }
             } 
@@ -739,7 +749,7 @@ class Person extends BasePerson implements iPhoto
             'NOTE' => _("EcclesiaCRM export")
         ]);
 
-        $vcard->add('EMAIL', $this->getEmail(), ['type' => 'HOME']);
+        $vcard->add('EMAIL', $this->getEmailForNewsLetter(), ['type' => 'HOME']);
         $vcard->add('TEL', $this->getHomePhone(), ['type' => 'pref']);
 
         if (!empty($this->getWorkPhone())) {
