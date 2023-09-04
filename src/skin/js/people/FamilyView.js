@@ -60,13 +60,10 @@ $(document).ready(function () {
 
     $("#deletePhoto").click(function () {
       $.ajax({
-        type: "POST",
+        type: "DELETE",
         url: window.CRM.root + "/api/families/" + window.CRM.currentFamily + "/photo",
         encode: true,
-        dataType: 'json',
-        data: {
-          "_METHOD": "DELETE"
-        }
+        dataType: 'json'
       }).done(function (data) {
         location.reload();
       });
