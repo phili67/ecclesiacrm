@@ -303,7 +303,7 @@ class PeoplePersonController
     public function postPersonPhoto (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $input = (object)$request->getParsedBody();
 
-        if ( !( array_key_exists('personID', $args) and isset($input->imgBase64) ) ) {
+        if ( !( array_key_exists('personId', $args) and isset($input->imgBase64) ) ) {
             return $response->withStatus(401);
         }
 
@@ -314,11 +314,11 @@ class PeoplePersonController
     }
 
     public function deletePersonPhoto (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        if ( !( array_key_exists('personID', $args) ) ) {
+        if ( !( array_key_exists('personId', $args) ) ) {
             return $response->withStatus(401);
         }
         $person = PersonQuery::create()->findPk($args['personId']);
-        return json_encode(array("status" => $person->deletePhoto()));
+        return $response->withJSON(json_encode(array("status" => $person->deletePhoto())));
     }
 
     public function addPersonToCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
