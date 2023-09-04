@@ -10,6 +10,7 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (110, 'sDatePickerFormat', 'Y-m-d'),
 (111, 'sPhoneFormatCell', '99 999 9999'),
 (112, 'sTimeFormat', '%H:%M'),
+(113, 'sPhoneCountryCallingCode', '0355'),
 (1011, 'sTaxReport1', 'letra është kujtim për të gjitha dhuratat'),
 (1012, 'sTaxReport2', 'faleminderit që na mbështetët këtë vit. Na pëlqeu shumë përkushtimi yt!'),
 (1013, 'sTaxReport3', 'Nëse keni ndonjë pyetje apo ndryshime për të bërë në lidhje me raportin, kontaktoni kishën në sipër të orës së punës, gjatë orës 9:00 të mëngjesit dhe 5:00 pasdite.'),
