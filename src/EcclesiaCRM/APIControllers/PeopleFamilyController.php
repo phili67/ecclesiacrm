@@ -183,6 +183,11 @@ class PeopleFamilyController
 
     public function postFamilyPhoto(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $input = (object)$request->getParsedBody();
+
+        if ( !( array_key_exists('familyId', $args) and isset($input->imgBase64) ) ) {
+            return $response->withStatus(401);
+        }
+
         $family = FamilyQuery::create()->findPk($args['familyId']);
         $family->setImageFromBase64($input->imgBase64);
 
@@ -190,6 +195,9 @@ class PeopleFamilyController
     }
 
     public function deleteFamilyPhoto (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if ( !( array_key_exists('familyId', $args) ) ) {
+            return $response->withStatus(401);
+        }
         $family = FamilyQuery::create()->findPk($args['familyId']);
         return $response->withJson(["status" => $family->deletePhoto()]);
     }
