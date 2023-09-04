@@ -1604,8 +1604,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="delete-Image-label"><?= _('Confirm Delete') ?></h4>
-                <button type="button" class="bootbox-close-button close" aria-hidden="true" data-dismiss="modal">×
-                </button>
+                <button type="button" class="bootbox-close-button close" aria-hidden="true" data-dismiss="modal">&times;</button>
             </div>
 
             <div class="modal-body">

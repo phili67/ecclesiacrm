@@ -879,9 +879,10 @@ require $sRootDocument . '/Include/Header.php';
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <div class="modal-header">                
                 <h4 class="modal-title" id="delete-Image-label"><?= _("Confirm Delete") ?></h4>
+                <button type="button" class="bootbox-close-button close" aria-hidden="true" data-dismiss="modal">&times;
+                </button>
             </div>
             <div class="modal-body">
                 <p><?= _("You are about to delete the profile photo, this procedure is irreversible.") ?></p>
