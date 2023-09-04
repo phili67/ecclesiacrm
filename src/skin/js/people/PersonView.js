@@ -93,13 +93,9 @@ $(document).ready(function () {
 
   $("#deletePhoto").click (function () {
     $.ajax({
-    type: "POST",
+    type: "DELETE",
     url: window.CRM.root + "/api/persons/"+window.CRM.currentPersonID+"/photo",
-    encode: true,
-    dataType: 'json',
-    data: {
-      "_METHOD": "DELETE"
-    }
+    encode: true
     }).done(function(data) {
       location.reload();
     });
