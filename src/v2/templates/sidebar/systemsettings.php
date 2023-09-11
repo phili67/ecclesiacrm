@@ -196,7 +196,7 @@ require $sRootDocument . '/Include/Header.php';
                                                 <?php if (!empty($setting->getTooltip())) {
                                                     ?>
                                                     <a data-toggle="popover"
-                                                       title="<?= gettext($setting->getTooltip()) ?>" target="_blank"><i
+                                                       title="<?= _("Definition") ?>" data-content="<?= gettext($setting->getTooltip()) ?>" target="_blank" class="blue"><i
                                                             class="far  fa-question-circle"></i></a>
                                                     <?php
                                                 }

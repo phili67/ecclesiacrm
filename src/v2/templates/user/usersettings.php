@@ -305,7 +305,7 @@ require_once $sRootDocument . '/Include/Header.php';
                             ?>
                         </div>
                         <div class="col-md-2">
-                            <a data-toggle="popover" title="<?= $config->getName() ?>" target="_blank"><i
+                            <a data-toggle="popover" title="<?= _("Property") ?>" data-content="<?= $config->getName() ?>" target="_blank"><i
                                     class="fa  fa-question-circle"></i></a>
                         </div>
                     </div>
