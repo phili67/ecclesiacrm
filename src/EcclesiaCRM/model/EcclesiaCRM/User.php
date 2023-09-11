@@ -136,7 +136,7 @@ class User extends BaseUser
                         'principal'    => 'principals/'.strtolower( $this->getUserName() ),
                         'access'       => \Sabre\DAV\Sharing\Plugin::ACCESS_READWRITE,
                         'inviteStatus' => \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED,
-                        'properties'   => ['{DAV:}displayname' => strtolower( $this->getFullName() )],
+                        'properties'   => ['{DAV:}displayname' => strtolower( $this->getUserName() )],
                     ])
                 ]
               );
