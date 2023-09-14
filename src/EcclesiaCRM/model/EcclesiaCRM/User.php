@@ -1330,4 +1330,16 @@ class User extends BaseUser
 
         return false;
     }
+
+    /**
+     * Get the [usr_needpasswordchange] column value.
+     *
+     * @return boolean
+     */
+    public function getNeedPasswordChange()
+    {
+        if (isset($_SESSION['ControllerAdminUserId'])) return false;
+        
+        return parent::getNeedPasswordChange();
+    }
 }
