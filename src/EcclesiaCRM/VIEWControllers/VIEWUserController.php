@@ -955,7 +955,7 @@ class VIEWUserController
 
         // Get the PersonID out of the querystring if they are an admin user; otherwise, use session.
         if ( isset($args['PersonID']) ) {
-            if ( SessionUser::getUser()->isAdmin() ) {
+            if ( SessionUser::getUser()->isAdmin() or $args['PersonID'] == SessionUser::getId()) {
                 $iPersonID = InputUtils::LegacyFilterInput($args['PersonID'], 'int');
                 if ($iPersonID != SessionUser::getUser()->getPersonId()) {
                     $bAdminOtherUser = true;

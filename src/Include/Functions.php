@@ -13,6 +13,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemURLs;
 
 
 $_SESSION['sSoftwareInstalledVersion'] = SystemService::getInstalledVersion();
@@ -43,6 +44,15 @@ if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
             $_SESSION['user']->setLastoperationDate($t);
             $_SESSION['user']->save();
             $_SESSION['tLastOperation'] = $t;
+        }
+    }
+
+    if (SessionUser::getUser()->getNeedPasswordChange() && !$logOff) {
+        $pos = strpos($_SERVER['REQUEST_URI'], "/v2/users/change/password" );
+        $path = SystemURLs::getRootPath().'/v2/users/change/password';
+        if ($pos === false) {
+            RedirectUtils::Redirect('v2/users/change/password');
+            exit;
         }
     }
 

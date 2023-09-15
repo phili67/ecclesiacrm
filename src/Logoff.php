@@ -1,6 +1,9 @@
 <?php
 
 require 'Include/Config.php';
+
+$logOff = true; // this to prevent the change password
+
 require 'Include/Functions.php';
 
 use EcclesiaCRM\UserQuery;
