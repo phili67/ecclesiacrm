@@ -638,6 +638,17 @@ class MailchimpController
 
             $res = $mailchimp->updateMember($input->list_id,"","",$input->email,$input->status);
 
+            $person = PersonQuery::create()
+                            ->filterByEmail($input->email)
+                            ->_or()
+                            ->filterByWorkEmail($input->email)
+                            ->findOne();
+
+            if (!is_null($person)) {
+                $person->setSendNewsletter(($input->status == 'unsubscribed')?"FALSE":"TRUE");
+                $person->save();
+            }
+
             if ( !array_key_exists ('title',$res) ) {
                 return $response->withJson(['success' => true, "result" => $res]);
             } else {
