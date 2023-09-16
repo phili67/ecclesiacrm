@@ -106,12 +106,12 @@ class Person extends BasePerson implements iPhoto
     }
 
     // this part is use in mailchimp to know which people shoud be added or deleted
-    public function setSendNewsletter($v, $avoidsnl = false)
+    public function setSendNewsletter($v, $avoidMC = false)
     {
         
         $id = $this->getId();
 
-        if ( !$avoidsnl && $this->getEmailForNewsLetter() ) {
+        if ( !$avoidMC && $this->getEmailForNewsLetter() ) {
           // to get a newletter : you must have an email
           $mailchimp = new MailChimpService();
 
@@ -134,9 +134,8 @@ class Person extends BasePerson implements iPhoto
 
             if (is_null($snl)) {
               $snl = new SendNewsLetterUserUpdate();
-            }
-
-            $snl->setPersonId($this->getId());
+              $snl->setPersonId($this->getId());
+            }            
 
             if ($v == "FALSE") { 
                 $snl->setState('Delete');
@@ -151,6 +150,28 @@ class Person extends BasePerson implements iPhoto
                 $this->newsLetterState = 'Add';
               }
           }
+        }
+
+        // we filter only the Mail plugins
+        $plugins = PluginQuery::create()
+          ->filterByCategory('Mail')
+          ->find();
+
+        foreach($plugins as $plugin) {
+            $snl = SendNewsLetterUserUpdateQuery::create()->findOneByPersonId($this->getId());
+
+            if (is_null($snl)) {
+              $snl = new SendNewsLetterUserUpdate();
+              $snl->setPersonId($this->getId());
+            }            
+
+            if ($v == "FALSE") { 
+                $snl->setState('Delete');
+            } else {
+                $snl->setState('Add');
+            }
+            
+            $snl->save();
         }
 
         $ret = parent::setSendNewsletter($v);
