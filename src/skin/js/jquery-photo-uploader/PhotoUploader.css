@@ -4,14 +4,14 @@
 
 #fileSelect {
     text-align: center;
-    border: solid 1px grey;
+    border: solid 1px lightgray;
     /*background-color:#eeeeee;*/
     min-height:145px
 }
 
 #cameraSelect {
     text-align: center;
-    border: solid 1px grey;
+    border: solid 1px lightgray;
     /*background-color:#eeeeee;*/
     min-height:145px
 }
@@ -30,4 +30,11 @@ label i.fa {
 
 #previewPane div {
     text-align: center;
+}
+
+.IconCaptureFromWebcam {
+    font-size: 85px;
+    color: cornflowerblue;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }

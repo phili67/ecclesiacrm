@@ -117,7 +117,7 @@
         ).append(
             $("<label>", {
                 for: "file",
-                html: '<i class="far fa-image"></i><br/> '+ i18next.t("Upload an existing Photo")
+                html: '<i class="far fa-image IconCaptureFromWebcam"></i><br/> '+ i18next.t("Upload an existing Photo")
             })
         ).append(
             $("<p>", {
@@ -135,7 +135,7 @@
             }).append(
                 $("<label>", {
                     id: "captureFromWebcam",
-                    html: '<i class="fas fa-video" aria-hidden="true"></i><br>' + i18next.t("Capture from Webcam"),
+                    html: '<i class="fas fa-video IconCaptureFromWebcam" aria-hidden="true"></i><br>' + i18next.t("Capture from Webcam"),
                 }).click(function () {
                     $("#previewPane").hide();
                     $("#capturePane").show();
@@ -176,6 +176,8 @@
             $("<br>")
         ).append(
             createCameraChooser()
+        ).append(
+            $("<br>")
         ).append(
             $("<button>", {
                 class: "btn btn-primary",
@@ -339,7 +341,7 @@
                 type: "submit",
                 class: "btn btn-primary",
                 "data-dismiss": "modal",
-                text: i18next.t("Upload Image")
+                text: '<i class="fa-solid fa-file-import"></i>' + i18next.t("Upload Image")
             }).click(function (event) {
                 parameters.uploadImage(event);
             })
