@@ -167,5 +167,8 @@ unlink(SystemURLs::getDocumentRoot()."/PledgeEditor.php");
 // 2023-07-05
 unlink(SystemURLs::getDocumentRoot()."/SelectDelete.php");
 
+// 2023-09-23
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/jquery-photo-uploader/");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
