@@ -99,6 +99,13 @@ module.exports = function (grunt) {
                         cwd:'node_modules/ckeditor4/',
                         src: ['*.js','*.css','*.json','lang/**/*','adapters/**/*','plugins/**/*','skins/**/*'],
                         dest: 'src/skin/external/ckeditor/'
+                    },                    
+                    {
+                        expand: true,
+                        ter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/jquery-photo-uploader/dist/*'],
+                        dest: 'src/skin/external/jquery-photo-uploader/'
                     },
                     {
                         expand: true,

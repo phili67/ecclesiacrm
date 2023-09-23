@@ -1684,7 +1684,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
-<script src="<?= $sRootPath ?>/skin/js/jquery-photo-uploader/PhotoUploader.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/people/MemberView.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/filemanager.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/people/AddRemoveCart.js"></script>
