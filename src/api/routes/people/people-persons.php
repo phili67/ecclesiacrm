@@ -13,6 +13,8 @@ $app->group('/persons', function (RouteCollectorProxy $group) {
      */
     $group->get('/search/{query}', PeoplePersonController::class . ":searchPerson" );
 
+    $group->get('/sundayschool/search/{query}', PeoplePersonController::class . ":searchSundaySchoolPerson" );
+
     /*
      * @! Returns a list of the persons who are in the cart
      */

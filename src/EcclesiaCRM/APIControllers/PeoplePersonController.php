@@ -110,6 +110,36 @@ class PeoplePersonController
         return $response->withJson($return);
     }
 
+    public function searchSundaySchoolPerson (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $query = $args['query'];
+
+        $searchLikeString = '%'.$query.'%';
+        $people = PersonQuery::create();
+
+        if (SystemConfig::getBooleanValue('bGDPR')) {
+            $people->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
+        }
+
+        $people->filterByFirstName($searchLikeString, Criteria::LIKE)->
+        _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
+        _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
+        limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
+
+        $id = 1;
+
+        $return = [];
+        foreach ($people as $person) {
+            $values['id'] = $id++;
+            $values['objid'] = $person->getId();
+            $values['text'] = $person->getFullName()." (".$person->getAge().")";
+            $values['uri'] = $person->getViewURI();
+
+            array_push($return, $values);
+        }
+
+        return $response->withJson($return);
+    }
+
     public function personCartView (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         // Create array with Classification Information (lst_ID = 1)
