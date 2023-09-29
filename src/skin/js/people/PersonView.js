@@ -220,7 +220,7 @@ $(document).ready(function () {
     var GroupID = $(this).data("groupid");
     window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Role,GroupID:GroupID},function(selection){
       window.CRM.groups.addPerson(GroupID,window.CRM.currentPersonID,selection.RoleID, function(){
-        location.reload();
+        window.location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '/Group';
       })
     });
   });
