@@ -16,14 +16,14 @@ use EcclesiaCRM\EventQuery;
 
 require $sRootDocument . '/Include/Header.php';
 
-$families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitude(0)->find();
+$empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitude(0)->find();
 
 ?>
 
-<?php if ($families->count()) { ?>
+<?php if ($empty_families->count()) { ?>
 <div class="alert alert-info">
     <a href="<?= $sRootPath ?>/v2/people/UpdateAllLatLon" class="btn bg-green-active"><i class="fas fa-map-marker-alt"></i> </a>
-    <?= _('Missing Families?').'<a href="'.$sRootPath.'/v2/people/UpdateAllLatLon" >'.' '._('Update Family Latitude or Longitude now.'). ' : ' . $families->count() ?></a>
+    <?= _('Missing Families?').'<a href="'.$sRootPath.'/v2/people/UpdateAllLatLon" >'.' '._('Update Family Latitude or Longitude now.'). ' : ' . $empty_families->count() ?></a>
 </div>
 <?php } ?>
 
@@ -402,7 +402,7 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
       }
   }
 
-  <!-- for the theme before jquery load is finished -->
+  // for the theme before jquery load is finished 
   if (window.CRM.sLightDarkMode == "automatic") {
       let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
