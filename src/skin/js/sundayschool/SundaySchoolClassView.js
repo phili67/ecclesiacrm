@@ -185,7 +185,7 @@ $("document").ready(function () {
         allowClear: true, // This is for clear get the clear button if wanted
         ajax: {
             url: function (params) {
-                return window.CRM.root + "/api/persons/search/" + params.term;
+                return window.CRM.root + "/api/persons/sundayschool/search/" + params.term;
             },
             dataType: 'json',
             delay: 250,
