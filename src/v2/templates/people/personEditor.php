@@ -983,12 +983,10 @@ require $sRootDocument . '/Include/Header.php';
                     <option value="-1"><?= _("Create a new Address or A new family (using last name)") ?></option>
                     <option value="0" disabled>-----------------------</option>
                     <?php
-                    foreach ($ormFamilies
-
-                    as $ormFamily) {
+                    foreach ($ormFamilies as $ormFamily) {
                     ?>
                     <option value="<?= $ormFamily->getId() ?>"
-                        <?= ($iFamily == $ormFamily->getId() || $iFamilyID != -1 && $iFamilyID == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?>
+                        <?= ($iFamily == $ormFamily->getId() || $iFamilyID != -1 && $iFamilyID == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?> (ID<?= $ormFamily->getId() ?>)
                         &nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
                         <?php
                         }
