@@ -15,7 +15,7 @@ use EcclesiaCRM\Base\DepositQuery as BaseDepositQuery;
  */
 class DepositQuery extends BaseDepositQuery
 {
-    public function preSelect(\Propel\Runtime\Connection\ConnectionInterface $con)
+    public function preSelect(\Propel\Runtime\Connection\ConnectionInterface $con): void
     {
         $this->joinPledge();
         $this->groupBy('Deposit.Id');

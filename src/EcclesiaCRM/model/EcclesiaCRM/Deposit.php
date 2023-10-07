@@ -29,7 +29,7 @@ use DateTimeZone;
 class Deposit extends BaseDeposit
 {
 
-    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL)
+    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL): bool
     {
         if (parent::preDelete($con)) {
           $this->getPledges()->delete();

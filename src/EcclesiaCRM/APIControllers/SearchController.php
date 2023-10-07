@@ -118,7 +118,7 @@ class SearchController
         foreach ($resMethods as $resMethod) {
             $res = $resMethod->getRes($query);
 
-            if ($res[0] == null)
+            if (count($res) && $res[0] == null)
                 continue;
 
             if ( !is_array($res) ) {

@@ -204,7 +204,7 @@ class PersonSearchRes extends BaseSearchRes
                         }
 
 
-                        if (!is_null($this->query_elements['PersonProperty'])) {
+                        if (array_key_exists('PersonProperty', $this->query_elements)) {
                             if ($this->query_elements['PersonProperty'] < 0) {
                                 $this->query_elements['PersonProperty'] += $iTenThousand;
 

@@ -4,24 +4,10 @@ namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\KioskDevice as BaseKioskDevice;
 
-use EcclesiaCRM\dto\KioskAssignmentTypes;
-use EcclesiaCRM\EventQuery;
-use EcclesiaCRM\Event;
-
-use EcclesiaCRM\EventAttendQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\ConfigQuery;
-use EcclesiaCRM\Family;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\Person2group2roleP2g2rQuery;
-use EcclesiaCRM\Person;
-use EcclesiaCRM\Map\ListOptionTableMap;
-use EcclesiaCRM\Utils\MiscUtils;
-
 
 class KioskDevice extends BaseKioskDevice
 {
+  protected string $Name;
 
   public function getActiveAssignment()
   {
@@ -103,12 +89,13 @@ class KioskDevice extends BaseKioskDevice
     return true;
   }
 
-  public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null) {
+  public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+  {
     if (!isset($this->Name))
     {
       $this->setName(Utils\MiscUtils::random_word());
     }
-    return true;
+    return parent::preInsert();
   }
 
 }

@@ -20,7 +20,7 @@ use \Propel\Runtime\ActiveQuery\Criteria;
 
 class GroupQuery extends BaseGroupQuery
 {
-    public function preSelect(ConnectionInterface $con)
+    public function preSelect(ConnectionInterface $con): void
     {
         $this->leftJoinGroupType();
         $this->withColumn('GroupType.ListOptionId','ListOptionId');

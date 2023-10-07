@@ -22,7 +22,7 @@ use Propel\Runtime\Connection\ConnectionInterface;
  */
 class EventQuery extends BaseEventQuery
 {
-    public function preSelect(ConnectionInterface $con)
+    public function preSelect(ConnectionInterface $con): void
     {
         $this->addJoin(EventTableMap::COL_EVENT_TYPE, EventTypesTableMap::COL_TYPE_ID, Criteria::LEFT_JOIN)
             ->addJoin(EventTableMap::COL_EVENT_GRPID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)

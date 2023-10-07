@@ -69,7 +69,7 @@ class User extends BaseUser
         return $this->getPersonId();
     }
 
-    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL)
+    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL): bool
     {
         if (parent::preDelete($con)) {
           $this->deleteHomeDir();
@@ -721,12 +721,12 @@ class User extends BaseUser
         return implode($pass); //turn the array into a string
     }
 
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(ConnectionInterface $con = null): void
     {
         $this->createTimeLineNote("created");
     }
 
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(ConnectionInterface $con = null): void
     {
         $this->createTimeLineNote("deleted");
     }

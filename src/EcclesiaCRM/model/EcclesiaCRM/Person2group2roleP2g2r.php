@@ -16,35 +16,31 @@ use EcclesiaCRM\Utils\MiscUtils;
  */
 class Person2group2roleP2g2r extends BasePerson2group2roleP2g2r
 {
-    public function preSave(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    public function preSave(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
     {
-        MiscUtils::requireUserGroupMembership('bManageGroups');
-        parent::preSave($con);
+        MiscUtils::requireUserGroupMembership('bManageGroups');        
 
-        return true;
+        return parent::preSave($con);;
     }
 
-    public function preUpdate(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    public function preUpdate(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
     {
-        MiscUtils::requireUserGroupMembership('bManageGroups');
-        parent::preUpdate($con);
+        MiscUtils::requireUserGroupMembership('bManageGroups');        
 
-        return true;
+        return parent::preUpdate($con);;
     }
 
-    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
     {
-        MiscUtils::requireUserGroupMembership('bManageGroups');
-        parent::preDelete($con);
+        MiscUtils::requireUserGroupMembership('bManageGroups');        
 
-        return true;
+        return parent::preDelete($con);;
     }
 
-    public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
     {
-        MiscUtils::requireUserGroupMembership('bManageGroups');
-        parent::preInsert($con);
+        MiscUtils::requireUserGroupMembership('bManageGroups');        
 
-        return true;
+        return parent::preInsert($con);;
     }
 }

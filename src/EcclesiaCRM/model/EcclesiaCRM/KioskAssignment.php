@@ -3,10 +3,7 @@
 namespace EcclesiaCRM;
 
 use EcclesiaCRM\dto\KioskAssignmentTypes;
-use EcclesiaCRM\Map\PersonTableMap;
-use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\EventQuery;
-use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\Base\KioskAssignment as BaseKioskAssignment;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Utils\LoggerUtils;

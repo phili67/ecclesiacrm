@@ -42,7 +42,7 @@ class Person extends BasePerson implements iPhoto
     private $newsLetterFlag = false;
     private $newsLetterState = 'None';
 
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(ConnectionInterface $con = null): bool
     {
       $this->deletePhoto();
 
@@ -81,7 +81,7 @@ class Person extends BasePerson implements iPhoto
       return "";
     }
 
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(ConnectionInterface $con = null): void
     {
       $family = null;
       $ret = null;
@@ -91,7 +91,7 @@ class Person extends BasePerson implements iPhoto
       }
 
       if (is_callable('parent::postDelete')) {
-          $ret  = parent::postDelete($con);
+          parent::postDelete($con);
 
           $pledges = \EcclesiaCRM\PledgeQuery::Create()->filterByFamId($this->getFamId())->find($con);
 
@@ -101,8 +101,6 @@ class Person extends BasePerson implements iPhoto
               $family->delete($con);
           }
       }
-
-      return $ret;
     }
 
     // this part is use in mailchimp to know which people shoud be added or deleted
@@ -333,7 +331,7 @@ class Person extends BasePerson implements iPhoto
       return $classificationName;
     }
 
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(ConnectionInterface $con = null): void
     {
       $this->createTimeLineNote('create');
       if (!empty(SystemConfig::getValue("sNewPersonNotificationRecipientIDs")))
@@ -360,7 +358,7 @@ class Person extends BasePerson implements iPhoto
       }
     }
 
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(ConnectionInterface $con = null): void
     {
       if (!empty($this->getDateLastEdited())) {
         $this->createTimeLineNote('edit');
@@ -710,9 +708,10 @@ class Person extends BasePerson implements iPhoto
       return "1".preg_replace('/[^\.0-9]/',"",$this->getCellPhone());
     }
 
-    public function postSave(ConnectionInterface $con = null) {
+    public function postSave(ConnectionInterface $con = null) : void
+    {
       $this->getPhoto()->refresh();
-      return parent::postSave($con);
+      parent::postSave($con);
     }
 
     /* Philippe Logel 2017 */

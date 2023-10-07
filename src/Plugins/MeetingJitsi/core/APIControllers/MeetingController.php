@@ -18,7 +18,10 @@ use Psr\Http\Message\ServerRequestInterface;
 use EcclesiaCRM\SessionUser;
 
 spl_autoload_register(function ($className) {
-    include_once str_replace(array('PluginStore', '\\'), array(__DIR__.'/../model', '/'), $className) . '.php';
+    $res = str_replace(array('PluginStore', '\\'), array(__DIR__.'/../model', '/'), $className) . '.php';
+    if (is_file($res)) {    
+        include_once $res;
+    }    
 });
 
 use PluginStore\PersonLastJitsiMeeting;
