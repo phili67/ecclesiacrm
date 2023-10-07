@@ -10,14 +10,12 @@ use PluginStore\Map\NewsDashboardTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'news_nw' table.
- *
- *
+ * Base class that represents a query for the `news_nw` table.
  *
  * @method     ChildNewsDashboardQuery orderById($order = Criteria::ASC) Order by the news_nw_id column
  * @method     ChildNewsDashboardQuery orderByUserId($order = Criteria::ASC) Order by the news_nw_user_id column
@@ -43,8 +41,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNewsDashboardQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildNewsDashboardQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildNewsDashboard|null findOne(ConnectionInterface $con = null) Return the first ChildNewsDashboard matching the query
- * @method     ChildNewsDashboard findOneOrCreate(ConnectionInterface $con = null) Return the first ChildNewsDashboard matching the query, or a new ChildNewsDashboard object populated from the query conditions when no match is found
+ * @method     ChildNewsDashboard|null findOne(?ConnectionInterface $con = null) Return the first ChildNewsDashboard matching the query
+ * @method     ChildNewsDashboard findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildNewsDashboard matching the query, or a new ChildNewsDashboard object populated from the query conditions when no match is found
  *
  * @method     ChildNewsDashboard|null findOneById(int $news_nw_id) Return the first ChildNewsDashboard filtered by the news_nw_id column
  * @method     ChildNewsDashboard|null findOneByUserId(int $news_nw_user_id) Return the first ChildNewsDashboard filtered by the news_nw_user_id column
@@ -52,10 +50,10 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNewsDashboard|null findOneByText(string $news_nw_Text) Return the first ChildNewsDashboard filtered by the news_nw_Text column
  * @method     ChildNewsDashboard|null findOneByType(string $news_nw_type) Return the first ChildNewsDashboard filtered by the news_nw_type column
  * @method     ChildNewsDashboard|null findOneByDateentered(string $news_nw_DateEntered) Return the first ChildNewsDashboard filtered by the news_nw_DateEntered column
- * @method     ChildNewsDashboard|null findOneByDatelastedited(string $news_nw_DateLastEdited) Return the first ChildNewsDashboard filtered by the news_nw_DateLastEdited column *
-
- * @method     ChildNewsDashboard requirePk($key, ConnectionInterface $con = null) Return the ChildNewsDashboard by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNewsDashboard requireOne(ConnectionInterface $con = null) Return the first ChildNewsDashboard matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNewsDashboard|null findOneByDatelastedited(string $news_nw_DateLastEdited) Return the first ChildNewsDashboard filtered by the news_nw_DateLastEdited column
+ *
+ * @method     ChildNewsDashboard requirePk($key, ?ConnectionInterface $con = null) Return the ChildNewsDashboard by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNewsDashboard requireOne(?ConnectionInterface $con = null) Return the first ChildNewsDashboard matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildNewsDashboard requireOneById(int $news_nw_id) Return the first ChildNewsDashboard filtered by the news_nw_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNewsDashboard requireOneByUserId(int $news_nw_user_id) Return the first ChildNewsDashboard filtered by the news_nw_user_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -65,25 +63,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNewsDashboard requireOneByDateentered(string $news_nw_DateEntered) Return the first ChildNewsDashboard filtered by the news_nw_DateEntered column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNewsDashboard requireOneByDatelastedited(string $news_nw_DateLastEdited) Return the first ChildNewsDashboard filtered by the news_nw_DateLastEdited column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildNewsDashboard[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildNewsDashboard objects based on current ModelCriteria
- * @psalm-method ObjectCollection&\Traversable<ChildNewsDashboard> find(ConnectionInterface $con = null) Return ChildNewsDashboard objects based on current ModelCriteria
- * @method     ChildNewsDashboard[]|ObjectCollection findById(int $news_nw_id) Return ChildNewsDashboard objects filtered by the news_nw_id column
- * @psalm-method ObjectCollection&\Traversable<ChildNewsDashboard> findById(int $news_nw_id) Return ChildNewsDashboard objects filtered by the news_nw_id column
- * @method     ChildNewsDashboard[]|ObjectCollection findByUserId(int $news_nw_user_id) Return ChildNewsDashboard objects filtered by the news_nw_user_id column
- * @psalm-method ObjectCollection&\Traversable<ChildNewsDashboard> findByUserId(int $news_nw_user_id) Return ChildNewsDashboard objects filtered by the news_nw_user_id column
- * @method     ChildNewsDashboard[]|ObjectCollection findByTitle(string $news_nw_title) Return ChildNewsDashboard objects filtered by the news_nw_title column
- * @psalm-method ObjectCollection&\Traversable<ChildNewsDashboard> findByTitle(string $news_nw_title) Return ChildNewsDashboard objects filtered by the news_nw_title column
- * @method     ChildNewsDashboard[]|ObjectCollection findByText(string $news_nw_Text) Return ChildNewsDashboard objects filtered by the news_nw_Text column
- * @psalm-method ObjectCollection&\Traversable<ChildNewsDashboard> findByText(string $news_nw_Text) Return ChildNewsDashboard objects filtered by the news_nw_Text column
- * @method     ChildNewsDashboard[]|ObjectCollection findByType(string $news_nw_type) Return ChildNewsDashboard objects filtered by the news_nw_type column
- * @psalm-method ObjectCollection&\Traversable<ChildNewsDashboard> findByType(string $news_nw_type) Return ChildNewsDashboard objects filtered by the news_nw_type column
- * @method     ChildNewsDashboard[]|ObjectCollection findByDateentered(string $news_nw_DateEntered) Return ChildNewsDashboard objects filtered by the news_nw_DateEntered column
- * @psalm-method ObjectCollection&\Traversable<ChildNewsDashboard> findByDateentered(string $news_nw_DateEntered) Return ChildNewsDashboard objects filtered by the news_nw_DateEntered column
- * @method     ChildNewsDashboard[]|ObjectCollection findByDatelastedited(string $news_nw_DateLastEdited) Return ChildNewsDashboard objects filtered by the news_nw_DateLastEdited column
- * @psalm-method ObjectCollection&\Traversable<ChildNewsDashboard> findByDatelastedited(string $news_nw_DateLastEdited) Return ChildNewsDashboard objects filtered by the news_nw_DateLastEdited column
- * @method     ChildNewsDashboard[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
- * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildNewsDashboard> paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildNewsDashboard[]|Collection find(?ConnectionInterface $con = null) Return ChildNewsDashboard objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildNewsDashboard> find(?ConnectionInterface $con = null) Return ChildNewsDashboard objects based on current ModelCriteria
  *
+ * @method     ChildNewsDashboard[]|Collection findById(int|array<int> $news_nw_id) Return ChildNewsDashboard objects filtered by the news_nw_id column
+ * @psalm-method Collection&\Traversable<ChildNewsDashboard> findById(int|array<int> $news_nw_id) Return ChildNewsDashboard objects filtered by the news_nw_id column
+ * @method     ChildNewsDashboard[]|Collection findByUserId(int|array<int> $news_nw_user_id) Return ChildNewsDashboard objects filtered by the news_nw_user_id column
+ * @psalm-method Collection&\Traversable<ChildNewsDashboard> findByUserId(int|array<int> $news_nw_user_id) Return ChildNewsDashboard objects filtered by the news_nw_user_id column
+ * @method     ChildNewsDashboard[]|Collection findByTitle(string|array<string> $news_nw_title) Return ChildNewsDashboard objects filtered by the news_nw_title column
+ * @psalm-method Collection&\Traversable<ChildNewsDashboard> findByTitle(string|array<string> $news_nw_title) Return ChildNewsDashboard objects filtered by the news_nw_title column
+ * @method     ChildNewsDashboard[]|Collection findByText(string|array<string> $news_nw_Text) Return ChildNewsDashboard objects filtered by the news_nw_Text column
+ * @psalm-method Collection&\Traversable<ChildNewsDashboard> findByText(string|array<string> $news_nw_Text) Return ChildNewsDashboard objects filtered by the news_nw_Text column
+ * @method     ChildNewsDashboard[]|Collection findByType(string|array<string> $news_nw_type) Return ChildNewsDashboard objects filtered by the news_nw_type column
+ * @psalm-method Collection&\Traversable<ChildNewsDashboard> findByType(string|array<string> $news_nw_type) Return ChildNewsDashboard objects filtered by the news_nw_type column
+ * @method     ChildNewsDashboard[]|Collection findByDateentered(string|array<string> $news_nw_DateEntered) Return ChildNewsDashboard objects filtered by the news_nw_DateEntered column
+ * @psalm-method Collection&\Traversable<ChildNewsDashboard> findByDateentered(string|array<string> $news_nw_DateEntered) Return ChildNewsDashboard objects filtered by the news_nw_DateEntered column
+ * @method     ChildNewsDashboard[]|Collection findByDatelastedited(string|array<string> $news_nw_DateLastEdited) Return ChildNewsDashboard objects filtered by the news_nw_DateLastEdited column
+ * @psalm-method Collection&\Traversable<ChildNewsDashboard> findByDatelastedited(string|array<string> $news_nw_DateLastEdited) Return ChildNewsDashboard objects filtered by the news_nw_DateLastEdited column
+ *
+ * @method     ChildNewsDashboard[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildNewsDashboard> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class NewsDashboardQuery extends ModelCriteria
 {
@@ -92,9 +91,9 @@ abstract class NewsDashboardQuery extends ModelCriteria
     /**
      * Initializes internal state of \PluginStore\Base\NewsDashboardQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'pluginstore', $modelName = '\\PluginStore\\NewsDashboard', $modelAlias = null)
     {
@@ -104,12 +103,12 @@ abstract class NewsDashboardQuery extends ModelCriteria
     /**
      * Returns a new ChildNewsDashboardQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildNewsDashboardQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildNewsDashboardQuery) {
             return $criteria;
@@ -139,7 +138,7 @@ abstract class NewsDashboardQuery extends ModelCriteria
      *
      * @return ChildNewsDashboard|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -171,8 +170,8 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -204,8 +203,8 @@ abstract class NewsDashboardQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildNewsDashboard|array|mixed the result, formatted by the current formatter
      */
@@ -225,12 +224,12 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -247,27 +246,31 @@ abstract class NewsDashboardQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildNewsDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_ID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_ID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildNewsDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_ID, $keys, Criteria::IN);
+        $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_ID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -280,15 +283,15 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * $query->filterById(array('min' => 12)); // WHERE news_nw_id > 12
      * </code>
      *
-     * @param     mixed $id The value to use as filter.
+     * @param mixed $id The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNewsDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterById($id = null, $comparison = null)
+    public function filterById($id = null, ?string $comparison = null)
     {
         if (is_array($id)) {
             $useMinMax = false;
@@ -308,7 +311,9 @@ abstract class NewsDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_ID, $id, $comparison);
+        $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_ID, $id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -321,15 +326,15 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * $query->filterByUserId(array('min' => 12)); // WHERE news_nw_user_id > 12
      * </code>
      *
-     * @param     mixed $userId The value to use as filter.
+     * @param mixed $userId The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNewsDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUserId($userId = null, $comparison = null)
+    public function filterByUserId($userId = null, ?string $comparison = null)
     {
         if (is_array($userId)) {
             $useMinMax = false;
@@ -349,7 +354,9 @@ abstract class NewsDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_USER_ID, $userId, $comparison);
+        $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_USER_ID, $userId, $comparison);
+
+        return $this;
     }
 
     /**
@@ -359,14 +366,15 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * <code>
      * $query->filterByTitle('fooValue');   // WHERE news_nw_title = 'fooValue'
      * $query->filterByTitle('%fooValue%', Criteria::LIKE); // WHERE news_nw_title LIKE '%fooValue%'
+     * $query->filterByTitle(['foo', 'bar']); // WHERE news_nw_title IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $title The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $title The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNewsDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTitle($title = null, $comparison = null)
+    public function filterByTitle($title = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($title)) {
@@ -374,7 +382,9 @@ abstract class NewsDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_TITLE, $title, $comparison);
+        $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_TITLE, $title, $comparison);
+
+        return $this;
     }
 
     /**
@@ -384,14 +394,15 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * <code>
      * $query->filterByText('fooValue');   // WHERE news_nw_Text = 'fooValue'
      * $query->filterByText('%fooValue%', Criteria::LIKE); // WHERE news_nw_Text LIKE '%fooValue%'
+     * $query->filterByText(['foo', 'bar']); // WHERE news_nw_Text IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $text The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $text The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNewsDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByText($text = null, $comparison = null)
+    public function filterByText($text = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($text)) {
@@ -399,7 +410,9 @@ abstract class NewsDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_TEXT, $text, $comparison);
+        $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_TEXT, $text, $comparison);
+
+        return $this;
     }
 
     /**
@@ -409,14 +422,15 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * <code>
      * $query->filterByType('fooValue');   // WHERE news_nw_type = 'fooValue'
      * $query->filterByType('%fooValue%', Criteria::LIKE); // WHERE news_nw_type LIKE '%fooValue%'
+     * $query->filterByType(['foo', 'bar']); // WHERE news_nw_type IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $type The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $type The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNewsDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByType($type = null, $comparison = null)
+    public function filterByType($type = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($type)) {
@@ -424,7 +438,9 @@ abstract class NewsDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_TYPE, $type, $comparison);
+        $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_TYPE, $type, $comparison);
+
+        return $this;
     }
 
     /**
@@ -437,17 +453,17 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * $query->filterByDateentered(array('max' => 'yesterday')); // WHERE news_nw_DateEntered > '2011-03-13'
      * </code>
      *
-     * @param     mixed $dateentered The value to use as filter.
+     * @param mixed $dateentered The value to use as filter.
      *              Values can be integers (unix timestamps), DateTime objects, or strings.
      *              Empty strings are treated as NULL.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNewsDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateentered($dateentered = null, $comparison = null)
+    public function filterByDateentered($dateentered = null, ?string $comparison = null)
     {
         if (is_array($dateentered)) {
             $useMinMax = false;
@@ -467,7 +483,9 @@ abstract class NewsDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_DATEENTERED, $dateentered, $comparison);
+        $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_DATEENTERED, $dateentered, $comparison);
+
+        return $this;
     }
 
     /**
@@ -480,17 +498,17 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * $query->filterByDatelastedited(array('max' => 'yesterday')); // WHERE news_nw_DateLastEdited > '2011-03-13'
      * </code>
      *
-     * @param     mixed $datelastedited The value to use as filter.
+     * @param mixed $datelastedited The value to use as filter.
      *              Values can be integers (unix timestamps), DateTime objects, or strings.
      *              Empty strings are treated as NULL.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNewsDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDatelastedited($datelastedited = null, $comparison = null)
+    public function filterByDatelastedited($datelastedited = null, ?string $comparison = null)
     {
         if (is_array($datelastedited)) {
             $useMinMax = false;
@@ -510,15 +528,17 @@ abstract class NewsDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_DATELASTEDITED, $datelastedited, $comparison);
+        $this->addUsingAlias(NewsDashboardTableMap::COL_NEWS_NW_DATELASTEDITED, $datelastedited, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildNewsDashboard $newsDashboard Object to remove from the list of results
+     * @param ChildNewsDashboard $newsDashboard Object to remove from the list of results
      *
-     * @return $this|ChildNewsDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($newsDashboard = null)
     {
@@ -535,7 +555,7 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NewsDashboardTableMap::DATABASE_NAME);
@@ -560,12 +580,12 @@ abstract class NewsDashboardQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NewsDashboardTableMap::DATABASE_NAME);
@@ -590,4 +610,4 @@ abstract class NewsDashboardQuery extends ModelCriteria
         });
     }
 
-} // NewsDashboardQuery
+}

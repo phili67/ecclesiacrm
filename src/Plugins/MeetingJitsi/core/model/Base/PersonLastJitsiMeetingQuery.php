@@ -10,14 +10,12 @@ use PluginStore\Map\PersonLastJitsiMeetingTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'personlastjitsimeeting_plm' table.
- *
- *
+ * Base class that represents a query for the `personlastjitsimeeting_plm` table.
  *
  * @method     ChildPersonLastJitsiMeetingQuery orderById($order = Criteria::ASC) Order by the jm_plm_ID column
  * @method     ChildPersonLastJitsiMeetingQuery orderByPersonId($order = Criteria::ASC) Order by the jm_plm_person_id column
@@ -35,31 +33,32 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPersonLastJitsiMeetingQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildPersonLastJitsiMeetingQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildPersonLastJitsiMeeting|null findOne(ConnectionInterface $con = null) Return the first ChildPersonLastJitsiMeeting matching the query
- * @method     ChildPersonLastJitsiMeeting findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPersonLastJitsiMeeting matching the query, or a new ChildPersonLastJitsiMeeting object populated from the query conditions when no match is found
+ * @method     ChildPersonLastJitsiMeeting|null findOne(?ConnectionInterface $con = null) Return the first ChildPersonLastJitsiMeeting matching the query
+ * @method     ChildPersonLastJitsiMeeting findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildPersonLastJitsiMeeting matching the query, or a new ChildPersonLastJitsiMeeting object populated from the query conditions when no match is found
  *
  * @method     ChildPersonLastJitsiMeeting|null findOneById(int $jm_plm_ID) Return the first ChildPersonLastJitsiMeeting filtered by the jm_plm_ID column
  * @method     ChildPersonLastJitsiMeeting|null findOneByPersonId(int $jm_plm_person_id) Return the first ChildPersonLastJitsiMeeting filtered by the jm_plm_person_id column
- * @method     ChildPersonLastJitsiMeeting|null findOneByPersonMeetingId(int $jm_plm_personmeeting_pm_id) Return the first ChildPersonLastJitsiMeeting filtered by the jm_plm_personmeeting_pm_id column *
-
- * @method     ChildPersonLastJitsiMeeting requirePk($key, ConnectionInterface $con = null) Return the ChildPersonLastJitsiMeeting by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildPersonLastJitsiMeeting requireOne(ConnectionInterface $con = null) Return the first ChildPersonLastJitsiMeeting matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPersonLastJitsiMeeting|null findOneByPersonMeetingId(int $jm_plm_personmeeting_pm_id) Return the first ChildPersonLastJitsiMeeting filtered by the jm_plm_personmeeting_pm_id column
+ *
+ * @method     ChildPersonLastJitsiMeeting requirePk($key, ?ConnectionInterface $con = null) Return the ChildPersonLastJitsiMeeting by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPersonLastJitsiMeeting requireOne(?ConnectionInterface $con = null) Return the first ChildPersonLastJitsiMeeting matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildPersonLastJitsiMeeting requireOneById(int $jm_plm_ID) Return the first ChildPersonLastJitsiMeeting filtered by the jm_plm_ID column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPersonLastJitsiMeeting requireOneByPersonId(int $jm_plm_person_id) Return the first ChildPersonLastJitsiMeeting filtered by the jm_plm_person_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPersonLastJitsiMeeting requireOneByPersonMeetingId(int $jm_plm_personmeeting_pm_id) Return the first ChildPersonLastJitsiMeeting filtered by the jm_plm_personmeeting_pm_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildPersonLastJitsiMeeting[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildPersonLastJitsiMeeting objects based on current ModelCriteria
- * @psalm-method ObjectCollection&\Traversable<ChildPersonLastJitsiMeeting> find(ConnectionInterface $con = null) Return ChildPersonLastJitsiMeeting objects based on current ModelCriteria
- * @method     ChildPersonLastJitsiMeeting[]|ObjectCollection findById(int $jm_plm_ID) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_ID column
- * @psalm-method ObjectCollection&\Traversable<ChildPersonLastJitsiMeeting> findById(int $jm_plm_ID) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_ID column
- * @method     ChildPersonLastJitsiMeeting[]|ObjectCollection findByPersonId(int $jm_plm_person_id) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_person_id column
- * @psalm-method ObjectCollection&\Traversable<ChildPersonLastJitsiMeeting> findByPersonId(int $jm_plm_person_id) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_person_id column
- * @method     ChildPersonLastJitsiMeeting[]|ObjectCollection findByPersonMeetingId(int $jm_plm_personmeeting_pm_id) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_personmeeting_pm_id column
- * @psalm-method ObjectCollection&\Traversable<ChildPersonLastJitsiMeeting> findByPersonMeetingId(int $jm_plm_personmeeting_pm_id) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_personmeeting_pm_id column
- * @method     ChildPersonLastJitsiMeeting[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
- * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildPersonLastJitsiMeeting> paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildPersonLastJitsiMeeting[]|Collection find(?ConnectionInterface $con = null) Return ChildPersonLastJitsiMeeting objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildPersonLastJitsiMeeting> find(?ConnectionInterface $con = null) Return ChildPersonLastJitsiMeeting objects based on current ModelCriteria
  *
+ * @method     ChildPersonLastJitsiMeeting[]|Collection findById(int|array<int> $jm_plm_ID) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_ID column
+ * @psalm-method Collection&\Traversable<ChildPersonLastJitsiMeeting> findById(int|array<int> $jm_plm_ID) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_ID column
+ * @method     ChildPersonLastJitsiMeeting[]|Collection findByPersonId(int|array<int> $jm_plm_person_id) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_person_id column
+ * @psalm-method Collection&\Traversable<ChildPersonLastJitsiMeeting> findByPersonId(int|array<int> $jm_plm_person_id) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_person_id column
+ * @method     ChildPersonLastJitsiMeeting[]|Collection findByPersonMeetingId(int|array<int> $jm_plm_personmeeting_pm_id) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_personmeeting_pm_id column
+ * @psalm-method Collection&\Traversable<ChildPersonLastJitsiMeeting> findByPersonMeetingId(int|array<int> $jm_plm_personmeeting_pm_id) Return ChildPersonLastJitsiMeeting objects filtered by the jm_plm_personmeeting_pm_id column
+ *
+ * @method     ChildPersonLastJitsiMeeting[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildPersonLastJitsiMeeting> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
 {
@@ -68,9 +67,9 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
     /**
      * Initializes internal state of \PluginStore\Base\PersonLastJitsiMeetingQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'pluginstore', $modelName = '\\PluginStore\\PersonLastJitsiMeeting', $modelAlias = null)
     {
@@ -80,12 +79,12 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
     /**
      * Returns a new ChildPersonLastJitsiMeetingQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildPersonLastJitsiMeetingQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildPersonLastJitsiMeetingQuery) {
             return $criteria;
@@ -115,7 +114,7 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
      *
      * @return ChildPersonLastJitsiMeeting|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -147,8 +146,8 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -180,8 +179,8 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildPersonLastJitsiMeeting|array|mixed the result, formatted by the current formatter
      */
@@ -201,12 +200,12 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -223,27 +222,31 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildPersonLastJitsiMeetingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(PersonLastJitsiMeetingTableMap::COL_JM_PLM_ID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(PersonLastJitsiMeetingTableMap::COL_JM_PLM_ID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildPersonLastJitsiMeetingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(PersonLastJitsiMeetingTableMap::COL_JM_PLM_ID, $keys, Criteria::IN);
+        $this->addUsingAlias(PersonLastJitsiMeetingTableMap::COL_JM_PLM_ID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -256,15 +259,15 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
      * $query->filterById(array('min' => 12)); // WHERE jm_plm_ID > 12
      * </code>
      *
-     * @param     mixed $id The value to use as filter.
+     * @param mixed $id The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPersonLastJitsiMeetingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterById($id = null, $comparison = null)
+    public function filterById($id = null, ?string $comparison = null)
     {
         if (is_array($id)) {
             $useMinMax = false;
@@ -284,7 +287,9 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PersonLastJitsiMeetingTableMap::COL_JM_PLM_ID, $id, $comparison);
+        $this->addUsingAlias(PersonLastJitsiMeetingTableMap::COL_JM_PLM_ID, $id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -297,15 +302,15 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
      * $query->filterByPersonId(array('min' => 12)); // WHERE jm_plm_person_id > 12
      * </code>
      *
-     * @param     mixed $personId The value to use as filter.
+     * @param mixed $personId The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPersonLastJitsiMeetingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPersonId($personId = null, $comparison = null)
+    public function filterByPersonId($personId = null, ?string $comparison = null)
     {
         if (is_array($personId)) {
             $useMinMax = false;
@@ -325,7 +330,9 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PersonLastJitsiMeetingTableMap::COL_JM_PLM_PERSON_ID, $personId, $comparison);
+        $this->addUsingAlias(PersonLastJitsiMeetingTableMap::COL_JM_PLM_PERSON_ID, $personId, $comparison);
+
+        return $this;
     }
 
     /**
@@ -338,15 +345,15 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
      * $query->filterByPersonMeetingId(array('min' => 12)); // WHERE jm_plm_personmeeting_pm_id > 12
      * </code>
      *
-     * @param     mixed $personMeetingId The value to use as filter.
+     * @param mixed $personMeetingId The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPersonLastJitsiMeetingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPersonMeetingId($personMeetingId = null, $comparison = null)
+    public function filterByPersonMeetingId($personMeetingId = null, ?string $comparison = null)
     {
         if (is_array($personMeetingId)) {
             $useMinMax = false;
@@ -366,15 +373,17 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PersonLastJitsiMeetingTableMap::COL_JM_PLM_PERSONMEETING_PM_ID, $personMeetingId, $comparison);
+        $this->addUsingAlias(PersonLastJitsiMeetingTableMap::COL_JM_PLM_PERSONMEETING_PM_ID, $personMeetingId, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildPersonLastJitsiMeeting $personLastJitsiMeeting Object to remove from the list of results
+     * @param ChildPersonLastJitsiMeeting $personLastJitsiMeeting Object to remove from the list of results
      *
-     * @return $this|ChildPersonLastJitsiMeetingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($personLastJitsiMeeting = null)
     {
@@ -391,7 +400,7 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PersonLastJitsiMeetingTableMap::DATABASE_NAME);
@@ -416,12 +425,12 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PersonLastJitsiMeetingTableMap::DATABASE_NAME);
@@ -446,4 +455,4 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
         });
     }
 
-} // PersonLastJitsiMeetingQuery
+}
