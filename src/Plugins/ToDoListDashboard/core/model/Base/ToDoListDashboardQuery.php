@@ -10,14 +10,12 @@ use PluginStore\Map\ToDoListDashboardTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'tdl_list' table.
- *
- *
+ * Base class that represents a query for the `tdl_list` table.
  *
  * @method     ChildToDoListDashboardQuery orderById($order = Criteria::ASC) Order by the tdl_l_id column
  * @method     ChildToDoListDashboardQuery orderByName($order = Criteria::ASC) Order by the tdl_l_name column
@@ -37,35 +35,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildToDoListDashboardQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildToDoListDashboardQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildToDoListDashboard|null findOne(ConnectionInterface $con = null) Return the first ChildToDoListDashboard matching the query
- * @method     ChildToDoListDashboard findOneOrCreate(ConnectionInterface $con = null) Return the first ChildToDoListDashboard matching the query, or a new ChildToDoListDashboard object populated from the query conditions when no match is found
+ * @method     ChildToDoListDashboard|null findOne(?ConnectionInterface $con = null) Return the first ChildToDoListDashboard matching the query
+ * @method     ChildToDoListDashboard findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildToDoListDashboard matching the query, or a new ChildToDoListDashboard object populated from the query conditions when no match is found
  *
  * @method     ChildToDoListDashboard|null findOneById(int $tdl_l_id) Return the first ChildToDoListDashboard filtered by the tdl_l_id column
  * @method     ChildToDoListDashboard|null findOneByName(string $tdl_l_name) Return the first ChildToDoListDashboard filtered by the tdl_l_name column
  * @method     ChildToDoListDashboard|null findOneByUserId(int $tdl_l_user_id) Return the first ChildToDoListDashboard filtered by the tdl_l_user_id column
- * @method     ChildToDoListDashboard|null findOneByVisible(boolean $tdl_l_visible) Return the first ChildToDoListDashboard filtered by the tdl_l_visible column *
-
- * @method     ChildToDoListDashboard requirePk($key, ConnectionInterface $con = null) Return the ChildToDoListDashboard by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildToDoListDashboard requireOne(ConnectionInterface $con = null) Return the first ChildToDoListDashboard matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildToDoListDashboard|null findOneByVisible(boolean $tdl_l_visible) Return the first ChildToDoListDashboard filtered by the tdl_l_visible column
+ *
+ * @method     ChildToDoListDashboard requirePk($key, ?ConnectionInterface $con = null) Return the ChildToDoListDashboard by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildToDoListDashboard requireOne(?ConnectionInterface $con = null) Return the first ChildToDoListDashboard matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildToDoListDashboard requireOneById(int $tdl_l_id) Return the first ChildToDoListDashboard filtered by the tdl_l_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildToDoListDashboard requireOneByName(string $tdl_l_name) Return the first ChildToDoListDashboard filtered by the tdl_l_name column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildToDoListDashboard requireOneByUserId(int $tdl_l_user_id) Return the first ChildToDoListDashboard filtered by the tdl_l_user_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildToDoListDashboard requireOneByVisible(boolean $tdl_l_visible) Return the first ChildToDoListDashboard filtered by the tdl_l_visible column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildToDoListDashboard[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildToDoListDashboard objects based on current ModelCriteria
- * @psalm-method ObjectCollection&\Traversable<ChildToDoListDashboard> find(ConnectionInterface $con = null) Return ChildToDoListDashboard objects based on current ModelCriteria
- * @method     ChildToDoListDashboard[]|ObjectCollection findById(int $tdl_l_id) Return ChildToDoListDashboard objects filtered by the tdl_l_id column
- * @psalm-method ObjectCollection&\Traversable<ChildToDoListDashboard> findById(int $tdl_l_id) Return ChildToDoListDashboard objects filtered by the tdl_l_id column
- * @method     ChildToDoListDashboard[]|ObjectCollection findByName(string $tdl_l_name) Return ChildToDoListDashboard objects filtered by the tdl_l_name column
- * @psalm-method ObjectCollection&\Traversable<ChildToDoListDashboard> findByName(string $tdl_l_name) Return ChildToDoListDashboard objects filtered by the tdl_l_name column
- * @method     ChildToDoListDashboard[]|ObjectCollection findByUserId(int $tdl_l_user_id) Return ChildToDoListDashboard objects filtered by the tdl_l_user_id column
- * @psalm-method ObjectCollection&\Traversable<ChildToDoListDashboard> findByUserId(int $tdl_l_user_id) Return ChildToDoListDashboard objects filtered by the tdl_l_user_id column
- * @method     ChildToDoListDashboard[]|ObjectCollection findByVisible(boolean $tdl_l_visible) Return ChildToDoListDashboard objects filtered by the tdl_l_visible column
- * @psalm-method ObjectCollection&\Traversable<ChildToDoListDashboard> findByVisible(boolean $tdl_l_visible) Return ChildToDoListDashboard objects filtered by the tdl_l_visible column
- * @method     ChildToDoListDashboard[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
- * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildToDoListDashboard> paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildToDoListDashboard[]|Collection find(?ConnectionInterface $con = null) Return ChildToDoListDashboard objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildToDoListDashboard> find(?ConnectionInterface $con = null) Return ChildToDoListDashboard objects based on current ModelCriteria
  *
+ * @method     ChildToDoListDashboard[]|Collection findById(int|array<int> $tdl_l_id) Return ChildToDoListDashboard objects filtered by the tdl_l_id column
+ * @psalm-method Collection&\Traversable<ChildToDoListDashboard> findById(int|array<int> $tdl_l_id) Return ChildToDoListDashboard objects filtered by the tdl_l_id column
+ * @method     ChildToDoListDashboard[]|Collection findByName(string|array<string> $tdl_l_name) Return ChildToDoListDashboard objects filtered by the tdl_l_name column
+ * @psalm-method Collection&\Traversable<ChildToDoListDashboard> findByName(string|array<string> $tdl_l_name) Return ChildToDoListDashboard objects filtered by the tdl_l_name column
+ * @method     ChildToDoListDashboard[]|Collection findByUserId(int|array<int> $tdl_l_user_id) Return ChildToDoListDashboard objects filtered by the tdl_l_user_id column
+ * @psalm-method Collection&\Traversable<ChildToDoListDashboard> findByUserId(int|array<int> $tdl_l_user_id) Return ChildToDoListDashboard objects filtered by the tdl_l_user_id column
+ * @method     ChildToDoListDashboard[]|Collection findByVisible(boolean|array<boolean> $tdl_l_visible) Return ChildToDoListDashboard objects filtered by the tdl_l_visible column
+ * @psalm-method Collection&\Traversable<ChildToDoListDashboard> findByVisible(boolean|array<boolean> $tdl_l_visible) Return ChildToDoListDashboard objects filtered by the tdl_l_visible column
+ *
+ * @method     ChildToDoListDashboard[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildToDoListDashboard> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ToDoListDashboardQuery extends ModelCriteria
 {
@@ -74,9 +73,9 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
     /**
      * Initializes internal state of \PluginStore\Base\ToDoListDashboardQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'pluginstore', $modelName = '\\PluginStore\\ToDoListDashboard', $modelAlias = null)
     {
@@ -86,12 +85,12 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
     /**
      * Returns a new ChildToDoListDashboardQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildToDoListDashboardQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildToDoListDashboardQuery) {
             return $criteria;
@@ -121,7 +120,7 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
      *
      * @return ChildToDoListDashboard|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -153,8 +152,8 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -186,8 +185,8 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildToDoListDashboard|array|mixed the result, formatted by the current formatter
      */
@@ -207,12 +206,12 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -229,27 +228,31 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildToDoListDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_ID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_ID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildToDoListDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_ID, $keys, Criteria::IN);
+        $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_ID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -262,15 +265,15 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
      * $query->filterById(array('min' => 12)); // WHERE tdl_l_id > 12
      * </code>
      *
-     * @param     mixed $id The value to use as filter.
+     * @param mixed $id The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildToDoListDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterById($id = null, $comparison = null)
+    public function filterById($id = null, ?string $comparison = null)
     {
         if (is_array($id)) {
             $useMinMax = false;
@@ -290,7 +293,9 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_ID, $id, $comparison);
+        $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_ID, $id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -300,14 +305,15 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
      * <code>
      * $query->filterByName('fooValue');   // WHERE tdl_l_name = 'fooValue'
      * $query->filterByName('%fooValue%', Criteria::LIKE); // WHERE tdl_l_name LIKE '%fooValue%'
+     * $query->filterByName(['foo', 'bar']); // WHERE tdl_l_name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildToDoListDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByName($name = null, $comparison = null)
+    public function filterByName($name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($name)) {
@@ -315,7 +321,9 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_NAME, $name, $comparison);
+        $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_NAME, $name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -328,15 +336,15 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
      * $query->filterByUserId(array('min' => 12)); // WHERE tdl_l_user_id > 12
      * </code>
      *
-     * @param     mixed $userId The value to use as filter.
+     * @param mixed $userId The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildToDoListDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUserId($userId = null, $comparison = null)
+    public function filterByUserId($userId = null, ?string $comparison = null)
     {
         if (is_array($userId)) {
             $useMinMax = false;
@@ -356,7 +364,9 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_USER_ID, $userId, $comparison);
+        $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_USER_ID, $userId, $comparison);
+
+        return $this;
     }
 
     /**
@@ -368,30 +378,32 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
      * $query->filterByVisible('yes'); // WHERE tdl_l_visible = true
      * </code>
      *
-     * @param     boolean|string $visible The value to use as filter.
+     * @param bool|string $visible The value to use as filter.
      *              Non-boolean arguments are converted using the following rules:
      *                * 1, '1', 'true',  'on',  and 'yes' are converted to boolean true
      *                * 0, '0', 'false', 'off', and 'no'  are converted to boolean false
      *              Check on string values is case insensitive (so 'FaLsE' is seen as 'false').
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildToDoListDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVisible($visible = null, $comparison = null)
+    public function filterByVisible($visible = null, ?string $comparison = null)
     {
         if (is_string($visible)) {
-            $visible = in_array(strtolower($visible), array('false', 'off', '-', 'no', 'n', '0', '')) ? false : true;
+            $visible = in_array(strtolower($visible), array('false', 'off', '-', 'no', 'n', '0', ''), true) ? false : true;
         }
 
-        return $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_VISIBLE, $visible, $comparison);
+        $this->addUsingAlias(ToDoListDashboardTableMap::COL_TDL_L_VISIBLE, $visible, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildToDoListDashboard $toDoListDashboard Object to remove from the list of results
+     * @param ChildToDoListDashboard $toDoListDashboard Object to remove from the list of results
      *
-     * @return $this|ChildToDoListDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($toDoListDashboard = null)
     {
@@ -408,7 +420,7 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ToDoListDashboardTableMap::DATABASE_NAME);
@@ -433,12 +445,12 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ToDoListDashboardTableMap::DATABASE_NAME);
@@ -463,4 +475,4 @@ abstract class ToDoListDashboardQuery extends ModelCriteria
         });
     }
 
-} // ToDoListDashboardQuery
+}
