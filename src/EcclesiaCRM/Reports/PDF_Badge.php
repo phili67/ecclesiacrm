@@ -5,8 +5,7 @@
 //
 // Class to print labels in Avery or custom formats
 //
-//
-// Copyright (C) 2003 Philippe Logel (LPA)
+// Copyright (C) 2023 Philippe Logel (LPA)
 // Based on code by Steve Dillon (steved@mad.scientist.com)
 //
 //-------------------------------------------------------------------
@@ -125,7 +124,7 @@ class PDF_Badge extends PDF_Label
             $has_QR_Code = True;
             $qr_code = $this->create_QR_Code($groupID, $personId);
 
-            $this->Image($qr_code, $_PosX+9, $_PosY + $this->_Height*0.15, $this->_Height*0.60, $this->_Height*0.60);
+            $this->Image($qr_code, $_PosX+9, $_PosY + $this->_Height*0.20, $this->_Height*0.60, $this->_Height*0.60);
 
             unlink ($qr_code);
         }
@@ -142,7 +141,7 @@ class PDF_Badge extends PDF_Label
             $this->Cell($this->_Width, 10,  mb_strtoupper($firstName), 0, 0, 'C');
 
             $this->SetFontSize(12);
-            $this->SetXY($_PosX, $_PosY + $this->_Height / 4 * 3 - $this->_Get_Height_Chars($lastNameFontSize));
+            $this->SetXY($_PosX, $_PosY + $this->_Height / 5 * 3 - $this->_Get_Height_Chars($lastNameFontSize));
             $this->Cell($this->_Width, 10, mb_strtoupper($LastName), 0, 0, 'C');
 
             $this->SetFontSize(4);
@@ -157,13 +156,13 @@ class PDF_Badge extends PDF_Label
 
             $this->SetFontSize($sFirstNameFontSize*0.45);
             $this->SetTextColor(0, 0, 0);
-            $this->SetXY($_PosX+19, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize));
+            $this->SetXY($_PosX+14, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize));
             $this->Cell($this->_Width, 10, mb_strtoupper($firstName), 0, 0, 'C');
 
             $lastNameFontSize = $sFirstNameFontSize*0.35;
 
             $this->SetFontSize($lastNameFontSize);
-            $this->SetXY($_PosX+19, $_PosY + $this->_Height / 5 * 3 - $this->_Get_Height_Chars($lastNameFontSize));
+            $this->SetXY($_PosX+14, $_PosY + $this->_Height / 5.5 * 3 - $this->_Get_Height_Chars($lastNameFontSize));
             $this->Cell($this->_Width, 10, mb_strtoupper($LastName), 0, 0, 'C');
 
             $this->SetFontSize(4);
@@ -179,7 +178,7 @@ class PDF_Badge extends PDF_Label
         $this->Line($_PosX + $this->_Width-2, $_PosY, $_PosX + $this->_Width-2, $_PosY);
         $this->Line($_PosX , $_PosY + $this->_Height, $_PosX, $_PosY + $this->_Height);
 
-        $this->SetFontSize (8);
+        $this->SetFontSize (12);
         $this->SetXY($_PosX+7, $_PosY + $this->_Height - 10);
         $this->Cell($this->_Width-14,10, $group,0,0,($sImagePosition == 'Left')?'R':'L');
 
