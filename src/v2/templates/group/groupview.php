@@ -153,9 +153,9 @@ require $sRootDocument . '/Include/Header.php';
               $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */
                 // Add email only if email address is not already in string
                 if (!stristr($sEmailLink, $sEmail)) {
-                    $sEmailLink .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
+                    $sEmailLink .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
                     
-                    $roleEmails->$virt_RoleName .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
+                    $roleEmails->$virt_RoleName .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
                 }
             }
         }

@@ -12,6 +12,8 @@ use EcclesiaCRM\Utils\GeoUtils;
 use DateTime;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 
+use Propel\Runtime\Map\TableMap;
+
 /**
  * Skeleton subclass for representing a row from the 'family_fam' table.
  *
@@ -26,7 +28,7 @@ class Family extends BaseFamily implements iPhoto
     private $photo;
 
 
-    public function preDelete(ConnectionInterface $con = NULL)
+    public function preDelete(ConnectionInterface $con = NULL): bool
     {
       $token = TokenQuery::create()->findByReferenceId($this->getId());
       if ( !is_null($token)) {
@@ -130,7 +132,7 @@ class Family extends BaseFamily implements iPhoto
         return '';
     }
 
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(ConnectionInterface $con = null): void
     {
         $this->createTimeLineNote('create');
         if (!empty(SystemConfig::getValue("sNewPersonNotificationRecipientIDs")))
@@ -142,7 +144,7 @@ class Family extends BaseFamily implements iPhoto
         }
     }
 
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(ConnectionInterface $con = null): void
     {
         if (!empty($this->getDateLastEdited())) {
             $this->createTimeLineNote('edit');
@@ -397,7 +399,7 @@ class Family extends BaseFamily implements iPhoto
         }
     }
 
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false): array
     {
       $array = (array)parent::toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, $includeForeignObjects);
       $array['FamilyString']=$this->getFamilyString();

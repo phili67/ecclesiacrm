@@ -6,6 +6,8 @@ use EcclesiaCRM\Base\Pledge as BasePledge;
 use Propel\Runtime\Exception\PropelException;
 use Propel\Runtime\Connection\ConnectionInterface;
 
+use Propel\Runtime\Map\TableMap;
+
 /**
  * Skeleton subclass for representing a row from the 'pledge_plg' table.
  *
@@ -17,7 +19,7 @@ use Propel\Runtime\Connection\ConnectionInterface;
  */
 class Pledge extends BasePledge
 {
-    public function preDelete(ConnectionInterface $con = NULL)
+    public function preDelete(ConnectionInterface $con = NULL): bool
     {
       $deposit = DepositQuery::create()->findOneById($this->getDepid());
       
@@ -30,7 +32,7 @@ class Pledge extends BasePledge
       }
     }
     
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false): array
     {
       $array = parent::toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, $includeForeignObjects);
       $family = $this->getFamily();

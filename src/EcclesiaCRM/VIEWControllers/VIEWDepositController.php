@@ -694,6 +694,7 @@ class VIEWDepositController {
         }
         
         // Get the current deposit slip data
+        $dep_Date = '';
         if ($iCurrentDeposit) {
             $deposit = DepositQuery::Create()->findOneById($iCurrentDeposit);
         
@@ -711,6 +712,7 @@ class VIEWDepositController {
             $dep_Type = 'BankDraft';
         }
         
+        $bEnableNonDeductible = false;
         if ($PledgeOrPayment == 'Payment') {
             $bEnableNonDeductible = SystemConfig::getValue('bEnableNonDeductible'); // this could/should be a config parm?  regardless, having a non-deductible amount for a pledge doesn't seem possible
         }

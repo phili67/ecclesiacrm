@@ -230,7 +230,7 @@ namespace EcclesiaCRM
           self::$manager = new ConnectionManagerSingle('main');
           self::$manager->setConfiguration(self::buildConnectionManagerConfig());
           self::$manager->setName('main');
-          self::$serviceContainer->setConnectionManager('main', self::$manager);
+          self::$serviceContainer->setConnectionManager(self::$manager);
           self::$serviceContainer->setDefaultDatasource('main');
 
           // 2. add the second service container
@@ -243,7 +243,7 @@ namespace EcclesiaCRM
           self::$manager2->setConfiguration(self::buildConnectionManagerConfig());
           self::$manager2->setName('pluginstore');
 
-          self::$serviceContainer2->setConnectionManager('pluginstore', self::$manager2);
+          self::$serviceContainer2->setConnectionManager( self::$manager2);
           self::$serviceContainer2->setDefaultDatasource('pluginstore');
 
           // we log everything is ok

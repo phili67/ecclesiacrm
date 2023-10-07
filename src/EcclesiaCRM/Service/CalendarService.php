@@ -284,6 +284,9 @@ class CalendarService
 
                     // stats for each month
                     $month = $evnt->getStart()->format('m');
+                    $freeStats = [];
+                    $realStats = [];
+
 
                     // only for v2/calendar/events/list
                     if ($for_events_list) {
@@ -329,7 +332,6 @@ class CalendarService
 
                         // RETRIEVE THE list of counts associated with the current event
                         // Free Attendance Counts without Attendees
-                        $freeStats = [];
 
                         $eventCounts = EventCountsQuery::Create()
                             ->filterByEvtcntEventid($evnt->getId())

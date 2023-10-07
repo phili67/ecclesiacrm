@@ -18,7 +18,7 @@ use Propel\Runtime\Connection\ConnectionInterface;
  */
 class PluginQuery extends BasePluginQuery
 {
-    protected function preDelete(ConnectionInterface $con)
+    protected function preDelete(ConnectionInterface $con): ?int
     {
         $pluginMenuBarItems = PluginMenuBarQuery::create()->findByPluginName($this->getName());
 

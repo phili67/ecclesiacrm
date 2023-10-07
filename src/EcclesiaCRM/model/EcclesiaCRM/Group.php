@@ -95,23 +95,21 @@ END:VCARD';
         return parent::addPerson2group2roleP2g2r($l);
     }
 
-    public function preSave(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    public function preSave(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
     {
-        MiscUtils::requireUserGroupMembership('bManageGroups');
-        parent::preSave($con);
+        MiscUtils::requireUserGroupMembership('bManageGroups');        
 
-        return true;
+        return parent::preSave($con);;
     }
 
-    public function preUpdate(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    public function preUpdate(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
     {
-        MiscUtils::requireUserGroupMembership('bManageGroups');
-        parent::preUpdate($con);
+        MiscUtils::requireUserGroupMembership('bManageGroups');        
 
-        return true;
+        return parent::preUpdate($con);;
     }
 
-    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');
 
@@ -139,14 +137,12 @@ END:VCARD';
         $persons = Person2group2roleP2g2rQuery::create()->findByGroupId($this->getId());
         if (!is_null($persons)) {
             $persons->delete();
-        }
+        }        
 
-        parent::preDelete($con);
-
-        return true;
+        return parent::preDelete($con);;
     }
 
-    public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');
         $defaultRole = 1;
@@ -167,13 +163,12 @@ END:VCARD';
 
 
         $this->setRoleListId($newListID);
-        $this->setDefaultRole($defaultRole);
-        parent::preInsert($con);
+        $this->setDefaultRole($defaultRole);        
 
-        return true;
+        return parent::preInsert($con);;
     }
 
-    public function postInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    public function postInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null): void
     {
         $optionList = [_('Member')];
         if ($this->isSundaySchool()) {
@@ -241,11 +236,9 @@ END:VCARD';
                 ]
             );
         }
-
-        return true;
     }
 
-    public function postSave(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    public function postSave(\Propel\Runtime\Connection\ConnectionInterface $con = null): void
     {
         if (is_callable('parent::postSave')) {
             parent::postSave($con);
