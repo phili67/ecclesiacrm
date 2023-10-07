@@ -983,7 +983,9 @@ class MailchimpController
             $mailer->IsSMTP();
             $mailer->CharSet = 'UTF-8';
             $mailer->Timeout = intval(SystemConfig::getValue("iSMTPTimeout"));
-            $mailer->Host = SystemConfig::getValue("sSMTPHost");
+            $res = explode(":", SystemConfig::getValue("sSMTPHost"));
+            $mailer->Host = $res[0];
+            $mailer->Port  = intval($res[1]);
             if (SystemConfig::getBooleanValue("bSMTPAuth")) {
                 $mailer->SMTPAuth = true;
                 $result = "<b>SMTP Auth Used</b></br></br>";

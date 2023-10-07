@@ -22,7 +22,9 @@ if (SessionUser::getUser()->isAdmin()) {
     $mail->IsSMTP();
     $mail->CharSet = 'UTF-8';
     $mail->Timeout = intval(SystemConfig::getValue("iSMTPTimeout"));
-    $mail->Host = SystemConfig::getValue("sSMTPHost");
+    $res = explode(":", SystemConfig::getValue("sSMTPHost"));
+    $mail->Host = $res[0];
+    $mail->Port  = intval($res[1]);
     if (SystemConfig::getBooleanValue("bSMTPAuth")) {
         $mail->SMTPAuth = true;
         echo "SMTP Auth Used </br>";
