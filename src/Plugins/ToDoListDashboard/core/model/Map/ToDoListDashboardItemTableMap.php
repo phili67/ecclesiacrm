@@ -33,110 +33,119 @@ class ToDoListDashboardItemTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = 'PluginStore.Map.ToDoListDashboardItemTableMap';
+    public const CLASS_NAME = 'PluginStore.Map.ToDoListDashboardItemTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'pluginstore';
+    public const DATABASE_NAME = 'pluginstore';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'tdl_l_item';
+    public const TABLE_NAME = 'tdl_l_item';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ToDoListDashboardItem';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\PluginStore\\ToDoListDashboardItem';
+    public const OM_CLASS = '\\PluginStore\\ToDoListDashboardItem';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'PluginStore.ToDoListDashboardItem';
+    public const CLASS_DEFAULT = 'PluginStore.ToDoListDashboardItem';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 6;
+    public const NUM_COLUMNS = 6;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 6;
+    public const NUM_HYDRATE_COLUMNS = 6;
 
     /**
      * the column name for the tdl_l_i_id field
      */
-    const COL_TDL_L_I_ID = 'tdl_l_item.tdl_l_i_id';
+    public const COL_TDL_L_I_ID = 'tdl_l_item.tdl_l_i_id';
 
     /**
      * the column name for the tdl_l_i_list field
      */
-    const COL_TDL_L_I_LIST = 'tdl_l_item.tdl_l_i_list';
+    public const COL_TDL_L_I_LIST = 'tdl_l_item.tdl_l_i_list';
 
     /**
      * the column name for the tdl_l_i_checked field
      */
-    const COL_TDL_L_I_CHECKED = 'tdl_l_item.tdl_l_i_checked';
+    public const COL_TDL_L_I_CHECKED = 'tdl_l_item.tdl_l_i_checked';
 
     /**
      * the column name for the tdl_l_i_name field
      */
-    const COL_TDL_L_I_NAME = 'tdl_l_item.tdl_l_i_name';
+    public const COL_TDL_L_I_NAME = 'tdl_l_item.tdl_l_i_name';
 
     /**
      * the column name for the tdl_l_i_date_time field
      */
-    const COL_TDL_L_I_DATE_TIME = 'tdl_l_item.tdl_l_i_date_time';
+    public const COL_TDL_L_I_DATE_TIME = 'tdl_l_item.tdl_l_i_date_time';
 
     /**
      * the column name for the tdl_l_i_place field
      */
-    const COL_TDL_L_I_PLACE = 'tdl_l_item.tdl_l_i_place';
+    public const COL_TDL_L_I_PLACE = 'tdl_l_item.tdl_l_i_place';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Id', 'List', 'Checked', 'Name', 'DateTime', 'Place', ),
-        self::TYPE_CAMELNAME     => array('id', 'list', 'checked', 'name', 'dateTime', 'place', ),
-        self::TYPE_COLNAME       => array(ToDoListDashboardItemTableMap::COL_TDL_L_I_ID, ToDoListDashboardItemTableMap::COL_TDL_L_I_LIST, ToDoListDashboardItemTableMap::COL_TDL_L_I_CHECKED, ToDoListDashboardItemTableMap::COL_TDL_L_I_NAME, ToDoListDashboardItemTableMap::COL_TDL_L_I_DATE_TIME, ToDoListDashboardItemTableMap::COL_TDL_L_I_PLACE, ),
-        self::TYPE_FIELDNAME     => array('tdl_l_i_id', 'tdl_l_i_list', 'tdl_l_i_checked', 'tdl_l_i_name', 'tdl_l_i_date_time', 'tdl_l_i_place', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Id', 'List', 'Checked', 'Name', 'DateTime', 'Place', ],
+        self::TYPE_CAMELNAME     => ['id', 'list', 'checked', 'name', 'dateTime', 'place', ],
+        self::TYPE_COLNAME       => [ToDoListDashboardItemTableMap::COL_TDL_L_I_ID, ToDoListDashboardItemTableMap::COL_TDL_L_I_LIST, ToDoListDashboardItemTableMap::COL_TDL_L_I_CHECKED, ToDoListDashboardItemTableMap::COL_TDL_L_I_NAME, ToDoListDashboardItemTableMap::COL_TDL_L_I_DATE_TIME, ToDoListDashboardItemTableMap::COL_TDL_L_I_PLACE, ],
+        self::TYPE_FIELDNAME     => ['tdl_l_i_id', 'tdl_l_i_list', 'tdl_l_i_checked', 'tdl_l_i_name', 'tdl_l_i_date_time', 'tdl_l_i_place', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Id' => 0, 'List' => 1, 'Checked' => 2, 'Name' => 3, 'DateTime' => 4, 'Place' => 5, ),
-        self::TYPE_CAMELNAME     => array('id' => 0, 'list' => 1, 'checked' => 2, 'name' => 3, 'dateTime' => 4, 'place' => 5, ),
-        self::TYPE_COLNAME       => array(ToDoListDashboardItemTableMap::COL_TDL_L_I_ID => 0, ToDoListDashboardItemTableMap::COL_TDL_L_I_LIST => 1, ToDoListDashboardItemTableMap::COL_TDL_L_I_CHECKED => 2, ToDoListDashboardItemTableMap::COL_TDL_L_I_NAME => 3, ToDoListDashboardItemTableMap::COL_TDL_L_I_DATE_TIME => 4, ToDoListDashboardItemTableMap::COL_TDL_L_I_PLACE => 5, ),
-        self::TYPE_FIELDNAME     => array('tdl_l_i_id' => 0, 'tdl_l_i_list' => 1, 'tdl_l_i_checked' => 2, 'tdl_l_i_name' => 3, 'tdl_l_i_date_time' => 4, 'tdl_l_i_place' => 5, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Id' => 0, 'List' => 1, 'Checked' => 2, 'Name' => 3, 'DateTime' => 4, 'Place' => 5, ],
+        self::TYPE_CAMELNAME     => ['id' => 0, 'list' => 1, 'checked' => 2, 'name' => 3, 'dateTime' => 4, 'place' => 5, ],
+        self::TYPE_COLNAME       => [ToDoListDashboardItemTableMap::COL_TDL_L_I_ID => 0, ToDoListDashboardItemTableMap::COL_TDL_L_I_LIST => 1, ToDoListDashboardItemTableMap::COL_TDL_L_I_CHECKED => 2, ToDoListDashboardItemTableMap::COL_TDL_L_I_NAME => 3, ToDoListDashboardItemTableMap::COL_TDL_L_I_DATE_TIME => 4, ToDoListDashboardItemTableMap::COL_TDL_L_I_PLACE => 5, ],
+        self::TYPE_FIELDNAME     => ['tdl_l_i_id' => 0, 'tdl_l_i_list' => 1, 'tdl_l_i_checked' => 2, 'tdl_l_i_name' => 3, 'tdl_l_i_date_time' => 4, 'tdl_l_i_place' => 5, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, ]
+    ];
 
     /**
      * Holds a list of column names and their normalized version.
      *
-     * @var string[]
+     * @var array<string>
      */
     protected $normalizedColumnNameMap = [
         'Id' => 'TDL_L_I_ID',
@@ -194,9 +203,9 @@ class ToDoListDashboardItemTableMap extends TableMap
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('tdl_l_item');
@@ -212,14 +221,16 @@ class ToDoListDashboardItemTableMap extends TableMap
         $this->addColumn('tdl_l_i_name', 'Name', 'VARCHAR', true, 255, '');
         $this->addColumn('tdl_l_i_date_time', 'DateTime', 'TIMESTAMP', false, null, null);
         $this->addColumn('tdl_l_i_place', 'Place', 'SMALLINT', false, null, 0);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -227,14 +238,14 @@ class ToDoListDashboardItemTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Id', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -249,14 +260,14 @@ class ToDoListDashboardItemTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
             $indexType == TableMap::TYPE_NUM
@@ -273,10 +284,10 @@ class ToDoListDashboardItemTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ToDoListDashboardItemTableMap::CLASS_DEFAULT : ToDoListDashboardItemTableMap::OM_CLASS;
     }
@@ -284,17 +295,17 @@ class ToDoListDashboardItemTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ToDoListDashboardItem object, last column rank)
+     * @return array (ToDoListDashboardItem object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ToDoListDashboardItemTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ToDoListDashboardItemTableMap::getInstanceFromPool($key))) {
@@ -310,7 +321,7 @@ class ToDoListDashboardItemTableMap extends TableMap
             ToDoListDashboardItemTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -318,13 +329,13 @@ class ToDoListDashboardItemTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -354,12 +365,13 @@ class ToDoListDashboardItemTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ToDoListDashboardItemTableMap::COL_TDL_L_I_ID);
@@ -384,12 +396,13 @@ class ToDoListDashboardItemTableMap extends TableMap
      * Note: any columns that were marked with lazyLoad="true" in the
      * XML schema will not be removed as they are only loaded on demand.
      *
-     * @param Criteria $criteria object containing the columns to remove.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function removeSelectColumns(Criteria $criteria, $alias = null)
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->removeSelectColumn(ToDoListDashboardItemTableMap::COL_TDL_L_I_ID);
@@ -412,10 +425,10 @@ class ToDoListDashboardItemTableMap extends TableMap
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ToDoListDashboardItemTableMap::DATABASE_NAME)->getTable(ToDoListDashboardItemTableMap::TABLE_NAME);
     }
@@ -423,15 +436,15 @@ class ToDoListDashboardItemTableMap extends TableMap
     /**
      * Performs a DELETE on the database, given a ToDoListDashboardItem or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ToDoListDashboardItem object or primary key or array of primary keys
+     * @param mixed $values Criteria or ToDoListDashboardItem object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ToDoListDashboardItemTableMap::DATABASE_NAME);
@@ -467,7 +480,7 @@ class ToDoListDashboardItemTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ToDoListDashboardItemQuery::create()->doDeleteAll($con);
     }
@@ -475,13 +488,13 @@ class ToDoListDashboardItemTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ToDoListDashboardItem or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ToDoListDashboardItem object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ToDoListDashboardItem object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ToDoListDashboardItemTableMap::DATABASE_NAME);
@@ -508,4 +521,4 @@ class ToDoListDashboardItemTableMap extends TableMap
         });
     }
 
-} // ToDoListDashboardItemTableMap
+}
