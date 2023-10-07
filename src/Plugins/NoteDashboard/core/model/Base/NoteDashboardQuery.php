@@ -10,14 +10,12 @@ use PluginStore\Map\NoteDashboardTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'NoteDashboard_nd' table.
- *
- *
+ * Base class that represents a query for the `NoteDashboard_nd` table.
  *
  * @method     ChildNoteDashboardQuery orderById($order = Criteria::ASC) Order by the nd_id column
  * @method     ChildNoteDashboardQuery orderByUserId($order = Criteria::ASC) Order by the nd_user_id column
@@ -35,31 +33,32 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteDashboardQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildNoteDashboardQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildNoteDashboard|null findOne(ConnectionInterface $con = null) Return the first ChildNoteDashboard matching the query
- * @method     ChildNoteDashboard findOneOrCreate(ConnectionInterface $con = null) Return the first ChildNoteDashboard matching the query, or a new ChildNoteDashboard object populated from the query conditions when no match is found
+ * @method     ChildNoteDashboard|null findOne(?ConnectionInterface $con = null) Return the first ChildNoteDashboard matching the query
+ * @method     ChildNoteDashboard findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildNoteDashboard matching the query, or a new ChildNoteDashboard object populated from the query conditions when no match is found
  *
  * @method     ChildNoteDashboard|null findOneById(int $nd_id) Return the first ChildNoteDashboard filtered by the nd_id column
  * @method     ChildNoteDashboard|null findOneByUserId(int $nd_user_id) Return the first ChildNoteDashboard filtered by the nd_user_id column
- * @method     ChildNoteDashboard|null findOneByNote(string $nd_note) Return the first ChildNoteDashboard filtered by the nd_note column *
-
- * @method     ChildNoteDashboard requirePk($key, ConnectionInterface $con = null) Return the ChildNoteDashboard by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteDashboard requireOne(ConnectionInterface $con = null) Return the first ChildNoteDashboard matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteDashboard|null findOneByNote(string $nd_note) Return the first ChildNoteDashboard filtered by the nd_note column
+ *
+ * @method     ChildNoteDashboard requirePk($key, ?ConnectionInterface $con = null) Return the ChildNoteDashboard by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteDashboard requireOne(?ConnectionInterface $con = null) Return the first ChildNoteDashboard matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildNoteDashboard requireOneById(int $nd_id) Return the first ChildNoteDashboard filtered by the nd_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteDashboard requireOneByUserId(int $nd_user_id) Return the first ChildNoteDashboard filtered by the nd_user_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteDashboard requireOneByNote(string $nd_note) Return the first ChildNoteDashboard filtered by the nd_note column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildNoteDashboard[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildNoteDashboard objects based on current ModelCriteria
- * @psalm-method ObjectCollection&\Traversable<ChildNoteDashboard> find(ConnectionInterface $con = null) Return ChildNoteDashboard objects based on current ModelCriteria
- * @method     ChildNoteDashboard[]|ObjectCollection findById(int $nd_id) Return ChildNoteDashboard objects filtered by the nd_id column
- * @psalm-method ObjectCollection&\Traversable<ChildNoteDashboard> findById(int $nd_id) Return ChildNoteDashboard objects filtered by the nd_id column
- * @method     ChildNoteDashboard[]|ObjectCollection findByUserId(int $nd_user_id) Return ChildNoteDashboard objects filtered by the nd_user_id column
- * @psalm-method ObjectCollection&\Traversable<ChildNoteDashboard> findByUserId(int $nd_user_id) Return ChildNoteDashboard objects filtered by the nd_user_id column
- * @method     ChildNoteDashboard[]|ObjectCollection findByNote(string $nd_note) Return ChildNoteDashboard objects filtered by the nd_note column
- * @psalm-method ObjectCollection&\Traversable<ChildNoteDashboard> findByNote(string $nd_note) Return ChildNoteDashboard objects filtered by the nd_note column
- * @method     ChildNoteDashboard[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
- * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildNoteDashboard> paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildNoteDashboard[]|Collection find(?ConnectionInterface $con = null) Return ChildNoteDashboard objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildNoteDashboard> find(?ConnectionInterface $con = null) Return ChildNoteDashboard objects based on current ModelCriteria
  *
+ * @method     ChildNoteDashboard[]|Collection findById(int|array<int> $nd_id) Return ChildNoteDashboard objects filtered by the nd_id column
+ * @psalm-method Collection&\Traversable<ChildNoteDashboard> findById(int|array<int> $nd_id) Return ChildNoteDashboard objects filtered by the nd_id column
+ * @method     ChildNoteDashboard[]|Collection findByUserId(int|array<int> $nd_user_id) Return ChildNoteDashboard objects filtered by the nd_user_id column
+ * @psalm-method Collection&\Traversable<ChildNoteDashboard> findByUserId(int|array<int> $nd_user_id) Return ChildNoteDashboard objects filtered by the nd_user_id column
+ * @method     ChildNoteDashboard[]|Collection findByNote(string|array<string> $nd_note) Return ChildNoteDashboard objects filtered by the nd_note column
+ * @psalm-method Collection&\Traversable<ChildNoteDashboard> findByNote(string|array<string> $nd_note) Return ChildNoteDashboard objects filtered by the nd_note column
+ *
+ * @method     ChildNoteDashboard[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildNoteDashboard> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class NoteDashboardQuery extends ModelCriteria
 {
@@ -68,9 +67,9 @@ abstract class NoteDashboardQuery extends ModelCriteria
     /**
      * Initializes internal state of \PluginStore\Base\NoteDashboardQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'pluginstore', $modelName = '\\PluginStore\\NoteDashboard', $modelAlias = null)
     {
@@ -80,12 +79,12 @@ abstract class NoteDashboardQuery extends ModelCriteria
     /**
      * Returns a new ChildNoteDashboardQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildNoteDashboardQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildNoteDashboardQuery) {
             return $criteria;
@@ -115,7 +114,7 @@ abstract class NoteDashboardQuery extends ModelCriteria
      *
      * @return ChildNoteDashboard|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -147,8 +146,8 @@ abstract class NoteDashboardQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -180,8 +179,8 @@ abstract class NoteDashboardQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildNoteDashboard|array|mixed the result, formatted by the current formatter
      */
@@ -201,12 +200,12 @@ abstract class NoteDashboardQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -223,27 +222,31 @@ abstract class NoteDashboardQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildNoteDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(NoteDashboardTableMap::COL_ND_ID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(NoteDashboardTableMap::COL_ND_ID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildNoteDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(NoteDashboardTableMap::COL_ND_ID, $keys, Criteria::IN);
+        $this->addUsingAlias(NoteDashboardTableMap::COL_ND_ID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -256,15 +259,15 @@ abstract class NoteDashboardQuery extends ModelCriteria
      * $query->filterById(array('min' => 12)); // WHERE nd_id > 12
      * </code>
      *
-     * @param     mixed $id The value to use as filter.
+     * @param mixed $id The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterById($id = null, $comparison = null)
+    public function filterById($id = null, ?string $comparison = null)
     {
         if (is_array($id)) {
             $useMinMax = false;
@@ -284,7 +287,9 @@ abstract class NoteDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteDashboardTableMap::COL_ND_ID, $id, $comparison);
+        $this->addUsingAlias(NoteDashboardTableMap::COL_ND_ID, $id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -297,15 +302,15 @@ abstract class NoteDashboardQuery extends ModelCriteria
      * $query->filterByUserId(array('min' => 12)); // WHERE nd_user_id > 12
      * </code>
      *
-     * @param     mixed $userId The value to use as filter.
+     * @param mixed $userId The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUserId($userId = null, $comparison = null)
+    public function filterByUserId($userId = null, ?string $comparison = null)
     {
         if (is_array($userId)) {
             $useMinMax = false;
@@ -325,7 +330,9 @@ abstract class NoteDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteDashboardTableMap::COL_ND_USER_ID, $userId, $comparison);
+        $this->addUsingAlias(NoteDashboardTableMap::COL_ND_USER_ID, $userId, $comparison);
+
+        return $this;
     }
 
     /**
@@ -335,14 +342,15 @@ abstract class NoteDashboardQuery extends ModelCriteria
      * <code>
      * $query->filterByNote('fooValue');   // WHERE nd_note = 'fooValue'
      * $query->filterByNote('%fooValue%', Criteria::LIKE); // WHERE nd_note LIKE '%fooValue%'
+     * $query->filterByNote(['foo', 'bar']); // WHERE nd_note IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $note The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $note The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNote($note = null, $comparison = null)
+    public function filterByNote($note = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($note)) {
@@ -350,15 +358,17 @@ abstract class NoteDashboardQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteDashboardTableMap::COL_ND_NOTE, $note, $comparison);
+        $this->addUsingAlias(NoteDashboardTableMap::COL_ND_NOTE, $note, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildNoteDashboard $noteDashboard Object to remove from the list of results
+     * @param ChildNoteDashboard $noteDashboard Object to remove from the list of results
      *
-     * @return $this|ChildNoteDashboardQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($noteDashboard = null)
     {
@@ -375,7 +385,7 @@ abstract class NoteDashboardQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NoteDashboardTableMap::DATABASE_NAME);
@@ -400,12 +410,12 @@ abstract class NoteDashboardQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NoteDashboardTableMap::DATABASE_NAME);
@@ -430,4 +440,4 @@ abstract class NoteDashboardQuery extends ModelCriteria
         });
     }
 
-} // NoteDashboardQuery
+}
