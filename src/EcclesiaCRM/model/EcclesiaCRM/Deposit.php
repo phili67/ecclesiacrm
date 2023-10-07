@@ -506,7 +506,7 @@ class Deposit extends BaseDeposit
         return $funds;
     }
 
-    public function getPledgesJoinAll(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPledgesJoinAll(Criteria $criteria = null, \Propel\Runtime\Connection\ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPledgeQuery::create(null, $criteria);
         $query->joinWith('Family', Criteria::RIGHT_JOIN);
