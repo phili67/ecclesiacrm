@@ -2,20 +2,19 @@
 
 namespace EcclesiaCRM;
 
-use EcclesiaCRM\calendarInstance;
 use EcclesiaCRM\Base\Group as BaseGroup;
 use EcclesiaCRM\Person2group2roleP2g2r as ChildPerson2group2roleP2g2r;
-use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use Sabre\CalDAV;
 use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\DAV\PropPatch;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\CardDavPDO;
+
+use Sabre\DAV\PropPatch;
 
 
 /**
@@ -114,14 +113,16 @@ END:VCARD';
         MiscUtils::requireUserGroupMembership('bManageGroups');
 
         // we first delete the calendar
-        $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId($this->getId());
+        $calendarInstances = CalendarinstancesQuery::Create()->findByGroupId($this->getId());
 
         // We set the BackEnd for sabre Backends
         $calendarBackend = new CalDavPDO();
         $carddavBackend = new CardDavPDO();
 
         // we delete the calendar
-        $calendarBackend->deleteCalendar([$calendarInstance->getCalendarid(), $calendarInstance->getId()]);
+        foreach ($calendarInstances as $calendarInstance) {
+            $calendarBackend->deleteCalendar([$calendarInstance->getCalendarid(), $calendarInstance->getId()]);
+        }
 
         // we delete the address book
         $addressbook = $carddavBackend->getAddressBookForGroup($this->getId());
@@ -312,5 +313,32 @@ END:VCARD';
         }
 
         return false;
+    }
+
+    public function setName($name)
+    {
+        // we first delete the calendar
+        $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId($this->getId());
+
+        if (!is_null($calendarInstance) ) {
+
+            // We set the BackEnd for sabre Backends
+            $calendarInstances = CalendarinstancesQuery::Create()->findByGroupId($this->getId());
+
+            $calendarBackend = new CalDavPDO();
+
+            foreach ($calendarInstances as $calendarInstance) {
+                // Updating the calendar
+                $propPatch = new PropPatch([
+                    '{DAV:}displayname' => $name
+                ]);
+
+                $calendarBackend->updateCalendar([$calendarInstance->getCalendarid(), $calendarInstance->getId()], $propPatch);
+
+                $result = $propPatch->commit();
+            }
+        }
+
+        parent::setName($name);
     }
 }
