@@ -1027,7 +1027,7 @@ class CalendarService
                     );
                     return ["status" => "success"];
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 // in this case we change only the date
                 $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
 
@@ -1086,7 +1086,7 @@ class CalendarService
         $uuid = $vcalendar->VEVENT->UID;
 
         unset($vcalendar->VEVENT);
-        if (!empty($input->recurrenceValid)) {
+        if (!empty($recurrenceValid)) {
             $vevent = [
                 'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
                 'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
@@ -1096,7 +1096,7 @@ class CalendarService
                 'DESCRIPTION' => $EventDesc,
                 'SUMMARY' => $EventTitle,
                 'UID' => $uuid,//'CE4306F2-8CC0-41DF-A971-1ED88AC208C7',// attention tout est en majuscules
-                'RRULE' => $input->recurrenceType . ';' . 'UNTIL=' . (new \DateTime($endrecurrence))->format('Ymd\THis'),
+                'RRULE' => $recurrenceType . ';' . 'UNTIL=' . (new \DateTime($endrecurrence))->format('Ymd\THis'),
                 'SEQUENCE' => '0',
                 'LOCATION' => $location,
                 'TRANSP' => 'OPAQUE',
@@ -1107,7 +1107,7 @@ class CalendarService
             // this part allows to create a resource without being in collision on another one
             if ($calendarBackend->isCalendarResource($calIDs)
                 and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
-                    $calIDs, $start, $end, $eventID, $input->recurrenceType, $endrecurrence)) {
+                    $calIDs, $start, $end, $eventID, $recurrenceType, $endrecurrence)) {
 
                 return ["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")];
             }

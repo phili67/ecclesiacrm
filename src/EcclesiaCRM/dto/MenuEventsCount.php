@@ -80,7 +80,7 @@ class MenuEventsCount
                     $count += count($newVCalendar->VEVENT);
                 }
 
-                if (!is_null($newVCalendar->VEVENT)) {
+                if (!is_null($newVCalendar->VEVENT) and !is_null($newVCalendar->VEVENT->VALARM)) {
                     foreach ($newVCalendar->VEVENT->VALARM as $alarm) {
                         $attr = $alarm->children();
                         foreach ($attr as $attrInfo) {

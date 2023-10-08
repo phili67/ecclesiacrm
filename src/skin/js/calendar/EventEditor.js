@@ -496,6 +496,10 @@ function addCalendars(calendarId, attendees) {
         calendarId = [0, 0];
     }
 
+    if (typeof calendarId == 'string') {
+        calendarId = calendarId.split(',').map(Number);
+    }
+
     let calAttendees = true;
 
     if (typeof attendees === 'undefined') {
@@ -527,15 +531,13 @@ function addCalendars(calendarId, attendees) {
                 option.value = calendars[i].calendarID;
                 option.setAttribute("data-calendar-id", calendars[i].grpid);
 
-                var aCalendarId = calendars[i].calendarID.split(",");
+                var aCalendarId = calendars[i].calendarID.split(",").map(Number);;
 
-                if (calendarId[0] == Number(aCalendarId[0])) {
+                if ( calendarId[0] == aCalendarId[0] ) {
                     option.setAttribute('selected', 'selected');
                 }
 
                 elt.appendChild(option);
-
-
             }
         }
 

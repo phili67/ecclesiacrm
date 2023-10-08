@@ -413,7 +413,9 @@ class PeopleAttendeesController
     {
         $requestValues = (object)$request->getParsedBody();
 
-        if (isset ($requestValues->eventTypeID) && isset ($requestValues->groupID) && isset($requestValues->rangeInHourseventTypeID) && isset ($requestValues->groupID) && isset($requestValues->rangeInHours)) {
+        if ( isset ($requestValues->eventTypeID) 
+            && isset ($requestValues->groupID)             
+            && isset ($requestValues->groupID) ) {
             $group = GroupQuery::Create()
                 ->findOneById($requestValues->groupID);
 
