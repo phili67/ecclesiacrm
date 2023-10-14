@@ -531,7 +531,7 @@ function addCalendars(calendarId, attendees) {
                 option.value = calendars[i].calendarID;
                 option.setAttribute("data-calendar-id", calendars[i].grpid);
 
-                var aCalendarId = calendars[i].calendarID.split(",").map(Number);;
+                var aCalendarId = calendars[i].calendarID.split(",").map(Number);
 
                 if ( calendarId[0] == aCalendarId[0] ) {
                     option.setAttribute('selected', 'selected');
