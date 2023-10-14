@@ -64,7 +64,8 @@ class PDF_Label extends ChurchInfoReportTCPDF
     // List of all Avery formats
     public $_Avery_Labels = [
         'Tractor'=> ['name'=>'Tractor', 'paper-size'=>'letter', 'metric'=>'mm', 'marginLeft'=>6.5, 'marginTop'=>5, 'NX'=>1, 'NY'=>10, 'SpaceX'=>3.175, 'SpaceY'=>0, 'width'=>120, 'height'=>26.5, 'font-size'=>12],
-        'Badge'  => ['name'=>'Badge',   'paper-size'=>'A4',     'metric'=>'mm', 'marginLeft'=>1, 'marginTop'=>11.5, 'NX'=>3, 'NY'=>6, 'SpaceX'=>2, 'SpaceY'=>1, 'width'=>70, 'height'=>40, 'font-size'=>11],
+        'Badge'  => ['name'=>'Badge',   'paper-size'=>'A4',     'metric'=>'mm', 'marginLeft'=>6.5, 'marginTop'=>11.5, 'NX'=>2, 'NY'=>5, 'SpaceX'=>2, 'SpaceY'=>1, 'width'=>70, 'height'=>40, 'font-size'=>11],
+        'Badge2' => ['name'=>'Badge2',  'paper-size'=>'A4',     'metric'=>'mm', 'marginLeft'=>6.5, 'marginTop'=>11.5, 'NX'=>2, 'NY'=>5, 'SpaceX'=>2, 'SpaceY'=>1, 'width'=>77, 'height'=>48, 'font-size'=>11],
         '3670'   => ['name'=>'3670',    'paper-size'=>'A4',     'metric'=>'mm', 'marginLeft'=>6, 'marginTop'=>12, 'NX'=>3, 'NY'=>8, 'SpaceX'=>3, 'SpaceY'=>0, 'width'=>64, 'height'=>34, 'font-size'=>11],
         '5160'   => ['name'=>'5160',    'paper-size'=>'letter', 'metric'=>'mm', 'marginLeft'=>4, 'marginTop'=>11.5, 'NX'=>3, 'NY'=>10, 'SpaceX'=>3.175, 'SpaceY'=>0, 'width'=>66.675, 'height'=>25.4, 'font-size'=>11],
         '5161'   => ['name'=>'5161',    'paper-size'=>'letter', 'metric'=>'mm', 'marginLeft'=>1, 'marginTop'=>10.7, 'NX'=>2, 'NY'=>10, 'SpaceX'=>3.967, 'SpaceY'=>0, 'width'=>101.6, 'height'=>25.4, 'font-size'=>11],
@@ -73,8 +74,8 @@ class PDF_Label extends ChurchInfoReportTCPDF
         '5164'   => ['name'=>'5164',    'paper-size'=>'letter', 'metric'=>'in', 'marginLeft'=>0.148, 'marginTop'=>0.5, 'NX'=>2, 'NY'=>3, 'SpaceX'=>0.2031, 'SpaceY'=>0, 'width'=>4.0, 'height'=>3.33, 'font-size'=>12],
         '8600'   => ['name'=>'8600',    'paper-size'=>'letter', 'metric'=>'mm', 'marginLeft'=>7.1, 'marginTop'=>19, 'NX'=>3, 'NY'=>10, 'SpaceX'=>9.5, 'SpaceY'=>3.1, 'width'=>66.6, 'height'=>25.4, 'font-size'=>8],
         '74536'  => ['name'=>'74536(name tags)', 'paper-size'=>'letter', 'metric'=>'mm', 'marginLeft'=>7.0, 'marginTop'=>25, 'NX'=>2, 'NY'=>3, 'SpaceX'=>0, 'SpaceY'=>0, 'width'=>102, 'height'=>76, 'font-size'=>18],
-        'L7163'  => ['name'=>'L7163', 'paper-size'=>'A4',      'metric'=>'mm', 'marginLeft'=>5, 'marginTop'=>15, 'NX'=>2, 'NY'=>7, 'SpaceX'=>2.5, 'SpaceY'=>0, 'width'=>99.1, 'height'=>38.1, 'font-size'=>10],
-        'C32019' => ['name'=>'C32019', 'paper-size'=>'A4',     'metric'=>'mm', 'marginLeft'=>15, 'marginTop'=>12, 'NX'=>2, 'NY'=>5, 'SpaceX'=>10.5, 'SpaceY'=>0, 'width'=>85, 'height'=>54, 'font-size'=>11],
+        'L7163'  => ['name'=>'L7163',   'paper-size'=>'A4',      'metric'=>'mm', 'marginLeft'=>5, 'marginTop'=>15, 'NX'=>2, 'NY'=>7, 'SpaceX'=>2.5, 'SpaceY'=>0, 'width'=>99.1, 'height'=>38.1, 'font-size'=>10],
+        'C32019' => ['name'=>'C32019',  'paper-size'=>'A4',     'metric'=>'mm', 'marginLeft'=>15, 'marginTop'=>12, 'NX'=>2, 'NY'=>5, 'SpaceX'=>10.5, 'SpaceY'=>0, 'width'=>85, 'height'=>54, 'font-size'=>11]
     ];
 
     // convert units (in to mm, mm to in)
