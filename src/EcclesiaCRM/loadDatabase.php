@@ -1,39 +1,153 @@
 <?php
-/*
-*  This code is under copyright not under MIT Licence
-*  copyright   : 2022 Philippe Logel all right reserved not MIT licence
-*                Last update 2022-02-08
-*                This code cannot be included in another application without authorization
-*
-*/
-
 $serviceContainer = \Propel\Runtime\Propel::getServiceContainer();
-
-$files = scandir(__DIR__ . "/model/EcclesiaCRM/Map");
-
-$array = ["main" => [], "pluginstore" => []];
-
-foreach ($files as $file) {
-    if (!in_array($file, [".", ".."])) {
-        $array["main"][] = '\\EcclesiaCRM\\Map\\' . str_replace(".php", "", $file);
-    }
-}
-
-// we loop for all the Plugins directory to find map files
-/*$plugins = scandir(__DIR__ . "/../Plugins/");
-
-foreach ($plugins as $plugin) {
-    if (!in_array($plugin, [".", ".."]) and $plugin != "") {
-        if (file_exists(__DIR__ . "/../Plugins/" . $plugin . "/model/Map/")) {
-            $files = scandir(__DIR__ . "/../Plugins/" . $plugin . "/model/Map/");
-
-            foreach ($files as $file) {
-                if (!in_array($file, [".", ".."])) {
-                    $array["pluginstore"][] = "\\PluginStore\\Map\\" . str_replace(".php", "", $file);
-                }
-            }
-        }
-    }
-}*/
-
-$serviceContainer->initDatabaseMaps($array);
+$serviceContainer->initDatabaseMapFromDumps(array (
+  'main' => 
+  array (
+    'tablesByName' => 
+    array (
+      'addressbookchanges' => '\\EcclesiaCRM\\Map\\AddressbookchangesTableMap',
+      'addressbooks' => '\\EcclesiaCRM\\Map\\AddressbooksTableMap',
+      'addressbookshare' => '\\EcclesiaCRM\\Map\\AddressbookshareTableMap',
+      'autopayment_aut' => '\\EcclesiaCRM\\Map\\AutoPaymentTableMap',
+      'calendarchanges' => '\\EcclesiaCRM\\Map\\CalendarchangesTableMap',
+      'calendarinstances' => '\\EcclesiaCRM\\Map\\CalendarinstancesTableMap',
+      'calendars' => '\\EcclesiaCRM\\Map\\CalendarsTableMap',
+      'calendarsubscriptions' => '\\EcclesiaCRM\\Map\\CalendarsubscriptionsTableMap',
+      'canvassdata_can' => '\\EcclesiaCRM\\Map\\CanvassDataTableMap',
+      'cards' => '\\EcclesiaCRM\\Map\\CardsTableMap',
+      'ckeditor_templates' => '\\EcclesiaCRM\\Map\\CKEditorTemplatesTableMap',
+      'config_cfg' => '\\EcclesiaCRM\\Map\\ConfigTableMap',
+      'deposit_dep' => '\\EcclesiaCRM\\Map\\DepositTableMap',
+      'donateditem_di' => '\\EcclesiaCRM\\Map\\DonatedItemTableMap',
+      'donationfund_fun' => '\\EcclesiaCRM\\Map\\DonationFundTableMap',
+      'egive_egv' => '\\EcclesiaCRM\\Map\\EgiveTableMap',
+      'email_message_pending_emp' => '\\EcclesiaCRM\\Map\\EmailMessagePendingTableMap',
+      'email_recipient_pending_erp' => '\\EcclesiaCRM\\Map\\EmailRecipientPendingTableMap',
+      'event_attend' => '\\EcclesiaCRM\\Map\\EventAttendTableMap',
+      'event_types' => '\\EcclesiaCRM\\Map\\EventTypesTableMap',
+      'eventcountnames_evctnm' => '\\EcclesiaCRM\\Map\\EventCountNameTableMap',
+      'eventcounts_evtcnt' => '\\EcclesiaCRM\\Map\\EventCountsTableMap',
+      'events_event' => '\\EcclesiaCRM\\Map\\EventTableMap',
+      'family_custom' => '\\EcclesiaCRM\\Map\\FamilyCustomTableMap',
+      'family_custom_master' => '\\EcclesiaCRM\\Map\\FamilyCustomMasterTableMap',
+      'family_fam' => '\\EcclesiaCRM\\Map\\FamilyTableMap',
+      'fundraiser_fr' => '\\EcclesiaCRM\\Map\\FundRaiserTableMap',
+      'gdpr_infos' => '\\EcclesiaCRM\\Map\\GdprInfoTableMap',
+      'group_grp' => '\\EcclesiaCRM\\Map\\GroupTableMap',
+      'group_manager_person' => '\\EcclesiaCRM\\Map\\GroupManagerPersonTableMap',
+      'group_type' => '\\EcclesiaCRM\\Map\\GroupTypeTableMap',
+      'groupmembers' => '\\EcclesiaCRM\\Map\\GroupmembersTableMap',
+      'groupprop_master' => '\\EcclesiaCRM\\Map\\GroupPropMasterTableMap',
+      'kioskassginment_kasm' => '\\EcclesiaCRM\\Map\\KioskAssignmentTableMap',
+      'kioskdevice_kdev' => '\\EcclesiaCRM\\Map\\KioskDeviceTableMap',
+      'list_icon' => '\\EcclesiaCRM\\Map\\ListOptionIconTableMap',
+      'list_lst' => '\\EcclesiaCRM\\Map\\ListOptionTableMap',
+      'locks' => '\\EcclesiaCRM\\Map\\LocksTableMap',
+      'menu_links' => '\\EcclesiaCRM\\Map\\MenuLinkTableMap',
+      'multibuy_mb' => '\\EcclesiaCRM\\Map\\MultibuyTableMap',
+      'note_nte' => '\\EcclesiaCRM\\Map\\NoteTableMap',
+      'note_nte_share' => '\\EcclesiaCRM\\Map\\NoteShareTableMap',
+      'paddlenum_pn' => '\\EcclesiaCRM\\Map\\PaddleNumTableMap',
+      'pastoral_care' => '\\EcclesiaCRM\\Map\\PastoralCareTableMap',
+      'pastoral_care_type' => '\\EcclesiaCRM\\Map\\PastoralCareTypeTableMap',
+      'person2group2role_p2g2r' => '\\EcclesiaCRM\\Map\\Person2group2roleP2g2rTableMap',
+      'person2volunteeropp_p2vo' => '\\EcclesiaCRM\\Map\\PersonVolunteerOpportunityTableMap',
+      'person_custom' => '\\EcclesiaCRM\\Map\\PersonCustomTableMap',
+      'person_custom_master' => '\\EcclesiaCRM\\Map\\PersonCustomMasterTableMap',
+      'person_per' => '\\EcclesiaCRM\\Map\\PersonTableMap',
+      'pledge_plg' => '\\EcclesiaCRM\\Map\\PledgeTableMap',
+      'plugin' => '\\EcclesiaCRM\\Map\\PluginTableMap',
+      'plugin_menu_bar' => '\\EcclesiaCRM\\Map\\PluginMenuBarTableMap',
+      'plugin_user_role' => '\\EcclesiaCRM\\Map\\PluginUserRoleTableMap',
+      'principals' => '\\EcclesiaCRM\\Map\\PrincipalsTableMap',
+      'property_pro' => '\\EcclesiaCRM\\Map\\PropertyTableMap',
+      'propertystorage' => '\\EcclesiaCRM\\Map\\PropertystorageTableMap',
+      'propertytype_prt' => '\\EcclesiaCRM\\Map\\PropertyTypeTableMap',
+      'queryparameters_qrp' => '\\EcclesiaCRM\\Map\\QueryParametersTableMap',
+      'record2property_r2p' => '\\EcclesiaCRM\\Map\\Record2propertyR2pTableMap',
+      'schedulingobjects' => '\\EcclesiaCRM\\Map\\SchedulingobjectsTableMap',
+      'send_news_letter_user_update' => '\\EcclesiaCRM\\Map\\SendNewsLetterUserUpdateTableMap',
+      'tokens' => '\\EcclesiaCRM\\Map\\TokenTableMap',
+      'tokens_password' => '\\EcclesiaCRM\\Map\\TokenPasswordTableMap',
+      'user_usr' => '\\EcclesiaCRM\\Map\\UserTableMap',
+      'userconfig_choices_ucfg_ch' => '\\EcclesiaCRM\\Map\\UserConfigChoicesTableMap',
+      'userconfig_ucfg' => '\\EcclesiaCRM\\Map\\UserConfigTableMap',
+      'userrole_usrrol' => '\\EcclesiaCRM\\Map\\UserRoleTableMap',
+      'version_ver' => '\\EcclesiaCRM\\Map\\VersionTableMap',
+      'volunteeropportunity_vol' => '\\EcclesiaCRM\\Map\\VolunteerOpportunityTableMap',
+    ),
+    'tablesByPhpName' => 
+    array (
+      '\\Addressbookchanges' => '\\EcclesiaCRM\\Map\\AddressbookchangesTableMap',
+      '\\Addressbooks' => '\\EcclesiaCRM\\Map\\AddressbooksTableMap',
+      '\\Addressbookshare' => '\\EcclesiaCRM\\Map\\AddressbookshareTableMap',
+      '\\AutoPayment' => '\\EcclesiaCRM\\Map\\AutoPaymentTableMap',
+      '\\CKEditorTemplates' => '\\EcclesiaCRM\\Map\\CKEditorTemplatesTableMap',
+      '\\Calendarchanges' => '\\EcclesiaCRM\\Map\\CalendarchangesTableMap',
+      '\\Calendarinstances' => '\\EcclesiaCRM\\Map\\CalendarinstancesTableMap',
+      '\\Calendars' => '\\EcclesiaCRM\\Map\\CalendarsTableMap',
+      '\\Calendarsubscriptions' => '\\EcclesiaCRM\\Map\\CalendarsubscriptionsTableMap',
+      '\\CanvassData' => '\\EcclesiaCRM\\Map\\CanvassDataTableMap',
+      '\\Cards' => '\\EcclesiaCRM\\Map\\CardsTableMap',
+      '\\Config' => '\\EcclesiaCRM\\Map\\ConfigTableMap',
+      '\\Deposit' => '\\EcclesiaCRM\\Map\\DepositTableMap',
+      '\\DonatedItem' => '\\EcclesiaCRM\\Map\\DonatedItemTableMap',
+      '\\DonationFund' => '\\EcclesiaCRM\\Map\\DonationFundTableMap',
+      '\\Egive' => '\\EcclesiaCRM\\Map\\EgiveTableMap',
+      '\\EmailMessagePending' => '\\EcclesiaCRM\\Map\\EmailMessagePendingTableMap',
+      '\\EmailRecipientPending' => '\\EcclesiaCRM\\Map\\EmailRecipientPendingTableMap',
+      '\\Event' => '\\EcclesiaCRM\\Map\\EventTableMap',
+      '\\EventAttend' => '\\EcclesiaCRM\\Map\\EventAttendTableMap',
+      '\\EventCountName' => '\\EcclesiaCRM\\Map\\EventCountNameTableMap',
+      '\\EventCounts' => '\\EcclesiaCRM\\Map\\EventCountsTableMap',
+      '\\EventTypes' => '\\EcclesiaCRM\\Map\\EventTypesTableMap',
+      '\\Family' => '\\EcclesiaCRM\\Map\\FamilyTableMap',
+      '\\FamilyCustom' => '\\EcclesiaCRM\\Map\\FamilyCustomTableMap',
+      '\\FamilyCustomMaster' => '\\EcclesiaCRM\\Map\\FamilyCustomMasterTableMap',
+      '\\FundRaiser' => '\\EcclesiaCRM\\Map\\FundRaiserTableMap',
+      '\\GdprInfo' => '\\EcclesiaCRM\\Map\\GdprInfoTableMap',
+      '\\Group' => '\\EcclesiaCRM\\Map\\GroupTableMap',
+      '\\GroupManagerPerson' => '\\EcclesiaCRM\\Map\\GroupManagerPersonTableMap',
+      '\\GroupPropMaster' => '\\EcclesiaCRM\\Map\\GroupPropMasterTableMap',
+      '\\GroupType' => '\\EcclesiaCRM\\Map\\GroupTypeTableMap',
+      '\\Groupmembers' => '\\EcclesiaCRM\\Map\\GroupmembersTableMap',
+      '\\KioskAssignment' => '\\EcclesiaCRM\\Map\\KioskAssignmentTableMap',
+      '\\KioskDevice' => '\\EcclesiaCRM\\Map\\KioskDeviceTableMap',
+      '\\ListOption' => '\\EcclesiaCRM\\Map\\ListOptionTableMap',
+      '\\ListOptionIcon' => '\\EcclesiaCRM\\Map\\ListOptionIconTableMap',
+      '\\Locks' => '\\EcclesiaCRM\\Map\\LocksTableMap',
+      '\\MenuLink' => '\\EcclesiaCRM\\Map\\MenuLinkTableMap',
+      '\\Multibuy' => '\\EcclesiaCRM\\Map\\MultibuyTableMap',
+      '\\Note' => '\\EcclesiaCRM\\Map\\NoteTableMap',
+      '\\NoteShare' => '\\EcclesiaCRM\\Map\\NoteShareTableMap',
+      '\\PaddleNum' => '\\EcclesiaCRM\\Map\\PaddleNumTableMap',
+      '\\PastoralCare' => '\\EcclesiaCRM\\Map\\PastoralCareTableMap',
+      '\\PastoralCareType' => '\\EcclesiaCRM\\Map\\PastoralCareTypeTableMap',
+      '\\Person' => '\\EcclesiaCRM\\Map\\PersonTableMap',
+      '\\Person2group2roleP2g2r' => '\\EcclesiaCRM\\Map\\Person2group2roleP2g2rTableMap',
+      '\\PersonCustom' => '\\EcclesiaCRM\\Map\\PersonCustomTableMap',
+      '\\PersonCustomMaster' => '\\EcclesiaCRM\\Map\\PersonCustomMasterTableMap',
+      '\\PersonVolunteerOpportunity' => '\\EcclesiaCRM\\Map\\PersonVolunteerOpportunityTableMap',
+      '\\Pledge' => '\\EcclesiaCRM\\Map\\PledgeTableMap',
+      '\\Plugin' => '\\EcclesiaCRM\\Map\\PluginTableMap',
+      '\\PluginMenuBar' => '\\EcclesiaCRM\\Map\\PluginMenuBarTableMap',
+      '\\PluginUserRole' => '\\EcclesiaCRM\\Map\\PluginUserRoleTableMap',
+      '\\Principals' => '\\EcclesiaCRM\\Map\\PrincipalsTableMap',
+      '\\Property' => '\\EcclesiaCRM\\Map\\PropertyTableMap',
+      '\\PropertyType' => '\\EcclesiaCRM\\Map\\PropertyTypeTableMap',
+      '\\Propertystorage' => '\\EcclesiaCRM\\Map\\PropertystorageTableMap',
+      '\\QueryParameters' => '\\EcclesiaCRM\\Map\\QueryParametersTableMap',
+      '\\Record2propertyR2p' => '\\EcclesiaCRM\\Map\\Record2propertyR2pTableMap',
+      '\\Schedulingobjects' => '\\EcclesiaCRM\\Map\\SchedulingobjectsTableMap',
+      '\\SendNewsLetterUserUpdate' => '\\EcclesiaCRM\\Map\\SendNewsLetterUserUpdateTableMap',
+      '\\Token' => '\\EcclesiaCRM\\Map\\TokenTableMap',
+      '\\TokenPassword' => '\\EcclesiaCRM\\Map\\TokenPasswordTableMap',
+      '\\User' => '\\EcclesiaCRM\\Map\\UserTableMap',
+      '\\UserConfig' => '\\EcclesiaCRM\\Map\\UserConfigTableMap',
+      '\\UserConfigChoices' => '\\EcclesiaCRM\\Map\\UserConfigChoicesTableMap',
+      '\\UserRole' => '\\EcclesiaCRM\\Map\\UserRoleTableMap',
+      '\\Version' => '\\EcclesiaCRM\\Map\\VersionTableMap',
+      '\\VolunteerOpportunity' => '\\EcclesiaCRM\\Map\\VolunteerOpportunityTableMap',
+    ),
+  ),
+));
