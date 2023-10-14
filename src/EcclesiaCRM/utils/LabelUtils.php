@@ -4,9 +4,6 @@
 
 namespace EcclesiaCRM\Utils;
 
-
-use Cassandra\RetryPolicy\Logging;
-
 class LabelUtils {
 
     public static function FontSelect($fieldname)
@@ -108,7 +105,17 @@ class LabelUtils {
 
     public static function LabelSelect($fieldname,$title='')
     {
-        $labels = [gettext('Tractor') => gettext('Tractor'), 'Badge' => 'Badge (65 mm x 37 mm) A4', '3670' => '3670 (64 mm x 34 mm) A4', '5160' => '5160', '5161' => '5161', '5162' => '5162', '5163' => '5163', '5164' => '5164', '8600' => '8600', 'C32019' => 'C32019 (85 mm x 54 mm) A4'];
+        $labels = [gettext('Tractor') => gettext('Tractor'), 
+          'Badge' => 'Badge (70 mm x 40 mm) A4', 
+          'Badge2' => 'Badge2 (77 mm x 48 mm) A4', 
+          '3670' => '3670 (64 mm x 34 mm) A4', 
+          '5160' => '5160 (66.675 mm x 25.4) Letter', 
+          '5161' => '5161 (101 mm x 25.4 mm) Letter',
+          '5162' => '5162 (100.807mm x 34 mm Letter', 
+          '5163' => '5163 (101.6 mm x 50.8 mm Letter',
+          '5164' => '5164 (4.0 in x 3.33 in Letter', 
+          '8600' => '8600 (66.6 mm x 25.4 mm Letter', 
+          'C32019' => 'C32019 (85 mm x 54 mm) A4'];
 
         if (empty($title)) {
           $title = gettext('Label Type');

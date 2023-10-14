@@ -21,7 +21,6 @@ require '../Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Badge;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutpuUtils;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 
@@ -141,7 +140,7 @@ if ($sImage != '') {
   $image = '../Images/background/'.$sImage;
 }
 
-$aLabelList = unserialize(GenerateLabels($pdf, $mainTitle, $secondTitle, $thirdTitle,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition));
+GenerateLabels($pdf, $mainTitle, $secondTitle, $thirdTitle,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition);
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
 ob_end_clean();

@@ -226,7 +226,7 @@ if ($sImage != '') {
   $image = '../Images/background/'.$sImage;
 }
 
-$aLabelList = unserialize(GenerateLabels($pdf, $iGroupId, $useCart, $sundaySchoolName,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition,$useQRCode));
+GenerateLabels($pdf, $iGroupId, $useCart, $sundaySchoolName,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition,$useQRCode);
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
 ob_end_clean();

@@ -1,7 +1,7 @@
 <?php
 
 ////////////////////////////////////////////////////
-// PDF_Label
+// PDF_Badge
 //
 // Class to print labels in Avery or custom formats
 //
@@ -26,10 +26,10 @@
 ////////////////////////////////////////////////////
 
 /**
- * PDF_Label - PDF label editing.
+ * PDF_Badge - PDF Badge editing.
  *
- * @author Laurent PASSEBECQ <lpasseb@numericable.fr>
- * @copyright 2021 Laurent PASSEBECQ & Philippe Logel
+ * @author Philippe LOGEL <philippe.loge@imathgeo.com>
+ * @copyright 2023 Laurent PASSEBECQ & Philippe Logel
  **/
 
 /*
@@ -46,7 +46,6 @@ use Endroid\QrCode\Encoding\Encoding;
 use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow;
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Label\Label;
-use Endroid\QrCode\Logo\Logo;
 use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
 use Endroid\QrCode\Writer\PngWriter;
 
@@ -133,7 +132,7 @@ class PDF_Badge extends PDF_Label
             $this->SetFontSize(15);
             $this->SetTextColor($title_red, $title_gren, $title_blue);
             $this->SetXY($_PosX, $_PosY);
-            $this->Cell($this->_Width, 10,  $title, 0, 0, 'C');
+            $this->Cell($this->_Width, 10,  $group, 0, 0, 'L');
 
             $this->SetFontSize($sFirstNameFontSize);
             $this->SetTextColor(0, 0, 0);
@@ -152,7 +151,7 @@ class PDF_Badge extends PDF_Label
             $this->SetFontSize(13);
             $this->SetTextColor($title_red, $title_gren, $title_blue);
             $this->SetXY($_PosX+19, $_PosY);
-            $this->Cell($this->_Width, 10, $title, 0, 0, 'C');
+            $this->Cell($this->_Width, 10, $group, 0, 0, 'L');
 
             $this->SetFontSize($sFirstNameFontSize*0.45);
             $this->SetTextColor(0, 0, 0);
@@ -178,9 +177,9 @@ class PDF_Badge extends PDF_Label
         $this->Line($_PosX + $this->_Width-2, $_PosY, $_PosX + $this->_Width-2, $_PosY);
         $this->Line($_PosX , $_PosY + $this->_Height, $_PosX, $_PosY + $this->_Height);
 
-        $this->SetFontSize (12);
+        $this->SetFontSize (8);
         $this->SetXY($_PosX+7, $_PosY + $this->_Height - 10);
-        $this->Cell($this->_Width-14,10, $group,0,0,($sImagePosition == 'Left')?'R':'L');
+        $this->Cell($this->_Width-14,10, $title,0,0,($sImagePosition == 'Left')?'R':'L');
 
         $this->_COUNTY++;
 
