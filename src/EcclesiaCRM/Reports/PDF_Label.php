@@ -120,10 +120,20 @@ class PDF_Label extends ChurchInfoReportTCPDF
     }
 
     // Constructor
-    public function __construct($format, $posX = 1, $posY = 1, $unit = 'mm')
+    public function __construct($format, $posX = 1, $posY = 1, $unit = 'mm', $view = true)
     {
         if ($format == gettext('Tractor')) {
           $format = 'Tractor';
+        }
+
+        $orientation = 'P';
+
+        if ($view == true) {
+            foreach ($this->_Avery_Labels as $key => $value) {
+                $this->_Avery_Labels[$key]['paper-size'] = 'A7';
+            }
+
+            $orientation = 'L';
         }
 
         if (is_array($format)) {
@@ -134,7 +144,7 @@ class PDF_Label extends ChurchInfoReportTCPDF
             $Tformat = $this->_Avery_Labels[$format];
         }
 
-        parent::__construct('P', $unit, $Tformat['paper-size']);
+        parent::__construct($orientation, $unit, $Tformat['paper-size']);
         $this->SetMargins(0, 0);
         $this->SetAutoPageBreak(false);
 
