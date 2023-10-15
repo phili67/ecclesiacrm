@@ -71,7 +71,7 @@ class PublicRegisterController
 
     public function systemregister(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        if (SessionUser::getUser()->isAdmin() && in_array('isSoftwareRegisterTestPassed', $_SESSION) && $_SESSION['isSoftwareRegisterTestPassed'] == false) {
+        if (SessionUser::getUser()->isAdmin() && isset($_SESSION) && in_array('isSoftwareRegisterTestPassed', $_SESSION) && $_SESSION['isSoftwareRegisterTestPassed'] == false) {
             $isRegisterRequired = !SystemConfig::getBooleanValue('bRegistered');
             $_SESSION['isSoftwareRegisterTestPassed'] = true;
         } else {
