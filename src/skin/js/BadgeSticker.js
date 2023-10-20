@@ -1,19 +1,19 @@
-$(document).ready(function () {
+$(function() {
     $(".my-colorpicker-back").colorpicker({
-      color:back,
+      color:window.CRM.back,
       inline:false,
       horizontal:true,
       right:true
     });
 
     $(".my-colorpicker-title").colorpicker({
-      color:title,
+      color:window.CRM.title,
       inline:false,
       horizontal:true,
       right:true
     });
 
-    $(".delete-file").click(function () {
+    $(".delete-file").on('click', function () {
       var name = $(this).data("name");
 
       bootbox.confirm(i18next.t("Are you sure, you want to delete this image ?"), function(result){
@@ -29,9 +29,13 @@ $(document).ready(function () {
       });
     });
 
-    $(".add-file").click(function () {
+    $(".add-file").on('click', function () {
       var name = $(this).data("name");
 
       $("#image").val(name);
+
+      window.CRM.image = name;
+
+      window.CRM.reloadLabel();
     });
 });
