@@ -78,6 +78,68 @@ class PDF_Label extends ChurchInfoReportTCPDF
         'C32019' => ['name'=>'C32019',  'paper-size'=>'A4',     'metric'=>'mm', 'marginLeft'=>15, 'marginTop'=>12, 'NX'=>2, 'NY'=>5, 'SpaceX'=>10.5, 'SpaceY'=>0, 'width'=>85, 'height'=>54, 'font-size'=>11]
     ];
 
+    // Constructor
+    public function __construct($format, $posX = 1, $posY = 1, $unit = 'mm', $view = false)
+    {
+        if ($format == gettext('Tractor')) {
+          $format = 'Tractor';
+        }
+
+        $orientation = 'P';
+
+        if ($view == true) {
+            foreach ($this->_Avery_Labels as $key => $value) {
+                $size = 'A7';
+                switch ($key) {
+                    case 'Tractor':
+                        $size = 'A6';
+                        break;
+                    case '5164':
+                        $size = 'A6';
+                        break;
+                    case '8600':
+                    case '5160':
+                    case '3670':
+                        $size = 'A8';
+                        break;
+                    default:
+                        $size = 'A7';
+                }
+                $this->_Avery_Labels[$key]['paper-size'] = $size;
+            }
+
+            $orientation = 'L';
+        }
+
+        if (is_array($format)) {
+            // Custom format
+            $Tformat = $format;
+        } else {
+            // Avery format
+            $Tformat = $this->_Avery_Labels[$format];
+        }
+
+        parent::__construct($orientation, $unit, $Tformat['paper-size']);
+        $this->SetMargins(0, 0);
+        $this->SetAutoPageBreak(false);
+
+        $this->_Metric_Doc = $unit;
+        // Start at the given label position
+        if ($posX > 0) {
+            $posX--;
+        } else {
+            $posX = 0;
+        }
+        if ($posY > 0) {
+            $posY--;
+        } else {
+            $posY = 0;
+        }
+        $this->_COUNTX = $posX;
+        $this->_COUNTY = $posY;
+        $this->_Set_Format($Tformat);
+    }
+
     // convert units (in to mm, mm to in)
     // $src and $dest must be 'in' or 'mm'
     public function _Convert_Metric($value, $src, $dest)
@@ -117,52 +179,6 @@ class PDF_Label extends ChurchInfoReportTCPDF
         $this->_Width = $this->_Convert_Metric($format['width'], $this->_Metric, $this->_Metric_Doc);
         $this->_Height = $this->_Convert_Metric($format['height'], $this->_Metric, $this->_Metric_Doc);
         $this->Set_Char_Size($format['font-size']);
-    }
-
-    // Constructor
-    public function __construct($format, $posX = 1, $posY = 1, $unit = 'mm', $view = true)
-    {
-        if ($format == gettext('Tractor')) {
-          $format = 'Tractor';
-        }
-
-        $orientation = 'P';
-
-        if ($view == true) {
-            foreach ($this->_Avery_Labels as $key => $value) {
-                $this->_Avery_Labels[$key]['paper-size'] = 'A7';
-            }
-
-            $orientation = 'L';
-        }
-
-        if (is_array($format)) {
-            // Custom format
-            $Tformat = $format;
-        } else {
-            // Avery format
-            $Tformat = $this->_Avery_Labels[$format];
-        }
-
-        parent::__construct($orientation, $unit, $Tformat['paper-size']);
-        $this->SetMargins(0, 0);
-        $this->SetAutoPageBreak(false);
-
-        $this->_Metric_Doc = $unit;
-        // Start at the given label position
-        if ($posX > 0) {
-            $posX--;
-        } else {
-            $posX = 0;
-        }
-        if ($posY > 0) {
-            $posY--;
-        } else {
-            $posY = 0;
-        }
-        $this->_COUNTX = $posX;
-        $this->_COUNTY = $posY;
-        $this->_Set_Format($Tformat);
     }
 
     // Sets the character size
