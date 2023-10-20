@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\Group;
@@ -35,6 +35,7 @@ use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Reports\PDF_Badge;
 
 
 use EcclesiaCRM\MyPDO\CardDavPDO;
@@ -49,7 +50,7 @@ class PeopleGroupController
         $this->container = $container;
     }
 
-    public function setGroupSepecificPropertyStatus (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function setGroupSepecificPropertyStatus (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $input = $request->getParsedBody();
         $groupService = $this->container->get("GroupService");
@@ -62,14 +63,14 @@ class PeopleGroupController
         }
     }
 
-    public function roles (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function roles (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $roleName = $request->getParsedBody()['roleName'];
         $groupService = $this->container->get("GroupService");
         return $response->write(json_encode($groupService->addGroupRole($groupID, $roleName)));
     }
 
-    public function deleteRole (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteRole (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $roleID = $args['roleID'];
 
@@ -81,7 +82,7 @@ class PeopleGroupController
         return $response->write(json_encode($groupService->deleteGroupRole($groupID, $roleID)));
     }
 
-    public function getAllGroups (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getAllGroups (ServerRequest $request, Response $response, array $args): Response {
         if ( !(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroups()) ) {
             $ids = SessionUser::getUser()->getGroupManagerIds();
 
@@ -91,13 +92,13 @@ class PeopleGroupController
         return $response->write(GroupQuery::create()->groupByName()->find()->toJSON());
     }
 
-    public function defaultGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function defaultGroup (ServerRequest $request, Response $response, array $args): Response {
         $res = GroupQuery::create()->orderByName()->findOne()->getId();
 
         return $response->withJson($res);
     }
 
-    public function groupproperties (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupproperties (ServerRequest $request, Response $response, array $args): Response {
         $ormAssignedProperties = Record2propertyR2pQuery::Create()
             ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
             ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
@@ -114,7 +115,7 @@ class PeopleGroupController
         return $response->write($ormAssignedProperties->toJSON());
     }
 
-    public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function addressBook (ServerRequest $request, Response $response, array $args): Response
     {
         if ( !(SessionUser::getUser()->isSeePrivacyDataEnabled() and array_key_exists('groupId', $args)) ) {
             return $response->withStatus(401);
@@ -148,7 +149,7 @@ class PeopleGroupController
         return $response;
     }
 
-    public function searchGroup(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function searchGroup(ServerRequest $request, Response $response, array $args): Response
     {
         if ( array_key_exists('query', $args) ) {
             return $response->withStatus(401);
@@ -185,7 +186,7 @@ class PeopleGroupController
         return $response->withJson($return);
     }
 
-    public function deleteAllManagers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteAllManagers (ServerRequest $request, Response $response, array $args): Response {
         $options = (object) $request->getParsedBody();
 
         if ( isset ($options->groupID) and SessionUser::getUser()->isManageGroupsEnabled() ) {
@@ -200,7 +201,7 @@ class PeopleGroupController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function deleteManager (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteManager (ServerRequest $request, Response $response, array $args): Response {
         $options = (object) $request->getParsedBody();
 
         if ( isset ($options->groupID) and isset ($options->personID) and SessionUser::getUser()->isManageGroupsEnabled() ) {
@@ -233,7 +234,7 @@ class PeopleGroupController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function getManagers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getManagers (ServerRequest $request, Response $response, array $args): Response {
         $option = (object) $request->getParsedBody();
 
         if ( isset ($option->groupID) and SessionUser::getUser()->isGroupManagerEnabledForId($option->groupID) ) {
@@ -260,7 +261,7 @@ class PeopleGroupController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function addManager (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addManager (ServerRequest $request, Response $response, array $args): Response {
         $options = (object)$request->getParsedBody();
 
         if (isset ($options->personID) and isset($options->groupID) and SessionUser::getUser()->isGroupManagerEnabledForId($options->groupID) ) {
@@ -277,7 +278,7 @@ class PeopleGroupController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function groupsInCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function groupsInCart (ServerRequest $request, Response $response, array $args): Response
     {
         if ( !SessionUser::getUser()->isShowCartEnabled() ) {
             return $response->withStatus(401);
@@ -293,7 +294,7 @@ class PeopleGroupController
         return $response->withJson(['groupsInCart' => $groupsInCart]);
     }
 
-    public function newGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function newGroup (ServerRequest $request, Response $response, array $args): Response
     {
         if ( !SessionUser::getUser()->isManageGroupsEnabled() ) {
             return $response->withStatus(401);
@@ -322,7 +323,7 @@ class PeopleGroupController
         return $response->write( $group->toJSON() );
     }
 
-    public function updateGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function updateGroup (ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object) $request->getParsedBody();
 
@@ -357,14 +358,14 @@ class PeopleGroupController
         return $response->write( $group->toJSON() );
     }
 
-    public function groupInfo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupInfo (ServerRequest $request, Response $response, array $args): Response {
         if ( !( SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID']) and array_key_exists('groupID', $args) ) ) {
             return $response->withStatus(401);
         }
         return $response->write( GroupQuery::create()->findOneById($args['groupID'])->toJSON());
     }
 
-    public function groupCartStatus (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupCartStatus (ServerRequest $request, Response $response, array $args): Response {
         if ( !( SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID']) and SessionUser::getUser()->isShowCartEnabled()
             and array_key_exists('groupID', $args) ) ) {
             return $response->withStatus(401);
@@ -372,7 +373,7 @@ class PeopleGroupController
         return $response->write( GroupQuery::create()->findOneById($args['groupID'])->checkAgainstCart());
     }
 
-    public function deleteGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteGroup (ServerRequest $request, Response $response, array $args): Response {
         if ( !( SessionUser::getUser()->isManageGroupsEnabled()
             and array_key_exists('groupID', $args) ) ) {
             return $response->withStatus(401);
@@ -382,7 +383,7 @@ class PeopleGroupController
         return $response->withJson(['status'=>'success']);
     }
 
-    public function groupMembers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupMembers (ServerRequest $request, Response $response, array $args): Response {
         if ( !( SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID'])
             and array_key_exists('groupID', $args) ) ) {
             return $response->withStatus(401);
@@ -424,7 +425,7 @@ class PeopleGroupController
         return $response->write($members->toJSON());
     }
 
-    public function groupEvents (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupEvents (ServerRequest $request, Response $response, array $args): Response {
         if ( !( SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID'])
             and array_key_exists('groupID', $args) ) ) {
             return $response->withStatus(401);
@@ -437,7 +438,7 @@ class PeopleGroupController
         return $response->write($members->toJSON());
     }
 
-    public function removePersonFromGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removePersonFromGroup (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $userID = $args['userID'];
         $person = PersonQuery::create()->findPk($userID);
@@ -461,7 +462,7 @@ class PeopleGroupController
         return $response->withJson(['success' => 'true']);
     }
 
-    public function addPersonToGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addPersonToGroup (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $userID = $args['userID'];
         $person = PersonQuery::create()->findPk($userID);
@@ -502,7 +503,7 @@ class PeopleGroupController
         return  $response->write($members->toJSON());
     }
 
-    public function addTeacherToGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addTeacherToGroup (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $userID = $args['userID'];
         $person = PersonQuery::create()->findPk($userID);
@@ -537,7 +538,7 @@ class PeopleGroupController
         return  $response->write($members->toJSON());
     }
 
-    public function userRoleByUserId (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function userRoleByUserId (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $userID = $args['userID'];
         $roleID = $request->getParsedBody()['roleID'];
@@ -548,7 +549,7 @@ class PeopleGroupController
         return  $response->write($membership->toJSON());
     }
 
-    public function rolesByRoleId (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function rolesByRoleId (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $roleID = $args['roleID'];
         $input = (object) $request->getParsedBody();
@@ -567,14 +568,14 @@ class PeopleGroupController
         return  $response->withJson(['success' => false]);
     }
 
-    public function allRoles (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function allRoles (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $group = GroupQuery::create()->findOneById($groupID);
         $roles = ListOptionQuery::create()->filterById($group->getRoleListId())->orderByOptionName()->find();
         return $response->write($roles->toJSON());
     }
 
-    public function defaultRoleForGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function defaultRoleForGroup (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $roleID = $request->getParsedBody()['roleID'];
         $group = GroupQuery::create()->findPk($groupID);
@@ -583,7 +584,7 @@ class PeopleGroupController
         return $response->withJson(['success' => true]);
     }
 
-    public function settingsActiveValue (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function settingsActiveValue (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $flag = $args['value'];
         if ($flag == "true" || $flag == "false") {
@@ -600,7 +601,7 @@ class PeopleGroupController
         }
     }
 
-    public function settingsEmailExportVvalue(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function settingsEmailExportVvalue(ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
         $flag = $args['value'];
         if ($flag == "true" || $flag == "false") {
@@ -617,7 +618,7 @@ class PeopleGroupController
         }
     }
 
-    public function deleteGroupField(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteGroupField(ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(404);
         }
@@ -665,7 +666,7 @@ class PeopleGroupController
         return $response->withJson(['success' => false]);
     }
 
-    public function upactionGroupField (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function upactionGroupField (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(404);
         }
@@ -687,7 +688,7 @@ class PeopleGroupController
         return $response->withJson(['success' => false]);
     }
 
-    public function downactionGroupField (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function downactionGroupField (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(404);
         }
@@ -709,7 +710,7 @@ class PeopleGroupController
         return $response->withJson(['success' => false]);
     }
 
-    public function groupSundaySchool (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupSundaySchool (ServerRequest $request, Response $response, array $args): Response {
 
         $iGroupId = $args['groupID'];
 
@@ -759,7 +760,7 @@ class PeopleGroupController
                 $connection = Propel::getConnection();
                 $statement = $connection->prepare($sSQL);
                 $statement->execute();
-                $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
+                $aPersonProps = $statement->fetch(\PDO::FETCH_BOTH);
 
 
                 if ($ormPropLists->count() > 0) {
@@ -805,7 +806,7 @@ class PeopleGroupController
         return $response->withJson(['success' => true, "teachers" => $rsTeachers, "teachersProps" => $teachersProps,  "kids" => $thisClassChildren, "roleEmails" => $roleEmails, "emailLink" => $emailLink, "dropDown" => $dropDown]);
     }
 
-    public function emptygroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function emptygroup (ServerRequest $request, Response $response, array $args): Response
     {
         $values = (object)$request->getParsedBody();
 
@@ -843,4 +844,88 @@ class PeopleGroupController
         }
         return $response->withJson(['success' => 'true']);
     }
+
+    public function renderBadge (ServerRequest $request, Response $response, array $args): Response
+    {
+        if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
+            return $response->withStatus(404);
+        }
+
+        $values = (object)$request->getParsedBody();
+
+        if ( isset ($values->title) && isset ($values->back)
+            && isset ($values->labelfont) && isset ($values->labeltype) && isset ($values->labelfontsize) 
+            && isset ($values->imagePosition) && isset($values->groupID)
+            && isset ($values->sundaySchoolNamePosition) && isset($values->titlePosition))
+        {
+            ob_start();
+            $pdf = new PDF_Badge($values->labeltype, 1, 1, 'mm', true);
+
+            // set the cookies
+            setcookie('titlePositionSC', $values->titlePosition, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('sundaySchoolNameSC', $values->sundaySchoolName, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('sundaySchoolNamePositionSC', $values->sundaySchoolNamePosition, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('sBackgroudColorSC', $values->back, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('imageSC', $values->imageName, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('imagePositionSC', $values->imagePosition, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('sTitleColorSC', $values->title, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('labeltype', $values->labeltype, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('labelfont', $values->labelfont, time() + 60 * 60 * 24 * 90, '/');            
+            setcookie('labelfontsize', $values->labelfontsize, time() + 60 * 60 * 24 * 90, '/');
+
+            $sFontInfo = MiscUtils::FontFromName($values->labelfont);
+
+            $pdf->SetFont($sFontInfo[0], $sFontInfo[1]);
+
+            $group = GroupQuery::create()->findOneById($values->groupID);
+
+
+            list($title_red, $title_gren, $title_blue) = sscanf($values->title, "#%02x%02x%02x");
+            list($back_red, $back_gren, $back_blue) = sscanf($values->back, "#%02x%02x%02x");
+
+            if ($values->useQRCode) {
+                $pdf->Add_PDF_Badge($values->sundaySchoolName, $values->sundaySchoolNamePosition, _("Name"), _("First Name"), 
+                    $group->getName(),$values->titlePosition,
+                    "props", $values->labelfontsize, "../Images/background/".$values->imageName, $title_red, $title_gren, $title_blue,
+                    $back_red, $back_gren, $back_blue, $values->imagePosition, $values->groupID, "id");
+            } else {
+                $pdf->Add_PDF_Badge($values->sundaySchoolName,$values->sundaySchoolNamePosition, _("Name"), _("First Name"), 
+                    $group->getName(),$values->titlePosition,
+                    "props", $values->labelfontsize, "../Images/background/".$values->imageName, $title_red, $title_gren, $title_blue,
+                    $back_red, $back_gren, $back_blue, $values->imagePosition);
+            }
+
+
+            // Render and return pdf content as string
+            $file = SystemURLs::getDocumentRoot().'/tmp_attach/doc.pdf';            
+            
+            $content = $pdf->output($file, 'F');
+
+            ob_flush();
+            ob_end_clean();            
+        
+            $image = new \Imagick();
+            if ($values->labeltype == 'Tractor') {
+                $image->setResolution(100,100);
+            } else {
+                $image->setResolution(144,144);
+            }
+            $image->readImage($file.'[0]');
+            $image->setImageFormat( "jpg" );
+            $image->writeImage(SystemURLs::getDocumentRoot().'/tmp_attach/thumb.jpg'); 
+
+            $imageData = base64_encode($image->getImageBlob());
+
+            $image->clear(); 
+            $image->destroy();
+
+            unlink ($file);
+            unlink (SystemURLs::getDocumentRoot().'/tmp_attach/thumb.jpg');
+
+            return $response->withJson(['success' => true, "imgData" => "data:image/jpg;base64,".$imageData]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
 }
+

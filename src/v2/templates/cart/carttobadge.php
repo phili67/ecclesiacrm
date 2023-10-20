@@ -169,8 +169,10 @@ if ($typeProblem) {
     <link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
     
     <script nonce="<?= $CSPNonce ?>">
-        var back = "<?= (empty($_COOKIE["sBackgroudColor"]))?'#F99':$_COOKIE["sBackgroudColor"] ?>";
-        var title = "<?= (empty($_COOKIE["sTitleColor"]))?'#3A3':$_COOKIE["sTitleColor"] ?>";
+        $(function() {
+            window.CRM.back = "<?= (empty($_COOKIE["sBackgroudColor"]))?'#F99':$_COOKIE["sBackgroudColor"] ?>";
+            window.CRM.title = "<?= (empty($_COOKIE["sTitleColor"]))?'#3A3':$_COOKIE["sTitleColor"] ?>";            
+        });
     </script>
 
     <script src="<?= $sRootPath ?>/skin/js/BadgeSticker.js"></script>

@@ -150,4 +150,21 @@ $app->group('/groups', function (RouteCollectorProxy $group) {
     $group->get('/{groupID:[0-9]+}/sundayschool', PeopleGroupController::class . ":groupSundaySchool" );
 
     $group->post( '/emptygroup',PeopleGroupController::class . ":emptygroup" );
+
+    /*
+     * @! get all sundayschool teachers
+     * #! param: id->string  :: title as string (color)
+     * #! param: id->string  :: titlePosition (Right | Left | Center)
+     * #! param: id->string  :: back as string (color)
+     * #! param: id->string  :: sundaySchoolName as string
+     * #! param: id->string  :: sundaySchoolNamePosition (Right | Left | Center)
+     * #! param: id->string  :: labelfont as string
+     * #! param: id->string  :: labeltype as string
+     * #! param: id->int     :: labelfontsize as int
+     * #! param: id->boolean :: useQRCode as int
+     * #! param: id->int     :: groupID as int
+     * #! param: id->string  :: imageName as int
+     * #! param: id->string  :: imagePosition as (Right | Left | Center)
+     */
+    $group->post( '/render/sundayschool/badge',PeopleGroupController::class . ":renderBadge" );
 });

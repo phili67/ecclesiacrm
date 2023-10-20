@@ -53,9 +53,10 @@ use Endroid\QrCode\Writer\PngWriter;
 class PDF_Badge extends PDF_Label
 {
     // Constructor
-    public function __construct($format, $posX = 1, $posY = 1, $unit = 'mm')
+    // the $view param to true set ever a A7 page
+    public function __construct($format, $posX = 1, $posY = 1, $unit = 'mm', $view = false)
     {
-        parent::__construct($format,$posX,$posY,$unit);
+        parent::__construct($format,$posX,$posY,$unit, $view);
     }
 
     public function create_QR_Code($groupID,$personId)
@@ -91,15 +92,20 @@ class PDF_Badge extends PDF_Label
 
 
     // Print a label
-    public function Add_PDF_Badge($title, $LastName, $firstName, $group, $props='', $sFirstNameFontSize = 20,$image='../Images/scleft1.png',
-                                               $title_red=0, $title_gren=0, $title_blue=0,
-                                               $back_red=255, $back_gren=255, $back_blue=255,
-                                               $sImagePosition='Left',
-                                               $groupID=-1,$personId=-1)
+    public function Add_PDF_Badge($title, $titlePosition, $LastName, $firstName, $group,$groupPosition, $props='', 
+                                    $sFirstNameFontSize = 20,$image='../Images/scleft1.png',
+                                    $title_red=0, $title_gren=0, $title_blue=0,
+                                    $back_red=255, $back_gren=255, $back_blue=255,
+                                    $sImagePosition='Left',
+                                    $groupID=-1,$personId=-1)
     {
+        $lastNameFontSize = (int)$sFirstNameFontSize*0.8;
+        
         // We are in a new page, then we must add a page
         if ($this->_COUNTX == 0 && $this->_COUNTY == 0) {
             $this->AddPage();
+            $this->SetFillColor(255,255,255);
+            $this->Rect(0, 0, $this->getPageWidth(),    $this->getPageHeight(), 'F');
         }
 
         $_PosX = $this->_Margin_Left + ($this->_COUNTX * ($this->_Width + $this->_X_Space));
@@ -128,11 +134,50 @@ class PDF_Badge extends PDF_Label
             unlink ($qr_code);
         }
 
+        $position = 'L';
+        $addX = '0';
+        switch ($sImagePosition) {
+            case 'Left':
+                $position = 'R';
+                $addX = -5;
+                break;
+            case 'Right':
+                $position = 'L';
+                $addX = 5;
+                break;
+            default:
+                $position = 'C';
+                $addX = 0;
+        }
+
+        switch ($titlePosition) {
+            case 'Left':
+                $tposition = 'L';
+                break;
+            case 'Right':
+                $tposition = 'R';
+                break;
+            default:
+                $tposition = 'C';
+        }
+
+        switch ($groupPosition) {
+            case 'Left':
+                $gposition = 'L';
+                break;
+            case 'Right':
+                $gposition = 'R';
+                break;
+            default:
+                $gposition = 'C';
+        }
+
+        
         if (!$has_QR_Code) {
             $this->SetFontSize(15);
             $this->SetTextColor($title_red, $title_gren, $title_blue);
             $this->SetXY($_PosX, $_PosY);
-            $this->Cell($this->_Width, 10,  $group, 0, 0, 'L');
+            $this->Cell($this->_Width , 10,  $group, 0, 0, $gposition);
 
             $this->SetFontSize($sFirstNameFontSize);
             $this->SetTextColor(0, 0, 0);
@@ -140,36 +185,45 @@ class PDF_Badge extends PDF_Label
             $this->Cell($this->_Width, 10,  mb_strtoupper($firstName), 0, 0, 'C');
 
             $this->SetFontSize(12);
-            $this->SetXY($_PosX, $_PosY + $this->_Height / 5 * 3 - $this->_Get_Height_Chars($lastNameFontSize));
+            $this->SetXY($_PosX, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize) + $this->_Get_Height_Chars($lastNameFontSize) + 1);
             $this->Cell($this->_Width, 10, mb_strtoupper($LastName), 0, 0, 'C');
 
             $this->SetFontSize(4);
-            $this->SetXY($_PosX + 7, $_PosY + $this->_Height - 7);
+            $this->SetXY($_PosX, $_PosY + $this->_Height - 7);
 
-            $this->MultiCell($this->_Width - 14, 2, $props, 0, ($sImagePosition == 'Left') ? 'L' : 'R');
+            $this->MultiCell($this->_Width, 2, $props, 0, 'C');
+
+            $this->SetFontSize (8);
+            $this->SetXY($_PosX, $_PosY + $this->_Height - 8);
+            $this->Cell($this->_Width , 10,  $title, 0, 0, $tposition);
         } else {
+            $sFirstNameFontSize *= 0.75;
+            $lastNameFontSize = $sFirstNameFontSize*0.8;
+            
             $this->SetFontSize(13);
             $this->SetTextColor($title_red, $title_gren, $title_blue);
-            $this->SetXY($_PosX+19, $_PosY);
-            $this->Cell($this->_Width, 10, $group, 0, 0, 'L');
+            $this->SetXY($_PosX, $_PosY);
+            $this->Cell($this->_Width , 10,  $group, 0, 0, $gposition);
 
-            $this->SetFontSize($sFirstNameFontSize*0.45);
+            $this->SetFontSize($sFirstNameFontSize);
             $this->SetTextColor(0, 0, 0);
-            $this->SetXY($_PosX+14, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize));
+            $this->SetXY($_PosX + 16, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize));
             $this->Cell($this->_Width, 10, mb_strtoupper($firstName), 0, 0, 'C');
 
-            $lastNameFontSize = $sFirstNameFontSize*0.35;
-
             $this->SetFontSize($lastNameFontSize);
-            $this->SetXY($_PosX+14, $_PosY + $this->_Height / 5.5 * 3 - $this->_Get_Height_Chars($lastNameFontSize));
+            $this->SetXY($_PosX + 16, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize) + $this->_Get_Height_Chars($lastNameFontSize) + 1);
             $this->Cell($this->_Width, 10, mb_strtoupper($LastName), 0, 0, 'C');
 
             $this->SetFontSize(4);
-            $this->SetXY($_PosX + 7, $_PosY + $this->_Height - 7);
+            $this->SetXY($_PosX + 16, $_PosY + $this->_Height - 7);
 
-            $this->MultiCell($this->_Width - 14, 2,  $props, 0, ($sImagePosition == 'Left') ? 'L' : 'R');
+            $this->MultiCell($this->_Width, 2,  $props, 0, 'C');
+
+            $this->SetFontSize (8);
+            $this->SetXY($_PosX, $_PosY + $this->_Height - 8);
+            $this->Cell($this->_Width , 10,  $title, 0, 0, $tposition);
         }
-
+        
         // draw the border
 
         $this->Line($_PosX, $_PosY, $_PosX, $_PosY + $this->_Height);
@@ -177,9 +231,6 @@ class PDF_Badge extends PDF_Label
         $this->Line($_PosX + $this->_Width-2, $_PosY, $_PosX + $this->_Width-2, $_PosY);
         $this->Line($_PosX , $_PosY + $this->_Height, $_PosX, $_PosY + $this->_Height);
 
-        $this->SetFontSize (8);
-        $this->SetXY($_PosX+7, $_PosY + $this->_Height - 10);
-        $this->Cell($this->_Width-14,10, $title,0,0,($sImagePosition == 'Left')?'R':'L');
 
         $this->_COUNTY++;
 
