@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\MenuLink;
 use EcclesiaCRM\MenuLinkQuery;
@@ -28,7 +28,7 @@ class SidebarMenuLinksController
         $this->container = $container;
     }
 
-    function getMenuLinksForUser(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function getMenuLinksForUser(ServerRequest $request, Response $response, array $args): Response
     {
         if ($args['userId'] == 0 && !SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -71,7 +71,7 @@ class SidebarMenuLinksController
         return $response->write("{\"MenuLinks\":[" . substr($res, 0, -1) . "]}");
     }
 
-    function deleteMenuLink(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function deleteMenuLink(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -102,7 +102,7 @@ class SidebarMenuLinksController
         return $response->withJson(['success' => false]);
     }
 
-    function upMenuLink(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function upMenuLink(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -126,7 +126,7 @@ class SidebarMenuLinksController
         return $response->withJson(['success' => false]);
     }
 
-    function downMenuLink(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function downMenuLink(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -150,7 +150,7 @@ class SidebarMenuLinksController
         return $response->withJson(['success' => false]);
     }
 
-    function createMenuLink(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function createMenuLink(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -187,7 +187,7 @@ class SidebarMenuLinksController
         return $response->withJson(['success' => false]);
     }
 
-    function setMenuLink(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function setMenuLink(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -206,7 +206,7 @@ class SidebarMenuLinksController
         return $response->withJson(['success' => false]);
     }
 
-    function editMenuLink(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function editMenuLink(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 

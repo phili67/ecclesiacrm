@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\VolunteerOpportunityQuery;
 use EcclesiaCRM\VolunteerOpportunity;
@@ -88,7 +88,7 @@ class SidebarVolunteerOpportunityController
         return $res;
     }
 
-    public function getAllVolunteerOpportunities(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllVolunteerOpportunities(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isCanvasserEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
             return $response->withStatus(401);
@@ -123,7 +123,7 @@ class SidebarVolunteerOpportunityController
         return $response->withJson(["VolunteerOpportunities" => $res]);
     }
 
-    public function deleteVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteVolunteerOpportunity(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -141,7 +141,7 @@ class SidebarVolunteerOpportunityController
         return $response->withJson(['success' => false]);
     }
 
-    public function createVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createVolunteerOpportunity(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -160,7 +160,7 @@ class SidebarVolunteerOpportunityController
         return $response->withJson(['success' => false]);
     }
 
-    public function setVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function setVolunteerOpportunity(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -180,7 +180,7 @@ class SidebarVolunteerOpportunityController
         return $response->withJson(['success' => false]);
     }
 
-    public function editVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function editVolunteerOpportunity(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -191,7 +191,7 @@ class SidebarVolunteerOpportunityController
         return $response->withJson(['success' => false]);
     }
 
-    public function changeParentVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function changeParentVolunteerOpportunity(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -210,7 +210,7 @@ class SidebarVolunteerOpportunityController
         return $response->withJson(['success' => false]);
     }
 
-    public function changeIconVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function changeIconVolunteerOpportunity(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -225,7 +225,7 @@ class SidebarVolunteerOpportunityController
         return $response->withJson(['success' => false]);
     }
 
-    public function changeColorVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function changeColorVolunteerOpportunity(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 

@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\SessionUser;
 
@@ -25,14 +25,14 @@ class SystemUpgradeController
         $this->container = $container;
     }
 
-    public function downloadlatestrelease (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function downloadlatestrelease (ServerRequest $request, Response $response, array $args): Response
     {
         $SystemService = $this->container->get('SystemService');
         $upgradeFile = $SystemService->downloadLatestRelease();
         return $response->write(json_encode($upgradeFile));
     }
 
-    public function doupgrade (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function doupgrade (ServerRequest $request, Response $response, array $args): Response {
         $input = (object) $request->getParsedBody();
 
         $SystemService = $this->container->get('SystemService');
@@ -40,7 +40,7 @@ class SystemUpgradeController
         return $response->write(json_encode($upgradeResult));
     }
 
-    public function isUpdateRequired (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function isUpdateRequired (ServerRequest $request, Response $response, array $args): Response {
         if (SessionUser::getUser()->isAdmin() && $_SESSION['isSoftwareUpdateTestPassed'] == false) {
             $compare = version_compare($_SESSION['sSoftwareInstalledVersion'], $_SESSION['latestVersion']['name']);
             $isUpdateRequired = $_SESSION['latestVersion'] != null && $compare != 1;

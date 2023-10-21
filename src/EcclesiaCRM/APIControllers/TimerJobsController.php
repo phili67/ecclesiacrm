@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 class TimerJobsController
@@ -24,7 +24,7 @@ class TimerJobsController
         $this->container = $container;
     }
 
-    public function runTimerJobs (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function runTimerJobs (ServerRequest $request, Response $response, array $args): Response
     {
         $SystemService = $this->container->get('SystemService');
         if ( !is_null($SystemService) ) {

@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
@@ -27,7 +27,7 @@ class SidebarRolesController
         $this->container = $container;
     }
 
-    public function getAllRoles(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllRoles(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -38,7 +38,7 @@ class SidebarRolesController
         return $response->withJson($roles);
     }
 
-    public function rolePersonAssign(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function rolePersonAssign(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);

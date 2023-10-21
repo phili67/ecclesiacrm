@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -32,7 +32,7 @@ class PeopleController
         $this->container = $container;
     }
 
-    public function searchonlyperson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function searchonlyperson(ServerRequest $request, Response $response, array $args): Response
     {
         $query = $args['query'];
         $resultsArray = [];
@@ -82,7 +82,7 @@ class PeopleController
         return $response->withJson(array_filter($resultsArray));
     }
 
-    public function searchpeople(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function searchpeople(ServerRequest $request, Response $response, array $args): Response
     {
         $query = $args['query'];
         $resultsArray = [];
@@ -201,14 +201,14 @@ class PeopleController
         return $response->withJson(array_filter($resultsArray));
     }
 
-    public function getAllClassifications(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllClassifications(ServerRequest $request, Response $response, array $args): Response
     {
         $classifications = ListOptionQuery::create()->findById(1);
 
         return $response->withJson(['success' => true, "Classifications" => $classifications->toArray()]);
     }
 
-    public function postPersonClassification(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function postPersonClassification(ServerRequest $request, Response $response, array $args): Response
     {
         $classifications = ListOptionQuery::create()->findById(1);
 

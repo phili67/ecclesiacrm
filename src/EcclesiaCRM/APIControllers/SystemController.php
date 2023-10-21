@@ -12,8 +12,8 @@ namespace EcclesiaCRM\APIControllers;
 
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\dto\SystemURLs;
 
@@ -26,7 +26,7 @@ class SystemController
         $this->container = $container;
     }
 
-    public function cspReport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function cspReport (ServerRequest $request, Response $response, array $args): Response
     {
         $input = json_decode($request->getBody());
         $log  = json_encode($input, JSON_PRETTY_PRINT);
@@ -37,7 +37,7 @@ class SystemController
         return $response;
     }
 
-    public function deleteFile (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteFile (ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 

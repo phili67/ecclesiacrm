@@ -3,8 +3,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 // Documents filemanager APIs
 use EcclesiaCRM\UserQuery;
@@ -61,7 +61,7 @@ class DocumentFileManagerController
         return count($files);
     }
 
-    public function getAllFileNoteForPerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllFileNoteForPerson(ServerRequest $request, Response $response, array $args): Response
     {
         $user = UserQuery::create()->findPk($args['personID']);
 
@@ -143,7 +143,7 @@ class DocumentFileManagerController
         return $response->withJson(["files" => $result ]);
     }
 
-    public function getRealFile(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getRealFile(ServerRequest $request, Response $response, array $args): Response
     {
         $user = UserQuery::create()->findPk($args['personID']);
         $name = $request->getAttribute('path');
@@ -211,7 +211,7 @@ class DocumentFileManagerController
         return $response->withStatus(404);
     }
 
-    public function getPreview(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getPreview(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -241,7 +241,7 @@ class DocumentFileManagerController
         return $response->withStatus(404);
     }
 
-    public function changeFolder(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function changeFolder(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -261,7 +261,7 @@ class DocumentFileManagerController
         return $response->withJson(['success' => false]);
     }
 
-    public function folderBack(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function folderBack(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -298,7 +298,7 @@ class DocumentFileManagerController
         return $response->withJson(['success' => false]);
     }
 
-    public function deleteOneFolder(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteOneFolder(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -329,7 +329,7 @@ class DocumentFileManagerController
         return $response->withJson(['success' => false]);
     }
 
-    public function deleteOneFile(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteOneFile(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -364,7 +364,7 @@ class DocumentFileManagerController
         return $response->withJson(['success' => false]);
     }
 
-    public function deleteFiles(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteFiles(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -431,7 +431,7 @@ class DocumentFileManagerController
         return $response->withJson(['success' => false]);
     }
 
-    public function movefiles(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function movefiles(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -548,7 +548,7 @@ class DocumentFileManagerController
         return $response->withJson(['success' => false]);
     }
 
-    public function newFolder(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function newFolder(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -588,7 +588,7 @@ class DocumentFileManagerController
         return $response->withJson(['success' => false]);
     }
 
-    public function renameFile(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renameFile(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -641,7 +641,7 @@ class DocumentFileManagerController
         return $response->withJson(['success' => false]);
     }
 
-    public function uploadFile(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function uploadFile(ServerRequest $request, Response $response, array $args): Response
     {
         if (SessionUser::getUser()->isEDriveEnabled() and SessionUser::getId() != $args['personID']) {
             return $response->withStatus(401);
@@ -696,7 +696,7 @@ class DocumentFileManagerController
         return $response->withJson(['success' => true, "numberOfFiles" => $this->numberOfFiles($args['personID'])]);
     }
 
-    public function getRealLink(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getRealLink(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -727,7 +727,7 @@ class DocumentFileManagerController
         return $response->withJson(['success' => "failed"]);
     }
 
-    public function setpathtopublicfolder(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function setpathtopublicfolder(ServerRequest $request, Response $response, array $args): Response
     {
         $currentpath = SessionUser::getUser()->getCurrentpath();
 

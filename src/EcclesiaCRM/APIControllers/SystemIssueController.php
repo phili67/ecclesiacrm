@@ -13,8 +13,8 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 class SystemIssueController
 {
@@ -25,7 +25,7 @@ class SystemIssueController
         $this->container = $container;
     }
 
-    public function issues(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function issues(ServerRequest $request, Response $response, array $args): Response
     {
         $input = json_decode($request->getBody());
 

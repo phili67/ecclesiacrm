@@ -12,8 +12,8 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\Service\CalendarService;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\Base\EventQuery;
 use EcclesiaCRM\Base\EventTypesQuery;
@@ -42,7 +42,7 @@ class CalendarEventV2Controller
         $this->container = $container;
     }
 
-    public function getAllEvents(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllEvents(ServerRequest $request, Response $response, array $args): Response
     {
         $Events = EventQuery::create()
             ->find();
@@ -71,7 +71,7 @@ class CalendarEventV2Controller
         return $response->withJson($return);
     }
 
-    public function getNotDoneEvents(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getNotDoneEvents(ServerRequest $request, Response $response, array $args): Response
     {
         $Events = EventQuery::create()
             ->filterByEnd(new \DateTime(), Criteria::GREATER_EQUAL)
@@ -103,12 +103,12 @@ class CalendarEventV2Controller
         return $response->withJson(["Events" => $return]);
     }
 
-    public function numbersOfEventOfToday(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function numbersOfEventOfToday(ServerRequest $request, Response $response, array $args): Response
     {
         return $response->withJson(MenuEventsCount::getNumberEventsOfToday());
     }
 
-    public function getEventTypes(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getEventTypes(ServerRequest $request, Response $response, array $args): Response
     {
         $eventTypes = EventTypesQuery::Create()
             ->orderByName()
@@ -126,7 +126,7 @@ class CalendarEventV2Controller
         return $response->withJson($return);
     }
 
-    public function eventNames(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function eventNames(ServerRequest $request, Response $response, array $args): Response
     {
         $ormEvents = EventQuery::Create()->orderByTitle()->find();
 
@@ -141,7 +141,7 @@ class CalendarEventV2Controller
         return $response->withJson($return);
     }
 
-    public function deleteeventtype(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteeventtype(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -170,7 +170,7 @@ class CalendarEventV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function eventInfo(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function eventInfo(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -202,7 +202,7 @@ class CalendarEventV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function personCheckIn(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function personCheckIn(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -222,7 +222,7 @@ class CalendarEventV2Controller
         return $response->withJson(['status' => "success"]);
     }
 
-    public function groupCheckIn(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function groupCheckIn(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -253,7 +253,7 @@ class CalendarEventV2Controller
         return $response->withJson(['status' => "success"]);
     }
 
-    public function familyCheckIn(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function familyCheckIn(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -281,7 +281,7 @@ class CalendarEventV2Controller
         return $response->withJson(['status' => "success"]);
     }
 
-    public function eventCount(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function eventCount(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -332,7 +332,7 @@ class CalendarEventV2Controller
         return $response->withJson($return);
     }
 
-    public function manageEvent(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function manageEvent(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 

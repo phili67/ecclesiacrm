@@ -12,8 +12,8 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\dto\Photo;
 use EcclesiaCRM\dto\SystemURLs;
@@ -44,7 +44,7 @@ class SystemBackupRestoreController
         $this->container = $container;
     }
 
-    public function backup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function backup (ServerRequest $request, Response $response, array $args): Response {
         if ( !SessionUser::isAdmin() ) {
             return $response->withStatus(401);
         }
@@ -57,7 +57,7 @@ class SystemBackupRestoreController
         return $response->write(json_encode(get_object_vars($backup)));
     }
 
-    public function backupRemote (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function backupRemote (ServerRequest $request, Response $response, array $args): Response {
         if ( !SessionUser::isAdmin() ) {
             return $response->withStatus(401);
         }
@@ -77,7 +77,7 @@ class SystemBackupRestoreController
         return $response->write(json_encode(get_object_vars($backup)));
     }
 
-    public function restore (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function restore (ServerRequest $request, Response $response, array $args): Response {
         if ( !SessionUser::isAdmin() ) {
             return $response->withStatus(401);
         }
@@ -90,7 +90,7 @@ class SystemBackupRestoreController
         return $response->write(json_encode(get_object_vars($restore)));
     }
 
-    public function download (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function download (ServerRequest $request, Response $response, array $args): Response
     {
         if ( !SessionUser::isAdmin() ) {
             return $response->withStatus(401);
@@ -101,7 +101,7 @@ class SystemBackupRestoreController
         exit;// bug resolution for safari
     }
 
-    public function clearPeopleTables (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function clearPeopleTables (ServerRequest $request, Response $response, array $args): Response
     {
         if ( !SessionUser::isAdmin() ) {
             return $response->withStatus(401);

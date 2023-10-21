@@ -21,8 +21,8 @@ use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Version;
 use Propel\Runtime\Propel;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use EcclesiaCRM\Utils\MiscUtils;
 use ZipArchive;
 
@@ -37,7 +37,7 @@ class PluginsController
         $this->container = $container;
     }
 
-    public function activate (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function activate (ServerRequest $request, Response $response, array $args): Response {
 
         $pluginPayload = (object)$request->getParsedBody();
 
@@ -53,7 +53,7 @@ class PluginsController
         return $response->withJson(["status" => "failed"]);
     }
 
-    public function deactivate (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deactivate (ServerRequest $request, Response $response, array $args): Response {
 
         $pluginPayload = (object)$request->getParsedBody();
 
@@ -69,7 +69,7 @@ class PluginsController
         return $response->withJson(["status" => "failed"]);
     }
 
-    public function remove (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function remove (ServerRequest $request, Response $response, array $args): Response {
 
         $pluginPayload = (object)$request->getParsedBody();
 
@@ -92,7 +92,7 @@ class PluginsController
         return $response->withJson(["status" => "failed"]);
     }
 
-    public function add (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function add (ServerRequest $request, Response $response, array $args): Response
     {
 
         if ( SessionUser::isAdmin() ) {
@@ -135,7 +135,7 @@ class PluginsController
         return $response->withJson(["status" => "failed"]);
     }
 
-    public function upgrade (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function upgrade (ServerRequest $request, Response $response, array $args): Response
     {
         $logger = LoggerUtils::getAppLogger();
 
@@ -236,7 +236,7 @@ class PluginsController
         return $response->withJson(["status" => "failed : something went wrong (version is the same, zip extraction failed, write access (www-data)...)"]);
     }
 
-    public function addDashboardPlaces (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addDashboardPlaces (ServerRequest $request, Response $response, array $args): Response {
         $pluginPayload = (object)$request->getParsedBody();
 
         if ( isset ($pluginPayload->dashBoardItems) ) {
@@ -263,7 +263,7 @@ class PluginsController
         return $response->withJson(["status" => "failed"]);
     }
 
-    public function removeFromDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removeFromDashboard (ServerRequest $request, Response $response, array $args): Response {
         $pluginPayload = (object)$request->getParsedBody();
 
         if ( isset ($pluginPayload->name) ) {
@@ -285,7 +285,7 @@ class PluginsController
         return $response->withJson(["status" => "failed"]);
     }
 
-    public function collapseFromDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function collapseFromDashboard (ServerRequest $request, Response $response, array $args): Response {
         $pluginPayload = (object)$request->getParsedBody();
 
         if ( isset ($pluginPayload->name) ) {

@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\dto\Cart;
 
@@ -25,7 +25,7 @@ class SundaySchoolController
         $this->container = $container;
     }
 
-    public function getallstudentsForGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getallstudentsForGroup (ServerRequest $request, Response $response, array $args): Response {
         $sundaySchoolService = $this->container->get('SundaySchoolService');
 
         $thisClassChildren = $sundaySchoolService->getKidsFullDetails($args['groupId']);
@@ -44,7 +44,7 @@ class SundaySchoolController
         return $response->write('{"ClassroomStudents":'.json_encode($result)."}");
     }
 
-    public function getAllGendersForDonut (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getAllGendersForDonut (ServerRequest $request, Response $response, array $args): Response {
         $sundaySchoolService = $this->container->get('SundaySchoolService');
 
         $genderChartArray = [];
@@ -54,7 +54,7 @@ class SundaySchoolController
         return $response->withJson($genderChartArray);
     }
 
-    public function getAllStudentsForChart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getAllStudentsForChart (ServerRequest $request, Response $response, array $args): Response {
         $sundaySchoolService = $this->container->get('SundaySchoolService');
 
         $birthDayMonthChartArray = [];

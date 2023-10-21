@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\PledgeQuery;
@@ -27,7 +27,7 @@ class FinancePledgeController
         $this->container = $container;
     }
 
-    public function pledgeDetail(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function pledgeDetail(ServerRequest $request, Response $response, array $args): Response
     {// only in DepositSlipEditor
         $plg = (object)$request->getParsedBody();
 
@@ -51,7 +51,7 @@ class FinancePledgeController
         return $response->write($pledges->toJson());
     }
 
-    public function familyPledges(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function familyPledges(ServerRequest $request, Response $response, array $args): Response
     {
         $plg = (object)$request->getParsedBody();
 
@@ -73,7 +73,7 @@ class FinancePledgeController
         return $response->write($pledges->toJSON());
     }
 
-    public function deletePledge(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deletePledge(ServerRequest $request, Response $response, array $args): Response
     {
         $plg = (object)$request->getParsedBody();
 

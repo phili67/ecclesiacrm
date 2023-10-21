@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 // Routes
 use Propel\Runtime\Propel;
@@ -51,19 +51,19 @@ class PeopleFamilyController
         $this->container = $container;
     }
 
-    public function photo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function photo (ServerRequest $request, Response $response, array $args): Response {
         $response = $this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Family", $args['familyId']);
         return $response->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
     }
 
-    public function thumbnail (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function thumbnail (ServerRequest $request, Response $response, array $args): Response {
         $response = $this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Family", $args['familyId']);
         return $response->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
     }
 
-    public function postfamilyproperties (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function postfamilyproperties (ServerRequest $request, Response $response, array $args): Response {
         $ormAssignedProperties = Record2propertyR2pQuery::Create()
             ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
             ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
@@ -81,7 +81,7 @@ class PeopleFamilyController
         return $response->write($ormAssignedProperties->toJSON());
     }
 
-    public function isMailChimpActiveFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function isMailChimpActiveFamily (ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         // we get the MailChimp Service
@@ -106,12 +106,12 @@ class PeopleFamilyController
         return $response->withJson(['success' => false]);
     }
 
-    public function getFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getFamily (ServerRequest $request, Response $response, array $args): Response {
         $family = FamilyQuery::create()->findPk($args['familyId']);
         return $response->withJSON($family->toJSON());
     }
 
-    public function familyInfo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function familyInfo (ServerRequest $request, Response $response, array $args): Response {
         $values = (object)$request->getParsedBody();
 
         if ( isset ($values->familyId) )
@@ -123,11 +123,11 @@ class PeopleFamilyController
         return $response;
     }
 
-    public function numbersOfAnniversaries (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function numbersOfAnniversaries (ServerRequest $request, Response $response, array $args): Response {
         return $response->withJson(MenuEventsCount::getNumberAnniversaries());
     }
 
-    public function searchFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function searchFamily (ServerRequest $request, Response $response, array $args): Response {
         $query = $args['query'];
         $results = [];
         $q = FamilyQuery::create()
@@ -142,7 +142,7 @@ class PeopleFamilyController
         return $response->withJSON(json_encode(["Families" => $results]));
     }
 
-    public function selfRegisterFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function selfRegisterFamily (ServerRequest $request, Response $response, array $args): Response {
         $families = FamilyQuery::create()
             ->filterByEnteredBy(Person::SELF_REGISTER)
             ->orderByDateEntered(Criteria::DESC)
@@ -151,7 +151,7 @@ class PeopleFamilyController
         return $response->withJSON(['families' => $families->toArray()]);
     }
 
-    public function selfVerifyFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function selfVerifyFamily (ServerRequest $request, Response $response, array $args): Response {
         $verifcationNotes = NoteQuery::create()
             ->filterByEnteredBy(Person::SELF_VERIFY)
             ->orderByDateEntered(Criteria::DESC)
@@ -161,7 +161,7 @@ class PeopleFamilyController
         return $response->withJSON(['families' => $verifcationNotes->toArray()]);
     }
 
-    public function pendingSelfVerify(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function pendingSelfVerify(ServerRequest $request, Response $response, array $args): Response {
         $pendingTokens = TokenQuery::create()
             ->filterByType(Token::typeFamilyVerify)
             ->filterByRemainingUses(array('min' => 1))
@@ -174,14 +174,14 @@ class PeopleFamilyController
         return $response->withJSON(['families' => $pendingTokens->toArray()]);
     }
 
-    public function byCheckNumberScan (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function byCheckNumberScan (ServerRequest $request, Response $response, array $args): Response {
         $scanString = $args['scanString'];
 
         $fService = $this->container->get('FinancialService');
         return $response->write($fService->getMemberByScanString($scanString));
     }
 
-    public function postFamilyPhoto(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function postFamilyPhoto(ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( !( array_key_exists('familyId', $args) and isset($input->imgBase64) ) ) {
@@ -194,7 +194,7 @@ class PeopleFamilyController
         return $response->withJSON(array("status" => "success"));
     }
 
-    public function deleteFamilyPhoto (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteFamilyPhoto (ServerRequest $request, Response $response, array $args): Response {
         if ( !( array_key_exists('familyId', $args) ) ) {
             return $response->withStatus(401);
         }
@@ -202,7 +202,7 @@ class PeopleFamilyController
         return $response->withJson(["status" => $family->deletePhoto()]);
     }
 
-    public function verifyFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function verifyFamily (ServerRequest $request, Response $response, array $args): Response {
         $familyId = $args["familyId"];
         $family = FamilyQuery::create()->findPk($familyId);
         if ($family != null) {
@@ -249,7 +249,7 @@ class PeopleFamilyController
         return $response;
     }
 
-    public function verifyFamilyPDF (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function verifyFamilyPDF (ServerRequest $request, Response $response, array $args): Response {
         $familyId = $args["familyId"];
         $family = FamilyQuery::create()->findPk($familyId);
         if ($family != null) {
@@ -264,7 +264,7 @@ class PeopleFamilyController
         return $response;
     }
 
-    public function verifyFamilyNow (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function verifyFamilyNow (ServerRequest $request, Response $response, array $args): Response {
         $familyId = $args["familyId"];
         $family = FamilyQuery::create()->findPk($familyId);
         if ($family != null) {
@@ -276,7 +276,7 @@ class PeopleFamilyController
         return $response;
     }
 
-    public function verifyFamilyURL (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function verifyFamilyURL (ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->famId) ) {
@@ -309,7 +309,7 @@ class PeopleFamilyController
         return $response;
     }
 
-    public function familyActivateStatus (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function familyActivateStatus (ServerRequest $request, Response $response, array $args): Response {
         $familyId = $args["familyId"];
         $newStatus = $args["status"];
 
@@ -353,7 +353,7 @@ class PeopleFamilyController
 
     }
 
-    public function familyGeolocation (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function familyGeolocation (ServerRequest $request, Response $response, array $args): Response {
         $familyId = $args["familyId"];
         $family = FamilyQuery::create()->findPk($familyId);
         if (!empty($family)) {
@@ -368,7 +368,7 @@ class PeopleFamilyController
         return $response->withStatus(404)->getBody()->write("familyId: " . $familyId . " not found");
     }
 
-    public function deleteFamilyField(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteFamilyField(ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(404);
         }
@@ -414,7 +414,7 @@ class PeopleFamilyController
         return $response->withJson(['success' => false]);
     }
 
-    public function upactionFamilyField (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function upactionFamilyField (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(404);
         }
@@ -436,7 +436,7 @@ class PeopleFamilyController
         return $response->withJson(['success' => false]);
     }
 
-    public function downactionFamilyField (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function downactionFamilyField (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(404);
         }
@@ -458,7 +458,7 @@ class PeopleFamilyController
         return $response->withJson(['success' => false]);
     }
 
-    public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addressBook (ServerRequest $request, Response $response, array $args): Response {
 
         if ( !( SessionUser::getUser()->isSeePrivacyDataEnabled() and array_key_exists('famId', $args) ) ) {
             return $response->withStatus(401);

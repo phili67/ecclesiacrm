@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\UserRole;
@@ -27,7 +27,7 @@ class UserRoleController
         $this->container = $container;
     }
 
-    public function addUserRole(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function addUserRole(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
@@ -61,7 +61,7 @@ class UserRoleController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function getUserRole(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getUserRole(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
@@ -85,7 +85,7 @@ class UserRoleController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function renameUserRole(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renameUserRole(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
@@ -106,7 +106,7 @@ class UserRoleController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function getAllUserRoles(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllUserRoles(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
@@ -117,7 +117,7 @@ class UserRoleController
         return $response->withJson($userCFG->toArray());
     }
 
-    public function deleteUserRole(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteUserRole(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);

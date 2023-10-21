@@ -12,8 +12,8 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\Deposit;
 use EcclesiaCRM\DepositQuery;
@@ -31,7 +31,7 @@ class FinanceDepositController
         $this->container = $container;
     }
 
-    public function createDeposit(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createDeposit(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -50,7 +50,7 @@ class FinanceDepositController
         return $response->withStatus(401);
     }
 
-    public function getAllDeposits(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllDeposits(ServerRequest $request, Response $response, array $args): Response
     {
         if ( SessionUser::getUser()->isFinanceEnabled() ) {
             $deposits = DepositQuery::create()
@@ -64,7 +64,7 @@ class FinanceDepositController
         return $response->withStatus(401);
     }
 
-    public function getOneDeposit(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getOneDeposit(ServerRequest $request, Response $response, array $args): Response
     {
         if ( array_key_exists('id', $args) and SessionUser::getUser()->isFinanceEnabled() ) {
             $id = $args['id'];
@@ -73,7 +73,7 @@ class FinanceDepositController
         return $response->withStatus(401);
     }
 
-    public function modifyOneDeposit(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function modifyOneDeposit(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -94,7 +94,7 @@ class FinanceDepositController
         return $response->withStatus(401);
     }
 
-    public function createDepositOFX(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createDepositOFX(ServerRequest $request, Response $response, array $args): Response
     {
         if ( SessionUser::getUser()->isFinanceEnabled() and array_key_exists('id', $args) ) {
             $id = $args['id'];
@@ -121,7 +121,7 @@ class FinanceDepositController
         return $response->withStatus(401);
     }
 
-    public function createDepositPDF(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createDepositPDF(ServerRequest $request, Response $response, array $args): Response
     {
         if ( SessionUser::getUser()->isFinanceEnabled() and array_key_exists('id', $args) ) {
             $id = $args['id'];
@@ -144,7 +144,7 @@ class FinanceDepositController
         return $response->withStatus(401);
     }
 
-    public function createDepositCSV(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createDepositCSV(ServerRequest $request, Response $response, array $args): Response
     {
         if ( SessionUser::getUser()->isFinanceEnabled() and array_key_exists('id', $args) ) {
             $id = $args['id'];
@@ -180,7 +180,7 @@ class FinanceDepositController
 
     }
 
-    public function deleteDeposit(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteDeposit(ServerRequest $request, Response $response, array $args): Response
     {
         if ( SessionUser::getUser()->isFinanceEnabled() and array_key_exists('id', $args) ) {
             $id = $args['id'];
@@ -194,7 +194,7 @@ class FinanceDepositController
         return $response->withStatus(401);
     }
 
-    public function getAllPledgesForDeposit(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllPledgesForDeposit(ServerRequest $request, Response $response, array $args): Response
     {
         if ( SessionUser::getUser()->isFinanceEnabled() and array_key_exists('id', $args) ) {
             $id = $args['id'];

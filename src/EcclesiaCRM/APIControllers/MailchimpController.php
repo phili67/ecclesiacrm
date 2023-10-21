@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 
 
@@ -41,7 +41,7 @@ class MailchimpController
     }
 
     // classic lists managements functions
-    public function searchList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function searchList (ServerRequest $request, Response $response, array $args): Response
     {
         $query = $args['query'];
         $resultsArray = [];
@@ -211,7 +211,7 @@ class MailchimpController
         return $response->withJson(array_filter($resultsArray));
     }
 
-    public function oneList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function oneList (ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
@@ -225,7 +225,7 @@ class MailchimpController
         return $response->withJSON(['MailChimpList' => $list,'MailChimpCampaign' => $campaign,'membersCount' => count($mailchimp->getListMembersFromListId($args['listID']))]);
     }
 
-    public function lists (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function lists (ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withJSON(['isActive' => false]);
@@ -252,7 +252,7 @@ class MailchimpController
         return $response->withJSON(['MailChimpLists' => $lists,'MailChimpCampaigns' => $campaigns, 'firstLoaded' => !$isLoaded, 'isActive' => $isActive]);
     }
 
-    public function listmembers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function listmembers (ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
@@ -263,7 +263,7 @@ class MailchimpController
         return $response->withJSON(['MailChimpMembers' => $mailchimp->getListMembersFromListId($args['listID']), 'id' => $args['listID']]);
     }
 
-    public function createList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function createList (ServerRequest $request, Response $response, array $args): Response {
 
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
@@ -288,7 +288,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function modifyList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function modifyList (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -312,7 +312,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function deleteallsubscribers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteallsubscribers (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -336,7 +336,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function deleteList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteList (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -361,7 +361,7 @@ class MailchimpController
     }
 
     // tags managements
-    public function addTag (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addTag (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -392,7 +392,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function getAllTags (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getAllTags (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -411,7 +411,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function removeTag (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removeTag (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -435,7 +435,7 @@ class MailchimpController
         return $response->withJson(['success' => false, "error" => $res]);
     }
 
-    public function removeTagForMembers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removeTagForMembers (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -457,7 +457,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function removeAllTagsForMembers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removeAllTagsForMembers (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -481,7 +481,7 @@ class MailchimpController
 
 
     // Campaigns
-    public function campaignCreate (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function campaignCreate (ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
@@ -511,7 +511,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function campaignDelete (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function campaignDelete (ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
@@ -535,7 +535,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function campaignSend (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function campaignSend (ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
@@ -557,7 +557,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function campaignSave (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function campaignSave (ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
@@ -601,7 +601,7 @@ class MailchimpController
         return $response->withJson(['success' => false, "error1" => "Problem oldStatus is empty"]);
     }
 
-    public function campaignContent(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function campaignContent(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
@@ -623,7 +623,7 @@ class MailchimpController
         return $response;
     }
 
-    public function statusList(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function statusList(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
@@ -660,7 +660,7 @@ class MailchimpController
     }
 
     // members management
-    public function suppress (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function suppress (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -689,7 +689,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function suppressMembers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function suppressMembers (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -715,7 +715,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function addallnewsletterpersons (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addallnewsletterpersons (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -784,7 +784,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function addallpersons (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addallpersons (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -826,7 +826,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function addPerson (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addPerson (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -853,7 +853,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function addFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addFamily (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -882,7 +882,7 @@ class MailchimpController
         return $response->withJson(['success' => false]);
     }
 
-    public function addAllFamilies (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function addAllFamilies (ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
@@ -936,7 +936,7 @@ class MailchimpController
         return $response->withJson(['success' => false, "error" => "try problem"]);
     }
 
-    public function addGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addGroup (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -971,7 +971,7 @@ class MailchimpController
     }
 
     // test connection
-    public function testEmailConnectionMVC (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function testEmailConnectionMVC (ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);

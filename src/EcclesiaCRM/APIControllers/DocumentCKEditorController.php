@@ -10,11 +10,10 @@
 
 namespace EcclesiaCRM\APIControllers;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\CKEditorTemplatesQuery;
@@ -34,7 +33,7 @@ class DocumentCKEditorController
         $this->container = $container;
     }
 
-    public function templates (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function templates (ServerRequest $request, Response $response, array $args): Response {
         $templates = CKEditorTemplatesQuery::Create()->findByPersonID($args['personId']);
 
         $templatesArr = [];
@@ -60,7 +59,7 @@ CKEDITOR.addTemplates( 'default',
 });";
     }
 
-    public function alltemplates (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function alltemplates (ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personID) ) {
@@ -82,7 +81,7 @@ CKEDITOR.addTemplates( 'default',
         return $response->withJson(['status' => 'failed']);
     }
 
-    public function deleteTemplate (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteTemplate (ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->templateID) ) {
@@ -96,7 +95,7 @@ CKEDITOR.addTemplates( 'default',
         return $response->withJson(['status' => 'failed']);
     }
 
-    public function renameTemplate (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renameTemplate (ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->templateID) && isset ($input->title) && isset ($input->desc) ) {
@@ -114,7 +113,7 @@ CKEDITOR.addTemplates( 'default',
         return $response->withJson(['status' => 'failed']);
     }
 
-    public function saveTemplate(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function saveTemplate(ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personID) && isset ($input->title) && isset ($input->desc) && isset ($input->text) ) {
@@ -141,7 +140,7 @@ CKEDITOR.addTemplates( 'default',
         return $response->withJson(['status' => 'failed']);
     }
 
-    public function saveAsWordFile (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function saveAsWordFile (ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personID) && isset ($input->title) && isset ($input->text) ) {

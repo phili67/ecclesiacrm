@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\data\Countries;
 use EcclesiaCRM\data\States;
@@ -26,12 +26,12 @@ class PublicDataController
         $this->container = $container;
     }
 
-    public function getCountries(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getCountries(ServerRequest $request, Response $response, array $args): Response
     {
         return $response->withJson(Countries::getAll());
     }
 
-    public function getStates(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getStates(ServerRequest $request, Response $response, array $args): Response
     {
         $states = new States($args['countryCode']);
         return $response->withJson($states->getAll());

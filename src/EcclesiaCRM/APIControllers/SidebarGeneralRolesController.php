@@ -12,8 +12,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\InputUtils;
@@ -44,7 +44,7 @@ class SidebarGeneralRolesController
         $this->container = $container;
     }
 
-    public function getAllGeneralRoles(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllGeneralRoles(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
             return $response->withStatus(401);
@@ -374,7 +374,7 @@ class SidebarGeneralRolesController
         return $response->withJson(['sPageTitle' => $sPageTitle, 'bDuplicateFound' => $bDuplicateFound, 'noun' => $noun, 'adjplusname' => $adjplusname, 'adjplusnameplural' => $adjplusnameplural, 'iNewNameError' => $iNewNameError, 'embedded' => $embedded, 'listID' => $listID, 'iDefaultRole' => $iDefaultRole, 'numRows' => $numRows, 'aIDs' => $aIDs, 'aIcon' => $aIcon, 'aSeqs' => $aSeqs, 'aNameFields' => $aNameFields]);
     }
 
-    public function generalRoleAssign(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function generalRoleAssign(ServerRequest $request, Response $response, array $args): Response
     {
 
         $input = (object)$request->getParsedBody();

@@ -12,8 +12,8 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\DonationFundQuery;
@@ -28,7 +28,7 @@ class FinanceDonationFundController
         $this->container = $container;
     }
 
-    public function getAllDonationFunds(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllDonationFunds(ServerRequest $request, Response $response, array $args): Response
     {
         if ( SessionUser::getUser()->isFinanceEnabled() ) {
             return $response->write(DonationFundQuery::Create()->find()->toJSON());
@@ -37,7 +37,7 @@ class FinanceDonationFundController
         return $response->withStatus(401);
     }
 
-    public function editDonationFund(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function editDonationFund(ServerRequest $request, Response $response, array $args): Response
     {
         $donation = (object)$request->getParsedBody();
 
@@ -48,7 +48,7 @@ class FinanceDonationFundController
         return $response->withStatus(401);
     }
 
-    public function setDonationFund(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function setDonationFund(ServerRequest $request, Response $response, array $args): Response
     {
         $fund = (object)$request->getParsedBody();
 
@@ -68,7 +68,7 @@ class FinanceDonationFundController
         return $response->withStatus(401);
     }
 
-    public function deleteDonationFund(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteDonationFund(ServerRequest $request, Response $response, array $args): Response
     {
         $fund = (object)$request->getParsedBody();
 
@@ -82,7 +82,7 @@ class FinanceDonationFundController
         return $response->withStatus(401);
     }
 
-    public function createDonationFund(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createDonationFund(ServerRequest $request, Response $response, array $args): Response
     {
         $fund = (object)$request->getParsedBody();
 
