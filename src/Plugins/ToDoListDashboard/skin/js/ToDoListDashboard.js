@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     if (window.CRM.timeEnglish == true) {
         window.CRM.fmt = 'hh:mm a';
     } else {

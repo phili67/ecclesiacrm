@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     window.CRM.ElementListener('#add-dashboard-news-note', 'click', function(event) {
         if (window.CRM.editor) {
             CKEDITOR.remove(window.CRM.editor);
