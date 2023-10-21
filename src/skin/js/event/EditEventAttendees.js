@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
 
   $("#DeleleAllAttendees").on("click",function(e) {
     var eventID = $(this).data("eventid");

@@ -7,7 +7,7 @@
 //
 
 
-$(document).ready(function () {
+$(function() {
     var editor = null;
 
     // this will create the toolbar for the textarea

@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    $('#deleteSelectedRows').click(function () {
+$(function() {
+    $('#deleteSelectedRows').on('click', function () {
         var deletedRows = dataT.rows('.selected').data();
         bootbox.confirm({
             title: i18next.t("Confirm Delete"),

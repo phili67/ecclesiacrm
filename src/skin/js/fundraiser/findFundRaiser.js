@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     var fmt = window.CRM.datePickerformat.toUpperCase();
 
     $('body').on('click',"#submitFilter", function () {

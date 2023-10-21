@@ -87,7 +87,7 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= $sRootPath ?>/skin/js/finance/FindDepositSlip.js"></script>
 
 <script nonce="<?= $CSPNonce ?>">
-    $('#deleteSelectedRows').click(function () {
+    $('#deleteSelectedRows').on('click', function () {
         var deletedRows = dataT.rows('.selected').data()
         bootbox.confirm({
             title: '<?= _("Confirm Delete") ?>',

@@ -7,7 +7,7 @@
 //
 
 
-$(document).ready(function () {
+$(function() {
     window.CRM.APIRequest({
       method: 'POST',
       path: 'mailchimp/testConnection'

@@ -1,6 +1,6 @@
 /* Copyright Philippe Logel 2018 all right reserved */
 
-$(document).ready(function () {
+$(function() {
     window.CRM.groupsInCart = 0;
     window.CRM.APIRequest({
         method: "GET",

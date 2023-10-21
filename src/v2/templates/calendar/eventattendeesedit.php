@@ -166,7 +166,7 @@ require $sRootDocument . '/Include/Header.php';
     //Added by @saulowulhynek to translation of datatable nav terms
     window.CRM.currentEvent = <?= $EventID ?>;
 
-    $(document).ready(function () {
+    $(function() {
         <?php
         if ($numAttRows != 0) {
         ?>

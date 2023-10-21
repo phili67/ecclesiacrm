@@ -1,6 +1,6 @@
 var dataT = 0;
 
-$(document).ready(function () {
+$(function() {
     $("#depositDate").datepicker({
         format: window.CRM.datePickerformat,
         language: window.CRM.lang

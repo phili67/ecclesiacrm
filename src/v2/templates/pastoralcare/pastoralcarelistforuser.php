@@ -78,7 +78,7 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 <script nonce="<?= $sCSPNonce ?>">
-    $(document).ready(function () {
+    $(function() {
         window.CRM.fmt = "";
 
         if (window.CRM.timeEnglish == true) {

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
   window.CRM.dataMenuLinkTable = $("#menulinksTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/menulinks/" + window.CRM.personId,

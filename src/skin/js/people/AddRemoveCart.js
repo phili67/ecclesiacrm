@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     // useful for for the QueryView.php and PersonView.php
 
     // newMessage event subscribers : Listener CRJSOM.js

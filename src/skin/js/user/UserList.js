@@ -1,6 +1,6 @@
-$(document).ready(function () {
+$(function() {
 
-    $(".check_all").click(function () {
+    $(".check_all").on('click', function () {
         var state = this.checked;
         $(".checkbox_users").each(function () {
             $(this)[0].checked = state;
@@ -29,7 +29,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".changeRole").click(function () {
+    $(".changeRole").on('click', function () {
         var roleID = $(this).data("id");
         var roleName = this.innerText;
         var userID = -1;

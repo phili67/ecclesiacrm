@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     window.CRM.extractionType = "/api/pastoralcare/getPersonByClassification/1";
 
     $( ".changeType" ).click(function() {

@@ -242,7 +242,7 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
     </div>
 
     <script nonce="<?= $CSPNonce ?>">
-        $("#addResultsToCart").click(function () {
+        $("#addResultsToCart").on('click', function () {
             var selectedPersons = <?= json_encode($aAddToCartIDs, JSON_NUMERIC_CHECK) ?>;
             window.CRM.cart.addPerson(selectedPersons, function (data) {
                 if (data.status == "success") {
@@ -270,7 +270,7 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
 
         });
 
-        $("#intersectResultsToCart").click(function () {
+        $("#intersectResultsToCart").on('click', function () {
             var selectedPersons = <?= json_encode($aAddToCartIDs, JSON_NUMERIC_CHECK) ?>;
             window.CRM.cart.intersectPerson(selectedPersons, function (data) {
                 if (data.status == "success") {
@@ -310,7 +310,7 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
             });
         });
 
-        $("#removeResultsFromCart").click(function () {
+        $("#removeResultsFromCart").on('click', function () {
             var selectedPersons = <?= json_encode($aAddToCartIDs, JSON_NUMERIC_CHECK) ?>;
             window.CRM.cart.removePerson(selectedPersons, function (data) {
                 if (data.status == "success") {
@@ -494,7 +494,7 @@ if (isset($_POST['Submit']) || mysqli_num_rows($rsParameters) == 0) {
 <script src="<?= $sRootPath ?>/skin/js/people/AddRemoveCart.js"></script>
 
 <script nonce="<?= $CSPNonce ?>">
-    $(document).ready(function () {
+    $(function() {
         window.CRM.queryTable = $("#query-table").DataTable(window.CRM.plugin.dataTable);
     });
 </script>

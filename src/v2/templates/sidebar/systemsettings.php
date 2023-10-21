@@ -226,7 +226,7 @@ require $sRootDocument . '/Include/Header.php';
 
 </form>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    $(document).ready(function () {
+    $(function() {
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             var target = $(e.target).attr("href") // activated tab
             $(target + " .choiceSelectBox").select2({width: 'resolve'});

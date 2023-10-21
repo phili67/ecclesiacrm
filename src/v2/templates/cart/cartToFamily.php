@@ -518,7 +518,7 @@ echo $sError;
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     var bStateUnusefull = <?= (SystemConfig::getValue('bStateUnusefull')) ?'true':'false' ?>;
 
-    $(document).ready(function () {
+    $(function() {
         $("#country-input").select2();
         $("#state-input").select2();
         $("#FamilyID").select2();

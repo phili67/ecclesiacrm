@@ -179,7 +179,7 @@ function submitSetupData(form) {
 
 }
 
-$(document).ready(function () {
+$(function() {
     $("#sLanguage").select2();
     $("#schurchcountry-input").select2();
     //$("#schurchstate-input").select2();

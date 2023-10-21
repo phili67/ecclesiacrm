@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
   window.CRM.dataPastoralCareTypeTable = $("#pastoral-careTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/pastoralcare/",

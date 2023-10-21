@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     var sidebar_colors = [
         'bg-blue',
         'bg-secondary',

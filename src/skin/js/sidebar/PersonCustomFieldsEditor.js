@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
   $(document).on("click",".delete-field", function(){
      var orderID = $(this).data("orderid");
      var field = $(this).data("field");

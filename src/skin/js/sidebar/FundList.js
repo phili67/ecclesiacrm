@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
   window.CRM.dataFundTable = $("#fundTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/donationfunds/",

@@ -4,7 +4,7 @@
 //                This code can't be included in another software.
 //  Updated     : 2020/10/17
 //
-$(document).ready(function () {
+$(function() {
 
     window.CRM.APIRequest({
         method: "GET",
@@ -73,7 +73,7 @@ $(document).ready(function () {
     $('#isGroupActive').prop('checked', window.CRM.isActive).change();
     $('#isGroupEmailExport').prop('checked', window.CRM.isIncludeInEmailExport).change();
 
-    $("#deleteGroupButton").click(function () {
+    $("#deleteGroupButton").on('click', function () {
         console.log("click");
         bootbox.setDefaults({
             locale: window.CRM.shortLocale
@@ -257,7 +257,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#deleteSelectedRows").click(function () {
+    $("#deleteSelectedRows").on('click', function () {
         var deletedRows = window.CRM.DataTableGroupView.rows('.selected').data()
         bootbox.confirm({
             message: i18next.t("Are you sure you want to remove the selected group members?") + " (" + deletedRows.length + ") ",
@@ -289,7 +289,7 @@ $(document).ready(function () {
 
     });
 
-    $("#addSelectedToCart").click(function () {
+    $("#addSelectedToCart").on('click', function () {
         if (window.CRM.DataTableGroupView.rows('.selected').length > 0) {
             var selectedPersons = {
                 "Persons": $.map(window.CRM.DataTableGroupView.rows('.selected').data(), function (val, i) {
@@ -302,7 +302,7 @@ $(document).ready(function () {
     });
 
     //copy membership
-    $("#addSelectedToGroup").click(function () {
+    $("#addSelectedToGroup").on('click', function () {
         window.CRM.groups.promptSelection({Type: window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role}, function (data) {
             selectedRows = window.CRM.DataTableGroupView.rows('.selected').data()
             $.each(selectedRows, function (index, value) {
@@ -311,7 +311,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#moveSelectedToGroup").click(function () {
+    $("#moveSelectedToGroup").on('click', function () {
         window.CRM.groups.promptSelection({Type: window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role}, function (data) {
             selectedRows = window.CRM.DataTableGroupView.rows('.selected').data()
             $.each(selectedRows, function (index, value) {
@@ -549,7 +549,7 @@ function initDataTable() {
 
 
     // start manager
-    $("#add-manager").click(function () {
+    $("#add-manager").on('click', function () {
         createManagerWindow(window.CRM.currentGroup);
     });
 

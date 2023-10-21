@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     $("#myWish").click(function showAlert() {
         $("#Menu_Banner").alert();
         window.setTimeout(function () {
@@ -28,7 +28,7 @@ $(document).ready(function () {
         };
 
 
-        $(document).ready(function () {
+        $(function() {
             $.each(lineDataRaw.Deposits, function (i, val) {
                 lineData.labels.push(moment(val.Date).format(window.CRM.datePickerformat.toUpperCase()));
                 lineData.datasets[0].data.push(val.totalAmount);

@@ -6,7 +6,7 @@
 //  Updated : 2019/04/19
 //
 
-$(document).ready(function () {
+$(function() {
     window.CRM.editor = null;
 
     $(document).on("click", "#createDocument", function () {

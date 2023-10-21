@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
 
     $('body').on('click', ".pnDelete", function () {
         var pnID = $(this).data("pnid");
@@ -202,7 +202,7 @@ $(document).ready(function () {
         addPersonsToSelectList(iPerdId, iPaddleNum);
     }
 
-    $("#SelectAll").click(function () {
+    $("#SelectAll").on('click', function () {
         var isChecked  = $(this).is(':checked');
 
         if (isChecked) {
@@ -214,11 +214,11 @@ $(document).ready(function () {
         window.CRM.paddleNumListTable.ajax.reload();
     });
 
-    $("#AddBuyer").click(function () {
+    $("#AddBuyer").on('click', function () {
         createBuyerEditorWindow(i18next.t('Buyer Number Editor'));
     });
 
-    $("#AddDonnor").click(function () {
+    $("#AddDonnor").on('click', function () {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'fundraiser/paddlenum/add/donnors',

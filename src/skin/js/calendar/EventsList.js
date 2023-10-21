@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     moment.locale(window.CRM.shortLocale);
 
     window.CRM.fmt = "";

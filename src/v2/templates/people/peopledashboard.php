@@ -378,7 +378,7 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
 
 <!-- this page specific inline scripts -->
 <script nonce="<?= $sCSPNonce ?>">
-    $(document).ready(function () {
+    $(function() {
         //-------------
         //- PIE CHART -
         //-------------

@@ -1,6 +1,6 @@
-$(document).ready(function () {
+$(function() {
 
-    $(".check_all").click(function () {
+    $(".check_all").on('click', function () {
         var state = this.checked;
         $(".checkbox_plugins").each(function () {
             $(this)[0].checked = state;
@@ -165,7 +165,7 @@ $(document).ready(function () {
         return object
     }
 
-    $('#add-plugin').click(function () {
+    $('#add-plugin').on('click', function () {
         var modal = bootbox.dialog({
             title:i18next.t("Plugin download manager"),
             message: BootboxContent('add'),
@@ -178,7 +178,7 @@ $(document).ready(function () {
     });
 
 
-    $('.update-plugin').click(function () {
+    $('.update-plugin').on('click', function () {
         var name = $(this).data("name");
 
         var modal = bootbox.dialog({

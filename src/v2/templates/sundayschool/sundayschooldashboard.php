@@ -336,7 +336,7 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <script nonce="<?= $CSPNonce ?>">
-        $(document).ready(function () {
+        $(function() {
             $('.data-table').DataTable({"language": window.CRM.plugin.dataTable.language,responsive: true});
 
             $("#addNewClassBtn").click(function (e) {
@@ -366,7 +366,7 @@ require $sRootDocument . '/Include/Header.php';
 } else {
     ?>
     <script nonce="<?= $CSPNonce ?>">
-        $(document).ready(function () {
+        $(function() {
             $('.data-table').DataTable({"language": window.CRM.plugin.dataTable.language,responsive: true});
         });
     </script>

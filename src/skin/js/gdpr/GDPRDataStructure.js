@@ -1,4 +1,4 @@
-  $(document).ready(function () {
+  $(function() {
       $("#gdpr-data-structure-table").DataTable({
        "language": {
          "url": window.CRM.plugin.dataTable.language.url

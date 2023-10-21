@@ -375,12 +375,12 @@ require 'Include/HeaderNotLoggedIn.php';
     ?>
     $('.login-page').addClass('lockscreen').removeClass('login-page');
 
-    $(document).ready(function () {
+    $(function() {
         $("#Login").hide();
         document.title = 'Lock';
     });
 
-    $("#Login-div-appear").click(function () {
+    $("#Login-div-appear").on('click', function () {
         // 200 is the interval in milliseconds for the fade-in/out, we use jQuery's callback feature to fade
         // in the new div once the first one has faded out
 
@@ -394,7 +394,7 @@ require 'Include/HeaderNotLoggedIn.php';
     } else {
     ?>
     $('.hold-transition').addClass('login-page').removeClass('lockscreen');
-    $(document).ready(function () {
+    $(function() {
         $("#Lock").hide();
         document.title = 'Login';
     });

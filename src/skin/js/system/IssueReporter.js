@@ -6,7 +6,7 @@ $(document).ready(function(){
 });
 
 
-$("#submitIssue").click(function () {
+$("#submitIssue").on('click', function () {
   if ($("input:text[name=issueTitle]").val() && $("textarea[name=issueDescription]").val()) {
     var postData = {
       "issueTitle": $("input:text[name=issueTitle]").val(),
@@ -51,7 +51,7 @@ $("#submitIssue").click(function () {
   }
 });
 
-$("#submitIssueDone").click(function () {
+$("#submitIssueDone").on('click', function () {
     $("#IssueReportModal").modal('toggle');
     $("#submitDiaglogStart" ).show();
     $("#submitDiaglogFinish" ).hide();

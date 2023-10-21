@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
   window.CRM.dataPropertyListTable = $("#property-listing-table-v2").DataTable({
     ajax:{
       url: window.CRM.root + "/api/properties/typelists/"+window.CRM.propertyType,

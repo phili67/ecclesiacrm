@@ -572,8 +572,8 @@ if ($mode == 'classes') {
 if ($embedded) {
     ?>
     <script nonce="<?= $CSPNonce ?>">
-        $(document).ready(function () {
-            $('#exit').click(function () {
+        $(function() {
+            $('#exit').on('click', function () {
                 window.opener.location.reload(true);
                 window.close();
             });

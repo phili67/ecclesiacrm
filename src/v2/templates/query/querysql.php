@@ -193,7 +193,7 @@ echo '</p>';
 ?>
 
 <script nonce="<?= $CSPNonce ?>">
-    $(document).ready(function () {
+    $(function() {
         window.CRM.queryTable = $("#query-table").DataTable(window.CRM.plugin.dataTable);
     });
 </script>

@@ -8,7 +8,7 @@
 
 window.CRM.editor = null;
 
-$(document).ready(function () {
+$(function() {
 
     function addEvent(dateStart, dateEnd, typeID) {
         window.CRM.APIRequest({

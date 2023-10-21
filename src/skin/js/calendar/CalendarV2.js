@@ -782,7 +782,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.CRM.calendar.render();
 });
 
-$(document).ready(function () {
+$(function() {
   $(document).on('hidden.bs.modal','.bootbox.modal', function (e) {
     // solve a bug a bootbox is over another box
     if($('.modal').hasClass('in')) {

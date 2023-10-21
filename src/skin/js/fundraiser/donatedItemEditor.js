@@ -1,9 +1,9 @@
-$(document).ready(function () {
+$(function() {
 
     $("#Donor").select2();
     $("#Buyer").select2();
 
-    $("#donatedItemPicture").click(function () {
+    $("#donatedItemPicture").on('click', function () {
         var donatedItem = $(this).data('donateditemid');
 
         window.open(window.CRM.root + '/browser/browse.php?DonatedItemID=' + donatedItem);
@@ -30,7 +30,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#donatedItemGo").click(function () {
+    $("#donatedItemGo").on('click', function () {
         var donatedItem = $(this).data('donateditemid');
         var count = $("#NumberCopies").val();
 
@@ -48,7 +48,7 @@ $(document).ready(function () {
 
     })
 
-    $("#DonatedItemSubmit").click(function () {
+    $("#DonatedItemSubmit").on('click', function () {
         var Item = $("#Item").val();
         var Multibuy = $("#Multibuy").is(':checked');
         var Donor = $("#Donor").val();
@@ -81,7 +81,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#DonatedItemSubmitAndAdd").click(function () {
+    $("#DonatedItemSubmitAndAdd").on('click', function () {
         var Item = $("#Item").val();
         var Multibuy = $("#Multibuy").is(':checked');
         var Donor = $("#Donor").val();
@@ -114,7 +114,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#DonatedItemCancel").click(function () {
+    $("#DonatedItemCancel").on('click', function () {
         window.location.href = window.CRM.root + "/v2/fundraiser/editor/" + window.CRM.currentFundraiser;
     })
 });

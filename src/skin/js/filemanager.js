@@ -1,6 +1,6 @@
 /* copyright 2018 Philippe Logel */
 
-$(document).ready(function () {
+$(function() {
     // Helper function to get parameters from the query string.
     // use to search the ckeditor function to put the right param in the ckeditor image tool
     function getUrlParam(paramName) {
@@ -325,7 +325,7 @@ $(document).ready(function () {
         }
     });
 
-    $('.trash-drop').click(function () {
+    $('.trash-drop').on('click', function () {
         var selected = $.map(window.CRM.dataEDriveTable.rows('.selected').data(), function (item) {
             return item['name']
         });
@@ -626,7 +626,7 @@ $(document).ready(function () {
     });
 
     $(document).on('dblclick', '.change-folder', function () {
-        //$(".change-folder").click (function () {
+        //$(".change-folder").on('click', function () {
         var personID = $(this).data("personid");
         var folder = $(this).data("folder");
 
@@ -639,7 +639,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".new-folder").click(function () {
+    $(".new-folder").on('click', function () {
         var personID = $(this).data("personid");
 
         bootbox.prompt(i18next.t("Set your Folder name"), function (result) {
@@ -661,7 +661,7 @@ $(document).ready(function () {
         });
     });
 
-    $(".folder-back-drop").click(function () {
+    $(".folder-back-drop").on('click', function () {
         var personID = $(this).data("personid");
 
         window.CRM.APIRequest({
@@ -742,7 +742,7 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    $("#uploadFile").click(function () {
+    $("#uploadFile").on('click', function () {
         uploadWindow = CreateUploadFileWindow();
 
         uploadWindow.modal("show");

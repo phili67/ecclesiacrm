@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
   $("#AddAllToCart").click(function(){
     window.CRM.cart.addPerson(listPeople);
   });

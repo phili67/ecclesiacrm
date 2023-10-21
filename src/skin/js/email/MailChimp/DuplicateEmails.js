@@ -7,7 +7,7 @@
 //
 
 
-$(document).ready(function () {
+$(function() {
 
   window.CRM.dataFundTable = $("#duplicateTable").DataTable({
     ajax:{
