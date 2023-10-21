@@ -10,8 +10,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\Service\PastoralCareService;
@@ -66,7 +66,7 @@ class VIEWPastoralCareController {
     }
 
 
-    public function renderPastoralCareListForUser (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderPastoralCareListForUser (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/pastoralcare/');
 
         if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() || SessionUser::getId() == $args['UserID'] ) ) {
@@ -153,7 +153,7 @@ class VIEWPastoralCareController {
         return $paramsArguments;
     }
 
-    public function renderPastoralCareDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderPastoralCareDashboard (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/pastoralcare/');
 
         if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
@@ -189,7 +189,7 @@ class VIEWPastoralCareController {
         return $paramsArguments;
     }
 
-    public function renderPastoralCarePerson (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderPastoralCarePerson (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/pastoralcare/');
 
         $personId = $args['personId'];
@@ -406,7 +406,7 @@ class VIEWPastoralCareController {
         return $paramsArguments;
     }
 
-    public function renderPastoralCareFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderPastoralCareFamily (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/pastoralcare/');
 
         $familyId = $args['familyId'];
@@ -520,7 +520,7 @@ class VIEWPastoralCareController {
         return $paramsArguments;
     }
 
-    public function renderPastoralCareMembersList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderPastoralCareMembersList (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/pastoralcare/');
 
 
@@ -562,7 +562,7 @@ class VIEWPastoralCareController {
         return $paramsArguments;
     }
 
-    public function renderPastoralCarePersonPrint (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderPastoralCarePersonPrint (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/pastoralcare/');
 
         $iPersonID = InputUtils::LegacyFilterInput($args['personId'], 'int');

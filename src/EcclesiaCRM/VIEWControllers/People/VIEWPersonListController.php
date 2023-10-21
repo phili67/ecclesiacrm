@@ -10,8 +10,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\dto\SystemConfig;
@@ -32,7 +32,7 @@ class VIEWPersonListController {
         $this->container = $container;
     }
 
-    public function renderPersonList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderPersonList (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         $sMode = $args['mode'];

@@ -12,8 +12,8 @@ namespace EcclesiaCRM\VIEWControllers;
 
 use Psr\Container\ContainerInterface;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\EventTypesQuery;
@@ -46,7 +46,7 @@ class VIEWCalendarController {
         $this->container = $container;
     }
 
-    public function renderCalendar (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderCalendar (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/calendar/');
 
         return $renderer->render($response, 'calendar.php', $this->argumentsCalendarArray());
@@ -84,7 +84,7 @@ class VIEWCalendarController {
         return $paramsArguments;
     }
 
-    public function renderCalendarEventsList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderCalendarEventsList (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/calendar/');
 
         return $renderer->render($response, 'eventslist.php', $this->argumentsCalendarEventsListArray());
@@ -148,7 +148,7 @@ class VIEWCalendarController {
         return $paramsArguments;
     }
 
-    public function renderCalendarEventAttendeesEdit (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderCalendarEventAttendeesEdit (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/calendar/');
 
         return $renderer->render($response, 'eventattendeesedit.php', $this->argumentsCalendarEventAttendeesEditListArray());
@@ -193,7 +193,7 @@ class VIEWCalendarController {
 
     
 
-    public function renderCalendarEventCheckin (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderCalendarEventCheckin (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/calendar/');
 
         return $renderer->render($response, 'checkin.php', $this->argumentsCalendarCheckinArray());
@@ -317,7 +317,7 @@ class VIEWCalendarController {
 
     
 
-    public function renderCalendarEventNames (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderCalendarEventNames (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/calendar/');
 
         if (!SessionUser::getUser()->isAdmin()) {
@@ -342,7 +342,7 @@ class VIEWCalendarController {
     }
 
     
-    public function renderCalendarEventTypesEdit (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderCalendarEventTypesEdit (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/calendar/');
 
         if (!SessionUser::getUser()->isAdmin()) {

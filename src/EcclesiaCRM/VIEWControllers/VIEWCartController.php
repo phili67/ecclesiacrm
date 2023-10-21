@@ -10,8 +10,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -34,7 +34,7 @@ class VIEWCartController {
         $this->container = $container;
     }
 
-    public function renderCarView (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderCarView (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/cart/');
 
         $params = (object)$request->getParsedBody();
@@ -154,7 +154,7 @@ class VIEWCartController {
 
     
 
-    public function renderCarToBadge (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderCarToBadge (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/cart/');
 
         if ( !( SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isCreateDirectoryEnabled() ) ) {
@@ -183,7 +183,7 @@ class VIEWCartController {
     }
 
     
-    public function renderCarToFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderCarToFamily (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/cart/');
 
         if (!SessionUser::getUser()->isAddRecordsEnabled()) {

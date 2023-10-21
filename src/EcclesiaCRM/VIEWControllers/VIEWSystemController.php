@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\VIEWControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -31,7 +31,7 @@ class VIEWSystemController {
         $this->container = $container;
     }
 
-    public function integritycheck (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function integritycheck (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -62,7 +62,7 @@ class VIEWSystemController {
     }
 
 
-    public function reportList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function reportList (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -97,7 +97,7 @@ class VIEWSystemController {
         return $paramsArguments;
     }
 
-    public function optionManager (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function optionManager (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -133,7 +133,7 @@ class VIEWSystemController {
         return $paramsArguments;
     }
 
-    public function convertIndividualToAddress (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function convertIndividualToAddress (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -168,7 +168,7 @@ class VIEWSystemController {
         return $paramsArguments;
     }
 
-    public function csvExport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function csvExport (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -199,7 +199,7 @@ class VIEWSystemController {
         return $paramsArguments;
     }
 
-    public function eventAttendance (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function eventAttendance (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -250,7 +250,7 @@ class VIEWSystemController {
 
     
 
-    public function USISTAddressVerification (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function USISTAddressVerification (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 

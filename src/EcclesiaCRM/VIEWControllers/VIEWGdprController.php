@@ -10,8 +10,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\dto\SystemConfig;
@@ -35,7 +35,7 @@ class VIEWGdprController {
         $this->container = $container;
     }
 
-    public function renderGdprDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderGdprDashboard (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/gdpr/');
 
         if ( !( SessionUser::getUser()->isGdrpDpoEnabled() ) ) {
@@ -57,7 +57,7 @@ class VIEWGdprController {
         return $paramsArguments;
     }
 
-    public function renderGdprDataStructure (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderGdprDataStructure (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/gdpr/');
 
         if ( !( SessionUser::getUser()->isGdrpDpoEnabled() ) ) {

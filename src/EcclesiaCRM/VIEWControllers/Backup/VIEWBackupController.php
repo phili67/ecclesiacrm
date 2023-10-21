@@ -10,8 +10,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -29,7 +29,7 @@ class VIEWBackupController {
         $this->container = $container;
     }
 
-    public function renderBackup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderBackup (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/backup/');
 
         if ( !( SessionUser::getUser()->isAdmin() ) ) {
