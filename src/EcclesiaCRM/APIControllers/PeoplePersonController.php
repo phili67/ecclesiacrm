@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 // Person APIs
 use Propel\Runtime\Propel;
@@ -61,7 +61,7 @@ class PeoplePersonController
         return substr(sha1(rand()), 0, $length);
     }
 
-    public function photo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function photo (ServerRequest $request, Response $response, array $args): Response {
         if ( !array_key_exists('personId', $args) ) {
             return $response->withStatus(401);
         }
@@ -71,7 +71,7 @@ class PeoplePersonController
         return $response->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
     }
 
-    public function thumbnail (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function thumbnail (ServerRequest $request, Response $response, array $args): Response {
         if ( !array_key_exists('personId', $args) ) {
             return $response->withStatus(401);
         }
@@ -80,7 +80,7 @@ class PeoplePersonController
         return $response->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
     }
 
-    public function searchPerson (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function searchPerson (ServerRequest $request, Response $response, array $args): Response {
         $query = $args['query'];
 
         $searchLikeString = '%'.$query.'%';
@@ -110,7 +110,7 @@ class PeoplePersonController
         return $response->withJson($return);
     }
 
-    public function searchSundaySchoolPerson (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function searchSundaySchoolPerson (ServerRequest $request, Response $response, array $args): Response {
         $query = $args['query'];
 
         $searchLikeString = '%'.$query.'%';
@@ -140,7 +140,7 @@ class PeoplePersonController
         return $response->withJson($return);
     }
 
-    public function personCartView (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function personCartView (ServerRequest $request, Response $response, array $args): Response
     {
         // Create array with Classification Information (lst_ID = 1)
         $ormClassifications = ListOptionQuery::Create()
@@ -223,14 +223,14 @@ class PeoplePersonController
         return $response->withJson(['CartPersons' => $res]);
     }
 
-    public function volunteersPerPersonId(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function volunteersPerPersonId(ServerRequest $request, Response $response, array $args): Response {
         return $response->write(VolunteerOpportunityQuery::Create()
             ->addJoin(VolunteerOpportunityTableMap::COL_VOL_ID,PersonVolunteerOpportunityTableMap::COL_P2VO_VOL_ID,Criteria::LEFT_JOIN)
             ->Where(PersonVolunteerOpportunityTableMap::COL_P2VO_PER_ID.' = '.$args['personID'])
             ->find()->toJson());
     }
 
-    public function volunteersDelete(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function volunteersDelete(ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personId) && isset ($input->volunteerOpportunityId) ){
@@ -253,7 +253,7 @@ class PeoplePersonController
         return $response->withJson(['success' => false]);
     }
 
-    public function volunteersAdd(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function volunteersAdd(ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personId) && isset ($input->volID) ){
@@ -281,7 +281,7 @@ class PeoplePersonController
         return $response->withJson(['success' => false]);
     }
 
-    public function isMailChimpActivePerson (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function isMailChimpActivePerson (ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         // we get the MailChimp Service
@@ -304,7 +304,7 @@ class PeoplePersonController
         return $response->withJson(['success' => false]);
     }
 
-    public function personpropertiesPerPersonId (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function personpropertiesPerPersonId (ServerRequest $request, Response $response, array $args): Response {
         if ( !array_key_exists('personID', $args) ) {
             return $response->withStatus(401);
         }
@@ -326,11 +326,11 @@ class PeoplePersonController
         return $response->write($ormAssignedProperties->toJSON());
     }
 
-    public function numbersOfBirthDates (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function numbersOfBirthDates (ServerRequest $request, Response $response, array $args): Response {
         return $response->withJson(MenuEventsCount::getNumberBirthDates());
     }
 
-    public function postPersonPhoto (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function postPersonPhoto (ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( !( array_key_exists('personId', $args) and isset($input->imgBase64) ) ) {
@@ -343,7 +343,7 @@ class PeoplePersonController
         return $response->withJSON(array("status" => "success"));
     }
 
-    public function deletePersonPhoto (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deletePersonPhoto (ServerRequest $request, Response $response, array $args): Response {
         if ( !( array_key_exists('personId', $args) ) ) {
             return $response->withStatus(401);
         }
@@ -351,7 +351,7 @@ class PeoplePersonController
         return $response->withJSON(json_encode(array("status" => $person->deletePhoto())));
     }
 
-    public function addPersonToCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addPersonToCart (ServerRequest $request, Response $response, array $args): Response {
         if ( !( array_key_exists('personId', $args) and SessionUser::getUser()->isShowCartEnabled() ) ) {
             return $response->withStatus(401);
         }
@@ -360,7 +360,7 @@ class PeoplePersonController
         return $response->withJSON(array("status" => "success"));
     }
 
-    public function deletePerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deletePerson(ServerRequest $request, Response $response, array $args): Response {
         $sessionUser = SessionUser::getUser();
         if ( !( $sessionUser->isDeleteRecordsEnabled() and array_key_exists('personId', $args) ) ) {
             return $response->withStatus(401);
@@ -390,7 +390,7 @@ class PeoplePersonController
         return $response->withJSON(array("status" => "success"));
     }
 
-    public function deletePersonField (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deletePersonField (ServerRequest $request, Response $response, array $args): Response {
         $values = (object)$request->getParsedBody();
 
         if (!(SessionUser::getUser()->isMenuOptionsEnabled() and isset($values->orderID) and isset($values->field) ) ) {
@@ -436,7 +436,7 @@ class PeoplePersonController
         return $response->withJson(['success' => false]);
     }
 
-    public function upactionPersonfield (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function upactionPersonfield (ServerRequest $request, Response $response, array $args): Response {
         $values = (object)$request->getParsedBody();
 
         if (!( SessionUser::getUser()->isMenuOptionsEnabled() and isset ($values->orderID) and isset ($values->field) ) ) {
@@ -458,7 +458,7 @@ class PeoplePersonController
         return $response->withJson(['success' => false]);
     }
 
-    public function downactionPersonfield (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function downactionPersonfield (ServerRequest $request, Response $response, array $args): Response {
         $values = (object)$request->getParsedBody();
 
         if (!(SessionUser::getUser()->isMenuOptionsEnabled() and isset ($values->orderID) and isset ($values->field) ) ) {
@@ -480,7 +480,7 @@ class PeoplePersonController
         return $response->withJson(['success' => false]);
     }
 
-    public function duplicateEmails(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function duplicateEmails(ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -512,7 +512,7 @@ class PeoplePersonController
         return $response->withJson(["emails" => $emails]);
     }
 
-    public function notInMailChimpEmails (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function notInMailChimpEmails (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isMailChimpEnabled()) {
             return $response->withStatus(401);
         }
@@ -559,7 +559,7 @@ class PeoplePersonController
         return $response->withJson(["emails" => $missingEmailInMailChimp]);
     }
 
-    public function activateDeacticate (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function activateDeacticate (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isDeleteRecordsEnabled()) {
             return $response->withStatus(401);
         }
@@ -638,7 +638,7 @@ class PeoplePersonController
         return $response->withJson(['success' => true]);
     }
 
-    public function saveNoteAsWordFile (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function saveNoteAsWordFile (ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -679,7 +679,7 @@ class PeoplePersonController
         return $response->withJson(['success' => false]);
     }
 
-    public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addressBook (ServerRequest $request, Response $response, array $args): Response {
         if ( !( array_key_exists('personId', $args) ) ) {
             return $response->withStatus(401);
         }

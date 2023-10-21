@@ -13,8 +13,8 @@ namespace EcclesiaCRM\APIControllers;
 use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\VolunteerOpportunityQuery;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PropertyQuery;
@@ -49,7 +49,7 @@ class SearchController
     }
 
 
-    public function getSearchResultByName (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getSearchResultByName (ServerRequest $request, Response $response, array $args): Response {
         $query = $args['query'];
 
         $resultsArray = [];
@@ -134,7 +134,7 @@ class SearchController
         return $response->withJson(($resultsArray));
     }
 
-    public function getSearchResult (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getSearchResult (ServerRequest $request, Response $response, array $args): Response {
         $req = (object)$request->getParsedBody();
 
         $query = $req->SearchTerm;
@@ -181,7 +181,7 @@ class SearchController
         return $response->withJson(["SearchResults" => $resultsArray]);
     }
 
-    public function quickSearch (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function quickSearch (ServerRequest $request, Response $response, array $args): Response {
         $query = $args['query'];
 
         $resultsArray = [];
@@ -213,7 +213,7 @@ class SearchController
         return $response->withJson(array_values(array_filter($resultsArray)));
     }
 
-    public function  comboElements (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function  comboElements (ServerRequest $request, Response $response, array $args): Response {
 
         $iTenThousand = 10000;
 
@@ -283,7 +283,7 @@ class SearchController
         return $response->withJson($arr);
     }
 
-    public function getGroupForTypeID (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getGroupForTypeID (ServerRequest $request, Response $response, array $args): Response {
         // Create array with Classification Information (lst_ID = 1)
         $req = (object)$request->getParsedBody();
 
@@ -298,7 +298,7 @@ class SearchController
         return $response->withJson($groups->toArray());
     }
 
-    public function getGroupRoleForGroupID (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getGroupRoleForGroupID (ServerRequest $request, Response $response, array $args): Response {
         // Create array with Classification Information (lst_ID = 1)
 
         $req = (object)$request->getParsedBody();

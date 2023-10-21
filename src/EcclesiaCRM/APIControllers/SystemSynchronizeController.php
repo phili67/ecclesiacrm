@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\Service\SynchronizeService;
 
@@ -25,7 +25,7 @@ class SystemSynchronizeController
         $this->container = $container;
     }
 
-    public function synchronize (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function synchronize (ServerRequest $request, Response $response, array $args): Response
     {
         //$cacheProvider->withExpires($response, 0);
 

@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\VIEWControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use Propel\Runtime\Propel;
 
@@ -33,7 +33,7 @@ class VIEWQueryController {
         $this->container = $container;
     }
 
-    public function querylist (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function querylist (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/query/');
 
@@ -74,7 +74,7 @@ class VIEWQueryController {
         return $paramsArguments;
     }
 
-    public function queryview (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function queryview (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/query/');
 
@@ -114,7 +114,7 @@ class VIEWQueryController {
         return $paramsArguments;
     }
 
-    public function querysql (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function querysql (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/query/');
 

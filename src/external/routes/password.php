@@ -1,7 +1,8 @@
 <?php
 
-use Slim\Http\Response as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
+
 use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -17,12 +18,12 @@ if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
 
     $app->group('/password', function (RouteCollectorProxy $group) {
 
-        $group->get('/', function (Request $request, Response $response, array $args) {
+        $group->get('/', function (ServerRequest $request, Response $response, array $args) {
             $renderer = new PhpRenderer('templates/password/');
             return $renderer->render($response, 'enter-username.php', ['sRootPath' => SystemURLs::getRootPath()]);
         });
 
-        $group->post('/reset/{username}', function (Request $request, Response $response, array $args) {
+        $group->post('/reset/{username}', function (ServerRequest $request, Response $response, array $args) {
             $userName = $args['username'];
             if (!empty($userName)) {
                 $user = UserQuery::create()->findOneByUserName(strtolower(trim($userName)));
@@ -47,7 +48,7 @@ if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
             return $response->withStatus(404);
         });
 
-        $group->get('/set/{token}', function (Request $request, Response $response, array $args) {
+        $group->get('/set/{token}', function (ServerRequest $request, Response $response, array $args) {
             $renderer = new PhpRenderer('templates/password/');
             $token = TokenQuery::create()->findPk($args['token']);
             $haveUser = false;

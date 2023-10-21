@@ -1,7 +1,8 @@
 <?php
 
-use Slim\Http\Response as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
+
 use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemConfig;
@@ -18,13 +19,13 @@ $app->group('/register', function (RouteCollectorProxy $group) {
     $enableSelfReg = SystemConfig::getBooleanValue('bEnableSelfRegistration');
 
     if ($enableSelfReg) {
-        $group->get('/', function (Request $request, Response $response, array $args) {
+        $group->get('/', function (ServerRequest $request, Response $response, array $args) {
             $renderer = new PhpRenderer('templates/registration/');
 
             return $renderer->render($response, 'family-register.php', ['sRootPath' => SystemURLs::getRootPath()]);
         });
 
-        $group->post('/', function (Request $request, Response $response, array $args) {
+        $group->post('/', function (ServerRequest $request, Response $response, array $args) {
             $renderer = new PhpRenderer('templates/registration/');
 
             $body = $request->getParsedBody();
@@ -57,7 +58,7 @@ $app->group('/register', function (RouteCollectorProxy $group) {
             return $renderer->render($response, 'family-register-members.php', $pageObjects);
         });
 
-        $group->post('/confirm', function (Request $request, Response $response, array $args) {
+        $group->post('/confirm', function (ServerRequest $request, Response $response, array $args) {
             $renderer = new PhpRenderer('templates/registration/');
 
             $body = $request->getParsedBody();

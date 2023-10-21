@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\SessionUser;
 
@@ -49,7 +49,7 @@ class SystemSettingsIndividualController
         $this->container = $container;
     }
 
-    public function get2FA (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function get2FA (ServerRequest $request, Response $response, array $args): Response
     {
         // substitute your company or app name here
         $tfa = new TwoFactorAuth('EcclesiaCRM');
@@ -68,7 +68,7 @@ class SystemSettingsIndividualController
         return $response->withJson(['img' => $img]);
     }
 
-    public function verify2FA (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function verify2FA (ServerRequest $request, Response $response, array $args): Response
     {
         $result = (object)$request->getParsedBody();
 
@@ -109,7 +109,7 @@ class SystemSettingsIndividualController
         return $response->withJson(['status' => 'no']);
     }
 
-    public function remove2FA (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function remove2FA (ServerRequest $request, Response $response, array $args): Response
     {
         $user = SessionUser::getUser();
         $secret = $user->getTwoFaSecret();

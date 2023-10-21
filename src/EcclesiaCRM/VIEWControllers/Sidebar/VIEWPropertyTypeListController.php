@@ -10,8 +10,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -28,7 +28,7 @@ class VIEWPropertyTypeListController {
         $this->container = $container;
     }
 
-    public function renderPropertyTypeList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderPropertyTypeList (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/sidebar/');
 
         if ( !( SessionUser::getUser()->isMenuOptionsEnabled() ) ) {

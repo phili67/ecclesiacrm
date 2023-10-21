@@ -13,8 +13,8 @@ namespace Plugins\APIControllers;
 
 use EcclesiaCRM\Utils\InputUtils;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\SessionUser;
 
@@ -39,7 +39,7 @@ class ToDoListDashboardController
         $this->container = $container;
     }
 
-    public function addList(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function addList(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -69,7 +69,7 @@ class ToDoListDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function ListInfo(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function ListInfo(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -84,7 +84,7 @@ class ToDoListDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function modifyList(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function modifyList(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -104,7 +104,7 @@ class ToDoListDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function removeList(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function removeList(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -173,7 +173,7 @@ class ToDoListDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function changeList(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function changeList(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -216,7 +216,7 @@ class ToDoListDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function addListItem(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function addListItem(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -266,7 +266,7 @@ class ToDoListDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function checkListItem (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function checkListItem (ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -284,7 +284,7 @@ class ToDoListDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function changeListItemsOrder (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function changeListItemsOrder (ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -307,7 +307,7 @@ class ToDoListDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function deleteListItem(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteListItem(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -349,7 +349,7 @@ class ToDoListDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function ListItemInfo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function ListItemInfo (ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -364,7 +364,7 @@ class ToDoListDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function modifyListItem (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function modifyListItem (ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 

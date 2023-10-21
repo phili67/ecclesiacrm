@@ -12,8 +12,8 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\Utils\InputUtils;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\EventAttendQuery;
@@ -45,7 +45,7 @@ class PeopleAttendeesController
         $this->container = $container;
     }
 
-    public function qrcodeCallAttendees(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function qrcodeCallAttendees(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 
@@ -105,7 +105,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "global_failed"]);
     }
 
-    public function addFreeAttendees(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function addFreeAttendees(ServerRequest $request, Response $response, array $args): Response
     {
 
         $requestValues = (object)$request->getParsedBody();
@@ -145,7 +145,7 @@ class PeopleAttendeesController
 
     }
 
-    public function checkoutValidateAttendees(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function checkoutValidateAttendees(ServerRequest $request, Response $response, array $args): Response
     {
 
         $requestValues = (object)$request->getParsedBody();
@@ -159,7 +159,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function validateAttendees(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function validateAttendees(ServerRequest $request, Response $response, array $args): Response
     {
 
         $requestValues = (object)$request->getParsedBody();
@@ -209,7 +209,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function deleteAttendeesPerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteAttendeesPerson(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 
@@ -227,7 +227,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function addAttendeesPerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function addAttendeesPerson(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 
@@ -259,7 +259,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function attendeesEvent(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function attendeesEvent(ServerRequest $request, Response $response, array $args): Response
     {
         if (!( array_key_exists('eventID', $args) )) {
             return $response->withStatus(401);
@@ -345,7 +345,7 @@ class PeopleAttendeesController
         return $response->withJson(["CheckinCheckoutEvents" => $result]);
     }
 
-    public function attendeesCheckIn(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function attendeesCheckIn(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 
@@ -377,7 +377,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "success", "name" => $person->getFullName(), "date" => $returnData]);
     }
 
-    public function attendeesCheckOut(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function attendeesCheckOut(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 
@@ -409,7 +409,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "success", "name" => $person->getFullName(), "date" => $returnData]);
     }
 
-    public function attendeesStudent(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function attendeesStudent(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 
@@ -532,7 +532,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function attendeesDelete(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function attendeesDelete(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 
@@ -547,7 +547,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function attendeesDeleteAll(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function attendeesDeleteAll(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 
@@ -563,7 +563,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function attendeesCheckAll(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function attendeesCheckAll(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 
@@ -598,7 +598,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function attendeesUncheckAll(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function attendeesUncheckAll(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 
@@ -633,7 +633,7 @@ class PeopleAttendeesController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function attendeesGroups(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function attendeesGroups(ServerRequest $request, Response $response, array $args): Response
     {
         $requestValues = (object)$request->getParsedBody();
 

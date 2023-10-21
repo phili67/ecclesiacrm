@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\DonatedItemQuery;
 use EcclesiaCRM\DonatedItem;
@@ -43,7 +43,7 @@ class FundraiserController
         $this->container = $container;
     }
 
-    function donatedItemCurrentPicture(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function donatedItemCurrentPicture(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -67,7 +67,7 @@ class FundraiserController
         return $response->withJSON(['status' => "failed"]);
     }
 
-    function donatedItemSubmitPicture(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function donatedItemSubmitPicture(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -93,7 +93,7 @@ class FundraiserController
         return $response->withJSON(['status' => "failed"]);
     }
 
-    function paddleNumInfo(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function paddleNumInfo(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -109,7 +109,7 @@ class FundraiserController
         return $response->withJSON(['status' => "failed"]);
     }
 
-    function addPaddleNum(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function addPaddleNum(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -189,7 +189,7 @@ class FundraiserController
         return $response->withJSON(['status' => "failed", "test" => [$input->PerID, $input->PaddleNumID, $input->Num, $input->fundraiserID]]);
     }
 
-    function getAllPersonsNum(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function getAllPersonsNum(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !(SessionUser::getUser()->isFinanceEnabled() and array_key_exists('fundRaiserID', $args) ) ) {
             return $response->withStatus(401);
@@ -216,7 +216,7 @@ class FundraiserController
         return $response->withJson(["persons" => $persons->toArray(), "Number" => $iNum]);
     }
 
-    function findFundRaiser(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function findFundRaiser(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !(SessionUser::getUser()->isFinanceEnabled() and array_key_exists('fundRaiserID', $args)
             and array_key_exists('startDate', $args) and array_key_exists('endDate', $args)) ) {
@@ -248,7 +248,7 @@ class FundraiserController
         return $response->withJSON(['FundRaiserItems' => $ormDep->toArray()]);
     }
 
-    function getAllFundraiserForID(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function getAllFundraiserForID(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !(SessionUser::getUser()->isFinanceEnabled() and array_key_exists('FundRaiserID', $args) ) ) {
             return $response->withStatus(401);
@@ -271,7 +271,7 @@ class FundraiserController
         return $response->withJSON(['DonatedItems' => $pdoDonatedItems->fetchAll(\PDO::FETCH_ASSOC)]);
     }
 
-    function replicateFundraiser(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function replicateFundraiser(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -326,7 +326,7 @@ class FundraiserController
         return $response->withJSON(['status' => "failed"]);
     }
 
-    function deleteDonatedItem(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function deleteDonatedItem(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -346,7 +346,7 @@ class FundraiserController
         return $response->withJSON(['status' => "failed"]);
     }
 
-    function donatedItemSubmitFundraiser(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function donatedItemSubmitFundraiser(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -423,7 +423,7 @@ class FundraiserController
         return $response->withJSON(['status' => "failed"]);
     }
 
-    function deletePaddleNum(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function deletePaddleNum(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -441,7 +441,7 @@ class FundraiserController
         return $response->withJSON(['status' => "failed"]);
     }
 
-    function getPaddleNumList(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function getPaddleNumList(ServerRequest $request, Response $response, array $args): Response
     {
         if (SessionUser::getUser()->initPluginUserRoles() and $args['fundRaiserID']) {
             $ormPaddleNumes = PaddleNumQuery::create()
@@ -458,7 +458,7 @@ class FundraiserController
         return $response->withJSON(['PaddleNumItems' => []]);
     }
 
-    function addDonnors(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function addDonnors(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 

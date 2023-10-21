@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\VIEWControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\InputUtils;
@@ -37,7 +37,7 @@ class VIEWSundaySchoolController {
         $this->container = $container;
     }
 
-    public function sundayschoolDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function sundayschoolDashboard (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/sundayschool/');
 
@@ -75,7 +75,7 @@ class VIEWSundaySchoolController {
         return $paramsArguments;
     }
 
-    public function sundayschoolView (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function sundayschoolView (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/sundayschool/');
 
         if ( !( SystemConfig::getBooleanValue("bEnabledSundaySchool") ) ) {
@@ -129,7 +129,7 @@ class VIEWSundaySchoolController {
         return $paramsArguments;
     }
 
-    public function sundayschoolReports (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function sundayschoolReports (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/sundayschool/');
 
         if ( !( SystemConfig::getBooleanValue("bEnabledSundaySchool") && SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) ) {

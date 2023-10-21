@@ -1,7 +1,9 @@
 <?php
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Http\Response;
+use Psr\Http\Message\ServerRequest as Request;
+use Slim\Http\ServerRequest;
+
 use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -14,23 +16,23 @@ use Slim\Views\PhpRenderer;
 
 $app->group('/', function (RouteCollectorProxy $group) {
 
-    $group->get('', function (Request $request, Response $response, array $args) {
+    $group->get('', function (ServerRequest $request, Response $response, array $args) {
         $renderer = new PhpRenderer('templates/');
 
         return $renderer->render($response, 'setup-steps.php', ['sRootPath' => SystemURLs::getRootPath()]);
     });
 
-    $group->get('SystemIntegrityCheck', function (Request $request, Response $response, array $args) {
+    $group->get('SystemIntegrityCheck', function (ServerRequest $request, Response $response, array $args) {
         $AppIntegrity = EcclesiaCRM\Service\AppIntegrityService::verifyApplicationIntegrity();
         return  $response->write($AppIntegrity['status']);
     });
 
-    $group->get('SystemPrerequisiteCheck', function (Request $request, Response $response, array $args) {
+    $group->get('SystemPrerequisiteCheck', function (ServerRequest $request, Response $response, array $args) {
         $required = EcclesiaCRM\Service\AppIntegrityService::getApplicationPrerequisites();
         return $response->withStatus(200)->withJson($required);
     });
 
-    $group->post('checkDatabaseConnection', function (Request $request, Response $response, array $args) {
+    $group->post('checkDatabaseConnection', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
         if (isset ($input->serverName) && isset ($input->dbName) && isset ($input->dbPort)  && isset ($input->user) && isset ($input->password) ){
@@ -49,7 +51,7 @@ $app->group('/', function (RouteCollectorProxy $group) {
         return $response->withJson(['status' => "failed"]);
     });
 
-    $group->post('', function (Request $request, Response $response, array $args) {
+    $group->post('', function (ServerRequest $request, Response $response, array $args) {
 
         $setupDate = $request->getParsedBody();
         $template = file_get_contents(SystemURLs::getDocumentRoot().'/Include/Config.php.example');

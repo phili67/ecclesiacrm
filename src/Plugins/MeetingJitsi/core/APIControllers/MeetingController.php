@@ -12,8 +12,8 @@ namespace Plugins\APIControllers;
 
 use PluginStore\PluginPrefJitsiMeetingQuery;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\SessionUser;
 
@@ -39,7 +39,7 @@ class MeetingController
         $this->container = $container;
     }
 
-    public function deleteAllMeetingRooms(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteAllMeetingRooms(ServerRequest $request, Response $response, array $args): Response
     {
         $personId = SessionUser::getUser()->getPersonId();
 
@@ -52,7 +52,7 @@ class MeetingController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function selectMeetingRoom(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function selectMeetingRoom(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -75,7 +75,7 @@ class MeetingController
         return $response;
     }
 
-    public function createMeetingRoom(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createMeetingRoom(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -107,7 +107,7 @@ class MeetingController
         return $response;
     }
 
-    public function getLastMeeting(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getLastMeeting(ServerRequest $request, Response $response, array $args): Response
     {
         $personId = SessionUser::getUser()->getPersonId();
 
@@ -121,7 +121,7 @@ class MeetingController
         }
     }
 
-    public function getAllMettings(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllMettings(ServerRequest $request, Response $response, array $args): Response
     {
         $personId = SessionUser::getUser()->getPersonId();
 
@@ -132,7 +132,7 @@ class MeetingController
     }
 
 
-    public function changeSettings(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function changeSettings(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 

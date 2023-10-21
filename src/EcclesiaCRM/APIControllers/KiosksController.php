@@ -13,8 +13,8 @@ namespace EcclesiaCRM\APIControllers;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\dto\SystemConfig;
@@ -30,7 +30,7 @@ class KiosksController
         $this->container = $container;
     }
 
-    public function deleteKiosk(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteKiosk(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !( SessionUser::isAdmin() ) ) {
             return $response->withStatus(401);
@@ -52,7 +52,7 @@ class KiosksController
         return $response->withJson(["status" => "success"]);
     }
 
-    public function getKioskDevices(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getKioskDevices(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !( SessionUser::isAdmin() ) ) {
             return $response->withStatus(401);
@@ -97,7 +97,7 @@ class KiosksController
         return $response->withJson(["KioskDevices" => $return]);
     }
 
-    public function allowDeviceRegistration(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function allowDeviceRegistration(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !( SessionUser::isAdmin() ) ) {
             return $response->withStatus(401);
@@ -109,7 +109,7 @@ class KiosksController
         return $response->write(json_encode(array("visibleUntil" => $window)));
     }
 
-    public function reloadKiosk(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function reloadKiosk(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !( SessionUser::isAdmin() ) ) {
             return $response->withStatus(401);
@@ -122,7 +122,7 @@ class KiosksController
         return $response->write(json_encode($reload));
     }
 
-    public function identifyKiosk(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function identifyKiosk(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !( SessionUser::isAdmin() ) ) {
             return $response->withStatus(401);
@@ -135,7 +135,7 @@ class KiosksController
         return $response->write(json_encode($identify));
     }
 
-    public function acceptKiosk(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function acceptKiosk(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !( SessionUser::isAdmin() ) ) {
             return $response->withStatus(401);
@@ -149,7 +149,7 @@ class KiosksController
         return $response->write(json_encode($accept));
     }
 
-    public function setKioskAssignment(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function setKioskAssignment(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !( SessionUser::isAdmin() ) ) {
             return $response->withStatus(401);

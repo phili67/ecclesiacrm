@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
@@ -27,7 +27,7 @@ class PublicRegisterController
         $this->container = $container;
     }
 
-    public function registerEcclesiaCRM(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function registerEcclesiaCRM(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !SessionUser::isAdmin() ) {
             return $response->withStatus(401);
@@ -69,7 +69,7 @@ class PublicRegisterController
         return $response->withJson(['status' => 'success']);
     }
 
-    public function systemregister(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function systemregister(ServerRequest $request, Response $response, array $args): Response
     {
         if (SessionUser::getUser()->isAdmin() && isset($_SESSION) && in_array('isSoftwareRegisterTestPassed', $_SESSION) && $_SESSION['isSoftwareRegisterTestPassed'] == false) {
             $isRegisterRequired = !SystemConfig::getBooleanValue('bRegistered');
@@ -81,7 +81,7 @@ class PublicRegisterController
         return $response->withJson(["Register" => $isRegisterRequired]);
     }
 
-    public function getRegistredDatas(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getRegistredDatas(ServerRequest $request, Response $response, array $args): Response
     {
         $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
         $domainName = $_SERVER['HTTP_HOST'] . str_replace('api/register/getRegistredDatas', '', $_SERVER['REQUEST_URI']);

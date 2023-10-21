@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\PledgeQuery;
@@ -31,7 +31,7 @@ class FinancePaymentController
         $this->container = $container;
     }
 
-    public function getPayment (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getPayment (ServerRequest $request, Response $response, array $args): Response {
         if ( SessionUser::getUser()->isFinanceEnabled() and array_key_exists('id', $args) ) {
             $id = $args['id'];
 
@@ -41,7 +41,7 @@ class FinancePaymentController
         return $response->withStatus(401);
     }
 
-    public function getSubmitOrPayement (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getSubmitOrPayement (ServerRequest $request, Response $response, array $args): Response {
         $payment = $request->getParsedBody();
         if ( SessionUser::getUser()->isFinanceEnabled() ) {
             $FinancialService = $this->container->get('FinancialService');
@@ -50,7 +50,7 @@ class FinancePaymentController
         return $response->withStatus(401);
     }
 
-    public function deletePaymentByGroupKey (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deletePaymentByGroupKey (ServerRequest $request, Response $response, array $args): Response {
         $payments = (object) $request->getParsedBody();
 
         if ( SessionUser::getUser()->isFinanceEnabled() and isset($payments->Groupkey) ) {
@@ -65,7 +65,7 @@ class FinancePaymentController
     }
 
 
-    public function getAllPayementsForFamily(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllPayementsForFamily(ServerRequest $request, Response $response, array $args): Response
     {
         $payments = (object)$request->getParsedBody();
 
@@ -88,7 +88,7 @@ class FinancePaymentController
         return $response->withStatus(401);
     }
 
-    public function getAutoPaymentInfo(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAutoPaymentInfo(ServerRequest $request, Response $response, array $args): Response
     {
         $payments = (object)$request->getParsedBody();
 
@@ -103,7 +103,7 @@ class FinancePaymentController
         return $response->withJson(['success' => false]);
     }
 
-    public function getAllPayementsForFamilies(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllPayementsForFamilies(ServerRequest $request, Response $response, array $args): Response
     {
         $autoPay = (object)$request->getParsedBody();
 
@@ -137,7 +137,7 @@ class FinancePaymentController
         return $response->withJSON($result);
     }
 
-    public function deletePaymentForFamily(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deletePaymentForFamily(ServerRequest $request, Response $response, array $args): Response
     {
         $payments = (object)$request->getParsedBody();
 
@@ -156,7 +156,7 @@ class FinancePaymentController
         return $response->withJson(['status' => "OK"]);
     }
 
-    public function deleteAutoPayment(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteAutoPayment(ServerRequest $request, Response $response, array $args): Response
     {
         if (!( SessionUser::getUser()->isFinance() and array_key_exists('authID', $args) )) {
             return $response->withStatus(401);
@@ -172,7 +172,7 @@ class FinancePaymentController
         return $response->withJson(['status' => "OK"]);
     }
 
-    public function invalidatePledge(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function invalidatePledge(ServerRequest $request, Response $response, array $args): Response
     {
         $payments = (object)$request->getParsedBody();
 
@@ -191,7 +191,7 @@ class FinancePaymentController
         return $response->withJson(['status' => "OK"]);
     }
 
-    public function validatePledge(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function validatePledge(ServerRequest $request, Response $response, array $args): Response
     {
         $payments = (object)$request->getParsedBody();
 
@@ -210,7 +210,7 @@ class FinancePaymentController
         return $response->withJson(['status' => "OK"]);
     }
 
-    public function getDepositSlipChartsArrays(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getDepositSlipChartsArrays(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 

@@ -10,8 +10,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -33,7 +33,7 @@ class VIEWSystemSettingsController {
         $this->container = $container;
     }
 
-    public function renderSettings (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderSettings (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/sidebar/');
 
         if (!SessionUser::getUser()->isAdmin()) {
@@ -111,7 +111,7 @@ class VIEWSystemSettingsController {
         return $paramsArguments;
     }
 
-    public function renderSettingsMode (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderSettingsMode (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/sidebar/');
 
         if (!SessionUser::getUser()->isAdmin()) {

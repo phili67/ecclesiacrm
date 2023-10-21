@@ -10,8 +10,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -31,7 +31,7 @@ class VIEWMailchimpController {
         $this->container = $container;
     }
 
-    public function renderMailChimpDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderMailChimpDashboard (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/email/mailchimp/');
 
         if ( !( SessionUser::getUser()->isMailChimpEnabled() ) ) {
@@ -64,7 +64,7 @@ class VIEWMailchimpController {
     }
 
 
-    public function renderMailChimpDebug (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderMailChimpDebug (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/email/mailchimp/');
 
         if ( !( SessionUser::getUser()->isMailChimpEnabled() ) ) {
@@ -91,7 +91,7 @@ class VIEWMailchimpController {
     }
 
 
-    public function renderMailChimpCampaign (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderMailChimpCampaign (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/email/mailchimp/');
 
         $campaignId = $args['campaignId'];
@@ -133,7 +133,7 @@ class VIEWMailchimpController {
         return $paramsArguments;
     }
 
-    public function renderMailChimpManageList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderMailChimpManageList (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/email/mailchimp/');
 
         $listId = $args['listId'];
@@ -177,7 +177,7 @@ class VIEWMailchimpController {
     }
 
 
-    public function renderMailChimpDuplicateEmails (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderMailChimpDuplicateEmails (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/email/mailchimp/');
 
         $mailchimp       = new MailChimpService();
@@ -203,7 +203,7 @@ class VIEWMailchimpController {
     }
 
 
-    public function renderMailChimpNotInMailchimpEmailsPersons (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderMailChimpNotInMailchimpEmailsPersons (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/email/mailchimp/');
 
         $mailchimp       = new MailChimpService();
@@ -228,7 +228,7 @@ class VIEWMailchimpController {
         return $paramsArguments;
     }
 
-    public function renderMailChimpNotInMailchimpEmailsFamilies (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderMailChimpNotInMailchimpEmailsFamilies (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/email/mailchimp/');
 
         $mailchimp       = new MailChimpService();

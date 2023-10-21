@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\VIEWControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\PledgeQuery;
@@ -42,7 +42,7 @@ class VIEWDepositController {
         $this->container = $container;
     }
 
-    public function renderDepositSlipEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderDepositSlipEditor (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/deposit/');
 
@@ -141,7 +141,7 @@ class VIEWDepositController {
         return $paramsArguments;
     }
 
-    public function renderDepositFind (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderDepositFind (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/deposit/');
 
@@ -175,7 +175,7 @@ class VIEWDepositController {
         return $paramsArguments;
     }
 
-    public function renderManageEnvelopes (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderManageEnvelopes (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/deposit/');
 
@@ -204,7 +204,7 @@ class VIEWDepositController {
         return $paramsArguments;
     }
 
-    public function renderFinancialReports (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderFinancialReports (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/deposit/');
 
@@ -216,7 +216,7 @@ class VIEWDepositController {
         return $renderer->render($response, 'financialReports.php', $this->argumentsFinancialReportsArray());
     }
 
-    public function renderFinancialReportsNoRows (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderFinancialReportsNoRows (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/deposit/');
 
@@ -267,7 +267,7 @@ class VIEWDepositController {
         return $paramsArguments;
     }
 
-    public function renderTaxReport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderTaxReport (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/deposit/');
 
@@ -304,7 +304,7 @@ class VIEWDepositController {
         return $paramsArguments;
     }
 
-    public function renderAutoPaymentEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderAutoPaymentEditor (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/deposit/');
 
@@ -356,7 +356,7 @@ class VIEWDepositController {
         return $paramsArguments;
     }
 
-    public function renderElectronicPaymentList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderElectronicPaymentList (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/deposit/');
 
@@ -385,7 +385,7 @@ class VIEWDepositController {
         return $paramsArguments;
     }
 
-    public function renderAutoPaymentClearAccount (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderAutoPaymentClearAccount (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/deposit/');
 
@@ -423,7 +423,7 @@ class VIEWDepositController {
 
     
 
-    public function renderPledgeEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderPledgeEditor (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/deposit/');
 

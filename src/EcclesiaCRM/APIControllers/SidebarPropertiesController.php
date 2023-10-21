@@ -12,8 +12,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\GroupQuery;
@@ -39,7 +39,7 @@ class SidebarPropertiesController
         $this->container = $container;
     }
 
-    public function getAllPropertyTypes(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllPropertyTypes(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -100,7 +100,7 @@ class SidebarPropertiesController
         return $response->write("{\"PropertyTypeLists\":[" . substr($res, 0, -1) . "]}");
     }
 
-    public function editPropertyType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function editPropertyType(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -116,7 +116,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'prtType' => $propertyType->toArray()]);
     }
 
-    public function setPropertyType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function setPropertyType(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -136,7 +136,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'prtType' => $propertyType->toArray()]);
     }
 
-    public function createPropertyType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createPropertyType(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -157,7 +157,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'prtType' => $propertyType->toArray()]);
     }
 
-    public function deletePropertyType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deletePropertyType(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -189,7 +189,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true]);
     }
 
-    public function getAllProperties(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllProperties(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -247,7 +247,7 @@ class SidebarPropertiesController
         return $response->write("{\"PropertyLists\":[" . substr($res, 0, -1) . "]}");
     }
 
-    public function editProperty(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function editProperty(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -267,7 +267,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'proType' => $property->toArray(), 'propertyTypes' => $ormPropertyTypes->toArray()]);
     }
 
-    public function setProperty(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function setProperty(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -289,7 +289,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'proType' => $property->toArray()]);
     }
 
-    public function deleteProperty(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteProperty(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -313,7 +313,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true]);
     }
 
-    public function createProperty(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createProperty(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -341,7 +341,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'proType' => $property->toArray()]);
     }
 
-    public function propertiesPersonsAssign(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function propertiesPersonsAssign(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -403,7 +403,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'msg' => _('The property is successfully assigned.'), 'count' => $ormAssignedProperties->count()]);
     }
 
-    public function propertiesPersonsUnAssign(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function propertiesPersonsUnAssign(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -441,7 +441,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'msg' => _('The property is successfully unassigned.'), 'count' => $ormAssignedProperties->count()]);
     }
 
-    public function propertiesFamiliesAssign(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function propertiesFamiliesAssign(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -489,7 +489,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'msg' => _('The property is successfully assigned.')]);
     }
 
-    public function propertiesFamiliesUnAssign(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function propertiesFamiliesUnAssign(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
@@ -513,7 +513,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'msg' => _('The property is successfully unassigned.')]);
     }
 
-    public function propertiesGroupsAssign(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function propertiesGroupsAssign(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isMenuOptionsEnabled() || SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups'])) {// use session variable for an current group manager
             return $response->withStatus(401);
@@ -561,7 +561,7 @@ class SidebarPropertiesController
         return $response->withJson(['success' => true, 'msg' => _('The property is successfully assigned.')]);
     }
 
-    public function propertiesGroupsUnAssign(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function propertiesGroupsUnAssign(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isMenuOptionsEnabled() || SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups'])) {// use session variable for an current group manager
             return $response->withStatus(401);

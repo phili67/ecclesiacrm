@@ -10,8 +10,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\dto\SystemConfig;
@@ -40,7 +40,7 @@ class VIEWFundraiserController {
         $this->container = $container;
     }
 
-    public function renderPaddleNumList(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderPaddleNumList(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/fundraiser/');
 
@@ -64,7 +64,7 @@ class VIEWFundraiserController {
         return $paramsArguments;
     }
 
-    public function renderFindFundRaiser(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderFindFundRaiser(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/fundraiser/');
 
@@ -87,7 +87,7 @@ class VIEWFundraiserController {
         return $paramsArguments;
     }
 
-    public function renderDonatedItemEditor(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderDonatedItemEditor(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/fundraiser/');
 
@@ -206,7 +206,7 @@ class VIEWFundraiserController {
 
     
 
-    public function renderFundraiserEditor(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderFundraiserEditor(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/fundraiser/');
 
@@ -259,7 +259,7 @@ class VIEWFundraiserController {
         return $paramsArguments;
     }
 
-    public function renderBatchWinnerEntry(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderBatchWinnerEntry(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/fundraiser/');
 

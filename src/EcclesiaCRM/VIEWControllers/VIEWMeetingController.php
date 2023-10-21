@@ -11,8 +11,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\PersonMeetingQuery;
@@ -32,7 +32,7 @@ class VIEWMeetingController {
         $this->container = $container;
     }
 
-    public function renderMeetingDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderMeetingDashboard (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/meeting');
 
         return $renderer->render($response, 'meetingdashboard.php', $this->argumentsMeetingArray());

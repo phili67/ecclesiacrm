@@ -12,8 +12,8 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\PersonQuery;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\Group;
 use EcclesiaCRM\dto\Cart;
@@ -31,11 +31,11 @@ class CartController
         $this->container = $container;
     }
 
-    public function getAllPeopleInCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getAllPeopleInCart (ServerRequest $request, Response $response, array $args): Response {
         return $response->withJSON(['PeopleCart' =>  Cart::PeopleInCart(), 'FamiliesCart' => Cart::FamiliesInCart(), 'GroupsCart' => Cart::GroupsInCart()]);
     }
 
-    public function cartIntersectPersons (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function cartIntersectPersons (ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
             return $response->withStatus(401);
         }
@@ -52,7 +52,7 @@ class CartController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function cartOperation (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function cartOperation (ServerRequest $request, Response $response, array $args): Response {
         if ( !( (SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled() ) && SessionUser::getUser()->isShowCartEnabled())) {
             return $response->withStatus(401);
         }
@@ -108,7 +108,7 @@ class CartController
         return $response->withJson(['status' => "success", "cart" => $_SESSION['aPeopleCart']]);
     }
 
-    public function emptyCartToGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function emptyCartToGroup (ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
             return $response->withStatus(401);
         }
@@ -123,7 +123,7 @@ class CartController
         ]);
     }
 
-    public function emptyCartToEvent (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function emptyCartToEvent (ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->isShowCartEnabled() )) {
             return $response->withStatus(401);
         }
@@ -138,7 +138,7 @@ class CartController
         ]);
     }
 
-    public function emptyCartToNewGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function emptyCartToNewGroup (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isAdmin() && !SessionUser::getUser()->isManageGroupsEnabled()) {
             return $response->withStatus(401);
         }
@@ -153,7 +153,7 @@ class CartController
         return $response->write($group->toJSON());
     }
 
-    public function removeGroupFromCart(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removeGroupFromCart(ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isShowCartEnabled())) {
             return $response->withStatus(401);
         }
@@ -168,7 +168,7 @@ class CartController
         ]);
     }
 
-    public function removeGroupsFromCart(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removeGroupsFromCart(ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isShowCartEnabled())) {
             return $response->withStatus(401);
         }
@@ -185,7 +185,7 @@ class CartController
         ]);
     }
 
-    public function addAllStudentsToCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addAllStudentsToCart (ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
@@ -206,7 +206,7 @@ class CartController
         ]);
     }
 
-    public function removeAllStudentsFromCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removeAllStudentsFromCart (ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
@@ -227,7 +227,7 @@ class CartController
         ]);
     }
 
-    public function removeStudentsGroupFromCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removeStudentsGroupFromCart (ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
@@ -242,7 +242,7 @@ class CartController
         ]);
     }
 
-    public function addAllTeachersToCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addAllTeachersToCart (ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
@@ -262,7 +262,7 @@ class CartController
         ]);
     }
 
-    public function removeAllTeachersFromCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removeAllTeachersFromCart (ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
@@ -283,7 +283,7 @@ class CartController
         ]);
     }
 
-    public function removeTeachersGroupFromCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removeTeachersGroupFromCart (ServerRequest $request, Response $response, array $args): Response {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
@@ -298,7 +298,7 @@ class CartController
         ]);
     }
 
-    public function deletePersonCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deletePersonCart (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
         }
@@ -331,7 +331,7 @@ class CartController
         ]);
     }
 
-    public function deactivatePersonCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deactivatePersonCart (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isDeleteRecordsEnabled()) {
             return $response->withStatus(401);
         }
@@ -364,7 +364,7 @@ class CartController
         ]);
     }
 
-    public function removePersonCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function removePersonCart (ServerRequest $request, Response $response, array $args): Response {
 
         $cartPayload = (object)$request->getParsedBody();
 
@@ -464,7 +464,7 @@ class CartController
         ]);
     }
 
-    public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addressBook (ServerRequest $request, Response $response, array $args): Response {
         $people = Cart::PeopleInCart();
 
         $output = '';

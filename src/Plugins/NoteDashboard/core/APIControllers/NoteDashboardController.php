@@ -13,8 +13,8 @@ namespace Plugins\APIControllers;
 
 use EcclesiaCRM\Utils\InputUtils;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -35,7 +35,7 @@ class NoteDashboardController
         $this->container = $container;
     }
 
-    public function modify(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function modify(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 

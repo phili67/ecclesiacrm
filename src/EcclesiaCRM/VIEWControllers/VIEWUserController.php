@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\VIEWControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use Slim\Views\PhpRenderer;
 
@@ -49,7 +49,7 @@ class VIEWUserController
         $this->container = $container;
     }
 
-    public function renderUserList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderUserList (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/user/');
 
@@ -94,7 +94,7 @@ class VIEWUserController
         return $paramsArguments;
     }
 
-    public function renderUserSettings (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderUserSettings (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/user/');
 
@@ -221,7 +221,7 @@ class VIEWUserController
         return $paramsArguments;
     }
 
-    public function renderUserEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderUserEditor (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/user/');
 
@@ -255,7 +255,7 @@ class VIEWUserController
         return $renderer->render($response, 'userseditor.php', $res );
     }
 
-    public function renderNewUserEditorErrorMsg (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderNewUserEditorErrorMsg (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/user/');
 
@@ -946,7 +946,7 @@ class VIEWUserController
 
     
 
-    public function renderChangePassword (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderChangePassword (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/user/');
 
@@ -976,7 +976,7 @@ class VIEWUserController
         return $renderer->render($response, 'changepassword.php', $res );
     }
 
-    public function renderChangePasswordFromUserList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function renderChangePasswordFromUserList (ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/user/');
 

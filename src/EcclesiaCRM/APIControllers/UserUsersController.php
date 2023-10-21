@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\UserConfigQuery;
@@ -36,7 +36,7 @@ class UserUsersController
         $this->container = $container;
     }
 
-    public function passwordReset(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function passwordReset(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
@@ -61,7 +61,7 @@ class UserUsersController
     }
 
 
-    public function applyRole(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function applyRole(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
@@ -85,7 +85,7 @@ class UserUsersController
         return $response->withJson(['success' => false]);
     }
 
-    public function webDavKey(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function webDavKey(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
@@ -104,7 +104,7 @@ class UserUsersController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function lockUnlock(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function lockUnlock(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
@@ -151,7 +151,7 @@ class UserUsersController
         return $response->withJson(['success' => false]);
     }
 
-    public function loginReset(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function loginReset(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
@@ -172,7 +172,7 @@ class UserUsersController
         }
     }
 
-    public function deleteUser(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deleteUser(ServerRequest $request, Response $response, array $args): Response
     {
         if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
@@ -195,7 +195,7 @@ class UserUsersController
         }
     }
 
-    public function showSince(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function showSince(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -213,7 +213,7 @@ class UserUsersController
         return $response->withJson(['success' => false]);
     }
 
-    public function showTo(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function showTo(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -231,7 +231,7 @@ class UserUsersController
         return $response->withJson(['success' => false]);
     }
 
-    public function userstwofaremove(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function userstwofaremove(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -256,7 +256,7 @@ class UserUsersController
         return $response->withJson(['status' => 'no']);
     }
 
-    public function userstwofapending(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function userstwofapending(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -280,7 +280,7 @@ class UserUsersController
         return $response->withJson(['success' => false]);
     }
 
-    public function controlAccount(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function controlAccount(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 
@@ -302,7 +302,7 @@ class UserUsersController
         return $response->withJson(['success' => false]);
     }
 
-    public function exitControlAccount(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function exitControlAccount(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
 

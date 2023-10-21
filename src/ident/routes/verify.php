@@ -8,9 +8,9 @@
  *
  ******************************************************************************/
 
-use EcclesiaCRM\UserQuery;
-use Slim\Http\Response as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
+
 use Slim\Routing\RouteCollectorProxy;
 
 use Slim\Views\PhpRenderer;
@@ -28,9 +28,11 @@ use EcclesiaCRM\TokenPasswordQuery;
 use EcclesiaCRM\Emails\FamilyVerificationValidation;
 use EcclesiaCRM\Utils\LoggerUtils;
 
+use EcclesiaCRM\UserQuery;
+
 $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
-    $group->get('/{token}', function (Request $request, Response $response, array $args) {
+    $group->get('/{token}', function (ServerRequest $request, Response $response, array $args) {
         $renderer = new PhpRenderer("templates/verify/");
         $token = TokenQuery::create()->findPk($args['token']);
 
@@ -61,7 +63,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         }
     });
 
-    $group->post('/{token}', function (Request $request, Response $response, array $args) {
+    $group->post('/{token}', function (ServerRequest $request, Response $response, array $args) {
 
         $token = TokenQuery::create()->findPk($args['token']);
 
@@ -138,7 +140,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withStatus(200);
     });
 
-    $group->post('/getPersonInfo/', function (Request $request, Response $response, array $args) {
+    $group->post('/getPersonInfo/', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
         $input = (object)$request->getParsedBody();
@@ -329,7 +331,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withJson(["Status" => "failed"]);
     });
 
-    $group->post('/getFamilyInfo/', function (Request $request, Response $response, array $args) {
+    $group->post('/getFamilyInfo/', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->token) ) {
@@ -517,13 +519,13 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withStatus(200);
     });
 
-    $group->post('/exitSession/', function (Request $request, Response $response, array $args) {
+    $group->post('/exitSession/', function (ServerRequest $request, Response $response, array $args) {
         session_destroy();
 
         return $response->withJson(["Status" => "success"]);
     });
 
-    $group->post('/deletePerson/', function (Request $request, Response $response, array $args) {
+    $group->post('/deletePerson/', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personId) ) {
@@ -562,7 +564,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withJson(["Status" => "failed"]);
     });
 
-    $group->post('/deleteFamily/', function (Request $request, Response $response, array $args) {
+    $group->post('/deleteFamily/', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->familyId) ) {
@@ -610,7 +612,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withJson(["Status" => "failed"]);
     });
 
-    $group->post('/modifyPersonInfo/', function (Request $request, Response $response, array $args) {
+    $group->post('/modifyPersonInfo/', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personId) and isset($input->FirstName) and isset($input->MiddleName)
@@ -741,7 +743,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withJson(["Status" => "failed"]);
     });
 
-    $group->post('/modifyFamilyInfo/', function (Request $request, Response $response, array $args) {
+    $group->post('/modifyFamilyInfo/', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
         if (isset ($input->familyId) and isset($input->FamilyName) and isset($input->Address1)
@@ -804,7 +806,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withJson(["Status" => "failed"]);
     });
 
-    $group->post('/onlineVerificationFinished/', function (Request $request, Response $response, array $args) {
+    $group->post('/onlineVerificationFinished/', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->token) and isset($input->message) ) {

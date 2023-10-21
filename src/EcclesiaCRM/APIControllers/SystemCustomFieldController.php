@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Interop\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\PersonCustomMasterQuery;
 
@@ -33,7 +33,7 @@ class SystemCustomFieldController
      * @param array $p_args Arguments
      * @return \Slim\Http\Response The augmented response.
      */
-    public function getPersonFieldsByType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getPersonFieldsByType(ServerRequest $request, Response $response, array $args): Response
     {
         $params = $request->getQueryParams();
         $typeId = $params['typeId'];

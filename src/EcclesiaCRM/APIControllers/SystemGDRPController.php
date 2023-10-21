@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\PersonQuery;
@@ -38,7 +38,7 @@ class SystemGDRPController
         $this->container = $container;
     }
 
-    public function getAllGdprNotes(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllGdprNotes(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
             return $response->withStatus(401);
@@ -75,7 +75,7 @@ class SystemGDRPController
         return $response->withJson(["Notes" => $res]);
     }
 
-    public function setGdprComment(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function setGdprComment(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
             return $response->withStatus(401);
@@ -153,7 +153,7 @@ class SystemGDRPController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function removePersonGdpr(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function removePersonGdpr(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
             return $response->withStatus(401);
@@ -174,7 +174,7 @@ class SystemGDRPController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function removeAllPersonsGdpr(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function removeAllPersonsGdpr(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
             return $response->withStatus(401);
@@ -211,7 +211,7 @@ class SystemGDRPController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function removeFamilyGdpr(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function removeFamilyGdpr(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
             return $response->withStatus(401);
@@ -232,7 +232,7 @@ class SystemGDRPController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function removeAllFamiliesGdpr(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function removeAllFamiliesGdpr(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
             return $response->withStatus(401);

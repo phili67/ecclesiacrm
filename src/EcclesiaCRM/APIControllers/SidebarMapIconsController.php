@@ -13,8 +13,8 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\SessionUser;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\ListOptionIconQuery;
@@ -29,7 +29,7 @@ class SidebarMapIconsController
         $this->container = $container;
     }
 
-    function getAllMapIcons(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function getAllMapIcons(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
             return $response->withStatus(401);
@@ -40,7 +40,7 @@ class SidebarMapIconsController
         return $response->withJson(array_values(array_diff($files, array(".", "..", 'shadow'))));
     }
 
-    function checkOnlyPersonView(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function checkOnlyPersonView(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
             return $response->withStatus(401);
@@ -69,7 +69,7 @@ class SidebarMapIconsController
         return $response->withJson(['status' => "failed"]);
     }
 
-    function setIconName(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function setIconName(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
             return $response->withStatus(401);
@@ -99,7 +99,7 @@ class SidebarMapIconsController
         return $response->withJson(['status' => "failed"]);
     }
 
-    function removeIcon(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    function removeIcon(ServerRequest $request, Response $response, array $args): Response
     {
         if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
             return $response->withStatus(401);

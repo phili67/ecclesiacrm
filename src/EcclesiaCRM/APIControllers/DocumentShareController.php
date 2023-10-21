@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\GroupQuery;
@@ -32,7 +32,7 @@ class DocumentShareController
         $this->container = $container;
     }
 
-    public function getAllShareForPerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getAllShareForPerson(ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         $result = [];
@@ -56,7 +56,7 @@ class DocumentShareController
         return $response->withJson($result);
     }
 
-    public function addPersonToShare (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addPersonToShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->personID) && isset ($params->noteId) && isset ($params->currentPersonID) && isset ($params->notification) ) {
@@ -86,7 +86,7 @@ class DocumentShareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function addFamilyToShare (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addFamilyToShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->familyID) && isset ($params->noteId) && isset ($params->currentPersonID) && isset ($params->notification) ) {
@@ -120,7 +120,7 @@ class DocumentShareController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function addGroupToShare (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function addGroupToShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->groupID) && isset ($params->noteId) && isset ($params->currentPersonID) && isset ($params->notification) ) {
@@ -154,7 +154,7 @@ class DocumentShareController
         return $response->withJson(['status' => $params->groupID]);
     }
 
-    public function deletePersonFromShare (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deletePersonFromShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->personID) && isset ($params->noteId)) {
@@ -168,7 +168,7 @@ class DocumentShareController
         return $response->withJson(['status' => "success",'count' => $noteShare->count()]);
     }
 
-    public function setRightsForPerson (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function setRightsForPerson (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->personID) && isset ($params->noteId) && isset ($params->rightAccess) && $params->rightAccess > 0) {
@@ -181,7 +181,7 @@ class DocumentShareController
         return $response->withJson(['status' => "success"]);
     }
 
-    public function clearDocument (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function clearDocument (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->noteId)) {

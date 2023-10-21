@@ -12,8 +12,8 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\Utils\InputUtils;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 // Documents documents APIs
@@ -32,7 +32,7 @@ class DocumentDocumentController
         $this->container = $container;
     }
 
-    public function createDocument(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function createDocument(ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personID) && isset ($input->famID) && isset ($input->title) && isset ($input->type) && isset ($input->text) && isset ($input->bPrivate)){
@@ -57,7 +57,7 @@ class DocumentDocumentController
         return $response->withJson(['success' => false]);
     }
 
-    public function getDocument(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getDocument(ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->docID) && isset ($input->personID) && isset ($input->famID) ){
@@ -102,7 +102,7 @@ class DocumentDocumentController
         return $response->withJson(['success' => false]);
     }
 
-    public function leaveDocument(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function leaveDocument(ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->docID) ){
@@ -126,7 +126,7 @@ class DocumentDocumentController
         return $response->withJson(['success' => false]);
     }
 
-    public function updateDocument(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function updateDocument(ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->docID) && isset ($input->title) && isset ($input->type) && isset ($input->text) && isset ($input->bPrivate)){
@@ -152,7 +152,7 @@ class DocumentDocumentController
         return $response->withJson(['success' => false]);
     }
 
-    public function deleteDocument(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteDocument(ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->docID) ){

@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 
 use EcclesiaCRM\Utils\GeoUtils;
@@ -34,7 +34,7 @@ class GeocoderController
      * @param array $p_args Arguments
      * @return \Slim\Http\Response The augmented response.
      */
-    function getGeoLocals (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    function getGeoLocals (ServerRequest $request, Response $response, array $args): Response {
         $input = json_decode($request->getBody());
         if (!empty($input)) {
             return $response->withJson(GeoUtils::getLatLong($input->address));

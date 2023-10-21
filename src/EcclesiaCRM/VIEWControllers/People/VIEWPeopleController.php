@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\VIEWControllers;
 
 use EcclesiaCRM\Service\DashboardItemService;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use Propel\Runtime\Propel;
@@ -70,7 +70,7 @@ class VIEWPeopleController {
         $this->container = $container;
     }
 
-    public function peopleDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function peopleDashboard (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         return $renderer->render($response, 'peopledashboard.php', $this->argumentsPeopleDashboardArray());
@@ -178,7 +178,7 @@ class VIEWPeopleController {
         return $paramsArguments;
     }
 
-    public function peopleList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function peopleList (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         $sMode = 'none';
@@ -254,7 +254,7 @@ class VIEWPeopleController {
 
     
 
-    public function personEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function personEditor (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         $iPersonID = -1;
@@ -290,7 +290,7 @@ class VIEWPeopleController {
         ];
     }
 
-    public function personview (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function personview (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         $personId = InputUtils::LegacyFilterInput($args['personId'], 'int');
@@ -724,7 +724,7 @@ class VIEWPeopleController {
     }
 
 
-    public function familyview (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function familyview (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         $iFamilyID = $args['famId'];
@@ -997,7 +997,7 @@ class VIEWPeopleController {
         ];
     }
 
-    public function UpdateAllLatLon (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function UpdateAllLatLon (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         if (!SessionUser::getUser()->isShowMapEnabled()) {            
@@ -1020,7 +1020,7 @@ class VIEWPeopleController {
 
     }    
 
-    public function geopage (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function geopage (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         if (!SessionUser::getUser()->isShowMapEnabled()) {            
@@ -1186,7 +1186,7 @@ class VIEWPeopleController {
         ];
     }        
 
-    public function directoryreport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function directoryreport (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         if (!SessionUser::getUser()->isCreateDirectoryEnabled()) {            
@@ -1216,7 +1216,7 @@ class VIEWPeopleController {
 
     }  
 
-    public function lettersandlabels (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function lettersandlabels (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         if (!SessionUser::getUser()->isFinanceEnabled()) {            
@@ -1239,7 +1239,7 @@ class VIEWPeopleController {
 
     }  
     
-    public function reminderreport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function reminderreport (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         if (!SessionUser::getUser()->isFinanceEnabled()) {            
@@ -1262,7 +1262,7 @@ class VIEWPeopleController {
 
     }  
 
-    public function personPrint (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function personPrint (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         $iPersonID = InputUtils::LegacyFilterInput($args['personId'], 'int');
@@ -1289,7 +1289,7 @@ class VIEWPeopleController {
 
     }  
     
-    public function familyEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function familyEditor (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         $iFamilyID = -1;
@@ -1318,7 +1318,7 @@ class VIEWPeopleController {
         ];
     }      
 
-    public function personCustomFieldEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function personCustomFieldEditor (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
@@ -1339,7 +1339,7 @@ class VIEWPeopleController {
         ];
     } 
 
-    public function familyCustomFieldEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function familyCustomFieldEditor (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
@@ -1360,7 +1360,7 @@ class VIEWPeopleController {
         ];
     } 
     
-    public function canvassEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function canvassEditor (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         if (!SessionUser::getUser()->isCanvasserEnabled()) {
@@ -1419,7 +1419,7 @@ class VIEWPeopleController {
         ];
     }     
 
-    public function canvassAutomation (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function canvassAutomation (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         if (!SessionUser::getUser()->isCanvasserEnabled()) {
@@ -1441,7 +1441,7 @@ class VIEWPeopleController {
         ];
     } 
 
-    public function familyVerify (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function familyVerify (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         $iFamilyID = -1;
@@ -1463,7 +1463,7 @@ class VIEWPeopleController {
     } 
 
 
-    public function peopleDelete (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function peopleDelete (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/people/');
 
         if (!SessionUser::getUser()->isDeleteRecordsEnabled()) {

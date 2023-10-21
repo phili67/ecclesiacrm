@@ -11,8 +11,8 @@
 namespace EcclesiaCRM\APIControllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\CalendarinstancesQuery;
 use EcclesiaCRM\UserQuery;
@@ -41,7 +41,7 @@ class CalendarV2Controller
         $this->container = $container;
     }
 
-    public function getallCalendarEvents (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getallCalendarEvents (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         $CalendarService = $this->container->get('CalendarService');
@@ -49,7 +49,7 @@ class CalendarV2Controller
         return $response->withJson($CalendarService->getEvents($params->start, $params->end, $params->isBirthdayActive, $params->isAnniversaryActive)['EventsListResults']);;
     }
 
-    public function getallCalendarEventsForEventsList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getallCalendarEventsForEventsList (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         $CalendarService = $this->container->get('CalendarService');
@@ -57,7 +57,7 @@ class CalendarV2Controller
         return $response->withJson($CalendarService->getEvents($params->start, $params->end, $params->isBirthdayActive, $params->isAnniversaryActive, $params->forEventslist));
     }
 
-    public function numberOfCalendars (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function numberOfCalendars (ServerRequest $request, Response $response, array $args): Response {
         // we get the PDO for the Sabre connection from the Propel connection
         // We set the BackEnd for sabre Backends
         $calendarBackend = new CalDavPDO();
@@ -94,7 +94,7 @@ class CalendarV2Controller
         return $response->withJson(["CalendarNumber" => count($return)]);
     }
 
-    public function showHideCalendars (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function showHideCalendars (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) && isset($params->isPresent) ) {
@@ -116,7 +116,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function setCalendarDescriptionType (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function setCalendarDescriptionType (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         $return = [];
@@ -153,7 +153,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function getAllCalendarsForUser (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getAllCalendarsForUser (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         $return = [];
@@ -246,7 +246,7 @@ class CalendarV2Controller
         return $response->withJson(["visibles" => $visibles, "calendars" => $return]);
     }
 
-    public function calendarInfo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function calendarInfo (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) && isset ($params->type) ) {
@@ -299,7 +299,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function setCalendarColor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function setCalendarColor (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->calIDs) && isset ($params->color)) {
@@ -330,7 +330,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function setCheckedCalendar (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function setCheckedCalendar (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->calIDs) && isset ($params->isChecked)) {
@@ -352,7 +352,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function setCheckedSelectedCalendar (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function setCheckedSelectedCalendar (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if (isset ($params->allCalIDs) && isset ($params->isChecked)) {
@@ -376,7 +376,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function newCalendar (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function newCalendar (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->title) ) {
@@ -400,7 +400,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function newCalendarReservation (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function newCalendarReservation (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->title) && isset ($params->type) && isset ($params->desc) ) {
@@ -424,7 +424,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function modifyCalendarName (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function modifyCalendarName (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->title) && isset ($params->calIDs) ) {
@@ -460,7 +460,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function getCalendarInvites (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function getCalendarInvites (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) ) {
@@ -478,7 +478,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function shareCalendarDelete (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function shareCalendarDelete (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) && isset ($params->principal) ) {
@@ -506,7 +506,7 @@ class CalendarV2Controller
 
     }
 
-    public function shareCalendarPerson (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function shareCalendarPerson (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) && isset ($params->personID) && isset ($params->notification) ) {
@@ -547,7 +547,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function shareCalendarFamily (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function shareCalendarFamily (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) && isset ($params->familyID) && isset ($params->notification) ) {
@@ -601,7 +601,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function shareCalendarGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function shareCalendarGroup (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) && isset ($params->groupID) && isset ($params->notification) ) {
@@ -652,7 +652,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function shareCalendarStop (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function shareCalendarStop (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) ) {
@@ -680,7 +680,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function setCalendarRights (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function setCalendarRights (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) && isset ($params->principal) && isset ($params->rightAccess) ) {
@@ -710,7 +710,7 @@ class CalendarV2Controller
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function deleteCalendar (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function deleteCalendar (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) ) {

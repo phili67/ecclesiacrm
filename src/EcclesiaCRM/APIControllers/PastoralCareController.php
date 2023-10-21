@@ -12,8 +12,8 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\Utils\InputUtils;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\dto\SystemConfig;
 
@@ -35,7 +35,7 @@ class PastoralCareController
         $this->container = $container;
     }
 
-    public function getPastoralCareListForUser(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getPastoralCareListForUser(ServerRequest $request, Response $response, array $args): Response
     {
         if (!( SessionUser::getUser()->isPastoralCareEnabled() and SessionUser::getUser()->isMenuOptionsEnabled() and array_key_exists('UserID', $args) )) {
             return $response->withStatus(401);
@@ -95,7 +95,7 @@ class PastoralCareController
     }
 
 
-    public function getAllPastoralCare(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllPastoralCare(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
             return $response->withStatus(401);
@@ -104,7 +104,7 @@ class PastoralCareController
         return $response->write(PastoralCareTypeQuery::Create()->find()->toJSON());
     }
 
-    public function deletePastoralCareType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deletePastoralCareType(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -122,7 +122,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function createPastoralCareType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createPastoralCareType(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -142,7 +142,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function setPastoralCareType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function setPastoralCareType(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -162,7 +162,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function editPastoralCareType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function editPastoralCareType(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -173,7 +173,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function addPastoralCarePerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function addPastoralCarePerson(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -208,7 +208,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function deletePastoralCarePerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deletePastoralCarePerson(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -226,7 +226,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function getPastoralCareInfoPerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getPastoralCareInfoPerson(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -242,7 +242,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function modifyPastoralCarePerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function modifyPastoralCarePerson(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -279,7 +279,7 @@ class PastoralCareController
     }
 
 
-    public function addPastoralCareFamily(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function addPastoralCareFamily(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -339,7 +339,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function deletePastoralCareFamily(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function deletePastoralCareFamily(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -357,7 +357,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function getPastoralCareInfoFamily(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getPastoralCareInfoFamily(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -373,7 +373,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function modifyPastoralCareFamily(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function modifyPastoralCareFamily(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -409,7 +409,7 @@ class PastoralCareController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function pastoralcareMembersDashboard(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function pastoralcareMembersDashboard(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
             return $response->withStatus(401);
@@ -483,7 +483,7 @@ class PastoralCareController
         return $response->withStatus( 404);
     }
 
-    public function personNeverBeenContacted(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function personNeverBeenContacted(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
             return $response->withStatus(401);
@@ -502,7 +502,7 @@ class PastoralCareController
         return $response->withStatus( 404);
     }
 
-    public function familyNeverBeenContacted(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function familyNeverBeenContacted(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
             return $response->withStatus(401);
@@ -521,7 +521,7 @@ class PastoralCareController
         return $response->withStatus( 404);
     }
 
-    public function singleNeverBeenContacted(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function singleNeverBeenContacted(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
             return $response->withStatus(401);
@@ -540,7 +540,7 @@ class PastoralCareController
         return $response->withStatus( 404);
     }
 
-    public function retiredNeverBeenContacted(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function retiredNeverBeenContacted(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
             return $response->withStatus(401);
@@ -559,7 +559,7 @@ class PastoralCareController
         return $response->withStatus( 404);
     }
 
-    public function youngNeverBeenContacted(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function youngNeverBeenContacted(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
             return $response->withStatus(401);
@@ -578,7 +578,7 @@ class PastoralCareController
         return $response->withStatus( 404);
     }
 
-    public function getPersonByClassificationPastoralCare(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getPersonByClassificationPastoralCare(ServerRequest $request, Response $response, array $args): Response
     {
         if (!(SessionUser::getUser()->isPastoralCareEnabled() and SessionUser::getUser()->isMenuOptionsEnabled() and array_key_exists('type', $args ))) {
             return $response->withStatus(401);
@@ -603,7 +603,7 @@ class PastoralCareController
     }
 
 
-    public function createRandomlyPastoralCare(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function createRandomlyPastoralCare(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 

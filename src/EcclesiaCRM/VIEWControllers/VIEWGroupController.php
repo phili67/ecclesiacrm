@@ -10,8 +10,8 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use EcclesiaCRM\ListOptionQuery;
@@ -41,7 +41,7 @@ class VIEWGroupController {
         $this->container = $container;
     }
 
-    public function groupList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupList (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/group/');
 
         return $renderer->render($response, 'grouplist.php', $this->renderGroupListArray());
@@ -66,7 +66,7 @@ class VIEWGroupController {
         return $paramsArguments;
     }
 
-    public function groupView (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupView (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/group/');
 
         return $renderer->render($response, 'groupview.php', $this->renderGroupViewArray($args['groupID']));
@@ -140,7 +140,7 @@ class VIEWGroupController {
         return $paramsArguments;
     }
 
-    public function groupBadge (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupBadge (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/group/');
 
         $groupId = $args['groupId'];
@@ -191,7 +191,7 @@ class VIEWGroupController {
         return $paramsArguments;
     }
 
-    public function groupEdit (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupEdit (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/group/');
 
         if (!isset($args['groupId'])) {
@@ -244,7 +244,7 @@ class VIEWGroupController {
         return $paramsArguments;
     }    
 
-    public function groupReport (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function groupReport (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/group/');
 
         if ( !( SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups']  ) ) {
@@ -288,7 +288,7 @@ class VIEWGroupController {
         return $paramsArguments;
     }
 
-    public function renderGroupPropsEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderGroupPropsEditor (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/group/');
 
         if ( !( SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups']  ) ) {
@@ -352,7 +352,7 @@ class VIEWGroupController {
 
     
 
-    public function renderGroupPropsFormEditor (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderGroupPropsFormEditor (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/group/');
 
         // Get the Group from the querystring
