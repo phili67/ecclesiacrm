@@ -13,8 +13,8 @@ namespace Plugins\APIControllers;
 
 use EcclesiaCRM\Utils\InputUtils;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -64,7 +64,7 @@ class NewsDashboardController
         return $res;
     }
 
-    public function create(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function create(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -86,7 +86,7 @@ class NewsDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function update(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function update(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -114,7 +114,7 @@ class NewsDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function remove(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function remove(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 
@@ -132,7 +132,7 @@ class NewsDashboardController
         return $response->withJson(['status' => "failed"]);
     }
 
-    public function info(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function info(ServerRequest $request, Response $response, array $args): Response
     {
         $input = (object)$request->getParsedBody();
 

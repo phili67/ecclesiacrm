@@ -12,8 +12,8 @@
 namespace Plugins\VIEWControllers;
 
 use PluginStore\PluginPrefJitsiMeetingQuery;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 spl_autoload_register(function ($className) {
@@ -40,7 +40,7 @@ class VIEWMeetingController {
         $this->container = $container;
     }
 
-    public function renderDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderDashboard (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer(__DIR__.'/../../v2/templates');
 
         if ( !( SessionUser::getUser()->isEnableForPlugin('MeetingJitsi') ) ) {
@@ -86,7 +86,7 @@ class VIEWMeetingController {
         return $paramsArguments;
     }
 
-    public function renderSettings (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderSettings (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer(__DIR__.'/../../v2/templates');
 
         if ( !( SessionUser::getUser()->isAdminEnableForPlugin('MeetingJitsi') ) ) {
