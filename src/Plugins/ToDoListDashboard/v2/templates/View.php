@@ -132,7 +132,7 @@ $defaultList = ToDoListDashboardQuery::create()
 </div>
 
 <script nonce="<?= $CSPNonce ?>">
-    $(document).ready(function () {
+    $(function() {
         window.CRM.TodoListDashboardId = <?= (!is_null($defaultList)?$defaultList->getId():-1) ?>;
     });
 </script>
