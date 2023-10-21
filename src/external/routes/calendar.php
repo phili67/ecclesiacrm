@@ -2,8 +2,9 @@
 
 // Routes
 
-use Slim\Http\Response as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Http\Response;
+use Slim\Http\ServerRequest;
+
 use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
@@ -12,7 +13,7 @@ use EcclesiaCRM\dto\SystemConfig;
 
 
 $app->group('/calendar', function (RouteCollectorProxy $group) {
-    $group->get('/events/{userID}/{uri}', function (Request $request, Response $response, array $args) {
+    $group->get('/events/{userID}/{uri}', function (ServerRequest $request, Response $response, array $args) {
         if (!EcclesiaCRM\dto\SystemConfig::getBooleanValue("bEnableExternalCalendarAPI"))
         {
           return $response->withStatus(404);
