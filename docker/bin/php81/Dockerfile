@@ -64,7 +64,8 @@ RUN cd /usr/local/src && \
     make install && \
     cd .. && \
     rm -rf imagick && \
-    docker-php-ext-enable imagick
+    docker-php-ext-enable imagick \
+    sed -i_bak 's/rights="none" pattern="PDF"/rights="read | write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml
 
 # Other PHP8 Extensions
 
