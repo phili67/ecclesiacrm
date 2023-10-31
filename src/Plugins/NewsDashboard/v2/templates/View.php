@@ -101,7 +101,7 @@ if ( $role == 'admin' or SessionUser::isAdmin() ) {
 </div>
 
 <script nonce="<?= $CSPNonce ?>">
-    $(document).ready(function () {
+    $(function() {
         window.CRM.newsDashboardIsAdmin = <?= $isAdmin?'true':'false' ?>;
         window.CRM.userID = <?= SessionUser::getId() ?>;
     });

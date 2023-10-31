@@ -75,13 +75,15 @@ class LabelUtils {
     <?php
     }
 
-    public static function FontSizeSelect($fieldname,$message='')
+    public static function FontSizeSelect($fieldname,$message='', $withTitle = true)
     {
         $sizes = [gettext('default'), 6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28,30, 32, 34, 36, 38, 40, 42, 44];
       ?>
         <div class="row">
+          <?php if ($withTitle) { ?>
           <div class="col-md-6"><label><?= gettext('Font Size').(!empty($message)?' '.$message:'') ?></label></div>
-          <div class="col-md-6">
+          <?php } ?>
+          <div class="col-md-<?= $withTitle?6:12 ?>">
              <select name="<?= $fieldname ?>" class="form-control form-control-sm" id="<?= $fieldname ?>">
              <?php
                 $place = 0;

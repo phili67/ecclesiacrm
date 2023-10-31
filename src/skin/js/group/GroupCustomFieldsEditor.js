@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     $(document).on("click", ".delete-field", function () {
         var GroupID = $(this).data("groupid");
         var PropID = $(this).data("propid");

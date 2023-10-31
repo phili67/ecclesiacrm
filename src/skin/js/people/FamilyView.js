@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
 
 // mailchimp management
   if (window.CRM.familyMail != undefined) {
@@ -28,7 +28,7 @@ $(document).ready(function () {
 
 // end of mailchimp management
 
-  $("#activateDeactivate").click(function () {
+  $("#activateDeactivate").on('click', function () {
     console.log("click activateDeactivate");
     popupTitle = (window.CRM.currentActive == true ? i18next.t("Confirm Deactivation") : i18next.t("Confirm Activation") );
     if (window.CRM.currentActive == true) {
@@ -58,7 +58,7 @@ $(document).ready(function () {
       });
     });
 
-    $("#deletePhoto").click(function () {
+    $("#deletePhoto").on('click', function () {
       $.ajax({
         type: "DELETE",
         url: window.CRM.root + "/api/families/" + window.CRM.currentFamily + "/photo",
@@ -83,7 +83,7 @@ $(document).ready(function () {
       if (success) {
         $("#view-larger-image-btn").removeClass('hide');
 
-        $("#view-larger-image-btn").click(function () {
+        $("#view-larger-image-btn").on('click', function () {
           bootbox.alert({
             title: i18next.t("Family Photo"),
             message: '<img class="img-rounded img-responsive center-block" src="' + window.CRM.root + '/api/families/' + window.CRM.currentFamily + '/photo" />',

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     $("#myWish").click(function showAlert() {
         $("#Menu_Banner").alert();
         window.setTimeout(function () {

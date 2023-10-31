@@ -7,7 +7,7 @@
 //
 
 
-$(document).ready(function () {
+$(function() {
   window.CRM.dataFundTable = $("#familiesWithoutEmailTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/persons/NotInMailChimp/emails/families",

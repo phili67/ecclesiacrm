@@ -336,7 +336,7 @@ require $sRootDocument . '/Include/Header.php';
     var CurrentDeposit = <?= $iCurrentDeposit ?>;
     var Closed = "<?= ($dep_Closed && $sGroupKey && $PledgeOrPayment == 'Payment') ? ' &nbsp; <span style="color:red">' . _('Deposit closed') . '</span>' : "" ?>";
 
-    $(document).ready(function () {
+    $(function() {
         $("#FamilyName").select2({
             minimumInputLength: 2,
             language: window.CRM.shortLocale,

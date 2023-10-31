@@ -5,7 +5,7 @@
 //
 
 
-$(document).ready(function () {
+$(function() {
   $('.remove-property-btn').click(function(e) {
     var familyId = $(this).data('family_id');
     var row = window.CRM.familiesListTable.row( $(this).parents('tr') );

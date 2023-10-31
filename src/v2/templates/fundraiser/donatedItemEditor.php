@@ -184,7 +184,7 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    $(document).ready(function () {
+    $(function() {
         window.CRM.currentFundraiser = <?= $iCurrentFundraiser ?>;
         window.CRM.currentDonatedItemID = <?= strlen($iDonatedItemID) ? $iDonatedItemID : -1 ?>;
         window.CRM.currentPicture = "<?= $sPictureURL ?>";

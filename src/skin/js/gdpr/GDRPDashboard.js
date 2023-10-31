@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
   window.CRM.dataPastoralCareTypeTable = $("#GDRP-Table").DataTable({
     ajax:{
       url: window.CRM.root + "/api/gdrp/",

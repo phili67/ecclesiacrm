@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     $('#SaveSettings').click('focus', function (e) {
         var domain = $('#domain').val();
         var domainscriptpath = $('#domainscriptpath').val();

@@ -8,7 +8,7 @@
 
 window.CRM.editor = null;
 
-$(document).ready(function () {
+$(function() {
   $( ".filterByPastor" ).click(function() {
     var ID = $(this).data("pastorid");
 

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     var familiesTableConfig = {
         ajax: {
             url: window.CRM.root + "/api/families/self-verify",

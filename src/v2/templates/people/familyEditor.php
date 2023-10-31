@@ -788,7 +788,7 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <script nonce="<?= $CSPNonce ?>">
-        $(document).ready(function () {
+        $(function() {
             $("#country-input").select2();
             $("#state-input").select2();
         });

@@ -6,12 +6,12 @@
  *
  ******************************************************************************/
 
-$(document).ready(function () {
+$(function() {
     $('#onlineVerifySiteBtn').hide();
     $("#confirm-modal-done").hide();
     $("#confirm-modal-error").hide();
 
-    $("#onlineVerifyBtn").click(function () {
+    $("#onlineVerifyBtn").on('click', function () {
 
         $.post(window.CRM.root + '/ident/my-profile/onlineVerificationFinished/', {
             "token": window.CRM.token,

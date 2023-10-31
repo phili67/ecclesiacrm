@@ -8,15 +8,15 @@
 
 window.CRM.editor = null;
 
-$(document).ready(function () {
-    $(".filterByPastor").click(function () {
+$(function() {
+    $(".filterByPastor").on('click', function () {
         var ID = $(this).data("pastorid");
 
         $(".all-items").hide();
         $(".item-" + ID).show();
     });
 
-    $(".filterByPastorAll").click(function () {
+    $(".filterByPastorAll").on('click', function () {
         $(".all-items").show();
     });
 
@@ -25,7 +25,7 @@ $(document).ready(function () {
     });
 
 
-    $(".modify-pastoral").click(function () {
+    $(".modify-pastoral").on('click', function () {
         var ID = $(this).data("id");
 
         window.CRM.APIRequest({
@@ -83,7 +83,7 @@ $(document).ready(function () {
         });
     });
 
-    $(".delete-pastoral").click(function () {
+    $(".delete-pastoral").on('click', function () {
         var ID = $(this).data("id");
 
         bootbox.confirm({
@@ -113,7 +113,7 @@ $(document).ready(function () {
         });
     });
 
-    $(".newPastorCare").click(function () {
+    $(".newPastorCare").on('click', function () {
         var typeid = $(this).data('typeid');
         var typeDesc = $(this).data('typedesc');
         var visible = $(this).data('visible');

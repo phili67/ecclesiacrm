@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0)
     {
         window.CRM.DisplayAlert(i18next.t("Problem", { ns: 'MeetingJitsi' }), i18next.t("Safari isn't yet supported with Jitsi, use something else !<br/>• Your webcam<br/>• Sharing your windows<br/> won't work with meeting.", { ns: 'MeetingJitsi' }))

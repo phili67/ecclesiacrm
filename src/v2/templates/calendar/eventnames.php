@@ -377,7 +377,7 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
       rel="stylesheet">
 
 <script nonce="<?= $CSPNonce ?>">
-    $(document).ready(function () {
+    $(function() {
         //Added by @saulowulhynek to translation of datatable nav terms
         $('#eventNames').DataTable(window.CRM.plugin.dataTable);
 

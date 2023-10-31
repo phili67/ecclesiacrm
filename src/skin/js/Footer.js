@@ -182,7 +182,7 @@ $("document").ready(function () {
         allFound[allFound.length - 1].focus();
     });
 
-    $('.exit-control-account').click(function () {
+    $('.exit-control-account').on('click', function () {
         var userId = $(this).data("userid");
 
         window.CRM.APIRequest({

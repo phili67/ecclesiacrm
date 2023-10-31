@@ -13,7 +13,7 @@ function codename() {
     }
 }
 
-$(document).ready(function () {
+$(function() {
     window.CRM.dataTableListing = $("#cart-listing-table").DataTable({
         "language": {
             "url": window.CRM.plugin.dataTable.language.url

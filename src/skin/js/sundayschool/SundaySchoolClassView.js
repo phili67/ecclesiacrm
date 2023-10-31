@@ -1,6 +1,6 @@
 $("document").ready(function () {
 
-    $("#deleteClassButton").click(function () {
+    $("#deleteClassButton").on('click', function () {
         console.log("click");
         bootbox.setDefaults({
             locale: window.CRM.shortLocale

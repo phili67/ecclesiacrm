@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     function renderKioskAssignment(data) {
 
         if(data.Accepted && window.CRM.events.futureEventsLoaded == true){

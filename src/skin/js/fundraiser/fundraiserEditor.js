@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     $('body').on('click',".deleteDonatedItem", function () {
         var donatedItem = $(this).data('donatedid');
 

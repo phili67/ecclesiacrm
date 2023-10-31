@@ -98,7 +98,7 @@ $(".addGroup").click(function() {
     })
 });
 
-$("#verifyURL").click(function () {
+$("#verifyURL").on('click', function () {
     window.CRM.APIRequest({
         method: 'POST',
         path: 'families/verify/url',
@@ -112,7 +112,7 @@ $("#verifyURL").click(function () {
     });
 });
 
-$("#verifyNow").click(function () {
+$("#verifyNow").on('click', function () {
     $.ajax({
         type: 'POST',
         url: window.CRM.root + '/api/families/verify/' + window.CRM.currentFamily + '/now'
@@ -127,12 +127,12 @@ $("#verifyNow").click(function () {
         });
 });
 
-$("#verifyDownloadPDF").click(function () {
+$("#verifyDownloadPDF").on('click', function () {
     location.href = window.CRM.root + '/Reports/ConfirmReport.php?familyId=' + window.CRM.currentFamily;
     $('#confirm-verify').modal('hide');
 });
 
-$("#onlineVerify").click(function () {
+$("#onlineVerify").on('click', function () {
     $.ajax({
         type: 'POST',
         url: window.CRM.root + '/api/families/' + window.CRM.currentFamily + '/verify'
@@ -147,7 +147,7 @@ $("#onlineVerify").click(function () {
         });
 });
 
-$("#onlineVerifyPDF").click(function () {
+$("#onlineVerifyPDF").on('click', function () {
     $.ajax({
         type: 'POST',
         url: window.CRM.root + '/api/families/' + window.CRM.currentFamily + '/verifyPDF'

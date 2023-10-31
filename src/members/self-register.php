@@ -32,7 +32,7 @@ use EcclesiaCRM\dto\SystemURLs;
 
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    $(document).ready(function () {
+    $(function() {
         var familiesTableConfig = {
             ajax: {
                 url: window.CRM.root + "/api/families/self-register",

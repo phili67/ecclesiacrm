@@ -373,7 +373,7 @@ require $sRootDocument . '/Include/Header.php';
 
 
 <script nonce="<?= $sCSPNonce ?>" >
-    $(document).ready(function () {
+    $(function() {
     $(".data-table-pledges").DataTable({
         "language": {
         "url": window.CRM.plugin.dataTable.language.url

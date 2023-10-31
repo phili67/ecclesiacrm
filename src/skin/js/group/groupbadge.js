@@ -7,9 +7,11 @@ $(function() {
             data: JSON.stringify({
                 "title": window.CRM.title,
                 "titlePosition": window.CRM.titlePosition,
+                "titleFontSize": window.CRM.titleFontSize,
                 "back": window.CRM.back,
                 "sundaySchoolName": window.CRM.sundaySchoolName,
                 "sundaySchoolNamePosition":window.CRM.sundaySchoolNamePosition,
+                "sundaySchoolNameFontSize":window.CRM.sundaySchoolNameFontSize,
                 "labelfont": window.CRM.labelfont, 
                 "labeltype": window.CRM.labeltype, 
                 "labelfontsize": window.CRM.labelfontsize, 
@@ -40,11 +42,17 @@ $(function() {
             case 'titlePosition':
                 window.CRM.titlePosition = event.target.options[event.target.selectedIndex].value;
                 break;
+            case 'Titlelabelfontsize':
+                window.CRM.titleFontSize = event.target.options[event.target.selectedIndex].value;
+                break;
             case 'sundaySchoolName':
                 window.CRM.sundaySchoolName = event.target.value;
                 break;
             case 'sundaySchoolNamePosition':
                 window.CRM.sundaySchoolNamePosition = event.target.options[event.target.selectedIndex].value;
+                break;
+            case 'sundaySchoolNameFontSize':
+                window.CRM.sundaySchoolNameFontSize = event.target.options[event.target.selectedIndex].value;
                 break;
             case 'imagePosition':
                 window.CRM.imagePosition = event.target.options[event.target.selectedIndex].value;

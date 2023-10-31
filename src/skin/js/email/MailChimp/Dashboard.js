@@ -7,7 +7,7 @@
 //
 
 
-$(document).ready(function () {
+$(function() {
     function render_container() {
         if (window.CRM.mailchimpIsActive) {
             // we first empty the container

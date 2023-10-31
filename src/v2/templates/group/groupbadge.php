@@ -61,7 +61,7 @@ if (isset($_GET['typeProblem'])) {
             <div class="row">
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label><?= $group->getName() ?></label>
                         </div>
                         <div class="col-md-4">
@@ -80,9 +80,12 @@ if (isset($_GET['typeProblem'])) {
                                 <option value="Right" <?= ($_COOKIE["titlePositionSC"] == 'Right')?'selected':'' ?>><?= _('Right') ?></option>
                             </select>
                         </div>
+                        <div class="col-md-2">
+                            <?php LabelUtils::FontSizeSelect('Titlelabelfontsize','('._("default").' 15)', false); ?>
+                        </div>
                     </div><br>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label><?= _('BackGround color') ?></label>
                         </div>
                         <div class="col-md-4">
@@ -96,13 +99,12 @@ if (isset($_GET['typeProblem'])) {
                         </div>
                     </div><br>
                     <hr/>
-                    <?php if ($isSundaySchool) { ?>
                     <div class="row">
-                        <div class="col-md-4">
-                            <label><?= _("Sunday School Name") ?></label>
+                        <div class="col-md-3">
+                            <label><?= ($isSundaySchool)?_("Sunday School Name"):_("Informations") ?></label>
                         </div>
-                        <div class="col-md-6">
-                            <input type="text" name="sundaySchoolName" id="sundaySchoolName" maxlength="255" size="3" value="<?= $_COOKIE['sundaySchoolNameSC'] ?>" class= "form-control form-control-sm" placeholder="<?= _("Sunday School Name") ?>">
+                        <div class="col-md-5">
+                            <input type="text" name="sundaySchoolName" id="sundaySchoolName" maxlength="255" size="3" value="<?= $_COOKIE['sundaySchoolNameSC'] ?>" class= "form-control form-control-sm" placeholder="<?= ($isSundaySchool)?_("Sunday School Name"):_("Informations") ?>">
                         </div>
                         <div class="col-md-2">
                             <select name="sundaySchoolNamePosition" class="form-control form-control-sm" id="sundaySchoolNamePosition">
@@ -111,9 +113,11 @@ if (isset($_GET['typeProblem'])) {
                                 <option value="Right" <?= ($_COOKIE["scNamesundaySchoolNamePositionSCPositionSC"] == 'Right')?'selected':'' ?>><?= _('Right') ?></option>
                             </select>
                         </div>
+                        <div class="col-md-2">
+                            <?php LabelUtils::FontSizeSelect('sundaySchoolNameFontSize','('._("default").' 8)', false); ?>
+                        </div>
                     </div><br>
-                    <hr/>
-                    <?php } ?>                                                        
+                    <hr/>                
 
                     <div class="row">
                         <div class="col-md-6">
@@ -229,11 +233,14 @@ if (isset($_GET['typeProblem'])) {
         window.CRM.groupID = <?= $iGroupID ?>;
 
         window.CRM.title = "<?= (empty($_COOKIE["sTitleColorSC"]))?'#3A3':$_COOKIE["sTitleColorSC"] ?>";
-        window.CRM.titlePosition = "<?= (empty($_COOKIE["titlePositionSC"]))?"Right":$_COOKIE["titlePositionSC"] ?>";         
+        window.CRM.titlePosition = "<?= (empty($_COOKIE["titlePositionSC"]))?"Right":$_COOKIE["titlePositionSC"] ?>"; 
+        window.CRM.titleFontSize = "<?= (empty($_COOKIE["TitlelabelfontsizeSC"]))?"8":$_COOKIE["TitlelabelfontsizeSC"] ?>"; 
+               
         window.CRM.back = "<?= (empty($_COOKIE["sBackgroudColorSC"]))?'#F99':$_COOKIE["sBackgroudColorSC"] ?>";
 
         window.CRM.sundaySchoolName = "<?= (empty($_COOKIE["sundaySchoolNameSC"]))?"":$_COOKIE["sundaySchoolNameSC"] ?>";         
         window.CRM.sundaySchoolNamePosition = "<?= (empty($_COOKIE["sundaySchoolNamePositionSC"]))?"Right":$_COOKIE["sundaySchoolNamePositionSC"] ?>"; 
+        window.CRM.sundaySchoolNameFontSize = "<?= (empty($_COOKIE["SundaySchoolNameFontSizeSC"]))?"15":$_COOKIE["SundaySchoolNameFontSizeSC"] ?>"; 
         
         window.CRM.image = "<?= (empty($_COOKIE["imageSC"]))?'':$_COOKIE["imageSC"] ?>";
         window.CRM.imagePosition = "<?= (empty($_COOKIE["imagePositionSC"]))?'Left':$_COOKIE["imagePositionSC"] ?>";

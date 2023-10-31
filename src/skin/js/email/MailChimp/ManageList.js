@@ -8,7 +8,7 @@
 
 var tagButtonsLoaded = false;
 
-$(document).ready(function () {
+$(function() {
     window.CRM.editor = null;
 
     function addTagsToMainDropdown() {

@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(function() {
     var groupID = window.CRM.currentGroup;
 
-    $("#remove_all_members").click(function () {
+    $("#remove_all_members").on('click', function () {
         bootbox.confirm({
             title: i18next.t("You're about to delete all the group members ?"),
             message: i18next.t("Are you sure ? This can't be undone."),

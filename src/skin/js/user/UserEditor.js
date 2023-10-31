@@ -43,7 +43,7 @@ function addRolesToMainDropdown()
       addRolesToMainDropdown();
     }
 
-    $(document).ready(function () {
+    $(function() {
         $("#personSelect").select2({
           language: window.CRM.shortLocale,
           minimumInputLength: 2,

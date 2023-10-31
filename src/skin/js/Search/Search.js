@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
     var elements = {};
     var group_elements = {};
     var group_role_elements = {}

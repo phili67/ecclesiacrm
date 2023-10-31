@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function() {
 // mailChimp management
   if (window.CRM.normalMail != undefined) {
     window.CRM.APIRequest({
@@ -49,7 +49,7 @@ $(document).ready(function () {
   }
   // end mailChimp management
 
-  $("#activateDeactivate").click(function () {
+  $("#activateDeactivate").on('click', function () {
       console.log("click activateDeactivate");
       popupTitle = (window.CRM.currentActive == true ? i18next.t("Confirm Deactivation") : i18next.t('Confirm Activation'));
       if (window.CRM.currentActive == true) {
@@ -91,7 +91,7 @@ $(document).ready(function () {
       });
   });
 
-  $("#deletePhoto").click (function () {
+  $("#deletePhoto").on('click', function () {
     $.ajax({
     type: "DELETE",
     url: window.CRM.root + "/api/persons/"+window.CRM.currentPersonID+"/photo",
