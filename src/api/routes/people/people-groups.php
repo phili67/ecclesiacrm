@@ -155,9 +155,11 @@ $app->group('/groups', function (RouteCollectorProxy $group) {
      * @! get all sundayschool teachers
      * #! param: id->string  :: title as string (color)
      * #! param: id->string  :: titlePosition (Right | Left | Center)
+     * #! param: id->int     :: titleFontSize (default 8)
      * #! param: id->string  :: back as string (color)
      * #! param: id->string  :: sundaySchoolName as string
      * #! param: id->string  :: sundaySchoolNamePosition (Right | Left | Center)
+     * #! param: id->int     :: sundaySchoolNameFontSize (default 15)
      * #! param: id->string  :: labelfont as string
      * #! param: id->string  :: labeltype as string
      * #! param: id->int     :: labelfontsize as int

@@ -92,7 +92,8 @@ class PDF_Badge extends PDF_Label
 
 
     // Print a label
-    public function Add_PDF_Badge($title, $titlePosition, $LastName, $firstName, $group,$groupPosition, $props='', 
+    public function Add_PDF_Badge($title, $titlePosition, $iTitlelabelfontsize, $LastName, $firstName, 
+                                    $group,$groupPosition, $iGroupFontSize, $props='', 
                                     $sFirstNameFontSize = 20,$image='../Images/scleft1.png',
                                     $title_red=0, $title_gren=0, $title_blue=0,
                                     $back_red=255, $back_gren=255, $back_blue=255,
@@ -174,7 +175,7 @@ class PDF_Badge extends PDF_Label
 
         
         if (!$has_QR_Code) {
-            $this->SetFontSize(15);
+            $this->SetFontSize($iTitlelabelfontsize);
             $this->SetTextColor($title_red, $title_gren, $title_blue);
             $this->SetXY($_PosX, $_PosY);
             $this->Cell($this->_Width , 10,  $group, 0, 0, $gposition);
@@ -193,14 +194,14 @@ class PDF_Badge extends PDF_Label
 
             $this->MultiCell($this->_Width, 2, $props, 0, 'C');
 
-            $this->SetFontSize (8);
+            $this->SetFontSize ($iGroupFontSize);
             $this->SetXY($_PosX, $_PosY + $this->_Height - 8);
             $this->Cell($this->_Width , 10,  $title, 0, 0, $tposition);
         } else {
             $sFirstNameFontSize *= 0.75;
             $lastNameFontSize = $sFirstNameFontSize*0.8;
             
-            $this->SetFontSize(13);
+            $this->SetFontSize((int)($iTitlelabelfontsize*0.8));
             $this->SetTextColor($title_red, $title_gren, $title_blue);
             $this->SetXY($_PosX, $_PosY);
             $this->Cell($this->_Width , 10,  $group, 0, 0, $gposition);
@@ -219,7 +220,7 @@ class PDF_Badge extends PDF_Label
 
             $this->MultiCell($this->_Width, 2,  $props, 0, 'C');
 
-            $this->SetFontSize (8);
+            $this->SetFontSize ($iGroupFontSize);
             $this->SetXY($_PosX, $_PosY + $this->_Height - 8);
             $this->Cell($this->_Width , 10,  $title, 0, 0, $tposition);
         }

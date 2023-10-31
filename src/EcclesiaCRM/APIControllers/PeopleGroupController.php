@@ -863,8 +863,10 @@ class PeopleGroupController
 
             // set the cookies
             setcookie('titlePositionSC', $values->titlePosition, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('TitlelabelfontsizeSC', $values->titleFontSize, time() + 60 * 60 * 24 * 90, '/');
             setcookie('sundaySchoolNameSC', $values->sundaySchoolName, time() + 60 * 60 * 24 * 90, '/');
             setcookie('sundaySchoolNamePositionSC', $values->sundaySchoolNamePosition, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('SundaySchoolNameFontSizeSC', $values->sundaySchoolNameFontSize, time() + 60 * 60 * 24 * 90, '/');
             setcookie('sBackgroudColorSC', $values->back, time() + 60 * 60 * 24 * 90, '/');
             setcookie('imageSC', $values->imageName, time() + 60 * 60 * 24 * 90, '/');
             setcookie('imagePositionSC', $values->imagePosition, time() + 60 * 60 * 24 * 90, '/');
@@ -884,13 +886,13 @@ class PeopleGroupController
             list($back_red, $back_gren, $back_blue) = sscanf($values->back, "#%02x%02x%02x");
 
             if ($values->useQRCode) {
-                $pdf->Add_PDF_Badge($values->sundaySchoolName, $values->sundaySchoolNamePosition, _("Name"), _("First Name"), 
-                    $group->getName(),$values->titlePosition,
+                $pdf->Add_PDF_Badge($values->sundaySchoolName, $values->sundaySchoolNamePosition, $values->titleFontSize, _("Name"), _("First Name"), 
+                    $group->getName(),$values->titlePosition, $values->sundaySchoolNameFontSize,
                     "props", $values->labelfontsize, "../Images/background/".$values->imageName, $title_red, $title_gren, $title_blue,
                     $back_red, $back_gren, $back_blue, $values->imagePosition, $values->groupID, "id");
             } else {
-                $pdf->Add_PDF_Badge($values->sundaySchoolName,$values->sundaySchoolNamePosition, _("Name"), _("First Name"), 
-                    $group->getName(),$values->titlePosition,
+                $pdf->Add_PDF_Badge($values->sundaySchoolName,$values->sundaySchoolNamePosition, $values->titleFontSize, _("Name"), _("First Name"), 
+                    $group->getName(),$values->titlePosition, $values->sundaySchoolNameFontSize,
                     "props", $values->labelfontsize, "../Images/background/".$values->imageName, $title_red, $title_gren, $title_blue,
                     $back_red, $back_gren, $back_blue, $values->imagePosition);
             }
