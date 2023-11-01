@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
+"POT-Creation-Date: 2023-11-01T08:14:23.949Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1444,6 +1444,9 @@ msgstr "Check"
 
 msgid "Date Updated"
 msgstr "Tanggal terbaru"
+
+msgid "Donations/eGives Moved by"
+msgstr ""
 
 msgid "Delete this person?"
 msgstr "Hapus orang ini?"

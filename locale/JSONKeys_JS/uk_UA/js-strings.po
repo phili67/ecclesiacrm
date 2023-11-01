@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-06-17T19:48:34.120Z\n"
+"POT-Creation-Date: 2023-11-01T08:14:23.949Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -1436,6 +1436,9 @@ msgstr "ПЕРЕВІРКА"
 
 msgid "Date Updated"
 msgstr "Дата оновлення"
+
+msgid "Donations/eGives Moved by"
+msgstr ""
 
 msgid "Delete this person?"
 msgstr "Видалити цю людину?"
