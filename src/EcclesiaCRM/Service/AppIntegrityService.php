@@ -116,6 +116,7 @@ class AppIntegrityService
       'PCRE Support'                              => function_exists('preg_match'),
       'UTF-8 Support'                             => @preg_match('/^.$/u', 'A') && @preg_match('/^\pL$/u', 'A'),
       'Multibyte Encoding'                        => extension_loaded('mbstring'),
+      'imagick'                                   => extension_loaded('imagick'),
       'PHP Phar'                                  => extension_loaded('phar'),
       'PHP Session'                               => extension_loaded('session'),
       'PHP XML'                                   => extension_loaded('xml'),
