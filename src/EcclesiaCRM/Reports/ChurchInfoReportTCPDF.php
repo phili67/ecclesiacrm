@@ -135,6 +135,8 @@ class ChurchInfoReportTCPDF extends TCPDF
 
     public function PrintRightJustified($x, $y, $str)
     {
+        $str = str_replace('\n', chr(10), $str);
+
         $iLen = mb_strlen($str);
         $nMoveBy = 10 - 2 * $iLen;
         $this->SetXY($x + $nMoveBy, $y);
@@ -143,26 +145,31 @@ class ChurchInfoReportTCPDF extends TCPDF
 
     public function PrintRightJustifiedCell($x, $y, $wid, $str)
     {
+        $str = str_replace('\n', chr(10), $str);
         $this->SetXY($x, $y);
         $this->Cell($wid, SystemConfig::getValue('incrementY'), $str, 1, 0, 'R');
     }
 
     public function PrintCenteredCell($x, $y, $wid, $str)
     {
+        $str = str_replace('\n', chr(10), $str);
         $this->SetXY($x, $y);
         $this->Cell($wid, SystemConfig::getValue('incrementY'), $str, 1, 0, 'C');
     }
 
     public function WriteAt($x, $y, $str)
     {
+        $str = str_replace('\n', chr(10), $str);
+
         $this->SetXY($x, $y);
         $this->Write(SystemConfig::getValue('incrementY'), $str);
     }
 
-    public function WriteAtCell($x, $y, $wid, $str)
+    public function WriteAtCell($x, $y, $wid, $str, $border=1, $align="L")
     {
+        $str = str_replace('\n', chr(10), $str);
         $this->SetXY($x, $y);
-        $this->MultiCell($wid, 4, $str, 1, "L");
+        $this->MultiCell($wid, 4, $str, $border, $align);
     }
 
     public function StartLetterPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $letterhead = '')
@@ -197,12 +204,12 @@ class ChurchInfoReportTCPDF extends TCPDF
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $fam_Address1);
             $curY += SystemConfig::getValue('incrementY');
         }
+        $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $fam_City.', '.$fam_State.'  '.$fam_Zip);
+        $curY += SystemConfig::getValue('incrementY');
         if ($fam_Address2 != '') {
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $fam_Address2);
             $curY += SystemConfig::getValue('incrementY');
         }
-        $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $fam_City.', '.$fam_State.'  '.$fam_Zip);
-        $curY += SystemConfig::getValue('incrementY');
         if ($fam_Country != '' && $fam_Country != SystemConfig::getValue('sDefaultCountry')) {
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $fam_Country);
             $curY += SystemConfig::getValue('incrementY');
