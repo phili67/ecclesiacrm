@@ -1,4 +1,5 @@
 <?php
+
 /*******************************************************************************
  *
  *  filename    : lettersandlabels.php
@@ -26,11 +27,11 @@ $numCustomFields = $ormCustomFields->count();
 
 // Get Field Security List Matrix
 $ormSecurityGrps = ListOptionQuery::Create()
-->orderByOptionSequence()
-->findById(5);
+    ->orderByOptionSequence()
+    ->findById(5);
 
 foreach ($ormSecurityGrps as $ormSecurityGrp) {
-$aSecurityType[$ormSecurityGrp->getOptionId()] = $ormSecurityGrp->getOptionName();
+    $aSecurityType[$ormSecurityGrp->getOptionId()] = $ormSecurityGrp->getOptionName();
 }
 
 // Is this the second pass?
@@ -39,15 +40,15 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
     $sFontInfo = $_POST['labelfont'];
     $sFontSize = $_POST['labelfontsize'];
     $bRecipientNamingMethod = $_POST['recipientnamingmethod'];
-    $sLabelInfo = '&labelfont='.urlencode($sFontInfo).'&labelfontsize='.$sFontSize."&recipientnamingmethod=".$bRecipientNamingMethod;
+    $sLabelInfo = '&labelfont=' . urlencode($sFontInfo) . '&labelfontsize=' . $sFontSize . "&recipientnamingmethod=" . $bRecipientNamingMethod;
 
     if (isset($_POST['SubmitNewsLetter'])) {
-        RedirectUtils::Redirect('Reports/NewsLetterLabels.php?labeltype='.$sLabelFormat.$sLabelInfo);
+        RedirectUtils::Redirect('Reports/NewsLetterLabels.php?labeltype=' . $sLabelFormat . $sLabelInfo);
     } elseif (isset($_POST['SubmitConfirmReport'])) {
         $_SESSION['POST_Datas'] = $_POST;
         RedirectUtils::Redirect('Reports/ConfirmReport.php');
     } elseif (isset($_POST['SubmitConfirmLabels'])) {
-        RedirectUtils::Redirect('Reports/ConfirmLabels.php?labeltype='.$sLabelFormat.$sLabelInfo);
+        RedirectUtils::Redirect('Reports/ConfirmLabels.php?labeltype=' . $sLabelFormat . $sLabelInfo);
     } elseif (isset($_POST['SubmitConfirmReportEmail'])) {
         RedirectUtils::Redirect('Reports/ConfirmReportEmail.php');
     }
@@ -57,66 +58,115 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
 ?>
 <form method="post" action="<?= $sRootPath ?>/v2/people/LettersAndLabels">
     <div class="card card-secondary">
-      <div class="card-header border-1">
-        <h3 class="card-title"><?= gettext('People Reports')?></h3>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <h3><?= _("Badge") ?></h1>
-            <hr/>
-              <?php
-                LabelUtils::LabelSelect('labeltype');
-                LabelUtils::FontSelect('labelfont');
-                LabelUtils::FontSizeSelect('labelfontsize');
-              ?>
-              <div class="row">
-                <div class="col-md-6"><label><?= _("Recipient Naming Method")?></label></div>
-                <div class="col-md-6">
-                  <select class="form-control form-control-sm" name="recipientnamingmethod">
-                    <option value="salutationutility"><?= gettext("Salutation Utility") ?></option>
-                    <option value="familyname"><?= gettext("Family Name") ?></option>
-                  </select>
+        <div class="card-header border-1">
+            <h3 class="card-title"><?= gettext('People Reports') ?></h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3><?= _("Badge") ?></h1>
+                        <hr />
+                        <?php
+                        LabelUtils::LabelSelect('labeltype');
+                        LabelUtils::FontSelect('labelfont');
+                        LabelUtils::FontSizeSelect('labelfontsize');
+                        ?>
+                        <div class="row">
+                            <div class="col-md-6"><label><?= _("Recipient Naming Method") ?></label></div>
+                            <div class="col-md-6">
+                                <select class="form-control form-control-sm" name="recipientnamingmethod">
+                                    <option value="salutationutility"><?= gettext("Salutation Utility") ?></option>
+                                    <option value="familyname"><?= gettext("Family Name") ?></option>
+                                </select>
+                            </div>
+                        </div>
                 </div>
-              </div>
-          </div>
-          <div class="col-md-1"></div>
-          <div class="col-md-4">
-              <h3><?= _("Custom Fields") ?></h1>
-              <hr/>
-              <?php
-              if ($numCustomFields > 0) {
-                  foreach ($ormCustomFields as $ormCustomField) {
-                      if (($aSecurityType[$ormCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormCustomField->getCustomFieldSec()]])) {
-                          ?>
-                          <input type="checkbox" Name="bCustom<?= $ormCustomField->getCustomOrder() ?>" value="1"
-                                  checked> <?= $ormCustomField->getCustomName() ?><br>
-                          <?php
-                      }
-                  }
-              }
-              ?>
-          </div>
-      </div>        
-      <div class="card-footer">
-          <button class="btn btn-success" type="submit" name="SubmitNewsLetter" value="delete">
-              <i class="fas fa-file-pdf"></i> <?= gettext('Newsletter labels') ?>
-          </button>
-          <button class="btn btn-primary" type="submit" name="SubmitConfirmReport" value="delete">
-              <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data letter') ?>
-          </button>
-          <button class="btn btn-primary" type="submit" name="SubmitConfirmLabels" value="delete">
-              <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data labels') ?>
-          </button>
-          <button class="btn btn-danger" type="submit" name="SubmitConfirmReportEmail" value="delete">
-              <i class="fas fa-paper-plane"></i> <?= gettext('Confirm data Email') ?>
-          </button>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <h3><?= _("Custom Fields") ?></h1>
+                        <hr />
+                        <?php
+                        if ($numCustomFields > 0) {
+                            foreach ($ormCustomFields as $ormCustomField) {
+                                if (($aSecurityType[$ormCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormCustomField->getCustomFieldSec()]])) {
+                        ?>
+                                    <input type="checkbox" Name="bCustom<?= $ormCustomField->getCustomOrder() ?>" value="1" checked> <?= $ormCustomField->getCustomName() ?><br>
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <h3><?= _("Classifications") ?></h1>
+                    <select name="classList[]" style="width:100%" multiple id="classList">
+                        <?php
+                        //Get Classifications for the drop-down
+                        $ormClassifications = ListOptionQuery::Create()
+                            ->orderByOptionSequence()
+                            ->findById(1);
+                        foreach ($ormClassifications as $ormClassification) {
+                        ?>
+                            <option value="<?= $ormClassification->getOptionID() ?>"><?= $ormClassification->getOptionName() ?>&nbsp;
+                            <?php
+                        }
+                            ?>
+                    </select>
 
-          <input type="button" class="btn btn-default" name="Cancel" value="x <?= gettext('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/v2/dashboard';">
-      </div>
+                    <hr />
+
+                    <h3><?= _("by") ?></h1>
+
+                    <select class="form-control form-control-sm" name="letterandlabelsnamingmethod">
+                        <option value="family"><?= gettext("Addresses") ?></option>
+                        <option value="person"><?= gettext("Persons") ?></option>
+                    </select>
+
+
+                    <hr />
+
+                    <h3><?= _("by") ?></h1>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group"><label><?= _("Minimum Age") ?></label>
+                                <input size="5" name="minAge" type="text" value="0" class="form-control form-control-sm">
+                                <div class="help-block">
+                                    <div><?= _("The minimum age for which you want records returned.") ?></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><label><?= _("Maximum Age") ?></label>
+                                <input size="5" name="maxAge" type="text" value="130" class="form-control form-control-sm">
+                                <div class="help-block">
+                                    <div><?= _("The maximum age for which you want records returned.") ?></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-success" type="submit" name="SubmitNewsLetter" value="delete">
+                <i class="fas fa-file-pdf"></i> <?= gettext('Newsletter labels') ?>
+            </button>
+            <button class="btn btn-primary" type="submit" name="SubmitConfirmReport" value="delete">
+                <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data letter') ?>
+            </button>
+            <button class="btn btn-primary" type="submit" name="SubmitConfirmLabels" value="delete">
+                <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data labels') ?>
+            </button>
+            <button class="btn btn-danger" type="submit" name="SubmitConfirmReportEmail" value="delete">
+                <i class="fas fa-paper-plane"></i> <?= gettext('Confirm data Email') ?>
+            </button>
+
+            <input type="button" class="btn btn-default" name="Cancel" value="x <?= gettext('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/v2/dashboard';">
+        </div>
     </div>
-</form>    
-  
+</form>
+
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-
+<script src="<?= $sRootPath ?>/skin/js/people/letterandlabels.js"></script>
