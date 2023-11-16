@@ -69,18 +69,25 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
 
     public function FinishPage($curY)
     {
-        $curY += 2 * $this->incrY;
-        $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm2'));
+        if (SystemConfig::getValue('sConfirm2') != '') {
+            $curY += 1 * $this->incrY;
+            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm2'));
+        }
 
-        $curY += 3 * $this->incrY;
-        $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm3'));
-        $curY += 2 * $this->incrY;
-        $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm4'));
+        if (SystemConfig::getValue('sConfirm3') != '') {
+            $curY += 2 * $this->incrY;
+            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm3'));
+        }
+
+        if (SystemConfig::getValue('sConfirm4') != '') {
+            $curY += 2 * $this->incrY;
+            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm4'));
+        }
 
         if (SystemConfig::getValue('sConfirm5') != '') {
-            $curY += 4 * $this->incrY;
+            $curY += 3 * $this->incrY;
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm5'));
-            $curY += 1 * $this->incrY;
+            $curY += 2 * $this->incrY;
         }
         if (SystemConfig::getValue('sConfirm6') != '') {
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm6'));
@@ -297,6 +304,43 @@ foreach ($ormFamilies as $family) {
             $curY = $pdf->StartLetterPage($family->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(), $family->getState(), $family->getZip(), $family->getCountry(), "", $exportType);            
         } else if ($exportType == "person") {
             $curY = $pdf->StartNewPage($fMember->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(),$family->getState(), $family->getZip(), $family->getCountry(), $exportType);
+
+            $curY += $incrY;  
+
+            // place the first table
+            $pdf->SetFont('Times', 'B', $fontSize);
+            $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Name'));
+            $pdf->SetFont('Times', '', $fontSize);
+            $pdf->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getlastName());
+            $curY += $incrY;
+            $pdf->SetFont('Times', 'B', $fontSize);
+            $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 1'));
+            $pdf->SetFont('Times', '', $fontSize);
+            $pdf->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress1());
+            $curY += $incrY;
+            $pdf->SetFont('Times', 'B', $fontSize);
+            $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('City, State, Zip'));
+            $pdf->SetFont('Times', '', $fontSize);
+            $pdf->WriteAtCell($dataCol, $curY, $dataWid, ($family->getCity().', '.$family->getState().'  '.$family->getZip()));
+            $curY += $incrY;
+            $pdf->SetFont('Times', 'B', $fontSize);
+            $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 2'));
+            $pdf->SetFont('Times', '', $fontSize);
+            $pdf->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress2());
+            $curY += $incrY;
+            $pdf->SetFont('Times', 'B', $fontSize);
+            $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Home Phone'));
+            $pdf->SetFont('Times', '', $fontSize);
+            $pdf->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getHomePhone());
+
+            $curY += $incrY; 
+
+            $pdf->SetFont('Times', 'B', $fontSize);
+            $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Anniversary Date'));
+            $pdf->SetFont('Times', '', $fontSize);
+            $pdf->WriteAtCell($dataCol, $curY, $dataWid, OutputUtils::FormatDate((!is_null($family->getWeddingdate())?$family->getWeddingdate()->format('Y-m-d'):'')));
+            $curY += $incrY;    
+            $curY += $incrY;
         }
 
         $pdf->SetFont('Times', 'B', $fontSize);
@@ -362,10 +406,6 @@ foreach ($ormFamilies as $family) {
 
         $curY += $incrY;
         $curY += $incrY;
-
-        $curY += $incrY;
-        $curY += $incrY;
-        
 
         // *** All custom fields ***
         // Get the list of custom person fields
