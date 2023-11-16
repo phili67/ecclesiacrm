@@ -219,7 +219,7 @@ class ChurchInfoReportTCPDF extends TCPDF
         return $curY;
     }
 
-    public function MakeSalutation($ID, $type)
+    public function MakeSalutation($ID, $type = "family")
     {
         if ($type == "family") {
             return ReportUtilities::MakeSalutationUtilityFamily($ID);
