@@ -121,7 +121,7 @@ require $sRootDocument . '/Include/Header.php';
                                                     <?php
                                                 } elseif ($setting->getType() == 'text') {
                                                     ?>
-                                                    <input type=text size=40 maxlength=255
+                                                    <input type=text size=40 maxlength=1000
                                                            name='new_value[<?= $setting->getId() ?>]'
                                                            value='<?= htmlspecialchars($setting->getValue(), ENT_QUOTES) ?>'
                                                            class= "form-control ">
