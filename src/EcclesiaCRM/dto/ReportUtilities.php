@@ -21,7 +21,7 @@ class ReportUtilities
 
   // MakeSalutation: this utility is used to figure out how to address a family
   // for correspondence.
-  public static function MakeSalutationUtility($famID)
+  public static function MakeSalutationUtilityFamily($famID)
   {
       // Make it put the name if there is only one individual in the family
       // Make it put two first names and the last name when there are exactly two people in the family (e.g. "Nathaniel and Jeanette Brooks")
@@ -70,5 +70,25 @@ class ReportUtilities
       } else {
           return $family->getName().' (' . _('Family').')';
       }
+  }
+
+  public static function MakeSalutationUtilityPerson($personID)
+  {
+      // Make it put the name if there is only one individual in the family
+      // Make it put two first names and the last name when there are exactly two people in the family (e.g. "Nathaniel and Jeanette Brooks")
+      // Make it put two whole names where there are exactly two people with different names (e.g. "Doug Philbrook and Karen Andrews")
+      // When there are more than two people in the family I don't have any way to know which people are children, so I would have to just use the family name (e.g. "Grossman Family").
+    
+      $person = PersonQuery::Create()                                     
+                   ->findOneById($personID);
+    
+      if ( is_null ($person) ) {
+        return _('Invalid Person').$personID;
+      }
+    
+      $firstFirstName = $person->getFirstName();
+      $firstLastName = $person->getLastName();
+      
+      return $firstFirstName.' '.$firstLastName;
   }
 }  

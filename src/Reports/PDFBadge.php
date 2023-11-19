@@ -29,7 +29,8 @@ function GenerateLabels(&$pdf, $mainTitle, $secondTitle, $thirdTitle,$sFirstName
     $persons = PersonQuery::Create()->leftJoinFamily()->orderByZip()->orderByLastName()->orderByFirstName()->Where('Person.Id IN ?',$_SESSION['aPeopleCart'])->find();
 
     foreach ($persons as $person) {
-        $pdf->Add_PDF_Badge($mainTitle, $person->getLastName(), $person->getFirstName(),$secondTitle,$thirdTitle,$sFirstNameFontSize, $image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition);
+        $pdf->Add_PDF_Badge_Titles($mainTitle, "Center", 12, $person->getLastName(), $person->getFirstName(),
+            $secondTitle, $thirdTitle,$sFirstNameFontSize, "Center", 8, "", $image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition);
    }
 } // end of function GenerateLabels
 

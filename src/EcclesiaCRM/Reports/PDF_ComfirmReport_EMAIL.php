@@ -74,19 +74,18 @@ class EmailPDF_ConfirmReport extends ChurchInfoReportTCPDF
         $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm4'));
 
         if (SystemConfig::getValue('sConfirm5') != '') {
-            $curY += 2 * $this->incrY;
+            $curY += 1 * $this->incrY;
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm5'));
-            $curY += 2 * $this->incrY;
+            $curY += 1 * $this->incrY;
         }
         if (SystemConfig::getValue('sConfirm6') != '') {
-            $curY += 2 * $this->incrY;
+            $curY += 1 * $this->incrY;
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm6'));
         }
 
-        $curY += 4 * $this->incrY;
-
+        $curY += 2 * $this->incrY;
         $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirmSincerely') . ",");
-        $curY += 4 * $this->incrY;
+        $curY += 1 * $this->incrY;
         $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirmSigner'));
     }
 }

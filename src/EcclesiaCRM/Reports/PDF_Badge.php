@@ -92,6 +92,164 @@ class PDF_Badge extends PDF_Label
 
 
     // Print a label
+    public function Add_PDF_Badge_Titles ($title, $titlePosition, $iTitlelabelfontsize, $LastName, $firstName, 
+                                    $secondTitle, $thirdTitle,$sFirstNameFontSize = 20,$secondTitlePosition, $secondFontSize, $props='', 
+                                    $image='../Images/scleft1.png',
+                                    $title_red=0, $title_gren=0, $title_blue=0,
+                                    $back_red=255, $back_gren=255, $back_blue=255,
+                                    $sImagePosition='Left',
+                                    $groupID=-1,$personId=-1)
+    {
+        $lastNameFontSize = (int)$sFirstNameFontSize*0.8;
+        
+        // We are in a new page, then we must add a page
+        if ($this->_COUNTX == 0 && $this->_COUNTY == 0) {
+            $this->AddPage();
+            $this->SetFillColor(255,255,255);
+            $this->Rect(0, 0, $this->getPageWidth(),    $this->getPageHeight(), 'F');
+        }
+
+        $_PosX = $this->_Margin_Left + ($this->_COUNTX * ($this->_Width + $this->_X_Space));
+        $_PosY = $this->_Margin_Top + ($this->_COUNTY * ($this->_Height + $this->_Y_Space));
+
+        $this->SetFillColor($back_red,$back_gren,$back_blue);
+        $this->Rect($_PosX,$_PosY, $this->_Width, $this->_Height, 'F');
+
+        if ($image != "../Images/" && file_exists($image)) {
+          if ($sImagePosition == 'Left') {
+            $this->Image($image,$_PosX, $_PosY,7,$this->_Height);
+          } else if ($sImagePosition == 'Right') {
+            $this->Image($image,$_PosX+$this->_Width-7, $_PosY,7,$this->_Height);
+          } else {
+            $this->Image($image,$_PosX, $_PosY,$this->_Width,$this->_Height);
+          }
+        }
+
+        $has_QR_Code = False;
+        if ($groupID > 0 && $personId >= 0) {
+            $has_QR_Code = True;
+            $qr_code = $this->create_QR_Code($groupID, $personId);
+
+            $this->Image($qr_code, $_PosX+9, $_PosY + $this->_Height*0.20, $this->_Height*0.60, $this->_Height*0.60);
+
+            unlink ($qr_code);
+        }
+
+        $position = 'L';
+        $addX = '0';
+        switch ($sImagePosition) {
+            case 'Left':
+                $position = 'R';
+                $addX = -5;
+                break;
+            case 'Right':
+                $position = 'L';
+                $addX = 5;
+                break;
+            default:
+                $position = 'C';
+                $addX = 0;
+        }
+
+        switch ($titlePosition) {
+            case 'Left':
+                $tposition = 'L';
+                break;
+            case 'Right':
+                $tposition = 'R';
+                break;
+            default:
+                $tposition = 'C';
+        }
+
+        switch ($secondTitlePosition) {
+            case 'Left':
+                $gposition = 'L';
+                break;
+            case 'Right':
+                $gposition = 'R';
+                break;
+            default:
+                $gposition = 'C';
+        }
+
+        
+        if (!$has_QR_Code) {
+            $this->SetFontSize($iTitlelabelfontsize);
+            $this->SetTextColor($title_red, $title_gren, $title_blue);
+            $this->SetXY($_PosX, $_PosY);
+            $this->Cell($this->_Width , 10,  $secondTitle, 0, 0, $gposition);
+
+            $this->SetFontSize($sFirstNameFontSize);
+            $this->SetTextColor(0, 0, 0);
+            $this->SetXY($_PosX, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize));
+            $this->Cell($this->_Width, 10,  mb_strtoupper($firstName), 0, 0, 'C');
+
+            $this->SetFontSize(12);
+            $this->SetXY($_PosX, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize) + $this->_Get_Height_Chars($lastNameFontSize) + 1);
+            $this->Cell($this->_Width, 10, mb_strtoupper($LastName), 0, 0, 'C');
+
+            $this->SetFontSize(4);
+            $this->SetXY($_PosX, $_PosY + $this->_Height - 7);
+
+            $this->MultiCell($this->_Width, 2, $props, 0, 'C');
+
+            $this->SetFontSize ($secondFontSize);
+            $this->SetXY($_PosX, $_PosY + $this->_Height - 8);
+            $this->Cell($this->_Width , 10,  $title, 0, 0, $tposition);
+        } else {
+            $sFirstNameFontSize *= 0.75;
+            $lastNameFontSize = $sFirstNameFontSize*0.8;
+            
+            $this->SetFontSize((int)($iTitlelabelfontsize*0.8));
+            $this->SetTextColor($title_red, $title_gren, $title_blue);
+            $this->SetXY($_PosX, $_PosY);
+            $this->Cell($this->_Width , 10,  $secondTitle, 0, 0, $gposition);
+
+            $this->SetFontSize($sFirstNameFontSize);
+            $this->SetTextColor(0, 0, 0);
+            $this->SetXY($_PosX + 16, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize));
+            $this->Cell($this->_Width, 10, mb_strtoupper($firstName), 0, 0, 'C');
+
+            $this->SetFontSize($lastNameFontSize);
+            $this->SetXY($_PosX + 16, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize) + $this->_Get_Height_Chars($lastNameFontSize) + 1);
+            $this->Cell($this->_Width, 10, mb_strtoupper($LastName), 0, 0, 'C');
+
+            $this->SetFontSize(4);
+            $this->SetXY($_PosX + 16, $_PosY + $this->_Height - 7);
+
+            $this->MultiCell($this->_Width, 2,  $props, 0, 'C');
+
+            $this->SetFontSize ($secondFontSize);
+            $this->SetXY($_PosX, $_PosY + $this->_Height - 8);
+            $this->Cell($this->_Width , 10,  $title, 0, 0, $tposition);
+        }
+        
+        // draw the border
+
+        $this->Line($_PosX, $_PosY, $_PosX, $_PosY + $this->_Height);
+        $this->Line($_PosX, $_PosY, $_PosX + $this->_Width, $_PosY);
+        $this->Line($_PosX + $this->_Width-2, $_PosY, $_PosX + $this->_Width-2, $_PosY);
+        $this->Line($_PosX , $_PosY + $this->_Height, $_PosX, $_PosY + $this->_Height);
+
+
+        $this->_COUNTY++;
+
+        if ($this->_COUNTY == $this->_Y_Number) {
+            // End of column reached, we start a new one
+            $this->_COUNTX++;
+            $this->_COUNTY = 0;
+        }
+
+        if ($this->_COUNTX == $this->_X_Number) {
+            // Page full, we start a new one
+            $this->_COUNTX = 0;
+            $this->_COUNTY = 0;
+        }
+    }
+
+
+    // Print a label
     public function Add_PDF_Badge($title, $titlePosition, $iTitlelabelfontsize, $LastName, $firstName, 
                                     $group,$groupPosition, $iGroupFontSize, $props='', 
                                     $sFirstNameFontSize = 20,$image='../Images/scleft1.png',

@@ -1,0 +1,3 @@
+$(function() {
+    $("#classList").select2();
+});

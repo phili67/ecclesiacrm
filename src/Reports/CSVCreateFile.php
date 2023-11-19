@@ -472,7 +472,7 @@ if ($sFormat == 'addtocart') {
                     }
                 } elseif ($sFormat == 'rollup') {
                     if ($memberCount > 1) {
-                        $sString = '"'.ReportUtilities::MakeSalutationUtility($fam_ID);
+                        $sString = '"'.ReportUtilities::MakeSalutationUtilityFamily($fam_ID);
                     } else {
                         $sString = '"'.$per_LastName.', '.$per_FirstName;
                     }

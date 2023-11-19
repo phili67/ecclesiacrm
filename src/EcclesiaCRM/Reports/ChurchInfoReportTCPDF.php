@@ -172,7 +172,7 @@ class ChurchInfoReportTCPDF extends TCPDF
         $this->MultiCell($wid, 4, $str, $border, $align);
     }
 
-    public function StartLetterPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $letterhead = '')
+    public function StartLetterPage($ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $letterhead = '', $type = "family")
     {
         $this->AddPage();
 
@@ -198,7 +198,8 @@ class ChurchInfoReportTCPDF extends TCPDF
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchPhone').'  '.SystemConfig::getValue('sChurchEmail'));
             $curY += 25; // mm to move to the second window
         }
-        $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $this->MakeSalutation($fam_ID));
+
+        $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $this->MakeSalutation($ID, $type));
         $curY += SystemConfig::getValue('incrementY');
         if ($fam_Address1 != '') {
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $fam_Address1);
@@ -214,12 +215,16 @@ class ChurchInfoReportTCPDF extends TCPDF
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $fam_Country);
             $curY += SystemConfig::getValue('incrementY');
         }
-        $curY += 5.0; // mm to get away from the second window
+        $curY += 5.0; // mm to get away from the second window        
         return $curY;
     }
 
-    public function MakeSalutation($famID)
+    public function MakeSalutation($ID, $type = "family")
     {
-        return ReportUtilities::MakeSalutationUtility($famID);
+        if ($type == "family") {
+            return ReportUtilities::MakeSalutationUtilityFamily($ID);
+        } else {
+            return ReportUtilities::MakeSalutationUtilityPerson($ID);
+        }
     }
 }
