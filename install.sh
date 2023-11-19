@@ -26,7 +26,7 @@
 npm rebuild node-sass
 
 #  it's time to install all the node js files
-npm install --unsafe-perm --legacy-peer-deps
+npm install --unsafe-perm --legacy-peer-deps --save .
 
 # to run the installation
 npm run install
