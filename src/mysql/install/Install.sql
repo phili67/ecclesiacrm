@@ -950,7 +950,7 @@ CREATE TABLE `property_pro` (
   `pro_Name` varchar(200) NOT NULL default '0',
   `pro_Description` text NOT NULL,
   `pro_Prompt` varchar(255) default NULL,
-  `pro_Comment` text NOT NULL COMMENT 'comment for GDPR',
+  `pro_Comment` text NOT NULL DEFAULT '' COMMENT 'comment for GDPR',
   PRIMARY KEY  (`pro_ID`),
   UNIQUE KEY `pro_ID` (`pro_ID`),
   KEY `pro_ID_2` (`pro_ID`)
