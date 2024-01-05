@@ -396,6 +396,7 @@ class MiscUtils
     {
         //Get Families for the drop-down
         $familyArray = MiscUtils::getFamilyList($sDirRoleHead, $sDirRoleSpouse);
+        $html = "";
         foreach ($familyArray as $fam_ID => $fam_Data) {
             $html .= '<option value="' . $fam_ID . '"';
             if ($iFamily == $fam_ID) {
@@ -538,6 +539,7 @@ class MiscUtils
             ),
         );
 
+        $result = "";
         foreach ($arBytes as $arItem) {
             if ($bytes >= $arItem["VALUE"]) {
                 $result = $bytes / $arItem["VALUE"];
@@ -1395,7 +1397,7 @@ class MiscUtils
         }
 
         if (!$allowedRoles) {
-            throw new Exception('Role(s) must be defined for the function which you are trying to access.  End users should never see this error unless something went horribly wrong.');
+            throw new \Exception('Role(s) must be defined for the function which you are trying to access.  End users should never see this error unless something went horribly wrong.');
         }
         if ($_SESSION[$allowedRoles] || SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isAddRecordsEnabled()) {  //most of the time the API endpoint will specify a single permitted role, or the user is an admin
             // new SessionUser::getUser()->isAddRecordsEnabled() : Philippe Logel
@@ -1410,7 +1412,7 @@ class MiscUtils
         }
 
         //if we get to this point in the code, then the user is not authorized.
-        throw new Exception('User is not authorized to access ' . debug_backtrace()[1]['function'], 401);
+        throw new \Exception('User is not authorized to access ' . debug_backtrace()[1]['function'], 401);
     }
 
     public static function generateRandomString($length = 15)
@@ -1720,7 +1722,7 @@ class MiscUtils
             return $result;
         } elseif ($bStopOnError) {
             if (SystemConfig::getValue('sLogLevel') == "100") { // debug level
-                die(_('Cannot execute query.')."<p>$sSQL<p>".mysqli_error());
+                die(_('Cannot execute query.')."<p>$sSQL<p>".mysqli_error($cnInfoCentral));
             } else {
                 die('Database error or invalid data');
             }
