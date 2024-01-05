@@ -459,10 +459,11 @@ END:VCARD';
             //on teste si les propriétés sont bonnes
             if (array_key_exists('p2g2r_per_ID',$row) && array_key_exists('lst_OptionName',$row))
             {
-                $dbPerson = PersonQuery::create()->findPk($row['p2g2r_per_ID'])->toArray();
+                $dbPerson = PersonQuery::create()->findPk($row['p2g2r_per_ID']);
 
-                if (array_key_exists('displayName',$dbPerson))
+                if (!array_key_exists('displayName',$dbPerson->toArray()))
                 {
+                    $person['per_ID'] = $dbPerson->getId();
                     $person['displayName'] = $dbPerson->getFullName();
                     $person['groupRole'] = $row['lst_OptionName'];
                     array_push($members, $person);
