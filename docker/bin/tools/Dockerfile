@@ -17,8 +17,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN apt-get update && apt-get upgrade --no-install-recommends -qq -y
 RUN apt-get install curl gnupg -y
 
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs
+RUN curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh && chmod 500 nsolid_setup_deb.sh && bash nsolid_setup_deb.sh 18 && rm nsolid_setup_deb.sh && apt-get install -y nodejs
 
 RUN node --version
 RUN npm --version
