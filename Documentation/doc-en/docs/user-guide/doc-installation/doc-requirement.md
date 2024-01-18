@@ -3,7 +3,7 @@
 * A Linux server
 * A server LAMP : Linux Apache Mysql or Php is required
 * With NGinx one may have issue ( not tested yet)
-* php 7.3 is required at the minimum
+* php 8.0 is required at the minimum
 * A Mysql 5.7 database
 * MariaDB also works
 
