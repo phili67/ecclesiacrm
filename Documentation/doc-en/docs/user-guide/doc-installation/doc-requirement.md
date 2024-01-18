@@ -14,6 +14,7 @@
 * PHP Session
 * PHP XML
 * PHP EXIF
+* PHP imagick
 * PHP iconv
 * OpenSSL
 * Mod Rewrite
@@ -23,6 +24,12 @@
 * locale gettext
 * Include/Config the configuration file is accessible in writing
 * the picture file is accessible in writing also
+
+**Note** for imagick
+```
+sudo sed -i_bak 's/rights="none" pattern="PDF"/rights="read | write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml
+```
+
 
 ## Memory
 * Max file upload size  32M

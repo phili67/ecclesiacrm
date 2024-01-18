@@ -25,7 +25,7 @@
 * Include/Config le fichier de configuration est accessible en écriture
 * Images/ le dossier est accessible en écriture également
 
-**Note** pour imagegick
+**Note** pour imagick
 ```
 sudo sed -i_bak 's/rights="none" pattern="PDF"/rights="read | write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml
 ```
