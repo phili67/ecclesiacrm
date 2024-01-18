@@ -2531,6 +2531,7 @@
 <li>PHP Session</li>
 <li>PHP XML</li>
 <li>PHP EXIF</li>
+<li>PHP imagick</li>
 <li>PHP iconv</li>
 <li>OpenSSL</li>
 <li>Mod Rewrite</li>
@@ -2541,6 +2542,10 @@
 <li>Include/Config le fichier de configuration est accessible en écriture</li>
 <li>Images/ le dossier est accessible en écriture également</li>
 </ul>
+<p><strong>Note</strong> pour imagick</p>
+<div class="codehilite"><pre><span></span><code>sudo sed -i_bak &#39;s/rights=&quot;none&quot; pattern=&quot;PDF&quot;/rights=&quot;read | write&quot; pattern=&quot;PDF&quot;/&#39; /etc/ImageMagick-6/policy.xml
+</code></pre></div>
+
 <h2 id="memoire">Mémoire<a class="headerlink" href="#memoire" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Max file upload size  32M</li>
