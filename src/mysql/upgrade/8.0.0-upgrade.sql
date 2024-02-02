@@ -209,3 +209,12 @@ UPDATE `query_qry` SET qry_SQL = 'SELECT a.per_ID as AddToCart, CONCAT(''<a href
 ALTER TABLE `pledge_plg` ADD `plg_MoveDonations_Comment` text NOT NULL default 'None';
 ALTER TABLE `egive_egv` ADD `egv_MoveDonations_Comment` text NOT NULL default 'None';
 
+--
+-- Alter the person_custom_master + family_custom_master for the confirmations default datas : 2024-01-25
+--
+
+ALTER TABLE `person_custom_master` ADD `custom_confirmation_datas` BOOLEAN NOT NULL default 1 COMMENT 'confirmations default datas';
+ALTER TABLE `family_custom_master` ADD `fam_custom_confirmation_datas` BOOLEAN NOT NULL default 1 COMMENT 'confirmations default datas';
+
+ALTER TABLE `person_per` ADD `per_confirm_report` enum('No', 'Pending','Done') default 'No' COMMENT 'To confirm report of all users';
+ALTER TABLE `family_fam` ADD `fam_confirm_report` enum('No', 'Pending','Done') default 'No' COMMENT 'To confirm report of all families';
