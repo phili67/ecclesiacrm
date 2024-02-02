@@ -2,7 +2,7 @@
 
 /*******************************************************************************
  *
- *  filename    : Emails/verify/FamilyVerificationValidation.php
+ *  filename    : Emails/verify/PersonVerificationValidation.php
  *  last change : 2024-01-31 Philippe Logel
  *  description : Create emails with all the confirmation letters asking member
  *                families to verify the information in the database.
@@ -11,32 +11,32 @@
 
 namespace EcclesiaCRM\Emails;
 
-class FamilyVerificationValidation extends BaseEmail
+class PersonVerificationValidation extends BaseEmail
 {
     private $token;
-    protected $familyName;
+    protected $person;
     protected $message;
-    protected $familyId;
+    protected $personId;
 
-    public function __construct($emails, $familyName, $token = "", $message = "", $familyId=0)
+    public function __construct($emails, $person, $token = "", $message = "", $personId=0)
     {
-        $this->familyName = $familyName;
+        $this->person = $person;
         $this->token = $token;
         $this->message = $message;
-        $this->familyId = $familyId;
+        $this->personId = $personId;
 
         parent::__construct($emails);
 
-        $this->mail->Subject = _("Family"). " : ". $familyName . " (" . gettext("informations").")";
+        $this->mail->Subject = _("Person"). " : ". $person . " (" . gettext("informations").")";
         $this->mail->isHTML(true);
         $this->mail->msgHTML($this->buildMessage());
     }
 
     public function getTokens()
     {
-        $myTokens = ["toName" => $this->familyName . " " . gettext("Family"),
-            "verificationValidation" => $this->token,
-            "familyId" => $this->familyId,
+        $myTokens = ["toName" => $this->person . " " . gettext("Person"),
+            "personVerificationValidation" => $this->token,
+            "personId" => $this->personId,
             "body" => $this->message,
         ];
         return array_merge($this->getCommonTokens(), $myTokens);
