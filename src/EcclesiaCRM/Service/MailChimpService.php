@@ -52,7 +52,7 @@ class MailChimpService
 
     public function isActive()
     {
-        return $this->isActive && SessionUser::getUser()->isMailChimpEnabled();
+        return $this->isActive && !is_null(SessionUser::getUser()) && SessionUser::getUser()->isMailChimpEnabled();
     }
 
     public function isLoaded()
@@ -174,12 +174,6 @@ class MailChimpService
             }, $lists);
             $listMemberships = implode(',', $listNames);
             return $listMemberships;
-        } catch (\Mailchimp_Invalid_ApiKey $e) {
-            return 'Invalid ApiKey';
-        } catch (\Mailchimp_List_NotSubscribed $e) {
-            return '';
-        } catch (\Mailchimp_Email_NotExists $e) {
-            return '';
         } catch (\Exception $e) {
             return $e;
         }
@@ -196,8 +190,6 @@ class MailChimpService
             $result = $this->getListsFromCache();
 
             return $result;
-        } catch (\Mailchimp_Invalid_ApiKey $e) {
-            return 'Invalid ApiKey';
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -416,8 +408,6 @@ class MailChimpService
             $result = $this->getCampaignsFromCache();
 
             return $result;
-        } catch (\Mailchimp_Invalid_ApiKey $e) {
-            return 'Invalid ApiKey';
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -1219,12 +1209,6 @@ class MailChimpService
                 $res[] = [$list['name'], $this->getStatusMember($list['id'], $email)['status'], $list['id']];
             }
             return $res;
-        } catch (\Mailchimp_Invalid_ApiKey $e) {
-            return 'Invalid ApiKey';
-        } catch (\Mailchimp_List_NotSubscribed $e) {
-            return '';
-        } catch (\Mailchimp_Email_NotExists $e) {
-            return '';
         } catch (\Exception $e) {
             return $e;
         }
