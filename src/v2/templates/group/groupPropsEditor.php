@@ -234,9 +234,7 @@ if ($numRows == 0) {
          <?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>
       </td>
       <td class="TextColumn">
-         <?php
-            OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row])
-         ?>
+         <?= OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row]) ?>
       </td>
 
       <td class="TextColumn">
