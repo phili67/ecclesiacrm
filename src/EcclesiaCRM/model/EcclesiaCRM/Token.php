@@ -21,6 +21,7 @@ class Token extends BaseToken
 {
 
     const typeFamilyVerify = "verifyFamily";
+    const typePersonVerify = "verifyPerson";
     const typePassword     = "password";
 
     public function build($type, $referenceId, $path=NULL)
@@ -29,6 +30,10 @@ class Token extends BaseToken
         $this->setToken(uniqid());
         switch ($type) {
             case "verifyFamily":
+                $this->setValidUntilDate(strtotime("+2 week"));
+                $this->setRemainingUses(20);
+                break;
+            case "verifyPerson":
                 $this->setValidUntilDate(strtotime("+2 week"));
                 $this->setRemainingUses(20);
                 break;
@@ -48,6 +53,11 @@ class Token extends BaseToken
     public function isVerifyFamilyToken()
     {
         return self::typeFamilyVerify === $this->getType();
+    }
+
+    public function isVerifyPersonToken()
+    {
+        return self::typePersonVerify === $this->getType();
     }
 
     public function isPasswordResetToken()
