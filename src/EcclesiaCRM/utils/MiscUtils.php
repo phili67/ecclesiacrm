@@ -50,7 +50,7 @@ class MiscUtils
      * @param int $length The length that you want your random password to be.
      * @return string The random password.
      */
-    public function random_password($length){
+    public static function random_password($length){
         //A list of characters that can be used in our
         //random password.
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!-.[]?*()';
