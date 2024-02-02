@@ -2,7 +2,7 @@
 /*******************************************************************************
 *
 *  filename    : Reports/ConfirmReport.php
-*  last change : 2023-11-04 Philippe Logel
+*  last change : 2024-01-31 Philippe Logel
 *  description : Creates a PDF with all the confirmation letters asking member
 *                families to verify the information in the database.
 
@@ -33,7 +33,7 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
 {
     private $incrY;
     public $leftX;
-    public $_Custom;
+    public $_PersonCustom;
 
     // Constructor
     public function __construct()
@@ -47,13 +47,13 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
         $this->SetAutoPageBreak(false);
     }
 
-    public function AddCustomField($order, $use)
+    public function AddPersonCustomField($order, $use)
     {
-        $this->_Custom[$order] = $use;
+        $this->_PersonCustom[$order] = $use;
     }
 
-    public function GetCustomField($order) {
-        return $this->_Custom[$order];
+    public function GetPersonCustomField($order) {
+        return $this->_PersonCustom[$order];
     }
 
     public function StartNewPage($ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $type)
@@ -138,28 +138,29 @@ $pdf = new PDF_ConfirmReport();
 $filename = 'ConfirmReport'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf';
 
 // Get the list of custom person fields
-$ormCustomFields = PersonCustomMasterQuery::create()
+$ormPersonCustomFields = PersonCustomMasterQuery::create()
     ->orderByCustomOrder()
     ->find();
 
-$numCustomFields = $ormCustomFields->count();
+$numCustomFields = $ormPersonCustomFields->count();
 
-$sCustomFieldName = [];
-$sCustomFieldTypeID = [];
+$sPersonCustomFieldName = [];
+$sPersonCustomFieldTypeID = [];
 
-if ( $ormCustomFields->count() > 0) {
+if ( $ormPersonCustomFields->count() > 0) {
     $iFieldNum = 0;
-    foreach ($ormCustomFields as $customField) {
-        $sCustomFieldName[$iFieldNum] = $customField->getCustomName();
-        $sCustomFieldTypeID[$iFieldNum] = $customField->getTypeId();
+    foreach ($ormPersonCustomFields as $customField) {
+        $sPersonCustomFieldName[$iFieldNum] = $customField->getCustomName();
+        $sPersonCustomFieldTypeID[$iFieldNum] = $customField->getTypeId();
         $iFieldNum+=1;
 
-        $pdf->AddCustomField( $customField->getCustomOrder(), isset($_POST["bCustom".$customField->getCustomOrder()]) );
+        $pdf->AddPersonCustomField( $customField->getCustomOrder(), isset($_POST["bCustomPerson".$customField->getCustomOrder()]) );
     }
 }
 
 
 $ormFamilies = FamilyQuery::create();
+$ormFamilies->orderByName();
 
 if ($_GET['familyId']) {
     $families = explode(",", $_GET['familyId']);
@@ -169,15 +170,12 @@ if ($_GET['familyId']) {
 $ormFamilies->filterByDateDeactivated(NULL);
 
 // Get all the families
-$ormFamilies->orderByName()->find();
-
-$sSubQuery = ' 1 ';
-if ($_GET['familyId']) {
-    $sSubQuery = ' fam_id in ('.$_GET['familyId'].') ';
-}
+$ormFamilies->find();
 
 $dataCol = 55;
 $dataWid = 65;
+
+//$arr = $ormFamilies->toArray();
 
 // Loop through families
 
@@ -186,6 +184,7 @@ $fontSize = 8;
 
 $incrY = SystemConfig::getValue('incrementY')+$incrYAdd;
 
+$cnt = 0;
 
 foreach ($ormFamilies as $family) {
     //If this is a report for a single family, name the file accordingly.
@@ -194,6 +193,7 @@ foreach ($ormFamilies as $family) {
     }
 
     if ($exportType == "family") {
+        $cnt += 1;
         $curY = $pdf->StartNewPage($family->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(),$family->getState(), $family->getZip(), $family->getCountry(), $exportType);
         $curY += $incrY;
     
@@ -283,6 +283,29 @@ foreach ($ormFamilies as $family) {
 
     $ormFamilyMembers->find();
 
+    if ($ormFamilyMembers->count() == 0) {
+        $member = PersonQuery::create()
+            ->filterByDateDeactivated(NULL)
+            ->filterByClsId($classList)
+            ->addAlias('cls', ListOptionTableMap::TABLE_NAME)
+            ->addMultipleJoin(array(
+                    array(PersonTableMap::COL_PER_CLS_ID, ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_OPTIONID)),
+                    array(ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_ID), 1)
+                )
+                , Criteria::LEFT_JOIN)
+            ->addAsColumn('ClassName', ListOptionTableMap::alias('cls', ListOptionTableMap::COL_LST_OPTIONNAME))
+            ->addAlias('fmr', ListOptionTableMap::TABLE_NAME)
+            ->addMultipleJoin(array(
+                    array(PersonTableMap::COL_PER_FMR_ID, ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONID)),
+                    array(ListOptionTableMap::Alias("fmr",ListOptionTableMap::COL_LST_ID), 2)
+                )
+                , Criteria::LEFT_JOIN)
+            ->addAsColumn('FamRole', ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONNAME))
+            ->where('DATE_ADD(CONCAT('.PersonTableMap::COL_PER_BIRTHYEAR.',"-",'.PersonTableMap::COL_PER_BIRTHMONTH.',"-",'.PersonTableMap::COL_PER_BIRTHDAY.'),INTERVAL ' . $minAge . ' YEAR) <= CURDATE() AND DATE_ADD(CONCAT('.PersonTableMap::COL_PER_BIRTHYEAR.',"-",'.PersonTableMap::COL_PER_BIRTHMONTH.',"-",'.PersonTableMap::COL_PER_BIRTHDAY.'),INTERVAL (' . $maxAge . '+1) YEAR) >= CURDATE()')
+        ->findOneByFamId($family->getId());
+        $ormFamilyMembers = [$member];
+    }
+
     $XName = 10;
     $XGender = 40;
     $XRole = 50;
@@ -295,14 +318,17 @@ foreach ($ormFamilies as $family) {
     $XRight = 208;
 
     $numFamilyMembers = 0;
-    //while ($aMember = mysqli_fetch_array($rsFamilyMembers)) {
+    
     foreach ($ormFamilyMembers as $fMember) {
+        if (is_null ($fMember)) continue;
+
         $numFamilyMembers++;    // add one to the people count
 
         // Make sure the person data will display with adequate room for the trailer and group information
         if (($curY + $numCustomFields * $incrY) > 260 and $exportType == "family") {
             $curY = $pdf->StartLetterPage($family->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(), $family->getState(), $family->getZip(), $family->getCountry(), "", $exportType);            
         } else if ($exportType == "person") {
+            $cnt += 1;
             $curY = $pdf->StartNewPage($fMember->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(),$family->getState(), $family->getZip(), $family->getCountry(), $exportType);
 
             $curY += $incrY;  
@@ -312,6 +338,12 @@ foreach ($ormFamilies as $family) {
             $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Name'));
             $pdf->SetFont('Times', '', $fontSize);
             $pdf->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getlastName());
+            $curY += $incrY;
+            // place the first table
+            $pdf->SetFont('Times', 'B', $fontSize);
+            $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('First Name'));
+            $pdf->SetFont('Times', '', $fontSize);
+            $pdf->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getFirstName());
             $curY += $incrY;
             $pdf->SetFont('Times', 'B', $fontSize);
             $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 1'));
@@ -333,12 +365,18 @@ foreach ($ormFamilies as $family) {
             $pdf->SetFont('Times', '', $fontSize);
             $pdf->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getHomePhone());
 
-            $curY += $incrY; 
+            // Missing the following information from the Family record:
+            // Wedding date (if present) - need to figure how to do this with sensitivity
+            // Family e-mail address
+            if ($fMember->getFmrId() == 1 or $fMember->getFmrId() == 2) {
+                $curY += $incrY;    
+                $pdf->SetFont('Times', 'B', $fontSize);
+                $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Anniversary Date'));
+                $pdf->SetFont('Times', '', $fontSize);
+                $pdf->WriteAtCell($dataCol, $curY, $dataWid, OutputUtils::FormatDate((!is_null($family->getWeddingdate())?$family->getWeddingdate()->format('Y-m-d'):'')));
+                $curY += $incrY;
+            }
 
-            $pdf->SetFont('Times', 'B', $fontSize);
-            $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Anniversary Date'));
-            $pdf->SetFont('Times', '', $fontSize);
-            $pdf->WriteAtCell($dataCol, $curY, $dataWid, OutputUtils::FormatDate((!is_null($family->getWeddingdate())?$family->getWeddingdate()->format('Y-m-d'):'')));
             $curY += $incrY;    
             $curY += $incrY;
         }
@@ -414,7 +452,7 @@ foreach ($ormFamilies as $family) {
         if ($numCustomFields > 0) {
             // Get the custom field data for this person.
             $rawQry = PersonCustomQuery::create();
-            foreach ($ormCustomFields as $custField) {
+            foreach ($ormPersonCustomFields as $custField) {
                 $rawQry->withColumn($custField->getCustomField());
             }
 
@@ -431,18 +469,18 @@ foreach ($ormFamilies as $family) {
             // For the Letter size of 279 mm, this says that curY can be no bigger than 195 mm.
             // Leaving 12 mm for a bottom margin yields 183 mm.
             $numWide = 0;    // starting value for columns
-            foreach ($ormCustomFields as $custField) {
+            foreach ($ormPersonCustomFields as $custField) {
 
-                if ($pdf->GetCustomField($custField->getCustomOrder()) == 0) continue;
+                if ($pdf->GetPersonCustomField($custField->getCustomOrder()) == 0) continue;
 
-                if ($sCustomFieldName[$custField->getCustomOrder() - 1]) {
+                if ($sPersonCustomFieldName[$custField->getCustomOrder() - 1]) {
                     $currentFieldData = trim($aCustomData[$custField->getCustomField()]);
 
                     $currentFieldData = OutputUtils::displayCustomField($custField->getTypeId(), trim($aCustomData[$custField->getCustomField()]), $custField->getCustomSpecial(), false);
 
-                    if ($sCustomFieldTypeID[$custField->getCustomOrder() - 1] == 1) {
+                    if ($sPersonCustomFieldTypeID[$custField->getCustomOrder() - 1] == 1) {
                         $pdf->SetFont('Times', 'B', $fontSize);
-                        $pdf->WriteAtCell($xInc, $curY, $xSize, $sCustomFieldName[$custField->getCustomOrder() - 1]);
+                        $pdf->WriteAtCell($xInc, $curY, $xSize, $sPersonCustomFieldName[$custField->getCustomOrder() - 1]);
                         $pdf->SetFont('Times', '', $fontSize);
                         $pdf->WriteAtCell($xInc + $xSize, $curY, $xSize, "");
                         if (is_null($currentFieldData) or $currentFieldData  == '' or $currentFieldData == 'FALSE') {
@@ -451,9 +489,9 @@ foreach ($ormFamilies as $family) {
                             $pdf->CheckBox('props'.$custField->getId(), 5, true, array(), array(), 'Yes', $xInc + $xSize, $curY);
                         }
                     } else {                    
-                        $OutStr = $sCustomFieldName[$custField->getCustomOrder() - 1].' : '.$currentFieldData.'    ';
+                        $OutStr = $sPersonCustomFieldName[$custField->getCustomOrder() - 1].' : '.$currentFieldData.'    ';
                         $pdf->SetFont('Times', 'B', $fontSize);
-                        $pdf->WriteAtCell($xInc, $curY, $xSize, $sCustomFieldName[$custField->getCustomOrder() - 1]);
+                        $pdf->WriteAtCell($xInc, $curY, $xSize, $sPersonCustomFieldName[$custField->getCustomOrder() - 1]);
 
                         $pdf->SetFont('Times', '', $fontSize);
                         if ($currentFieldData == '') {
