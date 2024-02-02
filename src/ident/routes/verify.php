@@ -101,14 +101,20 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 return $renderer->render($response, "/../404.php", array("message" => gettext("Unable to load verification info")));
             }
 
+            $emails = [];
+            
             if ($token->isVerifyFamilyToken()) {
                 $family = FamilyQuery::create()->findPk($token->getReferenceId());
 
-                $emails = [$family->getEmail()];
-                $emails = array_merge($emails, $family->getEmails());
+                if ($family->getDateDeactivated() == Null) {
+                    $emails = [$family->getEmail()];
+                    $emails = array_merge($emails, $family->getEmails());
+                }
             } elseif ($token->isVerifyPersonToken()) {
                 $person = PersonQuery::create()->findPk($token->getReferenceId());
-                $emails = [$person->getEmail()];
+                if ($person->getDateDeactivated() == Null) {
+                    $emails = [$person->getEmail()];
+                }
             }
 
 

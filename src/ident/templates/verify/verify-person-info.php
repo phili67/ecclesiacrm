@@ -59,7 +59,7 @@ $famCountry = $person->getFamily()->getCountry();
         <br>
         <hr/>
         <div class="text-left text-center">
-            <button class="btn btn-danger btn-sm deleteFamily" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> <?= _("Delete") ?></button>
+            <button class="btn btn-danger btn-sm deletePerson" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> <?= _("Delete") ?></button>
             <button class="btn btn-sm modifyPerson" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> <?= _("Modify") ?></button>
             <button class="btn btn-success btn-sm exitSession" style="height: 30px;padding-top: 5px;background-color: green"><i class="fas fa-sign-out-alt"></i> <?= _("Exit") ?></button>
         </div>
