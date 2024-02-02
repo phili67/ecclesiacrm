@@ -1152,10 +1152,10 @@ require $sRootDocument . '/Include/Header.php';
                                     <?php
                                     if ($bFamilyAddress1) {
                                     ?>
-                                    <span style="color: red;">
-                          <?php
-                          }
-                          ?>
+                                        <span style="color: red;">
+                                    <?php
+                                    }
+                                    ?>
 
                           <?= _('Address') . ' 1:' ?>
 
@@ -1672,7 +1672,7 @@ require $sRootDocument . '/Include/Header.php';
                                             $custom_Special = $customField['CustomSpecial'];
                                         }
 
-                                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
+                                        echo OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
                                         if (isset($aCustomErrors[$customField['TypeId']])) {
                                             ?>
                                             <span
@@ -1705,7 +1705,7 @@ require $sRootDocument . '/Include/Header.php';
                                             $custom_Special = $customField['CustomSpecial'];
                                         }
 
-                                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
+                                        echo OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
 
                                         if (isset($aCustomErrors[$customField['TypeId']])) {
                                             ?>

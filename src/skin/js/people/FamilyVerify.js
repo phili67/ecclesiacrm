@@ -84,7 +84,8 @@ $(function() {
                             "cellPhone": cellPhone,
                             "email": email,
                             "workemail": workemail,
-                            "BirthDayDate": real_dateTime
+                            "BirthDayDate": real_dateTime,
+                            "type": "person"
                         }, function (data) {
                             $(".person-container-" + personId).html(data.content);
                         });

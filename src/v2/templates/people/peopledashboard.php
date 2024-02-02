@@ -222,8 +222,8 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
                 }
                 ?>
                 <p>
-                    <a class="MediumText" href="<?= $sRootPath ?>/v2/people/LettersAndLabels"><?= _('Letters and Mailing Labels') ?></a>
-                    <br><?= _('Generate letters and mailing labels.') ?>
+                    <a class="MediumText" href="<?= $sRootPath ?>/v2/people/LettersAndLabels"><?= _('Letters and mailing labels for data confirmations') ?></a>
+                    <br><?= _('Generate letters and mailing labels for data confirmations.') ?>
                 </p>
                 <?php
                 if (SessionUser::getUser()->isUSAddressVerificationEnabled()) {

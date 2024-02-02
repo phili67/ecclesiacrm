@@ -4,9 +4,9 @@
  *
  *  filename    : lettersandlabels.php
  *                2006 Ed Davis
- *  last change : 2023-05-30
+ *  last change : 2024-01-31
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : 2023 Philippe Logel all right reserved not MIT licence
+ *  copyright   : 2024 Philippe Logel all right reserved not MIT licence
  *
  ******************************************************************************/
 
@@ -22,8 +22,8 @@ require $sRootDocument . '/Include/Header.php';
 
 
 // Get the list of custom person fields
-$ormCustomFields = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
-$numCustomFields = $ormCustomFields->count();
+$ormPersonPersonCustomFields = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
+$numPersonPersonCustomFields = $ormPersonPersonCustomFields->count();
 
 // Get Field Security List Matrix
 $ormSecurityGrps = ListOptionQuery::Create()
@@ -35,28 +35,58 @@ foreach ($ormSecurityGrps as $ormSecurityGrp) {
 }
 
 // Is this the second pass?
-if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) || isset($_POST['SubmitConfirmLabels']) || isset($_POST['SubmitConfirmReportEmail'])) {
+if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' || $_POST['realAction'] == 'SubmitConfirmReport' 
+    || $_POST['realAction'] == 'SubmitConfirmLabels' || $_POST['realAction'] == 'SubmitConfirmReportEmail') ) {
     $sLabelFormat = InputUtils::LegacyFilterInput($_POST['labeltype']);
     $sFontInfo = $_POST['labelfont'];
     $sFontSize = $_POST['labelfontsize'];
     $bRecipientNamingMethod = $_POST['recipientnamingmethod'];
     $sLabelInfo = '&labelfont=' . urlencode($sFontInfo) . '&labelfontsize=' . $sFontSize . "&recipientnamingmethod=" . $bRecipientNamingMethod;
 
-    if (isset($_POST['SubmitNewsLetter'])) {
+    // set the default values for the PersonCustomMasterQuery
+    $ormPersonCustomFields = PersonCustomMasterQuery::create()
+    ->orderByCustomOrder()
+    ->find();
+
+    $customPersonFields = []; 
+
+    if ( $ormPersonCustomFields->count() > 0) {
+        $iFieldNum = 0;
+        foreach ($ormPersonCustomFields as $customField) {        
+            if (isset($_POST["bCustomPerson".$customField->getCustomOrder()])) {
+                $customField->setCustomConfirmationDatas(True);
+            } else {
+                $customField->setCustomConfirmationDatas(False);
+            }
+            $customField->save();
+        }        
+    }
+    // end of storing the default values for the PersonCustomMasterQuery
+
+    #TODO : to do the same with FamilyCustomMasterQuery
+
+    if ($_POST['realAction'] == 'SubmitNewsLetter') {
+        $_SESSION['POST_Datas'] = $_POST;
         RedirectUtils::Redirect('Reports/NewsLetterLabels.php?labeltype=' . $sLabelFormat . $sLabelInfo);
-    } elseif (isset($_POST['SubmitConfirmReport'])) {
+    } elseif ($_POST['realAction'] == 'SubmitConfirmReport' ) {
         $_SESSION['POST_Datas'] = $_POST;
         RedirectUtils::Redirect('Reports/ConfirmReport.php');
-    } elseif (isset($_POST['SubmitConfirmLabels'])) {
+    } elseif ($_POST['realAction'] == 'SubmitConfirmLabels') {
+        $_SESSION['POST_Datas'] = $_POST;
         RedirectUtils::Redirect('Reports/ConfirmLabels.php?labeltype=' . $sLabelFormat . $sLabelInfo);
-    } elseif (isset($_POST['SubmitConfirmReportEmail'])) {
+    } elseif ($_POST['realAction'] == 'SubmitConfirmReportEmail') {
+        $_SESSION['POST_Datas'] = $_POST;
         RedirectUtils::Redirect('Reports/ConfirmReportEmail.php');
     }
 } else {
     $sLabelFormat = 'Tractor';
 }
 ?>
-<form method="post" action="<?= $sRootPath ?>/v2/people/LettersAndLabels">
+<form method="post" action="<?= $sRootPath ?>/v2/people/LettersAndLabels" id="Myform">
+    <input id="personsId" name="personsId" type="hidden" value="" />
+    <input id="familiesId" name="familiesId" type="hidden" value="" />
+    <input id="realAction" name="realAction" type="hidden" value="" />
+
     <div class="card card-secondary">
         <div class="card-header border-1">
             <h3 class="card-title"><?= gettext('People Reports') ?></h3>
@@ -64,7 +94,7 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <h3><?= _("Badge") ?></h1>
+                    <h3><?= _("Mail Label") ?></h1>
                         <hr />
                         <?php
                         LabelUtils::LabelSelect('labeltype');
@@ -83,14 +113,14 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
-                    <h3><?= _("Custom Fields") ?></h1>
+                    <h3><?= _("Person Custom Fields") ?></h1>
                         <hr />
                         <?php
-                        if ($numCustomFields > 0) {
-                            foreach ($ormCustomFields as $ormCustomField) {
-                                if (($aSecurityType[$ormCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormCustomField->getCustomFieldSec()]])) {
+                        if ($numPersonPersonCustomFields > 0) {
+                            foreach ($ormPersonPersonCustomFields as $ormPersonPersonCustomField) {
+                                if (($aSecurityType[$ormPersonPersonCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormPersonPersonCustomField->getCustomFieldSec()]])) {
                         ?>
-                                    <input type="checkbox" Name="bCustom<?= $ormCustomField->getCustomOrder() ?>" value="1" checked> <?= $ormCustomField->getCustomName() ?><br>
+                                    <input type="checkbox" Name="bCustomPerson<?= $ormPersonPersonCustomField->getCustomOrder() ?>" value="<?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?>> <?= $ormPersonPersonCustomField->getCustomName() ?><br>
                         <?php
                                 }
                             }
@@ -99,7 +129,7 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-3">
-                    <h3><?= _("Classifications") ?></h1>
+                    <h3><?= _("Person Classifications") ?></h1>
                     <select name="classList[]" style="width:100%" multiple id="classList">
                         <?php
                         //Get Classifications for the drop-down
@@ -118,10 +148,22 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
 
                     <h3><?= _("by") ?></h1>
 
-                    <select class="form-control form-control-sm" name="letterandlabelsnamingmethod">
+                    <select class="form-control form-control-sm" name="letterandlabelsnamingmethod" id="letterandlabelsnamingmethod">
                         <option value="family"><?= gettext("Addresses") ?></option>
                         <option value="person"><?= gettext("Persons") ?></option>
                     </select>
+
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="check_all"><?= _("Test") ?></label>
+                        </div>
+                        <div class="col-md-10">
+                            <select name="person-group-Id-Share" class="person-group-Id-Share"
+                                    class="form-control select2" style="width:100%"></select>
+                        </div>
+                    </div>
 
 
                     <hr />
@@ -149,16 +191,16 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
             </div>
         </div>
         <div class="card-footer">
-            <button class="btn btn-success" type="submit" name="SubmitNewsLetter" value="delete">
+            <button class="btn btn-success" type="submit" name="SubmitNewsLetter" value="SubmitNewsLetter">
                 <i class="fas fa-file-pdf"></i> <?= gettext('Newsletter labels') ?>
             </button>
-            <button class="btn btn-primary" type="submit" name="SubmitConfirmReport" value="delete">
+            <button class="btn btn-primary" type="submit" name="SubmitConfirmReport" value="SubmitConfirmReport">
                 <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data letter') ?>
             </button>
-            <button class="btn btn-primary" type="submit" name="SubmitConfirmLabels" value="delete">
+            <button class="btn btn-primary" type="submit" name="SubmitConfirmLabels" value="SubmitConfirmLabels">
                 <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data labels') ?>
             </button>
-            <button class="btn btn-danger" type="submit" name="SubmitConfirmReportEmail" value="delete">
+            <button class="btn btn-danger" type="submit" name="SubmitConfirmReportEmail" value="SubmitConfirmReportEmail">
                 <i class="fas fa-paper-plane"></i> <?= gettext('Confirm data Email') ?>
             </button>
 

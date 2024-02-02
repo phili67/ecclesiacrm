@@ -287,78 +287,80 @@ class OutputUtils
     // Generates an HTML form <input> line for a custom field
     //
 
-    public static function formCustomField($type, $fieldname, $data, $special, $bFirstPassFlag=true)
+    public static function formCustomField($type, $fieldname, $data, $special, $bFirstPassFlag=true): string
     {
+        $code = "";
+
         switch ($type) {
             // Handler for boolean fields
             case 1:
-                echo '<div class="form-group">' .
-                    '<div class="radio"><label><input type="radio" Name="' . $fieldname . '" value="true"' . ($data == 'true' ? 'checked' : '') . '>' . _('Yes') . '</label></div>' .
-                    '<div class="radio"><label><input type="radio" Name="' . $fieldname . '" value="false"' . ($data == 'false' ? 'checked' : '') . '>' . _('No') . '</label></div>' .
-                    '<div class="radio"><label><input type="radio" Name="' . $fieldname . '" value=""' . (($data == "null" or $data == "Null" or $data == "NULL") ? 'checked' : '') . '>' . _('Unknown') . '</label></div>' .
+                $code = '<div class="form-group">' .
+                    '<div class="radio"><label><input type="radio" class="' . $fieldname . '" Name="' . $fieldname . '" value="true"' . ($data == 'true' ? 'checked' : '') . '>' . _('Yes') . '</label></div>' .
+                    '<div class="radio"><label><input type="radio" class="' . $fieldname . '" Name="' . $fieldname . '" value="false"' . ($data == 'false' ? 'checked' : '') . '>' . _('No') . '</label></div>' .
+                    '<div class="radio"><label><input type="radio" class="' . $fieldname . '" Name="' . $fieldname . '" value=""' . (($data == "" or $data == "null" or $data == "Null" or $data == "NULL") ? 'checked' : '') . '>' . _('Unknown') . '</label></div>' .
                     '</div>';
                 break;
             // Handler for date fields
             case 2:
                 // code rajouté par Philippe Logel
-                echo '<div class="input-group mb-2">' .
+                $code =  '<div class="input-group mb-2">' .
                     '<div class="input-group-prepend">' .
                     '<span class="input-group-text"> <i class="fas fa-calendar"></i></span>' .
                     '</div>' .
-                    '<input class=" form-control  form-control-sm date-picker" type="text" id="' . $fieldname . '" Name="' . $fieldname . '" value="' . OutputUtils::change_date_for_place_holder($data) . '" placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '"> ' .
+                    '<input class=" form-control  form-control-sm date-picker ' . $fieldname . '" type="text" Name="' . $fieldname . '" value="' . OutputUtils::change_date_for_place_holder($data) . '" placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '"> ' .
                     '</div>';
                 break;
 
             // Handler for 50 character max. text fields
             case 3:
-                echo '<input class= "form-control form-control-sm" type="text" Name="' . $fieldname . '" maxlength="50" size="50" value="' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '">';
+                $code =  '<input class= "form-control form-control-sm ' . $fieldname . '" type="text" Name="' . $fieldname . '" maxlength="50" size="50" value="' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '">';
                 break;
 
             // Handler for 100 character max. text fields
             case 4:
-                echo '<textarea class= "form-control form-control-sm" Name="' . $fieldname . '" cols="40" rows="2" onKeyPress="LimitTextSize(this, 100)">' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '</textarea>';
+                $code =  '<textarea class= "form-control form-control-sm ' . $fieldname . '" Name="' . $fieldname . '" cols="40" rows="2" onKeyPress="LimitTextSize(this, 100)">' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '</textarea>';
                 break;
 
             // Handler for extended text fields (MySQL type TEXT, Max length: 2^16-1)
             case 5:
-                echo '<textarea class= "form-control form-control-sm" Name="' . $fieldname . '" cols="60" rows="4" onKeyPress="LimitTextSize(this, 65535)">' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '</textarea>';
+                $code =  '<textarea class= "form-control form-control-sm ' . $fieldname . '" Name="' . $fieldname . '" cols="60" rows="4" onKeyPress="LimitTextSize(this, 65535)">' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '</textarea>';
                 break;
 
             // Handler for 4-digit year
             case 6:
-                echo '<input class= "form-control form-control-sm" type="text" Name="' . $fieldname . '" maxlength="4" size="6" value="' . $data . '">';
+                $code =  '<input class= "form-control form-control-sm ' . $fieldname . '" type="text" Name="' . $fieldname . '" maxlength="4" size="6" value="' . $data . '">';
                 break;
 
             // Handler for season (drop-down selection)
             case 7:
-                echo "<select name=\"$fieldname\" class=\"form-control form-control-sm\" >";
-                echo '  <option value="none">' . _('Select Season') . '</option>';
-                echo '  <option value="winter"';
+                $code =  '<select name="$fieldname" class="form-control form-control-sm ' . $fieldname . '" >';
+                $code .=  '  <option value="none">' . _('Select Season') . '</option>';
+                $code .= '  <option value="winter"';
                 if ($data == 'winter') {
-                    echo ' selected';
+                    $code .= ' selected';
                 }
-                echo '>' . _('Winter') . '</option>';
-                echo '  <option value="spring"';
+                $code .= '>' . _('Winter') . '</option>';
+                $code .= '  <option value="spring"';
                 if ($data == 'spring') {
-                    echo ' selected';
+                    $code .= ' selected';
                 }
-                echo '>' . _('Spring') . '</option>';
-                echo '  <option value="summer"';
+                $code .= '>' . _('Spring') . '</option>';
+                $code .= '  <option value="summer"';
                 if ($data == 'summer') {
-                    echo 'selected';
+                    $code .= 'selected';
                 }
-                echo '>' . _('Summer') . '</option>';
-                echo '  <option value="fall"';
+                $code .= '>' . _('Summer') . '</option>';
+                $code .= '  <option value="fall"';
                 if ($data == 'fall') {
-                    echo ' selected';
+                    $code .= ' selected';
                 }
-                echo '>' . _('Fall') . '</option>';
-                echo '</select>';
+                $code .= '>' . _('Fall') . '</option>';
+                $code .= '</select>';
                 break;
 
             // Handler for integer numbers
             case 8:
-                echo '<input class= "form-control form-control-sm" type="text" Name="' . $fieldname . '" maxlength="11" size="15" value="' . $data . '">';
+                $code = '<input class= "form-control form-control-sm ' . $fieldname . '" type="text" Name="' . $fieldname . '" maxlength="11" size="15" value="' . $data . '">';
                 break;
 
             // Handler for "person from group"
@@ -377,33 +379,33 @@ class OutputUtils
                     $statement = $connection->prepare($sSQL);
                     $statement->execute();
 
-                    echo '<select name="' . $fieldname . '" class="form-control form-control-sm" >';
-                    echo '<option value="0"';
+                    $code = '<select name="' . $fieldname . '" class="form-control form-control-sm ' . $fieldname . '" >';
+                    $code .= '<option value="0"';
                     if ($data <= 0) {
-                        echo ' selected';
+                        $code .= ' selected';
                     }
-                    echo '>' . _('Unassigned') . '</option>';
-                    echo '<option value="0">-----------------------</option>';
+                    $code .= '>' . _('Unassigned') . '</option>';
+                    $code .= '<option value="0">-----------------------</option>';
 
                     while ($aRow = $statement->fetch(\PDO::FETCH_BOTH)) {
                         extract($aRow);
 
-                        echo '<option value="' . $per_ID . '"';
+                        $code .= '<option value="' . $per_ID . '"';
                         if ($data == $per_ID) {
-                            echo ' selected';
+                            $code .= ' selected';
                         }
-                        echo '>' . $per_FirstName . '&nbsp;' . $per_LastName . '</option>';
+                        $code .= '>' . $per_FirstName . '&nbsp;' . $per_LastName . '</option>';
                     }
 
-                    echo '</select>';
+                    $code .= '</select>';
                 } else {
-                    echo _("This custom field isn't configured correctly");
+                    $code .= _("This custom field isn't configured correctly");
                 }
                 break;
 
             // Handler for money amounts
             case 10:
-                echo '<table width=100%><tr><td><input class= "form-control form-control-sm"  type="number" step="any" Name="' . $fieldname . '" maxlength="13" size="16" value="' . $data . '"></td><td>&nbsp;' . SystemConfig::getValue("sCurrency") . "</td></tr></table>";
+                $code = '<table width=100%><tr><td><input class= "form-control form-control-sm ' . $fieldname . '"  type="number" step="any" Name="' . $fieldname . '" maxlength="13" size="16" value="' . $data . '"></td><td>&nbsp;' . SystemConfig::getValue("sCurrency") . "</td></tr></table>";
                 break;
 
             // Handler for phone numbers
@@ -419,18 +421,18 @@ class OutputUtils
                     $bNoFormat_Phone = true;
                 }
 
-                echo '<div class="input-group mb-2">' .
+                $code = '<div class="input-group mb-2">' .
                     '<div class="input-group-prepend">' .
                     '<span class="input-group-text"> <i class="fas fa-phone"></i></span>' .
                     '</div>' .
-                    '<input class= "form-control form-control-sm"  type="text" Name="' . $fieldname . '" maxlength="30" size="30" value="' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '" data-inputmask="\'mask\': \'' . SystemConfig::getValue('sPhoneFormat') . '\'" data-mask>' .
+                    '<input class= "form-control form-control-sm ' . $fieldname . '"  type="text" Name="' . $fieldname . '" maxlength="30" size="30" value="' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '" data-inputmask="\'mask\': \'' . SystemConfig::getValue('sPhoneFormat') . '\'" data-mask>' .
                     '</div>' .
                     '<input type="checkbox" name="' . $fieldname . 'noformat" value="1"';
 
                 if ($bNoFormat_Phone) {
-                    echo ' checked';
+                    $code .= ' checked';
                 }
-                echo '>' . _('Do not auto-format');
+                $code .= '>' . _('Do not auto-format');
 
 
                 break;
@@ -442,26 +444,28 @@ class OutputUtils
                     ->orderByOptionSequence()
                     ->findById($special);
 
-                echo '<select class="form-control form-control-sm" name="' . $fieldname . '">';
-                echo '<option value="0" selected>' . _('Unassigned') . '</option>';
-                echo '<option value="0">-----------------------</option>';
+                $code = '<select class="form-control form-control-sm ' . $fieldname . '" name="' . $fieldname . '">';
+                $code .= '<option value="0" selected>' . _('Unassigned') . '</option>';
+                $code .= '<option value="0">-----------------------</option>';
 
                 foreach ($listOptions as $listOption) {
-                    echo '<option value="' . $listOption->getOptionId() . '"';
+                    $code .= '<option value="' . $listOption->getOptionId() . '"';
                     if ($data == $listOption->getOptionId()) {
-                        echo ' selected';
+                        $code .= ' selected';
                     }
-                    echo '>' . $listOption->getOptionName() . '</option>';
+                    $code .= '>' . $listOption->getOptionName() . '</option>';
                 }
 
-                echo '</select>';
+                $code .= '</select>';
                 break;
 
             // Otherwise, display error for debugging.
             default:
-                echo '<b>' . _('Error: Invalid Editor ID!') . '</b>';
+                $code = '<b>' . _('Error: Invalid Editor ID!') . '</b>';
                 break;
         }
+
+        return $code;
     }
 
     public static function change_date_for_place_holder($string)

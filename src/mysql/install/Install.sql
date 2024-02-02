@@ -521,6 +521,7 @@ CREATE TABLE `family_custom_master` (
   `fam_custom_Side` enum('left','right') NOT NULL default 'left',
   `fam_custom_FieldSec` tinyint(4) NOT NULL default '1',
   `fam_custom_comment` text NULL default NULL COMMENT 'comment for GDPR',
+  `fam_custom_confirmation_datas` BOOLEAN NOT NULL default 1 COMMENT 'confirmations default datas',
   `type_ID` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`family_custom_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
@@ -563,6 +564,7 @@ CREATE TABLE `family_fam` (
   `fam_Latitude` double default NULL,
   `fam_Longitude` double default NULL,
   `fam_Envelope` mediumint(9) NOT NULL default '0',
+  `fam_confirm_report` enum('No', 'Pending','Done') default 'No' COMMENT 'To confirm report of all families',
   PRIMARY KEY  (`fam_ID`),
   KEY `fam_ID` (`fam_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
@@ -811,6 +813,7 @@ CREATE TABLE `person_custom_master` (
   `custom_Side` enum('left','right') NOT NULL default 'left',
   `custom_FieldSec` tinyint(4) NOT NULL,
   `custom_comment` text NULL default NULL COMMENT 'comment for GDPR',
+  `custom_confirmation_datas` BOOLEAN NOT NULL default 1 COMMENT 'confirmations default datas',
   `type_ID` tinyint(4) NOT NULL default '0',
   PRIMARY KEY (`custom_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
@@ -864,6 +867,7 @@ CREATE TABLE `person_per` (
   `per_LinkedIn` varchar(50) default NULL,
   `per_DateDeactivated` datetime default NULL,
   `per_SendNewsLetter` enum('FALSE','TRUE') NOT NULL default 'FALSE',
+  `per_confirm_report` enum('No', 'Pending','Done') default 'No' COMMENT 'To confirm report of all users',
   PRIMARY KEY  (`per_ID`),
   KEY `per_ID` (`per_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=2 ;
