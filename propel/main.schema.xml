@@ -220,6 +220,7 @@
         <column name="per_DateDeactivated" phpName="DateDeactivated" type="TIMESTAMP"/>
         <column name="per_SendNewsLetter" phpName="SendNewsletter" type="CHAR" sqlType="enum('FALSE','TRUE')"
                 required="true" defaultValue="FALSE"/>
+        <column name="per_confirm_report" phpName="ConfirmReport" type="CHAR" sqlType="enum('No','Pending','Done')" description="For the confirm report of all users" defaultValue="No"/>
         <index name="per_ID">
             <index-column name="per_ID"/>
         </index>
@@ -249,6 +250,7 @@
         <column name="custom_Side" phpName="CustomSide" type="CHAR" sqlType="enum('left','right')" required="true" defaultValue="left"/>
         <column name="custom_FieldSec" phpName="CustomFieldSec" type="TINYINT" required="true"/>
         <column name="custom_comment" phpName="CustomComment" type="LONGVARCHAR" required="true" description="for GDPR"/>
+        <column name="custom_confirmation_datas" phpName="CustomConfirmationDatas" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
         <column name="type_ID" phpName="TypeId" type="TINYINT" required="true" defaultValue="0"/>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
@@ -288,6 +290,7 @@
         <column name="fam_Latitude" phpName="Latitude" type="DOUBLE"/>
         <column name="fam_Longitude" phpName="Longitude" type="DOUBLE"/>
         <column name="fam_Envelope" phpName="Envelope" type="SMALLINT" size="9" required="true" defaultValue="0"/>
+        <column name="fam_confirm_report" phpName="ConfirmReport" type="CHAR" sqlType="enum('No','Pending','Done')" description="For the confirm report of all families" defaultValue="No"/>
         <index name="fam_ID">
             <index-column name="fam_ID"/>
         </index>
@@ -307,6 +310,7 @@
         <column name="fam_custom_FieldSec" phpName="CustomFieldSec" type="TINYINT" required="true" defaultValue="1"/>
         <column name="fam_custom_comment" phpName="CustomComment" type="LONGVARCHAR" required="true" description="For GDPR"/>
         <column name="type_ID" phpName="TypeId" type="TINYINT" required="true" defaultValue="0"/>
+        <column name="fam_custom_confirmation_datas" phpName="CustomConfirmationDatas" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
