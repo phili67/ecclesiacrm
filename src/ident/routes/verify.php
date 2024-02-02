@@ -4,7 +4,7 @@
  *
  *  filename    : verify.php
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2022 Philippe Logel
+ *  copyright   : Copyright 2024 Philippe Logel
  *
  ******************************************************************************/
 
@@ -19,14 +19,19 @@ use EcclesiaCRM\TokenQuery;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\StateDropDown;
-use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\TokenPasswordQuery;
+use EcclesiaCRM\PersonCustomMasterQuery;
+
 use EcclesiaCRM\Emails\FamilyVerificationValidation;
+use EcclesiaCRM\Emails\PersonVerificationValidation;
+
+use EcclesiaCRM\Service\ConfirmReportService;
+use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+
+use Propel\Runtime\Propel;
 
 use EcclesiaCRM\UserQuery;
 
@@ -39,6 +44,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         session_destroy();
 
         $haveFamily = false;
+        $havePerson = false;
         $loginWindow = false;
 
         if ( $token != null && $token->isVerifyFamilyToken() && $token->isValid() ) {
@@ -52,12 +58,27 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             if ($family->getDateDeactivated() != null) {
                 return $renderer->render($response, "/../404.php", array("message" => gettext("Unable to load verification info")));
             }
+        } else if ( $token != null && $token->isVerifyPersonToken() && $token->isValid() ) {
+            $person = PersonQuery::create()->findPk($token->getReferenceId());
+            $havePerson = ($person != null);
+            if ($token->getRemainingUses() > 0) {
+                $token->setRemainingUses($token->getRemainingUses() - 1);
+                $token->save();
+            }
+
+            if ($person->getDateDeactivated() != null) {
+                return $renderer->render($response, "/../404.php", array("message" => gettext("Unable to load verification info")));
+            }
         }
 
-        if ($loginWindow == false && $haveFamily == true) {
+        if ($loginWindow == false && ($haveFamily == true || $havePerson)) {
             return $renderer->render($response, "login-info.php", array("family" => $family, "token" => $token, "realToken" => $args['token']));
+        } elseif ($loginWindow == false && $haveFamily == true) {
+            return $renderer->render($response, "login-info.php", array("person" => $person, "token" => $token, "realToken" => $args['token']));
         } elseif ($haveFamily) {
             return $renderer->render($response, "verify-family-info.php", array("family" => $family, "token" => $token, "realToken" => $args['token']));
+        } elseif ($havePerson) {
+            return $renderer->render($response, "verify-person-info.php", array("person" => $person, "token" => $token, "realToken" => $args['token']));
         } else {
             return $renderer->render($response, "/../404.php", array("message" => gettext("Unable to load verification info")));
         }
@@ -80,10 +101,15 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 return $renderer->render($response, "/../404.php", array("message" => gettext("Unable to load verification info")));
             }
 
-            $family = FamilyQuery::create()->findPk($token->getReferenceId());
+            if ($token->isVerifyFamilyToken()) {
+                $family = FamilyQuery::create()->findPk($token->getReferenceId());
 
-            $emails = [$family->getEmail()];
-            $emails = array_merge($emails, $family->getEmails());
+                $emails = [$family->getEmail()];
+                $emails = array_merge($emails, $family->getEmails());
+            } elseif ($token->isVerifyPersonToken()) {
+                $person = PersonQuery::create()->findPk($token->getReferenceId());
+                $emails = [$person->getEmail()];
+            }
 
 
             if ( !( in_array($_POST['User'], $emails) and md5($_POST['Password']) == $tokenPassword->getPassword()
@@ -135,7 +161,11 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 return $renderer->render($response, "change-password.php", array("message" => gettext("Unable to load verification info")));
             }
 
-            return $renderer->render($response, "verify-family-info.php", array("family" => $family, "token" => $token, "realToken" => $realToken));
+            if ($token->isVerifyFamilyToken()) {
+                return $renderer->render($response, "verify-family-info.php", array("family" => $family, "token" => $token, "realToken" => $realToken));
+            } else if ($token->isVerifyPersonToken()) {
+                return $renderer->render($response, "verify-person-info.php", array("person" => $person, "token" => $token, "realToken" => $realToken));
+            }
         }
         return $response->withStatus(200);
     });
@@ -143,188 +173,20 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
     $group->post('/getPersonInfo/', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
-        $input = (object)$request->getParsedBody();
-
         if ( isset ($input->token) ) {
 
             $token = TokenQuery::create()->findPk($input->token);
-            if (!($token != null && $token->isVerifyFamilyToken() && $token->isValid())) {
+            if (!($token != null && ($token->isVerifyFamilyToken() || $token->isVerifyPersonToken()) && $token->isValid())) {
                 return $response->withStatus(200);
             }
 
             if (isset ($input->personId)) {
                 $person = PersonQuery::create()->findOneById($input->personId);
 
-                $code = '<h3>' . _("Person") . " : " . $person->getFullName() . '</h3><hr/>';
+                $code = ConfirmReportService::getPersonStandardTextFields($person);
+                $codeCustom = ConfirmReportService::getPersonCustomTextFields($person);
 
-                $code .= '<div class="card card-primary">
-                            <div class="card-body box-profile">
-                                <div class="text-left">
-                                    <img class="profile-user-img img-responsive img-circle initials-image"
-                                     src="data:image/png;base64,' . base64_encode($person->getPhoto()->getThumbnailBytes()) . '">
-                                </div>
-                                <br/>
-                                <div class="text-left">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label for="FirstName">' . _('First Name') . '</label>
-                                        </div>
-                                        <div class="col-md-6">';
-                $code .= '<input type="text" name="FirstName" id="FirstName"
-                                   value="' . htmlentities(stripslashes($person->getFirstName()), ENT_NOQUOTES, 'UTF-8') . '"
-                                   class= "" placeholder="' . _("First Name") . '">';
-
-                $code .= '
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label for="FirstName">' . _('Middle Name') . '</label>
-                                        </div>
-                                        <div class="col-md-6">';
-                $code .= '<input type="text" name="MiddleName" id="MiddleName"
-                                   value="' . htmlentities(stripslashes($person->getMiddleName()), ENT_NOQUOTES, 'UTF-8') . '"
-                                   class= "" placeholder="' . _("Middle Name") . '">';
-
-                $code .= '              </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label for="FirstName">' . _('Last Name') . '</label>
-                                        </div>
-                                        <div class="col-md-6">';
-                $code .= '<input type="text" name="LastName" id="LastName"
-                                   value="' . htmlentities(stripslashes($person->getLastName()), ENT_NOQUOTES, 'UTF-8') . '"
-                                   class= "" placeholder="' . _("Last Name") . '">';
-
-                $code .= '
-                                        </div>
-                                    </div>
-                               </p>
-                                <p class="text-muted text-left"><i
-                                        class="fa  fa-' . ($person->isMale() ? "male" : "female") . '"></i> ';
-
-                $iFamilyRole = $person->getFmrId();
-
-                //Get Family Roles for the drop-down
-                $ormFamilyRoles = ListOptionQuery::Create()
-                    ->orderByOptionSequence()
-                    ->findById(2);
-
-                $code .= '<select name="FamilyRole" class="" id="FamilyRole">
-                    <option value="0">' . _("Unassigned") . '</option>
-                    <option value="0" disabled>-----------------------</option>';
-
-                foreach ($ormFamilyRoles as $ormFamilyRole) {
-                    $code .= '<option value="' . $ormFamilyRole->getOptionId() . '"
-                        ' . (($iFamilyRole == $ormFamilyRole->getOptionId()) ? ' selected' : '') . '>' . $ormFamilyRole->getOptionName() . '</option>';
-                }
-
-                $code .= '</select>';
-
-                $code .= '
-                                </p>
-                                <ul class="list-group list-group-unbordered">
-                                    <li class="list-group-item">
-                                        <br/>
-                                        <div class="row">
-                                            <div class="col-md-2">';
-                $code .= '<i class="fa  fa-phone"
-                                               title="' . _("Home Phone") . '"></i>(H)
-                                            </div>
-                                            <div class="col-md-6">';
-                $code .= '<input type="text" name="homePhone" class="" value="' . $person->getHomePhone() . '" id="homePhone" size="30" placeholder="' . _("Home Phone") . '">';
-                $code .= '
-                                            </div>
-                                       </div>
-                                         <div class="row">
-                                            <div class="col-md-2">';
-
-                $code .= '<i class="fa  fa-briefcase"
-                                               title="' . _("Work Phone") . '"></i>(W)
-                                            </div>
-                                            <div class="col-md-6">';
-                $code .= '<input type="text" name="workPhone" class="" value="' . $person->getWorkPhone() . '" id="workPhone" size="30" placeholder="' . _("Work Phone") . '">';
-                $code .= '</div>
-                                       </div>
-                                         <div class="row">
-                                            <div class="col-md-2">';
-                $code .= '<i class="fa  fa-mobile"
-                                               title="' . _("Mobile Phone") . '"></i>(M)
-                                            </div>
-                                            <div class="col-md-6">';
-                $code .= '<input type="text" name="cellPhone" class="" value="' . $person->getHomePhone() . '" id="cellPhone" size="30" placeholder="' . _("Cell Phone") . '">';
-                $code .= '
-                                            </div>
-                                       </div>
-                                         <div class="row">
-                                            <div class="col-md-2">';
-
-                $code .= '<i class="fa  fa-envelope"
-                                               title="' . _("Email") . '"></i>(H)
-                                            </div>
-                                            <div class="col-md-6">';
-                $code .= '<input type="text" name="email" class="" value="' . $person->getEmail() . '" id="email" size="30" placeholder="' . _("Email") . '">';
-                $code .= '
-                                            </div>
-                                       </div>
-                                       <div class="row">
-                                            <div class="col-md-2">';
-                $code .= '<i class="fa  fa-envelope"
-                                               title="' . _("Work Email") . '"></i>(W)
-                                             </div>
-                                            <div class="col-md-6">';
-                $code .= '<input type="text" name="workemail" class="" value="' . $person->getWorkEmail() . '" id="workemail" size="30" placeholder="' . _("Work Email") . '">';
-                $code .= '
-                                            </div>
-                                       </div>
-                                       <div class="row">
-                                            <div class="col-md-2">';
-                $code .= '<i class="fa  fa-birthday-cake" title="' . _("Birthday") . '"></i>
-                                        </div>
-                                            <div class="col-md-6">';
-
-                $iBirthMonth = $person->getBirthMonth();
-                $iBirthDay = $person->getBirthDay();
-                $iBirthYear = $person->getBirthYear();
-                $sBirthDayDate = $iBirthDay . "-" . $iBirthMonth . "-" . $iBirthYear;
-
-                $code .= '<input type="text" name="BirthDayDate" class="date-picker" value="' . OutputUtils::change_date_for_place_holder($sBirthDayDate) . '" maxlength="10" id="BirthDayDate" size="10" placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '">';
-                //$code .= '<i class="fa  fa-eye-slash" title="' .  _("Age Hidden") .'"></i>';
-
-                $code .= '
-                                            </div>
-                                       </div>
-                                    </li>
-                                    <li class="list-group-item">';
-
-                $classification = "";
-                $cls = ListOptionQuery::create()->filterById(1)->filterByOptionId($person->getClsId())->findOne();
-                if (!empty($cls)) {
-                    $classification = $cls->getOptionName();
-                }
-
-                $code .= '<b>' . _("Classification") . ':</b> ' . $classification;
-                $code .= '</li>';
-                if (count($person->getPerson2group2roleP2g2rs()) > 0) {
-                    $code .= '<li class="list-group-item">
-                                            <h4>' . _("Groups") . '</h4>';
-                    foreach ($person->getPerson2group2roleP2g2rs() as $groupMembership) {
-                        if ($groupMembership->getGroup() != null) {
-                            $listOption = ListOptionQuery::create()->filterById($groupMembership->getGroup()->getRoleListId())->filterByOptionId($groupMembership->getRoleId())->findOne()->getOptionName();
-
-                            $code .= '<b>' . $groupMembership->getGroup()->getName() . '</b>: <span
-                                                        class="pull-right">' . _($listOption) . '</span><br/>';
-                        }
-                    }
-                    $code .= '</li>';
-                }
-                $code .= '</ul>
-                                <br/>
-                            <!-- /.box-body -->
-                        </div>';
-
-                return $response->withJson(["Status" => "success", "html" => $code]);
+                return $response->withJson(["Status" => "success", "html" => $code, "htmlCustom" => $codeCustom[1], "fields" => $codeCustom[0]]);
             }
         }
 
@@ -344,173 +206,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             if (isset ($input->familyId)) {
                 $family = FamilyQuery::create()->findOneById($input->familyId);
 
-                $code = '<h3>' . _("Family") . " : " . $family->getName() . '</h3><hr/>';
-
-                $sName = $family->getName();
-                $sAddress1 = $family->getAddress1();
-                $sAddress2 = $family->getAddress2();
-                $sCity = $family->getCity();
-                $sState = $family->getState();
-                $sZip = $family->getZip();
-                $sCountry = $family->getCountry();
-                $sHomePhone = $family->getHomePhone();
-                $sWorkPhone = $family->getWorkPhone();
-                $sCellPhone = $family->getCellPhone();
-                $sEmail = $family->getEmail();
-                $bSendNewsLetter = $family->getSendNewsletter();
-                $dWeddingDate = ($family->getWeddingdate() != null) ? $family->getWeddingdate()->format("Y-M-d") : "";
-
-                $code .= '<div class="row">
-                    <div class="col-md-2">
-                    <label>';
-
-                $code .= _("Name");
-
-                $code .= '</label>
-                    </div>
-                    <div class="col-md-9">';
-
-                $code .= '<input type="text" name="FamilyName" class="" id="FamilyName" value="' . $sName . '" maxlength="15" id="BirthDayDate" size="50" placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '">';
-
-                $code .= '</div>
-                    </div><hr/>';
-
-                $code .= '<div class="row">
-                    <div class="col-md-2">
-                        <i class="fa  fa-map-marker" title="' . _("Home Address") . '"></i> <label>' . _('Address') . ' 1:</label>
-                    </div>
-                    <div class="col-md-9">
-                        <input type="text" Name="Address1" id="Address1"
-                               value="' . htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') . '" size="50"
-                               maxlength="250" class="">
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-2">
-                        <i class="fa  fa-map-marker" title="' . _("Home Address") . '"></i>  <label>' . _('City') . ':</label>
-                    </div>
-                    <div class="col-md-9">
-                        <input type="text" Name="City" id="City"
-                               value="' . htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') . '" size="50"
-                               maxlength="250"
-                               class="">
-                    </div>
-                </div>';
-
-                $code .= '<div class="row">
-                    <div ' . (SystemConfig::getValue('bStateUnusefull') ? 'style="display: none;"' : 'class="form-group col-md-3"') . '>
-                        <label for="StatleTextBox">' . _("State") . ': </label>';
-
-                $statesDD = new StateDropDown();
-                $code .= $statesDD->getDropDown($sState);
-
-                $code .= '        </div>
-                    <div ' . (SystemConfig::getValue('bStateUnusefull') ? 'style="display: none;"' : 'class="form-group col-md-3"') . '>
-                        <label>' . _('None US/CND State') . ':</label>
-                        <input type="text" class="" name="StateTextbox"
-                               value="' . (($sCountry != 'United States' && $sCountry != 'Canada') ? htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8') : '')
-                    . '" size="20" maxlength="30">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>' . _('Zip') . ':</label>
-                        <input type="text" Name="Zip" id="Zip" class="form-control form-control-sm"';
-
-                // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
-                if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
-                    $code .= 'style="text-transform:uppercase" ';
-                }
-                $code .= 'value="' . htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8') . '"
-                   maxlength="10" size="8">
-
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label> ' . _('Country') . ':</label>';
-                $code .= CountryDropDown::getDropDown($sCountry);
-
-                $code .= '</div>
-                </div><hr/>';
-
-                $code .= '<div class="row">
-                    <div class="col-md-2">
-                        <i class="fa  fa-map-marker" title="' . _("Home Address") . '"></i>  <label>' . _('Address') . ' 2:</label>
-                    </div>
-                    <div class="col-md-9">
-                        <input type="text" Name="Address2" id="Address2"
-                               value="' . htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') . '" size="50"
-                               maxlength="250" class="">
-                    </div>
-                    </div><hr/>';
-
-                $code .= '<br/>
-
-                    <div class="row">
-                        <div class="col-md-1">';
-                $code .= '<i class="fa  fa-phone"
-                       title="' . _("Phone") . '"></i>(H)
-                    </div>
-                    <div class="col-md-6">';
-                $code .= '<input type="text" name="homePhone" class="" value="' . $sHomePhone . '" id="homePhone" size="30" placeholder="' . _("Cell Phone") . '">';
-                $code .= '
-                        </div>
-                   </div>
-                   <div class="row">
-                        <div class="col-md-1">';
-
-                $code .= '<i class="fa  fa-briefcase"
-                           title="' . _("Work Phone") . '"></i>(W)
-                        </div>
-                        <div class="col-md-6">';
-                $code .= '<input type="text" name="workPhone" class="" value="' . $sWorkPhone . '" id="workPhone" size="30" placeholder="' . _("Work Phone") . '">';
-                $code .= '</div>
-                   </div>
-                   <div class="row">
-                        <div class="col-md-1">';
-                $code .= '<i class="fa  fa-mobile"
-                                               title="' . _("Mobile Phone") . '"></i>(M)
-                      </div>
-                      <div class="col-md-6">';
-                $code .= '<input type="text" name="cellPhone" class="" value="' . $sCellPhone . '" id="cellPhone" size="30" placeholder="' . _("Cell Phone") . '">';
-                $code .= '
-                                            </div>
-                                       </div>
-                    <div class="row">
-                        <div class="col-md-1">';
-                $code .= '<i class="fa  fa-envelope"
-                       title="' . _("Family Email") . '"></i>(M)
-                    </div>
-                    <div class="col-md-6">';
-                $code .= '<input type="text" name="email" class="" value="' . $sEmail . '" id="email" size="30" placeholder="' . _("Cell Phone") . '">';
-                $code .= '
-                        </div>
-                   </div>
-
-                    <div class="row">
-                        <div class="col-md-1">';
-                $code .= '      <i class="fa  fa-heart" title="' . _("Wedding Date") . '"></i>
-                        </div>
-                        <div class="col-md-6">';
-
-                $code .= '<input type="text" class="date-picker" Name="WeddingDate"
-                                   value="' . OutputUtils::change_date_for_place_holder($dWeddingDate) . '" maxlength="12"
-                                   id="WeddingDate" size="30"
-                                   placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '">';
-
-
-                $code .= '
-                        </div>
-                   </div>
-
-                    <br/>
-
-                    <div class="row">
-                       <div class="col-md-3">
-                            <label>' . _('Send Newsletter') . ':</label>
-                       </div>
-                       <div class="col-md-3">
-                                <input type="checkbox" Name="SendNewsLetter" id="SendNewsLetter"
-                                       value="'. (($bSendNewsLetter == "TRUE" or $bSendNewsLetter == 1)?"TRUE":"FALSE").'" ' . (($bSendNewsLetter == "TRUE") ? ' checked' : '') . '>
-                        </div>
-                    </div>';
+                $code = ConfirmReportService::getFamilyFullTextFields($family);
 
                 return $response->withJson(["Status" => "success", "html" => $code]);
             }
@@ -615,28 +311,70 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
     $group->post('/modifyPersonInfo/', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
-        if ( isset ($input->personId) and isset($input->FirstName) and isset($input->MiddleName)
-            and isset($input->LastName) and isset($input->FamilyRole) and isset($input->homePhone)
-            and isset($input->workPhone) and isset($input->cellPhone) and isset($input->email)
-            and isset($input->workemail) and isset($input->BirthDayDate)) {
+        if ( isset ($input->personId) and isset($input->FirstName)
+            and isset($input->LastName) and isset($input->homePhone)
+            and isset($input->email) and isset($input->type)
+            and isset($input->BirthDayDate)) {
 
             $person = PersonQuery::create()->findOneById($input->personId);
 
-            if ( !is_null($person) ) {
+            if ( !is_null($person) ) {                
                 $photo = base64_encode($person->getPhoto()->getThumbnailBytes());
 
+                if (isset($input->Title)) {
+                    $person->setTitle($input->Title);
+                }
+
                 $person->setFirstName($input->FirstName);
-                $person->setMiddleName($input->MiddleName);
+
+                if (isset($input->MiddleName)) {
+                    $person->setMiddleName($input->MiddleName);
+                }
                 $person->setLastName($input->LastName);
 
-                $person->setFmrId($input->FamilyRole);
-
+                if (isset($input->FamilyRole)) {
+                    $person->setFmrId($input->FamilyRole);
+                }
+                
                 $person->setHomePhone($input->homePhone);
-                $person->setWorkPhone($input->workPhone);
-                $person->setCellPhone($input->cellPhone);
+                
+                if (isset($input->workPhone)) {
+                    $person->setWorkPhone($input->workPhone);
+                }
+
+                if (isset($input->cellPhone)) {
+                    $person->setCellPhone($input->cellPhone);
+                }
 
                 $person->setEmail($input->email);
-                $person->setWorkEmail($input->workemail);
+                
+                if (isset($input->workemail)) {
+                    $person->setWorkEmail($input->workemail);
+                }
+
+                if (isset($input->Address1)) {
+                    $person->getFamily()->setAddress1($input->Address1);
+                }
+
+                if (isset($input->Address2)) {
+                    $person->getFamily()->setAddress2($input->Address2);
+                }
+
+                if (isset($input->Zip)) {
+                    $person->getFamily()->setZip($input->Zip);
+                }
+
+                if (isset($input->Country)) {
+                    $person->getFamily()->setCountry($input->Country);
+                }
+
+                if ($input->SendNewsLetter) {
+                    $bSendNewsLetterString = "TRUE";
+                } else {
+                    $bSendNewsLetterString = "FALSE";
+                }
+
+                $person->setSendNewsletter($bSendNewsLetterString);
 
                 $sBirthDayDate = new DateTime($input->BirthDayDate);
 
@@ -648,96 +386,65 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 $person->setBirthMonth($iBirthMonth);
                 $person->setBirthYear($iBirthYear);
 
+                if ($person->getFmrId() == 1 or $person->getFmrId() == 2) {
+                    $person->getFamily()->setWeddingdate($input->WeddingDate);
+                }
+                
+                $person->setConfirmReport('Done');
+                
                 $person->save();
 
-                $res = '<div class="card card-primary">
-                            <div class="card-body box-profile">
-                                <div class="text-center">
-                                    <img class="profile-user-img img-responsive img-circle initials-image"
-                                     src="data:image/png;base64,' . $photo . '">
-                                </div>
+                if (isset($input->personFields)) {
+                    // only the right custom fields
+                    $ormCustomFields = PersonCustomMasterQuery::Create()
+                        ->orderByCustomOrder()                
+                        ->find();
 
-                                <h3 class="profile-username text-center">' . $person->getFullName() . '</h3>
+                    $aCustomData = [];
+                    $bErrorFlag = false;
 
-                                <p class="text-muted text-center"><i
-                                        class="fa  fa-' . ($person->isMale() ? "male" : "female") .'"></i> '. $person->getFamilyRoleName() .'
-                                </p>
+                    foreach ($ormCustomFields as $rowCustomField) {
+                        $currentFieldData = InputUtils::LegacyFilterInput($input->personFields[$rowCustomField->getCustomField()]);
+            
+                        $bErrorFlag |= !InputUtils::validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
+            
+                        // assign processed value locally to $aPersonProps so we can use it to generate the form later
+                        $aCustomData[$rowCustomField->getCustomField()] = $currentFieldData;                    
+                    }
+                
 
-                                <ul class="list-group list-group-unbordered">
-                                    <li class="list-group-item">';
+                    $sSQL = '';
 
+                    $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), (!is_null($person->getFamily()))?$person->getFamily()->getCountry():null, false);
 
-                     if (!empty($person->getHomePhone())) {
-                         $res .= '<i class="fa  fa-phone"
-                                               title="'. _("Home Phone") .'"></i>(H) '. $person->getHomePhone() .'
-                                            <br/>';
-                     }
-                     if (!empty($person->getWorkPhone())) {
-                        $res .= '<i class="fa  fa-briefcase"
-                                               title="' . _("Work Phone") . '"></i>(W) '. $person->getWorkPhone() .'
-                                            <br/>';
-                     }
-                     if (!empty($person->getCellPhone())) {
-                         $res .= '<i class="fa  fa-mobile"
-                                               title="'. _("Mobile Phone") .'"></i>(M) '.  $person->getCellPhone() .'
-                                            <br/>';
-                     }
+                    foreach ($ormCustomFields as $rowCustomField) {
+                        $currentFieldData = trim($aCustomData[$rowCustomField->getCustomField()]);
+                        MiscUtils::sqlCustomField($sSQL, $rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $sPhoneCountry);
+                        
+                    }
+        
+                    // chop off the last 2 characters (comma and space) added in the last while loop iteration.
+                    if ($sSQL > '') {
+                        $sSQL = 'REPLACE INTO person_custom SET ' . $sSQL . ' per_ID = ' . $person->getId();
+                        //Execute the SQL
+        
+                        $connection = Propel::getConnection();
+        
+                        $statement = $connection->prepare($sSQL);
+                        $statement->execute();
+                    }     
+                }   
 
-                     if (!empty($person->getEmail())) {
-                         $res .=  '<i class="fa  fa-envelope"
-                                               title="'. _("Email") . '"></i>(H) ' .  $person->getEmail() . '<br/>';
-                     }
-                     if (!empty($person->getWorkEmail())) {
-                         $res .= '<i class="fa  fa-envelope-o"
-                                               title="' . _("Work Email") .'"></i>(W) '. $person->getWorkEmail() . '
-                                            <br/>';
-                     }
-
-                     $res .= '<i class="fa  fa-birthday-cake" title="' . _("Birthday") .'"></i>';
-
-                     $birthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', 0);
-                     $res .= $birthDate;
-                     $res .= '<br/>
-                                    </li>
-                                    <li class="list-group-item">';
-
-                     $classification = "";
-                     $cls = ListOptionQuery::create()->filterById(1)->filterByOptionId($person->getClsId())->findOne();
-                     if (!empty($cls)) {
-                        $classification = $cls->getOptionName();
-                     }
-                     $res .= '<b>Classification:</b> '. $classification .'
-                                    </li>';
-                     if (count($person->getPerson2group2roleP2g2rs()) > 0) {
-                         $res .= '<li class="list-group-item">
-                                            <h4>' . _("Groups") . '</h4>';
-
-                     foreach ($person->getPerson2group2roleP2g2rs() as $groupMembership) {
-                         if ($groupMembership->getGroup() != null) {
-                            $listOption = ListOptionQuery::create()->filterById($groupMembership->getGroup()->getRoleListId())->filterByOptionId($groupMembership->getRoleId())->findOne()->getOptionName();
-
-                            $res .= '<b>'. $groupMembership->getGroup()->getName() . '</b>: <span
-                                                        class="pull-right">'. _($listOption) .'</span><br/>';
-
-                         }
-                     }
-
-                     $res.= '                  </li>';
-                     }
-                     $res.= '          </ul>
-                                <br/>
-                                <div class="text-center">
-                                    <button class="btn btn-danger btn-sm deletePerson" data-id="'. $person->getId() .'" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> '. _("Delete") .'</button>
-                                    <button class="btn btn-sm modifyPerson" data-id="' . $person->getId() . '" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> '. _("Modify") .'</button>
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
-                        </div>';
-
-
+                if ($input->type == 'person') {
+                    $res = ConfirmReportService::getPersonStandardInfos($person, $photo);
+                    $resCustom = ConfirmReportService::getPersonCustomFields($person);
+                } else if ($input->type == 'family') {
+                    $res = ConfirmReportService::getPersonForFamilyStandardInfos($person, $photo);                    
+                    $resCustom = "";//ConfirmReportService::getFamilyCustomFields($family);
+                }
             }
 
-            return $response->withJson(["Status" => "success", 'content' => $res]);
+            return $response->withJson(["Status" => "success", 'content' => $res, 'contentCustom' => $resCustom]);
         }
 
         return $response->withJson(["Status" => "failed"]);
@@ -774,30 +481,11 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
                 $family->setSendNewsletter(($input->SendNewsLetter)?"TRUE":"FALSE");
 
+                $family->setConfirmReport('Done');
+
                 $family->save();
 
-                $res = '<i class="fa  fa-map-marker" title="'. _("Home Address") .'"></i>'. str_replace("<br>", '<br><i class="fa  fa-map-marker" title="'. _("Home Address") .'"></i>', $family->getAddress()) .'<br/>';
-                if (!empty($family->getHomePhone())) {
-                    $res .= '<i class="fa  fa-phone" title="'. _("Home Phone") .'"> </i>(H) '. $family->getHomePhone() .'<br/>';
-                }
-                if (!empty($family->getEmail())) {
-                    $res.= '<i class="fa  fa-envelope" title="'. _("Family Email") .'"></i>'. $family->getEmail() .'<br/>';
-
-                }
-                if ($family->getWeddingDate() !== null) {
-                    $res .= '<i class="fa  fa-heart"
-                        title="'. _("Wedding Date") .'"></i>'. $family->getWeddingDate()->format(SystemConfig::getValue("sDateFormatLong")) .'
-                            <br/>';
-                }
-
-                $res .= '<i class="fas fa-newspaper"
-                    title="'. _("Send Newsletter") .'"></i>'. $family->getSendNewsletter() .'<br/>
-
-                    <div class="text-left">
-                        <button class="btn btn-danger btn-sm deleteFamily" data-id="'. $family->getId() .'" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> '. _("Delete") .'</button>
-                        <button class="btn btn-sm modifyFamily" data-id="'. $family->getId() .'" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> '. _("Modify") .'</button>
-                        <button class="btn btn-success btn-sm exitSession" style="height: 30px;padding-top: 5px;background-color: green"><i class="fas fa-sign-out-alt"></i> '. _("Exit") .'</button>
-                    </div>';
+                $res = ConfirmReportService::getFamilyStandardInfos($family);
 
                 return $response->withJson(["Status" => "success", 'content' => $res]);
             }
@@ -814,6 +502,9 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             if ($token != null && $token->isVerifyFamilyToken() && $token->isValid()) {
                 $family = FamilyQuery::create()->findPk($token->getReferenceId());
                 if ($family != null) {
+                    $family->setConfirmReport('Done');
+                    $family->save();
+
                     $note = new Note();
                     $note->setFamily($family);
                     $note->setType("verify");
@@ -835,7 +526,34 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
                     return $response->withJson(["Status" => "success", 'familyEmailSent' => $familyEmailSent]);
                 }
-            }
+            } else if ($token != null && $token->isVerifyPersonToken() && $token->isValid()) {
+                $person = PersonQuery::create()->findPk($token->getReferenceId());
+                if ($person != null) {
+                    $person->setConfirmReport('Done');
+                    $person->save();
+
+                    $note = new Note();
+                    $note->setPerson($person);
+                    $note->setType("verify");
+                    $note->setEntered(Person::SELF_VERIFY);
+                    $message = gettext("No Changes");
+                    if (!empty($input->message)) {
+                        $message = $input->message;
+                    }
+                    $note->setText($message);
+                    $note->save();
+
+                    $mail = new PersonVerificationValidation([SystemConfig::getValue("sChurchEmail")], $person->getFullName(), $token->getToken(), $message, $person->getId());
+
+                    if (($personEmailSent = $mail->send())) {
+                        $this->personEmailSent = $this->personEmailSent + 1;
+                    } else {
+                        LoggerUtils::getAppLogger()->error($mail->getError());
+                    }
+
+                    return $response->withJson(["Status" => "success", 'familyEmailSent' => $personEmailSent]);
+                }
+            }        
         }
 
         return $response->withJson(["Status" => "failed"]);
