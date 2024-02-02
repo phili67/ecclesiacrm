@@ -98,7 +98,7 @@ abstract class BaseEmail
             "churchAddress" => ChurchMetaData::getChurchFullAddress(),
             "churchPhone" => ChurchMetaData::getChurchPhone(),
             "churchEmail" => ChurchMetaData::getChurchEmail(),
-            "churchCRMURL" => SystemURLs::getURL(),
+            "ecclesiaCRMURL" => SystemURLs::getURL(),
             "dear" => SystemConfig::getValue('sDear'),
             "confirmSincerely" => SystemConfig::getValue('sConfirmSincerely'),
             "confirmSigner" => SystemConfig::getValue('sConfirmSigner'),

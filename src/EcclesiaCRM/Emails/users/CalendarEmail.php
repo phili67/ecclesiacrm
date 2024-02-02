@@ -42,7 +42,7 @@ class CalendarEmail extends BaseUserEmail
             "churchAddress" => ChurchMetaData::getChurchFullAddress(),
             "churchPhone" => ChurchMetaData::getChurchPhone(),
             "churchEmail" => ChurchMetaData::getChurchEmail(),
-            "churchCRMURL" => SystemURLs::getURL(),
+            "ecclesiaCRMURL" => SystemURLs::getURL(),
             "dear" => SystemConfig::getValue('sDear'),
             "confirmSincerely" => SystemConfig::getValue('sConfirmSincerely'),
             "confirmSigner" => SessionUser::getUser()->getPerson()->getFullName(),
