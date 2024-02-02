@@ -2,10 +2,10 @@
 
 //
 //  This code is under copyright not under MIT Licence
-//  copyright   : 2022 Philippe Logel all right reserved not MIT licence
+//  copyright   : 2024 Philippe Logel all right reserved not MIT licence
 //                This code can't be included in another software
 //
-//  Updated : 2022/01/06
+//  Updated : 2024/01/06
 //
 
 namespace EcclesiaCRM\VIEWControllers;
@@ -993,7 +993,9 @@ class VIEWPeopleController {
             'sPageTitle'                => $sPageTitle,
             'sPageTitleSpan'            => $sPageTitleSpan,
             'mode'                      => $mode,
-            'timelineNotesServiceItems' => $timelineNotesServiceItems
+            'timelineNotesServiceItems' => $timelineNotesServiceItems,
+            'ormFamCustomFields'        => $ormFamCustomFields,
+            'aFamCustomDataArr'         => $aFamCustomDataArr
         ];
     }
 
@@ -1229,7 +1231,7 @@ class VIEWPeopleController {
     public function argumentsPeopleLettersAndLabelsArray () {
         $sRootDocument   = SystemURLs::getDocumentRoot();
 
-        $sPageTitle = _("Letters and Mailing Labels");
+        $sPageTitle = _("Letters and mailing labels for data confirmations");
 
         return [
             'sRootPath'                 => SystemURLs::getRootPath(),
