@@ -218,3 +218,8 @@ ALTER TABLE `family_custom_master` ADD `fam_custom_confirmation_datas` BOOLEAN N
 
 ALTER TABLE `person_per` ADD `per_confirm_report` enum('No', 'Pending','Done') default 'No' COMMENT 'To confirm report of all users';
 ALTER TABLE `family_fam` ADD `fam_confirm_report` enum('No', 'Pending','Done') default 'No' COMMENT 'To confirm report of all families';
+
+INSERT INTO `query_qry` (`qry_ID`, `qry_SQL`, `qry_Name`, `qry_Description`, `qry_Count`, `qry_Type_ID`) VALUES
+  (35, "SELECT a.per_ID as AddToCart, per_Email as Email, CONCAT('<a href=v2/people/person/view/',a.per_ID,'>',a.per_FirstName,' ',a.per_LastName,'</a>') AS Name, a.per_DateDeactivated as 'GDPR' FROM `person_per` AS a WHERE per_confirm_report='pending';", 'Pending Person', 'Find person who are in pending confirmation process', 1, 1),
+  (36, "SELECT a.per_ID as AddToCart, per_Email as Email, CONCAT('<a href=v2/people/person/view/',a.per_ID,'>',a.per_FirstName,' ',a.per_LastName,'</a>') AS Name, a.per_DateDeactivated as 'GDPR' FROM person_per AS a WHERE `per_fam_ID` IN (SELECT F.fam_ID  FROM `family_fam` AS F WHERE F.fam_confirm_report='pending');", 'Pending Family', 'Find families who are in pending confirmation process', 1, 1);
+  
