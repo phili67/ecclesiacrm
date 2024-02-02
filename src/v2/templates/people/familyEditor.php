@@ -1008,7 +1008,7 @@ require $sRootDocument . '/Include/Header.php';
                                     $custom_Special = $customField['CustomSpecial'];
                                 }
 
-                                OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
+                                echo OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
                                 if (isset($aCustomErrors[$customField['TypeId']])) {
                                     echo '<span style="color: red; ">' . $aCustomErrors[$customField['TypeId']] . '</span>';
                                 }
@@ -1035,7 +1035,7 @@ require $sRootDocument . '/Include/Header.php';
                                     $custom_Special = $customField['CustomSpecial'];
                                 }
 
-                                OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
+                                echo OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
                                 if (isset($aCustomErrors[$customField['TypeId']])) {
                                     echo '<span style="color: red; ">' . $aCustomErrors[$customField['TypeId']] . '</span>';
                                 }
