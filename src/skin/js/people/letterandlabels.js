@@ -1,5 +1,6 @@
 $(function() {
-    var type = 'person';
+    var type = 'family';
+    var users = '';
 
     $("#classList").select2();
 
@@ -12,18 +13,18 @@ $(function() {
 
 
     // select2 part
-    $(".person-group-Id-Share").select2({
+    $(".person-family-search").select2({
         language: window.CRM.shortLocale,
         minimumInputLength: 1,
         placeholder: " -- " + i18next.t("A person name or Family") + " -- ",
         allowClear: true, // This is for clear get the clear button if wanted
         ajax: {
             url: function (params) {
-                return window.CRM.root + "/api/people/search/" + params.term;
+                return window.CRM.root + "/api/people/search/" + params.term + '/' + type;
             },
             dataType: 'json',
             delay: 50,
-            data: "",
+            data: JSON.stringify({"type": type}),
             processResults: function (data, params) {
                 return {results: data};
             },
@@ -32,21 +33,47 @@ $(function() {
     });
 
 
-    $(".person-group-Id-Share").on("select2:select", function (e) {
+    $(".person-family-search").on("select2:select", function (e) {
         if (e.params.data.personID !== undefined) {            
             if (type == 'person') {
                 var val = $('input#personsId').val();
-                val = val + ',' + e.params.data.personID;
+                
+                if (users == '') {
+                    val = e.params.data.personID;
+                    users = e.params.data.text;
+                } else {
+                    users = users + ',' + e.params.data.text;
+                    val = val + ',' + e.params.data.personID;
+                }
+                $("#users").html(users);
                 $('input#personsId').val(val);
             }
             
         } else if (e.params.data.familyID !== undefined) {
             if (type == 'family') {
-                var val = $('input#familiesId').val();
-                val = val + ',' + e.params.data.familyID;
+                var val = $('input#familiesId').val();                
+                if (users == '') {
+                    users = e.params.data.name;
+                    val = e.params.data.familyID;
+                } else {
+                    users = users + ',' + e.params.data.name;
+                    val = val + ',' + e.params.data.familyID;
+                }
+                $("#users").html(users);
                 $('input#familiesId').val(val);
             }
         }
+    });
+
+    $("#letterandlabelsnamingmethod").on ('change', function() {
+        alert ($(this).val());
+        $("#users").html(i18next.t("None"));
+        users = '';
+    });
+
+    $("#remove-users").on ('click', function() {
+        $("#users").html(i18next.t("None"));
+        users = '';
     });
 
     var which;
@@ -60,7 +87,7 @@ $(function() {
         var currentForm = this;
         e.preventDefault();
         
-        if (name == 'SubmitConfirmReportEmail') {
+        if (name == 'SubmitConfirmReportEmail' && users == '') {
             bootbox.confirm({
                     title: i18next.t("Warning !!!!"),
                     size: "large",
@@ -72,7 +99,25 @@ $(function() {
                         }
                     }
             }).find('.modal-content').css({
-                'background-color': '#f00', 
+                'background-color': '#f55', 
+                'font-weight' : 'bold', 
+                'color': '#000', 
+                'font-size': '1em', 
+                'font-weight' : 'bold'
+            });
+        } else if (name == 'SubmitConfirmReportEmail' && users != '') {
+            bootbox.confirm({
+                    title: i18next.t("Warning !!!!"),
+                    size: "large",
+                    message:i18next.t("You're about to send a e-mail to") + " " +  users + " "  + i18next.t("members")+ ".",
+                    animate:true,
+                    callback: function(result) {
+                        if (result) {
+                            currentForm.submit();
+                        }
+                    }
+            }).find('.modal-content').css({
+                'background-color': '#f55', 
                 'font-weight' : 'bold', 
                 'color': '#000', 
                 'font-size': '1em', 

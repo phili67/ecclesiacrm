@@ -26,6 +26,7 @@ $app->group('/people', function (RouteCollectorProxy $group) {
      * #! param: ref->string :: query string ref
      */
   $group->get('/search/{query}', PeopleController::class . ':searchpeople' );
+  $group->get('/search/{query}/{type}', PeopleController::class . ':searchpeople' );
 
     /*
      * @! Returns all classifications

@@ -74,7 +74,7 @@ class PeopleController
                     $resultsArray = array($dataPerson);
                 }
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $logger->warn($e->getMessage());
         }
 
@@ -89,113 +89,123 @@ class PeopleController
 
         $id = 1;
 
+        $input = (object)$request->getParsedBody();
+
         $logger = $this->container->get('Logger');
 
-        //Person Search
-        try {
-            $searchLikeString = '%' . $query . '%';
-            $people = PersonQuery::create()->
-            filterByFirstName($searchLikeString, Criteria::LIKE)->
-            _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
-            limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
+        if (!isset($args['type']) or isset($args['type']) and $args['type'] == 'person') {
+
+            //Person Search
+            try {
+                $searchLikeString = '%' . $query . '%';
+                $people = PersonQuery::create()->
+                filterByFirstName($searchLikeString, Criteria::LIKE)->
+                _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
+                limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
 
 
-            if (!empty($people)) {
-                $data = [];
-                $id++;
+                if (!empty($people)) {
+                    $data = [];
+                    $id++;
 
-                foreach ($people as $person) {
-                    if ($person->getDateDeactivated() != null)
-                        continue;
+                    foreach ($people as $person) {
+                        if ($person->getDateDeactivated() != null)
+                            continue;
 
-                    $elt = ['id' => $id++,
-                        'text' => $person->getFullName(),
-                        'personID' => $person->getId()];
+                        $elt = ['id' => $id++,
+                            'text' => $person->getFullName(),
+                            'personID' => $person->getId()];
 
-                    array_push($data, $elt);
+                        array_push($data, $elt);
+                    }
+
+                    if (!empty($data)) {
+                        $dataPerson = ['children' => $data,
+                            'id' => 0,
+                            'text' => _('Persons')];
+
+                        $resultsArray = array($dataPerson);
+                    }
                 }
-
-                if (!empty($data)) {
-                    $dataPerson = ['children' => $data,
-                        'id' => 0,
-                        'text' => _('Persons')];
-
-                    $resultsArray = array($dataPerson);
-                }
+            } catch (\Exception $e) {
+                $logger->warn($e->getMessage());
             }
-        } catch (Exception $e) {
-            $logger->warn($e->getMessage());
         }
 
-        // Family search
-        try {
-            $families = FamilyQuery::create()
-                ->filterByName("%$query%", Criteria::LIKE)
-                ->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))
-                ->find();
+        if (!isset($args['type']) or isset($args['type']) and $args['type'] == 'family') {
+            // Family search
+            try {
+                $families = FamilyQuery::create()
+                    ->filterByName("%$query%", Criteria::LIKE)
+                    ->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))
+                    ->find();
 
-            if (!empty($families)) {
-                $data = [];
-                $id++;
+                if (!empty($families)) {
+                    $data = [];
+                    $id++;
 
-                foreach ($families as $family) {
-                    if ($family->getDateDeactivated() != null)
-                        continue;
+                    foreach ($families as $family) {
+                        if ($family->getDateDeactivated() != null)
+                            continue;
 
-                    $searchArray = [
-                        "id" => $id++,
-                        "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
-                        'familyID' => $family->getId()
-                    ];
+                        $searchArray = [
+                            "id" => $id++,
+                            "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                            "name" => $family->getName(),
+                            'familyID' => $family->getId()
+                        ];
 
-                    array_push($data, $searchArray);
+                        array_push($data, $searchArray);
+                    }
+
+                    if (!empty($data)) {
+                        $dataFamilies = ['children' => $data,
+                            'id' => 1,
+                            'text' => _('Families')];
+
+                        array_push($resultsArray, $dataFamilies);
+                    }
                 }
-
-                if (!empty($data)) {
-                    $dataFamilies = ['children' => $data,
-                        'id' => 1,
-                        'text' => _('Families')];
-
-                    array_push($resultsArray, $dataFamilies);
-                }
+            } catch (\Exception $e) {
+                $logger->warn($e->getMessage());
             }
-        } catch (Exception $e) {
-            $logger->warn($e->getMessage());
         }
 
-        // Group Search
-        try {
-            $groups = GroupQuery::create()
-                ->filterByName("%$query%", Criteria::LIKE)
-                ->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"))
-                ->withColumn('grp_Name', 'displayName')
-                ->withColumn('grp_ID', 'id')
-                ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
-                ->select(['displayName', 'uri', 'id'])
-                ->find();
+        if (!isset($args['type'])) {
+            // Group Search
+            try {
+                $groups = GroupQuery::create()
+                    ->filterByName("%$query%", Criteria::LIKE)
+                    ->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"))
+                    ->withColumn('grp_Name', 'displayName')
+                    ->withColumn('grp_ID', 'id')
+                    ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
+                    ->select(['displayName', 'uri', 'id'])
+                    ->find();
 
-            if (!empty($groups)) {
-                $data = [];
-                $id++;
+                if (!empty($groups)) {
+                    $data = [];
+                    $id++;
 
-                foreach ($groups as $group) {
-                    $elt = ['id' => $id++,
-                        'text' => $group['displayName'],
-                        'groupID' => $group['id']];
+                    foreach ($groups as $group) {
+                        $elt = ['id' => $id++,
+                            'text' => $group['displayName'],
+                            'groupID' => $group['id']];
 
-                    array_push($data, $elt);
+                        array_push($data, $elt);
+                    }
+
+                    if (!empty($data)) {
+                        $dataGroup = ['children' => $data,
+                            'id' => 2,
+                            'text' => _('Groups')];
+
+                        array_push($resultsArray, $dataGroup);
+                    }
                 }
-
-                if (!empty($data)) {
-                    $dataGroup = ['children' => $data,
-                        'id' => 2,
-                        'text' => _('Groups')];
-
-                    array_push($resultsArray, $dataGroup);
-                }
+            } catch (\Exception $e) {
+                $logger->warn($e->getMessage());
             }
-        } catch (Exception $e) {
-            $logger->warn($e->getMessage());
         }
 
         return $response->withJson(array_filter($resultsArray));

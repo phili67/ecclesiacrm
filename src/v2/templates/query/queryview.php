@@ -123,7 +123,15 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
    //Run the SQL
     $rsQueryResults = MiscUtils::RunQuery($qry_SQL); ?>
     <div class="card card-primary">
-
+        <br>
+        <div id="cart-buttons" style="display: none;margin-left:12px">
+            <button type="button" id="addResultsToCart"
+                    class="btn btn-success btn-sm"> <i class="fas fa-cart-plus"></i> <?= _('Add To Cart') ?></button>
+            <button type="button" id="intersectResultsToCart"
+                    class="btn btn-warning btn-sm"> <i class="fas fa-cart-shopping"></i><i class="fa-solid fa-cart-flatbed"></i> <?= _('Intersect With Cart') ?></button>
+            <button type="button" id="removeResultsFromCart"
+                    class="btn btn-danger btn-sm"> <i class="fas fa-times"></i> <?= _('Remove From Cart') ?></button>                
+        </div>    
         <div class="card-body">
             <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="query-table"
                    style="width:100%">
@@ -212,21 +220,9 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
             </p>
         </div>
 
-        <div class="card-footer">
-            <p>
-                <?php if (count($aAddToCartIDs)) { ?>
-            <div class="col-sm-offset-1">
-                <button type="button" id="addResultsToCart"
-                        class="btn btn-success btn-sm"> <?= _('Add To Cart') ?></button>
-                <button type="button" id="intersectResultsToCart"
-                        class="btn btn-warning btn-sm"><?= _('Intersect With Cart') ?></button>
-                <button type="button" id="removeResultsFromCart"
-                        class="btn btn-danger btn-sm"> <?= _('Remove From Cart') ?></button>
-            </div>
-            </p>
-            <?php } ?>
-            <p class="text-right">
-                <?= '<a href="' . $sRootPath . '/v2/query/view/' . $iQueryID . '">' . _('Run Query Again') . '</a>'; ?>
+        <div class="card-footer">                    
+            <div class="text-right">
+                <?= '<a class="btn btn-default " href="' . $sRootPath . '/v2/query/view/' . $iQueryID . '"><i class="fa-solid fa-database"></i> ' . _('Run Query Again') . '</a>'; ?>
             </p>
         </div>
 
@@ -242,6 +238,10 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
     </div>
 
     <script nonce="<?= $CSPNonce ?>">
+        var aAddToCartIDs = <?= json_encode($aAddToCartIDs) ?>;
+        if (aAddToCartIDs.length > 0) {
+            $("#cart-buttons").show();
+        }
         $("#addResultsToCart").on('click', function () {
             var selectedPersons = <?= json_encode($aAddToCartIDs, JSON_NUMERIC_CHECK) ?>;
             window.CRM.cart.addPerson(selectedPersons, function (data) {
