@@ -41,11 +41,11 @@ if (isset($_POST['letterandlabelsnamingmethod'])) {
     $exportType = $_POST['letterandlabelsnamingmethod'];
 }
 
-if (isset($_POST['fams'])) {
+if (isset($_GET['fams'])) {
     $fams = explode(",", $_GET['fams']);
 }
 
-if (isset($_POST['persons'])) {
+if (isset($_GET['persons'])) {
     $persons = explode(",", $_GET['persons']);
 }
 
@@ -92,7 +92,6 @@ if ( $ormPersonCustomFields->count() > 0) {
 // for testing
 $fams = $_POST['familiesId'];
 if (strlen($fams) > 0) {
-    $fams = substr($fams, 1);
     $fams = explode(",",$_POST['familiesId']);
 } else {
     $fams = Null;
@@ -102,7 +101,6 @@ if (strlen($fams) > 0) {
 
 $persons = $_POST['personsId'];
 if (strlen($persons) > 0) {
-    $persons = substr($persons, 1);
     $persons = explode(",",$persons);
 } else {
     $persons = Null;
