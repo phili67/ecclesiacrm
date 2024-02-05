@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 15:44+0000\n"
+"POT-Creation-Date: 2024-02-05 19:42+0000\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -667,6 +667,7 @@ msgstr "Video"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
+#: v2/templates/people/lettersandlabels.php:173
 #: v2/templates/people/personPrint.php:266
 #: v2/templates/people/personPrint.php:327
 #: v2/templates/people/personPrint.php:382
@@ -906,18 +907,18 @@ msgstr "Alle Familien"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
-#: EcclesiaCRM/APIControllers/PeopleController.php:121
+#: EcclesiaCRM/APIControllers/PeopleController.php:125
 #: EcclesiaCRM/MenuBar/MenuBar.php:177
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
-#: v2/templates/people/lettersandlabels.php:153
+#: v2/templates/people/lettersandlabels.php:154
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
 msgstr "Personen"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:163
-#: EcclesiaCRM/APIControllers/PeopleController.php:157
+#: EcclesiaCRM/APIControllers/PeopleController.php:164
 #: EcclesiaCRM/APIControllers/SearchController.php:63
 #: EcclesiaCRM/APIControllers/SearchController.php:66
 #: EcclesiaCRM/MenuBar/MenuBar.php:152 EcclesiaCRM/MenuBar/MenuBar.php:184
@@ -936,7 +937,7 @@ msgid "Families"
 msgstr "Familien"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:201
-#: EcclesiaCRM/APIControllers/PeopleController.php:192
+#: EcclesiaCRM/APIControllers/PeopleController.php:201
 #: EcclesiaCRM/APIControllers/SearchController.php:89
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:206 EcclesiaCRM/Search/GroupSearchRes.php:21
@@ -1136,7 +1137,7 @@ msgstr "Singles"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:73
 #: EcclesiaCRM/APIControllers/SearchController.php:76
-#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:63
+#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:67
 msgid "Volunteers"
 msgstr "Freiwillige"
 
@@ -1241,7 +1242,7 @@ msgid "Person Classification"
 msgstr "Klassifizierung der Person"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:127
-#: v2/templates/people/lettersandlabels.php:132
+#: v2/templates/people/lettersandlabels.php:133
 #: v2/templates/system/optionManager.php:100
 msgid "Person Classifications"
 msgstr "Personenklassifikationen"
@@ -3748,7 +3749,7 @@ msgstr "Kirchengucker"
 #: external/templates/registration/family-register.php:36
 #: Reports/ConfirmReport.php:201 v2/templates/cart/cartToFamily.php:297
 #: v2/templates/people/familyEditor.php:709
-#: v2/templates/people/lettersandlabels.php:109
+#: v2/templates/people/lettersandlabels.php:112
 #: v2/templates/people/personEditor.php:1009
 #: v2/templates/people/selectDelete.php:196
 #: v2/templates/people/selectDelete.php:334
@@ -4576,7 +4577,7 @@ msgstr "Studenten"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:19
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: v2/templates/people/lettersandlabels.php:152
+#: v2/templates/people/lettersandlabels.php:153
 msgid "Addresses"
 msgstr "Adressen"
 
@@ -5038,8 +5039,8 @@ msgstr "Selbstüberprüfung"
 
 #: EcclesiaCRM/Service/TimelineService.php:264
 #: EcclesiaCRM/Service/TimelineService.php:267
-#: v2/templates/people/lettersandlabels.php:149
-#: v2/templates/people/lettersandlabels.php:171
+#: v2/templates/people/lettersandlabels.php:150
+#: v2/templates/people/lettersandlabels.php:182
 #: v2/templates/people/personPrint.php:630
 #: v2/templates/people/personPrint.php:687
 #: v2/templates/people/personPrint.php:736
@@ -5462,7 +5463,7 @@ msgid "People Dashboard"
 msgstr "Menschen Dashboard"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:57
+#: query_qry.php:8 query_qry.php:61
 msgid "Advanced Search"
 msgstr "Erweiterte Suche"
 
@@ -6248,7 +6249,7 @@ msgstr ""
 #: v2/templates/people/directoryreport.php:326
 #: v2/templates/people/familyEditor.php:1285
 #: v2/templates/people/familyview.php:892
-#: v2/templates/people/lettersandlabels.php:207
+#: v2/templates/people/lettersandlabels.php:218
 #: v2/templates/people/personEditor.php:1738
 #: v2/templates/people/personview.php:1617
 #: v2/templates/people/reminderreport.php:42
@@ -6603,27 +6604,27 @@ msgstr "Dieser Wert darf nicht kleiner sein als"
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
 #: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:115
-#: v2/templates/query/queryview.php:211
+#: v2/templates/query/queryview.php:219
 msgid " record(s) returned"
 msgstr " zurückgegebene(r) Datensatz(e)"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
-#: v2/templates/query/queryview.php:220
+#: v2/templates/query/queryview.php:129
 msgid "Add To Cart"
 msgstr "Zum Warenkorb hinzufügen"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
-#: v2/templates/query/queryview.php:222
+#: v2/templates/query/queryview.php:131
 msgid "Intersect With Cart"
 msgstr "Mit dem Wagen kreuzen"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
-#: v2/templates/query/queryview.php:224
+#: v2/templates/query/queryview.php:133
 msgid "Remove From Cart"
 msgstr "Aus dem Warenkorb entfernen"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
-#: v2/templates/query/queryview.php:229
+#: v2/templates/query/queryview.php:225
 msgid "Run Query Again"
 msgstr "Abfrage erneut ausführen"
 
@@ -9695,7 +9696,7 @@ msgid "Remove from Cart"
 msgstr "Aus dem Warenkorb entfernen"
 
 #: v2/templates/group/groupview.php:86 v2/templates/people/familyview.php:235
-#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:141
+#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:149
 msgid "Add to Cart"
 msgstr "Zum Warenkorb hinzufügen"
 
@@ -10888,61 +10889,83 @@ msgstr "Mit Wagen kreuzen"
 msgid "Remove All from Cart"
 msgstr "Alle aus dem Warenkorb entfernen"
 
-#: v2/templates/people/lettersandlabels.php:92
+#: v2/templates/people/lettersandlabels.php:95
 msgid "People Reports"
 msgstr "Berichte über Menschen"
 
-#: v2/templates/people/lettersandlabels.php:97
+#: v2/templates/people/lettersandlabels.php:100
 msgid "Mail Label"
 msgstr "Mail-Etikett"
 
-#: v2/templates/people/lettersandlabels.php:105
+#: v2/templates/people/lettersandlabels.php:108
 msgid "Recipient Naming Method"
 msgstr "Methode der Empfängerbenennung"
 
-#: v2/templates/people/lettersandlabels.php:108
+#: v2/templates/people/lettersandlabels.php:111
 msgid "Salutation Utility"
 msgstr "Anrede Dienstprogramm"
 
-#: v2/templates/people/lettersandlabels.php:116
+#: v2/templates/people/lettersandlabels.php:118
 msgid "Person Custom Fields"
 msgstr "Benutzerdefinierte Felder für Personen"
 
-#: v2/templates/people/lettersandlabels.php:160
+#: v2/templates/people/lettersandlabels.php:161
 msgid "Test"
 msgstr "Test"
 
-#: v2/templates/people/lettersandlabels.php:174 queryparameters_qrp.php:2
+msgid "Selected Members"
+msgstr "Ausgewählte Mitglieder"
+
+#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:2
 msgid "Minimum Age"
 msgstr "Mindestalter"
 
-#: v2/templates/people/lettersandlabels.php:177 queryparameters_qrp.php:23
+#: v2/templates/people/lettersandlabels.php:188 queryparameters_qrp.php:23
 msgid "The minimum age for which you want records returned."
 msgstr "Das Mindestalter, für das Sie Datensätze zurückerhalten möchten."
 
-#: v2/templates/people/lettersandlabels.php:182 queryparameters_qrp.php:3
+#: v2/templates/people/lettersandlabels.php:193 queryparameters_qrp.php:3
 msgid "Maximum Age"
 msgstr "Höchstalter"
 
-#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:24
+#: v2/templates/people/lettersandlabels.php:196 queryparameters_qrp.php:24
 msgid "The maximum age for which you want records returned."
 msgstr "Das maximale Alter, für das Sie Datensätze zurückerhalten möchten."
 
-#: v2/templates/people/lettersandlabels.php:195
+#: v2/templates/people/lettersandlabels.php:206
 msgid "Newsletter labels"
 msgstr "Newsletter-Etiketten"
 
-#: v2/templates/people/lettersandlabels.php:198
+#: v2/templates/people/lettersandlabels.php:209
 msgid "Confirm data letter"
 msgstr "Bestätigen Sie den Datenbrief"
 
-#: v2/templates/people/lettersandlabels.php:201
+#: v2/templates/people/lettersandlabels.php:212
 msgid "Confirm data labels"
 msgstr "Bestätigen Sie die Datenetiketten"
 
-#: v2/templates/people/lettersandlabels.php:204
+#: v2/templates/people/lettersandlabels.php:215
 msgid "Confirm data Email"
 msgstr "Daten bestätigen E-Mail"
+
+msgid "Email Confirmation"
+msgstr "E-Mail-Bestätigung"
+
+msgid "Pending Persons"
+msgstr "Anhängige Personen"
+
+#: v2/templates/people/lettersandlabels.php:239
+#, fuzzy
+msgid "confirmed person"
+msgstr "Alleinstehende Personen"
+
+msgid "Pending Families"
+msgstr "Anhängige Familien"
+
+#: v2/templates/people/lettersandlabels.php:244
+#, fuzzy
+msgid "confirmed Families"
+msgstr "Familien"
 
 #: v2/templates/people/peopledashboard.php:27
 msgid "People Functions"
@@ -12866,7 +12889,7 @@ msgstr "Datum der Beendigung"
 msgid "Field"
 msgstr "Feld"
 
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:59
+#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:63
 msgid "Registered students"
 msgstr "Eingeschriebene Studenten"
 
@@ -13016,122 +13039,126 @@ msgstr "Wählen Sie das Feld Kundenperson"
 msgid "Match custom field to this value"
 msgstr "Benutzerdefiniertes Feld auf diesen Wert abstimmen"
 
-#: query_qry.php:2 query_qry.php:51
+#: query_qry.php:2 query_qry.php:55
 msgid "Family With Work Phone"
 msgstr "Familie mit Arbeitstelefon"
 
-#: query_qry.php:3 query_qry.php:52
+#: query_qry.php:3 query_qry.php:56
 msgid "Family Member Count"
 msgstr "Anzahl der Familienmitglieder"
 
-#: query_qry.php:4 query_qry.php:53
+#: query_qry.php:4 query_qry.php:57
 msgid "Person by Age"
 msgstr "Person nach Alter"
 
-#: query_qry.php:5 query_qry.php:54
+#: query_qry.php:5 query_qry.php:58
 msgid "Total By Gender"
 msgstr "Gesamt nach Geschlecht"
 
-#: query_qry.php:6 query_qry.php:55
+#: query_qry.php:6 query_qry.php:59
 msgid "Person by Role and Gender"
 msgstr "Person nach Rolle und Geschlecht"
 
-#: query_qry.php:7 query_qry.php:56
+#: query_qry.php:7 query_qry.php:60
 msgid "Person by Property"
 msgstr "Person nach Eigenschaft"
 
-#: query_qry.php:9 query_qry.php:58
+#: query_qry.php:9 query_qry.php:62
 msgid "Birthdays"
 msgstr "Geburtstage"
 
-#: query_qry.php:11 query_qry.php:60
+#: query_qry.php:11 query_qry.php:64
 msgid "Membership anniversaries"
 msgstr "Jubiläen der Mitgliedschaft"
 
-#: query_qry.php:12 query_qry.php:61
+#: query_qry.php:12 query_qry.php:65
 msgid "Select database users"
 msgstr "Datenbankbenutzer auswählen"
 
-#: query_qry.php:13 query_qry.php:62
+#: query_qry.php:13 query_qry.php:66
 msgid "Select all members"
 msgstr "Alle Mitglieder auswählen"
 
-#: query_qry.php:15 query_qry.php:64
+#: query_qry.php:15 query_qry.php:68
 msgid "Recent friends"
 msgstr "Neue Freunde"
 
-#: query_qry.php:16 query_qry.php:65
+#: query_qry.php:16 query_qry.php:69
 msgid "Families to Canvass"
 msgstr "Familien zur Wahlwerbung"
 
-#: query_qry.php:17 query_qry.php:66
+#: query_qry.php:17 query_qry.php:70
 msgid "Pledge comparison"
 msgstr "Pfandvergleich"
 
-#: query_qry.php:18 query_qry.php:67
+#: query_qry.php:18 query_qry.php:71
 msgid "Missing pledges"
 msgstr "Fehlende Zusagen"
 
-#: query_qry.php:19 query_qry.php:68
+#: query_qry.php:19 query_qry.php:72
 msgid "Credit Card People"
 msgstr "Menschen mit Kreditkarte"
 
-#: query_qry.php:20 query_qry.php:69
+#: query_qry.php:20 query_qry.php:73
 msgid "Family Pledge by Fiscal Year"
 msgstr "Familienverpflichtung nach Steuerjahr"
 
-#: query_qry.php:21 query_qry.php:70
+#: query_qry.php:21 query_qry.php:74
 msgid "Person not assigned to a group"
 msgstr "Person nicht einer Gruppe zugeordnet"
 
-#: query_qry.php:22 query_qry.php:71
+#: query_qry.php:22 query_qry.php:75
 msgid "Person assigned to a group"
 msgstr "Person, die einer Gruppe zugeordnet ist"
 
-#: query_qry.php:23 query_qry.php:72
-msgid "Pending Person"
-msgstr "Anhängige Person"
+msgid "Awaiting confirmation of persons"
+msgstr "Bestätigung der Personen steht noch aus"
 
-#: query_qry.php:24 query_qry.php:73
-msgid "Pending Family"
-msgstr "Schwebende Familie"
+msgid "Awaiting confirmation of families"
+msgstr "Warten auf die Bestätigung der Familien"
 
-#: query_qry.php:25 query_qry.php:74
+msgid "Done confirmation of persons"
+msgstr "Erledigte Bestätigung von Personen"
+
+msgid "Done confirmation of families"
+msgstr "Erledigte Bestätigung der Familien"
+
+#: query_qry.php:27 query_qry.php:80
 msgid "CustomSearch"
 msgstr "BenutzerdefinierteSuche"
 
-#: query_qry.php:26 query_qry.php:75
+#: query_qry.php:28 query_qry.php:81
 msgid "Returns each family with a work phone"
 msgstr "Ausstattung jeder Familie mit einem Arbeitstelefon"
 
-#: query_qry.php:27 query_qry.php:76
+#: query_qry.php:29 query_qry.php:82
 msgid "Returns each family and the total number of people assigned to them."
 msgstr ""
 "Gibt jede Familie und die Gesamtzahl der ihr zugeordneten Personen zurück."
 
-#: query_qry.php:28 query_qry.php:77
+#: query_qry.php:30 query_qry.php:83
 msgid "Returns any person records with ages between two given ages."
 msgstr ""
 "Gibt alle Personendatensätze zurück, deren Alter zwischen zwei vorgegebenen "
 "Altersangaben liegt."
 
-#: query_qry.php:29 query_qry.php:78
+#: query_qry.php:31 query_qry.php:84
 msgid "Total of records matching a given gender."
 msgstr "Summe der Datensätze, die einem bestimmten Geschlecht entsprechen."
 
-#: query_qry.php:30 query_qry.php:79
+#: query_qry.php:32 query_qry.php:85
 msgid "Selects person records with the family role and gender specified."
 msgstr ""
 "Wählt Personendatensätze mit der angegebenen Familienrolle und dem "
 "angegebenen Geschlecht aus."
 
-#: query_qry.php:31 query_qry.php:80
+#: query_qry.php:33 query_qry.php:86
 msgid "Returns person records which are assigned the given property."
 msgstr ""
 "Gibt Personendatensätze zurück, denen die angegebene Eigenschaft zugeordnet "
 "ist."
 
-#: query_qry.php:32 query_qry.php:81
+#: query_qry.php:34 query_qry.php:87
 msgid ""
 "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
 "Email."
@@ -13139,84 +13166,90 @@ msgstr ""
 "Suchen Sie nach einem beliebigen Teil von Name, Stadt, Bundesland, "
 "Postleitzahl, Telefon zu Hause, E-Mail oder E-Mail am Arbeitsplatz."
 
-#: query_qry.php:33 query_qry.php:82
+#: query_qry.php:35 query_qry.php:88
 msgid "People with birthdays in a particular month"
 msgstr "Personen mit Geburtstagen in einem bestimmten Monat"
 
-#: query_qry.php:34 query_qry.php:83
+#: query_qry.php:36 query_qry.php:89
 msgid "Find Registered students"
 msgstr "Eingeschriebene Studenten finden"
 
-#: query_qry.php:35 query_qry.php:84
+#: query_qry.php:37 query_qry.php:90
 msgid "Members who joined in a particular month"
 msgstr "Mitglieder, die in einem bestimmten Monat beigetreten sind"
 
-#: query_qry.php:36 query_qry.php:85
+#: query_qry.php:38 query_qry.php:91
 msgid "People who are registered as database users"
 msgstr "Personen, die als Datenbankbenutzer registriert sind"
 
-#: query_qry.php:37 query_qry.php:86
+#: query_qry.php:39 query_qry.php:92
 msgid "People who are members"
 msgstr "Personen, die Mitglieder sind"
 
-#: query_qry.php:38 query_qry.php:87
+#: query_qry.php:40 query_qry.php:93
 msgid "Find volunteers for a particular opportunity"
 msgstr "Freiwillige für eine bestimmte Gelegenheit finden"
 
-#: query_qry.php:39 query_qry.php:88
+#: query_qry.php:41 query_qry.php:94
 msgid "Friends who signed up in previous months"
 msgstr "Freunde, die sich in den vergangenen Monaten angemeldet haben"
 
-#: query_qry.php:40 query_qry.php:89
+#: query_qry.php:42 query_qry.php:95
 msgid "People in families that are ok to canvass."
 msgstr "Menschen in Familien, die für die Wahlwerbung geeignet sind."
 
-#: query_qry.php:41 query_qry.php:90
+#: query_qry.php:43 query_qry.php:96
 msgid "Compare pledges between two fiscal years"
 msgstr "Vergleich von Zusagen zwischen zwei Geschäftsjahren"
 
-#: query_qry.php:42 query_qry.php:91
+#: query_qry.php:44 query_qry.php:97
 msgid "Find people who pledged one year but not another"
 msgstr ""
 "Personen finden, die in einem Jahr zugesagt haben, in einem anderen aber "
 "nicht"
 
-#: query_qry.php:43 query_qry.php:92
+#: query_qry.php:45 query_qry.php:98
 msgid "People who are configured to pay by credit card."
 msgstr "Personen, die für die Zahlung per Kreditkarte konfiguriert sind."
 
-#: query_qry.php:44 query_qry.php:93
+#: query_qry.php:46 query_qry.php:99
 msgid ""
 "Pledge summary by family name for each fund for the selected fiscal year"
 msgstr ""
 "Zusammenfassung der Zusagen nach Familiennamen für jeden Fonds für das "
 "ausgewählte Steuerjahr"
 
-#: query_qry.php:45 query_qry.php:94
+#: query_qry.php:47 query_qry.php:100
 msgid "Returns all the persons not assigned to a group."
 msgstr "Gibt alle Personen zurück, die nicht einer Gruppe zugeordnet sind."
 
-#: query_qry.php:46 query_qry.php:95
+#: query_qry.php:48 query_qry.php:101
 msgid "Returns all persons assigned to a group."
 msgstr "Gibt alle Personen zurück, die einer Gruppe zugeordnet sind."
 
-#: query_qry.php:47 query_qry.php:96
+#: query_qry.php:49 query_qry.php:102
 msgid "Find person who are in pending confirmation process"
 msgstr ""
 "Personen finden, die sich in einem ausstehenden Bestätigungsverfahren "
 "befinden"
 
-#: query_qry.php:48 query_qry.php:97
+#: query_qry.php:50 query_qry.php:103
 msgid "Find families who are in pending confirmation process"
 msgstr ""
 "Familien finden, die sich in einem schwebenden Bestätigungsverfahren befinden"
 
-#: query_qry.php:49 query_qry.php:98
+msgid "Look for person who have confirmed"
+msgstr "Suchen Sie nach Personen, die bestätigt haben"
+
+msgid "Look for families who have confirmed"
+msgstr "Suchen Sie nach Familien, die bestätigt haben"
+
+#: query_qry.php:53 query_qry.php:106
 msgid "Find volunteers for who match two specific opportunity codes"
 msgstr ""
 "Suche nach Freiwilligen, die zwei bestimmten Opportunity-Codes entsprechen"
 
-#: query_qry.php:50 query_qry.php:99
+#: query_qry.php:54 query_qry.php:107
 msgid "Find people with a custom field value"
 msgstr "Personen mit einem benutzerdefinierten Feldwert finden"
 
@@ -13617,6 +13650,12 @@ msgstr "Mehrere Tage"
 
 msgid "Giving Report"
 msgstr "Spendenbericht"
+
+msgid "Confirmed person"
+msgstr "Bestätigte Person"
+
+msgid "Confirmed Families"
+msgstr "Bestätigte Familien"
 
 #~ msgid "First"
 #~ msgstr "Erste"

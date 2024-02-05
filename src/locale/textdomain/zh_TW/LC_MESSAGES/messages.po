@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 15:44+0000\n"
+"POT-Creation-Date: 2024-02-05 19:42+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -640,6 +640,7 @@ msgstr "视频"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
+#: v2/templates/people/lettersandlabels.php:173
 #: v2/templates/people/personPrint.php:266
 #: v2/templates/people/personPrint.php:327
 #: v2/templates/people/personPrint.php:382
@@ -874,18 +875,18 @@ msgstr "所有家庭"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
-#: EcclesiaCRM/APIControllers/PeopleController.php:121
+#: EcclesiaCRM/APIControllers/PeopleController.php:125
 #: EcclesiaCRM/MenuBar/MenuBar.php:177
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
-#: v2/templates/people/lettersandlabels.php:153
+#: v2/templates/people/lettersandlabels.php:154
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
 msgstr "人数"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:163
-#: EcclesiaCRM/APIControllers/PeopleController.php:157
+#: EcclesiaCRM/APIControllers/PeopleController.php:164
 #: EcclesiaCRM/APIControllers/SearchController.php:63
 #: EcclesiaCRM/APIControllers/SearchController.php:66
 #: EcclesiaCRM/MenuBar/MenuBar.php:152 EcclesiaCRM/MenuBar/MenuBar.php:184
@@ -904,7 +905,7 @@ msgid "Families"
 msgstr "家庭"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:201
-#: EcclesiaCRM/APIControllers/PeopleController.php:192
+#: EcclesiaCRM/APIControllers/PeopleController.php:201
 #: EcclesiaCRM/APIControllers/SearchController.php:89
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:206 EcclesiaCRM/Search/GroupSearchRes.php:21
@@ -1102,7 +1103,7 @@ msgstr "单身人士"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:73
 #: EcclesiaCRM/APIControllers/SearchController.php:76
-#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:63
+#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:67
 msgid "Volunteers"
 msgstr "志愿者"
 
@@ -1207,7 +1208,7 @@ msgid "Person Classification"
 msgstr "人员分类"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:127
-#: v2/templates/people/lettersandlabels.php:132
+#: v2/templates/people/lettersandlabels.php:133
 #: v2/templates/system/optionManager.php:100
 msgid "Person Classifications"
 msgstr "人员分类"
@@ -3616,7 +3617,7 @@ msgstr "教会接待员"
 #: external/templates/registration/family-register.php:36
 #: Reports/ConfirmReport.php:201 v2/templates/cart/cartToFamily.php:297
 #: v2/templates/people/familyEditor.php:709
-#: v2/templates/people/lettersandlabels.php:109
+#: v2/templates/people/lettersandlabels.php:112
 #: v2/templates/people/personEditor.php:1009
 #: v2/templates/people/selectDelete.php:196
 #: v2/templates/people/selectDelete.php:334
@@ -4442,7 +4443,7 @@ msgstr "学生"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:19
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: v2/templates/people/lettersandlabels.php:152
+#: v2/templates/people/lettersandlabels.php:153
 msgid "Addresses"
 msgstr "地址"
 
@@ -4902,8 +4903,8 @@ msgstr "自我验证"
 
 #: EcclesiaCRM/Service/TimelineService.php:264
 #: EcclesiaCRM/Service/TimelineService.php:267
-#: v2/templates/people/lettersandlabels.php:149
-#: v2/templates/people/lettersandlabels.php:171
+#: v2/templates/people/lettersandlabels.php:150
+#: v2/templates/people/lettersandlabels.php:182
 #: v2/templates/people/personPrint.php:630
 #: v2/templates/people/personPrint.php:687
 #: v2/templates/people/personPrint.php:736
@@ -5321,7 +5322,7 @@ msgid "People Dashboard"
 msgstr "人员仪表板"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:57
+#: query_qry.php:8 query_qry.php:61
 msgid "Advanced Search"
 msgstr "高级搜索"
 
@@ -6094,7 +6095,7 @@ msgstr "我们在提交您的验证数据时遇到了一个错误"
 #: v2/templates/people/directoryreport.php:326
 #: v2/templates/people/familyEditor.php:1285
 #: v2/templates/people/familyview.php:892
-#: v2/templates/people/lettersandlabels.php:207
+#: v2/templates/people/lettersandlabels.php:218
 #: v2/templates/people/personEditor.php:1738
 #: v2/templates/people/personview.php:1617
 #: v2/templates/people/reminderreport.php:42
@@ -6436,27 +6437,27 @@ msgstr "这个值不能小于"
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
 #: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:115
-#: v2/templates/query/queryview.php:211
+#: v2/templates/query/queryview.php:219
 msgid " record(s) returned"
 msgstr "返回的记录"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
-#: v2/templates/query/queryview.php:220
+#: v2/templates/query/queryview.php:129
 msgid "Add To Cart"
 msgstr "添加到购物车"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
-#: v2/templates/query/queryview.php:222
+#: v2/templates/query/queryview.php:131
 msgid "Intersect With Cart"
 msgstr "与车相交"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
-#: v2/templates/query/queryview.php:224
+#: v2/templates/query/queryview.php:133
 msgid "Remove From Cart"
 msgstr "从购物车中删除"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
-#: v2/templates/query/queryview.php:229
+#: v2/templates/query/queryview.php:225
 msgid "Run Query Again"
 msgstr "再次运行查询"
 
@@ -9463,7 +9464,7 @@ msgid "Remove from Cart"
 msgstr "从购物车中删除"
 
 #: v2/templates/group/groupview.php:86 v2/templates/people/familyview.php:235
-#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:141
+#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:149
 msgid "Add to Cart"
 msgstr "添加到购物车"
 
@@ -10610,61 +10611,83 @@ msgstr "与购物车相交"
 msgid "Remove All from Cart"
 msgstr "从购物车中全部删除"
 
-#: v2/templates/people/lettersandlabels.php:92
+#: v2/templates/people/lettersandlabels.php:95
 msgid "People Reports"
 msgstr "人员报告"
 
-#: v2/templates/people/lettersandlabels.php:97
+#: v2/templates/people/lettersandlabels.php:100
 msgid "Mail Label"
 msgstr "邮件标签"
 
-#: v2/templates/people/lettersandlabels.php:105
+#: v2/templates/people/lettersandlabels.php:108
 msgid "Recipient Naming Method"
 msgstr "收件人命名方法"
 
-#: v2/templates/people/lettersandlabels.php:108
+#: v2/templates/people/lettersandlabels.php:111
 msgid "Salutation Utility"
 msgstr "致敬的效用"
 
-#: v2/templates/people/lettersandlabels.php:116
+#: v2/templates/people/lettersandlabels.php:118
 msgid "Person Custom Fields"
 msgstr "人员自定义字段"
 
-#: v2/templates/people/lettersandlabels.php:160
+#: v2/templates/people/lettersandlabels.php:161
 msgid "Test"
 msgstr "测试"
 
-#: v2/templates/people/lettersandlabels.php:174 queryparameters_qrp.php:2
+msgid "Selected Members"
+msgstr "部分成员"
+
+#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:2
 msgid "Minimum Age"
 msgstr "最低年龄"
 
-#: v2/templates/people/lettersandlabels.php:177 queryparameters_qrp.php:23
+#: v2/templates/people/lettersandlabels.php:188 queryparameters_qrp.php:23
 msgid "The minimum age for which you want records returned."
 msgstr "你希望返回记录的最低年龄。"
 
-#: v2/templates/people/lettersandlabels.php:182 queryparameters_qrp.php:3
+#: v2/templates/people/lettersandlabels.php:193 queryparameters_qrp.php:3
 msgid "Maximum Age"
 msgstr "最大年龄"
 
-#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:24
+#: v2/templates/people/lettersandlabels.php:196 queryparameters_qrp.php:24
 msgid "The maximum age for which you want records returned."
 msgstr "你希望返回记录的最大年龄。"
 
-#: v2/templates/people/lettersandlabels.php:195
+#: v2/templates/people/lettersandlabels.php:206
 msgid "Newsletter labels"
 msgstr "通讯标签"
 
-#: v2/templates/people/lettersandlabels.php:198
+#: v2/templates/people/lettersandlabels.php:209
 msgid "Confirm data letter"
 msgstr "确认数据信"
 
-#: v2/templates/people/lettersandlabels.php:201
+#: v2/templates/people/lettersandlabels.php:212
 msgid "Confirm data labels"
 msgstr "确认数据标签"
 
-#: v2/templates/people/lettersandlabels.php:204
+#: v2/templates/people/lettersandlabels.php:215
 msgid "Confirm data Email"
 msgstr "确认数据 电子邮件"
+
+msgid "Email Confirmation"
+msgstr "电子邮件确认"
+
+msgid "Pending Persons"
+msgstr "待定人员"
+
+#: v2/templates/people/lettersandlabels.php:239
+#, fuzzy
+msgid "confirmed person"
+msgstr "单身人士"
+
+msgid "Pending Families"
+msgstr "待定家庭"
+
+#: v2/templates/people/lettersandlabels.php:244
+#, fuzzy
+msgid "confirmed Families"
+msgstr "家庭"
 
 #: v2/templates/people/peopledashboard.php:27
 msgid "People Functions"
@@ -12492,7 +12515,7 @@ msgstr "结束日期"
 msgid "Field"
 msgstr "场地"
 
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:59
+#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:63
 msgid "Registered students"
 msgstr "注册学生"
 
@@ -12632,115 +12655,119 @@ msgstr "选择客户个人领域"
 msgid "Match custom field to this value"
 msgstr "将自定义字段与此值相匹配"
 
-#: query_qry.php:2 query_qry.php:51
+#: query_qry.php:2 query_qry.php:55
 msgid "Family With Work Phone"
 msgstr "有工作电话的家庭"
 
-#: query_qry.php:3 query_qry.php:52
+#: query_qry.php:3 query_qry.php:56
 msgid "Family Member Count"
 msgstr "家庭成员人数"
 
-#: query_qry.php:4 query_qry.php:53
+#: query_qry.php:4 query_qry.php:57
 msgid "Person by Age"
 msgstr "按年龄划分的人"
 
-#: query_qry.php:5 query_qry.php:54
+#: query_qry.php:5 query_qry.php:58
 msgid "Total By Gender"
 msgstr "总计 按性别"
 
-#: query_qry.php:6 query_qry.php:55
+#: query_qry.php:6 query_qry.php:59
 msgid "Person by Role and Gender"
 msgstr "按角色和性别划分的人员"
 
-#: query_qry.php:7 query_qry.php:56
+#: query_qry.php:7 query_qry.php:60
 msgid "Person by Property"
 msgstr "按财产分类的人"
 
-#: query_qry.php:9 query_qry.php:58
+#: query_qry.php:9 query_qry.php:62
 msgid "Birthdays"
 msgstr "生日"
 
-#: query_qry.php:11 query_qry.php:60
+#: query_qry.php:11 query_qry.php:64
 msgid "Membership anniversaries"
 msgstr "会员周年纪念日"
 
-#: query_qry.php:12 query_qry.php:61
+#: query_qry.php:12 query_qry.php:65
 msgid "Select database users"
 msgstr "选择数据库用户"
 
-#: query_qry.php:13 query_qry.php:62
+#: query_qry.php:13 query_qry.php:66
 msgid "Select all members"
 msgstr "选择所有成员"
 
-#: query_qry.php:15 query_qry.php:64
+#: query_qry.php:15 query_qry.php:68
 msgid "Recent friends"
 msgstr "最近的朋友"
 
-#: query_qry.php:16 query_qry.php:65
+#: query_qry.php:16 query_qry.php:69
 msgid "Families to Canvass"
 msgstr "拉选票的家庭"
 
-#: query_qry.php:17 query_qry.php:66
+#: query_qry.php:17 query_qry.php:70
 msgid "Pledge comparison"
 msgstr "认捐比较"
 
-#: query_qry.php:18 query_qry.php:67
+#: query_qry.php:18 query_qry.php:71
 msgid "Missing pledges"
 msgstr "缺少的认捐"
 
-#: query_qry.php:19 query_qry.php:68
+#: query_qry.php:19 query_qry.php:72
 msgid "Credit Card People"
 msgstr "信用卡人"
 
-#: query_qry.php:20 query_qry.php:69
+#: query_qry.php:20 query_qry.php:73
 msgid "Family Pledge by Fiscal Year"
 msgstr "各财政年度的家庭认捐情况"
 
-#: query_qry.php:21 query_qry.php:70
+#: query_qry.php:21 query_qry.php:74
 msgid "Person not assigned to a group"
 msgstr "没有被分配到一个小组的人"
 
-#: query_qry.php:22 query_qry.php:71
+#: query_qry.php:22 query_qry.php:75
 msgid "Person assigned to a group"
 msgstr "被分配到一个小组的人"
 
-#: query_qry.php:23 query_qry.php:72
-msgid "Pending Person"
-msgstr "待定人员"
+msgid "Awaiting confirmation of persons"
+msgstr "等待人员确认"
 
-#: query_qry.php:24 query_qry.php:73
-msgid "Pending Family"
-msgstr "待定家庭"
+msgid "Awaiting confirmation of families"
+msgstr "等待家庭确认"
 
-#: query_qry.php:25 query_qry.php:74
+msgid "Done confirmation of persons"
+msgstr "已完成人员确认"
+
+msgid "Done confirmation of families"
+msgstr "完成家庭确认"
+
+#: query_qry.php:27 query_qry.php:80
 msgid "CustomSearch"
 msgstr "自定义搜索"
 
-#: query_qry.php:26 query_qry.php:75
+#: query_qry.php:28 query_qry.php:81
 msgid "Returns each family with a work phone"
 msgstr "为每个家庭归还一部工作电话"
 
-#: query_qry.php:27 query_qry.php:76
+#: query_qry.php:29 query_qry.php:82
 msgid "Returns each family and the total number of people assigned to them."
 msgstr "返回每个家庭和分配给他们的总人数。"
 
-#: query_qry.php:28 query_qry.php:77
+#: query_qry.php:30 query_qry.php:83
 msgid "Returns any person records with ages between two given ages."
 msgstr "返回年龄在两个给定年龄之间的任何个人记录。"
 
-#: query_qry.php:29 query_qry.php:78
+#: query_qry.php:31 query_qry.php:84
 msgid "Total of records matching a given gender."
 msgstr "与某一性别相匹配的记录总数。"
 
-#: query_qry.php:30 query_qry.php:79
+#: query_qry.php:32 query_qry.php:85
 msgid "Selects person records with the family role and gender specified."
 msgstr "选择具有指定家庭角色和性别的个人记录。"
 
-#: query_qry.php:31 query_qry.php:80
+#: query_qry.php:33 query_qry.php:86
 msgid "Returns person records which are assigned the given property."
 msgstr "返回被分配了给定属性的个人记录。"
 
-#: query_qry.php:32 query_qry.php:81
+#: query_qry.php:34 query_qry.php:87
 msgid ""
 "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
 "Email."
@@ -12748,76 +12775,82 @@ msgstr ""
 "通过姓名、城市、州、邮编、家庭电话、电子邮件或工作电子邮件中的任何部分进行搜"
 "索。"
 
-#: query_qry.php:33 query_qry.php:82
+#: query_qry.php:35 query_qry.php:88
 msgid "People with birthdays in a particular month"
 msgstr "生日在某一月份的人"
 
-#: query_qry.php:34 query_qry.php:83
+#: query_qry.php:36 query_qry.php:89
 msgid "Find Registered students"
 msgstr "寻找注册学生"
 
-#: query_qry.php:35 query_qry.php:84
+#: query_qry.php:37 query_qry.php:90
 msgid "Members who joined in a particular month"
 msgstr "在某月加入的会员"
 
-#: query_qry.php:36 query_qry.php:85
+#: query_qry.php:38 query_qry.php:91
 msgid "People who are registered as database users"
 msgstr "注册为数据库用户的人"
 
-#: query_qry.php:37 query_qry.php:86
+#: query_qry.php:39 query_qry.php:92
 msgid "People who are members"
 msgstr "属于会员的人"
 
-#: query_qry.php:38 query_qry.php:87
+#: query_qry.php:40 query_qry.php:93
 msgid "Find volunteers for a particular opportunity"
 msgstr "为某一特定机会寻找志愿者"
 
-#: query_qry.php:39 query_qry.php:88
+#: query_qry.php:41 query_qry.php:94
 msgid "Friends who signed up in previous months"
 msgstr "前几个月报名的朋友"
 
-#: query_qry.php:40 query_qry.php:89
+#: query_qry.php:42 query_qry.php:95
 msgid "People in families that are ok to canvass."
 msgstr "在家庭中的人，可以进行拉票。"
 
-#: query_qry.php:41 query_qry.php:90
+#: query_qry.php:43 query_qry.php:96
 msgid "Compare pledges between two fiscal years"
 msgstr "比较两个财政年度的认捐情况"
 
-#: query_qry.php:42 query_qry.php:91
+#: query_qry.php:44 query_qry.php:97
 msgid "Find people who pledged one year but not another"
 msgstr "找到那些在某一年认捐但在另一年没有认捐的人"
 
-#: query_qry.php:43 query_qry.php:92
+#: query_qry.php:45 query_qry.php:98
 msgid "People who are configured to pay by credit card."
 msgstr "被配置为用信用卡支付的人。"
 
-#: query_qry.php:44 query_qry.php:93
+#: query_qry.php:46 query_qry.php:99
 msgid ""
 "Pledge summary by family name for each fund for the selected fiscal year"
 msgstr "所选财政年度各基金按姓氏分列的认捐汇总表"
 
-#: query_qry.php:45 query_qry.php:94
+#: query_qry.php:47 query_qry.php:100
 msgid "Returns all the persons not assigned to a group."
 msgstr "返回所有没有被分配到一个组的人。"
 
-#: query_qry.php:46 query_qry.php:95
+#: query_qry.php:48 query_qry.php:101
 msgid "Returns all persons assigned to a group."
 msgstr "返回分配给某组的所有人员。"
 
-#: query_qry.php:47 query_qry.php:96
+#: query_qry.php:49 query_qry.php:102
 msgid "Find person who are in pending confirmation process"
 msgstr "查找处于待确认流程中的人员"
 
-#: query_qry.php:48 query_qry.php:97
+#: query_qry.php:50 query_qry.php:103
 msgid "Find families who are in pending confirmation process"
 msgstr "查找正在等待确认的家庭"
 
-#: query_qry.php:49 query_qry.php:98
+msgid "Look for person who have confirmed"
+msgstr "寻找已确认的人"
+
+msgid "Look for families who have confirmed"
+msgstr "寻找已确认的家庭"
+
+#: query_qry.php:53 query_qry.php:106
 msgid "Find volunteers for who match two specific opportunity codes"
 msgstr "寻找符合两个特定机会代码的志愿者"
 
-#: query_qry.php:50 query_qry.php:99
+#: query_qry.php:54 query_qry.php:107
 msgid "Find people with a custom field value"
 msgstr "寻找具有自定义字段值的人"
 
@@ -13213,6 +13246,12 @@ msgstr "数天"
 
 msgid "Giving Report"
 msgstr "捐赠报告"
+
+msgid "Confirmed person"
+msgstr "确认人"
+
+msgid "Confirmed Families"
+msgstr "确认的家庭"
 
 #~ msgid "First"
 #~ msgstr "首先"
@@ -13899,17 +13938,11 @@ msgstr "捐赠报告"
 #~ msgid "Please confirm deactivation of family"
 #~ msgstr "请确认停用家庭"
 
-#~ msgid "Please confirm activation of family"
-#~ msgstr "请确认激活家庭"
-
 #~ msgid "Family Photo"
 #~ msgstr "家庭照片"
 
 #~ msgid "Please confirm deactivation of person"
 #~ msgstr "请确认停用人员"
-
-#~ msgid "Please confirm activation of person"
-#~ msgstr "请确认人的激活"
 
 #~ msgid "Default User Settings"
 #~ msgstr "默认的用户设置"

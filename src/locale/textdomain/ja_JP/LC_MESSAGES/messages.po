@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 15:44+0000\n"
+"POT-Creation-Date: 2024-02-05 19:42+0000\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -655,6 +655,7 @@ msgstr "ビデオ"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
+#: v2/templates/people/lettersandlabels.php:173
 #: v2/templates/people/personPrint.php:266
 #: v2/templates/people/personPrint.php:327
 #: v2/templates/people/personPrint.php:382
@@ -891,18 +892,18 @@ msgstr "すべてのファミリー"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
-#: EcclesiaCRM/APIControllers/PeopleController.php:121
+#: EcclesiaCRM/APIControllers/PeopleController.php:125
 #: EcclesiaCRM/MenuBar/MenuBar.php:177
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
-#: v2/templates/people/lettersandlabels.php:153
+#: v2/templates/people/lettersandlabels.php:154
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
 msgstr "人"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:163
-#: EcclesiaCRM/APIControllers/PeopleController.php:157
+#: EcclesiaCRM/APIControllers/PeopleController.php:164
 #: EcclesiaCRM/APIControllers/SearchController.php:63
 #: EcclesiaCRM/APIControllers/SearchController.php:66
 #: EcclesiaCRM/MenuBar/MenuBar.php:152 EcclesiaCRM/MenuBar/MenuBar.php:184
@@ -921,7 +922,7 @@ msgid "Families"
 msgstr "ファミリ"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:201
-#: EcclesiaCRM/APIControllers/PeopleController.php:192
+#: EcclesiaCRM/APIControllers/PeopleController.php:201
 #: EcclesiaCRM/APIControllers/SearchController.php:89
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:206 EcclesiaCRM/Search/GroupSearchRes.php:21
@@ -1119,7 +1120,7 @@ msgstr "シングルス"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:73
 #: EcclesiaCRM/APIControllers/SearchController.php:76
-#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:63
+#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:67
 msgid "Volunteers"
 msgstr "ボランティア"
 
@@ -1224,7 +1225,7 @@ msgid "Person Classification"
 msgstr "人物分類"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:127
-#: v2/templates/people/lettersandlabels.php:132
+#: v2/templates/people/lettersandlabels.php:133
 #: v2/templates/system/optionManager.php:100
 msgid "Person Classifications"
 msgstr "人の分類"
@@ -3665,7 +3666,7 @@ msgstr "チャーチ・グリーター"
 #: external/templates/registration/family-register.php:36
 #: Reports/ConfirmReport.php:201 v2/templates/cart/cartToFamily.php:297
 #: v2/templates/people/familyEditor.php:709
-#: v2/templates/people/lettersandlabels.php:109
+#: v2/templates/people/lettersandlabels.php:112
 #: v2/templates/people/personEditor.php:1009
 #: v2/templates/people/selectDelete.php:196
 #: v2/templates/people/selectDelete.php:334
@@ -4491,7 +4492,7 @@ msgstr "学生"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:19
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: v2/templates/people/lettersandlabels.php:152
+#: v2/templates/people/lettersandlabels.php:153
 msgid "Addresses"
 msgstr "アドレス"
 
@@ -4951,8 +4952,8 @@ msgstr "自己検証"
 
 #: EcclesiaCRM/Service/TimelineService.php:264
 #: EcclesiaCRM/Service/TimelineService.php:267
-#: v2/templates/people/lettersandlabels.php:149
-#: v2/templates/people/lettersandlabels.php:171
+#: v2/templates/people/lettersandlabels.php:150
+#: v2/templates/people/lettersandlabels.php:182
 #: v2/templates/people/personPrint.php:630
 #: v2/templates/people/personPrint.php:687
 #: v2/templates/people/personPrint.php:736
@@ -5372,7 +5373,7 @@ msgid "People Dashboard"
 msgstr "人のダッシュボード"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:57
+#: query_qry.php:8 query_qry.php:61
 msgid "Advanced Search"
 msgstr "高度な検索"
 
@@ -6154,7 +6155,7 @@ msgstr "認証データを送信する際にエラーが発生しました。"
 #: v2/templates/people/directoryreport.php:326
 #: v2/templates/people/familyEditor.php:1285
 #: v2/templates/people/familyview.php:892
-#: v2/templates/people/lettersandlabels.php:207
+#: v2/templates/people/lettersandlabels.php:218
 #: v2/templates/people/personEditor.php:1738
 #: v2/templates/people/personview.php:1617
 #: v2/templates/people/reminderreport.php:42
@@ -6503,27 +6504,27 @@ msgstr "この値は、以下の値であってはなりません。"
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
 #: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:115
-#: v2/templates/query/queryview.php:211
+#: v2/templates/query/queryview.php:219
 msgid " record(s) returned"
 msgstr "戻ってきたレコード（複数"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
-#: v2/templates/query/queryview.php:220
+#: v2/templates/query/queryview.php:129
 msgid "Add To Cart"
 msgstr "カートに入れる"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
-#: v2/templates/query/queryview.php:222
+#: v2/templates/query/queryview.php:131
 msgid "Intersect With Cart"
 msgstr "カートとの交わり"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
-#: v2/templates/query/queryview.php:224
+#: v2/templates/query/queryview.php:133
 msgid "Remove From Cart"
 msgstr "カートから削除"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
-#: v2/templates/query/queryview.php:229
+#: v2/templates/query/queryview.php:225
 msgid "Run Query Again"
 msgstr "クエリの再実行"
 
@@ -9564,7 +9565,7 @@ msgid "Remove from Cart"
 msgstr "カートから削除"
 
 #: v2/templates/group/groupview.php:86 v2/templates/people/familyview.php:235
-#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:141
+#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:149
 msgid "Add to Cart"
 msgstr "カートに入れる"
 
@@ -10737,61 +10738,83 @@ msgstr "カートとの交わり"
 msgid "Remove All from Cart"
 msgstr "カートからすべてを削除"
 
-#: v2/templates/people/lettersandlabels.php:92
+#: v2/templates/people/lettersandlabels.php:95
 msgid "People Reports"
 msgstr "人物レポート"
 
-#: v2/templates/people/lettersandlabels.php:97
+#: v2/templates/people/lettersandlabels.php:100
 msgid "Mail Label"
 msgstr "メールラベル"
 
-#: v2/templates/people/lettersandlabels.php:105
+#: v2/templates/people/lettersandlabels.php:108
 msgid "Recipient Naming Method"
 msgstr "受信者ネーミング方法"
 
-#: v2/templates/people/lettersandlabels.php:108
+#: v2/templates/people/lettersandlabels.php:111
 msgid "Salutation Utility"
 msgstr "敬語ユーティリティ"
 
-#: v2/templates/people/lettersandlabels.php:116
+#: v2/templates/people/lettersandlabels.php:118
 msgid "Person Custom Fields"
 msgstr "人物カスタムフィールド"
 
-#: v2/templates/people/lettersandlabels.php:160
+#: v2/templates/people/lettersandlabels.php:161
 msgid "Test"
 msgstr "テスト"
 
-#: v2/templates/people/lettersandlabels.php:174 queryparameters_qrp.php:2
+msgid "Selected Members"
+msgstr "選抜メンバー"
+
+#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:2
 msgid "Minimum Age"
 msgstr "最低年齢"
 
-#: v2/templates/people/lettersandlabels.php:177 queryparameters_qrp.php:23
+#: v2/templates/people/lettersandlabels.php:188 queryparameters_qrp.php:23
 msgid "The minimum age for which you want records returned."
 msgstr "記録を返してほしい最低年齢。"
 
-#: v2/templates/people/lettersandlabels.php:182 queryparameters_qrp.php:3
+#: v2/templates/people/lettersandlabels.php:193 queryparameters_qrp.php:3
 msgid "Maximum Age"
 msgstr "最大年齢"
 
-#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:24
+#: v2/templates/people/lettersandlabels.php:196 queryparameters_qrp.php:24
 msgid "The maximum age for which you want records returned."
 msgstr "レコードを返却してほしい最大年齢。"
 
-#: v2/templates/people/lettersandlabels.php:195
+#: v2/templates/people/lettersandlabels.php:206
 msgid "Newsletter labels"
 msgstr "ニュースレターのラベル"
 
-#: v2/templates/people/lettersandlabels.php:198
+#: v2/templates/people/lettersandlabels.php:209
 msgid "Confirm data letter"
 msgstr "データレターの確認"
 
-#: v2/templates/people/lettersandlabels.php:201
+#: v2/templates/people/lettersandlabels.php:212
 msgid "Confirm data labels"
 msgstr "データラベルの確認"
 
-#: v2/templates/people/lettersandlabels.php:204
+#: v2/templates/people/lettersandlabels.php:215
 msgid "Confirm data Email"
 msgstr "データの確認 Eメール"
+
+msgid "Email Confirmation"
+msgstr "電子メールによる確認"
+
+msgid "Pending Persons"
+msgstr "保留者"
+
+#: v2/templates/people/lettersandlabels.php:239
+#, fuzzy
+msgid "confirmed person"
+msgstr "シングル・パーソン"
+
+msgid "Pending Families"
+msgstr "保留中の家族"
+
+#: v2/templates/people/lettersandlabels.php:244
+#, fuzzy
+msgid "confirmed Families"
+msgstr "ファミリ"
 
 #: v2/templates/people/peopledashboard.php:27
 msgid "People Functions"
@@ -12680,7 +12703,7 @@ msgstr "終了日"
 msgid "Field"
 msgstr "フィールド"
 
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:59
+#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:63
 msgid "Registered students"
 msgstr "登録学生"
 
@@ -12821,117 +12844,121 @@ msgstr "お客様の担当者欄を選択"
 msgid "Match custom field to this value"
 msgstr "カスタムフィールドをこの値に一致させる"
 
-#: query_qry.php:2 query_qry.php:51
+#: query_qry.php:2 query_qry.php:55
 msgid "Family With Work Phone"
 msgstr "家族と職場の電話番号"
 
-#: query_qry.php:3 query_qry.php:52
+#: query_qry.php:3 query_qry.php:56
 msgid "Family Member Count"
 msgstr "家族の数"
 
-#: query_qry.php:4 query_qry.php:53
+#: query_qry.php:4 query_qry.php:57
 msgid "Person by Age"
 msgstr "年齢別の人"
 
-#: query_qry.php:5 query_qry.php:54
+#: query_qry.php:5 query_qry.php:58
 msgid "Total By Gender"
 msgstr "合計 男女別"
 
-#: query_qry.php:6 query_qry.php:55
+#: query_qry.php:6 query_qry.php:59
 msgid "Person by Role and Gender"
 msgstr "役割と性別による人物像"
 
-#: query_qry.php:7 query_qry.php:56
+#: query_qry.php:7 query_qry.php:60
 msgid "Person by Property"
 msgstr "物件別パーソン"
 
-#: query_qry.php:9 query_qry.php:58
+#: query_qry.php:9 query_qry.php:62
 msgid "Birthdays"
 msgstr "誕生日"
 
-#: query_qry.php:11 query_qry.php:60
+#: query_qry.php:11 query_qry.php:64
 msgid "Membership anniversaries"
 msgstr "メンバーシップの記念日"
 
-#: query_qry.php:12 query_qry.php:61
+#: query_qry.php:12 query_qry.php:65
 msgid "Select database users"
 msgstr "データベースユーザーの選択"
 
-#: query_qry.php:13 query_qry.php:62
+#: query_qry.php:13 query_qry.php:66
 msgid "Select all members"
 msgstr "すべてのメンバーを選択"
 
-#: query_qry.php:15 query_qry.php:64
+#: query_qry.php:15 query_qry.php:68
 msgid "Recent friends"
 msgstr "最近の友人"
 
-#: query_qry.php:16 query_qry.php:65
+#: query_qry.php:16 query_qry.php:69
 msgid "Families to Canvass"
 msgstr "Families to Canvass"
 
-#: query_qry.php:17 query_qry.php:66
+#: query_qry.php:17 query_qry.php:70
 msgid "Pledge comparison"
 msgstr "誓約書の比較"
 
-#: query_qry.php:18 query_qry.php:67
+#: query_qry.php:18 query_qry.php:71
 msgid "Missing pledges"
 msgstr "欠落したプレッジ"
 
-#: query_qry.php:19 query_qry.php:68
+#: query_qry.php:19 query_qry.php:72
 msgid "Credit Card People"
 msgstr "クレジットカードの人々"
 
-#: query_qry.php:20 query_qry.php:69
+#: query_qry.php:20 query_qry.php:73
 msgid "Family Pledge by Fiscal Year"
 msgstr "年度別ファミリープレッジ"
 
-#: query_qry.php:21 query_qry.php:70
+#: query_qry.php:21 query_qry.php:74
 msgid "Person not assigned to a group"
 msgstr "グループに属さない人"
 
-#: query_qry.php:22 query_qry.php:71
+#: query_qry.php:22 query_qry.php:75
 msgid "Person assigned to a group"
 msgstr "グループに所属する人"
 
-#: query_qry.php:23 query_qry.php:72
-msgid "Pending Person"
-msgstr "保留者"
+msgid "Awaiting confirmation of persons"
+msgstr "人物の確認待ち"
 
-#: query_qry.php:24 query_qry.php:73
-msgid "Pending Family"
-msgstr "保留中の家族"
+msgid "Awaiting confirmation of families"
+msgstr "家族の確認待ち"
 
-#: query_qry.php:25 query_qry.php:74
+msgid "Done confirmation of persons"
+msgstr "人物の確認"
+
+msgid "Done confirmation of families"
+msgstr "家族の確認が完了"
+
+#: query_qry.php:27 query_qry.php:80
 msgid "CustomSearch"
 msgstr "カスタムサーチ"
 
-#: query_qry.php:26 query_qry.php:75
+#: query_qry.php:28 query_qry.php:81
 msgid "Returns each family with a work phone"
 msgstr "各家庭に仕事用の電話を返す"
 
-#: query_qry.php:27 query_qry.php:76
+#: query_qry.php:29 query_qry.php:82
 msgid "Returns each family and the total number of people assigned to them."
 msgstr "各ファミリーと、そのファミリーに割り当てられた総人数を返します。"
 
-#: query_qry.php:28 query_qry.php:77
+#: query_qry.php:30 query_qry.php:83
 msgid "Returns any person records with ages between two given ages."
 msgstr ""
 "この関数は、指定された2つの年齢の間の年齢を持つ任意の人物のレコードを返しま"
 "す。"
 
-#: query_qry.php:29 query_qry.php:78
+#: query_qry.php:31 query_qry.php:84
 msgid "Total of records matching a given gender."
 msgstr "特定の性別に一致するレコードの合計"
 
-#: query_qry.php:30 query_qry.php:79
+#: query_qry.php:32 query_qry.php:85
 msgid "Selects person records with the family role and gender specified."
 msgstr "家族の役割と性別が指定された人物記録を選択します。"
 
-#: query_qry.php:31 query_qry.php:80
+#: query_qry.php:33 query_qry.php:86
 msgid "Returns person records which are assigned the given property."
 msgstr "指定されたプロパティが割り当てられている人のレコードを返します。"
 
-#: query_qry.php:32 query_qry.php:81
+#: query_qry.php:34 query_qry.php:87
 msgid ""
 "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
 "Email."
@@ -12939,76 +12966,82 @@ msgstr ""
 "名前、都市名、州名、郵便番号、自宅の電話番号、電子メール、勤務先の電子メール"
 "のいずれかの部分で検索できます。"
 
-#: query_qry.php:33 query_qry.php:82
+#: query_qry.php:35 query_qry.php:88
 msgid "People with birthdays in a particular month"
 msgstr "特定の月に誕生日のある人"
 
-#: query_qry.php:34 query_qry.php:83
+#: query_qry.php:36 query_qry.php:89
 msgid "Find Registered students"
 msgstr "登録学生の検索"
 
-#: query_qry.php:35 query_qry.php:84
+#: query_qry.php:37 query_qry.php:90
 msgid "Members who joined in a particular month"
 msgstr "特定の月に入会したメンバー"
 
-#: query_qry.php:36 query_qry.php:85
+#: query_qry.php:38 query_qry.php:91
 msgid "People who are registered as database users"
 msgstr "データベースユーザーとして登録されている人"
 
-#: query_qry.php:37 query_qry.php:86
+#: query_qry.php:39 query_qry.php:92
 msgid "People who are members"
 msgstr "メンバーになった人"
 
-#: query_qry.php:38 query_qry.php:87
+#: query_qry.php:40 query_qry.php:93
 msgid "Find volunteers for a particular opportunity"
 msgstr "特定の機会にボランティアを見つける"
 
-#: query_qry.php:39 query_qry.php:88
+#: query_qry.php:41 query_qry.php:94
 msgid "Friends who signed up in previous months"
 msgstr "前の月に登録した友人"
 
-#: query_qry.php:40 query_qry.php:89
+#: query_qry.php:42 query_qry.php:95
 msgid "People in families that are ok to canvass."
 msgstr "カンバスしても大丈夫な家族の人たち。"
 
-#: query_qry.php:41 query_qry.php:90
+#: query_qry.php:43 query_qry.php:96
 msgid "Compare pledges between two fiscal years"
 msgstr "2つの会計年度間の誓約の比較"
 
-#: query_qry.php:42 query_qry.php:91
+#: query_qry.php:44 query_qry.php:97
 msgid "Find people who pledged one year but not another"
 msgstr "ある年に誓約したが、別の年に誓約しなかった人を探す"
 
-#: query_qry.php:43 query_qry.php:92
+#: query_qry.php:45 query_qry.php:98
 msgid "People who are configured to pay by credit card."
 msgstr "クレジットカードで支払うように設定されている人。"
 
-#: query_qry.php:44 query_qry.php:93
+#: query_qry.php:46 query_qry.php:99
 msgid ""
 "Pledge summary by family name for each fund for the selected fiscal year"
 msgstr "選択された会計年度の各ファンドの家族名による誓約書の概要"
 
-#: query_qry.php:45 query_qry.php:94
+#: query_qry.php:47 query_qry.php:100
 msgid "Returns all the persons not assigned to a group."
 msgstr "グループに割り当てられていないすべての人を返します。"
 
-#: query_qry.php:46 query_qry.php:95
+#: query_qry.php:48 query_qry.php:101
 msgid "Returns all persons assigned to a group."
 msgstr "グループに割り当てられているすべての人を返します。"
 
-#: query_qry.php:47 query_qry.php:96
+#: query_qry.php:49 query_qry.php:102
 msgid "Find person who are in pending confirmation process"
 msgstr "確認手続き中の人を探す"
 
-#: query_qry.php:48 query_qry.php:97
+#: query_qry.php:50 query_qry.php:103
 msgid "Find families who are in pending confirmation process"
 msgstr "確認手続き中の家族を探す"
 
-#: query_qry.php:49 query_qry.php:98
+msgid "Look for person who have confirmed"
+msgstr "確認した人を探す"
+
+msgid "Look for families who have confirmed"
+msgstr "確認した家族を探す"
+
+#: query_qry.php:53 query_qry.php:106
 msgid "Find volunteers for who match two specific opportunity codes"
 msgstr "2つの特定のオポチュニティコードにマッチするボランティアを探す"
 
-#: query_qry.php:50 query_qry.php:99
+#: query_qry.php:54 query_qry.php:107
 msgid "Find people with a custom field value"
 msgstr "カスタムフィールドの値を持つ人を探す"
 
@@ -13406,6 +13439,12 @@ msgstr "数日"
 
 msgid "Giving Report"
 msgstr "寄付金報告"
+
+msgid "Confirmed person"
+msgstr "確認者"
+
+msgid "Confirmed Families"
+msgstr "確認された家族"
 
 #~ msgid "First"
 #~ msgstr "ファースト"
@@ -14397,9 +14436,6 @@ msgstr "寄付金報告"
 
 #~ msgid "assigned"
 #~ msgstr "割り当てられた"
-
-#~ msgid "Action Confirmation"
-#~ msgstr "アクションの確認"
 
 #~ msgid "Please confirm reset failed login count"
 #~ msgstr "Please confirm reset failed login count"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 15:44+0000\n"
+"POT-Creation-Date: 2024-02-05 19:42+0000\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -662,6 +662,7 @@ msgstr "Video"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
+#: v2/templates/people/lettersandlabels.php:173
 #: v2/templates/people/personPrint.php:266
 #: v2/templates/people/personPrint.php:327
 #: v2/templates/people/personPrint.php:382
@@ -900,18 +901,18 @@ msgstr "Toate familiile"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
-#: EcclesiaCRM/APIControllers/PeopleController.php:121
+#: EcclesiaCRM/APIControllers/PeopleController.php:125
 #: EcclesiaCRM/MenuBar/MenuBar.php:177
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
-#: v2/templates/people/lettersandlabels.php:153
+#: v2/templates/people/lettersandlabels.php:154
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
 msgstr "Persoane"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:163
-#: EcclesiaCRM/APIControllers/PeopleController.php:157
+#: EcclesiaCRM/APIControllers/PeopleController.php:164
 #: EcclesiaCRM/APIControllers/SearchController.php:63
 #: EcclesiaCRM/APIControllers/SearchController.php:66
 #: EcclesiaCRM/MenuBar/MenuBar.php:152 EcclesiaCRM/MenuBar/MenuBar.php:184
@@ -930,7 +931,7 @@ msgid "Families"
 msgstr "Familii"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:201
-#: EcclesiaCRM/APIControllers/PeopleController.php:192
+#: EcclesiaCRM/APIControllers/PeopleController.php:201
 #: EcclesiaCRM/APIControllers/SearchController.php:89
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:206 EcclesiaCRM/Search/GroupSearchRes.php:21
@@ -1128,7 +1129,7 @@ msgstr "Persoane singure"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:73
 #: EcclesiaCRM/APIControllers/SearchController.php:76
-#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:63
+#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:67
 msgid "Volunteers"
 msgstr "Voluntari"
 
@@ -1233,7 +1234,7 @@ msgid "Person Classification"
 msgstr "Clasificarea persoanelor"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:127
-#: v2/templates/people/lettersandlabels.php:132
+#: v2/templates/people/lettersandlabels.php:133
 #: v2/templates/system/optionManager.php:100
 msgid "Person Classifications"
 msgstr "Clasificarea persoanelor"
@@ -3725,7 +3726,7 @@ msgstr "Biserica Greeter"
 #: external/templates/registration/family-register.php:36
 #: Reports/ConfirmReport.php:201 v2/templates/cart/cartToFamily.php:297
 #: v2/templates/people/familyEditor.php:709
-#: v2/templates/people/lettersandlabels.php:109
+#: v2/templates/people/lettersandlabels.php:112
 #: v2/templates/people/personEditor.php:1009
 #: v2/templates/people/selectDelete.php:196
 #: v2/templates/people/selectDelete.php:334
@@ -4551,7 +4552,7 @@ msgstr "Studenți"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:19
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: v2/templates/people/lettersandlabels.php:152
+#: v2/templates/people/lettersandlabels.php:153
 msgid "Addresses"
 msgstr "Adrese"
 
@@ -5011,8 +5012,8 @@ msgstr "Autoverificare"
 
 #: EcclesiaCRM/Service/TimelineService.php:264
 #: EcclesiaCRM/Service/TimelineService.php:267
-#: v2/templates/people/lettersandlabels.php:149
-#: v2/templates/people/lettersandlabels.php:171
+#: v2/templates/people/lettersandlabels.php:150
+#: v2/templates/people/lettersandlabels.php:182
 #: v2/templates/people/personPrint.php:630
 #: v2/templates/people/personPrint.php:687
 #: v2/templates/people/personPrint.php:736
@@ -5435,7 +5436,7 @@ msgid "People Dashboard"
 msgstr "Tabloul de bord al persoanelor"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:57
+#: query_qry.php:8 query_qry.php:61
 msgid "Advanced Search"
 msgstr "Căutare avansată"
 
@@ -6217,7 +6218,7 @@ msgstr "Am întâmpinat o eroare la trimiterea datelor de verificare."
 #: v2/templates/people/directoryreport.php:326
 #: v2/templates/people/familyEditor.php:1285
 #: v2/templates/people/familyview.php:892
-#: v2/templates/people/lettersandlabels.php:207
+#: v2/templates/people/lettersandlabels.php:218
 #: v2/templates/people/personEditor.php:1738
 #: v2/templates/people/personview.php:1617
 #: v2/templates/people/reminderreport.php:42
@@ -6566,27 +6567,27 @@ msgstr "Această valoare nu poate fi mai mică decât"
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
 #: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:115
-#: v2/templates/query/queryview.php:211
+#: v2/templates/query/queryview.php:219
 msgid " record(s) returned"
 msgstr " înregistrarea (înregistrările) returnată (returnate)"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
-#: v2/templates/query/queryview.php:220
+#: v2/templates/query/queryview.php:129
 msgid "Add To Cart"
 msgstr "Adaugă în coș"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
-#: v2/templates/query/queryview.php:222
+#: v2/templates/query/queryview.php:131
 msgid "Intersect With Cart"
 msgstr "Intersectă cu căruciorul"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
-#: v2/templates/query/queryview.php:224
+#: v2/templates/query/queryview.php:133
 msgid "Remove From Cart"
 msgstr "Eliminați din coș"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
-#: v2/templates/query/queryview.php:229
+#: v2/templates/query/queryview.php:225
 msgid "Run Query Again"
 msgstr "Rulați din nou interogarea"
 
@@ -9652,7 +9653,7 @@ msgid "Remove from Cart"
 msgstr "Scoateți din coș"
 
 #: v2/templates/group/groupview.php:86 v2/templates/people/familyview.php:235
-#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:141
+#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:149
 msgid "Add to Cart"
 msgstr "Adaugă în coș"
 
@@ -10842,61 +10843,83 @@ msgstr "Intersecție cu căruciorul"
 msgid "Remove All from Cart"
 msgstr "Scoateți toate din coș"
 
-#: v2/templates/people/lettersandlabels.php:92
+#: v2/templates/people/lettersandlabels.php:95
 msgid "People Reports"
 msgstr "Rapoarte de persoane"
 
-#: v2/templates/people/lettersandlabels.php:97
+#: v2/templates/people/lettersandlabels.php:100
 msgid "Mail Label"
 msgstr "Etichetă poștală"
 
-#: v2/templates/people/lettersandlabels.php:105
+#: v2/templates/people/lettersandlabels.php:108
 msgid "Recipient Naming Method"
 msgstr "Metoda de denumire a destinatarului"
 
-#: v2/templates/people/lettersandlabels.php:108
+#: v2/templates/people/lettersandlabels.php:111
 msgid "Salutation Utility"
 msgstr "Salutare Utilitar"
 
-#: v2/templates/people/lettersandlabels.php:116
+#: v2/templates/people/lettersandlabels.php:118
 msgid "Person Custom Fields"
 msgstr "Câmpuri personalizate pentru persoane"
 
-#: v2/templates/people/lettersandlabels.php:160
+#: v2/templates/people/lettersandlabels.php:161
 msgid "Test"
 msgstr "Test"
 
-#: v2/templates/people/lettersandlabels.php:174 queryparameters_qrp.php:2
+msgid "Selected Members"
+msgstr "Membrii selectați"
+
+#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:2
 msgid "Minimum Age"
 msgstr "Vârsta minimă"
 
-#: v2/templates/people/lettersandlabels.php:177 queryparameters_qrp.php:23
+#: v2/templates/people/lettersandlabels.php:188 queryparameters_qrp.php:23
 msgid "The minimum age for which you want records returned."
 msgstr "Vârsta minimă pentru care doriți să fie returnate înregistrările."
 
-#: v2/templates/people/lettersandlabels.php:182 queryparameters_qrp.php:3
+#: v2/templates/people/lettersandlabels.php:193 queryparameters_qrp.php:3
 msgid "Maximum Age"
 msgstr "Vârsta maximă"
 
-#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:24
+#: v2/templates/people/lettersandlabels.php:196 queryparameters_qrp.php:24
 msgid "The maximum age for which you want records returned."
 msgstr "Vârsta maximă pentru care doriți să fie returnate înregistrările."
 
-#: v2/templates/people/lettersandlabels.php:195
+#: v2/templates/people/lettersandlabels.php:206
 msgid "Newsletter labels"
 msgstr "Etichete pentru buletinul informativ"
 
-#: v2/templates/people/lettersandlabels.php:198
+#: v2/templates/people/lettersandlabels.php:209
 msgid "Confirm data letter"
 msgstr "Confirmarea scrisorii de date"
 
-#: v2/templates/people/lettersandlabels.php:201
+#: v2/templates/people/lettersandlabels.php:212
 msgid "Confirm data labels"
 msgstr "Confirmați etichetele de date"
 
-#: v2/templates/people/lettersandlabels.php:204
+#: v2/templates/people/lettersandlabels.php:215
 msgid "Confirm data Email"
 msgstr "Confirmați datele Email"
+
+msgid "Email Confirmation"
+msgstr "Confirmare prin e-mail"
+
+msgid "Pending Persons"
+msgstr "Persoane în așteptare"
+
+#: v2/templates/people/lettersandlabels.php:239
+#, fuzzy
+msgid "confirmed person"
+msgstr "Persoane singure"
+
+msgid "Pending Families"
+msgstr "Familii în așteptare"
+
+#: v2/templates/people/lettersandlabels.php:244
+#, fuzzy
+msgid "confirmed Families"
+msgstr "Familii"
 
 #: v2/templates/people/peopledashboard.php:27
 msgid "People Functions"
@@ -12815,7 +12838,7 @@ msgstr "Data de încheiere"
 msgid "Field"
 msgstr "Domeniul"
 
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:59
+#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:63
 msgid "Registered students"
 msgstr "Studenți înregistrați"
 
@@ -12963,122 +12986,126 @@ msgstr "Alegeți câmpul persoană client"
 msgid "Match custom field to this value"
 msgstr "Potrivește câmpul personalizat cu această valoare"
 
-#: query_qry.php:2 query_qry.php:51
+#: query_qry.php:2 query_qry.php:55
 msgid "Family With Work Phone"
 msgstr "Familie cu telefon de serviciu"
 
-#: query_qry.php:3 query_qry.php:52
+#: query_qry.php:3 query_qry.php:56
 msgid "Family Member Count"
 msgstr "Număr de membri ai familiei"
 
-#: query_qry.php:4 query_qry.php:53
+#: query_qry.php:4 query_qry.php:57
 msgid "Person by Age"
 msgstr "Persoane în funcție de vârstă"
 
-#: query_qry.php:5 query_qry.php:54
+#: query_qry.php:5 query_qry.php:58
 msgid "Total By Gender"
 msgstr "Total pe sexe"
 
-#: query_qry.php:6 query_qry.php:55
+#: query_qry.php:6 query_qry.php:59
 msgid "Person by Role and Gender"
 msgstr "Persoane în funcție de rol și sex"
 
-#: query_qry.php:7 query_qry.php:56
+#: query_qry.php:7 query_qry.php:60
 msgid "Person by Property"
 msgstr "Persoană prin proprietate"
 
-#: query_qry.php:9 query_qry.php:58
+#: query_qry.php:9 query_qry.php:62
 msgid "Birthdays"
 msgstr "Aniversări"
 
-#: query_qry.php:11 query_qry.php:60
+#: query_qry.php:11 query_qry.php:64
 msgid "Membership anniversaries"
 msgstr "Aniversări ale membrilor"
 
-#: query_qry.php:12 query_qry.php:61
+#: query_qry.php:12 query_qry.php:65
 msgid "Select database users"
 msgstr "Selectați utilizatorii bazei de date"
 
-#: query_qry.php:13 query_qry.php:62
+#: query_qry.php:13 query_qry.php:66
 msgid "Select all members"
 msgstr "Selectați toți membrii"
 
-#: query_qry.php:15 query_qry.php:64
+#: query_qry.php:15 query_qry.php:68
 msgid "Recent friends"
 msgstr "Prieteni recenți"
 
-#: query_qry.php:16 query_qry.php:65
+#: query_qry.php:16 query_qry.php:69
 msgid "Families to Canvass"
 msgstr "Familii pentru a face campanie de prospectare"
 
-#: query_qry.php:17 query_qry.php:66
+#: query_qry.php:17 query_qry.php:70
 msgid "Pledge comparison"
 msgstr "Comparație de angajament"
 
-#: query_qry.php:18 query_qry.php:67
+#: query_qry.php:18 query_qry.php:71
 msgid "Missing pledges"
 msgstr "Angajamente lipsă"
 
-#: query_qry.php:19 query_qry.php:68
+#: query_qry.php:19 query_qry.php:72
 msgid "Credit Card People"
 msgstr "Oameni cu card de credit"
 
-#: query_qry.php:20 query_qry.php:69
+#: query_qry.php:20 query_qry.php:73
 msgid "Family Pledge by Fiscal Year"
 msgstr "Angajamentul familiei în funcție de anul fiscal"
 
-#: query_qry.php:21 query_qry.php:70
+#: query_qry.php:21 query_qry.php:74
 msgid "Person not assigned to a group"
 msgstr "Persoană neafectată la un grup"
 
-#: query_qry.php:22 query_qry.php:71
+#: query_qry.php:22 query_qry.php:75
 msgid "Person assigned to a group"
 msgstr "Persoană atribuită unui grup"
 
-#: query_qry.php:23 query_qry.php:72
-msgid "Pending Person"
-msgstr "Persoană în așteptare"
+msgid "Awaiting confirmation of persons"
+msgstr "În așteptarea confirmării persoanelor"
 
-#: query_qry.php:24 query_qry.php:73
-msgid "Pending Family"
-msgstr "Familie în așteptare"
+msgid "Awaiting confirmation of families"
+msgstr "În așteptarea confirmării familiilor"
 
-#: query_qry.php:25 query_qry.php:74
+msgid "Done confirmation of persons"
+msgstr "Confirmarea persoanelor"
+
+msgid "Done confirmation of families"
+msgstr "Confirmarea familiilor"
+
+#: query_qry.php:27 query_qry.php:80
 msgid "CustomSearch"
 msgstr "Căutare personalizată"
 
-#: query_qry.php:26 query_qry.php:75
+#: query_qry.php:28 query_qry.php:81
 msgid "Returns each family with a work phone"
 msgstr "Reîntoarce fiecare familie cu un telefon de serviciu"
 
-#: query_qry.php:27 query_qry.php:76
+#: query_qry.php:29 query_qry.php:82
 msgid "Returns each family and the total number of people assigned to them."
 msgstr ""
 "Returnează fiecare familie și numărul total de persoane care i-au fost "
 "atribuite."
 
-#: query_qry.php:28 query_qry.php:77
+#: query_qry.php:30 query_qry.php:83
 msgid "Returns any person records with ages between two given ages."
 msgstr ""
 "Returnează toate înregistrările de persoane cu vârste cuprinse între două "
 "vârste date."
 
-#: query_qry.php:29 query_qry.php:78
+#: query_qry.php:31 query_qry.php:84
 msgid "Total of records matching a given gender."
 msgstr "Totalul înregistrărilor care corespund unui anumit sex."
 
-#: query_qry.php:30 query_qry.php:79
+#: query_qry.php:32 query_qry.php:85
 msgid "Selects person records with the family role and gender specified."
 msgstr ""
 "Selectează înregistrările de persoane cu rolul familiei și sexul specificate."
 
-#: query_qry.php:31 query_qry.php:80
+#: query_qry.php:33 query_qry.php:86
 msgid "Returns person records which are assigned the given property."
 msgstr ""
 "Returnează înregistrările de persoane cărora li s-a atribuit proprietatea "
 "dată."
 
-#: query_qry.php:32 query_qry.php:81
+#: query_qry.php:34 query_qry.php:87
 msgid ""
 "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
 "Email."
@@ -13086,79 +13113,85 @@ msgstr ""
 "Căutați după orice parte a numelui, orașului, statului, codului poștal, "
 "telefonului de acasă, e-mailului sau e-mailului de serviciu."
 
-#: query_qry.php:33 query_qry.php:82
+#: query_qry.php:35 query_qry.php:88
 msgid "People with birthdays in a particular month"
 msgstr "Persoane cu ziua de naștere într-o anumită lună"
 
-#: query_qry.php:34 query_qry.php:83
+#: query_qry.php:36 query_qry.php:89
 msgid "Find Registered students"
 msgstr "Găsiți Studenți înregistrați"
 
-#: query_qry.php:35 query_qry.php:84
+#: query_qry.php:37 query_qry.php:90
 msgid "Members who joined in a particular month"
 msgstr "Membrii care au aderat într-o anumită lună"
 
-#: query_qry.php:36 query_qry.php:85
+#: query_qry.php:38 query_qry.php:91
 msgid "People who are registered as database users"
 msgstr "Persoane înregistrate ca utilizatori ai bazei de date"
 
-#: query_qry.php:37 query_qry.php:86
+#: query_qry.php:39 query_qry.php:92
 msgid "People who are members"
 msgstr "Persoane care sunt membri"
 
-#: query_qry.php:38 query_qry.php:87
+#: query_qry.php:40 query_qry.php:93
 msgid "Find volunteers for a particular opportunity"
 msgstr "Găsiți voluntari pentru o anumită oportunitate"
 
-#: query_qry.php:39 query_qry.php:88
+#: query_qry.php:41 query_qry.php:94
 msgid "Friends who signed up in previous months"
 msgstr "Prieteni care s-au înscris în lunile anterioare"
 
-#: query_qry.php:40 query_qry.php:89
+#: query_qry.php:42 query_qry.php:95
 msgid "People in families that are ok to canvass."
 msgstr "Oameni din familii care sunt în regulă pentru a cerceta."
 
-#: query_qry.php:41 query_qry.php:90
+#: query_qry.php:43 query_qry.php:96
 msgid "Compare pledges between two fiscal years"
 msgstr "Comparați promisiunile de donații între doi ani fiscali"
 
-#: query_qry.php:42 query_qry.php:91
+#: query_qry.php:44 query_qry.php:97
 msgid "Find people who pledged one year but not another"
 msgstr "Găsește persoanele care au promis într-un an, dar nu și în altul"
 
-#: query_qry.php:43 query_qry.php:92
+#: query_qry.php:45 query_qry.php:98
 msgid "People who are configured to pay by credit card."
 msgstr "Persoanele care sunt configurate să plătească cu cardul de credit."
 
-#: query_qry.php:44 query_qry.php:93
+#: query_qry.php:46 query_qry.php:99
 msgid ""
 "Pledge summary by family name for each fund for the selected fiscal year"
 msgstr ""
 "Rezumat al promisiunilor de donații pe nume de familie pentru fiecare fond "
 "pentru anul fiscal selectat"
 
-#: query_qry.php:45 query_qry.php:94
+#: query_qry.php:47 query_qry.php:100
 msgid "Returns all the persons not assigned to a group."
 msgstr "Returnează toate persoanele care nu sunt alocate unui grup."
 
-#: query_qry.php:46 query_qry.php:95
+#: query_qry.php:48 query_qry.php:101
 msgid "Returns all persons assigned to a group."
 msgstr "Returnează toate persoanele atribuite unui grup."
 
-#: query_qry.php:47 query_qry.php:96
+#: query_qry.php:49 query_qry.php:102
 msgid "Find person who are in pending confirmation process"
 msgstr "Găsiți persoana care se află în procesul de confirmare în așteptare"
 
-#: query_qry.php:48 query_qry.php:97
+#: query_qry.php:50 query_qry.php:103
 msgid "Find families who are in pending confirmation process"
 msgstr "Găsește familiile care sunt în proces de confirmare în așteptare"
 
-#: query_qry.php:49 query_qry.php:98
+msgid "Look for person who have confirmed"
+msgstr "Căutați persoane care au confirmat"
+
+msgid "Look for families who have confirmed"
+msgstr "Căutați familii care au confirmat"
+
+#: query_qry.php:53 query_qry.php:106
 msgid "Find volunteers for who match two specific opportunity codes"
 msgstr ""
 "Găsește voluntari care corespund la două coduri specifice de oportunitate"
 
-#: query_qry.php:50 query_qry.php:99
+#: query_qry.php:54 query_qry.php:107
 msgid "Find people with a custom field value"
 msgstr "Găsiți persoane cu o valoare de câmp personalizat"
 
@@ -13560,6 +13593,12 @@ msgstr "Câteva zile"
 
 msgid "Giving Report"
 msgstr "Raport de donații"
+
+msgid "Confirmed person"
+msgstr "Persoană confirmată"
+
+msgid "Confirmed Families"
+msgstr "Familii confirmate"
 
 #~ msgid "First"
 #~ msgstr "Prima"
@@ -14250,17 +14289,11 @@ msgstr "Raport de donații"
 #~ msgid "Please confirm deactivation of family"
 #~ msgstr "Vă rugăm să confirmați dezactivarea familiei"
 
-#~ msgid "Please confirm activation of family"
-#~ msgstr "Vă rugăm să confirmați activarea familiei"
-
 #~ msgid "Family Photo"
 #~ msgstr "Fotografie de familie"
 
 #~ msgid "Please confirm deactivation of person"
 #~ msgstr "Vă rugăm să confirmați dezactivarea persoanei"
-
-#~ msgid "Please confirm activation of person"
-#~ msgstr "Vă rugăm să confirmați activarea persoanei"
 
 #~ msgid "Default User Settings"
 #~ msgstr "Setări implicite ale utilizatorului"
