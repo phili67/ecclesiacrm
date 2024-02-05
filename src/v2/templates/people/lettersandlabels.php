@@ -222,7 +222,7 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
         <div class="col-md-2">
             <div class="card card-primary">
             <div class="card-header border-1">
-                    <h3 class="card-title"><?= gettext('Email Confirm') ?></h3>
+                    <h3 class="card-title"><?= gettext('Email Confirmation') ?></h3>
                 </div>
                 <div class="card-body">
                     <?php
@@ -236,12 +236,12 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                                 ->findByConfirmReport('Pending');                        
                     ?>
                     <label><?= _("Pending Persons") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/35"><?= $personsConfirmPending->count() ?></a><br>
-                    <label><?= _("Done Persons") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/37"><?= $personsConfirmDone->count() ?></a>
+                    <label><?= _("confirmed person") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/37"><?= $personsConfirmDone->count() ?></a>
 
                     <hr/>
 
                     <label><?= _("Pending Families") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/36"><?= $familiesPending->count() ?></a><br>
-                    <label><?= _("Done Families") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/38"><?= $familiesConfirmDone->count() ?><br></a>
+                    <label><?= _("confirmed Families") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/38"><?= $familiesConfirmDone->count() ?><br></a>
                 </div>
             </div>
         </div>

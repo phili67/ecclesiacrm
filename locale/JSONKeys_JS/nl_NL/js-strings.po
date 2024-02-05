@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-02T15:24:09.748Z\n"
+"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1471,6 +1471,12 @@ msgstr ""
 "EcclesiaCRM :<br>- test liever met een paar mensen of families<br>- zorg "
 "ervoor dat u ze allemaal selecteert, op adres of op persoon."
 
+msgid "You're about to send a e-mail to"
+msgstr "Je staat op het punt een e-mail te sturen naar"
+
+msgid "members"
+msgstr "leden"
+
 msgid "Delete this person?"
 msgstr "Deze persoon schrappen?"
 
@@ -2523,9 +2529,6 @@ msgstr "Afbeelding uploaden"
 
 #~ msgid "All"
 #~ msgstr "Alle"
-
-#~ msgid "You're about to remove a file"
-#~ msgstr "Je staat op het punt een bestand te verwijderen"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 15:44+0000\n"
+"POT-Creation-Date: 2024-02-05 19:42+0000\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -657,6 +657,7 @@ msgstr "Відео"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
+#: v2/templates/people/lettersandlabels.php:173
 #: v2/templates/people/personPrint.php:266
 #: v2/templates/people/personPrint.php:327
 #: v2/templates/people/personPrint.php:382
@@ -894,18 +895,18 @@ msgstr "Всі сім'ї"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
-#: EcclesiaCRM/APIControllers/PeopleController.php:121
+#: EcclesiaCRM/APIControllers/PeopleController.php:125
 #: EcclesiaCRM/MenuBar/MenuBar.php:177
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
-#: v2/templates/people/lettersandlabels.php:153
+#: v2/templates/people/lettersandlabels.php:154
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
 msgstr "Люди"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:163
-#: EcclesiaCRM/APIControllers/PeopleController.php:157
+#: EcclesiaCRM/APIControllers/PeopleController.php:164
 #: EcclesiaCRM/APIControllers/SearchController.php:63
 #: EcclesiaCRM/APIControllers/SearchController.php:66
 #: EcclesiaCRM/MenuBar/MenuBar.php:152 EcclesiaCRM/MenuBar/MenuBar.php:184
@@ -924,7 +925,7 @@ msgid "Families"
 msgstr "Сім'ї"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:201
-#: EcclesiaCRM/APIControllers/PeopleController.php:192
+#: EcclesiaCRM/APIControllers/PeopleController.php:201
 #: EcclesiaCRM/APIControllers/SearchController.php:89
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:206 EcclesiaCRM/Search/GroupSearchRes.php:21
@@ -1122,7 +1123,7 @@ msgstr "Одиночки"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:73
 #: EcclesiaCRM/APIControllers/SearchController.php:76
-#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:63
+#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:67
 msgid "Volunteers"
 msgstr "Волонтери"
 
@@ -1227,7 +1228,7 @@ msgid "Person Classification"
 msgstr "Класифікація осіб"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:127
-#: v2/templates/people/lettersandlabels.php:132
+#: v2/templates/people/lettersandlabels.php:133
 #: v2/templates/system/optionManager.php:100
 msgid "Person Classifications"
 msgstr "Класифікації осіб"
@@ -3709,7 +3710,7 @@ msgstr "Церковний вітальник"
 #: external/templates/registration/family-register.php:36
 #: Reports/ConfirmReport.php:201 v2/templates/cart/cartToFamily.php:297
 #: v2/templates/people/familyEditor.php:709
-#: v2/templates/people/lettersandlabels.php:109
+#: v2/templates/people/lettersandlabels.php:112
 #: v2/templates/people/personEditor.php:1009
 #: v2/templates/people/selectDelete.php:196
 #: v2/templates/people/selectDelete.php:334
@@ -4536,7 +4537,7 @@ msgstr "Студенти"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:19
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: v2/templates/people/lettersandlabels.php:152
+#: v2/templates/people/lettersandlabels.php:153
 msgid "Addresses"
 msgstr "Адреси"
 
@@ -4996,8 +4997,8 @@ msgstr "Самоперевірка"
 
 #: EcclesiaCRM/Service/TimelineService.php:264
 #: EcclesiaCRM/Service/TimelineService.php:267
-#: v2/templates/people/lettersandlabels.php:149
-#: v2/templates/people/lettersandlabels.php:171
+#: v2/templates/people/lettersandlabels.php:150
+#: v2/templates/people/lettersandlabels.php:182
 #: v2/templates/people/personPrint.php:630
 #: v2/templates/people/personPrint.php:687
 #: v2/templates/people/personPrint.php:736
@@ -5420,7 +5421,7 @@ msgid "People Dashboard"
 msgstr "Панель управління персоналом"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:57
+#: query_qry.php:8 query_qry.php:61
 msgid "Advanced Search"
 msgstr "Розширений пошук"
 
@@ -6202,7 +6203,7 @@ msgstr "Ми зіткнулися з помилкою при відправці 
 #: v2/templates/people/directoryreport.php:326
 #: v2/templates/people/familyEditor.php:1285
 #: v2/templates/people/familyview.php:892
-#: v2/templates/people/lettersandlabels.php:207
+#: v2/templates/people/lettersandlabels.php:218
 #: v2/templates/people/personEditor.php:1738
 #: v2/templates/people/personview.php:1617
 #: v2/templates/people/reminderreport.php:42
@@ -6551,27 +6552,27 @@ msgstr "Це значення не може бути меншим за"
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
 #: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:115
-#: v2/templates/query/queryview.php:211
+#: v2/templates/query/queryview.php:219
 msgid " record(s) returned"
 msgstr " повернуто запис(и)"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
-#: v2/templates/query/queryview.php:220
+#: v2/templates/query/queryview.php:129
 msgid "Add To Cart"
 msgstr "Додати в кошик"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
-#: v2/templates/query/queryview.php:222
+#: v2/templates/query/queryview.php:131
 msgid "Intersect With Cart"
 msgstr "Перетинається з кошиком"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
-#: v2/templates/query/queryview.php:224
+#: v2/templates/query/queryview.php:133
 msgid "Remove From Cart"
 msgstr "Видалити з кошика"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
-#: v2/templates/query/queryview.php:229
+#: v2/templates/query/queryview.php:225
 msgid "Run Query Again"
 msgstr "Запустити запит ще раз"
 
@@ -9621,7 +9622,7 @@ msgid "Remove from Cart"
 msgstr "Видалити з кошика"
 
 #: v2/templates/group/groupview.php:86 v2/templates/people/familyview.php:235
-#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:141
+#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:149
 msgid "Add to Cart"
 msgstr "Додати в кошик"
 
@@ -10796,61 +10797,83 @@ msgstr "Перетинається з кошиком"
 msgid "Remove All from Cart"
 msgstr "Видалити все з кошика"
 
-#: v2/templates/people/lettersandlabels.php:92
+#: v2/templates/people/lettersandlabels.php:95
 msgid "People Reports"
 msgstr "Звіти про людей"
 
-#: v2/templates/people/lettersandlabels.php:97
+#: v2/templates/people/lettersandlabels.php:100
 msgid "Mail Label"
 msgstr "Поштова етикетка"
 
-#: v2/templates/people/lettersandlabels.php:105
+#: v2/templates/people/lettersandlabels.php:108
 msgid "Recipient Naming Method"
 msgstr "Спосіб іменування одержувача"
 
-#: v2/templates/people/lettersandlabels.php:108
+#: v2/templates/people/lettersandlabels.php:111
 msgid "Salutation Utility"
 msgstr "Утиліта привітання"
 
-#: v2/templates/people/lettersandlabels.php:116
+#: v2/templates/people/lettersandlabels.php:118
 msgid "Person Custom Fields"
 msgstr "Користувацькі поля особи"
 
-#: v2/templates/people/lettersandlabels.php:160
+#: v2/templates/people/lettersandlabels.php:161
 msgid "Test"
 msgstr "Тест"
 
-#: v2/templates/people/lettersandlabels.php:174 queryparameters_qrp.php:2
+msgid "Selected Members"
+msgstr "Вибрані учасники"
+
+#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:2
 msgid "Minimum Age"
 msgstr "Мінімальний вік"
 
-#: v2/templates/people/lettersandlabels.php:177 queryparameters_qrp.php:23
+#: v2/templates/people/lettersandlabels.php:188 queryparameters_qrp.php:23
 msgid "The minimum age for which you want records returned."
 msgstr "Мінімальний вік, для якого ви хочете отримати записи."
 
-#: v2/templates/people/lettersandlabels.php:182 queryparameters_qrp.php:3
+#: v2/templates/people/lettersandlabels.php:193 queryparameters_qrp.php:3
 msgid "Maximum Age"
 msgstr "Максимальний вік"
 
-#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:24
+#: v2/templates/people/lettersandlabels.php:196 queryparameters_qrp.php:24
 msgid "The maximum age for which you want records returned."
 msgstr "Максимальний вік, для якого ви хочете повернути записи."
 
-#: v2/templates/people/lettersandlabels.php:195
+#: v2/templates/people/lettersandlabels.php:206
 msgid "Newsletter labels"
 msgstr "Етикетки розсилки"
 
-#: v2/templates/people/lettersandlabels.php:198
+#: v2/templates/people/lettersandlabels.php:209
 msgid "Confirm data letter"
 msgstr "Лист з підтвердженням даних"
 
-#: v2/templates/people/lettersandlabels.php:201
+#: v2/templates/people/lettersandlabels.php:212
 msgid "Confirm data labels"
 msgstr "Підтвердьте мітки даних"
 
-#: v2/templates/people/lettersandlabels.php:204
+#: v2/templates/people/lettersandlabels.php:215
 msgid "Confirm data Email"
 msgstr "Підтвердити дані Email"
+
+msgid "Email Confirmation"
+msgstr "Підтвердження електронною поштою"
+
+msgid "Pending Persons"
+msgstr "Особи, які перебувають на розгляді"
+
+#: v2/templates/people/lettersandlabels.php:239
+#, fuzzy
+msgid "confirmed person"
+msgstr "Одинокі особи"
+
+msgid "Pending Families"
+msgstr "Сім'ї в очікуванні"
+
+#: v2/templates/people/lettersandlabels.php:244
+#, fuzzy
+msgid "confirmed Families"
+msgstr "Сім'ї"
 
 #: v2/templates/people/peopledashboard.php:27
 msgid "People Functions"
@@ -12757,7 +12780,7 @@ msgstr "Дата закінчення"
 msgid "Field"
 msgstr "Поле"
 
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:59
+#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:63
 msgid "Registered students"
 msgstr "Зареєстровані студенти"
 
@@ -12900,117 +12923,121 @@ msgstr "Виберіть поле \"Особа клієнта"
 msgid "Match custom field to this value"
 msgstr "Зіставте користувацьке поле з цим значенням"
 
-#: query_qry.php:2 query_qry.php:51
+#: query_qry.php:2 query_qry.php:55
 msgid "Family With Work Phone"
 msgstr "Сімейний телефон з робочим телефоном"
 
-#: query_qry.php:3 query_qry.php:52
+#: query_qry.php:3 query_qry.php:56
 msgid "Family Member Count"
 msgstr "Кількість членів сім'ї"
 
-#: query_qry.php:4 query_qry.php:53
+#: query_qry.php:4 query_qry.php:57
 msgid "Person by Age"
 msgstr "Особи за віком"
 
-#: query_qry.php:5 query_qry.php:54
+#: query_qry.php:5 query_qry.php:58
 msgid "Total By Gender"
 msgstr "Всього За статтю"
 
-#: query_qry.php:6 query_qry.php:55
+#: query_qry.php:6 query_qry.php:59
 msgid "Person by Role and Gender"
 msgstr "Особи за роллю та статтю"
 
-#: query_qry.php:7 query_qry.php:56
+#: query_qry.php:7 query_qry.php:60
 msgid "Person by Property"
 msgstr "Людина за майном"
 
-#: query_qry.php:9 query_qry.php:58
+#: query_qry.php:9 query_qry.php:62
 msgid "Birthdays"
 msgstr "Дні народження"
 
-#: query_qry.php:11 query_qry.php:60
+#: query_qry.php:11 query_qry.php:64
 msgid "Membership anniversaries"
 msgstr "Ювілеї членства"
 
-#: query_qry.php:12 query_qry.php:61
+#: query_qry.php:12 query_qry.php:65
 msgid "Select database users"
 msgstr "Вибір користувачів бази даних"
 
-#: query_qry.php:13 query_qry.php:62
+#: query_qry.php:13 query_qry.php:66
 msgid "Select all members"
 msgstr "Вибрати всіх учасників"
 
-#: query_qry.php:15 query_qry.php:64
+#: query_qry.php:15 query_qry.php:68
 msgid "Recent friends"
 msgstr "Недавні друзі"
 
-#: query_qry.php:16 query_qry.php:65
+#: query_qry.php:16 query_qry.php:69
 msgid "Families to Canvass"
 msgstr "Опитування сімей"
 
-#: query_qry.php:17 query_qry.php:66
+#: query_qry.php:17 query_qry.php:70
 msgid "Pledge comparison"
 msgstr "Порівняння обіцянок"
 
-#: query_qry.php:18 query_qry.php:67
+#: query_qry.php:18 query_qry.php:71
 msgid "Missing pledges"
 msgstr "Відсутні обіцянки"
 
-#: query_qry.php:19 query_qry.php:68
+#: query_qry.php:19 query_qry.php:72
 msgid "Credit Card People"
 msgstr "Люди з кредитними картками"
 
-#: query_qry.php:20 query_qry.php:69
+#: query_qry.php:20 query_qry.php:73
 msgid "Family Pledge by Fiscal Year"
 msgstr "Сімейні пожертви за фінансовими роками"
 
-#: query_qry.php:21 query_qry.php:70
+#: query_qry.php:21 query_qry.php:74
 msgid "Person not assigned to a group"
 msgstr "Особа не віднесена до групи"
 
-#: query_qry.php:22 query_qry.php:71
+#: query_qry.php:22 query_qry.php:75
 msgid "Person assigned to a group"
 msgstr "Особа призначена до групи"
 
-#: query_qry.php:23 query_qry.php:72
-msgid "Pending Person"
-msgstr "Особа, яка очікує на розгляд"
+msgid "Awaiting confirmation of persons"
+msgstr "Очікуємо на підтвердження осіб"
 
-#: query_qry.php:24 query_qry.php:73
-msgid "Pending Family"
-msgstr "Сім'я в очікуванні"
+msgid "Awaiting confirmation of families"
+msgstr "Очікуємо на підтвердження сімей"
 
-#: query_qry.php:25 query_qry.php:74
+msgid "Done confirmation of persons"
+msgstr "Здійснено підтвердження осіб"
+
+msgid "Done confirmation of families"
+msgstr "Здійснено підтвердження сімей"
+
+#: query_qry.php:27 query_qry.php:80
 msgid "CustomSearch"
 msgstr "Користувацький пошук"
 
-#: query_qry.php:26 query_qry.php:75
+#: query_qry.php:28 query_qry.php:81
 msgid "Returns each family with a work phone"
 msgstr "Повертає кожній родині робочий телефон"
 
-#: query_qry.php:27 query_qry.php:76
+#: query_qry.php:29 query_qry.php:82
 msgid "Returns each family and the total number of people assigned to them."
 msgstr "Повертає кожну сім'ю та загальну кількість людей, призначених до неї."
 
-#: query_qry.php:28 query_qry.php:77
+#: query_qry.php:30 query_qry.php:83
 msgid "Returns any person records with ages between two given ages."
 msgstr ""
 "Повертає всі записи про людину, вік якої знаходиться між двома заданими "
 "віками."
 
-#: query_qry.php:29 query_qry.php:78
+#: query_qry.php:31 query_qry.php:84
 msgid "Total of records matching a given gender."
 msgstr "Загальна кількість записів, що відповідають певній статі."
 
-#: query_qry.php:30 query_qry.php:79
+#: query_qry.php:32 query_qry.php:85
 msgid "Selects person records with the family role and gender specified."
 msgstr "Вибирає записи осіб із зазначеною сімейною роллю та статтю."
 
-#: query_qry.php:31 query_qry.php:80
+#: query_qry.php:33 query_qry.php:86
 msgid "Returns person records which are assigned the given property."
 msgstr "Повертає записи про особу, яким присвоєно задану властивість."
 
-#: query_qry.php:32 query_qry.php:81
+#: query_qry.php:34 query_qry.php:87
 msgid ""
 "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
 "Email."
@@ -13018,80 +13045,86 @@ msgstr ""
 "Шукайте за будь-якою частиною імені, міста, штату, індексу, домашнього "
 "телефону, електронної пошти або робочої пошти."
 
-#: query_qry.php:33 query_qry.php:82
+#: query_qry.php:35 query_qry.php:88
 msgid "People with birthdays in a particular month"
 msgstr "Люди з днями народження в певному місяці"
 
-#: query_qry.php:34 query_qry.php:83
+#: query_qry.php:36 query_qry.php:89
 msgid "Find Registered students"
 msgstr "Знайти зареєстрованих студентів"
 
-#: query_qry.php:35 query_qry.php:84
+#: query_qry.php:37 query_qry.php:90
 msgid "Members who joined in a particular month"
 msgstr "Учасники, які приєдналися в певному місяці"
 
-#: query_qry.php:36 query_qry.php:85
+#: query_qry.php:38 query_qry.php:91
 msgid "People who are registered as database users"
 msgstr "Люди, які зареєстровані як користувачі бази даних"
 
-#: query_qry.php:37 query_qry.php:86
+#: query_qry.php:39 query_qry.php:92
 msgid "People who are members"
 msgstr "Люди, які є членами"
 
-#: query_qry.php:38 query_qry.php:87
+#: query_qry.php:40 query_qry.php:93
 msgid "Find volunteers for a particular opportunity"
 msgstr "Знайти волонтерів для конкретної можливості"
 
-#: query_qry.php:39 query_qry.php:88
+#: query_qry.php:41 query_qry.php:94
 msgid "Friends who signed up in previous months"
 msgstr "Друзі, які підписалися в попередні місяці"
 
-#: query_qry.php:40 query_qry.php:89
+#: query_qry.php:42 query_qry.php:95
 msgid "People in families that are ok to canvass."
 msgstr "Люди в сім'ях, які не проти агітації."
 
-#: query_qry.php:41 query_qry.php:90
+#: query_qry.php:43 query_qry.php:96
 msgid "Compare pledges between two fiscal years"
 msgstr "Порівняйте зобов'язання між двома фінансовими роками"
 
-#: query_qry.php:42 query_qry.php:91
+#: query_qry.php:44 query_qry.php:97
 msgid "Find people who pledged one year but not another"
 msgstr ""
 "Знайдіть людей, які взяли на себе зобов'язання на один рік, але не на інший"
 
-#: query_qry.php:43 query_qry.php:92
+#: query_qry.php:45 query_qry.php:98
 msgid "People who are configured to pay by credit card."
 msgstr "Люди, які налаштовані на оплату кредитною карткою."
 
-#: query_qry.php:44 query_qry.php:93
+#: query_qry.php:46 query_qry.php:99
 msgid ""
 "Pledge summary by family name for each fund for the selected fiscal year"
 msgstr ""
 "Зведена інформація по прізвищах про пожертви для кожного фонду за обраний "
 "фінансовий рік"
 
-#: query_qry.php:45 query_qry.php:94
+#: query_qry.php:47 query_qry.php:100
 msgid "Returns all the persons not assigned to a group."
 msgstr "Повертає всіх осіб, не призначених до групи."
 
-#: query_qry.php:46 query_qry.php:95
+#: query_qry.php:48 query_qry.php:101
 msgid "Returns all persons assigned to a group."
 msgstr "Повертає всіх осіб, призначених до групи."
 
-#: query_qry.php:47 query_qry.php:96
+#: query_qry.php:49 query_qry.php:102
 msgid "Find person who are in pending confirmation process"
 msgstr "Знайдіть людину, яка перебуває в процесі підтвердження"
 
-#: query_qry.php:48 query_qry.php:97
+#: query_qry.php:50 query_qry.php:103
 msgid "Find families who are in pending confirmation process"
 msgstr "Знайдіть сім'ї, які перебувають у процесі підтвердження"
 
-#: query_qry.php:49 query_qry.php:98
+msgid "Look for person who have confirmed"
+msgstr "Шукайте людей, які підтвердили"
+
+msgid "Look for families who have confirmed"
+msgstr "Шукайте сім'ї, які підтвердили"
+
+#: query_qry.php:53 query_qry.php:106
 msgid "Find volunteers for who match two specific opportunity codes"
 msgstr ""
 "Знайдіть волонтерів, які відповідають двом конкретним кодам можливостей"
 
-#: query_qry.php:50 query_qry.php:99
+#: query_qry.php:54 query_qry.php:107
 msgid "Find people with a custom field value"
 msgstr "Знайти людей зі спеціальним значенням поля"
 
@@ -13492,6 +13525,12 @@ msgstr "Кілька днів"
 
 msgid "Giving Report"
 msgstr "Надання звіту"
+
+msgid "Confirmed person"
+msgstr "Підтверджена особа"
+
+msgid "Confirmed Families"
+msgstr "Конфірмовані сім'ї"
 
 #~ msgid "First"
 #~ msgstr "По-перше."

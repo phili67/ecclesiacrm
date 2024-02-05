@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-02T15:24:09.748Z\n"
+"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -1456,6 +1456,12 @@ msgstr ""
 "Ви збираєтеся надіслати масову розсилку всім користувачам EcclesiaCRM:<br>- "
 "віддайте перевагу тестуванню з кількома людьми або сім'ями<br>- "
 "переконайтеся, що ви вибрали всіх, або за адресою, або за особою."
+
+msgid "You're about to send a e-mail to"
+msgstr "Ви збираєтеся надіслати електронного листа на адресу"
+
+msgid "members"
+msgstr "учасники"
 
 msgid "Delete this person?"
 msgstr "Видалити цю людину?"

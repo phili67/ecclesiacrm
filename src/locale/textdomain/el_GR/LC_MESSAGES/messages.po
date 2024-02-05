@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-02 15:44+0000\n"
+"POT-Creation-Date: 2024-02-05 19:42+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -660,6 +660,7 @@ msgstr "Βίντεο"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
+#: v2/templates/people/lettersandlabels.php:173
 #: v2/templates/people/personPrint.php:266
 #: v2/templates/people/personPrint.php:327
 #: v2/templates/people/personPrint.php:382
@@ -898,18 +899,18 @@ msgstr "Όλες οι οικογένειες"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
-#: EcclesiaCRM/APIControllers/PeopleController.php:121
+#: EcclesiaCRM/APIControllers/PeopleController.php:125
 #: EcclesiaCRM/MenuBar/MenuBar.php:177
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
-#: v2/templates/people/lettersandlabels.php:153
+#: v2/templates/people/lettersandlabels.php:154
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
 msgstr "Άτομα"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:163
-#: EcclesiaCRM/APIControllers/PeopleController.php:157
+#: EcclesiaCRM/APIControllers/PeopleController.php:164
 #: EcclesiaCRM/APIControllers/SearchController.php:63
 #: EcclesiaCRM/APIControllers/SearchController.php:66
 #: EcclesiaCRM/MenuBar/MenuBar.php:152 EcclesiaCRM/MenuBar/MenuBar.php:184
@@ -928,7 +929,7 @@ msgid "Families"
 msgstr "Οικογένειες"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:201
-#: EcclesiaCRM/APIControllers/PeopleController.php:192
+#: EcclesiaCRM/APIControllers/PeopleController.php:201
 #: EcclesiaCRM/APIControllers/SearchController.php:89
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:206 EcclesiaCRM/Search/GroupSearchRes.php:21
@@ -1129,7 +1130,7 @@ msgstr "Singles"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:73
 #: EcclesiaCRM/APIControllers/SearchController.php:76
-#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:63
+#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:67
 msgid "Volunteers"
 msgstr "Εθελοντές"
 
@@ -1234,7 +1235,7 @@ msgid "Person Classification"
 msgstr "Ταξινόμηση προσώπου"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:127
-#: v2/templates/people/lettersandlabels.php:132
+#: v2/templates/people/lettersandlabels.php:133
 #: v2/templates/system/optionManager.php:100
 msgid "Person Classifications"
 msgstr "Ταξινόμηση προσώπων"
@@ -3757,7 +3758,7 @@ msgstr "Εκκλησία Greeter"
 #: external/templates/registration/family-register.php:36
 #: Reports/ConfirmReport.php:201 v2/templates/cart/cartToFamily.php:297
 #: v2/templates/people/familyEditor.php:709
-#: v2/templates/people/lettersandlabels.php:109
+#: v2/templates/people/lettersandlabels.php:112
 #: v2/templates/people/personEditor.php:1009
 #: v2/templates/people/selectDelete.php:196
 #: v2/templates/people/selectDelete.php:334
@@ -4586,7 +4587,7 @@ msgstr "Φοιτητές"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:19
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: v2/templates/people/lettersandlabels.php:152
+#: v2/templates/people/lettersandlabels.php:153
 msgid "Addresses"
 msgstr "Διευθύνσεις"
 
@@ -5047,8 +5048,8 @@ msgstr "Αυτοεπιβεβαίωση"
 
 #: EcclesiaCRM/Service/TimelineService.php:264
 #: EcclesiaCRM/Service/TimelineService.php:267
-#: v2/templates/people/lettersandlabels.php:149
-#: v2/templates/people/lettersandlabels.php:171
+#: v2/templates/people/lettersandlabels.php:150
+#: v2/templates/people/lettersandlabels.php:182
 #: v2/templates/people/personPrint.php:630
 #: v2/templates/people/personPrint.php:687
 #: v2/templates/people/personPrint.php:736
@@ -5473,7 +5474,7 @@ msgid "People Dashboard"
 msgstr "People Dashboard"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:57
+#: query_qry.php:8 query_qry.php:61
 msgid "Advanced Search"
 msgstr "Σύνθετη αναζήτηση"
 
@@ -6262,7 +6263,7 @@ msgstr "Αντιμετωπίσαμε ένα σφάλμα κατά την υπο�
 #: v2/templates/people/directoryreport.php:326
 #: v2/templates/people/familyEditor.php:1285
 #: v2/templates/people/familyview.php:892
-#: v2/templates/people/lettersandlabels.php:207
+#: v2/templates/people/lettersandlabels.php:218
 #: v2/templates/people/personEditor.php:1738
 #: v2/templates/people/personview.php:1617
 #: v2/templates/people/reminderreport.php:42
@@ -6614,27 +6615,27 @@ msgstr "Η τιμή αυτή δεν μπορεί να είναι μικρότε�
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
 #: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:115
-#: v2/templates/query/queryview.php:211
+#: v2/templates/query/queryview.php:219
 msgid " record(s) returned"
 msgstr " επιστρεφόμενη εγγραφή(-ες)"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
-#: v2/templates/query/queryview.php:220
+#: v2/templates/query/queryview.php:129
 msgid "Add To Cart"
 msgstr "Προσθήκη στο καλάθι"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
-#: v2/templates/query/queryview.php:222
+#: v2/templates/query/queryview.php:131
 msgid "Intersect With Cart"
 msgstr "Διασταύρωση με καλάθι"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
-#: v2/templates/query/queryview.php:224
+#: v2/templates/query/queryview.php:133
 msgid "Remove From Cart"
 msgstr "Αφαίρεση από το καλάθι"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
-#: v2/templates/query/queryview.php:229
+#: v2/templates/query/queryview.php:225
 msgid "Run Query Again"
 msgstr "Εκτελέστε ξανά το ερώτημα"
 
@@ -9710,7 +9711,7 @@ msgid "Remove from Cart"
 msgstr "Αφαίρεση από το καλάθι"
 
 #: v2/templates/group/groupview.php:86 v2/templates/people/familyview.php:235
-#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:141
+#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:149
 msgid "Add to Cart"
 msgstr "Προσθήκη στο καλάθι"
 
@@ -10904,61 +10905,83 @@ msgstr "Διασταύρωση με καλάθι"
 msgid "Remove All from Cart"
 msgstr "Αφαίρεση όλων από το καλάθι"
 
-#: v2/templates/people/lettersandlabels.php:92
+#: v2/templates/people/lettersandlabels.php:95
 msgid "People Reports"
 msgstr "Αναφορές ανθρώπων"
 
-#: v2/templates/people/lettersandlabels.php:97
+#: v2/templates/people/lettersandlabels.php:100
 msgid "Mail Label"
 msgstr "Ετικέτα ταχυδρομείου"
 
-#: v2/templates/people/lettersandlabels.php:105
+#: v2/templates/people/lettersandlabels.php:108
 msgid "Recipient Naming Method"
 msgstr "Μέθοδος ονοματοδοσίας παραλήπτη"
 
-#: v2/templates/people/lettersandlabels.php:108
+#: v2/templates/people/lettersandlabels.php:111
 msgid "Salutation Utility"
 msgstr "Βοηθητικό πρόγραμμα χαιρετισμού"
 
-#: v2/templates/people/lettersandlabels.php:116
+#: v2/templates/people/lettersandlabels.php:118
 msgid "Person Custom Fields"
 msgstr "Προσαρμοσμένα πεδία προσώπου"
 
-#: v2/templates/people/lettersandlabels.php:160
+#: v2/templates/people/lettersandlabels.php:161
 msgid "Test"
 msgstr "Δοκιμή"
 
-#: v2/templates/people/lettersandlabels.php:174 queryparameters_qrp.php:2
+msgid "Selected Members"
+msgstr "Επιλεγμένα μέλη"
+
+#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:2
 msgid "Minimum Age"
 msgstr "Ελάχιστη ηλικία"
 
-#: v2/templates/people/lettersandlabels.php:177 queryparameters_qrp.php:23
+#: v2/templates/people/lettersandlabels.php:188 queryparameters_qrp.php:23
 msgid "The minimum age for which you want records returned."
 msgstr "Η ελάχιστη ηλικία για την οποία θέλετε να επιστραφούν εγγραφές."
 
-#: v2/templates/people/lettersandlabels.php:182 queryparameters_qrp.php:3
+#: v2/templates/people/lettersandlabels.php:193 queryparameters_qrp.php:3
 msgid "Maximum Age"
 msgstr "Μέγιστη ηλικία"
 
-#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:24
+#: v2/templates/people/lettersandlabels.php:196 queryparameters_qrp.php:24
 msgid "The maximum age for which you want records returned."
 msgstr "Η μέγιστη ηλικία για την οποία θέλετε να επιστραφούν εγγραφές."
 
-#: v2/templates/people/lettersandlabels.php:195
+#: v2/templates/people/lettersandlabels.php:206
 msgid "Newsletter labels"
 msgstr "Ετικέτες ενημερωτικών δελτίων"
 
-#: v2/templates/people/lettersandlabels.php:198
+#: v2/templates/people/lettersandlabels.php:209
 msgid "Confirm data letter"
 msgstr "Επιβεβαίωση επιστολής δεδομένων"
 
-#: v2/templates/people/lettersandlabels.php:201
+#: v2/templates/people/lettersandlabels.php:212
 msgid "Confirm data labels"
 msgstr "Επιβεβαίωση ετικετών δεδομένων"
 
-#: v2/templates/people/lettersandlabels.php:204
+#: v2/templates/people/lettersandlabels.php:215
 msgid "Confirm data Email"
 msgstr "Επιβεβαίωση δεδομένων Email"
+
+msgid "Email Confirmation"
+msgstr "Επιβεβαίωση μέσω email"
+
+msgid "Pending Persons"
+msgstr "Εκκρεμή πρόσωπα"
+
+#: v2/templates/people/lettersandlabels.php:239
+#, fuzzy
+msgid "confirmed person"
+msgstr "Άτομα που είναι μόνοι τους"
+
+msgid "Pending Families"
+msgstr "Εκκρεμείς οικογένειες"
+
+#: v2/templates/people/lettersandlabels.php:244
+#, fuzzy
+msgid "confirmed Families"
+msgstr "Οικογένειες"
 
 #: v2/templates/people/peopledashboard.php:27
 msgid "People Functions"
@@ -12881,7 +12904,7 @@ msgstr "Ημερομηνία λήξης"
 msgid "Field"
 msgstr "Πεδίο"
 
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:59
+#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:63
 msgid "Registered students"
 msgstr "Εγγεγραμμένοι φοιτητές"
 
@@ -13028,123 +13051,127 @@ msgstr "Επιλέξτε το πεδίο πρόσωπο πελάτη"
 msgid "Match custom field to this value"
 msgstr "Αντιστοιχία προσαρμοσμένου πεδίου με αυτή την τιμή"
 
-#: query_qry.php:2 query_qry.php:51
+#: query_qry.php:2 query_qry.php:55
 msgid "Family With Work Phone"
 msgstr "Οικογένεια με τηλέφωνο εργασίας"
 
-#: query_qry.php:3 query_qry.php:52
+#: query_qry.php:3 query_qry.php:56
 msgid "Family Member Count"
 msgstr "Αριθμός μελών της οικογένειας"
 
-#: query_qry.php:4 query_qry.php:53
+#: query_qry.php:4 query_qry.php:57
 msgid "Person by Age"
 msgstr "Πρόσωπο ανά ηλικία"
 
-#: query_qry.php:5 query_qry.php:54
+#: query_qry.php:5 query_qry.php:58
 msgid "Total By Gender"
 msgstr "Σύνολο Ανά φύλο"
 
-#: query_qry.php:6 query_qry.php:55
+#: query_qry.php:6 query_qry.php:59
 msgid "Person by Role and Gender"
 msgstr "Πρόσωπο ανά ρόλο και φύλο"
 
-#: query_qry.php:7 query_qry.php:56
+#: query_qry.php:7 query_qry.php:60
 msgid "Person by Property"
 msgstr "Πρόσωπο από Ιδιοκτησία"
 
-#: query_qry.php:9 query_qry.php:58
+#: query_qry.php:9 query_qry.php:62
 msgid "Birthdays"
 msgstr "Γενέθλια"
 
-#: query_qry.php:11 query_qry.php:60
+#: query_qry.php:11 query_qry.php:64
 msgid "Membership anniversaries"
 msgstr "Επέτειοι μελών"
 
-#: query_qry.php:12 query_qry.php:61
+#: query_qry.php:12 query_qry.php:65
 msgid "Select database users"
 msgstr "Επιλογή χρηστών βάσης δεδομένων"
 
-#: query_qry.php:13 query_qry.php:62
+#: query_qry.php:13 query_qry.php:66
 msgid "Select all members"
 msgstr "Επιλέξτε όλα τα μέλη"
 
-#: query_qry.php:15 query_qry.php:64
+#: query_qry.php:15 query_qry.php:68
 msgid "Recent friends"
 msgstr "Πρόσφατοι φίλοι"
 
-#: query_qry.php:16 query_qry.php:65
+#: query_qry.php:16 query_qry.php:69
 msgid "Families to Canvass"
 msgstr "Οικογένειες προς αναζήτηση"
 
-#: query_qry.php:17 query_qry.php:66
+#: query_qry.php:17 query_qry.php:70
 msgid "Pledge comparison"
 msgstr "Σύγκριση υποσχέσεων"
 
-#: query_qry.php:18 query_qry.php:67
+#: query_qry.php:18 query_qry.php:71
 msgid "Missing pledges"
 msgstr "Λείπουν υποσχέσεις"
 
-#: query_qry.php:19 query_qry.php:68
+#: query_qry.php:19 query_qry.php:72
 msgid "Credit Card People"
 msgstr "Άνθρωποι με πιστωτική κάρτα"
 
-#: query_qry.php:20 query_qry.php:69
+#: query_qry.php:20 query_qry.php:73
 msgid "Family Pledge by Fiscal Year"
 msgstr "Οικογενειακή δέσμευση ανά οικονομικό έτος"
 
-#: query_qry.php:21 query_qry.php:70
+#: query_qry.php:21 query_qry.php:74
 msgid "Person not assigned to a group"
 msgstr "Άτομο που δεν έχει οριστεί σε ομάδα"
 
-#: query_qry.php:22 query_qry.php:71
+#: query_qry.php:22 query_qry.php:75
 msgid "Person assigned to a group"
 msgstr "Πρόσωπο που έχει οριστεί σε ομάδα"
 
-#: query_qry.php:23 query_qry.php:72
-msgid "Pending Person"
-msgstr "Εκκρεμές πρόσωπο"
+msgid "Awaiting confirmation of persons"
+msgstr "Εν αναμονή επιβεβαίωσης των προσώπων"
 
-#: query_qry.php:24 query_qry.php:73
-msgid "Pending Family"
-msgstr "Εκκρεμεί Οικογένεια"
+msgid "Awaiting confirmation of families"
+msgstr "Εν αναμονή της επιβεβαίωσης των οικογενειών"
 
-#: query_qry.php:25 query_qry.php:74
+msgid "Done confirmation of persons"
+msgstr "Επιβεβαίωση προσώπων"
+
+msgid "Done confirmation of families"
+msgstr "Έγινε επιβεβαίωση των οικογενειών"
+
+#: query_qry.php:27 query_qry.php:80
 msgid "CustomSearch"
 msgstr "CustomSearch"
 
-#: query_qry.php:26 query_qry.php:75
+#: query_qry.php:28 query_qry.php:81
 msgid "Returns each family with a work phone"
 msgstr "Επιστρέφει σε κάθε οικογένεια ένα τηλέφωνο εργασίας"
 
-#: query_qry.php:27 query_qry.php:76
+#: query_qry.php:29 query_qry.php:82
 msgid "Returns each family and the total number of people assigned to them."
 msgstr ""
 "Επιστρέφει κάθε οικογένεια και τον συνολικό αριθμό των ατόμων που της έχουν "
 "ανατεθεί."
 
-#: query_qry.php:28 query_qry.php:77
+#: query_qry.php:30 query_qry.php:83
 msgid "Returns any person records with ages between two given ages."
 msgstr ""
 "Επιστρέφει όλες τις εγγραφές προσώπων με ηλικίες μεταξύ δύο συγκεκριμένων "
 "ηλικιών."
 
-#: query_qry.php:29 query_qry.php:78
+#: query_qry.php:31 query_qry.php:84
 msgid "Total of records matching a given gender."
 msgstr "Σύνολο εγγραφών που αντιστοιχούν σε ένα συγκεκριμένο φύλο."
 
-#: query_qry.php:30 query_qry.php:79
+#: query_qry.php:32 query_qry.php:85
 msgid "Selects person records with the family role and gender specified."
 msgstr ""
 "Επιλέγει εγγραφές προσώπων με τον οικογενειακό ρόλο και το φύλο που έχουν "
 "καθοριστεί."
 
-#: query_qry.php:31 query_qry.php:80
+#: query_qry.php:33 query_qry.php:86
 msgid "Returns person records which are assigned the given property."
 msgstr ""
 "Επιστρέφει τις εγγραφές προσώπων στις οποίες έχει εκχωρηθεί η συγκεκριμένη "
 "ιδιότητα."
 
-#: query_qry.php:32 query_qry.php:81
+#: query_qry.php:34 query_qry.php:87
 msgid ""
 "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
 "Email."
@@ -13153,79 +13180,85 @@ msgstr ""
 "ταχυδρομικού κώδικα, του οικιακού τηλεφώνου, του ηλεκτρονικού ταχυδρομείου ή "
 "του ηλεκτρονικού ταχυδρομείου εργασίας."
 
-#: query_qry.php:33 query_qry.php:82
+#: query_qry.php:35 query_qry.php:88
 msgid "People with birthdays in a particular month"
 msgstr "Άτομα με γενέθλια σε συγκεκριμένο μήνα"
 
-#: query_qry.php:34 query_qry.php:83
+#: query_qry.php:36 query_qry.php:89
 msgid "Find Registered students"
 msgstr "Εύρεση εγγεγραμμένων φοιτητών"
 
-#: query_qry.php:35 query_qry.php:84
+#: query_qry.php:37 query_qry.php:90
 msgid "Members who joined in a particular month"
 msgstr "Μέλη που προσχώρησαν σε συγκεκριμένο μήνα"
 
-#: query_qry.php:36 query_qry.php:85
+#: query_qry.php:38 query_qry.php:91
 msgid "People who are registered as database users"
 msgstr "Άτομα που είναι εγγεγραμμένα ως χρήστες της βάσης δεδομένων"
 
-#: query_qry.php:37 query_qry.php:86
+#: query_qry.php:39 query_qry.php:92
 msgid "People who are members"
 msgstr "Άτομα που είναι μέλη"
 
-#: query_qry.php:38 query_qry.php:87
+#: query_qry.php:40 query_qry.php:93
 msgid "Find volunteers for a particular opportunity"
 msgstr "Εύρεση εθελοντών για μια συγκεκριμένη ευκαιρία"
 
-#: query_qry.php:39 query_qry.php:88
+#: query_qry.php:41 query_qry.php:94
 msgid "Friends who signed up in previous months"
 msgstr "Φίλοι που εγγράφηκαν τους προηγούμενους μήνες"
 
-#: query_qry.php:40 query_qry.php:89
+#: query_qry.php:42 query_qry.php:95
 msgid "People in families that are ok to canvass."
 msgstr "Άνθρωποι σε οικογένειες που είναι εντάξει για να ψάξουν."
 
-#: query_qry.php:41 query_qry.php:90
+#: query_qry.php:43 query_qry.php:96
 msgid "Compare pledges between two fiscal years"
 msgstr "Σύγκριση των δεσμεύσεων μεταξύ δύο οικονομικών ετών"
 
-#: query_qry.php:42 query_qry.php:91
+#: query_qry.php:44 query_qry.php:97
 msgid "Find people who pledged one year but not another"
 msgstr "Βρείτε άτομα που δεσμεύτηκαν για ένα έτος αλλά όχι για κάποιο άλλο"
 
-#: query_qry.php:43 query_qry.php:92
+#: query_qry.php:45 query_qry.php:98
 msgid "People who are configured to pay by credit card."
 msgstr "Άτομα που είναι διαμορφωμένα να πληρώνουν με πιστωτική κάρτα."
 
-#: query_qry.php:44 query_qry.php:93
+#: query_qry.php:46 query_qry.php:99
 msgid ""
 "Pledge summary by family name for each fund for the selected fiscal year"
 msgstr ""
 "Σύνοψη των δεσμεύσεων ανά όνομα οικογένειας για κάθε ταμείο για το "
 "επιλεγμένο οικονομικό έτος"
 
-#: query_qry.php:45 query_qry.php:94
+#: query_qry.php:47 query_qry.php:100
 msgid "Returns all the persons not assigned to a group."
 msgstr "Επιστρέφει όλα τα άτομα που δεν έχουν ανατεθεί σε μια ομάδα."
 
-#: query_qry.php:46 query_qry.php:95
+#: query_qry.php:48 query_qry.php:101
 msgid "Returns all persons assigned to a group."
 msgstr "Επιστρέφει όλα τα άτομα που έχουν οριστεί σε μια ομάδα."
 
-#: query_qry.php:47 query_qry.php:96
+#: query_qry.php:49 query_qry.php:102
 msgid "Find person who are in pending confirmation process"
 msgstr "Εύρεση ατόμου που βρίσκεται σε εκκρεμή διαδικασία επιβεβαίωσης"
 
-#: query_qry.php:48 query_qry.php:97
+#: query_qry.php:50 query_qry.php:103
 msgid "Find families who are in pending confirmation process"
 msgstr "Βρείτε οικογένειες που βρίσκονται σε διαδικασία επιβεβαίωσης"
 
-#: query_qry.php:49 query_qry.php:98
+msgid "Look for person who have confirmed"
+msgstr "Αναζητήστε άτομο που έχει επιβεβαιώσει"
+
+msgid "Look for families who have confirmed"
+msgstr "Αναζητήστε οικογένειες που έχουν επιβεβαιώσει"
+
+#: query_qry.php:53 query_qry.php:106
 msgid "Find volunteers for who match two specific opportunity codes"
 msgstr ""
 "Εύρεση εθελοντών που ταιριάζουν σε δύο συγκεκριμένους κωδικούς ευκαιρίας"
 
-#: query_qry.php:50 query_qry.php:99
+#: query_qry.php:54 query_qry.php:107
 msgid "Find people with a custom field value"
 msgstr "Εύρεση ατόμων με μια προσαρμοσμένη τιμή πεδίου"
 
@@ -13625,6 +13658,12 @@ msgstr "Αρκετές ημέρες"
 
 msgid "Giving Report"
 msgstr "Έκθεση δωρεάς"
+
+msgid "Confirmed person"
+msgstr "Επιβεβαιωμένο πρόσωπο"
+
+msgid "Confirmed Families"
+msgstr "Επιβεβαιωμένες οικογένειες"
 
 #~ msgid "First"
 #~ msgstr "Πρώτη"

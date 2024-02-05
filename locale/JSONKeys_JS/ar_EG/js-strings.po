@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-02T15:24:09.748Z\n"
+"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1453,6 +1453,14 @@ msgid ""
 "them, either by address or by person."
 msgstr ""
 
+#, fuzzy
+msgid "You're about to send a e-mail to"
+msgstr "أنت على وشك إزالة ملف"
+
+#, fuzzy
+msgid "members"
+msgstr "الأعضاء"
+
 msgid "Delete this person?"
 msgstr "حذف هذا الشخص؟"
 
@@ -2482,9 +2490,6 @@ msgstr "-قم بتحميل الصورة"
 
 #~ msgid "All"
 #~ msgstr "كلّه"
-
-#~ msgid "You're about to remove a file"
-#~ msgstr "أنت على وشك إزالة ملف"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."
