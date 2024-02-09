@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-05 19:42+0000\n"
+"POT-Creation-Date: 2024-02-09 10:45+0000\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,7 +58,7 @@ msgstr "Ne vegye figyelembe ezt a mezőt"
 #: v2/templates/email/mailchimp/dashboard.php:30
 #: v2/templates/fundraiser/donatedItemEditor.php:60
 #: v2/templates/fundraiser/fundRaiserEditor.php:165
-#: v2/templates/people/personEditor.php:889
+#: v2/templates/people/personEditor.php:891
 #: v2/templates/people/personPrint.php:620
 #: v2/templates/people/personPrint.php:677
 #: v2/templates/people/personPrint.php:735 v2/templates/system/csvExport.php:58
@@ -75,8 +75,8 @@ msgstr "Cím"
 #: Reports/ConfirmReport.php:344 Reports/MemberEmailExport.php:24
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/deposit/autaPaymentEditor.php:898
-#: v2/templates/people/familyEditor.php:1078
-#: v2/templates/people/personEditor.php:898
+#: v2/templates/people/familyEditor.php:1080
+#: v2/templates/people/personEditor.php:900
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
 #: v2/templates/system/csvExport.php:63 v2/templates/user/userlist.php:52
@@ -85,8 +85,8 @@ msgstr "Keresztnév"
 
 #: CSVImport.php:236 EcclesiaCRM/Service/ConfirmReportService.php:164
 #: EcclesiaCRM/Service/ConfirmReportService.php:169
-#: v2/templates/people/familyEditor.php:1079
-#: v2/templates/people/personEditor.php:909
+#: v2/templates/people/familyEditor.php:1081
+#: v2/templates/people/personEditor.php:911
 #: v2/templates/system/csvExport.php:69
 msgid "Middle Name"
 msgstr "Középső név"
@@ -98,15 +98,15 @@ msgstr "Középső név"
 #: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/deposit/autaPaymentEditor.php:906
 #: v2/templates/deposit/manageEnvelopes.php:157
-#: v2/templates/people/familyEditor.php:1080
-#: v2/templates/people/personEditor.php:920
+#: v2/templates/people/familyEditor.php:1082
+#: v2/templates/people/personEditor.php:922
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
 #: v2/templates/system/csvExport.php:53
 msgid "Last Name"
 msgstr "Vezetéknév"
 
-#: CSVImport.php:238 v2/templates/people/familyEditor.php:1081
-#: v2/templates/people/personEditor.php:931
+#: CSVImport.php:238 v2/templates/people/familyEditor.php:1083
+#: v2/templates/people/personEditor.php:933
 #: v2/templates/system/csvExport.php:74
 msgid "Suffix"
 msgstr "Utótag"
@@ -114,8 +114,8 @@ msgstr "Utótag"
 #: CSVImport.php:239 EcclesiaCRM/APIControllers/SearchController.php:277
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:284
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:406
-#: v2/templates/people/familyEditor.php:1082
-#: v2/templates/people/personEditor.php:880
+#: v2/templates/people/familyEditor.php:1084
+#: v2/templates/people/personEditor.php:882
 #: v2/templates/people/personPrint.php:281
 #: v2/templates/people/personPrint.php:404
 #: v2/templates/sundayschool/sundayschoolview.php:226
@@ -147,14 +147,14 @@ msgstr "Adomány boríték"
 #: v2/templates/pastoralcare/pastoralcareperson.php:220
 #: v2/templates/people/directoryreport.php:183
 #: v2/templates/people/directoryreport.php:276
-#: v2/templates/people/familyEditor.php:721
-#: v2/templates/people/familyEditor.php:727
+#: v2/templates/people/familyEditor.php:723
+#: v2/templates/people/familyEditor.php:729
 #: v2/templates/people/familylist.php:56 v2/templates/people/familyview.php:82
 #: v2/templates/people/geopage.php:187
-#: v2/templates/people/personEditor.php:1020
-#: v2/templates/people/personEditor.php:1026
-#: v2/templates/people/personEditor.php:1160
-#: v2/templates/people/personEditor.php:1184
+#: v2/templates/people/personEditor.php:1022
+#: v2/templates/people/personEditor.php:1028
+#: v2/templates/people/personEditor.php:1162
+#: v2/templates/people/personEditor.php:1186
 #: v2/templates/people/personlist.php:53 v2/templates/people/personview.php:210
 #: v2/templates/system/csvExport.php:79 v2/templates/system/csvExport.php:85
 msgid "Address"
@@ -166,9 +166,9 @@ msgstr "Cím:"
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:371
 #: v2/templates/deposit/autaPaymentEditor.php:930
 #: v2/templates/people/directoryreport.php:281
-#: v2/templates/people/familyEditor.php:733
-#: v2/templates/people/personEditor.php:1032
-#: v2/templates/people/personEditor.php:1208
+#: v2/templates/people/familyEditor.php:735
+#: v2/templates/people/personEditor.php:1034
+#: v2/templates/people/personEditor.php:1210
 #: v2/templates/system/csvExport.php:90 queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Város"
@@ -178,9 +178,9 @@ msgstr "Város"
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:385
 #: v2/templates/deposit/autaPaymentEditor.php:938
 #: v2/templates/people/directoryreport.php:287
-#: v2/templates/people/familyEditor.php:742
-#: v2/templates/people/personEditor.php:1041
-#: v2/templates/people/personEditor.php:1236
+#: v2/templates/people/familyEditor.php:744
+#: v2/templates/people/personEditor.php:1043
+#: v2/templates/people/personEditor.php:1238
 #: v2/templates/system/csvExport.php:95 queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Állam"
@@ -192,9 +192,9 @@ msgstr "Állam"
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:403
 #: v2/templates/deposit/autaPaymentEditor.php:946
 #: v2/templates/people/directoryreport.php:293
-#: v2/templates/people/familyEditor.php:756
-#: v2/templates/people/personEditor.php:1056
-#: v2/templates/people/personEditor.php:1270
+#: v2/templates/people/familyEditor.php:758
+#: v2/templates/people/personEditor.php:1058
+#: v2/templates/people/personEditor.php:1272
 #: v2/templates/system/csvExport.php:102
 msgid "Zip"
 msgstr "Zip"
@@ -202,9 +202,9 @@ msgstr "Zip"
 #: CSVImport.php:246 EcclesiaCRM/Service/ConfirmReportService.php:687
 #: v2/templates/cart/cartToFamily.php:417
 #: v2/templates/deposit/autaPaymentEditor.php:954
-#: v2/templates/people/familyEditor.php:766
-#: v2/templates/people/personEditor.php:1066
-#: v2/templates/people/personEditor.php:1300
+#: v2/templates/people/familyEditor.php:768
+#: v2/templates/people/personEditor.php:1068
+#: v2/templates/people/personEditor.php:1302
 #: v2/templates/system/csvExport.php:112
 msgid "Country"
 msgstr "Ország"
@@ -228,10 +228,10 @@ msgstr "Ország"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:181
 #: v2/templates/pastoralcare/pastoralcareperson.php:277
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:230
-#: v2/templates/people/familyEditor.php:806
+#: v2/templates/people/familyEditor.php:808
 #: v2/templates/people/familylist.php:57 v2/templates/people/familyview.php:141
-#: v2/templates/people/personEditor.php:1342
-#: v2/templates/people/personEditor.php:1346
+#: v2/templates/people/personEditor.php:1344
+#: v2/templates/people/personEditor.php:1348
 #: v2/templates/people/personlist.php:54
 #: v2/templates/people/personPrint.php:225
 #: v2/templates/people/personview.php:269 v2/templates/system/csvExport.php:119
@@ -253,10 +253,10 @@ msgstr "Otthoni telefon"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:187
 #: v2/templates/pastoralcare/pastoralcareperson.php:305
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:235
-#: v2/templates/people/familyEditor.php:819
+#: v2/templates/people/familyEditor.php:821
 #: v2/templates/people/familyview.php:147
-#: v2/templates/people/personEditor.php:1371
-#: v2/templates/people/personEditor.php:1375
+#: v2/templates/people/personEditor.php:1373
+#: v2/templates/people/personEditor.php:1377
 #: v2/templates/people/personPrint.php:230
 #: v2/templates/people/personview.php:297 v2/templates/system/csvExport.php:124
 msgid "Work Phone"
@@ -298,12 +298,12 @@ msgstr "Mobiltelefon"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:205
 #: v2/templates/pastoralcare/pastoralcareperson.php:291
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:342
-#: v2/templates/people/familyEditor.php:848
+#: v2/templates/people/familyEditor.php:850
 #: v2/templates/people/familyview.php:165
 #: v2/templates/people/familyview.php:249
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personEditor.php:1444
-#: v2/templates/people/personEditor.php:1448
+#: v2/templates/people/personEditor.php:1446
+#: v2/templates/people/personEditor.php:1450
 #: v2/templates/people/personPrint.php:340
 #: v2/templates/people/personview.php:283
 #: v2/templates/people/personview.php:411
@@ -316,7 +316,7 @@ msgid "Email"
 msgstr "E-mail"
 
 #: CSVImport.php:251 v2/templates/pastoralcare/pastoralcarePersonPrint.php:347
-#: v2/templates/people/personEditor.php:1470
+#: v2/templates/people/personEditor.php:1472
 #: v2/templates/people/personPrint.php:345
 msgid "Work / Other Email"
 msgstr "Munka / Egyéb Email"
@@ -332,7 +332,7 @@ msgid "Birth Date"
 msgstr "Születési dátum"
 
 #: CSVImport.php:253 v2/templates/pastoralcare/pastoralcarePersonPrint.php:352
-#: v2/templates/people/personEditor.php:1587
+#: v2/templates/people/personEditor.php:1589
 #: v2/templates/people/personPrint.php:350
 #: v2/templates/system/csvExport.php:145 v2/templates/system/csvExport.php:391
 msgid "Membership Date"
@@ -344,7 +344,7 @@ msgstr "Tagság Dátum"
 #: v2/templates/cart/cartToFamily.php:312
 #: v2/templates/pastoralcare/pastoralcarefamily.php:167
 #: v2/templates/people/directoryreport.php:184
-#: v2/templates/people/familyEditor.php:884
+#: v2/templates/people/familyEditor.php:886
 #: v2/templates/people/familyview.php:127
 msgid "Wedding Date"
 msgstr "Esküvői dátum"
@@ -450,10 +450,10 @@ msgstr "Alapértelmezett ország, ha nincs megadva egyébként"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:300
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:305
 #: v2/templates/people/directoryreport.php:85
-#: v2/templates/people/familyEditor.php:1242
-#: v2/templates/people/personEditor.php:962
-#: v2/templates/people/personEditor.php:982
-#: v2/templates/people/personEditor.php:1570
+#: v2/templates/people/familyEditor.php:1244
+#: v2/templates/people/personEditor.php:964
+#: v2/templates/people/personEditor.php:984
+#: v2/templates/people/personEditor.php:1572
 #: v2/templates/people/personPrint.php:297
 #: v2/templates/people/personPrint.php:302
 #: v2/templates/people/selectDelete.php:205
@@ -468,10 +468,10 @@ msgstr "Nem kijelölt"
 #: Reports/ConfirmReport.php:441 v2/templates/deposit/financialReports.php:129
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
-#: v2/templates/people/familyEditor.php:1087
+#: v2/templates/people/familyEditor.php:1089
 #: v2/templates/people/familyview.php:339
 #: v2/templates/people/peopledashboard.php:322
-#: v2/templates/people/personEditor.php:1568
+#: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:355
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
 #: v2/templates/system/optionManager.php:98 queryparameters_qrp.php:19
@@ -1153,8 +1153,8 @@ msgstr "groupmasters"
 #: external/templates/registration/family-register-members.php:66
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:288
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:437
-#: v2/templates/people/familyEditor.php:1136
-#: v2/templates/people/personEditor.php:884
+#: v2/templates/people/familyEditor.php:1138
+#: v2/templates/people/personEditor.php:886
 #: v2/templates/people/personPrint.php:285
 #: v2/templates/people/personPrint.php:435
 #: v2/templates/system/csvExport.php:355 queryparameteroptions_qpo.php:2
@@ -1168,8 +1168,8 @@ msgstr "Férfi"
 #: external/templates/registration/family-register-members.php:67
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:288
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:437
-#: v2/templates/people/familyEditor.php:1139
-#: v2/templates/people/personEditor.php:885
+#: v2/templates/people/familyEditor.php:1141
+#: v2/templates/people/personEditor.php:887
 #: v2/templates/people/personPrint.php:285
 #: v2/templates/people/personPrint.php:435
 #: v2/templates/system/csvExport.php:356 queryparameteroptions_qpo.php:3
@@ -1205,7 +1205,7 @@ msgstr "Csoport típusa"
 #: v2/templates/pastoralcare/pastoralcareperson.php:396
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:407
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:474
-#: v2/templates/people/familyEditor.php:1083
+#: v2/templates/people/familyEditor.php:1085
 #: v2/templates/people/familyview.php:338
 #: v2/templates/people/personPrint.php:405
 #: v2/templates/people/personPrint.php:470
@@ -3726,9 +3726,9 @@ msgstr "Templomi köszöntő"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
 #: external/templates/registration/family-register.php:36
 #: Reports/ConfirmReport.php:201 v2/templates/cart/cartToFamily.php:297
-#: v2/templates/people/familyEditor.php:709
+#: v2/templates/people/familyEditor.php:711
 #: v2/templates/people/lettersandlabels.php:112
-#: v2/templates/people/personEditor.php:1009
+#: v2/templates/people/personEditor.php:1011
 #: v2/templates/people/selectDelete.php:196
 #: v2/templates/people/selectDelete.php:334
 msgid "Family Name"
@@ -4257,7 +4257,7 @@ msgstr "Tag"
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
-#: v2/templates/people/familyEditor.php:1163
+#: v2/templates/people/familyEditor.php:1165
 msgid "Unknown"
 msgstr "Ismeretlen"
 
@@ -4397,9 +4397,9 @@ msgstr "Város, állam, irányítószám"
 #: Reports/ConfirmReport.php:226 Reports/ConfirmReport.php:432
 #: v2/templates/pastoralcare/pastoralcarefamily.php:158
 #: v2/templates/pastoralcare/pastoralcareperson.php:284
-#: v2/templates/people/familyEditor.php:860
+#: v2/templates/people/familyEditor.php:862
 #: v2/templates/people/familyview.php:118
-#: v2/templates/people/personEditor.php:1428
+#: v2/templates/people/personEditor.php:1430
 #: v2/templates/people/personview.php:276
 msgid "Send Newsletter"
 msgstr "Hírlevél küldése"
@@ -4477,7 +4477,7 @@ msgstr "Cím 2"
 
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:596
 #: external/templates/registration/family-register-members.php:132
-#: Reports/ConfirmReport.php:391 v2/templates/people/personEditor.php:944
+#: Reports/ConfirmReport.php:391 v2/templates/people/personEditor.php:946
 msgid "Hide Age"
 msgstr "Kor elrejtése"
 
@@ -4905,10 +4905,10 @@ msgstr "Személyes naptár"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:194
 #: v2/templates/pastoralcare/pastoralcareperson.php:265
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:240
-#: v2/templates/people/familyEditor.php:833
+#: v2/templates/people/familyEditor.php:835
 #: v2/templates/people/familyview.php:154
-#: v2/templates/people/personEditor.php:1402
-#: v2/templates/people/personEditor.php:1406
+#: v2/templates/people/personEditor.php:1404
+#: v2/templates/people/personEditor.php:1408
 #: v2/templates/people/personPrint.php:235
 #: v2/templates/people/personview.php:257 v2/templates/system/csvExport.php:129
 msgid "Mobile Phone"
@@ -4963,9 +4963,9 @@ msgid "Exit"
 msgstr "Kilépés"
 
 #: EcclesiaCRM/Service/ConfirmReportService.php:657
-#: v2/templates/people/familyEditor.php:749
-#: v2/templates/people/personEditor.php:1049
-#: v2/templates/people/personEditor.php:1252
+#: v2/templates/people/familyEditor.php:751
+#: v2/templates/people/personEditor.php:1051
+#: v2/templates/people/personEditor.php:1254
 msgid "None US/CND State"
 msgstr "Nincs US/CND állam"
 
@@ -5383,12 +5383,12 @@ msgstr "Ez az egyéni mező nincs helyesen konfigurálva"
 #: EcclesiaCRM/utils/OutputUtils.php:435 v2/templates/cart/cartToFamily.php:439
 #: v2/templates/cart/cartToFamily.php:459
 #: v2/templates/cart/cartToFamily.php:478
-#: v2/templates/people/familyEditor.php:816
-#: v2/templates/people/familyEditor.php:830
-#: v2/templates/people/familyEditor.php:843
-#: v2/templates/people/personEditor.php:1363
-#: v2/templates/people/personEditor.php:1393
-#: v2/templates/people/personEditor.php:1422
+#: v2/templates/people/familyEditor.php:818
+#: v2/templates/people/familyEditor.php:832
+#: v2/templates/people/familyEditor.php:845
+#: v2/templates/people/personEditor.php:1365
+#: v2/templates/people/personEditor.php:1395
+#: v2/templates/people/personEditor.php:1424
 msgid "Do not auto-format"
 msgstr "Ne automatikus formázás"
 
@@ -6036,7 +6036,7 @@ msgstr "Regisztráció"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:262
 #: v2/templates/pastoralcare/pastoralcareperson.php:390
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:402
-#: v2/templates/people/familyEditor.php:1056
+#: v2/templates/people/familyEditor.php:1058
 #: v2/templates/people/familyview.php:327
 #: v2/templates/people/personPrint.php:400
 #: v2/templates/people/personview.php:789
@@ -6140,19 +6140,19 @@ msgstr "Új jelszó megerősítése"
 #: v2/templates/fundraiser/fundRaiserEditor.php:187
 #: v2/templates/group/groupedit.php:145
 #: v2/templates/people/canvassEditor.php:238
-#: v2/templates/people/familyEditor.php:702
-#: v2/templates/people/familyEditor.php:800
-#: v2/templates/people/familyEditor.php:874
-#: v2/templates/people/familyEditor.php:962
-#: v2/templates/people/familyEditor.php:984
-#: v2/templates/people/familyEditor.php:1058
-#: v2/templates/people/familyEditor.php:1276
-#: v2/templates/people/personEditor.php:873
-#: v2/templates/people/personEditor.php:955
-#: v2/templates/people/personEditor.php:1140
-#: v2/templates/people/personEditor.php:1562
-#: v2/templates/people/personEditor.php:1642
-#: v2/templates/people/personEditor.php:1730
+#: v2/templates/people/familyEditor.php:704
+#: v2/templates/people/familyEditor.php:802
+#: v2/templates/people/familyEditor.php:876
+#: v2/templates/people/familyEditor.php:964
+#: v2/templates/people/familyEditor.php:986
+#: v2/templates/people/familyEditor.php:1060
+#: v2/templates/people/familyEditor.php:1278
+#: v2/templates/people/personEditor.php:875
+#: v2/templates/people/personEditor.php:957
+#: v2/templates/people/personEditor.php:1142
+#: v2/templates/people/personEditor.php:1564
+#: v2/templates/people/personEditor.php:1644
+#: v2/templates/people/personEditor.php:1732
 #: v2/templates/sidebar/systemsettings.php:41
 #: v2/templates/user/changepassword.php:72
 msgid "Save"
@@ -6216,10 +6216,10 @@ msgstr "Hiba lépett fel az Ön ellenőrzési adatainak elküldésekor"
 #: v2/templates/group/groupreports.php:158
 #: v2/templates/people/canvassEditor.php:239
 #: v2/templates/people/directoryreport.php:326
-#: v2/templates/people/familyEditor.php:1285
+#: v2/templates/people/familyEditor.php:1287
 #: v2/templates/people/familyview.php:892
 #: v2/templates/people/lettersandlabels.php:218
-#: v2/templates/people/personEditor.php:1738
+#: v2/templates/people/personEditor.php:1740
 #: v2/templates/people/personview.php:1617
 #: v2/templates/people/reminderreport.php:42
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
@@ -7772,62 +7772,62 @@ msgid "Display Events in Month"
 msgstr "Események megjelenítése a hónapban"
 
 #: v2/templates/calendar/eventslist.php:59
-#: v2/templates/people/familyEditor.php:1166
+#: v2/templates/people/familyEditor.php:1168
 msgid "January"
 msgstr "Január"
 
 #: v2/templates/calendar/eventslist.php:60
-#: v2/templates/people/familyEditor.php:1169
+#: v2/templates/people/familyEditor.php:1171
 msgid "February"
 msgstr "Február"
 
 #: v2/templates/calendar/eventslist.php:61
-#: v2/templates/people/familyEditor.php:1172
+#: v2/templates/people/familyEditor.php:1174
 msgid "March"
 msgstr "Március"
 
 #: v2/templates/calendar/eventslist.php:62
-#: v2/templates/people/familyEditor.php:1175
+#: v2/templates/people/familyEditor.php:1177
 msgid "April"
 msgstr "Április"
 
 #: v2/templates/calendar/eventslist.php:63
-#: v2/templates/people/familyEditor.php:1178
+#: v2/templates/people/familyEditor.php:1180
 msgid "May"
 msgstr "Május"
 
 #: v2/templates/calendar/eventslist.php:64
-#: v2/templates/people/familyEditor.php:1181
+#: v2/templates/people/familyEditor.php:1183
 msgid "June"
 msgstr "Június"
 
 #: v2/templates/calendar/eventslist.php:65
-#: v2/templates/people/familyEditor.php:1184
+#: v2/templates/people/familyEditor.php:1186
 msgid "July"
 msgstr "Július"
 
 #: v2/templates/calendar/eventslist.php:66
-#: v2/templates/people/familyEditor.php:1187
+#: v2/templates/people/familyEditor.php:1189
 msgid "August"
 msgstr "Augusztus"
 
 #: v2/templates/calendar/eventslist.php:67
-#: v2/templates/people/familyEditor.php:1190
+#: v2/templates/people/familyEditor.php:1192
 msgid "September"
 msgstr "Szeptember"
 
 #: v2/templates/calendar/eventslist.php:68
-#: v2/templates/people/familyEditor.php:1193
+#: v2/templates/people/familyEditor.php:1195
 msgid "October"
 msgstr "Október"
 
 #: v2/templates/calendar/eventslist.php:69
-#: v2/templates/people/familyEditor.php:1196
+#: v2/templates/people/familyEditor.php:1198
 msgid "November"
 msgstr "November"
 
 #: v2/templates/calendar/eventslist.php:70
-#: v2/templates/people/familyEditor.php:1199
+#: v2/templates/people/familyEditor.php:1201
 msgid "December"
 msgstr "December"
 
@@ -8218,7 +8218,7 @@ msgstr "A"
 
 #: v2/templates/deposit/autaPaymentEditor.php:806
 #: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/people/personEditor.php:1009
+#: v2/templates/people/personEditor.php:1011
 msgid "or"
 msgstr "vagy"
 
@@ -8420,12 +8420,12 @@ msgid "Vanco ACH"
 msgstr "Vanco ACH"
 
 #: v2/templates/deposit/electronicPaymentList.php:216
-#: v2/templates/people/familyEditor.php:1084 queryparameters_qrp.php:11
+#: v2/templates/people/familyEditor.php:1086 queryparameters_qrp.php:11
 msgid "Month"
 msgstr "Hónap"
 
 #: v2/templates/deposit/electronicPaymentList.php:217
-#: v2/templates/people/familyEditor.php:1086 queryparameters_qrp.php:20
+#: v2/templates/people/familyEditor.php:1088 queryparameters_qrp.php:20
 msgid "Year"
 msgstr "Év"
 
@@ -8788,7 +8788,7 @@ msgstr "Rendezés"
 #: v2/templates/deposit/manageEnvelopes.php:161
 #: v2/templates/deposit/pledgeEditor.php:61
 #: v2/templates/pastoralcare/pastoralcarefamily.php:174
-#: v2/templates/people/familyEditor.php:968
+#: v2/templates/people/familyEditor.php:970
 #: v2/templates/people/familyview.php:134
 msgid "Envelope Number"
 msgstr "Boríték száma"
@@ -8855,7 +8855,7 @@ msgstr "Alapértelmezett csekkszámlaszám beállítása a család számára"
 
 #: v2/templates/deposit/pledgeEditor.php:247
 #: v2/templates/fundraiser/donatedItemEditor.php:173
-#: v2/templates/people/personEditor.php:1734
+#: v2/templates/people/personEditor.php:1736
 msgid "Save and Add"
 msgstr "Mentés és hozzáadás"
 
@@ -9479,7 +9479,7 @@ msgstr "Vissza a személyhez"
 #: v2/templates/group/groupPropsFormEditor.php:308
 #: v2/templates/people/familyCustomFieldEditor.php:329
 #: v2/templates/people/personCustomEditor.php:320
-#: v2/templates/people/personEditor.php:865
+#: v2/templates/people/personEditor.php:867
 #: v2/templates/system/optionManager.php:383
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
@@ -9572,7 +9572,7 @@ msgid "Select Group"
 msgstr "Csoport kiválasztása"
 
 #: v2/templates/group/groupreports.php:60
-#: v2/templates/people/familyEditor.php:1147
+#: v2/templates/people/familyEditor.php:1149
 msgid "Select Role"
 msgstr "Szerep kiválasztása"
 
@@ -10048,15 +10048,15 @@ msgid "Family:"
 msgstr "Család:"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:252
-#: v2/templates/people/personEditor.php:1610
+#: v2/templates/people/personEditor.php:1612
 #: v2/templates/people/personview.php:244
 msgid "Friend Date"
 msgstr "Barát randevú"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:327
 #: v2/templates/pastoralcare/pastoralcareperson.php:329
-#: v2/templates/people/personEditor.php:1494
-#: v2/templates/people/personEditor.php:1498
+#: v2/templates/people/personEditor.php:1496
+#: v2/templates/people/personEditor.php:1500
 #: v2/templates/people/personview.php:319
 #: v2/templates/people/personview.php:321
 msgid "Facebook"
@@ -10064,7 +10064,7 @@ msgstr "Facebook"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:336
 #: v2/templates/pastoralcare/pastoralcareperson.php:337
-#: v2/templates/people/personEditor.php:1520
+#: v2/templates/people/personEditor.php:1522
 #: v2/templates/people/personview.php:328
 #: v2/templates/people/personview.php:329
 msgid "Twitter"
@@ -10072,7 +10072,7 @@ msgstr "Twitter"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:344
 #: v2/templates/pastoralcare/pastoralcareperson.php:345
-#: v2/templates/people/personEditor.php:1538
+#: v2/templates/people/personEditor.php:1540
 #: v2/templates/people/personview.php:336
 #: v2/templates/people/personview.php:337
 msgid "LinkedIn"
@@ -10284,10 +10284,10 @@ msgid "Opinions about canvassing the person/family"
 msgstr "Vélemények a személy/család megkereséséről"
 
 #: v2/templates/people/canvassEditor.php:141
-#: v2/templates/people/familyEditor.php:916
-#: v2/templates/people/familyEditor.php:938
-#: v2/templates/people/personEditor.php:1092
-#: v2/templates/people/personEditor.php:1114
+#: v2/templates/people/familyEditor.php:918
+#: v2/templates/people/familyEditor.php:940
+#: v2/templates/people/personEditor.php:1094
+#: v2/templates/people/personEditor.php:1116
 msgid "None selected"
 msgstr "Nincs kiválasztva"
 
@@ -10456,61 +10456,61 @@ msgstr "Nem érvényes esküvői dátum"
 msgid "Email is Not Valid"
 msgstr "Az e-mail nem érvényes"
 
-#: v2/templates/people/familyEditor.php:457
+#: v2/templates/people/familyEditor.php:459
 msgid "Created via Family"
 msgstr "Created via Family"
 
-#: v2/templates/people/familyEditor.php:514
+#: v2/templates/people/familyEditor.php:516
 msgid "Updated via Family"
 msgstr "Frissítve a Családon keresztül"
 
-#: v2/templates/people/familyEditor.php:700
+#: v2/templates/people/familyEditor.php:702
 msgid "Family Info"
 msgstr "Családi információk"
 
-#: v2/templates/people/familyEditor.php:774
+#: v2/templates/people/familyEditor.php:776
 #: v2/templates/people/UpdateAllLatLon.php:41
 msgid "Latitude"
 msgstr "Szélesség"
 
-#: v2/templates/people/familyEditor.php:779
+#: v2/templates/people/familyEditor.php:781
 msgid "Longitude"
 msgstr "Hosszúság"
 
-#: v2/templates/people/familyEditor.php:798
-#: v2/templates/people/personEditor.php:1138
+#: v2/templates/people/familyEditor.php:800
+#: v2/templates/people/personEditor.php:1140
 msgid "Contact Info"
 msgstr "Kapcsolatfelvétel"
 
-#: v2/templates/people/familyEditor.php:872
+#: v2/templates/people/familyEditor.php:874
 msgid "Other Info"
 msgstr "Egyéb információ"
 
-#: v2/templates/people/familyEditor.php:905
-#: v2/templates/people/personEditor.php:1081
+#: v2/templates/people/familyEditor.php:907
+#: v2/templates/people/personEditor.php:1083
 msgid "Ok To Canvass"
 msgstr "Oké, hogy kampányolj"
 
-#: v2/templates/people/familyEditor.php:914
-#: v2/templates/people/personEditor.php:1090
+#: v2/templates/people/familyEditor.php:916
+#: v2/templates/people/personEditor.php:1092
 msgid "Assign a Canvasser"
 msgstr "Kérdező kijelölése"
 
-#: v2/templates/people/familyEditor.php:935
-#: v2/templates/people/personEditor.php:1111
+#: v2/templates/people/familyEditor.php:937
+#: v2/templates/people/personEditor.php:1113
 msgid "Assign a Brave Canvasser"
 msgstr "Jelöljön ki egy bátor kérdezősködőt"
 
-#: v2/templates/people/familyEditor.php:960
+#: v2/templates/people/familyEditor.php:962
 msgid "Envelope Info"
 msgstr "Boríték információ"
 
-#: v2/templates/people/familyEditor.php:982
-#: v2/templates/people/personEditor.php:1640
+#: v2/templates/people/familyEditor.php:984
+#: v2/templates/people/personEditor.php:1642
 msgid "Custom Fields"
 msgstr "Egyéni mezők"
 
-#: v2/templates/people/familyEditor.php:1070
+#: v2/templates/people/familyEditor.php:1072
 msgid ""
 "You may create family members now or add them later.  All entries will "
 "become <i>new</i> person records."
@@ -10518,24 +10518,24 @@ msgstr ""
 "Családtagokat hozhat létre most, vagy később is hozzáadhatja őket.  Minden "
 "bejegyzés <i>új</i> személyrekorddá válik."
 
-#: v2/templates/people/familyEditor.php:1085
+#: v2/templates/people/familyEditor.php:1087
 msgid "Day"
 msgstr "Nap"
 
-#: v2/templates/people/familyEditor.php:1133
-#: v2/templates/people/personEditor.php:882
+#: v2/templates/people/familyEditor.php:1135
+#: v2/templates/people/personEditor.php:884
 msgid "Select Gender"
 msgstr "Válassza ki a nemet"
 
-#: v2/templates/people/familyEditor.php:1204
+#: v2/templates/people/familyEditor.php:1206
 msgid "Unk"
 msgstr "Unk"
 
-#: v2/templates/people/familyEditor.php:1280
+#: v2/templates/people/familyEditor.php:1282
 msgid "Save and Add Family"
 msgstr "Mentés és család hozzáadása"
 
-#: v2/templates/people/familyEditor.php:1281
+#: v2/templates/people/familyEditor.php:1283
 msgid "Save and Add Person To Family"
 msgstr "Személy mentése és hozzáadása a családhoz"
 
@@ -10855,6 +10855,7 @@ msgstr "Személy egyéni mezők"
 msgid "Test"
 msgstr "Teszt"
 
+#: v2/templates/people/lettersandlabels.php:170
 msgid "Selected Members"
 msgstr "Kiválasztott tagok"
 
@@ -10892,9 +10893,11 @@ msgstr "Az adatcímkék megerősítése"
 msgid "Confirm data Email"
 msgstr "Adatok megerősítése E-mail"
 
+#: v2/templates/people/lettersandlabels.php:225
 msgid "Email Confirmation"
 msgstr "Email megerősítés"
 
+#: v2/templates/people/lettersandlabels.php:238
 msgid "Pending Persons"
 msgstr "Függő személyek"
 
@@ -10903,6 +10906,7 @@ msgstr "Függő személyek"
 msgid "confirmed person"
 msgstr "Egyedülálló személyek"
 
+#: v2/templates/people/lettersandlabels.php:243
 msgid "Pending Families"
 msgstr "Függőben lévő családok"
 
@@ -11160,59 +11164,59 @@ msgstr "Nem érvényes tagsági dátum"
 msgid "Work Email is Not Valid"
 msgstr "A munkahelyi e-mail nem érvényes"
 
-#: v2/templates/people/personEditor.php:858
+#: v2/templates/people/personEditor.php:860
 msgid "Red text"
 msgstr "Piros szöveg"
 
-#: v2/templates/people/personEditor.php:858
+#: v2/templates/people/personEditor.php:860
 #: v2/templates/people/personview.php:379
 msgid "indicates items inherited from the associated family record."
 msgstr "a kapcsolódó családi rekordból örökölt elemeket jelzi."
 
-#: v2/templates/people/personEditor.php:871
+#: v2/templates/people/personEditor.php:873
 msgid "Personal Info"
 msgstr "Személyes információk"
 
-#: v2/templates/people/personEditor.php:892
+#: v2/templates/people/personEditor.php:894
 msgid "Mr., Mrs., Dr., Rev."
 msgstr "Mr., Mrs., Dr., Rev."
 
-#: v2/templates/people/personEditor.php:934
+#: v2/templates/people/personEditor.php:936
 msgid "Jr., Sr., III"
 msgstr "Ifjabb, idősebb, III"
 
-#: v2/templates/people/personEditor.php:940
+#: v2/templates/people/personEditor.php:942
 #: v2/templates/system/csvExport.php:425
 msgid "Birthday Date"
 msgstr "Születésnap dátuma"
 
-#: v2/templates/people/personEditor.php:953
+#: v2/templates/people/personEditor.php:955
 msgid "Person or Family Info"
 msgstr "Személy vagy család információi"
 
-#: v2/templates/people/personEditor.php:960
+#: v2/templates/people/personEditor.php:962
 msgid "Person or Family Role"
 msgstr "Személy vagy család Szerep"
 
-#: v2/templates/people/personEditor.php:980
+#: v2/templates/people/personEditor.php:982
 msgid "Person or Family address"
 msgstr "Személy vagy család címe"
 
-#: v2/templates/people/personEditor.php:983
+#: v2/templates/people/personEditor.php:985
 msgid "Create a new Address or A new family (using last name)"
 msgstr "Új cím vagy új család létrehozása (vezetéknév használatával)"
 
-#: v2/templates/people/personEditor.php:1003
+#: v2/templates/people/personEditor.php:1005
 msgid "Person or Family Address"
 msgstr "Személy vagy család címe"
 
-#: v2/templates/people/personEditor.php:1009
+#: v2/templates/people/personEditor.php:1011
 #: v2/templates/people/selectDelete.php:196
 #: v2/templates/people/selectDelete.php:334
 msgid "Person Name"
 msgstr "Személy neve"
 
-#: v2/templates/people/personEditor.php:1015
+#: v2/templates/people/personEditor.php:1017
 msgid ""
 "A person could have a different name as his family.<br>• In this case set "
 "the Family Name in this field.<br>• In the other case, leave this field "
@@ -11222,7 +11226,7 @@ msgstr ""
 "a Családnevet kell beállítani.<br>- A másik esetben hagyja üresen ezt a "
 "mezőt."
 
-#: v2/templates/people/personEditor.php:1560
+#: v2/templates/people/personEditor.php:1562
 msgid "Membership Info"
 msgstr "Tagsági információk"
 
@@ -13043,15 +13047,19 @@ msgstr "Csoporthoz nem rendelt személy"
 msgid "Person assigned to a group"
 msgstr "Egy csoporthoz rendelt személy"
 
+#: query_qry.php:23 query_qry.php:76
 msgid "Awaiting confirmation of persons"
 msgstr "A személyek megerősítésére várva"
 
+#: query_qry.php:24 query_qry.php:77
 msgid "Awaiting confirmation of families"
 msgstr "A családok megerősítésére várva"
 
+#: query_qry.php:25 query_qry.php:78
 msgid "Done confirmation of persons"
 msgstr "Személyek megerősítése"
 
+#: query_qry.php:26 query_qry.php:79
 msgid "Done confirmation of families"
 msgstr "Családok megerősítése"
 
@@ -13166,9 +13174,11 @@ msgstr ""
 msgid "Find families who are in pending confirmation process"
 msgstr "Keresse meg a megerősítésre váró családokat"
 
+#: query_qry.php:51 query_qry.php:104
 msgid "Look for person who have confirmed"
 msgstr "Keressen olyan személyt, aki megerősítette"
 
+#: query_qry.php:52 query_qry.php:105
 msgid "Look for families who have confirmed"
 msgstr "Keressen olyan családokat, akik megerősítették"
 
@@ -13576,11 +13586,11 @@ msgstr "Több nap"
 msgid "Giving Report"
 msgstr "Adományozási jelentés"
 
-msgid "Confirmed person"
-msgstr "Megerősített személy"
+#~ msgid "Confirmed person"
+#~ msgstr "Megerősített személy"
 
-msgid "Confirmed Families"
-msgstr "Megerősített családok"
+#~ msgid "Confirmed Families"
+#~ msgstr "Megerősített családok"
 
 #~ msgid "First"
 #~ msgstr "Első"
