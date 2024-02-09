@@ -327,8 +327,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             }
             $family->setDateEntered(new DateTime());
             $family->setEnteredBy(SessionUser::getUser()->getPersonId());
-            $family->setSendNewsletter($bSendNewsLetterString);
-
+            
             // bSendNewsLetterString : When you activate the family all members are deactivated
             if ($bSendNewsLetterString == "TRUE") {
                 foreach ($family->getPeople() as $person) {
@@ -347,6 +346,9 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
 
             $family->updateLanLng();
 
+            $family->save();
+
+            $family->setSendNewsletter($bSendNewsLetterString);
             $family->save();
 
             $iFamilyID = $family->getId();
