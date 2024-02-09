@@ -462,8 +462,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setWorkEmail($sWorkEmail);
             $person->setBirthMonth($iBirthMonth);
             $person->setBirthDay($iBirthDay);
-            $person->setBirthYear($iBirthYear);
-            $person->setSendNewsletter($bSendNewsLetterString);
+            $person->setBirthYear($iBirthYear);            
 
             // bSendNewsLetterString : When you activated a single person the family is deactivated
             if ($bSendNewsLetterString == "TRUE" && $iFamily > 0 && !is_null($family)) {
@@ -502,6 +501,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->save();
 
             $iPersonID = $person->getId();
+
+            $person->setSendNewsletter($bSendNewsLetterString);
+            $person->save();
 
             $bGetKeyBack = true;
 
