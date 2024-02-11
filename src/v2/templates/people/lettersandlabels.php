@@ -17,6 +17,7 @@ use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\LabelUtils;
 
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\ListOptionQuery;
 
 require $sRootDocument . '/Include/Header.php';
@@ -24,7 +25,11 @@ require $sRootDocument . '/Include/Header.php';
 
 // Get the list of custom person fields
 $ormPersonPersonCustomFields = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
-$numPersonPersonCustomFields = $ormPersonPersonCustomFields->count();
+$numPersonCustomFields = $ormPersonPersonCustomFields->count();
+
+$ormFamilyPersonCustomFields = FamilyCustomMasterQuery::Create()->orderByCustomOrder()->find();
+$numFamilyCustomFields = $ormFamilyPersonCustomFields->count();
+
 
 // Get Field Security List Matrix
 $ormSecurityGrps = ListOptionQuery::Create()
@@ -46,8 +51,8 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
 
     // set the default values for the PersonCustomMasterQuery
     $ormPersonCustomFields = PersonCustomMasterQuery::create()
-    ->orderByCustomOrder()
-    ->find();
+        ->orderByCustomOrder()
+        ->find();
 
     $customPersonFields = []; 
 
@@ -55,6 +60,26 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
         $iFieldNum = 0;
         foreach ($ormPersonCustomFields as $customField) {        
             if (isset($_POST["bCustomPerson".$customField->getCustomOrder()])) {
+                $customField->setCustomConfirmationDatas(True);
+            } else {
+                $customField->setCustomConfirmationDatas(False);
+            }
+            $customField->save();
+        }        
+    }
+    // end of storing the default values for the PersonCustomMasterQuery
+
+    // set the default values for the PersonCustomMasterQuery
+    $ormFamilyCustomFields = FamilyCustomMasterQuery::create()
+        ->orderByCustomOrder()
+        ->find();
+
+    $customFamilyFields = []; 
+
+    if ( $ormFamilyCustomFields->count() > 0) {
+        $iFieldNum = 0;
+        foreach ($ormFamilyCustomFields as $customField) {        
+            if (isset($_POST["bCustomFamily".$customField->getCustomOrder()])) {
                 $customField->setCustomConfirmationDatas(True);
             } else {
                 $customField->setCustomConfirmationDatas(False);
@@ -83,6 +108,16 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
     $sLabelFormat = 'Tractor';
 }
 ?>
+
+<div class="alert alert-info">
+    <i class="fa-solid fa-circle-info"></i>
+    <?=
+        _("Here you can choose to run reports to confirm the data stored in CRM, for families or on an individual basis.<br>
+        - in PDF format for printing<br>
+        - or by e-mail (please note that at this level, e-mail is massive).")
+    ?>
+</div>
+
 <form method="post" action="<?= $sRootPath ?>/v2/people/LettersAndLabels" id="Myform">
     <input id="personsId" name="personsId" type="hidden" value="" />
     <input id="familiesId" name="familiesId" type="hidden" value="" />
@@ -118,11 +153,27 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                             <h3><?= _("Person Custom Fields") ?></h1>
                                 <hr />
                                 <?php
-                                if ($numPersonPersonCustomFields > 0) {
+                                if ($numPersonCustomFields > 0) {
                                     foreach ($ormPersonPersonCustomFields as $ormPersonPersonCustomField) {
                                         if (($aSecurityType[$ormPersonPersonCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormPersonPersonCustomField->getCustomFieldSec()]])) {
                                 ?>
                                             <input type="checkbox" Name="bCustomPerson<?= $ormPersonPersonCustomField->getCustomOrder() ?>" value="<?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?>> <?= $ormPersonPersonCustomField->getCustomName() ?><br>
+                                <?php
+                                        }
+                                    }
+                                }
+                                ?>
+
+                                <hr/>
+
+                                <h3><?= _("Family Custom Fields") ?></h1>
+                                <hr />
+                                <?php
+                                if ($numFamilyCustomFields > 0) {
+                                    foreach ($ormFamilyPersonCustomFields as $ormFamilyPersonCustomField) {
+                                        if (($aSecurityType[$ormFamilyPersonCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormFamilyPersonCustomField->getCustomFieldSec()]])) {
+                                ?>
+                                            <input type="checkbox" Name="bCustomFamily<?= $ormFamilyPersonCustomField->getCustomOrder() ?>" value="<?= $ormFamilyPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormFamilyPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?>> <?= $ormFamilyPersonCustomField->getCustomName() ?><br>
                                 <?php
                                         }
                                     }
@@ -133,15 +184,15 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                             <h3><?= _("Person Classifications") ?></h1>
                             <select name="classList[]" style="width:100%" multiple id="classList">
                                 <?php
-                                //Get Classifications for the drop-down
-                                $ormClassifications = ListOptionQuery::Create()
-                                    ->orderByOptionSequence()
-                                    ->findById(1);
-                                foreach ($ormClassifications as $ormClassification) {
-                                ?>
-                                    <option value="<?= $ormClassification->getOptionID() ?>"><?= $ormClassification->getOptionName() ?>&nbsp;
-                                    <?php
-                                }
+                                    //Get Classifications for the drop-down
+                                    $ormClassifications = ListOptionQuery::Create()
+                                        ->orderByOptionSequence()
+                                        ->findById(1);
+                                    foreach ($ormClassifications as $ormClassification) {
+                                    ?>
+                                        <option value="<?= $ormClassification->getOptionID() ?>"><?= $ormClassification->getOptionName() ?>&nbsp;
+                                        <?php
+                                    }
                                     ?>
                             </select>
 
