@@ -1633,26 +1633,8 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="modal-body">
                 <p>
-                    <b><?= _("Select how do you want to request the family information to be verified") ?></b>
-                </p>
-                <?php
-                if (count($familyInfos['sFamilyEmails']) > 0) {
-                    ?>
-                    <?= _("You are about to email copy of the family information in pdf to the following emails") ?>
-
-                    <ul>
-                        <?php
-                        foreach ($familyInfos['sFamilyEmails'] as $tmpEmail) {
-                            ?>
-                            <li><?= $tmpEmail ?></li>
-                            <?php
-                        }
-                        ?>
-                    </ul>
-                    <?php
-                }
-                ?>
-
+                    <b><?= _("Select how do you want to request the person information to be verified") ?></b>
+                </p>                
             </div>
             <div class="modal-footer text-center">
                 <?php
@@ -1669,8 +1651,6 @@ require $sRootDocument . '/Include/Header.php';
                     <?php
                 }
                 ?>
-                <button type="button" id="verifyURL"
-                        class="btn btn-default"><i class="fas fa-link"></i> <?= _("URL") ?></button>
                 <button type="button" id="verifyDownloadPDF" class="btn btn-info">
                     <i class="fas fa-download"></i>
                     <?= _("PDF Report") ?>
