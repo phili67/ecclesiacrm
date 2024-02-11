@@ -186,6 +186,10 @@ class Person extends BasePerson implements iPhoto
       return false;
     }
 
+    public function verify()
+    {
+        $this->createTimeLineNote('verify');
+    }
 
     public function setNewEmail ($oldEmail, $sEmail)
     {
@@ -365,7 +369,7 @@ class Person extends BasePerson implements iPhoto
       }
     }
 
-    private function createTimeLineNote($type)
+    public function createTimeLineNote($type)
     {
         $note = new Note();
         $note->setPerId($this->getId());
@@ -389,6 +393,14 @@ class Person extends BasePerson implements iPhoto
               $note->setText(gettext('Updated'));
               $note->setDateEntered($this->getDateLastEdited());
               $note->setEditedBy(SessionUser::getId());
+              break;
+            case "verify":
+                $note->setText(_('Person Data Verified'));
+                $note->setEnteredBy(SessionUser::getId());
+                break;
+            case "verify-link":
+              $note->setText(_('Verification email sent'));
+              $note->setEnteredBy(SessionUser::getId());
               break;
         }
 
