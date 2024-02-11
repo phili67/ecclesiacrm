@@ -20,6 +20,31 @@ $app->group('/persons', function (RouteCollectorProxy $group) {
      */
     $group->get('/cart/view', PeoplePersonController::class . ":personCartView" );
 
+
+    /*
+    * @! Verify the person for the personId
+    * #! param: id->int :: personId as id
+    */
+    $group->post('/{personId:[0-9]+}/verify', PeoplePersonController::class . ":verifyPerson" );
+
+    /*
+    * @! Verify the person for the personId
+    * #! param: id->int :: personId as id
+    */
+    $group->post('/{personId:[0-9]+}/verifyPDF', PeoplePersonController::class . ":verifyPersonPDF" );
+
+    /*
+    * @! Verify the person for the personId now
+    * #! param: id->int :: personId as id
+    */
+    $group->post('/verify/{personId:[0-9]+}/now', PeoplePersonController::class . ":verifyPersonNow" );
+
+    /*
+    * @! Verify the family for the familyId now
+    * #! param: id->int :: family
+    */
+    $group->post('/verify/url', PeoplePersonController::class . ':verifyPersonURL' );
+
 /**
  *
  * VolunteerOpportunity
