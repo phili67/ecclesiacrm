@@ -71,9 +71,9 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             }
         }
 
-        if ($loginWindow == false && ($haveFamily == true || $havePerson)) {
+        if ($loginWindow == false && $haveFamily == true) {
             return $renderer->render($response, "login-info.php", array("family" => $family, "token" => $token, "realToken" => $args['token']));
-        } elseif ($loginWindow == false && $haveFamily == true) {
+        } elseif ($loginWindow == false && $havePerson == true) {
             return $renderer->render($response, "login-info.php", array("person" => $person, "token" => $token, "realToken" => $args['token']));
         } elseif ($haveFamily) {
             return $renderer->render($response, "verify-family-info.php", array("family" => $family, "token" => $token, "realToken" => $args['token']));
