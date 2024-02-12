@@ -1088,7 +1088,9 @@ INSERT INTO `queryparameters_qrp` (`qrp_ID`, `qrp_qry_ID`, `qrp_Type`, `qrp_Opti
   (100, 100, 2, 'SELECT vol_ID AS Value, vol_Name AS Display FROM volunteeropportunity_vol ORDER BY vol_Name', 'Volunteer opportunities', 'First volunteer opportunity choice', 'volopp1', '1', 1, 0, '', 12, 1, 1, 2),
   (101, 100, 2, 'SELECT vol_ID AS Value, vol_Name AS Display FROM volunteeropportunity_vol ORDER BY vol_Name', 'Volunteer opportunities', 'Second volunteer opportunity choice', 'volopp2', '1', 1, 0, '', 12, 1, 1, 2),
   (200, 200, 2, 'SELECT custom_field as Value, custom_Name as Display FROM person_custom_master', 'Custom field', 'Choose customer person field', 'custom', '1', 0, 0, '', 0, 0, 0, 0),
-  (201, 200, 0, '', 'Field value', 'Match custom field to this value', 'value', '1', 0, 0, '', 0, 0, 0, 0);
+  (201, 200, 0, '', 'Field value', 'Match custom field to this value', 'value', '1', 0, 0, '', 0, 0, 0, 0),
+  (202, 201, 2, 'SELECT custom_field as Value, custom_Name as Display FROM person_custom_master', 'Custom field', 'Choose customer person field', 'custom', '1', 0, 0, '', 0, 0, 0, 0),
+  (203, 201, 0, '', 'Field value', 'Match custom field to this value', 'value', '1', 0, 0, '', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1161,7 +1163,8 @@ INSERT INTO `query_qry` (`qry_ID`, `qry_SQL`, `qry_Name`, `qry_Description`, `qr
   (37, "SELECT a.per_ID as AddToCart, per_Email as Email, CONCAT('<a href=v2/people/person/view/',a.per_ID,'>',a.per_FirstName,' ',a.per_LastName,'</a>') AS Name, a.per_DateDeactivated as 'GDPR' FROM `person_per` AS a WHERE per_confirm_report='Done';", 'Done confirmation of persons', 'Look for person who have confirmed', 1, 1),
   (38, "SELECT a.per_ID as AddToCart, per_Email as Email, CONCAT('<a href=v2/people/person/view/',a.per_ID,'>',a.per_FirstName,' ',a.per_LastName,'</a>') AS Name, a.per_DateDeactivated as 'GDPR' FROM person_per AS a WHERE `per_fam_ID` IN (SELECT F.fam_ID  FROM `family_fam` AS F WHERE F.fam_confirm_report='Done');", 'Done confirmation of families', 'Look for families who have confirmed', 1, 1),
   (100, 'SELECT a.per_ID as AddToCart, CONCAT(''<a href=v2/people/person/view/'',a.per_ID,''>'',a.per_FirstName,'' '',a.per_LastName,''</a>'') AS Name, a.per_DateDeactivated as ''GDPR''  FROM person_per AS a LEFT JOIN person2volunteeropp_p2vo p2v1 ON (a.per_id = p2v1.p2vo_per_ID AND p2v1.p2vo_vol_ID = ~volopp1~) LEFT JOIN person2volunteeropp_p2vo p2v2 ON (a.per_id = p2v2.p2vo_per_ID AND p2v2.p2vo_vol_ID = ~volopp2~) WHERE p2v1.p2vo_per_ID=p2v2.p2vo_per_ID ORDER BY per_LastName', 'Volunteers', 'Find volunteers for who match two specific opportunity codes', 1, 6),
-  (200, 'SELECT a.per_ID as AddToCart, CONCAT(''<a href=v2/people/person/view/'',a.per_ID,''>'',a.per_FirstName,'' '',a.per_LastName,''</a>'') AS Name, a.per_DateDeactivated as ''GDPR''  FROM person_per AS a LEFT JOIN person_custom pc ON a.per_id = pc.per_ID WHERE pc.~custom~ LIKE ''%~value~%'' ORDER BY per_LastName', 'CustomSearch', 'Find people with a custom field value', 1, 7);
+  (200, 'SELECT a.per_ID as AddToCart, CONCAT(''<a href=v2/people/person/view/'',a.per_ID,''>'',a.per_FirstName,'' '',a.per_LastName,''</a>'') AS Name, a.per_DateDeactivated as ''GDPR''  FROM person_per AS a LEFT JOIN person_custom pc ON a.per_id = pc.per_ID WHERE pc.~custom~ LIKE ''%~value~%'' ORDER BY per_LastName', 'CustomSearch', 'Find people with a custom field value', 1, 7),
+  (201, 'SELECT a.per_ID as AddToCart, CONCAT(''<a href=v2/people/person/view/'',a.per_ID,''>'',a.per_FirstName,'' '',a.per_LastName,''</a>'') AS Name, a.per_DateDeactivated as ''GDPR''  FROM person_per AS a LEFT JOIN person_custom pc ON a.per_id = pc.per_ID WHERE pc.~custom~ IS ~value~ ORDER BY per_LastName', 'CustomSearch is NULL', 'Find people with a custom field value is NULL', 1, 7);
 
 
 -- --------------------------------------------------------
