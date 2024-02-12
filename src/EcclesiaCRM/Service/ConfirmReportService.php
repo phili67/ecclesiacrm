@@ -804,8 +804,8 @@ class ConfirmReportService {
         # family Custom fields
         // Get the list of custom person fields
         $ormFamilyCustomFields = FamilyCustomMasterQuery::create()
-        ->orderByCustomOrder()
-        ->find();
+            ->orderByCustomOrder()
+            ->find();
 
         $customFamilyFields = []; 
 
