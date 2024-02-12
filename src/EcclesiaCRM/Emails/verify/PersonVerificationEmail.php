@@ -33,7 +33,7 @@ class PersonVerificationEmail extends BaseEmail
 
         parent::__construct($emails);
 
-        $this->mail->Subject = _("Person"). " : ". $firstName . " ". $LastName . " (" . gettext("Please verify your family's information").")";
+        $this->mail->Subject = _("Person"). " : ". $firstName . " ". $LastName . " (" . gettext("Please verify your informations").")";
         $this->mail->isHTML(true);
         $this->mail->msgHTML($this->buildMessage());
     }

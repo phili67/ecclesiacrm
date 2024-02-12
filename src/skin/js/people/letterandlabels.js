@@ -66,7 +66,11 @@ $(function() {
     });
 
     $("#letterandlabelsnamingmethod").on ('change', function() {
-        alert ($(this).val());
+        if ($(this).val() == 'person') {
+            window.CRM.DisplayAlert(i18next.t("Modification"), i18next.t("By persons"));
+        } else if ($(this).val() == 'family') {
+            window.CRM.DisplayAlert(i18next.t("Modification"), i18next.t("By Adresses"));
+        }
         $("#users").html(i18next.t("None"));
         users = '';
     });

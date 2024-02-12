@@ -23,7 +23,7 @@ use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\MenuEventsCount;
-
+use EcclesiaCRM\Emails\PersonVerificationEmail;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 
@@ -31,6 +31,8 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
+use EcclesiaCRM\Token;
+use EcclesiaCRM\TokenQuery;
 use EcclesiaCRM\VolunteerOpportunityQuery;
 use EcclesiaCRM\PersonVolunteerOpportunityQuery;
 use EcclesiaCRM\PersonVolunteerOpportunity;
@@ -38,8 +40,11 @@ use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\UserQuery;
+
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
+use EcclesiaCRM\Reports\EmailUsers;
+use EcclesiaCRM\TokenPassword;
 
 use EcclesiaCRM\Map\Record2propertyR2pTableMap;
 use EcclesiaCRM\Map\PropertyTableMap;
@@ -701,6 +706,108 @@ class PeoplePersonController
             ->withHeader('Expires', '0');
 
         $response->getBody()->write($output);
+        return $response;
+    }
+
+    public function verifyPerson (ServerRequest $request, Response $response, array $args): Response {
+        $personId = $args["personId"];
+        $person = PersonQuery::create()->findPk($personId);
+        if ($person != null) {
+            TokenQuery::create()->filterByType("verifyPerson")->filterByReferenceId($person->getId())->delete();
+            $token = new Token();
+            $token->build("verifyPerson", $person->getId());
+            $token->save();
+
+            $tokenPassword = new TokenPassword();
+
+            $password = MiscUtils::random_password(8);
+
+            $tokenPassword->setTokenId($token->getPrimaryKey());
+            $tokenPassword->setPassword(md5($password));
+            $tokenPassword->setMustChangePwd(false);
+
+            $tokenPassword->save();
+
+            $emails = [];
+
+            if ($person->getEmail() == "") {
+                $emails = $person->getFamily()->getEmails();
+            } else {
+                $emails = [$person->getEmail()];
+            }
+            
+            $email = new PersonVerificationEmail($emails, $person->getFirstName(), $person->getLastName(), $token->getToken(), $emails, $password);
+            if ($email->send()) {
+                $person->createTimeLineNote("verify-link");
+                $response = $response->withStatus(200);
+            } else {
+                $logger = $this->container->get('Logger');
+                $logger->error($email->getError());
+                throw new \Exception($email->getError());
+            }
+        } else {
+            $response = $response->withStatus(404)->getBody()->write("personId: " . $personId . " not found");
+        }
+        return $response;
+    }
+
+    public function verifyPersonPDF (ServerRequest $request, Response $response, array $args): Response {
+        $personId = $args["personId"];
+        $person = PersonQuery::create()->findPk($personId);
+        if ($person != null) {
+            $person_to_contact = new EmailUsers(null, [(int)$personId]);
+
+            $personEmailSent = $person_to_contact->renderAndSend('person');
+
+            return $response->withJson(["status" => $personEmailSent]);
+        } else {
+            $response = $response->withStatus(404)->getBody()->write("personId: " . $personId . " not found");
+        }
+        return $response;
+    }
+
+    public function verifyPersonNow (ServerRequest $request, Response $response, array $args): Response {
+        $personId = $args["personId"];
+        $person = PersonQuery::create()->findPk($personId);
+        if ($person != null) {
+            $person->verify();
+            $response = $response->withStatus(200);
+        } else {
+            $response = $response->withStatus(404)->getBody()->write("personId: " . $personId . " not found");
+        }
+        return $response;
+    }
+
+    public function verifyPersonURL (ServerRequest $request, Response $response, array $args): Response {
+        $input = (object)$request->getParsedBody();
+
+        if ( isset ($input->perId) ) {
+            $person = PersonQuery::create()->findOneById($input->perId);
+            $token = TokenQuery::create()
+                ->filterByType("verifyPerson")
+                ->findOneByReferenceId($person->getId());
+            if (!is_null($token)) {
+                $token->delete();
+            }
+            $token = new Token();
+            $token->build("verifyPerson", $person->getId());
+            $token->save();
+
+            $tokenPassword = new TokenPassword();
+
+            $password = MiscUtils::random_password(8);
+
+            $tokenPassword->setTokenId($token->getPrimaryKey());
+            $tokenPassword->setPassword(md5($password));
+            $tokenPassword->setMustChangePwd(false);
+
+            $tokenPassword->save();
+
+
+            $person->createTimeLineNote("verify-URL");
+            return $response->withJSON(["url" => "ident/my-profile/" . $token->getToken(), 'password' => $password]);
+        }
+
         return $response;
     }
 }

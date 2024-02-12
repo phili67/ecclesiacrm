@@ -21,6 +21,7 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\Family;
 
 class ConfirmReportService {
@@ -774,4 +775,52 @@ class ConfirmReportService {
 
         return $code;
     }
+
+    public static function getSelectedCustomPersonFields() : array
+    {
+        // Get the list of custom person fields
+        $ormPersonCustomFields = PersonCustomMasterQuery::create()
+        ->orderByCustomOrder()
+        ->find();
+
+        $customPersonFields = []; 
+
+        if ( $ormPersonCustomFields->count() > 0) {
+            foreach ($ormPersonCustomFields as $customField) {
+                if ($customField->getCustomConfirmationDatas()) {
+                    $customPersonFields[] = [
+                        'order' => $customField->getCustomOrder(),
+                        'custom' => $customField->getCustomField()
+                    ];
+                }
+            }
+        }
+
+        return $customPersonFields;
+    }
+
+    public static function getSelectedCustomFamilyFields() : array
+    {
+        # family Custom fields
+        // Get the list of custom person fields
+        $ormFamilyCustomFields = FamilyCustomMasterQuery::create()
+            ->orderByCustomOrder()
+            ->find();
+
+        $customFamilyFields = []; 
+
+        if ( $ormFamilyCustomFields->count() > 0) {
+            foreach ($ormFamilyCustomFields as $customField) {
+                if ($customField->getCustomConfirmationDatas()) {
+                    $customFamilyFields[] = [
+                        'order' => $customField->getCustomOrder(),
+                        'custom' => $customField->getCustomField()
+                    ];
+                }
+            }
+        }
+
+        return $customFamilyFields;
+    }
+
 }

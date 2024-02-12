@@ -1173,7 +1173,70 @@ $(function() {
       });
     });
 
-
+    $("#verifyURL").on('click', function () {
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'persons/verify/url',
+            data: JSON.stringify({"perId": window.CRM.currentPersonID})
+        },function(data) {
+            $('#confirm-verify').modal('hide');
+            bootbox.alert({
+                title: i18next.t("Verification URL"),
+                message: i18next.t("Password") + ': ' + data.password + "<br>url : <a href='" + window.CRM.root + "/" + data.url+"'>" + window.CRM.root + "/" + data.url+"</a>"
+            });
+        });
+    });
+    
+    $("#verifyNow").on('click', function () {
+        $.ajax({
+            type: 'POST',
+            url: window.CRM.root + '/api/persons/verify/' + window.CRM.currentPersonID + '/now'
+        })
+            .done(function(data, textStatus, xhr) {
+                $('#confirm-verify').modal('hide');
+                if (xhr.status == 200) {
+                    location.reload();
+                } else {
+                    window.CRM.showGlobalMessage(i18next.t("Failed to add verification"), "danger")
+                }
+            });
+    });
+    
+    $("#verifyDownloadPDF").on('click', function () {
+        location.href = window.CRM.root + '/Reports/ConfirmReport.php?personId=' + window.CRM.currentPersonID;
+        $('#confirm-verify').modal('hide');
+    });
+    
+    $("#onlineVerify").on('click', function () {
+        $.ajax({
+            type: 'POST',
+            url: window.CRM.root + '/api/persons/' + window.CRM.currentPersonID + '/verify'
+        })
+            .done(function(data, textStatus, xhr) {
+                $('#confirm-verify').modal('hide');
+                if (xhr.status == 200) {
+                    window.CRM.showGlobalMessage(i18next.t("Verification email sent"), "success")
+                } else {
+                    window.CRM.showGlobalMessage(i18next.t("Failed to send verification email"), "danger")
+                }
+            });
+    });
+    
+    $("#onlineVerifyPDF").on('click', function () {
+        $.ajax({
+            type: 'POST',
+            url: window.CRM.root + '/api/persons/' + window.CRM.currentPersonID + '/verifyPDF'
+        })
+            .done(function(data, textStatus, xhr) {
+                $('#confirm-verify').modal('hide');
+                if (xhr.status == 200) {
+                    window.CRM.showGlobalMessage(i18next.t("Verification email sent") + ' (PDF)', "success")
+                } else {
+                    window.CRM.showGlobalMessage(i18next.t("Failed to send verification email") + ' (PDF)', "danger")
+                }
+            });
+    });
+  
     function applyFilter()
     {
       var showPledges = $('#ShowPledges').prop('checked');
@@ -1199,7 +1262,7 @@ $(function() {
         }
     }
 
-    <!-- for the theme before jquery load is finished -->
+    /* for the theme before jquery load is finished */
     if (window.CRM.sLightDarkMode == "automatic") {
         let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
 

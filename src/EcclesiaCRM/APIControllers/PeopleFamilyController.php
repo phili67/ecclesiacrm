@@ -255,7 +255,7 @@ class PeopleFamilyController
         if ($family != null) {
             $fams_to_contact = new EmailUsers([$familyId]);
 
-            $familyEmailSent = $fams_to_contact->renderAndSend();
+            $familyEmailSent = $fams_to_contact->renderAndSend('family');
 
             return $response->withJson(["status" => $familyEmailSent]);
         } else {

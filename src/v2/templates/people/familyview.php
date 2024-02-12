@@ -942,8 +942,6 @@ require $sRootDocument . '/Include/Header.php';
                     <?php
                 }
                 ?>
-                <button type="button" id="verifyURL"
-                        class="btn btn-default"><i class="fas fa-link"></i> <?= _("URL") ?></button>
                 <button type="button" id="verifyDownloadPDF" class="btn btn-info">
                     <i class="fas fa-download"></i>
                     <?= _("PDF Report") ?>

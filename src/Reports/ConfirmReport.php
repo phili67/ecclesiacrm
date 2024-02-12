@@ -18,14 +18,17 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
+use EcclesiaCRM\PersonCustomQuery;
+use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Base\PersonCustomQuery;
 use EcclesiaCRM\GroupQuery;
 
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Map\GroupTableMap;
+
 use EcclesiaCRM\Utils\InputUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -34,6 +37,7 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
     private $incrY;
     public $leftX;
     public $_PersonCustom;
+    public $_FamilyCustom;
 
     // Constructor
     public function __construct()
@@ -49,11 +53,24 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
 
     public function AddPersonCustomField($order, $use)
     {
-        $this->_PersonCustom[$order] = $use;
+        $this->_PersonCustom[(int)$order] = $use;
     }
 
     public function GetPersonCustomField($order) {
+        if (!array_key_exists($order, $this->_PersonCustom)) return  0;
+        
         return $this->_PersonCustom[$order];
+    }
+
+    public function AddFamilyCustomField($order, $use)
+    {
+        $this->_FamilyCustom[(int)$order] = $use;
+    }
+
+    public function GetFamilyCustomField($order) {
+        if (!array_key_exists($order, $this->_FamilyCustom)) return  0;
+
+        return $this->_FamilyCustom[$order];
     }
 
     public function StartNewPage($ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $type)
@@ -142,7 +159,7 @@ $ormPersonCustomFields = PersonCustomMasterQuery::create()
     ->orderByCustomOrder()
     ->find();
 
-$numCustomFields = $ormPersonCustomFields->count();
+$numPersonCustomFields = $ormPersonCustomFields->count();
 
 $sPersonCustomFieldName = [];
 $sPersonCustomFieldTypeID = [];
@@ -154,7 +171,32 @@ if ( $ormPersonCustomFields->count() > 0) {
         $sPersonCustomFieldTypeID[$iFieldNum] = $customField->getTypeId();
         $iFieldNum+=1;
 
-        $pdf->AddPersonCustomField( $customField->getCustomOrder(), isset($_POST["bCustomPerson".$customField->getCustomOrder()]) );
+        if ($customField->getCustomConfirmationDatas()) {
+            $pdf->AddPersonCustomField( $customField->getCustomOrder(), $customField->getCustomField() );
+        }
+    }
+}
+
+// Get the list of custom family fields
+$ormFamilyCustomFields = FamilyCustomMasterQuery::create()
+    ->orderByCustomOrder()
+    ->find();
+
+$numFamilyCustomFields = $ormFamilyCustomFields->count();
+
+$sFamilyCustomFieldName = [];
+$sFamilyCustomFieldTypeID = [];
+
+if ( $ormFamilyCustomFields->count() > 0) {
+    $iFieldNum = 0;
+    foreach ($ormFamilyCustomFields as $customField) {
+        $sFamilyCustomFieldName[$iFieldNum] = $customField->getCustomName();
+        $sFamilyCustomFieldTypeID[$iFieldNum] = $customField->getTypeId();
+        $iFieldNum+=1;
+
+        if ($customField->getCustomConfirmationDatas()) {
+            $pdf->AddFamilyCustomField( $customField->getCustomOrder(), $customField->getCustomField() );
+        }
     }
 }
 
@@ -165,6 +207,38 @@ $ormFamilies->orderByName();
 if ($_GET['familyId']) {
     $families = explode(",", $_GET['familyId']);
     $ormFamilies->filterById($families);
+}
+
+$perIds = NULL;
+$familiesIds = NULL;
+
+if ($_GET['personId']) {
+    $exportType = 'person';
+    $perIds = [(int)$_GET['personId']];
+
+    $per = PersonQuery::create()->findOneById($perIds[0]);
+    $families = [$per->getFamily()->getId()];
+
+    $ormFamilies->filterById($families);
+}
+
+$fams = $_POST['familiesId'];
+if (strlen($fams) > 0) {
+    $familiesIds = explode(",",$_POST['familiesId']);
+}
+
+$persons = $_POST['personsId'];
+if (strlen($persons) > 0) {
+    $persons = explode(",",$persons);
+    foreach ($persons as $personId) {
+        $perIds[] = $person;
+        $per = PersonQuery::create()->findOneById($personId);
+        $families[] = $per->getFamily()->getId();
+    }
+}
+
+if (!is_null($familiesIds)) {
+    $ormFamilies->filterById($familiesIds);
 }
 
 $ormFamilies->filterByDateDeactivated(NULL);
@@ -250,6 +324,39 @@ foreach ($ormFamilies as $family) {
         $pdf->SetFont('Times', '', $fontSize);
         $pdf->WriteAtCell($dataCol, $curY, $dataWid, $family->getEmail());
         $curY += $incrY;
+        
+        // family custom fields : 
+        $rawQry = FamilyCustomQuery::create();
+        foreach ($ormFamilyCustomFields as $customField) {
+            $rawQry->withColumn($customField->getCustomField());
+        }
+
+        if (!is_null($rawQry->findOneByFamId($family->getId()))) {
+            $aCustomData = $rawQry->findOneByFamId($family->getId())->toArray();
+        }
+
+        foreach ($ormFamilyCustomFields as $customField) {
+            if ($pdf->GetFamilyCustomField($customField->getCustomOrder()) == 0) continue;
+
+            if ($sFamilyCustomFieldName[$customField->getCustomOrder() - 1]) {
+                $currentFieldData = trim($aCustomData[$customField->getCustomField()]);
+
+                $currentFieldData = OutputUtils::displayCustomField($customField->getTypeId(), trim($aCustomData[$customField->getCustomField()]), $customField->getCustomSpecial(), false);
+
+                $pdf->SetFont('Times', 'B', $fontSize);
+                $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), $sFamilyCustomFieldName[$customField->getCustomOrder() - 1]);
+                $pdf->SetFont('Times', '', $fontSize);
+                
+                if ($currentFieldData == '') {
+                    $pdf->WriteAtCell($dataCol, $curY, $dataWid, $family->getEmail());
+                } else {
+                    $pdf->WriteAtCell($dataCol, $curY, $dataWid, $currentFieldData);                
+                }
+                $curY += $incrY;                    
+            }
+        }
+
+        $curY += $incrY;
         $curY += $incrY;
     }
 
@@ -320,12 +427,12 @@ foreach ($ormFamilies as $family) {
     $numFamilyMembers = 0;
     
     foreach ($ormFamilyMembers as $fMember) {
-        if (is_null ($fMember)) continue;
+        if ( is_null ($fMember) or !is_null($perIds) and !in_array($fMember->getId(), $perIds) ) continue;
 
         $numFamilyMembers++;    // add one to the people count
 
         // Make sure the person data will display with adequate room for the trailer and group information
-        if (($curY + $numCustomFields * $incrY) > 260 and $exportType == "family") {
+        if (($curY + $numPersonCustomFields * $incrY) > 260 and $exportType == "family") {
             $curY = $pdf->StartLetterPage($family->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(), $family->getState(), $family->getZip(), $family->getCountry(), "", $exportType);            
         } else if ($exportType == "person") {
             $cnt += 1;
@@ -449,7 +556,7 @@ foreach ($ormFamilies as $family) {
         // Get the list of custom person fields
 
         $xSize = 40;
-        if ($numCustomFields > 0) {
+        if ($numPersonCustomFields > 0) {
             // Get the custom field data for this person.
             $rawQry = PersonCustomQuery::create();
             foreach ($ormPersonCustomFields as $custField) {

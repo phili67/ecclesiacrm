@@ -17,7 +17,6 @@ require '../Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\PersonCustomMasterQuery;
 
 use EcclesiaCRM\Reports\EmailUsers;
 
@@ -64,40 +63,12 @@ if (isset($_POST['classList'])) {
     $classList = $_POST['classList'];
 }
 
-// Get the list of custom person fields
-$ormPersonCustomFields = PersonCustomMasterQuery::create()
-    ->orderByCustomOrder()
-    ->find();
-
-$customPersonFields = []; 
-
-if ( $ormPersonCustomFields->count() > 0) {
-    $iFieldNum = 0;
-    foreach ($ormPersonCustomFields as $customField) {
-        $sCustomFieldName[$iFieldNum] = $customField->getCustomName();
-        $sCustomFieldTypeID[$iFieldNum] = $customField->getTypeId();
-        $iFieldNum+=1;
-
-        if (isset($_POST["bCustomPerson".$customField->getCustomOrder()])) {
-            $customPersonFields[] = [
-                'order' => $customField->getCustomOrder(),
-                'custom' => $_POST["bCustomPerson".$customField->getCustomOrder()]
-            ];
-        }
-    }
-}
-
-#TODO : family Custom fields
-
-// for testing
 $fams = $_POST['familiesId'];
 if (strlen($fams) > 0) {
     $fams = explode(",",$_POST['familiesId']);
 } else {
     $fams = Null;
 }
-
-
 
 $persons = $_POST['personsId'];
 if (strlen($persons) > 0) {
@@ -108,10 +79,10 @@ if (strlen($persons) > 0) {
 
 $fams_to_contact = new EmailUsers($fams, $persons);
 
-$familyEmailSent = $fams_to_contact->renderAndSend($exportType, $minAge, $maxAge, $classList, $customPersonFields);
+$familyEmailSent = $fams_to_contact->renderAndSend($exportType, $minAge, $maxAge, $classList);
 
 if ($_GET['familyId']) {
     RedirectUtils::Redirect('v2/people/family/view/' . $_GET['familyId'] . '&PDFEmailed=' . $familyEmailSent);
-} /*else {
-    RedirectUtils::Redirect('v2/familylist/AllPDFsEmailed/'.$familiesEmailed);
-}*/
+} else {
+    RedirectUtils::Redirect('v2/people/LettersAndLabels');
+}
