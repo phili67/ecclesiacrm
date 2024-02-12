@@ -13,29 +13,30 @@
 
 namespace EcclesiaCRM\Reports;
 
-use EcclesiaCRM\Base\FamilyCustomMasterQuery;
-use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Emails\FamilyVerificationEmail;
 use EcclesiaCRM\Emails\PersonVerificationEmail;
-use EcclesiaCRM\Token;
-use EcclesiaCRM\TokenPassword;
-use EcclesiaCRM\TokenQuery;
+
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\dto\SystemConfig;
 
+use EcclesiaCRM\Base\FamilyCustomMasterQuery;
+use EcclesiaCRM\Base\FamilyCustomQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Token;
+use EcclesiaCRM\TokenPassword;
+use EcclesiaCRM\TokenQuery;
 
 use EcclesiaCRM\Map\GroupTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Service\ConfirmReportService;
-use Family;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 class EmailPDF_ConfirmReport extends ChurchInfoReportTCPDF
@@ -71,7 +72,7 @@ class EmailPDF_ConfirmReport extends ChurchInfoReportTCPDF
 
     public function AddFamilyCustomField($order, $use)
     {
-        $this->_FamilyCustom[(int)$order] = (int)$use;
+        $this->_FamilyCustom[(int)$order] = $use;
     }
 
     public function GetFamilyCustomField($order) {
@@ -162,9 +163,9 @@ class EmailUsers
 
 
     // Constructor
-    public function __construct($fams = NULL, $persons = NULL, $fontSize = 10)
+    public function __construct($fams = NULL, $persons = NULL, $fontSize = 8)
     {
-        $this->incrY = SystemConfig::getValue('incrementY') + 0.5;
+        $this->incrY = SystemConfig::getValue('incrementY') + 0;//0.5;
         $this->familiesEmailed = $this->personsEmailed = 0;
         $this->fams = $fams;
         $this->persons = $persons;
@@ -223,34 +224,34 @@ class EmailUsers
         $this->curY = $this->pdf->StartNewPage($fam->getId(), $fam->getName(), $fam->getAddress1(), $fam->getAddress2(), $fam->getCity(), $fam->getState(), $fam->getZip(), $fam->getCountry(), 'family');
         $this->curY += $this->incrY;
 
-        $this->pdf->SetFont('Times', 'B', 10);
+        $this->pdf->SetFont('Times', 'B', $this->fontSize);
         $this->pdf->WriteAtCell(SystemConfig::getValue('leftX'), $this->curY, $this->dataCol - SystemConfig::getValue('leftX'), _('Family Name'));
-        $this->pdf->SetFont('Times', '', 10);
+        $this->pdf->SetFont('Times', '', $this->fontSize);
         $this->pdf->WriteAtCell($this->dataCol, $this->curY, $this->dataWid, $fam->getName());
         $this->curY += $this->incrY;
-        $this->pdf->SetFont('Times', 'B', 10);
+        $this->pdf->SetFont('Times', 'B', $this->fontSize);
         $this->pdf->WriteAtCell(SystemConfig::getValue('leftX'), $this->curY, $this->dataCol - SystemConfig::getValue('leftX'), _('Address') . ' 1');
-        $this->pdf->SetFont('Times', '', 10);
+        $this->pdf->SetFont('Times', '', $this->fontSize);
         $this->pdf->WriteAtCell($this->dataCol, $this->curY, $this->dataWid, $fam->getAddress1());
         $this->curY += $this->incrY;
-        $this->pdf->SetFont('Times', 'B', 10);
+        $this->pdf->SetFont('Times', 'B', $this->fontSize);
         $this->pdf->WriteAtCell(SystemConfig::getValue('leftX'), $this->curY, $this->dataCol - SystemConfig::getValue('leftX'), _('Address') . ' 2');
-        $this->pdf->SetFont('Times', '', 10);
+        $this->pdf->SetFont('Times', '', $this->fontSize);
         $this->pdf->WriteAtCell($this->dataCol, $this->curY, $this->dataWid, $fam->getAddress2());
         $this->curY += $this->incrY;
-        $this->pdf->SetFont('Times', 'B', 10);
+        $this->pdf->SetFont('Times', 'B', $this->fontSize);
         $this->pdf->WriteAtCell(SystemConfig::getValue('leftX'), $this->curY, $this->dataCol - SystemConfig::getValue('leftX'), _('City, State, Zip'));
-        $this->pdf->SetFont('Times', '', 10);
+        $this->pdf->SetFont('Times', '', $this->fontSize);
         $this->pdf->WriteAtCell($this->dataCol, $this->curY, $this->dataWid, ($fam->getCity() . ', ' . $fam->getState() . '  ' . $fam->getZip()));
         $this->curY += $this->incrY;
-        $this->pdf->SetFont('Times', 'B', 10);
+        $this->pdf->SetFont('Times', 'B', $this->fontSize);
         $this->pdf->WriteAtCell(SystemConfig::getValue('leftX'), $this->curY, $this->dataCol - SystemConfig::getValue('leftX'), _('Home Phone'));
-        $this->pdf->SetFont('Times', '', 10);
+        $this->pdf->SetFont('Times', '', $this->fontSize);
         $this->pdf->WriteAtCell($this->dataCol, $this->curY, $this->dataWid, $fam->getHomePhone());
         $this->curY += $this->incrY;
-        $this->pdf->SetFont('Times', 'B', 10);
+        $this->pdf->SetFont('Times', 'B', $this->fontSize);
         $this->pdf->WriteAtCell(SystemConfig::getValue('leftX'), $this->curY, $this->dataCol - SystemConfig::getValue('leftX'), _('Send Newsletter'));
-        $this->pdf->SetFont('Times', '', 10);
+        $this->pdf->SetFont('Times', '', $this->fontSize);
         $this->pdf->WriteAtCell($this->dataCol, $this->curY, $this->dataWid, $fam->getSendNewsLetter());
         $this->curY += $this->incrY;
 
@@ -258,16 +259,52 @@ class EmailUsers
         // Wedding date (if present) - need to figure how to do this with sensitivity
         // Family e-mail address
 
-        $this->pdf->SetFont('Times', 'B', 10);
+        $this->pdf->SetFont('Times', 'B', $this->fontSize);
         $this->pdf->WriteAtCell(SystemConfig::getValue('leftX'), $this->curY, $this->dataCol - SystemConfig::getValue('leftX'), _('Anniversary Date'));
-        $this->pdf->SetFont('Times', '', 10);
+        $this->pdf->SetFont('Times', '', $this->fontSize);
         $this->pdf->WriteAtCell($this->dataCol, $this->curY, $this->dataWid, (!is_null($fam->getWeddingDate())?OutputUtils::FormatDate($fam->getWeddingDate()->format('Y-m-d')):""));
         $this->curY += $this->incrY;
 
-        $this->pdf->SetFont('Times', 'B', 10);
+        $this->pdf->SetFont('Times', 'B', $this->fontSize);
         $this->pdf->WriteAtCell(SystemConfig::getValue('leftX'), $this->curY, $this->dataCol - SystemConfig::getValue('leftX'), _('Family Email'));
-        $this->pdf->SetFont('Times', '', 10);
+        $this->pdf->SetFont('Times', '', $this->fontSize);
         $this->pdf->WriteAtCell($this->dataCol, $this->curY, $this->dataWid, $fam->getEmail());
+        $this->curY += $this->incrY;
+
+        // family custom fields :         
+        $rawQry = FamilyCustomQuery::create();
+        foreach ($this->ormFamilyCustomFields as $customField) {
+            $rawQry->withColumn($customField->getCustomField());
+        }
+
+        if (!is_null($rawQry->findOneByFamId($fam->getId()))) {
+            $aCustomData = $rawQry->findOneByFamId($fam->getId())->toArray();
+        }
+
+        foreach ($this->ormFamilyCustomFields as $customField) {
+            if ($this->pdf->GetFamilyCustomField($customField->getCustomOrder()) == 0) continue;
+
+            if ($this->sFamilyCustomFieldName[$customField->getCustomOrder() - 1]) {
+                $currentFieldData = trim($aCustomData[$customField->getCustomField()]);
+
+                $currentFieldData = OutputUtils::displayCustomField($customField->getTypeId(), trim($aCustomData[$customField->getCustomField()]), $customField->getCustomSpecial(), false);
+
+                $this->pdf->SetFont('Times', 'B', $this->fontSize);
+                $this->pdf->WriteAtCell(SystemConfig::getValue('leftX'), $this->curY, $this->dataCol - SystemConfig::getValue('leftX'), $this->sFamilyCustomFieldName[$customField->getCustomOrder() - 1]);
+                $this->pdf->SetFont('Times', '', $this->fontSize);
+                
+                if ($currentFieldData == '') {
+                    $this->pdf->WriteAtCell($this->dataCol, $this->curY, $this->dataWid, $fam->getEmail());
+                } else {
+                    $this->pdf->WriteAtCell($this->dataCol, $this->curY, $this->dataWid, $currentFieldData);                
+                }
+                $this->curY += $this->incrY;
+            }
+
+        }
+        $this->curY += $this->incrY;
+        $this->curY += $this->incrY;
+
         if (!empty($fam_Email)) {
             array_push($emaillist, $fam_Email);
         }
@@ -314,7 +351,7 @@ class EmailUsers
         $XWorkPhone = 155;
         $XRight = 208;
 
-        $this->pdf->SetFont('Times', 'B', 10);
+        $this->pdf->SetFont('Times', 'B', $this->fontSize);
         $this->pdf->WriteAtCell($XName, $this->curY, $XGender - $XName, _('Member Name'));
         $this->pdf->WriteAtCell($XGender, $this->curY, $XRole - $XGender, _('M/F'));
         $this->pdf->WriteAtCell($XRole, $this->curY, $XEmail - $XRole, _('Adult/Child'));
@@ -322,8 +359,8 @@ class EmailUsers
         $this->pdf->WriteAtCell($XBirthday, $this->curY, $XCellPhone - $XBirthday, _('Birthday'));
         $this->pdf->WriteAtCell($XCellPhone, $this->curY, $XClassification - $XCellPhone, _('Cell Phone'));
         $this->pdf->WriteAtCell($XClassification, $this->curY, $XRight - $XClassification, _('Member/Friend'));
-        $this->pdf->SetFont('Times', '', 10);
-        $this->curY += $this->incrY;
+        $this->pdf->SetFont('Times', '', $this->fontSize);
+        $this->curY += $this->incrY;        
 
         if ($ormFamilyMembers->count() == 0) {
             $member = PersonQuery::create()
@@ -357,7 +394,7 @@ class EmailUsers
             // Make sure the person data will display with adequate room for the trailer and group information
             if (($this->curY + $this->numPersonCustomFields * $this->incrY) > 260) {
                 $this->curY = $this->pdf->StartLetterPage($fam->getID(), $fam->getName(), $fam->getAddress1(), $fam->getAddress2(), $fam->getCity(), $fam->getState(), $fam->getZip(), $fam->getCountry());
-                $this->pdf->SetFont('Times', 'B', 10);
+                $this->pdf->SetFont('Times', 'B', $this->fontSize);
                 $this->pdf->WriteAtCell($XName, $this->curY, $XGender - $XName, _('Member Name'));
                 $this->pdf->WriteAtCell($XGender, $this->curY, $XRole - $XGender, _('M/F'));
                 $this->pdf->WriteAtCell($XRole, $this->curY, $XEmail - $XRole, _('Adult/Child'));
@@ -365,13 +402,13 @@ class EmailUsers
                 $this->pdf->WriteAtCell($XBirthday, $this->curY, $XCellPhone - $XBirthday, _('Birthday'));
                 $this->pdf->WriteAtCell($XCellPhone, $this->curY, $XClassification - $XCellPhone, _('Cell Phone'));
                 $this->pdf->WriteAtCell($XClassification, $this->curY, $XRight - $XClassification, _('Member/Friend'));
-                $this->pdf->SetFont('Times', '', 10);
+                $this->pdf->SetFont('Times', '', $this->fontSize);
                 $this->curY += $this->incrY;
             }
             $iPersonID = $aMember->getId();
-            $this->pdf->SetFont('Times', 'B', 10);
+            $this->pdf->SetFont('Times', 'B', $this->fontSize);
             $this->pdf->WriteAtCell($XName, $this->curY, $XGender - $XName, $aMember->getFirstName() . ' ' . $aMember->getMiddleName() . ' ' . $aMember->getLastName());
-            $this->pdf->SetFont('Times', '', 10);
+            $this->pdf->SetFont('Times', '', $this->fontSize);
             $genderStr = ($aMember->getGender() == 1 ? 'M' : 'F');
             $this->pdf->WriteAtCell($XGender, $this->curY, $XRole - $XGender, $genderStr);
             $this->pdf->WriteAtCell($XRole, $this->curY, $XEmail - $XRole, $aMember->getFamRole());
@@ -429,9 +466,9 @@ class EmailUsers
                         $OutStr = $this->sPersonCustomFieldName[$customField->getCustomOrder() - 1] . ' : ' . $currentFieldData . '    ';
                         $this->pdf->WriteAtCell($xInc, $this->curY, $xSize, $this->sPersonCustomFieldName[$customField->getCustomOrder() - 1]);
                         if ($currentFieldData == '') {
-                            $this->pdf->SetFont('Times', 'B', 10);
+                            $this->pdf->SetFont('Times', 'B', $this->fontSize);
                             $this->pdf->WriteAtCell($xInc + $xSize, $this->curY, $xSize, '');
-                            $this->pdf->SetFont('Times', '', 10);
+                            $this->pdf->SetFont('Times', '', $this->fontSize);
                         } else {
                             $this->pdf->WriteAtCell($xInc + $xSize, $this->curY, $xSize, $currentFieldData);
                         }
@@ -746,6 +783,7 @@ class EmailUsers
             $this->dataWid = 65;
 
             $this->count_email = 1;
+            $this->familiesEmailed = 0;
             foreach ($ormFamilies as $fam) {
                 // Instantiate the directory class and build the report.
                 $this->pdf = new EmailPDF_ConfirmReport();
