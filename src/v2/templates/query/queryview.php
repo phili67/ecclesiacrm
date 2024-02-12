@@ -96,8 +96,9 @@ function ProcessSQL($vPOST, $qry_SQL, $rsParameters)
         extract($aRow);
 
         //Debugging code
-        //echo "--" . $qry_SQL . "<br>--" . "~" . $qrp_Alias . "~" . "<br>--" . $vPOST[$qrp_Alias] . "<p>";
-
+        ?>
+        <?= "--" . $qry_SQL ?><br>-- ~<?= $qrp_Alias ?>~<br>--<?= $vPOST[$qrp_Alias] ?><p>
+        <?php
         //Replace the placeholder with the parameter value
         $qry_SQL = str_replace('~' . $qrp_Alias . '~', $vPOST[$qrp_Alias], $qry_SQL);
     }
@@ -111,9 +112,11 @@ function DisplayRecordCount($qry_Count, $rsQueryResults)
     //Are we supposed to display a count for this query?
     if ($qry_Count == 1) {
         //Display the count of the recordset
-        echo '<p align="center">';
-        echo mysqli_num_rows($rsQueryResults) . _(' record(s) returned');
-        echo '</p>';
+        ?>
+        <p align="center">
+            <?= mysqli_num_rows($rsQueryResults) . _(' record(s) returned') ?>
+        </p>
+    <?php
     }
 }
 
@@ -141,8 +144,9 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
                 for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
                     //If this field is called "AddToCart", provision a headerless column to hold the cart action buttons
                     $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
-                    if ($fieldInfo->name != 'AddToCart' && $fieldInfo->name != 'GDPR') {
-                        echo '<th>' . _($fieldInfo->name) . '</th>';
+                    if ($fieldInfo->name != 'AddToCart' && $fieldInfo->name != 'GDPR') {?>
+                        <th><?= _($fieldInfo->name) ?></th>
+                    <?php
                     } elseif ($fieldInfo->name == 'AddToCart') {
                         ?>
                         <th>
@@ -165,7 +169,9 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
                     $qry_real_Count++;
 
                     //Alternate the background color of the row
-                    echo '<tr>';
+                    ?>
+                    <tr>
+                    <?php
 
                     //Loop through the fields and write each one
                     for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
@@ -202,15 +208,20 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
                             //Write the actual value of this row
                             if ( mb_strpos($aRow[$iCount],"<a href=") !== false) {
                                 $res = str_replace("<a href=", "<a href=".$sRootPath."/", $aRow[$iCount]);
-                                echo '<td>' . $res . '</td>';
+                                ?>
+                                <td><?= $res ?></td>
+                            <?php
                             } else {
-                                echo '<td>' . $aRow[$iCount] . '</td>';
+                            ?>
+                                <td><?= $aRow[$iCount] ?></td>
+                            <?php
                             }
                             
                         }
                     }
-
-                    echo '</tr>';
+                    ?>
+                    </tr>
+                <?php
                 } ?>
                 </tbody>
             </table>
@@ -433,9 +444,9 @@ function DisplayParameterForm($rsParameters, $iQueryID, $sRootPath)
                         }
                         while ($aRow = mysqli_fetch_array($rsParameters)) {
                             $res = getQueryFormInput($aRow);
-
-                            echo $res[1];
-                            
+                            ?>
+                            <?= $res[1] ?>
+                        <?php                            
                         } ?>
 
                         <div class="form-group text-right">
