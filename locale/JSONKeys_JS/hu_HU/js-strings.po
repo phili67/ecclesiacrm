@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1450,8 +1450,35 @@ msgstr "Frissítés dátuma"
 msgid "Donations/eGives Moved by"
 msgstr "Adományok/eGives Mozgatja"
 
+msgid "Verification URL"
+msgstr "Ellenőrző URL"
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Failed to add verification"
+msgstr "Nem sikerült hozzáadni az ellenőrzést"
+
+msgid "Verification email sent"
+msgstr "Elküldött ellenőrző e-mail"
+
+msgid "Failed to send verification email"
+msgstr "Nem sikerült ellenőrző e-mailt küldeni"
+
 msgid "A person name or Family"
 msgstr "Egy személy neve vagy Család"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Módosítás dátuma"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Személy hozzáadása"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Cím:"
 
 msgid "Warning !!!!"
 msgstr "Figyelmeztetés !!!!"
@@ -1482,21 +1509,6 @@ msgstr "Mentse a jegyzetet"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Szeretné a jegyzetét Word fájlként elmenteni az EDrive-on?"
-
-msgid "Verification URL"
-msgstr "Ellenőrző URL"
-
-msgid "Password"
-msgstr "Jelszó"
-
-msgid "Failed to add verification"
-msgstr "Nem sikerült hozzáadni az ellenőrzést"
-
-msgid "Verification email sent"
-msgstr "Elküldött ellenőrző e-mail"
-
-msgid "Failed to send verification email"
-msgstr "Nem sikerült ellenőrző e-mailt küldeni"
 
 msgid "Family Id"
 msgstr "Családi azonosító"

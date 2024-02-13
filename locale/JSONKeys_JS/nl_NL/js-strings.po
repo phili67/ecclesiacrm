@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1456,8 +1456,35 @@ msgstr "Datum bijgewerkt"
 msgid "Donations/eGives Moved by"
 msgstr "Donaties/eGives Verplaatst door"
 
+msgid "Verification URL"
+msgstr "Verificatie URL"
+
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgid "Failed to add verification"
+msgstr "Kan geen verificatie toevoegen"
+
+msgid "Verification email sent"
+msgstr "Verificatie e-mail verzonden"
+
+msgid "Failed to send verification email"
+msgstr "Mislukt om verificatie e-mail te verzenden"
+
 msgid "A person name or Family"
 msgstr "Een persoonsnaam of Familie"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Wijzigingsdatum"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Persoon toevoegen"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Adres"
 
 msgid "Warning !!!!"
 msgstr "Waarschuwing !!!!"
@@ -1488,21 +1515,6 @@ msgstr "Bewaar uw notitie"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Wilt u uw notitie opslaan als een Word-bestand in uw EDrive?"
-
-msgid "Verification URL"
-msgstr "Verificatie URL"
-
-msgid "Password"
-msgstr "Wachtwoord"
-
-msgid "Failed to add verification"
-msgstr "Kan geen verificatie toevoegen"
-
-msgid "Verification email sent"
-msgstr "Verificatie e-mail verzonden"
-
-msgid "Failed to send verification email"
-msgstr "Mislukt om verificatie e-mail te verzenden"
 
 msgid "Family Id"
 msgstr "Familie Id"

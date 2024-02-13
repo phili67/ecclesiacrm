@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1457,8 +1457,35 @@ msgstr "Ημερομηνία ενημέρωσης"
 msgid "Donations/eGives Moved by"
 msgstr "Δωρεές/eGives Κίνηση από"
 
+msgid "Verification URL"
+msgstr "URL επαλήθευσης"
+
+msgid "Password"
+msgstr "Κωδικός πρόσβασης"
+
+msgid "Failed to add verification"
+msgstr "Αποτυχία προσθήκης επαλήθευσης"
+
+msgid "Verification email sent"
+msgstr "Αποστολή email επαλήθευσης"
+
+msgid "Failed to send verification email"
+msgstr "Απέτυχε να στείλει email επαλήθευσης"
+
 msgid "A person name or Family"
 msgstr "Όνομα προσώπου ή Οικογένεια"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Ημερομηνία τροποποίησης"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Προσθήκη ατόμου"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Διεύθυνση"
 
 msgid "Warning !!!!"
 msgstr "Προειδοποίηση !!!!"
@@ -1489,21 +1516,6 @@ msgstr "Αποθηκεύστε τη σημείωσή σας"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Θέλετε να αποθηκεύσετε τη σημείωσή σας ως αρχείο Word στο EDrive σας;"
-
-msgid "Verification URL"
-msgstr "URL επαλήθευσης"
-
-msgid "Password"
-msgstr "Κωδικός πρόσβασης"
-
-msgid "Failed to add verification"
-msgstr "Αποτυχία προσθήκης επαλήθευσης"
-
-msgid "Verification email sent"
-msgstr "Αποστολή email επαλήθευσης"
-
-msgid "Failed to send verification email"
-msgstr "Απέτυχε να στείλει email επαλήθευσης"
 
 msgid "Family Id"
 msgstr "Οικογενειακή ταυτότητα"

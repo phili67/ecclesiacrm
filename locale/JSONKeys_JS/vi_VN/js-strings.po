@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1447,9 +1447,37 @@ msgstr "Đã cập nhật ngày tháng"
 msgid "Donations/eGives Moved by"
 msgstr ""
 
+msgid "Verification URL"
+msgstr "Xác nhận URL"
+
+#, fuzzy
+msgid "Password"
+msgstr "Đặt lại mật khẩu"
+
+msgid "Failed to add verification"
+msgstr "Không có chứng minh gì cả"
+
+msgid "Verification email sent"
+msgstr "Email đã gửi"
+
+msgid "Failed to send verification email"
+msgstr "Không gửi email xác nhận"
+
 #, fuzzy
 msgid "A person name or Family"
 msgstr "Một người tên hay gia đình hoặc nhóm người"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Ngày cải tiến"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Thêm người"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Địa chỉ"
 
 msgid "Warning !!!!"
 msgstr ""
@@ -1479,22 +1507,6 @@ msgstr "Để dành lời nhắn đi"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Anh có muốn lưu lại lời nhắn như một tập tin trong EDrive không?"
-
-msgid "Verification URL"
-msgstr "Xác nhận URL"
-
-#, fuzzy
-msgid "Password"
-msgstr "Đặt lại mật khẩu"
-
-msgid "Failed to add verification"
-msgstr "Không có chứng minh gì cả"
-
-msgid "Verification email sent"
-msgstr "Email đã gửi"
-
-msgid "Failed to send verification email"
-msgstr "Không gửi email xác nhận"
 
 msgid "Family Id"
 msgstr "Chứng minh thư gia đình"

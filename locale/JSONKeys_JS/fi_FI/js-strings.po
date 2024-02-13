@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1442,8 +1442,35 @@ msgstr "Päivitetty päivämäärä"
 msgid "Donations/eGives Moved by"
 msgstr "Lahjoitukset/eGives Siirtänyt"
 
+msgid "Verification URL"
+msgstr "Vahvistuksen URL-osoite"
+
+msgid "Password"
+msgstr "Salasana"
+
+msgid "Failed to add verification"
+msgstr "Vahvistuksen lisääminen epäonnistui"
+
+msgid "Verification email sent"
+msgstr "Vahvistussähköposti lähetetty"
+
+msgid "Failed to send verification email"
+msgstr "Vahvistussähköpostia ei onnistuttu lähettämään"
+
 msgid "A person name or Family"
 msgstr "Henkilön nimi tai Perhe"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Muutospäivämäärä"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Lisää henkilö"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Osoite"
 
 msgid "Warning !!!!"
 msgstr "Varoitus !!!!"
@@ -1474,21 +1501,6 @@ msgstr "Tallenna muistiinpano"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Haluatko tallentaa muistiinpanosi Word-tiedostona EDriveen?"
-
-msgid "Verification URL"
-msgstr "Vahvistuksen URL-osoite"
-
-msgid "Password"
-msgstr "Salasana"
-
-msgid "Failed to add verification"
-msgstr "Vahvistuksen lisääminen epäonnistui"
-
-msgid "Verification email sent"
-msgstr "Vahvistussähköposti lähetetty"
-
-msgid "Failed to send verification email"
-msgstr "Vahvistussähköpostia ei onnistuttu lähettämään"
 
 msgid "Family Id"
 msgstr "Perhetunnus"

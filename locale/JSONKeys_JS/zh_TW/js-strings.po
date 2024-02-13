@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1410,8 +1410,35 @@ msgstr "更新日期"
 msgid "Donations/eGives Moved by"
 msgstr "捐赠/电子捐赠"
 
+msgid "Verification URL"
+msgstr "验证网址"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Failed to add verification"
+msgstr "添加验证失败"
+
+msgid "Verification email sent"
+msgstr "发送验证邮件"
+
+msgid "Failed to send verification email"
+msgstr "发送验证邮件失败"
+
 msgid "A person name or Family"
 msgstr "人名或家庭"
+
+#, fuzzy
+msgid "Modification"
+msgstr "修改日期"
+
+#, fuzzy
+msgid "By persons"
+msgstr "添加人"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "地址"
 
 msgid "Warning !!!!"
 msgstr "警告 !!!!"
@@ -1441,21 +1468,6 @@ msgstr "保存你的笔记"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "你想把你的笔记保存为EDrive中的Word文件吗？"
-
-msgid "Verification URL"
-msgstr "验证网址"
-
-msgid "Password"
-msgstr "密码"
-
-msgid "Failed to add verification"
-msgstr "添加验证失败"
-
-msgid "Verification email sent"
-msgstr "发送验证邮件"
-
-msgid "Failed to send verification email"
-msgstr "发送验证邮件失败"
 
 msgid "Family Id"
 msgstr "家庭身份"

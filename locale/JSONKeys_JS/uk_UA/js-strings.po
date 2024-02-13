@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -1442,8 +1442,35 @@ msgstr "Дата оновлення"
 msgid "Donations/eGives Moved by"
 msgstr "Пожертви/еПожертви перераховані"
 
+msgid "Verification URL"
+msgstr "URL-адреса для верифікації"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Failed to add verification"
+msgstr "Не вдалося додати перевірку"
+
+msgid "Verification email sent"
+msgstr "Підтвердження надіслано електронною поштою"
+
+msgid "Failed to send verification email"
+msgstr "Не вдалося надіслати електронний лист з підтвердженням"
+
 msgid "A person name or Family"
 msgstr "Ім'я особи або Сім'я"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Дата зміни Дата зміни"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Додати людину"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Адреса"
 
 msgid "Warning !!!!"
 msgstr "Попередження !!!!"
@@ -1474,21 +1501,6 @@ msgstr "Збережіть свою нотатку"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Ви хочете зберегти свою нотатку у вигляді файлу Word у вашому EDrive?"
-
-msgid "Verification URL"
-msgstr "URL-адреса для верифікації"
-
-msgid "Password"
-msgstr "Пароль"
-
-msgid "Failed to add verification"
-msgstr "Не вдалося додати перевірку"
-
-msgid "Verification email sent"
-msgstr "Підтвердження надіслано електронною поштою"
-
-msgid "Failed to send verification email"
-msgstr "Не вдалося надіслати електронний лист з підтвердженням"
 
 msgid "Family Id"
 msgstr "Ідентифікатор сім'ї"

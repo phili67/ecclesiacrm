@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1447,8 +1447,35 @@ msgstr "Дата обновления"
 msgid "Donations/eGives Moved by"
 msgstr "Пожертвования/eGives Перемещено"
 
+msgid "Verification URL"
+msgstr "URL-адрес проверки"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Failed to add verification"
+msgstr "Не удалось добавить проверку"
+
+msgid "Verification email sent"
+msgstr "Электронное письмо с подтверждением отправлено"
+
+msgid "Failed to send verification email"
+msgstr "Не удалось отправить письмо с подтверждением"
+
 msgid "A person name or Family"
 msgstr "Имя человека или Семья"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Дата модификации"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Добавить человека"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Адрес"
 
 msgid "Warning !!!!"
 msgstr "Внимание !!!!"
@@ -1479,21 +1506,6 @@ msgstr "Сохраните свою заметку"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Вы хотите сохранить заметку как файл Word в EDrive?"
-
-msgid "Verification URL"
-msgstr "URL-адрес проверки"
-
-msgid "Password"
-msgstr "Пароль"
-
-msgid "Failed to add verification"
-msgstr "Не удалось добавить проверку"
-
-msgid "Verification email sent"
-msgstr "Электронное письмо с подтверждением отправлено"
-
-msgid "Failed to send verification email"
-msgstr "Не удалось отправить письмо с подтверждением"
 
 msgid "Family Id"
 msgstr "Семейные иды"

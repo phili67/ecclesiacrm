@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1440,9 +1440,37 @@ msgstr "موعد مستكمل"
 msgid "Donations/eGives Moved by"
 msgstr ""
 
+msgid "Verification URL"
+msgstr "التحقق من URL"
+
+#, fuzzy
+msgid "Password"
+msgstr "إعادة ضبط كلمة السر"
+
+msgid "Failed to add verification"
+msgstr "ولم يضيف التحقق"
+
+msgid "Verification email sent"
+msgstr "أرسلت رسالة التحقق"
+
+msgid "Failed to send verification email"
+msgstr "فشلت في إرسال بريد إلكتروني للتحقق"
+
 #, fuzzy
 msgid "A person name or Family"
 msgstr "1 - اسم شخص أو أسرة أو مجموعة"
+
+#, fuzzy
+msgid "Modification"
+msgstr "موعد التعديل"
+
+#, fuzzy
+msgid "By persons"
+msgstr "أضف شخصًا"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "العنوان"
 
 msgid "Warning !!!!"
 msgstr ""
@@ -1472,22 +1500,6 @@ msgstr "وفر ملاحظتك"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "هل تريد أن تحتفظ بملاحظتك كملفف كلمات في محرك الأقراص؟"
-
-msgid "Verification URL"
-msgstr "التحقق من URL"
-
-#, fuzzy
-msgid "Password"
-msgstr "إعادة ضبط كلمة السر"
-
-msgid "Failed to add verification"
-msgstr "ولم يضيف التحقق"
-
-msgid "Verification email sent"
-msgstr "أرسلت رسالة التحقق"
-
-msgid "Failed to send verification email"
-msgstr "فشلت في إرسال بريد إلكتروني للتحقق"
 
 msgid "Family Id"
 msgstr "Id family Id"

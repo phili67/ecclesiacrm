@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1441,8 +1441,35 @@ msgstr "Dato oppdatert"
 msgid "Donations/eGives Moved by"
 msgstr "Donasjoner/eGives Flyttet av"
 
+msgid "Verification URL"
+msgstr "Bekreftelses-URL"
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Failed to add verification"
+msgstr "Kunne ikke legge til bekreftelse"
+
+msgid "Verification email sent"
+msgstr "Bekreftelses-e-post sendt"
+
+msgid "Failed to send verification email"
+msgstr "Kunne ikke sende bekreftelses-e-post"
+
 msgid "A person name or Family"
 msgstr "Navn på person eller familie"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Endringsdato"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Legg til person"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Adresse"
 
 msgid "Warning !!!!"
 msgstr "Advarsel !!!!"
@@ -1473,21 +1500,6 @@ msgstr "Lagre notatet ditt"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Vil du lagre notatet ditt som en Word-fil i EDrive?"
-
-msgid "Verification URL"
-msgstr "Bekreftelses-URL"
-
-msgid "Password"
-msgstr "Passord"
-
-msgid "Failed to add verification"
-msgstr "Kunne ikke legge til bekreftelse"
-
-msgid "Verification email sent"
-msgstr "Bekreftelses-e-post sendt"
-
-msgid "Failed to send verification email"
-msgstr "Kunne ikke sende bekreftelses-e-post"
 
 msgid "Family Id"
 msgstr "Familie-ID"

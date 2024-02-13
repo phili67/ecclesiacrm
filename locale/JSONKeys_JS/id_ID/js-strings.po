@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1450,8 +1450,36 @@ msgstr "Tanggal terbaru"
 msgid "Donations/eGives Moved by"
 msgstr "Donasi/eGive Digerakkan oleh"
 
+msgid "Verification URL"
+msgstr "Verifikasi URL"
+
+#, fuzzy
+msgid "Password"
+msgstr "Password reset untuk"
+
+msgid "Failed to add verification"
+msgstr "Gagal untuk menambahkan verifikasi"
+
+msgid "Verification email sent"
+msgstr "Email verifikasi dikirim"
+
+msgid "Failed to send verification email"
+msgstr "Gagal untuk mengirim email verifikasi"
+
 msgid "A person name or Family"
 msgstr "Nama seseorang atau Keluarga"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Modifikasi Date"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Tambahkan orang"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Alamat"
 
 msgid "Warning !!!!"
 msgstr "Peringatan !!!!"
@@ -1483,22 +1511,6 @@ msgstr "Simpan catatanmu"
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr ""
 "Apakah Anda ingin menyimpan catatan Anda sebagai File kata dalam EDrive Anda?"
-
-msgid "Verification URL"
-msgstr "Verifikasi URL"
-
-#, fuzzy
-msgid "Password"
-msgstr "Password reset untuk"
-
-msgid "Failed to add verification"
-msgstr "Gagal untuk menambahkan verifikasi"
-
-msgid "Verification email sent"
-msgstr "Email verifikasi dikirim"
-
-msgid "Failed to send verification email"
-msgstr "Gagal untuk mengirim email verifikasi"
 
 msgid "Family Id"
 msgstr "Identitas keluarga"

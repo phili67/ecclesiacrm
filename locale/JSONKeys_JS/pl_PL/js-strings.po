@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1442,8 +1442,35 @@ msgstr "Data aktualizacji"
 msgid "Donations/eGives Moved by"
 msgstr "Darowizny/eGives Przeniesione przez"
 
+msgid "Verification URL"
+msgstr "URL weryfikacyjny"
+
+msgid "Password"
+msgstr "Hasło"
+
+msgid "Failed to add verification"
+msgstr "Nie udało się dodać weryfikacji"
+
+msgid "Verification email sent"
+msgstr "Wysłano e-mail weryfikacyjny"
+
+msgid "Failed to send verification email"
+msgstr "Nie udało się wysłać wiadomości weryfikacyjnej"
+
 msgid "A person name or Family"
 msgstr "Imię i nazwisko lub rodzina"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Data zmiany"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Dodaj osobę"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Adres"
 
 msgid "Warning !!!!"
 msgstr "Ostrzeżenie !!!!"
@@ -1474,21 +1501,6 @@ msgstr "Zapisz swoją notatkę"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Czy chcesz zapisać swoją notatkę jako plik Word w swoim EDrive?"
-
-msgid "Verification URL"
-msgstr "URL weryfikacyjny"
-
-msgid "Password"
-msgstr "Hasło"
-
-msgid "Failed to add verification"
-msgstr "Nie udało się dodać weryfikacji"
-
-msgid "Verification email sent"
-msgstr "Wysłano e-mail weryfikacyjny"
-
-msgid "Failed to send verification email"
-msgstr "Nie udało się wysłać wiadomości weryfikacyjnej"
 
 msgid "Family Id"
 msgstr "Rodzina Id"
