@@ -224,21 +224,7 @@ $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitud
                 <p>
                     <a class="MediumText" href="<?= $sRootPath ?>/v2/people/LettersAndLabels"><?= _('Letters and mailing labels for data confirmations') ?></a>
                     <br><?= _('Generate letters and mailing labels for data confirmations.') ?>
-                </p>
-                <?php
-                if (SessionUser::getUser()->isUSAddressVerificationEnabled()) {
-                    ?>
-                    <p>
-                        <a class="MediumText" href="<?= $sRootPath ?>/v2/system/USISTAddress/Verification">
-                            <?= _('US Address Verification Report') ?>
-                        </a>
-                        <br>
-                        <?= _('Generate report comparing all US family addresses '.
-                            'with United States Postal Service Standard Address Format.<br>') ?>
-                    </p>
-                    <?php
-                }
-                ?>
+                </p>                
             </div>
         </div>
     </div>
