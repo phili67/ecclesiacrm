@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1438,8 +1438,35 @@ msgstr "更新日"
 msgid "Donations/eGives Moved by"
 msgstr "寄付/eGives 移動元"
 
+msgid "Verification URL"
+msgstr "検証用URL"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Failed to add verification"
+msgstr "検証の追加に失敗しました。"
+
+msgid "Verification email sent"
+msgstr "検証メールの送信"
+
+msgid "Failed to send verification email"
+msgstr "検証メールの送信に失敗しました"
+
 msgid "A person name or Family"
 msgstr "人名または家族名"
+
+#, fuzzy
+msgid "Modification"
+msgstr "修正日"
+
+#, fuzzy
+msgid "By persons"
+msgstr "人の追加"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "アドレス"
 
 msgid "Warning !!!!"
 msgstr "警告!"
@@ -1470,21 +1497,6 @@ msgstr "ノートの保存"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "メモをWordファイルとしてEDriveに保存しますか？"
-
-msgid "Verification URL"
-msgstr "検証用URL"
-
-msgid "Password"
-msgstr "パスワード"
-
-msgid "Failed to add verification"
-msgstr "検証の追加に失敗しました。"
-
-msgid "Verification email sent"
-msgstr "検証メールの送信"
-
-msgid "Failed to send verification email"
-msgstr "検証メールの送信に失敗しました"
 
 msgid "Family Id"
 msgstr "ファミリーID"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1451,8 +1451,35 @@ msgstr "Data actualizării"
 msgid "Donations/eGives Moved by"
 msgstr "Donații/eGives Modificat de"
 
+msgid "Verification URL"
+msgstr "URL de verificare"
+
+msgid "Password"
+msgstr "Parola"
+
+msgid "Failed to add verification"
+msgstr "Nu s-a reușit adăugarea verificării"
+
+msgid "Verification email sent"
+msgstr "E-mail de verificare trimis"
+
+msgid "Failed to send verification email"
+msgstr "Nu s-a reușit trimiterea e-mailului de verificare"
+
 msgid "A person name or Family"
 msgstr "Un nume de persoană sau Familie"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Data modificării"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Adăugați o persoană"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Adresa"
 
 msgid "Warning !!!!"
 msgstr "Avertisment !!!!"
@@ -1483,21 +1510,6 @@ msgstr "Salvează-ți nota"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Doriți să vă salvați nota ca fișier Word în EDrive?"
-
-msgid "Verification URL"
-msgstr "URL de verificare"
-
-msgid "Password"
-msgstr "Parola"
-
-msgid "Failed to add verification"
-msgstr "Nu s-a reușit adăugarea verificării"
-
-msgid "Verification email sent"
-msgstr "E-mail de verificare trimis"
-
-msgid "Failed to send verification email"
-msgstr "Nu s-a reușit trimiterea e-mailului de verificare"
 
 msgid "Family Id"
 msgstr "Id. de familie"

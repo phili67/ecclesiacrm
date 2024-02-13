@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1449,9 +1449,37 @@ msgstr "Data e përditësuar"
 msgid "Donations/eGives Moved by"
 msgstr ""
 
+msgid "Verification URL"
+msgstr "Verifikimi Url"
+
+#, fuzzy
+msgid "Password"
+msgstr "Fjalëkalimi u rivendos"
+
+msgid "Failed to add verification"
+msgstr "nuk arriti të shtojë verifikim"
+
+msgid "Verification email sent"
+msgstr "Dërguar e-mail verifikimi"
+
+msgid "Failed to send verification email"
+msgstr "nuk dërgoi mesazh verifikimi"
+
 #, fuzzy
 msgid "A person name or Family"
 msgstr "Një emër ose familje ose grup"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Takim për modifikim"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Shtoje"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "adresa."
 
 msgid "Warning !!!!"
 msgstr ""
@@ -1481,22 +1509,6 @@ msgstr "ruaje shënimin tënd"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Do ta ruash shënimin tënd si \"Dosje Botërore në Edrive\"?"
-
-msgid "Verification URL"
-msgstr "Verifikimi Url"
-
-#, fuzzy
-msgid "Password"
-msgstr "Fjalëkalimi u rivendos"
-
-msgid "Failed to add verification"
-msgstr "nuk arriti të shtojë verifikim"
-
-msgid "Verification email sent"
-msgstr "Dërguar e-mail verifikimi"
-
-msgid "Failed to send verification email"
-msgstr "nuk dërgoi mesazh verifikimi"
 
 msgid "Family Id"
 msgstr "kartë identiteti"

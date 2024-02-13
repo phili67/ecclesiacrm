@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-05T19:24:33.305Z\n"
+"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1447,8 +1447,35 @@ msgstr "Datum för uppdatering"
 msgid "Donations/eGives Moved by"
 msgstr "Donationer/eGives Flyttad av"
 
+msgid "Verification URL"
+msgstr "URL för verifiering"
+
+msgid "Password"
+msgstr "Lösenord"
+
+msgid "Failed to add verification"
+msgstr "Kontrollen kunde inte läggas till"
+
+msgid "Verification email sent"
+msgstr "E-post för verifiering skickas"
+
+msgid "Failed to send verification email"
+msgstr "E-postmeddelandet för verifiering misslyckades"
+
 msgid "A person name or Family"
 msgstr "Personnamn eller familj"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Datum för ändring"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Lägg till person"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Adress"
 
 msgid "Warning !!!!"
 msgstr "Varning !!!!"
@@ -1479,21 +1506,6 @@ msgstr "Spara din anteckning"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Vill du spara din anteckning som en Word-fil i din EDrive?"
-
-msgid "Verification URL"
-msgstr "URL för verifiering"
-
-msgid "Password"
-msgstr "Lösenord"
-
-msgid "Failed to add verification"
-msgstr "Kontrollen kunde inte läggas till"
-
-msgid "Verification email sent"
-msgstr "E-post för verifiering skickas"
-
-msgid "Failed to send verification email"
-msgstr "E-postmeddelandet för verifiering misslyckades"
 
 msgid "Family Id"
 msgstr "Familjebeteckning"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-09 10:45+0000\n"
+"POT-Creation-Date: 2024-02-12 20:44+0000\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,8 +51,8 @@ msgstr "Jumlah jumlah baris dalam file CSV:"
 msgid "Ignore this Field"
 msgstr "Abaikan Field ini"
 
-#: CSVImport.php:234 EcclesiaCRM/Service/ConfirmReportService.php:140
-#: EcclesiaCRM/Service/ConfirmReportService.php:145
+#: CSVImport.php:234 EcclesiaCRM/Service/ConfirmReportService.php:141
+#: EcclesiaCRM/Service/ConfirmReportService.php:146
 #: Reports/GDPR/GDPRListExport.php:66 v2/templates/cart/carttobadge.php:42
 #: v2/templates/cart/carttobadge.php:45
 #: v2/templates/email/mailchimp/dashboard.php:30
@@ -68,11 +68,11 @@ msgstr "Judul"
 #: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:889
 #: EcclesiaCRM/APIControllers/PeopleGroupController.php:894
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:550
-#: EcclesiaCRM/Service/ConfirmReportService.php:152
-#: EcclesiaCRM/Service/ConfirmReportService.php:157
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:557
+#: EcclesiaCRM/Service/ConfirmReportService.php:153
+#: EcclesiaCRM/Service/ConfirmReportService.php:158
 #: external/templates/registration/family-register-members.php:76
-#: Reports/ConfirmReport.php:344 Reports/MemberEmailExport.php:24
+#: Reports/ConfirmReport.php:451 Reports/MemberEmailExport.php:24
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/deposit/autaPaymentEditor.php:898
 #: v2/templates/people/familyEditor.php:1080
@@ -83,16 +83,16 @@ msgstr "Judul"
 msgid "First Name"
 msgstr "Nama pertama"
 
-#: CSVImport.php:236 EcclesiaCRM/Service/ConfirmReportService.php:164
-#: EcclesiaCRM/Service/ConfirmReportService.php:169
+#: CSVImport.php:236 EcclesiaCRM/Service/ConfirmReportService.php:165
+#: EcclesiaCRM/Service/ConfirmReportService.php:170
 #: v2/templates/people/familyEditor.php:1081
 #: v2/templates/people/personEditor.php:911
 #: v2/templates/system/csvExport.php:69
 msgid "Middle Name"
 msgstr "Nama tengah"
 
-#: CSVImport.php:237 EcclesiaCRM/Service/ConfirmReportService.php:175
-#: EcclesiaCRM/Service/ConfirmReportService.php:180
+#: CSVImport.php:237 EcclesiaCRM/Service/ConfirmReportService.php:176
+#: EcclesiaCRM/Service/ConfirmReportService.php:181
 #: external/templates/registration/family-register-members.php:81
 #: Reports/MemberEmailExport.php:25
 #: sundayschool/SundaySchoolClassListExport.php:51
@@ -129,13 +129,13 @@ msgid "Donation Envelope"
 msgstr "Donasi amplop"
 
 #: CSVImport.php:241 CSVImport.php:242
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176
-#: EcclesiaCRM/Service/ConfirmReportService.php:208
-#: EcclesiaCRM/Service/ConfirmReportService.php:230
-#: EcclesiaCRM/Service/ConfirmReportService.php:628
-#: EcclesiaCRM/Service/ConfirmReportService.php:677
-#: EcclesiaCRM/Service/ConfirmReportService.php:695
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
+#: EcclesiaCRM/Service/ConfirmReportService.php:209
+#: EcclesiaCRM/Service/ConfirmReportService.php:231
+#: EcclesiaCRM/Service/ConfirmReportService.php:629
+#: EcclesiaCRM/Service/ConfirmReportService.php:678
+#: EcclesiaCRM/Service/ConfirmReportService.php:696
 #: external/templates/registration/family-register-done.php:28
 #: external/templates/registration/family-register.php:47
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:351
@@ -160,8 +160,8 @@ msgstr "Donasi amplop"
 msgid "Address"
 msgstr "Alamat"
 
-#: CSVImport.php:243 EcclesiaCRM/Service/ConfirmReportService.php:218
-#: EcclesiaCRM/Service/ConfirmReportService.php:638
+#: CSVImport.php:243 EcclesiaCRM/Service/ConfirmReportService.php:219
+#: EcclesiaCRM/Service/ConfirmReportService.php:639
 #: external/templates/registration/family-register.php:58
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:371
 #: v2/templates/deposit/autaPaymentEditor.php:930
@@ -173,7 +173,7 @@ msgstr "Alamat"
 msgid "City"
 msgstr "Kota"
 
-#: CSVImport.php:244 EcclesiaCRM/Service/ConfirmReportService.php:650
+#: CSVImport.php:244 EcclesiaCRM/Service/ConfirmReportService.php:651
 #: external/templates/registration/family-register.php:62
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:385
 #: v2/templates/deposit/autaPaymentEditor.php:938
@@ -185,9 +185,9 @@ msgstr "Kota"
 msgid "State"
 msgstr "Negara"
 
-#: CSVImport.php:245 EcclesiaCRM/Service/ConfirmReportService.php:213
-#: EcclesiaCRM/Service/ConfirmReportService.php:225
-#: EcclesiaCRM/Service/ConfirmReportService.php:663
+#: CSVImport.php:245 EcclesiaCRM/Service/ConfirmReportService.php:214
+#: EcclesiaCRM/Service/ConfirmReportService.php:226
+#: EcclesiaCRM/Service/ConfirmReportService.php:664
 #: external/templates/registration/family-register.php:73
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:403
 #: v2/templates/deposit/autaPaymentEditor.php:946
@@ -199,7 +199,7 @@ msgstr "Negara"
 msgid "Zip"
 msgstr "Zip"
 
-#: CSVImport.php:246 EcclesiaCRM/Service/ConfirmReportService.php:687
+#: CSVImport.php:246 EcclesiaCRM/Service/ConfirmReportService.php:688
 #: v2/templates/cart/cartToFamily.php:417
 #: v2/templates/deposit/autaPaymentEditor.php:954
 #: v2/templates/people/familyEditor.php:768
@@ -209,18 +209,18 @@ msgstr "Zip"
 msgid "Country"
 msgstr "Negara"
 
-#: CSVImport.php:247 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:570
-#: EcclesiaCRM/Service/ConfirmReportService.php:50
-#: EcclesiaCRM/Service/ConfirmReportService.php:244
-#: EcclesiaCRM/Service/ConfirmReportService.php:247
-#: EcclesiaCRM/Service/ConfirmReportService.php:494
-#: EcclesiaCRM/Service/ConfirmReportService.php:568
+#: CSVImport.php:247 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:248
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:577
+#: EcclesiaCRM/Service/ConfirmReportService.php:51
+#: EcclesiaCRM/Service/ConfirmReportService.php:245
+#: EcclesiaCRM/Service/ConfirmReportService.php:248
+#: EcclesiaCRM/Service/ConfirmReportService.php:495
+#: EcclesiaCRM/Service/ConfirmReportService.php:569
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:85
 #: ident/templates/verify/verify-family-info.php:36
 #: ident/templates/verify/verify-family-info.php:93
-#: Reports/ConfirmReport.php:221 Reports/ConfirmReport.php:364
+#: Reports/ConfirmReport.php:295 Reports/ConfirmReport.php:471
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/calendar/eventattendeesedit.php:60
 #: v2/templates/cart/cartToFamily.php:426
@@ -239,16 +239,16 @@ msgstr "Negara"
 msgid "Home Phone"
 msgstr "Telepon rumah"
 
-#: CSVImport.php:248 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:332
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:599
-#: EcclesiaCRM/Service/ConfirmReportService.php:55
-#: EcclesiaCRM/Service/ConfirmReportService.php:255
-#: EcclesiaCRM/Service/ConfirmReportService.php:258
-#: EcclesiaCRM/Service/ConfirmReportService.php:499
-#: EcclesiaCRM/Service/ConfirmReportService.php:720
-#: EcclesiaCRM/Service/ConfirmReportService.php:723
+#: CSVImport.php:248 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:430
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:606
+#: EcclesiaCRM/Service/ConfirmReportService.php:56
+#: EcclesiaCRM/Service/ConfirmReportService.php:256
+#: EcclesiaCRM/Service/ConfirmReportService.php:259
+#: EcclesiaCRM/Service/ConfirmReportService.php:500
+#: EcclesiaCRM/Service/ConfirmReportService.php:721
+#: EcclesiaCRM/Service/ConfirmReportService.php:724
 #: ident/templates/verify/verify-family-info.php:98
-#: Reports/ConfirmReport.php:394 v2/templates/cart/cartToFamily.php:445
+#: Reports/ConfirmReport.php:501 v2/templates/cart/cartToFamily.php:445
 #: v2/templates/group/groupreports.php:130
 #: v2/templates/pastoralcare/pastoralcarefamily.php:187
 #: v2/templates/pastoralcare/pastoralcareperson.php:305
@@ -262,32 +262,32 @@ msgstr "Telepon rumah"
 msgid "Work Phone"
 msgstr "Telepon kerja"
 
-#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:262
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:305
-#: EcclesiaCRM/Service/ConfirmReportService.php:267
-#: EcclesiaCRM/Service/ConfirmReportService.php:712
-#: EcclesiaCRM/Service/ConfirmReportService.php:732
-#: EcclesiaCRM/Service/ConfirmReportService.php:742
+#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:360
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:403
+#: EcclesiaCRM/Service/ConfirmReportService.php:268
+#: EcclesiaCRM/Service/ConfirmReportService.php:713
+#: EcclesiaCRM/Service/ConfirmReportService.php:733
+#: EcclesiaCRM/Service/ConfirmReportService.php:743
 #: Reports/CanvassReports.php:280 v2/templates/group/groupreports.php:131
 #: v2/templates/people/familylist.php:58 v2/templates/people/personlist.php:55
 msgid "Cell Phone"
 msgstr "Ponsel"
 
 #: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:405
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:260
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:303
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:593
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:358
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:401
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:600
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467
-#: EcclesiaCRM/Service/ConfirmReportService.php:66
-#: EcclesiaCRM/Service/ConfirmReportService.php:275
-#: EcclesiaCRM/Service/ConfirmReportService.php:278
-#: EcclesiaCRM/Service/ConfirmReportService.php:510
+#: EcclesiaCRM/Service/ConfirmReportService.php:67
+#: EcclesiaCRM/Service/ConfirmReportService.php:276
+#: EcclesiaCRM/Service/ConfirmReportService.php:279
+#: EcclesiaCRM/Service/ConfirmReportService.php:511
 #: external/templates/registration/family-register-members.php:88
 #: ident/templates/verify/login-info.php:34
 #: ident/templates/verify/verify-family-info.php:108
-#: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:388
+#: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:495
 #: Reports/DirectoryReport.php:328 Reports/FundRaiserStatement.php:128
 #: Reports/FundRaiserStatement.php:172 Reports/GroupReport.php:138
 #: Reports/MemberEmailExport.php:26
@@ -338,8 +338,8 @@ msgstr "Tanggal lahir"
 msgid "Membership Date"
 msgstr "Tanggal Keamanan"
 
-#: CSVImport.php:254 EcclesiaCRM/Service/ConfirmReportService.php:576
-#: EcclesiaCRM/Service/ConfirmReportService.php:749
+#: CSVImport.php:254 EcclesiaCRM/Service/ConfirmReportService.php:577
+#: EcclesiaCRM/Service/ConfirmReportService.php:750
 #: ident/templates/verify/verify-family-info.php:45
 #: v2/templates/cart/cartToFamily.php:312
 #: v2/templates/pastoralcare/pastoralcarefamily.php:167
@@ -425,8 +425,8 @@ msgstr "Digunakan dengan Catatan Keluarga... pilihan di atas"
 msgid "Default country if none specified otherwise"
 msgstr "Defaul negara jika tidak ada yang spesifikasi sebaliknya"
 
-#: CSVImport.php:386 EcclesiaCRM/APIControllers/PeoplePersonController.php:151
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:162
+#: CSVImport.php:386 EcclesiaCRM/APIControllers/PeoplePersonController.php:156
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:167
 #: EcclesiaCRM/APIControllers/SearchController.php:226
 #: EcclesiaCRM/APIControllers/SearchController.php:231
 #: EcclesiaCRM/APIControllers/SearchController.php:239
@@ -435,7 +435,7 @@ msgstr "Defaul negara jika tidak ada yang spesifikasi sebaliknya"
 #: EcclesiaCRM/APIControllers/SearchController.php:257
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:262 EcclesiaCRM/MenuBar/MenuBar.php:337
-#: EcclesiaCRM/Service/ConfirmReportService.php:198
+#: EcclesiaCRM/Service/ConfirmReportService.php:199
 #: EcclesiaCRM/utils/OutputUtils.php:387 EcclesiaCRM/utils/OutputUtils.php:448
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1043
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1055
@@ -467,9 +467,9 @@ msgstr "Tidak ditugaskan"
 
 #: CSVImport.php:400 EcclesiaCRM/APIControllers/SearchController.php:278
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:646
-#: EcclesiaCRM/Service/ConfirmReportService.php:343
-#: Reports/ConfirmReport.php:441 v2/templates/deposit/financialReports.php:129
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:653
+#: EcclesiaCRM/Service/ConfirmReportService.php:344
+#: Reports/ConfirmReport.php:548 v2/templates/deposit/financialReports.php:129
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
 #: v2/templates/people/familyEditor.php:1089
@@ -675,7 +675,7 @@ msgstr "Video"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
 #: v2/templates/pastoralcare/pastoralcareperson.php:503
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
-#: v2/templates/people/lettersandlabels.php:173
+#: v2/templates/people/lettersandlabels.php:224
 #: v2/templates/people/personPrint.php:266
 #: v2/templates/people/personPrint.php:327
 #: v2/templates/people/personPrint.php:382
@@ -784,7 +784,7 @@ msgstr "Keretamu telah berhasil dikosongkan"
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:111
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:175
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:690
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:671
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:676
 #: uploader/upload.php:82
 msgid "Create file"
 msgstr "Buat file"
@@ -917,7 +917,7 @@ msgstr "Semua keluarga"
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
-#: v2/templates/people/lettersandlabels.php:154
+#: v2/templates/people/lettersandlabels.php:205
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
 msgstr "Orang-orang"
@@ -946,9 +946,9 @@ msgstr "Keluarga"
 #: EcclesiaCRM/APIControllers/SearchController.php:89
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:206 EcclesiaCRM/Search/GroupSearchRes.php:21
-#: EcclesiaCRM/Service/ConfirmReportService.php:99
-#: EcclesiaCRM/Service/ConfirmReportService.php:347
-#: EcclesiaCRM/Service/ConfirmReportService.php:535
+#: EcclesiaCRM/Service/ConfirmReportService.php:100
+#: EcclesiaCRM/Service/ConfirmReportService.php:348
+#: EcclesiaCRM/Service/ConfirmReportService.php:536
 #: ident/templates/verify/verify-family-info.php:145
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/dashboard/maindashboard.php:226
@@ -1041,10 +1041,10 @@ msgstr "Ditambah ke kelompok"
 #: EcclesiaCRM/APIControllers/PeopleGroupController.php:894
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:544
-#: EcclesiaCRM/Service/ConfirmReportService.php:615
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:551
+#: EcclesiaCRM/Service/ConfirmReportService.php:616
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
-#: Reports/ConfirmReport.php:338 Reports/FamilyPledgeSummary.php:230
+#: Reports/ConfirmReport.php:445 Reports/FamilyPledgeSummary.php:230
 #: Reports/FRBidSheets.php:77 Reports/FundRaiserStatement.php:125
 #: Reports/FundRaiserStatement.php:169 Reports/PDFLabel.php:859
 #: v2/templates/calendar/eventattendeesedit.php:56
@@ -1070,35 +1070,35 @@ msgstr "Ditambah ke kelompok"
 msgid "Name"
 msgstr "Nama"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:181
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:201
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:186
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:206
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:621
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:628
 #: EcclesiaCRM/Service/CalendarService.php:272
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
-#: Reports/ConfirmReport.php:416 Reports/GDPR/GDPRListExport.php:88
+#: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
 #: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:383
 msgid "Yes"
 msgstr "Ya"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:194
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:203
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:199
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:208
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:623
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:630
 #: EcclesiaCRM/Service/CalendarService.php:272
 #: EcclesiaCRM/Service/CalendarService.php:541
-#: EcclesiaCRM/Service/ConfirmReportService.php:115
+#: EcclesiaCRM/Service/ConfirmReportService.php:116
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:299
-#: Reports/ConfirmReport.php:418 Reports/GDPR/GDPRListExport.php:88
+#: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
 #: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
 #: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
 msgid "No"
 msgstr "Tidak"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:588
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:595
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:593
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:600
 #: EcclesiaCRM/APIControllers/UserUsersController.php:136
 #: EcclesiaCRM/APIControllers/UserUsersController.php:142
 #: EcclesiaCRM/dto/Cart.php:342 EcclesiaCRM/dto/Cart.php:348
@@ -1106,11 +1106,11 @@ msgstr "Tidak"
 msgid "Account Deactivated"
 msgstr "Akun dinonaktifkan"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:633
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:638
 msgid "Person Deactivated"
 msgstr "Orang dinonaktifkan"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:633
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:638
 msgid "Person Activated"
 msgstr "Orang diaktifkan"
 
@@ -1141,7 +1141,7 @@ msgstr "Singles"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:73
 #: EcclesiaCRM/APIControllers/SearchController.php:76
-#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:67
+#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:69
 msgid "Volunteers"
 msgstr "Sukarelawan"
 
@@ -1246,7 +1246,7 @@ msgid "Person Classification"
 msgstr "Penilaian"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:127
-#: v2/templates/people/lettersandlabels.php:133
+#: v2/templates/people/lettersandlabels.php:184
 #: v2/templates/system/optionManager.php:100
 msgid "Person Classifications"
 msgstr "Orang Klasifikasi"
@@ -1402,7 +1402,7 @@ msgstr "Editor Opsi Bidang Keluarga"
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:36
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:37
-#: EcclesiaCRM/Service/ConfirmReportService.php:129
+#: EcclesiaCRM/Service/ConfirmReportService.php:130
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1406
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
 #: Include/Footer.php:85 Reports/GDPR/GDPRDataStructureExport.php:84
@@ -1425,7 +1425,7 @@ msgstr "PERSON"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
-#: EcclesiaCRM/Service/ConfirmReportService.php:595
+#: EcclesiaCRM/Service/ConfirmReportService.php:596
 #: EcclesiaCRM/Service/TimelineService.php:214
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: external/templates/registration/family-register-done.php:27
@@ -3709,11 +3709,11 @@ msgid "Church Greeter"
 msgstr "Gereja Greeter"
 
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:228
 #: external/templates/registration/family-register.php:36
-#: Reports/ConfirmReport.php:201 v2/templates/cart/cartToFamily.php:297
+#: Reports/ConfirmReport.php:275 v2/templates/cart/cartToFamily.php:297
 #: v2/templates/people/familyEditor.php:711
-#: v2/templates/people/lettersandlabels.php:112
+#: v2/templates/people/lettersandlabels.php:147
 #: v2/templates/people/personEditor.php:1011
 #: v2/templates/people/selectDelete.php:196
 #: v2/templates/people/selectDelete.php:334
@@ -3839,7 +3839,6 @@ msgid "Status"
 msgstr "Status"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:32
-#: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:36
 msgid "Please verify your family's information"
 msgstr "Tolong pastikan informasi keluargamu"
 
@@ -3862,6 +3861,10 @@ msgstr "Kata sandi"
 #, fuzzy
 msgid "informations"
 msgstr "Informasi"
+
+#: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:36
+msgid "Please verify your informations"
+msgstr "Harap verifikasi informasi Anda"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:92
 #: Include/Header.php:153
@@ -4202,13 +4205,13 @@ msgid "Witness"
 msgstr "Saksi"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:238
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:384
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:388
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "Diciptakan"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:243
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:389
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:393
 msgid "Updated"
 msgstr "Diperbarui"
 
@@ -4217,16 +4220,17 @@ msgid "Family Data Verified"
 msgstr "Data Keluarga yang diverifikasi"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:252
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:402
 msgid "Verification email sent"
 msgstr "Email verifikasi dikirim"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:329
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:553
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:565
 msgid "Profile Image Deleted"
 msgstr "Profil Image dihapus"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:342
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:577
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:589
 msgid "Profile Image uploaded"
 msgstr "Imaja Profil diunggah"
 
@@ -4236,7 +4240,11 @@ msgstr "Imaja Profil diunggah"
 msgid "Member"
 msgstr "Anggota"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:726
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:398
+msgid "Person Data Verified"
+msgstr "Data Orang Terverifikasi"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:738
 #: EcclesiaCRM/Service/TimelineService.php:219
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
@@ -4248,28 +4256,28 @@ msgstr "Anggota"
 msgid "Unknown"
 msgstr "Tidak diketahui"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:733
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:745
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "mos tua"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:735
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:747
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "mo tua"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:739
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:751
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "tua-mu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:741
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:753
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "tua mu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:769
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:781
 msgid "EcclesiaCRM export"
 msgstr "Ekspor EcclesiacRM"
 
@@ -4325,7 +4333,7 @@ msgstr "Dav menghapus file"
 #: EcclesiaCRM/Reports/PDF_Directory.php:325
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
 #: EcclesiaCRM/Reports/PDF_Directory.php:456
-#: EcclesiaCRM/Service/ConfirmReportService.php:709
+#: EcclesiaCRM/Service/ConfirmReportService.php:710
 #: external/templates/registration/family-register-members.php:114
 #: Reports/DirectoryReport.php:317 Reports/FundRaiserStatement.php:127
 #: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
@@ -4368,20 +4376,20 @@ msgstr "Guru"
 msgid "of"
 msgstr "Of"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:181
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:560
-#: Reports/ConfirmReport.php:211 Reports/ConfirmReport.php:354
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:243
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:567
+#: Reports/ConfirmReport.php:285 Reports/ConfirmReport.php:461
 msgid "City, State, Zip"
 msgstr "Kota, Negara, Zip"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:191
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:637
-#: EcclesiaCRM/Service/ConfirmReportService.php:115
-#: EcclesiaCRM/Service/ConfirmReportService.php:326
-#: EcclesiaCRM/Service/ConfirmReportService.php:581
-#: EcclesiaCRM/Service/ConfirmReportService.php:767
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:644
+#: EcclesiaCRM/Service/ConfirmReportService.php:116
+#: EcclesiaCRM/Service/ConfirmReportService.php:327
+#: EcclesiaCRM/Service/ConfirmReportService.php:582
+#: EcclesiaCRM/Service/ConfirmReportService.php:768
 #: ident/templates/verify/verify-family-info.php:52
-#: Reports/ConfirmReport.php:226 Reports/ConfirmReport.php:432
+#: Reports/ConfirmReport.php:300 Reports/ConfirmReport.php:539
 #: v2/templates/pastoralcare/pastoralcarefamily.php:158
 #: v2/templates/pastoralcare/pastoralcareperson.php:284
 #: v2/templates/people/familyEditor.php:862
@@ -4391,85 +4399,85 @@ msgstr "Kota, Negara, Zip"
 msgid "Send Newsletter"
 msgstr "Kirim Newsletter"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:201
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:580
-#: Reports/ConfirmReport.php:243 Reports/ConfirmReport.php:374
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:263
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:587
+#: Reports/ConfirmReport.php:317 Reports/ConfirmReport.php:481
 msgid "Anniversary Date"
 msgstr "Tanggal ulang tahun"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:207
-#: EcclesiaCRM/Service/ConfirmReportService.php:571
-#: EcclesiaCRM/Service/ConfirmReportService.php:739
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:269
+#: EcclesiaCRM/Service/ConfirmReportService.php:572
+#: EcclesiaCRM/Service/ConfirmReportService.php:740
 #: ident/templates/verify/verify-family-info.php:39
-#: Reports/ConfirmReport.php:249 v2/templates/people/directoryreport.php:190
+#: Reports/ConfirmReport.php:323 v2/templates/people/directoryreport.php:190
 msgid "Family Email"
 msgstr "Email keluarga"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:257
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:300
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:590
-#: Reports/ConfirmReport.php:385
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:355
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:398
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:597
+#: Reports/ConfirmReport.php:492
 msgid "Member Name"
 msgstr "Nama anggota"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:258
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:301
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:591
-#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:386
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
+#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:493
 msgid "M/F"
 msgstr "M/F"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:259
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:302
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:592
-#: Reports/ConfirmReport.php:387
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:357
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:400
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:599
+#: Reports/ConfirmReport.php:494
 msgid "Adult/Child"
 msgstr "Dewasa/Anak"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:261
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:304
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:594
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:359
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:402
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:601
 #: EcclesiaCRM/Service/CalendarService.php:60
-#: EcclesiaCRM/Service/ConfirmReportService.php:74
-#: EcclesiaCRM/Service/ConfirmReportService.php:294
-#: EcclesiaCRM/Service/ConfirmReportService.php:518
+#: EcclesiaCRM/Service/ConfirmReportService.php:75
+#: EcclesiaCRM/Service/ConfirmReportService.php:295
+#: EcclesiaCRM/Service/ConfirmReportService.php:519
 #: ident/templates/verify/verify-family-info.php:115
-#: Reports/ConfirmReport.php:389 v2/templates/people/directoryreport.php:185
+#: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:185
 #: v2/templates/people/familyview.php:340
 #: v2/templates/people/personview.php:791
 msgid "Birthday"
 msgstr "Ulang Tahun."
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:263
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:306
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:361
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:404
 msgid "Member/Friend"
 msgstr "Anggota-teman"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:406
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:738
-#: Reports/ConfirmReport.php:534 Reports/ConfirmReport.php:578
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:504
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:745
+#: Reports/ConfirmReport.php:641 Reports/ConfirmReport.php:685
 msgid "Assigned groups for"
 msgstr "Untuk kelompok yang ditugaskan"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:555
-#: Reports/ConfirmReport.php:206 Reports/ConfirmReport.php:349
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:562
+#: Reports/ConfirmReport.php:280 Reports/ConfirmReport.php:456
 msgid "Address 1"
 msgstr "Alamat 1"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:565
-#: EcclesiaCRM/Service/ConfirmReportService.php:677
-#: Reports/ConfirmReport.php:216 Reports/ConfirmReport.php:359
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:572
+#: EcclesiaCRM/Service/ConfirmReportService.php:678
+#: Reports/ConfirmReport.php:290 Reports/ConfirmReport.php:466
 msgid "Address 2"
 msgstr "Alamat 2"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:596
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:603
 #: external/templates/registration/family-register-members.php:132
-#: Reports/ConfirmReport.php:391 v2/templates/people/personEditor.php:946
+#: Reports/ConfirmReport.php:498 v2/templates/people/personEditor.php:946
 msgid "Hide Age"
 msgstr "Sembunyi Umur"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
-#: Reports/ConfirmReport.php:393
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:605
+#: Reports/ConfirmReport.php:500
 msgid "Cell phone"
 msgstr "Ponsel"
 
@@ -4540,7 +4548,7 @@ msgstr "Siswa"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:19
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: v2/templates/people/lettersandlabels.php:153
+#: v2/templates/people/lettersandlabels.php:204
 msgid "Addresses"
 msgstr "Alamat"
 
@@ -4805,14 +4813,14 @@ msgid "Event"
 msgstr "Event"
 
 #: EcclesiaCRM/Service/CalendarService.php:61
-#: EcclesiaCRM/Service/ConfirmReportService.php:82
-#: EcclesiaCRM/Service/ConfirmReportService.php:314
+#: EcclesiaCRM/Service/ConfirmReportService.php:83
+#: EcclesiaCRM/Service/ConfirmReportService.php:315
 msgid "Anniversary"
 msgstr "Ulang tahun."
 
 #: EcclesiaCRM/Service/CalendarService.php:521
-#: EcclesiaCRM/Service/ConfirmReportService.php:552
-#: EcclesiaCRM/Service/ConfirmReportService.php:584
+#: EcclesiaCRM/Service/ConfirmReportService.php:553
+#: EcclesiaCRM/Service/ConfirmReportService.php:585
 #: ident/templates/verify/verify-family-info.php:55
 #: ident/templates/verify/verify-family-info.php:161
 #: ident/templates/verify/verify-person-info.php:62
@@ -4884,10 +4892,10 @@ msgstr "Login"
 msgid "Personal Calendar"
 msgstr "Kalender pribadi"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:60
-#: EcclesiaCRM/Service/ConfirmReportService.php:264
-#: EcclesiaCRM/Service/ConfirmReportService.php:504
-#: EcclesiaCRM/Service/ConfirmReportService.php:729
+#: EcclesiaCRM/Service/ConfirmReportService.php:61
+#: EcclesiaCRM/Service/ConfirmReportService.php:265
+#: EcclesiaCRM/Service/ConfirmReportService.php:505
+#: EcclesiaCRM/Service/ConfirmReportService.php:730
 #: ident/templates/verify/verify-family-info.php:103
 #: v2/templates/cart/cartToFamily.php:465
 #: v2/templates/pastoralcare/pastoralcarefamily.php:194
@@ -4902,26 +4910,26 @@ msgstr "Kalender pribadi"
 msgid "Mobile Phone"
 msgstr "Ponsel Phone"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:70
-#: EcclesiaCRM/Service/ConfirmReportService.php:285
-#: EcclesiaCRM/Service/ConfirmReportService.php:288
-#: EcclesiaCRM/Service/ConfirmReportService.php:514
+#: EcclesiaCRM/Service/ConfirmReportService.php:71
+#: EcclesiaCRM/Service/ConfirmReportService.php:286
+#: EcclesiaCRM/Service/ConfirmReportService.php:289
+#: EcclesiaCRM/Service/ConfirmReportService.php:515
 #: ident/templates/verify/verify-family-info.php:112
 msgid "Work Email"
 msgstr "Kerja Email"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:115
+#: EcclesiaCRM/Service/ConfirmReportService.php:116
 msgid "Ok"
 msgstr "Baiklah."
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:447
+#: EcclesiaCRM/Service/ConfirmReportService.php:448
 #: ident/templates/verify/verify-person-info.php:53
 #: v2/templates/system/csvExport.php:191
 msgid "Custom Person Fields"
 msgstr "Custom Person Fields"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:553
-#: EcclesiaCRM/Service/ConfirmReportService.php:585
+#: EcclesiaCRM/Service/ConfirmReportService.php:554
+#: EcclesiaCRM/Service/ConfirmReportService.php:586
 #: ident/templates/verify/verify-family-info.php:56
 #: ident/templates/verify/verify-family-info.php:162
 #: ident/templates/verify/verify-person-info.php:63
@@ -4930,18 +4938,18 @@ msgstr "Custom Person Fields"
 msgid "Modify"
 msgstr "Modify"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:563
-#: EcclesiaCRM/Service/ConfirmReportService.php:565
-#: EcclesiaCRM/Service/ConfirmReportService.php:628
-#: EcclesiaCRM/Service/ConfirmReportService.php:638
-#: EcclesiaCRM/Service/ConfirmReportService.php:695
+#: EcclesiaCRM/Service/ConfirmReportService.php:564
+#: EcclesiaCRM/Service/ConfirmReportService.php:566
+#: EcclesiaCRM/Service/ConfirmReportService.php:629
+#: EcclesiaCRM/Service/ConfirmReportService.php:639
+#: EcclesiaCRM/Service/ConfirmReportService.php:696
 #: ident/templates/verify/verify-family-info.php:34
 #: sundayschool/SundaySchoolClassListExport.php:55
 #: v2/templates/sundayschool/sundayschooldashboard.php:262
 msgid "Home Address"
 msgstr "Alamat rumah"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:586
+#: EcclesiaCRM/Service/ConfirmReportService.php:587
 #: ident/templates/verify/verify-family-info.php:57
 #: ident/templates/verify/verify-person-info.php:64
 #: v2/templates/sundayschool/sundayschoolview.php:27
@@ -4950,7 +4958,7 @@ msgstr "Alamat rumah"
 msgid "Exit"
 msgstr "Keluar."
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:657
+#: EcclesiaCRM/Service/ConfirmReportService.php:658
 #: v2/templates/people/familyEditor.php:751
 #: v2/templates/people/personEditor.php:1051
 #: v2/templates/people/personEditor.php:1254
@@ -5001,8 +5009,8 @@ msgstr "Verifikasi diri"
 
 #: EcclesiaCRM/Service/TimelineService.php:264
 #: EcclesiaCRM/Service/TimelineService.php:267
-#: v2/templates/people/lettersandlabels.php:150
-#: v2/templates/people/lettersandlabels.php:182
+#: v2/templates/people/lettersandlabels.php:201
+#: v2/templates/people/lettersandlabels.php:233
 #: v2/templates/people/personPrint.php:630
 #: v2/templates/people/personPrint.php:687
 #: v2/templates/people/personPrint.php:736
@@ -5420,7 +5428,7 @@ msgid "People Dashboard"
 msgstr "Orang Dashboard"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:61
+#: query_qry.php:8 query_qry.php:63
 msgid "Advanced Search"
 msgstr "Pencarian lanjutan"
 
@@ -6203,7 +6211,7 @@ msgstr "Kami menemukan kesalahan yang mengajukan data verifikasi Anda"
 #: v2/templates/people/directoryreport.php:326
 #: v2/templates/people/familyEditor.php:1287
 #: v2/templates/people/familyview.php:892
-#: v2/templates/people/lettersandlabels.php:218
+#: v2/templates/people/lettersandlabels.php:269
 #: v2/templates/people/personEditor.php:1740
 #: v2/templates/people/personview.php:1617
 #: v2/templates/people/reminderreport.php:42
@@ -6550,41 +6558,41 @@ msgstr "Nilai ini tidak bisa kurang dari"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
-#: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:115
-#: v2/templates/query/queryview.php:219
+#: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:117
+#: v2/templates/query/queryview.php:230
 msgid " record(s) returned"
 msgstr "catatan-catatan ( kembali "
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
-#: v2/templates/query/queryview.php:129
+#: v2/templates/query/queryview.php:132
 msgid "Add To Cart"
 msgstr "Tambahkan ke Cart"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
-#: v2/templates/query/queryview.php:131
+#: v2/templates/query/queryview.php:134
 msgid "Intersect With Cart"
 msgstr "Berpotongan dengan Cart"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
-#: v2/templates/query/queryview.php:133
+#: v2/templates/query/queryview.php:136
 msgid "Remove From Cart"
 msgstr "Lepaskan dari Cart"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
-#: v2/templates/query/queryview.php:225
+#: v2/templates/query/queryview.php:236
 msgid "Run Query Again"
 msgstr "Lari lagi"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:343
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:360
 #: v2/templates/group/groupview.php:344 v2/templates/people/familyview.php:621
-#: v2/templates/people/personview.php:1102 v2/templates/query/queryview.php:382
-#: v2/templates/query/queryview.php:399
+#: v2/templates/people/personview.php:1102 v2/templates/query/queryview.php:393
+#: v2/templates/query/queryview.php:410
 msgid "select an option"
 msgstr "pilih pilihan"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:407
-#: v2/templates/query/queryview.php:442
+#: v2/templates/query/queryview.php:453
 msgid "Execute Query"
 msgstr "Laksanakan"
 
@@ -9632,7 +9640,7 @@ msgid "Remove from Cart"
 msgstr "Lepaskan dari Cart"
 
 #: v2/templates/group/groupview.php:86 v2/templates/people/familyview.php:235
-#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:149
+#: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:153
 msgid "Add to Cart"
 msgstr "Tambahkan ke Cart"
 
@@ -10687,13 +10695,11 @@ msgid "Request Family Info Verification"
 msgstr "Meminta Verifikasi Info Keluarga"
 
 #: v2/templates/people/familyview.php:909
-#: v2/templates/people/personview.php:1636
 msgid "Select how do you want to request the family information to be verified"
 msgstr ""
 "Pilih bagaimana kau ingin meminta informasi keluarga untuk diverifikasi"
 
 #: v2/templates/people/familyview.php:914
-#: v2/templates/people/personview.php:1641
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
@@ -10703,23 +10709,18 @@ msgstr ""
 
 #: v2/templates/people/familyview.php:936
 #: v2/templates/people/familyview.php:940
-#: v2/templates/people/personview.php:1663
-#: v2/templates/people/personview.php:1667
+#: v2/templates/people/personview.php:1645
+#: v2/templates/people/personview.php:1649
 msgid "Online Verification"
 msgstr "Verifikasi online"
 
-#: v2/templates/people/familyview.php:946
-#: v2/templates/people/personview.php:1673
-msgid "URL"
-msgstr "URL"
-
-#: v2/templates/people/familyview.php:949
-#: v2/templates/people/personview.php:1676
+#: v2/templates/people/familyview.php:947
+#: v2/templates/people/personview.php:1656
 msgid "PDF Report"
 msgstr "PDF Laporan"
 
-#: v2/templates/people/familyview.php:953
-#: v2/templates/people/personview.php:1680
+#: v2/templates/people/familyview.php:951
+#: v2/templates/people/personview.php:1660
 msgid "Verified In Person"
 msgstr "Diverifikasi In Prson"
 
@@ -10808,87 +10809,102 @@ msgstr "Berpotongan dengan Cart"
 msgid "Remove All from Cart"
 msgstr "Lepaskan semua dari Cart"
 
-#: v2/templates/people/lettersandlabels.php:95
+#: v2/templates/people/lettersandlabels.php:115
+msgid ""
+"Here you can choose to run reports to confirm the data stored in CRM, for "
+"families or on an individual basis.<br>\n"
+"        - in PDF format for printing<br>\n"
+"        - or by e-mail (please note that at this level, e-mail is massive)."
+msgstr ""
+"Di sini Anda dapat memilih untuk menjalankan laporan untuk mengonfirmasi "
+"data yang tersimpan di CRM, untuk keluarga atau secara individual.<br>"
+"        - dalam format PDF untuk dicetak<br>\n"
+"        - atau melalui email (harap dicatat bahwa pada tingkat ini, email "
+"sangat besar)."
+
+#: v2/templates/people/lettersandlabels.php:130
 msgid "People Reports"
 msgstr "Laporan orang"
 
-#: v2/templates/people/lettersandlabels.php:100
+#: v2/templates/people/lettersandlabels.php:135
 msgid "Mail Label"
 msgstr "Label Surat"
 
-#: v2/templates/people/lettersandlabels.php:108
+#: v2/templates/people/lettersandlabels.php:143
 msgid "Recipient Naming Method"
 msgstr "Penerimaan Metode penamaan"
 
-#: v2/templates/people/lettersandlabels.php:111
+#: v2/templates/people/lettersandlabels.php:146
 msgid "Salutation Utility"
 msgstr "Penggunaan Salutasi"
 
-#: v2/templates/people/lettersandlabels.php:118
+#: v2/templates/people/lettersandlabels.php:153
 msgid "Person Custom Fields"
 msgstr "Bidang Khusus Orang"
 
-#: v2/templates/people/lettersandlabels.php:161
+#: v2/templates/people/lettersandlabels.php:169
+msgid "Family Custom Fields"
+msgstr "Bidang Khusus Keluarga"
+
+#: v2/templates/people/lettersandlabels.php:212
 msgid "Test"
 msgstr "Tes"
 
-#: v2/templates/people/lettersandlabels.php:170
+#: v2/templates/people/lettersandlabels.php:221
 msgid "Selected Members"
 msgstr "Anggota Terpilih"
 
-#: v2/templates/people/lettersandlabels.php:185 queryparameters_qrp.php:2
+#: v2/templates/people/lettersandlabels.php:236 queryparameters_qrp.php:2
 msgid "Minimum Age"
 msgstr "Umur minimum"
 
-#: v2/templates/people/lettersandlabels.php:188 queryparameters_qrp.php:23
+#: v2/templates/people/lettersandlabels.php:239 queryparameters_qrp.php:23
 msgid "The minimum age for which you want records returned."
 msgstr "Usia minimum yang kau ingin catatan dikembalikan."
 
-#: v2/templates/people/lettersandlabels.php:193 queryparameters_qrp.php:3
+#: v2/templates/people/lettersandlabels.php:244 queryparameters_qrp.php:3
 msgid "Maximum Age"
 msgstr "Umur maksimal"
 
-#: v2/templates/people/lettersandlabels.php:196 queryparameters_qrp.php:24
+#: v2/templates/people/lettersandlabels.php:247 queryparameters_qrp.php:24
 msgid "The maximum age for which you want records returned."
 msgstr "Usia maksimal yang kau ingin catatan dikembalikan."
 
-#: v2/templates/people/lettersandlabels.php:206
+#: v2/templates/people/lettersandlabels.php:257
 msgid "Newsletter labels"
 msgstr "Label Newsletter"
 
-#: v2/templates/people/lettersandlabels.php:209
+#: v2/templates/people/lettersandlabels.php:260
 msgid "Confirm data letter"
 msgstr "Konfirmasi surat data"
 
-#: v2/templates/people/lettersandlabels.php:212
+#: v2/templates/people/lettersandlabels.php:263
 msgid "Confirm data labels"
 msgstr "Konfirmasi label data"
 
-#: v2/templates/people/lettersandlabels.php:215
+#: v2/templates/people/lettersandlabels.php:266
 msgid "Confirm data Email"
 msgstr "Konfirmasi data Email"
 
-#: v2/templates/people/lettersandlabels.php:225
+#: v2/templates/people/lettersandlabels.php:276
 msgid "Email Confirmation"
 msgstr "Konfirmasi Email"
 
-#: v2/templates/people/lettersandlabels.php:238
+#: v2/templates/people/lettersandlabels.php:289
 msgid "Pending Persons"
 msgstr "Orang yang tertunda"
 
-#: v2/templates/people/lettersandlabels.php:239
-#, fuzzy
+#: v2/templates/people/lettersandlabels.php:290
 msgid "confirmed person"
-msgstr "Satu orang"
+msgstr "orang yang dikonfirmasi"
 
-#: v2/templates/people/lettersandlabels.php:243
+#: v2/templates/people/lettersandlabels.php:294
 msgid "Pending Families"
 msgstr "Keluarga yang tertunda"
 
-#: v2/templates/people/lettersandlabels.php:244
-#, fuzzy
+#: v2/templates/people/lettersandlabels.php:295
 msgid "confirmed Families"
-msgstr "Keluarga"
+msgstr "Keluarga yang dikonfirmasi"
 
 #: v2/templates/people/peopledashboard.php:27
 msgid "People Functions"
@@ -11351,6 +11367,11 @@ msgstr "Naik satu Level"
 #: v2/templates/people/personview.php:1539
 msgid "Actualize files"
 msgstr "Actualisize file"
+
+#: v2/templates/people/personview.php:1636
+msgid "Select how do you want to request the person information to be verified"
+msgstr ""
+"Pilih bagaimana Anda ingin meminta informasi orang yang akan diverifikasi"
 
 #: v2/templates/people/selectDelete.php:46
 msgid "Donations transferred from family"
@@ -12807,7 +12828,7 @@ msgstr "Akhir Date"
 msgid "Field"
 msgstr "Field"
 
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:63
+#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:65
 msgid "Registered students"
 msgstr "Siswa terdaftar"
 
@@ -12949,127 +12970,131 @@ msgstr "Pilih pelanggan lapangan"
 msgid "Match custom field to this value"
 msgstr "Cocok ladang khusus untuk nilai ini"
 
-#: query_qry.php:2 query_qry.php:55
+#: query_qry.php:2 query_qry.php:57
 msgid "Family With Work Phone"
 msgstr "Keluarga dengan Telepon Kerja"
 
-#: query_qry.php:3 query_qry.php:56
+#: query_qry.php:3 query_qry.php:58
 msgid "Family Member Count"
 msgstr "Keluarga Anggota"
 
-#: query_qry.php:4 query_qry.php:57
+#: query_qry.php:4 query_qry.php:59
 msgid "Person by Age"
 msgstr "Orang demi usia"
 
-#: query_qry.php:5 query_qry.php:58
+#: query_qry.php:5 query_qry.php:60
 msgid "Total By Gender"
 msgstr "Total Oleh Gender"
 
-#: query_qry.php:6 query_qry.php:59
+#: query_qry.php:6 query_qry.php:61
 msgid "Person by Role and Gender"
 msgstr "Orang oleh Role dan Gender"
 
-#: query_qry.php:7 query_qry.php:60
+#: query_qry.php:7 query_qry.php:62
 msgid "Person by Property"
 msgstr "Orang oleh Properti"
 
-#: query_qry.php:9 query_qry.php:62
+#: query_qry.php:9 query_qry.php:64
 msgid "Birthdays"
 msgstr "Ulang Tahun"
 
-#: query_qry.php:11 query_qry.php:64
+#: query_qry.php:11 query_qry.php:66
 msgid "Membership anniversaries"
 msgstr "Ulang tahun Keuangan"
 
-#: query_qry.php:12 query_qry.php:65
+#: query_qry.php:12 query_qry.php:67
 msgid "Select database users"
 msgstr "Pilih pengguna database"
 
-#: query_qry.php:13 query_qry.php:66
+#: query_qry.php:13 query_qry.php:68
 msgid "Select all members"
 msgstr "Pilih semua anggota"
 
-#: query_qry.php:15 query_qry.php:68
+#: query_qry.php:15 query_qry.php:70
 msgid "Recent friends"
 msgstr "Teman baru-baru ini"
 
-#: query_qry.php:16 query_qry.php:69
+#: query_qry.php:16 query_qry.php:71
 msgid "Families to Canvass"
 msgstr "Keluarga ke Canvass"
 
-#: query_qry.php:17 query_qry.php:70
+#: query_qry.php:17 query_qry.php:72
 msgid "Pledge comparison"
 msgstr "Perbandingan"
 
-#: query_qry.php:18 query_qry.php:71
+#: query_qry.php:18 query_qry.php:73
 msgid "Missing pledges"
 msgstr "Janji yang hilang"
 
-#: query_qry.php:19 query_qry.php:72
+#: query_qry.php:19 query_qry.php:74
 msgid "Credit Card People"
 msgstr "Orang Kartu kredit"
 
-#: query_qry.php:20 query_qry.php:73
+#: query_qry.php:20 query_qry.php:75
 msgid "Family Pledge by Fiscal Year"
 msgstr "Keluarga Pledge oleh Fiscal Year"
 
-#: query_qry.php:21 query_qry.php:74
+#: query_qry.php:21 query_qry.php:76
 msgid "Person not assigned to a group"
 msgstr "Orang tidak ditugaskan untuk sebuah kelompok"
 
-#: query_qry.php:22 query_qry.php:75
+#: query_qry.php:22 query_qry.php:77
 msgid "Person assigned to a group"
 msgstr "Orang ditugaskan untuk sebuah kelompok"
 
-#: query_qry.php:23 query_qry.php:76
+#: query_qry.php:23 query_qry.php:78
 msgid "Awaiting confirmation of persons"
 msgstr "Menunggu konfirmasi orang"
 
-#: query_qry.php:24 query_qry.php:77
+#: query_qry.php:24 query_qry.php:79
 msgid "Awaiting confirmation of families"
 msgstr "Menunggu konfirmasi dari keluarga"
 
-#: query_qry.php:25 query_qry.php:78
+#: query_qry.php:25 query_qry.php:80
 msgid "Done confirmation of persons"
 msgstr "Konfirmasi orang yang sudah selesai"
 
-#: query_qry.php:26 query_qry.php:79
+#: query_qry.php:26 query_qry.php:81
 msgid "Done confirmation of families"
 msgstr "Konfirmasi keluarga yang sudah selesai"
 
-#: query_qry.php:27 query_qry.php:80
+#: query_qry.php:27 query_qry.php:82
 msgid "CustomSearch"
 msgstr "Cari"
 
-#: query_qry.php:28 query_qry.php:81
+#: query_qry.php:28 query_qry.php:83
+msgid "CustomSearch is NULL"
+msgstr "CustomSearch adalah NULL"
+
+#: query_qry.php:29 query_qry.php:84
 msgid "Returns each family with a work phone"
 msgstr "Mengembalikan setiap keluarga dengan telepon kerja"
 
-#: query_qry.php:29 query_qry.php:82
+#: query_qry.php:30 query_qry.php:85
 msgid "Returns each family and the total number of people assigned to them."
 msgstr ""
 "Mengembalikan setiap keluarga dan jumlah total orang yang ditugaskan kepada "
 "mereka."
 
-#: query_qry.php:30 query_qry.php:83
+#: query_qry.php:31 query_qry.php:86
 msgid "Returns any person records with ages between two given ages."
 msgstr ""
 "Mengembalikan semua catatan seseorang dengan usia yang berumur antara dua "
 "tahun."
 
-#: query_qry.php:31 query_qry.php:84
+#: query_qry.php:32 query_qry.php:87
 msgid "Total of records matching a given gender."
 msgstr "Semua catatan cocok dengan jenis kelamin yang diberikan."
 
-#: query_qry.php:32 query_qry.php:85
+#: query_qry.php:33 query_qry.php:88
 msgid "Selects person records with the family role and gender specified."
 msgstr "Memilih catatan orang dengan peran keluarga dan gender khusus."
 
-#: query_qry.php:33 query_qry.php:86
+#: query_qry.php:34 query_qry.php:89
 msgid "Returns person records which are assigned the given property."
 msgstr "Mengembalikan catatan orang yang ditugaskan properti yang diberikan."
 
-#: query_qry.php:34 query_qry.php:87
+#: query_qry.php:35 query_qry.php:90
 msgid ""
 "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
 "Email."
@@ -13077,88 +13102,92 @@ msgstr ""
 "Cari oleh setiap bagian dari nama, Kota, Negara, Zip, Rumah, Telepon, Email, "
 "atau Kerja Email."
 
-#: query_qry.php:35 query_qry.php:88
+#: query_qry.php:36 query_qry.php:91
 msgid "People with birthdays in a particular month"
 msgstr "Orang yang berulang tahun dalam sebulan tertentu"
 
-#: query_qry.php:36 query_qry.php:89
+#: query_qry.php:37 query_qry.php:92
 msgid "Find Registered students"
 msgstr "Cari siswa terdaftar"
 
-#: query_qry.php:37 query_qry.php:90
+#: query_qry.php:38 query_qry.php:93
 msgid "Members who joined in a particular month"
 msgstr "Anggota yang bergabung dalam bulan tertentu"
 
-#: query_qry.php:38 query_qry.php:91
+#: query_qry.php:39 query_qry.php:94
 msgid "People who are registered as database users"
 msgstr "Orang yang terdaftar sebagai pengguna database"
 
-#: query_qry.php:39 query_qry.php:92
+#: query_qry.php:40 query_qry.php:95
 msgid "People who are members"
 msgstr "Orang-orang yang menjadi anggota"
 
-#: query_qry.php:40 query_qry.php:93
+#: query_qry.php:41 query_qry.php:96
 msgid "Find volunteers for a particular opportunity"
 msgstr "Cari sukarelawan untuk kesempatan tertentu"
 
-#: query_qry.php:41 query_qry.php:94
+#: query_qry.php:42 query_qry.php:97
 msgid "Friends who signed up in previous months"
 msgstr "Teman yang mendaftar dalam beberapa bulan sebelumnya"
 
-#: query_qry.php:42 query_qry.php:95
+#: query_qry.php:43 query_qry.php:98
 msgid "People in families that are ok to canvass."
 msgstr "Orang-orang di keluarga yang baik-baik saja untuk menyelidiki."
 
-#: query_qry.php:43 query_qry.php:96
+#: query_qry.php:44 query_qry.php:99
 msgid "Compare pledges between two fiscal years"
 msgstr "Perbandingan janji antara dua tahun fiskal"
 
-#: query_qry.php:44 query_qry.php:97
+#: query_qry.php:45 query_qry.php:100
 msgid "Find people who pledged one year but not another"
 msgstr "Cari orang yang berjanji satu tahun tapi tidak lain"
 
-#: query_qry.php:45 query_qry.php:98
+#: query_qry.php:46 query_qry.php:101
 msgid "People who are configured to pay by credit card."
 msgstr "Orang-orang yang dikonfigurasi untuk membayar dengan kartu kredit."
 
-#: query_qry.php:46 query_qry.php:99
+#: query_qry.php:47 query_qry.php:102
 msgid ""
 "Pledge summary by family name for each fund for the selected fiscal year"
 msgstr ""
 "Pledge ringkasan dengan nama keluarga untuk setiap dana untuk tahun yang "
 "dipilih"
 
-#: query_qry.php:47 query_qry.php:100
+#: query_qry.php:48 query_qry.php:103
 msgid "Returns all the persons not assigned to a group."
 msgstr "Mengembalikan semua orang yang tidak ditugaskan untuk sebuah kelompok."
 
-#: query_qry.php:48 query_qry.php:101
+#: query_qry.php:49 query_qry.php:104
 msgid "Returns all persons assigned to a group."
 msgstr "Memberikan semua orang yang ditugaskan untuk sebuah kelompok."
 
-#: query_qry.php:49 query_qry.php:102
+#: query_qry.php:50 query_qry.php:105
 msgid "Find person who are in pending confirmation process"
 msgstr "Menemukan orang yang sedang dalam proses konfirmasi yang tertunda"
 
-#: query_qry.php:50 query_qry.php:103
+#: query_qry.php:51 query_qry.php:106
 msgid "Find families who are in pending confirmation process"
 msgstr "Menemukan keluarga yang sedang dalam proses konfirmasi yang tertunda"
 
-#: query_qry.php:51 query_qry.php:104
+#: query_qry.php:52 query_qry.php:107
 msgid "Look for person who have confirmed"
 msgstr "Cari orang yang telah mengonfirmasi"
 
-#: query_qry.php:52 query_qry.php:105
+#: query_qry.php:53 query_qry.php:108
 msgid "Look for families who have confirmed"
 msgstr "Carilah keluarga yang telah mengonfirmasi"
 
-#: query_qry.php:53 query_qry.php:106
+#: query_qry.php:54 query_qry.php:109
 msgid "Find volunteers for who match two specific opportunity codes"
 msgstr "Cari sukarelawan untuk yang cocok dengan dua kode kesempatan spesifik"
 
-#: query_qry.php:54 query_qry.php:107
+#: query_qry.php:55 query_qry.php:110
 msgid "Find people with a custom field value"
 msgstr "Cari orang dengan nilai lapangan khusus"
+
+#: query_qry.php:56 query_qry.php:111
+msgid "Find people with a custom field value is NULL"
+msgstr "Temukan orang dengan nilai bidang khusus adalah NULL"
 
 #: settings-locales.php:2
 msgid "Albanian"
@@ -13555,6 +13584,9 @@ msgstr ""
 
 msgid "Giving Report"
 msgstr "Memberikan Laporan"
+
+#~ msgid "URL"
+#~ msgstr "URL"
 
 #~ msgid "Confirmed person"
 #~ msgstr "Orang yang dikonfirmasi"
