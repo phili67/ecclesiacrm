@@ -167,13 +167,15 @@ unlink(SystemURLs::getDocumentRoot()."/PledgeEditor.php");
 // 2023-07-05
 unlink(SystemURLs::getDocumentRoot()."/SelectDelete.php");
 
+// 2023-09-23
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/jquery-photo-uploader/");
+
 // 2023-10-07
 unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/MenuConfig.php");
 unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/MenuConfigQuery.php");
 
-
-// 2023-09-23
-MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/jquery-photo-uploader/");
+// 2024-02-13
+unlink(SystemURLs::getDocumentRoot()."/Reports/USISTAddressReport.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>

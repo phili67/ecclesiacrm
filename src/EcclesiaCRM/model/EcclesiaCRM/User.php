@@ -671,11 +671,6 @@ class User extends BaseUser
         return $this->getUserConfigString('bEmailMailto');
     }
 
-    public function isUSAddressVerificationEnabled()
-    {
-        return $this->isAdmin() || $this->getUserConfigString('bUSAddressVerification');
-    }
-
     public function isShowTooltipEnabled()
     {
         return $this->getUserConfigString('bShowTooltip');

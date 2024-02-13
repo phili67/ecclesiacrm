@@ -229,9 +229,6 @@ require_once $sRootDocument . '/Include/Header.php';
                                         <span class="align-text-bottom"><i class="far fa-map fa-lg"></i></span>
                                     <?php } else if ($config->getName() == 'bEmailMailto' || $config->getName() == 'sMailtoDelimiter') { ?>
                                         <span class="align-text-bottom"><i class="far fa-envelope fa-lg"></i></span>
-                                    <?php } else if ($config->getName() == 'bUSAddressVerification') { ?>
-                                        <span class="align-text-bottom"><i class="far fa-address-card"></i><i
-                                                class="fas fa-check fa-lg"></i></span>
                                     <?php } else if ($config->getName() == 'bShowTooltip') { ?>
                                         <span class="align-text-bottom"><i class="fas fa-info-circle fa-lg"></i></span>
                                     <?php } else if ($config->getName() == 'sCSVExportDelemiter' || $config->getName() == 'sCSVExportCharset') { ?>
