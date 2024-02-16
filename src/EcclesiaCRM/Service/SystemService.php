@@ -98,7 +98,7 @@ class SystemService
         return strstr(self::getInstalledVersion(),".",true);
     }
 
-    public function getDBServerVersion()
+    static public function getDBServerVersion()
     {
       try{
         return Propel::getServiceContainer()->getConnection()->getAttribute(PDO::ATTR_SERVER_VERSION);

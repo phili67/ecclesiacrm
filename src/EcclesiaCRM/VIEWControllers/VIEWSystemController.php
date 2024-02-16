@@ -43,10 +43,22 @@ class VIEWSystemController {
         return $renderer->render($response, 'integritycheck.php', $this->argumentsIntegrityCheckArray());
     }
 
+    public function infos (ServerRequest $request, Response $response, array $args): Response
+    {
+        $renderer = new PhpRenderer('templates/system/');
+
+        //Set the page title
+        if (!SessionUser::getUser()->isAdmin()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'infos.php', $this->argumentsIntegrityCheckArray());
+    }
+
     public function argumentsIntegrityCheckArray ()
     {
         //Set the page title
-        $sPageTitle    = _('Integrity Check Results');
+        $sPageTitle    = _('System Infos');
         
 
         $sRootDocument  = SystemURLs::getDocumentRoot();
@@ -246,39 +258,5 @@ class VIEWSystemController {
         ];
 
         return $paramsArguments;
-    }
-
-    
-
-    public function USISTAddressVerification (ServerRequest $request, Response $response, array $args): Response
-    {
-        $renderer = new PhpRenderer('templates/system/');
-
-        if (!SessionUser::getUser()->isAdmin()) {
-            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
-        }
-
-        $DoLookup = '';
-        if (isset($args['DoLookup'])) {
-            $DoLookup = InputUtils::LegacyFilterInput($args['DoLookup']);
-        }  
-
-        return $renderer->render($response, 'USISTAddressVerification.php', $this->argumentsUSISTAddressVerificationArray($DoLookup));
-    }
-
-    public function argumentsUSISTAddressVerificationArray ($DoLookup)
-    {
-        //Set the page title
-        $sPageTitle = _('US Address Verification');
-        
-        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
-            'sRootDocument'             => SystemURLs::getDocumentRoot(),
-            'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle,
-            'DoLookup'                  => $DoLookup
-        ];
-
-        return $paramsArguments;
-    }
-    
+    }    
 }

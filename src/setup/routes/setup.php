@@ -29,7 +29,11 @@ $app->group('/', function (RouteCollectorProxy $group) {
 
     $group->get('SystemPrerequisiteCheck', function (ServerRequest $request, Response $response, array $args) {
         $required = EcclesiaCRM\Service\AppIntegrityService::getApplicationPrerequisites();
-        return $response->withStatus(200)->withJson($required);
+        $requiredArray = [];
+        foreach ($required as $require) {
+            $requiredArray[$require->getName()] = $require->getMessage();
+        }
+        return $response->withStatus(200)->withJson($requiredArray);
     });
 
     $group->post('checkDatabaseConnection', function (ServerRequest $request, Response $response, array $args) {
