@@ -237,6 +237,18 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 </div>
                 <?php
             }
+            if (SessionUser::getUser()->isAdmin()) {
+                ?>
+                <div class="mb-1">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/system/infos">
+                        <i class="menu-icon fas fa-info bg-gradient-info"></i>
+                        <div class="menu-info">
+                            <h4 class="control-sidebar-subheading"><?= _('System Infos') ?></h4>
+                        </div>
+                    </a>
+                </div>
+                <?php
+            }
             ?>
             <hr/>
 
