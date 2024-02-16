@@ -17,6 +17,7 @@ use EcclesiaCRM\VIEWControllers\VIEWSystemController;
 
 $app->group('/system', function (RouteCollectorProxy $group) {
     $group->get('/integritycheck', VIEWSystemController::class . ':integritycheck' );
+    $group->get('/infos', VIEWSystemController::class . ':infos' );
 
     $group->get('/report/list', VIEWSystemController::class . ':reportList' );
     $group->post('/report/list', VIEWSystemController::class . ':reportList' );
@@ -44,11 +45,7 @@ $app->group('/system', function (RouteCollectorProxy $group) {
     * #! param: ref->string :: Source -> cart
     */
     $group->get('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );
-    $group->post('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );
-
-    $group->get('/USISTAddress/Verification[/{DoLookup}]', VIEWSystemController::class . ':USISTAddressVerification' );
-    $group->post('/USISTAddress/Verification[/{DoLookup}]', VIEWSystemController::class . ':USISTAddressVerification' );
-    
+    $group->post('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );    
 });
 
 
