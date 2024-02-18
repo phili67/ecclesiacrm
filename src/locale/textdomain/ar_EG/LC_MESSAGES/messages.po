@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 20:12+0000\n"
+"POT-Creation-Date: 2024-02-16 20:36+0000\n"
 "Language: ar-EG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr "سابق"
 msgid "Cannot execute query."
 msgstr "لا يمكن تنفيذ الاستفسار."
 
-#: CSVImport.php:121 Include/Footer.php:267
+#: CSVImport.php:121 Include/Footer.php:279
 msgid "CSV Import"
 msgstr "استيراد سي إس في"
 
@@ -464,7 +464,7 @@ msgstr "غير مسؤول"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
 #: v2/templates/people/familyEditor.php:1089
 #: v2/templates/people/familyview.php:339
-#: v2/templates/people/peopledashboard.php:322
+#: v2/templates/people/peopledashboard.php:308
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:355
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
@@ -1050,7 +1050,7 @@ msgstr "الاسم"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
-#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:383
+#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:380
 msgid "Yes"
 msgstr "نعم"
 
@@ -1065,7 +1065,7 @@ msgstr "نعم"
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
 #: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
-#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
+#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:379
 msgid "No"
 msgstr "لا"
 
@@ -1202,7 +1202,7 @@ msgid "Role"
 msgstr "الدور"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
-#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:275
+#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:261
 #: v2/templates/system/optionManager.php:92
 msgid "Family Roles"
 msgstr "أدوار العائلة"
@@ -4229,51 +4229,51 @@ msgstr "عجوز"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM تصدير"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
 msgid "system user created"
 msgstr "مستخدم النظام خلق"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 msgid "system user updated"
 msgstr "مستخدم النظام تم تحديثه"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
 msgid "system user deleted"
 msgstr "تم حذف مستخدم النظام"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 msgid "system user password reset"
 msgstr "إعادة ضبط كلمة سر مستخدم النظام"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "system user changed password"
 msgstr "مستخدم النظام غير كلمة السر"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "system user password changed by admin"
 msgstr "كلمة سر مستخدم النظام تغيرت بواسطة مدير"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:761
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
 msgid "system user login reset"
 msgstr "إعادة تشغيل نظام مستخدم النظام"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:767
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
 msgid "Dav create file"
 msgstr "ديف) يخلق ملفاً)"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:773
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
 msgid "Dav create directory"
 msgstr "داف) يصنع دليلاً)"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:779
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
 msgid "Dav update file"
 msgstr "ملف ديف المستكمل"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:792
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
 msgid "Dav move copy file"
 msgstr "ديف) حرك ملف النسخ)"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:799
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
 msgid "Dav delete file"
 msgstr "داف حذف الملف"
 
@@ -4741,20 +4741,32 @@ msgstr "المتطوعون"
 msgid "Pledges"
 msgstr "التبرعات"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:29
-#: EcclesiaCRM/Service/AppIntegrityService.php:74
+#: EcclesiaCRM/Service/AppIntegrityService.php:66
+#: EcclesiaCRM/Service/AppIntegrityService.php:143
 msgid "Signature definition file signature failed validation"
 msgstr "ولم يصدق توقيع ملف التوقيع على تعريف التوقيع"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:32
-#: EcclesiaCRM/Service/AppIntegrityService.php:77
+#: EcclesiaCRM/Service/AppIntegrityService.php:69
+#: EcclesiaCRM/Service/AppIntegrityService.php:146
 msgid "Signature definition File Missing"
 msgstr "تعريف التوقيع مفقود"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:41
-#: EcclesiaCRM/Service/AppIntegrityService.php:83
+#: EcclesiaCRM/Service/AppIntegrityService.php:78
+#: EcclesiaCRM/Service/AppIntegrityService.php:152
 msgid "One or more files failed signature validation"
 msgstr "ملف واحد أو أكثر فشل في التصديق على صحة"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:91
+#: v2/templates/system/integritycheck.php:46
+msgid "Failed"
+msgstr "فشلت"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:94
+#: EcclesiaCRM/Service/AppIntegrityService.php:103
+#: EcclesiaCRM/Service/AppIntegrityService.php:112
+#, fuzzy
+msgid "Passed"
+msgstr "كلمة السر"
 
 #: EcclesiaCRM/Service/CalendarService.php:59
 msgid "Event"
@@ -5088,7 +5100,7 @@ msgstr "بيانات أدوار مفقودة لبعض الناس"
 msgid "Unmet Application Prerequisites"
 msgstr "الشروط المسبقة للتطبيق غير الملتقى"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:322
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:334
 msgid "Register Software"
 msgstr "برنامج السجل"
 
@@ -5350,12 +5362,12 @@ msgid "1 yr old"
 msgstr "1 سنة"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:258
+#: Include/Footer.php:270
 msgid "Backup Database"
 msgstr "قاعدة بيانات احتياطية"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:250
+#: Include/Footer.php:262
 msgid "Restore Database"
 msgstr "استعادة قاعدة البيانات"
 
@@ -5488,7 +5500,7 @@ msgid "Donation Fund Editor"
 msgstr "محرر صندوق التبرعات"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:276 v2/templates/calendar/checkin.php:32
+#: Include/Footer.php:288 v2/templates/calendar/checkin.php:32
 msgid "Kiosk Manager"
 msgstr "مدير كشك"
 
@@ -5759,33 +5771,31 @@ msgstr "ويجب اختيار مجموعة واحدة على الأقل لإعد
 msgid "Sunday School Reports"
 msgstr "تقارير مدرسة الأحد"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:49
-msgid "Integrity Check Results"
-msgstr "نتائج التحقق من النزاهة"
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:61
+#: Include/Footer.php:246
+#, fuzzy
+msgid "System Infos"
+msgstr "ضبط النظام"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:80
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:92
 msgid "Report Menu"
 msgstr "تقرير عن الذاكرة"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:120
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:132
 #, fuzzy
 msgid "System"
 msgstr "مستخدمي النظام"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:168
 msgid "Convert Individuals to Addresses"
 msgstr "تحويل الأفراد إلى العناوين"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:190
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:236
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:202
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:248
 #: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:378
 msgid "CSV Export"
 msgstr "صدير سي إس في"
-
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:272
-msgid "US Address Verification"
-msgstr "التحقق من العنوان الأمريكي"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
@@ -6166,8 +6176,8 @@ msgstr "لقد واجهنا خطأ في تقديم بيانات التحقق ا�
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 #: v2/templates/user/userseditor.php:814 v2/templates/user/usersettings.php:61
-#: v2/templates/user/usersettings.php:327
-#: v2/templates/user/usersettings.php:404
+#: v2/templates/user/usersettings.php:324
+#: v2/templates/user/usersettings.php:401
 msgid "Cancel"
 msgstr "ألغي"
 
@@ -6230,7 +6240,7 @@ msgstr "\"إديت صناديق التبرعات\""
 msgid "Pastoral Care Type"
 msgstr "نوع الرعاية الرعوية"
 
-#: Include/Footer.php:192 Include/Footer.php:286
+#: Include/Footer.php:192 Include/Footer.php:298
 msgid "Please contact your admin to change the system settings."
 msgstr "رجاءً اتصل بمديرك لتغيير وضعية النظام"
 
@@ -6242,19 +6252,19 @@ msgstr "إديت سيتينغز العامة"
 msgid "System Users"
 msgstr "مستخدمي النظام"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:309
 msgid "CSV Export Records"
 msgstr "سجلات تصدير CSV"
 
-#: Include/Footer.php:310
+#: Include/Footer.php:322
 msgid "Open Tasks"
 msgstr "فتح المهام"
 
-#: Include/Footer.php:311
+#: Include/Footer.php:323
 msgid "You have"
 msgstr "لقد فعلت"
 
-#: Include/Footer.php:312
+#: Include/Footer.php:324
 msgid "task(s)"
 msgstr "المهمات (الوظائف)"
 
@@ -6457,7 +6467,7 @@ msgid "return to member dashboard"
 msgstr "عودوا إلى لوحة القيادة"
 
 #: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Pending Self Verify"
 msgstr "لم يتم التحقق من ذاتي"
 
@@ -7891,13 +7901,13 @@ msgstr "موقع الصورة"
 #: v2/templates/people/familyCustomFieldEditor.php:508
 #: v2/templates/people/personCustomEditor.php:419
 #: v2/templates/people/personCustomEditor.php:504
-#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:390
+#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:387
 msgid "Left"
 msgstr "يسار"
 
 #: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
 #: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
-#: v2/templates/user/usersettings.php:391
+#: v2/templates/user/usersettings.php:388
 msgid "Center"
 msgstr "المركز"
 
@@ -7907,7 +7917,7 @@ msgstr "المركز"
 #: v2/templates/people/familyCustomFieldEditor.php:509
 #: v2/templates/people/personCustomEditor.php:420
 #: v2/templates/people/personCustomEditor.php:505
-#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:392
+#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:389
 msgid "Right"
 msgstr "صحيح"
 
@@ -9831,8 +9841,8 @@ msgid "to contact"
 msgstr "للإتصال"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:71
-#: v2/templates/people/peopledashboard.php:287
-#: v2/templates/people/peopledashboard.php:324
+#: v2/templates/people/peopledashboard.php:273
+#: v2/templates/people/peopledashboard.php:310
 msgid "Count"
 msgstr "الكونت"
 
@@ -10004,7 +10014,7 @@ msgstr "لا مهام جماعية"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:513
 #: v2/templates/people/personPrint.php:509
 #: v2/templates/sidebar/propertylist.php:23
-#: v2/templates/user/usersettings.php:308 queryparameters_qrp.php:6
+#: v2/templates/user/usersettings.php:305 queryparameters_qrp.php:6
 msgid "Property"
 msgstr "الممتلكات"
 
@@ -10856,8 +10866,8 @@ msgid "Sunday School Kids"
 msgstr "أطفال مدرسة الأحد"
 
 #: v2/templates/people/peopledashboard.php:194
-#: v2/templates/people/peopledashboard.php:248
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:234
+#: v2/templates/people/peopledashboard.php:241
 #: v2/templates/sundayschool/sundayschooldashboard.php:148
 msgid "Reports"
 msgstr "التقارير"
@@ -10888,82 +10898,70 @@ msgstr "تذكير التبرعات المطبوعة لجميع الناس، م�
 msgid "Generate letters and mailing labels for data confirmations."
 msgstr "رسائل و بطاقات بريدية"
 
-#: v2/templates/people/peopledashboard.php:233
-msgid "US Address Verification Report"
-msgstr "تقرير التحقق من العنوان الأمريكي"
-
-#: v2/templates/people/peopledashboard.php:236
-msgid ""
-"Generate report comparing all US family addresses with United States Postal "
-"Service Standard Address Format.<br>"
-msgstr ""
-"تقرير يولد يقارن جميع عناوين الأسرة الأمريكية مع نموذج العنوان الموحد لخدمة "
-"البريد في الولايات المتحدة.<br>"
-
-#: v2/templates/people/peopledashboard.php:248
+#: v2/templates/people/peopledashboard.php:234
 msgid "Self Update"
 msgstr "تحديث ذاتي"
 
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:241
 msgid "Self Register"
 msgstr "سجل الذات"
 
-#: v2/templates/people/peopledashboard.php:257
+#: v2/templates/people/peopledashboard.php:243
 msgid "List families that were created via self registration."
 msgstr "قائمة بأسر أنشئت عن طريق تسجيل الذات."
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Self Verify Updates"
 msgstr "التحقق من تحديثات الذات"
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Families who commented via self verify links"
 msgstr "الأسر التي علّقت عن طريق التحقق من الروابط"
 
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Families with valid self verify links"
 msgstr "العائلات ذات الذات الصالحة تتحقق من الروابط"
 
-#: v2/templates/people/peopledashboard.php:285
+#: v2/templates/people/peopledashboard.php:271
 msgid "Role / Gender"
 msgstr "دور/نوع الجنس"
 
-#: v2/templates/people/peopledashboard.php:286
-#: v2/templates/people/peopledashboard.php:323
+#: v2/templates/people/peopledashboard.php:272
+#: v2/templates/people/peopledashboard.php:309
 msgid "of People"
 msgstr "من الناس"
 
-#: v2/templates/people/peopledashboard.php:312
+#: v2/templates/people/peopledashboard.php:298
 msgid "People Classification"
 msgstr "تصنيف الناس"
 
-#: v2/templates/people/peopledashboard.php:350
+#: v2/templates/people/peopledashboard.php:336
 msgid "Gender Demographics"
 msgstr "Gender Demographics"
 
-#: v2/templates/people/peopledashboard.php:365
+#: v2/templates/people/peopledashboard.php:351
 msgid "# Age Histogram"
 msgstr "# Age Histogram"
 
-#: v2/templates/people/peopledashboard.php:394
+#: v2/templates/people/peopledashboard.php:380
 msgid "Men"
 msgstr "الرجال"
 
-#: v2/templates/people/peopledashboard.php:399
+#: v2/templates/people/peopledashboard.php:385
 msgid "Women"
 msgstr "المرأة"
 
-#: v2/templates/people/peopledashboard.php:408
+#: v2/templates/people/peopledashboard.php:394
 #: v2/templates/sundayschool/sundayschooldashboard.php:73
 msgid "Boys"
 msgstr "يا أولاد"
 
-#: v2/templates/people/peopledashboard.php:413
+#: v2/templates/people/peopledashboard.php:399
 #: v2/templates/sundayschool/sundayschooldashboard.php:85
 msgid "Girls"
 msgstr "الفتيات"
 
-#: v2/templates/people/peopledashboard.php:479
+#: v2/templates/people/peopledashboard.php:465
 msgid "# number of people"
 msgstr "عدد الناس"
 
@@ -11616,8 +11614,8 @@ msgstr "(إديت (جيسون سيتينجز"
 
 #: v2/templates/sidebar/systemsettings.php:68
 #: v2/templates/user/userseditor.php:811 v2/templates/user/usersettings.php:62
-#: v2/templates/user/usersettings.php:328
-#: v2/templates/user/usersettings.php:407
+#: v2/templates/user/usersettings.php:325
+#: v2/templates/user/usersettings.php:404
 msgid "Save Settings"
 msgstr "أنقذ (ستيتنجز)"
 
@@ -11633,13 +11631,13 @@ msgstr "قيمة السقوط"
 
 #: v2/templates/sidebar/systemsettings.php:158
 #: v2/templates/user/userseditor.php:561 v2/templates/user/userseditor.php:614
-#: v2/templates/user/usersettings.php:279
+#: v2/templates/user/usersettings.php:276
 msgid "False"
 msgstr "خطأ"
 
 #: v2/templates/sidebar/systemsettings.php:159
 #: v2/templates/user/userseditor.php:562 v2/templates/user/userseditor.php:615
-#: v2/templates/user/usersettings.php:280
+#: v2/templates/user/usersettings.php:277
 msgid "True"
 msgstr "صحيح"
 
@@ -12084,6 +12082,87 @@ msgstr "ولا توجد أي أحداث في هذه الفئة"
 msgid "There are no Records"
 msgstr "لا توجد سجلات"
 
+#: v2/templates/system/infos.php:16
+#, fuzzy
+msgid "EcclesiaCRM Installation Information"
+msgstr "معلومات الكنيسة"
+
+#: v2/templates/system/infos.php:21
+#, fuzzy
+msgid "Software Version"
+msgstr "الصيغة البرنامجية الحالية:"
+
+#: v2/templates/system/infos.php:47
+#, fuzzy
+msgid "System Information"
+msgstr "المعلومات"
+
+#: v2/templates/system/infos.php:70
+#, fuzzy
+msgid "Database"
+msgstr "قاعدة بيانات احتياطية"
+
+#: v2/templates/system/infos.php:75
+#, fuzzy
+msgid "Database Version"
+msgstr "صيغة"
+
+#: v2/templates/system/infos.php:79
+msgid "Database Server Version"
+msgstr ""
+
+#: v2/templates/system/infos.php:93
+msgid "Web Server"
+msgstr ""
+
+#: v2/templates/system/infos.php:159
+#, fuzzy
+msgid "Email Information"
+msgstr "تأكيد"
+
+#: v2/templates/system/infos.php:168
+#, fuzzy
+msgid "Valid Mail Server Settings"
+msgstr "إديت سيتينغز العامة"
+
+#: v2/templates/system/infos.php:178
+#, fuzzy
+msgid "Application Prerequisites"
+msgstr "الشروط المسبقة للتطبيق غير الملتقى"
+
+#: v2/templates/system/infos.php:195
+#, fuzzy
+msgid "Application Integrity Check"
+msgstr "تم إخفاء النزاهة"
+
+#: v2/templates/system/infos.php:198 v2/templates/system/integritycheck.php:57
+msgid "Details:"
+msgstr "التفاصيل:"
+
+#: v2/templates/system/infos.php:202 v2/templates/system/integritycheck.php:61
+msgid "Files failing integrity check"
+msgstr "ملفات تفشل في التحقق من النزاهة"
+
+#: v2/templates/system/infos.php:205
+#, fuzzy
+msgid "FileName"
+msgstr "اسم الملف"
+
+#: v2/templates/system/infos.php:206 v2/templates/system/integritycheck.php:78
+#: v2/templates/system/integritycheck.php:105
+msgid "Expected Hash"
+msgstr "(هاش) المتوقع"
+
+#: v2/templates/system/infos.php:207 v2/templates/system/integritycheck.php:79
+#: v2/templates/system/integritycheck.php:106
+msgid "Actual Hash"
+msgstr "في الواقع"
+
+#: v2/templates/system/infos.php:218 v2/templates/system/integritycheck.php:72
+#: v2/templates/system/integritycheck.php:99
+msgid "File Missing"
+msgstr "ملف مفقود"
+
 #: v2/templates/system/integritycheck.php:34
 msgid "All Application Prerequisites Satisfied"
 msgstr "جميع الشروط المسبقة للتطبيق مرضية"
@@ -12105,10 +12184,6 @@ msgstr ""
 "وهناك مكونات معينة تعتمد عليها EcclesiaCRM مفقودة أو غير سليمة على هذا "
 "الخادم. وقد يستمر الطلب في العمل، ولكنه قد يؤدي إلى سلوك غير متوقع."
 
-#: v2/templates/system/integritycheck.php:46
-msgid "Failed"
-msgstr "فشلت"
-
 #: v2/templates/system/integritycheck.php:55
 msgid "Integrity Check Failure"
 msgstr "الفشل في التحقق من النزاهة"
@@ -12117,33 +12192,10 @@ msgstr "الفشل في التحقق من النزاهة"
 msgid "The previous integrity check failed"
 msgstr "لقد فشل شيك النزاهة السابق"
 
-#: v2/templates/system/integritycheck.php:57
-msgid "Details:"
-msgstr "التفاصيل:"
-
-#: v2/templates/system/integritycheck.php:61
-msgid "Files failing integrity check"
-msgstr "ملفات تفشل في التحقق من النزاهة"
-
 #: v2/templates/system/integritycheck.php:67
 #: v2/templates/system/integritycheck.php:93
 msgid "File Name"
 msgstr "اسم الملف"
-
-#: v2/templates/system/integritycheck.php:72
-#: v2/templates/system/integritycheck.php:99
-msgid "File Missing"
-msgstr "ملف مفقود"
-
-#: v2/templates/system/integritycheck.php:78
-#: v2/templates/system/integritycheck.php:105
-msgid "Expected Hash"
-msgstr "(هاش) المتوقع"
-
-#: v2/templates/system/integritycheck.php:79
-#: v2/templates/system/integritycheck.php:106
-msgid "Actual Hash"
-msgstr "في الواقع"
 
 #: v2/templates/system/integritycheck.php:125
 msgid "Integrity Check Passed"
@@ -12231,12 +12283,6 @@ msgstr "الدعم الآلي لإجراء فحص كل عضو"
 #: v2/templates/system/reportlist.php:66
 msgid "Event Attendance Reports"
 msgstr "تقارير الحضور"
-
-#: v2/templates/system/USISTAddressVerification.php:88
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
-msgstr ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: v2/templates/user/changepassword.php:43
 msgid "Enter a new password for this user."
@@ -12546,7 +12592,7 @@ msgstr "الحواشي"
 msgid "Plugin permissions"
 msgstr "الإذن"
 
-#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:347
+#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
 msgstr ""
 
@@ -12560,7 +12606,7 @@ msgstr "مجموعة الأمن"
 msgid "Position"
 msgstr "إيجابي"
 
-#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:389
+#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:386
 #, fuzzy
 msgid "Top"
 msgstr "إلى"
@@ -12573,16 +12619,16 @@ msgstr "مستخدم كلاسيكي"
 msgid "Skin"
 msgstr "الجلد"
 
-#: v2/templates/user/usersettings.php:338
+#: v2/templates/user/usersettings.php:335
 #, fuzzy
 msgid "Specific settings"
 msgstr "أنقذ (ستيتنجز)"
 
-#: v2/templates/user/usersettings.php:420
+#: v2/templates/user/usersettings.php:417
 msgid "Two-factor authentication (2fa)"
 msgstr "التوثيق من عاملين (2-ألف)"
 
-#: v2/templates/user/usersettings.php:423
+#: v2/templates/user/usersettings.php:420
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -12591,11 +12637,11 @@ msgstr ""
 "تسجيل حسابك المستخدم Ecclesiaفي مصلحة مصلحة مصلحة اثنين يوفر EcclesiaCRM "
 "طبقة دفاع ضد الممثلين السيئين الذين يحاولون الوصول إلى حسابك"
 
-#: v2/templates/user/usersettings.php:424
+#: v2/templates/user/usersettings.php:421
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "EcclesiaCRM Two عامل يدعم أي تطبيق موثوق في TTP"
 
-#: v2/templates/user/usersettings.php:429
+#: v2/templates/user/usersettings.php:426
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -12603,7 +12649,7 @@ msgstr ""
 "عندما توقع على Ecclesiaسي آرم، ستظل تدخل اسم المستخدم وكلمة السر الخاصة بك "
 "كالطبيعية"
 
-#: v2/templates/user/usersettings.php:432
+#: v2/templates/user/usersettings.php:429
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -12611,7 +12657,7 @@ msgstr ""
 "على أي حال، ستحتاج أيضاً لتزويد برمز لمرة واحدة من جهاز التوثيق الخاص بك "
 "لإكمال دخولك"
 
-#: v2/templates/user/usersettings.php:435
+#: v2/templates/user/usersettings.php:432
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -12619,7 +12665,7 @@ msgstr ""
 "بعد دخول كل من أوراق الاعتماد بنجاح، والشفرة لمرة واحدة، سيتم تسجيلك كما هو "
 "طبيعي"
 
-#: v2/templates/user/usersettings.php:438
+#: v2/templates/user/usersettings.php:435
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -12627,13 +12673,13 @@ msgstr ""
 "لمنع حبس حسابك Ecclesiaمن حسابك الرئاسي، تأكد من أنك مستعد لإكمال عاملين "
 "التسجيل قبل بدء النقر"
 
-#: v2/templates/user/usersettings.php:441
+#: v2/templates/user/usersettings.php:438
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
 msgstr "وبدء التسجيل سيبطل أي جهاز عاملين مسجلين سابقاً وشفرات استرداد."
 
-#: v2/templates/user/usersettings.php:443
+#: v2/templates/user/usersettings.php:440
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -12641,13 +12687,13 @@ msgstr ""
 "عندما تنقر التالي، سوف يتم دفعك لفحص رمز الإسعاف لتسجيل تطبيق التوثيق الخاص "
 "بك."
 
-#: v2/templates/user/usersettings.php:445
+#: v2/templates/user/usersettings.php:442
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
 msgstr "لتأكيد التسجيل، عليك أن تدخل الرمز الذي تولده تطبيقك الموثوق"
 
-#: v2/templates/user/usersettings.php:447
+#: v2/templates/user/usersettings.php:444
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -12655,17 +12701,17 @@ msgstr ""
 "وبعد تأكيد التسجيل في التطبيق، سيتم إعداد وتظهر رموز استعادة واحدة لاستعادة "
 "الاستخدام."
 
-#: v2/templates/user/usersettings.php:449
+#: v2/templates/user/usersettings.php:446
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
 msgstr "رموز الاسترداد يمكن استخدامها بدلا من رمز مصدر الخاص بك التطبيق."
 
-#: v2/templates/user/usersettings.php:451
+#: v2/templates/user/usersettings.php:448
 msgid "Store these in a secure location"
 msgstr "تخزين هذه في مكان آمن"
 
-#: v2/templates/user/usersettings.php:458
+#: v2/templates/user/usersettings.php:455
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "ابدأ التحاق مصداقية عامل"
 
@@ -13475,6 +13521,27 @@ msgstr ""
 #, fuzzy
 msgid "Giving Report"
 msgstr "تقرير مولد"
+
+#~ msgid "Integrity Check Results"
+#~ msgstr "نتائج التحقق من النزاهة"
+
+#~ msgid "US Address Verification"
+#~ msgstr "التحقق من العنوان الأمريكي"
+
+#~ msgid "US Address Verification Report"
+#~ msgstr "تقرير التحقق من العنوان الأمريكي"
+
+#~ msgid ""
+#~ "Generate report comparing all US family addresses with United States "
+#~ "Postal Service Standard Address Format.<br>"
+#~ msgstr ""
+#~ "تقرير يولد يقارن جميع عناوين الأسرة الأمريكية مع نموذج العنوان الموحد "
+#~ "لخدمة البريد في الولايات المتحدة.<br>"
+
+#~ msgid ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
+#~ msgstr ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #~ msgid "URL"
 #~ msgstr "URL"

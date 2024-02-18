@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 20:44+0000\n"
+"POT-Creation-Date: 2024-02-16 20:41+0000\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr "Vorschau"
 msgid "Cannot execute query."
 msgstr "Abfrage kann nicht ausgeführt werden."
 
-#: CSVImport.php:121 Include/Footer.php:267
+#: CSVImport.php:121 Include/Footer.php:279
 msgid "CSV Import"
 msgstr "CSV-Import"
 
@@ -472,7 +472,7 @@ msgstr "Nicht zugewiesen"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
 #: v2/templates/people/familyEditor.php:1089
 #: v2/templates/people/familyview.php:339
-#: v2/templates/people/peopledashboard.php:322
+#: v2/templates/people/peopledashboard.php:308
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:355
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
@@ -1074,7 +1074,7 @@ msgstr "Name"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
-#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:383
+#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:380
 msgid "Yes"
 msgstr "Ja"
 
@@ -1089,7 +1089,7 @@ msgstr "Ja"
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
 #: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
-#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
+#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:379
 msgid "No"
 msgstr "Nein"
 
@@ -1226,7 +1226,7 @@ msgid "Role"
 msgstr "Rolle"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
-#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:275
+#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:261
 #: v2/templates/system/optionManager.php:92
 msgid "Family Roles"
 msgstr "Rollen in der Familie"
@@ -4318,51 +4318,51 @@ msgstr "ein Jahr alt"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM exportieren"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
 msgid "system user created"
 msgstr "Systembenutzer erstellt"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 msgid "system user updated"
 msgstr "Systembenutzer aktualisiert"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
 msgid "system user deleted"
 msgstr "Systembenutzer gelöscht"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 msgid "system user password reset"
 msgstr "Systembenutzer-Passwort zurücksetzen"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "system user changed password"
 msgstr "system user changed password"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "system user password changed by admin"
 msgstr "Systembenutzerkennwort von admin geändert"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:761
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
 msgid "system user login reset"
 msgstr "Systembenutzeranmeldung zurücksetzen"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:767
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
 msgid "Dav create file"
 msgstr "Dav Datei erstellen"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:773
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
 msgid "Dav create directory"
 msgstr "Dav Verzeichnis erstellen"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:779
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
 msgid "Dav update file"
 msgstr "Dav-Update-Datei"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:792
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
 msgid "Dav move copy file"
 msgstr "Dav verschieben kopieren Datei"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:799
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
 msgid "Dav delete file"
 msgstr "Dav Datei löschen"
 
@@ -4830,21 +4830,32 @@ msgstr "Freiwillige"
 msgid "Pledges"
 msgstr "Verpfändungen"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:29
-#: EcclesiaCRM/Service/AppIntegrityService.php:74
+#: EcclesiaCRM/Service/AppIntegrityService.php:66
+#: EcclesiaCRM/Service/AppIntegrityService.php:143
 msgid "Signature definition file signature failed validation"
 msgstr "Validierung der Signaturdefinitionsdatei fehlgeschlagen"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:32
-#: EcclesiaCRM/Service/AppIntegrityService.php:77
+#: EcclesiaCRM/Service/AppIntegrityService.php:69
+#: EcclesiaCRM/Service/AppIntegrityService.php:146
 msgid "Signature definition File Missing"
 msgstr "Signaturdefinitionsdatei fehlt"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:41
-#: EcclesiaCRM/Service/AppIntegrityService.php:83
+#: EcclesiaCRM/Service/AppIntegrityService.php:78
+#: EcclesiaCRM/Service/AppIntegrityService.php:152
 msgid "One or more files failed signature validation"
 msgstr ""
 "Eine oder mehrere Dateien haben die Signaturüberprüfung nicht bestanden"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:91
+#: v2/templates/system/integritycheck.php:46
+msgid "Failed"
+msgstr "Gescheitert"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:94
+#: EcclesiaCRM/Service/AppIntegrityService.php:103
+#: EcclesiaCRM/Service/AppIntegrityService.php:112
+msgid "Passed"
+msgstr "Bestanden"
 
 #: EcclesiaCRM/Service/CalendarService.php:59
 msgid "Event"
@@ -5182,7 +5193,7 @@ msgstr "Fehlende Rollendaten für einige Personen"
 msgid "Unmet Application Prerequisites"
 msgstr "Unerfüllte Bewerbungsvoraussetzungen"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:322
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:334
 msgid "Register Software"
 msgstr "Software registrieren"
 
@@ -5445,12 +5456,12 @@ msgid "1 yr old"
 msgstr "1 Jahr alt"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:258
+#: Include/Footer.php:270
 msgid "Backup Database"
 msgstr "Datenbank sichern"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:250
+#: Include/Footer.php:262
 msgid "Restore Database"
 msgstr "Datenbank wiederherstellen"
 
@@ -5581,7 +5592,7 @@ msgid "Donation Fund Editor"
 msgstr "Spendenfonds Editor"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:276 v2/templates/calendar/checkin.php:32
+#: Include/Footer.php:288 v2/templates/calendar/checkin.php:32
 msgid "Kiosk Manager"
 msgstr "Kiosk-Manager"
 
@@ -5854,32 +5865,29 @@ msgstr ""
 msgid "Sunday School Reports"
 msgstr "Berichte der Sonntagsschule"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:49
-msgid "Integrity Check Results"
-msgstr "Ergebnisse der Integritätsprüfung"
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:61
+#: Include/Footer.php:246
+msgid "System Infos"
+msgstr "System-Infos"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:80
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:92
 msgid "Report Menu"
 msgstr "Menü Bericht"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:120
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:132
 msgid "System"
 msgstr "System"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:168
 msgid "Convert Individuals to Addresses"
 msgstr "Personen in Adressen umwandeln"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:190
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:236
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:202
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:248
 #: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:378
 msgid "CSV Export"
 msgstr "CSV-Export"
-
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:272
-msgid "US Address Verification"
-msgstr "Überprüfung der US-Adresse"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
@@ -6264,8 +6272,8 @@ msgstr ""
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 #: v2/templates/user/userseditor.php:814 v2/templates/user/usersettings.php:61
-#: v2/templates/user/usersettings.php:327
-#: v2/templates/user/usersettings.php:404
+#: v2/templates/user/usersettings.php:324
+#: v2/templates/user/usersettings.php:401
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -6328,7 +6336,7 @@ msgstr "Spendenfonds bearbeiten"
 msgid "Pastoral Care Type"
 msgstr "Seelsorge Typ"
 
-#: Include/Footer.php:192 Include/Footer.php:286
+#: Include/Footer.php:192 Include/Footer.php:298
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Bitte wenden Sie sich an Ihren Administrator, um die Systemeinstellungen zu "
@@ -6342,19 +6350,19 @@ msgstr "Allgemeine Einstellungen bearbeiten"
 msgid "System Users"
 msgstr "System-Benutzer"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:309
 msgid "CSV Export Records"
 msgstr "CSV-Export Datensätze"
 
-#: Include/Footer.php:310
+#: Include/Footer.php:322
 msgid "Open Tasks"
 msgstr "Offene Aufgaben"
 
-#: Include/Footer.php:311
+#: Include/Footer.php:323
 msgid "You have"
 msgstr "Sie haben"
 
-#: Include/Footer.php:312
+#: Include/Footer.php:324
 msgid "task(s)"
 msgstr "Aufgabe(n)"
 
@@ -6565,7 +6573,7 @@ msgid "return to member dashboard"
 msgstr "zurück zum Dashboard für Mitglieder"
 
 #: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Pending Self Verify"
 msgstr "Ausstehende Selbstüberprüfung"
 
@@ -8009,13 +8017,13 @@ msgstr "Bild Position"
 #: v2/templates/people/familyCustomFieldEditor.php:508
 #: v2/templates/people/personCustomEditor.php:419
 #: v2/templates/people/personCustomEditor.php:504
-#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:390
+#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:387
 msgid "Left"
 msgstr "Links"
 
 #: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
 #: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
-#: v2/templates/user/usersettings.php:391
+#: v2/templates/user/usersettings.php:388
 msgid "Center"
 msgstr "Zentrum"
 
@@ -8025,7 +8033,7 @@ msgstr "Zentrum"
 #: v2/templates/people/familyCustomFieldEditor.php:509
 #: v2/templates/people/personCustomEditor.php:420
 #: v2/templates/people/personCustomEditor.php:505
-#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:392
+#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:389
 msgid "Right"
 msgstr "Rechts"
 
@@ -9983,8 +9991,8 @@ msgid "to contact"
 msgstr "zu kontaktieren"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:71
-#: v2/templates/people/peopledashboard.php:287
-#: v2/templates/people/peopledashboard.php:324
+#: v2/templates/people/peopledashboard.php:273
+#: v2/templates/people/peopledashboard.php:310
 msgid "Count"
 msgstr "Zählen Sie"
 
@@ -10156,7 +10164,7 @@ msgstr "Keine Gruppenzuweisungen."
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:513
 #: v2/templates/people/personPrint.php:509
 #: v2/templates/sidebar/propertylist.php:23
-#: v2/templates/user/usersettings.php:308 queryparameters_qrp.php:6
+#: v2/templates/user/usersettings.php:305 queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Eigentum"
 
@@ -11016,8 +11024,8 @@ msgid "Sunday School Kids"
 msgstr "Sonntagsschule Kinder"
 
 #: v2/templates/people/peopledashboard.php:194
-#: v2/templates/people/peopledashboard.php:248
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:234
+#: v2/templates/people/peopledashboard.php:241
 #: v2/templates/sundayschool/sundayschooldashboard.php:148
 msgid "Reports"
 msgstr "Berichte"
@@ -11053,82 +11061,70 @@ msgstr ""
 msgid "Generate letters and mailing labels for data confirmations."
 msgstr "Erstellen von Briefen und Versandetiketten für Datenbestätigungen."
 
-#: v2/templates/people/peopledashboard.php:233
-msgid "US Address Verification Report"
-msgstr "Bericht zur Überprüfung der US-Adresse"
-
-#: v2/templates/people/peopledashboard.php:236
-msgid ""
-"Generate report comparing all US family addresses with United States Postal "
-"Service Standard Address Format.<br>"
-msgstr ""
-"Erstellung eines Berichts, in dem alle US-Familienadressen mit dem "
-"Standardadressformat des United States Postal Service verglichen werden.<br>"
-
-#: v2/templates/people/peopledashboard.php:248
+#: v2/templates/people/peopledashboard.php:234
 msgid "Self Update"
 msgstr "Selbst-Update"
 
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:241
 msgid "Self Register"
 msgstr "Selbstregistrierung"
 
-#: v2/templates/people/peopledashboard.php:257
+#: v2/templates/people/peopledashboard.php:243
 msgid "List families that were created via self registration."
 msgstr "Liste der Familien, die durch Selbstregistrierung entstanden sind."
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Self Verify Updates"
 msgstr "Selbstüberprüfungs-Updates"
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Families who commented via self verify links"
 msgstr "Familien, die über selbstüberprüfte Links kommentiert haben"
 
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Families with valid self verify links"
 msgstr "Familien mit gültigen Selbstverifizierungslinks"
 
-#: v2/templates/people/peopledashboard.php:285
+#: v2/templates/people/peopledashboard.php:271
 msgid "Role / Gender"
 msgstr "Rolle / Geschlecht"
 
-#: v2/templates/people/peopledashboard.php:286
-#: v2/templates/people/peopledashboard.php:323
+#: v2/templates/people/peopledashboard.php:272
+#: v2/templates/people/peopledashboard.php:309
 msgid "of People"
 msgstr "der Menschen"
 
-#: v2/templates/people/peopledashboard.php:312
+#: v2/templates/people/peopledashboard.php:298
 msgid "People Classification"
 msgstr "Klassifizierung von Personen"
 
-#: v2/templates/people/peopledashboard.php:350
+#: v2/templates/people/peopledashboard.php:336
 msgid "Gender Demographics"
 msgstr "Demografische Daten zum Geschlecht"
 
-#: v2/templates/people/peopledashboard.php:365
+#: v2/templates/people/peopledashboard.php:351
 msgid "# Age Histogram"
 msgstr "# Alters-Histogramm"
 
-#: v2/templates/people/peopledashboard.php:394
+#: v2/templates/people/peopledashboard.php:380
 msgid "Men"
 msgstr "Männer"
 
-#: v2/templates/people/peopledashboard.php:399
+#: v2/templates/people/peopledashboard.php:385
 msgid "Women"
 msgstr "Frauen"
 
-#: v2/templates/people/peopledashboard.php:408
+#: v2/templates/people/peopledashboard.php:394
 #: v2/templates/sundayschool/sundayschooldashboard.php:73
 msgid "Boys"
 msgstr "Jungen"
 
-#: v2/templates/people/peopledashboard.php:413
+#: v2/templates/people/peopledashboard.php:399
 #: v2/templates/sundayschool/sundayschooldashboard.php:85
 msgid "Girls"
 msgstr "Mädchen"
 
-#: v2/templates/people/peopledashboard.php:479
+#: v2/templates/people/peopledashboard.php:465
 msgid "# number of people"
 msgstr "# Anzahl der Personen"
 
@@ -11789,8 +11785,8 @@ msgstr "JSON-Einstellungen bearbeiten"
 
 #: v2/templates/sidebar/systemsettings.php:68
 #: v2/templates/user/userseditor.php:811 v2/templates/user/usersettings.php:62
-#: v2/templates/user/usersettings.php:328
-#: v2/templates/user/usersettings.php:407
+#: v2/templates/user/usersettings.php:325
+#: v2/templates/user/usersettings.php:404
 msgid "Save Settings"
 msgstr "Einstellungen speichern"
 
@@ -11806,13 +11802,13 @@ msgstr "Standardwert"
 
 #: v2/templates/sidebar/systemsettings.php:158
 #: v2/templates/user/userseditor.php:561 v2/templates/user/userseditor.php:614
-#: v2/templates/user/usersettings.php:279
+#: v2/templates/user/usersettings.php:276
 msgid "False"
 msgstr "Falsch"
 
 #: v2/templates/sidebar/systemsettings.php:159
 #: v2/templates/user/userseditor.php:562 v2/templates/user/userseditor.php:615
-#: v2/templates/user/usersettings.php:280
+#: v2/templates/user/usersettings.php:277
 msgid "True"
 msgstr "Wahr"
 
@@ -12268,6 +12264,77 @@ msgstr "Es gibt keine Veranstaltungen in dieser Kategorie"
 msgid "There are no Records"
 msgstr "Es gibt keine Aufzeichnungen"
 
+#: v2/templates/system/infos.php:16
+msgid "EcclesiaCRM Installation Information"
+msgstr "EcclesiaCRM-Installationsinformationen"
+
+#: v2/templates/system/infos.php:21
+msgid "Software Version"
+msgstr "Software-Version"
+
+#: v2/templates/system/infos.php:47
+msgid "System Information"
+msgstr "System-Informationen"
+
+#: v2/templates/system/infos.php:70
+msgid "Database"
+msgstr "Datenbank"
+
+#: v2/templates/system/infos.php:75
+msgid "Database Version"
+msgstr "Datenbank-Version"
+
+#: v2/templates/system/infos.php:79
+msgid "Database Server Version"
+msgstr "Datenbank-Server-Version"
+
+#: v2/templates/system/infos.php:93
+msgid "Web Server"
+msgstr "Web-Server"
+
+#: v2/templates/system/infos.php:159
+msgid "Email Information"
+msgstr "E-Mail-Informationen"
+
+#: v2/templates/system/infos.php:168
+msgid "Valid Mail Server Settings"
+msgstr "Gültige Mail-Server-Einstellungen"
+
+#: v2/templates/system/infos.php:178
+msgid "Application Prerequisites"
+msgstr "Voraussetzungen für die Bewerbung"
+
+#: v2/templates/system/infos.php:195
+msgid "Application Integrity Check"
+msgstr "Integritätsprüfung der Anwendung"
+
+#: v2/templates/system/infos.php:198 v2/templates/system/integritycheck.php:57
+msgid "Details:"
+msgstr "Einzelheiten:"
+
+#: v2/templates/system/infos.php:202 v2/templates/system/integritycheck.php:61
+msgid "Files failing integrity check"
+msgstr "Dateien, die die Integritätsprüfung nicht bestehen"
+
+#: v2/templates/system/infos.php:205
+msgid "FileName"
+msgstr "Dateiname"
+
+#: v2/templates/system/infos.php:206 v2/templates/system/integritycheck.php:78
+#: v2/templates/system/integritycheck.php:105
+msgid "Expected Hash"
+msgstr "Erwartetes Hash"
+
+#: v2/templates/system/infos.php:207 v2/templates/system/integritycheck.php:79
+#: v2/templates/system/integritycheck.php:106
+msgid "Actual Hash"
+msgstr "Aktueller Hash"
+
+#: v2/templates/system/infos.php:218 v2/templates/system/integritycheck.php:72
+#: v2/templates/system/integritycheck.php:99
+msgid "File Missing"
+msgstr "Fehlende Datei"
+
 #: v2/templates/system/integritycheck.php:34
 msgid "All Application Prerequisites Satisfied"
 msgstr "Alle Anwendungsvoraussetzungen erfüllt"
@@ -12290,10 +12357,6 @@ msgstr ""
 "Server oder sind nicht richtig konfiguriert.  Die Anwendung kann weiterhin "
 "funktionieren, aber möglicherweise ein unerwartetes Verhalten zeigen."
 
-#: v2/templates/system/integritycheck.php:46
-msgid "Failed"
-msgstr "Gescheitert"
-
 #: v2/templates/system/integritycheck.php:55
 msgid "Integrity Check Failure"
 msgstr "Integritätsprüfung fehlgeschlagen"
@@ -12302,33 +12365,10 @@ msgstr "Integritätsprüfung fehlgeschlagen"
 msgid "The previous integrity check failed"
 msgstr "Die vorherige Integritätsprüfung ist fehlgeschlagen"
 
-#: v2/templates/system/integritycheck.php:57
-msgid "Details:"
-msgstr "Einzelheiten:"
-
-#: v2/templates/system/integritycheck.php:61
-msgid "Files failing integrity check"
-msgstr "Dateien, die die Integritätsprüfung nicht bestehen"
-
 #: v2/templates/system/integritycheck.php:67
 #: v2/templates/system/integritycheck.php:93
 msgid "File Name"
 msgstr "Datei Name"
-
-#: v2/templates/system/integritycheck.php:72
-#: v2/templates/system/integritycheck.php:99
-msgid "File Missing"
-msgstr "Fehlende Datei"
-
-#: v2/templates/system/integritycheck.php:78
-#: v2/templates/system/integritycheck.php:105
-msgid "Expected Hash"
-msgstr "Erwartetes Hash"
-
-#: v2/templates/system/integritycheck.php:79
-#: v2/templates/system/integritycheck.php:106
-msgid "Actual Hash"
-msgstr "Aktueller Hash"
 
 #: v2/templates/system/integritycheck.php:125
 msgid "Integrity Check Passed"
@@ -12427,12 +12467,6 @@ msgstr ""
 #: v2/templates/system/reportlist.php:66
 msgid "Event Attendance Reports"
 msgstr "Berichte zur Veranstaltungsteilnahme"
-
-#: v2/templates/system/USISTAddressVerification.php:88
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
-msgstr ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: v2/templates/user/changepassword.php:43
 msgid "Enter a new password for this user."
@@ -12735,7 +12769,7 @@ msgstr "Anmerkungen"
 msgid "Plugin permissions"
 msgstr "Plugin-Berechtigungen"
 
-#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:347
+#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
 msgstr "Sichtbarkeiten der Dashboard-Plugins"
 
@@ -12747,7 +12781,7 @@ msgstr "Sicherheit"
 msgid "Position"
 msgstr "Position"
 
-#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:389
+#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:386
 msgid "Top"
 msgstr "Top"
 
@@ -12759,15 +12793,15 @@ msgstr "Klassische Benutzerprofileinstellungen"
 msgid "Skin"
 msgstr "Haut"
 
-#: v2/templates/user/usersettings.php:338
+#: v2/templates/user/usersettings.php:335
 msgid "Specific settings"
 msgstr "Spezifische Einstellungen"
 
-#: v2/templates/user/usersettings.php:420
+#: v2/templates/user/usersettings.php:417
 msgid "Two-factor authentication (2fa)"
 msgstr "Zwei-Faktor-Authentifizierung (2fa)"
 
-#: v2/templates/user/usersettings.php:423
+#: v2/templates/user/usersettings.php:420
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -12777,12 +12811,12 @@ msgstr ""
 "registrieren, bietet EcclesiaCRM eine zusätzliche Verteidigungsschicht gegen "
 "böswillige Akteure, die versuchen, auf Ihr Konto zuzugreifen"
 
-#: v2/templates/user/usersettings.php:424
+#: v2/templates/user/usersettings.php:421
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr ""
 "EcclesiaCRM Two factor unterstützt jede TOTP-Authentifikator-Applikation"
 
-#: v2/templates/user/usersettings.php:429
+#: v2/templates/user/usersettings.php:426
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -12790,7 +12824,7 @@ msgstr ""
 "Wenn Sie sich bei EcclesiaCRM anmelden, geben Sie wie gewohnt Ihren "
 "Benutzernamen und Ihr Passwort ein"
 
-#: v2/templates/user/usersettings.php:432
+#: v2/templates/user/usersettings.php:429
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -12798,7 +12832,7 @@ msgstr ""
 "Sie müssen jedoch auch einen einmaligen Code von Ihrem "
 "Authentifizierungsgerät eingeben, um Ihre Anmeldung abzuschließen"
 
-#: v2/templates/user/usersettings.php:435
+#: v2/templates/user/usersettings.php:432
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -12806,7 +12840,7 @@ msgstr ""
 "Nach erfolgreicher Eingabe Ihrer Anmeldedaten und des einmaligen Codes "
 "werden Sie wie gewohnt eingeloggt"
 
-#: v2/templates/user/usersettings.php:438
+#: v2/templates/user/usersettings.php:435
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -12815,7 +12849,7 @@ msgstr ""
 "stellen Sie bitte sicher, dass Sie bereit sind, die Zwei-Faktor-Anmeldung "
 "abzuschließen, bevor Sie auf \"Start\" klicken"
 
-#: v2/templates/user/usersettings.php:441
+#: v2/templates/user/usersettings.php:438
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
@@ -12823,7 +12857,7 @@ msgstr ""
 "Mit Beginn der Registrierung werden alle zuvor registrierten 2-Faktor-Geräte "
 "und Wiederherstellungscodes ungültig."
 
-#: v2/templates/user/usersettings.php:443
+#: v2/templates/user/usersettings.php:440
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -12831,7 +12865,7 @@ msgstr ""
 "Wenn Sie auf \"Weiter\" klicken, werden Sie aufgefordert, einen QR-Code zu "
 "scannen, um Ihre Authentifizierungs-App zu registrieren."
 
-#: v2/templates/user/usersettings.php:445
+#: v2/templates/user/usersettings.php:442
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
@@ -12839,7 +12873,7 @@ msgstr ""
 "Um die Anmeldung zu bestätigen, müssen Sie den von Ihrer Authentifizierungs-"
 "App generierten Code eingeben"
 
-#: v2/templates/user/usersettings.php:447
+#: v2/templates/user/usersettings.php:444
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -12847,7 +12881,7 @@ msgstr ""
 "Nach der Bestätigung der App-Registrierung werden Einmal-"
 "Wiederherstellungscodes generiert und angezeigt."
 
-#: v2/templates/user/usersettings.php:449
+#: v2/templates/user/usersettings.php:446
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -12855,11 +12889,11 @@ msgstr ""
 "Wiederherstellungscodes können anstelle eines Codes verwendet werden, der "
 "von Ihrer Authenticator-App generiert wird."
 
-#: v2/templates/user/usersettings.php:451
+#: v2/templates/user/usersettings.php:448
 msgid "Store these in a secure location"
 msgstr "Bewahren Sie diese an einem sicheren Ort auf"
 
-#: v2/templates/user/usersettings.php:458
+#: v2/templates/user/usersettings.php:455
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Registrierung für die Zwei-Faktor-Authentifizierung beginnen"
 
@@ -13691,6 +13725,28 @@ msgstr "Mehrere Tage"
 
 msgid "Giving Report"
 msgstr "Spendenbericht"
+
+#~ msgid "Integrity Check Results"
+#~ msgstr "Ergebnisse der Integritätsprüfung"
+
+#~ msgid "US Address Verification"
+#~ msgstr "Überprüfung der US-Adresse"
+
+#~ msgid "US Address Verification Report"
+#~ msgstr "Bericht zur Überprüfung der US-Adresse"
+
+#~ msgid ""
+#~ "Generate report comparing all US family addresses with United States "
+#~ "Postal Service Standard Address Format.<br>"
+#~ msgstr ""
+#~ "Erstellung eines Berichts, in dem alle US-Familienadressen mit dem "
+#~ "Standardadressformat des United States Postal Service verglichen werden."
+#~ "<br>"
+
+#~ msgid ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
+#~ msgstr ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #~ msgid "URL"
 #~ msgstr "URL"

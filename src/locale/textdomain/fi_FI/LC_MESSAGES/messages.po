@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 20:44+0000\n"
+"POT-Creation-Date: 2024-02-16 20:41+0000\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr "Esikatselu"
 msgid "Cannot execute query."
 msgstr "Kyselyä ei voida suorittaa."
 
-#: CSVImport.php:121 Include/Footer.php:267
+#: CSVImport.php:121 Include/Footer.php:279
 msgid "CSV Import"
 msgstr "CSV-tuonti"
 
@@ -470,7 +470,7 @@ msgstr "Käyttämätön"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
 #: v2/templates/people/familyEditor.php:1089
 #: v2/templates/people/familyview.php:339
-#: v2/templates/people/peopledashboard.php:322
+#: v2/templates/people/peopledashboard.php:308
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:355
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
@@ -1062,7 +1062,7 @@ msgstr "Nimi"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
-#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:383
+#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:380
 msgid "Yes"
 msgstr "Kyllä"
 
@@ -1077,7 +1077,7 @@ msgstr "Kyllä"
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
 #: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
-#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
+#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:379
 msgid "No"
 msgstr "Ei"
 
@@ -1214,7 +1214,7 @@ msgid "Role"
 msgstr "Rooli"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
-#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:275
+#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:261
 #: v2/templates/system/optionManager.php:92
 msgid "Family Roles"
 msgstr "Perheen roolit"
@@ -4269,51 +4269,51 @@ msgstr "vuotias"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM vienti"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
 msgid "system user created"
 msgstr "järjestelmän käyttäjä luotu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 msgid "system user updated"
 msgstr "järjestelmän käyttäjä päivitetty"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
 msgid "system user deleted"
 msgstr "järjestelmän käyttäjä poistettu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 msgid "system user password reset"
 msgstr "järjestelmän käyttäjän salasanan palautus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "system user changed password"
 msgstr "järjestelmän käyttäjä vaihtoi salasanaa"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "system user password changed by admin"
 msgstr "järjestelmän käyttäjän salasanan on muuttanut admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:761
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
 msgid "system user login reset"
 msgstr "järjestelmän käyttäjän kirjautumisen palautus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:767
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
 msgid "Dav create file"
 msgstr "Dav luo tiedoston"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:773
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
 msgid "Dav create directory"
 msgstr "Dav luo hakemiston"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:779
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
 msgid "Dav update file"
 msgstr "Dav päivitystiedosto"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:792
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
 msgid "Dav move copy file"
 msgstr "Dav siirrä kopioi tiedosto"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:799
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
 msgid "Dav delete file"
 msgstr "Dav poista tiedosto"
 
@@ -4781,20 +4781,31 @@ msgstr "vapaaehtoinen"
 msgid "Pledges"
 msgstr "Lupaukset"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:29
-#: EcclesiaCRM/Service/AppIntegrityService.php:74
+#: EcclesiaCRM/Service/AppIntegrityService.php:66
+#: EcclesiaCRM/Service/AppIntegrityService.php:143
 msgid "Signature definition file signature failed validation"
 msgstr "Allekirjoitustiedoston allekirjoituksen validointi epäonnistui"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:32
-#: EcclesiaCRM/Service/AppIntegrityService.php:77
+#: EcclesiaCRM/Service/AppIntegrityService.php:69
+#: EcclesiaCRM/Service/AppIntegrityService.php:146
 msgid "Signature definition File Missing"
 msgstr "Allekirjoituksen määrittelytiedosto puuttuu"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:41
-#: EcclesiaCRM/Service/AppIntegrityService.php:83
+#: EcclesiaCRM/Service/AppIntegrityService.php:78
+#: EcclesiaCRM/Service/AppIntegrityService.php:152
 msgid "One or more files failed signature validation"
 msgstr "Yksi tai useampi tiedosto epäonnistui allekirjoituksen validoinnissa"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:91
+#: v2/templates/system/integritycheck.php:46
+msgid "Failed"
+msgstr "Epäonnistunut"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:94
+#: EcclesiaCRM/Service/AppIntegrityService.php:103
+#: EcclesiaCRM/Service/AppIntegrityService.php:112
+msgid "Passed"
+msgstr "Hyväksytty"
 
 #: EcclesiaCRM/Service/CalendarService.php:59
 msgid "Event"
@@ -5130,7 +5141,7 @@ msgstr "Joidenkin henkilöiden puuttuvat roolitiedot"
 msgid "Unmet Application Prerequisites"
 msgstr "Täyttämättömät sovelluksen edellytykset"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:322
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:334
 msgid "Register Software"
 msgstr "Rekisteröi ohjelmisto"
 
@@ -5392,12 +5403,12 @@ msgid "1 yr old"
 msgstr "1-vuotias"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:258
+#: Include/Footer.php:270
 msgid "Backup Database"
 msgstr "Tietokannan varmuuskopiointi"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:250
+#: Include/Footer.php:262
 msgid "Restore Database"
 msgstr "Palauta tietokanta"
 
@@ -5528,7 +5539,7 @@ msgid "Donation Fund Editor"
 msgstr "Lahjoitusrahasto Editor"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:276 v2/templates/calendar/checkin.php:32
+#: Include/Footer.php:288 v2/templates/calendar/checkin.php:32
 msgid "Kiosk Manager"
 msgstr "Kioskin johtaja"
 
@@ -5801,32 +5812,29 @@ msgstr ""
 msgid "Sunday School Reports"
 msgstr "Sunnuntaikoulun raportit"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:49
-msgid "Integrity Check Results"
-msgstr "Eheyden tarkistuksen tulokset"
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:61
+#: Include/Footer.php:246
+msgid "System Infos"
+msgstr "Järjestelmätiedot"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:80
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:92
 msgid "Report Menu"
 msgstr "Raporttivalikko"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:120
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:132
 msgid "System"
 msgstr "Järjestelmä"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:168
 msgid "Convert Individuals to Addresses"
 msgstr "Muunna henkilöt osoitteiksi"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:190
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:236
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:202
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:248
 #: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:378
 msgid "CSV Export"
 msgstr "CSV-vienti"
-
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:272
-msgid "US Address Verification"
-msgstr "Yhdysvaltain osoitteen vahvistaminen"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
@@ -6204,8 +6212,8 @@ msgstr "Kohtaamme virheen, joka liittyy vahvistustietojesi lähettämiseen."
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 #: v2/templates/user/userseditor.php:814 v2/templates/user/usersettings.php:61
-#: v2/templates/user/usersettings.php:327
-#: v2/templates/user/usersettings.php:404
+#: v2/templates/user/usersettings.php:324
+#: v2/templates/user/usersettings.php:401
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -6268,7 +6276,7 @@ msgstr "Muokkaa lahjoitusrahastoja"
 msgid "Pastoral Care Type"
 msgstr "Sielunhoidon tyyppi"
 
-#: Include/Footer.php:192 Include/Footer.php:286
+#: Include/Footer.php:192 Include/Footer.php:298
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Ota yhteyttä järjestelmänvalvojaan järjestelmän asetusten muuttamiseksi."
@@ -6281,19 +6289,19 @@ msgstr "Muokkaa yleisiä asetuksia"
 msgid "System Users"
 msgstr "Järjestelmän käyttäjät"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:309
 msgid "CSV Export Records"
 msgstr "CSV-vienti tietueet"
 
-#: Include/Footer.php:310
+#: Include/Footer.php:322
 msgid "Open Tasks"
 msgstr "Avoimet tehtävät"
 
-#: Include/Footer.php:311
+#: Include/Footer.php:323
 msgid "You have"
 msgstr "Sinulla on"
 
-#: Include/Footer.php:312
+#: Include/Footer.php:324
 msgid "task(s)"
 msgstr "tehtävä(t)"
 
@@ -6498,7 +6506,7 @@ msgid "return to member dashboard"
 msgstr "palaa jäsenen kojelautaan"
 
 #: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Pending Self Verify"
 msgstr "Vireillä Self Verify"
 
@@ -7936,13 +7944,13 @@ msgstr "Kuvan sijainti"
 #: v2/templates/people/familyCustomFieldEditor.php:508
 #: v2/templates/people/personCustomEditor.php:419
 #: v2/templates/people/personCustomEditor.php:504
-#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:390
+#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:387
 msgid "Left"
 msgstr "Vasen"
 
 #: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
 #: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
-#: v2/templates/user/usersettings.php:391
+#: v2/templates/user/usersettings.php:388
 msgid "Center"
 msgstr "Keskusta"
 
@@ -7952,7 +7960,7 @@ msgstr "Keskusta"
 #: v2/templates/people/familyCustomFieldEditor.php:509
 #: v2/templates/people/personCustomEditor.php:420
 #: v2/templates/people/personCustomEditor.php:505
-#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:392
+#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:389
 msgid "Right"
 msgstr "Oikea"
 
@@ -9890,8 +9898,8 @@ msgid "to contact"
 msgstr "ottaa yhteyttä"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:71
-#: v2/templates/people/peopledashboard.php:287
-#: v2/templates/people/peopledashboard.php:324
+#: v2/templates/people/peopledashboard.php:273
+#: v2/templates/people/peopledashboard.php:310
 msgid "Count"
 msgstr "Count"
 
@@ -10063,7 +10071,7 @@ msgstr "Ei ryhmätehtäviä."
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:513
 #: v2/templates/people/personPrint.php:509
 #: v2/templates/sidebar/propertylist.php:23
-#: v2/templates/user/usersettings.php:308 queryparameters_qrp.php:6
+#: v2/templates/user/usersettings.php:305 queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Kiinteistö"
 
@@ -10915,8 +10923,8 @@ msgid "Sunday School Kids"
 msgstr "Sunnuntaikoulun lapset"
 
 #: v2/templates/people/peopledashboard.php:194
-#: v2/templates/people/peopledashboard.php:248
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:234
+#: v2/templates/people/peopledashboard.php:241
 #: v2/templates/sundayschool/sundayschooldashboard.php:148
 msgid "Reports"
 msgstr "Raportit"
@@ -10952,82 +10960,70 @@ msgstr ""
 msgid "Generate letters and mailing labels for data confirmations."
 msgstr "Luo kirjeet ja postituskortit tietojen vahvistamista varten."
 
-#: v2/templates/people/peopledashboard.php:233
-msgid "US Address Verification Report"
-msgstr "Yhdysvaltain osoitteen tarkistusraportti"
-
-#: v2/templates/people/peopledashboard.php:236
-msgid ""
-"Generate report comparing all US family addresses with United States Postal "
-"Service Standard Address Format.<br>"
-msgstr ""
-"Luo raportti, jossa verrataan kaikkia Yhdysvaltojen perheosoitteita "
-"Yhdysvaltojen postipalvelun vakio-osoiteformaattiin.<br>"
-
-#: v2/templates/people/peopledashboard.php:248
+#: v2/templates/people/peopledashboard.php:234
 msgid "Self Update"
 msgstr "Itsepäivitys"
 
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:241
 msgid "Self Register"
 msgstr "Itserekisteröinti"
 
-#: v2/templates/people/peopledashboard.php:257
+#: v2/templates/people/peopledashboard.php:243
 msgid "List families that were created via self registration."
 msgstr "Luettelo perheistä, jotka on luotu itserekisteröitymisen kautta."
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Self Verify Updates"
 msgstr "Self Verify päivitykset"
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Families who commented via self verify links"
 msgstr "Perheet, jotka kommentoivat itse vahvistettujen linkkien kautta"
 
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Families with valid self verify links"
 msgstr "Perheet, joilla on voimassaolevat linkit"
 
-#: v2/templates/people/peopledashboard.php:285
+#: v2/templates/people/peopledashboard.php:271
 msgid "Role / Gender"
 msgstr "Rooli / sukupuoli"
 
-#: v2/templates/people/peopledashboard.php:286
-#: v2/templates/people/peopledashboard.php:323
+#: v2/templates/people/peopledashboard.php:272
+#: v2/templates/people/peopledashboard.php:309
 msgid "of People"
 msgstr "of People"
 
-#: v2/templates/people/peopledashboard.php:312
+#: v2/templates/people/peopledashboard.php:298
 msgid "People Classification"
 msgstr "Ihmiset Luokittelu"
 
-#: v2/templates/people/peopledashboard.php:350
+#: v2/templates/people/peopledashboard.php:336
 msgid "Gender Demographics"
 msgstr "Sukupuolen demografiset tiedot"
 
-#: v2/templates/people/peopledashboard.php:365
+#: v2/templates/people/peopledashboard.php:351
 msgid "# Age Histogram"
 msgstr "# Ikä Histogrammi"
 
-#: v2/templates/people/peopledashboard.php:394
+#: v2/templates/people/peopledashboard.php:380
 msgid "Men"
 msgstr "Miehet"
 
-#: v2/templates/people/peopledashboard.php:399
+#: v2/templates/people/peopledashboard.php:385
 msgid "Women"
 msgstr "Naiset"
 
-#: v2/templates/people/peopledashboard.php:408
+#: v2/templates/people/peopledashboard.php:394
 #: v2/templates/sundayschool/sundayschooldashboard.php:73
 msgid "Boys"
 msgstr "Pojat"
 
-#: v2/templates/people/peopledashboard.php:413
+#: v2/templates/people/peopledashboard.php:399
 #: v2/templates/sundayschool/sundayschooldashboard.php:85
 msgid "Girls"
 msgstr "Tytöt"
 
-#: v2/templates/people/peopledashboard.php:479
+#: v2/templates/people/peopledashboard.php:465
 msgid "# number of people"
 msgstr "# ihmisten määrä"
 
@@ -11679,8 +11675,8 @@ msgstr "Muokkaa JSON-asetuksia"
 
 #: v2/templates/sidebar/systemsettings.php:68
 #: v2/templates/user/userseditor.php:811 v2/templates/user/usersettings.php:62
-#: v2/templates/user/usersettings.php:328
-#: v2/templates/user/usersettings.php:407
+#: v2/templates/user/usersettings.php:325
+#: v2/templates/user/usersettings.php:404
 msgid "Save Settings"
 msgstr "Tallenna asetukset"
 
@@ -11696,13 +11692,13 @@ msgstr "Oletusarvo"
 
 #: v2/templates/sidebar/systemsettings.php:158
 #: v2/templates/user/userseditor.php:561 v2/templates/user/userseditor.php:614
-#: v2/templates/user/usersettings.php:279
+#: v2/templates/user/usersettings.php:276
 msgid "False"
 msgstr "False"
 
 #: v2/templates/sidebar/systemsettings.php:159
 #: v2/templates/user/userseditor.php:562 v2/templates/user/userseditor.php:615
-#: v2/templates/user/usersettings.php:280
+#: v2/templates/user/usersettings.php:277
 msgid "True"
 msgstr "Totta"
 
@@ -12153,6 +12149,77 @@ msgstr "Tässä kategoriassa ei ole tapahtumia"
 msgid "There are no Records"
 msgstr "Tietueita ei ole"
 
+#: v2/templates/system/infos.php:16
+msgid "EcclesiaCRM Installation Information"
+msgstr "EcclesiaCRM:n asennustiedot"
+
+#: v2/templates/system/infos.php:21
+msgid "Software Version"
+msgstr "Ohjelmiston versio"
+
+#: v2/templates/system/infos.php:47
+msgid "System Information"
+msgstr "Järjestelmätiedot"
+
+#: v2/templates/system/infos.php:70
+msgid "Database"
+msgstr "Tietokanta"
+
+#: v2/templates/system/infos.php:75
+msgid "Database Version"
+msgstr "Tietokannan versio"
+
+#: v2/templates/system/infos.php:79
+msgid "Database Server Version"
+msgstr "Tietokantapalvelimen versio"
+
+#: v2/templates/system/infos.php:93
+msgid "Web Server"
+msgstr "Verkkopalvelin"
+
+#: v2/templates/system/infos.php:159
+msgid "Email Information"
+msgstr "Sähköpostitiedot"
+
+#: v2/templates/system/infos.php:168
+msgid "Valid Mail Server Settings"
+msgstr "Voimassa olevat sähköpostipalvelimen asetukset"
+
+#: v2/templates/system/infos.php:178
+msgid "Application Prerequisites"
+msgstr "Sovelluksen edellytykset"
+
+#: v2/templates/system/infos.php:195
+msgid "Application Integrity Check"
+msgstr "Sovelluksen eheyden tarkistus"
+
+#: v2/templates/system/infos.php:198 v2/templates/system/integritycheck.php:57
+msgid "Details:"
+msgstr "Yksityiskohdat:"
+
+#: v2/templates/system/infos.php:202 v2/templates/system/integritycheck.php:61
+msgid "Files failing integrity check"
+msgstr "Tiedostot eivät läpäise eheystarkastusta"
+
+#: v2/templates/system/infos.php:205
+msgid "FileName"
+msgstr "FileName"
+
+#: v2/templates/system/infos.php:206 v2/templates/system/integritycheck.php:78
+#: v2/templates/system/integritycheck.php:105
+msgid "Expected Hash"
+msgstr "Odotettu Hash"
+
+#: v2/templates/system/infos.php:207 v2/templates/system/integritycheck.php:79
+#: v2/templates/system/integritycheck.php:106
+msgid "Actual Hash"
+msgstr "Todellinen Hash"
+
+#: v2/templates/system/infos.php:218 v2/templates/system/integritycheck.php:72
+#: v2/templates/system/integritycheck.php:99
+msgid "File Missing"
+msgstr "Tiedosto puuttuu"
+
 #: v2/templates/system/integritycheck.php:34
 msgid "All Application Prerequisites Satisfied"
 msgstr "Kaikki hakemuksen edellytykset täytetty"
@@ -12175,10 +12242,6 @@ msgstr ""
 "väärin tällä palvelimella.  Sovellus saattaa jatkaa toimintaansa, mutta se "
 "saattaa käyttäytyä odottamattomasti."
 
-#: v2/templates/system/integritycheck.php:46
-msgid "Failed"
-msgstr "Epäonnistunut"
-
 #: v2/templates/system/integritycheck.php:55
 msgid "Integrity Check Failure"
 msgstr "Eheyden tarkistuksen epäonnistuminen"
@@ -12187,33 +12250,10 @@ msgstr "Eheyden tarkistuksen epäonnistuminen"
 msgid "The previous integrity check failed"
 msgstr "Edellinen eheyden tarkistus epäonnistui"
 
-#: v2/templates/system/integritycheck.php:57
-msgid "Details:"
-msgstr "Yksityiskohdat:"
-
-#: v2/templates/system/integritycheck.php:61
-msgid "Files failing integrity check"
-msgstr "Tiedostot eivät läpäise eheystarkastusta"
-
 #: v2/templates/system/integritycheck.php:67
 #: v2/templates/system/integritycheck.php:93
 msgid "File Name"
 msgstr "Tiedoston nimi"
-
-#: v2/templates/system/integritycheck.php:72
-#: v2/templates/system/integritycheck.php:99
-msgid "File Missing"
-msgstr "Tiedosto puuttuu"
-
-#: v2/templates/system/integritycheck.php:78
-#: v2/templates/system/integritycheck.php:105
-msgid "Expected Hash"
-msgstr "Odotettu Hash"
-
-#: v2/templates/system/integritycheck.php:79
-#: v2/templates/system/integritycheck.php:106
-msgid "Actual Hash"
-msgstr "Todellinen Hash"
 
 #: v2/templates/system/integritycheck.php:125
 msgid "Integrity Check Passed"
@@ -12311,12 +12351,6 @@ msgstr "Automatisoitu tuki jokaisen jäsenen kyselytutkimuksen suorittamiseen."
 #: v2/templates/system/reportlist.php:66
 msgid "Event Attendance Reports"
 msgstr "Tapahtumien osallistumisraportit"
-
-#: v2/templates/system/USISTAddressVerification.php:88
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
-msgstr ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: v2/templates/user/changepassword.php:43
 msgid "Enter a new password for this user."
@@ -12617,7 +12651,7 @@ msgstr "Huomautukset"
 msgid "Plugin permissions"
 msgstr "Pluginin käyttöoikeudet"
 
-#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:347
+#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
 msgstr "Kojelaudan lisäosien näkyvyydet"
 
@@ -12629,7 +12663,7 @@ msgstr "Turvallisuus"
 msgid "Position"
 msgstr "Asema"
 
-#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:389
+#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:386
 msgid "Top"
 msgstr "Top"
 
@@ -12641,15 +12675,15 @@ msgstr "Klassisen käyttäjäprofiilin asetukset"
 msgid "Skin"
 msgstr "Iho"
 
-#: v2/templates/user/usersettings.php:338
+#: v2/templates/user/usersettings.php:335
 msgid "Specific settings"
 msgstr "Erityisasetukset"
 
-#: v2/templates/user/usersettings.php:420
+#: v2/templates/user/usersettings.php:417
 msgid "Two-factor authentication (2fa)"
 msgstr "Kaksitekijätodennus (2fa)"
 
-#: v2/templates/user/usersettings.php:423
+#: v2/templates/user/usersettings.php:420
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -12659,11 +12693,11 @@ msgstr ""
 "tarjoaa EcclesiaCRM:n suojakerroksen huonoja toimijoita vastaan, jotka "
 "yrittävät käyttää tiliäsi."
 
-#: v2/templates/user/usersettings.php:424
+#: v2/templates/user/usersettings.php:421
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "EcclesiaCRM Two factor tukee mitä tahansa TOTP-todennussovellusta."
 
-#: v2/templates/user/usersettings.php:429
+#: v2/templates/user/usersettings.php:426
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -12671,7 +12705,7 @@ msgstr ""
 "Kun kirjaudut sisään EcclesiaCRM:ään, syötät edelleen käyttäjänimesi ja "
 "salasanasi normaalisti."
 
-#: v2/templates/user/usersettings.php:432
+#: v2/templates/user/usersettings.php:429
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -12679,7 +12713,7 @@ msgstr ""
 "Sinun on kuitenkin myös annettava kertakäyttökoodi autentikointilaitteestasi "
 "kirjautumisen loppuunsaattamiseksi."
 
-#: v2/templates/user/usersettings.php:435
+#: v2/templates/user/usersettings.php:432
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -12687,7 +12721,7 @@ msgstr ""
 "Kun olet onnistuneesti syöttänyt tunnistetietosi ja kertakäyttökoodin, "
 "kirjaudut sisään normaalisti."
 
-#: v2/templates/user/usersettings.php:438
+#: v2/templates/user/usersettings.php:435
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -12695,7 +12729,7 @@ msgstr ""
 "Varmista, että olet valmis suorittamaan kaksitekijäisen kirjautumisen, ennen "
 "kuin klikkaat Aloita, jotta et pääse lukkiutumaan ulos EcclesiaCRM-tililtäsi."
 
-#: v2/templates/user/usersettings.php:441
+#: v2/templates/user/usersettings.php:438
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
@@ -12703,7 +12737,7 @@ msgstr ""
 "Rekisteröinnin aloittaminen mitätöi kaikki aiemmin rekisteröidyt 2-"
 "tekijälaitteet ja palautuskoodit."
 
-#: v2/templates/user/usersettings.php:443
+#: v2/templates/user/usersettings.php:440
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -12711,7 +12745,7 @@ msgstr ""
 "Kun valitset Seuraava, sinua pyydetään skannaamaan QR-koodi, jotta voit "
 "rekisteröidä todentajasovelluksen."
 
-#: v2/templates/user/usersettings.php:445
+#: v2/templates/user/usersettings.php:442
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
@@ -12719,7 +12753,7 @@ msgstr ""
 "Vahvistaaksesi rekisteröinnin sinun on syötettävä tunnistautumissovelluksen "
 "luoma koodi."
 
-#: v2/templates/user/usersettings.php:447
+#: v2/templates/user/usersettings.php:444
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -12727,7 +12761,7 @@ msgstr ""
 "Kun sovelluksen rekisteröinti on vahvistettu, kertakäyttöiset palautuskoodit "
 "luodaan ja näytetään."
 
-#: v2/templates/user/usersettings.php:449
+#: v2/templates/user/usersettings.php:446
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -12735,11 +12769,11 @@ msgstr ""
 "Palautuskoodeja voidaan käyttää autentikointisovelluksen tuottaman koodin "
 "sijasta."
 
-#: v2/templates/user/usersettings.php:451
+#: v2/templates/user/usersettings.php:448
 msgid "Store these in a secure location"
 msgstr "Säilytä nämä turvallisessa paikassa"
 
-#: v2/templates/user/usersettings.php:458
+#: v2/templates/user/usersettings.php:455
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Aloita kaksitekijätodennuksen rekisteröinti"
 
@@ -13552,6 +13586,27 @@ msgstr "Useita päiviä"
 
 msgid "Giving Report"
 msgstr "Antaminen Raportti"
+
+#~ msgid "Integrity Check Results"
+#~ msgstr "Eheyden tarkistuksen tulokset"
+
+#~ msgid "US Address Verification"
+#~ msgstr "Yhdysvaltain osoitteen vahvistaminen"
+
+#~ msgid "US Address Verification Report"
+#~ msgstr "Yhdysvaltain osoitteen tarkistusraportti"
+
+#~ msgid ""
+#~ "Generate report comparing all US family addresses with United States "
+#~ "Postal Service Standard Address Format.<br>"
+#~ msgstr ""
+#~ "Luo raportti, jossa verrataan kaikkia Yhdysvaltojen perheosoitteita "
+#~ "Yhdysvaltojen postipalvelun vakio-osoiteformaattiin.<br>"
+
+#~ msgid ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
+#~ msgstr ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #~ msgid "URL"
 #~ msgstr "URL"
