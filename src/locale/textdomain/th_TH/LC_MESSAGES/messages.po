@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 20:12+0000\n"
+"POT-Creation-Date: 2024-02-16 20:36+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr "ว่าไง"
 msgid "Cannot execute query."
 msgstr "คำถามที่ไม่สามารถดำเนินการได้"
 
-#: CSVImport.php:121 Include/Footer.php:267
+#: CSVImport.php:121 Include/Footer.php:279
 msgid "CSV Import"
 msgstr "CSV"
 
@@ -462,7 +462,7 @@ msgstr "ไม่ได้รับมอบหมาย"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
 #: v2/templates/people/familyEditor.php:1089
 #: v2/templates/people/familyview.php:339
-#: v2/templates/people/peopledashboard.php:322
+#: v2/templates/people/peopledashboard.php:308
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:355
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
@@ -1040,7 +1040,7 @@ msgstr "ชื่อ"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
-#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:383
+#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:380
 msgid "Yes"
 msgstr "ใช่"
 
@@ -1055,7 +1055,7 @@ msgstr "ใช่"
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
 #: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
-#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
+#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:379
 msgid "No"
 msgstr "ไม่"
 
@@ -1192,7 +1192,7 @@ msgid "Role"
 msgstr "Role"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
-#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:275
+#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:261
 #: v2/templates/system/optionManager.php:92
 msgid "Family Roles"
 msgstr "บทบาทครอบครัว"
@@ -4190,51 +4190,51 @@ msgstr "แก่"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM ส่งออก"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
 msgid "system user created"
 msgstr "ผู้ใช้ระบบสร้าง"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 msgid "system user updated"
 msgstr "ผู้ใช้ระบบอัพเดทขึ้น"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
 msgid "system user deleted"
 msgstr "ผู้ใช้ระบบลบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 msgid "system user password reset"
 msgstr "รหัสผ่านระบบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "system user changed password"
 msgstr "ผู้ใช้ระบบเปลี่ยนรหัสผ่าน"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "system user password changed by admin"
 msgstr "รหัสผ่านระบบ เปลี่ยนโดยเอพิษ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:761
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
 msgid "system user login reset"
 msgstr "ระบบรีเซ็ตผู้ใช้ระบบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:767
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
 msgid "Dav create file"
 msgstr "เดฟสร้างแฟ้มข้อมูล"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:773
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
 msgid "Dav create directory"
 msgstr "เดฟสร้างไดเรกทอรี่"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:779
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
 msgid "Dav update file"
 msgstr "แฟ้มข้อมูลดาว"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:792
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
 msgid "Dav move copy file"
 msgstr "เดฟย้ายประวัติ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:799
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
 msgid "Dav delete file"
 msgstr "เดฟลบไฟล์"
 
@@ -4702,20 +4702,32 @@ msgstr "อาสาสมัคร"
 msgid "Pledges"
 msgstr "มียาง"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:29
-#: EcclesiaCRM/Service/AppIntegrityService.php:74
+#: EcclesiaCRM/Service/AppIntegrityService.php:66
+#: EcclesiaCRM/Service/AppIntegrityService.php:143
 msgid "Signature definition file signature failed validation"
 msgstr "เอกสารเอกสารเอกสารล้มเหลว"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:32
-#: EcclesiaCRM/Service/AppIntegrityService.php:77
+#: EcclesiaCRM/Service/AppIntegrityService.php:69
+#: EcclesiaCRM/Service/AppIntegrityService.php:146
 msgid "Signature definition File Missing"
 msgstr "นิยามลายเซ็นต์ที่หายไป"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:41
-#: EcclesiaCRM/Service/AppIntegrityService.php:83
+#: EcclesiaCRM/Service/AppIntegrityService.php:78
+#: EcclesiaCRM/Service/AppIntegrityService.php:152
 msgid "One or more files failed signature validation"
 msgstr "เอกสารล้มเหลวเพียงหนึ่งหรือมากกว่านั้น"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:91
+#: v2/templates/system/integritycheck.php:46
+msgid "Failed"
+msgstr "ล้มเหลว"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:94
+#: EcclesiaCRM/Service/AppIntegrityService.php:103
+#: EcclesiaCRM/Service/AppIntegrityService.php:112
+#, fuzzy
+msgid "Passed"
+msgstr "รหัสผ่าน"
 
 #: EcclesiaCRM/Service/CalendarService.php:59
 msgid "Event"
@@ -5049,7 +5061,7 @@ msgstr "สูญพันธุ์โรลดาต้าหายไป"
 msgid "Unmet Application Prerequisites"
 msgstr "ไม่มีใครพบผู้นำ"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:322
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:334
 msgid "Register Software"
 msgstr "ทะเบียน ซอฟต์แวร์"
 
@@ -5311,12 +5323,12 @@ msgid "1 yr old"
 msgstr "1"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:258
+#: Include/Footer.php:270
 msgid "Backup Database"
 msgstr "ฐานข้อมูลสำรอง"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:250
+#: Include/Footer.php:262
 msgid "Restore Database"
 msgstr "ฐานข้อมูลฟื้นฟู"
 
@@ -5449,7 +5461,7 @@ msgid "Donation Fund Editor"
 msgstr "บริจาคฟันด์"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:276 v2/templates/calendar/checkin.php:32
+#: Include/Footer.php:288 v2/templates/calendar/checkin.php:32
 msgid "Kiosk Manager"
 msgstr "ผู้จัดการคิวส์"
 
@@ -5720,33 +5732,31 @@ msgstr "อย่างน้อยก็มีกลุ่มหนึ่ง �
 msgid "Sunday School Reports"
 msgstr "รายงานโรงเรียนวันอาทิตย์"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:49
-msgid "Integrity Check Results"
-msgstr "ผลการตรวจดูความซื่อสัตย์"
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:61
+#: Include/Footer.php:246
+#, fuzzy
+msgid "System Infos"
+msgstr "การตั้งระบบ"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:80
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:92
 msgid "Report Menu"
 msgstr "รายงาน Menu"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:120
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:132
 #, fuzzy
 msgid "System"
 msgstr "ผู้ใช้ระบบ"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:168
 msgid "Convert Individuals to Addresses"
 msgstr "ทำให้บุคคลผู้แทนที่อยู่อาศัย"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:190
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:236
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:202
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:248
 #: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:378
 msgid "CSV Export"
 msgstr "CSV"
-
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:272
-msgid "US Address Verification"
-msgstr "เอกสารที่อยู่อาศัย"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
@@ -6123,8 +6133,8 @@ msgstr "เราได้พบข้อผิดพลาด ที่ส่�
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 #: v2/templates/user/userseditor.php:814 v2/templates/user/usersettings.php:61
-#: v2/templates/user/usersettings.php:327
-#: v2/templates/user/usersettings.php:404
+#: v2/templates/user/usersettings.php:324
+#: v2/templates/user/usersettings.php:401
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -6187,7 +6197,7 @@ msgstr "แก้ไข บริจาค ฟันเงิน"
 msgid "Pastoral Care Type"
 msgstr "พิมพ์ดูแลบาทหลวงพ่อ"
 
-#: Include/Footer.php:192 Include/Footer.php:286
+#: Include/Footer.php:192 Include/Footer.php:298
 msgid "Please contact your admin to change the system settings."
 msgstr "กรุณาติดต่อกับ แอร์เนน เพื่อเปลี่ยนระบบ"
 
@@ -6199,19 +6209,19 @@ msgstr "แก้ไข นายพลตั้งค่า"
 msgid "System Users"
 msgstr "ผู้ใช้ระบบ"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:309
 msgid "CSV Export Records"
 msgstr "บันทึกการตรวจจับ CSV"
 
-#: Include/Footer.php:310
+#: Include/Footer.php:322
 msgid "Open Tasks"
 msgstr "เปิดเฉพาะกิจ"
 
-#: Include/Footer.php:311
+#: Include/Footer.php:323
 msgid "You have"
 msgstr "คุณมี"
 
-#: Include/Footer.php:312
+#: Include/Footer.php:324
 msgid "task(s)"
 msgstr "งาน"
 
@@ -6412,7 +6422,7 @@ msgid "return to member dashboard"
 msgstr "กลับไปยังกระดาน"
 
 #: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Pending Self Verify"
 msgstr "จ่ายเงินให้เซลฟ์"
 
@@ -7843,13 +7853,13 @@ msgstr "ภาพถ่าย"
 #: v2/templates/people/familyCustomFieldEditor.php:508
 #: v2/templates/people/personCustomEditor.php:419
 #: v2/templates/people/personCustomEditor.php:504
-#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:390
+#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:387
 msgid "Left"
 msgstr "ซ้าย"
 
 #: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
 #: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
-#: v2/templates/user/usersettings.php:391
+#: v2/templates/user/usersettings.php:388
 msgid "Center"
 msgstr "ศูนย์"
 
@@ -7859,7 +7869,7 @@ msgstr "ศูนย์"
 #: v2/templates/people/familyCustomFieldEditor.php:509
 #: v2/templates/people/personCustomEditor.php:420
 #: v2/templates/people/personCustomEditor.php:505
-#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:392
+#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:389
 msgid "Right"
 msgstr "ใช่"
 
@@ -9768,8 +9778,8 @@ msgid "to contact"
 msgstr "ติดต่อ"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:71
-#: v2/templates/people/peopledashboard.php:287
-#: v2/templates/people/peopledashboard.php:324
+#: v2/templates/people/peopledashboard.php:273
+#: v2/templates/people/peopledashboard.php:310
 msgid "Count"
 msgstr "นับ"
 
@@ -9941,7 +9951,7 @@ msgstr "ไม่มีการบ้านค่ะ"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:513
 #: v2/templates/people/personPrint.php:509
 #: v2/templates/sidebar/propertylist.php:23
-#: v2/templates/user/usersettings.php:308 queryparameters_qrp.php:6
+#: v2/templates/user/usersettings.php:305 queryparameters_qrp.php:6
 msgid "Property"
 msgstr "สมบัติ"
 
@@ -10779,8 +10789,8 @@ msgid "Sunday School Kids"
 msgstr "เด็ก ๆ วันอาทิตย์"
 
 #: v2/templates/people/peopledashboard.php:194
-#: v2/templates/people/peopledashboard.php:248
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:234
+#: v2/templates/people/peopledashboard.php:241
 #: v2/templates/sundayschool/sundayschooldashboard.php:148
 msgid "Reports"
 msgstr "รายงาน"
@@ -10811,82 +10821,70 @@ msgstr "คำเตือนพลิเลดจ์ที่สำคัญ �
 msgid "Generate letters and mailing labels for data confirmations."
 msgstr "จดหมายและฉลากส่งส่งสัญญาณ"
 
-#: v2/templates/people/peopledashboard.php:233
-msgid "US Address Verification Report"
-msgstr "รายงานรายงานการตรวจสอบ"
-
-#: v2/templates/people/peopledashboard.php:236
-msgid ""
-"Generate report comparing all US family addresses with United States Postal "
-"Service Standard Address Format.<br>"
-msgstr ""
-"รายงาน ทุก ๆ ที่ เปรียบเทียบ ครอบครัว สหรัฐ กับ บริการ พุธ สหรัฐ สหรัฐอเมริกา สหรัฐอเมริกา "
-"ที่อยู่อาศัย ฟอร์แมท<br>"
-
-#: v2/templates/people/peopledashboard.php:248
+#: v2/templates/people/peopledashboard.php:234
 msgid "Self Update"
 msgstr "อัพเดทตัวเอง"
 
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:241
 msgid "Self Register"
 msgstr "ทะเบียนจำตัวเอง"
 
-#: v2/templates/people/peopledashboard.php:257
+#: v2/templates/people/peopledashboard.php:243
 msgid "List families that were created via self registration."
 msgstr "ครอบครัวลิซที่ถูกสร้างขึ้นผ่านการจดทะเบียนด้วยตัวเอง"
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Self Verify Updates"
 msgstr "ตัวเอง ตรวจสอบอัพเดทให้"
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Families who commented via self verify links"
 msgstr "ครอบครัวที่ได้รับความเห็น ผ่านการสืบสวนความเชื่อมโยง"
 
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Families with valid self verify links"
 msgstr "ครอบครัวที่มีความมีความเชื่อมโยงกับตัวเอง"
 
-#: v2/templates/people/peopledashboard.php:285
+#: v2/templates/people/peopledashboard.php:271
 msgid "Role / Gender"
 msgstr "- บทบาท"
 
-#: v2/templates/people/peopledashboard.php:286
-#: v2/templates/people/peopledashboard.php:323
+#: v2/templates/people/peopledashboard.php:272
+#: v2/templates/people/peopledashboard.php:309
 msgid "of People"
 msgstr "ของผู้คน"
 
-#: v2/templates/people/peopledashboard.php:312
+#: v2/templates/people/peopledashboard.php:298
 msgid "People Classification"
 msgstr "ผู้คนชี้แจง"
 
-#: v2/templates/people/peopledashboard.php:350
+#: v2/templates/people/peopledashboard.php:336
 msgid "Gender Demographics"
 msgstr "เพศสัมพันธ์เดโมกราฟฟิค"
 
-#: v2/templates/people/peopledashboard.php:365
+#: v2/templates/people/peopledashboard.php:351
 msgid "# Age Histogram"
 msgstr "อายุฮิสโตแกรม"
 
-#: v2/templates/people/peopledashboard.php:394
+#: v2/templates/people/peopledashboard.php:380
 msgid "Men"
 msgstr "ผู้ชาย"
 
-#: v2/templates/people/peopledashboard.php:399
+#: v2/templates/people/peopledashboard.php:385
 msgid "Women"
 msgstr "ผู้หญิง"
 
-#: v2/templates/people/peopledashboard.php:408
+#: v2/templates/people/peopledashboard.php:394
 #: v2/templates/sundayschool/sundayschooldashboard.php:73
 msgid "Boys"
 msgstr "เด็กๆ"
 
-#: v2/templates/people/peopledashboard.php:413
+#: v2/templates/people/peopledashboard.php:399
 #: v2/templates/sundayschool/sundayschooldashboard.php:85
 msgid "Girls"
 msgstr "สาวๆ"
 
-#: v2/templates/people/peopledashboard.php:479
+#: v2/templates/people/peopledashboard.php:465
 msgid "# number of people"
 msgstr "จำนวนคน"
 
@@ -11531,8 +11529,8 @@ msgstr "แก้ไขการตั้งค่าของเจสัน"
 
 #: v2/templates/sidebar/systemsettings.php:68
 #: v2/templates/user/userseditor.php:811 v2/templates/user/usersettings.php:62
-#: v2/templates/user/usersettings.php:328
-#: v2/templates/user/usersettings.php:407
+#: v2/templates/user/usersettings.php:325
+#: v2/templates/user/usersettings.php:404
 msgid "Save Settings"
 msgstr "ช่วยชีวิต"
 
@@ -11548,13 +11546,13 @@ msgstr "ดูวิว วาลิว"
 
 #: v2/templates/sidebar/systemsettings.php:158
 #: v2/templates/user/userseditor.php:561 v2/templates/user/userseditor.php:614
-#: v2/templates/user/usersettings.php:279
+#: v2/templates/user/usersettings.php:276
 msgid "False"
 msgstr "ผิดพลาด"
 
 #: v2/templates/sidebar/systemsettings.php:159
 #: v2/templates/user/userseditor.php:562 v2/templates/user/userseditor.php:615
-#: v2/templates/user/usersettings.php:280
+#: v2/templates/user/usersettings.php:277
 msgid "True"
 msgstr "จริง"
 
@@ -11995,6 +11993,87 @@ msgstr "ไม่มีเหตุการณ์ใดๆ ในประเ�
 msgid "There are no Records"
 msgstr "ไม่มีบันทึก"
 
+#: v2/templates/system/infos.php:16
+#, fuzzy
+msgid "EcclesiaCRM Installation Information"
+msgstr "ข้อมูลโบสถ์"
+
+#: v2/templates/system/infos.php:21
+#, fuzzy
+msgid "Software Version"
+msgstr "เวอร์ชั่น ซอฟต์แวร์ปัจจุบัน:"
+
+#: v2/templates/system/infos.php:47
+#, fuzzy
+msgid "System Information"
+msgstr "ข้อมูล"
+
+#: v2/templates/system/infos.php:70
+#, fuzzy
+msgid "Database"
+msgstr "ฐานข้อมูลสำรอง"
+
+#: v2/templates/system/infos.php:75
+#, fuzzy
+msgid "Database Version"
+msgstr "เวอร์ชั่น"
+
+#: v2/templates/system/infos.php:79
+msgid "Database Server Version"
+msgstr ""
+
+#: v2/templates/system/infos.php:93
+msgid "Web Server"
+msgstr ""
+
+#: v2/templates/system/infos.php:159
+#, fuzzy
+msgid "Email Information"
+msgstr "ยืนยัน"
+
+#: v2/templates/system/infos.php:168
+#, fuzzy
+msgid "Valid Mail Server Settings"
+msgstr "แก้ไข นายพลตั้งค่า"
+
+#: v2/templates/system/infos.php:178
+#, fuzzy
+msgid "Application Prerequisites"
+msgstr "ไม่มีใครพบผู้นำ"
+
+#: v2/templates/system/infos.php:195
+#, fuzzy
+msgid "Application Integrity Check"
+msgstr "การตรวจสอบความซื่อสัตย์ล้มเหลว"
+
+#: v2/templates/system/infos.php:198 v2/templates/system/integritycheck.php:57
+msgid "Details:"
+msgstr "รายละเอียด:"
+
+#: v2/templates/system/infos.php:202 v2/templates/system/integritycheck.php:61
+msgid "Files failing integrity check"
+msgstr "ไฟล์ล้มเหลวในการตรวจสอบความซื่อสัตย์"
+
+#: v2/templates/system/infos.php:205
+#, fuzzy
+msgid "FileName"
+msgstr "ชื่อไฟล์"
+
+#: v2/templates/system/infos.php:206 v2/templates/system/integritycheck.php:78
+#: v2/templates/system/integritycheck.php:105
+msgid "Expected Hash"
+msgstr "คาดว่าแฮช"
+
+#: v2/templates/system/infos.php:207 v2/templates/system/integritycheck.php:79
+#: v2/templates/system/integritycheck.php:106
+msgid "Actual Hash"
+msgstr "จริงๆแล้ว แฮช"
+
+#: v2/templates/system/infos.php:218 v2/templates/system/integritycheck.php:72
+#: v2/templates/system/integritycheck.php:99
+msgid "File Missing"
+msgstr "ไฟล์หายไป"
+
 #: v2/templates/system/integritycheck.php:34
 msgid "All Application Prerequisites Satisfied"
 msgstr "ทุกคนต้องการพร้อมที่นี่"
@@ -12014,10 +12093,6 @@ msgstr ""
 "ส่วนประกอบบางอย่างที่ว่า EcclesiaCRM พึ่งพา มันหายไป หรือจัดเรียงที่อยู่บนเซิร์ฟเวอร์นี้ "
 "การนำไปใช้ยังคงดำเนินการต่อไป แต่อาจสร้างพฤติกรรมที่ไม่คาดคิด"
 
-#: v2/templates/system/integritycheck.php:46
-msgid "Failed"
-msgstr "ล้มเหลว"
-
 #: v2/templates/system/integritycheck.php:55
 msgid "Integrity Check Failure"
 msgstr "ตรวจสอบความซื่อสัตย์"
@@ -12026,33 +12101,10 @@ msgstr "ตรวจสอบความซื่อสัตย์"
 msgid "The previous integrity check failed"
 msgstr "การตรวจสอบความซื่อสัตย์ก่อนหน้านี้ล้มเหลว"
 
-#: v2/templates/system/integritycheck.php:57
-msgid "Details:"
-msgstr "รายละเอียด:"
-
-#: v2/templates/system/integritycheck.php:61
-msgid "Files failing integrity check"
-msgstr "ไฟล์ล้มเหลวในการตรวจสอบความซื่อสัตย์"
-
 #: v2/templates/system/integritycheck.php:67
 #: v2/templates/system/integritycheck.php:93
 msgid "File Name"
 msgstr "ชื่อไฟล์"
-
-#: v2/templates/system/integritycheck.php:72
-#: v2/templates/system/integritycheck.php:99
-msgid "File Missing"
-msgstr "ไฟล์หายไป"
-
-#: v2/templates/system/integritycheck.php:78
-#: v2/templates/system/integritycheck.php:105
-msgid "Expected Hash"
-msgstr "คาดว่าแฮช"
-
-#: v2/templates/system/integritycheck.php:79
-#: v2/templates/system/integritycheck.php:106
-msgid "Actual Hash"
-msgstr "จริงๆแล้ว แฮช"
 
 #: v2/templates/system/integritycheck.php:125
 msgid "Integrity Check Passed"
@@ -12141,12 +12193,6 @@ msgstr "การสนับสนุนอัตโนมัติสำหร
 #: v2/templates/system/reportlist.php:66
 msgid "Event Attendance Reports"
 msgstr "รายงานการประท้วงชั่วคราว"
-
-#: v2/templates/system/USISTAddressVerification.php:88
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
-msgstr ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: v2/templates/user/changepassword.php:43
 msgid "Enter a new password for this user."
@@ -12454,7 +12500,7 @@ msgstr "โน้ต"
 msgid "Plugin permissions"
 msgstr "อนุญาติ"
 
-#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:347
+#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
 msgstr ""
 
@@ -12468,7 +12514,7 @@ msgstr "กลุ่มความปลอดภัย"
 msgid "Position"
 msgstr "แน่นอน"
 
-#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:389
+#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:386
 #, fuzzy
 msgid "Top"
 msgstr "เพื่อ"
@@ -12481,16 +12527,16 @@ msgstr "การตั้งค่าใช้จ่าย"
 msgid "Skin"
 msgstr "ผิว"
 
-#: v2/templates/user/usersettings.php:338
+#: v2/templates/user/usersettings.php:335
 #, fuzzy
 msgid "Specific settings"
 msgstr "ช่วยชีวิต"
 
-#: v2/templates/user/usersettings.php:420
+#: v2/templates/user/usersettings.php:417
 msgid "Two-factor authentication (2fa)"
 msgstr "สองตัวประกอบ (2ฟา)"
 
-#: v2/templates/user/usersettings.php:423
+#: v2/templates/user/usersettings.php:420
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -12499,30 +12545,30 @@ msgstr ""
 "เข้าบัญชีผู้ใช้บริษัท Ecclesiaของคุณ ในฐานข้อมูลของผู้ตรวจสอบแฟคเตอร์ 2 ชั้น ให้กับชั้น "
 "Ecclesiaซีไอเอ็ม"
 
-#: v2/templates/user/usersettings.php:424
+#: v2/templates/user/usersettings.php:421
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "Ecclesiaตัวประกอบ CRM 2 สนับสนุน แอพแอพตรวจตรวจดู"
 
-#: v2/templates/user/usersettings.php:429
+#: v2/templates/user/usersettings.php:426
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
 msgstr "เมื่อคุณเซ็นต์ที่ EcclesiaCRM คุณก็ยังคงเข้าสู่ผู้ใช้และพาสเวิร์ดของคุณ เหมือนคนปกติ"
 
-#: v2/templates/user/usersettings.php:432
+#: v2/templates/user/usersettings.php:429
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
 msgstr ""
 "แต่คุณต้องการส่งรหัสเพียงครั้งเดียว จากอุปกรณ์เชิงตัวแท้ของคุณ เพื่อให้สมบูรณ์ของตระกูลของคุณ"
 
-#: v2/templates/user/usersettings.php:435
+#: v2/templates/user/usersettings.php:432
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
 msgstr "หลังจากเข้าไปทั้งสองใบเสร็จ และรหัสครั้งเดียว คุณจะถูกล็อกไว้เหมือนคนปกติ"
 
-#: v2/templates/user/usersettings.php:438
+#: v2/templates/user/usersettings.php:435
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -12530,41 +12576,41 @@ msgstr ""
 "เพื่อป้องกันการป้องกัน บัญชีของ CR098 ของคุณ กรุณามั่นใจว่าคุณพร้อมที่จะสมบูรณ์แบบสองปัจจัย "
 "ก่อนที่จะถึงจะเริ่มต้น"
 
-#: v2/templates/user/usersettings.php:441
+#: v2/templates/user/usersettings.php:438
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
 msgstr "การเริ่มต้นการลงทะเบียนที่จะบังคับให้เข้าใจก่อนหน้านี้ ทุกอย่างที่เข้าเรียนได้ก่อนหน้านี้"
 
-#: v2/templates/user/usersettings.php:443
+#: v2/templates/user/usersettings.php:440
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
 msgstr "เมื่อคุณคลิกต่อไป คุณจะได้รับการส่งเสริม ในการสแกนรหัสQR เพื่อเข้าสู่แอพติดตัวแท้"
 
-#: v2/templates/user/usersettings.php:445
+#: v2/templates/user/usersettings.php:442
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
 msgstr "เพื่อยืนยันการลงทะเบียน คุณต้องเข้ารหัส โดยแอพติดตัวแท้"
 
-#: v2/templates/user/usersettings.php:447
+#: v2/templates/user/usersettings.php:444
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
 msgstr "หลังจากยืนยันการลงทะเบียนแอพแล้ว รหัสการฟื้นฟูขึ้นเดียว จะถูกสร้างและแสดง"
 
-#: v2/templates/user/usersettings.php:449
+#: v2/templates/user/usersettings.php:446
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
 msgstr "รหัสคืนสู่สภาพสามารถใช้ได้ แทนที่จะเป็นรหัสจากแอพตรวจ"
 
-#: v2/templates/user/usersettings.php:451
+#: v2/templates/user/usersettings.php:448
 msgid "Store these in a secure location"
 msgstr "ร้านขายพวกนี้ไว้ในที่ปลอดภัย"
 
-#: v2/templates/user/usersettings.php:458
+#: v2/templates/user/usersettings.php:455
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "เริ่มเข้ารหัสผ่านการพิสูจน์"
 
@@ -13369,6 +13415,27 @@ msgstr ""
 #, fuzzy
 msgid "Giving Report"
 msgstr "รายงานด้านการเงิน"
+
+#~ msgid "Integrity Check Results"
+#~ msgstr "ผลการตรวจดูความซื่อสัตย์"
+
+#~ msgid "US Address Verification"
+#~ msgstr "เอกสารที่อยู่อาศัย"
+
+#~ msgid "US Address Verification Report"
+#~ msgstr "รายงานรายงานการตรวจสอบ"
+
+#~ msgid ""
+#~ "Generate report comparing all US family addresses with United States "
+#~ "Postal Service Standard Address Format.<br>"
+#~ msgstr ""
+#~ "รายงาน ทุก ๆ ที่ เปรียบเทียบ ครอบครัว สหรัฐ กับ บริการ พุธ สหรัฐ สหรัฐอเมริกา "
+#~ "สหรัฐอเมริกา ที่อยู่อาศัย ฟอร์แมท<br>"
+
+#~ msgid ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
+#~ msgstr ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #~ msgid "URL"
 #~ msgstr "URL"

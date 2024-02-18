@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 20:12+0000\n"
+"POT-Creation-Date: 2024-02-16 20:36+0000\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr "Previetni"
 msgid "Cannot execute query."
 msgstr "nuk mund ta ekzekutoj një pyetje."
 
-#: CSVImport.php:121 Include/Footer.php:267
+#: CSVImport.php:121 Include/Footer.php:279
 msgid "CSV Import"
 msgstr "Importi CSV"
 
@@ -468,7 +468,7 @@ msgstr "pa caktuar."
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
 #: v2/templates/people/familyEditor.php:1089
 #: v2/templates/people/familyview.php:339
-#: v2/templates/people/peopledashboard.php:322
+#: v2/templates/people/peopledashboard.php:308
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:355
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
@@ -1064,7 +1064,7 @@ msgstr "Emri"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
-#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:383
+#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:380
 msgid "Yes"
 msgstr "po."
 
@@ -1079,7 +1079,7 @@ msgstr "po."
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
 #: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
-#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
+#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:379
 msgid "No"
 msgstr "Jo."
 
@@ -1216,7 +1216,7 @@ msgid "Role"
 msgstr "rol."
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
-#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:275
+#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:261
 #: v2/templates/system/optionManager.php:92
 msgid "Family Roles"
 msgstr "Familja Roles"
@@ -4274,51 +4274,51 @@ msgstr "i vjetër"
 msgid "EcclesiaCRM export"
 msgstr "Ecclesiaeksport i cm"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
 msgid "system user created"
 msgstr "përdoruesi i sistemit i krijuar"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 msgid "system user updated"
 msgstr "përdoruesi i sistemit i azhoruar"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
 msgid "system user deleted"
 msgstr "përdoruesi i sistemit i fshirë"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 msgid "system user password reset"
 msgstr "fjalëkalimi i sistemit të rivendosur"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "system user changed password"
 msgstr "përdoruesi i sistemit ndryshoi fjalëkalimin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "system user password changed by admin"
 msgstr "fjalëkalimi i sistemit përdorues u ndryshua nga admiruesi"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:761
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
 msgid "system user login reset"
 msgstr "rivendosje e logjikës së sistemit"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:767
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
 msgid "Dav create file"
 msgstr "Dav krijon dosjen"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:773
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
 msgid "Dav create directory"
 msgstr "Dav krijon direktivë"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:779
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
 msgid "Dav update file"
 msgstr "Dav azh dosje"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:792
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
 msgid "Dav move copy file"
 msgstr "Dejv lëviz për dosjen e kopjes"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:799
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
 msgid "Dav delete file"
 msgstr "dav fshi dosjen"
 
@@ -4786,20 +4786,32 @@ msgstr "vullnetar."
 msgid "Pledges"
 msgstr "pengesa."
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:29
-#: EcclesiaCRM/Service/AppIntegrityService.php:74
+#: EcclesiaCRM/Service/AppIntegrityService.php:66
+#: EcclesiaCRM/Service/AppIntegrityService.php:143
 msgid "Signature definition file signature failed validation"
 msgstr "nënshkrimi i shënim i shënuar për dokumente të dështuara"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:32
-#: EcclesiaCRM/Service/AppIntegrityService.php:77
+#: EcclesiaCRM/Service/AppIntegrityService.php:69
+#: EcclesiaCRM/Service/AppIntegrityService.php:146
 msgid "Signature definition File Missing"
 msgstr "definitim i firmosur dosjet mungojnë"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:41
-#: EcclesiaCRM/Service/AppIntegrityService.php:83
+#: EcclesiaCRM/Service/AppIntegrityService.php:78
+#: EcclesiaCRM/Service/AppIntegrityService.php:152
 msgid "One or more files failed signature validation"
 msgstr "Një apo më shumë dosje dështuan të firmosnin vërtetimin"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:91
+#: v2/templates/system/integritycheck.php:46
+msgid "Failed"
+msgstr "dështoi."
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:94
+#: EcclesiaCRM/Service/AppIntegrityService.php:103
+#: EcclesiaCRM/Service/AppIntegrityService.php:112
+#, fuzzy
+msgid "Passed"
+msgstr "fjalëkalimi"
 
 #: EcclesiaCRM/Service/CalendarService.php:59
 msgid "Event"
@@ -5136,7 +5148,7 @@ msgstr "po humbas të dhënat për disa njerëz"
 msgid "Unmet Application Prerequisites"
 msgstr "Parakushte aplikimi i papërshtatshëm"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:322
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:334
 msgid "Register Software"
 msgstr "Regjistri Software"
 
@@ -5398,12 +5410,12 @@ msgid "1 yr old"
 msgstr "1 vjeç"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:258
+#: Include/Footer.php:270
 msgid "Backup Database"
 msgstr "Databac Backup"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:250
+#: Include/Footer.php:262
 msgid "Restore Database"
 msgstr "Ristartuar Databaza"
 
@@ -5536,7 +5548,7 @@ msgid "Donation Fund Editor"
 msgstr "redaktor i fondeve donacione"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:276 v2/templates/calendar/checkin.php:32
+#: Include/Footer.php:288 v2/templates/calendar/checkin.php:32
 msgid "Kiosk Manager"
 msgstr "menaxher kiosk"
 
@@ -5809,33 +5821,31 @@ msgstr ""
 msgid "Sunday School Reports"
 msgstr "Njoftimet e së dielës"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:49
-msgid "Integrity Check Results"
-msgstr "Integritet Kontrollo"
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:61
+#: Include/Footer.php:246
+#, fuzzy
+msgid "System Infos"
+msgstr "Seksionet e sistemit"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:80
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:92
 msgid "Report Menu"
 msgstr "Raporto Manu"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:120
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:132
 #, fuzzy
 msgid "System"
 msgstr "përdorues sistemesh"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:168
 msgid "Convert Individuals to Addresses"
 msgstr "Konvertoni individët për Adresat"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:190
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:236
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:202
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:248
 #: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:378
 msgid "CSV Export"
 msgstr "Eksporti CSV"
-
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:272
-msgid "US Address Verification"
-msgstr "Verifikimi i Adresës Amerikane"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
@@ -6221,8 +6231,8 @@ msgstr "Ne edhe para teje kemi bërë thirrje (për rojë) të gabuar"
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 #: v2/templates/user/userseditor.php:814 v2/templates/user/usersettings.php:61
-#: v2/templates/user/usersettings.php:327
-#: v2/templates/user/usersettings.php:404
+#: v2/templates/user/usersettings.php:324
+#: v2/templates/user/usersettings.php:401
 msgid "Cancel"
 msgstr "Anuloje."
 
@@ -6285,7 +6295,7 @@ msgstr "Fondet e Donacionit Edit"
 msgid "Pastoral Care Type"
 msgstr "tipi i \"care\""
 
-#: Include/Footer.php:192 Include/Footer.php:286
+#: Include/Footer.php:192 Include/Footer.php:298
 msgid "Please contact your admin to change the system settings."
 msgstr "Ju lutem kontaktoni admiruesin tuaj për të ndryshuar sistemin."
 
@@ -6297,19 +6307,19 @@ msgstr "Seksionet e Gjeneralit Edit"
 msgid "System Users"
 msgstr "përdorues sistemesh"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:309
 msgid "CSV Export Records"
 msgstr "rekordet e eksportit të csv"
 
-#: Include/Footer.php:310
+#: Include/Footer.php:322
 msgid "Open Tasks"
 msgstr "Hapni tasket"
 
-#: Include/Footer.php:311
+#: Include/Footer.php:323
 msgid "You have"
 msgstr "E ke bërë"
 
-#: Include/Footer.php:312
+#: Include/Footer.php:324
 msgid "task(s)"
 msgstr "task(s)"
 
@@ -6516,7 +6526,7 @@ msgid "return to member dashboard"
 msgstr "kthehu në panelin anëtar"
 
 #: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Pending Self Verify"
 msgstr "Verifikimi i vetëvetës"
 
@@ -7972,13 +7982,13 @@ msgstr "pozicioni i fotografisë"
 #: v2/templates/people/familyCustomFieldEditor.php:508
 #: v2/templates/people/personCustomEditor.php:419
 #: v2/templates/people/personCustomEditor.php:504
-#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:390
+#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:387
 msgid "Left"
 msgstr "Majtas."
 
 #: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
 #: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
-#: v2/templates/user/usersettings.php:391
+#: v2/templates/user/usersettings.php:388
 msgid "Center"
 msgstr "Qendra!"
 
@@ -7988,7 +7998,7 @@ msgstr "Qendra!"
 #: v2/templates/people/familyCustomFieldEditor.php:509
 #: v2/templates/people/personCustomEditor.php:420
 #: v2/templates/people/personCustomEditor.php:505
-#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:392
+#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:389
 msgid "Right"
 msgstr "po."
 
@@ -9940,8 +9950,8 @@ msgid "to contact"
 msgstr "për të kontaktuar"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:71
-#: v2/templates/people/peopledashboard.php:287
-#: v2/templates/people/peopledashboard.php:324
+#: v2/templates/people/peopledashboard.php:273
+#: v2/templates/people/peopledashboard.php:310
 msgid "Count"
 msgstr "numëro."
 
@@ -10113,7 +10123,7 @@ msgstr "Asnjë detyrë në grup."
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:513
 #: v2/templates/people/personPrint.php:509
 #: v2/templates/sidebar/propertylist.php:23
-#: v2/templates/user/usersettings.php:308 queryparameters_qrp.php:6
+#: v2/templates/user/usersettings.php:305 queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Pronën"
 
@@ -10969,8 +10979,8 @@ msgid "Sunday School Kids"
 msgstr "Fëmijët e së dielës"
 
 #: v2/templates/people/peopledashboard.php:194
-#: v2/templates/people/peopledashboard.php:248
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:234
+#: v2/templates/people/peopledashboard.php:241
 #: v2/templates/sundayschool/sundayschooldashboard.php:148
 msgid "Reports"
 msgstr "raportet"
@@ -11006,82 +11016,70 @@ msgstr ""
 msgid "Generate letters and mailing labels for data confirmations."
 msgstr "Letra të mëdha dhe postime."
 
-#: v2/templates/people/peopledashboard.php:233
-msgid "US Address Verification Report"
-msgstr "Raporti i Verifikimit të Adresës Amerikane"
-
-#: v2/templates/people/peopledashboard.php:236
-msgid ""
-"Generate report comparing all US family addresses with United States Postal "
-"Service Standard Address Format.<br>"
-msgstr ""
-"Raporti i brezit duke krahasuar të gjitha adresat familjare të SHBA me "
-"Adresën Standarte të Shërbimit Postar të Shteteve të Bashkuara.<br>"
-
-#: v2/templates/people/peopledashboard.php:248
+#: v2/templates/people/peopledashboard.php:234
 msgid "Self Update"
 msgstr "Vetë të reja"
 
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:241
 msgid "Self Register"
 msgstr "Regjistri"
 
-#: v2/templates/people/peopledashboard.php:257
+#: v2/templates/people/peopledashboard.php:243
 msgid "List families that were created via self registration."
 msgstr "familjet e listes që janë krijuar nëpërmjet vetë regjistrimit."
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Self Verify Updates"
 msgstr "Vetëqeveritë të dhënat"
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Families who commented via self verify links"
 msgstr "Familjet që komentojnë nëpërmjet lidhjeve vetë verifikojnë"
 
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Families with valid self verify links"
 msgstr "Familjet me të vlefshme të lidhura"
 
-#: v2/templates/people/peopledashboard.php:285
+#: v2/templates/people/peopledashboard.php:271
 msgid "Role / Gender"
 msgstr "rol, rol"
 
-#: v2/templates/people/peopledashboard.php:286
-#: v2/templates/people/peopledashboard.php:323
+#: v2/templates/people/peopledashboard.php:272
+#: v2/templates/people/peopledashboard.php:309
 msgid "of People"
 msgstr "nga njerëzit"
 
-#: v2/templates/people/peopledashboard.php:312
+#: v2/templates/people/peopledashboard.php:298
 msgid "People Classification"
 msgstr "Klasifikimi i njerëzve"
 
-#: v2/templates/people/peopledashboard.php:350
+#: v2/templates/people/peopledashboard.php:336
 msgid "Gender Demographics"
 msgstr "Gjinor demographis"
 
-#: v2/templates/people/peopledashboard.php:365
+#: v2/templates/people/peopledashboard.php:351
 msgid "# Age Histogram"
 msgstr "# Epoka Histogram #"
 
-#: v2/templates/people/peopledashboard.php:394
+#: v2/templates/people/peopledashboard.php:380
 msgid "Men"
 msgstr "burra!"
 
-#: v2/templates/people/peopledashboard.php:399
+#: v2/templates/people/peopledashboard.php:385
 msgid "Women"
 msgstr "Gratë"
 
-#: v2/templates/people/peopledashboard.php:408
+#: v2/templates/people/peopledashboard.php:394
 #: v2/templates/sundayschool/sundayschooldashboard.php:73
 msgid "Boys"
 msgstr "Djema."
 
-#: v2/templates/people/peopledashboard.php:413
+#: v2/templates/people/peopledashboard.php:399
 #: v2/templates/sundayschool/sundayschooldashboard.php:85
 msgid "Girls"
 msgstr "Vajza."
 
-#: v2/templates/people/peopledashboard.php:479
+#: v2/templates/people/peopledashboard.php:465
 msgid "# number of people"
 msgstr "Numri i njerëzve"
 
@@ -11750,8 +11748,8 @@ msgstr "Edit Seksionet JSON"
 
 #: v2/templates/sidebar/systemsettings.php:68
 #: v2/templates/user/userseditor.php:811 v2/templates/user/usersettings.php:62
-#: v2/templates/user/usersettings.php:328
-#: v2/templates/user/usersettings.php:407
+#: v2/templates/user/usersettings.php:325
+#: v2/templates/user/usersettings.php:404
 msgid "Save Settings"
 msgstr "Ruaj vëndet"
 
@@ -11767,13 +11765,13 @@ msgstr "Vlera e falimentimit"
 
 #: v2/templates/sidebar/systemsettings.php:158
 #: v2/templates/user/userseditor.php:561 v2/templates/user/userseditor.php:614
-#: v2/templates/user/usersettings.php:279
+#: v2/templates/user/usersettings.php:276
 msgid "False"
 msgstr "e gabuar"
 
 #: v2/templates/sidebar/systemsettings.php:159
 #: v2/templates/user/userseditor.php:562 v2/templates/user/userseditor.php:615
-#: v2/templates/user/usersettings.php:280
+#: v2/templates/user/usersettings.php:277
 msgid "True"
 msgstr "E vërtetë."
 
@@ -12224,6 +12222,87 @@ msgstr "Nuk ka ngjarje në këtë kategori"
 msgid "There are no Records"
 msgstr "nuk ka regjistrime"
 
+#: v2/templates/system/infos.php:16
+#, fuzzy
+msgid "EcclesiaCRM Installation Information"
+msgstr "Informacioni i kishës"
+
+#: v2/templates/system/infos.php:21
+#, fuzzy
+msgid "Software Version"
+msgstr "software aktual version:"
+
+#: v2/templates/system/infos.php:47
+#, fuzzy
+msgid "System Information"
+msgstr "informacione"
+
+#: v2/templates/system/infos.php:70
+#, fuzzy
+msgid "Database"
+msgstr "Databac Backup"
+
+#: v2/templates/system/infos.php:75
+#, fuzzy
+msgid "Database Version"
+msgstr "Versioni"
+
+#: v2/templates/system/infos.php:79
+msgid "Database Server Version"
+msgstr ""
+
+#: v2/templates/system/infos.php:93
+msgid "Web Server"
+msgstr ""
+
+#: v2/templates/system/infos.php:159
+#, fuzzy
+msgid "Email Information"
+msgstr "Konfirmo."
+
+#: v2/templates/system/infos.php:168
+#, fuzzy
+msgid "Valid Mail Server Settings"
+msgstr "Seksionet e Gjeneralit Edit"
+
+#: v2/templates/system/infos.php:178
+#, fuzzy
+msgid "Application Prerequisites"
+msgstr "Parakushte aplikimi i papërshtatshëm"
+
+#: v2/templates/system/infos.php:195
+#, fuzzy
+msgid "Application Integrity Check"
+msgstr "dështoi integriteti i aplikimit"
+
+#: v2/templates/system/infos.php:198 v2/templates/system/integritycheck.php:57
+msgid "Details:"
+msgstr "Detajet:"
+
+#: v2/templates/system/infos.php:202 v2/templates/system/integritycheck.php:61
+msgid "Files failing integrity check"
+msgstr "Dosjet nuk po dështojnë integritetin e kontrollit"
+
+#: v2/templates/system/infos.php:205
+#, fuzzy
+msgid "FileName"
+msgstr "Emri im"
+
+#: v2/templates/system/infos.php:206 v2/templates/system/integritycheck.php:78
+#: v2/templates/system/integritycheck.php:105
+msgid "Expected Hash"
+msgstr "Hash e pritur"
+
+#: v2/templates/system/infos.php:207 v2/templates/system/integritycheck.php:79
+#: v2/templates/system/integritycheck.php:106
+msgid "Actual Hash"
+msgstr "Hash Aktual"
+
+#: v2/templates/system/infos.php:218 v2/templates/system/integritycheck.php:72
+#: v2/templates/system/integritycheck.php:99
+msgid "File Missing"
+msgstr "Dosjet mungojnë"
+
 #: v2/templates/system/integritycheck.php:34
 msgid "All Application Prerequisites Satisfied"
 msgstr "Të gjitha kërkesat e aplikimit janë të kënaqura"
@@ -12246,10 +12325,6 @@ msgstr ""
 "këtë server. aplikimi mund të vazhdojë të funksionojë, por mund të prodhojë "
 "sjellje të papritur."
 
-#: v2/templates/system/integritycheck.php:46
-msgid "Failed"
-msgstr "dështoi."
-
 #: v2/templates/system/integritycheck.php:55
 msgid "Integrity Check Failure"
 msgstr "Integriteti i Kontrollosur"
@@ -12258,33 +12333,10 @@ msgstr "Integriteti i Kontrollosur"
 msgid "The previous integrity check failed"
 msgstr "Kontrolli i mëparshëm i integritetit dështoi"
 
-#: v2/templates/system/integritycheck.php:57
-msgid "Details:"
-msgstr "Detajet:"
-
-#: v2/templates/system/integritycheck.php:61
-msgid "Files failing integrity check"
-msgstr "Dosjet nuk po dështojnë integritetin e kontrollit"
-
 #: v2/templates/system/integritycheck.php:67
 #: v2/templates/system/integritycheck.php:93
 msgid "File Name"
 msgstr "Emri im"
-
-#: v2/templates/system/integritycheck.php:72
-#: v2/templates/system/integritycheck.php:99
-msgid "File Missing"
-msgstr "Dosjet mungojnë"
-
-#: v2/templates/system/integritycheck.php:78
-#: v2/templates/system/integritycheck.php:105
-msgid "Expected Hash"
-msgstr "Hash e pritur"
-
-#: v2/templates/system/integritycheck.php:79
-#: v2/templates/system/integritycheck.php:106
-msgid "Actual Hash"
-msgstr "Hash Aktual"
 
 #: v2/templates/system/integritycheck.php:125
 msgid "Integrity Check Passed"
@@ -12381,12 +12433,6 @@ msgstr "Mbështetje e automatizuar për kryerjen e një kanavance çdo anëtare.
 #: v2/templates/system/reportlist.php:66
 msgid "Event Attendance Reports"
 msgstr "raporti i mbrojtjes"
-
-#: v2/templates/system/USISTAddressVerification.php:88
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
-msgstr ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: v2/templates/user/changepassword.php:43
 msgid "Enter a new password for this user."
@@ -12697,7 +12743,7 @@ msgstr "- Jo."
 msgid "Plugin permissions"
 msgstr "Leje"
 
-#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:347
+#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
 msgstr ""
 
@@ -12711,7 +12757,7 @@ msgstr "Grupi i Sigurimit"
 msgid "Position"
 msgstr "Po."
 
-#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:389
+#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:386
 #, fuzzy
 msgid "Top"
 msgstr "Të"
@@ -12724,16 +12770,16 @@ msgstr "Seksionet klasike të profilit të përdoruesve"
 msgid "Skin"
 msgstr "lëkurë."
 
-#: v2/templates/user/usersettings.php:338
+#: v2/templates/user/usersettings.php:335
 #, fuzzy
 msgid "Specific settings"
 msgstr "Ruaj vëndet"
 
-#: v2/templates/user/usersettings.php:420
+#: v2/templates/user/usersettings.php:417
 msgid "Two-factor authentication (2fa)"
 msgstr "Otenticifikimi dy faktor (2fa)"
 
-#: v2/templates/user/usersettings.php:423
+#: v2/templates/user/usersettings.php:420
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -12743,11 +12789,11 @@ msgstr ""
 "një shtresë mbrojtjeje, EcclesiaCRM-së kundër aktorëve të këqinj që përpiqen "
 "të hyjnë në llogarinë tuaj"
 
-#: v2/templates/user/usersettings.php:424
+#: v2/templates/user/usersettings.php:421
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "Ecclesiacrm 2 faktor mbështet çdo aplikacion autentikator të otp"
 
-#: v2/templates/user/usersettings.php:429
+#: v2/templates/user/usersettings.php:426
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -12755,7 +12801,7 @@ msgstr ""
 "Kur të firmosësh në EcclesiaCRM, do të hysh në emrin e emrit dhe "
 "fjalëkalimin tënd si normal"
 
-#: v2/templates/user/usersettings.php:432
+#: v2/templates/user/usersettings.php:429
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -12763,7 +12809,7 @@ msgstr ""
 "Megjithatë, duhet të furnizosh një kod të vetëm nga pajisja autentike për të "
 "përfunduar logjikën"
 
-#: v2/templates/user/usersettings.php:435
+#: v2/templates/user/usersettings.php:432
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -12771,7 +12817,7 @@ msgstr ""
 "Pasi të hyni me sukses në të dy kredencialet tuaja, dhe kodi një-herësh, do "
 "të regjistroheni si normal"
 
-#: v2/templates/user/usersettings.php:438
+#: v2/templates/user/usersettings.php:435
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -12780,7 +12826,7 @@ msgstr ""
 "sigurohuni që të përfundoni dy faktorë regjistrimi para se të filloni "
 "klikimet"
 
-#: v2/templates/user/usersettings.php:441
+#: v2/templates/user/usersettings.php:438
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
@@ -12788,7 +12834,7 @@ msgstr ""
 "Fillimi i regjistrimit do të invalidësojë çdo pajisje faktore të regjistruar "
 "më parë dhe kodet e rimëkëmbjes."
 
-#: v2/templates/user/usersettings.php:443
+#: v2/templates/user/usersettings.php:440
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -12796,7 +12842,7 @@ msgstr ""
 "Kur të klikoni më pas, do të kontrolloni kodin e QR për të regjistruar "
 "aplikacionin autentikator."
 
-#: v2/templates/user/usersettings.php:445
+#: v2/templates/user/usersettings.php:442
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
@@ -12804,7 +12850,7 @@ msgstr ""
 "Për të konfirmuar regjistrimin, duhet të fusësh kodin e gjeneruar nga "
 "aplikacioni yt autentikator"
 
-#: v2/templates/user/usersettings.php:447
+#: v2/templates/user/usersettings.php:444
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -12812,7 +12858,7 @@ msgstr ""
 "Pasi konfirmimi i regjistrimit të aplikacionit, kodet me një përdorim do të "
 "gjenerohen dhe do të shfaqen."
 
-#: v2/templates/user/usersettings.php:449
+#: v2/templates/user/usersettings.php:446
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -12820,11 +12866,11 @@ msgstr ""
 "kodet e gjetjes mund të përdoren në vend të një kodi të gjeneruar nga "
 "aplikacioni juaj autentikator."
 
-#: v2/templates/user/usersettings.php:451
+#: v2/templates/user/usersettings.php:448
 msgid "Store these in a secure location"
 msgstr "Vendosni këto në një vend të sigurt"
 
-#: v2/templates/user/usersettings.php:458
+#: v2/templates/user/usersettings.php:455
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "filloni regjistrimin e faktorit"
 
@@ -13645,6 +13691,27 @@ msgstr ""
 #, fuzzy
 msgid "Giving Report"
 msgstr "Raporti i gjeneralëve"
+
+#~ msgid "Integrity Check Results"
+#~ msgstr "Integritet Kontrollo"
+
+#~ msgid "US Address Verification"
+#~ msgstr "Verifikimi i Adresës Amerikane"
+
+#~ msgid "US Address Verification Report"
+#~ msgstr "Raporti i Verifikimit të Adresës Amerikane"
+
+#~ msgid ""
+#~ "Generate report comparing all US family addresses with United States "
+#~ "Postal Service Standard Address Format.<br>"
+#~ msgstr ""
+#~ "Raporti i brezit duke krahasuar të gjitha adresat familjare të SHBA me "
+#~ "Adresën Standarte të Shërbimit Postar të Shteteve të Bashkuara.<br>"
+
+#~ msgid ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
+#~ msgstr ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #~ msgid "URL"
 #~ msgstr "url"

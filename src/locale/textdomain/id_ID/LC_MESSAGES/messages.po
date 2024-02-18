@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 20:44+0000\n"
+"POT-Creation-Date: 2024-02-16 20:41+0000\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr "Preview"
 msgid "Cannot execute query."
 msgstr "Tidak boleh mengeksekusi pertanyaan."
 
-#: CSVImport.php:121 Include/Footer.php:267
+#: CSVImport.php:121 Include/Footer.php:279
 msgid "CSV Import"
 msgstr "CSV Import"
 
@@ -474,7 +474,7 @@ msgstr "Tidak ditugaskan"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
 #: v2/templates/people/familyEditor.php:1089
 #: v2/templates/people/familyview.php:339
-#: v2/templates/people/peopledashboard.php:322
+#: v2/templates/people/peopledashboard.php:308
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:355
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
@@ -1078,7 +1078,7 @@ msgstr "Nama"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
-#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:383
+#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:380
 msgid "Yes"
 msgstr "Ya"
 
@@ -1093,7 +1093,7 @@ msgstr "Ya"
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
 #: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
-#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
+#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:379
 msgid "No"
 msgstr "Tidak"
 
@@ -1230,7 +1230,7 @@ msgid "Role"
 msgstr "Role"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
-#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:275
+#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:261
 #: v2/templates/system/optionManager.php:92
 msgid "Family Roles"
 msgstr "Keluarga Roles"
@@ -4281,51 +4281,51 @@ msgstr "tua mu"
 msgid "EcclesiaCRM export"
 msgstr "Ekspor EcclesiacRM"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
 msgid "system user created"
 msgstr "pengguna sistem diciptakan"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 msgid "system user updated"
 msgstr "pengguna sistem diperbarui"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
 msgid "system user deleted"
 msgstr "pengguna sistem dihapus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 msgid "system user password reset"
 msgstr "reset password pengguna sistem"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "system user changed password"
 msgstr "pengguna sistem mengubah password"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "system user password changed by admin"
 msgstr "password pengguna sistem yang diubah oleh admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:761
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
 msgid "system user login reset"
 msgstr "reset pengguna sistem"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:767
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
 msgid "Dav create file"
 msgstr "Dav menciptakan file"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:773
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
 msgid "Dav create directory"
 msgstr "Dav membuat direktori"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:779
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
 msgid "Dav update file"
 msgstr "Berkas pembaruan Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:792
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
 msgid "Dav move copy file"
 msgstr "Dav memindahkan file copy"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:799
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
 msgid "Dav delete file"
 msgstr "Dav menghapus file"
 
@@ -4793,20 +4793,31 @@ msgstr "Sukarelawan"
 msgid "Pledges"
 msgstr "Pledges"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:29
-#: EcclesiaCRM/Service/AppIntegrityService.php:74
+#: EcclesiaCRM/Service/AppIntegrityService.php:66
+#: EcclesiaCRM/Service/AppIntegrityService.php:143
 msgid "Signature definition file signature failed validation"
 msgstr "Tanda tanda definisi file tanda tangan gagal validasi"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:32
-#: EcclesiaCRM/Service/AppIntegrityService.php:77
+#: EcclesiaCRM/Service/AppIntegrityService.php:69
+#: EcclesiaCRM/Service/AppIntegrityService.php:146
 msgid "Signature definition File Missing"
 msgstr "Signation Definisi File hilang"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:41
-#: EcclesiaCRM/Service/AppIntegrityService.php:83
+#: EcclesiaCRM/Service/AppIntegrityService.php:78
+#: EcclesiaCRM/Service/AppIntegrityService.php:152
 msgid "One or more files failed signature validation"
 msgstr "Satu atau lebih file gagal validasi tanda tangan"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:91
+#: v2/templates/system/integritycheck.php:46
+msgid "Failed"
+msgstr "Gagal."
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:94
+#: EcclesiaCRM/Service/AppIntegrityService.php:103
+#: EcclesiaCRM/Service/AppIntegrityService.php:112
+msgid "Passed"
+msgstr "Lulus"
 
 #: EcclesiaCRM/Service/CalendarService.php:59
 msgid "Event"
@@ -5140,7 +5151,7 @@ msgstr "Hilang Role Data untuk beberapa orang"
 msgid "Unmet Application Prerequisites"
 msgstr "Preisisit Applikasi yang tidak terpenuhi"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:322
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:334
 msgid "Register Software"
 msgstr "Warga perangkat lunak"
 
@@ -5402,12 +5413,12 @@ msgid "1 yr old"
 msgstr "1 yr tua"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:258
+#: Include/Footer.php:270
 msgid "Backup Database"
 msgstr "Back up Database"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:250
+#: Include/Footer.php:262
 msgid "Restore Database"
 msgstr "Kembalikan Database"
 
@@ -5538,7 +5549,7 @@ msgid "Donation Fund Editor"
 msgstr "Donasi Fund Editor"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:276 v2/templates/calendar/checkin.php:32
+#: Include/Footer.php:288 v2/templates/calendar/checkin.php:32
 msgid "Kiosk Manager"
 msgstr "Manajer Kiosk"
 
@@ -5811,32 +5822,29 @@ msgstr ""
 msgid "Sunday School Reports"
 msgstr "Laporan Sekolah Minggu"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:49
-msgid "Integrity Check Results"
-msgstr "Hasil pemeriksaan Integritas"
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:61
+#: Include/Footer.php:246
+msgid "System Infos"
+msgstr "Informasi Sistem"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:80
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:92
 msgid "Report Menu"
 msgstr "Laporan Menuu"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:120
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:132
 msgid "System"
 msgstr "Sistem"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:168
 msgid "Convert Individuals to Addresses"
 msgstr "Convert Individuals untuk iklan"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:190
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:236
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:202
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:248
 #: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:378
 msgid "CSV Export"
 msgstr "CSV Export"
-
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:272
-msgid "US Address Verification"
-msgstr "Verifikasi Address AS"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
@@ -6218,8 +6226,8 @@ msgstr "Kami menemukan kesalahan yang mengajukan data verifikasi Anda"
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 #: v2/templates/user/userseditor.php:814 v2/templates/user/usersettings.php:61
-#: v2/templates/user/usersettings.php:327
-#: v2/templates/user/usersettings.php:404
+#: v2/templates/user/usersettings.php:324
+#: v2/templates/user/usersettings.php:401
 msgid "Cancel"
 msgstr "Batalkan"
 
@@ -6282,7 +6290,7 @@ msgstr "Edit Donasi Funds"
 msgid "Pastoral Care Type"
 msgstr "Kepedulian Pastor"
 
-#: Include/Footer.php:192 Include/Footer.php:286
+#: Include/Footer.php:192 Include/Footer.php:298
 msgid "Please contact your admin to change the system settings."
 msgstr "Tolong hubungi admin anda untuk mengubah pengaturan sistem."
 
@@ -6294,19 +6302,19 @@ msgstr "Edit Umum Setting"
 msgid "System Users"
 msgstr "Pengguna sistem"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:309
 msgid "CSV Export Records"
 msgstr "CSV Export Records"
 
-#: Include/Footer.php:310
+#: Include/Footer.php:322
 msgid "Open Tasks"
 msgstr "Buka Tugas"
 
-#: Include/Footer.php:311
+#: Include/Footer.php:323
 msgid "You have"
 msgstr "Kau sudah"
 
-#: Include/Footer.php:312
+#: Include/Footer.php:324
 msgid "task(s)"
 msgstr "tugas (S)"
 
@@ -6512,7 +6520,7 @@ msgid "return to member dashboard"
 msgstr "kembali ke dashboard anggota"
 
 #: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Pending Self Verify"
 msgstr "Mengundang diri sendiri"
 
@@ -7948,13 +7956,13 @@ msgstr "Posisi gambar"
 #: v2/templates/people/familyCustomFieldEditor.php:508
 #: v2/templates/people/personCustomEditor.php:419
 #: v2/templates/people/personCustomEditor.php:504
-#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:390
+#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:387
 msgid "Left"
 msgstr "Kiri"
 
 #: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
 #: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
-#: v2/templates/user/usersettings.php:391
+#: v2/templates/user/usersettings.php:388
 msgid "Center"
 msgstr "Pusat"
 
@@ -7964,7 +7972,7 @@ msgstr "Pusat"
 #: v2/templates/people/familyCustomFieldEditor.php:509
 #: v2/templates/people/personCustomEditor.php:420
 #: v2/templates/people/personCustomEditor.php:505
-#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:392
+#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:389
 msgid "Right"
 msgstr "Benar"
 
@@ -9911,8 +9919,8 @@ msgid "to contact"
 msgstr "untuk menghubungi"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:71
-#: v2/templates/people/peopledashboard.php:287
-#: v2/templates/people/peopledashboard.php:324
+#: v2/templates/people/peopledashboard.php:273
+#: v2/templates/people/peopledashboard.php:310
 msgid "Count"
 msgstr "Hitung"
 
@@ -10084,7 +10092,7 @@ msgstr "Tidak ada tugas kelompok."
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:513
 #: v2/templates/people/personPrint.php:509
 #: v2/templates/sidebar/propertylist.php:23
-#: v2/templates/user/usersettings.php:308 queryparameters_qrp.php:6
+#: v2/templates/user/usersettings.php:305 queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Properti"
 
@@ -10817,8 +10825,8 @@ msgid ""
 "        - or by e-mail (please note that at this level, e-mail is massive)."
 msgstr ""
 "Di sini Anda dapat memilih untuk menjalankan laporan untuk mengonfirmasi "
-"data yang tersimpan di CRM, untuk keluarga atau secara individual.<br>"
-"        - dalam format PDF untuk dicetak<br>\n"
+"data yang tersimpan di CRM, untuk keluarga atau secara individual."
+"<br>        - dalam format PDF untuk dicetak<br>\n"
 "        - atau melalui email (harap dicatat bahwa pada tingkat ini, email "
 "sangat besar)."
 
@@ -10935,8 +10943,8 @@ msgid "Sunday School Kids"
 msgstr "Minggu sekolah anak-anak"
 
 #: v2/templates/people/peopledashboard.php:194
-#: v2/templates/people/peopledashboard.php:248
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:234
+#: v2/templates/people/peopledashboard.php:241
 #: v2/templates/sundayschool/sundayschooldashboard.php:148
 msgid "Reports"
 msgstr "Laporan"
@@ -10970,82 +10978,70 @@ msgstr ""
 msgid "Generate letters and mailing labels for data confirmations."
 msgstr "Membuat surat dan label surat untuk konfirmasi data."
 
-#: v2/templates/people/peopledashboard.php:233
-msgid "US Address Verification Report"
-msgstr "Laporan Verifikasi Address AS"
-
-#: v2/templates/people/peopledashboard.php:236
-msgid ""
-"Generate report comparing all US family addresses with United States Postal "
-"Service Standard Address Format.<br>"
-msgstr ""
-"Laporan generasi membandingkan semua alamat keluarga Amerika Serikat dengan "
-"United Postand Address Format. ♪SOR SHE SOW? ♪"
-
-#: v2/templates/people/peopledashboard.php:248
+#: v2/templates/people/peopledashboard.php:234
 msgid "Self Update"
 msgstr "Perubahan diri"
 
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:241
 msgid "Self Register"
 msgstr "Diri Diri"
 
-#: v2/templates/people/peopledashboard.php:257
+#: v2/templates/people/peopledashboard.php:243
 msgid "List families that were created via self registration."
 msgstr "Keluarga daftar yang diciptakan melalui pendaftaran diri."
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Self Verify Updates"
 msgstr "Update verify diri"
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Families who commented via self verify links"
 msgstr "Keluarga yang berkomentar melalui link verifikasi diri"
 
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Families with valid self verify links"
 msgstr "Keluarga dengan benar-benar koneksi verifikasi diri yang sah"
 
-#: v2/templates/people/peopledashboard.php:285
+#: v2/templates/people/peopledashboard.php:271
 msgid "Role / Gender"
 msgstr "Role/Gender"
 
-#: v2/templates/people/peopledashboard.php:286
-#: v2/templates/people/peopledashboard.php:323
+#: v2/templates/people/peopledashboard.php:272
+#: v2/templates/people/peopledashboard.php:309
 msgid "of People"
 msgstr "orang-orang"
 
-#: v2/templates/people/peopledashboard.php:312
+#: v2/templates/people/peopledashboard.php:298
 msgid "People Classification"
 msgstr "Orang-orang Klasifikasi"
 
-#: v2/templates/people/peopledashboard.php:350
+#: v2/templates/people/peopledashboard.php:336
 msgid "Gender Demographics"
 msgstr "Demografis Gender"
 
-#: v2/templates/people/peopledashboard.php:365
+#: v2/templates/people/peopledashboard.php:351
 msgid "# Age Histogram"
 msgstr "# Umur Histogram"
 
-#: v2/templates/people/peopledashboard.php:394
+#: v2/templates/people/peopledashboard.php:380
 msgid "Men"
 msgstr "Pria"
 
-#: v2/templates/people/peopledashboard.php:399
+#: v2/templates/people/peopledashboard.php:385
 msgid "Women"
 msgstr "Wanita"
 
-#: v2/templates/people/peopledashboard.php:408
+#: v2/templates/people/peopledashboard.php:394
 #: v2/templates/sundayschool/sundayschooldashboard.php:73
 msgid "Boys"
 msgstr "Anak-anak"
 
-#: v2/templates/people/peopledashboard.php:413
+#: v2/templates/people/peopledashboard.php:399
 #: v2/templates/sundayschool/sundayschooldashboard.php:85
 msgid "Girls"
 msgstr "Gadis-gadis"
 
-#: v2/templates/people/peopledashboard.php:479
+#: v2/templates/people/peopledashboard.php:465
 msgid "# number of people"
 msgstr "# Nomor of people"
 
@@ -11703,8 +11699,8 @@ msgstr "Edit JSON Setting"
 
 #: v2/templates/sidebar/systemsettings.php:68
 #: v2/templates/user/userseditor.php:811 v2/templates/user/usersettings.php:62
-#: v2/templates/user/usersettings.php:328
-#: v2/templates/user/usersettings.php:407
+#: v2/templates/user/usersettings.php:325
+#: v2/templates/user/usersettings.php:404
 msgid "Save Settings"
 msgstr "Simpan Setting"
 
@@ -11720,13 +11716,13 @@ msgstr "Default Value"
 
 #: v2/templates/sidebar/systemsettings.php:158
 #: v2/templates/user/userseditor.php:561 v2/templates/user/userseditor.php:614
-#: v2/templates/user/usersettings.php:279
+#: v2/templates/user/usersettings.php:276
 msgid "False"
 msgstr "Salah"
 
 #: v2/templates/sidebar/systemsettings.php:159
 #: v2/templates/user/userseditor.php:562 v2/templates/user/userseditor.php:615
-#: v2/templates/user/usersettings.php:280
+#: v2/templates/user/usersettings.php:277
 msgid "True"
 msgstr "Benar"
 
@@ -12175,6 +12171,77 @@ msgstr "Tidak ada peristiwa di kategori ini"
 msgid "There are no Records"
 msgstr "Tidak ada Records"
 
+#: v2/templates/system/infos.php:16
+msgid "EcclesiaCRM Installation Information"
+msgstr "Informasi Instalasi EcclesiaCRM"
+
+#: v2/templates/system/infos.php:21
+msgid "Software Version"
+msgstr "Versi Perangkat Lunak"
+
+#: v2/templates/system/infos.php:47
+msgid "System Information"
+msgstr "Informasi Sistem"
+
+#: v2/templates/system/infos.php:70
+msgid "Database"
+msgstr "Basis data"
+
+#: v2/templates/system/infos.php:75
+msgid "Database Version"
+msgstr "Versi Basis Data"
+
+#: v2/templates/system/infos.php:79
+msgid "Database Server Version"
+msgstr "Versi Server Basis Data"
+
+#: v2/templates/system/infos.php:93
+msgid "Web Server"
+msgstr "Server Web"
+
+#: v2/templates/system/infos.php:159
+msgid "Email Information"
+msgstr "Informasi Email"
+
+#: v2/templates/system/infos.php:168
+msgid "Valid Mail Server Settings"
+msgstr "Pengaturan Server Surat yang Valid"
+
+#: v2/templates/system/infos.php:178
+msgid "Application Prerequisites"
+msgstr "Prasyarat Pendaftaran"
+
+#: v2/templates/system/infos.php:195
+msgid "Application Integrity Check"
+msgstr "Pemeriksaan Integritas Aplikasi"
+
+#: v2/templates/system/infos.php:198 v2/templates/system/integritycheck.php:57
+msgid "Details:"
+msgstr "Detail:"
+
+#: v2/templates/system/infos.php:202 v2/templates/system/integritycheck.php:61
+msgid "Files failing integrity check"
+msgstr "Berkas gagal dalam pemeriksaan integritas"
+
+#: v2/templates/system/infos.php:205
+msgid "FileName"
+msgstr "Nama file"
+
+#: v2/templates/system/infos.php:206 v2/templates/system/integritycheck.php:78
+#: v2/templates/system/integritycheck.php:105
+msgid "Expected Hash"
+msgstr "Hash yang diharapkan"
+
+#: v2/templates/system/infos.php:207 v2/templates/system/integritycheck.php:79
+#: v2/templates/system/integritycheck.php:106
+msgid "Actual Hash"
+msgstr "Hash yang sebenarnya"
+
+#: v2/templates/system/infos.php:218 v2/templates/system/integritycheck.php:72
+#: v2/templates/system/integritycheck.php:99
+msgid "File Missing"
+msgstr "Berkas hilang"
+
 #: v2/templates/system/integritycheck.php:34
 msgid "All Application Prerequisites Satisfied"
 msgstr "Semua praresist Applikasi puas"
@@ -12197,10 +12264,6 @@ msgstr ""
 "atau tidak benar-benar konfigurasi pada server ini. Aplikasi mungkin terus "
 "berfungsi, tapi mungkin menghasilkan perilaku tak terduga."
 
-#: v2/templates/system/integritycheck.php:46
-msgid "Failed"
-msgstr "Gagal."
-
 #: v2/templates/system/integritycheck.php:55
 msgid "Integrity Check Failure"
 msgstr "Cek Integritas Gagal"
@@ -12209,33 +12272,10 @@ msgstr "Cek Integritas Gagal"
 msgid "The previous integrity check failed"
 msgstr "Cek integritas sebelumnya gagal"
 
-#: v2/templates/system/integritycheck.php:57
-msgid "Details:"
-msgstr "Detail:"
-
-#: v2/templates/system/integritycheck.php:61
-msgid "Files failing integrity check"
-msgstr "Berkas gagal dalam pemeriksaan integritas"
-
 #: v2/templates/system/integritycheck.php:67
 #: v2/templates/system/integritycheck.php:93
 msgid "File Name"
 msgstr "File name"
-
-#: v2/templates/system/integritycheck.php:72
-#: v2/templates/system/integritycheck.php:99
-msgid "File Missing"
-msgstr "Berkas hilang"
-
-#: v2/templates/system/integritycheck.php:78
-#: v2/templates/system/integritycheck.php:105
-msgid "Expected Hash"
-msgstr "Hash yang diharapkan"
-
-#: v2/templates/system/integritycheck.php:79
-#: v2/templates/system/integritycheck.php:106
-msgid "Actual Hash"
-msgstr "Hash yang sebenarnya"
 
 #: v2/templates/system/integritycheck.php:125
 msgid "Integrity Check Passed"
@@ -12333,12 +12373,6 @@ msgstr "Dukungan otomatis untuk melakukan setiap anggota kanvas."
 #: v2/templates/system/reportlist.php:66
 msgid "Event Attendance Reports"
 msgstr "Laporan Pengawasan Peringatan"
-
-#: v2/templates/system/USISTAddressVerification.php:88
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
-msgstr ""
-"- Http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: v2/templates/user/changepassword.php:43
 msgid "Enter a new password for this user."
@@ -12649,7 +12683,7 @@ msgstr "Catatan"
 msgid "Plugin permissions"
 msgstr "Izin"
 
-#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:347
+#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
 msgstr ""
 
@@ -12661,7 +12695,7 @@ msgstr "Keamanan"
 msgid "Position"
 msgstr "Posisi"
 
-#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:389
+#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:386
 #, fuzzy
 msgid "Top"
 msgstr "To"
@@ -12674,16 +12708,16 @@ msgstr "Pecundang klasik Profil Profil"
 msgid "Skin"
 msgstr "Kulit"
 
-#: v2/templates/user/usersettings.php:338
+#: v2/templates/user/usersettings.php:335
 #, fuzzy
 msgid "Specific settings"
 msgstr "Simpan Setting"
 
-#: v2/templates/user/usersettings.php:420
+#: v2/templates/user/usersettings.php:417
 msgid "Two-factor authentication (2fa)"
 msgstr "Dua-Factor otentikasi (2FA)"
 
-#: v2/templates/user/usersettings.php:423
+#: v2/templates/user/usersettings.php:420
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -12693,11 +12727,11 @@ msgstr ""
 "menyediakan EcclesiaCRM lapisan pertahanan terhadap aktor buruk yang mencoba "
 "mengakses rekening kalian"
 
-#: v2/templates/user/usersettings.php:424
+#: v2/templates/user/usersettings.php:421
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "EcclesiaCRM 2 faktor mendukung setiap aplikasi otomatis TTP"
 
-#: v2/templates/user/usersettings.php:429
+#: v2/templates/user/usersettings.php:426
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -12705,7 +12739,7 @@ msgstr ""
 "Ketika Anda menandatangani untuk EcclesiaCRM, Anda akan tetap memasukkan "
 "username dan password seperti biasa"
 
-#: v2/templates/user/usersettings.php:432
+#: v2/templates/user/usersettings.php:429
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -12713,7 +12747,7 @@ msgstr ""
 "Namun, kau juga perlu memasok kode satu kali dari perangkat otenticatormu "
 "untuk menyelesaikan loginmu"
 
-#: v2/templates/user/usersettings.php:435
+#: v2/templates/user/usersettings.php:432
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -12721,7 +12755,7 @@ msgstr ""
 "Setelah berhasil memasuki kedua surat mandatmu, dan kode sekali, kau akan "
 "masuk secara normal"
 
-#: v2/templates/user/usersettings.php:438
+#: v2/templates/user/usersettings.php:435
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -12729,14 +12763,14 @@ msgstr ""
 "Untuk mencegah terkunci dari rekening CRMEcclesia-mu, tolong pastikan kau "
 "siap untuk menyelesaikan dua pendaftaran sebelum mengklik"
 
-#: v2/templates/user/usersettings.php:441
+#: v2/templates/user/usersettings.php:438
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
 msgstr ""
 "Memulai pendaftaran akan merusak perangkat 2 faktor dan kode pemulihan."
 
-#: v2/templates/user/usersettings.php:443
+#: v2/templates/user/usersettings.php:440
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -12744,7 +12778,7 @@ msgstr ""
 "Saat kau mengklik, kau akan diproh untuk memindai kode QR untuk mendaftarkan "
 "aplikasi aslimu."
 
-#: v2/templates/user/usersettings.php:445
+#: v2/templates/user/usersettings.php:442
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
@@ -12752,7 +12786,7 @@ msgstr ""
 "Untuk mengkonfirmasi pendaftaran, Anda harus memasukkan kode yang dihasilkan "
 "oleh aplikasi asli Anda"
 
-#: v2/templates/user/usersettings.php:447
+#: v2/templates/user/usersettings.php:444
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -12760,7 +12794,7 @@ msgstr ""
 "Setelah konfirmasi pendaftaran aplikasi, kode pemulihan tunggal akan "
 "dihasilkan dan ditampilkan."
 
-#: v2/templates/user/usersettings.php:449
+#: v2/templates/user/usersettings.php:446
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -12768,11 +12802,11 @@ msgstr ""
 "Kode pemulihan dapat digunakan bukan kode yang dihasilkan dari aplikasi asli "
 "Anda."
 
-#: v2/templates/user/usersettings.php:451
+#: v2/templates/user/usersettings.php:448
 msgid "Store these in a secure location"
 msgstr "Simpan ini di lokasi yang aman"
 
-#: v2/templates/user/usersettings.php:458
+#: v2/templates/user/usersettings.php:455
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Mulai Dua Factor Authentication Enrollment"
 
@@ -13584,6 +13618,28 @@ msgstr ""
 
 msgid "Giving Report"
 msgstr "Memberikan Laporan"
+
+#~ msgid "Integrity Check Results"
+#~ msgstr "Hasil pemeriksaan Integritas"
+
+#~ msgid "US Address Verification"
+#~ msgstr "Verifikasi Address AS"
+
+#~ msgid "US Address Verification Report"
+#~ msgstr "Laporan Verifikasi Address AS"
+
+#~ msgid ""
+#~ "Generate report comparing all US family addresses with United States "
+#~ "Postal Service Standard Address Format.<br>"
+#~ msgstr ""
+#~ "Laporan generasi membandingkan semua alamat keluarga Amerika Serikat "
+#~ "dengan United Postand Address Format. ♪SOR SHE SOW? ♪"
+
+#~ msgid ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
+#~ msgstr ""
+#~ "- Http://www.intelligentsearch.com/address_verification/verify_address."
+#~ "html"
 
 #~ msgid "URL"
 #~ msgstr "URL"

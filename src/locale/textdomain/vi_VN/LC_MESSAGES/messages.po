@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 20:12+0000\n"
+"POT-Creation-Date: 2024-02-16 20:36+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr "Preview"
 msgid "Cannot execute query."
 msgstr "Không thể thực hiện câu hỏi."
 
-#: CSVImport.php:121 Include/Footer.php:267
+#: CSVImport.php:121 Include/Footer.php:279
 msgid "CSV Import"
 msgstr "Truyền thông CSV"
 
@@ -467,7 +467,7 @@ msgstr "Không được phân công"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
 #: v2/templates/people/familyEditor.php:1089
 #: v2/templates/people/familyview.php:339
-#: v2/templates/people/peopledashboard.php:322
+#: v2/templates/people/peopledashboard.php:308
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:355
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
@@ -1058,7 +1058,7 @@ msgstr "Tên"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
-#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:383
+#: v2/templates/user/userseditor.php:761 v2/templates/user/usersettings.php:380
 msgid "Yes"
 msgstr "Vâng."
 
@@ -1073,7 +1073,7 @@ msgstr "Vâng."
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
 #: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
-#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
+#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:379
 msgid "No"
 msgstr "Không."
 
@@ -1210,7 +1210,7 @@ msgid "Role"
 msgstr "Role"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
-#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:275
+#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:261
 #: v2/templates/system/optionManager.php:92
 msgid "Family Roles"
 msgstr "Gia đình Roles"
@@ -4250,51 +4250,51 @@ msgstr "- Già rồi"
 msgid "EcclesiaCRM export"
 msgstr "Xuất khẩu CRMEcclesia"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:743
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
 msgid "system user created"
 msgstr "người dùng hệ thống tạo ra"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:746
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 msgid "system user updated"
 msgstr "cập nhật hệ thống cho người dùng"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:749
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
 msgid "system user deleted"
 msgstr "người dùng hệ thống đã xóa"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:752
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 msgid "system user password reset"
 msgstr "tái thiết lập mật khẩu hệ thống"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:755
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
 msgid "system user changed password"
 msgstr "người dùng hệ thống đổi mật khẩu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:758
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "system user password changed by admin"
 msgstr "mật khẩu người dùng hệ thống thay đổi bởi admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:761
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
 msgid "system user login reset"
 msgstr "login người dùng hệ thống"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:767
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
 msgid "Dav create file"
 msgstr "Dav tạo hồ sơ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:773
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
 msgid "Dav create directory"
 msgstr "Dav tạo thư mục"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:779
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
 msgid "Dav update file"
 msgstr "Hồ sơ cập nhật Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:792
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
 msgid "Dav move copy file"
 msgstr "Hồ sơ di chuyển Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:799
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
 msgid "Dav delete file"
 msgstr "Dav xóa hồ sơ"
 
@@ -4762,20 +4762,32 @@ msgstr "Tình nguyện."
 msgid "Pledges"
 msgstr "Pledges"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:29
-#: EcclesiaCRM/Service/AppIntegrityService.php:74
+#: EcclesiaCRM/Service/AppIntegrityService.php:66
+#: EcclesiaCRM/Service/AppIntegrityService.php:143
 msgid "Signature definition file signature failed validation"
 msgstr "Dữ liệu định nghĩa dấu hiệu đã bị hỏng"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:32
-#: EcclesiaCRM/Service/AppIntegrityService.php:77
+#: EcclesiaCRM/Service/AppIntegrityService.php:69
+#: EcclesiaCRM/Service/AppIntegrityService.php:146
 msgid "Signature definition File Missing"
 msgstr "Mất định nghĩa ký hiệu"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:41
-#: EcclesiaCRM/Service/AppIntegrityService.php:83
+#: EcclesiaCRM/Service/AppIntegrityService.php:78
+#: EcclesiaCRM/Service/AppIntegrityService.php:152
 msgid "One or more files failed signature validation"
 msgstr "Một hoặc nhiều hồ sơ đã thất bại xác nhận dấu hiệu"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:91
+#: v2/templates/system/integritycheck.php:46
+msgid "Failed"
+msgstr "Thất bại"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:94
+#: EcclesiaCRM/Service/AppIntegrityService.php:103
+#: EcclesiaCRM/Service/AppIntegrityService.php:112
+#, fuzzy
+msgid "Passed"
+msgstr "Mật khẩu"
 
 #: EcclesiaCRM/Service/CalendarService.php:59
 msgid "Event"
@@ -5112,7 +5124,7 @@ msgstr "Mất dấu Role Data vì vài người"
 msgid "Unmet Application Prerequisites"
 msgstr "Ứng dụng chưa được đáp ứng"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:322
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:334
 msgid "Register Software"
 msgstr "Phần mềm đăng ký"
 
@@ -5374,12 +5386,12 @@ msgid "1 yr old"
 msgstr "1 tuổi"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:258
+#: Include/Footer.php:270
 msgid "Backup Database"
 msgstr "Dữ liệu dự phòng"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:250
+#: Include/Footer.php:262
 msgid "Restore Database"
 msgstr "Khôi phục dữ liệu"
 
@@ -5512,7 +5524,7 @@ msgid "Donation Fund Editor"
 msgstr "Biên tập viên Quỹ quyên góp"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:276 v2/templates/calendar/checkin.php:32
+#: Include/Footer.php:288 v2/templates/calendar/checkin.php:32
 msgid "Kiosk Manager"
 msgstr "Quản lý Kiosk"
 
@@ -5783,33 +5795,31 @@ msgstr "Ít nhất một nhóm phải được chọn để làm danh sách lớ
 msgid "Sunday School Reports"
 msgstr "Báo cáo trường học Chủ nhật"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:49
-msgid "Integrity Check Results"
-msgstr "Kiểm tra trung tâm"
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:61
+#: Include/Footer.php:246
+#, fuzzy
+msgid "System Infos"
+msgstr "Thiết lập hệ thống"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:80
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:92
 msgid "Report Menu"
 msgstr "Báo cáo Menu"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:120
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:132
 #, fuzzy
 msgid "System"
 msgstr "Hệ thống sử dụng"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:156
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:168
 msgid "Convert Individuals to Addresses"
 msgstr "Chuyển sang địa chỉ riêng"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:190
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:236
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:202
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:248
 #: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:378
 msgid "CSV Export"
 msgstr "Hộ chiếu CSV"
-
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:272
-msgid "US Address Verification"
-msgstr "Địa chỉ của Mỹ sẽ xác minh"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
@@ -6190,8 +6200,8 @@ msgstr "Chúng tôi đã gặp phải một lỗi trong việc gửi dữ liệu
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 #: v2/templates/user/userseditor.php:814 v2/templates/user/usersettings.php:61
-#: v2/templates/user/usersettings.php:327
-#: v2/templates/user/usersettings.php:404
+#: v2/templates/user/usersettings.php:324
+#: v2/templates/user/usersettings.php:401
 msgid "Cancel"
 msgstr "Hủy bỏ"
 
@@ -6254,7 +6264,7 @@ msgstr "Quỹ hiến tặng Edit Donation"
 msgid "Pastoral Care Type"
 msgstr "Pastoral Care Type"
 
-#: Include/Footer.php:192 Include/Footer.php:286
+#: Include/Footer.php:192 Include/Footer.php:298
 msgid "Please contact your admin to change the system settings."
 msgstr "Xin hãy liên lạc với người quản lý để thay đổi hệ thống thiết lập."
 
@@ -6266,19 +6276,19 @@ msgstr "Chỉnh lại vị trí Đại tướng"
 msgid "System Users"
 msgstr "Hệ thống sử dụng"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:309
 msgid "CSV Export Records"
 msgstr "CSV Export Records"
 
-#: Include/Footer.php:310
+#: Include/Footer.php:322
 msgid "Open Tasks"
 msgstr "Mở nhiệm vụ"
 
-#: Include/Footer.php:311
+#: Include/Footer.php:323
 msgid "You have"
 msgstr "Anh đã làm"
 
-#: Include/Footer.php:312
+#: Include/Footer.php:324
 msgid "task(s)"
 msgstr "task(S)"
 
@@ -6484,7 +6494,7 @@ msgid "return to member dashboard"
 msgstr "quay về bảng điều khiển thành viên"
 
 #: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Pending Self Verify"
 msgstr "Đang tìm kiếm bản thân mình"
 
@@ -7920,13 +7930,13 @@ msgstr "Vị trí hình ảnh"
 #: v2/templates/people/familyCustomFieldEditor.php:508
 #: v2/templates/people/personCustomEditor.php:419
 #: v2/templates/people/personCustomEditor.php:504
-#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:390
+#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:387
 msgid "Left"
 msgstr "Trái"
 
 #: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
 #: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
-#: v2/templates/user/usersettings.php:391
+#: v2/templates/user/usersettings.php:388
 msgid "Center"
 msgstr "Trung tâm"
 
@@ -7936,7 +7946,7 @@ msgstr "Trung tâm"
 #: v2/templates/people/familyCustomFieldEditor.php:509
 #: v2/templates/people/personCustomEditor.php:420
 #: v2/templates/people/personCustomEditor.php:505
-#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:392
+#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:389
 msgid "Right"
 msgstr "Đúng vậy."
 
@@ -9879,8 +9889,8 @@ msgid "to contact"
 msgstr "để liên lạc"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:71
-#: v2/templates/people/peopledashboard.php:287
-#: v2/templates/people/peopledashboard.php:324
+#: v2/templates/people/peopledashboard.php:273
+#: v2/templates/people/peopledashboard.php:310
 msgid "Count"
 msgstr "Bá tước"
 
@@ -10052,7 +10062,7 @@ msgstr "Không phân công nhóm."
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:513
 #: v2/templates/people/personPrint.php:509
 #: v2/templates/sidebar/propertylist.php:23
-#: v2/templates/user/usersettings.php:308 queryparameters_qrp.php:6
+#: v2/templates/user/usersettings.php:305 queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Tài sản"
 
@@ -10907,8 +10917,8 @@ msgid "Sunday School Kids"
 msgstr "Học sinh Chủ nhật"
 
 #: v2/templates/people/peopledashboard.php:194
-#: v2/templates/people/peopledashboard.php:248
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:234
+#: v2/templates/people/peopledashboard.php:241
 #: v2/templates/sundayschool/sundayschooldashboard.php:148
 msgid "Reports"
 msgstr "Báo cáo"
@@ -10942,82 +10952,70 @@ msgstr ""
 msgid "Generate letters and mailing labels for data confirmations."
 msgstr "Thư điện tử và nhãn hiệu điện tử."
 
-#: v2/templates/people/peopledashboard.php:233
-msgid "US Address Verification Report"
-msgstr "Báo cáo xác nhận"
-
-#: v2/templates/people/peopledashboard.php:236
-msgid ""
-"Generate report comparing all US family addresses with United States Postal "
-"Service Standard Address Format.<br>"
-msgstr ""
-"Báo cáo chung với toàn bộ địa chỉ nhà Mỹ với đơn vị chỉ định của Cục Tình "
-"báo Hoa Kỳ.<br>"
-
-#: v2/templates/people/peopledashboard.php:248
+#: v2/templates/people/peopledashboard.php:234
 msgid "Self Update"
 msgstr "Tự cập nhật"
 
-#: v2/templates/people/peopledashboard.php:255
+#: v2/templates/people/peopledashboard.php:241
 msgid "Self Register"
 msgstr "Self Register"
 
-#: v2/templates/people/peopledashboard.php:257
+#: v2/templates/people/peopledashboard.php:243
 msgid "List families that were created via self registration."
 msgstr "Những gia đình có danh sách được tạo ra qua sự tự đăng ký."
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Self Verify Updates"
 msgstr "Bản thân xác minh"
 
-#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:247
 msgid "Families who commented via self verify links"
 msgstr "Những gia đình bình luận qua sự tự xác minh"
 
-#: v2/templates/people/peopledashboard.php:265
+#: v2/templates/people/peopledashboard.php:251
 msgid "Families with valid self verify links"
 msgstr "Gia đình có bản thân xác minh mối liên hệ"
 
-#: v2/templates/people/peopledashboard.php:285
+#: v2/templates/people/peopledashboard.php:271
 msgid "Role / Gender"
 msgstr "- Giới tính"
 
-#: v2/templates/people/peopledashboard.php:286
-#: v2/templates/people/peopledashboard.php:323
+#: v2/templates/people/peopledashboard.php:272
+#: v2/templates/people/peopledashboard.php:309
 msgid "of People"
 msgstr "của con người"
 
-#: v2/templates/people/peopledashboard.php:312
+#: v2/templates/people/peopledashboard.php:298
 msgid "People Classification"
 msgstr "Người ta sẽ lên lớp"
 
-#: v2/templates/people/peopledashboard.php:350
+#: v2/templates/people/peopledashboard.php:336
 msgid "Gender Demographics"
 msgstr "Các nhân viên văn học"
 
-#: v2/templates/people/peopledashboard.php:365
+#: v2/templates/people/peopledashboard.php:351
 msgid "# Age Histogram"
 msgstr "# Tuổi Histogram"
 
-#: v2/templates/people/peopledashboard.php:394
+#: v2/templates/people/peopledashboard.php:380
 msgid "Men"
 msgstr "Đàn ông"
 
-#: v2/templates/people/peopledashboard.php:399
+#: v2/templates/people/peopledashboard.php:385
 msgid "Women"
 msgstr "Phụ nữ"
 
-#: v2/templates/people/peopledashboard.php:408
+#: v2/templates/people/peopledashboard.php:394
 #: v2/templates/sundayschool/sundayschooldashboard.php:73
 msgid "Boys"
 msgstr "Các cậu"
 
-#: v2/templates/people/peopledashboard.php:413
+#: v2/templates/people/peopledashboard.php:399
 #: v2/templates/sundayschool/sundayschooldashboard.php:85
 msgid "Girls"
 msgstr "Các cô gái"
 
-#: v2/templates/people/peopledashboard.php:479
+#: v2/templates/people/peopledashboard.php:465
 msgid "# number of people"
 msgstr "Số người"
 
@@ -11682,8 +11680,8 @@ msgstr "Chỉnh lại công việc của JSON"
 
 #: v2/templates/sidebar/systemsettings.php:68
 #: v2/templates/user/userseditor.php:811 v2/templates/user/usersettings.php:62
-#: v2/templates/user/usersettings.php:328
-#: v2/templates/user/usersettings.php:407
+#: v2/templates/user/usersettings.php:325
+#: v2/templates/user/usersettings.php:404
 msgid "Save Settings"
 msgstr "Giữ nguyên vị trí"
 
@@ -11699,13 +11697,13 @@ msgstr "Giá trị xác định"
 
 #: v2/templates/sidebar/systemsettings.php:158
 #: v2/templates/user/userseditor.php:561 v2/templates/user/userseditor.php:614
-#: v2/templates/user/usersettings.php:279
+#: v2/templates/user/usersettings.php:276
 msgid "False"
 msgstr "Sai"
 
 #: v2/templates/sidebar/systemsettings.php:159
 #: v2/templates/user/userseditor.php:562 v2/templates/user/userseditor.php:615
-#: v2/templates/user/usersettings.php:280
+#: v2/templates/user/usersettings.php:277
 msgid "True"
 msgstr "Đúng"
 
@@ -12154,6 +12152,87 @@ msgstr "Không có sự kiện nào trong trường hợp này"
 msgid "There are no Records"
 msgstr "Không có ghi chép nào cả"
 
+#: v2/templates/system/infos.php:16
+#, fuzzy
+msgid "EcclesiaCRM Installation Information"
+msgstr "Thông tin nhà thờ"
+
+#: v2/templates/system/infos.php:21
+#, fuzzy
+msgid "Software Version"
+msgstr "Phiên bản phần mềm hiện tại:"
+
+#: v2/templates/system/infos.php:47
+#, fuzzy
+msgid "System Information"
+msgstr "Thông tin"
+
+#: v2/templates/system/infos.php:70
+#, fuzzy
+msgid "Database"
+msgstr "Dữ liệu dự phòng"
+
+#: v2/templates/system/infos.php:75
+#, fuzzy
+msgid "Database Version"
+msgstr "Phiên tòa"
+
+#: v2/templates/system/infos.php:79
+msgid "Database Server Version"
+msgstr ""
+
+#: v2/templates/system/infos.php:93
+msgid "Web Server"
+msgstr ""
+
+#: v2/templates/system/infos.php:159
+#, fuzzy
+msgid "Email Information"
+msgstr "Xác nhận"
+
+#: v2/templates/system/infos.php:168
+#, fuzzy
+msgid "Valid Mail Server Settings"
+msgstr "Chỉnh lại vị trí Đại tướng"
+
+#: v2/templates/system/infos.php:178
+#, fuzzy
+msgid "Application Prerequisites"
+msgstr "Ứng dụng chưa được đáp ứng"
+
+#: v2/templates/system/infos.php:195
+#, fuzzy
+msgid "Application Integrity Check"
+msgstr "Kiểm tra tài chính thất bại"
+
+#: v2/templates/system/infos.php:198 v2/templates/system/integritycheck.php:57
+msgid "Details:"
+msgstr "Chi tiết:"
+
+#: v2/templates/system/infos.php:202 v2/templates/system/integritycheck.php:61
+msgid "Files failing integrity check"
+msgstr "Hồ sơ bị hỏng"
+
+#: v2/templates/system/infos.php:205
+#, fuzzy
+msgid "FileName"
+msgstr "Tên"
+
+#: v2/templates/system/infos.php:206 v2/templates/system/integritycheck.php:78
+#: v2/templates/system/integritycheck.php:105
+msgid "Expected Hash"
+msgstr "Tôi mong là sẽ có tin tức"
+
+#: v2/templates/system/infos.php:207 v2/templates/system/integritycheck.php:79
+#: v2/templates/system/integritycheck.php:106
+msgid "Actual Hash"
+msgstr "Đúng là \"Hash\""
+
+#: v2/templates/system/infos.php:218 v2/templates/system/integritycheck.php:72
+#: v2/templates/system/integritycheck.php:99
+msgid "File Missing"
+msgstr "Hồ sơ mất tích"
+
 #: v2/templates/system/integritycheck.php:34
 msgid "All Application Prerequisites Satisfied"
 msgstr "Tất cả các ứng dụng đều thỏa mãn"
@@ -12176,10 +12255,6 @@ msgstr ""
 "định hình trên máy chủ này. Đơn xin có thể tiếp tục hoạt động, nhưng có thể "
 "tạo ra những hành vi bất ngờ."
 
-#: v2/templates/system/integritycheck.php:46
-msgid "Failed"
-msgstr "Thất bại"
-
 #: v2/templates/system/integritycheck.php:55
 msgid "Integrity Check Failure"
 msgstr "Thất bại hoàn toàn"
@@ -12188,33 +12263,10 @@ msgstr "Thất bại hoàn toàn"
 msgid "The previous integrity check failed"
 msgstr "Kiểm tra toàn vẹn trước đó đã thất bại"
 
-#: v2/templates/system/integritycheck.php:57
-msgid "Details:"
-msgstr "Chi tiết:"
-
-#: v2/templates/system/integritycheck.php:61
-msgid "Files failing integrity check"
-msgstr "Hồ sơ bị hỏng"
-
 #: v2/templates/system/integritycheck.php:67
 #: v2/templates/system/integritycheck.php:93
 msgid "File Name"
 msgstr "Tên"
-
-#: v2/templates/system/integritycheck.php:72
-#: v2/templates/system/integritycheck.php:99
-msgid "File Missing"
-msgstr "Hồ sơ mất tích"
-
-#: v2/templates/system/integritycheck.php:78
-#: v2/templates/system/integritycheck.php:105
-msgid "Expected Hash"
-msgstr "Tôi mong là sẽ có tin tức"
-
-#: v2/templates/system/integritycheck.php:79
-#: v2/templates/system/integritycheck.php:106
-msgid "Actual Hash"
-msgstr "Đúng là \"Hash\""
 
 #: v2/templates/system/integritycheck.php:125
 msgid "Integrity Check Passed"
@@ -12313,12 +12365,6 @@ msgstr ""
 #: v2/templates/system/reportlist.php:66
 msgid "Event Attendance Reports"
 msgstr "Báo cáo tình hình"
-
-#: v2/templates/system/USISTAddressVerification.php:88
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
-msgstr ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: v2/templates/user/changepassword.php:43
 msgid "Enter a new password for this user."
@@ -12628,7 +12674,7 @@ msgstr "Ghi chú"
 msgid "Plugin permissions"
 msgstr "Cho phép"
 
-#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:347
+#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
 msgstr ""
 
@@ -12642,7 +12688,7 @@ msgstr "Đội an ninh"
 msgid "Position"
 msgstr "Chắc chắn."
 
-#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:389
+#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:386
 #, fuzzy
 msgid "Top"
 msgstr "To"
@@ -12655,16 +12701,16 @@ msgstr "Thiết lập hồ sơ cổ điển sử dụng"
 msgid "Skin"
 msgstr "Da."
 
-#: v2/templates/user/usersettings.php:338
+#: v2/templates/user/usersettings.php:335
 #, fuzzy
 msgid "Specific settings"
 msgstr "Giữ nguyên vị trí"
 
-#: v2/templates/user/usersettings.php:420
+#: v2/templates/user/usersettings.php:417
 msgid "Two-factor authentication (2fa)"
 msgstr "2 nhân tố xác thực (2fa)"
 
-#: v2/templates/user/usersettings.php:423
+#: v2/templates/user/usersettings.php:420
 msgid ""
 "Enrolling your EcclesiaCRM user account in Two Factor Authentication "
 "provides an EcclesiaCRM layer of defense against bad actors trying to access "
@@ -12674,11 +12720,11 @@ msgstr ""
 "của Factor cung cấp một lớp phòng thủ Ecclesiađể chống lại những diễn viên "
 "xấu đang cố truy cập tài khoản của bạn"
 
-#: v2/templates/user/usersettings.php:424
+#: v2/templates/user/usersettings.php:421
 msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
 msgstr "EcclesiaCRM 2 yếu tố hỗ trợ bất kỳ ứng dụng xác thực"
 
-#: v2/templates/user/usersettings.php:429
+#: v2/templates/user/usersettings.php:426
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
@@ -12686,7 +12732,7 @@ msgstr ""
 "Khi bạn đăng ký vào EcclesiaCRM, bạn vẫn sẽ nhập tên và mật khẩu như bình "
 "thường"
 
-#: v2/templates/user/usersettings.php:432
+#: v2/templates/user/usersettings.php:429
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
@@ -12694,7 +12740,7 @@ msgstr ""
 "Tuy nhiên, bạn cũng cần cung cấp một mã một lần từ thiết bị xác thực của bạn "
 "để hoàn thành các login"
 
-#: v2/templates/user/usersettings.php:435
+#: v2/templates/user/usersettings.php:432
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
@@ -12702,7 +12748,7 @@ msgstr ""
 "Sau khi nhập vào thành công của cả hai bằng chứng, và mã số một lần, anh sẽ "
 "được đăng nhập như bình thường"
 
-#: v2/templates/user/usersettings.php:438
+#: v2/templates/user/usersettings.php:435
 msgid ""
 "To prevent being locked out of your EcclesiaCRM account, please ensure "
 "you're ready to complete two factor enrollment before clicking begin"
@@ -12710,7 +12756,7 @@ msgstr ""
 "Để ngăn chặn việc bị khóa trong tài khoản CRM 98, xin đảm bảo rằng bạn đã "
 "sẵn sàng để hoàn thành hai lần đăng ký nhân tố trước khi bắt đầu"
 
-#: v2/templates/user/usersettings.php:441
+#: v2/templates/user/usersettings.php:438
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
@@ -12718,7 +12764,7 @@ msgstr ""
 "Việc đăng ký sẽ vô hiệu hóa bất kỳ trước đây đã đăng ký 2 thiết bị nhân tố "
 "và mã phục hồi."
 
-#: v2/templates/user/usersettings.php:443
+#: v2/templates/user/usersettings.php:440
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -12726,13 +12772,13 @@ msgstr ""
 "Khi bạn nhấp vào tiếp theo, bạn sẽ được đề nghị quét mã QR để đăng ký ứng "
 "dụng xác thực."
 
-#: v2/templates/user/usersettings.php:445
+#: v2/templates/user/usersettings.php:442
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
 msgstr "Để xác nhận, anh cần nhập mã được tạo ra bởi ứng dụng xác thực"
 
-#: v2/templates/user/usersettings.php:447
+#: v2/templates/user/usersettings.php:444
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
@@ -12740,7 +12786,7 @@ msgstr ""
 "Sau khi xác nhận việc đăng ký ứng dụng, mã phục hồi sử dụng đơn sẽ được tạo "
 "ra và hiển thị."
 
-#: v2/templates/user/usersettings.php:449
+#: v2/templates/user/usersettings.php:446
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
@@ -12748,11 +12794,11 @@ msgstr ""
 "Mã phục hồi có thể được sử dụng thay vì mã hóa được tạo ra từ ứng dụng xác "
 "thực của bạn."
 
-#: v2/templates/user/usersettings.php:451
+#: v2/templates/user/usersettings.php:448
 msgid "Store these in a secure location"
 msgstr "Giữ chúng ở một nơi an toàn"
 
-#: v2/templates/user/usersettings.php:458
+#: v2/templates/user/usersettings.php:455
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Bắt đầu tiến hành tiến trình khai thác 2"
 
@@ -13567,6 +13613,27 @@ msgstr ""
 #, fuzzy
 msgid "Giving Report"
 msgstr "Báo cáo Generate"
+
+#~ msgid "Integrity Check Results"
+#~ msgstr "Kiểm tra trung tâm"
+
+#~ msgid "US Address Verification"
+#~ msgstr "Địa chỉ của Mỹ sẽ xác minh"
+
+#~ msgid "US Address Verification Report"
+#~ msgstr "Báo cáo xác nhận"
+
+#~ msgid ""
+#~ "Generate report comparing all US family addresses with United States "
+#~ "Postal Service Standard Address Format.<br>"
+#~ msgstr ""
+#~ "Báo cáo chung với toàn bộ địa chỉ nhà Mỹ với đơn vị chỉ định của Cục Tình "
+#~ "báo Hoa Kỳ.<br>"
+
+#~ msgid ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
+#~ msgstr ""
+#~ "http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #~ msgid "URL"
 #~ msgstr "URL"
