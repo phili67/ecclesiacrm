@@ -267,7 +267,7 @@ class RestoreBackup extends JobBase
                 // we've have to decode the archive
                 $this->DecryptBackupFileGPG();
             } else {
-                // the way of ChurchCRM.io
+                // the way of ecclesiacrm.com
                 $this->DecryptBackupFileInternal();
             }
         }
