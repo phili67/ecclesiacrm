@@ -186,7 +186,7 @@ class SystemService
             $now = new \DateTime();  //get the current time
             $previous = new \DateTime(SystemConfig::getValue('sLastIntegrityCheckTimeStamp')); // get a DateTime object for the last time a backup was done.
             $diff = $previous->diff($now);  // calculate the difference.
-            if (!SystemConfig::getValue('sLastIntegrityCheckTimeStamp') || $diff->h >= SystemConfig::getValue('iIntegrityCheckInterval')) {  // if there was no previous backup, or if the interval suggests we do a backup now.
+            if (!SystemConfig::getValue('sLastIntegrityCheckTimeStamp') || ($diff->h + ($diff->days*24)) >= SystemConfig::getValue('iIntegrityCheckInterval')) {  // if there was no previous backup, or if the interval suggests we do a backup now.
                 $integrityCheckFile = SystemURLs::getDocumentRoot() . '/integrityCheck.json';
                 $appIntegrity = AppIntegrityService::verifyApplicationIntegrity();
                 file_put_contents($integrityCheckFile, json_encode($appIntegrity));
