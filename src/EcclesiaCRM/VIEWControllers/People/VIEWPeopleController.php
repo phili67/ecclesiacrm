@@ -569,33 +569,56 @@ class VIEWPeopleController {
             (SessionUser::getUser()->isEditSelfEnabled() && $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())
         );
 
-        $ormNextPersons = PersonQuery::Create()
-            ->orderByLastName()
-            ->find();
+        // by default in the next previous person : dectivated are not showned
+        // find the next personID
+        $previous_id = $last_id = 0;
+        $next_id = 0;        
 
-        $last_id = 0;
-        $next_id = 0;
-        $capture_next = 0;
+        $connection = Propel::getConnection();
 
-        foreach ($ormNextPersons as $ormNextPerson) {
-            $pid = $ormNextPerson->getId();
-            if ($capture_next == 1) {
-                $next_id = $pid;
-                break;
-            }
-            if ($pid == $iPersonID) {
-                $previous_id = $last_id;
-                $capture_next = 1;
-            } else {
-                $last_id = $pid;
-            }
+        $sSQL = "SELECT t.next_id 
+        FROM (
+            SELECT per_ID, 
+                LEAD(per_ID, 1) OVER (ORDER BY per_LastName ASC, per_FirstName ASC) AS next_id 
+            FROM person_per
+            WHERE per_DateDeactivated IS NULL 
+        ) t 
+        WHERE t.per_ID = ".$iPersonID.";";
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
+        $next = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        if (count($next) ) {
+            $next_id = (int)$next[0]['next_id'];
         }
+
+        // get previous id
+        $sSQL = "SELECT t.previous_id 
+        FROM (
+            SELECT per_ID, 
+                LEAD(per_ID, 1) OVER (ORDER BY per_LastName DESC, per_FirstName DESC) AS previous_id 
+            FROM person_per
+            WHERE per_DateDeactivated IS NULL 
+        ) t 
+        WHERE t.per_ID = ".$iPersonID.";";
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
+        $previous = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        if (count($previous) ) {
+            $previous_id = (int)$previous[0]['previous_id'];
+        }
+
 
         $sAssignedGroups = "";
 
         // Set the page title and include HTML header
         $sPageTitle = _('Person Profile');
-        $sPageTitleSpan = $sPageTitle . '<span style="float:right"><div class="btn-group">';
+        $sPageTitleSpan = $sPageTitle . ' <span style="float:right"><div class="btn-group">';
         if ($previous_id > 0) {
             $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $previous_id . '\'">
         <span class="mat-button-wrapper"><i class="far fa-hand-point-left"></i></span>

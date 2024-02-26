@@ -254,7 +254,7 @@ Header_system_notifications();
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><?= $sPageTitle; ?></h1>
+                        <h1><?= (!empty($sPageTitleSpan)) ? $sPageTitleSpan : $sPageTitle ?></h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
