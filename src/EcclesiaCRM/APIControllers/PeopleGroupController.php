@@ -866,7 +866,7 @@ class PeopleGroupController
             setcookie('TitlelabelfontsizeSC', $values->titleFontSize, time() + 60 * 60 * 24 * 90, '/');
             setcookie('sundaySchoolNameSC', $values->sundaySchoolName, time() + 60 * 60 * 24 * 90, '/');
             setcookie('sundaySchoolNamePositionSC', $values->sundaySchoolNamePosition, time() + 60 * 60 * 24 * 90, '/');
-            setcookie('SundaySchoolNameFontSizeSC', $values->sundaySchoolNameFontSize, time() + 60 * 60 * 24 * 90, '/');
+            setcookie('sundaySchoolNameFontSizeSC', $values->sundaySchoolNameFontSize, time() + 60 * 60 * 24 * 90, '/');
             setcookie('sBackgroudColorSC', $values->back, time() + 60 * 60 * 24 * 90, '/');
             setcookie('imageSC', $values->imageName, time() + 60 * 60 * 24 * 90, '/');
             setcookie('imagePositionSC', $values->imagePosition, time() + 60 * 60 * 24 * 90, '/');

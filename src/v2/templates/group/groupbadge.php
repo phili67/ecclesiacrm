@@ -110,7 +110,7 @@ if (isset($_GET['typeProblem'])) {
                             <select name="sundaySchoolNamePosition" class="form-control form-control-sm" id="sundaySchoolNamePosition">
                                 <option value="Left" <?= ($_COOKIE["sundaySchoolNamePositionSC"] == 'Left')?'selected':'' ?>><?= _('Left') ?></option>
                                 <option value="Center" <?= ($_COOKIE["sundaySchoolNamePositionSC"] == 'Center')?'selected':'' ?>><?= _('Center') ?></option>
-                                <option value="Right" <?= ($_COOKIE["scNamesundaySchoolNamePositionSCPositionSC"] == 'Right')?'selected':'' ?>><?= _('Right') ?></option>
+                                <option value="Right" <?= ($_COOKIE["sundaySchoolNamePositionSC"] == 'Right')?'selected':'' ?>><?= _('Right') ?></option>
                             </select>
                         </div>
                         <div class="col-md-2">
