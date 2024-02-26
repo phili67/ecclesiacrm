@@ -569,6 +569,7 @@ class VIEWPeopleController {
             (SessionUser::getUser()->isEditSelfEnabled() && $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())
         );
 
+        // by default in the next previous person : dectivated are not showned
         // find the next personID
         $previous_id = $last_id = 0;
         $next_id = 0;        
