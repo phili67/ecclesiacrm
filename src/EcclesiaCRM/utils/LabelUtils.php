@@ -89,7 +89,8 @@ class LabelUtils {
                 $place = 0;
                 foreach ($sizes as $s) {
                     $sel = '';
-                    if (array_key_exists($fieldname, $_COOKIE) && $_COOKIE[$fieldname] == $s) {
+                    if (array_key_exists($fieldname, $_COOKIE) && $_COOKIE[$fieldname] == $s
+                        or array_key_exists($fieldname."SC", $_COOKIE) && $_COOKIE[$fieldname."SC"] == $s) {
                         $sel = ' selected';
                     }
               ?>
