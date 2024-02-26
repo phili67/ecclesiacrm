@@ -170,9 +170,7 @@ class EmailUsers
         $this->fams = $fams;
         $this->persons = $persons;
         $this->fontSize = $fontSize;
-        $this->personsEmailed = [];
-        $this->familiesEmailed = [];
-
+        
         // Get the list of custom person fields
         $this->ormPersonCustomFields = PersonCustomMasterQuery::create()
             ->orderByCustomOrder()
@@ -993,8 +991,8 @@ class EmailUsers
                     $filename = 'ConfirmReportEmail-' . $person->getLastName() . '-' . date(SystemConfig::getValue("sDateFilenameFormat")) . '.pdf';
                     $mail->addStringAttachment($doc, $filename);
 
-                    if (($this->personsEmailed = $mail->send())) {
-                        $this->personsEmailed[] = $this->familiesEmailed + 1;
+                    if (($personsEmailed = $mail->send())) {
+                        $this->personsEmailed = $this->personsEmailed + 1;
                     } else {
                         LoggerUtils::getAppLogger()->error($mail->getError());
                     }
