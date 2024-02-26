@@ -42,8 +42,8 @@ if (AppIntegrityService::arePrerequisitesMet()) {
     <p><?= _('Certain components that EcclesiaCRM relies upon are missing or improperly configured on this server.  The application may continue to function, but may produce unexpected behavior.') ?></p>
     <ul>
       <?php
-      foreach (AppIntegrityService::getUnmetPrerequisites() as $prerequisiteName) {
-          echo "<li>".$prerequisiteName.": "._("Failed")."</li>";
+      foreach (AppIntegrityService::getUnmetPrerequisites() as $prerequisite) {
+        echo "<li>".$prerequisite[0].": "._("Failed")."</li>";
       } ?>
     </ul>
   </div>
@@ -56,12 +56,76 @@ if ($IntegrityCheckDetails->status == 'failure') {
     <p><?= _('The previous integrity check failed') ?></p>
     <p><?= _('Details:')?> <?=  $IntegrityCheckDetails->message ?></p>
     <?php
-      if (count($IntegrityCheckDetails->files) > 0) {
+      if (!is_null($IntegrityCheckDetails->files)) {
+        if (property_exists($IntegrityCheckDetails->files, "CRM")) {
           ?>
-        <p><?= _('Files failing integrity check') ?>:
+        <p>CRM <?= _('Files failing integrity check') ?>:
         <ul>
           <?php
-          foreach ($IntegrityCheckDetails->files as $key => $file) {
+          foreach ($IntegrityCheckDetails->files->CRM as $key => $file) {
+              if ( is_numeric($key) ) {
+              ?>
+            <li><?= _('File Name')?>: <?= $file->filename ?>
+              <?php
+              if ($file->status == 'File Missing') {
+                  ?>
+                <ul>
+                 <li><?= _('File Missing')?></li>
+                </ul>
+                <?php
+              } else {
+                  ?>
+                <ul>
+                 <li><?= _('Expected Hash')?>: <?= $file->expectedhash ?></li>
+                 <li><?= _('Actual Hash') ?>: <?= $file->actualhash ?></li>
+                </ul>
+                <?php
+              } ?>
+            </li>
+            <?php
+              } elseif ( is_string($key) and count($file) > 0) {
+                  ?>
+                  <li><?= _("Plugin")." : ". $key ?>
+                      <ul>
+                  <?php
+                  foreach ($file as $plugin_file) {
+                      ?>
+                      <li>
+                      <?= _('File Name')?>: <?= $plugin_file->filename ?>
+                      </li>
+                      <?php
+                      if ($file->status == 'File Missing') {
+                          ?>
+                          <ul>
+                              <li><?= _('File Missing')?></li>
+                          </ul>
+                          <?php
+                      } else {
+                          ?>
+                          <ul>
+                              <li><?= _('Expected Hash')?>: <?= $plugin_file->expectedhash ?></li>
+                              <li><?= _('Actual Hash') ?>: <?= $plugin_file->actualhash ?></li>
+                          </ul>
+                          <?php
+                      }
+                  }
+                  ?>
+                      </ul>
+                  </li>
+                  <?php
+              }
+          } ?>
+        </ul>
+        <?php 
+          }// end of CRM entry
+
+          if (property_exists($IntegrityCheckDetails->files, "PLUGINS")) {
+        ?>
+        <br/>
+        <p>PLUGINS <?= _('Files failing integrity check') ?>:
+        <ul>
+          <?php
+          foreach ($IntegrityCheckDetails->files->PLUGINS as $key => $file) {
               if ( is_numeric($key) ) {
               ?>
             <li><?= _('File Name')?>: <?= $file->filename ?>
@@ -116,6 +180,7 @@ if ($IntegrityCheckDetails->status == 'failure') {
           } ?>
         </ul>
         <?php
+          }
       } ?>
   </div>
   <?php

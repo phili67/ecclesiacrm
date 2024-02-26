@@ -13,12 +13,12 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                <h4><?= gettext("ChurchCRM Installation Information") ?></h4>
+                <h4><?= _("EcclesiaCRM Installation Information") ?></h4>
             </div>
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
                     <tr>
-                        <td>ChurchCRM <?= gettext("Software Version") ?></td>
+                        <td>EcclesiaCRM <?= _("Software Version") ?></td>
                         <td><?= SystemService::getInstalledVersion() ?></td>
                     </tr>
                     <tr>
@@ -44,7 +44,7 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                <h4><?= gettext("System Information") ?></h4>
+                <h4><?= _("System Information") ?></h4>
             </div>
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
@@ -67,16 +67,16 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                <h4><?= gettext("Database") ?></h4>
+                <h4><?= _("Database") ?></h4>
             </div>
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
                     <tr>
-                        <td>ChurchCRM <?= gettext("Database Version") ?></td>
+                        <td>EcclesiaCRM <?= _("Database Version") ?></td>
                         <td><?= SystemService::getDBVersion() ?></td>
                     </tr>
                     <tr>
-                        <td><?= gettext("Database Server Version") ?></td>
+                        <td><?= _("Database Server Version") ?></td>
                         <td><?= SystemService::getDBServerVersion() ?></td>
                     </tr>
                     <tr>
@@ -90,7 +90,7 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                <h4><?= gettext("Web Server") ?></h4>
+                <h4><?= _("Web Server") ?></h4>
             </div>
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
@@ -156,7 +156,7 @@ EOD;
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                <h4><?= gettext("Email Information") ?></h4>
+                <h4><?= _("Email Information") ?></h4>
             </div>
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
@@ -165,7 +165,7 @@ EOD;
                         <td><?= SystemConfig::getValue("sSMTPHost") ?></td>
                     </tr>
                     <tr>
-                        <td><?= gettext("Valid Mail Server Settings") ?></td>
+                        <td><?= _("Valid Mail Server Settings") ?></td>
                         <td><?= SystemConfig::hasValidMailServerSettings() ? "true" : "false" ?></td>
                     </tr>
                 </table>
@@ -175,7 +175,7 @@ EOD;
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                <h4><?= gettext("Application Prerequisites") ?></h4>
+                <h4><?= _("Application Prerequisites") ?></h4>
             </div>
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
@@ -189,17 +189,18 @@ EOD;
             </div>
         </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-8">
         <div class="card">
             <div class="card-header">
-              <h4><?= gettext("Application Integrity Check") . ": " . AppIntegrityService::getIntegrityCheckStatus()?></h4>
+              <h4><?= _("Application Integrity Check") . ": " . AppIntegrityService::getIntegrityCheckStatus()?></h4>
             </div>
             <div class="card-body">
-              <p><?= gettext('Details:')?> <?=  AppIntegrityService::getIntegrityCheckMessage() ?></p>
+              <label><?= _('Details:')?> CRM (<?=  AppIntegrityService::getIntegrityCheckMessage() ?>)</label>
                 <?php
-                if (count(AppIntegrityService::getFilesFailingIntegrityCheck()) > 0) {
+                $signatureFailures = AppIntegrityService::getFilesFailingIntegrityCheck();
+                if (count($signatureFailures['CRM']) > 0) {
                     ?>
-                    <p><?= gettext('Files failing integrity check') ?>:
+                    <p><?= _('Files failing integrity check') ?>:
                     <table class="display responsive no-wrap" width="100%" id="fileIntegrityCheckResultsTable">
                       <thead>
                       <td><?= _("FileName") ?></td>
@@ -207,7 +208,7 @@ EOD;
                       <td><?= _("Actual Hash") ?></td>
                     </thead>
                       <?php
-                        foreach (AppIntegrityService::getFilesFailingIntegrityCheck() as $file) {
+                        foreach ($signatureFailures['CRM'] as $file) {
                             ?>
                     <tr>
                       <td><?= $file['filename'] ?></td>
@@ -228,6 +229,44 @@ EOD;
                     <?php
                 }
                 ?>
+                <br/>
+                <label><?= _('Details:')?> PLUGINS (<?=  AppIntegrityService::getIntegrityCheckMessage() ?>)</label>
+                <?php
+                if (array_key_exists('PLUGINS', $signatureFailures) and count($signatureFailures['PLUGINS']) > 0) {
+                    ?>
+                    <p><?= _('Files failing integrity check') ?>:
+                    <table class="display responsive no-wrap" width="100%" id="pluginfileIntegrityCheckResultsTable">
+                      <thead>
+                      <td><?= _("Plugin") ?></td>
+                      <td><?= _("FileName") ?></td>
+                      <td><?= _("Expected Hash") ?></td>
+                      <td><?= _("Actual Hash") ?></td>
+                    </thead>
+                      <?php
+                        foreach ($signatureFailures['PLUGINS'] as $pluginName => $files) {
+                            foreach ($files as $file) {
+                            ?>
+                        <tr>
+                            <td><?= $pluginName ?></td>
+                            <td><?= $file['filename'] ?></td>
+                            <td><?= $file['expectedhash'] ?></td>
+                            <td>
+                                    <?php
+                                    if ($file->status === 'File Missing') {
+                                        echo _('File Missing');
+                                    } else {
+                                        echo $file['actualhash'];
+                                    }?>
+                            </td>
+                        </tr>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </table>
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -237,6 +276,15 @@ EOD;
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   $(document).ready(function() {
     $("#fileIntegrityCheckResultsTable").DataTable({
+        "language": {
+            "url": window.CRM.plugin.dataTable.language.url
+        },
+        responsive: true,
+        paging:false,
+        searching: false
+    });
+
+    $("#pluginfileIntegrityCheckResultsTable").DataTable({
         responsive: true,
         paging:false,
         searching: false

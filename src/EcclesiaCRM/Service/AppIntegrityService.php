@@ -47,7 +47,7 @@ class AppIntegrityService
   {
     if (AppIntegrityService::$IntegrityCheckDetails === NULL) {
       $signatureFile = SystemURLs::getDocumentRoot() . '/signatures.json';
-      $signatureFailures = [];
+      $signatureFailures['CRM'] = [];
       if (file_exists($signatureFile)) {
         $signatureData = json_decode(file_get_contents($signatureFile));
         if (sha1(json_encode($signatureData->files, JSON_UNESCAPED_SLASHES)) == $signatureData->sha1) {
@@ -56,10 +56,10 @@ class AppIntegrityService
             if (file_exists($currentFile)) {
               $actualHash = sha1_file($currentFile);
               if ($actualHash != $file->sha1) {
-                array_push($signatureFailures, ['filename' => $file->filename, 'status' => 'Hash Mismatch', 'expectedhash' => $file->sha1, 'actualhash' => $actualHash]);
+                $signatureFailures['CRM'][] = ['filename' => $file->filename, 'status' => 'Hash Mismatch', 'expectedhash' => $file->sha1, 'actualhash' => $actualHash];
               }
             } else {
-              array_push($signatureFailures, ['filename' => $file->filename, 'status' => 'File Missing']);
+                $signatureFailures['CRM'][] = ['filename' => $file->filename, 'status' => 'File Missing'];
             }
           }
         } else {
@@ -69,14 +69,13 @@ class AppIntegrityService
         return ['status' => 'failure', 'message' => _('Signature definition File Missing')];
       }
 
-      $pluginsIntegrity = AppIntegrityService::verifyPluginsIntegrity($signatureFailures);
+      $pluginsIntegrity = AppIntegrityService::verifyPluginsIntegrity([]);
 
       if (count($signatureFailures) > 0 or $pluginsIntegrity['status'] == 'failure') {
         if (array_key_exists('files', $pluginsIntegrity)) {
-            $signatureFailures = $pluginsIntegrity['files'];
+            $signatureFailures['PLUGINS'] = $pluginsIntegrity['files'];
         }
-        AppIntegrityService::$IntegrityCheckDetails = ['status' => 'failure', 'message' => _('One or more files failed signature validation'), 'files' => $signatureFailures];
-        
+        AppIntegrityService::$IntegrityCheckDetails = ['status' => 'failure', 'message' => _('One or more files failed signature validation'), 'files' => $signatureFailures];        
       } else {
         AppIntegrityService::$IntegrityCheckDetails = ['status' => 'success'];
       }
@@ -241,6 +240,15 @@ class AppIntegrityService
       // Third, finally try calling a known invalid URL on this installation
       //   and check for a header that would only be present if .htaccess was processed.
       //   This header comes from index.php (which is the target of .htaccess for invalid URLs)
+      // 
+      // Put in the <VirtualHost *:443> part
+      // <IfModule mod_env.c>
+      //    ## Tell PHP that the mod_rewrite module is ENABLED.
+      //    SetEnv HTTP_MOD_REWRITE On
+      // </IfModule>
+      //
+      // 
+      // 
 
       $check = false;
       $logger = LoggerUtils::getAppLogger();
