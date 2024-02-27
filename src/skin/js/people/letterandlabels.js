@@ -131,4 +131,103 @@ $(function() {
             currentForm.submit();
         }
     });
+
+    $("#delete-pending-persons").on ('click', function() {
+        bootbox.confirm({
+            title: i18next.t("Warning !!!!"),
+            size: "large",
+            message:i18next.t("You're about to delete all pending confirmation for all the persons."),
+            callback: function(result) {
+                if (result) {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'persons/reset/pending'
+                      },function(data) {
+                        // reset count to 0.
+                        $("#pending-count-persons").html("0");
+                      });
+                }
+            }
+            }).find('.modal-content').css({
+                'background-color': '#f55', 
+                'font-weight' : 'bold', 
+                'color': '#000', 
+                'font-size': '1em', 
+                'font-weight' : 'bold'
+            });
+    });
+
+    $("#delete-done-confirmation-persons").on ('click', function() {
+        bootbox.confirm({
+            title: i18next.t("Warning !!!!"),
+            size: "large",
+            message:i18next.t("You're about to delete all done confirmation for all the persons."),
+            callback: function(result) {
+                if (result) {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'persons/reset/done'
+                      },function(data) {
+                        $("#done-count-persons").html("0");
+                      });
+                }
+            }
+        }).find('.modal-content').css({
+                'background-color': '#f55', 
+                'font-weight' : 'bold', 
+                'color': '#000', 
+                'font-size': '1em', 
+                'font-weight' : 'bold'
+        });
+    });
+
+    $("#delete-pending-families").on ('click', function() {
+        bootbox.confirm({
+            title: i18next.t("Warning !!!!"),
+            size: "large",
+            message:i18next.t("You're about to delete all pending confirmation for all the families."),
+            callback: function(result) {
+                if (result) {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'families/reset/pending'
+                      },function(data) {
+                        // reset count to 0.
+                        $("#pending-count-families").html("0");
+                      });
+                }
+            }
+            }).find('.modal-content').css({
+                'background-color': '#f55', 
+                'font-weight' : 'bold', 
+                'color': '#000', 
+                'font-size': '1em', 
+                'font-weight' : 'bold'
+            });
+    });
+
+    $("#delete-done-confirmation-families").on ('click', function() {
+        bootbox.confirm({
+            title: i18next.t("Warning !!!!"),
+            size: "large",
+            message:i18next.t("You're about to delete all done confirmation for all the families."),
+            callback: function(result) {
+                if (result) {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'families/reset/done'
+                      },function(data) {
+                        $("#done-count-familie").html("0");
+                      });
+                }
+            }
+        }).find('.modal-content').css({
+                'background-color': '#f55', 
+                'font-weight' : 'bold', 
+                'color': '#000', 
+                'font-size': '1em', 
+                'font-weight' : 'bold'
+        });
+    });
+
 });

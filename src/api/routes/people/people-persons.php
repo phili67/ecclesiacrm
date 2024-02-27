@@ -183,6 +183,15 @@ $app->group('/persons', function (RouteCollectorProxy $group) {
      * #! param: id->int :: personId
      */
     $group->get( '/addressbook/extract/{personId:[0-9]+}', PeoplePersonController::class . ":addressBook" );
+
+/**
+ * confirm datas people reset
+ */
+    /*
+     * @! reset person datas confirmations
+     * #! param: id->string :: state (pending | done)
+     */
+    $group->post('/reset/{state}', PeoplePersonController::class . ":resetConfirmDatas" );
 });
 
 

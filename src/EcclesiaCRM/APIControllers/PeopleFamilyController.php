@@ -41,6 +41,7 @@ use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\SessionUser;
 
 use EcclesiaCRM\Reports\EmailUsers;
+use Family;
 
 class PeopleFamilyController
 {
@@ -482,5 +483,40 @@ class PeopleFamilyController
 
         $response->getBody()->write($output);
         return $response;
+    }
+    
+    public function resetConfirmDatas (ServerRequest $request, Response $response, array $args): Response {
+        $families = null;
+
+        if ( isset ($args['state']) ) {
+            switch ($args['state']) {
+                case "pending":
+                    $families = FamilyQuery::create()->findByConfirmReport('Pending');                    
+                    break;
+                case "done":
+                    $families = FamilyQuery::create()->findByConfirmReport('Done');
+                    break;
+            }
+
+            if (!is_null($families)) {
+                foreach ($families as $family) {
+                    $token = TokenQuery::create()
+                        ->filterByType("verifyFamily")
+                        ->findOneByReferenceId($family->getId());
+                    if (!is_null($token)) {
+                        $token->delete();
+                    }
+                
+                    $family->createTimeLineNote("verify-URL-reset");
+
+                    $family->setConfirmReport('No');
+                    $family->save();
+                }
+
+                return $response->withJson(['success' => true]);
+            }
+        }
+
+        return $response->withJson(['success' => false]);
     }
 }

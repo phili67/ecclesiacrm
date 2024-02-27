@@ -286,13 +286,17 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                         $familiesPending = FamilyQuery::create()
                                 ->findByConfirmReport('Pending');                        
                     ?>
-                    <label><?= _("Pending Persons") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/35"><?= $personsConfirmPending->count() ?></a><br>
-                    <label><?= _("confirmed person") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/37"><?= $personsConfirmDone->count() ?></a>
+                    <label><?= _("Pending Persons") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/35"><span id="pending-count-persons"><?= $personsConfirmPending->count() ?></span></a><br>
+                    <label><?= _("Confirmed persons") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/37"><span id="done-count-persons"><?= $personsConfirmDone->count() ?></span></a><br/>
+                    <button type="button" class="btn btn-danger btn-xs" id="delete-pending-persons"><i class="fa fa-trash-can"></i> <?= _("Delete Pending") ?></button>
+                    <button type="button" class="btn btn-danger btn-xs" id="delete-done-confirmation-persons"><i class="fa fa-trash-can"></i> <?= _("Delete Done Confirmation") ?></button>
 
                     <hr/>
 
-                    <label><?= _("Pending Families") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/36"><?= $familiesPending->count() ?></a><br>
-                    <label><?= _("confirmed Families") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/38"><?= $familiesConfirmDone->count() ?><br></a>
+                    <label><?= _("Pending Families") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/36"><span id="pending-count-families"><?= $familiesPending->count() ?></span></a><br>
+                    <label><?= _("Confirmed Families") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/38"><span id="done-count-families"><?= $familiesConfirmDone->count() ?></span></a><br>                
+                    <button type="button" class="btn btn-danger btn-xs" id="delete-pending-families"><i class="fa fa-trash-can"></i> <?= _("Delete Pending") ?></button>
+                    <button type="button" class="btn btn-danger btn-xs" id="delete-done-confirmation-families"><i class="fa fa-trash-can"></i> <?= _("Delete Done Confirmation") ?></button>
                 </div>
             </div>
         </div>

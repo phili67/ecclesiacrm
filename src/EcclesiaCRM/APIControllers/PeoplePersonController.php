@@ -810,4 +810,40 @@ class PeoplePersonController
 
         return $response;
     }
+
+    
+    public function resetConfirmDatas (ServerRequest $request, Response $response, array $args): Response {
+        $persons = null;
+
+        if ( isset ($args['state']) ) {
+            switch ($args['state']) {
+                case "pending":
+                    $persons = PersonQuery::create()->findByConfirmReport('Pending');                    
+                    break;
+                case "done":
+                    $persons = PersonQuery::create()->findByConfirmReport('Done');
+                    break;
+            }
+
+            if (!is_null($persons)) {
+                foreach ($persons as $person) {
+                    $token = TokenQuery::create()
+                        ->filterByType("verifyPerson")
+                        ->findOneByReferenceId($person->getId());
+                    if (!is_null($token)) {
+                        $token->delete();
+                    }
+                
+                    $person->createTimeLineNote("verify-URL-reset");
+
+                    $person->setConfirmReport('No');
+                    $person->save();
+                }
+
+                return $response->withJson(['success' => true]);
+            }
+        }
+
+        return $response->withJson(['success' => false]);
+    }
 }
