@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1475,17 +1475,14 @@ msgstr "Απέτυχε να στείλει email επαλήθευσης"
 msgid "A person name or Family"
 msgstr "Όνομα προσώπου ή Οικογένεια"
 
-#, fuzzy
 msgid "Modification"
-msgstr "Ημερομηνία τροποποίησης"
+msgstr "Τροποποίηση"
 
-#, fuzzy
 msgid "By persons"
-msgstr "Προσθήκη ατόμου"
+msgstr "Από πρόσωπα"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "Διεύθυνση"
+msgstr "Με διευθύνσεις"
 
 msgid "Warning !!!!"
 msgstr "Προειδοποίηση !!!!"
@@ -1504,6 +1501,25 @@ msgstr "Πρόκειται να στείλετε ένα e-mail στο"
 
 msgid "members"
 msgstr "μέλη"
+
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr ""
+"Πρόκειται να διαγράψετε όλες τις εκκρεμείς επιβεβαιώσεις για όλα τα άτομα."
+
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr ""
+"Πρόκειται να διαγράψετε όλες τις επιβεβαιώσεις που έχουν γίνει για όλα τα "
+"άτομα."
+
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr ""
+"Πρόκειται να διαγράψετε όλες τις εκκρεμείς επιβεβαιώσεις για όλες τις "
+"οικογένειες."
+
+msgid "You're about to delete all done confirmation for all the families."
+msgstr ""
+"Πρόκειται να διαγράψετε όλες τις επιβεβαιώσεις που έχουν γίνει για όλες τις "
+"οικογένειες."
 
 msgid "Delete this person?"
 msgstr "Να διαγράψω αυτό το άτομο;"
@@ -2550,9 +2566,6 @@ msgstr "Ανέβασμα εικόνας"
 
 #~ msgid "Delete all Rooms?"
 #~ msgstr "Διαγραφή όλων των δωματίων;"
-
-#~ msgid "You're about to delete all of your rooms."
-#~ msgstr "Πρόκειται να διαγράψετε όλα τα δωμάτιά σας."
 
 #~ msgid "All"
 #~ msgstr "Όλα"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 20:41+0000\n"
+"POT-Creation-Date: 2024-02-27 11:46+0000\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,7 +68,7 @@ msgstr "Titolo"
 #: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:889
 #: EcclesiaCRM/APIControllers/PeopleGroupController.php:894
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:557
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:555
 #: EcclesiaCRM/Service/ConfirmReportService.php:153
 #: EcclesiaCRM/Service/ConfirmReportService.php:158
 #: external/templates/registration/family-register-members.php:76
@@ -129,8 +129,8 @@ msgid "Donation Envelope"
 msgstr "Busta per le donazioni"
 
 #: CSVImport.php:241 CSVImport.php:242
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:231
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
 #: EcclesiaCRM/Service/ConfirmReportService.php:209
 #: EcclesiaCRM/Service/ConfirmReportService.php:231
 #: EcclesiaCRM/Service/ConfirmReportService.php:629
@@ -209,8 +209,8 @@ msgstr "Zip"
 msgid "Country"
 msgstr "Paese"
 
-#: CSVImport.php:247 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:248
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:577
+#: CSVImport.php:247 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:246
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:575
 #: EcclesiaCRM/Service/ConfirmReportService.php:51
 #: EcclesiaCRM/Service/ConfirmReportService.php:245
 #: EcclesiaCRM/Service/ConfirmReportService.php:248
@@ -239,8 +239,8 @@ msgstr "Paese"
 msgid "Home Phone"
 msgstr "Telefono di casa"
 
-#: CSVImport.php:248 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:430
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:606
+#: CSVImport.php:248 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:428
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:604
 #: EcclesiaCRM/Service/ConfirmReportService.php:56
 #: EcclesiaCRM/Service/ConfirmReportService.php:256
 #: EcclesiaCRM/Service/ConfirmReportService.php:259
@@ -262,8 +262,8 @@ msgstr "Telefono di casa"
 msgid "Work Phone"
 msgstr "Telefono di lavoro"
 
-#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:360
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:403
+#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:358
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:401
 #: EcclesiaCRM/Service/ConfirmReportService.php:268
 #: EcclesiaCRM/Service/ConfirmReportService.php:713
 #: EcclesiaCRM/Service/ConfirmReportService.php:733
@@ -274,9 +274,9 @@ msgid "Cell Phone"
 msgstr "Telefono cellulare"
 
 #: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:405
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:358
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:401
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:600
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467
@@ -430,8 +430,8 @@ msgstr "Paese predefinito se nessuno specificato altrimenti"
 #: EcclesiaCRM/MenuBar/MenuBar.php:262 EcclesiaCRM/MenuBar/MenuBar.php:337
 #: EcclesiaCRM/Service/ConfirmReportService.php:199
 #: EcclesiaCRM/utils/OutputUtils.php:387 EcclesiaCRM/utils/OutputUtils.php:448
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1043
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1055
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1072
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1084
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:83 eGive.php:346
 #: v2/templates/deposit/autaPaymentEditor.php:811
 #: v2/templates/fundraiser/batchWinnerEntry.php:88
@@ -460,7 +460,7 @@ msgstr "Non assegnato"
 
 #: CSVImport.php:400 EcclesiaCRM/APIControllers/SearchController.php:278
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:653
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:651
 #: EcclesiaCRM/Service/ConfirmReportService.php:344
 #: Reports/ConfirmReport.php:548 v2/templates/deposit/financialReports.php:129
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
@@ -1004,12 +1004,12 @@ msgstr ""
 msgid "POST to cart requires an EventID"
 msgstr "Il POST al carrello richiede un EventID"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:344
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:345
 #: ident/routes/verify.php:305
 msgid "Family Deactivated"
 msgstr "Famiglia disattivata"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:346
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:347
 msgid "Family Activated"
 msgstr "Famiglia attivata"
 
@@ -1027,7 +1027,7 @@ msgstr "Aggiunto al gruppo"
 #: EcclesiaCRM/APIControllers/PeopleGroupController.php:894
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:551
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:549
 #: EcclesiaCRM/Service/ConfirmReportService.php:616
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
 #: Reports/ConfirmReport.php:445 Reports/FamilyPledgeSummary.php:230
@@ -1059,7 +1059,7 @@ msgstr "Nome"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:186
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:206
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:628
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:626
 #: EcclesiaCRM/Service/CalendarService.php:272
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
@@ -1071,7 +1071,7 @@ msgstr "Sì"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:199
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:208
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:630
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:628
 #: EcclesiaCRM/Service/CalendarService.php:272
 #: EcclesiaCRM/Service/CalendarService.php:541
 #: EcclesiaCRM/Service/ConfirmReportService.php:116
@@ -1389,7 +1389,7 @@ msgstr "Editor delle opzioni dell'elenco personalizzato della famiglia"
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:37
 #: EcclesiaCRM/Service/ConfirmReportService.php:130
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1406
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1435
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
 #: Include/Footer.php:85 Reports/GDPR/GDPRDataStructureExport.php:84
 #: v2/templates/deposit/autaPaymentEditor.php:801
@@ -3707,7 +3707,7 @@ msgid "Church Greeter"
 msgstr "Accoglienza della chiesa"
 
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:228
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:226
 #: external/templates/registration/family-register.php:36
 #: Reports/ConfirmReport.php:275 v2/templates/cart/cartToFamily.php:297
 #: v2/templates/people/familyEditor.php:711
@@ -3958,7 +3958,7 @@ msgid "Meta Search Engine"
 msgstr "Motore di ricerca Meta"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:174
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1210
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1239
 msgid "Directory reports"
 msgstr "Rapporti dell'elenco"
 
@@ -4217,17 +4217,25 @@ msgid "Family Data Verified"
 msgstr "Dati della famiglia verificati"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:252
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:402
+msgid "Family Data Verified by url"
+msgstr "Dati della famiglia verificati da url"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:256
+msgid "Family Data Verification reset"
+msgstr "Reset della verifica dei dati della famiglia"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:260
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:410
 msgid "Verification email sent"
 msgstr "Email di verifica inviata"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:329
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:565
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:337
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:573
 msgid "Profile Image Deleted"
 msgstr "Immagine del profilo cancellata"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:342
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:589
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:350
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:597
 msgid "Profile Image uploaded"
 msgstr "Immagine del profilo caricata"
 
@@ -4241,7 +4249,15 @@ msgstr "Membro"
 msgid "Person Data Verified"
 msgstr "Dati personali verificati"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:738
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:402
+msgid "Person Data Verified by url"
+msgstr "Dati personali verificati da url"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:406
+msgid "Person Data Verification reset"
+msgstr "Reset della verifica dei dati personali"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:746
 #: EcclesiaCRM/Service/TimelineService.php:219
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
@@ -4253,28 +4269,28 @@ msgstr "Dati personali verificati"
 msgid "Unknown"
 msgstr "Sconosciuto"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:745
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:753
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "mos vecchio"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:747
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:755
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "mo vecchio"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:751
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:759
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "anni"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:753
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:761
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "anni"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:781
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:789
 msgid "EcclesiaCRM export"
 msgstr "Esportazione EcclesiaCRM"
 
@@ -4373,14 +4389,14 @@ msgstr "Insegnanti"
 msgid "of"
 msgstr "di"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:243
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:567
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:241
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:565
 #: Reports/ConfirmReport.php:285 Reports/ConfirmReport.php:461
 msgid "City, State, Zip"
 msgstr "Città, Stato, CAP"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:644
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:642
 #: EcclesiaCRM/Service/ConfirmReportService.php:116
 #: EcclesiaCRM/Service/ConfirmReportService.php:327
 #: EcclesiaCRM/Service/ConfirmReportService.php:582
@@ -4396,13 +4412,13 @@ msgstr "Città, Stato, CAP"
 msgid "Send Newsletter"
 msgstr "Inviare newsletter"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:263
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:587
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:261
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:585
 #: Reports/ConfirmReport.php:317 Reports/ConfirmReport.php:481
 msgid "Anniversary Date"
 msgstr "Data dell'anniversario"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:269
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:267
 #: EcclesiaCRM/Service/ConfirmReportService.php:572
 #: EcclesiaCRM/Service/ConfirmReportService.php:740
 #: ident/templates/verify/verify-family-info.php:39
@@ -4410,30 +4426,30 @@ msgstr "Data dell'anniversario"
 msgid "Family Email"
 msgstr "Famiglia Email"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:355
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:398
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:597
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:353
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:396
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:595
 #: Reports/ConfirmReport.php:492
 msgid "Member Name"
 msgstr "Nome del membro"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:354
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:397
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:596
 #: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:493
 msgid "M/F"
 msgstr "M/F"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:357
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:400
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:599
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:355
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:398
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:597
 #: Reports/ConfirmReport.php:494
 msgid "Adult/Child"
 msgstr "Adulto/bambino"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:359
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:402
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:601
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:357
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:400
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:599
 #: EcclesiaCRM/Service/CalendarService.php:60
 #: EcclesiaCRM/Service/ConfirmReportService.php:75
 #: EcclesiaCRM/Service/ConfirmReportService.php:295
@@ -4445,35 +4461,35 @@ msgstr "Adulto/bambino"
 msgid "Birthday"
 msgstr "Compleanno"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:361
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:404
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:359
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:402
 msgid "Member/Friend"
 msgstr "Membro/amico"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:504
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:745
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:502
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:743
 #: Reports/ConfirmReport.php:641 Reports/ConfirmReport.php:685
 msgid "Assigned groups for"
 msgstr "Gruppi assegnati per"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:562
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:560
 #: Reports/ConfirmReport.php:280 Reports/ConfirmReport.php:456
 msgid "Address 1"
 msgstr "Indirizzo 1"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:572
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:570
 #: EcclesiaCRM/Service/ConfirmReportService.php:678
 #: Reports/ConfirmReport.php:290 Reports/ConfirmReport.php:466
 msgid "Address 2"
 msgstr "Indirizzo 2"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:603
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:601
 #: external/templates/registration/family-register-members.php:132
 #: Reports/ConfirmReport.php:498 v2/templates/people/personEditor.php:946
 msgid "Hide Age"
 msgstr "Nascondere l'età"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:605
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:603
 #: Reports/ConfirmReport.php:500
 msgid "Cell phone"
 msgstr "Telefono cellulare"
@@ -4528,7 +4544,7 @@ msgstr "Certificato di proprietà"
 msgid "Group Directory"
 msgstr "Elenco dei gruppi"
 
-#: EcclesiaCRM/Reports/PDF_Label.php:84 EcclesiaCRM/utils/LabelUtils.php:110
+#: EcclesiaCRM/Reports/PDF_Label.php:84 EcclesiaCRM/utils/LabelUtils.php:111
 #: Reports/PDFBadgeGroup.php:217 Reports/PDFBadge.php:112
 #: Reports/PDFLabel.php:779
 msgid "Tractor"
@@ -4681,7 +4697,7 @@ msgstr "Proprietà delle famiglie"
 
 #: EcclesiaCRM/Search/FamilySearchRes.php:44
 #: EcclesiaCRM/Service/PersonService.php:49
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1408
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1437
 msgid "family"
 msgstr "famiglia"
 
@@ -4791,28 +4807,28 @@ msgid "Pledges"
 msgstr "Pegni"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:66
-#: EcclesiaCRM/Service/AppIntegrityService.php:143
+#: EcclesiaCRM/Service/AppIntegrityService.php:142
 msgid "Signature definition file signature failed validation"
 msgstr "La firma del file di definizione della firma non è stata convalidata"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:69
-#: EcclesiaCRM/Service/AppIntegrityService.php:146
+#: EcclesiaCRM/Service/AppIntegrityService.php:145
 msgid "Signature definition File Missing"
 msgstr "File di definizione della firma mancante"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:78
-#: EcclesiaCRM/Service/AppIntegrityService.php:152
+#: EcclesiaCRM/Service/AppIntegrityService.php:151
 msgid "One or more files failed signature validation"
 msgstr "Uno o più file non hanno superato la validazione della firma"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:91
+#: EcclesiaCRM/Service/AppIntegrityService.php:90
 #: v2/templates/system/integritycheck.php:46
 msgid "Failed"
 msgstr "Fallito"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:94
-#: EcclesiaCRM/Service/AppIntegrityService.php:103
-#: EcclesiaCRM/Service/AppIntegrityService.php:112
+#: EcclesiaCRM/Service/AppIntegrityService.php:93
+#: EcclesiaCRM/Service/AppIntegrityService.php:102
+#: EcclesiaCRM/Service/AppIntegrityService.php:111
 msgid "Passed"
 msgstr "Passato"
 
@@ -5272,39 +5288,39 @@ msgstr "predefinito"
 msgid "Font Size"
 msgstr "Dimensione del carattere"
 
-#: EcclesiaCRM/utils/LabelUtils.php:123
+#: EcclesiaCRM/utils/LabelUtils.php:124
 msgid "Label Type"
 msgstr "Tipo di etichetta"
 
-#: EcclesiaCRM/utils/LabelUtils.php:154
+#: EcclesiaCRM/utils/LabelUtils.php:155
 msgid "Label Grouping"
 msgstr "Raggruppamento di etichette"
 
-#: EcclesiaCRM/utils/LabelUtils.php:157
+#: EcclesiaCRM/utils/LabelUtils.php:158
 msgid "All Individuals"
 msgstr "Tutti gli individui"
 
-#: EcclesiaCRM/utils/LabelUtils.php:158
+#: EcclesiaCRM/utils/LabelUtils.php:159
 msgid "Grouped by Family"
 msgstr "Raggruppati per famiglia"
 
-#: EcclesiaCRM/utils/LabelUtils.php:170 Reports/PDFLabel.php:706
+#: EcclesiaCRM/utils/LabelUtils.php:171 Reports/PDFLabel.php:706
 msgid "To the parents of"
 msgstr "Ai genitori di"
 
-#: EcclesiaCRM/utils/LabelUtils.php:183
+#: EcclesiaCRM/utils/LabelUtils.php:184
 msgid "Start Row"
 msgstr "Iniziare la fila"
 
-#: EcclesiaCRM/utils/LabelUtils.php:190
+#: EcclesiaCRM/utils/LabelUtils.php:191
 msgid "Start Column"
 msgstr "Colonna iniziale"
 
-#: EcclesiaCRM/utils/LabelUtils.php:203
+#: EcclesiaCRM/utils/LabelUtils.php:204
 msgid "Ignore Incomplete<br>Addresses"
 msgstr "Ignora gli indirizzi incompleti"
 
-#: EcclesiaCRM/utils/LabelUtils.php:216
+#: EcclesiaCRM/utils/LabelUtils.php:217
 msgid "File Type"
 msgstr "Tipo di file"
 
@@ -5428,7 +5444,7 @@ msgid "Single Persons"
 msgstr "Persone singole"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:942
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:971
 #: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:16
 msgid "Family List"
 msgstr "Elenco delle famiglie"
@@ -5454,92 +5470,92 @@ msgstr "Persona Editore"
 msgid "Not assigned"
 msgstr "Non assegnato"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:597
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:661
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:620
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:684
 #: v2/templates/group/groupPropsFormEditor.php:321
 msgid "Person Profile"
 msgstr "Profilo della persona"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:600
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:623
 msgid "Previous Person"
 msgstr "Persona precedente"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:607
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:630
 #: EcclesiaCRM/VIEWControllers/People/VIEWPersonListController.php:95
 #: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:16
 msgid "Person List"
 msgstr "Elenco delle persone"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:614
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:637
 msgid "Next Person"
 msgstr "Prossima persona"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:932
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:961
 msgid "Family View"
 msgstr "Vista sulla famiglia"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:935
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:964
 msgid "Previous Family"
 msgstr "Famiglia precedente"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:949
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:978
 msgid "Next Family"
 msgstr "Prossima famiglia"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1015
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1044
 msgid "Update Latitude & Longitude"
 msgstr "Aggiorna la latitudine e la longitudine"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1169
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1198
 msgid "Family Geographic Utilities"
 msgstr "Utilità geografiche della famiglia"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1234
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1263
 #: v2/templates/people/peopledashboard.php:225
 msgid "Letters and mailing labels for data confirmations"
 msgstr "Lettere ed etichette per la conferma dei dati"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1257
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1286
 #: v2/templates/people/peopledashboard.php:219
 msgid "Pledge Reminder Report"
 msgstr "Rapporto sul promemoria delle promesse"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1283
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1312
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:580
 msgid "Printable View"
 msgstr "Vista stampabile"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1312
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1341
 msgid "Family Editor"
 msgstr "Editore di famiglia"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1334
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1363
 msgid "Custom Person Fields Editor"
 msgstr "Editor di campi personali personalizzati"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1355
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1384
 msgid "Custom Family Fields Editor"
 msgstr "Editor dei campi famiglia personalizzati"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1406
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1408
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1435
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1437
 msgid "Canvass Input for the"
 msgstr "Ingresso al sondaggio per il"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1436
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1465
 #: v2/templates/system/reportlist.php:43
 msgid "Canvass Automation"
 msgstr "Automazione del canvass"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1530
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1559
 msgid "Family Delete Confirmation"
 msgstr "Conferma della cancellazione della famiglia"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1532
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1561
 msgid "Person Delete Confirmation"
 msgstr "Conferma di cancellazione della persona"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1534
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1563
 msgid "Remove Address"
 msgstr "Rimuovi indirizzo"
 
@@ -10911,16 +10927,26 @@ msgid "Pending Persons"
 msgstr "Persone in attesa"
 
 #: v2/templates/people/lettersandlabels.php:290
-msgid "confirmed person"
-msgstr "persona confermata"
+msgid "Confirmed persons"
+msgstr "Persone confermate"
 
-#: v2/templates/people/lettersandlabels.php:294
+#: v2/templates/people/lettersandlabels.php:291
+#: v2/templates/people/lettersandlabels.php:298
+msgid "Delete Pending"
+msgstr "Cancella in attesa"
+
+#: v2/templates/people/lettersandlabels.php:292
+#: v2/templates/people/lettersandlabels.php:299
+msgid "Delete Done Confirmation"
+msgstr "Eliminazione Conferma di completamento"
+
+#: v2/templates/people/lettersandlabels.php:296
 msgid "Pending Families"
 msgstr "Famiglie in attesa"
 
-#: v2/templates/people/lettersandlabels.php:295
-msgid "confirmed Families"
-msgstr "famiglie confermate"
+#: v2/templates/people/lettersandlabels.php:297
+msgid "Confirmed Families"
+msgstr "Famiglie confermate"
 
 #: v2/templates/people/peopledashboard.php:27
 msgid "People Functions"
@@ -11566,8 +11592,9 @@ msgstr "Attivato"
 msgid "Check all boxes"
 msgstr "Spuntare tutte le caselle"
 
-#: v2/templates/plugins/plugins.php:81
-#: v2/templates/system/integritycheck.php:87
+#: v2/templates/plugins/plugins.php:81 v2/templates/system/infos.php:240
+#: v2/templates/system/integritycheck.php:88
+#: v2/templates/system/integritycheck.php:151
 msgid "Plugin"
 msgstr "Plugin"
 
@@ -12226,30 +12253,42 @@ msgstr "Prerequisiti dell'applicazione"
 msgid "Application Integrity Check"
 msgstr "Controllo dell'integrità dell'applicazione"
 
-#: v2/templates/system/infos.php:198 v2/templates/system/integritycheck.php:57
+#: v2/templates/system/infos.php:198 v2/templates/system/infos.php:233
+#: v2/templates/system/integritycheck.php:57
 msgid "Details:"
 msgstr "Dettagli:"
 
-#: v2/templates/system/infos.php:202 v2/templates/system/integritycheck.php:61
+#: v2/templates/system/infos.php:203 v2/templates/system/infos.php:237
+#: v2/templates/system/integritycheck.php:62
+#: v2/templates/system/integritycheck.php:125
 msgid "Files failing integrity check"
 msgstr "File che falliscono il controllo di integrità"
 
-#: v2/templates/system/infos.php:205
+#: v2/templates/system/infos.php:206 v2/templates/system/infos.php:241
 msgid "FileName"
 msgstr "NomeFile"
 
-#: v2/templates/system/infos.php:206 v2/templates/system/integritycheck.php:78
-#: v2/templates/system/integritycheck.php:105
+#: v2/templates/system/infos.php:207 v2/templates/system/infos.php:242
+#: v2/templates/system/integritycheck.php:79
+#: v2/templates/system/integritycheck.php:106
+#: v2/templates/system/integritycheck.php:142
+#: v2/templates/system/integritycheck.php:169
 msgid "Expected Hash"
 msgstr "Hash atteso"
 
-#: v2/templates/system/infos.php:207 v2/templates/system/integritycheck.php:79
-#: v2/templates/system/integritycheck.php:106
+#: v2/templates/system/infos.php:208 v2/templates/system/infos.php:243
+#: v2/templates/system/integritycheck.php:80
+#: v2/templates/system/integritycheck.php:107
+#: v2/templates/system/integritycheck.php:143
+#: v2/templates/system/integritycheck.php:170
 msgid "Actual Hash"
 msgstr "Hash reale"
 
-#: v2/templates/system/infos.php:218 v2/templates/system/integritycheck.php:72
-#: v2/templates/system/integritycheck.php:99
+#: v2/templates/system/infos.php:219 v2/templates/system/infos.php:256
+#: v2/templates/system/integritycheck.php:73
+#: v2/templates/system/integritycheck.php:100
+#: v2/templates/system/integritycheck.php:136
+#: v2/templates/system/integritycheck.php:163
 msgid "File Missing"
 msgstr "File mancante"
 
@@ -12283,16 +12322,18 @@ msgstr "Fallimento del controllo d'integrità"
 msgid "The previous integrity check failed"
 msgstr "Il precedente controllo di integrità è fallito"
 
-#: v2/templates/system/integritycheck.php:67
-#: v2/templates/system/integritycheck.php:93
+#: v2/templates/system/integritycheck.php:68
+#: v2/templates/system/integritycheck.php:94
+#: v2/templates/system/integritycheck.php:131
+#: v2/templates/system/integritycheck.php:157
 msgid "File Name"
 msgstr "Nome del file"
 
-#: v2/templates/system/integritycheck.php:125
+#: v2/templates/system/integritycheck.php:190
 msgid "Integrity Check Passed"
 msgstr "Controllo di integrità superato"
 
-#: v2/templates/system/integritycheck.php:126
+#: v2/templates/system/integritycheck.php:191
 msgid ""
 "The previous integrity check passed.  All system file hashes match the "
 "expected values."
@@ -13632,6 +13673,12 @@ msgstr "Diversi giorni"
 msgid "Giving Report"
 msgstr "Rapporto sulle donazioni"
 
+#~ msgid "confirmed person"
+#~ msgstr "persona confermata"
+
+#~ msgid "confirmed Families"
+#~ msgstr "famiglie confermate"
+
 #~ msgid "Integrity Check Results"
 #~ msgstr "Risultati del controllo d'integrità"
 
@@ -13656,12 +13703,6 @@ msgstr "Rapporto sulle donazioni"
 
 #~ msgid "URL"
 #~ msgstr "URL"
-
-#~ msgid "Confirmed person"
-#~ msgstr "Persona confermata"
-
-#~ msgid "Confirmed Families"
-#~ msgstr "Famiglie confermate"
 
 #~ msgid "First"
 #~ msgstr "Prima"
@@ -14213,9 +14254,6 @@ msgstr "Rapporto sulle donazioni"
 
 #~ msgid "User Activated"
 #~ msgstr "Attivato dall'utente"
-
-#~ msgid "Note Delete Confirmation"
-#~ msgstr "Conferma della cancellazione della nota"
 
 #~ msgid "Please confirm deletion of this note"
 #~ msgstr "Si prega di confermare la cancellazione di questa nota"

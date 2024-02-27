@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -1460,17 +1460,14 @@ msgstr "Не вдалося надіслати електронний лист �
 msgid "A person name or Family"
 msgstr "Ім'я особи або Сім'я"
 
-#, fuzzy
 msgid "Modification"
-msgstr "Дата зміни Дата зміни"
+msgstr "Модифікація"
 
-#, fuzzy
 msgid "By persons"
-msgstr "Додати людину"
+msgstr "За особами"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "Адреса"
+msgstr "За адресами"
 
 msgid "Warning !!!!"
 msgstr "Попередження !!!!"
@@ -1489,6 +1486,18 @@ msgstr "Ви збираєтеся надіслати електронного л
 
 msgid "members"
 msgstr "учасники"
+
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr "Ви збираєтеся видалити всі очікувані підтвердження для всіх осіб."
+
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr "Ви збираєтеся видалити всі виконані підтвердження для всіх осіб."
+
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr "Ви збираєтеся видалити всі очікувані підтвердження для всіх сімей."
+
+msgid "You're about to delete all done confirmation for all the families."
+msgstr "Ви збираєтеся видалити всі виконані підтвердження для всіх сімей."
 
 msgid "Delete this person?"
 msgstr "Видалити цю людину?"

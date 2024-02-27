@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1465,17 +1465,14 @@ msgstr "E-postmeddelandet för verifiering misslyckades"
 msgid "A person name or Family"
 msgstr "Personnamn eller familj"
 
-#, fuzzy
 msgid "Modification"
-msgstr "Datum för ändring"
+msgstr "Modifiering"
 
-#, fuzzy
 msgid "By persons"
-msgstr "Lägg till person"
+msgstr "Av personer"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "Adress"
+msgstr "Efter adress"
 
 msgid "Warning !!!!"
 msgstr "Varning !!!!"
@@ -1494,6 +1491,18 @@ msgstr "Du är på väg att skicka ett e-postmeddelande till"
 
 msgid "members"
 msgstr "medlemmar"
+
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr "Du håller på att radera alla pågående bekräftelser för alla personer."
+
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr "Du är på väg att radera alla utförda bekräftelser för alla personer."
+
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr "Du är på väg att radera alla pågående bekräftelser för alla familjer."
+
+msgid "You're about to delete all done confirmation for all the families."
+msgstr "Du är på väg att radera alla bekräftelser för alla familjer."
 
 msgid "Delete this person?"
 msgstr "Radera den här personen?"
@@ -2520,9 +2529,6 @@ msgstr "Ladda upp en bild"
 
 #~ msgid "Delete all Rooms?"
 #~ msgstr "Ta bort alla rum?"
-
-#~ msgid "You're about to delete all of your rooms."
-#~ msgstr "Du är på väg att radera alla dina rum."
 
 #~ msgid "All"
 #~ msgstr "Alla"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1496,6 +1496,22 @@ msgstr "Anh sắp sửa xóa một tập tin"
 msgid "members"
 msgstr "Các thành viên."
 
+#, fuzzy
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr "Anh sắp xóa hết phòng của mình rồi."
+
+#, fuzzy
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr "Anh sắp xóa hết phòng của mình rồi."
+
+#, fuzzy
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr "Anh sắp xóa hết phòng của mình rồi."
+
+#, fuzzy
+msgid "You're about to delete all done confirmation for all the families."
+msgstr "Anh sắp xóa hết phòng của mình rồi."
+
 msgid "Delete this person?"
 msgstr "Xóa người này?"
 
@@ -2520,9 +2536,6 @@ msgstr "Hình ảnh đang tăng"
 
 #~ msgid "Delete all Rooms?"
 #~ msgstr "Xóa hết phòng?"
-
-#~ msgid "You're about to delete all of your rooms."
-#~ msgstr "Anh sắp xóa hết phòng của mình rồi."
 
 #~ msgid "All"
 #~ msgstr "Tất cả"

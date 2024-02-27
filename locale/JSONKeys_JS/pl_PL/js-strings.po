@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1460,17 +1460,14 @@ msgstr "Nie udało się wysłać wiadomości weryfikacyjnej"
 msgid "A person name or Family"
 msgstr "Imię i nazwisko lub rodzina"
 
-#, fuzzy
 msgid "Modification"
-msgstr "Data zmiany"
+msgstr "Modyfikacja"
 
-#, fuzzy
 msgid "By persons"
-msgstr "Dodaj osobę"
+msgstr "Przez osoby"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "Adres"
+msgstr "Adresy"
 
 msgid "Warning !!!!"
 msgstr "Ostrzeżenie !!!!"
@@ -1489,6 +1486,22 @@ msgstr "Zamierzasz wysłać wiadomość e-mail do"
 
 msgid "members"
 msgstr "członkowie"
+
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr ""
+"Zamierzasz usunąć wszystkie oczekujące potwierdzenia dla wszystkich osób."
+
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr ""
+"Zamierzasz usunąć wszystkie wykonane potwierdzenia dla wszystkich osób."
+
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr ""
+"Zamierzasz usunąć wszystkie oczekujące potwierdzenia dla wszystkich rodzin."
+
+msgid "You're about to delete all done confirmation for all the families."
+msgstr ""
+"Zamierzasz usunąć wszystkie wykonane potwierdzenia dla wszystkich rodzin."
 
 msgid "Delete this person?"
 msgstr "Skasować tę osobę?"
@@ -2515,9 +2528,6 @@ msgstr "Prześlij obraz"
 
 #~ msgid "Delete all Rooms?"
 #~ msgstr "Usunąć wszystkie pokoje?"
-
-#~ msgid "You're about to delete all of your rooms."
-#~ msgstr "Za chwilę usuniesz wszystkie swoje pokoje."
 
 #~ msgid "All"
 #~ msgstr "Wszystkie"

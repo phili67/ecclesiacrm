@@ -1438,17 +1438,14 @@ msgstr "发送验证邮件失败"
 msgid "A person name or Family"
 msgstr "一个人的名字或家庭或团体"
 
-#, fuzzy
 msgid "Modification"
-msgstr "修改日期"
+msgstr "修改"
 
-#, fuzzy
 msgid "By persons"
-msgstr "添加人"
+msgstr "由个人"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "地址"
+msgstr "按地址"
 
 msgid "Warning !!!!"
 msgstr ""
@@ -1467,21 +1464,17 @@ msgstr "你要删除一个文件"
 msgid "members"
 msgstr "成员"
 
-#, fuzzy
 msgid "You're about to delete all pending confirmation for all the persons."
-msgstr "你即将删除你所有的房间。"
+msgstr "您将删除所有人员的所有待确认信息。"
 
-#, fuzzy
 msgid "You're about to delete all done confirmation for all the persons."
-msgstr "你即将删除你所有的房间。"
+msgstr "您将删除所有人员的所有已完成确认。"
 
-#, fuzzy
 msgid "You're about to delete all pending confirmation for all the families."
-msgstr "你即将删除你所有的房间。"
+msgstr "您将删除所有家庭的所有待确认信息。"
 
-#, fuzzy
 msgid "You're about to delete all done confirmation for all the families."
-msgstr "你即将删除你所有的房间。"
+msgstr "您将删除所有家庭的所有确认信息。"
 
 msgid "Delete this person?"
 msgstr "删除这个人？"
