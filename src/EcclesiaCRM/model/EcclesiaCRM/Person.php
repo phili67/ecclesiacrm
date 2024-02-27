@@ -395,9 +395,17 @@ class Person extends BasePerson implements iPhoto
               $note->setEditedBy(SessionUser::getId());
               break;
             case "verify":
-                $note->setText(_('Person Data Verified'));
-                $note->setEnteredBy(SessionUser::getId());
-                break;
+              $note->setText(_('Person Data Verified'));
+              $note->setEnteredBy(SessionUser::getId());
+              break;
+            case "verify-URL":
+              $note->setText(_('Person Data Verified by url'));
+              $note->setEnteredBy(SessionUser::getId());
+              break;
+            case "verify-URL-reset":
+              $note->setText(_('Person Data Verification reset'));
+              $note->setEnteredBy(SessionUser::getId());
+              break;
             case "verify-link":
               $note->setText(_('Verification email sent'));
               $note->setEnteredBy(SessionUser::getId());

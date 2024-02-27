@@ -141,4 +141,13 @@ $app->group('/families', function (RouteCollectorProxy $group) {
      * #! param: id->int :: field as id
      */
     $group->get( '/addressbook/extract/{famId:[0-9]+}', PeopleFamilyController::class . ":addressBook" );
+
+/**
+ * confirm datas people reset
+ */
+    /*
+     * @! reset families datas confirmations
+     * #! param: id->string :: state (pending | done)
+     */
+    $group->post('/reset/{state}', PeopleFamilyController::class . ":resetConfirmDatas" );
 });

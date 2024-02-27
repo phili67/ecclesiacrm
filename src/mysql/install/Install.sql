@@ -1112,7 +1112,8 @@ INSERT IGNORE INTO `query_type` (`qry_type_id`, `qry_type_Category`) VALUES
 (5, 'Users'),
 (6, 'Volunteers'),
 (7, 'Advanced Search'),
-(8, 'Not assigned');
+(8, 'Confirm Datas'),
+(100, 'Not assigned');
 
 -- --------------------------------------------------------
 
