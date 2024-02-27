@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 20:41+0000\n"
+"POT-Creation-Date: 2024-02-27 11:46+0000\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,7 +68,7 @@ msgstr "Назва"
 #: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:889
 #: EcclesiaCRM/APIControllers/PeopleGroupController.php:894
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:557
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:555
 #: EcclesiaCRM/Service/ConfirmReportService.php:153
 #: EcclesiaCRM/Service/ConfirmReportService.php:158
 #: external/templates/registration/family-register-members.php:76
@@ -129,8 +129,8 @@ msgid "Donation Envelope"
 msgstr "Конверт для пожертв"
 
 #: CSVImport.php:241 CSVImport.php:242
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:231
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
 #: EcclesiaCRM/Service/ConfirmReportService.php:209
 #: EcclesiaCRM/Service/ConfirmReportService.php:231
 #: EcclesiaCRM/Service/ConfirmReportService.php:629
@@ -209,8 +209,8 @@ msgstr "Блискавка."
 msgid "Country"
 msgstr "Країна"
 
-#: CSVImport.php:247 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:248
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:577
+#: CSVImport.php:247 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:246
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:575
 #: EcclesiaCRM/Service/ConfirmReportService.php:51
 #: EcclesiaCRM/Service/ConfirmReportService.php:245
 #: EcclesiaCRM/Service/ConfirmReportService.php:248
@@ -239,8 +239,8 @@ msgstr "Країна"
 msgid "Home Phone"
 msgstr "Домашній телефон"
 
-#: CSVImport.php:248 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:430
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:606
+#: CSVImport.php:248 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:428
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:604
 #: EcclesiaCRM/Service/ConfirmReportService.php:56
 #: EcclesiaCRM/Service/ConfirmReportService.php:256
 #: EcclesiaCRM/Service/ConfirmReportService.php:259
@@ -262,8 +262,8 @@ msgstr "Домашній телефон"
 msgid "Work Phone"
 msgstr "Робочий телефон"
 
-#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:360
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:403
+#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:358
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:401
 #: EcclesiaCRM/Service/ConfirmReportService.php:268
 #: EcclesiaCRM/Service/ConfirmReportService.php:713
 #: EcclesiaCRM/Service/ConfirmReportService.php:733
@@ -274,9 +274,9 @@ msgid "Cell Phone"
 msgstr "Мобільний телефон"
 
 #: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:405
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:358
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:401
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:600
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467
@@ -429,8 +429,8 @@ msgstr "Країна за замовчуванням, якщо не вказан
 #: EcclesiaCRM/MenuBar/MenuBar.php:262 EcclesiaCRM/MenuBar/MenuBar.php:337
 #: EcclesiaCRM/Service/ConfirmReportService.php:199
 #: EcclesiaCRM/utils/OutputUtils.php:387 EcclesiaCRM/utils/OutputUtils.php:448
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1043
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1055
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1072
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1084
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:83 eGive.php:346
 #: v2/templates/deposit/autaPaymentEditor.php:811
 #: v2/templates/fundraiser/batchWinnerEntry.php:88
@@ -459,7 +459,7 @@ msgstr "Не призначено"
 
 #: CSVImport.php:400 EcclesiaCRM/APIControllers/SearchController.php:278
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:653
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:651
 #: EcclesiaCRM/Service/ConfirmReportService.php:344
 #: Reports/ConfirmReport.php:548 v2/templates/deposit/financialReports.php:129
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
@@ -1000,12 +1000,12 @@ msgstr "POST для видалення відвідувачів вимагає E
 msgid "POST to cart requires an EventID"
 msgstr "POST в кошик вимагає EventID"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:344
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:345
 #: ident/routes/verify.php:305
 msgid "Family Deactivated"
 msgstr "Сім'ю деактивовано"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:346
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:347
 msgid "Family Activated"
 msgstr "Активовано сім'єю"
 
@@ -1023,7 +1023,7 @@ msgstr "Додано до групи"
 #: EcclesiaCRM/APIControllers/PeopleGroupController.php:894
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:551
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:549
 #: EcclesiaCRM/Service/ConfirmReportService.php:616
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
 #: Reports/ConfirmReport.php:445 Reports/FamilyPledgeSummary.php:230
@@ -1055,7 +1055,7 @@ msgstr "Ім'я"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:186
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:206
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:628
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:626
 #: EcclesiaCRM/Service/CalendarService.php:272
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
@@ -1067,7 +1067,7 @@ msgstr "Так."
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:199
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:208
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:630
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:628
 #: EcclesiaCRM/Service/CalendarService.php:272
 #: EcclesiaCRM/Service/CalendarService.php:541
 #: EcclesiaCRM/Service/ConfirmReportService.php:116
@@ -1385,7 +1385,7 @@ msgstr "Редактор параметрів користувацьких сп�
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:37
 #: EcclesiaCRM/Service/ConfirmReportService.php:130
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1406
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1435
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
 #: Include/Footer.php:85 Reports/GDPR/GDPRDataStructureExport.php:84
 #: v2/templates/deposit/autaPaymentEditor.php:801
@@ -3706,7 +3706,7 @@ msgid "Church Greeter"
 msgstr "Церковний вітальник"
 
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:228
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:226
 #: external/templates/registration/family-register.php:36
 #: Reports/ConfirmReport.php:275 v2/templates/cart/cartToFamily.php:297
 #: v2/templates/people/familyEditor.php:711
@@ -3958,7 +3958,7 @@ msgid "Meta Search Engine"
 msgstr "Мета пошукова система"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:174
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1210
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1239
 msgid "Directory reports"
 msgstr "Звіти по каталогам"
 
@@ -4217,17 +4217,25 @@ msgid "Family Data Verified"
 msgstr "Перевірка даних про сім'ю"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:252
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:402
+msgid "Family Data Verified by url"
+msgstr "Дані про сім'ю Перевірено за посиланням"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:256
+msgid "Family Data Verification reset"
+msgstr "Скидання перевірки даних сім'ї"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:260
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:410
 msgid "Verification email sent"
 msgstr "Підтвердження надіслано електронною поштою"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:329
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:565
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:337
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:573
 msgid "Profile Image Deleted"
 msgstr "Видалено зображення профілю"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:342
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:589
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:350
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:597
 msgid "Profile Image uploaded"
 msgstr "Завантажено зображення профілю"
 
@@ -4241,7 +4249,15 @@ msgstr "Учасник"
 msgid "Person Data Verified"
 msgstr "Перевірка даних про особу"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:738
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:402
+msgid "Person Data Verified by url"
+msgstr "Дані особи Перевірено за посиланням"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:406
+msgid "Person Data Verification reset"
+msgstr "Скидання верифікації персональних даних"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:746
 #: EcclesiaCRM/Service/TimelineService.php:219
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
@@ -4253,28 +4269,28 @@ msgstr "Перевірка даних про особу"
 msgid "Unknown"
 msgstr "Невідомо"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:745
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:753
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "місяць тому"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:747
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:755
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "Мо старий."
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:751
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:759
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "років"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:753
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:761
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "років."
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:781
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:789
 msgid "EcclesiaCRM export"
 msgstr "Експорт EcclesiaCRM"
 
@@ -4373,14 +4389,14 @@ msgstr "Вчителі"
 msgid "of"
 msgstr "з"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:243
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:567
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:241
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:565
 #: Reports/ConfirmReport.php:285 Reports/ConfirmReport.php:461
 msgid "City, State, Zip"
 msgstr "Місто, штат, індекс"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:644
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:642
 #: EcclesiaCRM/Service/ConfirmReportService.php:116
 #: EcclesiaCRM/Service/ConfirmReportService.php:327
 #: EcclesiaCRM/Service/ConfirmReportService.php:582
@@ -4396,13 +4412,13 @@ msgstr "Місто, штат, індекс"
 msgid "Send Newsletter"
 msgstr "Надіслати інформаційний бюлетень"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:263
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:587
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:261
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:585
 #: Reports/ConfirmReport.php:317 Reports/ConfirmReport.php:481
 msgid "Anniversary Date"
 msgstr "Дата річниці"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:269
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:267
 #: EcclesiaCRM/Service/ConfirmReportService.php:572
 #: EcclesiaCRM/Service/ConfirmReportService.php:740
 #: ident/templates/verify/verify-family-info.php:39
@@ -4410,30 +4426,30 @@ msgstr "Дата річниці"
 msgid "Family Email"
 msgstr "Сімейна електронна пошта"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:355
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:398
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:597
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:353
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:396
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:595
 #: Reports/ConfirmReport.php:492
 msgid "Member Name"
 msgstr "Ім'я учасника"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:354
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:397
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:596
 #: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:493
 msgid "M/F"
 msgstr "М/Ф"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:357
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:400
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:599
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:355
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:398
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:597
 #: Reports/ConfirmReport.php:494
 msgid "Adult/Child"
 msgstr "Дорослий/Дитина"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:359
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:402
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:601
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:357
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:400
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:599
 #: EcclesiaCRM/Service/CalendarService.php:60
 #: EcclesiaCRM/Service/ConfirmReportService.php:75
 #: EcclesiaCRM/Service/ConfirmReportService.php:295
@@ -4445,35 +4461,35 @@ msgstr "Дорослий/Дитина"
 msgid "Birthday"
 msgstr "День народження"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:361
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:404
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:359
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:402
 msgid "Member/Friend"
 msgstr "Учасник/Друг"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:504
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:745
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:502
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:743
 #: Reports/ConfirmReport.php:641 Reports/ConfirmReport.php:685
 msgid "Assigned groups for"
 msgstr "Призначені групи для"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:562
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:560
 #: Reports/ConfirmReport.php:280 Reports/ConfirmReport.php:456
 msgid "Address 1"
 msgstr "Адреса 1"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:572
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:570
 #: EcclesiaCRM/Service/ConfirmReportService.php:678
 #: Reports/ConfirmReport.php:290 Reports/ConfirmReport.php:466
 msgid "Address 2"
 msgstr "Адреса 2"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:603
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:601
 #: external/templates/registration/family-register-members.php:132
 #: Reports/ConfirmReport.php:498 v2/templates/people/personEditor.php:946
 msgid "Hide Age"
 msgstr "Приховати вік"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:605
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:603
 #: Reports/ConfirmReport.php:500
 msgid "Cell phone"
 msgstr "Мобільний телефон."
@@ -4528,7 +4544,7 @@ msgstr "Свідоцтво про право власності"
 msgid "Group Directory"
 msgstr "Каталог груп"
 
-#: EcclesiaCRM/Reports/PDF_Label.php:84 EcclesiaCRM/utils/LabelUtils.php:110
+#: EcclesiaCRM/Reports/PDF_Label.php:84 EcclesiaCRM/utils/LabelUtils.php:111
 #: Reports/PDFBadgeGroup.php:217 Reports/PDFBadge.php:112
 #: Reports/PDFLabel.php:779
 msgid "Tractor"
@@ -4681,7 +4697,7 @@ msgstr "Сімейна нерухомість"
 
 #: EcclesiaCRM/Search/FamilySearchRes.php:44
 #: EcclesiaCRM/Service/PersonService.php:49
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1408
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1437
 msgid "family"
 msgstr "сім'я"
 
@@ -4791,28 +4807,28 @@ msgid "Pledges"
 msgstr "Початківці"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:66
-#: EcclesiaCRM/Service/AppIntegrityService.php:143
+#: EcclesiaCRM/Service/AppIntegrityService.php:142
 msgid "Signature definition file signature failed validation"
 msgstr "Підпис файлу визначення підпису не пройшов перевірку"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:69
-#: EcclesiaCRM/Service/AppIntegrityService.php:146
+#: EcclesiaCRM/Service/AppIntegrityService.php:145
 msgid "Signature definition File Missing"
 msgstr "Визначення підпису Файл відсутній"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:78
-#: EcclesiaCRM/Service/AppIntegrityService.php:152
+#: EcclesiaCRM/Service/AppIntegrityService.php:151
 msgid "One or more files failed signature validation"
 msgstr "Один або декілька файлів не пройшли перевірку підпису"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:91
+#: EcclesiaCRM/Service/AppIntegrityService.php:90
 #: v2/templates/system/integritycheck.php:46
 msgid "Failed"
 msgstr "Не вдалося."
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:94
-#: EcclesiaCRM/Service/AppIntegrityService.php:103
-#: EcclesiaCRM/Service/AppIntegrityService.php:112
+#: EcclesiaCRM/Service/AppIntegrityService.php:93
+#: EcclesiaCRM/Service/AppIntegrityService.php:102
+#: EcclesiaCRM/Service/AppIntegrityService.php:111
 msgid "Passed"
 msgstr "Пройдено."
 
@@ -5274,39 +5290,39 @@ msgstr "за замовчуванням"
 msgid "Font Size"
 msgstr "Розмір шрифту"
 
-#: EcclesiaCRM/utils/LabelUtils.php:123
+#: EcclesiaCRM/utils/LabelUtils.php:124
 msgid "Label Type"
 msgstr "Тип етикетки"
 
-#: EcclesiaCRM/utils/LabelUtils.php:154
+#: EcclesiaCRM/utils/LabelUtils.php:155
 msgid "Label Grouping"
 msgstr "Групування етикеток"
 
-#: EcclesiaCRM/utils/LabelUtils.php:157
+#: EcclesiaCRM/utils/LabelUtils.php:158
 msgid "All Individuals"
 msgstr "Всі фізичні особи"
 
-#: EcclesiaCRM/utils/LabelUtils.php:158
+#: EcclesiaCRM/utils/LabelUtils.php:159
 msgid "Grouped by Family"
 msgstr "Згруповано за сім'ями"
 
-#: EcclesiaCRM/utils/LabelUtils.php:170 Reports/PDFLabel.php:706
+#: EcclesiaCRM/utils/LabelUtils.php:171 Reports/PDFLabel.php:706
 msgid "To the parents of"
 msgstr "Батькам"
 
-#: EcclesiaCRM/utils/LabelUtils.php:183
+#: EcclesiaCRM/utils/LabelUtils.php:184
 msgid "Start Row"
 msgstr "Стартовий ряд"
 
-#: EcclesiaCRM/utils/LabelUtils.php:190
+#: EcclesiaCRM/utils/LabelUtils.php:191
 msgid "Start Column"
 msgstr "Початкова колонка"
 
-#: EcclesiaCRM/utils/LabelUtils.php:203
+#: EcclesiaCRM/utils/LabelUtils.php:204
 msgid "Ignore Incomplete<br>Addresses"
 msgstr "Ігнорувати неповні<br>адреси"
 
-#: EcclesiaCRM/utils/LabelUtils.php:216
+#: EcclesiaCRM/utils/LabelUtils.php:217
 msgid "File Type"
 msgstr "Тип файлу"
 
@@ -5430,7 +5446,7 @@ msgid "Single Persons"
 msgstr "Одинокі особи"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:942
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:971
 #: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:16
 msgid "Family List"
 msgstr "Список сім'ї"
@@ -5456,92 +5472,92 @@ msgstr "Редактор персоналій"
 msgid "Not assigned"
 msgstr "Не призначено"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:597
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:661
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:620
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:684
 #: v2/templates/group/groupPropsFormEditor.php:321
 msgid "Person Profile"
 msgstr "Профіль особи"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:600
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:623
 msgid "Previous Person"
 msgstr "Попередня особа"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:607
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:630
 #: EcclesiaCRM/VIEWControllers/People/VIEWPersonListController.php:95
 #: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:16
 msgid "Person List"
 msgstr "Список осіб"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:614
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:637
 msgid "Next Person"
 msgstr "Наступна особа"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:932
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:961
 msgid "Family View"
 msgstr "Сімейний вид"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:935
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:964
 msgid "Previous Family"
 msgstr "Попередня сім'я"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:949
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:978
 msgid "Next Family"
 msgstr "Наступна сім'я"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1015
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1044
 msgid "Update Latitude & Longitude"
 msgstr "Оновити широту та довготу"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1169
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1198
 msgid "Family Geographic Utilities"
 msgstr "Сімейні географічні утиліти"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1234
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1263
 #: v2/templates/people/peopledashboard.php:225
 msgid "Letters and mailing labels for data confirmations"
 msgstr "Листи та поштові етикетки для підтвердження даних"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1257
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1286
 #: v2/templates/people/peopledashboard.php:219
 msgid "Pledge Reminder Report"
 msgstr "Звіт про нагадування про внески"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1283
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1312
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:580
 msgid "Printable View"
 msgstr "Перегляд для друку"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1312
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1341
 msgid "Family Editor"
 msgstr "Сімейний редактор"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1334
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1363
 msgid "Custom Person Fields Editor"
 msgstr "Редактор користувацьких полів особи"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1355
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1384
 msgid "Custom Family Fields Editor"
 msgstr "Редактор користувацьких сімейних полів"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1406
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1408
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1435
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1437
 msgid "Canvass Input for the"
 msgstr "Збір даних для опитування для"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1436
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1465
 #: v2/templates/system/reportlist.php:43
 msgid "Canvass Automation"
 msgstr "Автоматизація опитувань"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1530
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1559
 msgid "Family Delete Confirmation"
 msgstr "Підтвердження видалення сім'ї"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1532
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1561
 msgid "Person Delete Confirmation"
 msgstr "Підтвердження видалення особи"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1534
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1563
 msgid "Remove Address"
 msgstr "Видалити адресу"
 
@@ -10891,16 +10907,26 @@ msgid "Pending Persons"
 msgstr "Особи, які перебувають на розгляді"
 
 #: v2/templates/people/lettersandlabels.php:290
-msgid "confirmed person"
-msgstr "підтверджена особа"
+msgid "Confirmed persons"
+msgstr "Підтверджені особи"
 
-#: v2/templates/people/lettersandlabels.php:294
+#: v2/templates/people/lettersandlabels.php:291
+#: v2/templates/people/lettersandlabels.php:298
+msgid "Delete Pending"
+msgstr "Видалити в очікуванні"
+
+#: v2/templates/people/lettersandlabels.php:292
+#: v2/templates/people/lettersandlabels.php:299
+msgid "Delete Done Confirmation"
+msgstr "Видалити підтвердження про виконання"
+
+#: v2/templates/people/lettersandlabels.php:296
 msgid "Pending Families"
 msgstr "Сім'ї в очікуванні"
 
-#: v2/templates/people/lettersandlabels.php:295
-msgid "confirmed Families"
-msgstr "підтверджено Сім'ї"
+#: v2/templates/people/lettersandlabels.php:297
+msgid "Confirmed Families"
+msgstr "Конфірмовані сім'ї"
 
 #: v2/templates/people/peopledashboard.php:27
 msgid "People Functions"
@@ -11538,8 +11564,9 @@ msgstr "Активовано"
 msgid "Check all boxes"
 msgstr "Поставте всі галочки"
 
-#: v2/templates/plugins/plugins.php:81
-#: v2/templates/system/integritycheck.php:87
+#: v2/templates/plugins/plugins.php:81 v2/templates/system/infos.php:240
+#: v2/templates/system/integritycheck.php:88
+#: v2/templates/system/integritycheck.php:151
 msgid "Plugin"
 msgstr "Плагін"
 
@@ -12199,30 +12226,42 @@ msgstr "Передумови подання заявки"
 msgid "Application Integrity Check"
 msgstr "Перевірка цілісності програми"
 
-#: v2/templates/system/infos.php:198 v2/templates/system/integritycheck.php:57
+#: v2/templates/system/infos.php:198 v2/templates/system/infos.php:233
+#: v2/templates/system/integritycheck.php:57
 msgid "Details:"
 msgstr "Деталі:"
 
-#: v2/templates/system/infos.php:202 v2/templates/system/integritycheck.php:61
+#: v2/templates/system/infos.php:203 v2/templates/system/infos.php:237
+#: v2/templates/system/integritycheck.php:62
+#: v2/templates/system/integritycheck.php:125
 msgid "Files failing integrity check"
 msgstr "Файли не вдається перевірити на цілісність"
 
-#: v2/templates/system/infos.php:205
+#: v2/templates/system/infos.php:206 v2/templates/system/infos.php:241
 msgid "FileName"
 msgstr "Ім'я файлу"
 
-#: v2/templates/system/infos.php:206 v2/templates/system/integritycheck.php:78
-#: v2/templates/system/integritycheck.php:105
+#: v2/templates/system/infos.php:207 v2/templates/system/infos.php:242
+#: v2/templates/system/integritycheck.php:79
+#: v2/templates/system/integritycheck.php:106
+#: v2/templates/system/integritycheck.php:142
+#: v2/templates/system/integritycheck.php:169
 msgid "Expected Hash"
 msgstr "Очікуваний хеш"
 
-#: v2/templates/system/infos.php:207 v2/templates/system/integritycheck.php:79
-#: v2/templates/system/integritycheck.php:106
+#: v2/templates/system/infos.php:208 v2/templates/system/infos.php:243
+#: v2/templates/system/integritycheck.php:80
+#: v2/templates/system/integritycheck.php:107
+#: v2/templates/system/integritycheck.php:143
+#: v2/templates/system/integritycheck.php:170
 msgid "Actual Hash"
 msgstr "Фактичний хеш"
 
-#: v2/templates/system/infos.php:218 v2/templates/system/integritycheck.php:72
-#: v2/templates/system/integritycheck.php:99
+#: v2/templates/system/infos.php:219 v2/templates/system/infos.php:256
+#: v2/templates/system/integritycheck.php:73
+#: v2/templates/system/integritycheck.php:100
+#: v2/templates/system/integritycheck.php:136
+#: v2/templates/system/integritycheck.php:163
 msgid "File Missing"
 msgstr "Файл відсутній"
 
@@ -12256,16 +12295,18 @@ msgstr "Помилка перевірки цілісності"
 msgid "The previous integrity check failed"
 msgstr "Попередня перевірка цілісності не вдалася"
 
-#: v2/templates/system/integritycheck.php:67
-#: v2/templates/system/integritycheck.php:93
+#: v2/templates/system/integritycheck.php:68
+#: v2/templates/system/integritycheck.php:94
+#: v2/templates/system/integritycheck.php:131
+#: v2/templates/system/integritycheck.php:157
 msgid "File Name"
 msgstr "Ім'я файлу"
 
-#: v2/templates/system/integritycheck.php:125
+#: v2/templates/system/integritycheck.php:190
 msgid "Integrity Check Passed"
 msgstr "Перевірка цілісності пройдена"
 
-#: v2/templates/system/integritycheck.php:126
+#: v2/templates/system/integritycheck.php:191
 msgid ""
 "The previous integrity check passed.  All system file hashes match the "
 "expected values."
@@ -13597,6 +13638,12 @@ msgstr "Кілька днів"
 msgid "Giving Report"
 msgstr "Надання звіту"
 
+#~ msgid "confirmed person"
+#~ msgstr "підтверджена особа"
+
+#~ msgid "confirmed Families"
+#~ msgstr "підтверджено Сім'ї"
+
 #~ msgid "Integrity Check Results"
 #~ msgstr "Результати перевірки доброчесності"
 
@@ -13620,12 +13667,6 @@ msgstr "Надання звіту"
 
 #~ msgid "URL"
 #~ msgstr "URL"
-
-#~ msgid "Confirmed person"
-#~ msgstr "Підтверджена особа"
-
-#~ msgid "Confirmed Families"
-#~ msgstr "Конфірмовані сім'ї"
 
 #~ msgid "First"
 #~ msgstr "По-перше."

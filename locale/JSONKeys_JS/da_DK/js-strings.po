@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1463,17 +1463,14 @@ msgstr "Det lykkedes ikke at sende en bekræftelses-e-mail"
 msgid "A person name or Family"
 msgstr "En persons navn eller familie"
 
-#, fuzzy
 msgid "Modification"
-msgstr "Ændringsdato"
+msgstr "Modificering"
 
-#, fuzzy
 msgid "By persons"
-msgstr "Tilføj person"
+msgstr "Af personer"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "Adresse"
+msgstr "Ved adresser"
 
 msgid "Warning !!!!"
 msgstr "Advarsel !!!!"
@@ -1492,6 +1489,18 @@ msgstr "Du er ved at sende en e-mail til"
 
 msgid "members"
 msgstr "medlemmer"
+
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr "Du er ved at slette alle afventende bekræftelser for alle personer."
+
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr "Du er ved at slette alle udførte bekræftelser for alle personer."
+
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr "Du er ved at slette alle afventende bekræftelser for alle familier."
+
+msgid "You're about to delete all done confirmation for all the families."
+msgstr "Du er ved at slette alle de udførte bekræftelser for alle familierne."
 
 msgid "Delete this person?"
 msgstr "Slet denne person?"
@@ -2519,9 +2528,6 @@ msgstr "Upload billede"
 
 #~ msgid "Delete all Rooms?"
 #~ msgstr "Slet alle værelser?"
-
-#~ msgid "You're about to delete all of your rooms."
-#~ msgstr "Du er ved at slette alle dine værelser."
 
 #~ msgid "All"
 #~ msgstr "Alle"

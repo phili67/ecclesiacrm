@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1478,17 +1478,14 @@ msgstr "Échec de l'envoi de l'email de vérification"
 msgid "A person name or Family"
 msgstr "Un nom de personne ou une famille"
 
-#, fuzzy
 msgid "Modification"
-msgstr "Date de modifcation"
+msgstr "Modification"
 
-#, fuzzy
 msgid "By persons"
-msgstr "Ajouter une Personne"
+msgstr "Par les personnes"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "Adresse"
+msgstr "Par adresse"
 
 msgid "Warning !!!!"
 msgstr "Avertissement ! !!!"
@@ -1508,6 +1505,26 @@ msgstr "Vous êtes sur le point d'envoyer un e-mail à"
 
 msgid "members"
 msgstr "membres"
+
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr ""
+"Vous êtes sur le point de supprimer toutes les confirmations en attente pour "
+"toutes les personnes."
+
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr ""
+"Vous êtes sur le point de supprimer toutes les confirmations effectuées pour "
+"toutes les personnes."
+
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr ""
+"Vous êtes sur le point de supprimer toutes les confirmations en attente pour "
+"toutes les familles."
+
+msgid "You're about to delete all done confirmation for all the families."
+msgstr ""
+"Vous êtes sur le point de supprimer toutes les confirmations effectuées pour "
+"toutes les familles."
 
 msgid "Delete this person?"
 msgstr "Supprimer cette personne ?"

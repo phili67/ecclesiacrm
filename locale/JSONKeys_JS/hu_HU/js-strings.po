@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1468,17 +1468,14 @@ msgstr "Nem sikerült ellenőrző e-mailt küldeni"
 msgid "A person name or Family"
 msgstr "Egy személy neve vagy Család"
 
-#, fuzzy
 msgid "Modification"
-msgstr "Módosítás dátuma"
+msgstr "Módosítás"
 
-#, fuzzy
 msgid "By persons"
-msgstr "Személy hozzáadása"
+msgstr "Személyek által"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "Cím:"
+msgstr "Címek szerint"
 
 msgid "Warning !!!!"
 msgstr "Figyelmeztetés !!!!"
@@ -1497,6 +1494,21 @@ msgstr "Éppen e-mailt készül küldeni a"
 
 msgid "members"
 msgstr "tagok"
+
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr ""
+"Az összes függőben lévő visszaigazolást törölni fogja az összes személy "
+"esetében."
+
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr ""
+"Az összes személyre vonatkozó összes elvégzett visszaigazolást törölni fogja."
+
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr "Az összes család összes függőben lévő visszaigazolását törölni fogja."
+
+msgid "You're about to delete all done confirmation for all the families."
+msgstr "Az összes család összes elvégzett visszaigazolását törölni fogja."
 
 msgid "Delete this person?"
 msgstr "Törölje ezt a személyt?"
@@ -2533,9 +2545,6 @@ msgstr "Kép feltöltése"
 
 #~ msgid "Delete all Rooms?"
 #~ msgstr "Töröljem az összes szobát?"
-
-#~ msgid "You're about to delete all of your rooms."
-#~ msgstr "Az összes szobádat törölni fogod."
 
 #~ msgid "All"
 #~ msgstr "Minden"

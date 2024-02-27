@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1469,17 +1469,14 @@ msgstr "Gagal untuk mengirim email verifikasi"
 msgid "A person name or Family"
 msgstr "Nama seseorang atau Keluarga"
 
-#, fuzzy
 msgid "Modification"
-msgstr "Modifikasi Date"
+msgstr "Modifikasi"
 
-#, fuzzy
 msgid "By persons"
-msgstr "Tambahkan orang"
+msgstr "Oleh orang"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "Alamat"
+msgstr "Oleh Alamat"
 
 msgid "Warning !!!!"
 msgstr "Peringatan !!!!"
@@ -1498,6 +1495,21 @@ msgstr "Anda akan mengirim email ke"
 
 msgid "members"
 msgstr "anggota"
+
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr "Anda akan menghapus semua konfirmasi yang tertunda untuk semua orang."
+
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr ""
+"Anda akan menghapus semua konfirmasi yang sudah selesai untuk semua orang."
+
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr ""
+"Anda akan menghapus semua konfirmasi yang tertunda untuk semua keluarga."
+
+msgid "You're about to delete all done confirmation for all the families."
+msgstr ""
+"Anda akan menghapus semua konfirmasi yang sudah selesai untuk semua keluarga."
 
 msgid "Delete this person?"
 msgstr "Hapus orang ini?"
@@ -2529,9 +2541,6 @@ msgstr "Upload Image"
 
 #~ msgid "Delete all Rooms?"
 #~ msgstr "Menghapus semua kamar?"
-
-#~ msgid "You're about to delete all of your rooms."
-#~ msgstr "Kau akan menghapus semua kamar kalian."
 
 #~ msgid "All"
 #~ msgstr "Semua"

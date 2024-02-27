@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1469,17 +1469,14 @@ msgstr "Nu s-a reușit trimiterea e-mailului de verificare"
 msgid "A person name or Family"
 msgstr "Un nume de persoană sau Familie"
 
-#, fuzzy
 msgid "Modification"
-msgstr "Data modificării"
+msgstr "Modificare"
 
-#, fuzzy
 msgid "By persons"
-msgstr "Adăugați o persoană"
+msgstr "De către persoane"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "Adresa"
+msgstr "Prin Adrese"
 
 msgid "Warning !!!!"
 msgstr "Avertisment !!!!"
@@ -1498,6 +1495,25 @@ msgstr "Sunteți pe cale să trimiteți un e-mail către"
 
 msgid "members"
 msgstr "membri"
+
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr ""
+"Sunteți pe cale să ștergeți toate confirmările în așteptare pentru toate "
+"persoanele."
+
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr ""
+"Sunteți pe cale să ștergeți toate confirmările efectuate pentru toate "
+"persoanele."
+
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr ""
+"Sunteți pe cale să ștergeți toate confirmările în așteptare pentru toate "
+"familiile."
+
+msgid "You're about to delete all done confirmation for all the families."
+msgstr ""
+"Sunteți pe cale să ștergeți toate confirmările făcute pentru toate familiile."
 
 msgid "Delete this person?"
 msgstr "Ștergeți această persoană?"
@@ -2542,9 +2558,6 @@ msgstr "Încărcați imaginea"
 
 #~ msgid "Delete all Rooms?"
 #~ msgstr "Ștergeți toate camerele?"
-
-#~ msgid "You're about to delete all of your rooms."
-#~ msgstr "Sunteți pe cale să vă ștergeți toate camerele."
 
 #~ msgid "All"
 #~ msgstr "Toate"

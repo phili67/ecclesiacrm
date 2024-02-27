@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-12T20:12:29.623Z\n"
+"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1460,17 +1460,14 @@ msgstr "Vahvistussähköpostia ei onnistuttu lähettämään"
 msgid "A person name or Family"
 msgstr "Henkilön nimi tai Perhe"
 
-#, fuzzy
 msgid "Modification"
-msgstr "Muutospäivämäärä"
+msgstr "Muutos"
 
-#, fuzzy
 msgid "By persons"
-msgstr "Lisää henkilö"
+msgstr "Henkilöiden mukaan"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "Osoite"
+msgstr "Osoitteiden mukaan"
 
 msgid "Warning !!!!"
 msgstr "Varoitus !!!!"
@@ -1489,6 +1486,18 @@ msgstr "Olet lähettämässä sähköpostia osoitteeseen"
 
 msgid "members"
 msgstr "jäsenet"
+
+msgid "You're about to delete all pending confirmation for all the persons."
+msgstr "Olet poistamassa kaikkien henkilöiden kaikki odottavat vahvistukset."
+
+msgid "You're about to delete all done confirmation for all the persons."
+msgstr "Olet poistamassa kaikkien henkilöiden kaikki tehdyt vahvistukset."
+
+msgid "You're about to delete all pending confirmation for all the families."
+msgstr "Olet poistamassa kaikkien perheiden kaikki odottavat vahvistukset."
+
+msgid "You're about to delete all done confirmation for all the families."
+msgstr "Olet poistamassa kaikkien perheiden kaikki tehdyt vahvistukset."
 
 msgid "Delete this person?"
 msgstr "Poistaa tämä henkilö?"
@@ -2518,9 +2527,6 @@ msgstr "Lataa kuva"
 
 #~ msgid "Delete all Rooms?"
 #~ msgstr "Poista kaikki huoneet?"
-
-#~ msgid "You're about to delete all of your rooms."
-#~ msgstr "Olet poistamassa kaikki huoneesi."
 
 #~ msgid "All"
 #~ msgstr "Kaikki"
