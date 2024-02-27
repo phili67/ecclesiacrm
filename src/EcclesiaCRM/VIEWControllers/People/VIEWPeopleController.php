@@ -813,42 +813,48 @@ class VIEWPeopleController {
             ];
         }
 
-        $ormNextFamilies = PersonQuery::Create()
-            ->useFamilyQuery()
-            ->filterByDateDeactivated(NULL)
-            ->orderByName()
-            ->endUse()
-            ->withColumn('COUNT(*)', 'count')
-            ->groupByFamId()
-            ->find();
+        // by default in the next previous person : dectivated are not showned
+        // find the next personID
+        $previous_id = $last_id = 0;
+        $next_id = 0;        
 
-        /*$ormNextFamilies = PersonQuery::Create ()
-                            ->useFamilyQuery()
-                                ->orderByName()
-                            ->endUse()
-                            ->groupByFamId()
-                            ->withColumn('COUNT(*)', 'count')
-                            ->find();*/
-        //echo $ormNextFamilies;
+        $connection = Propel::getConnection();
 
-        $last_id = 0;
-        $next_id = 0;
-        $capture_next = 0;
+        $sSQL = "SELECT t.next_id 
+        FROM (
+            SELECT fam_ID, 
+                LEAD(fam_ID, 1) OVER (ORDER BY fam_Name ASC) AS next_id 
+            FROM family_fam
+            WHERE fam_DateDeactivated IS NULL 
+        ) t 
+        WHERE t.fam_ID = ".$iFamilyID.";";
 
-        foreach ($ormNextFamilies as $nextFamily) {
-            $fid = $nextFamily->getFamId();
-            $numberMembers = $nextFamily->getCount();
-            if ($capture_next == 1 && $numberMembers > 1) {
-                $next_id = $fid;
-                break;
-            }
-            if ($fid == $iFamilyID) {
-                $previous_id = $last_id;
-                $capture_next = 1;
-            }
-            if ($numberMembers > 1) {
-                $last_id = $fid;
-            }
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
+        $next = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        if (count($next) ) {
+            $next_id = (int)$next[0]['next_id'];
+        }
+
+        // get previous id
+        $sSQL = "SELECT t.previous_id 
+        FROM (
+            SELECT fam_ID, 
+                LEAD(fam_ID, 1) OVER (ORDER BY fam_Name DESC) AS previous_id 
+            FROM family_fam
+            WHERE fam_DateDeactivated IS NULL 
+        ) t 
+        WHERE t.fam_ID = ".$iFamilyID.";";
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
+        $previous = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        if (count($previous) ) {
+            $previous_id = (int)$previous[0]['previous_id'];
         }
 
         $iCurrentUserFamID = SessionUser::getUser()->getPerson()->getFamId();
