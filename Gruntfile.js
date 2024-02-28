@@ -54,6 +54,12 @@ module.exports = function (grunt) {
             skin: {
                 files: [
                     // includes files within path and its sub-directories
+                    {// cp -Rf ckeditorExtraPlugins/html5video src/skin/external/ckeditor/plugins
+                        expand: true,
+                        cwd: 'ckeditorExtraPlugins/html5video',
+                        src: ['*.*', 'dialogs/*','icons/*', 'lang/*'],
+                        dest: 'src/skin/external/ckeditor/plugins/html5video/'
+                    },
                     {
                         expand: true,
                         filter: 'isFile',
