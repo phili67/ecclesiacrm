@@ -33,7 +33,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.3.0",
         "admin-lte": "^3.2.0",
-        "bootbox": "^5.5.3",
+        "bootbox": "^6.0.0",
         "bootstrap": "^4.6.2",
         "bootstrap-colorpicker": "^2.5.3",
         "bootstrap-datepicker": "^1.9.0",
@@ -71,7 +71,7 @@
         "icheck": "^1.0.2",
         "initial-js": "0.3.4",
         "is-my-json-valid": "^2.20.5",
-        "jquery": "^3.7.0",
+        "jquery": "^3.7.1",
         "jquery-photo-uploader": "github:phili67/jQuery-Photo-Uploader",
         "jquery-steps": "^1.1.0",
         "jquery-ui-touch-punch": "^0.2.3",
