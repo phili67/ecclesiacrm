@@ -7,5 +7,7 @@
     "url_infos": "https://www.ecclesiacrm.com",
     "url_docs": "https://doc_url",
     "Settings_url": "",
-    "Details": "https://url;iframe=true&amp;width=772&amp;height=549"
+    "Details": "https://url;iframe=true&amp;width=772&amp;height=549",
+    "UUID": "c42c6310-1ad9-45f1-a7d3-54bd3b8e71ef",
+    "licence": "NO" 
 }
