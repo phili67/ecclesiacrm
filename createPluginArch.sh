@@ -12,6 +12,7 @@
 
 
     pluginName=$1
+    UUID=$(cat /proc/sys/kernel/random/uuid)
 
     # we work first with locale files
     mkdir "src/Plugins/${pluginName}"
@@ -27,7 +28,9 @@
               "url_infos": "https://team_url",
               "url_docs": "https://doc_url",
               "Settings_url": "meeting/settings",
-              "Details": "https://url;iframe=true&amp;width=772&amp;height=549"
+              "Details": "https://url;iframe=true&amp;width=772&amp;height=549",
+              "UUID": "'${UUID}'",
+              "licence": "NO"
           }' >> "src/Plugins/${pluginName}/config.json"
 
     mkdir "src/Plugins/${pluginName}/api"
