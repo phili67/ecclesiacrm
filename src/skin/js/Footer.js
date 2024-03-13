@@ -92,9 +92,7 @@ $("document").ready(function () {
     $(document).on("click", "#deleteCart", function (e) {
         window.CRM.cart.delete(function (data) {
             var global_path = window.location.pathname;
-            pathPersonView = global_path.includes("v2/people/person/view/");
-            path = global_path.substring(global_path.lastIndexOf("/") + 1);            
-            path = path.includes("?")[0].split("#")[0];        
+            pathPersonView = global_path.includes("v2/people/person/view/");                                 
 
             if (data.status == "failure") {
                 var box = window.CRM.DisplayAlert(i18next.t("Error text"), data.message);
