@@ -78,7 +78,7 @@ class VancoTools
     }
 
     public function vancoEFTAddCompleteTransactionRequest($sessionid, $paymentmethodref, $startdate, $frequencycode, $customerid = '', $customerref = '', $name = '', $address1 = '', $address2 = '', $city = '',
-                                                 $state = '', $czip = '', $phone = '', $isdebitcardonly = '', $enddate = '', $transactiontypecode = '', $funddict = '', $amount = '')
+                                                 $state = '', $czip = '', $phone = '', $isdebitcardonly = '', $enddate = '', $transactiontypecode = '', $funddict = [], $amount = '')
     {
         /*
         Function:    vancoEFTAddCompleteTransactionRequest($sessionid,$paymentmethodref,$startdate,$frequencycode,$customerid,$customerref,$name,$address1,$address2,$city,$state,\
@@ -154,7 +154,7 @@ class VancoTools
             $nvpstring .= '&transactiontypecode='.$transactiontypecode;
         }
         //define amount fields
-        if ($funddict != '') {
+        if ( !empty($funddict) ) {
             foreach ($funddict as $key => $value) {
                 $nvpstring .= '&'.$key.'='.$value;
             }
@@ -222,10 +222,10 @@ class VancoTools
         return rtrim(strtr(base64_encode($string), '+/', '-_'));
     }
 
-    public function encrypt_old($data, $key)
+    /*public function encrypt_old($data, $key)
     {
         return mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_ECB);
-    }
+    }*/
     
     public function encrypt($data, $key, $method = 'AES-128-CBC')
     {
@@ -265,10 +265,10 @@ class VancoTools
         return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
     }
 
-    public function decrypt_old($data, $key)
+    /*public function decrypt_old($data, $key)
     {
         return mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_ECB);
-    }
+    }*/
 
     public function decrypt($data, $key, $method = 'AES-128-CBC')
     {
