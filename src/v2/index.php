@@ -18,7 +18,6 @@ use Slim\Middleware\ContentLengthMiddleware;
 use DI\Container;
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
-use EcclesiaCRM\Slim\Middleware\JWTMiddleware;
 
 use EcclesiaCRM\PluginQuery;
 
