@@ -52,7 +52,7 @@ $app->setBasePath($rootPath . "/v2");
 
 $app->add(new VersionMiddleware());
 
-$app->add(new JWTMiddleware([
+$app->add(new Tuupola\Middleware\JwtAuthentication([
     "secret" => SessionUser::getUser()->getJwtSecretForApi(),
     "secure" => SessionUser::getUser()->isSecure(),
     "path" => "/api",

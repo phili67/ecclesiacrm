@@ -58,7 +58,7 @@
         "php-di/php-di": "^6.3",
         "tecnickcom/tcpdf": "^6.4",
         "robthree/twofactorauth": "^1.8",
-        "firebase/php-jwt": "^6.4"
+        "tuupola/slim-jwt-auth": "^3.8"
     },
     "autoload": {
         "classmap": [
