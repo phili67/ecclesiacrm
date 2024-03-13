@@ -24,6 +24,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
     <a href="<?= $sRootPath ?>/v2/people/UpdateAllLatLon" class="btn bg-green-active"><i class="fas fa-map-marker-alt"></i> </a>
     <?= _('Missing Families?').'<a href="'.$sRootPath.'/v2/people/UpdateAllLatLon" >'.' '._('Update Family Latitude or Longitude now.'). ' : ' . $empty_families->count() ?></a>
 </div>
+<?php } ?>
 
 <?php if (ChurchMetaData::getChurchLatitude() == '') {
     ?>
