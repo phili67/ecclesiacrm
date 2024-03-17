@@ -177,5 +177,11 @@ unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/MenuConfigQ
 // 2024-02-13
 unlink(SystemURLs::getDocumentRoot()."/Reports/USISTAddressReport.php");
 
+// 2024-03-16
+unlink(SystemURLs::getDocumentRoot()."/skin/external/bootstrap-show-password");
+unlink(SystemURLs::getDocumentRoot()."/Login.php");
+unlink(SystemURLs::getDocumentRoot()."/Logoff.php");
+
+
 $logger->info("End of delete :  all unusefull files");
 ?>
