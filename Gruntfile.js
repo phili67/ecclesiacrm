@@ -249,13 +249,6 @@ module.exports = function (grunt) {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
-                        src: ['node_modules/bootstrap-show-password/dist/bootstrap-show-password.min.js'],
-                        dest: 'src/skin/external/bootstrap-show-password'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
                         src: ['node_modules/select2/dist/js/select2.min.js',
                         'node_modules/select2/dist/css/select2.min.css'],
                         dest: 'src/skin/external/select2'
