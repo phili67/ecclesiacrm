@@ -13,7 +13,12 @@ $(function() {
       url: window.CRM.root + "/api/persons/NotInMailChimp/emails/persons",
       type: 'GET',
       contentType: "application/json",
-      dataSrc: "emails"
+      dataSrc: "emails",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      }
     },
     "language": {
       "url": window.CRM.plugin.dataTable.language.url

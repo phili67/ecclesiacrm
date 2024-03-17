@@ -4,7 +4,7 @@
     //window.CRM.kiosk.enterFullScreen();
   })
    
-  $(document).ready(function() {
+  $(function() {
     window.CRM.kiosk.startEventLoop();
   });
     

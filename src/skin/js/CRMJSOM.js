@@ -7,10 +7,11 @@
             options.method = "GET"
         }
 
-        fetch(window.CRM.root + "/api/" + options.path, {
+        fetch(window.CRM.root + "/api/" + options.path, {            
             method: options.method,
             headers: {
                 'Content-Type': "application/json; charset=utf-8",
+                'Authorization': 'Bearer ' + window.CRM.jwtToken,
             },
             body: options.data
         })
@@ -1332,9 +1333,10 @@
 
     window.CRM.system = {
       'runTimerJobs' : function () {
-        $.ajax({
-          url: window.CRM.root + "/api/timerjobs/run",
-          type: "POST"
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'timerjobs/run'
+        },function(data) {
         });
       }
     };
@@ -1712,7 +1714,7 @@
           path: 'synchronize/page?currentpagename=' + window.CRM.PageName.replace(window.CRM.root,''),
         },function (data) {
           if (data[0].timeOut) {
-            window.location.replace(window.CRM.root+'/Login.php?session=Lock');
+            window.location.replace(window.CRM.root+'/session/Lock');
           } else {
             for (var key in data[1]) {
                 try {

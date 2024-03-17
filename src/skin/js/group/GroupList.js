@@ -41,7 +41,12 @@ $(function() {
         ajax: {
             url: window.CRM.root + "/api/groups/",
             type: 'GET',
-            dataSrc: "Groups"
+            dataSrc: "Groups",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         columns: [
             {

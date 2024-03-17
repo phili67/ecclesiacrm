@@ -103,7 +103,12 @@ $(function() {
         url: window.CRM.root + "/api/families/familyproperties/"+window.CRM.currentFamily,
         type: 'POST',
         contentType: "application/json",
-        dataSrc: "Record2propertyR2ps"
+        dataSrc: "Record2propertyR2ps",
+        "beforeSend": function (xhr) {
+          xhr.setRequestHeader('Authorization',
+              "Bearer " +  window.CRM.jwtToken
+          );
+      }
       },
       "language": {
         "url": window.CRM.plugin.dataTable.language.url
@@ -435,6 +440,11 @@ $(function() {
       url: window.CRM.root + "/api/payments/family",
       type: 'POST',
       contentType: "application/json",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      },
       data: function ( d ) {
         return JSON.stringify({"famId" : window.CRM.currentFamily});
       },
@@ -556,6 +566,11 @@ $(function() {
       url: window.CRM.root + "/api/pledges/family",
       type: 'POST',
       contentType: "application/json",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      },
       data: function ( d ) {
         return JSON.stringify({"famId" : window.CRM.currentFamily});
       },

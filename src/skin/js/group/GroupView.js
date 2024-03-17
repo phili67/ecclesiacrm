@@ -27,7 +27,12 @@ $(function() {
             url: window.CRM.root + "/api/groups/groupproperties/" + window.CRM.currentGroup,
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "Record2propertyR2ps"
+            dataSrc: "Record2propertyR2ps",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
@@ -228,6 +233,9 @@ $(function() {
             },
             dataType: 'json',
             delay: 250,
+            headers: {
+                "Authorization" : "Bearer "+window.CRM.jwtToken
+            },
             data: function (params) {
                 return {
                     q: params.term, // search term
@@ -354,7 +362,12 @@ function initDataTable() {
     var DataTableOpts = {
         ajax: {
             url: window.CRM.root + "/api/groups/" + window.CRM.currentGroup + "/members",
-            dataSrc: "Person2group2roleP2g2rs"
+            dataSrc: "Person2group2roleP2g2rs",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
@@ -726,6 +739,9 @@ function initDataTable() {
                 dataType: 'json',
                 delay: 250,
                 data: "",
+                headers: {
+                    "Authorization" : "Bearer "+window.CRM.jwtToken
+                },
                 processResults: function (data, params) {
                     return {results: data};
                 },

@@ -116,8 +116,7 @@ $(function() {
   });
 
 
-  $(document).ready(function() {
-
+  $(function() {
       $("#input-volunteer-opportunities").select2({
         language: window.CRM.shortLocale
       });
@@ -147,7 +146,12 @@ $(function() {
       url: window.CRM.root + "/api/persons/personproperties/"+window.CRM.currentPersonID,
       type: 'POST',
       contentType: "application/json",
-      dataSrc: "Record2propertyR2ps"
+      dataSrc: "Record2propertyR2ps",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      }
     },
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
@@ -730,7 +734,12 @@ $(function() {
       url: window.CRM.root + "/api/persons/volunteers/"+window.CRM.currentPersonID,
       type: 'POST',
       contentType: "application/json",
-      dataSrc: "VolunteerOpportunities"
+      dataSrc: "VolunteerOpportunities",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      }
     },
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
@@ -824,6 +833,11 @@ $(function() {
       url: window.CRM.root + "/api/payments/family",
       type: 'POST',
       contentType: "application/json",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      },
       data: function ( d ) {
         return JSON.stringify({"famId" : window.CRM.currentFamily});
       },
@@ -945,6 +959,11 @@ $(function() {
       url: window.CRM.root + "/api/pledges/family",
       type: 'POST',
       contentType: "application/json",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      },
       data: function ( d ) {
         return JSON.stringify({"famId" : window.CRM.currentFamily});
       },

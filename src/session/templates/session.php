@@ -1,26 +1,29 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : Login.php
- *  website     : http://www.ecclesiacrm.com
- *  description : page header used for most pages
+ *  filename    : templates/login.php
+ *  description : menu that appears after login, shows login attempts
  *
- *  Copyright 2017 Philippe Logel
+ *  http://www.ecclesiacrm.com/
+ *
+ *  2020 Philippe Logel
  *
  ******************************************************************************/
 
 // Include the function library
-require 'Include/Config.php';
 
+
+// we place this part to avoid a problem during the upgrade process
+// Set the page title
 $bSuppressSessionTests = true; // DO NOT MOVE
-require 'Include/Functions.php';
+
+require $sRootDocument . '/Include/HeaderNotLoggedIn.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Emails\LockedEmail;
 use EcclesiaCRM\dto\ChurchMetaData;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\utils\RedirectUtils;
@@ -143,9 +146,10 @@ if ( isset($_SESSION['lastPage']) ) {
 }
 
 
-if (isset($_GET['session']) && $_GET['session'] == "Lock") {// We are in a Lock session
+if ($session == "Lock") {// We are in a Lock session
     $type = $_SESSION['iLoginType'] = "Lock";
 }
+
 
 if (empty($urlUserName)) {
     if (isset($_SESSION['user'])) {
@@ -193,10 +197,6 @@ if (empty($person)) {
     $_SESSION['iLoginType'] = "";
 }
 
-// Set the page title and include HTML header
-$sPageTitle = _('Login');
-require 'Include/HeaderNotLoggedIn.php';
-
 ?>
 
 <!-- login-box -->
@@ -227,11 +227,11 @@ require 'Include/HeaderNotLoggedIn.php';
             }
             ?>
 
-            <form class="form-signin" role="form" method="post" name="LoginForm" action="Login.php">
+            <form class="form-signin" role="form" method="post" name="LoginForm" action="<?= $sRootPath ?>/session/login">
                 <div class="form-group has-feedback">
                     <div class="input-group">
                         <input type="text" name="User" class= "form-control form-control-sm" value="<?= $urlUserName ?>"
-                               placeholder="<?= _('Email/Username') ?>" required>
+                            placeholder="<?= _('Email/Username') ?>" required>
                         <input type="hidden" name="iLoginType" class="form-control form-control-sm" value="<?= $type ?>">
 
                         <div class="input-group-append" style="cursor: pointer;">
@@ -242,13 +242,20 @@ require 'Include/HeaderNotLoggedIn.php';
                     </div>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" name="Password" class= "form-control form-control-sm" data-toggle="password"
-                           placeholder="<?= _('Password') ?>" required value="<?= $urlPassword ?>">
+                    <div class="input-group">
+                        <input type="password" name="Password" id="inputPassword" class= "form-control form-control-sm"
+                            placeholder="<?= _('Password') ?>" value="<?= $urlPassword ?>">
+                        <div class="input-group-append" style="cursor: pointer;">
+                            <button tabindex="100" title="Click here to show/hide password" class="btn btn-outline-secondary" type="button">
+                                <i id="visibilitySwitch" class="icon-eye-open fa fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <?php if ($twofa): ?>
                 <div class="form-group has-feedback">
                     <input type="text" id="TwoFaBox" name="twofafield" class= "form-control form-control-sm twofact_textfield" data-toggle="TwoFaBox"
-                           placeholder="<?= _("2FA : OTP key") ?>" required autofocus>
+                        placeholder="<?= _("2FA : OTP key") ?>" required autofocus>
                     <br/>
                 </div>
                 <?php endif ?>
@@ -274,14 +281,13 @@ require 'Include/HeaderNotLoggedIn.php';
                 <div class="row  mb-3">
                     <!-- /.col -->
                     <div class="col-12">
-                        <a href="<?= SystemURLs::getRootPath() ?>/external/register/" class="btn btn-primary btn-block bg-olive"><i
+                        <a href="<?= $RootPath ?>/external/register/" class="btn btn-primary btn-block bg-olive"><i
                                 class="fas fa-user-plus"></i> <?= _('Register a new Family'); ?></a><br>
                     </div>
                 </div>
                 <?php
             } ?>
             <!--<a href="external/family/verify" class="text-center">Verify Family Info</a> -->
-
         </div>
     </div>
     <!-- /.login-box-body -->
@@ -289,7 +295,7 @@ require 'Include/HeaderNotLoggedIn.php';
 <!-- /.login-box -->
 
 <!-- lockscreen-wrapper -->
-<div class="lockscreen-wrapper" id="Lock" <?= ($_SESSION['iLoginType'] == "Lock") ? "" : 'style="display: none;"' ?>>
+<div class="lockscreen-wrapper" id="Lock"  <?= ($_SESSION['iLoginType'] == "Lock") ? "" : 'style="display: none;"' ?>>
     <div class="login-logo">
         Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
     </div>
@@ -318,14 +324,14 @@ require 'Include/HeaderNotLoggedIn.php';
 
     <div class="lockscreen-name text-center"><?= $urlUserName ?></div>
 
-    <form class="lockscreen-credentials" role="form" method="post" name="LoginForm" action="Login.php">
+    <form class="lockscreen-credentials" role="form" method="post" name="LoginForm" action="<?= $sRootPath ?>/session/login">
         <div class="lockscreen-item lockscreen-item-pos">
             <!-- lockscreen image -->
             <div class="lockscreen-image">
                 <?php if ($_SESSION['iLoginType'] == "Lock") {
                     ?>
-                    <img src="<?= str_replace(SystemURLs::getDocumentRoot(), "", $person->getPhoto()->getThumbnailURI()) ?>"
-                         alt="User Image">
+                    <img src="<?= str_replace($sRootDocument, "", $person->getPhoto()->getThumbnailURI()) ?>"
+                        alt="User Image">
                     <?php
                 } ?>
             </div>
@@ -338,7 +344,7 @@ require 'Include/HeaderNotLoggedIn.php';
                     <input type="hidden" name="iLoginType" class="form-control form-control-sm" value="<?= $type ?>">
 
                     <input type="password" name="Password" class= "form-control form-control-sm"
-                           placeholder="<?= _('Password') ?>" required value="<?= $urlPassword ?>">
+                        placeholder="<?= _('Password') ?>" value="<?= $urlPassword ?>" >
 
                     <div class="input-group-append"><button type="submit" class="btn btn-default"><i class="fas fa-arrow-right text-muted"></i></button></div>
                 </div>
@@ -349,7 +355,7 @@ require 'Include/HeaderNotLoggedIn.php';
         <?php if ($twofa): ?>
             <div class="form-group twofact">
                 <input type="text" id="TwoFaBox" name="twofafield" class= "form-control form-control-sm twofact_textfield" data-toggle="TwoFaBox"
-                       placeholder="<?= _("2FA : OTP key") ?>" required autofocus>
+                    placeholder="<?= _("2FA : OTP key") ?>" required autofocus>
                 <br/>
             </div>
         <?php endif ?>
@@ -365,9 +371,7 @@ require 'Include/HeaderNotLoggedIn.php';
 </div>
 <!-- /.lockscreen-wrapper -->
 
-<script
-    src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-show-password/bootstrap-show-password.min.js"></script>
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= $sCSPNonce ?>">
     $(function() {
         window.CRM.twofa = <?= ($twofa)?'true':'false' ?>;
 
@@ -408,13 +412,17 @@ require 'Include/HeaderNotLoggedIn.php';
             window.attachEvent("onload", $buo_f)
         }
 
-        $('#password').password('toggle');
-        $("#password").password({
-            eyeOpenClass: 'glyphicon-eye-open',
-            eyeCloseClass: 'glyphicon-eye-close'
+        $("#visibilitySwitch").click(function(){
+            $(this)
+                .toggleClass('fa-eye')
+                .toggleClass('fa-eye-slash');
+            if ($('#inputPassword').attr('type') == 'password')
+                $('#inputPassword').attr('type', 'text')
+            else
+                $('#inputPassword').attr('type', 'password')
         });
 
     });
 </script>
 
-<?php require 'Include/FooterNotLoggedIn.php'; ?>
+<?php require $sRootDocument . '/Include/FooterNotLoggedIn.php'; ?>

@@ -181,6 +181,7 @@ function Header_body_scripts()
             bHtmlSourceEditor: <?= SessionUser::getUser()->isHtmlSourceEditorEnabled()?'true':'false' ?>,
             all_plugins_i18keys: <?= $pluginInfos['pluginNames'] ?>,
             isMailerAvailable: <?= $pluginInfos['isMailerAvalaible'] ?>,
+            jwtToken: '<?= SessionUser::getUser()->getJwtTokenForApi() ?>',
             plugin: {
                 dataTable : {
                    "language": {

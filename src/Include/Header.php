@@ -155,9 +155,9 @@ Header_system_notifications();
                                         <p><i class="fas fa-key"></i> <?= _('Change Password') ?></p></a>
                                     <a href="<?= SystemURLs::getRootPath() ?>/v2/users/settings" class="dropdown-item main-help-menu">
                                         <p><i class="fas fa-cog"></i> <?= _('Change Settings') ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/Login.php?session=Lock" class="dropdown-item main-help-menu">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/session/Lock" class="dropdown-item main-help-menu">
                                         <p><i class="fas fa-pause"></i> <?= _('Lock') ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="dropdown-item main-help-menu">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/session/logout" class="dropdown-item main-help-menu">
                                         <p><i class="fas fa-sign-out-alt"></i> <?= _('Sign out') ?></p></a>
                                 </td>
                             </tr>

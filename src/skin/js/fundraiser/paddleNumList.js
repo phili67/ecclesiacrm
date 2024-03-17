@@ -243,7 +243,12 @@ $(function() {
             url: window.CRM.root + "/api/fundraiser/paddlenum/list/" + window.CRM.fundraiserID,
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "PaddleNumItems"
+            dataSrc: "PaddleNumItems",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         "language": {
             "url": window.CRM.plugin.dataTable.language.url

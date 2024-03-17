@@ -30,7 +30,12 @@ $(function() {
             url: window.CRM.root + "/api/filemanager/" + window.CRM.currentPersonID,
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "files"
+            dataSrc: "files",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
@@ -829,6 +834,9 @@ $(function() {
             ajax: {
                 url: function (params) {
                     return window.CRM.root + "/api/people/search/" + params.term;
+                },
+                headers: {
+                    "Authorization" : "Bearer "+window.CRM.jwtToken
                 },
                 dataType: 'json',
                 delay: 250,

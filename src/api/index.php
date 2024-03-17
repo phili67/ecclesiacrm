@@ -10,6 +10,9 @@ use Slim\Factory\AppFactory;
 use Slim\Middleware\ContentLengthMiddleware;
 use DI\Container;
 
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
 
 use EcclesiaCRM\SessionUser;
@@ -18,9 +21,10 @@ use EcclesiaCRM\PluginQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 // security access, if no user exit
-if (SessionUser::getId() ==  0) RedirectUtils::Redirect('Login.php');
+if (SessionUser::getId() ==  0) RedirectUtils::Redirect('session/login');
 
 $rootPath = str_replace('/api/index.php', '', $_SERVER['SCRIPT_NAME']);
 
@@ -46,10 +50,9 @@ $app->add( new VersionMiddleware() );
 
 $app->add(new Tuupola\Middleware\JwtAuthentication([
     "secret" => SessionUser::getUser()->getJwtSecretForApi(),
-    "secure" => SessionUser::getUser()->isSecure(),
-    "path" => "/api",
-    "cookie" => SessionUser::getUser()->getUserNameForApi(),
-    //"ignore" => ["/api/families", "/api/persons/"],
+    //"cookie" => SessionUser::getUser()->getUserNameForApi(),
+    "ignore" => [SystemURLs::getRootPath()."/api/families", SystemURLs::getRootPath(). "/api/persons/", SystemURLs::getRootPath()."/api/system/csp-report", SystemURLs::getRootPath()."/api/systemupgrade/isUpdateRequired", 
+        SystemURLs::getRootPath()."/api/filemanager/getFile/", SystemURLs::getRootPath()."/api/synchronize/page"],
     "algorithm" => "HS256",
     "error" => function ($response, $arguments) {
         $data["status"] = "error";

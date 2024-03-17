@@ -13,6 +13,11 @@ $(function() {
         ajax: {
             url: window.CRM.root + "/api/calendar/getalleventsForEventsList",
             type: 'POST',
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            },
             contentType: "application/json",
             dataSrc: "EventsListResults",
             data: function (json) {

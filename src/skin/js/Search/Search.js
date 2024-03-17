@@ -32,6 +32,9 @@ $(function() {
                 }
                 return window.CRM.root + "/api/search/getresultbyname/" + params.term;
             },
+            headers: {
+                "Authorization" : "Bearer "+window.CRM.jwtToken
+            },
             dataType: 'json',
             delay: 250,
             data: "",
@@ -283,6 +286,11 @@ $(function() {
             type: 'POST',
             contentType: "application/json",
             dataSrc: "SearchResults",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            },
             data: function (json) {
                 if (search_Term != '') {
                     $('.in-progress').css("color", "red");

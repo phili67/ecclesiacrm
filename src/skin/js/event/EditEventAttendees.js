@@ -74,6 +74,9 @@ $(function() {
       },
       dataType: 'json',
       delay: 250,
+      headers: {
+        "Authorization" : "Bearer "+window.CRM.jwtToken
+      },
       data: function (params) {
         return {
           q: params.term, // search term

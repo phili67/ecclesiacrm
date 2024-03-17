@@ -4,7 +4,12 @@ $(function() {
       url: window.CRM.root + "/api/pastoralcare/",
       type: 'POST',
       contentType: "application/json",
-      dataSrc: "PastoralCareTypes"
+      dataSrc: "PastoralCareTypes",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      }
     },
     "language": {
       "url": window.CRM.plugin.dataTable.language.url

@@ -440,6 +440,9 @@ function createShareWindow(calIDs) {
             processResults: function (data, params) {
                 return {results: data};
             },
+            headers: {
+                "Authorization" : "Bearer "+window.CRM.jwtToken
+            },
             cache: true
         }
     });

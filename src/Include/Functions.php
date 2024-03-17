@@ -27,14 +27,14 @@ SessionUser::setCurrentPageName($_SERVER['REQUEST_URI']);
 if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
     // Basic security: If the UserID isn't set (no session), redirect to the login page
     if (is_null(SessionUser::getUser())) {
-        RedirectUtils::Redirect('Login.php');
+        RedirectUtils::Redirect('session/login');
         exit;
     }
 
     // Check for login timeout.  If login has expired, redirect to login page
     if (SystemConfig::getValue('iSessionTimeout') > 0) {
         if ((time() - $_SESSION['tLastOperation']) > SystemConfig::getValue('iSessionTimeout')) {
-            RedirectUtils::Redirect('Login.php');
+            RedirectUtils::Redirect('session/login');
             exit;
         } else {
             if (!str_contains($_SERVER['REQUEST_URI'], '/api/')) {
@@ -47,7 +47,7 @@ if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
         }
     }
 
-    if (SessionUser::getUser()->getNeedPasswordChange() && !$logOff) {
+    if ( SessionUser::getUser()->getNeedPasswordChange() ) {
         $pos = strpos($_SERVER['REQUEST_URI'], "/v2/users/change/password" );
         $path = SystemURLs::getRootPath().'/v2/users/change/password';
         if ($pos === false) {

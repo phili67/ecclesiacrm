@@ -23,7 +23,12 @@ $(function() {
         ajax: {
             url: window.CRM.root + "/api/persons/cart/view",
             type: 'GET',
-            dataSrc: "CartPersons"
+            dataSrc: "CartPersons",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         columns: [
             {

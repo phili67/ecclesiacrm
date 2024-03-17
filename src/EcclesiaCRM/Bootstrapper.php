@@ -372,7 +372,7 @@ namespace EcclesiaCRM
       private static function configureUserEnvironment()  // TODO: This function needs to stop creating global variable-variables.
       {
           global $cnInfoCentral;
-          if ( SessionUser::isActive() ) {      // Not set on Login.php
+          if ( SessionUser::isActive() ) {      // Not set on session/login
               // Load user variables from user config table.
               // **************************************************
               $sSQL = 'SELECT ucfg_name, ucfg_value AS value '

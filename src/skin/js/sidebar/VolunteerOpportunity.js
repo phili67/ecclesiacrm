@@ -4,7 +4,12 @@ $(function() {
             url: window.CRM.root + "/api/volunteeropportunity/",
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "VolunteerOpportunities"
+            dataSrc: "VolunteerOpportunities",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         "order": [[1, "asc"]],
         "language": {

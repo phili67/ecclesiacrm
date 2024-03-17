@@ -189,6 +189,9 @@ $("document").ready(function () {
             },
             dataType: 'json',
             delay: 250,
+            headers: {
+                "Authorization" : "Bearer "+window.CRM.jwtToken
+            },
             data: function (params) {
                 return {
                     q: params.term, // search term
@@ -230,6 +233,9 @@ $("document").ready(function () {
             },
             dataType: 'json',
             delay: 250,
+            headers: {
+                "Authorization" : "Bearer "+window.CRM.jwtToken
+            },
             data: function (params) {
                 return {
                     q: params.term, // search term
@@ -360,7 +366,12 @@ $("document").ready(function () {
             url: window.CRM.root + "/api/sundayschool/getallstudents/" + sundayGroupId,
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "ClassroomStudents"
+            dataSrc: "ClassroomStudents",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         pageLength: 100,
         //order: [[ 0, "asc" ]],

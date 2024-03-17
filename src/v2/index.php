@@ -28,7 +28,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\VIEWControllers\VIEWUserController;
 
-if (SessionUser::getId() ==  0) RedirectUtils::Redirect('Login.php');
+if (SessionUser::getId() ==  0) RedirectUtils::Redirect('session/login');
 
 $rootPath = str_replace('/v2/index.php', '', $_SERVER['SCRIPT_NAME']);
 
@@ -50,22 +50,6 @@ $app->add( new Cache('ApiCache', 0) );
 $app->setBasePath($rootPath . "/v2");
 
 $app->add(new VersionMiddleware());
-
-$app->add(new Tuupola\Middleware\JwtAuthentication([
-    "secret" => SessionUser::getUser()->getJwtSecretForApi(),
-    "secure" => SessionUser::getUser()->isSecure(),
-    "path" => "/api",
-    "cookie" => SessionUser::getUser()->getUserNameForApi(),
-    "ignore" => ["/api/families", "/api/persons/"],
-    "algorithm" => "HS256",
-    "error" => function ($response, $arguments) {
-        $data["status"] = "error";
-        $data["message"] = $arguments["message"];
-        return $response
-            ->getBody()
-            ->write( json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) );
-    }
-]));
 
 require_once __DIR__.'/../Include/slim/error-handler.php';
 
