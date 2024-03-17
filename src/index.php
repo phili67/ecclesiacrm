@@ -39,12 +39,14 @@ $shortName = str_replace(SystemURLs::getRootPath().'/', '', $_SERVER['REQUEST_UR
 $fileName = dashesToCamelCase($shortName, true).'.php';
 
 if (strtolower($shortName) == 'index.php' || strtolower($fileName) == 'index.php') {
-    // Index.php -> v2/dashboard or Login.php
+    // Index.php -> v2/dashboard or session/Lock
     header('Location: '.SystemURLs::getRootPath().$redirectTo);
     exit;
 } elseif (!$hasSession) {
     // Must show login form if no session
-    require 'Login.php';
+    //require 'Login.php';
+    header('Location: '.SystemURLs::getRootPath()."/session/login");
+    exit;
 } elseif (file_exists($shortName)) {
     // Try actual path
     require $shortName;
