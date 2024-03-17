@@ -345,6 +345,9 @@ require $sRootDocument . '/Include/Header.php';
                     var a = window.CRM.root + '/api/families/search/' + params.term;
                     return a;
                 },
+                headers: {
+                    "Authorization" : "Bearer "+window.CRM.jwtToken
+                },
                 dataType: 'json',
                 delay: 250,
                 data: "",
