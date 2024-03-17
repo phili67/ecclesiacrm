@@ -22,6 +22,9 @@ $(function() {
             url: function (params) {
                 return window.CRM.root + "/api/people/search/" + params.term + '/' + type;
             },
+            headers: {
+                "Authorization" : "Bearer "+window.CRM.jwtToken
+            },
             dataType: 'json',
             delay: 50,
             data: JSON.stringify({"type": type}),

@@ -182,7 +182,12 @@ $("document").ready(function () {
             url: window.CRM.root + "/api/groups/" + window.CRM.groupID + "/roles",
             type: 'GET',
             contentType: "application/json",
-            dataSrc: "ListOptions"
+            dataSrc: "ListOptions",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         columns: [
             {

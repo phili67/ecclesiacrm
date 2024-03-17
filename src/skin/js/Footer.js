@@ -27,7 +27,7 @@ for (var ns in window.CRM.all_plugins_i18keys) {
     i18next.addResourceBundle(window.CRM.shortLocale, ns, new_ns_translation);
 }
 
-$("document").ready(function () {
+$(function() {
     // all bootbox are now localized
     bootbox.setDefaults({locale: window.CRM.lang});
 
@@ -41,6 +41,9 @@ $("document").ready(function () {
             dataType: 'json',
             delay: 250,
             data: "",
+            headers: {
+                "Authorization" : "Bearer "+window.CRM.jwtToken
+            },
             processResults: function (data, params) {
                 return {results: data};
             },

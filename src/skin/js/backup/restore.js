@@ -30,7 +30,7 @@ $('#restoredatabase').submit(function (event) {
         }
         $("#restorestatus").css("color", "green");
         $("#restorestatus").html(i18next.t('Restore Complete'));
-        $("#restoreNextStep").html('<a href="' + window.CRM.root + '/Logoff.php" class="btn btn-primary">'+i18next.t("Login to restored Database")+'</a>');
+        $("#restoreNextStep").html('<a href="' + window.CRM.root + '/session/logout" class="btn btn-primary">'+i18next.t("Login to restored Database")+'</a>');
     }).fail(function () {
         $("#restorestatus").css("color", "red");
         $("#restorestatus").html(i18next.t('Restore Error.'));

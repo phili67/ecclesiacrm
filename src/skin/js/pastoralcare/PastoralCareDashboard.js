@@ -49,7 +49,12 @@ $(function() {
             url: window.CRM.root + "/api/pastoralcare/members",
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "Pastors"
+            dataSrc: "Pastors",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         bSort : true,
         pageLength: 4,
@@ -68,7 +73,12 @@ $(function() {
             url: window.CRM.root + "/api/pastoralcare/personNeverBeenContacted",
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "PersonNeverBeenContacted"
+            dataSrc: "PersonNeverBeenContacted",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         bSort : true,
         "language": {
@@ -120,7 +130,12 @@ $(function() {
             url: window.CRM.root + "/api/pastoralcare/familyNeverBeenContacted",
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "FamilyNeverBeenContacted"
+            dataSrc: "FamilyNeverBeenContacted",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         bSort : true,
         "language": {
@@ -164,7 +179,12 @@ $(function() {
             url: window.CRM.root + "/api/pastoralcare/singleNeverBeenContacted",
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "SingleNeverBeenContacted"
+            dataSrc: "SingleNeverBeenContacted",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         bSort : true,
         "language": {
@@ -216,7 +236,12 @@ $(function() {
             url: window.CRM.root + "/api/pastoralcare/retiredNeverBeenContacted",
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "RetiredNeverBeenContacted"
+            dataSrc: "RetiredNeverBeenContacted",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         bSort : true,
         "language": {
@@ -268,7 +293,12 @@ $(function() {
             url: window.CRM.root + "/api/pastoralcare/youngNeverBeenContacted",
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "YoungNeverBeenContacted"
+            dataSrc: "YoungNeverBeenContacted",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         bSort : true,
         "language": {

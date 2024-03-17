@@ -265,7 +265,12 @@ $(function() {
         dataT = $("#paymentsTable").DataTable({
             ajax: {
                 url: window.CRM.root + "/api/deposits/" + depositSlipID + "/pledges",
-                dataSrc: ''
+                dataSrc: '',
+                "beforeSend": function (xhr) {
+                    xhr.setRequestHeader('Authorization',
+                        "Bearer " +  window.CRM.jwtToken
+                    );
+                }
             },
             "language": {
                 "url": window.CRM.plugin.dataTable.language.url

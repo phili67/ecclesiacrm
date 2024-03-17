@@ -4,7 +4,12 @@ $(function() {
       url: window.CRM.root + "/api/gdrp/",
       type: 'POST',
       contentType: "application/json",
-      dataSrc: "Notes"
+      dataSrc: "Notes",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      }
     },
     "language": {
       "url": window.CRM.plugin.dataTable.language.url

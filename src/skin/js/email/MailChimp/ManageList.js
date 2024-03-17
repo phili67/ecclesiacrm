@@ -301,7 +301,12 @@ $(function() {
                 url: window.CRM.root + "/api/mailchimp/listmembers/" + window.CRM.list_ID,
                 type: 'GET',
                 contentType: "application/json",
-                dataSrc: "MailChimpMembers"
+                dataSrc: "MailChimpMembers",
+                "beforeSend": function (xhr) {
+                    xhr.setRequestHeader('Authorization',
+                        "Bearer " +  window.CRM.jwtToken
+                    );
+                }
             },
             deferRender: true,
             columns: columns,
@@ -641,6 +646,9 @@ $(function() {
             dataType: 'json',
             delay: 50,
             data: "",
+            headers: {
+                "Authorization" : "Bearer "+window.CRM.jwtToken
+            },
             processResults: function (data, params) {
                 return {results: data};
             },

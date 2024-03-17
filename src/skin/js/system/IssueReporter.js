@@ -1,6 +1,6 @@
 /* Copright Philippe Logel 2018 */
 
-$(document).ready(function(){
+$(function() {
   $("#submitDiaglogStart" ).show();
   $("#submitDiaglogFinish" ).hide();
 });

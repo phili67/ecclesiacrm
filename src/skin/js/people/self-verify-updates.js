@@ -2,7 +2,12 @@ $(function() {
     var familiesTableConfig = {
         ajax: {
             url: window.CRM.root + "/api/families/self-verify",
-            dataSrc: 'families'
+            dataSrc: 'families',
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         columns: [
             {

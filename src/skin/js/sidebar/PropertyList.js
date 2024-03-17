@@ -4,7 +4,12 @@ $(function() {
       url: window.CRM.root + "/api/properties/typelists/"+window.CRM.propertyType,
       type: 'POST',
       contentType: "application/json",
-      dataSrc: "PropertyLists"
+      dataSrc: "PropertyLists",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      }
     },
     "language": {
       "url": window.CRM.plugin.dataTable.language.url

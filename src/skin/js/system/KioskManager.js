@@ -56,11 +56,16 @@ $(function() {
         window.CRM.kiosks.setAssignment(kioskId,selected);
     })
 
-    $(document).ready(function(){
+    $(function() {
         var kioskTableConfig = {
             ajax: {
                 url: window.CRM.root + "/api/kiosks/",
-                dataSrc: "KioskDevices"
+                dataSrc: "KioskDevices",
+                "beforeSend": function (xhr) {
+                    xhr.setRequestHeader('Authorization',
+                        "Bearer " +  window.CRM.jwtToken
+                    );
+                }
             },
             columns: [
                 {

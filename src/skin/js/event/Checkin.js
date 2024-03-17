@@ -243,7 +243,12 @@ $(function() {
             responsive: true,
             ajax: {
                 url: window.CRM.root + "/api/attendees/event/" + window.CRM.EventID,
-                dataSrc: "CheckinCheckoutEvents"
+                dataSrc: "CheckinCheckoutEvents",
+                "beforeSend": function (xhr) {
+                    xhr.setRequestHeader('Authorization',
+                        "Bearer " +  window.CRM.jwtToken
+                    );
+                }    
             },
             deferRender: true,
             columns: [

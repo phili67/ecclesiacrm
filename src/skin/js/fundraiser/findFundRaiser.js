@@ -40,7 +40,12 @@ $(function() {
             url: window.CRM.root + "/api/fundraiser/findFundRaiser/" + window.CRM.fundraiserID + '/' + window.CRM.startDate + '/' + window.CRM.endDate,
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "FundRaiserItems"
+            dataSrc: "FundRaiserItems",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         "language": {
             "url": window.CRM.plugin.dataTable.language.url

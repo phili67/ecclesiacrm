@@ -4,7 +4,12 @@ $(function() {
       url: window.CRM.root + "/api/menulinks/" + window.CRM.personId,
       type: 'POST',
       contentType: "application/json",
-      dataSrc: "MenuLinks"
+      dataSrc: "MenuLinks",
+      "beforeSend": function (xhr) {
+        xhr.setRequestHeader('Authorization',
+            "Bearer " +  window.CRM.jwtToken
+        );
+      }
     },
     bSort : false,
     "language": {

@@ -35,7 +35,12 @@ $(function() {
             url: window.CRM.root + "/api/fundraiser/" + window.CRM.fundraiserID,
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "DonatedItems"
+            dataSrc: "DonatedItems",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         "language": {
             "url": window.CRM.plugin.dataTable.language.url

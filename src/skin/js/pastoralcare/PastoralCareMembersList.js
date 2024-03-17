@@ -16,7 +16,12 @@ $(function() {
             url: window.CRM.root + window.CRM.extractionType,
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "MembersClassicationsList"
+            dataSrc: "MembersClassicationsList",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         bSort: true,
         "language": {

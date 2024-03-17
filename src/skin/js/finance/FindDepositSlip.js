@@ -38,7 +38,12 @@ $(function() {
         responsive: true,
         ajax: {
             url: window.CRM.root + "/api/deposits",
-            dataSrc: "Deposits"
+            dataSrc: "Deposits",
+            "beforeSend": function (xhr) {
+                xhr.setRequestHeader('Authorization',
+                    "Bearer " +  window.CRM.jwtToken
+                );
+            }
         },
         "deferRender": true,
         columns: [
