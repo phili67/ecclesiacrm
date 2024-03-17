@@ -1061,17 +1061,16 @@ class User extends BaseUser
         // we create the token and secret, only when login in not as ControllerAdminUserId
         if (!isset($_SESSION['ControllerAdminUserId'])) {
             $secretKey = MiscUtils::gen_uuid();
-            $issuedAt = new \DateTimeImmutable();
-            $expire = $issuedAt->modify('+2880 minutes')->getTimestamp();      // Ajoute 60 secondes
+            $issuedAt = (new DateTime("now"))->getTimestamp();
+            $expire = (new DateTime("now +2 hours"))->getTimestamp();      // Ajoute 60 secondes
             $serverName = $_SERVER['HTTP_ORIGIN'];
             $username = $this->getUserName();                                           // Récupéré à partir des données POST filtré
 
             $data = [
-                'iat' => $issuedAt->getTimestamp(),         // Issued at:  : heure à laquelle le jeton a été généré
+                'iat' => $issuedAt,         // Issued at:  : heure à laquelle le jeton a été généré
                 'iss' => $serverName,                       // Émetteur
-                'nbf' => $issuedAt->getTimestamp(),         // Pas avant..
                 'exp' => $expire,                           // Expiration
-                'userName' => $username,                     // Nom d'utilisateur
+                'userName' => $username,                    // Nom d'utilisateur
             ];
 
             $jwt = JWT::encode(
@@ -1089,7 +1088,7 @@ class User extends BaseUser
 
             $this->save();
 
-            setcookie($this->getUserName(), $this->getJwtToken());
+            setcookie($this->getUserName(), $this->getJwtToken(), time()+24*3600);
         }
         // end of JWT token activation
 
