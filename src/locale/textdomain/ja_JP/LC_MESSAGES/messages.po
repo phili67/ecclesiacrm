@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-27 11:46+0000\n"
+"POT-Creation-Date: 2024-03-18 17:10+0000\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,10 +132,10 @@ msgstr "寄付金用の封筒"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:231
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
 #: EcclesiaCRM/Service/ConfirmReportService.php:209
-#: EcclesiaCRM/Service/ConfirmReportService.php:231
-#: EcclesiaCRM/Service/ConfirmReportService.php:629
-#: EcclesiaCRM/Service/ConfirmReportService.php:678
-#: EcclesiaCRM/Service/ConfirmReportService.php:696
+#: EcclesiaCRM/Service/ConfirmReportService.php:224
+#: EcclesiaCRM/Service/ConfirmReportService.php:622
+#: EcclesiaCRM/Service/ConfirmReportService.php:671
+#: EcclesiaCRM/Service/ConfirmReportService.php:689
 #: external/templates/registration/family-register-done.php:28
 #: external/templates/registration/family-register.php:47
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:351
@@ -161,7 +161,7 @@ msgid "Address"
 msgstr "アドレス"
 
 #: CSVImport.php:243 EcclesiaCRM/Service/ConfirmReportService.php:219
-#: EcclesiaCRM/Service/ConfirmReportService.php:639
+#: EcclesiaCRM/Service/ConfirmReportService.php:632
 #: external/templates/registration/family-register.php:58
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:371
 #: v2/templates/deposit/autaPaymentEditor.php:930
@@ -173,7 +173,7 @@ msgstr "アドレス"
 msgid "City"
 msgstr "シティ"
 
-#: CSVImport.php:244 EcclesiaCRM/Service/ConfirmReportService.php:651
+#: CSVImport.php:244 EcclesiaCRM/Service/ConfirmReportService.php:644
 #: external/templates/registration/family-register.php:62
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:385
 #: v2/templates/deposit/autaPaymentEditor.php:938
@@ -186,8 +186,7 @@ msgid "State"
 msgstr "ステート"
 
 #: CSVImport.php:245 EcclesiaCRM/Service/ConfirmReportService.php:214
-#: EcclesiaCRM/Service/ConfirmReportService.php:226
-#: EcclesiaCRM/Service/ConfirmReportService.php:664
+#: EcclesiaCRM/Service/ConfirmReportService.php:657
 #: external/templates/registration/family-register.php:73
 #: Reports/PDFLabel.php:859 v2/templates/cart/cartToFamily.php:403
 #: v2/templates/deposit/autaPaymentEditor.php:946
@@ -199,7 +198,7 @@ msgstr "ステート"
 msgid "Zip"
 msgstr "ジップ"
 
-#: CSVImport.php:246 EcclesiaCRM/Service/ConfirmReportService.php:688
+#: CSVImport.php:246 EcclesiaCRM/Service/ConfirmReportService.php:681
 #: v2/templates/cart/cartToFamily.php:417
 #: v2/templates/deposit/autaPaymentEditor.php:954
 #: v2/templates/people/familyEditor.php:768
@@ -212,10 +211,10 @@ msgstr "国名"
 #: CSVImport.php:247 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:246
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:575
 #: EcclesiaCRM/Service/ConfirmReportService.php:51
-#: EcclesiaCRM/Service/ConfirmReportService.php:245
-#: EcclesiaCRM/Service/ConfirmReportService.php:248
-#: EcclesiaCRM/Service/ConfirmReportService.php:495
-#: EcclesiaCRM/Service/ConfirmReportService.php:569
+#: EcclesiaCRM/Service/ConfirmReportService.php:238
+#: EcclesiaCRM/Service/ConfirmReportService.php:241
+#: EcclesiaCRM/Service/ConfirmReportService.php:488
+#: EcclesiaCRM/Service/ConfirmReportService.php:562
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:85
 #: ident/templates/verify/verify-family-info.php:36
@@ -242,11 +241,11 @@ msgstr "自宅電話番号"
 #: CSVImport.php:248 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:428
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:604
 #: EcclesiaCRM/Service/ConfirmReportService.php:56
-#: EcclesiaCRM/Service/ConfirmReportService.php:256
-#: EcclesiaCRM/Service/ConfirmReportService.php:259
-#: EcclesiaCRM/Service/ConfirmReportService.php:500
-#: EcclesiaCRM/Service/ConfirmReportService.php:721
-#: EcclesiaCRM/Service/ConfirmReportService.php:724
+#: EcclesiaCRM/Service/ConfirmReportService.php:249
+#: EcclesiaCRM/Service/ConfirmReportService.php:252
+#: EcclesiaCRM/Service/ConfirmReportService.php:493
+#: EcclesiaCRM/Service/ConfirmReportService.php:714
+#: EcclesiaCRM/Service/ConfirmReportService.php:717
 #: ident/templates/verify/verify-family-info.php:98
 #: Reports/ConfirmReport.php:501 v2/templates/cart/cartToFamily.php:445
 #: v2/templates/group/groupreports.php:130
@@ -264,10 +263,10 @@ msgstr "勤務先電話番号"
 
 #: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:358
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:401
-#: EcclesiaCRM/Service/ConfirmReportService.php:268
-#: EcclesiaCRM/Service/ConfirmReportService.php:713
-#: EcclesiaCRM/Service/ConfirmReportService.php:733
-#: EcclesiaCRM/Service/ConfirmReportService.php:743
+#: EcclesiaCRM/Service/ConfirmReportService.php:261
+#: EcclesiaCRM/Service/ConfirmReportService.php:706
+#: EcclesiaCRM/Service/ConfirmReportService.php:726
+#: EcclesiaCRM/Service/ConfirmReportService.php:736
 #: Reports/CanvassReports.php:280 v2/templates/group/groupreports.php:131
 #: v2/templates/people/familylist.php:58 v2/templates/people/personlist.php:55
 msgid "Cell Phone"
@@ -281,9 +280,9 @@ msgstr "携帯電話"
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467
 #: EcclesiaCRM/Service/ConfirmReportService.php:67
-#: EcclesiaCRM/Service/ConfirmReportService.php:276
-#: EcclesiaCRM/Service/ConfirmReportService.php:279
-#: EcclesiaCRM/Service/ConfirmReportService.php:511
+#: EcclesiaCRM/Service/ConfirmReportService.php:269
+#: EcclesiaCRM/Service/ConfirmReportService.php:272
+#: EcclesiaCRM/Service/ConfirmReportService.php:504
 #: external/templates/registration/family-register-members.php:88
 #: ident/templates/verify/login-info.php:34
 #: ident/templates/verify/verify-family-info.php:108
@@ -338,8 +337,8 @@ msgstr "誕生日"
 msgid "Membership Date"
 msgstr "入会日"
 
-#: CSVImport.php:254 EcclesiaCRM/Service/ConfirmReportService.php:577
-#: EcclesiaCRM/Service/ConfirmReportService.php:750
+#: CSVImport.php:254 EcclesiaCRM/Service/ConfirmReportService.php:570
+#: EcclesiaCRM/Service/ConfirmReportService.php:743
 #: ident/templates/verify/verify-family-info.php:45
 #: v2/templates/cart/cartToFamily.php:312
 #: v2/templates/pastoralcare/pastoralcarefamily.php:167
@@ -439,7 +438,7 @@ msgstr "指定されていなければデフォルトの国"
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/groupedit.php:68 v2/templates/group/grouplist.php:31
-#: v2/templates/map/MapUsingBing.php:72 v2/templates/map/MapUsingBing.php:117
+#: v2/templates/map/MapUsingBing.php:73 v2/templates/map/MapUsingBing.php:118
 #: v2/templates/map/MapUsingGoogle.php:82
 #: v2/templates/map/MapUsingGoogle.php:129
 #: v2/templates/map/MapUsingLeaflet.php:67
@@ -461,7 +460,7 @@ msgstr "未分類"
 #: CSVImport.php:400 EcclesiaCRM/APIControllers/SearchController.php:278
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:651
-#: EcclesiaCRM/Service/ConfirmReportService.php:344
+#: EcclesiaCRM/Service/ConfirmReportService.php:337
 #: Reports/ConfirmReport.php:548 v2/templates/deposit/financialReports.php:129
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
@@ -527,7 +526,7 @@ msgstr ""
 msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
 msgstr "CRMを準備し、十分なカスタムPerson Fieldsを追加します。"
 
-#: CSVImport.php:969 v2/templates/map/MapUsingBing.php:48
+#: CSVImport.php:969 v2/templates/map/MapUsingBing.php:49
 #: v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "here"
@@ -927,8 +926,8 @@ msgstr "ファミリ"
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:206 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: EcclesiaCRM/Service/ConfirmReportService.php:100
-#: EcclesiaCRM/Service/ConfirmReportService.php:348
-#: EcclesiaCRM/Service/ConfirmReportService.php:536
+#: EcclesiaCRM/Service/ConfirmReportService.php:341
+#: EcclesiaCRM/Service/ConfirmReportService.php:529
 #: ident/templates/verify/verify-family-info.php:145
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/dashboard/maindashboard.php:226
@@ -1021,7 +1020,7 @@ msgstr "グループに追加"
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:549
-#: EcclesiaCRM/Service/ConfirmReportService.php:616
+#: EcclesiaCRM/Service/ConfirmReportService.php:609
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
 #: Reports/ConfirmReport.php:445 Reports/FamilyPledgeSummary.php:230
 #: Reports/FRBidSheets.php:77 Reports/FundRaiserStatement.php:125
@@ -1068,6 +1067,7 @@ msgstr "はい。"
 #: EcclesiaCRM/Service/CalendarService.php:272
 #: EcclesiaCRM/Service/CalendarService.php:541
 #: EcclesiaCRM/Service/ConfirmReportService.php:116
+#: EcclesiaCRM/Service/ConfirmReportService.php:575
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:299
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
@@ -1404,7 +1404,7 @@ msgstr "人物"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
-#: EcclesiaCRM/Service/ConfirmReportService.php:596
+#: EcclesiaCRM/Service/ConfirmReportService.php:589
 #: EcclesiaCRM/Service/TimelineService.php:214
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: external/templates/registration/family-register-done.php:27
@@ -3697,7 +3697,8 @@ msgstr "お客様のアカウントが削除された"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "あなたのEcclesiaCRMアカウントが削除されました。"
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:234
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30
+#: session/templates/session.php:234
 msgid "Email/Username"
 msgstr "Eメール/ユーザー名"
 
@@ -3797,15 +3798,17 @@ msgstr "ご家族の情報を確認してください"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:42
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:46
+#: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
 #: external/templates/password/enter-username.php:46
-#: ident/templates/verify/login-info.php:44 Login.php:197 Login.php:259
+#: ident/templates/verify/login-info.php:44 session/templates/session.php:266
 msgid "Login"
 msgstr "ログイン"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:38 Login.php:246 Login.php:341
-#: v2/templates/backup/backup.php:67 v2/templates/user/userlist.php:57
+#: ident/templates/verify/login-info.php:38 session/templates/session.php:247
+#: session/templates/session.php:347 v2/templates/backup/backup.php:67
+#: v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "パスワード"
 
@@ -3873,8 +3876,8 @@ msgstr "活動していないファミリーの表示"
 msgid "Events"
 msgstr "イベント"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:133 v2/templates/map/MapUsingBing.php:77
-#: v2/templates/map/MapUsingBing.php:123 v2/templates/map/MapUsingGoogle.php:88
+#: EcclesiaCRM/MenuBar/MenuBar.php:133 v2/templates/map/MapUsingBing.php:78
+#: v2/templates/map/MapUsingBing.php:124 v2/templates/map/MapUsingGoogle.php:88
 #: v2/templates/map/MapUsingGoogle.php:135
 #: v2/templates/map/MapUsingLeaflet.php:72
 #: v2/templates/map/MapUsingLeaflet.php:120
@@ -4301,7 +4304,7 @@ msgstr "Davのファイル削除"
 #: EcclesiaCRM/Reports/PDF_Directory.php:325
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
 #: EcclesiaCRM/Reports/PDF_Directory.php:456
-#: EcclesiaCRM/Service/ConfirmReportService.php:710
+#: EcclesiaCRM/Service/ConfirmReportService.php:703
 #: external/templates/registration/family-register-members.php:114
 #: Reports/DirectoryReport.php:317 Reports/FundRaiserStatement.php:127
 #: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
@@ -4353,9 +4356,9 @@ msgstr "都市名、州名、郵便番号"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:642
 #: EcclesiaCRM/Service/ConfirmReportService.php:116
-#: EcclesiaCRM/Service/ConfirmReportService.php:327
-#: EcclesiaCRM/Service/ConfirmReportService.php:582
-#: EcclesiaCRM/Service/ConfirmReportService.php:768
+#: EcclesiaCRM/Service/ConfirmReportService.php:320
+#: EcclesiaCRM/Service/ConfirmReportService.php:575
+#: EcclesiaCRM/Service/ConfirmReportService.php:761
 #: ident/templates/verify/verify-family-info.php:52
 #: Reports/ConfirmReport.php:300 Reports/ConfirmReport.php:539
 #: v2/templates/pastoralcare/pastoralcarefamily.php:158
@@ -4374,8 +4377,8 @@ msgid "Anniversary Date"
 msgstr "記念日"
 
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:267
-#: EcclesiaCRM/Service/ConfirmReportService.php:572
-#: EcclesiaCRM/Service/ConfirmReportService.php:740
+#: EcclesiaCRM/Service/ConfirmReportService.php:565
+#: EcclesiaCRM/Service/ConfirmReportService.php:733
 #: ident/templates/verify/verify-family-info.php:39
 #: Reports/ConfirmReport.php:323 v2/templates/people/directoryreport.php:190
 msgid "Family Email"
@@ -4407,8 +4410,8 @@ msgstr "大人/子供"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:599
 #: EcclesiaCRM/Service/CalendarService.php:60
 #: EcclesiaCRM/Service/ConfirmReportService.php:75
-#: EcclesiaCRM/Service/ConfirmReportService.php:295
-#: EcclesiaCRM/Service/ConfirmReportService.php:519
+#: EcclesiaCRM/Service/ConfirmReportService.php:288
+#: EcclesiaCRM/Service/ConfirmReportService.php:512
 #: ident/templates/verify/verify-family-info.php:115
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:185
 #: v2/templates/people/familyview.php:340
@@ -4433,7 +4436,7 @@ msgid "Address 1"
 msgstr "アドレス1"
 
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:570
-#: EcclesiaCRM/Service/ConfirmReportService.php:678
+#: EcclesiaCRM/Service/ConfirmReportService.php:671
 #: Reports/ConfirmReport.php:290 Reports/ConfirmReport.php:466
 msgid "Address 2"
 msgstr "アドレス2"
@@ -4711,7 +4714,7 @@ msgstr "学生"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:190
+#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:191
 msgid "Print"
 msgstr "プリント"
 
@@ -4793,13 +4796,13 @@ msgstr "イベント"
 
 #: EcclesiaCRM/Service/CalendarService.php:61
 #: EcclesiaCRM/Service/ConfirmReportService.php:83
-#: EcclesiaCRM/Service/ConfirmReportService.php:315
+#: EcclesiaCRM/Service/ConfirmReportService.php:308
 msgid "Anniversary"
 msgstr "アニバーサリー"
 
 #: EcclesiaCRM/Service/CalendarService.php:521
-#: EcclesiaCRM/Service/ConfirmReportService.php:553
-#: EcclesiaCRM/Service/ConfirmReportService.php:585
+#: EcclesiaCRM/Service/ConfirmReportService.php:546
+#: EcclesiaCRM/Service/ConfirmReportService.php:578
 #: ident/templates/verify/verify-family-info.php:55
 #: ident/templates/verify/verify-family-info.php:161
 #: ident/templates/verify/verify-person-info.php:62
@@ -4871,9 +4874,9 @@ msgid "Personal Calendar"
 msgstr "パーソナルカレンダー"
 
 #: EcclesiaCRM/Service/ConfirmReportService.php:61
-#: EcclesiaCRM/Service/ConfirmReportService.php:265
-#: EcclesiaCRM/Service/ConfirmReportService.php:505
-#: EcclesiaCRM/Service/ConfirmReportService.php:730
+#: EcclesiaCRM/Service/ConfirmReportService.php:258
+#: EcclesiaCRM/Service/ConfirmReportService.php:498
+#: EcclesiaCRM/Service/ConfirmReportService.php:723
 #: ident/templates/verify/verify-family-info.php:103
 #: v2/templates/cart/cartToFamily.php:465
 #: v2/templates/pastoralcare/pastoralcarefamily.php:194
@@ -4889,25 +4892,26 @@ msgid "Mobile Phone"
 msgstr "携帯電話"
 
 #: EcclesiaCRM/Service/ConfirmReportService.php:71
-#: EcclesiaCRM/Service/ConfirmReportService.php:286
-#: EcclesiaCRM/Service/ConfirmReportService.php:289
-#: EcclesiaCRM/Service/ConfirmReportService.php:515
+#: EcclesiaCRM/Service/ConfirmReportService.php:279
+#: EcclesiaCRM/Service/ConfirmReportService.php:282
+#: EcclesiaCRM/Service/ConfirmReportService.php:508
 #: ident/templates/verify/verify-family-info.php:112
 msgid "Work Email"
 msgstr "勤務先メールアドレス"
 
 #: EcclesiaCRM/Service/ConfirmReportService.php:116
+#: EcclesiaCRM/Service/ConfirmReportService.php:575
 msgid "Ok"
 msgstr "オッケー"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:448
+#: EcclesiaCRM/Service/ConfirmReportService.php:441
 #: ident/templates/verify/verify-person-info.php:53
 #: v2/templates/system/csvExport.php:191
 msgid "Custom Person Fields"
 msgstr "カスタム パーソン フィールド"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:554
-#: EcclesiaCRM/Service/ConfirmReportService.php:586
+#: EcclesiaCRM/Service/ConfirmReportService.php:547
+#: EcclesiaCRM/Service/ConfirmReportService.php:579
 #: ident/templates/verify/verify-family-info.php:56
 #: ident/templates/verify/verify-family-info.php:162
 #: ident/templates/verify/verify-person-info.php:63
@@ -4916,18 +4920,18 @@ msgstr "カスタム パーソン フィールド"
 msgid "Modify"
 msgstr "モディファイ"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:564
-#: EcclesiaCRM/Service/ConfirmReportService.php:566
-#: EcclesiaCRM/Service/ConfirmReportService.php:629
-#: EcclesiaCRM/Service/ConfirmReportService.php:639
-#: EcclesiaCRM/Service/ConfirmReportService.php:696
+#: EcclesiaCRM/Service/ConfirmReportService.php:557
+#: EcclesiaCRM/Service/ConfirmReportService.php:559
+#: EcclesiaCRM/Service/ConfirmReportService.php:622
+#: EcclesiaCRM/Service/ConfirmReportService.php:632
+#: EcclesiaCRM/Service/ConfirmReportService.php:689
 #: ident/templates/verify/verify-family-info.php:34
 #: sundayschool/SundaySchoolClassListExport.php:55
 #: v2/templates/sundayschool/sundayschooldashboard.php:262
 msgid "Home Address"
 msgstr "ホームアドレス"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:587
+#: EcclesiaCRM/Service/ConfirmReportService.php:580
 #: ident/templates/verify/verify-family-info.php:57
 #: ident/templates/verify/verify-person-info.php:64
 #: v2/templates/sundayschool/sundayschoolview.php:27
@@ -4936,7 +4940,7 @@ msgstr "ホームアドレス"
 msgid "Exit"
 msgstr "出口"
 
-#: EcclesiaCRM/Service/ConfirmReportService.php:658
+#: EcclesiaCRM/Service/ConfirmReportService.php:651
 #: v2/templates/people/familyEditor.php:751
 #: v2/templates/people/personEditor.php:1051
 #: v2/templates/people/personEditor.php:1254
@@ -6129,7 +6133,8 @@ msgstr "新パスワードの確認"
 msgid "Save"
 msgstr "保存"
 
-#: ident/templates/verify/login-info.php:21 Login.php:213 Login.php:299
+#: ident/templates/verify/login-info.php:21 session/templates/session.php:213
+#: session/templates/session.php:305
 msgid "Please Login"
 msgstr "ログインしてください"
 
@@ -6361,7 +6366,7 @@ msgstr "課題をGitHubで見る"
 msgid "OK"
 msgstr "OK"
 
-#: Include/Header-function.php:189
+#: Include/Header-function.php:190
 msgid "Change columns"
 msgstr "列の変更"
 
@@ -6421,52 +6426,6 @@ msgstr "開始時間"
 #: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
 msgid "End Time"
 msgstr "終了時間"
-
-#: Login.php:47 Login.php:65
-msgid "Invalid login or password"
-msgstr "ログインまたはパスワードが無効"
-
-#: Login.php:50
-msgid ""
-"Too many failed logins: your account has been locked.  Please contact an "
-"administrator."
-msgstr ""
-"ログインに失敗した回数が多すぎるため、アカウントがロックされています。  管理"
-"者にお問い合わせください。"
-
-#: Login.php:53
-msgid "This account has been deactiveted by an administrator."
-msgstr "このアカウントは、管理者によって無効にされました。"
-
-#: Login.php:102
-msgid "Invalid 2FA code"
-msgstr "無効な2FAコード"
-
-#: Login.php:218 Login.php:306
-msgid "Your previous session timed out.  Please login again."
-msgstr ""
-"前回のセッションがタイムアウトしてしまいました。  もう一度ログインしてくださ"
-"い。"
-
-#: Login.php:251 Login.php:352
-msgid "2FA : OTP key"
-msgstr "2FA : OTPキー"
-
-#: Login.php:266
-msgid "I forgot my password"
-msgstr "パスワードを忘れてしまった"
-
-#: Login.php:278
-msgid "Register a new Family"
-msgstr "新規ファミリーの登録"
-
-#: Login.php:359
-msgid "Enter your password to retrieve your session"
-msgstr "パスワードを入力してセッションを取得する"
-
-#: Login.php:362
-msgid "Or sign in as a different user"
-msgstr "または、別のユーザーでサインインする"
 
 #: members/404.php:22 members/404.php:31
 msgid "Not Found"
@@ -7095,6 +7054,52 @@ msgstr "投票権を持つメンバー"
 #: Reports/VotingMembers.php:126
 msgid "Number of Voting Members"
 msgstr "投票権を持つメンバー数"
+
+#: session/templates/session.php:50 session/templates/session.php:68
+msgid "Invalid login or password"
+msgstr "ログインまたはパスワードが無効"
+
+#: session/templates/session.php:53
+msgid ""
+"Too many failed logins: your account has been locked.  Please contact an "
+"administrator."
+msgstr ""
+"ログインに失敗した回数が多すぎるため、アカウントがロックされています。  管理"
+"者にお問い合わせください。"
+
+#: session/templates/session.php:56
+msgid "This account has been deactiveted by an administrator."
+msgstr "このアカウントは、管理者によって無効にされました。"
+
+#: session/templates/session.php:105
+msgid "Invalid 2FA code"
+msgstr "無効な2FAコード"
+
+#: session/templates/session.php:218 session/templates/session.php:312
+msgid "Your previous session timed out.  Please login again."
+msgstr ""
+"前回のセッションがタイムアウトしてしまいました。  もう一度ログインしてくださ"
+"い。"
+
+#: session/templates/session.php:258 session/templates/session.php:358
+msgid "2FA : OTP key"
+msgstr "2FA : OTPキー"
+
+#: session/templates/session.php:273
+msgid "I forgot my password"
+msgstr "パスワードを忘れてしまった"
+
+#: session/templates/session.php:285
+msgid "Register a new Family"
+msgstr "新規ファミリーの登録"
+
+#: session/templates/session.php:365
+msgid "Enter your password to retrieve your session"
+msgstr "パスワードを入力してセッションを取得する"
+
+#: session/templates/session.php:368
+msgid "Or sign in as a different user"
+msgstr "または、別のユーザーでサインインする"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -8114,7 +8119,7 @@ msgstr "リンク"
 
 #: v2/templates/dashboard/maindashboard.php:84
 #: v2/templates/dashboard/maindashboard.php:109
-#: v2/templates/map/MapUsingBing.php:48 v2/templates/map/MapUsingGoogle.php:52
+#: v2/templates/map/MapUsingBing.php:49 v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "to solve the problem."
 msgstr "を解決することができました。"
@@ -9791,7 +9796,7 @@ msgstr "Missing Families?"
 msgid "Update Family Latitude or Longitude now."
 msgstr "家族の緯度・経度を今すぐ更新"
 
-#: v2/templates/map/MapUsingBing.php:31 v2/templates/map/MapUsingGoogle.php:33
+#: v2/templates/map/MapUsingBing.php:32 v2/templates/map/MapUsingGoogle.php:33
 #: v2/templates/map/MapUsingLeaflet.php:33
 msgid ""
 "Unable to display map due to missing Church Latitude or Longitude. Please "
@@ -9800,7 +9805,7 @@ msgstr ""
 "教会の緯度・経度が不明のため、地図を表示できません。設定メニューで教会の住所"
 "を更新してください。"
 
-#: v2/templates/map/MapUsingBing.php:38 v2/templates/map/MapUsingGoogle.php:40
+#: v2/templates/map/MapUsingBing.php:39 v2/templates/map/MapUsingGoogle.php:40
 msgid ""
 "Google Map API key is not set. The Map will work for smaller set of "
 "locations. Please create a Key in the maps sections of the setting menu."
@@ -9808,17 +9813,17 @@ msgstr ""
 "Google Map APIキーが設定されていません。狭い範囲の場所であれば、地図は機能し"
 "ます。設定メニューのマップセクションでキーを作成してください。"
 
-#: v2/templates/map/MapUsingBing.php:48 v2/templates/map/MapUsingGoogle.php:52
+#: v2/templates/map/MapUsingBing.php:49 v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "Missing Person Map classification icon for"
 msgstr "行方不明者マップの分類アイコンを"
 
-#: v2/templates/map/MapUsingBing.php:48 v2/templates/map/MapUsingGoogle.php:52
+#: v2/templates/map/MapUsingBing.php:49 v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "Clik"
 msgstr "Clik"
 
-#: v2/templates/map/MapUsingBing.php:67 v2/templates/map/MapUsingBing.php:110
+#: v2/templates/map/MapUsingBing.php:68 v2/templates/map/MapUsingBing.php:111
 #: v2/templates/map/MapUsingGoogle.php:76
 #: v2/templates/map/MapUsingGoogle.php:122
 #: v2/templates/map/MapUsingLeaflet.php:62
@@ -13539,6 +13544,9 @@ msgstr "マネー"
 msgid "Custom Drop-Down List"
 msgstr "カスタムドロップダウンリスト"
 
+msgid "Confirm Datas"
+msgstr "データ確認"
+
 msgid "Event Workflow"
 msgstr "イベントワークフロー"
 
@@ -13550,6 +13558,9 @@ msgstr "数日"
 
 msgid "Giving Report"
 msgstr "寄付金報告"
+
+#~ msgid "Confirm Data"
+#~ msgstr "データの確認"
 
 #~ msgid "confirmed person"
 #~ msgstr "確認者"
