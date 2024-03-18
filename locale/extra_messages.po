@@ -184,6 +184,10 @@ msgstr ""
 msgid "Custom Drop-Down List"
 msgstr ""
 
+msgid "Confirm Datas"
+msgstr ""
+
+
 # eventworkflow
 msgid "Event Workflow"
 msgstr ""
