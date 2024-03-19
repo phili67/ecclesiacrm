@@ -12,7 +12,6 @@ Note : selon votre administrateur, vous n'aurez pas forcément accès à tous ce
 
 * bEmailMailto : Permission de l'utilisateur pour lui envoyer des email via des liens Mailto
 * sMailtoDelimiter :	Permission de l'utilisateur pour lui envoyer des email via des liens Mailto
-* bUSAddressVerification :Permission de l'utilisateur d'utiliser la Vérification d'Adresse IST
 * bShowTooltip : Permission pour faire apparaître les bulles d'aide
 * sCSVExportDelemiter : Pour exporter dans dans un autre encodage de texte par exemple en Europe utiliser ;
 * sCSVExportCharset : Par défaut en UTF-8, Pour l'encodage Européen utiliser Windows-1252 pour l'encodage dans le langage Français.

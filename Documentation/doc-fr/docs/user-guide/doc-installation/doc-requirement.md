@@ -30,6 +30,15 @@
 sudo sed -i_bak 's/rights="none" pattern="PDF"/rights="read | write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml
 ```
 
+## Pour le vhost apache
+
+```
+    <IfModule mod_env.c>
+        ## Tell PHP that the mod_rewrite module is ENABLED.
+        SetEnv HTTP_MOD_REWRITE On
+    </IfModule>
+```
+
 ## Mémoire
 * Max file upload size  32M
 * Max POST size  32M

@@ -313,6 +313,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#for-apache-vhost" class="md-nav__link">
+    for Apache vhost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#memory" class="md-nav__link">
     Memory
   </a>
@@ -2477,6 +2484,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#for-apache-vhost" class="md-nav__link">
+    for Apache vhost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#memory" class="md-nav__link">
     Memory
   </a>
@@ -2544,6 +2558,13 @@
 </ul>
 <p><strong>Note</strong> for imagick</p>
 <div class="codehilite"><pre><span></span><code>sudo sed -i_bak &#39;s/rights=&quot;none&quot; pattern=&quot;PDF&quot;/rights=&quot;read | write&quot; pattern=&quot;PDF&quot;/&#39; /etc/ImageMagick-6/policy.xml
+</code></pre></div>
+
+<h2 id="for-apache-vhost">for Apache vhost<a class="headerlink" href="#for-apache-vhost" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>    &lt;IfModule mod_env.c&gt;
+        ## Tell PHP that the mod_rewrite module is ENABLED.
+        SetEnv HTTP_MOD_REWRITE On
+    &lt;/IfModule&gt;
 </code></pre></div>
 
 <h2 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h2>

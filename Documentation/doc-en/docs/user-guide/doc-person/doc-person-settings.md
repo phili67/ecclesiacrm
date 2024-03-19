@@ -12,7 +12,6 @@ Note : Depending on one's administrator, one will not always have access to all 
 
 * bEmailMailto : User's permission to send them emails via Mailto's links.
 * sMailtoDelimiter : User's permission to send them emails via Mailto's links.
-* bUSAddressVerification :User's permission to use the Address Verification IST
 * bShowTooltip : Permission to display the tool tips
 * sCSVExportDelemiter : to export in another text coding
 * sCSVExportCharset : by default UFT-8 for european coding; use Windows-1252 for french coding.
