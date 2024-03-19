@@ -113,7 +113,7 @@ class ConfirmReportService {
         }
         $res .= '<li class="list-group-item">
                 <i class="fas fa-newspaper"
-                title="'. _("Send Newsletter").'"></i> '. ($person->getSendNewsletter()?_('Ok'):_('No'));
+                title="'. _("Send Newsletter").'"></i> '. (($person->getSendNewsletter()  == 'TRUE')?_('Ok'):_('No'));
         $res .= "</li>";
         $res.= '</ul>';
 
@@ -221,13 +221,6 @@ class ConfirmReportService {
                     value="'. htmlentities(stripslashes($person->getFamily()->getCity()), ENT_NOQUOTES, "UTF-8") . '"
                     size="30" maxlength="50" class="form-control form-control-sm" id="City">';
         
-        $code .= '      <br>
-                        
-                        <label>' . _('Zip') . ' :</label>
-                            <input type="text" Name="Zip" id="Zip"
-                                    value="' . htmlentities(stripslashes($person->getFamily()->getZip()), ENT_NOQUOTES, 'UTF-8') . '" size="50"
-                                    maxlength="250" class="form-control form-control-sm">'; 
-    
         $code .= '<label>' . _('Address') . ' 2:</label>
                   <input type="text" Name="Address2" id="Address2"
                                     value="' . htmlentities(stripslashes($person->getFamily()->getAddress2()), ENT_NOQUOTES, 'UTF-8') . '" size="50"
@@ -579,7 +572,7 @@ class ConfirmReportService {
         }
 
         $res .= '<i class="fas fa-newspaper"
-            title="'. _("Send Newsletter") .'"></i>'. $family->getSendNewsletter() .'<br/>
+            title="'. _("Send Newsletter") .'"></i>'. (($family->getSendNewsletter()  == 'TRUE')?_('Ok'):_('No')) .'<br/>
 
             <div class="text-left">
                 <button class="btn btn-danger btn-sm deleteFamily" data-id="'. $family->getId() .'" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> '. _("Delete") .'</button>
