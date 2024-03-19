@@ -13,7 +13,7 @@ function UpdateRoles() {
     });
 }
 
-$(document).ready(function (e, confirmed) {
+$(function() {
     $("#addToGroup").on('click', function () {
         window.CRM.groups.addGroup(function (data) {
             location.href = 'CartToGroup.php?groupeCreationID=' + data.Id;

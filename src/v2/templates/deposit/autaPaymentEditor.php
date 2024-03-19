@@ -1099,14 +1099,14 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
    var iFamily  = <?= (empty($iFamily)?0:$iFamily) ?>;
    var iAutID   = <?= (empty($iAutID)?0:$iAutID) ?>;
 
-    $(document).ready(function() {
+   $(function() {
       var selectedItem = $("#optionFamily option:selected").val();
 
-      $('#optionFamily').val(1).change();
-      $('#optionFamily').val(selectedItem).change();
+      $('#optionFamily').val(1).on('change');
+      $('#optionFamily').val(selectedItem).on('change');
 
 
-      $('#optionFamily').change(function(data) {
+      $('#optionFamily').on('change',function(data) {
         var famID = this.value;
 
         if (famID == 0) {

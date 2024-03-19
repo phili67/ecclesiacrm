@@ -232,7 +232,7 @@ require $sRootDocument . '/Include/Header.php';
                 </td>
                 <td class="TextColumn" width="50%">
                     <select class="form-control form-control-sm" name="newEvtStartTime" size="1"
-                            onchange="javascript:$('#newEvtStartTimeSubmit').click()">
+                            onchange="javascript:$('#newEvtStartTimeSubmit').on('click')">
                         <?php OutputUtils::createTimeDropdown(7, 18, 15, $aEventStartHour, $aEventStartMins); ?>
                     </select>
                     <button class='hidden' type="submit" name="Action" value="TIME" id="newEvtStartTimeSubmit"></button>

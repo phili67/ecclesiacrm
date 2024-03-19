@@ -9,7 +9,7 @@ $(function() {
         window.CRM.groupsInCart = data.groupsInCart;
     });
 
-    $("#addNewGroup").click(function (e) {
+    $("#addNewGroup").on('click',function (e) {
         var groupName = $("#groupName").val(); // get the name of the group from the textbox
         if (groupName) // ensure that the user entered a group name
         {

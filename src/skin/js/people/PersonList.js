@@ -6,7 +6,7 @@
 
 
 $(function() {
-  $('.remove-property-btn').click(function(e) {
+  $('.remove-property-btn').on('click',function(e) {
     var personId = $(this).data('person_id');
     var row = window.CRM.personsListTable.row( $(this).parents('tr') );
     var rowNode = row.node();
@@ -39,7 +39,7 @@ $(function() {
     });
   });
 
-  $('#remove-all').click(function(e) {
+  $('#remove-all').on('click',function(e) {
     bootbox.confirm({
       message: i18next.t("Are you sure you want to remove all persons from the CRM") + "?",
       buttons: {

@@ -848,7 +848,7 @@ $(function() {
             }
         });
 
-        $("#person-group-rights").change(function () {
+        $("#person-group-rights").on('change',function () {
             var rightAccess = $(this).val();
             var deferreds = [];
             var i = 0;
@@ -888,7 +888,7 @@ $(function() {
             });
         });
 
-        $("#select-share-persons").change(function () {
+        $("#select-share-persons").on('change',function () {
             $("#person-group-rights").val(0);
         });
 

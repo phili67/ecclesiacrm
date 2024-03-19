@@ -1,5 +1,5 @@
 $(function() {
-    $("#myWish").click(function showAlert() {
+    $("#myWish").on('click',function showAlert() {
         $("#Menu_Banner").alert();
         window.setTimeout(function () {
             $("#Menu_Banner").alert('close');

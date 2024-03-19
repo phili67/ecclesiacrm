@@ -111,7 +111,7 @@ $(function() {
     }
   });
 
-  $("#uploadImageButton").click(function(){
+  $("#uploadImageButton").on('click',function(){
     window.CRM.photoUploader.show();
   });
 
@@ -128,7 +128,7 @@ $(function() {
           if (success) {
               $("#view-larger-image-btn").removeClass('hide');
 
-              $("#view-larger-image-btn").click(function() {
+              $("#view-larger-image-btn").on('click',function() {
                   bootbox.alert({
                       title: i18next.t("Photo"),
                       message: '<img class="img-rounded img-responsive center-block" src="'+window.CRM.root+'/api/persons/' + window.CRM.currentPersonID + '/photo" />',
@@ -220,7 +220,7 @@ $(function() {
   });
 
 
-  $('.changeRole').click(function(event) {
+  $('.changeRole').on('click',function(event) {
     var GroupID = $(this).data("groupid");
     window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Role,GroupID:GroupID},function(selection){
       window.CRM.groups.addPerson(GroupID,window.CRM.currentPersonID,selection.RoleID, function(){
@@ -229,7 +229,7 @@ $(function() {
     });
   });
 
-  $(".groupRemove").click(function(event){
+  $(".groupRemove").on('click',function(event){
     var targetGroupID = event.currentTarget.dataset.groupid;
     var targetGroupName = event.currentTarget.dataset.groupname;
 
@@ -286,7 +286,7 @@ $(function() {
   }
 
 
-  $(".shareNote").click(function(event){
+  $(".shareNote").on('click',function(event){
     var noteId = event.currentTarget.dataset.id;
     var isShared = event.currentTarget.dataset.shared;
 
@@ -365,7 +365,7 @@ $(function() {
     window.CRM.addSharedButtonsActions(noteId,isShared,button,state,modal);
   });
 
-  $(".filter-timeline").change(function() {
+  $(".filter-timeline").on('change',function() {
        switch ($(this).val()) {
          case 'shared':
            $(".type-file").hide();
@@ -464,7 +464,7 @@ $(function() {
 
     });
 
-    $('#assign-property-form').submit(function (event) {
+    $('#assign-property-form').on('submit',function (event) {
         event.preventDefault();
         var thisForm = $(this);
         var url = thisForm.attr('action');
@@ -565,7 +565,7 @@ $(function() {
         });
     });
 
-    $('#edit-classification-btn').click(function (event) {
+    $('#edit-classification-btn').on('click',function (event) {
         event.preventDefault();
         var thisLink = $(this);
         var personId = thisLink.data('person_id');
@@ -618,7 +618,7 @@ $(function() {
 
     });
 
-    $('#edit-role-btn').click(function (event) {
+    $('#edit-role-btn').on('click',function (event) {
         event.preventDefault();
         var thisLink = $(this);
         var personId = thisLink.data('person_id');
@@ -1130,15 +1130,15 @@ $(function() {
      });
   });
 
-   $('#ShowPledges').change(function() {
+   $('#ShowPledges').on('change',function() {
       applyFilter();
     });
 
-   $('#ShowPayments').change(function() {
+   $('#ShowPayments').on('change',function() {
        applyFilter();
     });
 
-    $("#date-picker-period").change(function () {
+    $("#date-picker-period").on('change',function () {
       alert($('#date-picker-period').val());
     });
 

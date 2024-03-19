@@ -6,7 +6,7 @@ $(function() {
         language: window.CRM.lang
     }).datepicker("setDate", new Date());
 
-    $("#addNewDeposit").click(function (e) {
+    $("#addNewDeposit").on('click',function (e) {
         var newDeposit = {
             'depositType': $("#depositType option:selected").val(),
             'depositComment': $("#depositComment").val(),
@@ -133,7 +133,7 @@ $(function() {
         $("#generateDepositSlip").html("<i class=\"fas fa-download\"></i> " + i18next.t("Generate Deposit Slip for Selected") + " (" + selectedRows + ") " + i18next.t("Rows") + " (PDF)");
     });
 
-    $('.exportButton').click(function (sender) {
+    $('.exportButton').on('click',function (sender) {
         var selectedRows = dataT.rows('.selected').data()
         var type = this.getAttribute("data-exportType");
         $.each(selectedRows, function (index, value) {

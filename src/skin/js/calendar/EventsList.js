@@ -183,7 +183,7 @@ $(function() {
     }
 
     // the actions
-    $("#YearSelector").change(function() {
+    $("#YearSelector").on('change',function() {
         window.CRM.yVal = $(this).val();
 
         $("#main-Title-events").html(i18next.t('Events in Year') + " : " + window.CRM.yVal);
@@ -191,7 +191,7 @@ $(function() {
         window.CRM.reloadListEventPage();
     });
 
-    $("#MonthSelector").change(function() {
+    $("#MonthSelector").on('change',function() {
         if (this.value == 'all') {
             window.CRM.DataEventsListTable.search( "" ).draw();
             $("#main-Title-events").html(i18next.t('Events in Year') + " : " + window.CRM.yVal);
@@ -201,7 +201,7 @@ $(function() {
         }
     });
 
-    $("#EventTypeSelector").change(function() {
+    $("#EventTypeSelector").on('change',function() {
         if (this.value == 'all') {
             window.CRM.DataEventsListTable.search( "" ).draw();
             $("#main-Title-events").html(i18next.t('Events in Year') + " : " + window.CRM.yVal);
@@ -265,7 +265,7 @@ $(function() {
 
             $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
 
-            $('.date-picker').click('focus', function (e) {
+            $('.date-picker').on('click', function (e) {
                 e.preventDefault();
                 $(this).datepicker('show');
             });
@@ -453,7 +453,7 @@ $(function() {
     });
 
     // the main add event button
-    $('#add-event').click('focus', function (e) {
+    $('#add-event').on('click', function (e) {
         var fmt = 'YYYY-MM-DD HH:mm:ss';
 
         var dateStart = moment().format(fmt);

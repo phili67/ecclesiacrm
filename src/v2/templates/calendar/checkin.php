@@ -34,7 +34,7 @@ require $sRootDocument . '/Include/Header.php';
         }
         if ($bSundaySchool) {
             ?>
-            <a class="btn btn-app" href="<?= $sRootPath ?>/EditEventAttendees.php"><i
+            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/calendar/events/Attendees/Edit"><i
                     class="fas fa-pencil-alt"></i><?= _("Edit Attendees") ?></a>
             <?php
         }

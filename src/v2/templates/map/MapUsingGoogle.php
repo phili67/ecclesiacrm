@@ -423,7 +423,7 @@ require $sRootDocument . '/Include/Footer.php';
     }
 
 
-    $('.view').change(function () {
+    $('.view').on('change',function () {
         if ($(this).is(':checked') == false) {
             delete_all_markers_for_id($(this).data("id"));
         } else {

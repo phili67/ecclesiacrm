@@ -84,7 +84,7 @@ Header_body_scripts();
   </div>
 </div>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
- $("#doBackup").click(function(){
+ $("#doBackup").on('click',function(){
    $("#status1").html('<i class="far fa-circle-notch fa-spin"></i>');
    $.ajax({
       type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
@@ -102,7 +102,7 @@ Header_body_scripts();
       $("#backupstatus").html("<?= gettext('Backup Complete, Ready for Download.') ?>");
       $("#resultFiles").html(downloadButton);
       $("#status1").html('<i class="fas fa-check" style="color:orange"></i>');
-      $("#downloadbutton").click(function(){
+      $("#downloadbutton").on('click',function(){
         $("#fetchPhase").show("slow");
         $("#backupPhase").slideUp();
         $("#status1").html('<i class="fas fa-check" style="color:green"></i>');
@@ -114,7 +114,7 @@ Header_body_scripts();
 
  });
 
- $("#fetchUpdate").click(function(){
+ $("#fetchUpdate").on('click',function(){
     $("#status2").html('<i class="far fa-circle-notch fa-spin"></i>');
     $.ajax({
       type : 'GET',
@@ -133,7 +133,7 @@ Header_body_scripts();
 
  });
 
- $("#applyUpdate").click(function(){
+ $("#applyUpdate").on('click',function(){
    $("#status3").html('<i class="far fa-circle-notch fa-spin"></i>');
    $.ajax({
       type : 'POST',

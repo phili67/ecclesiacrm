@@ -471,7 +471,7 @@ foreach ($plugins as $plugin) {
 <?php if (isset($sGlobalMessage)) {
     ?>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-        $("document").ready(function () {
+        $(function() {
             window.CRM.showGlobalMessage("<?= $sGlobalMessage ?>", "<?=$sGlobalMessageClass?>");
         });
     </script>

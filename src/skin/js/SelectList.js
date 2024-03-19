@@ -1,9 +1,9 @@
 $(function() {
-  $("#AddAllToCart").click(function(){
+  $("#AddAllToCart").on('click',function(){
     window.CRM.cart.addPerson(listPeople);
   });
 
-  $("#AddAllPageToCart").click(function(){
+  $("#AddAllPageToCart").on('click',function(){
     var listPagePeople  = [];
     $(".AddToPeopleCart").each(function(res) {
       var personId= $(this).data("cartpersonid");
@@ -19,11 +19,11 @@ $(function() {
   });
 
 
-  $("#RemoveAllFromCart").click(function(){
+  $("#RemoveAllFromCart").on('click',function(){
     window.CRM.cart.removePerson(listPeople);
   });
 
-  $("#RemoveAllPageFromCart").click(function(){
+  $("#RemoveAllPageFromCart").on('click',function(){
     var listPagePeople  = [];
     $(".RemoveFromPeopleCart").each(function(res) {
       var personId= $(this).data("cartpersonid");

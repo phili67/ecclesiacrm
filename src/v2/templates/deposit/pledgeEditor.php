@@ -409,11 +409,11 @@ require $sRootDocument . '/Include/Header.php';
         $("#FundTable").DataTable(fundTableConfig);
 
 
-        $(".FundAmount").change(function () {
+        $(".FundAmount").on('change',function () {
             CalculateTotal();
         });
 
-        $("#Method").change(function () {
+        $("#Method").on('change',function () {
             EvalCheckNumberGroup();
         });
 
@@ -421,7 +421,7 @@ require $sRootDocument . '/Include/Header.php';
         CalculateTotal();
     });
 
-    $("#PledgeOrPaymentSelect").change(function () {
+    $("#PledgeOrPaymentSelect").on('change',function () {
         if (dep_Closed) {
             window.CRM.DisplayAlert(i18next.t("Warning !!!"), i18next.t("Deposit closed"));
             var sel = $("#PledgeOrPaymentSelect");

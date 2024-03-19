@@ -1,4 +1,4 @@
-$("document").ready(function () {
+$(function() {
 
     $("#deleteClassButton").on('click', function () {
         console.log("click");

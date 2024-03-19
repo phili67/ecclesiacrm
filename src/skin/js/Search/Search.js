@@ -458,7 +458,7 @@ $(function() {
         window.CRM.listPeople = cart;
     }
 
-    $("#AddAllToCart").click(function(){
+    $("#AddAllToCart").on('click',function(){
         loadAllPeople()
 
         $('.in-progress').css("color", "red");
@@ -469,7 +469,7 @@ $(function() {
         });
     });
 
-    $("#RemoveAllFromCart").click(function(){
+    $("#RemoveAllFromCart").on('click',function(){
         loadAllPeople()
         $('.in-progress').css("color", "red");
         $('.in-progress').html("  "+ i18next.t("Removing people in cart...."));
@@ -480,7 +480,7 @@ $(function() {
     });
 
 
-    $("#AddPageToCart").click(function(){
+    $("#AddPageToCart").on('click',function(){
         var listPagePeople  = [];
         var listPageGroups = [];
         var listPageFamilies = [];
@@ -544,7 +544,7 @@ $(function() {
         }
     });
 
-    $("#RemovePageFromCart").click(function(){
+    $("#RemovePageFromCart").on('click',function(){
         var listPagePeople  = [];
         var listPageGroups = [];
         var listPageFamilies = [];

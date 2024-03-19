@@ -4,7 +4,7 @@ $(function() {
         window.CRM.DisplayAlert(i18next.t("Problem", { ns: 'MeetingJitsi' }), i18next.t("Safari isn't yet supported with Jitsi, use something else !<br/>• Your webcam<br/>• Sharing your windows<br/> won't work with meeting.", { ns: 'MeetingJitsi' }))
     }
 
-    $('#add-event').click('focus', function (e) {
+    $('#add-event').on('click', function (e) {
         var fmt = 'YYYY-MM-DD HH:mm:ss';
 
         var dateStart = moment().format(fmt);
@@ -13,7 +13,7 @@ $(function() {
         addEvent(dateStart, dateEnd, i18next.t("Appointment", { ns: 'MeetingJitsi' }), sPageTitle);
     });
 
-    $('#newRoom').click('focus', function () {
+    $('#newRoom').on('click', function () {
         bootbox.prompt(i18next.t("Set a Jitsi room name", { ns: 'MeetingJitsi' }), function(name){
             if ( name != '' && name != null) {
                 window.CRM.APIRequest({
@@ -27,7 +27,7 @@ $(function() {
         });
     });
 
-    $('.selectRoom').click('focus', function () {
+    $('.selectRoom').on('click',function () {
         var id = $(this).data('roomid');
 
         window.CRM.APIRequest({
@@ -39,7 +39,7 @@ $(function() {
         });
     });
 
-    $('#delete-all-rooms').click('focus', function () {
+    $('#delete-all-rooms').on('click', function () {
         bootbox.confirm({
             title: i18next.t("Delete all Rooms?", { ns: 'MeetingJitsi' }),
             message: i18next.t("You're about to delete all of your rooms.", { ns: 'MeetingJitsi' }),

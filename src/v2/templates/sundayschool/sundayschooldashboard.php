@@ -339,7 +339,7 @@ require $sRootDocument . '/Include/Header.php';
         $(function() {
             $('.data-table').DataTable({"language": window.CRM.plugin.dataTable.language,responsive: true});
 
-            $("#addNewClassBtn").click(function (e) {
+            $("#addNewClassBtn").on('click',function (e) {
                 var groupName = $("#new-class-name").val(); // get the name of the from the textbox
                 if (groupName) // ensure that the user entered a name
                 {

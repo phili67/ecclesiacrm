@@ -9,14 +9,14 @@
 window.CRM.editor = null;
 
 $(function() {
-  $( ".filterByPastor" ).click(function() {
+  $( ".filterByPastor" ).on('click',function() {
     var ID = $(this).data("pastorid");
 
     $(".all-items").hide();
     $(".item-"+ID).show();
   });
 
-  $( ".filterByPastorAll" ).click(function() {
+  $( ".filterByPastorAll" ).on('click',function() {
     $(".all-items").show();
   });
 
@@ -27,7 +27,7 @@ $(function() {
 
 
 
-  $( ".modify-pastoral" ).click(function() {
+  $( ".modify-pastoral" ).on('click',function() {
     var ID = $(this).data("id");
 
     window.CRM.APIRequest({
@@ -85,7 +85,7 @@ $(function() {
     });
   });
 
-  $( ".delete-pastoral" ).click(function() {
+  $( ".delete-pastoral" ).on('click',function() {
     var ID = $(this).data("id");
 
     bootbox.confirm({
@@ -115,7 +115,7 @@ $(function() {
     });
   });
 
-  $( ".newPastorCare" ).click(function() {
+  $( ".newPastorCare" ).on('click',function() {
     var typeid   = $(this).data('typeid');
     var typeDesc = $(this).data('typedesc');
     var visible  = $(this).data('visible');
@@ -264,7 +264,7 @@ $(function() {
   }
 
 
-    $('#add-event').click('focus', function (e) {
+    $('#add-event').on('click', function (e) {
         var fmt = 'YYYY-MM-DD HH:mm:ss';
 
         var dateStart = moment().format(fmt);

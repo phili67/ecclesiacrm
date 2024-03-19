@@ -2,7 +2,7 @@ $(function() {
 
   window.CRM.selectedCol = -1;
 
-  $('#clear-people').click(function (event) {
+  $('#clear-people').on('click',function (event) {
       event.preventDefault();
       var thisLink = $(this);
       bootbox.confirm({

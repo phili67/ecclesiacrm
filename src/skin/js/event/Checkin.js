@@ -44,7 +44,7 @@ $(function() {
         });
     }
 
-    $("#addFreeAttendees").click('focus', function () {
+    $("#addFreeAttendees").on('click',function () {
         var counts = {};
 
         $(".freeAttendeesCount").each(function(element, index, set) {
@@ -68,7 +68,7 @@ $(function() {
 
 
 
-    $('#add-event').click('focus', function (e) {
+    $('#add-event').on('click', function (e) {
         var fmt = 'YYYY-MM-DD HH:mm:ss';
 
         var dateStart = moment().format(fmt);
@@ -351,7 +351,7 @@ $(function() {
 
         $('#checkedinTable').DataTable().page.len(50).draw();
 
-        $("#page-length-select").change(function(){
+        $("#page-length-select").on('change',function(){
             $('#checkedinTable').DataTable().page.len($(this).val()).draw();
         });
 

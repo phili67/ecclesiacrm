@@ -75,8 +75,8 @@ $(function() {
         }
     });
 
-    $('#isGroupActive').prop('checked', window.CRM.isActive).change();
-    $('#isGroupEmailExport').prop('checked', window.CRM.isIncludeInEmailExport).change();
+    $('#isGroupActive').prop('checked', window.CRM.isActive).on('change');
+    $('#isGroupEmailExport').prop('checked', window.CRM.isIncludeInEmailExport).on('change');
 
     $("#deleteGroupButton").on('click', function () {
         console.log("click");
@@ -362,6 +362,9 @@ function initDataTable() {
     var DataTableOpts = {
         ajax: {
             url: window.CRM.root + "/api/groups/" + window.CRM.currentGroup + "/members",
+            error: function (data) { 
+                window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("401 : Private Datas"));
+            },
             dataSrc: "Person2group2roleP2g2rs",
             "beforeSend": function (xhr) {
                 xhr.setRequestHeader('Authorization',
@@ -482,7 +485,7 @@ function initDataTable() {
 
     window.CRM.DataTableGroupView = $("#membersTable").DataTable(DataTableOpts);
 
-    $('#isGroupActive').change(function () {
+    $('#isGroupActive').on('change',function () {
         $.ajax({
             type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
             url: window.CRM.root + '/api/groups/' + window.CRM.currentGroup + '/settings/active/' + $(this).prop('checked'),
@@ -491,7 +494,7 @@ function initDataTable() {
         });
     });
 
-    $('#isGroupEmailExport').change(function () {
+    $('#isGroupEmailExport').on('change',function () {
         $.ajax({
             type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
             url: window.CRM.root + '/api/groups/' + window.CRM.currentGroup + '/settings/email/export/' + $(this).prop('checked'),
@@ -796,7 +799,7 @@ function initDataTable() {
         });
     });
 
-    $('#add-event').click('focus', function (e) {
+    $('#add-event').on('click', function (e) {
         var fmt = 'YYYY-MM-DD HH:mm:ss';
 
         var dateStart = moment().format(fmt);

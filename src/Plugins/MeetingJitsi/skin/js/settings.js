@@ -1,5 +1,5 @@
 $(function() {
-    $('#SaveSettings').click('focus', function (e) {
+    $('#SaveSettings').on('click', function (e) {
         var domain = $('#domain').val();
         var domainscriptpath = $('#domainscriptpath').val();
 

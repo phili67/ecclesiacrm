@@ -111,7 +111,7 @@ window.CRM.renderPrerequisite = function (name, status) {
 };
 
 
-$("document").ready(function () {
+$(function() {
     var setupWizard = $("#setup-form");
 
     setupWizard.validate({
