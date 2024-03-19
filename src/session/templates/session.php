@@ -412,7 +412,7 @@ if (empty($person)) {
             window.attachEvent("onload", $buo_f)
         }
 
-        $("#visibilitySwitch").click(function(){
+        $("#visibilitySwitch").on('click',function(){
             $(this)
                 .toggleClass('fa-eye')
                 .toggleClass('fa-eye-slash');

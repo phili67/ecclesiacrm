@@ -381,7 +381,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
   }
 
 
-  $('.view').change(function() {
+  $('.view').on('change',function() {
     if ($(this).is(':checked') == false) {
       delete_all_markers_for_id ($(this).data("id"));
     } else {

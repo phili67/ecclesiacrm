@@ -1153,7 +1153,7 @@ function GetAge($Month, $Day, $Year)
 </div>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  $(document).ready(function(){
+  $(function() {
     $(".columns").select2();
   });
 </script>

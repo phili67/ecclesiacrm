@@ -543,7 +543,7 @@ echo $sError;
             }
         });
 
-        $( "#FamilyID" ).change(function() {
+        $( "#FamilyID" ).on('change',function() {
             var e = document.getElementById("FamilyID");
             var res = e.options[e.selectedIndex].value;
 

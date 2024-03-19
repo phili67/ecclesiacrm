@@ -274,7 +274,7 @@ EOD;
 </div>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  $(document).ready(function() {
+  $(function() {
     $("#fileIntegrityCheckResultsTable").DataTable({
         "language": {
             "url": window.CRM.plugin.dataTable.language.url

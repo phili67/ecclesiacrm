@@ -73,7 +73,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <script src="<?= $sRootPath ?>/skin/js/group/GroupList.js"></script>
 <script nonce="<?= $CSPNonce ?>">
-    $( document).ready(function() {
+    $(function() {
         var gS = localStorage.getItem("groupSelect");
         if (gS != null)
         {
