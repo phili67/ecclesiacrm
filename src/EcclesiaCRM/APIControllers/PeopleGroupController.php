@@ -39,6 +39,7 @@ use EcclesiaCRM\Reports\PDF_Badge;
 
 
 use EcclesiaCRM\MyPDO\CardDavPDO;
+use EcclesiaCRM\Service\GroupService;
 use Propel\Runtime\Propel;
 
 class PeopleGroupController
@@ -384,8 +385,14 @@ class PeopleGroupController
     }
 
     public function groupMembers (ServerRequest $request, Response $response, array $args): Response {
-        if ( !( SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID'])
-            and array_key_exists('groupID', $args) ) ) {
+        $groupService = new GroupService();
+
+        if ( !( array_key_exists('groupID', $args) 
+            and 
+            (SessionUser::getUser()->isGroupManagerEnabledForId($args['groupID']) 
+                or 
+            count($groupService->getGroupMembers($args['groupID'], SessionUser::getUser()->getPersonId())) > 0) 
+            ) ) {
             return $response->withStatus(401);
         }
 
