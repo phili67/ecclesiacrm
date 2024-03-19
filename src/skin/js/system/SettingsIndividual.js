@@ -132,7 +132,7 @@ $(function() {
         responsive: true
     });
 
-    $('.sStyleSideBar').change(function () {
+    $('.sStyleSideBar').on('change',function () {
         var color = $('.sStyleSideBarColor').val();
         mode = $(this).val();
         var sidebar = $('.main-sidebar');
@@ -160,7 +160,7 @@ $(function() {
         }
     });
 
-    $('.sStyleFontSize').change(function () {
+    $('.sStyleFontSize').on('change',function () {
         if ($(this).val() == "Small") {
             $('.sidebar-mini').addClass('text-sm')
         } else {
@@ -168,12 +168,12 @@ $(function() {
         }
     });
 
-    $(".bSidebarCollapse").change(function () {
+    $(".bSidebarCollapse").on('change',function () {
         $('[data-widget="pushmenu"]').PushMenu('toggle');
     });
 
 
-    $(".sStyleBrandLinkColor").change(function () {
+    $(".sStyleBrandLinkColor").on('change',function () {
         var color = $(this).val();
         var sidebar_class = 'navbar-' + color
         var sidebar = $('.brand-link')
@@ -184,7 +184,7 @@ $(function() {
         sidebar.addClass(sidebar_class)
     });
 
-    $(".sDarkMode").change(function () {
+    $(".sDarkMode").on('change',function () {
         if ($(this).val() == "dark") {
             $('.sidebar-mini').addClass('dark-mode');
             $('.table-dropdown-menu').addClass('dark-mode');
@@ -205,7 +205,7 @@ $(function() {
         }
     });
 
-    $(".sStyleNavBarColor").change(function () {
+    $(".sStyleNavBarColor").on('change',function () {
         var color = $(this).val();
         var sidebar_class = 'navbar-' + color
         var sidebar = $('.main-header')
@@ -216,7 +216,7 @@ $(function() {
         sidebar.addClass(sidebar_class)
     });
 
-    $(".sStyleSideBarColor").change(function () {
+    $(".sStyleSideBarColor").on('change',function () {
         var color = $(this).val();
         var sidebar_class = 'sidebar-' + ((mode == 'light') ? 'light' : 'dark') + '-' + color
         var sidebar = $('.main-sidebar')

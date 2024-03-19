@@ -116,7 +116,7 @@ function addRolesToMainDropdown()
           });
         });
 
-        $("#manageRole").click(function() {
+        $("#manageRole").on('click',function() {
           var modal = bootbox.dialog({
              message: BootboxContent(),
              buttons: [
@@ -193,7 +193,7 @@ function addRolesToMainDropdown()
                if (flag[0] != 'Style') {
                  jQuery("input[name='"+flag[0]+"']").prop('checked', Number(flag[1]));
                } else {
-                 jQuery("select[name='"+flag[0]+"']").val(flag[1]).change();
+                 jQuery("select[name='"+flag[0]+"']").val(flag[1]).on('change');
                }
              });
 
@@ -231,7 +231,7 @@ function addRolesToMainDropdown()
           });
         });
 
-        $("#addRole").click(function() {
+        $("#addRole").on('click',function() {
            var global_res = '';
            $(".global_settings").each(function() {
               var _val;

@@ -12,11 +12,11 @@ function setGroupsIdsAttendees(selectControl)
   $('#exportCheckOutPDF').attr( 'data-makecheckoutgroupid', res )
 }
 
-$( "#GroupID" ).click(function() {
+$( "#GroupID" ).on('click',function() {
   setGroupsIdsAttendees(this);
 });
 
-$( "#GroupID" ).change(function() {
+$( "#GroupID" ).on('change',function() {
   setGroupsIdsAttendees(this);
 });
 

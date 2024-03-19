@@ -1,4 +1,4 @@
-$("document").ready(function() {
+$(function() {
     $(document).on("click",".AddAllStudentsToCart", function(){
         clickedButton = $(this);
         window.CRM.cart.addAllStudents(function()

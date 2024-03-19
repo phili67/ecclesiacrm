@@ -26,7 +26,7 @@ $(function() {
         }
     }
 
-    $('#isNewKioskRegistrationActive').change(function() {
+    $('#isNewKioskRegistrationActive').on('change',function() {
         if ($("#isNewKioskRegistrationActive").prop('checked')){
             window.CRM.kiosks.enableRegistration(function(data) {
                 window.CRM.secondsLeft = moment(data.visibleUntil.date).unix() - moment().unix();

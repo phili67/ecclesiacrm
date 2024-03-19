@@ -266,7 +266,7 @@ $(function() {
 
 
 
-   $('#assign-property-form').submit(function (event) {
+   $('#assign-property-form').on('submit',function (event) {
       event.preventDefault();
       var thisForm = $(this);
       var url = thisForm.attr('action');
@@ -796,15 +796,15 @@ $(function() {
       });
     });
 
-   $('#ShowPledges').change(function() {
+   $('#ShowPledges').on('change',function() {
       applyFilter();
     });
 
-   $('#ShowPayments').change(function() {
+   $('#ShowPayments').on('change',function() {
        applyFilter();
     });
 
-    $("#date-picker-period").change(function () {
+    $("#date-picker-period").on('change',function () {
       alert($('#date-picker-period').val());
     });
 

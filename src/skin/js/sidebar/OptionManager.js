@@ -4,7 +4,7 @@
 //  Updated     : 2019/07/03
 //
 
-$('.checkOnlyPersonView').click('focus', function (e) {
+$('.checkOnlyPersonView').on('click', function (e) {
   var ID        = $(this).data('id');
   var optionID  = $(this).data('optionid');
   var isChecked = $(this).is(':checked');
@@ -18,7 +18,7 @@ $('.checkOnlyPersonView').click('focus', function (e) {
   });
 });
 
-$('.row-action').click('focus', function (e) {
+$('.row-action').on('click', function (e) {
     var mode = $(this).data('mode');
     var Order = $(this).data('order');
     var ListID = $(this).data('listid');
@@ -34,7 +34,7 @@ $('.row-action').click('focus', function (e) {
     });
 });
 
-$('.RemoveClassification').click('focus', function (e) {
+$('.RemoveClassification').on('click', function (e) {
   var mode = $(this).data('mode');
   var Order = $(this).data('order');
   var ListID = $(this).data('listid');
@@ -68,7 +68,7 @@ $('.RemoveClassification').click('focus', function (e) {
 });
 
 
-$('.RemoveImage').click('focus', function (e) {
+$('.RemoveImage').on('click', function (e) {
   var lstID = $(this).data('id');
   var lstOptionID = $(this).data('optionid');
 
@@ -82,7 +82,7 @@ $('.RemoveImage').click('focus', function (e) {
 });
 
 
-$('.AddImage').click('focus', function (e) {
+$('.AddImage').on('click', function (e) {
   var lstID       = $(this).data('id');
   var lstOptionID = $(this).data('optionid');
   var name        = $(this).data('name');

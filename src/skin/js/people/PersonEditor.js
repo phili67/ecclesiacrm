@@ -14,11 +14,11 @@ $(function() {
   // This scroll the family at the right place
   var selectedItem = $("#optionFamily option:selected").val();
 
-  $('#optionFamily').val(1).change();
-  $('#optionFamily').val(selectedItem).change();
+  $('#optionFamily').val(1).on('change');
+  $('#optionFamily').val(selectedItem).on('change');
 
 
-  $('#optionFamily').change(function(data) {
+  $('#optionFamily').on('change',function(data) {
     var famID = $(this).val();
 
     if (famID > 0) {

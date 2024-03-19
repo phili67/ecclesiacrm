@@ -1,5 +1,5 @@
-$("document").ready(function () {
-    $(".groupSpecificProperties").click(function (e) {
+$(function() {
+    $(".groupSpecificProperties").on('click',(function (e) {
         var groupPropertyAction = e.currentTarget.id;
         if (groupPropertyAction == "enableGroupProps") {
             $("#groupSpecificPropertiesModal").modal("show");
@@ -16,7 +16,7 @@ $("document").ready(function () {
         }
     });
 
-    $("#setgroupSpecificProperties").click(function (e) {
+    $("#setgroupSpecificProperties").on('click',function (e) {
         var action = $("#setgroupSpecificProperties").data("action");
 
         window.CRM.APIRequest({
@@ -31,7 +31,7 @@ $("document").ready(function () {
 
     $("#selectGroupIDDiv").hide();
 
-    $("#cloneGroupRole").click(function (e) {
+    $("#cloneGroupRole").on('click',function (e) {
         if (e.target.checked)
             $("#selectGroupIDDiv").show();
         else {
@@ -40,7 +40,7 @@ $("document").ready(function () {
         }
     });
 
-    $("#groupEditForm").submit(function (e) {
+    $("#groupEditForm").on('submit',function (e) {
         e.preventDefault();
 
         var formData = {
@@ -63,7 +63,7 @@ $("document").ready(function () {
 
     });
 
-    $("#addNewRole").click(function (e) {
+    $("#addNewRole").on('click',function (e) {
         var newRoleName = $("#newRole").val();
 
         window.CRM.APIRequest({

@@ -7,7 +7,7 @@ $(function() {
 
   $(".choiceSelectBox").select2({width: 'resolve'});
 
-  $("#AddAllToCart").click(function(){
+  $("#AddAllToCart").on('click',function(){
     window.CRM.cart.addPerson(listPeople,function(data){
       $(listPeople).each(function(index,data){
         personButton = $("a[data-personid='" + data + "']");
@@ -19,7 +19,7 @@ $(function() {
     });
   });
 
-   $("#RemoveAllFromCart").click(function(){
+   $("#RemoveAllFromCart").on('click',function(){
     window.CRM.cart.removePerson(listPeople,function(data){
       $(listPeople).each(function(index,data){
         personButton = $("a[data-personid='" + data + "']");

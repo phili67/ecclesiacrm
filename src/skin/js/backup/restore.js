@@ -1,4 +1,4 @@
-$('#restoredatabase').submit(function (event) {
+$('#restoredatabase').on(‘submit’,function (event) {
     event.preventDefault();
 
     var formData = new FormData($(this)[0]);

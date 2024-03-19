@@ -716,7 +716,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
 
-                    $('.date-picker').click('focus', function (e) {
+                    $('.date-picker').on('click', function (e) {
                         e.preventDefault();
                         $(this).datepicker('show');
                     });

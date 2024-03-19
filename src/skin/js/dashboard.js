@@ -1,5 +1,5 @@
 $(function() {
-    $("#myWish").click(function showAlert() {
+    $("#myWish").on('click',function showAlert() {
         $("#Menu_Banner").alert();
         window.setTimeout(function () {
             $("#Menu_Banner").alert('close');
@@ -69,7 +69,7 @@ $(function() {
     /*
     * Add remove events to boxes
     */
-    $("[data-card-widget='remove']").click(function() {
+    $("[data-card-widget='remove']").on('click',function() {
         //Find the box parent
         var box = $(this).parents(".card").first();
         //Find the body and the footer
@@ -104,7 +104,7 @@ $(function() {
     /*
     * Add remove events to boxes
     */
-    $("[data-card-widget='collapse']").click(function() {
+    $("[data-card-widget='collapse']").on('click',function() {
         //Find the box parent
         var box = $(this).parents(".card").first();
         //Find the body and the footer

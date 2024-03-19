@@ -60,7 +60,7 @@ $("#submitIssueDone").on('click', function () {
 });
 
 
-$("#IssueReportModal .close").click(function(){
+$("#IssueReportModal .close").on('click',function(){
   $("#submitDiaglogStart" ).show();
   $("#submitDiaglogFinish" ).hide();
 

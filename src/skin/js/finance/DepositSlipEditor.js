@@ -47,7 +47,7 @@ $(function() {
         $(this).toggleClass('selected')
     });
 
-    $("#invalidateSelectedRows").click(function (e) {
+    $("#invalidateSelectedRows").on('click',function (e) {
         var rows = dataT.rows('.selected').data();
 
         var newData = new Array();
@@ -65,7 +65,7 @@ $(function() {
         });
     });
 
-    $("#validateSelectedRows").click(function (e) {
+    $("#validateSelectedRows").on('click',function (e) {
         var rows = dataT.rows('.selected').data();
 
         var newData = new Array();
@@ -83,7 +83,6 @@ $(function() {
         });
     });
 
-//$(".detailButton").click(function(e) {
     $(document).on('click', '.detailButton', function () {
         var gk = $(this).data("gk");
 
@@ -314,7 +313,7 @@ $(function() {
                 '</table>';
         }
 
-        $("#DepositSlipSubmit").click(function (e) {
+        $("#DepositSlipSubmit").on('click',function (e) {
             e.preventDefault();
             var formData = {
                 'depositDate': moment($('#DepositDate').val(), window.CRM.datePickerformat.toUpperCase()).format('YYYY-MM-DD'),

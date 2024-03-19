@@ -468,7 +468,7 @@ $(function() {
             }
         });
 
-        $('.deleteTagButton').click(function (event) {
+        $('.deleteTagButton').on('click',function (event) {
             $(".addTagButtonDrop").dropdown('toggle');
             var ev = event;
 

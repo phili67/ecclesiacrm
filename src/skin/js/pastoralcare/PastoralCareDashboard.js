@@ -345,7 +345,7 @@ $(function() {
         }
     });
 
-    $('#add-event').click('focus', function (e) {
+    $('#add-event').on('click', function (e) {
         var fmt = 'YYYY-MM-DD HH:mm:ss';
 
         var dateStart = moment().format(fmt);
@@ -354,7 +354,7 @@ $(function() {
         addEvent(dateStart,dateEnd,i18next.t("Appointment"),sPageTitle);
     });
 
-    $( ".newPastorCare" ).click(function() {
+    $( ".newPastorCare" ).on('click',function() {
         var typeID   = $(this).data('typeid');
 
         window.CRM.APIRequest({

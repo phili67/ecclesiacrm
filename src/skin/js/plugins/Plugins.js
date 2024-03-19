@@ -46,7 +46,7 @@ $(function() {
         responsive: true
     });
 
-    $('#action-selector').change(function (e) {
+    $('#action-selector').on('change',function (e) {
         switch ($(this).val()) {
             case "activate-selected":
                 $(".checkbox_plugins").each(function () {
@@ -102,7 +102,7 @@ $(function() {
         }
     });
 
-    $('.Deactivate-plugin').click(function (e) {
+    $('.Deactivate-plugin').on('click',function (e) {
         var Id = $(this).data("id");
 
         window.CRM.APIRequest({
@@ -114,7 +114,7 @@ $(function() {
         });
     });
 
-    $('.Activate-plugin').click(function (e) {
+    $('.Activate-plugin').on('click',function (e) {
         var Id = $(this).data("id");
 
         window.CRM.APIRequest({
@@ -126,7 +126,7 @@ $(function() {
         });
     });
 
-    $('.Activate-plugin').click(function (e) {
+    $('.Activate-plugin').on('click',function (e) {
         var Id = $(this).data("id");
 
         window.CRM.APIRequest({

@@ -69,12 +69,12 @@ function doBackup(isRemote)
     }
 }
 
-$('#doBackup').click(function(event) {
+$('#doBackup').on('click',function(event) {
     event.preventDefault();
     doBackup (0);
 });
 
-$('#doRemoteBackup').click(function(event) {
+$('#doRemoteBackup').on('click',function(event) {
     event.preventDefault();
     doBackup(1);
 });

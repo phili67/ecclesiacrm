@@ -30,7 +30,7 @@ $('body').on('click', '.check-calendar', function () {
 });
 
 
-$("#add-calendar").click('focus', function (e) {
+$("#add-calendar").on('click', function (e) {
     bootbox.prompt({
         title: i18next.t("Set Calendar Name"),
         buttons: {
@@ -57,7 +57,7 @@ $("#add-calendar").click('focus', function (e) {
     });
 });
 
-$("#add-reservation-calendar").click('focus', function (e) {
+$("#add-reservation-calendar").on('click', function (e) {
     bootbox.confirm({
         title: i18next.t("Set Resource Name"),
         message: '<table width=100%>'
@@ -210,7 +210,7 @@ function CreateCalendarPresenceWindow(type) {
 function createPresenceManager(type) {
     var modal = CreateCalendarPresenceWindow(type);
 
-    $("#calendar-show-hide").change(function () {
+    $("#calendar-show-hide").on('change',function () {
         var isPresent = $(this).val();
         var deferredsSH = [];
         var i = 0;
@@ -268,19 +268,19 @@ function createPresenceManager(type) {
     modal.modal("show");
 }
 
-$("#manage-all-calendars").click('focus', function (e) {
+$("#manage-all-calendars").on('click', function (e) {
     createPresenceManager('personal');
 });
 
-$("#manage-all-groups").click('focus', function (e) {
+$("#manage-all-groups").on('click', function (e) {
     createPresenceManager('group');
 });
 
-$("#manage-all-reservation").click('focus', function (e) {
+$("#manage-all-reservation").on('click', function (e) {
     createPresenceManager('reservation');
 });
 
-$("#manage-all-shared").click('focus', function (e) {
+$("#manage-all-shared").on('click', function (e) {
     createPresenceManager('share');
 });
 
@@ -447,7 +447,7 @@ function createShareWindow(calIDs) {
         }
     });
 
-    $("#person-group-rights").change(function () {
+    $("#person-group-rights").on('change',function () {
         var rightAccess = $(this).val();
         var i = 0;
 
@@ -473,7 +473,7 @@ function createShareWindow(calIDs) {
         $("#person-group-rights option:first").attr('selected', 'selected');
     });
 
-    $("#select-share-persons").change(function () {
+    $("#select-share-persons").on('change',function () {
         $("#person-group-rights").val(0);
     });
 

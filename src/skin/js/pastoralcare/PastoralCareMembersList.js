@@ -1,7 +1,7 @@
 $(function() {
     window.CRM.extractionType = "/api/pastoralcare/getPersonByClassification/1";
 
-    $( ".changeType" ).click(function() {
+    $( ".changeType" ).on('click',function() {
         window.CRM.dataPastoralcareMembersList.search($(this).data('typeid')).draw();
     });
 
@@ -78,7 +78,7 @@ $(function() {
         }
     });
 
-    $('#add-event').click('focus', function (e) {
+    $('#add-event').on('click', function (e) {
         var fmt = 'YYYY-MM-DD HH:mm:ss';
 
         var dateStart = moment().format(fmt);
@@ -87,7 +87,7 @@ $(function() {
         addEvent(dateStart,dateEnd,i18next.t("Appointment"),sPageTitle);
     });
 
-    $('.typeSort').click('focus', function (e) {
+    $('.typeSort').on('click', function (e) {
         window.CRM.extractionType = "/api/pastoralcare/getPersonByClassification/" + $(this).val();
 
         window.CRM.dataPastoralcareMembersList.ajax.url( window.CRM.extractionType ).load();
