@@ -92,7 +92,7 @@ if (isset($_POST['User'])) {
                 $target = new DateTime('now');
                 $seconds = $target->getTimestamp() - $origin->getTimestamp();// difference in seconds
 
-                if ( $tfa->verifyCode($secret, $code) or ( strlen($code) == 10 and strstr($currentUser->getTwoFaRescuePasswords(), $code) and $seconds < 60 ) ) {
+                if ( $tfa->verifyCode($secret, $code) or ( strlen($code) == 10 and str_contains($currentUser->getTwoFaRescuePasswords(), $code) ) ) {
                     $validate2FA = true;
                 } else {
                     session_destroy();
@@ -270,7 +270,7 @@ if (empty($person)) {
                     <?php if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
                         ?>
                         <span class="text-right"><a
-                                href="external/password/"><?= _("I forgot my password") ?></a></span>
+                                href="<?= $sRootPath ?>/external/password/"><?= _("I forgot my password") ?></a></span>
                         <?php
                     } ?>
                 </p>
@@ -287,7 +287,7 @@ if (empty($person)) {
                 </div>
                 <?php
             } ?>
-            <!--<a href="external/family/verify" class="text-center">Verify Family Info</a> -->
+            <!--<a href="<?= $sRootPath ?>/external/family/verify" class="text-center">Verify Family Info</a> -->
         </div>
     </div>
     <!-- /.login-box-body -->
