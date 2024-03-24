@@ -1,51 +1,52 @@
-$(function() {
-  $(document).on("click",".delete-field", function(){
-     var orderID = $(this).data("orderid");
-     var field = $(this).data("field");
+document.addEventListener("DOMContentLoaded", function () {
+  window.CRM.ElementListener('.delete-field', 'click', function (event) {
+    let orderID = event.currentTarget.dataset.orderid;
+    let field = event.currentTarget.dataset.field;
 
-     bootbox.confirm({
+    bootbox.confirm({
       title: i18next.t("Attention"),
       message: i18next.t("Warning: By deleting this field, you will irrevocably lose all family data assigned for this field!"),
-      callback: function(result){
+      callback: function (result) {
         if (result) {
           window.CRM.APIRequest({
             method: 'POST',
             path: 'families/deletefield',
-            data: JSON.stringify({"orderID": orderID,"field":field})
-          },function(data) {
+            data: JSON.stringify({ "orderID": orderID, "field": field })
+          }, function (data) {
             //window.CRM.dataFundTable.ajax.reload();
-              window.location = window.location.href;
+            window.location = window.location.href;
           });
         }
       }
     });
   });
 
-  $(document).on("click",".up-action", function(){
-    var orderID = $(this).data("orderid");
-    var field   = $(this).data("field");
+  window.CRM.ElementListener('.up-action', 'click', function (event) {
+    let orderID = event.currentTarget.dataset.orderid;
+    let field = event.currentTarget.dataset.field;
 
     window.CRM.APIRequest({
       method: 'POST',
       path: 'families/upactionfield',
-      data: JSON.stringify({"orderID": orderID,"field":field})
-    },function(data) {
+      data: JSON.stringify({ "orderID": orderID, "field": field })
+    }, function (data) {
       //window.CRM.dataFundTable.ajax.reload();
       window.location = window.location.href;
     });
   });
 
-  $(document).on("click",".down-action", function(){
-    var orderID = $(this).data("orderid");
-    var field   = $(this).data("field");
+  
+  window.CRM.ElementListener('.down-action', 'click', function (event) {
+    let orderID = event.currentTarget.dataset.orderid;
+    let field = event.currentTarget.dataset.field;
 
     window.CRM.APIRequest({
       method: 'POST',
       path: 'families/downactionfield',
-      data: JSON.stringify({"orderID": orderID,"field":field})
-    },function(data) {
+      data: JSON.stringify({ "orderID": orderID, "field": field })
+    }, function (data) {
       //window.CRM.dataFundTable.ajax.reload();
-        window.location = window.location.href;
+      window.location = window.location.href;
     });
   });
 });
