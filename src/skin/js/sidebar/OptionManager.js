@@ -7,9 +7,9 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   window.CRM.ElementListener('.checkOnlyPersonView', 'click', function (event) {
-    var ID = event.currentTarget.dataset.id;
-    var optionID = event.currentTarget.dataset.optionid;
-    var isChecked = event.currentTarget.checked;
+    let ID = event.currentTarget.dataset.id;
+    let optionID = event.currentTarget.dataset.optionid;
+    let isChecked = event.currentTarget.checked;
 
     window.CRM.APIRequest({
       method: 'POST',
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let mode = event.currentTarget.dataset.mode;
     let Order = event.currentTarget.dataset.order;
     let ListID = event.currentTarget.dataset.listid;
-    var ID = event.currentTarget.dataset.id;
-    var Action = event.currentTarget.dataset.action;
+    let ID = event.currentTarget.dataset.id;
+    let Action = event.currentTarget.dataset.action;
 
     window.CRM.APIRequest({
       method: "POST",
@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let mode = event.currentTarget.dataset.mode;
     let Order = event.currentTarget.dataset.order;
     let ListID = event.currentTarget.dataset.listid;
-    var ID = event.currentTarget.dataset.id;
-    var name = event.currentTarget.dataset.name;
+    let ID = event.currentTarget.dataset.id;
+    let name = event.currentTarget.dataset.name;
 
     bootbox.setDefaults({
       locale: window.CRM.shortLocale
