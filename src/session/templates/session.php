@@ -254,7 +254,7 @@ if (empty($person)) {
                 </div>
                 <?php if ($twofa): ?>
                 <div class="form-group has-feedback">
-                    <input type="text" id="TwoFaBox" name="twofafield" class= "form-control form-control-sm twofact_textfield" data-toggle="TwoFaBox"
+                    <input type="text" name="twofafield" class= "form-control form-control-sm twofact_textfield"
                         placeholder="<?= _("2FA : OTP key") ?>" required autofocus>
                     <br/>
                 </div>
@@ -354,7 +354,7 @@ if (empty($person)) {
 
         <?php if ($twofa): ?>
             <div class="form-group twofact">
-                <input type="text" id="TwoFaBox" name="twofafield" class= "form-control form-control-sm twofact_textfield" data-toggle="TwoFaBox"
+                <input type="text" name="twofafield" class= "form-control form-control-sm twofact_textfield"
                     placeholder="<?= _("2FA : OTP key") ?>" required autofocus>
                 <br/>
             </div>
