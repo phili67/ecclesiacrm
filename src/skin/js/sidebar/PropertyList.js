@@ -1,6 +1,50 @@
 /* Copyright 2024 : Philippe Logel */
 document.addEventListener("DOMContentLoaded", function () {
 
+  window.CRM.ElementListener('#add-new-prop', 'click', function (event) {
+    var modal = bootbox.dialog({
+      message: BootboxContentPropertyList(window.CRM.propertyTypesAll),
+      size: 'large',
+      title: i18next.t("Add a New Property"),
+      buttons: [
+        {
+          label: i18next.t("Save"),
+          className: "btn btn-primary pull-left",
+          callback: function () {
+            var theClass = window.CRM.propertyType;
+            var Name = document.getElementById('Name').value;
+            var Description = document.getElementById('description').value;
+            var Prompt = document.getElementById('prompt').value;
+
+            window.CRM.APIRequest({
+              method: 'POST',
+              path: 'properties/typelists/create',
+              data: JSON.stringify({ "Class": theClass, "Name": Name, "Description": Description, "Prompt": Prompt })
+            }, function (data) {
+              window.CRM.dataPropertyListTable.ajax.reload(function () {
+                loadTableEvents();
+              });
+            });
+          }
+        },
+        {
+          label: i18next.t("Close"),
+          className: "btn btn-default pull-left",
+          callback: function () {
+            console.log("just do something on close");
+          }
+        }
+      ],
+      show: false,
+      onEscape: function () {
+        modal.modal("hide");
+      }
+    });
+
+    modal.modal("show");
+  });
+
+  
   /* IMPORTANT : be careful
     This will work in cartToGroup code */
   function BootboxContentPropertyList(propertyTypes) {
@@ -128,49 +172,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         modal.modal("show");
       });
-    });
-
-    window.CRM.ElementListener('#add-new-prop', 'click', function (event) {
-      var modal = bootbox.dialog({
-        message: BootboxContentPropertyList(window.CRM.propertyTypesAll),
-        size: 'large',
-        title: i18next.t("Add a New Property"),
-        buttons: [
-          {
-            label: i18next.t("Save"),
-            className: "btn btn-primary pull-left",
-            callback: function () {
-              var theClass = window.CRM.propertyType;
-              var Name = document.getElementById('Name').value;
-              var Description = document.getElementById('description').value;
-              var Prompt = document.getElementById('prompt').value;
-
-              window.CRM.APIRequest({
-                method: 'POST',
-                path: 'properties/typelists/create',
-                data: JSON.stringify({ "Class": theClass, "Name": Name, "Description": Description, "Prompt": Prompt })
-              }, function (data) {
-                window.CRM.dataPropertyListTable.ajax.reload(function () {
-                  loadTableEvents();
-                });
-              });
-            }
-          },
-          {
-            label: i18next.t("Close"),
-            className: "btn btn-default pull-left",
-            callback: function () {
-              console.log("just do something on close");
-            }
-          }
-        ],
-        show: false,
-        onEscape: function () {
-          modal.modal("hide");
-        }
-      });
-
-      modal.modal("show");
     });
   }
 
