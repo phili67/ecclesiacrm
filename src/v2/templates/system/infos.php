@@ -198,7 +198,7 @@ EOD;
               <label><?= _('Details:')?> CRM (<?=  AppIntegrityService::getIntegrityCheckMessage() ?>)</label>
                 <?php
                 $signatureFailures = AppIntegrityService::getFilesFailingIntegrityCheck();
-                if (count($signatureFailures['CRM']) > 0) {
+                if (array_key_exists('CRM', $signatureFailures) and count($signatureFailures['CRM']) > 0) {
                     ?>
                     <p><?= _('Files failing integrity check') ?>:
                     <table class="display responsive no-wrap" width="100%" id="fileIntegrityCheckResultsTable">
