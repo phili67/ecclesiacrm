@@ -205,6 +205,8 @@ class SidebarVolunteerOpportunityController
             }
 
             $vo->save();
+
+            return $response->withJson(['success' => true]);
         }
 
         return $response->withJson(['success' => false]);
@@ -220,6 +222,8 @@ class SidebarVolunteerOpportunityController
             $vo->setIcon($input->iconId);
 
             $vo->save();
+
+            return $response->withJson(['success' => true]);
         }
 
         return $response->withJson(['success' => false]);
@@ -235,6 +239,8 @@ class SidebarVolunteerOpportunityController
             $vo->setColor($input->colId);
 
             $vo->save();
+
+            return $response->withJson(['success' => true]);
         }
 
         return $response->withJson(['success' => false]);

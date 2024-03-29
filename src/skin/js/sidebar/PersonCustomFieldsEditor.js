@@ -1,7 +1,7 @@
-$(function() {
-  $(document).on("click",".delete-field", function(){
-     var orderID = $(this).data("orderid");
-     var field = $(this).data("field");
+document.addEventListener("DOMContentLoaded", function () {
+  window.CRM.ElementListener('.delete-field', 'click', function (event) {
+    let orderID = event.currentTarget.dataset.orderid;
+    let field = event.currentTarget.dataset.field;
 
      bootbox.confirm({
       title: i18next.t("Attention"),
@@ -21,9 +21,9 @@ $(function() {
     });
   });
 
-  $(document).on("click",".up-action", function(){
-    var orderID = $(this).data("orderid");
-    var field   = $(this).data("field");
+  window.CRM.ElementListener('.up-action', 'click', function (event) {
+    let orderID = event.currentTarget.dataset.orderid;
+    let field = event.currentTarget.dataset.field;
 
     window.CRM.APIRequest({
       method: 'POST',
@@ -35,9 +35,9 @@ $(function() {
     });
   });
 
-  $(document).on("click",".down-action", function(){
-    var orderID = $(this).data("orderid");
-    var field   = $(this).data("field");
+  window.CRM.ElementListener('.down-action', 'click', function (event) {
+    let orderID = event.currentTarget.dataset.orderid;
+    let field = event.currentTarget.dataset.field;
 
     window.CRM.APIRequest({
       method: 'POST',

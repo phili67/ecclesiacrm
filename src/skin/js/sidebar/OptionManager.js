@@ -4,7 +4,7 @@
 //  Updated     : 2019/07/03
 //
 
-document.addEventListener("DOMContentLoaded", function () {
+  import {ImagePickerWindow} from './IconPicker.js';
 
   window.CRM.ElementListener('.checkOnlyPersonView', 'click', function (event) {
     let ID = event.currentTarget.dataset.id;
@@ -95,11 +95,11 @@ document.addEventListener("DOMContentLoaded", function () {
       message: i18next.t("Select your classification icon"),
       directory: window.CRM.root + '/skin/icons/markers/'
     },
-      function (selectedName) {
+      function (name) {
         window.CRM.APIRequest({
           method: 'POST',
           path: 'mapicons/setIconName',
-          data: JSON.stringify({ "name": selectedName, "lstID": lstID, "lstOptionID": lstOptionID })
+          data: JSON.stringify({ "name": name, "lstID": lstID, "lstOptionID": lstOptionID })
         }, function (data) {
           window.location = window.location.href;
         });
@@ -110,18 +110,18 @@ document.addEventListener("DOMContentLoaded", function () {
           path: 'mapicons/getall',
         }, function (data) {
           let len = data.length;
-
           let table = document.getElementById('here_table');
 
           let res = '<table width=100%>';
+          let buff = '';
 
-          for (i = 0; i < len; i++) {
+          for (let i = 0; i < len; i++) {
             if (i % 8 == 0) {
               if (i == 0) {
-                var buff = '<tr>';
+                buff = '<tr>';
               } else {
                 res += buff + '</tr>';
-                var buff = '<tr>';
+                buff = '<tr>';
               }
             }
             buff += '<td><img src="' + directory + data[i] + '" class="imgCollection" data-name="' + data[i] + '" style="border:solid 1px white"></td>';
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           if (buff != '') {
             len = len % 8;
-            for (i = 0; i < len; i++) {
+            for (let i = 0; i < len; i++) {
               buff += '<td></td>';
             }
             res += buff + '</tr>';
@@ -142,4 +142,3 @@ document.addEventListener("DOMContentLoaded", function () {
     diag.build();
     diag.show();
   });
-});

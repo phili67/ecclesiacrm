@@ -79,16 +79,20 @@ class SidebarMenuLinksController
             $menuLink = MenuLinkQuery::Create()->findOneById($input->MenuLinkId);
             $place = $menuLink->getOrder();
 
+            $personID = $menuLink->getPersonId();
+
             // we search all the links
-            $menuLinks = MenuLinkQuery::Create()->findByPersonId($menuLink->getPersonId());
+            $menuLinks = MenuLinkQuery::Create()->findByPersonId($personID);
             $count = $menuLinks->count();
 
             if ($menuLink != null) {
                 $menuLink->delete();
             }
 
-            for ($i = $place + 1; $i <= $count - 1; $i++) {
-                $menuLink = MenuLinkQuery::Create()->findOneByOrder($i);
+            for ($i = $place + 1; $i <= $count; $i++) {
+                $menuLink = MenuLinkQuery::Create()
+                    ->filterByPersonId($personID)
+                    ->findOneByOrder($i);
                 if (!is_null($menuLink)) {
                     $menuLink->setOrder($i - 1);
                     $menuLink->save();

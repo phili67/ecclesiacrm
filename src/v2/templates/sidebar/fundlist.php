@@ -29,6 +29,6 @@ require $sRootDocument . '/Include/Header.php';
 
 </div>
 
-<script src="<?= $sRootPath ?>/skin/js/sidebar/FundList.js" ></script>
+<script type="module" src="<?= $sRootPath ?>/skin/js/sidebar/FundList.js" ></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
