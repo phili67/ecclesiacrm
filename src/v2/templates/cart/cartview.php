@@ -92,17 +92,17 @@ if ($iNumPersons > 0) {
                     ?>
                     &nbsp;
                     <div class="btn-group" id="globalSMSLink">
-                        <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i
+                        <a class="btn btn-app allPhonesCommaD" href="#" ><i
                                 class="fas fa-mobile"></i> <?= _("Text Cart") ?></a>
                         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu" role="menu">
-                            <a href="javascript:void(0)" onclick="allPhonesCommaD()" class="dropdown-item "><i
+                            <a href="#" class="dropdown-item allPhonesCommaD"><i
                                         class="fas fa-mobile"></i> <?= _("Copy Paste the Texts") ?></a>
-                            <a href="sms:<?= str_replace(' ', '', mb_substr($sPhoneLinkSMS, 0, -2)) ?>"
-                                   class="dropdown-item sPhoneLinkSMS"><i class="fas fa-mobile"></i> <?= _("Text Cart") ?></a>
+                            <a href="sms:<?= str_replace(' ', '', mb_substr($sPhoneLinkSMS, 0, -2)) ?>" id="sPhoneLinkSMS"
+                                   class="dropdown-item"><i class="fas fa-mobile"></i> <?= _("Text Cart") ?></a>
                         </div>
                     </div>
                     <?php
@@ -141,7 +141,7 @@ if ($iNumPersons > 0) {
                         <?= _('Bulk Mail Presort') ?>
                     </div>
                     <div class="col-md-6">
-                        <input name="bulkmailpresort" type="checkbox" onclick="codename()" id="BulkMailPresort"
+                        <input name="bulkmailpresort" type="checkbox" id="BulkMailPresort" class="codename"
                                value="1"
                                <?= (array_key_exists('buildmailpresort', $_COOKIE) && $_COOKIE['bulkmailpresort']) ? 'checked' : '' ?>><br>
                     </div>
@@ -155,7 +155,7 @@ if ($iNumPersons > 0) {
                         <!-- // instead of cookie ... (save $_SESSION in MySQL) -->
                         <input
                             <?= (array_key_exists('buildmailpresort', $_COOKIE) && !$_COOKIE['bulkmailpresort']) ? 'disabled ' : '' ?>
-                            name="bulkmailquiet" type="checkbox" onclick="codename()" id="QuietBulkMail" value="1"
+                            name="bulkmailquiet" type="checkbox" id="QuietBulkMail" value="1" class="codename" disabled
                             <?= (array_key_exists('bulkmailquiet', $_COOKIE) && $_COOKIE['bulkmailquiet'] && array_key_exists('buildmailpresort', $_COOKIE) && $_COOKIE['bulkmailpresort']) ? 'checked' : '' ?>>
                     </div>
                 </div>

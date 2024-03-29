@@ -34,6 +34,6 @@ if ( $isPastoralCareEnabled ) {
   <table class="table table-striped table-bordered" id="pastoral-careTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
-<script src="<?=  $sRootPath ?>/skin/js/sidebar/PastoralCareList.js" ></script>
+<script type="module" src="<?=  $sRootPath ?>/skin/js/sidebar/PastoralCareList.js" ></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>

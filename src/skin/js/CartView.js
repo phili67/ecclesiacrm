@@ -1,22 +1,60 @@
-/* Copyright 2019 : Philippe Logel */
+/* Copyright 2024 : Philippe Logel */
+document.addEventListener("DOMContentLoaded", function() {
+    
+    window.CRM.ElementListener('.allPhonesCommaD', 'click', function(event) {
+        prompt(i18next.t("Press CTRL + C to copy all group members\' phone numbers"), window.CRM.sPhoneLink)
+    });
+    
+    window.CRM.ElementListener('.codename', 'click', function(event) {
+        if (document.labelform.bulkmailpresort.checked) {
+            document.labelform.bulkmailquiet.disabled = false;
+        } else {
+            document.labelform.bulkmailquiet.disabled = true;
+            document.labelform.bulkmailquiet.checked = false;
+        }
+    });
+    
+    function loadTableEvents () 
+    {
+        window.CRM.ElementListener('.RemoveFromPeopleCart', 'click', function(event) {
+            let personid = event.currentTarget.dataset.personid;
+            event.stopPropagation();
+            window.CRM.cart.removePerson([personid], function (data) {
+                window.CRM.dataTableListing.ajax.reload(function () {
+                    if (window.CRM.dataTableListing.data().count() == 0) {
+                        bootbox.alert(i18next.t("You have no more items in your cart."), function () {
+                            window.location.href = window.CRM.root + "/v2/dashboard"
+                        });                        
+                    }
+                    loadTableEvents();
+                });
+    
+                // we have to update the links
+                document.getElementById("emailLink").setAttribute('href', "mailto:" + data.sEmailLink);
+                document.getElementById("emailCCIlink").setAttribute('href', "mailto:?bcc=" + data.sEmailLink);
+                document.getElementById("sPhoneLinkSMS").setAttribute('href', "sms:" + data.sPhoneLink);
 
-function allPhonesCommaD() {
-    prompt(i18next.t("Press CTRL + C to copy all group members\' phone numbers"), window.CRM.sPhoneLink)
-}
-
-function codename() {
-    if (document.labelform.bulkmailpresort.checked) {
-        document.labelform.bulkmailquiet.disabled = false;
-    } else {
-        document.labelform.bulkmailquiet.disabled = true;
-        document.labelform.bulkmailquiet.checked = false;
+                if (data.sEmailLink == "") {
+                    document.getElementById("emailLink").style.display = 'none';
+                    document.getElementById("emailCCIlink").style.display = 'none';
+                }
+    
+                if (data.sPhoneLink == "") {
+                    document.getElementById("sPhoneLinkSMS").style.display = 'none';
+                }
+    
+                window.CRM.sEmailLink = data.sEmailLink;
+                window.CRM.sPhoneLink = data.sPhoneLink;
+            });
+        });
     }
-}
 
-$(function() {
-    window.CRM.dataTableListing = $("#cart-listing-table").DataTable({
+    window.CRM.dataTableListing = new DataTable("#cart-listing-table", {
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
+        },
+        initComplete: function (settings, json) {
+            loadTableEvents();
         },
         responsive: true,
         deferLoading: 10,
@@ -85,7 +123,7 @@ $(function() {
         ]
     });
 
-    $("#cart-label-table").DataTable({
+    let test = new DataTable("#cart-label-table", {
         responsive: true,
         paging: false,
         searching: false,
@@ -95,43 +133,11 @@ $(function() {
         fnDrawCallback: function (settings) {
             $("#selector thead").remove();
         }
-    });
+    })
 
-    $(document).on("click", ".emptyCart", function (e) {
+    window.CRM.ElementListener('.emptyCart', 'click', function(event) {
         window.CRM.cart.empty(function () {
             document.location.reload();
-        });
-    });
-
-    $(document).on("click", ".RemoveFromPeopleCart", function (e) {
-        clickedButton = $(this);
-        e.stopPropagation();
-        window.CRM.cart.removePerson([clickedButton.data("personid")], function (data) {
-            window.CRM.dataTableListing.ajax.reload(function () {
-                if (window.CRM.dataTableListing.data().count() == 0) {
-                    bootbox.alert(i18next.t("You have no more items in your cart."), function () {
-                        window.location.href = window.CRM.root + "/v2/dashboard"
-                    });
-                }
-            });
-
-            // we have to update the links
-            $('#emailLink').attr("href", "mailto:" + data.sEmailLink);
-            $('#emailCCIlink').attr("href", "mailto:?bcc=" + data.sEmailLink);
-
-            $('.sPhoneLinkSMS').attr("href", "sms:" + data.sPhoneLink);
-
-            if (data.sEmailLink == "") {
-                $('#emailLink').hide();
-                $('#emailCCIlink').hide();
-            }
-
-            if (data.sPhoneLink == "") {
-                $('#globalSMSLink').hide();
-            }
-
-            window.CRM.sEmailLink = data.sEmailLink;
-            window.CRM.sPhoneLink = data.sPhoneLink;
         });
     });
 });

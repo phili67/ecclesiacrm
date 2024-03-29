@@ -34,6 +34,6 @@ if ( $addCustomLink ) {
   window.CRM.personId  = <?= $personId ?>;
 </script>
 
-<script src="<?= $sRootPath ?>/skin/js/sidebar/MenuLinksList.js" ></script>
+<script type="module" src="<?= $sRootPath ?>/skin/js/sidebar/MenuLinksList.js" ></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>

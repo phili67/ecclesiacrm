@@ -586,5 +586,4 @@ if ($embedded) {
 }
 ?>
 
-<script src="<?= $sRootPath ?>/skin/js/sidebar/IconPicker.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/sidebar/OptionManager.js"></script>
+<script type="module" src="<?= $sRootPath ?>/skin/js/sidebar/OptionManager.js"></script>
