@@ -71,7 +71,7 @@ class AppIntegrityService
 
       $pluginsIntegrity = AppIntegrityService::verifyPluginsIntegrity([]);
 
-      if (count($signatureFailures) > 0 or $pluginsIntegrity['status'] == 'failure') {
+      if (count($signatureFailures['CRM']) > 0 or $pluginsIntegrity['status'] == 'failure') {
         if (array_key_exists('files', $pluginsIntegrity)) {
             $signatureFailures['PLUGINS'] = $pluginsIntegrity['files'];
         }
@@ -108,7 +108,7 @@ class AppIntegrityService
           return AppIntegrityService::verifyApplicationIntegrity()['files'];
       }
 
-      return _('Passed');
+      return AppIntegrityService::$IntegrityCheckDetails;
   }
 
 
