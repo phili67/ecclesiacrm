@@ -344,6 +344,11 @@ class CalendarEventV2Controller
 
         $calendarService = new CalendarService();
 
+
+        if (is_string($input->calendarID)){
+            $input->calendarID = explode(",", $input->calendarID);
+        }
+
         if (!strcmp($input->eventAction, 'createEvent')) {
 
             if (!$calendarService->createEventForCalendar($input->calendarID, $input->start, $input->end,
