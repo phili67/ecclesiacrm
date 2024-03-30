@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,6 +13,9 @@ msgstr "你确定要删除这个图片吗？"
 
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr "按CTRL + C复制所有小组成员的电话号码"
+
+msgid "You have no more items in your cart."
+msgstr "你的购物车里已经没有物品了。"
 
 msgid "Name"
 msgstr "命名"
@@ -31,9 +34,6 @@ msgstr "种类"
 
 msgid "Family Role"
 msgstr "家庭角色"
-
-msgid "You have no more items in your cart."
-msgstr "你的购物车里已经没有物品了。"
 
 msgid "Compose New Message"
 msgstr "撰写新邮件"
@@ -1275,6 +1275,10 @@ msgstr "孩子应该在主日学小组中拥有一个家庭 !"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "你确定要删除所选组的成员吗？"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "私人数据"
+
 msgid "Group Role"
 msgstr "集团角色"
 
@@ -1538,8 +1542,8 @@ msgid ""
 "assigned for this field!"
 msgstr "警告。删除这个字段，你将不可挽回地失去为这个字段分配的所有家庭数据!"
 
-msgid "ID"
-msgstr "身份证"
+msgid "Add Fund"
+msgstr "添加基金"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1551,17 +1555,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "基金编辑"
 
-msgid "Add Fund"
-msgstr "添加基金"
+msgid "ID"
+msgstr "身份证"
 
 msgid "Validate"
 msgstr "验证"
-
-msgid "Place"
-msgstr "地点"
-
-msgid "Uri"
-msgstr "乌里"
 
 msgid "URI"
 msgstr "URI"
@@ -1569,11 +1567,8 @@ msgstr "URI"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "该链接应以：http://.... 或 https://.... 开始。"
 
-msgid "Global Custom Menus"
-msgstr "全球自定义菜单"
-
-msgid "Dashboard"
-msgstr "仪表板"
+msgid "Add Custom Menu Link"
+msgstr "添加自定义菜单链接"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1585,8 +1580,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "自定义菜单链接编辑器"
 
-msgid "Add Custom Menu Link"
-msgstr "添加自定义菜单链接"
+msgid "Place"
+msgstr "地点"
+
+msgid "Uri"
+msgstr "乌里"
+
+msgid "Global Custom Menus"
+msgstr "全球自定义菜单"
+
+msgid "Dashboard"
+msgstr "仪表板"
 
 msgid "Delete Classification"
 msgstr "删除分类"
@@ -1604,8 +1608,8 @@ msgstr "地图图标 GoogleMap"
 msgid "Select your classification icon"
 msgstr "选择你的分类图标"
 
-msgid "Visible"
-msgstr "可见"
+msgid "Add Pastoral Care Type"
+msgstr "添加教牧关怀类型"
 
 msgid "Visible for other authorized users"
 msgstr "对其他授权用户可见"
@@ -1620,19 +1624,16 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "牧民关怀类型编辑"
 
-msgid "Add Pastoral Care Type"
-msgstr "添加教牧关怀类型"
+msgid "Visible"
+msgstr "可见"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
 "assigned for this field!"
 msgstr "警告。删除这个字段，你将不可挽回地失去为这个字段分配的所有个人数据!"
 
-msgid "with this Property..."
-msgstr "与此属性..."
-
-msgid "Prompt"
-msgstr "提示"
+msgid "Add a New Property"
+msgstr "添加一个新的属性"
 
 msgid "Select Property Type"
 msgstr "选择物业类型"
@@ -1640,14 +1641,17 @@ msgstr "选择物业类型"
 msgid "with this property..."
 msgstr "与此属性..."
 
+msgid "Prompt"
+msgstr "提示"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "你要删除这个财产。你想继续吗？"
 
 msgid "Property Type Editor"
 msgstr "属性类型编辑器"
 
-msgid "Add a New Property"
-msgstr "添加一个新的属性"
+msgid "with this Property..."
+msgstr "与此属性..."
 
 msgid "Class"
 msgstr "级别"
@@ -1674,6 +1678,9 @@ msgstr "它并失去任何相应的财产分配。"
 msgid "Add a New Property Type"
 msgstr "添加一个新的财产类型"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "添加新的志愿者机会"
+
 msgid "Activ"
 msgstr "激活"
 
@@ -1682,9 +1689,6 @@ msgstr "母体（等级制度）"
 
 msgid "Color"
 msgstr "颜色"
-
-msgid "Add New Volunteer Opportunity"
-msgstr "添加新的志愿者机会"
 
 msgid "Send Message"
 msgstr "发送信息"

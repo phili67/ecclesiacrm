@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,6 +13,9 @@ msgstr "Er du sikker på, at du ønsker at slette dette billede?"
 
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr "Tryk på CTRL + C for at kopiere alle gruppemedlemmernes telefonnumre"
+
+msgid "You have no more items in your cart."
+msgstr "Du har ikke flere varer i din kurv."
 
 msgid "Name"
 msgstr "Navn"
@@ -31,9 +34,6 @@ msgstr "Klassifikation"
 
 msgid "Family Role"
 msgstr "Familiens rolle"
-
-msgid "You have no more items in your cart."
-msgstr "Du har ikke flere varer i din kurv."
 
 msgid "Compose New Message"
 msgstr "Udarbejdelse af ny besked"
@@ -1309,6 +1309,10 @@ msgstr "Et barn bør have en familie i en søndagsskolegruppe !"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Er du sikker på, at du vil fjerne de valgte gruppemedlemmer?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "Private data"
+
 msgid "Group Role"
 msgstr "Gruppens rolle"
 
@@ -1578,8 +1582,8 @@ msgstr ""
 "Advarsel: Hvis du sletter dette felt, mister du uigenkaldeligt alle "
 "familiedata, der er tildelt dette felt!"
 
-msgid "ID"
-msgstr "ID"
+msgid "Add Fund"
+msgstr "Tilføj fond"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1591,17 +1595,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "Fondsredaktør"
 
-msgid "Add Fund"
-msgstr "Tilføj fond"
+msgid "ID"
+msgstr "ID"
 
 msgid "Validate"
 msgstr "Validér"
-
-msgid "Place"
-msgstr "Sted"
-
-msgid "Uri"
-msgstr "Uri"
 
 msgid "URI"
 msgstr "URI"
@@ -1609,11 +1607,8 @@ msgstr "URI"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Dette link skal begynde med : http://.... eller https://...."
 
-msgid "Global Custom Menus"
-msgstr "Globale brugerdefinerede menuer"
-
-msgid "Dashboard"
-msgstr "Instrumentbræt"
+msgid "Add Custom Menu Link"
+msgstr "Tilføj et brugerdefineret menulinje-link"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1625,8 +1620,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Editor til brugerdefinerede menulinjer"
 
-msgid "Add Custom Menu Link"
-msgstr "Tilføj et brugerdefineret menulinje-link"
+msgid "Place"
+msgstr "Sted"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "Global Custom Menus"
+msgstr "Globale brugerdefinerede menuer"
+
+msgid "Dashboard"
+msgstr "Instrumentbræt"
 
 msgid "Delete Classification"
 msgstr "Slet klassifikation"
@@ -1645,8 +1649,8 @@ msgstr "Kortikon GoogleMap"
 msgid "Select your classification icon"
 msgstr "Vælg dit klassifikationsikon"
 
-msgid "Visible"
-msgstr "Synlig"
+msgid "Add Pastoral Care Type"
+msgstr "Tilføj Pastoral Care Type"
 
 msgid "Visible for other authorized users"
 msgstr "Synlig for andre autoriserede brugere"
@@ -1661,8 +1665,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "Pastoral Care Type Editor"
 
-msgid "Add Pastoral Care Type"
-msgstr "Tilføj Pastoral Care Type"
+msgid "Visible"
+msgstr "Synlig"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1671,11 +1675,8 @@ msgstr ""
 "Advarsel: Hvis du sletter dette felt, mister du uigenkaldeligt alle "
 "personoplysninger, der er tildelt dette felt!"
 
-msgid "with this Property..."
-msgstr "med denne ejendom..."
-
-msgid "Prompt"
-msgstr "Prompt"
+msgid "Add a New Property"
+msgstr "Tilføj en ny ejendom"
 
 msgid "Select Property Type"
 msgstr "Vælg ejendomstype"
@@ -1683,14 +1684,17 @@ msgstr "Vælg ejendomstype"
 msgid "with this property..."
 msgstr "med denne ejendom..."
 
+msgid "Prompt"
+msgstr "Prompt"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "Du er ved at slette denne egenskab. Ønsker du at fortsætte?"
 
 msgid "Property Type Editor"
 msgstr "Editor til egenskabstype"
 
-msgid "Add a New Property"
-msgstr "Tilføj en ny ejendom"
+msgid "with this Property..."
+msgstr "med denne ejendom..."
 
 msgid "Class"
 msgstr "Klasse"
@@ -1719,6 +1723,9 @@ msgstr "den og mister alle tilsvarende ejendomstildelinger."
 msgid "Add a New Property Type"
 msgstr "Tilføj en ny egenskabstype"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "Tilføj en ny frivilligmulighed"
+
 msgid "Activ"
 msgstr "Aktiv"
 
@@ -1727,9 +1734,6 @@ msgstr "Forælder (hierarki)"
 
 msgid "Color"
 msgstr "Farve"
-
-msgid "Add New Volunteer Opportunity"
-msgstr "Tilføj en ny frivilligmulighed"
 
 msgid "Send Message"
 msgstr "Send besked"

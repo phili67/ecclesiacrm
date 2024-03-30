@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,6 +15,9 @@ msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr ""
 "Nyomja meg a CTRL + C billentyűkombinációt a csoport összes tagjának "
 "telefonszámának másolásához."
+
+msgid "You have no more items in your cart."
+msgstr "Nincs több termék a kosarában."
 
 msgid "Name"
 msgstr "Név"
@@ -33,9 +36,6 @@ msgstr "Osztályozás"
 
 msgid "Family Role"
 msgstr "Családi szerep"
-
-msgid "You have no more items in your cart."
-msgstr "Nincs több termék a kosarában."
 
 msgid "Compose New Message"
 msgstr "Új üzenet készítése"
@@ -1313,6 +1313,10 @@ msgstr "Egy gyereknek legyen családja a vasárnapi iskolai csoportban !"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Biztos, hogy el akarja távolítani a kiválasztott csoporttagokat?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "Magánadatok"
+
 msgid "Group Role"
 msgstr "Csoport szerepe"
 
@@ -1588,8 +1592,8 @@ msgstr ""
 "Figyelmeztetés: A mező törlésével visszavonhatatlanul elveszíti a mezőhöz "
 "rendelt összes családi adatot!"
 
-msgid "ID"
-msgstr "ID"
+msgid "Add Fund"
+msgstr "Alap hozzáadása"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1601,17 +1605,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "Alap szerkesztő"
 
-msgid "Add Fund"
-msgstr "Alap hozzáadása"
+msgid "ID"
+msgstr "ID"
 
 msgid "Validate"
 msgstr "Érvényesítse a  címet."
-
-msgid "Place"
-msgstr "Helyszín"
-
-msgid "Uri"
-msgstr "Uri"
 
 msgid "URI"
 msgstr "URI"
@@ -1621,11 +1619,8 @@ msgstr ""
 "Ennek a hivatkozásnak a következővel kell kezdődnie: http://.... vagy "
 "https://....."
 
-msgid "Global Custom Menus"
-msgstr "Globális egyéni menük"
-
-msgid "Dashboard"
-msgstr "Műszerfal"
+msgid "Add Custom Menu Link"
+msgstr "Egyéni menü link hozzáadása"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1637,8 +1632,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Egyéni menü link szerkesztő"
 
-msgid "Add Custom Menu Link"
-msgstr "Egyéni menü link hozzáadása"
+msgid "Place"
+msgstr "Helyszín"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "Global Custom Menus"
+msgstr "Globális egyéni menük"
+
+msgid "Dashboard"
+msgstr "Műszerfal"
 
 msgid "Delete Classification"
 msgstr "Osztályozás törlése"
@@ -1656,8 +1660,8 @@ msgstr "Térkép ikon GoogleMap"
 msgid "Select your classification icon"
 msgstr "Válassza ki a besorolási ikonját"
 
-msgid "Visible"
-msgstr "Látható"
+msgid "Add Pastoral Care Type"
+msgstr "Lelkipásztori gondozás típus hozzáadása"
 
 msgid "Visible for other authorized users"
 msgstr "Látható más jogosult felhasználók számára"
@@ -1673,8 +1677,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "Lelkipásztori gondozás típusszerkesztő"
 
-msgid "Add Pastoral Care Type"
-msgstr "Lelkipásztori gondozás típus hozzáadása"
+msgid "Visible"
+msgstr "Látható"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1683,11 +1687,8 @@ msgstr ""
 "Figyelmeztetés: A mező törlésével visszavonhatatlanul elveszíti a mezőhöz "
 "rendelt összes személyi adatot!"
 
-msgid "with this Property..."
-msgstr "ezzel az ingatlannal..."
-
-msgid "Prompt"
-msgstr "Prompt"
+msgid "Add a New Property"
+msgstr "Új ingatlan hozzáadása"
 
 msgid "Select Property Type"
 msgstr "Ingatlantípus kiválasztása"
@@ -1695,14 +1696,17 @@ msgstr "Ingatlantípus kiválasztása"
 msgid "with this property..."
 msgstr "ezzel az ingatlannal..."
 
+msgid "Prompt"
+msgstr "Prompt"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "Ezt a tulajdonságot törölni fogja. Szeretné folytatni ?"
 
 msgid "Property Type Editor"
 msgstr "Tulajdonságtípus-szerkesztő"
 
-msgid "Add a New Property"
-msgstr "Új ingatlan hozzáadása"
+msgid "with this Property..."
+msgstr "ezzel az ingatlannal..."
 
 msgid "Class"
 msgstr "Osztály"
@@ -1732,6 +1736,9 @@ msgstr "azt, és elveszíti a megfelelő tulajdonság hozzárendeléseket."
 msgid "Add a New Property Type"
 msgstr "Új ingatlantípus hozzáadása"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "Új önkéntes lehetőség hozzáadása"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -1740,9 +1747,6 @@ msgstr "Szülő (hierarchia)"
 
 msgid "Color"
 msgstr "Színes"
-
-msgid "Add New Volunteer Opportunity"
-msgstr "Új önkéntes lehetőség hozzáadása"
 
 msgid "Send Message"
 msgstr "Üzenet küldése"

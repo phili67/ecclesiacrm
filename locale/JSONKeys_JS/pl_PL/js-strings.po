@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,6 +14,9 @@ msgstr "Czy na pewno chcesz usunąć to zdjęcie?"
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr ""
 "Naciśnij CTRL + C, aby skopiować numery telefonów wszystkich członków grupy"
+
+msgid "You have no more items in your cart."
+msgstr "Nie masz już więcej pozycji w koszyku."
 
 msgid "Name"
 msgstr "Nazwa"
@@ -32,9 +35,6 @@ msgstr "Klasyfikacja"
 
 msgid "Family Role"
 msgstr "Rola rodziny"
-
-msgid "You have no more items in your cart."
-msgstr "Nie masz już więcej pozycji w koszyku."
 
 msgid "Compose New Message"
 msgstr "Utwórz nową wiadomość"
@@ -1305,6 +1305,10 @@ msgstr "Dziecko powinno mieć rodzinę w grupie niedzielnej !"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Czy na pewno chcesz usunąć wybranych członków grupy?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "Dane prywatne"
+
 msgid "Group Role"
 msgstr "Grupa Rola"
 
@@ -1580,8 +1584,8 @@ msgstr ""
 "Ostrzeżenie: Usuwając to pole, nieodwracalnie utracisz wszystkie dane "
 "rodziny przypisane do tego pola!"
 
-msgid "ID"
-msgstr "ID"
+msgid "Add Fund"
+msgstr "Dodaj fundusz"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1593,17 +1597,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "Redaktor Funduszu"
 
-msgid "Add Fund"
-msgstr "Dodaj fundusz"
+msgid "ID"
+msgstr "ID"
 
 msgid "Validate"
 msgstr "Zatwierdzić"
-
-msgid "Place"
-msgstr "Miejsce"
-
-msgid "Uri"
-msgstr "Uri"
 
 msgid "URI"
 msgstr "URI"
@@ -1611,11 +1609,8 @@ msgstr "URI"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Link ten powinien zaczynać się od: http://.... lub https://...."
 
-msgid "Global Custom Menus"
-msgstr "Globalne menu niestandardowe"
-
-msgid "Dashboard"
-msgstr "Tablica rozdzielcza"
+msgid "Add Custom Menu Link"
+msgstr "Dodaj odnośnik do własnego menu"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1627,8 +1622,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Edytor odnośników menu niestandardowego"
 
-msgid "Add Custom Menu Link"
-msgstr "Dodaj odnośnik do własnego menu"
+msgid "Place"
+msgstr "Miejsce"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "Global Custom Menus"
+msgstr "Globalne menu niestandardowe"
+
+msgid "Dashboard"
+msgstr "Tablica rozdzielcza"
 
 msgid "Delete Classification"
 msgstr "Usuń Klasyfikacja"
@@ -1648,8 +1652,8 @@ msgstr "Ikona mapy GoogleMap"
 msgid "Select your classification icon"
 msgstr "Wybierz ikonę klasyfikacji"
 
-msgid "Visible"
-msgstr "Widoczny"
+msgid "Add Pastoral Care Type"
+msgstr "Dodaj typ opieki duszpasterskiej"
 
 msgid "Visible for other authorized users"
 msgstr "Widoczny dla innych uprawnionych użytkowników"
@@ -1665,8 +1669,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "Duszpasterstwo Typ Redaktor"
 
-msgid "Add Pastoral Care Type"
-msgstr "Dodaj typ opieki duszpasterskiej"
+msgid "Visible"
+msgstr "Widoczny"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1675,11 +1679,8 @@ msgstr ""
 "Ostrzeżenie: Usuwając to pole, nieodwracalnie utracisz wszystkie dane osób "
 "przypisane do tego pola!"
 
-msgid "with this Property..."
-msgstr "z tą Nieruchomością..."
-
-msgid "Prompt"
-msgstr "Prompt"
+msgid "Add a New Property"
+msgstr "Dodaj nową nieruchomość"
 
 msgid "Select Property Type"
 msgstr "Wybierz typ nieruchomości"
@@ -1687,14 +1688,17 @@ msgstr "Wybierz typ nieruchomości"
 msgid "with this property..."
 msgstr "z tą nieruchomością..."
 
+msgid "Prompt"
+msgstr "Prompt"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "Zamierzasz usunąć tę nieruchomość. Czy chcesz kontynuować?"
 
 msgid "Property Type Editor"
 msgstr "Edytor typów właściwości"
 
-msgid "Add a New Property"
-msgstr "Dodaj nową nieruchomość"
+msgid "with this Property..."
+msgstr "z tą Nieruchomością..."
 
 msgid "Class"
 msgstr "Klasa"
@@ -1722,6 +1726,9 @@ msgstr "i utracić wszelkie odpowiadające im przypisania własności."
 msgid "Add a New Property Type"
 msgstr "Dodaj nowy typ obiektu"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "Dodaj nową ofertę wolontariatu"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -1730,9 +1737,6 @@ msgstr "Rodzic (hierarchia)"
 
 msgid "Color"
 msgstr "Kolor"
-
-msgid "Add New Volunteer Opportunity"
-msgstr "Dodaj nową ofertę wolontariatu"
 
 msgid "Send Message"
 msgstr "Wyślij wiadomość"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 08:16+0000\n"
+"POT-Creation-Date: 2024-03-30 21:03+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,7 +13,7 @@ msgstr ""
 msgid "Meeting Dashboard"
 msgstr "Πίνακας ελέγχου συνεδριάσεων"
 
-#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:101
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:102
 msgid "Meeting Settings"
 msgstr "Ρυθμίσεις συνάντησης"
 
@@ -54,14 +54,33 @@ msgstr "Πρώτα δημιουργήστε ένα δωμάτιο Jitsi με τ�
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:39
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:41
 msgid "The Jitsi domain name, by default"
 msgstr "Το όνομα τομέα του Jitsi, από προεπιλογή"
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:55
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:44
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:63
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:82
+msgid "Definition"
+msgstr "Ορισμός"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:47
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:66
+msgid "or"
+msgstr "ή"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:60
 msgid "The path for the script associated with the domain name"
 msgstr "Η διαδρομή για το σενάριο που σχετίζεται με το όνομα τομέα"
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:65
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:79
+msgid "The api Key"
+msgstr "Το κλειδί api"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:85
+msgid "You can find one on the website"
+msgstr "Μπορείτε να βρείτε ένα στην ιστοσελίδα"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:91
 msgid "Save Changes"
 msgstr "Αποθήκευση αλλαγών"

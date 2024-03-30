@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,9 @@ msgstr "Ви впевнені, що хочете видалити це зобр�
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr ""
 "Натисніть CTRL + C, щоб скопіювати номери телефонів усіх учасників групи"
+
+msgid "You have no more items in your cart."
+msgstr "У вашому кошику більше немає товарів."
 
 msgid "Name"
 msgstr "Ім'я"
@@ -33,9 +36,6 @@ msgstr "Класифікація"
 
 msgid "Family Role"
 msgstr "Роль сім'ї"
-
-msgid "You have no more items in your cart."
-msgstr "У вашому кошику більше немає товарів."
 
 msgid "Compose New Message"
 msgstr "Створити нове повідомлення"
@@ -1306,6 +1306,10 @@ msgstr "Дитина повинна мати сім'ю в групі неділ�
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Ви впевнені, що хочете видалити вибраних учасників групи?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "Особисті дані"
+
 msgid "Group Role"
 msgstr "Роль групи"
 
@@ -1574,8 +1578,8 @@ msgstr ""
 "Попередження: Видаливши це поле, ви безповоротно втратите всі дані сім'ї, "
 "призначені для цього поля!"
 
-msgid "ID"
-msgstr "ІДЕНТИФІКАТОР"
+msgid "Add Fund"
+msgstr "Поповнити рахунок"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1587,17 +1591,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "Редактор фонду"
 
-msgid "Add Fund"
-msgstr "Поповнити рахунок"
+msgid "ID"
+msgstr "ІДЕНТИФІКАТОР"
 
 msgid "Validate"
 msgstr "Підтвердити"
-
-msgid "Place"
-msgstr "Місце"
-
-msgid "Uri"
-msgstr "Урі."
 
 msgid "URI"
 msgstr "URI"
@@ -1605,11 +1603,8 @@ msgstr "URI"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Це посилання має починатися з: http://.... або https://...."
 
-msgid "Global Custom Menus"
-msgstr "Глобальні користувацькі меню"
-
-msgid "Dashboard"
-msgstr "Приладова панель"
+msgid "Add Custom Menu Link"
+msgstr "Додавання посилання на користувацьке меню"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1621,8 +1616,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Редактор посилань на користувацькі меню"
 
-msgid "Add Custom Menu Link"
-msgstr "Додавання посилання на користувацьке меню"
+msgid "Place"
+msgstr "Місце"
+
+msgid "Uri"
+msgstr "Урі."
+
+msgid "Global Custom Menus"
+msgstr "Глобальні користувацькі меню"
+
+msgid "Dashboard"
+msgstr "Приладова панель"
 
 msgid "Delete Classification"
 msgstr "Видалити класифікацію"
@@ -1640,8 +1644,8 @@ msgstr "Іконка карти GoogleMap"
 msgid "Select your classification icon"
 msgstr "Виберіть піктограму вашої класифікації"
 
-msgid "Visible"
-msgstr "Видимий"
+msgid "Add Pastoral Care Type"
+msgstr "Додати тип душпастирства"
 
 msgid "Visible for other authorized users"
 msgstr "Видимий для інших авторизованих користувачів"
@@ -1656,8 +1660,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "Редактор типів душпастирства"
 
-msgid "Add Pastoral Care Type"
-msgstr "Додати тип душпастирства"
+msgid "Visible"
+msgstr "Видимий"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1666,11 +1670,8 @@ msgstr ""
 "Попередження: Видаливши це поле, ви безповоротно втратите всі дані особи, "
 "призначені для цього поля!"
 
-msgid "with this Property..."
-msgstr "з цим майном..."
-
-msgid "Prompt"
-msgstr "Швидко"
+msgid "Add a New Property"
+msgstr "Додати новий об'єкт нерухомості"
 
 msgid "Select Property Type"
 msgstr "Виберіть тип власності"
@@ -1678,14 +1679,17 @@ msgstr "Виберіть тип власності"
 msgid "with this property..."
 msgstr "з цим майном..."
 
+msgid "Prompt"
+msgstr "Швидко"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "Ви збираєтеся видалити цей об'єкт. Ви хочете продовжити?"
 
 msgid "Property Type Editor"
 msgstr "Редактор типів властивостей"
 
-msgid "Add a New Property"
-msgstr "Додати новий об'єкт нерухомості"
+msgid "with this Property..."
+msgstr "з цим майном..."
 
 msgid "Class"
 msgstr "Клас."
@@ -1713,6 +1717,9 @@ msgstr "і втрачає всі відповідні права власнос�
 msgid "Add a New Property Type"
 msgstr "Додати новий тип нерухомості"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "Додати нову можливість для волонтерів"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -1721,9 +1728,6 @@ msgstr "Батько (ієрархія)"
 
 msgid "Color"
 msgstr "Колір"
-
-msgid "Add New Volunteer Opportunity"
-msgstr "Додати нову можливість для волонтерів"
 
 msgid "Send Message"
 msgstr "Надіслати повідомлення"

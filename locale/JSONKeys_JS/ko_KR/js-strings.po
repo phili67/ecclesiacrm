@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,6 +13,9 @@ msgstr "정말 이 이미지를 삭제하시겠습니까?"
 
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr "모든 그룹 구성원의 전화번호를 복사하려면 CTRL + C를 누릅니다."
+
+msgid "You have no more items in your cart."
+msgstr "장바구니에 더 이상 품목이 없습니다."
 
 msgid "Name"
 msgstr "이름"
@@ -31,9 +34,6 @@ msgstr "분류"
 
 msgid "Family Role"
 msgstr "가족 역할"
-
-msgid "You have no more items in your cart."
-msgstr "장바구니에 더 이상 품목이 없습니다."
 
 msgid "Compose New Message"
 msgstr "새 메시지 작성"
@@ -1293,6 +1293,10 @@ msgstr "어린이는 일요일 학교 그룹에 가족이 있어야 합니다!"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "선택한 그룹 멤버를 제거하시겠습니까?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "개인 데이터"
+
 msgid "Group Role"
 msgstr "그룹 역할"
 
@@ -1559,8 +1563,8 @@ msgstr ""
 "경고: 이 필드를 삭제하면 이 필드에 할당된 모든 가족 데이터를 취소할 수 없습니"
 "다!"
 
-msgid "ID"
-msgstr "ID"
+msgid "Add Fund"
+msgstr "펀드 추가"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1572,17 +1576,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "펀드 편집기"
 
-msgid "Add Fund"
-msgstr "펀드 추가"
+msgid "ID"
+msgstr "ID"
 
 msgid "Validate"
 msgstr "유효성 검사"
-
-msgid "Place"
-msgstr "장소"
-
-msgid "Uri"
-msgstr "Uri"
 
 msgid "URI"
 msgstr "URI"
@@ -1590,11 +1588,8 @@ msgstr "URI"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "이 링크는 http://.... 또는 https://....로 시작해야 합니다."
 
-msgid "Global Custom Menus"
-msgstr "글로벌 사용자 지정 메뉴"
-
-msgid "Dashboard"
-msgstr "대시보드"
+msgid "Add Custom Menu Link"
+msgstr "사용자 지정 메뉴 링크 추가"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1606,8 +1601,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "사용자 지정 메뉴 링크 편집기"
 
-msgid "Add Custom Menu Link"
-msgstr "사용자 지정 메뉴 링크 추가"
+msgid "Place"
+msgstr "장소"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "Global Custom Menus"
+msgstr "글로벌 사용자 지정 메뉴"
+
+msgid "Dashboard"
+msgstr "대시보드"
 
 msgid "Delete Classification"
 msgstr "분류 삭제"
@@ -1625,8 +1629,8 @@ msgstr "지도 아이콘 구글맵"
 msgid "Select your classification icon"
 msgstr "분류 아이콘 선택"
 
-msgid "Visible"
-msgstr "표시됨"
+msgid "Add Pastoral Care Type"
+msgstr "목회자 케어 유형 추가"
 
 msgid "Visible for other authorized users"
 msgstr "다른 인증된 사용자에게 표시"
@@ -1641,8 +1645,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "사목 케어 유형 편집기"
 
-msgid "Add Pastoral Care Type"
-msgstr "목회자 케어 유형 추가"
+msgid "Visible"
+msgstr "표시됨"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1651,11 +1655,8 @@ msgstr ""
 "경고: 이 필드를 삭제하면 이 필드에 할당된 모든 개인 데이터가 취소할 수 없게 "
 "됩니다!"
 
-msgid "with this Property..."
-msgstr "이 속성으로..."
-
-msgid "Prompt"
-msgstr "프롬프트"
+msgid "Add a New Property"
+msgstr "새 속성 추가"
 
 msgid "Select Property Type"
 msgstr "속성 유형 선택"
@@ -1663,14 +1664,17 @@ msgstr "속성 유형 선택"
 msgid "with this property..."
 msgstr "이 속성으로..."
 
+msgid "Prompt"
+msgstr "프롬프트"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "이 속성을 삭제하려고 합니다. 계속하시겠습니까?"
 
 msgid "Property Type Editor"
 msgstr "속성 유형 편집기"
 
-msgid "Add a New Property"
-msgstr "새 속성 추가"
+msgid "with this Property..."
+msgstr "이 속성으로..."
 
 msgid "Class"
 msgstr "클래스"
@@ -1697,6 +1701,9 @@ msgstr "를 클릭하고 해당 속성 할당을 잃게 됩니다."
 msgid "Add a New Property Type"
 msgstr "새 속성 유형 추가"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "새로운 자원봉사 기회 추가"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -1705,9 +1712,6 @@ msgstr "상위(계층 구조)"
 
 msgid "Color"
 msgstr "색상"
-
-msgid "Add New Volunteer Opportunity"
-msgstr "새로운 자원봉사 기회 추가"
 
 msgid "Send Message"
 msgstr "메시지 보내기"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,6 +13,9 @@ msgstr "Oletko varma, että haluat poistaa tämän kuvan?"
 
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr "Paina CTRL + C kopioidaksesi kaikkien ryhmän jäsenten puhelinnumerot."
+
+msgid "You have no more items in your cart."
+msgstr "Sinulla ei ole enää tuotteita ostoskorissasi."
 
 msgid "Name"
 msgstr "Nimi"
@@ -31,9 +34,6 @@ msgstr "Luokitus"
 
 msgid "Family Role"
 msgstr "Perheen rooli"
-
-msgid "You have no more items in your cart."
-msgstr "Sinulla ei ole enää tuotteita ostoskorissasi."
 
 msgid "Compose New Message"
 msgstr "Uuden viestin laatiminen"
@@ -1305,6 +1305,10 @@ msgstr "Lapsella pitäisi olla perhe pyhäkouluryhmässä !"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Haluatko varmasti poistaa valitut ryhmän jäsenet?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "Yksityiset tiedot"
+
 msgid "Group Role"
 msgstr "Ryhmän rooli"
 
@@ -1576,8 +1580,8 @@ msgstr ""
 "Varoitus: Jos poistat tämän kentän, menetät peruuttamattomasti kaikki "
 "kentälle määritetyt perhetiedot!"
 
-msgid "ID"
-msgstr "ID"
+msgid "Add Fund"
+msgstr "Lisää rahasto"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1589,17 +1593,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "Rahaston päätoimittaja"
 
-msgid "Add Fund"
-msgstr "Lisää rahasto"
+msgid "ID"
+msgstr "ID"
 
 msgid "Validate"
 msgstr "Validoi"
-
-msgid "Place"
-msgstr "Paikka"
-
-msgid "Uri"
-msgstr "Uri"
 
 msgid "URI"
 msgstr "URI"
@@ -1607,11 +1605,8 @@ msgstr "URI"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Tämän linkin on alettava seuraavasti: http://.... tai https://....."
 
-msgid "Global Custom Menus"
-msgstr "Globaalit mukautetut valikot"
-
-msgid "Dashboard"
-msgstr "Kojelauta"
+msgid "Add Custom Menu Link"
+msgstr "Lisää mukautettu valikkolinkki"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1623,8 +1618,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Mukautetun valikon linkkieditori"
 
-msgid "Add Custom Menu Link"
-msgstr "Lisää mukautettu valikkolinkki"
+msgid "Place"
+msgstr "Paikka"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "Global Custom Menus"
+msgstr "Globaalit mukautetut valikot"
+
+msgid "Dashboard"
+msgstr "Kojelauta"
 
 msgid "Delete Classification"
 msgstr "Luokituksen poistaminen"
@@ -1644,8 +1648,8 @@ msgstr "Karttakuvake GoogleMap"
 msgid "Select your classification icon"
 msgstr "Valitse luokituksen kuvake"
 
-msgid "Visible"
-msgstr "Näkyvä"
+msgid "Add Pastoral Care Type"
+msgstr "Lisää sielunhoidon tyyppi"
 
 msgid "Visible for other authorized users"
 msgstr "Näkyy muille valtuutetuille käyttäjille"
@@ -1660,8 +1664,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "Pastoraalihuolto Tyyppi Editor"
 
-msgid "Add Pastoral Care Type"
-msgstr "Lisää sielunhoidon tyyppi"
+msgid "Visible"
+msgstr "Näkyvä"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1670,11 +1674,8 @@ msgstr ""
 "Varoitus: Jos poistat tämän kentän, menetät peruuttamattomasti kaikki "
 "kentälle määritetyt henkilötiedot!"
 
-msgid "with this Property..."
-msgstr "tämän kiinteistön kanssa..."
-
-msgid "Prompt"
-msgstr "Kehotus"
+msgid "Add a New Property"
+msgstr "Uuden ominaisuuden lisääminen"
 
 msgid "Select Property Type"
 msgstr "Valitse kiinteistötyyppi"
@@ -1682,14 +1683,17 @@ msgstr "Valitse kiinteistötyyppi"
 msgid "with this property..."
 msgstr "tämän kiinteistön kanssa..."
 
+msgid "Prompt"
+msgstr "Kehotus"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "Olet poistamassa tätä ominaisuutta. Haluatko jatkaa ?"
 
 msgid "Property Type Editor"
 msgstr "Ominaisuustyyppi Editor"
 
-msgid "Add a New Property"
-msgstr "Uuden ominaisuuden lisääminen"
+msgid "with this Property..."
+msgstr "tämän kiinteistön kanssa..."
 
 msgid "Class"
 msgstr "Luokka"
@@ -1718,6 +1722,9 @@ msgstr "se ja menettää kaikki vastaavat omaisuusluokitukset."
 msgid "Add a New Property Type"
 msgstr "Uuden ominaisuustyypin lisääminen"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "Lisää uusi vapaaehtoistyömahdollisuus"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -1726,9 +1733,6 @@ msgstr "Vanhempi (hierarkia)"
 
 msgid "Color"
 msgstr "Väri"
-
-msgid "Add New Volunteer Opportunity"
-msgstr "Lisää uusi vapaaehtoistyömahdollisuus"
 
 msgid "Send Message"
 msgstr "Lähetä viesti"

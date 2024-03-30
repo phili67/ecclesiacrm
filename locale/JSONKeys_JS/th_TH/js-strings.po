@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,6 +13,9 @@ msgstr "คุณแน่ใจนะว่าคุณต้องการล
 
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr "กด CTRL + C เพื่อลอกหมายเลขสมาชิกของกลุ่มทั้งหมด"
+
+msgid "You have no more items in your cart."
+msgstr "คุณไม่มีของชิ้นส่วนในเครื่อง"
 
 msgid "Name"
 msgstr "ชื่อ"
@@ -31,9 +34,6 @@ msgstr "ช่วยให้แน่ใจ"
 
 msgid "Family Role"
 msgstr "วงกลมของครอบครัว"
-
-msgid "You have no more items in your cart."
-msgstr "คุณไม่มีของชิ้นส่วนในเครื่อง"
 
 msgid "Compose New Message"
 msgstr ""
@@ -1284,6 +1284,10 @@ msgstr ""
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "คุณแน่ใจนะว่าคุณต้องการ เอาสมาชิกกลุ่มที่ถูกเลือก"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "ข้อมูลพลทหาร"
+
 msgid "Group Role"
 msgstr "กลุ่มกลุ่ม"
 
@@ -1555,8 +1559,8 @@ msgid ""
 "assigned for this field!"
 msgstr "คำเตือน: ด้วยการลบสนามนี้ คุณจะสูญเสียข้อมูลของครอบครัวทั้งหมดให้กับสนามนี้"
 
-msgid "ID"
-msgstr "บัตรประชาชน"
+msgid "Add Fund"
+msgstr "Add Fund"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1568,17 +1572,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "บรรณาธิการการใช้งาน"
 
-msgid "Add Fund"
-msgstr "Add Fund"
+msgid "ID"
+msgstr "บัตรประชาชน"
 
 msgid "Validate"
 msgstr "ผู้สมัครใจ"
-
-msgid "Place"
-msgstr "ที่นั่น"
-
-msgid "Uri"
-msgstr "ยูริ"
 
 msgid "URI"
 msgstr "URI"
@@ -1588,11 +1586,8 @@ msgstr ""
 "การเชื่อมต่อนี้ควรจะเริ่มต้นด้วย ://///// การเชื่อมต่อควรเริ่มต้นด้วย หรือ https:///// "
 "ฉันรู้ว่าคุณมีสิทธิ์"
 
-msgid "Global Custom Menus"
-msgstr "โกลบอล คุสตาม เมนัส"
-
-msgid "Dashboard"
-msgstr "กระดาน"
+msgid "Add Custom Menu Link"
+msgstr "Add Custom Menu Link"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1604,8 +1599,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "ผู้บริหารลิงค์ลิงค์"
 
-msgid "Add Custom Menu Link"
-msgstr "Add Custom Menu Link"
+msgid "Place"
+msgstr "ที่นั่น"
+
+msgid "Uri"
+msgstr "ยูริ"
+
+msgid "Global Custom Menus"
+msgstr "โกลบอล คุสตาม เมนัส"
+
+msgid "Dashboard"
+msgstr "กระดาน"
 
 msgid "Delete Classification"
 msgstr "ลบปริมาณการใช้งาน"
@@ -1623,8 +1627,8 @@ msgstr "แผนที่ ไอคอน กูเกิ้ลแม็ป"
 msgid "Select your classification icon"
 msgstr "เลือกไอคอนของคุณ"
 
-msgid "Visible"
-msgstr "เป็นไปไม่ได้"
+msgid "Add Pastoral Care Type"
+msgstr "บวก บาทหลวงพิมพ์"
 
 msgid "Visible for other authorized users"
 msgstr "เป็นคนที่มีอำนาจได้รับอนุญาตให้ใช้"
@@ -1639,19 +1643,16 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "บรรณาธิการวิชาพิเศษของพระเจ้า"
 
-msgid "Add Pastoral Care Type"
-msgstr "บวก บาทหลวงพิมพ์"
+msgid "Visible"
+msgstr "เป็นไปไม่ได้"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
 "assigned for this field!"
 msgstr "คำเตือน: ด้วยการลบสนามนี้ คุณจะสูญเสียข้อมูลทั้งหมดให้กับสนามนี้"
 
-msgid "with this Property..."
-msgstr "ด้วยความสมบัตินี้"
-
-msgid "Prompt"
-msgstr "Prompt"
+msgid "Add a New Property"
+msgstr "เพิ่มสมบัติใหม่"
 
 msgid "Select Property Type"
 msgstr "เลือกพิมพ์สมบัติ"
@@ -1659,14 +1660,17 @@ msgstr "เลือกพิมพ์สมบัติ"
 msgid "with this property..."
 msgstr "ด้วยทรัพย์สินนี้..."
 
+msgid "Prompt"
+msgstr "Prompt"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "คุณกำลังจะลบสมบัตินี้ คุณอยากจะเล่นต่อไหม?"
 
 msgid "Property Type Editor"
 msgstr "บรรณาธิการของสมบัติ"
 
-msgid "Add a New Property"
-msgstr "เพิ่มสมบัติใหม่"
+msgid "with this Property..."
+msgstr "ด้วยความสมบัตินี้"
 
 msgid "Class"
 msgstr "ชั้นเรียน"
@@ -1693,6 +1697,9 @@ msgstr "และสูญเสียการบ้านที่ตรงก
 msgid "Add a New Property Type"
 msgstr "เพิ่มพิมพ์สมบัติใหม่"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "เพิ่ม โอกาส ของ วอวอน ทีย์ นิว"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -1701,9 +1708,6 @@ msgstr ""
 
 msgid "Color"
 msgstr ""
-
-msgid "Add New Volunteer Opportunity"
-msgstr "เพิ่ม โอกาส ของ วอวอน ทีย์ นิว"
 
 msgid "Send Message"
 msgstr "ส่งข้อความ"
