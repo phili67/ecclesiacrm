@@ -63,7 +63,7 @@ class PluginPrefJitsiMeetingTableMap extends TableMap
     /**
      * The total number of columns
      */
-    public const NUM_COLUMNS = 4;
+    public const NUM_COLUMNS = 5;
 
     /**
      * The number of lazy-loaded columns
@@ -73,7 +73,7 @@ class PluginPrefJitsiMeetingTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    public const NUM_HYDRATE_COLUMNS = 4;
+    public const NUM_HYDRATE_COLUMNS = 5;
 
     /**
      * the column name for the jm_pjmp_ID field
@@ -96,6 +96,11 @@ class PluginPrefJitsiMeetingTableMap extends TableMap
     public const COL_JM_PJMP_DOMAINSCRIPTPATH = 'plugin_pref_jitsimeeting_pjmp.jm_pjmp_domainscriptpath';
 
     /**
+     * the column name for the jm_pjmp_apikey field
+     */
+    public const COL_JM_PJMP_APIKEY = 'plugin_pref_jitsimeeting_pjmp.jm_pjmp_apikey';
+
+    /**
      * The default string format for model objects of the related table
      */
     public const DEFAULT_STRING_FORMAT = 'YAML';
@@ -109,11 +114,11 @@ class PluginPrefJitsiMeetingTableMap extends TableMap
      * @var array<string, mixed>
      */
     protected static $fieldNames = [
-        self::TYPE_PHPNAME       => ['Id', 'PersonId', 'Domain', 'DomainScriptPath', ],
-        self::TYPE_CAMELNAME     => ['id', 'personId', 'domain', 'domainScriptPath', ],
-        self::TYPE_COLNAME       => [PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_ID, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_PERSONMEETING_PM_ID, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAIN, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAINSCRIPTPATH, ],
-        self::TYPE_FIELDNAME     => ['jm_pjmp_ID', 'jm_pjmp_personmeeting_pm_id', 'jm_pjmp_domain', 'jm_pjmp_domainscriptpath', ],
-        self::TYPE_NUM           => [0, 1, 2, 3, ]
+        self::TYPE_PHPNAME       => ['Id', 'PersonId', 'Domain', 'DomainScriptPath', 'ApiKey', ],
+        self::TYPE_CAMELNAME     => ['id', 'personId', 'domain', 'domainScriptPath', 'apiKey', ],
+        self::TYPE_COLNAME       => [PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_ID, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_PERSONMEETING_PM_ID, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAIN, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAINSCRIPTPATH, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_APIKEY, ],
+        self::TYPE_FIELDNAME     => ['jm_pjmp_ID', 'jm_pjmp_personmeeting_pm_id', 'jm_pjmp_domain', 'jm_pjmp_domainscriptpath', 'jm_pjmp_apikey', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, ]
     ];
 
     /**
@@ -125,11 +130,11 @@ class PluginPrefJitsiMeetingTableMap extends TableMap
      * @var array<string, mixed>
      */
     protected static $fieldKeys = [
-        self::TYPE_PHPNAME       => ['Id' => 0, 'PersonId' => 1, 'Domain' => 2, 'DomainScriptPath' => 3, ],
-        self::TYPE_CAMELNAME     => ['id' => 0, 'personId' => 1, 'domain' => 2, 'domainScriptPath' => 3, ],
-        self::TYPE_COLNAME       => [PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_ID => 0, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_PERSONMEETING_PM_ID => 1, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAIN => 2, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAINSCRIPTPATH => 3, ],
-        self::TYPE_FIELDNAME     => ['jm_pjmp_ID' => 0, 'jm_pjmp_personmeeting_pm_id' => 1, 'jm_pjmp_domain' => 2, 'jm_pjmp_domainscriptpath' => 3, ],
-        self::TYPE_NUM           => [0, 1, 2, 3, ]
+        self::TYPE_PHPNAME       => ['Id' => 0, 'PersonId' => 1, 'Domain' => 2, 'DomainScriptPath' => 3, 'ApiKey' => 4, ],
+        self::TYPE_CAMELNAME     => ['id' => 0, 'personId' => 1, 'domain' => 2, 'domainScriptPath' => 3, 'apiKey' => 4, ],
+        self::TYPE_COLNAME       => [PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_ID => 0, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_PERSONMEETING_PM_ID => 1, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAIN => 2, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAINSCRIPTPATH => 3, PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_APIKEY => 4, ],
+        self::TYPE_FIELDNAME     => ['jm_pjmp_ID' => 0, 'jm_pjmp_personmeeting_pm_id' => 1, 'jm_pjmp_domain' => 2, 'jm_pjmp_domainscriptpath' => 3, 'jm_pjmp_apikey' => 4, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, ]
     ];
 
     /**
@@ -170,6 +175,14 @@ class PluginPrefJitsiMeetingTableMap extends TableMap
         'COL_JM_PJMP_DOMAINSCRIPTPATH' => 'JM_PJMP_DOMAINSCRIPTPATH',
         'jm_pjmp_domainscriptpath' => 'JM_PJMP_DOMAINSCRIPTPATH',
         'plugin_pref_jitsimeeting_pjmp.jm_pjmp_domainscriptpath' => 'JM_PJMP_DOMAINSCRIPTPATH',
+        'ApiKey' => 'JM_PJMP_APIKEY',
+        'PluginPrefJitsiMeeting.ApiKey' => 'JM_PJMP_APIKEY',
+        'apiKey' => 'JM_PJMP_APIKEY',
+        'pluginPrefJitsiMeeting.apiKey' => 'JM_PJMP_APIKEY',
+        'PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_APIKEY' => 'JM_PJMP_APIKEY',
+        'COL_JM_PJMP_APIKEY' => 'JM_PJMP_APIKEY',
+        'jm_pjmp_apikey' => 'JM_PJMP_APIKEY',
+        'plugin_pref_jitsimeeting_pjmp.jm_pjmp_apikey' => 'JM_PJMP_APIKEY',
     ];
 
     /**
@@ -193,6 +206,7 @@ class PluginPrefJitsiMeetingTableMap extends TableMap
         $this->addColumn('jm_pjmp_personmeeting_pm_id', 'PersonId', 'SMALLINT', true, null, null);
         $this->addColumn('jm_pjmp_domain', 'Domain', 'VARCHAR', true, 255, 'meet.jit.si');
         $this->addColumn('jm_pjmp_domainscriptpath', 'DomainScriptPath', 'VARCHAR', true, 255, 'https://meet.jit.si/external_api.js');
+        $this->addColumn('jm_pjmp_apikey', 'ApiKey', 'VARCHAR', true, 255, 'Your Key Here');
     }
 
     /**
@@ -350,11 +364,13 @@ class PluginPrefJitsiMeetingTableMap extends TableMap
             $criteria->addSelectColumn(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_PERSONMEETING_PM_ID);
             $criteria->addSelectColumn(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAIN);
             $criteria->addSelectColumn(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAINSCRIPTPATH);
+            $criteria->addSelectColumn(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_APIKEY);
         } else {
             $criteria->addSelectColumn($alias . '.jm_pjmp_ID');
             $criteria->addSelectColumn($alias . '.jm_pjmp_personmeeting_pm_id');
             $criteria->addSelectColumn($alias . '.jm_pjmp_domain');
             $criteria->addSelectColumn($alias . '.jm_pjmp_domainscriptpath');
+            $criteria->addSelectColumn($alias . '.jm_pjmp_apikey');
         }
     }
 
@@ -377,11 +393,13 @@ class PluginPrefJitsiMeetingTableMap extends TableMap
             $criteria->removeSelectColumn(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_PERSONMEETING_PM_ID);
             $criteria->removeSelectColumn(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAIN);
             $criteria->removeSelectColumn(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAINSCRIPTPATH);
+            $criteria->removeSelectColumn(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_APIKEY);
         } else {
             $criteria->removeSelectColumn($alias . '.jm_pjmp_ID');
             $criteria->removeSelectColumn($alias . '.jm_pjmp_personmeeting_pm_id');
             $criteria->removeSelectColumn($alias . '.jm_pjmp_domain');
             $criteria->removeSelectColumn($alias . '.jm_pjmp_domainscriptpath');
+            $criteria->removeSelectColumn($alias . '.jm_pjmp_apikey');
         }
     }
 

@@ -141,6 +141,7 @@ class MeetingController
 
             $setting->setDomain($input->domain);
             $setting->setDomainScriptPath($input->domainscriptpath);
+            $setting->setApiKey($input->apiKey);
 
             $setting->save();
 

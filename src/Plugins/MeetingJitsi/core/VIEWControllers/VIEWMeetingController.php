@@ -81,6 +81,7 @@ class VIEWMeetingController {
             'roomName'             => $roomName,
             'allRooms'             => (!is_null($allRooms))?$allRooms->toArray():null,
             'domain'               => $setting->getDomain(),
+            'apiKey'               => $setting->getApiKey(),
             'domainscriptpath'     => $setting->getDomainScriptPath()
         ];
         return $paramsArguments;
@@ -128,7 +129,8 @@ class VIEWMeetingController {
             'allRooms'             => (!is_null($allRooms))?$allRooms->toArray():null,
             'settingId'            => $setting->getId(),
             'domain'               => $setting->getDomain(),
-            'domainscriptpath'     => $setting->getDomainScriptPath()
+            'domainscriptpath'     => $setting->getDomainScriptPath(),
+            'apiKey'               => $setting->getApiKey()
         ];
         return $paramsArguments;
     }

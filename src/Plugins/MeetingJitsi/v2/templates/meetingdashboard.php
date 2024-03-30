@@ -89,11 +89,14 @@ require $sRootDocument . '/Include/Header.php';
     // jitsi code
     const domain = '<?= $domain ?>';
     const options = {
-        roomName: '<?= $roomName ?>',
+        roomName: "<?= $apiKey ?>/<?= $roomName ?>",
         width: '100%',
-        height: '100%',
-        parentNode: document.querySelector('#meetingIframe')
-    };
+        height: '100%',        
+        parentNode: document.querySelector('#meetingIframe'),
+                        // Make sure to include a JWT if you intend to record,
+                        // make outbound calls or use any other premium features!
+                        // jwt: "eyJraWQiOiJ2cGFhcy1tYWdpYy1jb29raWUtYzEyZDEyZDJmMjc4NDIwZmExZjRiYTc0YjMzZWQ4ZWUvZjhmNmQ1LVNBTVBMRV9BUFAiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJqaXRzaSIsImlzcyI6ImNoYXQiLCJpYXQiOjE3MDQzOTg1MzYsImV4cCI6MTcwNDQwNTczNiwibmJmIjoxNzA0Mzk4NTMxLCJzdWIiOiJ2cGFhcy1tYWdpYy1jb29raWUtYzEyZDEyZDJmMjc4NDIwZmExZjRiYTc0YjMzZWQ4ZWUiLCJjb250ZXh0Ijp7ImZlYXR1cmVzIjp7ImxpdmVzdHJlYW1pbmciOmZhbHNlLCJvdXRib3VuZC1jYWxsIjpmYWxzZSwic2lwLW91dGJvdW5kLWNhbGwiOmZhbHNlLCJ0cmFuc2NyaXB0aW9uIjpmYWxzZSwicmVjb3JkaW5nIjpmYWxzZX0sInVzZXIiOnsiaGlkZGVuLWZyb20tcmVjb3JkZXIiOmZhbHNlLCJtb2RlcmF0b3IiOnRydWUsIm5hbWUiOiJUZXN0IFVzZXIiLCJpZCI6Imdvb2dsZS1vYXV0aDJ8MTE3MDAxNjM2OTc2OTE5MTQ2ODQzIiwiYXZhdGFyIjoiIiwiZW1haWwiOiJ0ZXN0LnVzZXJAY29tcGFueS5jb20ifX0sInJvb20iOiIqIn0.Oh0USd1J2PZd4kAskLZGHiy-8wrAk2GcZIv9LLLACjRpLrM4pn_GBX-RCVL5ZgytiJ7YyVg9wQQrqOgIPFx2Qfq8oyh1L374bEAcR-HzprM0CyJZeTI5plEoNuDQU_YCXvojzcPjaaxzlGwlg4XqUfiy8-sRZqVLKb4TH3JZAVZt2xxgMmHUmTqu15kRJptLuUKTjtMIdrMk8JUFgAoRSrTDDwbwdc1X302hj8fza6CUZye4SRez-7AYgxUVxn-oFXCx_Ksuhoyhvj0i1ciCG60JDIUAKk31km9LRvK27jNIu3pxWQEtZuMkpy8-aBl_YYzAAz_f13XwsHj4BcmWhA"
+        };
     const api = new JitsiMeetExternalAPI(domain, options);
     // end
     <?php } ?>

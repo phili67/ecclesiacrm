@@ -92,6 +92,14 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
     protected $jm_pjmp_domainscriptpath;
 
     /**
+     * The value for the jm_pjmp_apikey field.
+     *
+     * Note: this column has a database default value of: 'Your Key Here'
+     * @var        string
+     */
+    protected $jm_pjmp_apikey;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -109,6 +117,7 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
     {
         $this->jm_pjmp_domain = 'meet.jit.si';
         $this->jm_pjmp_domainscriptpath = 'https://meet.jit.si/external_api.js';
+        $this->jm_pjmp_apikey = 'Your Key Here';
     }
 
     /**
@@ -380,6 +389,16 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
     }
 
     /**
+     * Get the [jm_pjmp_apikey] column value.
+     *
+     * @return string
+     */
+    public function getApiKey()
+    {
+        return $this->jm_pjmp_apikey;
+    }
+
+    /**
      * Set the value of [jm_pjmp_id] column.
      *
      * @param int $v New value
@@ -460,6 +479,26 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
     }
 
     /**
+     * Set the value of [jm_pjmp_apikey] column.
+     *
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
+     */
+    public function setApiKey($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->jm_pjmp_apikey !== $v) {
+            $this->jm_pjmp_apikey = $v;
+            $this->modifiedColumns[PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_APIKEY] = true;
+        }
+
+        return $this;
+    }
+
+    /**
      * Indicates whether the columns in this object are only set to default values.
      *
      * This method can be used in conjunction with isModified() to indicate whether an object is both
@@ -474,6 +513,10 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
             }
 
             if ($this->jm_pjmp_domainscriptpath !== 'https://meet.jit.si/external_api.js') {
+                return false;
+            }
+
+            if ($this->jm_pjmp_apikey !== 'Your Key Here') {
                 return false;
             }
 
@@ -515,6 +558,9 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : PluginPrefJitsiMeetingTableMap::translateFieldName('DomainScriptPath', TableMap::TYPE_PHPNAME, $indexType)];
             $this->jm_pjmp_domainscriptpath = (null !== $col) ? (string) $col : null;
 
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : PluginPrefJitsiMeetingTableMap::translateFieldName('ApiKey', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->jm_pjmp_apikey = (null !== $col) ? (string) $col : null;
+
             $this->resetModified();
             $this->setNew(false);
 
@@ -522,7 +568,7 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 4; // 4 = PluginPrefJitsiMeetingTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 5; // 5 = PluginPrefJitsiMeetingTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\PluginStore\\PluginPrefJitsiMeeting'), 0, $e);
@@ -736,6 +782,9 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
         if ($this->isColumnModified(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAINSCRIPTPATH)) {
             $modifiedColumns[':p' . $index++]  = 'jm_pjmp_domainscriptpath';
         }
+        if ($this->isColumnModified(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_APIKEY)) {
+            $modifiedColumns[':p' . $index++]  = 'jm_pjmp_apikey';
+        }
 
         $sql = sprintf(
             'INSERT INTO plugin_pref_jitsimeeting_pjmp (%s) VALUES (%s)',
@@ -761,6 +810,10 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
                         break;
                     case 'jm_pjmp_domainscriptpath':
                         $stmt->bindValue($identifier, $this->jm_pjmp_domainscriptpath, PDO::PARAM_STR);
+
+                        break;
+                    case 'jm_pjmp_apikey':
+                        $stmt->bindValue($identifier, $this->jm_pjmp_apikey, PDO::PARAM_STR);
 
                         break;
                 }
@@ -837,6 +890,9 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
             case 3:
                 return $this->getDomainScriptPath();
 
+            case 4:
+                return $this->getApiKey();
+
             default:
                 return null;
         } // switch()
@@ -868,6 +924,7 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
             $keys[1] => $this->getPersonId(),
             $keys[2] => $this->getDomain(),
             $keys[3] => $this->getDomainScriptPath(),
+            $keys[4] => $this->getApiKey(),
         ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -921,6 +978,9 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
             case 3:
                 $this->setDomainScriptPath($value);
                 break;
+            case 4:
+                $this->setApiKey($value);
+                break;
         } // switch()
 
         return $this;
@@ -958,6 +1018,9 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
         }
         if (array_key_exists($keys[3], $arr)) {
             $this->setDomainScriptPath($arr[$keys[3]]);
+        }
+        if (array_key_exists($keys[4], $arr)) {
+            $this->setApiKey($arr[$keys[4]]);
         }
 
         return $this;
@@ -1013,6 +1076,9 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
         }
         if ($this->isColumnModified(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAINSCRIPTPATH)) {
             $criteria->add(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAINSCRIPTPATH, $this->jm_pjmp_domainscriptpath);
+        }
+        if ($this->isColumnModified(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_APIKEY)) {
+            $criteria->add(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_APIKEY, $this->jm_pjmp_apikey);
         }
 
         return $criteria;
@@ -1105,6 +1171,7 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
         $copyObj->setPersonId($this->getPersonId());
         $copyObj->setDomain($this->getDomain());
         $copyObj->setDomainScriptPath($this->getDomainScriptPath());
+        $copyObj->setApiKey($this->getApiKey());
         if ($makeNew) {
             $copyObj->setNew(true);
             $copyObj->setId(NULL); // this is a auto-increment column, so set to default value
@@ -1146,6 +1213,7 @@ abstract class PluginPrefJitsiMeeting implements ActiveRecordInterface
         $this->jm_pjmp_personmeeting_pm_id = null;
         $this->jm_pjmp_domain = null;
         $this->jm_pjmp_domainscriptpath = null;
+        $this->jm_pjmp_apikey = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();
         $this->applyDefaultValues();

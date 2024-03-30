@@ -36,6 +36,7 @@
         <column name="jm_pjmp_personmeeting_pm_id" phpName="PersonId" type="SMALLINT" sqlType="mediumint unsigned" required="true"/>
         <column name="jm_pjmp_domain" phpName="Domain" type="VARCHAR" size="255" required="true" defaultValue="meet.jit.si"/>
         <column name="jm_pjmp_domainscriptpath" phpName="DomainScriptPath" type="VARCHAR" size="255" required="true" defaultValue="https://meet.jit.si/external_api.js"/>
+        <column name="jm_pjmp_apikey" phpName="ApiKey" type="VARCHAR" size="255" required="true" defaultValue="Your Key Here"/>
         <index name="fk_jm_pjmp_personmeeting_pm_id">
             <index-column name="jm_pjmp_personmeeting_pm_id"/>
         </index>

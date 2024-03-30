@@ -21,11 +21,13 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPluginPrefJitsiMeetingQuery orderByPersonId($order = Criteria::ASC) Order by the jm_pjmp_personmeeting_pm_id column
  * @method     ChildPluginPrefJitsiMeetingQuery orderByDomain($order = Criteria::ASC) Order by the jm_pjmp_domain column
  * @method     ChildPluginPrefJitsiMeetingQuery orderByDomainScriptPath($order = Criteria::ASC) Order by the jm_pjmp_domainscriptpath column
+ * @method     ChildPluginPrefJitsiMeetingQuery orderByApiKey($order = Criteria::ASC) Order by the jm_pjmp_apikey column
  *
  * @method     ChildPluginPrefJitsiMeetingQuery groupById() Group by the jm_pjmp_ID column
  * @method     ChildPluginPrefJitsiMeetingQuery groupByPersonId() Group by the jm_pjmp_personmeeting_pm_id column
  * @method     ChildPluginPrefJitsiMeetingQuery groupByDomain() Group by the jm_pjmp_domain column
  * @method     ChildPluginPrefJitsiMeetingQuery groupByDomainScriptPath() Group by the jm_pjmp_domainscriptpath column
+ * @method     ChildPluginPrefJitsiMeetingQuery groupByApiKey() Group by the jm_pjmp_apikey column
  *
  * @method     ChildPluginPrefJitsiMeetingQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
  * @method     ChildPluginPrefJitsiMeetingQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
@@ -42,6 +44,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPluginPrefJitsiMeeting|null findOneByPersonId(int $jm_pjmp_personmeeting_pm_id) Return the first ChildPluginPrefJitsiMeeting filtered by the jm_pjmp_personmeeting_pm_id column
  * @method     ChildPluginPrefJitsiMeeting|null findOneByDomain(string $jm_pjmp_domain) Return the first ChildPluginPrefJitsiMeeting filtered by the jm_pjmp_domain column
  * @method     ChildPluginPrefJitsiMeeting|null findOneByDomainScriptPath(string $jm_pjmp_domainscriptpath) Return the first ChildPluginPrefJitsiMeeting filtered by the jm_pjmp_domainscriptpath column
+ * @method     ChildPluginPrefJitsiMeeting|null findOneByApiKey(string $jm_pjmp_apikey) Return the first ChildPluginPrefJitsiMeeting filtered by the jm_pjmp_apikey column
  *
  * @method     ChildPluginPrefJitsiMeeting requirePk($key, ?ConnectionInterface $con = null) Return the ChildPluginPrefJitsiMeeting by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPluginPrefJitsiMeeting requireOne(?ConnectionInterface $con = null) Return the first ChildPluginPrefJitsiMeeting matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -50,6 +53,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPluginPrefJitsiMeeting requireOneByPersonId(int $jm_pjmp_personmeeting_pm_id) Return the first ChildPluginPrefJitsiMeeting filtered by the jm_pjmp_personmeeting_pm_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPluginPrefJitsiMeeting requireOneByDomain(string $jm_pjmp_domain) Return the first ChildPluginPrefJitsiMeeting filtered by the jm_pjmp_domain column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPluginPrefJitsiMeeting requireOneByDomainScriptPath(string $jm_pjmp_domainscriptpath) Return the first ChildPluginPrefJitsiMeeting filtered by the jm_pjmp_domainscriptpath column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPluginPrefJitsiMeeting requireOneByApiKey(string $jm_pjmp_apikey) Return the first ChildPluginPrefJitsiMeeting filtered by the jm_pjmp_apikey column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildPluginPrefJitsiMeeting[]|Collection find(?ConnectionInterface $con = null) Return ChildPluginPrefJitsiMeeting objects based on current ModelCriteria
  * @psalm-method Collection&\Traversable<ChildPluginPrefJitsiMeeting> find(?ConnectionInterface $con = null) Return ChildPluginPrefJitsiMeeting objects based on current ModelCriteria
@@ -62,6 +66,8 @@ use Propel\Runtime\Exception\PropelException;
  * @psalm-method Collection&\Traversable<ChildPluginPrefJitsiMeeting> findByDomain(string|array<string> $jm_pjmp_domain) Return ChildPluginPrefJitsiMeeting objects filtered by the jm_pjmp_domain column
  * @method     ChildPluginPrefJitsiMeeting[]|Collection findByDomainScriptPath(string|array<string> $jm_pjmp_domainscriptpath) Return ChildPluginPrefJitsiMeeting objects filtered by the jm_pjmp_domainscriptpath column
  * @psalm-method Collection&\Traversable<ChildPluginPrefJitsiMeeting> findByDomainScriptPath(string|array<string> $jm_pjmp_domainscriptpath) Return ChildPluginPrefJitsiMeeting objects filtered by the jm_pjmp_domainscriptpath column
+ * @method     ChildPluginPrefJitsiMeeting[]|Collection findByApiKey(string|array<string> $jm_pjmp_apikey) Return ChildPluginPrefJitsiMeeting objects filtered by the jm_pjmp_apikey column
+ * @psalm-method Collection&\Traversable<ChildPluginPrefJitsiMeeting> findByApiKey(string|array<string> $jm_pjmp_apikey) Return ChildPluginPrefJitsiMeeting objects filtered by the jm_pjmp_apikey column
  *
  * @method     ChildPluginPrefJitsiMeeting[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildPluginPrefJitsiMeeting> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
@@ -161,7 +167,7 @@ abstract class PluginPrefJitsiMeetingQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT jm_pjmp_ID, jm_pjmp_personmeeting_pm_id, jm_pjmp_domain, jm_pjmp_domainscriptpath FROM plugin_pref_jitsimeeting_pjmp WHERE jm_pjmp_ID = :p0';
+        $sql = 'SELECT jm_pjmp_ID, jm_pjmp_personmeeting_pm_id, jm_pjmp_domain, jm_pjmp_domainscriptpath, jm_pjmp_apikey FROM plugin_pref_jitsimeeting_pjmp WHERE jm_pjmp_ID = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -393,6 +399,34 @@ abstract class PluginPrefJitsiMeetingQuery extends ModelCriteria
         }
 
         $this->addUsingAlias(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_DOMAINSCRIPTPATH, $domainScriptPath, $comparison);
+
+        return $this;
+    }
+
+    /**
+     * Filter the query on the jm_pjmp_apikey column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByApiKey('fooValue');   // WHERE jm_pjmp_apikey = 'fooValue'
+     * $query->filterByApiKey('%fooValue%', Criteria::LIKE); // WHERE jm_pjmp_apikey LIKE '%fooValue%'
+     * $query->filterByApiKey(['foo', 'bar']); // WHERE jm_pjmp_apikey IN ('foo', 'bar')
+     * </code>
+     *
+     * @param string|string[] $apiKey The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this The current query, for fluid interface
+     */
+    public function filterByApiKey($apiKey = null, ?string $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($apiKey)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        $this->addUsingAlias(PluginPrefJitsiMeetingTableMap::COL_JM_PJMP_APIKEY, $apiKey, $comparison);
 
         return $this;
     }
