@@ -43,7 +43,7 @@ class Family extends BaseFamily implements iPhoto
       return parent::preDelete($con);
     }
 
-    public function getAddress()
+    public function getAddress($all=true)
     {
         $address = [];
         if (!empty($this->getAddress1())) {
@@ -66,7 +66,7 @@ class Family extends BaseFamily implements iPhoto
             array_push($address, $this->getCountry());
         }
 
-        if (!empty($this->getAddress2())) {
+        if (!empty($this->getAddress2()) and !$all) {
             array_push($address, '<br>'.$this->getAddress2());
         }
 
@@ -397,7 +397,7 @@ class Family extends BaseFamily implements iPhoto
      * @return array of Lat/Lng
      */
     public function updateLanLng() {
-        if ( !empty($this->getAddress()) /*&& (!$this->hasLatitudeAndLongitude())*/ ) {
+        if ( !empty($this->getAddress(false)) /*&& (!$this->hasLatitudeAndLongitude())*/ ) {
             $latLng = GeoUtils::getLatLong($this->getAddress());
             if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
                 $this->setLatitude($latLng['Latitude']);
