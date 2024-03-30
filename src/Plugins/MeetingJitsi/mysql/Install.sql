@@ -44,8 +44,9 @@ CREATE TABLE `personlastjitsimeeting_plm` (
 CREATE TABLE `plugin_pref_jitsimeeting_pjmp` (
      `jm_pjmp_ID` mediumint(9) NOT NULL auto_increment,
      `jm_pjmp_personmeeting_pm_id` mediumint(8) unsigned NOT NULL,
-     `jm_pjmp_domain` varchar(255) NOT NULL default 'meet.jit.si',
-     `jm_pjmp_domainscriptpath` varchar(255) NOT NULL default 'https://meet.jit.si/external_api.js',
+     `jm_pjmp_domain` varchar(255) NOT NULL default '8x8.vc',
+     `jm_pjmp_domainscriptpath` varchar(255) NOT NULL default 'https://8x8.vc/external_api.js',
+     `jm_pjmp_apikey` varchar(255) NOT NULL default 'Your Key Here',
      PRIMARY KEY  (`jm_pjmp_ID`),
      UNIQUE KEY `jm_pjmp_ID` (`jm_pjmp_ID`),
      CONSTRAINT fk_jm_pjmp_personmeeting_pm_id

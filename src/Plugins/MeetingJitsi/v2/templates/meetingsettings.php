@@ -36,11 +36,15 @@ require $sRootDocument . '/Include/Header.php';
                                class= "form-control form-control-sm">
                     </div>
                     <div class="col-sm-4">
-                        <a data-toggle="popover" title="<?= dgettext("messages-MeetingJitsi", "The Jitsi domain name, by default") ?> : meet.jit.si"
-                           target="_blank">
+                        <a data-toggle="popover" 
+                            title=""
+                            data-content="<?= dgettext("messages-MeetingJitsi", "The Jitsi domain name, by default") ?> : meet.jit.si or 8x8.vc"
+                           target="_blank"
+                           class="blue"
+                           data-original-title="<?=  dgettext("messages-MeetingJitsi", "Definition") ?>">
                             <i class="far  fa-question-circle"></i>
                         </a>
-                        <label>meet.jit.si</label>
+                        <label>8x8.vc <?= dgettext("messages-MeetingJitsi", "or") ?> meet.jit.si</label>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -52,11 +56,33 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                     <div class="col-sm-4">
                         <a data-toggle="popover"
-                           title="<?= dgettext("messages-MeetingJitsi", "The path for the script associated with the domain name") ?> : https://meet.jit.si/external_api.js"
-                           target="_blank">
+                           title=""
+                           data-content="<?= dgettext("messages-MeetingJitsi", "The path for the script associated with the domain name") ?> : https://meet.jit.si/external_api.js or https://8x8.vc/external_api.js"
+                           target="_blank"
+                           class="blue"
+                           data-original-title="<?=  dgettext("messages-MeetingJitsi", "Definition") ?>">
                             <i class="far  fa-question-circle"></i>
                         </a>
-                        <label>https://meet.jit.si/external_api.js</label>
+                        <label>https://8x8.vc/external_api.js<?= dgettext("messages-MeetingJitsi", "or") ?> https://meet.jit.si/external_api.js</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">sApiKey</label>
+                    <!--  Current Value -->
+                    <div class="col-sm-4">
+                        <input type="text" size="40" maxlength="255" name="apiKey" id="apiKey"
+                               value="<?= $apiKey ?>" class= "form-control form-control-sm">
+                    </div>
+                    <div class="col-sm-4">
+                        <a data-toggle="popover"
+                           title="" 
+                           data-content="<?= dgettext("messages-MeetingJitsi", "The api Key") ?> : https://jaas.8x8.vc/#/" 
+                           target="_blank"
+                           class="blue"
+                           data-original-title="<?=  dgettext("messages-MeetingJitsi", "Definition") ?>">
+                            <i class="far  fa-question-circle"></i>
+                        </a>
+                        <label><?= dgettext("messages-MeetingJitsi", "You can find one on the website") ?> : https://jaas.8x8.vc/#/</label>
                     </div>
                 </div>
             </div>
