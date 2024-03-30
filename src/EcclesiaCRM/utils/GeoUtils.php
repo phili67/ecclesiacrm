@@ -15,6 +15,17 @@ use Geocoder\Query\GeocodeQuery;
 class GeoUtils
 {
 
+    public static function getKey()
+    {
+        if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+            return SystemConfig::getValue("sNominatimLink");
+        } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+            return SystemConfig::getValue("sGoogleMapKey");
+        } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+            return SystemConfig::getValue("sBingMapKey");
+        }
+    }
+
     public static function getLatLong($address)
     {
 
