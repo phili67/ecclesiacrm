@@ -1018,29 +1018,28 @@ class User extends BaseUser
         // If user has administrator privilege, override other settings and enable all permissions.
         // this is usefull for : MiscUtils::requireUserGroupMembership in Include/Functions.php
 
-        $_SESSION['bAdmin'] = $this->isAdmin();                       //ok
-        $_SESSION['bPastoralCare'] = $this->isPastoralCareEnabled();         //ok
-        $_SESSION['bMailChimp'] = $this->isMailChimpEnabled();            //ok
-        $_SESSION['bGdrpDpo'] = $this->isGdrpDpoEnabled();              //ok
-        $_SESSION['bMainDashboard'] = $this->isMainDashboardEnabled();        //ok
-        $_SESSION['bSeePrivacyData'] = $this->isSeePrivacyDataEnabled();       //ok
-        $_SESSION['bAddRecords'] = $this->isAddRecordsEnabled();           //ok
+        $_SESSION['bAdmin'] = $this->isAdmin();                             //ok
+        $_SESSION['bPastoralCare'] = $this->isPastoralCareEnabled();        //ok
+        $_SESSION['bMailChimp'] = $this->isMailChimpEnabled();              //ok
+        $_SESSION['bGdrpDpo'] = $this->isGdrpDpoEnabled();                  //ok
+        $_SESSION['bMainDashboard'] = $this->isMainDashboardEnabled();      //ok
+        $_SESSION['bSeePrivacyData'] = $this->isSeePrivacyDataEnabled();    //ok
+        $_SESSION['bAddRecords'] = $this->isAddRecordsEnabled();            //ok
         $_SESSION['bEditRecords'] = $this->isEditRecordsEnabled();          //ok
-        $_SESSION['bDeleteRecords'] = $this->isDeleteRecordsEnabled();        //ok
+        $_SESSION['bDeleteRecords'] = $this->isDeleteRecordsEnabled();      //ok
         $_SESSION['bMenuOptions'] = $this->isMenuOptionsEnabled();          //ok
-        $_SESSION['bManageGroups'] = $this->isManageGroupsEnabled();         //usefull in GroupView and in Properties
-        $_SESSION['bFinance'] = $this->isFinanceEnabled();              //ok
-        $_SESSION['bNotes'] = $this->isNotesEnabled();                //ok
-        $_SESSION['bCanvasser'] = $this->isCanvasserEnabled();            //ok
-        $_SESSION['bEditSelf'] = $this->isEditSelfEnabled();             //ok
-        $_SESSION['bShowCart'] = $this->isShowCartEnabled();             //ok
-        $_SESSION['bShowMap'] = $this->isShowMapEnabled();              //ok
-        $_SESSION['bEDrive'] = $this->isEDriveEnabled();               //ok
-        $_SESSION['bShowMenuQuery'] = $this->isShowMenuQueryEnabled();        //ok
+        $_SESSION['bManageGroups'] = $this->isManageGroupsEnabled();        //usefull in GroupView and in Properties
+        $_SESSION['bFinance'] = $this->isFinanceEnabled();                  //ok
+        $_SESSION['bNotes'] = $this->isNotesEnabled();                      //ok
+        $_SESSION['bCanvasser'] = $this->isCanvasserEnabled();              //ok
+        $_SESSION['bEditSelf'] = $this->isEditSelfEnabled();                //ok
+        $_SESSION['bShowCart'] = $this->isShowCartEnabled();                //ok
+        $_SESSION['bShowMap'] = $this->isShowMapEnabled();                  //ok
+        $_SESSION['bEDrive'] = $this->isEDriveEnabled();                    //ok
+        $_SESSION['bShowMenuQuery'] = $this->isShowMenuQueryEnabled();      //ok
 
         // for https : usefull in apis
         $_SESSION['isSecure'] = MiscUtils::isSecure();
-
 
         // Create the Cart
         $_SESSION['aPeopleCart'] = [];
@@ -1062,7 +1061,7 @@ class User extends BaseUser
         if (!isset($_SESSION['ControllerAdminUserId'])) {
             $secretKey = MiscUtils::gen_uuid();
             $issuedAt = (new DateTime("now"))->getTimestamp();
-            $expire = (new DateTime("now +2 hours"))->getTimestamp();      // Ajoute 60 secondes
+            $expire = (new DateTime("now +24 hours"))->getTimestamp();      // Ajoute 60 secondes
             $serverName = $_SERVER['HTTP_ORIGIN'];
             $username = $this->getUserName();                                           // Récupéré à partir des données POST filtré
 
