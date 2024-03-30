@@ -160,8 +160,9 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     window.CRM.yVal = '<?= $yVal ?>';
 
     window.CRM.churchloc = {
-        lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
-        lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
+        lat: parseFloat(<?= ChurchMetaData::getChurchLatitude() ?>),
+        lng: parseFloat(<?= ChurchMetaData::getChurchLongitude() ?>)
+    };
     window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 

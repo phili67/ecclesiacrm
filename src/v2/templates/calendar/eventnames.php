@@ -399,8 +399,8 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
     window.CRM.isModifiable = true;
 
     window.CRM.churchloc = {
-        lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
-        lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>
+        lat: parseFloat(<?= ChurchMetaData::getChurchLatitude() ?>),
+        lng: parseFloat(<?= ChurchMetaData::getChurchLongitude() ?>)
     };
     window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 
