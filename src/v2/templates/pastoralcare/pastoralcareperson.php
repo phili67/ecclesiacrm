@@ -535,8 +535,8 @@ $sFamilyEmails = [];
     var sPageTitle = "<?= str_replace('"', "'", $sPageTitle) ?>";
 
     window.CRM.churchloc = {
-        lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
-        lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>
+        lat: parseFloat(<?= ChurchMetaData::getChurchLatitude() ?>),
+        lng: parseFloat(<?= ChurchMetaData::getChurchLongitude() ?>)
     };
     window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
@@ -569,8 +569,8 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     <?php if ($location_available){ ?>
     // location and MAP
     window.CRM.churchloc = {
-        lat: <?= $lat ?>,
-        lng: <?= $lng ?>
+        lat: parseFloat(<?= $lat ?>),
+        lng: parseFloat(<?= $lng ?>)
     };
     window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
 

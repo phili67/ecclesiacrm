@@ -65,7 +65,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
         <div id="mapid" class="map-div"></div>
 
         <!-- map Desktop legend-->
-        <div id="map-legend-view maplegend-bing<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'-dark':'' ?>"><h4><?= _('Legend') ?></h4>
+        <div class="map-legend-view maplegend-bing<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'-dark':'' ?>"><h4><?= _('Legend') ?></h4>
             <div class="row legendbox">
                 <div class="legenditem">
                     <img src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
