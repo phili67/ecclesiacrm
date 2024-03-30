@@ -526,14 +526,16 @@ if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true
 
     <?php if ( !is_null ($first_manager) ) { ?>
         window.CRM.churchloc = {
-            lat: <?= OutputUtils::number_dot($first_manager->getFamily()->getLatitude()) ?>,
-            lng: <?= OutputUtils::number_dot($first_manager->getFamily()->getLongitude()) ?>};
+            lat: parseFloat(<?= $first_manager->getFamily()->getLatitude() ?>),
+            lng: parseFloat(<?= $first_manager->getFamily()->getLongitude() ?>)
+        };
         window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
         window.CRM.address = "<?= $first_manager->getFamily()->getAddress() ?>";
     <?php } else { ?>
         window.CRM.churchloc = {
-            lat: <?= (float)OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
-            lng: <?= (float)OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
+            lat: parseFloat(<?= ChurchMetaData::getChurchLatitude() ?>),
+            lng: parseFloat(<?= ChurchMetaData::getChurchLongitude() ?>)
+        };
         window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
         window.CRM.address = '';
     <?php } ?>

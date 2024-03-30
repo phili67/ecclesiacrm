@@ -42,7 +42,7 @@ require $sRootDocument . '/Include/Header.php';
                             ?>
                             <div class="after">
                                 <div class="buttons">
-                                    <a class="hide" id="view-larger-image-btn" href="#"
+                                    <a class="" id="view-larger-image-btn" href="#"
                                        title="<?= _("View Photo") ?>">
                                         <i class="fas fa-search-plus"></i>
                                     </a>&nbsp;
@@ -1001,8 +1001,8 @@ if ($sMapProvider == 'OpenStreetMap') {
     <?php if ($location_available){ ?>
     // location and MAP
     window.CRM.churchloc = {
-        lat: <?= $lat ?>,
-        lng: <?= $lng ?>
+        lat: parseFloat(<?= $lat ?>),
+        lng: parseFloat(<?= $lng ?>)
     };
     window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
 

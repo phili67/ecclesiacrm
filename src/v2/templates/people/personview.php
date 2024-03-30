@@ -1725,8 +1725,8 @@ if ($sMapProvider == 'OpenStreetMap') {
     <?php if ($PersonInfos['location_available']){ ?>
         // location and MAP
         window.CRM.churchloc = {
-            lat: <?= $PersonInfos['lat'] ?>,
-            lng: <?= $PersonInfos['lng'] ?>
+            lat: parseFloat(<?= $PersonInfos['lat'] ?>),
+            lng: parseFloat(<?= $PersonInfos['lng'] ?>)
         };
         window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
 
