@@ -51,8 +51,10 @@ $app->add( new VersionMiddleware() );
 $app->add(new Tuupola\Middleware\JwtAuthentication([
     "secret" => SessionUser::getUser()->getJwtSecretForApi(),
     //"cookie" => SessionUser::getUser()->getUserNameForApi(),
-    "ignore" => [SystemURLs::getRootPath()."/api/families", SystemURLs::getRootPath(). "/api/persons/", SystemURLs::getRootPath()."/api/system/csp-report", SystemURLs::getRootPath()."/api/systemupgrade/isUpdateRequired", 
-        SystemURLs::getRootPath()."/api/filemanager/getFile/", SystemURLs::getRootPath()."/api/synchronize/page"],
+    "ignore" => [SystemURLs::getRootPath()."/api/families", SystemURLs::getRootPath(). "/api/persons/", SystemURLs::getRootPath()."/api/system/csp-report", 
+        SystemURLs::getRootPath()."/api/systemupgrade/isUpdateRequired", 
+        SystemURLs::getRootPath()."/api/filemanager/getFile/", SystemURLs::getRootPath()."/api/synchronize/page",
+        SystemURLs::getRootPath(). "/api/database"],
     "algorithm" => "HS256",
     "error" => function ($response, $arguments) {
         $data["status"] = "error";
