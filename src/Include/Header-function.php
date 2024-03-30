@@ -23,7 +23,7 @@ use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Utils\MiscUtils;
 
 use EcclesiaCRM\Theme;
-
+use EcclesiaCRM\Utils\GeoUtils;
 
 function Header_system_notifications()
 {
@@ -164,6 +164,8 @@ function Header_body_scripts()
             showTooltip:<?= (SessionUser::getUser()->isShowTooltipEnabled())?"true":"false" ?>,
             showCart:<?= (SessionUser::getUser()->isShowCartEnabled())?"true":"false" ?>,
             sMapProvider:"<?= SystemConfig::getValue('sMapProvider')?>",
+            iMapZoom: <?= SystemConfig::getValue("iMapZoom")?>,
+            sMapKey: "<?= GeoUtils::getKey() ?>",
             sMapExternalProvider:"<?= SessionUser::getUser()->MapExternalProvider() ?>",
             iGoogleMapKey:"<?= SystemConfig::getValue('sGoogleMapKey')?>",
             sBingMapKey:"<?= SystemConfig::getValue('sBingMapKey')?>",

@@ -94,7 +94,7 @@
   }
 
 
-  function initMap(longitude,latitude,Salutation,Address,Name,Text) {
+  async function initMap(longitude,latitude,Salutation,Address,Name,Text) {
      var centerCard = window.CRM.churchloc;
      
      if ( longitude !== undefined && latitude !== undefined && longitude > 0 && latitude > 0 ) {
@@ -103,10 +103,15 @@
           lng: Number(longitude)}; 
      }
 
+     const { Map } = await google.maps.importLibrary("maps");
+     const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+
       // Create a map object and specify the DOM element for display.
-      window.CRM.map = new google.maps.Map(document.getElementById('MyMap'), {
-          zoom: window.CRM.iLittleMapZoom,
-          center: centerCard
+      window.CRM.map = new Map(document.getElementById("MyMap"), {
+          zoom: window.CRM.iMapZoom,
+          center: centerCard,
+          mapId: window.CRM.sMapKey,
       });
       
       infowindow = new google.maps.InfoWindow({

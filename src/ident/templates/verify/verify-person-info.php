@@ -171,8 +171,8 @@ $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
 <?php if ($doShowMap){ ?>
     // location and MAP
     window.CRM.churchloc = {
-    lat: <?= $lat ?>,
-    lng: <?= $lng ?>
+        lat: parseFloat(<?= $lat ?>),
+        lng: parseFloat(<?= $lng ?>)
     };
     window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
     window.CRM.iLittleMapZoom = <?= $iLittleMapZoom ?>;

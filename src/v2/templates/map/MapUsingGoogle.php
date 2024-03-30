@@ -169,20 +169,20 @@ require $sRootDocument . '/Include/Footer.php';
 ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    var churchloc = {
-        lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
-        lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>
+    let churchloc = {
+        lat: <?= floatval(ChurchMetaData::getChurchLatitude()) ?>,
+        lng: <?= floatval(ChurchMetaData::getChurchLongitude()) ?>
     };
 
 
-    var iconBase = window.CRM.root + '/skin/icons/markers/';
-    var newPlotArray = null;
+    let iconBase = window.CRM.root + '/skin/icons/markers/';
+    let newPlotArray = null;
 
-    var infowindow = new google.maps.InfoWindow({
+    let infowindow = new google.maps.InfoWindow({
         maxWidth: 200
     });
 
-    function addMarkerWithInfowindow(map, marker_position, image, title, infowindow_content) {
+    const addMarkerWithInfowindow = (map, marker_position, image, title, infowindow_content) => {
         //Create marker
         var marker = new google.maps.Marker({
             position: marker_position,
@@ -201,12 +201,21 @@ require $sRootDocument . '/Include/Footer.php';
         return marker;
     }
 
-    function initialize() {
-        // init map
-        map = new google.maps.Map(document.getElementById('mapid'), {
-            zoom: <?= SystemConfig::getValue("iMapZoom")?>,
-            center: churchloc
+    // Initialize and add the map
+    let map;
 
+    async function initMap() {
+        // The location of Uluru
+        // Request needed libraries.
+        //@ts-ignore
+        const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+        // The map, centered at Uluru
+        map = new Map(document.getElementById("mapid"), {
+            zoom: <?= SystemConfig::getValue("iMapZoom")?>,
+            center: churchloc,
+            mapId: "<?= SystemConfig::getValue('sGoogleMapKey') ?>",
         });
 
         window.CRM.map = map;
@@ -343,10 +352,9 @@ require $sRootDocument . '/Include/Footer.php';
         //push Legend to right bottom
         var legend = document.getElementById('maplegend');
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
-
     }
 
-    function add_marker(plot) {
+    const add_marker = (plot) => {
         //icon image
         var iconurl = iconBase + plot.iconClassification;
 
@@ -400,7 +408,7 @@ require $sRootDocument . '/Include/Footer.php';
         plot.mark = addMarkerWithInfowindow(window.CRM.map, latlng, image, plot.Name, contentString);
     }
 
-    function add_all_markers_for_id(id) {
+    const add_all_markers_for_id = (id) => {
         var plotArray = newPlotArray[id];
 
         for (var i = 0; i < plotArray.length; i++) {
@@ -411,7 +419,7 @@ require $sRootDocument . '/Include/Footer.php';
         }
     }
 
-    function delete_all_markers_for_id(id) {
+    const delete_all_markers_for_id = (id) => {
         var plotArray = newPlotArray[id];
 
         for (var i = 0; i < plotArray.length; i++) {
@@ -432,7 +440,8 @@ require $sRootDocument . '/Include/Footer.php';
     });
 
 
-    initialize();
+    //initialize();
+    initMap();
 
     window.CRM.AutomaticDarkModeFunction = function (darkMode) {
         if (darkMode) {

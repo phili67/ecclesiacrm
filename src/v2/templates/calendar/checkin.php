@@ -385,8 +385,8 @@ require $sRootDocument . '/Include/Header.php';
     window.CRM.extraFont = '<?= $extraFont ?>';
 
     window.CRM.churchloc = {
-        lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
-        lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>
+        lat: parseFloat(<?= ChurchMetaData::getChurchLatitude() ?>),
+        lng: parseFloat(<?= ChurchMetaData::getChurchLongitude() ?>)
     };
 
     window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;

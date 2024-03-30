@@ -296,8 +296,8 @@ require $sRootDocument . '/Include/Header.php';
   window.CRM.extraFont = '<?= $extraFont ?>';
 
   window.CRM.churchloc = {
-      lat: <?= $coordinates['lat'] ?>,
-      lng: <?= $coordinates['lng'] ?>};
+      lat: parseFloat(<?= $coordinates['lat'] ?>),
+      lng: parseFloat(<?= $coordinates['lng'] ?>)};
   window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
 
   var wAgendaName = localStorage.getItem("wAgendaName");
