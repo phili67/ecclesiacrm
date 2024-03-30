@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,6 +15,9 @@ msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr ""
 "Utiliser CTRL + C pour copier tous les numéros téléphones de ce groupe de "
 "membres"
+
+msgid "You have no more items in your cart."
+msgstr "Vous n'avez plus d'items dans le panier."
 
 msgid "Name"
 msgstr "Nom"
@@ -33,9 +36,6 @@ msgstr "Classification"
 
 msgid "Family Role"
 msgstr "Rôle Familial"
-
-msgid "You have no more items in your cart."
-msgstr "Vous n'avez plus d'items dans le panier."
 
 msgid "Compose New Message"
 msgstr "Composer un nouveau message"
@@ -1323,6 +1323,10 @@ msgid "Are you sure you want to remove the selected group members?"
 msgstr ""
 "Êtes vous sûr de vouloir effacer tous les membres du groupe sélectionné ?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "Donnée privée"
+
 msgid "Group Role"
 msgstr "Rôles du groupe"
 
@@ -1603,8 +1607,8 @@ msgstr ""
 "Attention: En supprimant ce champ, vous perdrez irrévocablement toutes les "
 "données de famille attribués à ce champ!"
 
-msgid "ID"
-msgstr "ID"
+msgid "Add Fund"
+msgstr "Ajouter un fond"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1616,17 +1620,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "Editeur de fond"
 
-msgid "Add Fund"
-msgstr "Ajouter un fond"
+msgid "ID"
+msgstr "ID"
 
 msgid "Validate"
 msgstr "Valider"
-
-msgid "Place"
-msgstr "Position"
-
-msgid "Uri"
-msgstr "Url"
 
 msgid "URI"
 msgstr "URL"
@@ -1634,11 +1632,8 @@ msgstr "URL"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Ce lien doit commencer par : http://.... or https://...."
 
-msgid "Global Custom Menus"
-msgstr "Menus Perso. Global"
-
-msgid "Dashboard"
-msgstr "Tableau de bord"
+msgid "Add Custom Menu Link"
+msgstr "Ajouter un Lien de Menu Personnalisé"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1650,8 +1645,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Editeur de Lien de Menu Personnalisé"
 
-msgid "Add Custom Menu Link"
-msgstr "Ajouter un Lien de Menu Personnalisé"
+msgid "Place"
+msgstr "Position"
+
+msgid "Uri"
+msgstr "Url"
+
+msgid "Global Custom Menus"
+msgstr "Menus Perso. Global"
+
+msgid "Dashboard"
+msgstr "Tableau de bord"
 
 msgid "Delete Classification"
 msgstr "Supprimer la classification"
@@ -1669,8 +1673,8 @@ msgstr "Icône carte GoogleMap"
 msgid "Select your classification icon"
 msgstr "Choisissez votre icône"
 
-msgid "Visible"
-msgstr "Visible"
+msgid "Add Pastoral Care Type"
+msgstr "Ajouter un type de suivi pastoral"
 
 msgid "Visible for other authorized users"
 msgstr "Visualisable pour les utilisateurs autorisés"
@@ -1686,8 +1690,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "Editeur de type de suivi pastoral"
 
-msgid "Add Pastoral Care Type"
-msgstr "Ajouter un type de suivi pastoral"
+msgid "Visible"
+msgstr "Visible"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1696,17 +1700,17 @@ msgstr ""
 "Attention: En supprimant ce champ, vous perdrez irrévocablement toutes les "
 "données de famille attribués à ce champ!"
 
-msgid "with this Property..."
-msgstr "avec cette Propriété ..."
-
-msgid "Prompt"
-msgstr "Message"
+msgid "Add a New Property"
+msgstr "Ajouter une nouvelle propriété"
 
 msgid "Select Property Type"
 msgstr "Sélectionner une Propriété Type"
 
 msgid "with this property..."
 msgstr "avec cette propriété..."
+
+msgid "Prompt"
+msgstr "Message"
 
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr ""
@@ -1715,8 +1719,8 @@ msgstr ""
 msgid "Property Type Editor"
 msgstr "Editeur de type de propriétés"
 
-msgid "Add a New Property"
-msgstr "Ajouter une nouvelle propriété"
+msgid "with this Property..."
+msgstr "avec cette Propriété ..."
 
 msgid "Class"
 msgstr "Class"
@@ -1747,6 +1751,9 @@ msgstr "l'utiliseront et tous les propriétés associées."
 msgid "Add a New Property Type"
 msgstr "Ajouter une nouveau Type de propriété"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "Ajouter une nouvelle opportunité de bénévolat"
+
 msgid "Activ"
 msgstr "Actif"
 
@@ -1755,9 +1762,6 @@ msgstr "Parent (hiérarchie)"
 
 msgid "Color"
 msgstr "Couleur"
-
-msgid "Add New Volunteer Opportunity"
-msgstr "Ajouter une nouvelle opportunité de bénévolat"
 
 msgid "Send Message"
 msgstr "Envoyer Message"

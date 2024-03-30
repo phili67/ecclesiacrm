@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,6 +14,9 @@ msgstr "Weet je zeker dat je deze foto wilt verwijderen?"
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr ""
 "Druk op CTRL + C om de telefoonnummers van alle groepsleden te kopiëren"
+
+msgid "You have no more items in your cart."
+msgstr "U heeft geen artikelen meer in uw winkelwagen."
 
 msgid "Name"
 msgstr "Naam"
@@ -32,9 +35,6 @@ msgstr "Classificatie"
 
 msgid "Family Role"
 msgstr "Rol van de familie"
-
-msgid "You have no more items in your cart."
-msgstr "U heeft geen artikelen meer in uw winkelwagen."
 
 msgid "Compose New Message"
 msgstr "Nieuw bericht opstellen"
@@ -1319,6 +1319,10 @@ msgstr "Een kind moet een familie hebben in een zondagschoolgroep!"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Weet u zeker dat u de geselecteerde groepsleden wilt verwijderen?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "Privégegevens"
+
 msgid "Group Role"
 msgstr "Groep Rol"
 
@@ -1597,8 +1601,8 @@ msgstr ""
 "Waarschuwing: Door dit veld te verwijderen, verliest u onherroepelijk alle "
 "familiegegevens die voor dit veld zijn toegewezen!"
 
-msgid "ID"
-msgstr "ID"
+msgid "Add Fund"
+msgstr "Fonds toevoegen"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1610,17 +1614,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "Fondsredacteur"
 
-msgid "Add Fund"
-msgstr "Fonds toevoegen"
+msgid "ID"
+msgstr "ID"
 
 msgid "Validate"
 msgstr "Valideren"
-
-msgid "Place"
-msgstr "Plaats"
-
-msgid "Uri"
-msgstr "Uri"
 
 msgid "URI"
 msgstr "URI"
@@ -1628,11 +1626,8 @@ msgstr "URI"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Deze link moet beginnen met : http://.... of https://...."
 
-msgid "Global Custom Menus"
-msgstr "Wereldwijde aangepaste menu's"
-
-msgid "Dashboard"
-msgstr "Dashboard"
+msgid "Add Custom Menu Link"
+msgstr "Aangepaste menulink toevoegen"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1644,8 +1639,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Aangepaste menu link editor"
 
-msgid "Add Custom Menu Link"
-msgstr "Aangepaste menulink toevoegen"
+msgid "Place"
+msgstr "Plaats"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "Global Custom Menus"
+msgstr "Wereldwijde aangepaste menu's"
+
+msgid "Dashboard"
+msgstr "Dashboard"
 
 msgid "Delete Classification"
 msgstr "Classificatie verwijderen"
@@ -1664,8 +1668,8 @@ msgstr "Kaart Icoon GoogleMap"
 msgid "Select your classification icon"
 msgstr "Kies uw classificatie icoon"
 
-msgid "Visible"
-msgstr "Zichtbaar"
+msgid "Add Pastoral Care Type"
+msgstr "Pastorale Zorg Type Toevoegen"
 
 msgid "Visible for other authorized users"
 msgstr "Zichtbaar voor andere geautoriseerde gebruikers"
@@ -1681,8 +1685,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "Pastorale Zorg Type Redacteur"
 
-msgid "Add Pastoral Care Type"
-msgstr "Pastorale Zorg Type Toevoegen"
+msgid "Visible"
+msgstr "Zichtbaar"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1691,11 +1695,8 @@ msgstr ""
 "Waarschuwing: Door dit veld te verwijderen, verliest u onherroepelijk alle "
 "voor dit veld toegewezen persoonsgegevens!"
 
-msgid "with this Property..."
-msgstr "met dit eigendom..."
-
-msgid "Prompt"
-msgstr "Prompt"
+msgid "Add a New Property"
+msgstr "Een nieuw eigendom toevoegen"
 
 msgid "Select Property Type"
 msgstr "Selecteer Type eigendom"
@@ -1703,14 +1704,17 @@ msgstr "Selecteer Type eigendom"
 msgid "with this property..."
 msgstr "met dit eigendom..."
 
+msgid "Prompt"
+msgstr "Prompt"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "U staat op het punt deze woning te verwijderen. Wilt u verder gaan ?"
 
 msgid "Property Type Editor"
 msgstr "Editor voor eigendomstypes"
 
-msgid "Add a New Property"
-msgstr "Een nieuw eigendom toevoegen"
+msgid "with this Property..."
+msgstr "met dit eigendom..."
 
 msgid "Class"
 msgstr "Klasse"
@@ -1739,6 +1743,9 @@ msgstr "en verliezen alle corresponderende eigendomstoewijzingen."
 msgid "Add a New Property Type"
 msgstr "Een nieuw eigendomstype toevoegen"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "Nieuwe Vrijwilligers Mogelijkheid Toevoegen"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -1747,9 +1754,6 @@ msgstr "Ouder (hiërarchie)"
 
 msgid "Color"
 msgstr "Kleur"
-
-msgid "Add New Volunteer Opportunity"
-msgstr "Nieuwe Vrijwilligers Mogelijkheid Toevoegen"
 
 msgid "Send Message"
 msgstr "Bericht verzenden"

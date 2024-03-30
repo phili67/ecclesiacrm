@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,6 +14,9 @@ msgstr "Bạn có chắc là bạn muốn xóa hình ảnh này không?"
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr ""
 "Nhấn CTRL + C để sao chép tất cả các số điện thoại của các thành viên nhóm"
+
+msgid "You have no more items in your cart."
+msgstr "Anh không còn đồ trong xe nữa."
 
 msgid "Name"
 msgstr "Tên"
@@ -32,9 +35,6 @@ msgstr "Tuyệt mật"
 
 msgid "Family Role"
 msgstr "Gia đình Role"
-
-msgid "You have no more items in your cart."
-msgstr "Anh không còn đồ trong xe nữa."
 
 msgid "Compose New Message"
 msgstr ""
@@ -1311,6 +1311,10 @@ msgstr ""
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Anh có chắc là muốn loại bỏ các thành viên được chọn không?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "Data tư nhân"
+
 msgid "Group Role"
 msgstr "Tập đoàn Role"
 
@@ -1590,8 +1594,8 @@ msgstr ""
 "Cảnh báo: bằng cách xóa bỏ lĩnh vực này, bạn sẽ không thể thay đổi tất cả "
 "các dữ liệu gia đình được chỉ định cho lĩnh vực này!"
 
-msgid "ID"
-msgstr "Chứng minh thư"
+msgid "Add Fund"
+msgstr "Quỹ cộng"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1603,17 +1607,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "Biên tập viên tài chính"
 
-msgid "Add Fund"
-msgstr "Quỹ cộng"
+msgid "ID"
+msgstr "Chứng minh thư"
 
 msgid "Validate"
 msgstr "Xử lý"
-
-msgid "Place"
-msgstr "Vào vị trí"
-
-msgid "Uri"
-msgstr "Uri"
 
 msgid "URI"
 msgstr "URI"
@@ -1621,11 +1619,8 @@ msgstr "URI"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Kết nối này sẽ bắt đầu với : Http:// hoặc là Https://"
 
-msgid "Global Custom Menus"
-msgstr "Truyền thông Hải quan toàn cầu"
-
-msgid "Dashboard"
-msgstr "Dashboard."
+msgid "Add Custom Menu Link"
+msgstr "Thêm cả mạng lưới Menu Link"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1637,8 +1632,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Biên tập viên Menu Link"
 
-msgid "Add Custom Menu Link"
-msgstr "Thêm cả mạng lưới Menu Link"
+msgid "Place"
+msgstr "Vào vị trí"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "Global Custom Menus"
+msgstr "Truyền thông Hải quan toàn cầu"
+
+msgid "Dashboard"
+msgstr "Dashboard."
 
 msgid "Delete Classification"
 msgstr "Xóa bỏ lớp học"
@@ -1658,8 +1662,8 @@ msgstr "Bản đồ Icon GoogleMap"
 msgid "Select your classification icon"
 msgstr "Chọn biểu tượng phân loại của anh đi"
 
-msgid "Visible"
-msgstr "Có thể nhìn thấy"
+msgid "Add Pastoral Care Type"
+msgstr "Thêm mục sư Care Type"
 
 msgid "Visible for other authorized users"
 msgstr "Có thể nhìn thấy những người dùng có quyền hạn khác"
@@ -1675,8 +1679,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "Giám sát viên Chăm sóc kiểu Pastoral"
 
-msgid "Add Pastoral Care Type"
-msgstr "Thêm mục sư Care Type"
+msgid "Visible"
+msgstr "Có thể nhìn thấy"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1685,11 +1689,8 @@ msgstr ""
 "Cảnh báo: bằng cách xóa bỏ lĩnh vực này, bạn sẽ không thể thay đổi mất tất "
 "cả dữ liệu của người được giao cho lĩnh vực này!"
 
-msgid "with this Property..."
-msgstr "với tài sản này..."
-
-msgid "Prompt"
-msgstr "Prompt"
+msgid "Add a New Property"
+msgstr "Thêm một tài sản mới"
 
 msgid "Select Property Type"
 msgstr "Chọn loại bất động sản đi"
@@ -1697,14 +1698,17 @@ msgstr "Chọn loại bất động sản đi"
 msgid "with this property..."
 msgstr "với tài sản này..."
 
+msgid "Prompt"
+msgstr "Prompt"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "Anh sắp xóa tài sản này rồi. Bạn có muốn tiếp tục không ?"
 
 msgid "Property Type Editor"
 msgstr "Biên tập điểm bất động"
 
-msgid "Add a New Property"
-msgstr "Thêm một tài sản mới"
+msgid "with this Property..."
+msgstr "với tài sản này..."
 
 msgid "Class"
 msgstr "Lớp học"
@@ -1733,6 +1737,9 @@ msgstr "nó và mất bất cứ bài tập nào liên quan đến tài sản."
 msgid "Add a New Property Type"
 msgstr "Thêm một loại \"Bất động sản\" mới"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "Thêm vào cơ hội tình nguyện mới"
+
 msgid "Activ"
 msgstr "Tiến hành!"
 
@@ -1741,9 +1748,6 @@ msgstr ""
 
 msgid "Color"
 msgstr ""
-
-msgid "Add New Volunteer Opportunity"
-msgstr "Thêm vào cơ hội tình nguyện mới"
 
 msgid "Send Message"
 msgstr "Gửi tin nhắn"

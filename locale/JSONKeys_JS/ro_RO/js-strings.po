@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,6 +15,9 @@ msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr ""
 "Apăsați CTRL + C pentru a copia numerele de telefon ale tuturor membrilor "
 "grupului."
+
+msgid "You have no more items in your cart."
+msgstr "Nu mai aveți niciun articol în coș."
 
 msgid "Name"
 msgstr "Nume"
@@ -33,9 +36,6 @@ msgstr "Clasificare"
 
 msgid "Family Role"
 msgstr "Rolul familiei"
-
-msgid "You have no more items in your cart."
-msgstr "Nu mai aveți niciun articol în coș."
 
 msgid "Compose New Message"
 msgstr "Compuneți un mesaj nou"
@@ -1314,6 +1314,10 @@ msgstr ""
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Sunteți sigur că doriți să eliminați membrii grupului selectat?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "Date private"
+
 msgid "Group Role"
 msgstr "Rolul grupului"
 
@@ -1594,8 +1598,8 @@ msgstr ""
 "Avertisment: Prin ștergerea acestui câmp, veți pierde irevocabil toate "
 "datele de familie atribuite pentru acest câmp!"
 
-msgid "ID"
-msgstr "ID"
+msgid "Add Fund"
+msgstr "Adăugați un fond"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1607,17 +1611,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "Editor de fonduri"
 
-msgid "Add Fund"
-msgstr "Adăugați un fond"
+msgid "ID"
+msgstr "ID"
 
 msgid "Validate"
 msgstr "Validați"
-
-msgid "Place"
-msgstr "Locul"
-
-msgid "Uri"
-msgstr "Uri"
 
 msgid "URI"
 msgstr "URI"
@@ -1625,11 +1623,8 @@ msgstr "URI"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Acest link trebuie să înceapă cu : http://.... sau https://...."
 
-msgid "Global Custom Menus"
-msgstr "Meniuri personalizate globale"
-
-msgid "Dashboard"
-msgstr "Tabloul de bord"
+msgid "Add Custom Menu Link"
+msgstr "Adăugați un link de meniu personalizat"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1641,8 +1636,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Editor de linkuri pentru meniuri personalizate"
 
-msgid "Add Custom Menu Link"
-msgstr "Adăugați un link de meniu personalizat"
+msgid "Place"
+msgstr "Locul"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "Global Custom Menus"
+msgstr "Meniuri personalizate globale"
+
+msgid "Dashboard"
+msgstr "Tabloul de bord"
 
 msgid "Delete Classification"
 msgstr "Ștergerea clasificării"
@@ -1662,8 +1666,8 @@ msgstr "Icoana Hartă GoogleHarta"
 msgid "Select your classification icon"
 msgstr "Selectați pictograma de clasificare"
 
-msgid "Visible"
-msgstr "Vizibil"
+msgid "Add Pastoral Care Type"
+msgstr "Adăugați tipul de îngrijire pastorală"
 
 msgid "Visible for other authorized users"
 msgstr "Vizibil pentru alți utilizatori autorizați"
@@ -1679,8 +1683,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "Redactor de tip Pastoral Care Type Editor"
 
-msgid "Add Pastoral Care Type"
-msgstr "Adăugați tipul de îngrijire pastorală"
+msgid "Visible"
+msgstr "Vizibil"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1689,11 +1693,8 @@ msgstr ""
 "Avertisment: Prin ștergerea acestui câmp, veți pierde irevocabil toate "
 "datele de persoană atribuite pentru acest câmp!"
 
-msgid "with this Property..."
-msgstr "cu această proprietate..."
-
-msgid "Prompt"
-msgstr "Prompt"
+msgid "Add a New Property"
+msgstr "Adăugați o nouă proprietate"
 
 msgid "Select Property Type"
 msgstr "Selectați tipul de proprietate"
@@ -1701,14 +1702,17 @@ msgstr "Selectați tipul de proprietate"
 msgid "with this property..."
 msgstr "cu această proprietate..."
 
+msgid "Prompt"
+msgstr "Prompt"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "Sunteți pe cale să ștergeți această proprietate. Doriți să continuați?"
 
 msgid "Property Type Editor"
 msgstr "Editor de tip de proprietate"
 
-msgid "Add a New Property"
-msgstr "Adăugați o nouă proprietate"
+msgid "with this Property..."
+msgstr "cu această proprietate..."
 
 msgid "Class"
 msgstr "Clasa"
@@ -1738,6 +1742,9 @@ msgstr "aceasta și pierde orice atribuire de proprietate corespunzătoare."
 msgid "Add a New Property Type"
 msgstr "Adăugați un nou tip de proprietate"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "Adăugați o nouă oportunitate de voluntariat"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -1746,9 +1753,6 @@ msgstr "Părinte (ierarhie)"
 
 msgid "Color"
 msgstr "Culoare"
-
-msgid "Add New Volunteer Opportunity"
-msgstr "Adăugați o nouă oportunitate de voluntariat"
 
 msgid "Send Message"
 msgstr "Trimiteți un mesaj"

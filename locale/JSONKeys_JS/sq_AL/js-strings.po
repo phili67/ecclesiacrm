@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,6 +13,9 @@ msgstr "Je i sigurt që dëshiron ta fshish këtë imazh?"
 
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr "Shtyp CTRL + C për të kopjuar të gjitha numrat e telefonit të grupit"
+
+msgid "You have no more items in your cart."
+msgstr "Nuk ke më sende në karrocë."
 
 msgid "Name"
 msgstr "Emri"
@@ -31,9 +34,6 @@ msgstr "Klasifikimi"
 
 msgid "Family Role"
 msgstr "Familja Rol"
-
-msgid "You have no more items in your cart."
-msgstr "Nuk ke më sende në karrocë."
 
 msgid "Compose New Message"
 msgstr ""
@@ -1313,6 +1313,10 @@ msgstr ""
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Je i sigurt që do t'i heqësh anëtarët e zgjedhur të grupit?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "të dhënat private"
+
 msgid "Group Role"
 msgstr "Grupi Role"
 
@@ -1590,8 +1594,8 @@ msgstr ""
 "Duke fshirë këtë fushë, do të humbasësh të gjitha të dhënat e familjes që "
 "janë caktuar për këtë fushë!"
 
-msgid "ID"
-msgstr "ID."
+msgid "Add Fund"
+msgstr "Add Fund"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1603,17 +1607,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "redaktor i fondeve"
 
-msgid "Add Fund"
-msgstr "Add Fund"
+msgid "ID"
+msgstr "ID."
 
 msgid "Validate"
 msgstr "Validate"
-
-msgid "Place"
-msgstr "Vend."
-
-msgid "Uri"
-msgstr "juri"
 
 msgid "URI"
 msgstr "Uri"
@@ -1621,11 +1619,8 @@ msgstr "Uri"
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Kjo lidhje duhet të fillojë me : http:/.... ose https:/...."
 
-msgid "Global Custom Menus"
-msgstr "manusi global dostom dostom"
-
-msgid "Dashboard"
-msgstr "Dorëzimi."
+msgid "Add Custom Menu Link"
+msgstr "shto lidhjen me dostom manu"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1637,8 +1632,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "redaktori i lidhjeve manu"
 
-msgid "Add Custom Menu Link"
-msgstr "shto lidhjen me dostom manu"
+msgid "Place"
+msgstr "Vend."
+
+msgid "Uri"
+msgstr "juri"
+
+msgid "Global Custom Menus"
+msgstr "manusi global dostom dostom"
+
+msgid "Dashboard"
+msgstr "Dorëzimi."
 
 msgid "Delete Classification"
 msgstr "Fshije Klasifikimin"
@@ -1658,8 +1662,8 @@ msgstr "harta e google map"
 msgid "Select your classification icon"
 msgstr "Zgjidh ikonën tënde të klasifikimit"
 
-msgid "Visible"
-msgstr "E pamundur."
+msgid "Add Pastoral Care Type"
+msgstr "Shto \"Care Pastore\""
 
 msgid "Visible for other authorized users"
 msgstr "I dukshëm për përdorues të tjerë të autorizuar"
@@ -1675,8 +1679,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "kujdesi për atë që e ka bërë"
 
-msgid "Add Pastoral Care Type"
-msgstr "Shto \"Care Pastore\""
+msgid "Visible"
+msgstr "E pamundur."
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1685,11 +1689,8 @@ msgstr ""
 "Duke fshirë këtë fushë, do të humbasësh të dhënat e personave të caktuar për "
 "këtë fushë!"
 
-msgid "with this Property..."
-msgstr "me këtë pronën..."
-
-msgid "Prompt"
-msgstr "Prompt."
+msgid "Add a New Property"
+msgstr "Shto një pasuri të re"
 
 msgid "Select Property Type"
 msgstr "Zgjidh Tipin e Pronës"
@@ -1697,14 +1698,17 @@ msgstr "Zgjidh Tipin e Pronës"
 msgid "with this property..."
 msgstr "me këtë pronë..."
 
+msgid "Prompt"
+msgstr "Prompt."
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "Do ta fshish këtë pronë. Dëshiron të vazhdosh?"
 
 msgid "Property Type Editor"
 msgstr "redaktor i pronës"
 
-msgid "Add a New Property"
-msgstr "Shto një pasuri të re"
+msgid "with this Property..."
+msgstr "me këtë pronën..."
 
 msgid "Class"
 msgstr "- po."
@@ -1731,6 +1735,9 @@ msgstr "ai dhe humb çdo detyre korresponduese të pronës."
 msgid "Add a New Property Type"
 msgstr "Shto një tipi të pasurisë së re"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "shto mundësinë e re të vullnetit"
+
 msgid "Activ"
 msgstr "Aktiv."
 
@@ -1739,9 +1746,6 @@ msgstr ""
 
 msgid "Color"
 msgstr ""
-
-msgid "Add New Volunteer Opportunity"
-msgstr "shto mundësinë e re të vullnetit"
 
 msgid "Send Message"
 msgstr "dërgo mesazhin"

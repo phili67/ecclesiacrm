@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 08:17+0000\n"
+"POT-Creation-Date: 2024-03-30 21:04+0000\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,7 +13,7 @@ msgstr ""
 msgid "Meeting Dashboard"
 msgstr "미팅 대시보드"
 
-#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:101
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:102
 msgid "Meeting Settings"
 msgstr "미팅 설정"
 
@@ -53,14 +53,33 @@ msgstr "먼저 위의 버튼으로 지치방을 생성하세요!"
 msgid "Settings"
 msgstr "설정"
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:39
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:41
 msgid "The Jitsi domain name, by default"
 msgstr "기본적으로 Jitsi 도메인 이름"
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:55
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:44
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:63
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:82
+msgid "Definition"
+msgstr "정의"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:47
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:66
+msgid "or"
+msgstr "또는"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:60
 msgid "The path for the script associated with the domain name"
 msgstr "도메인 이름과 연결된 스크립트의 경로입니다."
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:65
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:79
+msgid "The api Key"
+msgstr "API 키"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:85
+msgid "You can find one on the website"
+msgstr "웹사이트에서 찾을 수 있습니다."
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:91
 msgid "Save Changes"
 msgstr "변경 사항 저장"

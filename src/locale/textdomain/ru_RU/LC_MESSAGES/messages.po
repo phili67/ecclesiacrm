@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-18 17:10+0000\n"
+"POT-Creation-Date: 2024-03-30 20:56+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,8 +65,8 @@ msgstr "Игнорировать это поле"
 msgid "Title"
 msgstr "Название"
 
-#: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:889
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:894
+#: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:896
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:901
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:555
 #: EcclesiaCRM/Service/ConfirmReportService.php:153
@@ -597,23 +597,23 @@ msgstr "Импорт данных прошел успешно."
 msgid "persons were imported"
 msgstr "лица были импортированы"
 
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:353
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:465
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:550
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:570
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:619
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:689
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:709
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:358
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:470
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:555
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:575
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:624
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:694
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:714
 #: EcclesiaCRM/Service/CalendarService.php:1112
 #: EcclesiaCRM/Service/CalendarService.php:1138
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr ""
 "Два резервирования ресурсов не могут находиться в одном временном интервале."
 
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:366
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:589
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:744
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:756
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:371
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:594
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:749
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:761
 msgid ""
 "This resource reservation was not created by you. You cannot edit, move or "
 "delete a resource that you do not own."
@@ -1012,18 +1012,18 @@ msgstr "Семья деактивирована"
 msgid "Family Activated"
 msgstr "Семья активирована"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:455
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:837
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:462
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:844
 msgid "Deleted from group"
 msgstr "Удален из группы"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:493
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:528
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:500
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:535
 msgid "Added to group"
 msgstr "Добавлено в группу"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:889
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:894
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:896
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:901
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:549
@@ -4757,7 +4757,7 @@ msgstr "Студент"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:191
+#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:193
 msgid "Print"
 msgstr "Печать"
 
@@ -4829,7 +4829,6 @@ msgstr "Не удалось"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:93
 #: EcclesiaCRM/Service/AppIntegrityService.php:102
-#: EcclesiaCRM/Service/AppIntegrityService.php:111
 msgid "Passed"
 msgstr "Передано"
 
@@ -5184,67 +5183,67 @@ msgstr "Отсутствующие координаты"
 msgid "Family Coordinates Data for Some Families"
 msgstr "Данные о координатах семьи для некоторых семей"
 
-#: EcclesiaCRM/utils/GeoUtils.php:221 EcclesiaCRM/utils/GeoUtils.php:253
+#: EcclesiaCRM/utils/GeoUtils.php:232 EcclesiaCRM/utils/GeoUtils.php:264
 msgid "S"
 msgstr "S"
 
-#: EcclesiaCRM/utils/GeoUtils.php:223
+#: EcclesiaCRM/utils/GeoUtils.php:234
 msgid "SSW"
 msgstr "SSW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:225
+#: EcclesiaCRM/utils/GeoUtils.php:236
 msgid "SW"
 msgstr "SW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:227
+#: EcclesiaCRM/utils/GeoUtils.php:238
 msgid "WSW"
 msgstr "WSW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:229
+#: EcclesiaCRM/utils/GeoUtils.php:240
 msgid "W"
 msgstr "W"
 
-#: EcclesiaCRM/utils/GeoUtils.php:231
+#: EcclesiaCRM/utils/GeoUtils.php:242
 msgid "WNW"
 msgstr "WNW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:233
+#: EcclesiaCRM/utils/GeoUtils.php:244
 msgid "NW"
 msgstr "СЗ"
 
-#: EcclesiaCRM/utils/GeoUtils.php:235
+#: EcclesiaCRM/utils/GeoUtils.php:246
 msgid "NNW"
 msgstr "NNW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:237
+#: EcclesiaCRM/utils/GeoUtils.php:248
 msgid "N"
 msgstr "N"
 
-#: EcclesiaCRM/utils/GeoUtils.php:239
+#: EcclesiaCRM/utils/GeoUtils.php:250
 msgid "NNE"
 msgstr "NNE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:241
+#: EcclesiaCRM/utils/GeoUtils.php:252
 msgid "NE"
 msgstr "NE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:243
+#: EcclesiaCRM/utils/GeoUtils.php:254
 msgid "ENE"
 msgstr "ENE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:245
+#: EcclesiaCRM/utils/GeoUtils.php:256
 msgid "E"
 msgstr "E"
 
-#: EcclesiaCRM/utils/GeoUtils.php:247
+#: EcclesiaCRM/utils/GeoUtils.php:258
 msgid "ESE"
 msgstr "ESE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:249
+#: EcclesiaCRM/utils/GeoUtils.php:260
 msgid "SE"
 msgstr "SE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:251
+#: EcclesiaCRM/utils/GeoUtils.php:262
 msgid "SSE"
 msgstr "SSE"
 
@@ -6109,7 +6108,7 @@ msgstr "Неправильный старый пароль"
 msgid "The two passwords must be identical."
 msgstr "Оба пароля должны быть одинаковыми."
 
-#: ident/routes/verify.php:518 ident/routes/verify.php:545
+#: ident/routes/verify.php:522 ident/routes/verify.php:550
 msgid "No Changes"
 msgstr "Без изменений"
 
@@ -6414,7 +6413,7 @@ msgstr "Посмотреть выпуск на GitHub"
 msgid "OK"
 msgstr "OK"
 
-#: Include/Header-function.php:190
+#: Include/Header-function.php:192
 msgid "Change columns"
 msgstr "Изменить столбцы"
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-27T11:31:14.131Z\n"
+"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,6 +13,9 @@ msgstr "Apakah Anda yakin, Anda ingin menghapus gambar ini?"
 
 msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr "Tekan CTRL + C untuk menyalin semua nomor telepon anggota grup"
+
+msgid "You have no more items in your cart."
+msgstr "Kau tak punya barang lagi di gerobakmu."
 
 msgid "Name"
 msgstr "Nama"
@@ -31,9 +34,6 @@ msgstr "Klasifikasi"
 
 msgid "Family Role"
 msgstr "Keluarga Role"
-
-msgid "You have no more items in your cart."
-msgstr "Kau tak punya barang lagi di gerobakmu."
 
 msgid "Compose New Message"
 msgstr ""
@@ -1313,6 +1313,10 @@ msgstr ""
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Kau yakin ingin menghapus anggota kelompok yang terpilih?"
 
+#, fuzzy
+msgid "401 : Private Datas"
+msgstr "Private Data"
+
 msgid "Group Role"
 msgstr "Grup Role"
 
@@ -1588,8 +1592,8 @@ msgstr ""
 "Peringatan: dengan menghapus lapangan ini, kau akan kehilangan semua data "
 "keluarga yang ditugaskan untuk bidang ini!"
 
-msgid "ID"
-msgstr "ID"
+msgid "Add Fund"
+msgstr "Tambahkan Fund"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1601,17 +1605,11 @@ msgstr ""
 msgid "Fund Editor"
 msgstr "Fund Editor"
 
-msgid "Add Fund"
-msgstr "Tambahkan Fund"
+msgid "ID"
+msgstr "ID"
 
 msgid "Validate"
 msgstr "Validate"
-
-msgid "Place"
-msgstr "Tempatkan"
-
-msgid "Uri"
-msgstr "Uri"
 
 msgid "URI"
 msgstr "URI"
@@ -1621,11 +1619,8 @@ msgstr ""
 "Link ini harus dimulai dengan : http:/ //////////////////////. atau "
 "https://////."
 
-msgid "Global Custom Menus"
-msgstr "Global Custom Menus"
-
-msgid "Dashboard"
-msgstr "Dashboard"
+msgid "Add Custom Menu Link"
+msgstr "Tambahkan Custom Menu Link"
 
 msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
@@ -1637,8 +1632,17 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Custom Menu Link Editor"
 
-msgid "Add Custom Menu Link"
-msgstr "Tambahkan Custom Menu Link"
+msgid "Place"
+msgstr "Tempatkan"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "Global Custom Menus"
+msgstr "Global Custom Menus"
+
+msgid "Dashboard"
+msgstr "Dashboard"
 
 msgid "Delete Classification"
 msgstr "Hapus Klasifikasi"
@@ -1657,8 +1661,8 @@ msgstr "Peta Icon GoogleMap"
 msgid "Select your classification icon"
 msgstr "Pilih ikon klasifikasimu"
 
-msgid "Visible"
-msgstr "Terlihat"
+msgid "Add Pastoral Care Type"
+msgstr "Tambahkan Pastor Care Tipe"
 
 msgid "Visible for other authorized users"
 msgstr "Terlihat untuk pengguna berwenang lainnya"
@@ -1674,8 +1678,8 @@ msgstr ""
 msgid "Pastoral Care Type Editor"
 msgstr "Pendeta Perawatan Pengecut"
 
-msgid "Add Pastoral Care Type"
-msgstr "Tambahkan Pastor Care Tipe"
+msgid "Visible"
+msgstr "Terlihat"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
@@ -1684,11 +1688,8 @@ msgstr ""
 "Peringatan: dengan menghapus lapangan ini, kau akan kehilangan semua data "
 "orang yang ditugaskan untuk bidang ini!"
 
-msgid "with this Property..."
-msgstr "dengan Properti ini..."
-
-msgid "Prompt"
-msgstr "Prompt"
+msgid "Add a New Property"
+msgstr "Tambahkan properti baru"
 
 msgid "Select Property Type"
 msgstr "Pilih Ketik Properti"
@@ -1696,14 +1697,17 @@ msgstr "Pilih Ketik Properti"
 msgid "with this property..."
 msgstr "dengan properti ini..."
 
+msgid "Prompt"
+msgstr "Prompt"
+
 msgid "You're about to delete this property. Would you like to continue ?"
 msgstr "Kau akan menghapus properti ini. Apakah Anda ingin melanjutkan?"
 
 msgid "Property Type Editor"
 msgstr "Properti tipe Editor"
 
-msgid "Add a New Property"
-msgstr "Tambahkan properti baru"
+msgid "with this Property..."
+msgstr "dengan Properti ini..."
 
 msgid "Class"
 msgstr "Kelas"
@@ -1732,6 +1736,9 @@ msgstr "ini dan kehilangan setiap sesuai tugas properti."
 msgid "Add a New Property Type"
 msgstr "Tambahkan tipe Properti baru"
 
+msgid "Add New Volunteer Opportunity"
+msgstr "Tambahkan peluang Volunteer baru"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -1740,9 +1747,6 @@ msgstr ""
 
 msgid "Color"
 msgstr ""
-
-msgid "Add New Volunteer Opportunity"
-msgstr "Tambahkan peluang Volunteer baru"
 
 msgid "Send Message"
 msgstr "Kirim pesan"
