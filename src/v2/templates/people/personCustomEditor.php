@@ -393,7 +393,7 @@ require $sRootDocument . '/Include/Header.php';
                   }
                 } elseif ($aTypeFields[$row] == 12) {
               ?>
-                  <a href="javascript:void(0)" class="btn btn-success" onClick="Newwin=window.open('v2/system/option/manager/custom/<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _('Edit List Options') ?></a>
+                  <a href="javascript:void(0)" class="btn btn-success" onClick="Newwin=window.open('<?= $sRootPath ?>/v2/system/option/manager/custom/<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _('Edit List Options') ?></a>
               <?php
                 } else {
               ?>

@@ -12,6 +12,7 @@
 require_once 'Header-Security.php';
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -26,6 +27,7 @@ use EcclesiaCRM\dto\SystemURLs;
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         window.CRM = {
             root: "<?= SystemURLs::getRootPath() ?>",
+            jwtToken: '<?= SessionUser::getUser()->getJwtTokenForApi() ?>'
         };
     </script>
 </head>
