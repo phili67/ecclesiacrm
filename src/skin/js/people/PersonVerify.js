@@ -7,15 +7,44 @@
  ******************************************************************************/
 
 $(function() {
+    window.CRM.APIRequest = (options, callback) => {
+        if (!options.method) {
+            options.method = "GET"
+        }
+
+        fetch(window.CRM.root + "/ident/" + options.path, {            
+            method: options.method,
+            headers: {
+                'Content-Type': "application/json; charset=utf-8",                
+            },
+            body: options.data
+        })
+            .then(res => res.json())
+            .then(data => {
+                // enter you logic when the fetch is successful
+                if (callback) {
+                    callback(data);
+                }
+            })
+            .catch(error => {
+                // enter your logic for when there is an error (ex. error toast)
+                console.log(error)
+            });
+    }
+
+
     $('#onlineVerifySiteBtn').hide();
     $("#confirm-modal-done").hide();
     $("#confirm-modal-error").hide();
 
     $("#onlineVerifyBtn").on('click', function () {
-
-        $.post(window.CRM.root + '/ident/my-profile/onlineVerificationFinished/', {
-            "token": window.CRM.token,
-            "message" : $("#confirm-info-data").val()
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'my-profile/onlineVerificationFinished/',
+            data: JSON.stringify({
+                "token": window.CRM.token,
+                "message" : $("#confirm-info-data").val()
+            })
         }, function (data) {
             $('#confirm-modal-collect').hide();
             $("#onlineVerifyCancelBtn").hide();
@@ -29,8 +58,7 @@ $(function() {
         });
     });
 
-    function BootboxContent(data, custom) {
-
+    const BootboxContent = (data, custom) => {
         var frm_str = '<form id="some-form">'
                 + '  <div class="row">'
                 + '     <div class="col-md-6">';
@@ -47,8 +75,7 @@ $(function() {
         return object;
     }
 
-    function PersonWindow(data, custom, fields, personId) {
-
+    const PersonWindow = (data, custom, fields, personId) => {
         var _fields = fields;
 
         var modal = bootbox.dialog({
@@ -92,9 +119,7 @@ $(function() {
                         }
 
                         var fmt = window.CRM.datePickerformat.toUpperCase();;
-
                         var real_BirthDayDate = moment(BirthDayDate,fmt).format('YYYY-MM-DD');
-
                         var real_WeddingDate = moment(WeddingDate,fmt).format('YYYY-MM-DD');
 
                         fetch(window.CRM.root + '/ident/my-profile/modifyPersonInfo/', {
@@ -132,6 +157,26 @@ $(function() {
                             // enter you logic when the fetch is successful
                             $(".person-container-" + personId).html(data.content);
                             $(".person-container-custom-" + personId).html(data.contentCustom);
+
+                            let iconurl = window.CRM.root+"/skin/icons/event.png";
+                            
+                            let icon = L.icon({
+                                iconUrl: iconurl,
+                                iconSize:     [32, 32], // size of the icon
+                                iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
+                                popupAnchor:  [0, -32] // point from which the popup should open relative to the iconAnchor
+                            });
+
+                            let Address = '';
+                            contentString = "<p>" + Address + "</p>";
+
+                            let centerCard = {
+                                lat: Number(data.position.lat),
+                                lng: Number(data.position.lng)
+                            };
+
+                            //Add marker and infowindow
+                            addMarkerWithInfowindow(window.CRM.map, centerCard, icon, '', contentString);
                         })
                         .catch(error => {
                             // enter your logic for when there is an error (ex. error toast)
@@ -157,7 +202,14 @@ $(function() {
     $(document).on("click", ".modifyPerson", function () {
         var personId = $(this).data("id");
 
-        $.post(window.CRM.root + '/ident/my-profile/getPersonInfo/', {"token": window.CRM.token, "personId": personId}, function (data) {
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'my-profile/getPersonInfo/',
+            data: JSON.stringify({
+                "token": window.CRM.token, 
+                "personId": personId}
+            )
+        }, function (data) {
             var modal = PersonWindow(data.html, data.htmlCustom, data.fields, personId);
             modal.modal("show");
 
@@ -170,9 +222,13 @@ $(function() {
 
         bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
             if (confirmed) {
-                $.post(window.CRM.root + '/ident/my-profile/deletePerson/', {
-                    "token": window.CRM.token,
-                    "personId": personId
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'my-profile/deletePerson/',
+                    data: JSON.stringify({
+                        "token": window.CRM.token, 
+                        "personId": personId}
+                    )
                 }, function (data) {
                     location.reload();
                 });
@@ -181,7 +237,14 @@ $(function() {
     });
 
     $(document).on("click", ".exitSession", function () {
-        $.post(window.CRM.root + '/ident/my-profile/exitSession/', {"token": window.CRM.token}, function (data) {
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'my-profile/exitSession/',
+            data: JSON.stringify({
+                "token": window.CRM.token,
+             }
+            )
+        }, function (data) {
             window.location = window.location.href;
         });
     });

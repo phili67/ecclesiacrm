@@ -33,7 +33,7 @@ class ConfirmReportService {
 
                                 <h3>' . $person->getFullName() . '</h3>
 
-                                <div class="text-muted font-bold m-b-xs family-info">
+                                <div class="text-muted font-bold m-b-xs person-info">
                                 <p class="text-muted"><i
                                         class="fa  fa-' . ($person->isMale() ? "male" : "female") .'"></i> '. $person->getFamilyRoleName() .'
                                 </p>
@@ -125,7 +125,7 @@ class ConfirmReportService {
     * With the fields
     * 
     */
-    public static function getPersonStandardTextFields (Person $person): string
+    public static function getPersonStandardTextFields (Person $person, $family = false): string
     {
         $code = '<h3>' . _("Person") . " : " . $person->getFullName() . '</h3><hr/>';
 
@@ -209,22 +209,22 @@ class ConfirmReportService {
         $code .= '<label>'. _('Address') . ' 1:</label>
         <input type="text" name="Address1"
                 value="'. htmlentities(stripslashes($person->getFamily()->getAddress1()), ENT_NOQUOTES, "UTF-8") . '"
-                size="30" maxlength="50" class="form-control form-control-sm" id="Address1">
+                size="30" maxlength="50" class="form-control form-control-sm" id="Address1" '. (($family == true)?'disabled':'') .'>
             <br>
             <label>'. _('Zip') . '</label>
             <input type="text" name="Zip"
                     value="'. htmlentities(stripslashes($person->getFamily()->getZip()), ENT_NOQUOTES, "UTF-8") . '"
-                    size="30" maxlength="50" class="form-control form-control-sm" id="Zip">
+                    size="30" maxlength="50" class="form-control form-control-sm" id="Zip" '. (($family == true)?'disabled':'') .'>
             <br>                                
             <label>'. _('City') . '</label>
             <input type="text" name="City"
                     value="'. htmlentities(stripslashes($person->getFamily()->getCity()), ENT_NOQUOTES, "UTF-8") . '"
-                    size="30" maxlength="50" class="form-control form-control-sm" id="City">';
+                    size="30" maxlength="50" class="form-control form-control-sm" id="City" '. (($family == true)?'disabled':'') .'>';
         
         $code .= '<label>' . _('Address') . ' 2:</label>
                   <input type="text" Name="Address2" id="Address2"
                                     value="' . htmlentities(stripslashes($person->getFamily()->getAddress2()), ENT_NOQUOTES, 'UTF-8') . '" size="50"
-                                    maxlength="250" class="form-control form-control-sm"><br>';  
+                                    maxlength="250" class="form-control form-control-sm" '. (($family == true)?'disabled':'') .'><br>';  
 
         $code .= '
                         </span>
@@ -308,7 +308,7 @@ class ConfirmReportService {
         $code .= '                   <i class="fa  fa-birthday-cake" title="' . _("Anniversary") . '"></i> <small>' . _("Anniversary") . '</small>
                                 </div>
                                 <div class="col-md-10">';
-            $code .= '               <input type="text" name="WeddingDate" class="date-picker form-control form-control-sm" value="' . OutputUtils::change_date_for_place_holder($dWeddingDate) . '" maxlength="10" id="WeddingDate" size="10" placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '">';
+            $code .= '               <input type="text" name="WeddingDate" class="date-picker form-control form-control-sm" value="' . OutputUtils::change_date_for_place_holder($dWeddingDate) . '" maxlength="10" id="WeddingDate" size="10" placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '" '. (($family == true)?'disabled':'') .'>';
             $code .= '          </div>';
             $code .= '       </div>';
         }                          
@@ -466,8 +466,7 @@ class ConfirmReportService {
     }
 
     public static function getPersonForFamilyStandardInfos (Person $person, string $photo) : String {
-        $res = '<div class="card card-primary">
-                    <div class="card-body box-profile">
+        $res = '<div class="card-body box-profile">
                         <div class="text-center">
                             <img class="profile-user-img img-responsive img-circle initials-image"
                                 src="data:image/png;base64,' . $photo . '">
@@ -546,7 +545,6 @@ class ConfirmReportService {
                     <button class="btn btn-danger btn-sm deletePerson" data-id="'. $person->getId() .'" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> '. _("Delete") .'</button>
                     <button class="btn btn-sm modifyPerson" data-id="' . $person->getId() . '" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> '. _("Modify") .'</button>
                 </div>
-            </div>
             <!-- /.box-body -->
         </div>';
 
@@ -558,8 +556,18 @@ class ConfirmReportService {
             . str_replace("<br>", '<br><i class="fa  fa-map-marker" title="'
             . _("Home Address") .'"></i>', $family->getAddress()) .'<br/>';
 
+        $res .= '<hr><i class="fa  fa-map-marker" title="'. _("Address2") .'"></i>'
+            . str_replace("<br>", '<br><i class="fa  fa-map-marker" title="'
+            . _("Home Address") .'"></i>', $family->getAddress2()) .'<br/><hr>';
+
         if (!empty($family->getHomePhone())) {
             $res .= '<i class="fa  fa-phone" title="'. _("Home Phone") .'"> </i>(H) '. $family->getHomePhone() .'<br/>';
+        }
+        if (!empty($family->getWorkPhone())) {
+            $res .= '<i class="fa fa-briefcase" title="'. _("Work Phone") .'"> </i>(W) '. $family->getWorkPhone() .'<br/>';
+        }
+        if (!empty($family->getWorkPhone())) {
+            $res .= '<i class="fa fa-mobile" title="'. _("Mobile Phone") .'"> </i>(M) '. $family->getCellPhone() .'<br/>';
         }
         if (!empty($family->getEmail())) {
             $res.= '<i class="fa  fa-envelope" title="'. _("Family Email") .'"></i>'. $family->getEmail() .'<br/>';
@@ -584,8 +592,6 @@ class ConfirmReportService {
     }
 
     public static function getFamilyFullTextFields (Family $family): string {
-        
-
         $code = '<h3>' . _("Family") . " : " . $family->getName() . '</h3><hr/>';
 
         $sName = $family->getName();
@@ -664,17 +670,6 @@ class ConfirmReportService {
         $code .= 'value="' . htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8') . '"
             maxlength="10" size="8">
 
-            </div>';
-
-        $code .= '<div class="row">
-            <div class="col-md-2">
-                <i class="fa  fa-map-marker" title="' . _("Address 2") . '"></i> <label>' . _('Address') . ' 1:</label>
-            </div>
-            <div class="col-md-9">
-                <input type="text" Name="Address1" id="Address1"
-                        value="' . htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') . '" size="50"
-                        maxlength="250" class="form-control form-control-sm">
-            </div>
             </div>';
 
         $code .= '<div class="form-group col-md-3">

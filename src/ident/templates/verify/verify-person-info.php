@@ -14,7 +14,7 @@ use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\Service\ConfirmReportService;
 
 // Set the page title and include HTML header
-$sPageTitle = _("Family Verification");
+$sPageTitle = _("Person Verification");
 
 require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 
@@ -150,8 +150,6 @@ $famCountry = $person->getFamily()->getCountry();
 
 </style>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonVerify.js"></script>
-
 <?php
 $sMapProvider = SystemConfig::getValue('sMapProvider');
 
@@ -185,6 +183,7 @@ $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
     window.CRM.token = '<?= $token->getToken()?>';
 </script>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonVerify.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/moment/moment-with-locales.min.js"></script>
 

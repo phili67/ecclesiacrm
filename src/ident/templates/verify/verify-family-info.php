@@ -4,6 +4,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\Service\ConfirmReportService;
 use EcclesiaCRM\Utils\OutputUtils;
 
 // Set the page title and include HTML header
@@ -31,31 +32,7 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
              src="data:image/png;base64,<?= base64_encode($family->getPhoto()->getThumbnailBytes()) ?>">
         <h2><?= $family->getName() ?></h2>
         <div class="text-muted font-bold m-b-xs family-info">
-            <i class="fa  fa-map-marker" title="<?= _("Home Address") ?>"></i><?= str_replace("<br>", '<br><i class="fa  fa-map-marker" title="'. _("Home Address") .'"></i>', $family->getAddress()) ?><br/>
-            <?php if (!empty($family->getHomePhone())) { ?>
-                <i class="fa  fa-phone" title="<?= _("Home Phone") ?>"> </i>(H) <?= $family->getHomePhone() ?><br/>
-            <?php }
-            if (!empty($family->getEmail())) { ?>
-            <i class="fa  fa-envelope" title="<?= _("Family Email") ?>"></i><?= $family->getEmail() ?><br/>
-                <?php
-            }
-            if ($family->getWeddingDate() !== null) {
-                ?>
-            <i class="fa  fa-heart"
-               title="<?= _("Wedding Date") ?>"></i><?= $family->getWeddingDate()->format(SystemConfig::getValue("sDateFormatLong")) ?>
-                <br/>
-                <?php
-            }
-            ?>
-
-            <i class="fas fa-newspaper"
-               title="<?= _("Send Newsletter") ?>"></i><?= _($family->getSendNewsletter()) ?><br/>
-
-            <div class="text-left">
-                <button class="btn btn-danger btn-sm deleteFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> <?= _("Delete") ?></button>
-                <button class="btn btn-sm modifyFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> <?= _("Modify") ?></button>
-                <button class="btn btn-success btn-sm exitSession" style="height: 30px;padding-top: 5px;background-color: green"><i class="fas fa-sign-out-alt"></i> <?= _("Exit") ?></button>
-            </div>
+            <?= ConfirmReportService::getFamilyStandardInfos($family) ?>
         </div>
     </div>
     <div class="border-right border-left">
@@ -72,95 +49,12 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
         <div class="card-body">
             <div class="row">
                 <?php foreach ($family->getPeopleSorted() as $person) { ?>
-                    <div class="col-md-3 col-sm-4 person-container-<?= $person->getId() ?>">
+                    <div class="col-md-3 col-sm-4">
                         <div class="card card-primary">
-                            <div class="card-body box-profile">
-                                <div class="text-center">
-                                    <img class="profile-user-img img-responsive img-circle initials-image"
-                                     src="data:image/png;base64,<?= base64_encode($person->getPhoto()->getThumbnailBytes()) ?>">
-                                </div>
-
-                                <h3 class="profile-username text-center"><?= $person->getFullName() ?></h3>
-
-                                <p class="text-muted text-center"><i
-                                        class="fa  fa-<?= ($person->isMale() ? "male" : "female") ?>"></i> <?= $person->getFamilyRoleName() ?>
-                                </p>
-
-                                <ul class="list-group list-group-unbordered">
-                                    <li class="list-group-item">
-                                        <?php if (!empty($person->getHomePhone())) { ?>
-                                            <i class="fa  fa-phone"
-                                               title="<?= _("Home Phone") ?>"></i>(H) <?= $person->getHomePhone() ?>
-                                            <br/>
-                                        <?php }
-                                        if (!empty($person->getWorkPhone())) { ?>
-                                            <i class="fa  fa-briefcase"
-                                               title="<?= _("Work Phone") ?>"></i>(W) <?= $person->getWorkPhone() ?>
-                                            <br/>
-                                        <?php }
-                                        if (!empty($person->getCellPhone())) { ?>
-                                            <i class="fa  fa-mobile"
-                                               title="<?= _("Mobile Phone") ?>"></i>(M) <?= $person->getCellPhone() ?>
-                                            <br/>
-                                        <?php }
-                                        if (!empty($person->getEmail())) { ?>
-                                            <i class="fa  fa-envelope"
-                                               title="<?= _("Email") ?>"></i>(H) <?= $person->getEmail() ?><br/>
-                                        <?php }
-                                        if (!empty($person->getWorkEmail())) { ?>
-                                            <i class="fa  fa-envelope-o"
-                                               title="<?= _("Work Email") ?>"></i>(W) <?= $person->getWorkEmail() ?>
-                                            <br/>
-                                        <?php } ?>
-                                        <i class="fa  fa-birthday-cake" title="<?= _("Birthday") ?>"></i>
-                                        <?php
-
-                                        if ($person->hideAge()) {
-                                            $birthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', 0);
-                                            ?>
-                                            <?= $birthDate ?>
-                                            <i class="fa  fa-eye-slash" title="<?= _("Age Hidden") ?>"></i>
-                                            <?php
-                                        } else {
-                                            $birthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', 0);
-                                            ?>
-                                            <?= $birthDate ?>
-                                            <?php
-                                        }
-                                        ?>
-                                        <br/>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <?php
-                                        $classification = "";
-                                        $cls = ListOptionQuery::create()->filterById(1)->filterByOptionId($person->getClsId())->findOne();
-                                        if (!empty($cls)) {
-                                            $classification = $cls->getOptionName();
-                                        }
-                                        ?>
-                                        <b>Classification:</b> <?= $classification ?>
-                                    </li>
-                                    <?php if (count($person->getPerson2group2roleP2g2rs()) > 0) { ?>
-                                        <li class="list-group-item">
-                                            <h4><?= _("Groups") ?></h4>
-                                            <?php foreach ($person->getPerson2group2roleP2g2rs() as $groupMembership) {
-                                                if ($groupMembership->getGroup() != null) {
-                                                    $listOption = ListOptionQuery::create()->filterById($groupMembership->getGroup()->getRoleListId())->filterByOptionId($groupMembership->getRoleId())->findOne()->getOptionName();
-                                                    ?>
-                                                    <b><?= $groupMembership->getGroup()->getName() ?></b>: <span
-                                                        class="pull-right"><?= _($listOption) ?></span><br/>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                        </li>
-                                    <?php } ?>
-                                </ul>
+                            <div class="card-body box-profile person-container-<?= $person->getId() ?>">
+                                <?php $photo = base64_encode($person->getPhoto()->getThumbnailBytes()); ?>
+                                <?= ConfirmReportService::getPersonForFamilyStandardInfos($person, $photo) ?>
                                 <br/>
-                                <div class="text-center">
-                                    <button class="btn btn-danger btn-sm deletePerson" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> <?= _("Delete") ?></button>
-                                    <button class="btn btn-sm modifyPerson" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> <?= _("Modify") ?></button>
-                                </div>
                             </div>
                             <!-- /.box-body -->
                         </div>

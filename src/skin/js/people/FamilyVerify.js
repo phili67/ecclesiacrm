@@ -7,15 +7,44 @@
  ******************************************************************************/
 
 $(function() {
+    window.CRM.APIRequest = (options, callback) => {
+        if (!options.method) {
+            options.method = "GET"
+        }
+
+        fetch(window.CRM.root + "/ident/" + options.path, {            
+            method: options.method,
+            headers: {
+                'Content-Type': "application/json; charset=utf-8",                
+            },
+            body: options.data
+        })
+            .then(res => res.json())
+            .then(data => {
+                // enter you logic when the fetch is successful
+                if (callback) {
+                    callback(data);
+                }
+            })
+            .catch(error => {
+                // enter your logic for when there is an error (ex. error toast)
+                console.log(error)
+            });
+    }
+
     $('#onlineVerifySiteBtn').hide();
     $("#confirm-modal-done").hide();
     $("#confirm-modal-error").hide();
 
     $("#onlineVerifyBtn").on('click', function () {
 
-        $.post(window.CRM.root + '/ident/my-profile/onlineVerificationFinished/', {
-            "token": window.CRM.token,
-            "message" : $("#confirm-info-data").val()
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'my-profile/onlineVerificationFinished/',
+            data: JSON.stringify({
+                "token": window.CRM.token,
+                "message" : $("#confirm-info-data").val()
+            })
         }, function (data) {
             $('#confirm-modal-collect').hide();
             $("#onlineVerifyCancelBtn").hide();
@@ -29,8 +58,7 @@ $(function() {
         });
     });
 
-    function BootboxContent(data) {
-
+    const BootboxContent = (data) => {
         var frm_str = '<form id="some-form">';
 
         frm_str += data
@@ -41,8 +69,7 @@ $(function() {
         return object;
     }
 
-    function PersonWindow(data, personId) {
-
+    const PersonWindow = (data, personId) => {
         var modal = bootbox.dialog({
             message: BootboxContent(data),
             buttons: [
@@ -71,22 +98,29 @@ $(function() {
 
                         var real_dateTime = moment(BirthDayDate,fmt).format('YYYY-MM-DD');
 
-
-                        $.post(window.CRM.root + '/ident/my-profile/modifyPersonInfo/', {
-                            "token": window.CRM.token,
-                            "personId": personId,
-                            "FirstName": FirstName,
-                            "MiddleName": MiddleName,
-                            "LastName": LastName,
-                            "FamilyRole": FamilyRole,
-                            "homePhone": homePhone,
-                            "workPhone": workPhone,
-                            "cellPhone": cellPhone,
-                            "email": email,
-                            "workemail": workemail,
-                            "BirthDayDate": real_dateTime,
-                            "type": "person"
-                        }, function (data) {
+                        fetch(window.CRM.root + '/ident/my-profile/modifyPersonInfo/', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': "application/json; charset=utf-8",
+                            },
+                            body: JSON.stringify({
+                                "token": window.CRM.token,
+                                "personId": personId,
+                                "FirstName": FirstName,
+                                "MiddleName": MiddleName,
+                                "LastName": LastName,
+                                "FamilyRole": FamilyRole,
+                                "homePhone": homePhone,
+                                "workPhone": workPhone,
+                                "cellPhone": cellPhone,
+                                "email": email,
+                                "workemail": workemail,
+                                "BirthDayDate": real_dateTime,
+                                "type": "family"
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(data => {
                             $(".person-container-" + personId).html(data.content);
                         });
                     }
@@ -108,7 +142,14 @@ $(function() {
     $(document).on("click", ".modifyPerson", function () {
         var personId = $(this).data("id");
 
-        $.post(window.CRM.root + '/ident/my-profile/getPersonInfo/', {"token": window.CRM.token, "personId": personId}, function (data) {
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'my-profile/getPersonInfo/',
+            data: JSON.stringify({
+                "token": window.CRM.token,
+                "personId": personId
+            })
+        }, function (data) {
             var modal = PersonWindow(data.html, personId);
             modal.modal("show");
 
@@ -121,9 +162,13 @@ $(function() {
 
         bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
             if (confirmed) {
-                $.post(window.CRM.root + '/ident/my-profile/deletePerson/', {
-                    "token": window.CRM.token,
-                    "personId": personId
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'my-profile/deletePerson/',
+                    data: JSON.stringify({
+                        "token": window.CRM.token,
+                        "personId": personId
+                    })
                 }, function (data) {
                     $(".person-container-" + personId).html('');
                 });
@@ -131,8 +176,7 @@ $(function() {
         });
     });
 
-    function FamilyWindow(data, familyId) {
-
+    const FamilyWindow = (data, familyId) => {
         var modal = bootbox.dialog({
             message: BootboxContent(data),
             size: "large",
@@ -165,25 +209,52 @@ $(function() {
 
                         var real_dateTime = moment(WeddingDate,fmt).format('YYYY-MM-DD');
 
-
-                        $.post(window.CRM.root + '/ident/my-profile/modifyFamilyInfo/', {
-                            "token": window.CRM.token,
-                            "familyId": familyId,
-                            "FamilyName": FamilyName,
-                            "Address1": Address1,
-                            "Address2": Address2,
-                            "City": City,
-                            "Zip": Zip,
-                            "Country": Country,
-                            "State": State,
-                            "homePhone": homePhone,
-                            "workPhone": workPhone,
-                            "cellPhone": cellPhone,
-                            "email": email,
-                            "WeddingDate": real_dateTime,
-                            "SendNewsLetter": SendNewsLetter
-                        }, function (data) {
+                        fetch(window.CRM.root + '/ident/my-profile/modifyFamilyInfo/', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': "application/json; charset=utf-8",
+                            },
+                            body: JSON.stringify({
+                                "token": window.CRM.token,
+                                "familyId": familyId,
+                                "FamilyName": FamilyName,
+                                "Address1": Address1,
+                                "Address2": Address2,
+                                "City": City,
+                                "Zip": Zip,
+                                "Country": Country,
+                                "State": State,
+                                "homePhone": homePhone,
+                                "workPhone": workPhone,
+                                "cellPhone": cellPhone,
+                                "email": email,
+                                "WeddingDate": real_dateTime,
+                                "SendNewsLetter": SendNewsLetter
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(data => {
                             $(".family-info").html(data.content);
+
+                            let iconurl = window.CRM.root+"/skin/icons/event.png";
+                            
+                            let icon = L.icon({
+                                iconUrl: iconurl,
+                                iconSize:     [32, 32], // size of the icon
+                                iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
+                                popupAnchor:  [0, -32] // point from which the popup should open relative to the iconAnchor
+                            });
+
+                            let Address = '';
+                            contentString = "<p>" + Address + "</p>";
+
+                            let centerCard = {
+                                lat: Number(data.position.lat),
+                                lng: Number(data.position.lng)
+                            };
+
+                            //Add marker and infowindow
+                            addMarkerWithInfowindow(window.CRM.map, centerCard, icon, '', contentString);
                         });
                     }
                 }
@@ -204,7 +275,14 @@ $(function() {
     $(document).on("click", ".modifyFamily", function () {
         var familyId = $(this).data("id");
 
-        $.post(window.CRM.root + '/ident/my-profile/getFamilyInfo/', {"token": window.CRM.token, "familyId": familyId}, function (data) {
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'my-profile/getFamilyInfo/',
+            data: JSON.stringify({
+                "token": window.CRM.token,
+                "familyId": familyId
+            })
+        }, function (data) {
 
             var modal = FamilyWindow(data.html, familyId);
             modal.modal("show");
@@ -218,9 +296,13 @@ $(function() {
 
         bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
             if (confirmed) {
-                $.post(window.CRM.root + '/ident/my-profile/deleteFamily/', {
-                    "token": window.CRM.token,
-                    "familyId": familyId
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'my-profile/deleteFamily/',
+                    data: JSON.stringify({
+                        "token": window.CRM.token,
+                        "familyId": familyId
+                    })
                 }, function (data) {
                     location.reload();
                 });
@@ -229,7 +311,13 @@ $(function() {
     });
 
     $(document).on("click", ".exitSession", function () {
-        $.post(window.CRM.root + '/ident/my-profile/exitSession/', {"token": window.CRM.token}, function (data) {
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'my-profile/exitSession/',
+            data: JSON.stringify({
+                "token": window.CRM.token
+            })
+        }, function (data) {
             window.location = window.location.href;
         });
     });

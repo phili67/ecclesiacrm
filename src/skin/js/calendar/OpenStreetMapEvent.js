@@ -1,13 +1,11 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//  Updated     : 2018/06/27
+//  Updated     : 2024/03/31
 //
-
   var marker = null;
   
-  function updateMap()
-  {
+  const  updateMap = () => {
       document.getElementById('MyMap').style.width = '100%';
       document.getElementById('MyMap').style.height = '210px';      
 
@@ -30,7 +28,6 @@
         dataType: "json",
         success:function(res){
           if (res === undefined || res.length == 0) {
-            $('form #EventLocation').val();
             alert(i18next.t('Wrong address format.'));
             return;
           }
@@ -71,24 +68,29 @@
     }
   });
   
-  function addMarkerWithInfowindow(map, marker_position, image, title, infowindow_content) {
-      var mark = L.marker([marker_position.lat, marker_position.lng], {icon: image})
+  const addMarkerWithInfowindow = (map, marker_position, image, title, infowindow_content) => {
+      if (marker != null) {
+        deleteMarker(marker);
+      }
+      
+      marker = L.marker([marker_position.lat, marker_position.lng], {icon: image})
          .bindPopup(infowindow_content)
          .addTo(map);
+
+      window.CRM.map.panTo(marker_position);
          
-      return mark;
+      return marker;
   }
     
-  function deleteMarker(mark)
-  {
+  const deleteMarker = (mark) => {
     if (mark != null) {
-      window.CRM.map.removeLayer(marker);
+      window.CRM.map.removeLayer(mark);
     }
-    mark = null;
+    marker = null;
   }
 
 
-  function initMap(longitude,latitude,Salutation,Address,Name,Text) {
+  const initMap = (longitude,latitude,Salutation,Address,Name,Text) => {
       // Create a map object and specify the DOM element for display.
       if ( longitude !== undefined && latitude !== undefined && longitude > 0 && latitude > 0 ) {
          var centerCard = {
