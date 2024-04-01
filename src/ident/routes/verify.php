@@ -180,7 +180,6 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->token) ) {
-
             $token = TokenQuery::create()->findPk($input->token);
             if (!($token != null && ($token->isVerifyFamilyToken() || $token->isVerifyPersonToken()) && $token->isValid())) {
                 return $response->withStatus(200);
@@ -188,8 +187,9 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
             if (isset ($input->personId)) {
                 $person = PersonQuery::create()->findOneById($input->personId);
+                $photo = base64_encode($person->getPhoto()->getThumbnailBytes());
 
-                $code = ConfirmReportService::getPersonStandardTextFields($person);
+                $code = ConfirmReportService::getPersonStandardTextFields($person, $photo, $token->isVerifyFamilyToken());
                 $codeCustom = ConfirmReportService::getPersonCustomTextFields($person);
 
                 return $response->withJson(["Status" => "success", "html" => $code, "htmlCustom" => $codeCustom[1], "fields" => $codeCustom[0]]);
@@ -374,6 +374,10 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                     $person->getFamily()->setCountry($input->Country);
                 }
 
+                if (isset($input->City)) {
+                    $person->getFamily()->setCity($input->City);
+                }
+
                 if ($input->SendNewsLetter) {
                     $bSendNewsLetterString = "TRUE";
                 } else {
@@ -382,23 +386,28 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
                 $person->setSendNewsletter($bSendNewsLetterString);
 
-                $sBirthDayDate = new DateTime($input->BirthDayDate);
+                if ($input->BirthDayDate != "Invalid date") {
+                    $sBirthDayDate = new DateTime($input->BirthDayDate);
 
-                $iBirthMonth = $sBirthDayDate->format('m');
-                $iBirthDay = $sBirthDayDate->format('d');
-                $iBirthYear = $sBirthDayDate->format('Y');
+                    $iBirthMonth = $sBirthDayDate->format('m');
+                    $iBirthDay = $sBirthDayDate->format('d');
+                    $iBirthYear = $sBirthDayDate->format('Y');
+                    
+                    $person->setBirthDay($iBirthDay);
+                    $person->setBirthMonth($iBirthMonth);
+                    $person->setBirthYear($iBirthYear);                
+                }
 
-                $person->setBirthDay($iBirthDay);
-                $person->setBirthMonth($iBirthMonth);
-                $person->setBirthYear($iBirthYear);
-
-                if ($person->getFmrId() == 1 or $person->getFmrId() == 2) {
+                
+                if (($person->getFmrId() == 1 or $person->getFmrId() == 2) and isset($input->WeddingDate) and $input->WeddingDate != "Invalid date") {
                     $person->getFamily()->setWeddingdate($input->WeddingDate);
                 }
                 
                 $person->setConfirmReport('Done');
                 
                 $person->save();
+
+                $person->getFamily()->updateLanLng();
 
                 if (isset($input->personFields)) {
                     // only the right custom fields
@@ -450,7 +459,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 }
             }
 
-            return $response->withJson(["Status" => "success", 'content' => $res, 'contentCustom' => $resCustom]);
+            return $response->withJson(["Status" => "success", 'content' => $res, 'contentCustom' => $resCustom, 'position' => ['lat' => $person->getFamily()->getLatitude(), 'lng' => $person->getFamily()->getLongitude()]]);
         }
 
         return $response->withJson(["Status" => "failed"]);
@@ -475,6 +484,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 $family->setCity($input->City);
                 $family->setZip($input->Zip);
                 $family->setCountry($input->Country);
+                $family->setCity($input->City);
                 $family->setState($input->State);
 
                 $family->setHomePhone($input->homePhone);
@@ -485,15 +495,17 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
                 $family->setWeddingdate($input->WeddingDate);
 
-                $family->setSendNewsletter(($input->SendNewsLetter)?"TRUE":"FALSE");
+                $family->setSendNewsletter(($input->SendNewsLetter == "true")?"TRUE":"FALSE");
 
                 $family->setConfirmReport('Done');
 
                 $family->save();
 
+                $family->updateLanLng();
+
                 $res = ConfirmReportService::getFamilyStandardInfos($family);
 
-                return $response->withJson(["Status" => "success", 'content' => $res]);
+                return $response->withJson(["Status" => "success", 'content' => $res, 'position' => ['lat' => $family->getLatitude(), 'lng' => $family->getLongitude()]]);
             }
         }
 
@@ -536,6 +548,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 $person = PersonQuery::create()->findPk($token->getReferenceId());
                 if ($person != null) {
                     $person->setConfirmReport('Done');
+                    $person->getFamily()->updateLanLng();
                     $person->save();
 
                     $note = new Note();
