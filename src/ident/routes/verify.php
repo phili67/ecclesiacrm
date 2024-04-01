@@ -187,9 +187,8 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
             if (isset ($input->personId)) {
                 $person = PersonQuery::create()->findOneById($input->personId);
-                $photo = base64_encode($person->getPhoto()->getThumbnailBytes());
-
-                $code = ConfirmReportService::getPersonStandardTextFields($person, $photo, $token->isVerifyFamilyToken());
+                
+                $code = ConfirmReportService::getPersonStandardTextFields($person, $token->isVerifyFamilyToken());
                 $codeCustom = ConfirmReportService::getPersonCustomTextFields($person);
 
                 return $response->withJson(["Status" => "success", "html" => $code, "htmlCustom" => $codeCustom[1], "fields" => $codeCustom[0]]);

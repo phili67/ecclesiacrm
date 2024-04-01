@@ -113,8 +113,14 @@ $(function() {
                         var SendNewsLetter = $('form #SendNewsLetter').is(':checked');
                         
                         var res_fields = new Object();
-                        for (i=0;i<fields.length;i++) {
-                            val = $( "." + fields[i] ).val();
+                        for (let i=0;i<fields.length;i++) {
+                            let elt = $( "form ." + fields[i] );
+                            let t = elt.attr('type');
+                            if (t == 'radio') {
+                                val = $('input[name="'+ fields[i] + '"]:checked').val();                                    
+                            } else {
+                                val = $( "." + fields[i] ).val();
+                            }
                             res_fields[fields[i]] = val;                                            
                         }
 
