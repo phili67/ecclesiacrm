@@ -11,6 +11,7 @@
 
 namespace EcclesiaCRM\Service;
 
+use EcclesiaCRM\Base\FamilyCustomMaster;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\StateDropDown;
@@ -22,6 +23,7 @@ use EcclesiaCRM\Person;
 use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\FamilyCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\Family;
 
 class ConfirmReportService {
@@ -67,7 +69,7 @@ class ConfirmReportService {
                                 title="'. _("Email") . '"></i>(H) ' .  $person->getEmail() . '<br/>';
         }
         if (!empty($person->getWorkEmail())) {
-            $res .= '<i class="fa  fa-envelope-o"
+            $res .= '<i class="fa  fa-envelope"
                                 title="' . _("Work Email") .'"></i>(W) '. $person->getWorkEmail() . '
                             <br/>';
         }
@@ -113,7 +115,7 @@ class ConfirmReportService {
         }
         $res .= '<li class="list-group-item">
                 <i class="fas fa-newspaper"
-                title="'. _("Send Newsletter").'"></i> '. (($person->getSendNewsletter()  == 'TRUE')?_('Ok'):_('No'));
+                title="'. _("Send Newsletter").'"></i> '. _("Send Newsletter").' : '. (($person->getSendNewsletter()  == 'TRUE')?_('Ok'):_('No'));
         $res .= "</li>";
         $res.= '</ul>';
 
@@ -321,7 +323,7 @@ class ConfirmReportService {
                     </div>
                     <div class="form-group col-md-4">
                         <input type="checkbox" Name="SendNewsLetter" value="1"
-                            '. (($bSendNewsLetter) ? ' checked' : '') .' style="margin-top:10px" id="SendNewsLetter">
+                            '. (($bSendNewsLetter) ? ' checked' : '') .' style="margin-top:10px" id="SendNewsLetter" ' . ($family?'disabled':'') . '>
                     </div>
                 </div>';
 
@@ -404,12 +406,6 @@ class ConfirmReportService {
 
             return $res;
 
-    }
-
-    public static function getFamilyCustomFields (Family $family) : string 
-    {
-        # Todo
-        return "";
     }
 
     public static function getPersonCustomTextFields(Person $person) : array
@@ -503,7 +499,7 @@ class ConfirmReportService {
                         title="'. _("Email") . '"></i>(H) ' .  $person->getEmail() . '<br/>';
         }
         if (!empty($person->getWorkEmail())) {
-            $res .= '<i class="fa  fa-envelope-o"
+            $res .= '<i class="fa  fa-envelope"
                         title="' . _("Work Email") .'"></i>(W) '. $person->getWorkEmail() . '
                     <br/>';
         }
@@ -580,15 +576,60 @@ class ConfirmReportService {
         }
 
         $res .= '<i class="fas fa-newspaper"
-            title="'. _("Send Newsletter") .'"></i>'. (($family->getSendNewsletter()  == 'TRUE')?_('Ok'):_('No')) .'<br/>
-
-            <div class="text-left">
-                <button class="btn btn-danger btn-sm deleteFamily" data-id="'. $family->getId() .'" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> '. _("Delete") .'</button>
-                <button class="btn btn-sm modifyFamily" data-id="'. $family->getId() .'" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> '. _("Modify") .'</button>
-                <button class="btn btn-success btn-sm exitSession" style="height: 30px;padding-top: 5px;background-color: green"><i class="fas fa-sign-out-alt"></i> '. _("Exit") .'</button>
-            </div>';
+            title="'. _("Send Newsletter") .'"></i> '. _("Send Newsletter").' : '. (($family->getSendNewsletter()  == 'TRUE')?_('Ok'):_('No')) .'<br/>';
 
         return $res;        
+    }
+
+    public static function getFamilyCustomFields (Family $family) : string 
+    {
+        $sPhoneCountry = $family->getCountry();
+
+        // Get the lists of custom person fields
+        $ormFamilyCustomFields = FamilyCustomMasterQuery::Create()
+        ->orderByCustomOrder()
+        ->find();
+
+        // Get the custom field data for this person.
+        $rawQry = FamilyCustomQuery::create();
+        foreach ($ormFamilyCustomFields as $customfield) {
+            $rawQry->withColumn($customfield->getCustomField());
+        }
+
+        if (!is_null($rawQry->findOneByFamId($family->getId()))) {
+            $aCustomData = $rawQry->findOneByFamId($family->getId())->toArray();
+        }
+
+        $res = '<ul class="list-group list-group-unbordered">';
+        // Display the right-side custom fields
+        foreach ($ormFamilyCustomFields as $rowCustomField) {
+            if (!$rowCustomField->getCustomConfirmationDatas()) continue;
+
+                $currentData = trim($aCustomData[$rowCustomField->getCustomField()]);
+                if ($currentData != '') {
+                    if ($rowCustomField->getTypeId() == 11) {
+                        $custom_Special = $sPhoneCountry;
+                    } else {
+                        $custom_Special = $rowCustomField->getCustomSpecial();
+                    }
+                    
+                    $res .= '<li class="list-group-item">
+                        <strong>
+                            <i class="fa-li ' . ((($rowCustomField->getTypeId() == 11) ? 'fas fa-phone' : 'fas fa-tag')) . '"></i>'
+                            . $rowCustomField->getCustomName() . ':
+                        </strong> 
+                        <span>' .
+                             nl2br(OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $custom_Special))
+                        . '</span>
+                    </li>';
+                    
+                }
+                
+        }
+               
+        $res .=' </ul>  ';
+
+        return $res;
     }
 
     public static function getFamilyFullTextFields (Family $family): string {
@@ -762,6 +803,59 @@ class ConfirmReportService {
             </div>';
 
         return $code;
+    }
+
+    public static function getFamilyCustomTextFields(Family $family) : array
+    {
+        $sPhoneCountry = $family->getCountry();
+
+        $ormCustomFields = FamilyCustomMasterQuery::Create()
+            ->orderByCustomOrder()
+            ->filterByCustomConfirmationDatas(True)
+            ->find();
+
+        $aCustomData = [];
+
+        $bErrorFlag = false;
+        $type_ID = 0;
+
+        $aCustomData['fam_ID'] = $family->getId();
+
+        foreach ($ormCustomFields as $ormCustomField) {
+            $famCustom = FamilyCustomQuery::Create()
+                ->withcolumn($ormCustomField->getCustomField())
+                ->findOneByFamId($family->getId());
+
+            if (!is_null($famCustom)) {                
+                $aCustomData[$ormCustomField->getCustomField()] = $famCustom->getVirtualColumn($ormCustomField->getCustomField());
+            }
+        }
+
+        $code = '<h3>'. _("Custom Person Fields") .'</h3>';
+        
+        $fields = [];
+
+        foreach ($ormCustomFields as $customField) {
+            $code .= '<label>' . $customField->getCustomName(). '</label>
+            <br>';
+            
+            if (array_key_exists($customField->getCustomField(), $aCustomData)) {
+                $currentFieldData = trim($aCustomData[$customField->getCustomField()]);
+            } else {
+                $currentFieldData = '';
+            }
+
+            if ($type_ID == 11) {// in the case of a phone number
+                $custom_Special = $sPhoneCountry;
+            } else {
+                $custom_Special = $customField->getCustomSpecial();
+            }
+
+            $fields[] = $customField->getCustomField();
+            $code .= OutputUtils::formCustomField($customField->getTypeId(), $customField->getCustomField(), $currentFieldData, $custom_Special);
+        }
+
+        return [$fields, $code];        
     }
 
     public static function getSelectedCustomPersonFields() : array

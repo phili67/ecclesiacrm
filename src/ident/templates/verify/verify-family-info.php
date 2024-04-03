@@ -30,9 +30,23 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
     <div class="card-body">
         <img class="img-circle center-block pull-right img-responsive initials-image" width="200" height="200"
              src="data:image/png;base64,<?= base64_encode($family->getPhoto()->getThumbnailBytes()) ?>">
-        <h2><?= $family->getName() ?></h2>
-        <div class="text-muted font-bold m-b-xs family-info">
-            <?= ConfirmReportService::getFamilyStandardInfos($family) ?>
+        <h2 id="FamName"><?= $family->getName() ?></h2>
+        <div class="text-muted font-bold m-b-xs" id="family-info">
+            <?= ConfirmReportService::getFamilyStandardInfos($family) ?>            
+        </div>
+
+        <br/>
+
+        <h3><?= _("Custom Person Fields") ?></h3>
+        <div class="text-muted font-bold m-b-xs" id="family-custom-info" style="margin-left: 20px;">
+            <?= ConfirmReportService::getFamilyCustomFields($family) ?>            
+        </div>
+
+        <br>
+        <div class="text-center">
+                <button class="btn btn-danger btn-sm deleteFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i><?= _("Delete") ?></button>
+                <button class="btn btn-sm modifyFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> <?= _("Modify") ?></button>
+                <button class="btn btn-success btn-sm exitSession" style="height: 30px;padding-top: 5px;background-color: green"><i class="fas fa-sign-out-alt"></i> <?= _("Exit") ?></button>
         </div>
     </div>
     <div class="border-right border-left">

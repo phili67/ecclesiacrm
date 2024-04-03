@@ -58,10 +58,12 @@ $(function() {
         });
     });
 
-    const BootboxContent = (data) => {
+    const BootboxContent = (data, custom) => {
         var frm_str = '<form id="some-form">';
 
         frm_str += data
+            + '<br>'
+            + custom
             + '</form>';
 
         var object = $('<div/>').html(frm_str).contents();
@@ -176,9 +178,11 @@ $(function() {
         });
     });
 
-    const FamilyWindow = (data, familyId) => {
+    const FamilyWindow = (data, custom, fields, familyId) => {
+        var _fields = fields;
+
         var modal = bootbox.dialog({
-            message: BootboxContent(data),
+            message: BootboxContent(data, custom),
             size: "large",
             buttons: [
                 {
@@ -191,6 +195,8 @@ $(function() {
                     label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
                     className: "btn btn-primary",
                     callback: function () {
+                        var fields = _fields;
+
                         var FamilyName = $('form #FamilyName').val();
                         var Address1 = $('form #Address1').val();
                         var Address2 = $('form #Address2').val();
@@ -203,7 +209,19 @@ $(function() {
                         var cellPhone = $('form #cellPhone').val();
                         var email = $('form #email').val();
                         var WeddingDate = $('form #WeddingDate').val();
-                        var SendNewsLetter = $('form #SendNewsLetter').is(':checked'); ;
+                        var SendNewsLetter = $('form #SendNewsLetter').is(':checked');
+
+                        var res_fields = new Object();
+                        for (let i=0;i<fields.length;i++) {
+                            let elt = $( "form ." + fields[i] );
+                            let t = elt.attr('type');
+                            if (t == 'radio') {
+                                val = $('input[name="'+ fields[i] + '"]:checked').val();                                    
+                            } else {
+                                val = $( "." + fields[i] ).val();
+                            }
+                            res_fields[fields[i]] = val;                                            
+                        }
 
                         var fmt = window.CRM.datePickerformat.toUpperCase();;
 
@@ -229,12 +247,15 @@ $(function() {
                                 "cellPhone": cellPhone,
                                 "email": email,
                                 "WeddingDate": real_dateTime,
-                                "SendNewsLetter": SendNewsLetter
+                                "SendNewsLetter": SendNewsLetter,
+                                "familyFields": res_fields,
                             })
                         })
                         .then(res => res.json())
                         .then(data => {
-                            $(".family-info").html(data.content);
+                            $("#FamName").html(data.FamName);
+                            $("#family-info").html(data.content);
+                            $("#family-custom-info").html(data.customContent);
 
                             let iconurl = window.CRM.root+"/skin/icons/event.png";
                             
@@ -284,7 +305,7 @@ $(function() {
             })
         }, function (data) {
 
-            var modal = FamilyWindow(data.html, familyId);
+            var modal = FamilyWindow(data.html, data.custom, data.fields, familyId);
             modal.modal("show");
 
             $('.date-picker').datepicker({format: window.CRM.datePickerformat, language: window.CRM.lang});
