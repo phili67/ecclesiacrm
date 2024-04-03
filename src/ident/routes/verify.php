@@ -22,6 +22,7 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\TokenPasswordQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
 
 use EcclesiaCRM\Emails\FamilyVerificationValidation;
 use EcclesiaCRM\Emails\PersonVerificationValidation;
@@ -198,34 +199,6 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withJson(["Status" => "failed"]);
     });
 
-    $group->post('/getFamilyInfo/', function (ServerRequest $request, Response $response, array $args) {
-        $input = (object)$request->getParsedBody();
-
-        if ( isset ($input->token) ) {
-
-            $token = TokenQuery::create()->findPk($input->token);
-            if (!($token != null && $token->isVerifyFamilyToken() && $token->isValid())) {
-                return $response->withStatus(200);
-            }
-
-            if (isset ($input->familyId)) {
-                $family = FamilyQuery::create()->findOneById($input->familyId);
-
-                $code = ConfirmReportService::getFamilyFullTextFields($family);
-
-                return $response->withJson(["Status" => "success", "html" => $code]);
-            }
-        }
-
-        return $response->withStatus(200);
-    });
-
-    $group->post('/exitSession/', function (ServerRequest $request, Response $response, array $args) {
-        session_destroy();
-
-        return $response->withJson(["Status" => "success"]);
-    });
-
     $group->post('/deletePerson/', function (ServerRequest $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
 
@@ -256,54 +229,6 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 $note->setText(_('Account Deactivated'));
                 $note->setType('edit');
                 $note->setEntered($person->getId());
-                $note->save();
-            }
-
-            return $response->withJson(["Status" => "success"]);
-        }
-
-        return $response->withJson(["Status" => "failed"]);
-    });
-
-    $group->post('/deleteFamily/', function (ServerRequest $request, Response $response, array $args) {
-        $input = (object)$request->getParsedBody();
-
-        if ( isset ($input->familyId) ) {
-
-            $family = FamilyQuery::create()->findOneById($input->familyId);
-
-            if (!is_null($family)) {
-                $family->setDateDeactivated(date('YmdHis'));
-                $family->save();
-
-                //Create a note to record the status change
-                $persons = $family->getPeople();
-
-                // all person from the family should be deactivated too
-                // one person of the family deactivate the other !!!
-                $id = 0;
-                foreach ($persons as $person) {
-                    $user = UserQuery::create()
-                        ->findOneByPersonId($person->getId());
-
-                    // note : When a user is deactivated the associated person is deactivated too
-                    //        but when a person is deactivated the user is deactivated too.
-                    //        Important : a person re-activated don't reactivate the user
-
-                    if (!is_null($user)) {
-                        $user->setIsDeactivated(true);
-                        $user->save();
-                    }
-                    if ($person->getDateDeactivated() == NULL) {
-                        $id = $person->getId();
-                        break;
-                    }
-                }
-                $note = new Note();
-                $note->setFamId($family->getId());
-                $note->setText(_('Family Deactivated'));
-                $note->setType('edit');
-                $note->setEntered($id);
                 $note->save();
             }
 
@@ -453,12 +378,82 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                     $res = ConfirmReportService::getPersonStandardInfos($person, $photo);
                     $resCustom = ConfirmReportService::getPersonCustomFields($person);
                 } else if ($input->type == 'family') {
-                    $res = ConfirmReportService::getPersonForFamilyStandardInfos($person, $photo);                    
-                    $resCustom = "";//ConfirmReportService::getFamilyCustomFields($family);
+                    $res = ConfirmReportService::getPersonForFamilyStandardInfos($person, $photo);                                        
                 }
             }
 
             return $response->withJson(["Status" => "success", 'content' => $res, 'contentCustom' => $resCustom, 'position' => ['lat' => $person->getFamily()->getLatitude(), 'lng' => $person->getFamily()->getLongitude()]]);
+        }
+
+        return $response->withJson(["Status" => "failed"]);
+    });
+
+    $group->post('/getFamilyInfo/', function (ServerRequest $request, Response $response, array $args) {
+        $input = (object)$request->getParsedBody();
+
+        if ( isset ($input->token) ) {
+
+            $token = TokenQuery::create()->findPk($input->token);
+            if (!($token != null && $token->isVerifyFamilyToken() && $token->isValid())) {
+                return $response->withStatus(200);
+            }
+
+            if (isset ($input->familyId)) {
+                $family = FamilyQuery::create()->findOneById($input->familyId);
+
+                $code = ConfirmReportService::getFamilyFullTextFields($family);
+                $codeCustom = ConfirmReportService::getFamilyCustomTextFields($family);
+
+                return $response->withJson(["Status" => "success", "html" => $code, "custom" => $codeCustom[1], "fields" => $codeCustom[0]]);
+            }
+        }
+
+        return $response->withStatus(200);
+    });
+
+    $group->post('/deleteFamily/', function (ServerRequest $request, Response $response, array $args) {
+        $input = (object)$request->getParsedBody();
+
+        if ( isset ($input->familyId) ) {
+
+            $family = FamilyQuery::create()->findOneById($input->familyId);
+
+            if (!is_null($family)) {
+                $family->setDateDeactivated(date('YmdHis'));
+                $family->save();
+
+                //Create a note to record the status change
+                $persons = $family->getPeople();
+
+                // all person from the family should be deactivated too
+                // one person of the family deactivate the other !!!
+                $id = 0;
+                foreach ($persons as $person) {
+                    $user = UserQuery::create()
+                        ->findOneByPersonId($person->getId());
+
+                    // note : When a user is deactivated the associated person is deactivated too
+                    //        but when a person is deactivated the user is deactivated too.
+                    //        Important : a person re-activated don't reactivate the user
+
+                    if (!is_null($user)) {
+                        $user->setIsDeactivated(true);
+                        $user->save();
+                    }
+                    if ($person->getDateDeactivated() == NULL) {
+                        $id = $person->getId();
+                        break;
+                    }
+                }
+                $note = new Note();
+                $note->setFamId($family->getId());
+                $note->setText(_('Family Deactivated'));
+                $note->setType('edit');
+                $note->setEntered($id);
+                $note->save();
+            }
+
+            return $response->withJson(["Status" => "success"]);
         }
 
         return $response->withJson(["Status" => "failed"]);
@@ -502,9 +497,51 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
                 $family->updateLanLng();
 
-                $res = ConfirmReportService::getFamilyStandardInfos($family);
+                if (isset($input->familyFields)) {
+                    // only the right custom fields
+                    $ormCustomFields = FamilyCustomMasterQuery::Create()
+                        ->orderByCustomOrder()                
+                        ->find();
 
-                return $response->withJson(["Status" => "success", 'content' => $res, 'position' => ['lat' => $family->getLatitude(), 'lng' => $family->getLongitude()]]);
+                    $aCustomData = [];
+                    $bErrorFlag = false;
+
+                    foreach ($ormCustomFields as $rowCustomField) {
+                        $currentFieldData = InputUtils::LegacyFilterInput($input->familyFields[$rowCustomField->getCustomField()]);
+            
+                        $bErrorFlag |= !InputUtils::validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
+            
+                        // assign processed value locally to $aPersonProps so we can use it to generate the form later
+                        $aCustomData[$rowCustomField->getCustomField()] = $currentFieldData;                    
+                    }
+                
+
+                    $sSQL = '';
+
+                    $sPhoneCountry = $family->getCountry();
+
+                    foreach ($ormCustomFields as $rowCustomField) {
+                        $currentFieldData = trim($aCustomData[$rowCustomField->getCustomField()]);
+                        MiscUtils::sqlCustomField($sSQL, $rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $sPhoneCountry);
+                        
+                    }
+        
+                    // chop off the last 2 characters (comma and space) added in the last while loop iteration.
+                    if ($sSQL > '') {
+                        $sSQL = 'REPLACE INTO family_custom SET ' . $sSQL . ' fam_ID = ' . $family->getId();
+                        //Execute the SQL
+        
+                        $connection = Propel::getConnection();
+        
+                        $statement = $connection->prepare($sSQL);
+                        $statement->execute();
+                    }     
+                }   
+
+                $res = ConfirmReportService::getFamilyStandardInfos($family);
+                $codeCustom = ConfirmReportService::getFamilyCustomFields($family);
+
+                return $response->withJson(["Status" => "success", 'FamName' => $input->FamilyName, 'content' => $res, 'customContent' => $codeCustom, 'position' => ['lat' => $family->getLatitude(), 'lng' => $family->getLongitude()]]);
             }
         }
 
@@ -575,6 +612,12 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         }
 
         return $response->withJson(["Status" => "failed"]);
+    });
+
+    $group->post('/exitSession/', function (ServerRequest $request, Response $response, array $args) {
+        session_destroy();
+
+        return $response->withJson(["Status" => "success"]);
     });
 });
 
