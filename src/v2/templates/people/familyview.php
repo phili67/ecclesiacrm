@@ -42,7 +42,7 @@ require $sRootDocument . '/Include/Header.php';
                             ?>
                             <div class="after">
                                 <div class="buttons">
-                                    <a class="" id="view-larger-image-btn" href="#"
+                                    <a class="hide" id="view-larger-image-btn" href="#"
                                        title="<?= _("View Photo") ?>">
                                         <i class="fas fa-search-plus"></i>
                                     </a>&nbsp;
