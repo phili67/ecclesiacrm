@@ -1,15 +1,18 @@
-function contentExists(contentUrl, callback) {
-    $.ajax({
-        method :"HEAD",
-        url: contentUrl,
-        processData: false,
-        global:false,
-        success: function(data, textStatus, jqXHR){
-            callback(true, data, textStatus, jqXHR);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            callback(false, jqXHR, textStatus, errorThrown);
+const contentExists = (contentUrl, callback) => {
+    fetch(contentUrl, {            
+        method: "HEAD",
+        contentType: false,
+        processData: false
+    })
+    .then(data => {
+        // enter you logic when the fetch is successful
+        if (callback) {
+            callback(true);
         }
+    })
+    .catch(error => {
+        // enter your logic for when there is an error (ex. error toast)
+        callback(false);
     });
 }
 
