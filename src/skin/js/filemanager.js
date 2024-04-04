@@ -3,7 +3,7 @@
 $(function() {
     // Helper function to get parameters from the query string.
     // use to search the ckeditor function to put the right param in the ckeditor image tool
-    function getUrlParam(paramName) {
+    const getUrlParam = (paramName) => {
         var reParam = new RegExp('(?:[\?&]|&)' + paramName + '=([^&]+)', 'i');
         var match = window.location.search.match(reParam);
 
@@ -599,7 +599,7 @@ $(function() {
         });
     }
 
-    function openFolder(personID, folder) {
+    const openFolder = (personID, folder) => {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'filemanager/changeFolder',
@@ -689,8 +689,8 @@ $(function() {
     });
 
 
-    function BootboxContentUploadFile() {
-        var frm_str = '  <form action="api/" method="post" id="formId" enctype="multipart/form-data">'
+    const BootboxContentUploadFile = () => {
+        var frm_str = '  <form action="#" method="post" id="formId" enctype="multipart/form-data">'
             + '  <div class="card">'
             + '     <div class="card-body">'
             + '       <label for="noteInputFile">' + i18next.t("Files input") + " : " + '</label>'
@@ -708,7 +708,7 @@ $(function() {
         return object
     }
 
-    function CreateUploadFileWindow() {
+    const CreateUploadFileWindow = () => {
         var modal = bootbox.dialog({
             title: i18next.t("Upload your Files"),
             message: BootboxContentUploadFile(),
@@ -729,23 +729,48 @@ $(function() {
             }
         });
 
+        uploadEvent();
+
         return modal;
     }
 
-    $(document).on('submit', '#formId', function (e) {
-        $.ajax({
-            url: window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID,
-            type: 'POST',
-            data: new FormData(this),
-            processData: false,
-            contentType: false
-        }).done(function (data) {
-            window.CRM.reloadEDriveTable(function () {
-                uploadWindow.modal("hide");
-            });
+    const uploadEvent = () => {
+        window.CRM.ElementListener('#formId', 'submit', function (event) {
+            event.preventDefault();
+            
+            const fileInput = document.getElementById('noteInputFile');
+
+            let totalFilesToUpload = fileInput.files.length;
+
+            //nothing was selected 
+            if(totalFilesToUpload === 0) {
+                alert('Please select one or more files.');
+                return;
+            }
+
+            for(let i=0;i<totalFilesToUpload; i++) {
+                const file = fileInput.files[i];
+                const formData = new FormData();
+                formData.append('noteInputFile', file);
+
+                const request = new Request(window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Authorization': 'Bearer ' + window.CRM.jwtToken,
+                    }
+                });
+
+                fetch(request)
+                    .then(response => response.json())
+                    .then(data => {
+                        window.CRM.reloadEDriveTable(function () {
+                            uploadWindow.modal("hide");
+                        });
+                    });
+            }
         });
-        e.preventDefault();
-    });
+    }
 
     $("#uploadFile").on('click', function () {
         uploadWindow = CreateUploadFileWindow();
@@ -800,7 +825,7 @@ $(function() {
     }
 
 // Share Files management
-    function addPersonsFromNotes(noteId) {
+    const addPersonsFromNotes = (noteId) => {
         $('#select-share-persons').find('option').remove();
 
         window.CRM.APIRequest({
@@ -953,7 +978,7 @@ $(function() {
         });
     }
 
-    function openShareFilesWindow(event, button, state) {
+    const openShareFilesWindow = (event, button, state) => {
         var noteId = event.currentTarget.dataset.id;
         var isShared = event.currentTarget.dataset.shared;
 
