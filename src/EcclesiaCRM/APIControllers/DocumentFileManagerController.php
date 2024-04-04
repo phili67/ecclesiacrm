@@ -660,37 +660,35 @@ class DocumentFileManagerController
 
         $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath;
 
-        $file_ary = $this->reArrayFiles($_FILES['noteInputFile']);
+        $file = $_FILES['noteInputFile'];
 
-        foreach ($file_ary as $file) {
+        
+        $fileName = basename($file["name"]);
+        $real_extension = pathinfo($fileName, PATHINFO_EXTENSION);
+        /*if (str_starts_with(  $currentpath, '/public/' )) {
+            $extension = MiscUtils::SanitizeExtension(pathinfo($fileName, PATHINFO_EXTENSION));
+        } else {*/
+            $extension = $real_extension;
+        //}
 
-            $fileName = basename($file["name"]);
-            $real_extension = pathinfo($fileName, PATHINFO_EXTENSION);
-            /*if (str_starts_with(  $currentpath, '/public/' )) {
-                $extension = MiscUtils::SanitizeExtension(pathinfo($fileName, PATHINFO_EXTENSION));
-            } else {*/
-                $extension = $real_extension;
-            //}
+        if ($real_extension != $extension) {
+            $fileName = str_replace(".".$real_extension, ".".$extension, $fileName);
+        }
+        $target_file = $currentNoteDir . $fileName;
 
-            if ($real_extension != $extension) {
-                $fileName = str_replace(".".$real_extension, ".".$extension, $fileName);
-            }
-            $target_file = $currentNoteDir . $fileName;
+        if (move_uploaded_file($file['tmp_name'], $target_file)) {
+            // now we create the note
+            $note = new Note();
+            $note->setPerId($args['personID']);
+            $note->setFamId(0);
+            $note->setTitle($fileName);
+            $note->setPrivate(1);
+            $note->setText($userName . $currentpath . $fileName);
+            $note->setType('file');
+            $note->setEntered(SessionUser::getUser()->getPersonId());
+            $note->setInfo(gettext('Create file'));
 
-            if (move_uploaded_file($file['tmp_name'], $target_file)) {
-                // now we create the note
-                $note = new Note();
-                $note->setPerId($args['personID']);
-                $note->setFamId(0);
-                $note->setTitle($fileName);
-                $note->setPrivate(1);
-                $note->setText($userName . $currentpath . $fileName);
-                $note->setType('file');
-                $note->setEntered(SessionUser::getUser()->getPersonId());
-                $note->setInfo(gettext('Create file'));
-
-                $note->save();
-            }
+            $note->save();
         }
 
         return $response->withJson(['success' => true, "numberOfFiles" => $this->numberOfFiles($args['personID'])]);
