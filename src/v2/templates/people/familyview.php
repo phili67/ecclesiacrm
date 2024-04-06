@@ -20,7 +20,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 
-<?php if (!empty($family->getDateDeactivated())) {
+<?php if (is_null($family->getDateDeactivated())) {
     ?>
     <div class="alert alert-warning">
         <strong><?= _(" This Family is Deactivated") ?> </strong>
@@ -301,7 +301,7 @@ require $sRootDocument . '/Include/Header.php';
                         $buttons++;
                         ?>
                         <button class="btn btn-app bg-gradient-orange" id="activateDeactivate">
-                            <i class="fa <?= (empty($family->getDateDeactivated()) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo((empty($family->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
+                            <i class="fa <?= (is_null($family->getDateDeactivated()) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo((is_null($family->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
                         </button>
                         <?php
                     }
@@ -988,7 +988,7 @@ if ($sMapProvider == 'OpenStreetMap') {
     window.CRM.currentPersonID = 0;
     window.CRM.currentFamily = <?= $iFamilyID ?>;
     window.CRM.docType = 'family';
-    window.CRM.currentActive = <?= (empty($family->getDateDeactivated()) ? 'true' : 'false') ?>;
+    window.CRM.currentActive = <?= (is_null($family->getDateDeactivated()) ? 'true' : 'false') ?>;
     window.CRM.fam_Name = "<?= $family->getName() ?>";
     window.CRM.iPhotoHeight = <?= SystemConfig::getValue("iPhotoHeight") ?>;
     window.CRM.iPhotoWidth = <?= SystemConfig::getValue("iPhotoWidth") ?>;
