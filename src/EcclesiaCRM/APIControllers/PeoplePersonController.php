@@ -603,9 +603,25 @@ class PeoplePersonController
                     $note->save();
                 }
 
+                $family = FamilyQuery::create()->findOneById($person->getFamId());
+                if (!is_null($family)) {
+                    $members = $family->getActivatedPeople();
+                    if (count($members) == 1) {
+                        $family->setDateDeactivated(date('YmdHis'));
+                        $family->save();
+                    }
+                }
+
                 $person->setDateDeactivated(date('YmdHis'));
 
-            } elseif ($newStatus == 'true') {
+            } elseif ($newStatus == 'true') {                
+                $family = FamilyQuery::create()->findOneById($person->getFamId());
+                if (!is_null($family)) {
+                    $members = $family->getActivatedPeople();
+                    $family->setDateDeactivated(NULL);
+                    $family->save();                    
+                }
+
                 $person->setDateDeactivated(Null);
             }
 

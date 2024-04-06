@@ -785,6 +785,17 @@ class VIEWPeopleController {
 
     public function argumentsPeopleFamilyViewArray ($iFamilyID, $mode)
     {
+        $family = FamilyQuery::create()->findPk($iFamilyID);
+
+        $persons = $family->getActivatedPeople();
+
+        if (count($persons) == 1) {
+            return [
+                'error' => true,
+                'link'  => "v2/people/person/view/" . $persons[0]->getId()
+            ];
+        }
+        
         // we get the TimelineService
         $maxMainTimeLineItems = 20; // max number
 
@@ -800,18 +811,7 @@ class VIEWPeopleController {
         if (SessionUser::getUser()->isFinanceEnabled()) {
             $_SESSION['sshowPledges'] = 1;
             $_SESSION['sshowPayments'] = 1;
-        }
-
-        $persons = PersonQuery::Create()->filterByDateDeactivated(null)->findByFamId($iFamilyID);
-
-        if (!is_null($persons) && $persons->count() == 1) {
-            $person = PersonQuery::Create()->findOneByFamId($iFamilyID);
-
-            return [
-                'error' => true,
-                'link'  => "v2/people/person/view/" . $person->getId()
-            ];
-        }
+        }        
 
         // by default in the next previous person : dectivated are not showned
         // find the next personID
@@ -873,11 +873,8 @@ class VIEWPeopleController {
         if (!is_null($rawQry->findOneByFamId($iFamilyID))) {
             $aFamCustomDataArr = $rawQry->findOneByFamId($iFamilyID)->toArray();
         }
-
-
-        $family = FamilyQuery::create()->findPk($iFamilyID);
-
-        if (empty($family)) {
+        
+        if (is_null($family)) {
             return [
                 'error' => true,
                 'link'  => 'members/404.php'
@@ -885,7 +882,7 @@ class VIEWPeopleController {
         }
 
 
-        if ($family->getDateDeactivated() != null) {
+        if (!is_null($family->getDateDeactivated())) {
             $time = new \DateTime('now');
             $newtime = $time->modify('-' . SystemConfig::getValue('iGdprExpirationDate') . ' year')->format('Y-m-d');
 

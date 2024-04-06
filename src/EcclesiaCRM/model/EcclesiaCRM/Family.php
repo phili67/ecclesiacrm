@@ -181,7 +181,7 @@ class Family extends BaseFamily implements iPhoto
       explode(",", SystemConfig::getValue("sDirRoleChild")));
     $foundPeople = array();
     foreach ($this->getPeople() as $person) {
-      if (!in_array($person->getFmrId(), $roleIds) && empty($person->getDateDeactivated())) {
+      if (!in_array($person->getFmrId(), $roleIds) && is_null($person->getDateDeactivated())) {
         array_push($foundPeople, $person);
       }
     }
@@ -192,7 +192,7 @@ class Family extends BaseFamily implements iPhoto
     $roleIds = explode(",", SystemConfig::getValue($roleConfigName));
     $foundPeople = array();
     foreach ($this->getPeople() as $person) {
-      if (in_array($person->getFmrId(), $roleIds) && empty($person->getDateDeactivated())) {
+      if (in_array($person->getFmrId(), $roleIds) && is_null($person->getDateDeactivated())) {
           array_push($foundPeople, $person);
       }
     }
@@ -211,7 +211,7 @@ class Family extends BaseFamily implements iPhoto
   public function getEmails() {
     $emails = array();
     foreach ($this->getPeople() as $person) {
-      if (!empty($person->getDateDeactivated())) {
+      if (!is_null($person->getDateDeactivated())) {
         continue;
       }
       $email = $person->getEmail();
@@ -272,7 +272,7 @@ class Family extends BaseFamily implements iPhoto
       $foundPeople = [];
 
       foreach ($this->getPeople() as $person) {
-        if (empty($person->getDateDeactivated()) /*|| SessionUser::getUser()->isGdrpDpoEnabled()*/) {
+        if (is_null($person->getDateDeactivated()) /*|| SessionUser::getUser()->isGdrpDpoEnabled()*/) {
           array_push($foundPeople, $person);
         }
       }
@@ -299,7 +299,7 @@ class Family extends BaseFamily implements iPhoto
         $people = $this->getPeople();
         $notChildren = null;
         foreach ($people as $person) {
-            if ($person->getFmrId() != $childRoleId && empty($person->getDateDeactivated())) {
+            if ($person->getFmrId() != $childRoleId && is_null($person->getDateDeactivated())) {
                 $notChildren[] = $person;
             }
         }
