@@ -72,7 +72,7 @@ require '../Include/HeaderNotLoggedIn.php';
             <p/>
             <div class="alert alert-warning" id="prerequisites-war">
                 This server isn't quite ready for Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?>. If you know what you are doing.
-                <a href="#" onclick="skipCheck()"><b>Click here</b></a>.
+                <a href="#" id="skipCheck"><b>Click here</b></a>.
             </div>
         </section>
 
@@ -169,7 +169,7 @@ require '../Include/HeaderNotLoggedIn.php';
                 <small id="DB_PASSWORD2_HELP" class="form-text text-muted"></small>
             </div>
             <div class="alert alert-warning alert-db" id="databaseconnection-war">
-                Check your database connection. Click the link <a href="#" onclick="dataBaseCheck()"><b>here</b></a> to check your connection.
+                Check your database connection. Click the link <a href="#" id="dataBaseCheck"><b>here</b></a> to check your connection.
             </div>
         </section>
         <h2>Church Main Infos</h2>
