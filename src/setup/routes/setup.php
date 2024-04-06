@@ -1,7 +1,6 @@
 <?php
 
 use Slim\Http\Response;
-use Psr\Http\Message\ServerRequest as Request;
 use Slim\Http\ServerRequest;
 
 use Slim\Routing\RouteCollectorProxy;
@@ -24,7 +23,7 @@ $app->group('/', function (RouteCollectorProxy $group) {
 
     $group->get('SystemIntegrityCheck', function (ServerRequest $request, Response $response, array $args) {
         $AppIntegrity = EcclesiaCRM\Service\AppIntegrityService::verifyApplicationIntegrity();
-        return  $response->write($AppIntegrity['status']);
+        return $response->withJson(['status' => $AppIntegrity['status']]);
     });
 
     $group->get('SystemPrerequisiteCheck', function (ServerRequest $request, Response $response, array $args) {
@@ -173,7 +172,9 @@ $app->group('/', function (RouteCollectorProxy $group) {
                 $filename = SystemURLs::getDocumentRoot().'/Plugins/' . $file . '/mysql/Install.sql';
                 $logger->info("filename sql : \n".  $filename);
 
-                SQLUtils::sqlImport($filename, $pdo);
+                if (file_exists($filename)) {
+                    SQLUtils::sqlImport($filename, $pdo);
+                }
             }
         }
 
@@ -181,6 +182,6 @@ $app->group('/', function (RouteCollectorProxy $group) {
 
         $pdo = null;
 
-        return $response->withStatus(200);
+        return $response->withJson(['status' => "success"]);
     });
 });
