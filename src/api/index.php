@@ -54,7 +54,8 @@ $app->add(new Tuupola\Middleware\JwtAuthentication([
     "ignore" => [SystemURLs::getRootPath()."/api/families", SystemURLs::getRootPath(). "/api/persons/", SystemURLs::getRootPath()."/api/system/csp-report", 
         SystemURLs::getRootPath()."/api/systemupgrade/isUpdateRequired", 
         SystemURLs::getRootPath()."/api/filemanager/getFile/", SystemURLs::getRootPath()."/api/synchronize/page",
-        SystemURLs::getRootPath(). "/api/database"],
+        SystemURLs::getRootPath(). "/api/database",
+        SystemURLs::getRootPath(). "/api/groups/addressbook/extract/"],
     "algorithm" => "HS256",
     "error" => function ($response, $arguments) {
         $data["status"] = "error";
