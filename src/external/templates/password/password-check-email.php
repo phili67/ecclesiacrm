@@ -25,6 +25,10 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 
         <div class="register-box-body">
             <?= _("A new password was sent to you. Please check your email"); ?>
+
+            <p class="mt-3 mb-1 text-center">
+                <a class="btn btn-primary" href="<?= SystemURLs::getRootPath() ?>/session/login"><?= _("Login") ?></a>
+            </p>
         </div>
     </div>
 <?php
