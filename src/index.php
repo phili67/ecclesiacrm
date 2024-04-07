@@ -44,7 +44,6 @@ if (strtolower($shortName) == 'index.php' || strtolower($fileName) == 'index.php
     exit;
 } elseif (!$hasSession) {
     // Must show login form if no session
-    //require 'Login.php';
     header('Location: '.SystemURLs::getRootPath()."/session/login");
     exit;
 } elseif (file_exists($shortName)) {
