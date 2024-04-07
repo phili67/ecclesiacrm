@@ -17,7 +17,7 @@ use EcclesiaCRM\FamilyQuery;
 
 require $sRootDocument . '/Include/Header.php';
 
-$families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitude(0)->find();
+$families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongitude(0)->_and()->filterByLatitude(0)->limit(100)->find();
 
 ?>
 
