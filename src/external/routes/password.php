@@ -12,6 +12,7 @@ use EcclesiaCRM\Token;
 use EcclesiaCRM\Emails\ResetPasswordTokenEmail;
 use EcclesiaCRM\Emails\ResetPasswordEmail;
 use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\dto\SystemConfig;
 
 if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
@@ -33,17 +34,20 @@ if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
                     $token->save();
                     $email = new ResetPasswordTokenEmail($user, $token->getToken());
                     if (!$email->send()) {
-                        $Logger = $this->get('Logger');
+                        $Logger = LoggerUtils::getAppLogger();
                         $Logger->error($email->getError());
+                        return $response->withStatus(200)->withJson(['status' => "failed"]);    
                     }
                     return $response->withStatus(200)->withJson(['status' => "success"]);
                 } else {
                     $Logger = $this->get('Logger');
                     $Logger->error("Password reset for user " . $userName . " found no user");
+                    return $response->withStatus(200)->withJson(['status' => "failed"]);    
                 }
             } else {
-                $Logger = $this->get('Logger');
+                $Logger = LoggerUtils::getAppLogger();
                 $Logger->error("Password reset for user with no username");
+                return $response->withStatus(200)->withJson(['status' => "failed"]);    
             }
             return $response->withStatus(404);
         });

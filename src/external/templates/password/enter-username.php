@@ -38,12 +38,12 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button type="submit" id="resetPassword" class="btn btn-primary btn-block"><?= gettext('Go'); ?></button>
+                    <button type="submit" id="resetPassword" class="btn btn-primary btn-block"><?= gettext('OK'); ?></button>
                 </div>
                 <!-- /.col -->
             </div>
             <p class="mt-3 mb-1">
-                <a href="<?= SystemURLs::getRootPath() ?>/login.php"><?= _("Login") ?></a>
+                <a href="<?= SystemURLs::getRootPath() ?>/session/login"><?= _("Login") ?></a>
             </p>
         </div>
         </div>
@@ -53,18 +53,22 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
         $("#resetPassword").on('click',function (e) {
             var userName = $("#username").val();
             if (userName) {
-                $.ajax({
-                    method: "POST",
-                    url: window.CRM.root + "/external/password/reset/" + userName,
-                }).done(function (data) {
-                    bootbox.alert("<?= gettext("Check your email for a password reset link")?>",
-                        function () {
-                            window.location.href = window.CRM.root + "/";
-                        }
-                    );
-                }).fail(function () {
-                    bootbox.alert("<?= gettext("Sorry, we are unable to process your request at this point in time.")?>");
-                });
+                fetch(window.CRM.root + "/external/password/reset/" + userName, {            
+                    method: "POST"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        bootbox.alert("<?= gettext("Check your email for a password reset link")?>",
+                            function () {
+                                window.location.href = window.CRM.root + "/";
+                            }
+                        );
+                    })
+                    .catch(error => {
+                        // enter your logic for when there is an error (ex. error toast)
+                        bootbox.alert("<?= gettext("Sorry, we are unable to process your request at this point in time.")?>");
+                    });            
+
             } else {
                 bootbox.alert("<?= gettext("Login Name is Required")?>");
             }
