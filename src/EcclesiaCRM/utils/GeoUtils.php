@@ -56,17 +56,21 @@ class GeoUtils
             $logger->debug("Using: Geo Provider -  ". $provider->getName());
             $geoCoder = new StatefulGeocoder($provider, Bootstrapper::GetCurrentLocale()->getShortLocale());
             $result = $geoCoder->geocodeQuery(GeocodeQuery::create($address));
-            $logger->debug("We have " . $result->count() . " results");
-            if (!empty($result)) {
-                $firstResult = $result->get(0);
-                $coordinates = $firstResult->getCoordinates();
-                $lat = $coordinates->getLatitude();
-                $long = $coordinates->getLongitude();
-            }
         } catch (\Exception $exception) {
-            $logger->warn("issue creating geoCoder " . $exception->getMessage());
+            $logger->debug("issue creating geoCoder " . $exception->getMessage());
+            $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"), SystemConfig::getValue("sChurchEmail") );
+            $geoCoder = new StatefulGeocoder($provider, Bootstrapper::GetCurrentLocale()->getShortLocale());
+            $result = $geoCoder->geocodeQuery(GeocodeQuery::create($address));
         }
 
+        $logger->debug("We have " . $result->count() . " results");
+        if (!empty($result)) {
+            $firstResult = $result->get(0);
+            $coordinates = $firstResult->getCoordinates();
+            $lat = $coordinates->getLatitude();
+            $long = $coordinates->getLongitude();
+        }
+        
         return array(
             'Latitude' => $lat,
             'Longitude' => $long
