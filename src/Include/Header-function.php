@@ -88,7 +88,7 @@ function Header_modals()
                           <div class="container-fluid">
                               <div class="row">
                                   <div class="col-xl-12">
-                                      <label for="issueTitle"><?= _('Enter a Title for your bug / feature report') ?> : </label>
+                                      <label class="issueTitle"><?= _('Enter a Title for your bug / feature report') ?> : </label>
                                   </div>
                               </div>
                               <div class="row">
@@ -98,7 +98,7 @@ function Header_modals()
                               </div>
                               <div class="row">
                                   <div class="col-xl-12">
-                                      <label for="issueDescription"><?= _('What were you doing when you noticed the bug / feature opportunity?') ?></label>
+                                      <label class="issueDescription"><?= _('What were you doing when you noticed the bug / feature opportunity?') ?></label>
                                   </div>
                               </div>
                               <div class="row">
@@ -107,6 +107,7 @@ function Header_modals()
                                   </div>
                               </div>
                           </div>
+                          <br/>
                           <ul>
                               <li><?= _("When you click \"submit,\" an error report will be posted to the EcclesiaCRM GitHub Issue tracker.") ?></li>
                               <li><?= _('Please do not include any confidential information.') ?></li>
@@ -115,7 +116,7 @@ function Header_modals()
                           </ul>
                       </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" id="submitIssue"><?= _('Submit') ?></button>
+                          <button type="button" class="btn btn-primary" id="submitIssue"><i class="fa fa-paper-plane" aria-hidden="true"></i> <?= _('Submit') ?></button>
                       </div>
                   </form>
               </div>
@@ -127,7 +128,7 @@ function Header_modals()
                 <div class="modal-body"><h2><?= _("Successfully submitted Issue") ?> <span id="issueSubmitSucces"></span></h2>
                 <a href="" target="_blank" id="issueSubmitSuccesLink"><?= _("View Issue on GitHub")." : #" ?> <span id="issueSubmitSuccesLinkText"></span></a>
                 <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" id="submitIssueDone"><?= _('OK') ?></button>
+                    <button type="button" class="btn btn-primary" id="submitIssueDone"><?= _('OK') ?></button>
                 </div>
                 </div>
               </div>
