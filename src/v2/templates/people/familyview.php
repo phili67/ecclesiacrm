@@ -20,7 +20,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 
-<?php if (is_null($family->getDateDeactivated())) {
+<?php if (!is_null($family->getDateDeactivated())) {
     ?>
     <div class="alert alert-warning">
         <strong><?= _(" This Family is Deactivated") ?> </strong>
