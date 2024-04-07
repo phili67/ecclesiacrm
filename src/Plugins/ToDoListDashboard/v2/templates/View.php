@@ -105,8 +105,8 @@ $defaultList = ToDoListDashboardQuery::create()
                                 </span>
 
                                 <div class="icheck-primary d-inline ml-2">
-                                    <input type="checkbox" value="" name="todo1" class="todoListItemCheck" data-id="<?= $item->getId() ?>" <?= ($item->isChecked() == 1)?"checked":"" ?>>
-                                    <label for="todoCheck1"></label>
+                                    <input type="checkbox" value="" name="todo1" class="todoListItemCheck" data-id="<?= $item->getId() ?>" <?= ($item->isChecked() == 1)?"checked":"" ?> id="todo-<?= $item->getId() ?>">
+                                    <label for="todo-<?= $item->getId() ?>"></label>
                                 </div>
 
                                 <span class="text"><?= $item->getName() ?></span>

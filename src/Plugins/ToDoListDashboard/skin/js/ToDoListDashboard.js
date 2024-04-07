@@ -239,8 +239,8 @@ $(function() {
                 '       <i class="fas fa-ellipsis-v"></i>' +
                 '  </span>' +
                 '  <div class="icheck-primary d-inline ml-2">' +
-                '       <input type="checkbox" value="" name="todo1" class="todoListItemCheck" data-id="' + data.items[i].Id + '" ' + (data.items[i].Checked == true?'checked':'') + '>' +
-                '       <label for="todoCheck1"></label>' +
+                '       <input type="checkbox" value="" name="todo' + data.items[i].Id + '" class="todoListItemCheck" data-id="' + data.items[i].Id + '" ' + (data.items[i].Checked == true?'checked':'') + ' id="todo-' + data.items[i].Id + '">' +
+                '       <label for="todo-' + data.items[i].Id + '"></label>' +
                 '  </div>' +
                 '  <span class="text">' + data.items[i].Name + '</span>' +
                 '  <small class="badge badge-' + data.items[i].color + '"><i class="far fa-clock"></i> ' + data.items[i].period + '</small>' +
