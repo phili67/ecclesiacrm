@@ -182,6 +182,9 @@ unlink(SystemURLs::getDocumentRoot()."/skin/external/bootstrap-show-password");
 unlink(SystemURLs::getDocumentRoot()."/Login.php");
 unlink(SystemURLs::getDocumentRoot()."/Logoff.php");
 
+// 2024-04-13
+unlink(SystemURLs::getDocumentRoot()."/skin/js/initial.js");
+
 
 $logger->info("End of delete :  all unusefull files");
 ?>
