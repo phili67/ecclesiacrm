@@ -21,31 +21,32 @@
     if (val.which == 13) {
       deleteMarker(marker);
       
-      var address       = $('form #EventLocation').val();
-  
-      $.ajax({
-        url:"https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false&key="+window.CRM.iGoogleMapKey,
-        type: "POST",
-        success:function(res){
+      var address = $('form #EventLocation').val();
+
+      fetch("https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false&key="+window.CRM.iGoogleMapKey, {            
+          method: "POST"
+      })
+        .then(resj => resj.json())
+        .then(res => {
           if (res.status == "ZERO_RESULTS") {
             alert(i18next.t('Wrong address format.'));
             $('form #EventLocation').val('');
             return;            
           }
-          var latitude  = res.results[0].geometry.location.lat;
-          var longitude = res.results[0].geometry.location.lng;
-          var EventTitle =  $('form #EventTitle').val();
-          var EventDesc =  $('form #EventDesc').val();
+          let latitude  = res.results[0].geometry.location.lat;
+          let longitude = res.results[0].geometry.location.lng;
+          let EventTitle =  $('form #EventTitle').val();
+          let EventDesc =  $('form #EventDesc').val();
       
           if ( latitude > 0 && longitude > 0 ) {
-            var Salutation = EventTitle + " ("+EventDesc+")";
-            var Name = EventTitle;
-            var latlng = new google.maps.LatLng(latitude, longitude);
+            let Salutation = EventTitle + " ("+EventDesc+")";
+            let Name = EventTitle;
+            let latlng = new google.maps.LatLng(latitude, longitude);
 
-            var imghref = window.CRM.root+"/v2/calendar";
+            let imghref = window.CRM.root+"/v2/calendar";
             var iconurl = window.CRM.root+"/skin/icons/event.png";
       
-            var image = {
+            let image = {
                 url: iconurl,
                 // This marker is 37 pixels wide by 34 pixels high.
                 size: new google.maps.Size(37, 34),
@@ -63,8 +64,11 @@
         
             window.CRM.map.setCenter(latlng);
           }
-        }
-      });
+        })
+        .catch(error => {
+            // enter your logic for when there is an error (ex. error toast)
+            console.log(error)
+        });
     }
   });
   

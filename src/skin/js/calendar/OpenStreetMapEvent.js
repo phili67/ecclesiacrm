@@ -21,30 +21,33 @@
       var address       = $('form #EventLocation').val();
       
       var address_nomatim = address.replace(/ /g,'+');
-  
-      $.ajax({
-        url:window.CRM.sNominatimLink+"/search?q="+address_nomatim+"&format=json",
-        type: "GET",
-        dataType: "json",
-        success:function(res){
+
+      fetch(window.CRM.sNominatimLink+"/search?q="+address_nomatim+"&format=json", {            
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",            
+          }
+      })
+        .then(resj => resj.json())
+        .then(res => {          
           if (res === undefined || res.length == 0) {
             alert(i18next.t('Wrong address format.'));
             return;
           }
           
-          var latitude  = res[0].lat;
-          var longitude = res[0].lon;
-          var EventTitle =  $('form #EventTitle').val();
-          var EventDesc =  $('form #EventDesc').val();
+          let latitude  = res[0].lat;
+          let longitude = res[0].lon;
+          let EventTitle =  $('form #EventTitle').val();
+          let EventDesc =  $('form #EventDesc').val();
       
           if ( latitude > 0 && longitude > 0 ) {
-            var Salutation = EventTitle + " ("+EventDesc+")";
-            var Name = EventTitle;
+            let Salutation = EventTitle + " ("+EventDesc+")";
+            let Name = EventTitle;
 
-            var imghref = window.CRM.root+"/v2/calendar";
-            var iconurl = window.CRM.root+"/skin/icons/event.png";
+            let imghref = window.CRM.root+"/v2/calendar";
+            let iconurl = window.CRM.root+"/skin/icons/event.png";
       
-            var icon = L.icon({
+            let icon = L.icon({
                 iconUrl: iconurl,
                 iconSize:     [32, 32], // size of the icon
                 iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
@@ -54,7 +57,7 @@
             contentString = "<b><a href='" + imghref + "'>" + Salutation + "</a></b>";
             contentString += "<p>" + address + "</p>";
             
-            var centerCard = {
+            let centerCard = {
               lat: Number(latitude),
               lng: Number(longitude)};
 
@@ -62,8 +65,7 @@
             marker  = addMarkerWithInfowindow(window.CRM.map, centerCard, icon, Name, contentString);
         
             window.CRM.map.setView([centerCard.lat, centerCard.lng], window.CRM.mapZoom);
-          }
-        }
+          }        
       });
     }
   });
