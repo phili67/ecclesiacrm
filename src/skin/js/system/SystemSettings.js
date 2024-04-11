@@ -50,12 +50,10 @@ function getFormValue(object)
 }
 
 function updateDropDrownFromAjax(selectObj) {
-    $.ajax({
-        method: "GET",
-        url: window.CRM.root + selectObj.data("url"),
-        dataType: "json",
-        encode: true,
-    }).done(function (data) {
+    window.CRM.APIRequest({
+      method: 'GET',
+      path: selectObj.data("url") // url : shoud be /system/....
+    }, function (data) {  
         $.each(data, function (index, config) {
             var optSelected = config.id == selectObj.data("value");
             var opt = new Option(config.value, config.id, optSelected, optSelected);
