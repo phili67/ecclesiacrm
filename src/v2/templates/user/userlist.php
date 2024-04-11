@@ -143,7 +143,7 @@ require $sRootDocument . '/Include/Header.php';
                         }
                         if ($user->getFailedLogins() > 0) {
                       ?>
-                            <a href="#" class="restUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
+                            <a href="#" class="resetUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
                                data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Reset failed login") ?>"><i
                                         class="fas fa-eraser" aria-hidden="true"></i></a>
                       <?php
