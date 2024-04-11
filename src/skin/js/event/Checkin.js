@@ -10,7 +10,7 @@ window.CRM.editor = null;
 
 $(function() {
 
-    function addEvent(dateStart, dateEnd) {
+    const addEvent = (dateStart, dateEnd) => {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'calendar/numberofcalendars',
@@ -387,23 +387,21 @@ $(function() {
             $(this).parent().find(".fa-chevron-up").removeClass("fa-chevron-up").addClass("fa-chevron-down");
         });
 
-        var $input = $("#child, #adult, #adultout");
-        $input.autocomplete({
+        var input = $("#child, #adult, #adultout");
+        input.autocomplete({
             source: function (request, response) {
-                $.ajax({
-                    url: window.CRM.root + '/api/persons/search/' + request.term,
-                    dataType: 'json',
-                    type: 'GET',
-                    success: function (data) {
-                        console.log(data);
-                        response($.map(data, function (item) {
-                            return {
-                                label: item.text,
-                                value: item.objid,
-                                obj: item
-                            };
-                        }));
-                    }
+                window.CRM.APIRequest({
+                    method: 'GET',
+                    path: 'persons/search/' + request.term
+                },function (data) {
+                    console.log(data);
+                    response($.map(data, function (item) {
+                        return {
+                            label: item.text,
+                            value: item.objid,
+                            obj: item
+                        };
+                    }));
                 })
             },
             minLength: 2,
@@ -422,7 +420,7 @@ $(function() {
         });
 
 
-        function SetPersonHtml(element, perArr) {
+        const SetPersonHtml = (element, perArr) => {
             if (perArr) {
                 element.html(
                     '<div class="text-center">' +
@@ -439,8 +437,7 @@ $(function() {
     }
 
     /* QRCode code */
-
-    function BootboxContent(){
+    const BootboxContent = () => {
 
         var frm_str = '<h3 style="margin-top:-5px"></h3>'
             + '<div>'

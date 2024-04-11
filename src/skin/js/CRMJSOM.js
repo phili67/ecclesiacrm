@@ -7,10 +7,14 @@
             options.method = "GET"
         }
 
+        if (!options.ContentType) {
+          options.ContentType = "application/json; charset=utf-8";
+        }
+
         fetch(window.CRM.root + "/api/" + options.path, {            
             method: options.method,
             headers: {
-                'Content-Type': "application/json; charset=utf-8",
+                'Content-Type': options.ContentType,
                 'Authorization': 'Bearer ' + window.CRM.jwtToken,
             },
             body: options.data
@@ -150,24 +154,27 @@
        })
     }
 
-    window.CRM.VerifyThenLoadAPIContent = function(url) {
-      var error = i18next.t("There was a problem retrieving the requested object");
-      $.ajax({
-        method: 'HEAD',
-        url: url,
-        async: false,
-        statusCode: {
-          200: function() {
-            window.open(url);
-          },
-          404: function() {
-            window.CRM.DisplayErrorMessage(url, {message: error});
-          },
-          500: function() {
-            window.CRM.DisplayErrorMessage(url, {message: error});
-          }
+    window.CRM.VerifyThenLoadAPIContent = async function(url) {
+      const error = i18next.t("There was a problem retrieving the requested object");
+
+      try {
+        const response = await fetch(url, {            
+          method: 'HEAD'
+        });
+      
+        if (response.ok) {
+          console.log('Promise resolved and HTTP status is successful');
+        } else {
+          // Custom message for failed HTTP codes
+          if (response.status === 200) window.open(url);
+          else if (response.status === 404) window.CRM.DisplayErrorMessage(url, {message: error});
+          else if (response.status === 500) window.CRM.DisplayErrorMessage(url, {message: error});
+          // For any other server error
+          throw new Error(response.status);
         }
-      });
+      } catch (error) {
+        console.error('Fetch VerifyThenLoadAPIContent', error);
+      }
     }
 
     window.CRM.cart={
@@ -255,7 +262,7 @@
               }
           });
 
-          function BootboxContentCartTogroup (){
+          const BootboxContentCartTogroup = () => {
               var frm_str = '<form id="some-form">'
                   +'<table border=0 cellpadding=2 width="100%">'
                   +'<tr>'
@@ -405,8 +412,7 @@
           // we hide by default the GroupCreation
           $("#GroupCreation").hide();
 
-          function addGroups()
-          {
+          const addGroups = () => {
               window.CRM.APIRequest({
                   path:"groups/",
                   method:"GET"
@@ -970,7 +976,7 @@
     }
 
     window.CRM.register = function () {
-        function BootboxContentRegister(data){
+        const BootboxContentRegister = (data) => {
             var frm_str = '<div class="card card-warning">'
                 + '  <div class="card-body">'
                 + '  ' + i18next.t('If you need to make changes to registration data, go to ') + '<a href="'+ window.CRM.root + '/v2/systemsettings">'+ i18next.t('Admin->Edit General Settings') + '</a>'
@@ -1016,18 +1022,15 @@
                         label: i18next.t("Send"),
                         className: "btn btn-primary pull-left",
                         callback: function() {
-                            $.ajax({
-                                type: "POST",
-                                url: window.CRM.root + "/api/register",
-                                data: {
-                                    emailmessage: $("#registeremailmessage").val(),
-                                    EcclesiaCRMURL: $("input[name=EcclesiaCRMURL]").val()
-                                },
-                                success: function (data) {
-                                    alert(i18next.t('Your software is now registered. Thank you !'));
-                                    location.reload();
-                                }
-                            });
+                          window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'register',
+                            data: JSON.stringify({ "emailmessage": $("#registeremailmessage").val(), EcclesiaCRMURL: $("input[name=EcclesiaCRMURL]").val() })
+                          }, function (data) {    
+                              window.CRM.DisplayAlert("EcclesiaCRM",i18next.t('Your software is now registered. Thank you !'), function (){
+                                location.reload();
+                              });                              
+                          });
                         }
                     },
                     {
@@ -1754,13 +1757,13 @@
       }
     });
 
-    function LimitTextSize(theTextArea, size) {
+    const LimitTextSize = (theTextArea, size) => {
         if (theTextArea.value.length > size) {
             theTextArea.value = theTextArea.value.substr(0, size);
         }
     }
 
-    function popUp(URL) {
+    const popUp = (URL) => {
         var day = new Date();
         var id = day.getTime();
         eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=yes,location=0,statusbar=0,menubar=0,resizable=yes,width=600,height=400,left = 100,top = 50');");

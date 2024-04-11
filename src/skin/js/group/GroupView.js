@@ -486,20 +486,16 @@ function initDataTable() {
     window.CRM.DataTableGroupView = $("#membersTable").DataTable(DataTableOpts);
 
     $('#isGroupActive').on('change',function () {
-        $.ajax({
-            type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-            url: window.CRM.root + '/api/groups/' + window.CRM.currentGroup + '/settings/active/' + $(this).prop('checked'),
-            dataType: 'json', // what type of data do we expect back from the server
-            encode: true
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'groups/' + window.CRM.currentGroup + '/settings/active/' + $(this).prop('checked')
         });
     });
 
     $('#isGroupEmailExport').on('change',function () {
-        $.ajax({
-            type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-            url: window.CRM.root + '/api/groups/' + window.CRM.currentGroup + '/settings/email/export/' + $(this).prop('checked'),
-            dataType: 'json', // what type of data do we expect back from the server
-            encode: true
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'groups/' + window.CRM.currentGroup + '/settings/email/export/' + $(this).prop('checked')
         });
     });
 
