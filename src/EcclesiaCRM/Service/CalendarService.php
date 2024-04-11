@@ -22,21 +22,13 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\EventCountsQuery;
 
-use EcclesiaCRM\Map\EventTableMap;
-use EcclesiaCRM\Map\EventTypesTableMap;
-use EcclesiaCRM\Map\GroupTableMap;
-
-use EcclesiaCRM\Map\CalendarinstancesTableMap;
-use EcclesiaCRM\Map\PrincipalsTableMap;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\EventCounts;
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\GeoUtils;
-use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Utils\MiscUtils;
-use http\Client\Curl\User;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -968,7 +960,7 @@ class CalendarService
     public function modifyEventFromCalendar($calendarID, $eventID, $reccurenceID, $start, $end, $EventTitle,
                                             $EventDesc, $location, $addGroupAttendees, $alarm, $eventTypeID,
                                             $eventNotes, $eventInActive, $Fields, $EventCountNotes, $recurrenceValid, $recurrenceType,
-                                            $endrecurrence, $allDay)
+                                            $endrecurrence, $allDay = false)
     {
         $old_event = EventQuery::Create()->findOneById($eventID);
 
