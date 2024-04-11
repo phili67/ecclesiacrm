@@ -29,7 +29,7 @@ $localeInfo = Bootstrapper::GetCurrentLocale();
 
     <!-- custom plugins css files -->
     <?php
-        // we load the plugin
+        // we load the plugin        
         $plugins = PluginQuery::create()
             ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
             ->findByActiv(true);
