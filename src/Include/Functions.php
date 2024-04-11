@@ -88,19 +88,3 @@ if (!isset($_SESSION['bHasMagicQuotes'])) {
 }
 
 $sGlobalMessageClass = 'success';
-
-if (isset($_GET['Registered'])) {
-    $sGlobalMessage = _('Thank you for registering your EcclesiaCRM installation.');
-}
-
-if (isset($_GET['AllPDFsEmailed'])) {
-    $sGlobalMessage = _('PDFs successfully emailed ').$_GET['AllPDFsEmailed'].' '._('families').".";
-}
-
-if (isset($_GET['PDFEmailed'])) {
-    if ($_GET['PDFEmailed'] == 1) {
-        $sGlobalMessage = _('PDF successfully emailed to family members.');
-    } else {
-        $sGlobalMessage = _('Failed to email PDF to family members.');
-    }
-}
