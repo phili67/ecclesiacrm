@@ -82,7 +82,7 @@ $fams_to_contact = new EmailUsers($fams, $persons);
 $familyEmailSent = $fams_to_contact->renderAndSend($exportType, $minAge, $maxAge, $classList);
 
 if ($_GET['familyId']) {
-    RedirectUtils::Redirect('v2/people/family/view/' . $_GET['familyId'] . '&PDFEmailed=' . $familyEmailSent);
+    RedirectUtils::Redirect('v2/people/family/view/' . $_GET['familyId']);
 } else {
     RedirectUtils::Redirect('v2/people/LettersAndLabels');
 }
