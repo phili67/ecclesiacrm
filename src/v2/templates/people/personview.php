@@ -1664,9 +1664,12 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
+<?php if (SessionUser::getUser()->isEDriveEnabled($PersonInfos['iPersonID'])) : ?>
+<script src="<?= $sRootPath ?>/skin/js/filemanager.js"></script>
+<?php endif ?>
+
 <script src="<?= $sRootPath ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/people/MemberView.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/filemanager.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/people/AddRemoveCart.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/people/PersonView.js"></script>
 
