@@ -11,7 +11,6 @@ use EcclesiaCRM\PluginQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 $localeInfo = Bootstrapper::GetCurrentLocale();
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -30,7 +29,6 @@ $localeInfo = Bootstrapper::GetCurrentLocale();
 
     <!-- custom plugins css files -->
     <?php
-    if ( file_exists('Config.php') ) {
         // we load the plugin
         $plugins = PluginQuery::create()
             ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
@@ -50,9 +48,7 @@ $localeInfo = Bootstrapper::GetCurrentLocale();
             }
 
         }
-    }
     ?>
-
 
     <!-- jQuery JS -->
     <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery/jquery.min.js"></script>
