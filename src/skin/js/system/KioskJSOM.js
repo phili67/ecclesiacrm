@@ -1,14 +1,30 @@
 var title = "";
 
 window.CRM.kiosk = {
-    APIRequest: function (options) {
+    APIRequest: function (options, callback) {
         if (!options.method) {
             options.method = "GET"
         }
-        options.url = window.CRM.root + "/kiosk/" + options.path;
-        options.dataType = 'json';
-        options.contentType = "application/json";
-        return $.ajax(options);
+
+        fetch(window.CRM.root + "/kiosk/" + options.path, {            
+            method: options.method,
+            dataType: 'json',
+            headers: {
+                'Content-Type': "application/json; charset=utf-8",                
+            },
+            body: options.data
+        })
+            .then(res => res.json())
+            .then(data => {
+                // enter you logic when the fetch is successful
+                if (callback) {
+                    callback(data);
+                }
+            })
+            .catch(error => {
+                // enter your logic for when there is an error (ex. error toast)
+                console.log(error)
+            });
     },
 
     renderClassMember: function (classMember) {
@@ -83,25 +99,24 @@ window.CRM.kiosk = {
     updateActiveClassMembers: function () {
         window.CRM.kiosk.APIRequest({
             path: "activeClassMembers"
-        })
-            .done(function (data) {
-                $(data.EventAttends).each(function (i, d) {
-                    window.CRM.kiosk.renderClassMember({
-                        displayName: d.Person.FirstName + " " + d.Person.LastName,
-                        classRole: d.RoleName,
-                        personId: d.Person.Id,
-                        status: d.status,
-                        checkedIn: d.checkedIn,
-                        checkedOut: d.checkedOut
-                    })
-                });
-            })
+        },function (data) {
+            $(data.EventAttends).each(function (i, d) {
+                window.CRM.kiosk.renderClassMember({
+                    displayName: d.Person.FirstName + " " + d.Person.LastName,
+                    classRole: d.RoleName,
+                    personId: d.Person.Id,
+                    status: d.status,
+                    checkedIn: d.checkedIn,
+                    checkedOut: d.checkedOut
+                })
+            });
+        });
     },
 
     heartbeat: function () {
         window.CRM.kiosk.APIRequest({
             path: "heartbeat"
-        }).done(function (data) {
+        }, function (data) {
             thisAssignment = data.Assignment;
             if (window.CRM.kioskAssignmentId === undefined) {
                 window.CRM.kioskAssignmentId = thisAssignment;
@@ -167,7 +182,7 @@ window.CRM.kiosk = {
                 path: "checkin",
                 method: "POST",
                 data: JSON.stringify({"PersonId": personId})
-            }).done(function (data) {
+            },function (data) {
                 window.CRM.kiosk.setCheckedIn(personId);
             });
         } else {
@@ -176,7 +191,7 @@ window.CRM.kiosk = {
                 path: "uncheckin",
                 method: "POST",
                 data: JSON.stringify({"PersonId": personId})
-            }).done(function (data) {
+            },function (data) {
                 window.CRM.kiosk.setCheckedIn(personId);
             });
         }
@@ -190,7 +205,7 @@ window.CRM.kiosk = {
                 path: "checkout",
                 method: "POST",
                 data: JSON.stringify({"PersonId": personId})
-            }).done(function (data) {
+            },function (data) {
                 window.CRM.kiosk.setCheckedOut(personId);
             });
         } else {
@@ -198,7 +213,7 @@ window.CRM.kiosk = {
                 path: "uncheckout",
                 method: "POST",
                 data: JSON.stringify({"PersonId": personId})
-            }).done(function (data) {
+            },function (data) {
                 window.CRM.kiosk.setCheckedOut(personId);
             });
         }
@@ -243,7 +258,7 @@ window.CRM.kiosk = {
             path: "triggerNotification",
             method: "POST",
             data: JSON.stringify({"PersonId": personId})
-        }).done(function (data) {
+        },function (data) {
             //window.CRM.kiosk.startEventLoop();
             //TODO:  Signal to the kiosk user that the notification was sent
         });

@@ -44,12 +44,10 @@ $(function() {
       message: '<p style="color: red">' + popupWarning + '</p><br><p>' + popupMessage + '</p>',
       callback: function (result) {
         if (result) {
-          $.ajax({
-            method: "POST",
-            url: window.CRM.root + "/api/families/" + window.CRM.currentFamily + "/activate/" + !window.CRM.currentActive,
-            dataType: "json",
-            encode: true
-          }).done(function (data) {
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'families/' + window.CRM.currentFamily + "/activate/" + !window.CRM.currentActive
+          }, function (data) {
             if (data.success == true)
               window.location.href = window.CRM.root + "/v2/people/family/view/" + window.CRM.currentFamily;
             });
@@ -59,12 +57,10 @@ $(function() {
     });
 
     $("#deletePhoto").on('click', function () {
-      $.ajax({
-        type: "DELETE",
-        url: window.CRM.root + "/api/families/" + window.CRM.currentFamily + "/photo",
-        encode: true,
-        dataType: 'json'
-      }).done(function (data) {
+      window.CRM.APIRequest({
+        method: 'DELETE',
+        path: 'families/' + window.CRM.currentFamily + "/photo"
+      }, function (data) {  
         location.reload();
       });
     });
@@ -261,27 +257,6 @@ $(function() {
            window.CRM.dataPropertiesTable.ajax.reload();
            promptBox.removeClass('form-group').html('');
       }
-    });
-  });
-
-
-
-   $('#assign-property-form').on('submit',function (event) {
-      event.preventDefault();
-      var thisForm = $(this);
-      var url = thisForm.attr('action');
-      var dataToSend = thisForm.serialize();
-
-      $.ajax({
-        type: 'POST',
-        url: url,
-        data: dataToSend,
-        dataType: 'json',
-        success: function (data, status, xmlHttpReq) {
-          if (data && data.success) {
-            location.reload();
-          }
-        }
     });
   });
 
@@ -752,7 +727,7 @@ $(function() {
     $("#verifyNow").on('click', function () {
       window.CRM.APIRequest({
           method: 'POST',
-          path: window.CRM.root + '/api/families/verify/' + window.CRM.currentFamily + '/now'
+          path: 'families/verify/' + window.CRM.currentFamily + '/now'
         }, function(data, textStatus, xhr) {
                 $('#confirm-verify').modal('hide');
                 if (xhr.status == 200) {
@@ -771,7 +746,7 @@ $(function() {
     $("#onlineVerify").on('click', function () {
       window.CRM.APIRequest({
         method: 'POST',
-        path: window.CRM.root + '/api/families/' + window.CRM.currentFamily + '/verify'
+        path: 'families/' + window.CRM.currentFamily + '/verify'
       }, function(data, textStatus, xhr) {
               $('#confirm-verify').modal('hide');
               if (xhr.status == 200) {
@@ -785,7 +760,7 @@ $(function() {
     $("#onlineVerifyPDF").on('click', function () {
       window.CRM.APIRequest({
         method: 'POST',
-        path: window.CRM.root + '/api/families/' + window.CRM.currentFamily + '/verifyPDF'
+        path: 'families/' + window.CRM.currentFamily + '/verifyPDF'
       },function(data, textStatus, xhr) {
                 $('#confirm-verify').modal('hide');
                 if (xhr.status == 200) {

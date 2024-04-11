@@ -1,6 +1,6 @@
 $(function() {
     $('#deleteSelectedRows').on('click', function () {
-        var deletedRows = dataT.rows('.selected').data();
+        let deletedRows = dataT.rows('.selected').data();
         bootbox.confirm({
             title: i18next.t("Confirm Delete"),
             message: "<p>" + i18next.t("Are you sure ? You're about to delete the selected") + deletedRows.length + " " + i18next.t("payments(s)?") + "</p>" +
@@ -39,7 +39,7 @@ $(function() {
 
     $("#paymentsTable tbody").on('click', 'tr', function () {
         $(this).toggleClass('selected');
-        var selectedRows = dataT.rows('.selected').data().length;
+        let selectedRows = dataT.rows('.selected').data().length;
         $("#invalidateSelectedRows").prop('disabled', !(selectedRows));
         $("#invalidateSelectedRows").text(i18next.t("Pledge") + " (" + selectedRows + ") " + i18next.t("Selected Rows"));
         $("#validateSelectedRows").prop('disabled', !(selectedRows));
@@ -48,11 +48,10 @@ $(function() {
     });
 
     $("#invalidateSelectedRows").on('click',function (e) {
-        var rows = dataT.rows('.selected').data();
+        let rows = dataT.rows('.selected').data();
+        let newData = new Array();
 
-        var newData = new Array();
-
-        for (i = 0; i < rows.length; i++) {
+        for (let i = 0; i < rows.length; i++) {
             newData.push(rows[i]);
         }
 
@@ -66,11 +65,10 @@ $(function() {
     });
 
     $("#validateSelectedRows").on('click',function (e) {
-        var rows = dataT.rows('.selected').data();
+        let rows = dataT.rows('.selected').data();
+        let newData = new Array();
 
-        var newData = new Array();
-
-        for (i = 0; i < rows.length; i++) {
+        for (let i = 0; i < rows.length; i++) {
             newData.push(rows[i]);
         }
 
@@ -84,32 +82,32 @@ $(function() {
     });
 
     $(document).on('click', '.detailButton', function () {
-        var gk = $(this).data("gk");
+        let gk = $(this).data("gk");
 
         window.CRM.APIRequest({
             method: 'POST',
             path: 'pledges/detail',
             data: JSON.stringify({"groupKey": gk})
         },function (data) {
-            var len = data.Pledges.length;
-            var fmt = window.CRM.datePickerformat.toUpperCase();
-            var date = moment(data.Date).format(fmt);
+            let len = data.Pledges.length;
+            let fmt = window.CRM.datePickerformat.toUpperCase();
+            let date = moment(data.Date).format(fmt);
 
-            var message = "<table class='outer'>";
+            let message = "<table class='outer'>";
 
             message += "<tr><td><label>" + i18next.t("Depid") + " </label> </td><td>&nbsp;:&nbsp;</td><td>" + data.Pledges[0].Depid + "</td></tr>";
             message += "<tr><td><label>" + i18next.t("Name") + " </label> </td><td>&nbsp;:&nbsp;</td><td>" + data.Pledges[0].FamilyName + "</td></tr>";
             message += "<tr><td><label>" + i18next.t("Address1") + " </label> </td><td>&nbsp;:&nbsp;</td><td>" + i18next.t(data.Pledges[0].Address1) + "</td></tr>";
             message += "<tr><td><label>" + i18next.t("Date") + " </label> </td><td>&nbsp;:&nbsp;</td><td>" + date + "</td></tr>";
 
-            var type = "Disabled";
+            let type = "Disabled";
             if (data.Pledges[0].EnableCreditCard) {
                 type = "Credit Card";
             } else if (data.Pledges[0].EnableBankDraft) {
                 type = "Bank Draft";
             }
             message += "<tr><td><label>" + i18next.t("Type") + " </label> </td><td>&nbsp;:&nbsp;</td><td>" + i18next.t(type) + "</td></tr>";
-            var BankName = "";
+            let BankName = "";
             if (data.Pledges[0].BankName) {
                 BankName = data.Pledges[0].BankName;
             }
@@ -120,7 +118,7 @@ $(function() {
             message += "<tr><td>&nbsp;</td><td></td><td></td></tr>";
 
 
-            for (i = 0; i < len; i++) {
+            for (let i = 0; i < len; i++) {
                 message += "<tr><td><u><b>" + i18next.t("Deposit") + " " + (i + 1) + "</b></u></td><td></td><td></td></tr>";
                 message += "<tr><td><label>" + i18next.t("Schedule") + " </label> </td><td>&nbsp;:&nbsp;</td><td>" + i18next.t(data.Pledges[i].Schedule) + "</td></tr>";
 
@@ -142,7 +140,7 @@ $(function() {
         });
     });
 
-    function load_charts() {
+    const load_charts = () => {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'payments/getchartsarrays',
@@ -154,11 +152,11 @@ $(function() {
 
             initCharts(fundData, pledgeData);
 
-            var len = fundData.datasets[0].data.length;
+            let len = fundData.datasets[0].data.length;
 
             $("#mainFundTotals").empty();
-            var globalTotal = 0;
-            for (i = 0; i < len; ++i) {
+            let globalTotal = 0;
+            for (let i = 0; i < len; ++i) {
                 $("#mainFundTotals").append('<li><b>' + fundData.labels[i] + '</b>: ' + window.CRM.currency + Number(fundData.datasets[0].data[i]).toLocaleString(window.CRM.lang) + '</li>');
                 globalTotal += Number(fundData.datasets[0].data[i]);
             }
@@ -175,14 +173,14 @@ $(function() {
         });
     }
 
-    function initPaymentTable(type) {
-        var colDef = [
+    const initPaymentTable = (type) => {
+        let colDef = [
             {
                 width: 'auto',
                 title: i18next.t('Family') + ' ' + i18next.t('or') + ' ' + i18next.t('Person'),
                 data: 'FamilyString',
                 render: function (data, type, full, meta) {
-                    var familyName = data ? data : i18next.t('Anonymous');
+                    let familyName = data ? data : i18next.t('Anonymous');
                     /*var res = ((is_closed == 0)?'<a href=\''+ window.CRM.root + '/v2/deposit/pledge/editor/GroupKey/' + full.Groupkey + '/v2-deposit-slipeditor-' + depositSlipID + '\'><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas '+  (isDepositClosed ? "fa-search-plus": "fa-pencil-alt" ) +' fa-stack-1x fa-inverse"></i></span></a>':'');
                     res+=familyName;*/
 
@@ -286,7 +284,7 @@ $(function() {
         });
     }
 
-    function initDepositSlipEditor() {
+    const initDepositSlipEditor = () => {
         function format(d) {
             // `d` is the original data object for the row
             return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
@@ -315,32 +313,25 @@ $(function() {
 
         $("#DepositSlipSubmit").on('click',function (e) {
             e.preventDefault();
-            var formData = {
-                'depositDate': moment($('#DepositDate').val(), window.CRM.datePickerformat.toUpperCase()).format('YYYY-MM-DD'),
-                'depositComment': $("#Comment").val(),
-                'depositClosed': $('#Closed').is(':checked'),
-                'depositType': depositType
-
-            };
-
+            
             //process the form
-            $.ajax({
-                type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-                url: window.CRM.root + '/api/deposits/' + depositSlipID, // the url where we want to POST
-                data: JSON.stringify(formData), // our data object
-                dataType: 'json', // what type of data do we expect back from the server
-                contentType: "application/json; charset=utf-8",
-                encode: true
-            })
-                .done(function (data) {
-                    location.reload();
-                }).fail(function () {
-            });
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'deposits/' + depositSlipID, // the url where we want to POST
+                data: JSON.stringify({
+                    'depositDate': moment($('#DepositDate').val(), window.CRM.datePickerformat.toUpperCase()).format('YYYY-MM-DD'),
+                    'depositComment': $("#Comment").val(),
+                    'depositClosed': $('#Closed').is(':checked'),
+                    'depositType': depositType
+                }) // our data object
+            }, function (data) {
+                location.reload();
+            });                        
         });
 
         $('#paymentsTable tbody').on('click', 'td.details-control', function () {
-            var tr = $(this).closest('tr');
-            var row = dataT.row(tr);
+            let tr = $(this).closest('tr');
+            let row = dataT.row(tr);
             if (row.child.isShown()) {
                 // This row is already open - close it
                 row.child.hide();
@@ -357,7 +348,7 @@ $(function() {
         $(document).on('click', ".paymentRow", function (event) {
             if (!($(event.target).hasClass("details-control") || $(event.target).hasClass("fa"))) {
                 $(this).toggleClass('selected');
-                var selectedRows = dataT.rows('.selected').data().length;
+                let selectedRows = dataT.rows('.selected').data().length;
                 $("#deleteSelectedRows").prop('disabled', !(selectedRows));
                 $("#deleteSelectedRows").text(i18next.t("Delete") + " (" + selectedRows + ") " + i18next.t("Selected Rows"));
             }
@@ -367,8 +358,8 @@ $(function() {
 
     }
 
-    function initCharts(fundChartData, pledgeChartData) {
-        var pieOptions = {
+    const initCharts = (fundChartData, pledgeChartData) => {
+        let pieOptions = {
             cutoutPercentage: 50,
             rotation: -1.5707963267948966,
             circumference: 6.283185307179586,
@@ -378,10 +369,9 @@ $(function() {
         //pieOptions = Chart.defaults.doughnut;
 
         var len = fundChartData.datasets[0].data.length;
-
         if (len == 0) return;
 
-        pieChartCanvas = $("#type-donut").get(0).getContext("2d");
+        var pieChartCanvas = $("#type-donut").get(0).getContext("2d");
         var pieChart = new Chart(pieChartCanvas, {
             type: 'doughnut',
             data: fundChartData,

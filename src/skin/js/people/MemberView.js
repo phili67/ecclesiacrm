@@ -34,16 +34,14 @@ $('.delete-person').on('click', function (event) {
         },
         callback: function (result) {
             if(result) {
-                $.ajax({
-                    type: 'DELETE',
-                    url: window.CRM.root + '/api/persons/' + thisLink.data('person_id'),
-                    dataType: 'json',
-                    success: function (data, status, xmlHttpReq) {
-                        if (thisLink.data('view') == 'family') {
-                            location.reload();
-                        } else {
-                            location.replace(window.CRM.root + "/");
-                        }
+                window.CRM.APIRequest({
+                    method: 'DELETE',
+                    path: 'persons/' + thisLink.data('person_id')
+                }, function (data) {
+                    if (thisLink.data('view') == 'family') {
+                        location.reload();
+                    } else {
+                        location.replace(window.CRM.root + "/");
                     }
                 });
             }
