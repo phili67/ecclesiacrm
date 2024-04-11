@@ -28,6 +28,15 @@ class GeoUtils
 
     public static function getLatLong($address)
     {
+        $lat = 0;
+        $long = 0;
+        
+        if (empty($address)) {
+            return array(
+                'Latitude' => $lat,
+                'Longitude' => $long
+            );
+        }
 
         $logger = LoggerUtils::getAppLogger();
 
@@ -39,8 +48,6 @@ class GeoUtils
 
         $adapter  = new Client(null, null, $options);
 
-        $lat = 0;
-        $long = 0;
         try {
             switch (SystemConfig::getValue("sMapProvider")) {
                 case "GoogleMaps":
@@ -64,7 +71,7 @@ class GeoUtils
         }
 
         $logger->debug("We have " . $result->count() . " results");
-        if (!empty($result)) {
+        if ($result->count() > 0) {
             $firstResult = $result->get(0);
             $coordinates = $firstResult->getCoordinates();
             $lat = $coordinates->getLatitude();
