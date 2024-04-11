@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 
     $(".check_all").on('click', function () {
         var state = this.checked;
@@ -42,8 +42,8 @@ $(function() {
                 window.CRM.APIRequest({
                     method: 'POST',
                     path: 'users/applyrole',
-                    data: JSON.stringify({"userID": userID, "roleID": roleID})
-                },function (data) {
+                    data: JSON.stringify({ "userID": userID, "roleID": roleID })
+                }, function (data) {
                     if (data.success == true) {
                         // à terminer !!!
                         $('.role' + data.userID).html(data.roleName);
@@ -64,8 +64,8 @@ $(function() {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'users/webdavKey',
-            data: JSON.stringify({"userID": userID})
-        },function (data) {
+            data: JSON.stringify({ "userID": userID })
+        }, function (data) {
             if (data.status == 'success') {
                 var message = i18next.t("The WebDav Key is") + " : ";
                 if (data.token != null) {
@@ -96,8 +96,8 @@ $(function() {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'users/lockunlock',
-            data: JSON.stringify({"userID": userID})
-        },function (data) {
+            data: JSON.stringify({ "userID": userID })
+        }, function (data) {
             if (data.success == true) {
                 if (lock == false) {
                     content.removeClass('fa-unlock');
@@ -146,7 +146,7 @@ $(function() {
                     window.CRM.APIRequest({
                         method: "DELETE",
                         path: "users/" + userId
-                    },function (data) {
+                    }, function (data) {
                         if (data.status == "success")
                             $("#row-" + userId).remove();
                     });
@@ -155,7 +155,7 @@ $(function() {
         });
     });
 
-    $("#user-listing-table tbody").on('click', '.restUserLoginCount', function () {
+    $("#user-listing-table tbody").on('click', '.resetUserLoginCount', function () {
         var userId = $(this).data('id');
         var userName = $(this).data('name');
         var parentTd = $(this).parent();
@@ -166,12 +166,10 @@ $(function() {
                 i18next.t("Please confirm reset failed login count") + ": <b>" + userName + "</b></p>",
             callback: function (result) {
                 if (result) {
-                    $.ajax({
-                        method: "POST",
-                        url: window.CRM.root + "/api/users/" + userId + "/login/reset",
-                        dataType: "json",
-                        encode: true,
-                    }).done(function (data) {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'users/' + userId + "/login/reset"
+                    }, function (data) {
                         if (data.status == "success")
                             parentTd.html('0');
                         window.CRM.showGlobalMessage(i18next.t("Reset failed login count for") + ' ' + userName + ' ' + i18next.t('done.'), "info");
@@ -191,12 +189,10 @@ $(function() {
                 i18next.t("Please confirm the password reset of this user") + ": <b>" + userName + "</b></p>",
             callback: function (result) {
                 if (result) {
-                    $.ajax({
-                        method: "POST",
-                        url: window.CRM.root + "/api/users/" + userId + "/password/reset",
-                        dataType: "json",
-                        encode: true,
-                    }).done(function (data) {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'users/' + userId + "/password/reset"
+                    }, function (data) {
                         if (data.status == "success")
                             window.CRM.showGlobalMessage(i18next.t("Password reset for") + userName, "info");
                     });
@@ -205,13 +201,13 @@ $(function() {
         });
     });
 
-    $('#user-listing-table tbody').on('click', '.control-account', function() {
+    $('#user-listing-table tbody').on('click', '.control-account', function () {
         var userId = $(this).data("userid");
         window.CRM.APIRequest({
             method: 'POST',
             path: 'users/controlAccount',
-            data: JSON.stringify({"userID": userId})
-        },function (data) {
+            data: JSON.stringify({ "userID": userId })
+        }, function (data) {
             if (data.success) {
                 window.location = window.CRM.root;
             }
@@ -225,10 +221,10 @@ $(function() {
             title: i18next.t("Two factors authentications"),
             message: '<p><ul>' +
                 '<li>' +
-                    i18next.t("Delete") + " : " + i18next.t("to remove two-factor authentication") +
+                i18next.t("Delete") + " : " + i18next.t("to remove two-factor authentication") +
                 '</li>' +
                 '<li>' +
-                    i18next.t("Pending") + " : " + i18next.t("Gives the user 60 seconds to log in with their recovery codes. The user will then have to delete or simply rescan the QR-code in the OTP Management application.") +
+                i18next.t("Pending") + " : " + i18next.t("Gives the user 60 seconds to log in with their recovery codes. The user will then have to delete or simply rescan the QR-code in the OTP Management application.") +
                 '</li>' +
                 '</ul>' +
                 '</p>',
@@ -236,18 +232,18 @@ $(function() {
                 {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
                     className: "btn btn-secondary",
-                    callback: function() {
+                    callback: function () {
                     }
                 },
                 {
                     label: '<i class="fas fa-trash-alt"></i> ' + i18next.t("Delete"),
                     className: "btn btn-danger",
-                    callback: function() {
+                    callback: function () {
                         window.CRM.APIRequest({
                             method: 'POST',
                             path: 'users/2fa/remove',
-                            data: JSON.stringify({"userID": userID})
-                        },function (data) {
+                            data: JSON.stringify({ "userID": userID })
+                        }, function (data) {
                             location.reload();
                         });
                     }
@@ -255,19 +251,19 @@ $(function() {
                 {
                     label: '<i class="fas fa-clock"></i> ' + i18next.t("Pending"),
                     className: "btn btn-primary",
-                    callback: function() {
+                    callback: function () {
                         window.CRM.APIRequest({
                             method: 'POST',
                             path: 'users/2fa/pending',
-                            data: JSON.stringify({"userID": userID})
-                        },function (data) {
+                            data: JSON.stringify({ "userID": userID })
+                        }, function (data) {
                             i18next.t("The user has 60 seconds to use his recovery codes.");
                         });
                     }
                 }
             ],
             show: false,
-            onEscape: function() {
+            onEscape: function () {
                 modal.modal("hide");
             }
         });
