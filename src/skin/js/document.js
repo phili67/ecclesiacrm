@@ -165,7 +165,7 @@ $(function() {
     });
 
 
-    function BootboxContent(sTitleText, sDocType, sText) {
+    const BootboxContent = (sTitleText, sDocType, sText) => {
 
         var frm_str = '<h3 style="margin-top:-5px">' + i18next.t("Document Editor") + '</h3>'
             + '<form id="some-form">'
@@ -203,7 +203,7 @@ $(function() {
         return object;
     }
 
-    function DocumentEditorWindow(mode, docID) {
+    const DocumentEditorWindow = (mode, docID) => {
 
         var modal = bootbox.dialog({
             message: BootboxContent(),
