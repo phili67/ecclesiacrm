@@ -84,8 +84,6 @@ class PastoralCareService
     public function getPersonClassificationNotBeenReached($yet = false)
     {
         if (!$yet) {
-            $pdo = Propel::getConnection();
-
             // TO DO : convert query to propel (complex).
 
             $sSQL = "SELECT family_fam.fam_Name AS LastName,

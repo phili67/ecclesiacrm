@@ -59,7 +59,7 @@ class Notification
       $email = new NotificationEmail($emailaddresses,$this->person->getFullName());
       $emailStatus=$email->send();
       return $emailStatus;
-    } catch (Exception $ex) {
+    } catch (\Exception $ex) {
       return false;
     }
     
@@ -81,7 +81,7 @@ class Notification
           ]);
         }
         return $message;
-      } catch (Exception $ex) {
+      } catch (\Exception $ex) {
         return false;
       }
       
@@ -96,7 +96,7 @@ class Notification
                 SystemConfig::getValue("sOLPPassword"));
         $OLPAlert->setAlertText($this->projectorText);
         return $OLPAlert->send();
-      } catch (Exception $ex) {
+      } catch (\Exception $ex) {
         return false;
       }
        
