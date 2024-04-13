@@ -36,7 +36,6 @@ require_once 'Header-function.php';
 require_once 'Header-Security.php';
 
 // Top level menu index counter
-$MenuFirst = 1;
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -63,9 +62,6 @@ Header_system_notifications();
     <?php
     Header_modals();
     Header_body_scripts();
-
-    $loggedInUserPhoto = SystemURLs::getRootPath() . '/api/persons/' . SessionUser::getUser()->getPersonId() . '/thumbnail';
-    $MenuFirst = 1;
     ?>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         /* for the theme before jquery load is finished */
