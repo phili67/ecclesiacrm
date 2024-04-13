@@ -123,10 +123,10 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
                                     $res .= '                </a>  ';
                                 }
                             }
-
+                    
                             $elt = [
                                 "id" => $per->getId(),
-                                "img" => '<img src="/api/persons/'.$per->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                "img" => $per->getPNGPhotoDatas(),
                                 "searchresult" => '<a href="'.SystemURLs::getRootPath().'/v2/people/person/view/'.$per->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3).'</a>',
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address,
                                 "type" => " "._($this->getGlobalSearchType()),
@@ -143,7 +143,7 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
                         array_push($this->results, $elt);
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }
         }

@@ -13,6 +13,7 @@ class Photo {
   private $photoURI;
   private $photoThumbURI;
   private $photoContentType;
+  private $thumbnailContentType;
   private $remotesEnabled;
   public static $validExtensions = ["png", "jpeg", "jpg"];
 
@@ -154,7 +155,7 @@ class Photo {
     return $this->photoContentType;
   }
 
-  public function getThumbnailContentType() {
+  public function getThumbnailContentType() : string {
     $finfo = new \finfo(FILEINFO_MIME);
     $this->thumbnailContentType = $finfo->file($this->photoThumbURI);
     return $this->thumbnailContentType;

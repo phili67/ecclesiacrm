@@ -4,10 +4,7 @@ namespace EcclesiaCRM\Synchronize;
 
 use EcclesiaCRM\Synchronize\DashboardItemInterface;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\SessionUser;
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\Map\PersonTableMap;
-use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Service\PastoralCareService;
 
 class FamilyDashboardItem implements DashboardItemInterface {
@@ -44,27 +41,27 @@ class FamilyDashboardItem implements DashboardItemInterface {
    * @param int $limit
    * @return array|\EcclesiaCRM\Family[]|mixed|\Propel\Runtime\ActiveRecord\ActiveRecordInterface[]|\Propel\Runtime\Collection\ObjectCollection
    */
-  private static function getUpdatedFamilies($limit = 6) {
+  private static function getUpdatedFamilies($limit = 6) : array {
     $families = FamilyQuery::create()
                     ->filterByDateDeactivated(null)
                     ->filterByDateLastEdited(null, Criteria::NOT_EQUAL)
                     ->orderByDateLastEdited('DESC')
                     ->limit($limit)
-                    ->select(array("Id","Name","Address1","DateEntered","DateLastEdited"))
-                    ->find()->toArray();
+                    ->find();
 
-    if (!SessionUser::getUser()->isSeePrivacyDataEnabled()) {
-      $res = [];
-
-      foreach ($families as $family) {
-          $family["Address1"] = gettext("Private Data");
-          $res[] = $family;
-      }
-
-      return $res;
+    $res = [];
+    foreach ($families as $family) {
+        $res[] = [
+          'Id' => $family->getId(),                
+          'Name' => $family->getName(),
+          'Address1' => $family->getAddress(),
+          'DateEntered' => (!is_null($family->getDateEntered())?$family->getDateEntered()->format('Y-m-d h:i'):''),
+          'DateLastEdited' => (!is_null($family->getDateLastEdited())?$family->getDateLastEdited()->format('Y-m-d h:i'):''),
+          'img' => $family->getPNGPhotoDatas()
+      ];
     }
 
-    return $families;
+    return $res;
   }
 
   /**
@@ -72,28 +69,28 @@ class FamilyDashboardItem implements DashboardItemInterface {
    * @param int $limit
    * @return array|\EcclesiaCRM\Family[]|mixed|\Propel\Runtime\ActiveRecord\ActiveRecordInterface[]|\Propel\Runtime\Collection\ObjectCollection
    */
-  private static function getLatestFamilies($limit = 6) {
+  private static function getLatestFamilies($limit = 6) : array {
 
     $families = FamilyQuery::create()
                     ->filterByDateDeactivated(null)
                     ->orderByDateEntered('DESC')
                     ->limit($limit)
-                    ->select(array("Id","Name","Address1","DateEntered","DateLastEdited"))
-                    ->find()->toArray();
+                    ->find();
 
 
-    if (!SessionUser::getUser()->isSeePrivacyDataEnabled()) {
-      $res = [];
-
-      foreach ($families as $family) {
-          $family["Address1"] = gettext("Private Data");
-          $res[] = $family;
-      }
-
-      return $res;
+    $res = [];
+    foreach ($families as $family) {
+        $res[] = [
+          'Id' => $family->getId(),                
+          'Name' => $family->getName(),
+          'Address1' => $family->getAddress(),
+          'DateEntered' => (!is_null($family->getDateEntered())?$family->getDateEntered()->format('Y-m-d h:i'):''),
+          'DateLastEdited' => (!is_null($family->getDateLastEdited())?$family->getDateLastEdited()->format('Y-m-d h:i'):''),
+          'img' => $family->getPNGPhotoDatas()
+      ];
     }
 
-    return $families;
+    return $res;
   }
 
   public static function shouldInclude($PageName) {

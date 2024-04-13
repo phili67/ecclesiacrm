@@ -14,8 +14,8 @@ class PersonDashboardItem implements DashboardItemInterface {
 
   public static function getDashboardItemValue() {
      $data = ['personCount' => self::getMembersCount(),
-         'LatestPersons' => self::getLatestMembers()->toArray(),
-         'UpdatedPerson' => self::getUpdatedMembers()->toArray()];
+         'LatestPersons' => self::getLatestMembers(),
+         'UpdatedPerson' => self::getUpdatedMembers()];
 
      return $data;
   }
@@ -25,7 +25,7 @@ class PersonDashboardItem implements DashboardItemInterface {
      * @param int $limit
      * @return array|\EcclesiaCRM\Person[]|mixed|\Propel\Runtime\ActiveRecord\ActiveRecordInterface[]|\Propel\Runtime\Collection\ObjectCollection
      */
-  public static function getMembersCount()
+  public static function getMembersCount() : int
   {
     return PersonQuery::Create('per')
         ->filterByDateDeactivated(null)
@@ -40,15 +40,30 @@ class PersonDashboardItem implements DashboardItemInterface {
      * @param int $limit
      * @return array|\EcclesiaCRM\Person[]|mixed|\Propel\Runtime\ActiveRecord\ActiveRecordInterface[]|\Propel\Runtime\Collection\ObjectCollection
      */
-    public static function getUpdatedMembers($limit = 6)
+    public static function getUpdatedMembers($limit = 6) : array
     {
-        return PersonQuery::create()
+        $persons =  PersonQuery::create()
             ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->leftJoinWithFamily()
             ->where('Family.DateDeactivated is null')
             ->orderByDateLastEdited('DESC')
             ->limit($limit)
             ->find();
+
+        $res = [];
+        foreach ($persons as $person) {
+            $res[] = [
+                'Id' => $person->getId(),
+                'LastName' => $person->getLastName(),
+                'FirstName' => $person->getFirstName(),
+                'Address1' => $person->getAddress(),
+                'DateEntered' => (!is_null($person->getDateEntered())?$person->getDateEntered()->format('Y-m-d h:i'):''),
+                'DateLastEdited' => (!is_null($person->getDateLastEdited())?$person->getDateLastEdited()->format('Y-m-d h:i'):''),
+                'img' => $person->getPNGPhotoDatas()
+            ];
+        }
+
+        return $res;
     }
 
     /**
@@ -56,9 +71,9 @@ class PersonDashboardItem implements DashboardItemInterface {
      * @param int $limit
      * @return array|\EcclesiaCRM\Person[]|mixed|\Propel\Runtime\ActiveRecord\ActiveRecordInterface[]|\Propel\Runtime\Collection\ObjectCollection
      */
-    public static function getLatestMembers($limit = 6)
+    public static function getLatestMembers($limit = 6) : array
     {
-        return PersonQuery::create()
+        $persons = PersonQuery::create()
             ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->leftJoinWithFamily()
             ->where('Family.DateDeactivated is null')
@@ -66,6 +81,21 @@ class PersonDashboardItem implements DashboardItemInterface {
             ->orderByDateEntered('DESC')
             ->limit($limit)
             ->find();
+
+        $res = [];
+        foreach ($persons as $person) {
+            $res[] = [
+                'Id' => $person->getId(),                
+                'LastName' => $person->getLastName(),
+                'FirstName' => $person->getFirstName(),
+                'Address1' => $person->getAddress(),
+                'DateEntered' => (!is_null($person->getDateEntered())?$person->getDateEntered()->format('Y-m-d h:i'):''),                
+                'DateLastEdited' => (!is_null($person->getDateLastEdited())?$person->getDateLastEdited()->format('Y-m-d h:i'):''),
+                'img' => $person->getPNGPhotoDatas()
+            ];
+        }
+
+        return $res;
     }
 
     public static function getPersonStats()

@@ -1396,11 +1396,7 @@
                             {
                                 data: 'Name',
                                 render: function (data, type, row, meta) {
-                                    if (window.CRM.bThumbnailIconPresence) {
-                                        return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';
-                                    } else {
-                                        return '<a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';
-                                    }
+                                  return row.img + ' <a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';                                    
                                 }
                             },
                             {
@@ -1440,11 +1436,7 @@
                             {
                                 data: 'Name',
                                 render: function (data, type, row, meta) {
-                                    if (window.CRM.bThumbnailIconPresence) {
-                                        return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';
-                                    } else {
-                                        return '<a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';
-                                    }
+                                    return row.img + ' <a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';                                    
                                 }
                             },
                             {
@@ -1489,12 +1481,8 @@
                       'columns': [
                           {
                               data: 'LastName',
-                              render: function (data, type, row, meta) {
-                                  if (window.CRM.bThumbnailIconPresence) {
-                                      return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
-                                  } else {
-                                      return '<a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
-                                  }
+                              render: function (data, type, row, meta) {                                  
+                                    return row.img + ' <a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
                               }
                           },
                           {
@@ -1507,11 +1495,8 @@
                               }
                           },
                           {
-                              data: 'DateLastEdited',
+                              data: 'DateEntered',
                               render: function (data, type, row, meta) {
-                                  if (data === null) {
-                                      data = row.DateEntered;
-                                  }
                                   if (window.CRM.timeEnglish == true) {
                                       return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
                                   } else {
@@ -1540,11 +1525,7 @@
                           {
                               data: 'LastName',
                               render: function (data, type, row, meta) {
-                                  if (window.CRM.bThumbnailIconPresence) {
-                                      return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
-                                  } else {
-                                      return '<a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
-                                  }
+                                  return row.img + ' <a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
                               }
                           },
                           {

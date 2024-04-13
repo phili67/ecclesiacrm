@@ -107,6 +107,10 @@ class VIEWSessionController {
                 unset($_SESSION['ControllerAdminUserSecret']);
                 unset($_SESSION['ControllerAdminUserToken']);
             }
+
+            if (isset($_SESSION['photos'])) {
+                unset($_SESSION['photos']);
+            }
         
             if (!is_null($currentUser)) {
         

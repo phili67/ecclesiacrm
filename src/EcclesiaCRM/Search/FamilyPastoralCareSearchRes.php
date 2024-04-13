@@ -121,7 +121,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
 
                             $elt = [
                                 "id" => $care->getFamily()->getId(),
-                                "img" => '<img src="/api/families/' . $care->getFamily()->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                "img" => $care->getFamily()->getPNGPhotoDatas(),
                                 "searchresult" => _("Family Pastoral Care") . ' : <a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $care->getFamily()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $care->getFamily()->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $care->getFamily()->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                                 "type" => " " . _($this->getGlobalSearchType()),
@@ -138,7 +138,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
                         array_push($this->results, $elt);
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }
         }

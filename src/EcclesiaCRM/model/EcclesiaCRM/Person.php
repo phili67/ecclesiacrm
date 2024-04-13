@@ -590,6 +590,21 @@ class Person extends BasePerson implements iPhoto
       return $this->photo;
     }
 
+    public function getPNGPhotoDatas($width = '10px', $heigth = '10px'): string
+    {
+      if (isset($_SESSION['photos']['persons'][$this->getId()])) {
+        return $_SESSION['photos']['persons'][$this->getId()];
+      }
+
+      // usefull for base 64
+      $photo = $this->getPhoto();
+      $datas = base64_encode($photo->getPhotoBytes());     
+
+      $_SESSION['photos']['persons'][$this->getId()] = '<img src="data:image/png;base64, ' . $datas . '" class="initials-image direct-chat-img " width="' . $width . '" height="' . $heigth . '" />';
+
+      return $_SESSION['photos']['persons'][$this->getId()];      
+    }
+
     public function setImageFromBase64($base64)
     {
         if ( SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->getPersonId() == $this->getId() ) {

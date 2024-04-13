@@ -15,9 +15,6 @@ use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\Record2propertyR2pTableMap;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
-
-
-
 class FamilyPropsSearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
@@ -133,7 +130,7 @@ class FamilyPropsSearchRes extends BaseSearchRes
 
                             $elt = [
                                 "id" => $family->getId(),
-                                "img" => '<img src="/api/families/' . $family->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                "img" => $family->getPNGPhotoDatas(),
                                 "searchresult" => _("Family") . ' : <a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                                 "type" => _($this->getGlobalSearchType()),
@@ -150,7 +147,7 @@ class FamilyPropsSearchRes extends BaseSearchRes
                         array_push($this->results, $elt);
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }
         }

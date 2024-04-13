@@ -1056,6 +1056,11 @@ class User extends BaseUser
         $_SESSION['sshowPledges'] = $this->getShowPledges();
         $_SESSION['sshowPayments'] = $this->getShowPayments();
 
+        $_SESSION['photos'] = [
+            'persons' => [],
+            'families' => []
+        ];
+
         // set the jwt token
         // we create the token and secret, only when login in not as ControllerAdminUserId
         if (!isset($_SESSION['ControllerAdminUserId'])) {
