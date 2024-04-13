@@ -10,7 +10,6 @@
 
 namespace EcclesiaCRM\APIControllers;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\VolunteerOpportunityQuery;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;

@@ -14,6 +14,7 @@ class Photo {
   private $photoThumbURI;
   private $photoContentType;
   private $remotesEnabled;
+  private $thumbnailContentType;
   public static $validExtensions = ["png", "jpeg", "jpg"];
 
   public function __construct($photoType,$id) {
@@ -103,7 +104,7 @@ class Photo {
     $image = $this->getGDImage($this->getPhotoURI());
     $this->delete();
     $targetPath = SystemURLs::getImagesRoot() . "/" . $this->photoType . "/" . $this->id.".png";
-    imagepng($image,$targetPath);
+    imagepng($image,$targetPath, 3);
     $this->setURIs($targetPath);
   }
 

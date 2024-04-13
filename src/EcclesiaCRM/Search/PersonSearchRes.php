@@ -329,8 +329,8 @@ class PersonSearchRes extends BaseSearchRes
                             } else {
                                 $elt = [
                                     'id' => $person->getId(),
+                                    "img" => $person->getJPGPhotoDatas(),
                                     'searchresult' => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $person->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3) . '</a>',
-                                    'img' => '<img src="/api/persons/' . $person->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
                                     'address' => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $address,
                                     'type' => _($this->getGlobalSearchType()),
                                     'realType' => $this->getGlobalSearchType(),
@@ -372,7 +372,7 @@ class PersonSearchRes extends BaseSearchRes
                         }
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }
         }

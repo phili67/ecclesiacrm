@@ -348,10 +348,7 @@ require $sRootDocument . '/Include/Header.php';
                                 ?>
                                 <tr>
                                     <td>
-                                        <img
-                                            src="<?= $sRootPath ?>/api/persons/<?= $person->getId() ?>/thumbnail"
-                                            width="40" height="40"
-                                            class="initials-image img-circle"/>
+                                        <?= $person->getJPGPhotoDatas() ?>
                                         <a href="<?= $person->getViewURI() ?>"
                                            class="user-link"><?= $person->getFullName() ?> </a>
                                     </td>

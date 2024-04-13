@@ -59,8 +59,7 @@ $(function() {
                     '            </div>' +
                     '            <div class="card-body">';
 
-                res += '               <img src="' + window.CRM.root + '/api/persons/' + data.teachers[i]['per_ID'] + '/thumbnail"' +
-                    '        alt="User Image" class="user-image initials-image" width="85" height="85" />';
+                res += data.teachers[i].img;
 
                 if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
                     res += '   <p>' + data.teachersProps[i][data.teachers[i]['per_ID']] + '</p>';
@@ -384,8 +383,7 @@ $(function() {
                     return '<table class="outer">'
                         + '<tr class="no-background-theme">'
                         + '  <td style="min-width:55px;border-width: 0px">'
-                        + '    <img src="' + window.CRM.root + '/api/persons/' + data + '/thumbnail"'
-                        + '        alt="User Image" class="user-image initials-image" width="50" height="50" />'
+                        + full.img
                         + '  </td>'
                         + '  <td align="left" style="border-width: 0px">'
                         + '    <a href="' + window.CRM.root + '/v2/people/person/view/' + data + '">' + full.firstName + '</a>'

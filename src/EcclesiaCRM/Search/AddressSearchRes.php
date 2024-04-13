@@ -140,7 +140,7 @@ class AddressSearchRes extends BaseSearchRes
                             } else {
                                 $elt = [
                                     "id" => $address->getId(),
-                                    "img" => '<img src="/api/families/' . $address->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                    "img" => $address->getJPGPhotoDatas(),
                                     "searchresult" => _("Addresse") . ' : <a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $address->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $address->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
                                     "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $address->getAddress(),
                                     "type" => _($this->getGlobalSearchType()),
@@ -157,7 +157,7 @@ class AddressSearchRes extends BaseSearchRes
                         }
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }
         }

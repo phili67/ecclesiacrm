@@ -209,7 +209,7 @@ class PeoplePersonController
             }
 
             $personName = $person->getFirstName() . ' ' . $person->getLastName();
-            $thumbnail = SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/thumbnail';
+            $thumbnail = $person->getJPGPhotoDatas();
 
             $res[] = ['personID'           => $person->getId(),
                 'Address1'           => $sAddress1,
@@ -541,7 +541,10 @@ class PeoplePersonController
                 foreach ($persons as $Person) {
                     $mailchimpList = $mailchimp->getListNameFromEmail($Person->getEmail());
                     if ($mailchimpList == '') {
-                        array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '">' . $family->getSaluation() . '</a>', "email" => $Person->getEmail()]);
+                        array_push($missingEmailInMailChimp, 
+                            ["id" => $Person->getId(), 
+                            "img" => $Person->getJPGPhotoDatas(),
+                            "url" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '">' . $family->getSaluation() . '</a>', "email" => $Person->getEmail()]);
                     }
                 }
             }
@@ -556,7 +559,10 @@ class PeoplePersonController
             foreach ($People as $Person) {
                 $mailchimpList = $mailchimp->getListNameFromEmail($Person->getEmail());
                 if ($mailchimpList == '') {
-                    array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $Person->getId() . '">' . $Person->getFullName() . '</a>', "email" => $Person->getEmail()]);
+                    array_push($missingEmailInMailChimp, 
+                        ["id" => $Person->getId(), 
+                        "img" => $Person->getJPGPhotoDatas(),
+                        "url" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $Person->getId() . '">' . $Person->getFullName() . '</a>', "email" => $Person->getEmail()]);
                 }
             }
         }

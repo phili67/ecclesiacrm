@@ -253,61 +253,10 @@ $sFamilyEmails = [];
 
                 </div>
                 <!--/.direct-chat-messages-->
-
-                <!-- Contacts are loaded here -->
-                <div class="direct-chat-contacts" style="height: 100%;padding: 10px">
-                    <?php if (count($family->getActivatedPeople()) > 1) { ?>
-                        <br>
-                        <h3 class="card-title">
-                            <?= _("Family Members") ?>
-                        </h3>
-                        <table class="table table-hover" width="100%">
-                            <thead>
-                            <tr>
-                                <th><span><?= _("Members") ?></span></th>
-                                <th class="text-center"><span><?= _("Role") ?></span></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            foreach ($family->getActivatedPeople() as $person) {
-                                ?>
-                                <tr>
-                                    <td>
-                                        <img
-                                            src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $person->getId() ?>/thumbnail"
-                                            width="40" height="40"
-                                            class="initials-image img-circle"/>
-                                        <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $person->getId() ?>"
-                                           class="user-link"><?= $person->getFullName() ?> </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <?php
-                                        $famRole = $person->getFamilyRoleName();
-                                        $labelColor = 'label-default';
-                                        if ($famRole == _('Head of Household')) {
-                                        } elseif ($famRole == _('Spouse')) {
-                                            $labelColor = 'label-info';
-                                        } elseif ($famRole == _('Child')) {
-                                            $labelColor = 'label-warning';
-                                        }
-                                        ?>
-                                        <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
-                                    </td>
-                                </tr>
-                                <?php
-                            }
-                            ?>
-                            </tbody>
-                        </table>
-
-                    <?php } ?>
-                </div>
-                <!-- /.direct-chat-pane -->
             </div>
         </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-6">
         <?php
         if ($ormPastoralCares->count() > 0) {
             ?>
@@ -388,6 +337,60 @@ $sFamilyEmails = [];
             <input type="button" class="btn btn-default" value="<?= _('Return To PastoralCare Members List') ?>"
                    name="Cancel"
                    onclick="javascript:document.location='<?= $sRootPath ?>/v2/pastoralcare/membersList';">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <!-- Contacts are loaded here -->
+        <div class="card direct-chat direct-chat-warning  card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title"><?= _("Family Members") ?></h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+            <?php if (count($family->getActivatedPeople()) > 1) { ?>
+                <table class="table table-hover" width="100%">
+                    <thead>
+                    <tr>
+                        <th><span><?= _("Members") ?></span></th>
+                        <th class="text-center"><span><?= _("Role") ?></span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    foreach ($family->getActivatedPeople() as $person) {
+                        ?>
+                        <tr>
+                            <td>
+                                <?= $person->getJPGPhotoDatas() ?>
+                                <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $person->getId() ?>"
+                                    class="user-link"><?= $person->getFullName() ?> </a>
+                            </td>
+                            <td class="text-center">
+                                <?php
+                                $famRole = $person->getFamilyRoleName();
+                                $labelColor = 'label-default';
+                                if ($famRole == _('Head of Household')) {
+                                } elseif ($famRole == _('Spouse')) {
+                                    $labelColor = 'label-info';
+                                } elseif ($famRole == _('Child')) {
+                                    $labelColor = 'label-warning';
+                                }
+                                ?>
+                                <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
+
+            <?php } ?>
         </div>
     </div>
 </div>

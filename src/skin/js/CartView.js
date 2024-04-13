@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 title: i18next.t('Name'),
                 data: 'personID',
                 render: function (data, type, full, meta) {
-                    return '<img src="' + full.thumbnail + '" class="direct-chat-img initials-image">&nbsp'
-                        + '<a href="' + window.CRM.root + '/v2/people/person/view/' + full.personID + '">'
+                    return full.thumbnail
+                        + ' <a href="' + window.CRM.root + '/v2/people/person/view/' + full.personID + '">'
                         + full.fullName
                         + '</a>';
                 }

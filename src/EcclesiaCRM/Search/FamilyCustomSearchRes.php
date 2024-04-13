@@ -4,7 +4,6 @@ namespace EcclesiaCRM\Search;
 
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\Search\BaseSearchRes;
 use EcclesiaCRM\Base\FamilyCustomMasterQuery;
 use EcclesiaCRM\Base\FamilyCustomQuery;
@@ -129,7 +128,7 @@ class FamilyCustomSearchRes extends BaseSearchRes
 
                                 $elt = [
                                     "id" => $fam->getFamily()->getId(),
-                                    "img" =>'<img src="/api/families/'.$fam->getFamily()->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                    "img" => $fam->getFamily()->getJPGPhotoDatas(),
                                     "searchresult" => _("Family").' : <a href="'.SystemURLs::getRootPath().'/v2/people/family/view/'.$fam->getFamily()->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$fam->getFamily()->getName().'</a>'." "._("Members")." : <br>".$globalMembers,
                                     "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$fam->getFamily()->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                                     "type" => _($this->getGlobalSearchType()),
@@ -147,7 +146,7 @@ class FamilyCustomSearchRes extends BaseSearchRes
                         }
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }
         }

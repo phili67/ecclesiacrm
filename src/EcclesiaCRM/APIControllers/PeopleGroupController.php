@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Base\FamilyQuery;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
@@ -397,19 +398,21 @@ class PeopleGroupController
         }
 
         $groupID = $args['groupID'];
-        $members = Person2group2roleP2g2rQuery::create()
+        $membersArray = Person2group2roleP2g2rQuery::create()
             ->joinWithPerson()
             ->usePersonQuery()
             ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->endUse()
-            ->findByGroupId($groupID);
+            ->findByGroupId($groupID)->toArray();
 
 
-        // we loop to find the information in the family to add adresses etc ... this is now unusefull, the address is created automatically
-        foreach ($members as $member)
+        // we loop to find the information in the family to add adresses etc ... this is now unusefull, the address is created automatically                        
+        $res = [];
+        
+        foreach ($membersArray as $member)
         {
-            $p = $member->getPerson();
-            $fam = $p->getFamily();
+            $fam = FamilyQuery::create()->findOneById($member['PersonId']);
+            $per = PersonQuery::create()->findOneById($member['PersonId']);
 
             // Philippe Logel : this is usefull when a person don't have a family : ie not an address
             if (!is_null($fam)
@@ -420,16 +423,18 @@ class PeopleGroupController
                 && !is_null($fam->getZip())
             )
             {
-                $p->setAddress1 ($fam->getAddress1());
-                $p->setAddress2 ($fam->getAddress2());
-
-                $p->setCity($fam->getCity());
-                $p->setState($fam->getState());
-                $p->setZip($fam->getZip());
+                $member['Person']['Address1']= $fam->getAddress1();
+                $member['Person']['Address2']= $fam->getAddress2();
+                $member['Person']['City']= $fam->getCity();
+                $member['Person']['State']= $fam->getState();
+                $member['Person']['Zip']= $fam->getZip();
+                $member['Person']['img']= $per->getJPGPhotoDatas();      
+                
+                $res[] = $member;
             }
         }
 
-        return $response->write($members->toJSON());
+        return $response->withJson(['Person2group2roleP2g2rs' => $res]);
     }
 
     public function groupEvents (ServerRequest $request, Response $response, array $args): Response {

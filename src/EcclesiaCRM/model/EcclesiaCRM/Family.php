@@ -328,6 +328,22 @@ class Family extends BaseFamily implements iPhoto
       return $this->photo;
     }
 
+    // 'initials-image direct-chat-img'
+    public function getJPGPhotoDatas($width = '50', $heigth = '50', $class = 'user-image initials-image'): string
+    {
+      if (isset($_SESSION['photos']['families'][$this->getId()])) {
+        return $_SESSION['photos']['families'][$this->getId()];
+      }
+
+      // usefull for base 64
+      $photo = $this->getPhoto();
+      $datas = base64_encode($photo->getThumbnailBytes());     
+
+      $_SESSION['photos']['families'][$this->getId()] = '<img src="data:image/jpg;base64, ' . $datas . '" class="' . $class . '" width="' . $width . '" height="' . $heigth . '" />';
+
+      return $_SESSION['photos']['families'][$this->getId()];      
+    }
+
     public function deletePhoto()
     {
       if (SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->getPerson()->getFamily()->getId() == $this->getId() ) {

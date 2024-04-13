@@ -133,7 +133,7 @@ class FamilyPropsSearchRes extends BaseSearchRes
 
                             $elt = [
                                 "id" => $family->getId(),
-                                "img" => '<img src="/api/families/' . $family->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                "img" => $family->getJPGPhotoDatas(),
                                 "searchresult" => _("Family") . ' : <a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                                 "type" => _($this->getGlobalSearchType()),
@@ -150,7 +150,7 @@ class FamilyPropsSearchRes extends BaseSearchRes
                         array_push($this->results, $elt);
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }
         }
