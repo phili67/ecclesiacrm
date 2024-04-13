@@ -314,6 +314,7 @@ class PeopleAttendeesController
             $item['isCheckinDate'] = (!is_null($per->getCheckinDate())) ? "checked" : "";
             $item['checkoutDate'] = (!empty($per->getCheckoutDate())) ? OutputUtils::FormatDate($per->getCheckoutDate()->format("Y-m-d H:i:s"), 1) : "";
             $item['isCheckoutDate'] = (!is_null($per->getCheckoutDate())) ? "checked" : "";
+            $item['img'] = $checkedInPerson->getJPGPhotoDatas();
 
             if (is_null($checkedInPerson)) {// we have to avoid pure user and not persons
                 continue;

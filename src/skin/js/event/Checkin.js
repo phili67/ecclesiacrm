@@ -256,7 +256,7 @@ $(function() {
                     title: i18next.t('Photo'),
                     data: 'Id',
                     render: function (data, type, full, meta) {
-                        return '<img src="' + window.CRM.root + '/api/persons/' + data + '/thumbnail" class="direct-chat-img initials-image">';
+                        return full.img;
                     }
                 },
                 {
