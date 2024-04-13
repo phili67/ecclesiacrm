@@ -107,9 +107,12 @@ class VIEWSessionController {
                 unset($_SESSION['ControllerAdminUserSecret']);
                 unset($_SESSION['ControllerAdminUserToken']);
             }
+
+            if (isset($_SESSION['photos'])) {
+                unset($_SESSION['photos']);
+            }
         
             if (!is_null($currentUser)) {
-        
               $currentUser->setShowPledges($_SESSION['sshowPledges']);
               $currentUser->setShowPayments($_SESSION['sshowPayments']);
               $currentUser->setDefaultFY($_SESSION['idefaultFY']);
