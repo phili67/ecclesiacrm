@@ -800,9 +800,7 @@ require $sRootDocument . '/Include/Header.php';
                                         ?>
                                         <tr>
                                             <td>
-                                                <img style="width:40px; height:40px;display:inline-block"
-                                                     src="<?= $sRootPath . '/api/persons/' . $familyMember->getId() . '/thumbnail' ?>"
-                                                     class="initials-image profile-user-img img-responsive img-circle no-border" alt="">
+                                                <?= $familyMember->getJPGPhotoDatas() ?>
                                                 <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $tmpPersonId ?>"
                                                    class="user-link"><?= $familyMember->getFullName() ?> </a>
                                             </td>
