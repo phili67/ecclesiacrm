@@ -37,7 +37,7 @@ $(function() {
                     if (window.CRM.bThumbnailIconPresence) {
                         res += '<img src="/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
                     }
-                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + '</a> ('+ i18next.t("Family Name") +' : <a href="' + window.CRM.root + "/v2/pastoralcare/family/" + full.FamilyId + '">' + full.FamilyName + "</a>)";
+                    return res + '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> <a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + '</a> ('+ i18next.t("Family Name") +' : <a href="' + window.CRM.root + "/v2/pastoralcare/family/" + full.FamilyId + '">' + full.FamilyName + "</a>)";
                 }
             },
             {
