@@ -66,7 +66,7 @@ class PaymentSearchRes extends BaseSearchRes
                             array_push($this->results, $elt);
                         }
                     }
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     LoggerUtils::getAppLogger()->warn($e->getMessage());
                 }
             }

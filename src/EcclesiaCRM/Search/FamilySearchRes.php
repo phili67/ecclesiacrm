@@ -162,7 +162,7 @@ class FamilySearchRes extends BaseSearchRes
                             } elseif ( $isGlobalSearch ) {
                                 $elt = [
                                     "id" => $family->getId(),
-                                    "img" => '<img src="/api/families/' . $family->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                    "img" => $family->getJPGPhotoDatas(),
                                     "searchresult" => _("Family") . ' : <a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
                                     "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                                     "type" => (mb_strtolower($qry) == mb_strtolower(_('single')) || mb_strtolower($qry) == mb_strtolower(_('singles'))) ? _("Singles") : _($this->getGlobalSearchType()),
@@ -180,7 +180,7 @@ class FamilySearchRes extends BaseSearchRes
                         }
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }
         }

@@ -132,7 +132,7 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
 
                             $elt = [
                                 "id" => $per->getPerson()->getId(),
-                                "img" => '<img src="/api/persons/' . $per->getPerson()->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                "img" => $per->getPerson()->getJPGPhotoDatas(),
                                 "searchresult" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getPerson()->getTitle(), $per->getPerson()->getFirstName(), $per->getPerson()->getMiddleName(), $per->getPerson()->getLastName(),
                                         $per->getPerson()->getSuffix(), 3) . '</a> (<a href="'.SystemURLs::getRootPath().'/v2/group/'.$per->getGroupId().'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$per->getgroupName().'</a>)',
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $address,
@@ -150,7 +150,7 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                         array_push($this->results, $elt);
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }
         }

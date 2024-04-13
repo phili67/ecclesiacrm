@@ -2,8 +2,6 @@
 
 namespace EcclesiaCRM\Search;
 
-use EcclesiaCRM\Utils\LoggerUtils;
-
 class SearchRes implements \JsonSerializable {
     protected $name;
     protected $array;

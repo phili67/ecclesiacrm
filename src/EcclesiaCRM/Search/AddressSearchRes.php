@@ -157,7 +157,7 @@ class AddressSearchRes extends BaseSearchRes
                         }
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }
         }
