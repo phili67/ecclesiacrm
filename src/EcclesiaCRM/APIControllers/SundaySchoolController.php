@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Base\PersonQuery;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
@@ -38,6 +39,10 @@ class SundaySchoolController
                 $children['inCart']=0;
             }
 
+            $per = PersonQuery::create()->findOneById($children['kidId']);
+
+            $children['img'] = $per->getJPGPhotoDatas(50,50);
+            
             $result[] = $children;
         }
 
