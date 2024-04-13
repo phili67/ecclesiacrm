@@ -2,6 +2,7 @@
 
 namespace EcclesiaCRM\Service;
 
+use EcclesiaCRM\Base\PersonQuery;
 use Propel\Runtime\Propel;
 
 class SundaySchoolService
@@ -77,6 +78,10 @@ class SundaySchoolService
 
         $members = [];
         while ($row = $statement->fetch(\PDO::FETCH_BOTH)) {
+            $per = PersonQuery::create()->findOneById($row['per_ID']);
+            $img = $per->getJPGPhotoDatas();
+            $row['img'] = $img;
+            
             array_push($members, $row);
         }
 
