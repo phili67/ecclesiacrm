@@ -29,7 +29,7 @@ $(function() {
         title:i18next.t('Person'),
         data:'id',
         render: function(data, type, full, meta) {
-          return '<img src="' + window.CRM.root + '/api/persons/'+ data +'/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35" />';
+          return full.img;
         }
       },
       {
