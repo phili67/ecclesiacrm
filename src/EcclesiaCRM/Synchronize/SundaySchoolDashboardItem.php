@@ -148,6 +148,6 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
 
     public static function shouldInclude($PageName)
     {
-        return $PageName == "/v2/sundayschool/dashboard" or $PageName == "/menu";
+        return $PageName == "/v2/sundayschool/dashboard";
     }
 }
