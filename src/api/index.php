@@ -55,6 +55,7 @@ $app->add(new Tuupola\Middleware\JwtAuthentication([
         SystemURLs::getRootPath()."/api/systemupgrade/isUpdateRequired", 
         SystemURLs::getRootPath()."/api/filemanager/getFile/", SystemURLs::getRootPath()."/api/synchronize/page",
         SystemURLs::getRootPath(). "/api/database",
+        SystemURLs::getRootPath(). "/api/plugins",
         SystemURLs::getRootPath(). "/api/groups/addressbook/extract/"],
     "algorithm" => "HS256",
     "error" => function ($response, $arguments) {
