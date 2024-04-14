@@ -12,7 +12,7 @@ class UpdateFamilyCoordinatesTask
 
     public function __construct()
     {
-        $query = FamilyQuery::create()->filterByLatitude("")->find();
+        $query = FamilyQuery::create()->filterByLatitude("")->filterByDateDeactivated(null)->find();
         $this->count = $query->count();
     }
 
