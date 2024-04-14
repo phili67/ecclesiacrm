@@ -565,6 +565,15 @@ class Person extends BasePerson implements iPhoto
         );
     }
 
+    private function changeJPGPhotoDatas($width = '50', $heigth = '50', $class = 'user-image initials-image') : void
+    {
+      // usefull for base 64
+      $photo = $this->getPhoto();
+      $datas = base64_encode($photo->getThumbnailBytes());     
+
+      $_SESSION['photos']['persons'][$this->getId()] = '<img src="data:image/jpg;base64, ' . $datas . '" class="' . $class . '" width="' . $width . '" height="' . $heigth . '" />';
+    }
+
     // 'initials-image direct-chat-img'
     public function getJPGPhotoDatas($width = '50', $heigth = '50', $class = 'user-image initials-image'): string
     {
@@ -572,11 +581,7 @@ class Person extends BasePerson implements iPhoto
         return $_SESSION['photos']['persons'][$this->getId()];
       }
 
-      // usefull for base 64
-      $photo = $this->getPhoto();
-      $datas = base64_encode($photo->getThumbnailBytes());     
-
-      $_SESSION['photos']['persons'][$this->getId()] = '<img src="data:image/jpg;base64, ' . $datas . '" class="' . $class . '" width="' . $width . '" height="' . $heigth . '" />';
+      $this->changeJPGPhotoDatas($width, $heigth, $class);
 
       return $_SESSION['photos']['persons'][$this->getId()];      
     }
@@ -585,12 +590,16 @@ class Person extends BasePerson implements iPhoto
     {
         if (SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->getPersonId() == $this->getId() ) {
             if ($this->getPhoto()->delete()) {
+                $this->photo = null;
                 $note = new Note();
                 $note->setText(gettext("Profile Image Deleted"));
                 $note->setType("photo");
                 $note->setEntered(SessionUser::getUser()->getPersonId());
                 $note->setPerId($this->getId());
                 $note->save();
+
+                $this->changeJPGPhotoDatas('50', '50', 'user-image initials-image');
+                
                 return true;
             }
         }
@@ -616,10 +625,12 @@ class Person extends BasePerson implements iPhoto
             $this->getPhoto()->setImageFromBase64($base64);
             $note->setPerId($this->getId());
             $note->save();
+
+            $this->changeJPGPhotoDatas('50', '50', 'user-image initials-image');
+            
             return true;
         }
         return false;
-
     }
 
     /**

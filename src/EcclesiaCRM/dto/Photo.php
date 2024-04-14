@@ -110,6 +110,10 @@ class Photo {
 
   private function getGDImage($sourceImagePath) {
     $sourceImageType = exif_imagetype($sourceImagePath);
+    if ($sourceImageType == false) {
+      $sourceImagePath = str_replace("-initials","", $sourceImagePath);
+      $sourceImageType = exif_imagetype($sourceImagePath);
+    }
     switch ($sourceImageType)
     {
         case IMAGETYPE_GIF:
@@ -271,6 +275,7 @@ class Photo {
         file_put_contents( $fileName , $fileData);
       }
 
+      $this->createThumbnail();
   }
 
   public function delete() {
