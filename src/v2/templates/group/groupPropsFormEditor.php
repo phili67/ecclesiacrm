@@ -401,29 +401,22 @@ if ($numRows == 0) {
       </td>
     </tr>
   <?php
-    } ?>
-
-    <tr>
-      <td colspan="7">
-      <table width="100%">
-        <tr>
-          <td width="10%"></td>
-          <td width="40%" align="center" valign="bottom">
-            <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-default"><i class="fa-solid fa-backward"></i> <?= _("Return to Group") ?></a>
-          </td>
-          <td width="40%" align="center" valign="bottom">
-            <input type="submit" class="btn btn-primary" value="&check; <?= _('Save Changes') ?>" Name="SaveChanges">
-          </td>
-          <td width="10%"></td>
-        </tr>
-      </table>
-      </td>
-      <td>
-    </tr>
+    } ?>    
 <?php
     }
 ?>
    </table>
+</div>
+<div class="card-footer">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-default"><i class="fa-solid fa-backward"></i> <?= _("Return to Group") ?></a>
+    </div>
+    <div class="col-md-2">
+      <input type="submit" class="btn btn-primary" value="&check; <?= _('Save Changes') ?>" Name="SaveChanges">
+    </div>
+  </div>
 </div>
 </center>
 </div>

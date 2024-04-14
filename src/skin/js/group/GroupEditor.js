@@ -1,5 +1,5 @@
 $(function() {
-    $(".groupSpecificProperties").on('click',(function (e) {
+    $(".groupSpecificProperties").on('click',function (e) {
         var groupPropertyAction = e.currentTarget.id;
         if (groupPropertyAction == "enableGroupProps") {
             $("#groupSpecificPropertiesModal").modal("show");

@@ -134,7 +134,11 @@ if (isset($_POST['SaveChanges'])) {
                   $sSQL = "UPDATE groupprop_".$iGroupID."
                     SET `".$aPropFields[$iPropID]."` = null
                     WHERE `per_ID` = '".$iPersonID."';";
-               }              
+               } else {
+                $sSQL = "UPDATE groupprop_".$iGroupID."
+                  SET `".$aPropFields[$iPropID]."` = '".$aDescFields[$iPropID]."'
+                  WHERE `per_ID` = '".$iPersonID."';";
+               }           
             } else {
               if ($aTypeFields[$iPropID] == 2) {
                  $aDescFields[$iPropID] = InputUtils::FilterDate($aDescFields[$iPropID]);
@@ -268,31 +272,24 @@ if ($numRows == 0) {
 
     </tr>
   <?php
-    } ?>
-
-    <tr>
-      <td colspan="7">
-      <table width="100%">
-        <tr>
-          <td width="10%"></td>
-          <td width="40%" align="center" valign="bottom">
-            <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>/Group" class="btn btn-default"><?= _("Return to Person") ?></a>
-          </td>
-          <td width="40%" align="center" valign="bottom">
-            <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
-          </td>
-          <td width="10%"></td>
-        </tr>
-      </table>
-      </td>
-      <td>
-    </tr>
+    } ?>    
 <?php
     }
 ?>
    </table>
 </div>
 </center>
+<div class="card-footer">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>/Group" class="btn btn-default"><i class="fa-solid fa-backward"></i> <?= _("Return to Person") ?></a>
+    </div>
+    <div class="col-md-2">
+      <input type="submit" class="btn btn-primary" value="✓ <?= _('Save Changes') ?>" Name="SaveChanges">
+    </div>
+  </div>
+</div>
 </div>
 </form>
 
