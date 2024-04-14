@@ -94,7 +94,7 @@ class FamilyDashboardItem implements DashboardItemInterface {
   }
 
   public static function shouldInclude($PageName) {
-    return $PageName == "/v2/dashboard" || $PageName == "/menu"|| $PageName == "/v2/people/dashboard"; // this ID would be found on all pages.
+    return $PageName == "/v2/dashboard" or $PageName == "/v2/people/dashboard"; // this ID would be found on all pages.
   }
 
 }
