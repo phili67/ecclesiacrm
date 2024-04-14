@@ -428,10 +428,12 @@ class PeopleGroupController
                 $member['Person']['City']= $fam->getCity();
                 $member['Person']['State']= $fam->getState();
                 $member['Person']['Zip']= $fam->getZip();
-                $member['Person']['img']= $per->getJPGPhotoDatas();      
                 
-                $res[] = $member;
             }
+
+            $member['Person']['img']= $per->getJPGPhotoDatas();
+
+            $res[] = $member;
         }
 
         return $response->withJson(['Person2group2roleP2g2rs' => $res]);
