@@ -888,44 +888,32 @@ require $sRootDocument . '/Include/Header.php';
                                         foreach ($ormAssignedGroups as $ormAssignedGroup) {
                                             if ( !SessionUser::getUser()->isManageGroups() && !in_array($ormAssignedGroup->getGroupID(),$ids) ) continue;
 
-                                            if ($i % 4 == 0 || $i == 1) {
+                                            if ($i % 3 == 0 || $i == 1) {
                                                 $i=1;
                                                 ?>
                                                 <div class="row">
                                                 <?php
                                             }
                                             ?>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <!-- Info box -->
-                                                <div class="card card-info">
-                                                    <div class="card-header  border-1">
-                                                        <h3 class="card-title" style="font-size:small"><a
-                                                                href="<?= $sRootPath ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"><?= $ormAssignedGroup->getGroupName() ?></a>
+                                                <div class="card">
+                                                    <div class="card-header bg-gradient-secondary">
+                                                        <h3 class="card-title" style="font-size:tiny">
+                                                        <a class="btn btn-default btn-sm" href="<?= $sRootPath ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"><?= $ormAssignedGroup->getGroupName() ?></a> (<?= _($ormAssignedGroup->getRoleName()) ?>)
                                                         </h3>
 
                                                         <div class="pull-right">
-                                                            <div
-                                                                class="label bg-aqua">
-                                                                (<?= _($ormAssignedGroup->getRoleName()) ?>)
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body" style="width:275px">
-                                                        <?php
-                                                        if ( SessionUser::getUser()->isManageGroupsEnabled() or SessionUser::getUser()->isGroupManagerEnabled() ) {
-                                                            ?>
-                                                            <div class="text-center">
-
+                                                            <div class="label bg-aqua">
                                                                 <code>
                                                                     <a href="<?= $sRootPath ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"
-                                                                       class="btn btn-default" role="button"><i
-                                                                            class="fas fa-list"></i>
+                                                                       class="btn btn-success btn-xs" role="button"><i class="fas fa-list"></i>
                                                                     </a>
                                                                     <div class="btn-group">
                                                                         <button type="button"
-                                                                                class="btn btn-default"><?= _('Action') ?></button>
+                                                                                class="btn btn-default btn-xs"><?= _('Action') ?></button>
                                                                         <button type="button"
-                                                                                class="btn btn-default dropdown-toggle"
+                                                                                class="btn btn-default dropdown-toggle btn-xs"
                                                                                 data-toggle="dropdown">
                                                                             <span class="caret"></span>
                                                                             <span class="sr-only">Toggle Dropdown</span>
@@ -952,19 +940,23 @@ require $sRootDocument . '/Include/Header.php';
                                                                             data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"
                                                                             data-groupname="<?= $ormAssignedGroup->getGroupName() ?>"
                                                                             type="button"
-                                                                            class="btn btn-danger groupRemove"
+                                                                            class="btn btn-danger groupRemove btn-xs"
                                                                             data-toggle="dropdown"><i
                                                                                 class="far fa-trash-alt"></i>
                                                                         </button>
                                                                     </div>
                                                                 </code>
                                                             </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <?php
+                                                        if ( SessionUser::getUser()->isManageGroupsEnabled() or SessionUser::getUser()->isGroupManagerEnabled() ) {
+                                                            ?>
+                                                            <div class="text-center"></div>
                                                             <?php
                                                         }
-                                                        ?>
-
-
-                                                        <?php
                                                         // If this group has associated special properties, display those with values and prop_PersonDisplay flag set.
                                                         if ($ormAssignedGroup->getHasSpecialProps()) {
                                                             // Get the special properties for this group only for the group
@@ -972,70 +964,83 @@ require $sRootDocument . '/Include/Header.php';
                                                             ?>
 
                                                             <small>
-                                                                <?php
-                                                                if ($ormPropLists->count() > 0) {
-                                                                    ?>
-
-                                                                    <h4><?= _("Group Informations") ?></h4>
-                                                                    <ul>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <h5><?= _("Group Informations") ?></h5>
                                                                         <?php
-                                                                        foreach ($ormPropLists as $ormPropList) {
-                                                                            $prop_Special = $ormPropList->getSpecial();
-                                                                            if ($ormPropList->getTypeId() == 11) {
-                                                                                $prop_Special = $sPhoneCountry;
-                                                                            }
+                                                                            if ($ormPropLists->count() > 0) {
                                                                             ?>
-                                                                            <li>
-                                                                                <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $prop_Special) ?>
-                                                                            </li>
+                                                                        <ul>
                                                                             <?php
-                                                                        }
-                                                                        ?>
-                                                                    </ul>
-                                                                    <?php
-                                                                }
-
-                                                                // now we add only the personnal group prop
-                                                                $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
-
-                                                                $sSQL = 'SELECT * FROM groupprop_' . $ormAssignedGroup->getGroupId() . ' WHERE per_ID = ' . $PersonInfos['iPersonID'];
-
-                                                                $statement = $connection->prepare($sSQL);
-                                                                $statement->execute();
-                                                                $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
-
-                                                                if ($ormPropLists->count() > 0) {
-                                                                    ?>
-                                                                    <div class="text-center">
-                                                                        <h5><?= _("Person Informations") ?></h5>
-                                                                    </div>
-                                                                    <ul>
-                                                                        <?php
-                                                                        foreach ($ormPropLists as $ormPropList) {
-                                                                            $currentData = trim($aPersonProps[$ormPropList->getField()]);
-                                                                            if (strlen($currentData) > 0) {
+                                                                            foreach ($ormPropLists as $ormPropList) {
                                                                                 $prop_Special = $ormPropList->getSpecial();
                                                                                 if ($ormPropList->getTypeId() == 11) {
                                                                                     $prop_Special = $sPhoneCountry;
                                                                                 }
                                                                                 ?>
                                                                                 <li>
-                                                                                    <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special) ?>
+                                                                                    <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $prop_Special) ?>
                                                                                 </li>
                                                                                 <?php
                                                                             }
-                                                                        }
-
+                                                                            ?>
+                                                                        </ul>
+                                                                        <?php
+                                                                            } else {
                                                                         ?>
-                                                                    </ul>
-                                                                    <div class="text-center">
-                                                                        <a href="<?= $sRootPath ?>/v2/group/props/editor/<?= $ormAssignedGroup->getGroupId() ?>/<?= $PersonInfos['iPersonID'] ?>"
-                                                                           class="btn btn-primary"><?= _("Modify Specific Properties") ?></a>
+                                                                            <?= _("None") ?>
+                                                                        <?php
+                                                                            }
+                                                                        ?>
                                                                     </div>
-                                                                    <?php
-                                                                }
-                                                                ?>
+                                                                    <div class="col-md-6">
+                                                                        <?php
+
+                                                                    // now we add only the personnal group prop
+                                                                    $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
+
+                                                                    $sSQL = 'SELECT * FROM groupprop_' . $ormAssignedGroup->getGroupId() . ' WHERE per_ID = ' . $PersonInfos['iPersonID'];
+
+                                                                    $statement = $connection->prepare($sSQL);
+                                                                    $statement->execute();
+                                                                    $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
+
+                                                                    if ($ormPropLists->count() > 0) {
+                                                                        ?>
+                                                                        <h5><?= _("Person Informations") ?></h5>
+                                                                        <ul>
+                                                                            <?php
+                                                                            foreach ($ormPropLists as $ormPropList) {
+                                                                                $currentData = trim($aPersonProps[$ormPropList->getField()]);
+                                                                                if (strlen($currentData) > 0) {
+                                                                                    $prop_Special = $ormPropList->getSpecial();
+                                                                                    if ($ormPropList->getTypeId() == 11) {
+                                                                                        $prop_Special = $sPhoneCountry;
+                                                                                    }
+                                                                                    ?>
+                                                                                    <li>
+                                                                                        <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special) ?>
+                                                                                    </li>
+                                                                                    <?php
+                                                                                }
+                                                                            }
+
+                                                                            ?>
+                                                                        </ul>
+                                                                        <div class="text-center">
+                                                                            <a href="<?= $sRootPath ?>/v2/group/props/editor/<?= $ormAssignedGroup->getGroupId() ?>/<?= $PersonInfos['iPersonID'] ?>"
+                                                                            class="btn btn-primary"><?= _("Modify Specific Properties") ?></a>
+                                                                        </div>
+                                                                        <?php
+                                                                    }
+                                                                    ?>
+                                                                    </div>
+                                                                </div>
                                                             </small>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                                <?= _("No specific group properties defined !") ?>
                                                             <?php
                                                         }
                                                         ?>
@@ -1087,7 +1092,7 @@ require $sRootDocument . '/Include/Header.php';
                                 </div>
 
                                 <?php if (SessionUser::getUser()->isEditRecordsEnabled() && $bOkToEdit && $ormProperties->count() != 0): ?>
-                                    <div class="alert alert-info">
+                                    <div class="alert alert-secondary">
                                         <div>
                                             <h4><strong><?= _('Assign a New Property') ?>:</strong></h4>
                                             <div class="row">
@@ -1156,7 +1161,7 @@ require $sRootDocument . '/Include/Header.php';
                                 <?php
                                 if (SessionUser::getUser()->isEditRecordsEnabled() && $ormVolunteerOpps->count()) {
                                     ?>
-                                    <div class="alert alert-info">
+                                    <div class="alert alert-secondary">
                                         <div>
                                             <h4><strong><?= _('Assign a New Volunteer Opportunity') ?>:</strong>
                                             </h4>
