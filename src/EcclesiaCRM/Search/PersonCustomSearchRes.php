@@ -128,7 +128,7 @@ class PersonCustomSearchRes extends BaseSearchRes
 
                                 $elt = [
                                     "id" => $per->getPerson()->getId(),
-                                    "img" => $per->getJPGPhotoDatas(),
+                                    "img" => $per->getPerson()->getJPGPhotoDatas(),
                                     "searchresult" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getPerson()->getTitle(), $per->getPerson()->getFirstName(), $per->getPerson()->getMiddleName(), $per->getPerson()->getLastName(), $per->getPerson()->getSuffix(), 3) . '</a>',
                                     "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $address,
                                     "type" => " " . _($this->getGlobalSearchType()),

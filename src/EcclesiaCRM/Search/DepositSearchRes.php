@@ -33,7 +33,7 @@ class DepositSearchRes extends BaseSearchRes
             {
                 try {
                     $date = InputUtils::FilterDate($qry);
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     $date = null;
                 }
 
