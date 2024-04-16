@@ -9,6 +9,7 @@
  *
  ******************************************************************************/
 
+use EcclesiaCRM\Base\PersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 
@@ -35,21 +36,16 @@ require $sRootDocument . '/Include/Header.php';
             <tbody>
             <?php
             foreach ($members as $member) {
+                $person = PersonQuery::create()->findOneById($member['FollowedPersonPerId']);
                 ?>
                 <tr>
                     <td>
                         <?php if ($member['FollowedPersonPerId'] != NULL) { ?>
-                            <img
-                                src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $member['FollowedPersonPerId'] ?>/thumbnail"
-                                width="40" height="40"
-                                class="initials-image img-circle"/>
+                            <?= $person->getJPGPhotoDatas() ?>
                             <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $member['FollowedPersonPerId'] ?>"
                                class="user-link"><?= _("Person") ?> : <?= $member['FollowedPersonFirstName']." ".$member['FollowedPersonLastName'] ?> </a>
                         <?php } else { ?>
-                            <img
-                                src="<?= SystemURLs::getRootPath() ?>/api/families/<?= $member['FollowedFamID'] ?>/thumbnail"
-                                width="40" height="40"
-                                class="initials-image img-circle"/>
+                            <?= $person->getJPGPhotoDatas() ?>
                             <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $member['FollowedFamID'] ?>"
                                class="user-link"><?= _("Family") ?> : <?= $member['FollowedFamName'] ?> </a>
                         <?php } ?>
