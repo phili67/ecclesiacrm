@@ -58,15 +58,16 @@ class PledgeSearchRes extends BaseSearchRes
                         $id=1;
 
                         foreach ($Pledges as $Pledge) {
+                            $uri = SystemURLs::getRootPath() . "/v2/deposit/pledge/editor/GroupKey/".$Pledge->getGroupkey()."/v2-deposit-slipeditor-" . $Pledge->getDepositId();
                             if ( $this->isQuickSearch() ) {
                                 $elt = ['id' => 'pledges-' . $id++,
                                     'text' => $Pledge->getFamily()->getName() . " (" . _("Deposit") . " #" . $Pledge->getDepositId() . ")",
-                                    'uri' => SystemURLs::getRootPath() . "/v2/deposit/pledge/editor/GroupKey/".$Pledge->getGroupkey()."/v2-deposit-slipeditor-" . $Pledge->getDepositId()];
+                                    'uri' => $uri];
                             } else {
                                 if (!is_null($Pledge->getDepositId())) {
                                     $res = "";
                                     if (SessionUser::getUser()->isShowCartEnabled()) {
-                                        $res = '<a href="' . $elt['uri'] . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                        $res = '<a href="' . $uri . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                                     }
 
                                     $res .= '<span class="fa-stack">'
