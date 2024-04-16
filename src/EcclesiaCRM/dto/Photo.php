@@ -132,13 +132,15 @@ class Photo {
   private function createThumbnail() {
     $thumbWidth = SystemConfig::getValue("iThumbnailWidth");
     $img =  $this->getGDImage($this->photoURI); //just in case we have legacy JPG/GIF that don't have a thumbnail.
-    $width = imagesx( $img );
-    $height = imagesy( $img );
-    $new_width = $thumbWidth;
-    $new_height = floor( $height * ( $thumbWidth / $width ) );
-    $tmp_img = imagecreatetruecolor( $new_width, $new_height );
-    imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
-    imagejpeg($tmp_img, $this->photoThumbURI, 50);
+    if (is_resource($img) || $img instanceof \GdImage) {
+      $width = imagesx( $img );
+      $height = imagesy( $img );
+      $new_width = $thumbWidth;
+      $new_height = floor( $height * ( $thumbWidth / $width ) );
+      $tmp_img = imagecreatetruecolor( $new_width, $new_height );
+      imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+      imagejpeg($tmp_img, $this->photoThumbURI, 50);
+    }
   }
 
   public function getThumbnailBytes() {
