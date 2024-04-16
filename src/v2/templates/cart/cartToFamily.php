@@ -232,8 +232,7 @@ echo $sError;
             <tr>
                 <td class="text-center"><?= $count++ ?></td>
                 <td>
-                    <img src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $ormCartItem->getId() ?>/thumbnail"
-                         class="direct-chat-img"> &nbsp <a
+                    <?= $ormCartItem->getJPGPhotoDatas() ?> &nbsp <a
                         href="<?= $sRootPath ?>/v2/people/person/view/<?= $ormCartItem->getId() ?>"><?= OutputUtils::FormatFullName($ormCartItem->getTitle(), $ormCartItem->getFirstName(), $ormCartItem->getMiddleName(), $ormCartItem->getLastName(), $ormCartItem->getSuffix(), 1) ?></a>
                 </td>
                 <td class="text-center">

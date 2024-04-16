@@ -59,7 +59,7 @@ $(function() {
                     '            </div>' +
                     '            <div class="card-body">';
 
-                res += data.teachers[i].img;
+                res += data.teachers[i].img.replace('"50"', '"100"');
 
                 if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
                     res += '   <p>' + data.teachersProps[i][data.teachers[i]['per_ID']] + '</p>';

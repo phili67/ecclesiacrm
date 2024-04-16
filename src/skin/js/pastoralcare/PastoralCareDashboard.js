@@ -14,11 +14,13 @@ $(function() {
             title:i18next.t("Name"),
             data:'LastName',
             render: function(data, type, full, meta) {
-                res = '';
+                let res = '';
                 if (window.CRM.bThumbnailIconPresence) {
                     res += '<img src="' + window.CRM.root + '/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                } else {
+                    res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
                 }
-                return res + '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> <a href="' + window.CRM.root + "/v2/people/person/view/" + full.PersonID + '">'+ data + '</a>';
+                return res + '<a href="' + window.CRM.root + "/v2/people/person/view/" + full.PersonID + '">'+ data + '</a>';
             }
         },
         {
@@ -90,11 +92,13 @@ $(function() {
                 title:i18next.t("Name"),
                 data:'LastName',
                 render: function(data, type, full, meta) {
-                    res = '';
+                    let res = '';
                     if (window.CRM.bThumbnailIconPresence) {
                         res += '<img src="' + window.CRM.root + ' /api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    } else {
+                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
                     }
-                    return res + '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> <a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
                 }
             },
             {
@@ -147,11 +151,13 @@ $(function() {
                 title:i18next.t("Name"),
                 data:'Name',
                 render: function(data, type, full, meta) {
-                    res = '';
+                    let res = '';
                     if (window.CRM.bThumbnailIconPresence) {
                         res += '<img src="' + window.CRM.root + '/api/families/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    } else {
+                        res += '<img src="' + window.CRM.root + '/Images/Family.png" class="initials-image direct-chat-img " width="50" height="50"> ';
                     }
-                    return res + '<img src="' + window.CRM.root + '/Images/Family.png" class="initials-image direct-chat-img " width="50" height="50"> <a href="' + window.CRM.root + "/v2/pastoralcare/family/" + full.Id + '">'+ data + "</a>";
+                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/family/" + full.Id + '">'+ data + "</a>";
                 }
             },
             {
@@ -196,11 +202,13 @@ $(function() {
                 title:i18next.t("Name"),
                 data:'Name',
                 render: function(data, type, full, meta) {
-                    res = '';
+                    let res = '';
                     if (window.CRM.bThumbnailIconPresence) {
                         res += '<img src="' + window.CRM.root + '/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    } else {
+                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
                     }
-                    return res + '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> <a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.PersonID + '">'+ data + "</a>";
+                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.PersonID + '">'+ data + "</a>";
                 }
             },
             {
@@ -253,11 +261,13 @@ $(function() {
                 title:i18next.t("Name"),
                 data:'LastName',
                 render: function(data, type, full, meta) {
-                    res = '';
+                    let res = '';
                     if (window.CRM.bThumbnailIconPresence) {
                         res += '<img src="' + window.CRM.root + '/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    } else {
+                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
                     }
-                    return res + '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> <a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
                 }
             },
             {
@@ -313,8 +323,10 @@ $(function() {
                     res = '';
                     if (window.CRM.bThumbnailIconPresence) {
                         res += '<img src="' + window.CRM.root + '/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    } else {
+                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
                     }
-                    return res + '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> <a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
                 }
             },
             {
