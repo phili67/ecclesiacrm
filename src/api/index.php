@@ -10,10 +10,8 @@ use Slim\Factory\AppFactory;
 use Slim\Middleware\ContentLengthMiddleware;
 use DI\Container;
 
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
+use Tuupola\Middleware\JwtAuthentication;
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\PluginQuery;
@@ -48,7 +46,7 @@ $app->setBasePath($rootPath . "/api");
 
 $app->add( new VersionMiddleware() );
 
-$app->add(new Tuupola\Middleware\JwtAuthentication([
+$app->add(new JwtAuthentication([
     "secret" => SessionUser::getUser()->getJwtSecretForApi(),
     //"cookie" => SessionUser::getUser()->getUserNameForApi(),
     "ignore" => [SystemURLs::getRootPath()."/api/families", SystemURLs::getRootPath(). "/api/persons/", SystemURLs::getRootPath()."/api/system/csp-report", 
@@ -138,7 +136,7 @@ require_once __DIR__.'/routes/plugins/plugins.php';
 // fundraiser route
 require_once __DIR__.'/routes/fundraiser/fundraiser.php';
 
-// we load the plugin
+// we load the plugins
 if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
     // only dashboard plugins are loaded on the maindashboard page
     $plugins = PluginQuery::create()
