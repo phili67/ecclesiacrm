@@ -328,23 +328,6 @@ class VIEWPeopleController {
         // we get the MailChimp Service
         $mailchimp = new MailChimpService();
 
-        // person informations
-        $userName = '';
-        $userDir = '';
-        $Currentpath = '';
-        $currentNoteDir = '';
-        $directories = [];
-
-        if (!is_null($user)) {
-            $realNoteDir = $userDir = $user->getUserRootDir();
-            $userName = $user->getUserName();
-            $currentpath = $user->getCurrentpath();
-
-            $currentNoteDir = SystemURLs::getRootPath() . "/" . $realNoteDir . "/" . $userName;
-
-            $directories = MiscUtils::getDirectoriesInPath($currentNoteDir . $currentpath);
-        }
-
         $bDocuments = false;
 
         if ( $mode == 'Documents' ) {
@@ -524,18 +507,10 @@ class VIEWPeopleController {
 
         //Get an unformatted mailing address to pass as a parameter to a google maps search
         MiscUtils::SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, false);
-        $sCity = MiscUtils::SelectWhichInfo($person->getCity(), $famCity, false);
-        $sState = MiscUtils::SelectWhichInfo($person->getState(), $famSate, false);
-        $sZip = MiscUtils::SelectWhichInfo($person->getZip(), $famZip, false);
-        $sCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $famCountry, false);
         $plaintextMailingAddress = $person->getAddress();
 
         //Get a formatted mailing address to use as display to the user.
         MiscUtils::SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, true);
-        $sCity = MiscUtils::SelectWhichInfo($person->getCity(), $famCity, true);
-        $sState = MiscUtils::SelectWhichInfo($person->getState(), $famSate, true);
-        $sZip = MiscUtils::SelectWhichInfo($person->getZip(), $famZip, true);
-        $sCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $famCountry, true);
         $formattedMailingAddress = $person->getAddress();
 
         $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $famCountry, false);
@@ -554,14 +529,6 @@ class VIEWPeopleController {
         $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $famEmail, true);
         $sUnformattedEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $famEmail, false);
 
-        if ($person->getEnvelope() > 0) {
-            $sEnvelope = $person->getEnvelope();
-        } else {
-            $sEnvelope = _('Not assigned');
-        }
-
-        $iTableSpacerWidth = 10;
-
         $isMailChimpActive = $mailchimp->isActive();
 
         $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
@@ -571,7 +538,7 @@ class VIEWPeopleController {
 
         // by default in the next previous person : dectivated are not showned
         // find the next personID
-        $previous_id = $last_id = 0;
+        $previous_id = 0;
         $next_id = 0;        
 
         $connection = Propel::getConnection();
@@ -678,7 +645,6 @@ class VIEWPeopleController {
                 }
             }
         }
-
 
         // Set the page title
         $sPageTitle = _('Person Profile');
