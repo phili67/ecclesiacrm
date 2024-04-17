@@ -1052,7 +1052,7 @@ require $sRootDocument . '/Include/Header.php';
                                             // NOTE: this method is crude.  Need to replace this with use of an array.
                                             $sAssignedGroups .= $ormAssignedGroup->getGroupID() . ',';
                                             $i++;
-                                            if ($i % 4 == 0) {
+                                            if ($i % 3 == 0) {
                                                 $i=1;
                                                 ?>
                                                 </div>
