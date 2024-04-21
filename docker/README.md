@@ -10,21 +10,16 @@ Basic LAMP stack environment built using Docker Compose. It consists of the foll
 
 As of now, we have several different PHP versions. Use appropriate php version as needed:
 
-- 5.4.x
-- 5.6.x
-- 7.1.x
-- 7.2.x
-- 7.3.x
-- 7.4.x
 - 8.0.x
 - 8.1.x
 - 8.2.x
+- 8.3.x
 
 ## Installation
 
 - Clone this repository on your local computer
 - configure .env as needed
-- It's better to activate directly the https protocol (see the https part).
+- **IMPORTANT : You've to activate the https protocol (<u>see the https part</u>)**.
 - follow the lines here :
 
 ```shell
