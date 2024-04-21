@@ -5,13 +5,15 @@
 #rm src/locale/datatables/*.lang1*
 cd locale
 
-for d in ../src/locale/datatables/* ; do
-   res="$d"
+if [ -d ../src/locale/datatables ]; then
+    for d in ../src/locale/datatables/* ; do
+       res="$d"
 
-   echo $res
+       echo $res
 
-   strip-json-comments $res > "${res}1"  
-   
-   rm $res
-   mv "${res}1" $res
-done
+       strip-json-comments $res > "${res}1"
+
+       rm $res
+       mv "${res}1" $res
+    done
+fi
