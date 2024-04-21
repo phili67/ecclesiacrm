@@ -20,7 +20,7 @@
     },
     "homepage": "https://www.ecclesiacrm.com",
     "devDependencies": {
-        "grunt": "^1.5.3",
+        "grunt": "^1.6.1",
         "grunt-confirm": "^1.0.7",
         "grunt-contrib-clean": "^2.0.1",
         "grunt-contrib-compress": "^1.6.0",
@@ -28,6 +28,7 @@
         "grunt-curl": "^2.5.1",
         "grunt-exec": "^3.0.0",
         "grunt-lineending": "^1.0.0",
+        "husky": "^9.0.11",
         "node-sha1": "^1.0.1"
     },
     "dependencies": {
@@ -80,14 +81,15 @@
         "jszip": "^3.10.1",
         "leaflet": "^1.9.2",
         "morris.js.so": "^0.5.1",
-        "node-sass": "8.*",
+        "node-sass": "^8.0.0",
         "pace-js": "^1.2.3",
         "package.json": "^2.0.1",
         "popper.js": "^1.16.1",
-        "select2": "^4.0.13"
+        "select2": "^4.0.13",
+        "strip-json-comments": "^5.0.1"
     },
     "scripts": {
-        "install": "grunt clean && grunt updateVersions && grunt curl-dir && grunt copy && grunt sass",
+        "install": "grunt clean && grunt updateVersions && grunt curl-dir && grunt copy && grunt sass && cp node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.no.min.js node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.nb.min.js",
         "postinstall": "grunt genLocaleJSFiles",
         "locale-gen": "locale/update-locale.sh",
         "locale-download": "grunt updateFromPOeditor && grunt genLocaleJSFiles",

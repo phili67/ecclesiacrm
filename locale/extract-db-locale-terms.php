@@ -3,17 +3,20 @@
 include "connection.php";
 
 /*
-// Put 
+// Put
 <?php
+  $db_servername = 'localhost';
   $db_username = 'user_name';
   $db_password = 'password';
-  $db_name = 'ecclesiacrm';
+  $db_name = 'name of the db';
 */
+
+//phpdismod -s cli xdebug
 
 $stringsDir = 'db-strings';
 $stringFiles = [];
 
-$db = new PDO('mysql:host=localhost;dbname='.$db_name.';charset=utf8mb4', $db_username, $db_password);
+$db = new PDO('mysql:host='.$db_servername.';dbname='.$db_name.';charset=utf8mb4', $db_username, $db_password);
 $query = 'select DISTINCT ucfg_tooltip as term, "" as translation, "userconfig_ucfg" as cntx from userconfig_ucfg
 union all
 select DISTINCT qry_Name as term, "" as translation, "query_qry" as cntx   from query_qry
@@ -26,7 +29,7 @@ select DISTINCT qrp_Name as term, "" as translation, "queryparameters_qrp" as cn
 union all
 select DISTINCT qrp_Description term, "" as translation, "queryparameters_qrp" as cntx from queryparameters_qrp
 union all
-select DISTINCT qry_Name as term, "" as translation, "query_qry" as cntx from query_qry 
+select DISTINCT qry_Name as term, "" as translation, "query_qry" as cntx from query_qry
 union all
 select DISTINCT qry_Description as term, "" as translation, "query_qry" as cntx from query_qry;';
 foreach ($db->query($query) as $row) {
@@ -60,3 +63,5 @@ foreach ($locales as $key => $value) {
     file_put_contents($stringFile, 'gettext("'.$key."\");\r\n",FILE_APPEND);
 }
 file_put_contents($stringFile, "\r\n?>", FILE_APPEND);
+
+phpenmod -s cli xdebug

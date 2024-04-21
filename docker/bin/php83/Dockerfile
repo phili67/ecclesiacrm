@@ -1,4 +1,4 @@
-FROM php:7.4.2-apache-buster
+FROM php:8.3-apache-bookworm
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
@@ -36,29 +36,42 @@ openssl && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN pecl install xdebug-3.1.4 && \
+RUN pecl install xdebug-3.3.1 && \
     docker-php-ext-enable xdebug && \
     mkdir /var/log/xdebug
 
 # Install redis
-RUN pecl install redis-5.1.1 && \
+RUN pecl install redis-6.0.2 && \
     docker-php-ext-enable redis
 
 # Install imagick
 RUN apt-get update && \
     apt-get -y --no-install-recommends install --fix-missing libmagickwand-dev && \
-    rm -rf /var/lib/apt/lists/* && \
-    pecl install imagick && \
+    rm -rf /var/lib/apt/lists/*
+
+# Imagick Commit to install
+# https://github.com/Imagick/imagick
+ARG IMAGICK_COMMIT="28f27044e435a2b203e32675e942eb8de620ee58"
+
+RUN cd /usr/local/src && \
+    git clone https://github.com/Imagick/imagick && \
+    cd imagick && \
+    git checkout ${IMAGICK_COMMIT} && \
+    phpize && \
+    ./configure && \
+    make && \
+    make install && \
+    cd .. && \
+    rm -rf imagick && \
     docker-php-ext-enable imagick
 
-# Other PHP7 Extensions
+# Other PHP8 Extensions
 
 RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install pdo_sqlite && \
+    docker-php-ext-install bcmath && \
     docker-php-ext-install mysqli && \
     docker-php-ext-install curl && \
-    docker-php-ext-install tokenizer && \
-    docker-php-ext-install json && \
     docker-php-ext-install zip && \
     docker-php-ext-install -j$(nproc) intl && \
     docker-php-ext-install mbstring && \
@@ -87,3 +100,47 @@ RUN a2enmod rewrite headers
 
 # Cleanup
 RUN rm -rf /usr/src/*
+
+
+####################################
+#
+# Run the rest of the installation
+#
+####################################
+RUN sed -i_bak 's/rights=\"none\" pattern=\"PDF\"/rights=\"read | write\" pattern=\"PDF\"/' /etc/ImageMagick-6/policy.xml
+
+#
+# Add extra tools for dev
+#
+
+# add vim
+RUN apt-get update && apt-get install -y vim jq htop && apt install -y gettext
+
+# mise en place de nodejs + npm
+RUN apt-get update && apt-get upgrade --no-install-recommends -qq -y
+RUN apt-get install curl gnupg -y 
+RUN apt-get install jq -y
+
+RUN curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh && chmod 500 nsolid_setup_deb.sh && bash nsolid_setup_deb.sh 18 && rm nsolid_setup_deb.sh && apt-get install -y nodejs
+
+# mise en place des dépendances
+RUN node --version
+RUN npm --version
+RUN npm install -g npm
+RUN npm install -g github:phili67/i18next-extract-gettext
+RUN npm install i18next-conv -g
+RUN npm install --global strip-json-comments-cli
+RUN npm install grunt --save-dev
+RUN npm install -g grunt-cli
+
+#RUN npm install
+
+RUN rm -rf /var/lib/apt/lists/*
+
+
+# Set the locale
+#RUN apt-get clean && apt-get update && apt-get install -y locales
+RUN apt-get install -y locales locales-all
+ENV LC_ALL fr_FR.UTF-8
+ENV LANG fr_FR.UTF-8
+ENV LANGUAGE fr_FR.UTF-8
