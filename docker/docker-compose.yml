@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   webserver:
     build:
@@ -48,10 +46,6 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-  tools:
-    build:
-      context: "./bin/tools"
-    restart: "always"
   phpmyadmin:
     image: phpmyadmin
     container_name: "${COMPOSE_PROJECT_NAME}-phpmyadmin"

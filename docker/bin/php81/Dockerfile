@@ -64,9 +64,8 @@ RUN cd /usr/local/src && \
     make install && \
     cd .. && \
     rm -rf imagick && \
-    docker-php-ext-enable imagick \
-    sed -i_bak 's/rights="none" pattern="PDF"/rights="read | write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml
-
+    docker-php-ext-enable imagick
+    
 # Other PHP8 Extensions
 
 RUN docker-php-ext-install pdo_mysql && \
@@ -101,3 +100,45 @@ RUN a2enmod rewrite headers
 
 # Cleanup
 RUN rm -rf /usr/src/*
+
+####################################
+#
+# Run the rest of the installation
+#
+####################################
+RUN sed -i_bak 's/rights=\"none\" pattern=\"PDF\"/rights=\"read | write\" pattern=\"PDF\"/' /etc/ImageMagick-6/policy.xml
+
+#
+# Add extra tools for dev
+#
+
+# add vim
+RUN apt-get update && apt-get install -y vim jq htop && apt install -y gettext
+
+# mise en place de nodejs + npm
+RUN apt-get update && apt-get upgrade --no-install-recommends -qq -y
+RUN apt-get install curl gnupg -y 
+RUN apt-get install jq -y
+
+RUN curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh && chmod 500 nsolid_setup_deb.sh && bash nsolid_setup_deb.sh 18 && rm nsolid_setup_deb.sh && apt-get install -y nodejs
+
+# mise en place des dépendances
+RUN node --version
+RUN npm --version
+RUN npm install -g npm
+RUN npm install -g github:phili67/i18next-extract-gettext
+RUN npm install i18next-conv -g
+RUN npm install --global strip-json-comments-cli
+RUN npm install grunt --save-dev
+RUN npm install -g grunt-cli
+
+#RUN npm install
+
+RUN rm -rf /var/lib/apt/lists/*
+
+# Set the locale
+#RUN apt-get clean && apt-get update && apt-get install -y locales
+RUN apt-get install -y locales locales-all
+ENV LC_ALL fr_FR.UTF-8
+ENV LANG fr_FR.UTF-8
+ENV LANGUAGE fr_FR.UTF-8
