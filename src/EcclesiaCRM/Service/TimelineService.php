@@ -15,6 +15,7 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemURLs;
 use \Datetime;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 require_once SystemURLs::getDocumentRoot() . '/Include/Functions.php';
 
@@ -105,7 +106,7 @@ class TimelineService
         return $timeline;
     }
 
-    private function notesForPerson($personID, $noteTypes=null)
+    private function notesForPerson($personID, $noteTypes=null): array
     {
         $firstTime = true;
 
@@ -126,7 +127,7 @@ class TimelineService
           }
         }
 
-        foreach ($personQuery->find() as $dbNote) {
+        foreach ($personQuery->orderByDateEntered(Criteria::DESC)->limit(15)->find() as $dbNote) {
             $item = $this->noteToTimelineItem($dbNote);
             if (!is_null($item)) {
                 $timeline[$item['key']] = $item;
@@ -134,7 +135,10 @@ class TimelineService
         }
 
         $personShareQuery = NoteShareQuery::create()
-            ->joinWithNote()
+            ->useNoteQuery()
+            ->orderByDateEntered(Criteria::DESC)
+            ->endUse()
+            ->limit(15)            
             ->findBySharePerId($personID);
 
         // we only share the file from other users
