@@ -1727,6 +1727,21 @@ window.CRM.ElementListener = function(element, type, callback) {
   });
 }
 
+window.CRM.addClass = function(element, c = "btn-default") {
+  // this is pure vanillia code ;-)
+  document.querySelectorAll(element).forEach(el=>{
+      el.classList.add(c);
+  });
+}
+
+window.CRM.removeClass = function(element, c = "btn-default") {
+  // this is pure vanillia code ;-)
+  document.querySelectorAll(element).forEach(el=>{
+      el.classList.remove(c);
+  });
+}
+
+
 $(document).ajaxError(function (evt, xhr, settings,errortext) {
 if(errortext !== "abort") {
   try {
