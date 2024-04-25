@@ -1976,6 +1976,7 @@ CREATE TABLE `plugin_menu_bar` (
   `plgn_mb_url` varchar(255) DEFAULT '' COMMENT 'URL Menubar',
   `plgn_bm_icon` varchar(255) DEFAULT '' COMMENT 'Icon MenuBar',
   `plgn_bm_grp_sec` varchar(255) DEFAULT '' COMMENT 'In lower case : usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_ShowCart, usr_ShowMap, usr_EDrive, usr_MenuOptions, usr_ManageGroups, usr_ManageCalendarResources, usr_HtmlSourceEditor, usr_Finance, usr_Notes, usr_EditSelf, usr_Canvasser, usr_Admin, usr_showMenuQuery, usr_CanSendEmail, usr_ExportCSV, usr_CreateDirectory, usr_ExportSundaySchoolPDF, usr_ExportSundaySchoolCSV, usr_MainDashboard, usr_SeePrivacyData, usr_MailChimp, usr_GDRP_DPO, usr_PastoralCare',
+  `plgn_mb_parent_ID` mediumint(8) unsigned DEFAULT NULL COMMENT 'in the case of a link : the parent is plgn_mb_ID',
   PRIMARY KEY  (`plgn_mb_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 

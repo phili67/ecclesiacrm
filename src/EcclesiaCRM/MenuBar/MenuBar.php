@@ -53,6 +53,7 @@ class MenuBar extends Menu
             $menu_count = $menuBarItems->count();
             $menu = null;
             foreach ($menuBarItems as $menuBarItem) {
+                if (!is_null($menuBarItem->getLinkParentId())) continue;
                 $grp_sec = true;
                 if ( SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName()) ) {
                     // a plugin admin is locally a menu administrator
@@ -78,6 +79,18 @@ class MenuBar extends Menu
                 } else {
                     $menuItem = new Menu (_($menuBarItem->getDisplayName()), $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec, $menu);
                 }
+
+                $menuLinks = PluginMenuBarQuery::create()->findByLinkParentId($menuBarItem->getId());
+                foreach ($menuLinks as $menuLink) {
+                    if (!is_null($menuLink->getURL())) {
+                        // we are in a case of a link : see mysql/install.sql => Table plugin_menu_bar : plgn_mb_parent_ID comment
+                        if (!is_null($menuItem)) {
+                            $menuItem->addLink($menuLink->getURL());
+                        } else {
+                            $menu->addLink($menuLink->getURL());
+                        }
+                    }
+                }        
             }
         }
     }
