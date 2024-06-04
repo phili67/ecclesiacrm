@@ -38,7 +38,7 @@ $defaultList = ToDoListDashboardQuery::create()
 ?>
 
 <div class="card card-tabs <?= $plugin->getName() ?> <?= $Card_collapsed ?>" data-name="<?= $plugin->getName() ?>">
-    <div class="card-header ui-sortable-handle" style="cursor: move;">
+    <div class="card-header" style="cursor: move;">
         <h3 class="card-title">
             <i class="ion ion-clipboard mr-1"></i>
             <?= dgettext("messages-ToDoListDashboard","To Do List") ?>

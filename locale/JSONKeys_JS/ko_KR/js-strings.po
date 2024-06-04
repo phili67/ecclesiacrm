@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
+"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1293,9 +1293,8 @@ msgstr "어린이는 일요일 학교 그룹에 가족이 있어야 합니다!"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "선택한 그룹 멤버를 제거하시겠습니까?"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "개인 데이터"
+msgstr "401 : 개인 데이터"
 
 msgid "Group Role"
 msgstr "그룹 역할"
@@ -2303,6 +2302,9 @@ msgstr "비밀번호가 일치해야 합니다."
 msgid "Backup Running, Please wait."
 msgstr "백업 실행 중, 잠시만 기다려주세요."
 
+msgid "Backup in progress, don't close the window !"
+msgstr "백업 진행 중, 창을 닫지 마세요!"
+
 msgid "Backup Generated and copied to remote server"
 msgstr "백업 생성 및 원격 서버에 복사"
 
@@ -2317,6 +2319,9 @@ msgstr "선택한 파일이 이 서버의 최대 업로드 크기를 초과합�
 
 msgid "Restore Running, Please wait."
 msgstr "실행 복원, 잠시만 기다려주세요."
+
+msgid "Restore backup, don't close the window !"
+msgstr "백업을 복원하고 창을 닫지 마세요!"
 
 msgid "Restore Complete"
 msgstr "복원 완료"

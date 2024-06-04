@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
+"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1313,9 +1313,8 @@ msgstr "Egy gyereknek legyen családja a vasárnapi iskolai csoportban !"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Biztos, hogy el akarja távolítani a kiválasztott csoporttagokat?"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "Magánadatok"
+msgstr "401 : Magánadatok"
 
 msgid "Group Role"
 msgstr "Csoport szerepe"
@@ -2347,6 +2346,9 @@ msgstr "A jelszavaknak meg kell egyezniük"
 msgid "Backup Running, Please wait."
 msgstr "Biztonsági mentés folyamatban, kérjük várjon."
 
+msgid "Backup in progress, don't close the window !"
+msgstr "Biztonsági mentés folyamatban, ne zárja be az ablakot !"
+
 msgid "Backup Generated and copied to remote server"
 msgstr "Biztonsági mentés generálva és másolva a távoli kiszolgálóra"
 
@@ -2362,6 +2364,9 @@ msgstr ""
 
 msgid "Restore Running, Please wait."
 msgstr "Visszaállítás folyamatban, kérjük, várjon."
+
+msgid "Restore backup, don't close the window !"
+msgstr "Biztonsági mentés visszaállítása, ne zárja be az ablakot !"
 
 msgid "Restore Complete"
 msgstr "Visszaállítás teljes"

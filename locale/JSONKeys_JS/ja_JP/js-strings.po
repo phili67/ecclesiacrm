@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
+"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1301,9 +1301,8 @@ msgstr "子供には、日曜学校のグループに家族がいるはずだ !"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "選択したグループメンバーを削除してよろしいですか？"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "プライベートデータ"
+msgstr "401 : プライベート・データ"
 
 msgid "Group Role"
 msgstr "グループの役割"
@@ -2316,6 +2315,9 @@ msgstr "パスワードが一致すること"
 msgid "Backup Running, Please wait."
 msgstr "Backup Running, Please wait."
 
+msgid "Backup in progress, don't close the window !"
+msgstr "バックアップ中、ウィンドウを閉じないでください！"
+
 msgid "Backup Generated and copied to remote server"
 msgstr "バックアップ 生成され、リモートサーバーにコピーされる"
 
@@ -2331,6 +2333,9 @@ msgstr ""
 
 msgid "Restore Running, Please wait."
 msgstr "Restore Running, Please wait."
+
+msgid "Restore backup, don't close the window !"
+msgstr "バックアップを復元し、ウィンドウを閉じないでください！"
 
 msgid "Restore Complete"
 msgstr "復元完了"

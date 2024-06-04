@@ -2443,6 +2443,15 @@ msgstr "开关摄像机"
 msgid "Upload Image"
 msgstr "上传图片"
 
+msgid "401 : Private Datas"
+msgstr "401 : Private Datas"
+
+msgid "Backup in progress, don't close the window !"
+msgstr "正在备份，请勿关闭窗口 ！"
+
+msgid "Restore backup, don't close the window !"
+msgstr "恢复备份，不要关闭窗口 ！"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 

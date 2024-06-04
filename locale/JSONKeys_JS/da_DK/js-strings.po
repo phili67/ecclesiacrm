@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
+"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1309,9 +1309,8 @@ msgstr "Et barn bør have en familie i en søndagsskolegruppe !"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Er du sikker på, at du vil fjerne de valgte gruppemedlemmer?"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "Private data"
+msgstr "401: Private data"
 
 msgid "Group Role"
 msgstr "Gruppens rolle"
@@ -2333,6 +2332,9 @@ msgstr "Adgangskoder skal stemme overens"
 msgid "Backup Running, Please wait."
 msgstr "Backup kører, vent venligst."
 
+msgid "Backup in progress, don't close the window !"
+msgstr "Backup i gang, luk ikke vinduet!"
+
 msgid "Backup Generated and copied to remote server"
 msgstr "Backup Genereres og kopieres til fjernserver"
 
@@ -2347,6 +2349,9 @@ msgstr "Den valgte fil overstiger denne servers maksimale uploadstørrelse på"
 
 msgid "Restore Running, Please wait."
 msgstr "Gendannelse kører, vent venligst."
+
+msgid "Restore backup, don't close the window !"
+msgstr "Gendan backup, luk ikke vinduet!"
 
 msgid "Restore Complete"
 msgstr "Gendannelse fuldført"
