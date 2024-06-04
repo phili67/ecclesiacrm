@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
+"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2345,6 +2345,9 @@ msgstr "Fjalëkalimi duhet të përputhen"
 msgid "Backup Running, Please wait."
 msgstr "arratisje, të lutem, prit."
 
+msgid "Backup in progress, don't close the window !"
+msgstr ""
+
 msgid "Backup Generated and copied to remote server"
 msgstr "përforcime u gjenerua dhe u kopjuan në server"
 
@@ -2359,6 +2362,9 @@ msgstr "dosja e zgjedhur e tejkalon këtë server masën e ngarkimit me maksimum
 
 msgid "Restore Running, Please wait."
 msgstr "Ristatorja. Të lutem prit."
+
+msgid "Restore backup, don't close the window !"
+msgstr ""
 
 msgid "Restore Complete"
 msgstr "Rivendosja e kompletuar"

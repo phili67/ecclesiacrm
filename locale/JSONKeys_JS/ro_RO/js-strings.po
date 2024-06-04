@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
+"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1314,9 +1314,8 @@ msgstr ""
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Sunteți sigur că doriți să eliminați membrii grupului selectat?"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "Date private"
+msgstr "401 : Date private"
 
 msgid "Group Role"
 msgstr "Rolul grupului"
@@ -2360,6 +2359,9 @@ msgstr "Parolele trebuie să se potrivească"
 msgid "Backup Running, Please wait."
 msgstr "Backup în curs de execuție, vă rugăm să așteptați."
 
+msgid "Backup in progress, don't close the window !"
+msgstr "Copie de siguranță în curs de desfășurare, nu închideți fereastra !"
+
 msgid "Backup Generated and copied to remote server"
 msgstr "Copie de rezervă Generată și copiată pe serverul de la distanță"
 
@@ -2376,6 +2378,9 @@ msgstr ""
 
 msgid "Restore Running, Please wait."
 msgstr "Restaurarea este în curs de execuție, vă rugăm să așteptați."
+
+msgid "Restore backup, don't close the window !"
+msgstr "Restaurați copia de rezervă, nu închideți fereastra !"
 
 msgid "Restore Complete"
 msgstr "Restaurare completă"

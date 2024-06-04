@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
+"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1275,9 +1275,8 @@ msgstr "孩子应该在主日学小组中拥有一个家庭 !"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "你确定要删除所选组的成员吗？"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "私人数据"
+msgstr "401 : Private Datas"
 
 msgid "Group Role"
 msgstr "集团角色"
@@ -2261,6 +2260,9 @@ msgstr "密码必须匹配"
 msgid "Backup Running, Please wait."
 msgstr "备份正在运行，请等待。"
 
+msgid "Backup in progress, don't close the window !"
+msgstr "正在备份，请勿关闭窗口 ！"
+
 msgid "Backup Generated and copied to remote server"
 msgstr "生成备份并复制到远程服务器"
 
@@ -2275,6 +2277,9 @@ msgstr "所选文件超过了本服务器的最大上传尺寸"
 
 msgid "Restore Running, Please wait."
 msgstr "恢复运行，请等待。"
+
+msgid "Restore backup, don't close the window !"
+msgstr "恢复备份，不要关闭窗口 ！"
 
 msgid "Restore Complete"
 msgstr "恢复完成"

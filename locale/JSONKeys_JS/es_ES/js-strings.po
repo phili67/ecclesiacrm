@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
+"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1314,9 +1314,8 @@ msgid "Are you sure you want to remove the selected group members?"
 msgstr ""
 "¿Está seguro de que quiere eliminar los miembros del grupo seleccionados?"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "Datos privados"
+msgstr "401 : Datas privados"
 
 msgid "Group Role"
 msgstr "Función del grupo"
@@ -2355,6 +2354,9 @@ msgstr "Las contraseñas deben coincidir"
 msgid "Backup Running, Please wait."
 msgstr "Copia de seguridad en marcha, por favor espere."
 
+msgid "Backup in progress, don't close the window !"
+msgstr "Copia de seguridad en curso, ¡no cierre la ventana!"
+
 msgid "Backup Generated and copied to remote server"
 msgstr "Copia de seguridad generada y copiada en el servidor remoto"
 
@@ -2370,6 +2372,9 @@ msgstr ""
 
 msgid "Restore Running, Please wait."
 msgstr "Restauración en marcha, por favor espere."
+
+msgid "Restore backup, don't close the window !"
+msgstr "Restaurar copia de seguridad, ¡no cierres la ventana!"
 
 msgid "Restore Complete"
 msgstr "Restauración completa"

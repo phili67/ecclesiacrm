@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
+"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1311,9 +1311,8 @@ msgstr "Ett barn borde ha en familj i en söndagsskolegrupp!"
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Är du säker på att du vill ta bort de valda gruppmedlemmarna?"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "Privata uppgifter"
+msgstr "401 : Privata data"
 
 msgid "Group Role"
 msgstr "Gruppens roll"
@@ -2332,6 +2331,9 @@ msgstr "Lösenorden måste matcha"
 msgid "Backup Running, Please wait."
 msgstr "Säkerhetskopiering körs, vänligen vänta."
 
+msgid "Backup in progress, don't close the window !"
+msgstr "Backup pågår, stäng inte fönstret!"
+
 msgid "Backup Generated and copied to remote server"
 msgstr "Säkerhetskopiering Genereras och kopieras till fjärrserver"
 
@@ -2348,6 +2350,9 @@ msgstr ""
 
 msgid "Restore Running, Please wait."
 msgstr "Återställning pågår, vänligen vänta."
+
+msgid "Restore backup, don't close the window !"
+msgstr "Återställ säkerhetskopian, stäng inte fönstret!"
 
 msgid "Restore Complete"
 msgstr "Återställning slutförd"

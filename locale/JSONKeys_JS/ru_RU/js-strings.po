@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-30T20:56:28.263Z\n"
+"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1310,9 +1310,8 @@ msgstr "У ребенка должна быть семья в группе во�
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Вы уверены, что хотите удалить выбранных членов группы?"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "Частные данные"
+msgstr "401 : Частные даты"
 
 msgid "Group Role"
 msgstr "Роль группы"
@@ -2334,6 +2333,9 @@ msgstr "Пароли должны совпадать"
 msgid "Backup Running, Please wait."
 msgstr "Резервное копирование запущено, пожалуйста, подождите."
 
+msgid "Backup in progress, don't close the window !"
+msgstr "Выполняется резервное копирование, не закрывайте окно!"
+
 msgid "Backup Generated and copied to remote server"
 msgstr "Создается резервная копия и копируется на удаленный сервер"
 
@@ -2348,6 +2350,9 @@ msgstr "Выбранный файл превышает максимальный 
 
 msgid "Restore Running, Please wait."
 msgstr "Восстановление запущено, пожалуйста, подождите."
+
+msgid "Restore backup, don't close the window !"
+msgstr "Восстановите резервную копию, не закрывайте окно!"
 
 msgid "Restore Complete"
 msgstr "Восстановление завершено"
