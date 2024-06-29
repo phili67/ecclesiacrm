@@ -29,7 +29,7 @@ cp sample.env .env
 sudo bash install_or_launch_docker.sh
 // visit localhost
 ```
-- Your LAMP stack is now ready!! You can access it via `http://localhost`
+- Your LAMP stack is now ready!! You can access it via `https://localhost`
 
 Pass the different pannel, but at this pannel, set your datas like this :
 
@@ -56,7 +56,7 @@ The default password is : changeme
 Last you should see :
 <img width="2048" alt="Capture d’écran 2022-10-27 à 18 50 24" src="https://user-images.githubusercontent.com/20263693/198360109-e5da5fc1-e1d0-4692-8e80-78711b3e0465.png">
 
-- your phpMyAdmin too
+- your phpMyAdmin too : **http://localhost:8080**
 
 <img width="1425" alt="Capture d’écran 2022-10-27 à 18 50 48" src="https://user-images.githubusercontent.com/20263693/198359520-11397f94-01d2-40b9-8282-8d768ee656dc.png">
 
