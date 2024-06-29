@@ -2,7 +2,7 @@ FROM php:8.2.1-apache-buster
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
- 
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Update
@@ -26,7 +26,7 @@ libicu-dev && \
 build-essential \
 git \
 curl \
-libonig-dev && \ 
+libonig-dev && \
     apt-get install -y iputils-ping && \
     apt-get -y --no-install-recommends install --fix-missing libcurl4 \
 libcurl4-openssl-dev \
@@ -81,7 +81,7 @@ RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install exif
 
 
-# Install Freetype 
+# Install Freetype
 RUN apt-get -y update && \
     apt-get --no-install-recommends install -y libfreetype6-dev \
 libjpeg62-turbo-dev \
@@ -118,7 +118,7 @@ RUN apt-get update && apt-get install -y vim jq htop && apt install -y gettext
 
 # mise en place de nodejs + npm
 RUN apt-get update && apt-get upgrade --no-install-recommends -qq -y
-RUN apt-get install curl gnupg -y 
+RUN apt-get install curl gnupg -y
 RUN apt-get install jq -y
 
 RUN curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh && chmod 500 nsolid_setup_deb.sh && bash nsolid_setup_deb.sh 18 && rm nsolid_setup_deb.sh && apt-get install -y nodejs
@@ -136,11 +136,3 @@ RUN npm install -g grunt-cli
 #RUN npm install
 
 RUN rm -rf /var/lib/apt/lists/*
-
-
-# Set the locale
-#RUN apt-get clean && apt-get update && apt-get install -y locales
-RUN apt-get install -y locales locales-all
-ENV LC_ALL fr_FR.UTF-8
-ENV LANG fr_FR.UTF-8
-ENV LANGUAGE fr_FR.UTF-8
