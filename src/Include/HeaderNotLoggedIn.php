@@ -30,23 +30,25 @@ $localeInfo = Bootstrapper::GetCurrentLocale();
     <!-- custom plugins css files -->
     <?php
         // we load the plugin
-        $plugins = PluginQuery::create()
-            ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
-            ->findByActiv(true);
+        if ( file_exists('Config.php') ) {
+            $plugins = PluginQuery::create()
+                ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
+                ->findByActiv(true);
 
-        foreach ($plugins as $plugin) {
-            if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/")) {
-                $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/");
+            foreach ($plugins as $plugin) {
+                if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/")) {
+                    $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/");
 
-                foreach ($files as $file) {
-                    if (!in_array($file, [".", ".."])) {
-                        ?>
-                        <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/css/<?= $file ?>">
-                        <?php
+                    foreach ($files as $file) {
+                        if (!in_array($file, [".", ".."])) {
+                            ?>
+                            <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/css/<?= $file ?>">
+                            <?php
+                        }
                     }
                 }
-            }
 
+            }
         }
     ?>
 
