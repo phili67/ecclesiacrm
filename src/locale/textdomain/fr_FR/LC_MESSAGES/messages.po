@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-04 20:06+0000\n"
+"POT-Creation-Date: 2024-07-02 17:48+0000\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1407,7 +1407,7 @@ msgstr "Personne"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:39
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:37
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:132
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:119
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
 #: EcclesiaCRM/Service/ConfirmReportService.php:636
@@ -4585,9 +4585,9 @@ msgstr "Adresses"
 #: EcclesiaCRM/Search/AddressSearchRes.php:144
 #: EcclesiaCRM/Search/DepositSearchRes.php:74
 #: EcclesiaCRM/Search/DepositSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:82
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:69
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:106
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:119
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:132
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:88
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
@@ -4606,8 +4606,8 @@ msgstr "Adresses"
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:87
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:136
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:83
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:132
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:70
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
@@ -4633,7 +4633,7 @@ msgid "Addresse"
 msgstr "Adresse"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:144
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:132
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:119
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
@@ -4649,12 +4649,12 @@ msgid "Members"
 msgstr "Membres"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:145
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:126
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
 #: EcclesiaCRM/Search/FamilySearchRes.php:167
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:131
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
@@ -4693,7 +4693,7 @@ msgstr "Donnée privée"
 msgid "Deposits"
 msgstr "Dépôts"
 
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:20
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
 msgid "Family Custom Field"
 msgstr "Champs personnalisés Familaux"
 
@@ -4767,7 +4767,7 @@ msgid "Student"
 msgstr "Etudiant"
 
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:123
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:106
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
 #: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:194
@@ -9205,11 +9205,11 @@ msgstr "Dupliquer Item"
 
 #: v2/templates/fundraiser/donatedItemEditor.php:122
 msgid "Replicate this item as many times you want"
-msgstr "Dupiquer cet élément autant de fois que désiré "
+msgstr "Dupliquer cet élément autant de fois que désiré "
 
 #: v2/templates/fundraiser/donatedItemEditor.php:124
 msgid "Go"
-msgstr "Dupliquer"
+msgstr "Envoyer"
 
 #: v2/templates/fundraiser/donatedItemEditor.php:126
 msgid "Replicate it"
