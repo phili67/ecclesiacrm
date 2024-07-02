@@ -1006,6 +1006,7 @@ class MailchimpController
             ob_start();
             $mailer->send();
             $result .= ob_get_clean();
+            ob_end_flush();
             return $response->withJson(['success' => true,"result" => $result]);
         } else {
             return $response->withJson(['success' => false,"error" => $message]);
