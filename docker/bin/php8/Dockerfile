@@ -136,10 +136,3 @@ RUN npm install -g grunt-cli
 #RUN npm install
 
 RUN rm -rf /var/lib/apt/lists/*
-
-# Set the locale
-#RUN apt-get clean && apt-get update && apt-get install -y locales
-RUN apt-get install -y locales locales-all
-ENV LC_ALL fr_FR.UTF-8
-ENV LANG fr_FR.UTF-8
-ENV LANGUAGE fr_FR.UTF-8

@@ -16,10 +16,9 @@ As of now, we have several different PHP versions. Use appropriate php version a
 - 8.3.x
 
 ## Installation
-
+- **IMPORTANT : You've to activate the https protocol ([see the https part](#SSL-HTTPS))**.
 - Clone this repository on your local computer
 - configure .env as needed
-- **IMPORTANT : You've to activate the https protocol (<u>see the https part</u>)**.
 - follow the lines here :
 
 ```shell
@@ -30,7 +29,7 @@ cp sample.env .env
 sudo bash install_or_launch_docker.sh
 // visit localhost
 ```
-- Your LAMP stack is now ready!! You can access it via `http://localhost`
+- Your LAMP stack is now ready!! You can access it via `https://localhost`
 
 Pass the different pannel, but at this pannel, set your datas like this :
 
@@ -57,9 +56,26 @@ The default password is : changeme
 Last you should see :
 <img width="2048" alt="Capture d’écran 2022-10-27 à 18 50 24" src="https://user-images.githubusercontent.com/20263693/198360109-e5da5fc1-e1d0-4692-8e80-78711b3e0465.png">
 
-- your phpMyAdmin too
+- your phpMyAdmin too : **http://localhost:8080**
 
 <img width="1425" alt="Capture d’écran 2022-10-27 à 18 50 48" src="https://user-images.githubusercontent.com/20263693/198359520-11397f94-01d2-40b9-8282-8d768ee656dc.png">
+
+## Localization
+
+You've to enter the docker container
+```
+docker-compose exec webserver bash
+```
+
+install the packages
+
+```
+dpkg-reconfigure locales
+```
+
+Then add the desired language, like this for French language.
+
+Last restart all the continairs.
 
 ## Configuration and Usage
 
@@ -258,8 +274,7 @@ Now, make a breakpoint and run debug.
 
 It comes with Redis. It runs on default port `6379`.
 
-## SSL (HTTPS)
-
+# <a id="SSL-HTTPS"></a>SSL (HTTPS)
 Support for `https` domains is built-in but disabled by default. There are 3 ways you can enable and configure SSL; `https` on `localhost` being the easiest. If you are trying to recreating a testing environment as close as possible to a production environment, any domain name can be supported with more configuration.
 
 **Notice:** For every non-localhost domain name you wish to use `https` on, you will need to modify your computers [hosts file](https://en.wikipedia.org/wiki/Hosts_%28file%29) and point the domain name to `127.0.0.1`. If you fail to do this SSL will not work and you will be routed to the internet every time you try to visit that domain name locally.
