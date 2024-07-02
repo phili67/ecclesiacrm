@@ -12,7 +12,7 @@ $(function() {
       method: 'POST',
       path: 'mailchimp/testConnection'
     },function(data) {
-      if (data.error == undefined) {
+      if (data.success == true) {
         $("#mailTest").html(data.result);
       } else {
         $("#mailTest").html(data.error);
