@@ -37,6 +37,7 @@ require $sRootDocument . '/Include/Header.php';
             <?php
             foreach ($members as $member) {
                 $person = PersonQuery::create()->findOneById($member['FollowedPersonPerId']);
+                if (is_null($person)) continue;
                 ?>
                 <tr>
                     <td>
@@ -95,5 +96,3 @@ require $sRootDocument . '/Include/Header.php';
 </script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
-
-
