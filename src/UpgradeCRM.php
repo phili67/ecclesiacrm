@@ -2,7 +2,9 @@
 
 // Include the function library
 require 'Include/Config.php';
+
 $bSuppressSessionTests = true;
+
 require 'Include/Functions.php';
 require_once 'Include/Header-function.php';
 
@@ -86,70 +88,75 @@ Header_body_scripts();
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
  $("#doBackup").on('click',function(){
    $("#status1").html('<i class="far fa-circle-notch fa-spin"></i>');
-   $.ajax({
-      type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-      url         : window.CRM.root +'/api/database/backup', // the url where we want to POST
-      data        : JSON.stringify({
-        'iArchiveType'              : 3
-      }), // our data object
-      dataType    : 'json', // what type of data do we expect back from the server
-      encode      : true,
-      contentType: "application/json; charset=utf-8"
-    })
-    .done(function(data) {
-      var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('"+data.filename+"')\"><i class='fas fa-download'></i>  "+data.filename+"</button>";
-      $("#backupstatus").css("color","green");
-      $("#backupstatus").html("<?= gettext('Backup Complete, Ready for Download.') ?>");
-      $("#resultFiles").html(downloadButton);
-      $("#status1").html('<i class="fas fa-check" style="color:orange"></i>');
-      $("#downloadbutton").on('click',function(){
-        $("#fetchPhase").show("slow");
-        $("#backupPhase").slideUp();
-        $("#status1").html('<i class="fas fa-check" style="color:green"></i>');
-      });
-    }).fail(function()  {
-      $("#backupstatus").css("color","red");
-      $("#backupstatus").html("<?= gettext('Backup Error.') ?>");
-    });
 
+   fetch(window.CRM.root +'/api/database/backup', {            
+        method: 'POST',
+        headers: {
+            'Content-Type': "application/json; charset=utf-8",
+            'Authorization': 'Bearer ' + window.CRM.jwtToken,
+        },
+        body: JSON.stringify({
+          'iArchiveType' : 3
+        })
+    }).then(res => res.json())
+      .then(data => {
+          var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('"+data.filename+"')\"><i class='fas fa-download'></i>  "+data.filename+"</button>";
+          
+          $("#backupstatus").css("color","green");
+          $("#backupstatus").html("<?= gettext('Backup Complete, Ready for Download.') ?>");
+          $("#resultFiles").html(downloadButton);
+          $("#status1").html('<i class="fas fa-check" style="color:orange"></i>');
+          $("#downloadbutton").on('click',function(){
+            $("#fetchPhase").show("slow");
+            $("#backupPhase").slideUp();
+            $("#status1").html('<i class="fas fa-check" style="color:green"></i>');
+          });
+      }).catch(error => {
+        $("#backupstatus").css("color","red");
+        $("#backupstatus").html("<?= gettext('Backup Error.') ?>");
+      });
  });
 
  $("#fetchUpdate").on('click',function(){
     $("#status2").html('<i class="far fa-circle-notch fa-spin"></i>');
-    $.ajax({
-      type : 'GET',
-      url  : window.CRM.root +'/api/systemupgrade/downloadlatestrelease', // the url where we want to POST
-      dataType    : 'json' // what type of data do we expect back from the server
-    }).done(function(data){
-      $("#status2").html('<i class="fas fa-check" style="color:green"></i>');
-      window.CRM.updateFile=data;
-      $("#updateFileName").text(data.fileName);
-      $("#updateFullPath").text(data.fullPath);
-      $("#releaseNotes").text(data.releaseNotes);
-      $("#updateSHA1").text(data.sha1);
-      $("#fetchPhase").slideUp();
-      $("#updatePhase").show("slow");
-    });
 
+    fetch(window.CRM.root +'/api/systemupgrade/downloadlatestrelease', {            
+        method: 'GET',
+        headers: {
+            'Content-Type': "application/json; charset=utf-8",
+            'Authorization': 'Bearer ' + window.CRM.jwtToken,
+        }
+    }).then(res => res.json())
+      .then(data => {
+          $("#status2").html('<i class="fas fa-check" style="color:green"></i>');
+          window.CRM.updateFile=data;
+          $("#updateFileName").text(data.fileName);
+          $("#updateFullPath").text(data.fullPath);
+          $("#releaseNotes").text(data.releaseNotes);
+          $("#updateSHA1").text(data.sha1);
+          $("#fetchPhase").slideUp();
+          $("#updatePhase").show("slow");
+      });
  });
 
  $("#applyUpdate").on('click',function(){
    $("#status3").html('<i class="far fa-circle-notch fa-spin"></i>');
-   $.ajax({
-      type : 'POST',
-      url  : window.CRM.root +'/api/systemupgrade/doupgrade', // the url where we want to POST
-      data        : JSON.stringify({
-        fullPath: window.CRM.updateFile.fullPath,
-        sha1: window.CRM.updateFile.sha1
-      }), // our data object
-      dataType    : 'json', // what type of data do we expect back from the server
-      encode      : true,
-      contentType: "application/json; charset=utf-8"
-    }).done(function(data){
-      $("#status3").html('<i class="fas fa-check" style="color:green"></i>');
-      $("#updatePhase").slideUp();
-      $("#finalPhase").show("slow");
-    });
+   fetch(window.CRM.root +'/api/systemupgrade/doupgrade', {            
+        method: 'POST',
+        headers: {
+            'Content-Type': "application/json; charset=utf-8",
+            'Authorization': 'Bearer ' + window.CRM.jwtToken,
+        },
+        body: JSON.stringify({
+          fullPath: window.CRM.updateFile.fullPath,
+          sha1: window.CRM.updateFile.sha1
+        })
+    }).then(res => res.json())
+      .then(data => {
+          $("#status3").html('<i class="fas fa-check" style="color:green"></i>');
+          $("#updatePhase").slideUp();
+          $("#finalPhase").show("slow");
+      });
  });
 
 function downloadbutton(filename) {

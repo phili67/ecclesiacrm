@@ -415,8 +415,10 @@ $sFamilyEmails = [];
                                         href="<?= $sRootPath . "/v2/people/person/view/" . $ormPastoralCare->getPastorId() ?>"><?= $ormPastoralCare->getPastorName() ?></a>
                             </h3>
                             <div class="timeline-body">
-                                <?php if ($ormPastoralCare->getVisible()): ?>
+                                <?php if ($ormPastoralCare->getVisible() or $ormPastoralCare->getPastorId() == $currentPastorId): ?>
                                     <?= $ormPastoralCare->getText() ?>
+                                <?php else: ?>
+                                    <?= _("Private Data") ?>
                                 <?php endif; ?>
                             </div>
                             <?php
@@ -484,7 +486,7 @@ $sFamilyEmails = [];
             <!-- /.card-header -->
             <div class="card-body">
                 <!-- Contacts are loaded here -->
-                <?php if (!is_null($family) and count($family->getActivatedPeople()) > 1) { ?>
+                <?php if (!is_null($family) and count($family->getActivatedPeople()) > 1) : ?>
                     <table class="table table-hover" width="100%">
                         <thead>
                         <tr>
@@ -522,9 +524,13 @@ $sFamilyEmails = [];
                         ?>
                         </tbody>
                     </table>
-                <?php } else { ?>
-                    <?= _("None") ?>
-                <?php } ?>
+                <?php else: ?>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <?= _("None") ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 <!-- /.direct-chat-pane -->
             </div>
         </div>
