@@ -70,6 +70,7 @@ docker-compose exec webserver bash
 install the packages
 
 ```
+apt-get update && apt-get install locales
 dpkg-reconfigure locales
 ```
 
