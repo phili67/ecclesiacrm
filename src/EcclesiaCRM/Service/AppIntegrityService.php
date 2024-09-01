@@ -262,6 +262,12 @@ class AppIntegrityService
               $check = in_array('mod_rewrite', apache_get_modules());
           }
           $logger->debug("Apache mod_rewrite check status: $check");
+          if (empty($check)) {
+              if (!empty(shell_exec('/usr/sbin/apachectl -M | grep rewrite'))) {
+                  $logger->info('Found rewrite module enabled using apachectl');
+                  $check = true;
+              }
+          }
       } else {
           $logger->debug('PHP is not running through Apache');
       }
