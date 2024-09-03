@@ -63,10 +63,10 @@ class AppIntegrityService
             }
           }
         } else {
-          return ['status' => 'failure', 'message' => _('Signature definition file signature failed validation')];
+          return ['status' => 'failure', 'message' => _('Signature definition file signature failed validation'), 'files' => []];
         }
       } else {
-        return ['status' => 'failure', 'message' => _('Signature definition File Missing')];
+        return ['status' => 'failure', 'message' => _('Signature definition File Missing'), 'files' => []];
       }
 
       $pluginsIntegrity = AppIntegrityService::verifyPluginsIntegrity([]);
@@ -104,6 +104,7 @@ class AppIntegrityService
 
   public static function getFilesFailingIntegrityCheck(): array
   {
+      
       if (AppIntegrityService::verifyApplicationIntegrity()['status'] === 'failure') {
           return AppIntegrityService::verifyApplicationIntegrity()['files'];
       }
@@ -139,10 +140,10 @@ class AppIntegrityService
                           }
                       }
                   } else {
-                      return ['status' => 'failure', 'message' => _('Signature definition file signature failed validation')];
+                      return ['status' => 'failure', 'message' => _('Signature definition file signature failed validation'), 'files' => []];
                   }
               } else {
-                  return ['status' => 'failure', 'message' => _('Signature definition File Missing')];
+                  return ['status' => 'failure', 'message' => _('Signature definition File Missing'), 'files' => []];
               }
           }
       }
