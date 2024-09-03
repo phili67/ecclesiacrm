@@ -72,6 +72,13 @@ install the packages
 ```
 apt-get update && apt-get install locales
 dpkg-reconfigure locales
+
+apt-get install -y locales locales-all
+apt-get update && apt-get install -y systemd
+
+localectl set-locale LANG=fr_FR.UTF-8
+
+/etc/init.d/apache2 reload
 ```
 
 Then add the desired language, like this for French language.
