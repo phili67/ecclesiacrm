@@ -1,8 +1,8 @@
-FROM php:8.1-apache-buster
+FROM php:8.1.5-apache-buster
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
- 
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Update
@@ -26,7 +26,7 @@ libicu-dev && \
 build-essential \
 git \
 curl \
-libonig-dev && \ 
+libonig-dev && \
     apt-get install -y iputils-ping && \
     apt-get -y --no-install-recommends install --fix-missing libcurl4 \
 libcurl4-openssl-dev \
@@ -45,27 +45,11 @@ RUN pecl install redis-5.3.3 && \
     docker-php-ext-enable redis
 
 # Install imagick
-RUN apt-get update && \
-    apt-get -y --no-install-recommends install --fix-missing libmagickwand-dev && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update; \
+        apt-get install -y libmagickwand-dev; \
+        pecl install imagick; \
+        docker-php-ext-enable imagick;
 
-# Workarround until imagick is available in pecl with php8 support
-# Imagick Commit to install
-# https://github.com/Imagick/imagick
-ARG IMAGICK_COMMIT="661405abe21d12003207bc8eb0963fafc2c02ee4"
-
-RUN cd /usr/local/src && \
-    git clone https://github.com/Imagick/imagick && \
-    cd imagick && \
-    git checkout ${IMAGICK_COMMIT} && \
-    phpize && \
-    ./configure && \
-    make && \
-    make install && \
-    cd .. && \
-    rm -rf imagick && \
-    docker-php-ext-enable imagick
-    
 # Other PHP8 Extensions
 
 RUN docker-php-ext-install pdo_mysql && \
@@ -80,7 +64,7 @@ RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install exif
 
 
-# Install Freetype 
+# Install Freetype
 RUN apt-get -y update && \
     apt-get --no-install-recommends install -y libfreetype6-dev \
 libjpeg62-turbo-dev \
@@ -117,7 +101,7 @@ RUN apt-get update && apt-get install -y vim jq htop && apt install -y gettext
 
 # mise en place de nodejs + npm
 RUN apt-get update && apt-get upgrade --no-install-recommends -qq -y
-RUN apt-get install curl gnupg -y 
+RUN apt-get install curl gnupg -y
 RUN apt-get install jq -y
 
 RUN curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh && chmod 500 nsolid_setup_deb.sh && bash nsolid_setup_deb.sh 18 && rm nsolid_setup_deb.sh && apt-get install -y nodejs
