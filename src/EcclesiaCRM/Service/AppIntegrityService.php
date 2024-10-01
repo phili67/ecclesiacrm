@@ -183,7 +183,7 @@ class AppIntegrityService
     $sys_version = explode("-",explode ("+",PHP_VERSION)[0]);
 
     $prerequisites = array(
-      new ApplicationPrerequisite('PHP 8.1+',version_compare($sys_version[0], '8.1.0', '>=')),
+      new ApplicationPrerequisite('PHP 8.0+',version_compare($sys_version[0], '8.0.0', '>=')),
       new ApplicationPrerequisite('PCRE Support'                              , function_exists('preg_match')),
       new ApplicationPrerequisite('UTF-8 Support'                             , @preg_match('/^.$/u', 'A') && @preg_match('/^\pL$/u', 'A')),
       new ApplicationPrerequisite('Multibyte Encoding'                        , extension_loaded('mbstring')),
