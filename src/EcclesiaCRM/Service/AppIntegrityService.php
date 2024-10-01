@@ -75,7 +75,7 @@ class AppIntegrityService
         if (array_key_exists('files', $pluginsIntegrity)) {
             $signatureFailures['PLUGINS'] = $pluginsIntegrity['files'];
         }
-        AppIntegrityService::$IntegrityCheckDetails = ['status' => 'failure', 'message' => _('One or more files failed signature validation'), 'files' => $signatureFailures];        
+        AppIntegrityService::$IntegrityCheckDetails = ['status' => 'failure', 'message' => _('One or more files failed signature validation'), 'files' => $signatureFailures];
       } else {
         AppIntegrityService::$IntegrityCheckDetails = ['status' => 'success'];
       }
@@ -104,7 +104,7 @@ class AppIntegrityService
 
   public static function getFilesFailingIntegrityCheck(): array
   {
-      
+
       if (AppIntegrityService::verifyApplicationIntegrity()['status'] === 'failure') {
           return AppIntegrityService::verifyApplicationIntegrity()['files'];
       }
@@ -155,7 +155,7 @@ class AppIntegrityService
       }
   }
 
-  
+
 
   private static function testImagesWriteable(): bool
   {
@@ -183,7 +183,7 @@ class AppIntegrityService
     $sys_version = explode("-",explode ("+",PHP_VERSION)[0]);
 
     $prerequisites = array(
-      new ApplicationPrerequisite('PHP 8.0+',version_compare($sys_version[0], '8.0.0', '>=')),
+      new ApplicationPrerequisite('PHP 8.1+',version_compare($sys_version[0], '8.1.0', '>=')),
       new ApplicationPrerequisite('PCRE Support'                              , function_exists('preg_match')),
       new ApplicationPrerequisite('UTF-8 Support'                             , @preg_match('/^.$/u', 'A') && @preg_match('/^\pL$/u', 'A')),
       new ApplicationPrerequisite('Multibyte Encoding'                        , extension_loaded('mbstring')),
@@ -241,15 +241,15 @@ class AppIntegrityService
       // Third, finally try calling a known invalid URL on this installation
       //   and check for a header that would only be present if .htaccess was processed.
       //   This header comes from index.php (which is the target of .htaccess for invalid URLs)
-      // 
+      //
       // Put in the <VirtualHost *:443> part
       // <IfModule mod_env.c>
       //    ## Tell PHP that the mod_rewrite module is ENABLED.
       //    SetEnv HTTP_MOD_REWRITE On
       // </IfModule>
       //
-      // 
-      // 
+      //
+      //
 
       $check = false;
       $logger = LoggerUtils::getAppLogger();
