@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 17:48+0000\n"
+"POT-Creation-Date: 2024-10-08 16:52+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4774,17 +4774,17 @@ msgid "Pledges"
 msgstr "Pledges"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:66
-#: EcclesiaCRM/Service/AppIntegrityService.php:142
+#: EcclesiaCRM/Service/AppIntegrityService.php:143
 msgid "Signature definition file signature failed validation"
 msgstr "Dữ liệu định nghĩa dấu hiệu đã bị hỏng"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:69
-#: EcclesiaCRM/Service/AppIntegrityService.php:145
+#: EcclesiaCRM/Service/AppIntegrityService.php:146
 msgid "Signature definition File Missing"
 msgstr "Mất định nghĩa ký hiệu"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:78
-#: EcclesiaCRM/Service/AppIntegrityService.php:151
+#: EcclesiaCRM/Service/AppIntegrityService.php:152
 msgid "One or more files failed signature validation"
 msgstr "Một hoặc nhiều hồ sơ đã thất bại xác nhận dấu hiệu"
 

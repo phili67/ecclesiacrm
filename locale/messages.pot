@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 17:48+0000\n"
+"POT-Creation-Date: 2024-10-08 17:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4672,17 +4672,17 @@ msgid "Pledges"
 msgstr ""
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:66
-#: EcclesiaCRM/Service/AppIntegrityService.php:142
+#: EcclesiaCRM/Service/AppIntegrityService.php:143
 msgid "Signature definition file signature failed validation"
 msgstr ""
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:69
-#: EcclesiaCRM/Service/AppIntegrityService.php:145
+#: EcclesiaCRM/Service/AppIntegrityService.php:146
 msgid "Signature definition File Missing"
 msgstr ""
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:78
-#: EcclesiaCRM/Service/AppIntegrityService.php:151
+#: EcclesiaCRM/Service/AppIntegrityService.php:152
 msgid "One or more files failed signature validation"
 msgstr ""
 
