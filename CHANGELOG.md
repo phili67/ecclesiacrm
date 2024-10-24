@@ -1,577 +1,3697 @@
 # Changelog
 
-## [Unreleased](https://github.com/phili67/ecclesiacrm/tree/HEAD)
+## 7.6.0 (27/02/2023)
+*No changelog for this release.*
 
-[Full Changelog](https://github.com/phili67/ecclesiacrm/compare/7.6.0...HEAD)
+Minor update.
 
-**Implemented enhancements:**
+---
 
-- Phili67 php8.0 min [\#2396](https://github.com/phili67/ecclesiacrm/pull/2396) ([phili67](https://github.com/phili67))
-- personview is now in v2 [\#2385](https://github.com/phili67/ecclesiacrm/pull/2385) ([phili67](https://github.com/phili67))
-- SystemSettings tab choices [\#2383](https://github.com/phili67/ecclesiacrm/pull/2383) ([phili67](https://github.com/phili67))
-- Phili67 systemsetting v2 [\#2382](https://github.com/phili67/ecclesiacrm/pull/2382) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp newslette checkbox [\#2379](https://github.com/phili67/ecclesiacrm/pull/2379) ([phili67](https://github.com/phili67))
-- Docker update v3 [\#2371](https://github.com/phili67/ecclesiacrm/pull/2371) ([phili67](https://github.com/phili67))
-- first setup/install : docker [\#2370](https://github.com/phili67/ecclesiacrm/pull/2370) ([phili67](https://github.com/phili67))
-- .gitignore : update for docker [\#2369](https://github.com/phili67/ecclesiacrm/pull/2369) ([phili67](https://github.com/phili67))
-- Phili67 docker8 [\#2367](https://github.com/phili67/ecclesiacrm/pull/2367) ([phili67](https://github.com/phili67))
-- Phili67 docker  [\#2366](https://github.com/phili67/ecclesiacrm/pull/2366) ([phili67](https://github.com/phili67))
-- api update for docker : https/http [\#2365](https://github.com/phili67/ecclesiacrm/pull/2365) ([phili67](https://github.com/phili67))
-- schedule + paused campaign [\#2351](https://github.com/phili67/ecclesiacrm/pull/2351) ([phili67](https://github.com/phili67))
-- Token simplifications [\#2348](https://github.com/phili67/ecclesiacrm/pull/2348) ([phili67](https://github.com/phili67))
-- Phili67 single bug res [\#2343](https://github.com/phili67/ecclesiacrm/pull/2343) ([phili67](https://github.com/phili67))
-- Search field : firefox [\#2340](https://github.com/phili67/ecclesiacrm/pull/2340) ([phili67](https://github.com/phili67))
-- Phili67 bug correction calendar utf8 font [\#2338](https://github.com/phili67/ecclesiacrm/pull/2338) ([phili67](https://github.com/phili67))
-- Phili67 jwt per user [\#2327](https://github.com/phili67/ecclesiacrm/pull/2327) ([phili67](https://github.com/phili67))
-- Phili67 listevent make checkout [\#2324](https://github.com/phili67/ecclesiacrm/pull/2324) ([phili67](https://github.com/phili67))
-- Phili67 plugin update upgrade [\#2323](https://github.com/phili67/ecclesiacrm/pull/2323) ([phili67](https://github.com/phili67))
-- Phili67 login enhancement 2fa [\#2318](https://github.com/phili67/ecclesiacrm/pull/2318) ([phili67](https://github.com/phili67))
-- Phili67 userlist update [\#2314](https://github.com/phili67/ecclesiacrm/pull/2314) ([phili67](https://github.com/phili67))
-- Meeting code [\#2311](https://github.com/phili67/ecclesiacrm/pull/2311) ([phili67](https://github.com/phili67))
-- Phili67 plugin dashboard enhancement [\#2296](https://github.com/phili67/ecclesiacrm/pull/2296) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Synchronize/EDrivePageItem.php : synchronize + filema… [\#2295](https://github.com/phili67/ecclesiacrm/pull/2295) ([phili67](https://github.com/phili67))
-- Phili67 account take control [\#2293](https://github.com/phili67/ecclesiacrm/pull/2293) ([phili67](https://github.com/phili67))
-- Phili67 calendar full upgrade [\#2282](https://github.com/phili67/ecclesiacrm/pull/2282) ([phili67](https://github.com/phili67))
-- pastoralcarelistforuser.php : order by date [\#2281](https://github.com/phili67/ecclesiacrm/pull/2281) ([phili67](https://github.com/phili67))
-- PersonView update [\#2279](https://github.com/phili67/ecclesiacrm/pull/2279) ([phili67](https://github.com/phili67))
-- external route ident for plugins [\#2251](https://github.com/phili67/ecclesiacrm/pull/2251) ([phili67](https://github.com/phili67))
-- Group manager + sundayschool [\#2246](https://github.com/phili67/ecclesiacrm/pull/2246) ([phili67](https://github.com/phili67))
-- A group manager can change the group assigments [\#2245](https://github.com/phili67/ecclesiacrm/pull/2245) ([phili67](https://github.com/phili67))
-- sql plugin install [\#2242](https://github.com/phili67/ecclesiacrm/pull/2242) ([phili67](https://github.com/phili67))
-- Phili67 dashboard plugins css js [\#2240](https://github.com/phili67/ecclesiacrm/pull/2240) ([phili67](https://github.com/phili67))
-- Phili67 user is logged in [\#2239](https://github.com/phili67/ecclesiacrm/pull/2239) ([phili67](https://github.com/phili67))
-- Plugins js code relocation [\#2225](https://github.com/phili67/ecclesiacrm/pull/2225) ([phili67](https://github.com/phili67))
-- Timeline note update : bug res [\#2222](https://github.com/phili67/ecclesiacrm/pull/2222) ([phili67](https://github.com/phili67))
-- src/Include/Header-HTML-Scripts.php : include css plugin in the main … [\#2221](https://github.com/phili67/ecclesiacrm/pull/2221) ([phili67](https://github.com/phili67))
-- src/EventNames.php : add event name color [\#2215](https://github.com/phili67/ecclesiacrm/pull/2215) ([phili67](https://github.com/phili67))
-- Phili67 calendar global checkbox [\#2213](https://github.com/phili67/ecclesiacrm/pull/2213) ([phili67](https://github.com/phili67))
-- src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php : in f… [\#2211](https://github.com/phili67/ecclesiacrm/pull/2211) ([phili67](https://github.com/phili67))
-- CalendarV2Controller.php : share message info [\#2206](https://github.com/phili67/ecclesiacrm/pull/2206) ([phili67](https://github.com/phili67))
-- Calendar tooltip desc [\#2205](https://github.com/phili67/ecclesiacrm/pull/2205) ([phili67](https://github.com/phili67))
-- Phili67 calendar update color event type [\#2204](https://github.com/phili67/ecclesiacrm/pull/2204) ([phili67](https://github.com/phili67))
-- Plugins/ToDoListDashboard/skin/ToDoListDashboard.js : code clarificat… [\#2201](https://github.com/phili67/ecclesiacrm/pull/2201) ([phili67](https://github.com/phili67))
-- Phili67 dashboard plugin center [\#2198](https://github.com/phili67/ecclesiacrm/pull/2198) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/loadDatabase.php : update [\#2197](https://github.com/phili67/ecclesiacrm/pull/2197) ([phili67](https://github.com/phili67))
-- Phili67 dashboard plugin user admin rights [\#2195](https://github.com/phili67/ecclesiacrm/pull/2195) ([phili67](https://github.com/phili67))
-- Plugins autoload [\#2189](https://github.com/phili67/ecclesiacrm/pull/2189) ([phili67](https://github.com/phili67))
-- Plugins autoload [\#2185](https://github.com/phili67/ecclesiacrm/pull/2185) ([phili67](https://github.com/phili67))
-- Dashboard collapsed plugin feature [\#2184](https://github.com/phili67/ecclesiacrm/pull/2184) ([phili67](https://github.com/phili67))
-- Dashboard plugins + securities [\#2182](https://github.com/phili67/ecclesiacrm/pull/2182) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Bootstrapper.php : for propel last version [\#2181](https://github.com/phili67/ecclesiacrm/pull/2181) ([phili67](https://github.com/phili67))
-- SystemSettings upgrade [\#2173](https://github.com/phili67/ecclesiacrm/pull/2173) ([phili67](https://github.com/phili67))
-- Phili67 createpluginarch.sh upgrade 2 [\#2167](https://github.com/phili67/ecclesiacrm/pull/2167) ([phili67](https://github.com/phili67))
-- User.php plugin : role admin usr + getCalendarForUserByCalendarId [\#2136](https://github.com/phili67/ecclesiacrm/pull/2136) ([phili67](https://github.com/phili67))
-- Phili67 verify family token 20 2weeks [\#2127](https://github.com/phili67/ecclesiacrm/pull/2127) ([phili67](https://github.com/phili67))
-- Phili67 verify family [\#2126](https://github.com/phili67/ecclesiacrm/pull/2126) ([phili67](https://github.com/phili67))
-- Phili67 volunteer opportunity color icon [\#2125](https://github.com/phili67/ecclesiacrm/pull/2125) ([phili67](https://github.com/phili67))
-- Phili67 ckeditor insert video [\#2124](https://github.com/phili67/ecclesiacrm/pull/2124) ([phili67](https://github.com/phili67))
-- Phili67 volunteer opportunity hierarchy [\#2123](https://github.com/phili67/ecclesiacrm/pull/2123) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Reports/PDF\_ComfirmReport\_EMAIL.php : for google no spam [\#2120](https://github.com/phili67/ecclesiacrm/pull/2120) ([phili67](https://github.com/phili67))
-- CalendarService.php : minor upgrade [\#2117](https://github.com/phili67/ecclesiacrm/pull/2117) ([phili67](https://github.com/phili67))
-- mailto : target='\_blank' [\#2116](https://github.com/phili67/ecclesiacrm/pull/2116) ([phili67](https://github.com/phili67))
-- Phili67 meeting jitsi upgrade [\#2114](https://github.com/phili67/ecclesiacrm/pull/2114) ([phili67](https://github.com/phili67))
-- Phili67 search autocomplete search field [\#2112](https://github.com/phili67/ecclesiacrm/pull/2112) ([phili67](https://github.com/phili67))
-- Phili67 querysqlrefactor [\#2105](https://github.com/phili67/ecclesiacrm/pull/2105) ([phili67](https://github.com/phili67))
-- Phili67 v8 upgrade install EcclesiacrmCRM with Plugins [\#2104](https://github.com/phili67/ecclesiacrm/pull/2104) ([phili67](https://github.com/phili67))
-- meetingjitsi + signature + terms [\#2103](https://github.com/phili67/ecclesiacrm/pull/2103) ([phili67](https://github.com/phili67))
-- Phili67 phili67 plugin role none user admin update [\#2100](https://github.com/phili67/ecclesiacrm/pull/2100) ([phili67](https://github.com/phili67))
-- Phili67 plugin role none user admin [\#2098](https://github.com/phili67/ecclesiacrm/pull/2098) ([phili67](https://github.com/phili67))
-- Phili67 plugin schema menu category position [\#2095](https://github.com/phili67/ecclesiacrm/pull/2095) ([phili67](https://github.com/phili67))
-- usereditor enhancements categories + ManageList sticky + buttons update [\#2092](https://github.com/phili67/ecclesiacrm/pull/2092) ([phili67](https://github.com/phili67))
-- filemanager.js : upload window enhancements [\#2091](https://github.com/phili67/ecclesiacrm/pull/2091) ([phili67](https://github.com/phili67))
-- Plugin architecture ... [\#2082](https://github.com/phili67/ecclesiacrm/pull/2082) ([phili67](https://github.com/phili67))
-- Pastoral care person and family upgrade [\#2078](https://github.com/phili67/ecclesiacrm/pull/2078) ([phili67](https://github.com/phili67))
-- Phili67 browser filemanager update [\#2072](https://github.com/phili67/ecclesiacrm/pull/2072) ([phili67](https://github.com/phili67))
-- Phili67 pastoralcare gui upgrade [\#2071](https://github.com/phili67/ecclesiacrm/pull/2071) ([phili67](https://github.com/phili67))
-- apirequest upgrade for GroupView.js + MemberView.js + PersonView.js a… [\#2066](https://github.com/phili67/ecclesiacrm/pull/2066) ([phili67](https://github.com/phili67))
-- terms : aPropTypes [\#2064](https://github.com/phili67/ecclesiacrm/pull/2064) ([phili67](https://github.com/phili67))
-- Phili67 a prop types relocation misc [\#2063](https://github.com/phili67/ecclesiacrm/pull/2063) ([phili67](https://github.com/phili67))
-- src/v2/templates/sundayschool/sundayschooldashboard.php : ajax remove [\#2062](https://github.com/phili67/ecclesiacrm/pull/2062) ([phili67](https://github.com/phili67))
-- /PDF\_Attendance.php + PDF\_RealAttendance.php : stats [\#2061](https://github.com/phili67/ecclesiacrm/pull/2061) ([phili67](https://github.com/phili67))
-- Phili67 apirequest upgrade [\#2060](https://github.com/phili67/ecclesiacrm/pull/2060) ([phili67](https://github.com/phili67))
-- Phili67 search icons upgrade [\#2059](https://github.com/phili67/ecclesiacrm/pull/2059) ([phili67](https://github.com/phili67))
-- Mailchimp : campaign default name =\> church name [\#2058](https://github.com/phili67/ecclesiacrm/pull/2058) ([phili67](https://github.com/phili67))
-- CRMJSOM : Start deletion of ajax in APIRequest [\#2041](https://github.com/phili67/ecclesiacrm/pull/2041) ([phili67](https://github.com/phili67))
-- Filemanager dark mode [\#2040](https://github.com/phili67/ecclesiacrm/pull/2040) ([phili67](https://github.com/phili67))
-- Photouploader : for iphone [\#2039](https://github.com/phili67/ecclesiacrm/pull/2039) ([phili67](https://github.com/phili67))
+## 7.5.0 (12/04/2021)
+New CRM is rewritten for :
+   * AdminLTE 3.1.0
+   * bootStrap 4.6.0
+   * php 8.0.3
+   * slim 4.7.1
+   * fullcalendar 5.6.0
+   * Dark mode (automatic or not)
+   * ckeditor in darkmode too
+   * Setup enhancements
 
-**Fixed bugs:**
+<img width="1742" alt="Capture d’écran 2021-04-14 à 00 22 25" src="https://user-images.githubusercontent.com/20263693/114628680-8b015280-9cb7-11eb-89d3-8272567c93df.png">
 
-- src/EcclesiaCRM/model/EcclesiaCRM/Person.php : bug res [\#2394](https://github.com/phili67/ecclesiacrm/pull/2394) ([phili67](https://github.com/phili67))
-- Phili67 changepassword v2 bug [\#2393](https://github.com/phili67/ecclesiacrm/pull/2393) ([phili67](https://github.com/phili67))
-- Phili67 settingsindividual v2 [\#2389](https://github.com/phili67/ecclesiacrm/pull/2389) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp bug add all members [\#2381](https://github.com/phili67/ecclesiacrm/pull/2381) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/dto/Photo.php : bug resolution [\#2380](https://github.com/phili67/ecclesiacrm/pull/2380) ([phili67](https://github.com/phili67))
-- 2FA fail warning message [\#2374](https://github.com/phili67/ecclesiacrm/pull/2374) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Service/TimelineService.php : update [\#2363](https://github.com/phili67/ecclesiacrm/pull/2363) ([phili67](https://github.com/phili67))
-- src/PersonView.php : minor update [\#2362](https://github.com/phili67/ecclesiacrm/pull/2362) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/model/EcclesiaCRM/User.php : update [\#2361](https://github.com/phili67/ecclesiacrm/pull/2361) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Service/AppIntegrityService.php : update [\#2360](https://github.com/phili67/ecclesiacrm/pull/2360) ([phili67](https://github.com/phili67))
-- PersonView timeline bug res -\> author [\#2357](https://github.com/phili67/ecclesiacrm/pull/2357) ([phili67](https://github.com/phili67))
-- JWT : slim laminas write bug res [\#2350](https://github.com/phili67/ecclesiacrm/pull/2350) ([phili67](https://github.com/phili67))
-- Mailchimp bug res [\#2349](https://github.com/phili67/ecclesiacrm/pull/2349) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp bug optimization [\#2332](https://github.com/phili67/ecclesiacrm/pull/2332) ([phili67](https://github.com/phili67))
-- Phili67 list event stats [\#2330](https://github.com/phili67/ecclesiacrm/pull/2330) ([phili67](https://github.com/phili67))
-- Login.php bug res [\#2320](https://github.com/phili67/ecclesiacrm/pull/2320) ([phili67](https://github.com/phili67))
-- EcclesiaCRM/Service/CalendarService.php : php8 bug res [\#2312](https://github.com/phili67/ecclesiacrm/pull/2312) ([phili67](https://github.com/phili67))
-- skin/js/filemanager.js : bug res [\#2305](https://github.com/phili67/ecclesiacrm/pull/2305) ([phili67](https://github.com/phili67))
-- skin/js/calendar/EventsList.js : bug res moment [\#2304](https://github.com/phili67/ecclesiacrm/pull/2304) ([phili67](https://github.com/phili67))
-- Phili67 event bug res [\#2301](https://github.com/phili67/ecclesiacrm/pull/2301) ([phili67](https://github.com/phili67))
-- CalendarEventV2Controller.php : Kiosk bug res [\#2300](https://github.com/phili67/ecclesiacrm/pull/2300) ([phili67](https://github.com/phili67))
-- src/skin/js/calendar/EventsList.js : bug res [\#2292](https://github.com/phili67/ecclesiacrm/pull/2292) ([phili67](https://github.com/phili67))
-- pastoral care bug res [\#2284](https://github.com/phili67/ecclesiacrm/pull/2284) ([phili67](https://github.com/phili67))
-- src/Plugins/MeetingJitsi/mysql/Install.sql bug res [\#2274](https://github.com/phili67/ecclesiacrm/pull/2274) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp update person family [\#2272](https://github.com/phili67/ecclesiacrm/pull/2272) ([phili67](https://github.com/phili67))
-- src/setup/routes/setup.php : bug with subdomain [\#2269](https://github.com/phili67/ecclesiacrm/pull/2269) ([phili67](https://github.com/phili67))
--  src/v2/templates/pastoralcare/pastoralcareperson.php : bug without a… [\#2268](https://github.com/phili67/ecclesiacrm/pull/2268) ([phili67](https://github.com/phili67))
-- Phili67 system upgrade bug res [\#2263](https://github.com/phili67/ecclesiacrm/pull/2263) ([phili67](https://github.com/phili67))
-- Labels font size upgrade [\#2260](https://github.com/phili67/ecclesiacrm/pull/2260) ([phili67](https://github.com/phili67))
-- src/Include/HeaderNotLoggedIn.php : bug res [\#2254](https://github.com/phili67/ecclesiacrm/pull/2254) ([phili67](https://github.com/phili67))
-- A kid should have a family in a sunday school group ! : personView [\#2237](https://github.com/phili67/ecclesiacrm/pull/2237) ([phili67](https://github.com/phili67))
-- A kid should have a family in a sundayschool group [\#2234](https://github.com/phili67/ecclesiacrm/pull/2234) ([phili67](https://github.com/phili67))
-- src/PersonView.php src/FamilyView.php : localisation resolution [\#2220](https://github.com/phili67/ecclesiacrm/pull/2220) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Service/CalendarService.php : recurrence event bug res [\#2219](https://github.com/phili67/ecclesiacrm/pull/2219) ([phili67](https://github.com/phili67))
-- Phili67 calendar bug correction [\#2209](https://github.com/phili67/ecclesiacrm/pull/2209) ([phili67](https://github.com/phili67))
-- User.php + public folder bug resolution [\#2207](https://github.com/phili67/ecclesiacrm/pull/2207) ([phili67](https://github.com/phili67))
-- src/SettingsIndividual.php : bug [\#2193](https://github.com/phili67/ecclesiacrm/pull/2193) ([phili67](https://github.com/phili67))
-- Phili67 boostrap setup bug [\#2183](https://github.com/phili67/ecclesiacrm/pull/2183) ([phili67](https://github.com/phili67))
-- install.sh script update [\#2180](https://github.com/phili67/ecclesiacrm/pull/2180) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/model/EcclesiaCRM/Group.php : bug resolution [\#2178](https://github.com/phili67/ecclesiacrm/pull/2178) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/model/EcclesiaCRM/Person.php : bug res with mailchimp [\#2177](https://github.com/phili67/ecclesiacrm/pull/2177) ([phili67](https://github.com/phili67))
-- EcclesiaCRM/User.php : bug correction for the symlink [\#2174](https://github.com/phili67/ecclesiacrm/pull/2174) ([phili67](https://github.com/phili67))
-- php 8 bug res [\#2171](https://github.com/phili67/ecclesiacrm/pull/2171) ([phili67](https://github.com/phili67))
-- Login crahs : CalDavPDO.php -\> bug resolution when mail change [\#2154](https://github.com/phili67/ecclesiacrm/pull/2154) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/MenuBar/MenuBar.php : bug res [\#2151](https://github.com/phili67/ecclesiacrm/pull/2151) ([phili67](https://github.com/phili67))
-- src/skin/js/calendar/EventsList.js : bug res [\#2150](https://github.com/phili67/ecclesiacrm/pull/2150) ([phili67](https://github.com/phili67))
-- src/skin/js/email/MailChimp/ManageList.js : manage bug res [\#2147](https://github.com/phili67/ecclesiacrm/pull/2147) ([phili67](https://github.com/phili67))
-- SundaySchoolClassView.js : bug res [\#2143](https://github.com/phili67/ecclesiacrm/pull/2143) ([phili67](https://github.com/phili67))
-- Plugin : Bug correction with user right [\#2131](https://github.com/phili67/ecclesiacrm/pull/2131) ([phili67](https://github.com/phili67))
-- Phili67 menubar plugin bug es [\#2115](https://github.com/phili67/ecclesiacrm/pull/2115) ([phili67](https://github.com/phili67))
-- src/v2/templates/group/groupview.php : minor bug resolution [\#2113](https://github.com/phili67/ecclesiacrm/pull/2113) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php bug res [\#2111](https://github.com/phili67/ecclesiacrm/pull/2111) ([phili67](https://github.com/phili67))
-- personlist.php : bug res php8.1 [\#2110](https://github.com/phili67/ecclesiacrm/pull/2110) ([phili67](https://github.com/phili67))
-- plugin : php8.0 compatibility [\#2101](https://github.com/phili67/ecclesiacrm/pull/2101) ([phili67](https://github.com/phili67))
-- cart with show cart bug res [\#2087](https://github.com/phili67/ecclesiacrm/pull/2087) ([phili67](https://github.com/phili67))
-- Plugins : Minor bug corrections [\#2084](https://github.com/phili67/ecclesiacrm/pull/2084) ([phili67](https://github.com/phili67))
-- src/Checkin.php bug resolution [\#2083](https://github.com/phili67/ecclesiacrm/pull/2083) ([phili67](https://github.com/phili67))
-- v2 : 404 bug correction [\#2077](https://github.com/phili67/ecclesiacrm/pull/2077) ([phili67](https://github.com/phili67))
-- Checkin.php bug resolution [\#2074](https://github.com/phili67/ecclesiacrm/pull/2074) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Reports/PDF\_Badge.php : font size with qr-code upgrade [\#2067](https://github.com/phili67/ecclesiacrm/pull/2067) ([phili67](https://github.com/phili67))
-- Group membercount bug correction [\#2056](https://github.com/phili67/ecclesiacrm/pull/2056) ([phili67](https://github.com/phili67))
-- GroupPropsEditor.php : bug res [\#2054](https://github.com/phili67/ecclesiacrm/pull/2054) ([phili67](https://github.com/phili67))
-- Phili67 bug sidebar res [\#2053](https://github.com/phili67/ecclesiacrm/pull/2053) ([phili67](https://github.com/phili67))
-
-**Security fixes:**
-
-- install\_or\_launch\_docker.sh : upadte for signatures [\#2373](https://github.com/phili67/ecclesiacrm/pull/2373) ([phili67](https://github.com/phili67))
-- Font awesome 6 update [\#2355](https://github.com/phili67/ecclesiacrm/pull/2355) ([phili67](https://github.com/phili67))
-- Private folder is protected too [\#2309](https://github.com/phili67/ecclesiacrm/pull/2309) ([phili67](https://github.com/phili67))
-- Phili67 excecute php file forbidden [\#2308](https://github.com/phili67/ecclesiacrm/pull/2308) ([phili67](https://github.com/phili67))
-- Phili67 public folder hack resolution [\#2307](https://github.com/phili67/ecclesiacrm/pull/2307) ([phili67](https://github.com/phili67))
-- API controllers : security update [\#2303](https://github.com/phili67/ecclesiacrm/pull/2303) ([phili67](https://github.com/phili67))
-- Phili67 to do list dashboard xss update [\#2236](https://github.com/phili67/ecclesiacrm/pull/2236) ([phili67](https://github.com/phili67))
-- Header security update : php 8.0 [\#2172](https://github.com/phili67/ecclesiacrm/pull/2172) ([phili67](https://github.com/phili67))
-- package.json security update [\#2166](https://github.com/phili67/ecclesiacrm/pull/2166) ([phili67](https://github.com/phili67))
-- composer.lock update [\#2140](https://github.com/phili67/ecclesiacrm/pull/2140) ([phili67](https://github.com/phili67))
-- ident/myprofile when a person is deactivated the user too [\#2139](https://github.com/phili67/ecclesiacrm/pull/2139) ([phili67](https://github.com/phili67))
-- symfony/http-kernel : security update [\#2132](https://github.com/phili67/ecclesiacrm/pull/2132) ([phili67](https://github.com/phili67))
-- composer update [\#2129](https://github.com/phili67/ecclesiacrm/pull/2129) ([phili67](https://github.com/phili67))
-- PersonView.php FamilyView.php : gdpr dpo code refactor [\#2099](https://github.com/phili67/ecclesiacrm/pull/2099) ([phili67](https://github.com/phili67))
-- composer : symphony upgrade [\#2057](https://github.com/phili67/ecclesiacrm/pull/2057) ([phili67](https://github.com/phili67))
-
-**Closed issues:**
-
-- test [\#2397](https://github.com/phili67/ecclesiacrm/issues/2397)
-- Coucouc [\#2299](https://github.com/phili67/ecclesiacrm/issues/2299)
-- Database first install issue [\#2278](https://github.com/phili67/ecclesiacrm/issues/2278)
-- Breaking behavior change in PHP8 : empty string are not equal to 0 anymore [\#2170](https://github.com/phili67/ecclesiacrm/issues/2170)
-- Malformed header directive in Include/Header-Security.php [\#2169](https://github.com/phili67/ecclesiacrm/issues/2169)
-- Error after installation. [\#1787](https://github.com/phili67/ecclesiacrm/issues/1787)
-
-**Merged pull requests:**
-
-- EcclesiaCRM/VIEWControllers/VIEWUserController.php : security update [\#2399](https://github.com/phili67/ecclesiacrm/pull/2399) ([phili67](https://github.com/phili67))
-- Phili67 update latlon v2 [\#2398](https://github.com/phili67/ecclesiacrm/pull/2398) ([phili67](https://github.com/phili67))
-- changepassword enhancement [\#2395](https://github.com/phili67/ecclesiacrm/pull/2395) ([phili67](https://github.com/phili67))
-- changepassword v2 [\#2392](https://github.com/phili67/ecclesiacrm/pull/2392) ([phili67](https://github.com/phili67))
-- UserEditor V2 [\#2391](https://github.com/phili67/ecclesiacrm/pull/2391) ([phili67](https://github.com/phili67))
-- terms [\#2388](https://github.com/phili67/ecclesiacrm/pull/2388) ([phili67](https://github.com/phili67))
-- family view v2 [\#2387](https://github.com/phili67/ecclesiacrm/pull/2387) ([phili67](https://github.com/phili67))
-- add Edrive/Documents/Group in the route [\#2386](https://github.com/phili67/ecclesiacrm/pull/2386) ([phili67](https://github.com/phili67))
-- terms [\#2384](https://github.com/phili67/ecclesiacrm/pull/2384) ([phili67](https://github.com/phili67))
-- Login css update [\#2378](https://github.com/phili67/ecclesiacrm/pull/2378) ([phili67](https://github.com/phili67))
-- Bump guzzlehttp/psr7 from 2.4.3 to 2.5.0 in /src [\#2377](https://github.com/phili67/ecclesiacrm/pull/2377) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump slim/psr7 from 1.6 to 1.6.1 in /src [\#2376](https://github.com/phili67/ecclesiacrm/pull/2376) ([dependabot[bot]](https://github.com/apps/dependabot))
-- terms [\#2375](https://github.com/phili67/ecclesiacrm/pull/2375) ([phili67](https://github.com/phili67))
-- package.json : update [\#2372](https://github.com/phili67/ecclesiacrm/pull/2372) ([phili67](https://github.com/phili67))
-- README.md : for vscode xdebug [\#2368](https://github.com/phili67/ecclesiacrm/pull/2368) ([phili67](https://github.com/phili67))
-- Changelog.md [\#2364](https://github.com/phili67/ecclesiacrm/pull/2364) ([phili67](https://github.com/phili67))
-- signatures : plugins [\#2359](https://github.com/phili67/ecclesiacrm/pull/2359) ([phili67](https://github.com/phili67))
-- Phili67 composer update http discovery [\#2358](https://github.com/phili67/ecclesiacrm/pull/2358) ([phili67](https://github.com/phili67))
-- Phili67 warning messages cleanup [\#2356](https://github.com/phili67/ecclesiacrm/pull/2356) ([phili67](https://github.com/phili67))
-- src/skin/scss/\_adminLTE\_update.scss : update [\#2354](https://github.com/phili67/ecclesiacrm/pull/2354) ([phili67](https://github.com/phili67))
-- new icon [\#2353](https://github.com/phili67/ecclesiacrm/pull/2353) ([phili67](https://github.com/phili67))
-- Phili67 changelog v8.0 [\#2352](https://github.com/phili67/ecclesiacrm/pull/2352) ([phili67](https://github.com/phili67))
-- Phili67 schema jwt upgrade [\#2347](https://github.com/phili67/ecclesiacrm/pull/2347) ([phili67](https://github.com/phili67))
-- composer.lock upgrade [\#2346](https://github.com/phili67/ecclesiacrm/pull/2346) ([phili67](https://github.com/phili67))
-- sql install languages update [\#2345](https://github.com/phili67/ecclesiacrm/pull/2345) ([phili67](https://github.com/phili67))
-- signatures [\#2344](https://github.com/phili67/ecclesiacrm/pull/2344) ([phili67](https://github.com/phili67))
-- terms : singles [\#2342](https://github.com/phili67/ecclesiacrm/pull/2342) ([phili67](https://github.com/phili67))
-- src/mysql/install/languages/uk\_UA.sql [\#2341](https://github.com/phili67/ecclesiacrm/pull/2341) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Reports/ChurchInfoReportTCPDF.php : for ru\_RU + uk\_UA [\#2339](https://github.com/phili67/ecclesiacrm/pull/2339) ([phili67](https://github.com/phili67))
-- Phili67 ukraine language [\#2337](https://github.com/phili67/ecclesiacrm/pull/2337) ([phili67](https://github.com/phili67))
-- Phili67 korean 2 [\#2336](https://github.com/phili67/ecclesiacrm/pull/2336) ([phili67](https://github.com/phili67))
-- Korean support [\#2335](https://github.com/phili67/ecclesiacrm/pull/2335) ([phili67](https://github.com/phili67))
-- terms [\#2334](https://github.com/phili67/ecclesiacrm/pull/2334) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/model/EcclesiaCRM/Event.php : alarm upgrade [\#2333](https://github.com/phili67/ecclesiacrm/pull/2333) ([phili67](https://github.com/phili67))
-- jquery last version [\#2331](https://github.com/phili67/ecclesiacrm/pull/2331) ([phili67](https://github.com/phili67))
-- terms [\#2329](https://github.com/phili67/ecclesiacrm/pull/2329) ([phili67](https://github.com/phili67))
-- terms [\#2328](https://github.com/phili67/ecclesiacrm/pull/2328) ([phili67](https://github.com/phili67))
-- skin/js/calendar/EventsList.js : checkout message button [\#2326](https://github.com/phili67/ecclesiacrm/pull/2326) ([phili67](https://github.com/phili67))
-- terms [\#2325](https://github.com/phili67/ecclesiacrm/pull/2325) ([phili67](https://github.com/phili67))
-- Phili67 calendar gui upgrade [\#2322](https://github.com/phili67/ecclesiacrm/pull/2322) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Service/CalendarService.php optimization v2 [\#2321](https://github.com/phili67/ecclesiacrm/pull/2321) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Service/CalendarService.php : optimizations [\#2319](https://github.com/phili67/ecclesiacrm/pull/2319) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp campaign infos [\#2317](https://github.com/phili67/ecclesiacrm/pull/2317) ([phili67](https://github.com/phili67))
-- terms [\#2316](https://github.com/phili67/ecclesiacrm/pull/2316) ([phili67](https://github.com/phili67))
-- composer u [\#2315](https://github.com/phili67/ecclesiacrm/pull/2315) ([phili67](https://github.com/phili67))
-- Phili67 css datatable update [\#2313](https://github.com/phili67/ecclesiacrm/pull/2313) ([phili67](https://github.com/phili67))
-- Phili67 code optimization [\#2310](https://github.com/phili67/ecclesiacrm/pull/2310) ([phili67](https://github.com/phili67))
-- Bump symfony/http-kernel from 5.4.15 to 5.4.20 in /src [\#2306](https://github.com/phili67/ecclesiacrm/pull/2306) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Api doc finished [\#2302](https://github.com/phili67/ecclesiacrm/pull/2302) ([phili67](https://github.com/phili67))
-- Phili67 documentation plugins 2 [\#2298](https://github.com/phili67/ecclesiacrm/pull/2298) ([phili67](https://github.com/phili67))
-- plugins dev [\#2297](https://github.com/phili67/ecclesiacrm/pull/2297) ([phili67](https://github.com/phili67))
-- Phili67 timeline icons [\#2294](https://github.com/phili67/ecclesiacrm/pull/2294) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/VIEWControllers/VIEWMapController.php : for rgpd [\#2291](https://github.com/phili67/ecclesiacrm/pull/2291) ([phili67](https://github.com/phili67))
-- Phili67 filemanager gui icons [\#2290](https://github.com/phili67/ecclesiacrm/pull/2290) ([phili67](https://github.com/phili67))
-- mailchimp optimizations v3 + dashboard + managelist [\#2289](https://github.com/phili67/ecclesiacrm/pull/2289) ([phili67](https://github.com/phili67))
-- mailchimp optimizations + css [\#2288](https://github.com/phili67/ecclesiacrm/pull/2288) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp gui 3 [\#2287](https://github.com/phili67/ecclesiacrm/pull/2287) ([phili67](https://github.com/phili67))
-- Mailchimp GUI [\#2286](https://github.com/phili67/ecclesiacrm/pull/2286) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp optimizations [\#2285](https://github.com/phili67/ecclesiacrm/pull/2285) ([phili67](https://github.com/phili67))
-- Slim optimisation [\#2283](https://github.com/phili67/ecclesiacrm/pull/2283) ([phili67](https://github.com/phili67))
-- EditEventAttendees.php + EditEventAttendees.js [\#2277](https://github.com/phili67/ecclesiacrm/pull/2277) ([phili67](https://github.com/phili67))
-- Person/Family list optimisation : delete [\#2276](https://github.com/phili67/ecclesiacrm/pull/2276) ([phili67](https://github.com/phili67))
-- Phili67 eventlist optimisation [\#2275](https://github.com/phili67/ecclesiacrm/pull/2275) ([phili67](https://github.com/phili67))
-- src/skin/js/Search/Search.js : divide first search by 2 [\#2273](https://github.com/phili67/ecclesiacrm/pull/2273) ([phili67](https://github.com/phili67))
-- Phili67 maindashboard optimization [\#2271](https://github.com/phili67/ecclesiacrm/pull/2271) ([phili67](https://github.com/phili67))
-- package.json update [\#2270](https://github.com/phili67/ecclesiacrm/pull/2270) ([phili67](https://github.com/phili67))
-- Phili67 allday event [\#2267](https://github.com/phili67/ecclesiacrm/pull/2267) ([phili67](https://github.com/phili67))
-- src/mysql/upgrade.json : update for both 7.6.0 and 8.0.0 versions [\#2266](https://github.com/phili67/ecclesiacrm/pull/2266) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/SessionUser.php : currentpage [\#2265](https://github.com/phili67/ecclesiacrm/pull/2265) ([phili67](https://github.com/phili67))
-- Add php.ini xdebug + apt : jq + gettext [\#2262](https://github.com/phili67/ecclesiacrm/pull/2262) ([phili67](https://github.com/phili67))
-- docker launch script update [\#2261](https://github.com/phili67/ecclesiacrm/pull/2261) ([phili67](https://github.com/phili67))
-- new docker script [\#2259](https://github.com/phili67/ecclesiacrm/pull/2259) ([phili67](https://github.com/phili67))
-- terms [\#2258](https://github.com/phili67/ecclesiacrm/pull/2258) ([phili67](https://github.com/phili67))
-- terms [\#2257](https://github.com/phili67/ecclesiacrm/pull/2257) ([phili67](https://github.com/phili67))
-- Phili67 docker 2 [\#2256](https://github.com/phili67/ecclesiacrm/pull/2256) ([phili67](https://github.com/phili67))
-- install.sh minor update [\#2255](https://github.com/phili67/ecclesiacrm/pull/2255) ([phili67](https://github.com/phili67))
-- Setup bug resolution : sql injection [\#2253](https://github.com/phili67/ecclesiacrm/pull/2253) ([phili67](https://github.com/phili67))
-- terms [\#2252](https://github.com/phili67/ecclesiacrm/pull/2252) ([phili67](https://github.com/phili67))
-- src/SettingsIndividual.php : gui [\#2250](https://github.com/phili67/ecclesiacrm/pull/2250) ([phili67](https://github.com/phili67))
-- src/Include/HeaderNotLoggedIn.php : for css dashboard plugins [\#2249](https://github.com/phili67/ecclesiacrm/pull/2249) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Emails/BaseEmail.php : external part \(plugins\) [\#2248](https://github.com/phili67/ecclesiacrm/pull/2248) ([phili67](https://github.com/phili67))
-- Phili67 current users dashboard update [\#2247](https://github.com/phili67/ecclesiacrm/pull/2247) ([phili67](https://github.com/phili67))
-- Phili67 pastoral care dashboard gui [\#2244](https://github.com/phili67/ecclesiacrm/pull/2244) ([phili67](https://github.com/phili67))
-- src/skin/js/sundayschool/SundaySchoolClassView.js : gui [\#2243](https://github.com/phili67/ecclesiacrm/pull/2243) ([phili67](https://github.com/phili67))
-- CurrentUsersDashboard new plugin [\#2241](https://github.com/phili67/ecclesiacrm/pull/2241) ([phili67](https://github.com/phili67))
-- terms [\#2238](https://github.com/phili67/ecclesiacrm/pull/2238) ([phili67](https://github.com/phili67))
-- NoteDashboard : sql is centered + css + xss update [\#2235](https://github.com/phili67/ecclesiacrm/pull/2235) ([phili67](https://github.com/phili67))
-- NoteDashboard plugin [\#2233](https://github.com/phili67/ecclesiacrm/pull/2233) ([phili67](https://github.com/phili67))
-- Propel sql plugin update [\#2232](https://github.com/phili67/ecclesiacrm/pull/2232) ([phili67](https://github.com/phili67))
-- locale/update-locale.sh : for plugin js code [\#2231](https://github.com/phili67/ecclesiacrm/pull/2231) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/utils/LabelUtils.php : tcpdf [\#2230](https://github.com/phili67/ecclesiacrm/pull/2230) ([phili67](https://github.com/phili67))
-- terms [\#2229](https://github.com/phili67/ecclesiacrm/pull/2229) ([phili67](https://github.com/phili67))
-- Revert "terms" [\#2228](https://github.com/phili67/ecclesiacrm/pull/2228) ([phili67](https://github.com/phili67))
-- terms [\#2224](https://github.com/phili67/ecclesiacrm/pull/2224) ([phili67](https://github.com/phili67))
-- createPluginArch.sh : update [\#2223](https://github.com/phili67/ecclesiacrm/pull/2223) ([phili67](https://github.com/phili67))
-- css update [\#2218](https://github.com/phili67/ecclesiacrm/pull/2218) ([phili67](https://github.com/phili67))
-- Phili67 translation v169 [\#2217](https://github.com/phili67/ecclesiacrm/pull/2217) ([phili67](https://github.com/phili67))
-- terms [\#2216](https://github.com/phili67/ecclesiacrm/pull/2216) ([phili67](https://github.com/phili67))
-- terms [\#2214](https://github.com/phili67/ecclesiacrm/pull/2214) ([phili67](https://github.com/phili67))
-- rc/Plugins/NewsDashboard/skin/NewsDashboard.js : gui [\#2212](https://github.com/phili67/ecclesiacrm/pull/2212) ([phili67](https://github.com/phili67))
-- Family and person dashboard gui update [\#2210](https://github.com/phili67/ecclesiacrm/pull/2210) ([phili67](https://github.com/phili67))
-- B34 : gui plugin [\#2208](https://github.com/phili67/ecclesiacrm/pull/2208) ([phili67](https://github.com/phili67))
-- terms [\#2203](https://github.com/phili67/ecclesiacrm/pull/2203) ([phili67](https://github.com/phili67))
-- Phlili67 newdashboard [\#2202](https://github.com/phili67/ecclesiacrm/pull/2202) ([phili67](https://github.com/phili67))
-- Minor plugins update [\#2200](https://github.com/phili67/ecclesiacrm/pull/2200) ([phili67](https://github.com/phili67))
-- Synchronize/FamilyDashboardItem.php + person  : limit to 6 [\#2199](https://github.com/phili67/ecclesiacrm/pull/2199) ([phili67](https://github.com/phili67))
-- terms [\#2196](https://github.com/phili67/ecclesiacrm/pull/2196) ([phili67](https://github.com/phili67))
-- terms [\#2194](https://github.com/phili67/ecclesiacrm/pull/2194) ([phili67](https://github.com/phili67))
-- terms [\#2192](https://github.com/phili67/ecclesiacrm/pull/2192) ([phili67](https://github.com/phili67))
-- Phili67 todolist plugin v1 [\#2191](https://github.com/phili67/ecclesiacrm/pull/2191) ([phili67](https://github.com/phili67))
-- Revert "Phili67 todolist plugin" [\#2190](https://github.com/phili67/ecclesiacrm/pull/2190) ([phili67](https://github.com/phili67))
-- Revert "Plugins autoload" [\#2188](https://github.com/phili67/ecclesiacrm/pull/2188) ([phili67](https://github.com/phili67))
-- Phili67 todolist plugin [\#2187](https://github.com/phili67/ecclesiacrm/pull/2187) ([phili67](https://github.com/phili67))
-- Plugin : mysql update [\#2186](https://github.com/phili67/ecclesiacrm/pull/2186) ([phili67](https://github.com/phili67))
-- composer slim update [\#2179](https://github.com/phili67/ecclesiacrm/pull/2179) ([phili67](https://github.com/phili67))
-- Bump laminas/laminas-diactoros from 2.11.0 to 2.13.0 in /src [\#2176](https://github.com/phili67/ecclesiacrm/pull/2176) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Terms [\#2168](https://github.com/phili67/ecclesiacrm/pull/2168) ([phili67](https://github.com/phili67))
-- Plugins/MeetingJitsi/locale/js/en\_\* [\#2165](https://github.com/phili67/ecclesiacrm/pull/2165) ([phili67](https://github.com/phili67))
-- composer guzzle update [\#2164](https://github.com/phili67/ecclesiacrm/pull/2164) ([phili67](https://github.com/phili67))
-- Phili67 dashboard item optimizations [\#2159](https://github.com/phili67/ecclesiacrm/pull/2159) ([phili67](https://github.com/phili67))
-- synchronisation upgrade [\#2158](https://github.com/phili67/ecclesiacrm/pull/2158) ([phili67](https://github.com/phili67))
-- composer.lock upgrade [\#2157](https://github.com/phili67/ecclesiacrm/pull/2157) ([phili67](https://github.com/phili67))
-- Bump guzzlehttp/guzzle from 7.4.2 to 7.4.3 in /src [\#2156](https://github.com/phili67/ecclesiacrm/pull/2156) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump guzzlehttp/guzzle from 6.3.3 to 6.5.6 in /tests [\#2155](https://github.com/phili67/ecclesiacrm/pull/2155) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Phili67 plugin arch emailer [\#2153](https://github.com/phili67/ecclesiacrm/pull/2153) ([phili67](https://github.com/phili67))
-- terms [\#2152](https://github.com/phili67/ecclesiacrm/pull/2152) ([phili67](https://github.com/phili67))
-- terms [\#2149](https://github.com/phili67/ecclesiacrm/pull/2149) ([phili67](https://github.com/phili67))
-- Phili67 calendar events update [\#2148](https://github.com/phili67/ecclesiacrm/pull/2148) ([phili67](https://github.com/phili67))
-- Phili67 event link [\#2146](https://github.com/phili67/ecclesiacrm/pull/2146) ([phili67](https://github.com/phili67))
-- src/skin/js/finance/DepositSlipEditor.js : upgrade [\#2145](https://github.com/phili67/ecclesiacrm/pull/2145) ([phili67](https://github.com/phili67))
-- src/skin/scss/\_eventworkflow.scss : upgrade [\#2144](https://github.com/phili67/ecclesiacrm/pull/2144) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/sabre/CalDavPDO.php : getCalendarForUserByCalendarId … [\#2142](https://github.com/phili67/ecclesiacrm/pull/2142) ([phili67](https://github.com/phili67))
-- PluginsController.php + Plugins.js + for subdomain [\#2141](https://github.com/phili67/ecclesiacrm/pull/2141) ([phili67](https://github.com/phili67))
-- terms [\#2138](https://github.com/phili67/ecclesiacrm/pull/2138) ([phili67](https://github.com/phili67))
-- Bump guzzlehttp/psr7 from 1.5.2 to 1.8.5 in /tests [\#2135](https://github.com/phili67/ecclesiacrm/pull/2135) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Plugins/MeetingJitsi/signatures.json update [\#2134](https://github.com/phili67/ecclesiacrm/pull/2134) ([phili67](https://github.com/phili67))
-- install.sh upgrade script [\#2133](https://github.com/phili67/ecclesiacrm/pull/2133) ([phili67](https://github.com/phili67))
-- Changelog upgrade [\#2130](https://github.com/phili67/ecclesiacrm/pull/2130) ([phili67](https://github.com/phili67))
-- Plugins/MeetingJitsi/ upgrade [\#2128](https://github.com/phili67/ecclesiacrm/pull/2128) ([phili67](https://github.com/phili67))
-- Phili67 calendar minor update [\#2122](https://github.com/phili67/ecclesiacrm/pull/2122) ([phili67](https://github.com/phili67))
-- border-1 [\#2121](https://github.com/phili67/ecclesiacrm/pull/2121) ([phili67](https://github.com/phili67))
-- evenworkflow scss [\#2118](https://github.com/phili67/ecclesiacrm/pull/2118) ([phili67](https://github.com/phili67))
-- Jitsi plugin update [\#2108](https://github.com/phili67/ecclesiacrm/pull/2108) ([phili67](https://github.com/phili67))
-- Phili67 createpluginarch sh upgrade [\#2107](https://github.com/phili67/ecclesiacrm/pull/2107) ([phili67](https://github.com/phili67))
-- Phili67 runquery relocalisation [\#2106](https://github.com/phili67/ecclesiacrm/pull/2106) ([phili67](https://github.com/phili67))
-- Phili67 translation v157 [\#2102](https://github.com/phili67/ecclesiacrm/pull/2102) ([phili67](https://github.com/phili67))
-- Phili67 form control sm 2 [\#2097](https://github.com/phili67/ecclesiacrm/pull/2097) ([phili67](https://github.com/phili67))
-- Phili67 plugins upgrade simplification [\#2096](https://github.com/phili67/ecclesiacrm/pull/2096) ([phili67](https://github.com/phili67))
-- form-control-sm [\#2094](https://github.com/phili67/ecclesiacrm/pull/2094) ([phili67](https://github.com/phili67))
-- input-sm to form-control-sm [\#2093](https://github.com/phili67/ecclesiacrm/pull/2093) ([phili67](https://github.com/phili67))
-- Phili67 translation v156 [\#2090](https://github.com/phili67/ecclesiacrm/pull/2090) ([phili67](https://github.com/phili67))
-- Revert "Phili67 translation v155" [\#2089](https://github.com/phili67/ecclesiacrm/pull/2089) ([phili67](https://github.com/phili67))
-- Phili67 translation v155 [\#2086](https://github.com/phili67/ecclesiacrm/pull/2086) ([phili67](https://github.com/phili67))
-- package.json : node-sass update [\#2085](https://github.com/phili67/ecclesiacrm/pull/2085) ([phili67](https://github.com/phili67))
-- Phili67 v8.0 version [\#2081](https://github.com/phili67/ecclesiacrm/pull/2081) ([phili67](https://github.com/phili67))
-- terms [\#2080](https://github.com/phili67/ecclesiacrm/pull/2080) ([phili67](https://github.com/phili67))
-- b17 [\#2079](https://github.com/phili67/ecclesiacrm/pull/2079) ([phili67](https://github.com/phili67))
-- src/Checkin.php : bug res [\#2076](https://github.com/phili67/ecclesiacrm/pull/2076) ([phili67](https://github.com/phili67))
-- Kiosk ajax remove 2 [\#2075](https://github.com/phili67/ecclesiacrm/pull/2075) ([phili67](https://github.com/phili67))
-- terms [\#2073](https://github.com/phili67/ecclesiacrm/pull/2073) ([phili67](https://github.com/phili67))
-- terms [\#2070](https://github.com/phili67/ecclesiacrm/pull/2070) ([phili67](https://github.com/phili67))
-- terms [\#2069](https://github.com/phili67/ecclesiacrm/pull/2069) ([phili67](https://github.com/phili67))
-- Card Header no border [\#2068](https://github.com/phili67/ecclesiacrm/pull/2068) ([phili67](https://github.com/phili67))
-- Phili67 gui [\#2065](https://github.com/phili67/ecclesiacrm/pull/2065) ([phili67](https://github.com/phili67))
-- Ajax removal [\#2055](https://github.com/phili67/ecclesiacrm/pull/2055) ([phili67](https://github.com/phili67))
-- src/v2/templates/group/groupview.php : gui update \(group manager\) [\#2052](https://github.com/phili67/ecclesiacrm/pull/2052) ([phili67](https://github.com/phili67))
-- PastoralCareController.php + SidebarPropertiesController.php default … [\#2051](https://github.com/phili67/ecclesiacrm/pull/2051) ([phili67](https://github.com/phili67))
-- src/skin/js/CRMJSOM.js : update [\#2047](https://github.com/phili67/ecclesiacrm/pull/2047) ([phili67](https://github.com/phili67))
-- search.js new api [\#2046](https://github.com/phili67/ecclesiacrm/pull/2046) ([phili67](https://github.com/phili67))
-- terms [\#2045](https://github.com/phili67/ecclesiacrm/pull/2045) ([phili67](https://github.com/phili67))
-- src/Include/Header-function.php : buttons + select row size [\#2044](https://github.com/phili67/ecclesiacrm/pull/2044) ([phili67](https://github.com/phili67))
-- Phili67 personview edrive gui 2 [\#2043](https://github.com/phili67/ecclesiacrm/pull/2043) ([phili67](https://github.com/phili67))
-- Phili67 managelist gui 2 [\#2042](https://github.com/phili67/ecclesiacrm/pull/2042) ([phili67](https://github.com/phili67))
-- Bump mustache/mustache from 2.14.0 to 2.14.1 in /src [\#2038](https://github.com/phili67/ecclesiacrm/pull/2038) ([dependabot[bot]](https://github.com/apps/dependabot))
-- src/EcclesiaCRM/Service/CalendarService.php : attendees button ever e… [\#2037](https://github.com/phili67/ecclesiacrm/pull/2037) ([phili67](https://github.com/phili67))
-- Phili67 managelist gui [\#2036](https://github.com/phili67/ecclesiacrm/pull/2036) ([phili67](https://github.com/phili67))
-- PHP 7.4 minimal requirement now [\#2035](https://github.com/phili67/ecclesiacrm/pull/2035) ([phili67](https://github.com/phili67))
-- Phili67 schema main update [\#2034](https://github.com/phili67/ecclesiacrm/pull/2034) ([phili67](https://github.com/phili67))
-- TimeLine css update [\#2033](https://github.com/phili67/ecclesiacrm/pull/2033) ([phili67](https://github.com/phili67))
-- terms [\#2032](https://github.com/phili67/ecclesiacrm/pull/2032) ([phili67](https://github.com/phili67))
-- Phili67 photoupload bug corrections [\#2031](https://github.com/phili67/ecclesiacrm/pull/2031) ([phili67](https://github.com/phili67))
-- PastoreCare bug + filters improvements [\#2030](https://github.com/phili67/ecclesiacrm/pull/2030) ([phili67](https://github.com/phili67))
-- XSS attack : PeopleAttendeesController.php + PastoralCareController.php [\#2029](https://github.com/phili67/ecclesiacrm/pull/2029) ([phili67](https://github.com/phili67))
-- Font awesome v4 [\#2028](https://github.com/phili67/ecclesiacrm/pull/2028) ([phili67](https://github.com/phili67))
-- Mailchimp gui enhancements 2 [\#2027](https://github.com/phili67/ecclesiacrm/pull/2027) ([phili67](https://github.com/phili67))
-- Fontawesome v3 [\#2026](https://github.com/phili67/ecclesiacrm/pull/2026) ([phili67](https://github.com/phili67))
-- Phili67 personeditor birtdaydate update [\#2025](https://github.com/phili67/ecclesiacrm/pull/2025) ([phili67](https://github.com/phili67))
-- Fontawesome v2 [\#2024](https://github.com/phili67/ecclesiacrm/pull/2024) ([phili67](https://github.com/phili67))
-- Phili67 font awesome new v1 [\#2023](https://github.com/phili67/ecclesiacrm/pull/2023) ([phili67](https://github.com/phili67))
-- ManageList.js : icon and text gui [\#2022](https://github.com/phili67/ecclesiacrm/pull/2022) ([phili67](https://github.com/phili67))
-- CKeditor update : fonts + icons relocations [\#2021](https://github.com/phili67/ecclesiacrm/pull/2021) ([phili67](https://github.com/phili67))
-- Mailchimp : api update + ecclesiacrm update [\#2020](https://github.com/phili67/ecclesiacrm/pull/2020) ([phili67](https://github.com/phili67))
-- Phili67 editattendees v2 [\#2019](https://github.com/phili67/ecclesiacrm/pull/2019) ([phili67](https://github.com/phili67))
-- SundaySchoolView.php private datas [\#2018](https://github.com/phili67/ecclesiacrm/pull/2018) ([phili67](https://github.com/phili67))
-- src/skin/js/calendar/EventsList.js : buttons enhancements [\#2017](https://github.com/phili67/ecclesiacrm/pull/2017) ([phili67](https://github.com/phili67))
-- Phili67 calendar side bar enhancements [\#2016](https://github.com/phili67/ecclesiacrm/pull/2016) ([phili67](https://github.com/phili67))
-- terms [\#2015](https://github.com/phili67/ecclesiacrm/pull/2015) ([phili67](https://github.com/phili67))
-- Revert "terms" [\#2014](https://github.com/phili67/ecclesiacrm/pull/2014) ([phili67](https://github.com/phili67))
-- terms [\#2013](https://github.com/phili67/ecclesiacrm/pull/2013) ([phili67](https://github.com/phili67))
-- src/skin/js/calendar/EventEditor.js : free attendees is bigger [\#2012](https://github.com/phili67/ecclesiacrm/pull/2012) ([phili67](https://github.com/phili67))
-- Checkin.php refactor [\#2011](https://github.com/phili67/ecclesiacrm/pull/2011) ([phili67](https://github.com/phili67))
-- DatePicker : bug res with adminlte nav bat fix [\#2010](https://github.com/phili67/ecclesiacrm/pull/2010) ([phili67](https://github.com/phili67))
-- Phili67 pdf csv attendees free [\#2009](https://github.com/phili67/ecclesiacrm/pull/2009) ([phili67](https://github.com/phili67))
-- Phili67 events list minor update [\#2008](https://github.com/phili67/ecclesiacrm/pull/2008) ([phili67](https://github.com/phili67))
-- src/skin/js/user/UserList.js : time + date order [\#2007](https://github.com/phili67/ecclesiacrm/pull/2007) ([phili67](https://github.com/phili67))
-- 7.6.0-upgrade.php : remove ListEvents.php + ListEvent.js + GetText.php [\#2006](https://github.com/phili67/ecclesiacrm/pull/2006) ([phili67](https://github.com/phili67))
-
-## [7.6.0](https://github.com/phili67/ecclesiacrm/tree/7.6.0) (2022-01-18)
-
-[Full Changelog](https://github.com/phili67/ecclesiacrm/compare/7.5.0...7.6.0)
-
-**Closed issues:**
-
-- Non mise à jour des coordonnées GPS [\#1913](https://github.com/phili67/ecclesiacrm/issues/1913)
-- Trying to get in touch regarding a security issue [\#1902](https://github.com/phili67/ecclesiacrm/issues/1902)
-- Bug mise à jour des coordonnées GPS [\#1789](https://github.com/phili67/ecclesiacrm/issues/1789)
-
-**Merged pull requests:**
-
-- Phili67 events list new gui [\#2005](https://github.com/phili67/ecclesiacrm/pull/2005) ([phili67](https://github.com/phili67))
-- Phili67 recurrence id bug res [\#2004](https://github.com/phili67/ecclesiacrm/pull/2004) ([phili67](https://github.com/phili67))
-- Phili67 event code clarifications [\#2003](https://github.com/phili67/ecclesiacrm/pull/2003) ([phili67](https://github.com/phili67))
-- DocumentDocumentController.php : xss attack [\#2002](https://github.com/phili67/ecclesiacrm/pull/2002) ([phili67](https://github.com/phili67))
-- Phili67 html source editor [\#2001](https://github.com/phili67/ecclesiacrm/pull/2001) ([phili67](https://github.com/phili67))
-- An adminstrator can avoid to be a mailchimp admin \(speed\) [\#2000](https://github.com/phili67/ecclesiacrm/pull/2000) ([phili67](https://github.com/phili67))
-- CalendarEventV2Controller.php : event modification bug correction [\#1999](https://github.com/phili67/ecclesiacrm/pull/1999) ([phili67](https://github.com/phili67))
-- Phili67 filemanager improvements [\#1998](https://github.com/phili67/ecclesiacrm/pull/1998) ([phili67](https://github.com/phili67))
-- Phili67 wordformat export [\#1997](https://github.com/phili67/ecclesiacrm/pull/1997) ([phili67](https://github.com/phili67))
-- APIControllers : write response with json datas bug res [\#1996](https://github.com/phili67/ecclesiacrm/pull/1996) ([phili67](https://github.com/phili67))
-- Phili67 v2 view controllers [\#1995](https://github.com/phili67/ecclesiacrm/pull/1995) ([phili67](https://github.com/phili67))
-- lost terms [\#1994](https://github.com/phili67/ecclesiacrm/pull/1994) ([phili67](https://github.com/phili67))
-- src/skin/js/email/MailChimp/ManageList.js : gui update [\#1993](https://github.com/phili67/ecclesiacrm/pull/1993) ([phili67](https://github.com/phili67))
-- Terms + update-locale.sh update [\#1992](https://github.com/phili67/ecclesiacrm/pull/1992) ([phili67](https://github.com/phili67))
-- campaign.php : 15 minutes messages [\#1991](https://github.com/phili67/ecclesiacrm/pull/1991) ([phili67](https://github.com/phili67))
-- terms [\#1990](https://github.com/phili67/ecclesiacrm/pull/1990) ([phili67](https://github.com/phili67))
-- Login.php : bug res switch person [\#1989](https://github.com/phili67/ecclesiacrm/pull/1989) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp last upgrade [\#1988](https://github.com/phili67/ecclesiacrm/pull/1988) ([phili67](https://github.com/phili67))
-- mailchimp upgrade gui [\#1987](https://github.com/phili67/ecclesiacrm/pull/1987) ([phili67](https://github.com/phili67))
-- Calendarevent edition in recurrence event [\#1986](https://github.com/phili67/ecclesiacrm/pull/1986) ([phili67](https://github.com/phili67))
-- MailchimpController.php : monor bug correction [\#1985](https://github.com/phili67/ecclesiacrm/pull/1985) ([phili67](https://github.com/phili67))
-- campaign upgrade for extra font management [\#1984](https://github.com/phili67/ecclesiacrm/pull/1984) ([phili67](https://github.com/phili67))
-- EcclesiaCRM/APIControllers/CalendarEventV2Controller.php : change cal… [\#1982](https://github.com/phili67/ecclesiacrm/pull/1982) ([phili67](https://github.com/phili67))
-- Phili67 server minor upgrade [\#1981](https://github.com/phili67/ecclesiacrm/pull/1981) ([phili67](https://github.com/phili67))
-- Phili67 resource management slot resize modify bug 1 [\#1980](https://github.com/phili67/ecclesiacrm/pull/1980) ([phili67](https://github.com/phili67))
-- Phili67 calendardav upgrade [\#1979](https://github.com/phili67/ecclesiacrm/pull/1979) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Emails/users/BaseUserEmail.php bug correction [\#1978](https://github.com/phili67/ecclesiacrm/pull/1978) ([phili67](https://github.com/phili67))
-- src/skin/js/calendar/CalendarV2.js : message when you delete an event… [\#1977](https://github.com/phili67/ecclesiacrm/pull/1977) ([phili67](https://github.com/phili67))
-- Phili67 resource management person owner [\#1976](https://github.com/phili67/ecclesiacrm/pull/1976) ([phili67](https://github.com/phili67))
-- Phili67 resource management slot resize modify bug [\#1975](https://github.com/phili67/ecclesiacrm/pull/1975) ([phili67](https://github.com/phili67))
-- EcclesiaCRM/APIControllers/CalendarEventV2Controller.php : is done [\#1974](https://github.com/phili67/ecclesiacrm/pull/1974) ([phili67](https://github.com/phili67))
-- Phili67 resource management slot move [\#1973](https://github.com/phili67/ecclesiacrm/pull/1973) ([phili67](https://github.com/phili67))
-- Phili67 pastoralcare search enhancements [\#1972](https://github.com/phili67/ecclesiacrm/pull/1972) ([phili67](https://github.com/phili67))
-- Minor update [\#1971](https://github.com/phili67/ecclesiacrm/pull/1971) ([phili67](https://github.com/phili67))
-- Lost works [\#1970](https://github.com/phili67/ecclesiacrm/pull/1970) ([phili67](https://github.com/phili67))
-- Phili67 resource management slot [\#1969](https://github.com/phili67/ecclesiacrm/pull/1969) ([phili67](https://github.com/phili67))
-- Boostraper log deletion [\#1968](https://github.com/phili67/ecclesiacrm/pull/1968) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp improvement speed [\#1967](https://github.com/phili67/ecclesiacrm/pull/1967) ([phili67](https://github.com/phili67))
-- Minor bug GUI right sidebar [\#1965](https://github.com/phili67/ecclesiacrm/pull/1965) ([phili67](https://github.com/phili67))
-- terms for Mailchimp [\#1964](https://github.com/phili67/ecclesiacrm/pull/1964) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp improvements [\#1963](https://github.com/phili67/ecclesiacrm/pull/1963) ([phili67](https://github.com/phili67))
-- add vi\_VI.sql translation [\#1962](https://github.com/phili67/ecclesiacrm/pull/1962) ([phili67](https://github.com/phili67))
-- Phili67 terms 2fa login [\#1961](https://github.com/phili67/ecclesiacrm/pull/1961) ([phili67](https://github.com/phili67))
-- Phili67 2fa [\#1960](https://github.com/phili67/ecclesiacrm/pull/1960) ([phili67](https://github.com/phili67))
-- terms [\#1959](https://github.com/phili67/ecclesiacrm/pull/1959) ([phili67](https://github.com/phili67))
-- Phili67 thailand sql [\#1958](https://github.com/phili67/ecclesiacrm/pull/1958) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp list rgpd [\#1957](https://github.com/phili67/ecclesiacrm/pull/1957) ([phili67](https://github.com/phili67))
-- GroupService.php bug resolution [\#1956](https://github.com/phili67/ecclesiacrm/pull/1956) ([phili67](https://github.com/phili67))
-- Phili67 tranlation of sql files [\#1955](https://github.com/phili67/ecclesiacrm/pull/1955) ([phili67](https://github.com/phili67))
-- Phili67 package grunt update [\#1954](https://github.com/phili67/ecclesiacrm/pull/1954) ([phili67](https://github.com/phili67))
-- Add Vietnam languages [\#1953](https://github.com/phili67/ecclesiacrm/pull/1953) ([phili67](https://github.com/phili67))
-- ChurchInfoReportTCPDF : for other languages [\#1952](https://github.com/phili67/ecclesiacrm/pull/1952) ([phili67](https://github.com/phili67))
-- better search engine : multilingual [\#1951](https://github.com/phili67/ecclesiacrm/pull/1951) ([phili67](https://github.com/phili67))
-- Phili67 dashboard split single family [\#1950](https://github.com/phili67/ecclesiacrm/pull/1950) ([phili67](https://github.com/phili67))
-- package.json : update [\#1949](https://github.com/phili67/ecclesiacrm/pull/1949) ([phili67](https://github.com/phili67))
-- Phili67 datatable messages evolution [\#1948](https://github.com/phili67/ecclesiacrm/pull/1948) ([phili67](https://github.com/phili67))
-- PersonView.php + FamilyView privicy messages [\#1947](https://github.com/phili67/ecclesiacrm/pull/1947) ([phili67](https://github.com/phili67))
-- PersonView & FamilyView skin upgrade [\#1946](https://github.com/phili67/ecclesiacrm/pull/1946) ([phili67](https://github.com/phili67))
-- CSS nice upgrade [\#1945](https://github.com/phili67/ecclesiacrm/pull/1945) ([phili67](https://github.com/phili67))
-- Family register : checkbox bug resolution [\#1944](https://github.com/phili67/ecclesiacrm/pull/1944) ([phili67](https://github.com/phili67))
-- Add Indy, Romain, Poland, Norvegian, Albanian, Thai [\#1943](https://github.com/phili67/ecclesiacrm/pull/1943) ([phili67](https://github.com/phili67))
-- src/Include/Header.php : fullscreenbutton [\#1942](https://github.com/phili67/ecclesiacrm/pull/1942) ([phili67](https://github.com/phili67))
-- new login and external cards [\#1941](https://github.com/phili67/ecclesiacrm/pull/1941) ([phili67](https://github.com/phili67))
-- src/skin/js/sundayschool/SundaySchoolClassView.js : chart bug month [\#1940](https://github.com/phili67/ecclesiacrm/pull/1940) ([phili67](https://github.com/phili67))
-- src/v2/templates/pastoralcare/pastoralcaredashboard.php bug resolution [\#1939](https://github.com/phili67/ecclesiacrm/pull/1939) ([phili67](https://github.com/phili67))
-- Family model : coordinates update [\#1938](https://github.com/phili67/ecclesiacrm/pull/1938) ([phili67](https://github.com/phili67))
-- terms [\#1937](https://github.com/phili67/ecclesiacrm/pull/1937) ([phili67](https://github.com/phili67))
-- Terms : arabic + danemark [\#1935](https://github.com/phili67/ecclesiacrm/pull/1935) ([phili67](https://github.com/phili67))
-- Phili67 finish translation process [\#1934](https://github.com/phili67/ecclesiacrm/pull/1934) ([phili67](https://github.com/phili67))
-- Danish + finish languages [\#1933](https://github.com/phili67/ecclesiacrm/pull/1933) ([phili67](https://github.com/phili67))
-- terms [\#1932](https://github.com/phili67/ecclesiacrm/pull/1932) ([phili67](https://github.com/phili67))
-- src/mysql/upgrade/7.6.0-upgrade.php : delete unuseful file \(/Ecclesia… [\#1931](https://github.com/phili67/ecclesiacrm/pull/1931) ([phili67](https://github.com/phili67))
-- Phili67 mailchimp set user email vy default [\#1930](https://github.com/phili67/ecclesiacrm/pull/1930) ([phili67](https://github.com/phili67))
-- Phili67 systemdbupdate callout [\#1929](https://github.com/phili67/ecclesiacrm/pull/1929) ([phili67](https://github.com/phili67))
-- Phili67 familiview add pdf report bug crmjsom [\#1928](https://github.com/phili67/ecclesiacrm/pull/1928) ([phili67](https://github.com/phili67))
-- EcclesiaCRM/Reports/PDF\_ComfirmReport\_EMAIL.php new classes [\#1927](https://github.com/phili67/ecclesiacrm/pull/1927) ([phili67](https://github.com/phili67))
-- Add hungarian + greek + sweden languages [\#1926](https://github.com/phili67/ecclesiacrm/pull/1926) ([phili67](https://github.com/phili67))
-- Phili67 sql injection solution [\#1925](https://github.com/phili67/ecclesiacrm/pull/1925) ([phili67](https://github.com/phili67))
-- Phili67 pdf report in japanese russian + currencies [\#1924](https://github.com/phili67/ecclesiacrm/pull/1924) ([phili67](https://github.com/phili67))
-- People controllers minor bug res [\#1923](https://github.com/phili67/ecclesiacrm/pull/1923) ([phili67](https://github.com/phili67))
-- Phili67 translation v138 [\#1922](https://github.com/phili67/ecclesiacrm/pull/1922) ([phili67](https://github.com/phili67))
-- Boostraper : minor bug resolution [\#1921](https://github.com/phili67/ecclesiacrm/pull/1921) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/utils/OutputUtils.php : date format for russian japan… [\#1919](https://github.com/phili67/ecclesiacrm/pull/1919) ([phili67](https://github.com/phili67))
-- JP, NL, SW, RU languages [\#1918](https://github.com/phili67/ecclesiacrm/pull/1918) ([phili67](https://github.com/phili67))
-- composer.lock upgrade [\#1917](https://github.com/phili67/ecclesiacrm/pull/1917) ([phili67](https://github.com/phili67))
-- package.json upgrade [\#1916](https://github.com/phili67/ecclesiacrm/pull/1916) ([phili67](https://github.com/phili67))
-- PersonSearchRes.php : bug res [\#1915](https://github.com/phili67/ecclesiacrm/pull/1915) ([phili67](https://github.com/phili67))
-- CalendarEventV2Controller : bug correction [\#1914](https://github.com/phili67/ecclesiacrm/pull/1914) ([phili67](https://github.com/phili67))
-- skin/js/Footer.js : select2 jquery bug resolution [\#1912](https://github.com/phili67/ecclesiacrm/pull/1912) ([phili67](https://github.com/phili67))
-- Upgrade + LatestReleaseTask : bug res + link [\#1911](https://github.com/phili67/ecclesiacrm/pull/1911) ([phili67](https://github.com/phili67))
-- CSVCreateFile.php : no RunQuery [\#1910](https://github.com/phili67/ecclesiacrm/pull/1910) ([phili67](https://github.com/phili67))
-- mysql : bug resolution gdpr [\#1909](https://github.com/phili67/ecclesiacrm/pull/1909) ([phili67](https://github.com/phili67))
-- Person Mailchimp activation and de-activation [\#1908](https://github.com/phili67/ecclesiacrm/pull/1908) ([phili67](https://github.com/phili67))
-- Include/Footer.php : upgrade title bug resolution [\#1907](https://github.com/phili67/ecclesiacrm/pull/1907) ([phili67](https://github.com/phili67))
-- EcclesiaCRM/Search/PersonSearchRes.php : rgpd bug resolution [\#1906](https://github.com/phili67/ecclesiacrm/pull/1906) ([phili67](https://github.com/phili67))
-- EcclesiaCRM/utils/MiscUtils.php : no more RunQuery [\#1905](https://github.com/phili67/ecclesiacrm/pull/1905) ([phili67](https://github.com/phili67))
-- EventAttendance.php : no more RunQuery [\#1904](https://github.com/phili67/ecclesiacrm/pull/1904) ([phili67](https://github.com/phili67))
-- Phili67 7.6 version [\#1903](https://github.com/phili67/ecclesiacrm/pull/1903) ([phili67](https://github.com/phili67))
-- EcclesiaCRM/Reports/PDF\_RealAttendance.php : bug correction with date… [\#1901](https://github.com/phili67/ecclesiacrm/pull/1901) ([phili67](https://github.com/phili67))
-- composer uprgade [\#1900](https://github.com/phili67/ecclesiacrm/pull/1900) ([phili67](https://github.com/phili67))
-- Phili67 pdfbadges qrcode enhancements [\#1899](https://github.com/phili67/ecclesiacrm/pull/1899) ([phili67](https://github.com/phili67))
-- qrcode checkout [\#1898](https://github.com/phili67/ecclesiacrm/pull/1898) ([phili67](https://github.com/phili67))
-- Add : DE, ES, CN, PT and IT languages [\#1897](https://github.com/phili67/ecclesiacrm/pull/1897) ([phili67](https://github.com/phili67))
-- src/SystemSettings.php : enhancements boostrap dialog [\#1896](https://github.com/phili67/ecclesiacrm/pull/1896) ([phili67](https://github.com/phili67))
-- code cleanup [\#1895](https://github.com/phili67/ecclesiacrm/pull/1895) ([phili67](https://github.com/phili67))
-- src/skin/js/system/setup.js : xdebug correction [\#1894](https://github.com/phili67/ecclesiacrm/pull/1894) ([phili67](https://github.com/phili67))
-- setup : check connectivity + installation bug res [\#1893](https://github.com/phili67/ecclesiacrm/pull/1893) ([phili67](https://github.com/phili67))
-- SystemSettings.php boostrap res [\#1892](https://github.com/phili67/ecclesiacrm/pull/1892) ([phili67](https://github.com/phili67))
-- EcclesiaCRM/dto/Photo.php : php 8 bug res [\#1891](https://github.com/phili67/ecclesiacrm/pull/1891) ([phili67](https://github.com/phili67))
-- package.json : script upgrade for www-data [\#1890](https://github.com/phili67/ecclesiacrm/pull/1890) ([phili67](https://github.com/phili67))
-- composer.lock minor upgrade [\#1889](https://github.com/phili67/ecclesiacrm/pull/1889) ([phili67](https://github.com/phili67))
-- phpmailer little upgrade [\#1888](https://github.com/phili67/ecclesiacrm/pull/1888) ([phili67](https://github.com/phili67))
-- schema.xml : propel bug resolution [\#1886](https://github.com/phili67/ecclesiacrm/pull/1886) ([phili67](https://github.com/phili67))
-- UserEditor.php code clarifications [\#1885](https://github.com/phili67/ecclesiacrm/pull/1885) ([phili67](https://github.com/phili67))
-- UserUsersController.php : bug resolution when deleting userconfiguration [\#1884](https://github.com/phili67/ecclesiacrm/pull/1884) ([phili67](https://github.com/phili67))
-- Checkin.php : bug resolution [\#1883](https://github.com/phili67/ecclesiacrm/pull/1883) ([phili67](https://github.com/phili67))
-- Phili67 propel upgrade [\#1882](https://github.com/phili67/ecclesiacrm/pull/1882) ([phili67](https://github.com/phili67))
-- terms [\#1881](https://github.com/phili67/ecclesiacrm/pull/1881) ([phili67](https://github.com/phili67))
-- Phili67 warning message global call the register sunday school [\#1880](https://github.com/phili67/ecclesiacrm/pull/1880) ([phili67](https://github.com/phili67))
-- Phili67 select row count checkin [\#1879](https://github.com/phili67/ecclesiacrm/pull/1879) ([phili67](https://github.com/phili67))
-- Phili67 translation v139 [\#1878](https://github.com/phili67/ecclesiacrm/pull/1878) ([phili67](https://github.com/phili67))
-- src/skin/js/system/KioskJSOM.js : enhancement [\#1877](https://github.com/phili67/ecclesiacrm/pull/1877) ([phili67](https://github.com/phili67))
-- src/skin/js/event/Checkin.js : add visitor interaction [\#1876](https://github.com/phili67/ecclesiacrm/pull/1876) ([phili67](https://github.com/phili67))
-- terms [\#1875](https://github.com/phili67/ecclesiacrm/pull/1875) ([phili67](https://github.com/phili67))
-- PDF\_Badge.php : qr code bug resolution [\#1874](https://github.com/phili67/ecclesiacrm/pull/1874) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/APIControllers/PeopleAttendeesController.php : bug re… [\#1873](https://github.com/phili67/ecclesiacrm/pull/1873) ([phili67](https://github.com/phili67))
-- ListEvents.php code clarifications [\#1872](https://github.com/phili67/ecclesiacrm/pull/1872) ([phili67](https://github.com/phili67))
-- src/skin/js/user/UserList.js : bug resolution [\#1871](https://github.com/phili67/ecclesiacrm/pull/1871) ([phili67](https://github.com/phili67))
-- 404 bug resolution [\#1870](https://github.com/phili67/ecclesiacrm/pull/1870) ([phili67](https://github.com/phili67))
-- Phili67 editeventattendees select2 bug resolution [\#1869](https://github.com/phili67/ecclesiacrm/pull/1869) ([phili67](https://github.com/phili67))
-- slim 4 :  v2 error 404 method [\#1867](https://github.com/phili67/ecclesiacrm/pull/1867) ([phili67](https://github.com/phili67))
-- GeoPage.php select2 bug resolution [\#1866](https://github.com/phili67/ecclesiacrm/pull/1866) ([phili67](https://github.com/phili67))
-- composer update [\#1865](https://github.com/phili67/ecclesiacrm/pull/1865) ([phili67](https://github.com/phili67))
-- PHP8 PrintView.php bug resolution [\#1864](https://github.com/phili67/ecclesiacrm/pull/1864) ([phili67](https://github.com/phili67))
-- terms [\#1863](https://github.com/phili67/ecclesiacrm/pull/1863) ([phili67](https://github.com/phili67))
-- src/SettingsIndividual.php : localization [\#1862](https://github.com/phili67/ecclesiacrm/pull/1862) ([phili67](https://github.com/phili67))
-- Revert "Gruntfile.js calendar update" [\#1861](https://github.com/phili67/ecclesiacrm/pull/1861) ([phili67](https://github.com/phili67))
-- Gruntfile.js calendar update [\#1860](https://github.com/phili67/ecclesiacrm/pull/1860) ([phili67](https://github.com/phili67))
-- terms [\#1859](https://github.com/phili67/ecclesiacrm/pull/1859) ([phili67](https://github.com/phili67))
-- Phili67 right sidebar bug resolution [\#1858](https://github.com/phili67/ecclesiacrm/pull/1858) ([phili67](https://github.com/phili67))
-- automatic dar mode [\#1857](https://github.com/phili67/ecclesiacrm/pull/1857) ([phili67](https://github.com/phili67))
-- terms [\#1856](https://github.com/phili67/ecclesiacrm/pull/1856) ([phili67](https://github.com/phili67))
-- composer update [\#1855](https://github.com/phili67/ecclesiacrm/pull/1855) ([phili67](https://github.com/phili67))
-- PersonView.php code cleanup [\#1854](https://github.com/phili67/ecclesiacrm/pull/1854) ([phili67](https://github.com/phili67))
-- DocumentFileManagerController.php : bug correction [\#1853](https://github.com/phili67/ecclesiacrm/pull/1853) ([phili67](https://github.com/phili67))
-- vcard bug resolution [\#1852](https://github.com/phili67/ecclesiacrm/pull/1852) ([phili67](https://github.com/phili67))
-- Hearder menu bug correction [\#1851](https://github.com/phili67/ecclesiacrm/pull/1851) ([phili67](https://github.com/phili67))
-- Calendar CSS dark mode + code cleanup [\#1850](https://github.com/phili67/ecclesiacrm/pull/1850) ([phili67](https://github.com/phili67))
-- map dark mode [\#1849](https://github.com/phili67/ecclesiacrm/pull/1849) ([phili67](https://github.com/phili67))
-- Phili67 ckeditor dark mode [\#1848](https://github.com/phili67/ecclesiacrm/pull/1848) ([phili67](https://github.com/phili67))
-- Phili67 remove group members [\#1847](https://github.com/phili67/ecclesiacrm/pull/1847) ([phili67](https://github.com/phili67))
-- PersonView group bug correction [\#1846](https://github.com/phili67/ecclesiacrm/pull/1846) ([phili67](https://github.com/phili67))
-- Philil67 filemanage dark mode [\#1845](https://github.com/phili67/ecclesiacrm/pull/1845) ([phili67](https://github.com/phili67))
-- PersonView.php  : icons bug resolution [\#1844](https://github.com/phili67/ecclesiacrm/pull/1844) ([phili67](https://github.com/phili67))
-- PersonView : icons bug resolution [\#1843](https://github.com/phili67/ecclesiacrm/pull/1843) ([phili67](https://github.com/phili67))
-- Sticky header [\#1842](https://github.com/phili67/ecclesiacrm/pull/1842) ([phili67](https://github.com/phili67))
-- CSS problem : top navbar [\#1841](https://github.com/phili67/ecclesiacrm/pull/1841) ([phili67](https://github.com/phili67))
-- src/EcclesiaCRM/Theme/Theme.php : bug resolution [\#1840](https://github.com/phili67/ecclesiacrm/pull/1840) ([phili67](https://github.com/phili67))
-- 7.5.0 upgrade 2 [\#1839](https://github.com/phili67/ecclesiacrm/pull/1839) ([phili67](https://github.com/phili67))
-- Phili67 sundayschool bug resolution [\#1838](https://github.com/phili67/ecclesiacrm/pull/1838) ([phili67](https://github.com/phili67))
-- Slim4 minor bug resolution [\#1837](https://github.com/phili67/ecclesiacrm/pull/1837) ([phili67](https://github.com/phili67))
-- Dark mode [\#1836](https://github.com/phili67/ecclesiacrm/pull/1836) ([phili67](https://github.com/phili67))
+   
+- vCard export for groups, cart, person, family
+- search menu rewritten
+- all the api are rewritten
+- all the v2 route too.
 
 
+Bugs correction
 
-\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*
+- Leaflet for safari
+- CSV and PDF stats export is now efficient
+- better cart management
+- system backup/restore is rewritten too
+- sunday school view bug resolution
+
+
+Inner Beauty
+
+- AdminLTE 3.1.0
+- Jquery 3.6.0
+- bootStrap is in the last version : 4.6.0
+- FullCalendar is in version 5.6.0
+- DataTable are now in 1.10.24
+
+
+- Propelization
+* GroupReport.php is propeled
+
+
+etc ....
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 7.0.0 (24/11/2020)
+New version 7.0.0
+
+ATTENTION : You have to clear your cache on your browser.
+
+New CRM
+- Everything is rewritten in AdminLTE 3.0.5 and new bootStrap 4.5.3
+
+Pastoral Care tools
+- Pastoral care center with statistics for youngs, retired ....
+- Full pastoral care integration for young, retired, etc ...
+
+Customizations
+- The CRM is now fully customizable accord to AdminLTE 3 (color, font size, etc .... see for this point the new person settings).
+
+An more
+- Fundraiser is completely rewritten with EDrive
+- Mailchimp can now include all the headpeople for each families.
+- A brand new calendar 4.4.2 with optimisations
+- Search engine update for volunteer opportunity
+- You can now search for all Volunteers, families, payments, .... , through the meta search engine.
+- Kiosk re-introduction to make register call (completely rewritten)
+- QR code badges
+- QR code call the register
+- You can add/remove item in the kiosk
+- The personView and Family is rewritten with map groups etc ...
+- Call the register for the groups is now available
+- Call the register for sundayschool is completely refactored
+- Meetings : Jitsi meet api integration for meeting (so you can make conferences inside the CRM and tchat too).
+- Re-Introduction of Event type to create events
+- New PersonView and Familyview.
+- New Main Dashboard in v2 stage.
+- security update (everything is new).
+- Optimization of the meta search engine.
+
+Bugs correction
+
+- some bugs corrections.
+
+Inner Beauty
+
+- AdminLTE 3
+- Jquery 3.5.1
+- bootStrap is in the last version : 4.5.0
+- FullCalendar is in version 4.4.2
+- DataTable are now in 1.10.21
+- everything is now in the latest version.
+- everything is rewritten for the new js code.
+
+
+- Propelization
+* FamilyPledgeSummary.php propeled
+* ReminderReport.php propeled
+* confirmreportemail propeled
+*  convert individual to family.php propeled
+* confirm report propeled
+* canvassreports propeled
+* selectdelete propeled
+* VotingMembers.php is propeled
+* PersonService.php is propeled
+
+
+etc ....
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 6.0.1 (20/10/2020)
+This version is only available to solve a problem encountered with some versions of PHP.
+---
+
+## 6.0.0 (12/03/2020)
+New version 6.0.0
+
+- New Meta search engine (everything is now searchable).
+- new entry in the calendar api : VAlarm
+- pastoral care for persons and families
+- pastoral search better supported
+- New backup manager (NextCloud compatible)
+- New encryptation backup manager
+- The backup management now include the eDrive for each users
+- sundayschool has now dashboard items
+- people has now dashboard items too
+- CartView is in v2 and optimized
+- better support of the menu page with little configuration
+- php 7.1 minimal requirement
+- security update v4
+- optimization in speed
+- optimization of the menu dashboard page
+- optimization of mailchimp in speed
+- optimisation with the dashboard items
+- security massive update
+
+Bugs correction
+
+- SelectList.js minor bug resolution
+- Footer.js bug resolution
+- QuerySQL.php bug resolution
+- cart api bug resolution
+- PersonEditor.php bug correction
+- PersonView bug resolution
+- browser bug resolution
+- Upgrade script bug correction
+- Browse bug resolution : bootbox
+- AppIntegrityService upgrade
+- Webdav update optimization for speed
+- group person bug resolution
+
+Inner Beauty
+
+- Bootbox new version : 5.4.0
+- CartView.php is propeled and in v2 stage
+- Logger coherence
+- new dashboard mailchimp item
+- sabre.io update to 4.0.2
+- new search way
+- refactor of the dashboard items
+
+etc ....
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 5.8.6 (07/10/2019)
+New version 5.8.6
+
+- GDPRDataStructureExport.php CSV enhancement
+- MemberEmailExport.php CSV enhancement
+- QueryView minor everything is now in JS code
+- FamilyView js update
+- SelectList cart js logic update
+- PersonView cart JS logic update
+- Add query cart operations : full in js
+- Mailchimp user email address change
+- Ensure Menu Dashboard render all times
+- Profile Photo bug resolution
+
+Inner Beauty
+
+- PersonService.php is propeled
+- VotingMembers.php is propeled
+- Logger coherence
+
+New version 5.8.5
+
+- Menubar UTF9 changes
+- SelectList enhancement
+- Sundayschool enhancement
+- GroupEditor role upgrade
+- self-verify-updates.php + online-pending-verify.php update
+- FamiliView.php url verification
+- verify-family-info.php upgrade
+
+New version 5.8.4
+
+- SundaySchoolView Teacher props
+- ClassList.php & PhotoBook.php group prop adds
+- PersonCustomFieldsEditor.php and FamilyCustomFieldsEditor.php upgrade
+
+Bugs correction
+- GroupPropsFormEditor.php bug resolution
+- PersonView Bug resolution
+- SundaySchool teacher role Bug resolution
+- Cart bug resolution
+
+Inner Beauty
+- OptionManager upgrade : v2
+- GroupView v2
+- no more OptionManagerRowOps.php
+- no more GroupView.php
+
+Propeled files and nom more : runquery function
+
+New version 5.8.3
+
+- FundRaiser GUI update
+- PaddleNumEditor.php minor update
+- CartView enhancement
+- CartView js upgrade
+- SelectList propeled
+- PeopleDashboard is in v2
+- QueryView GUI enhancement
+- sundayschooldashboard age sorting bug resolution
+
+Bugs correction
+
+- PersonEditor.php bug resolution
+- Boostraper bug resolution
+- GroupView.js bug resolution
+
+Inner Beauty
+- Calendar api clarification
+- ManageList.js enhancements
+- GroupView.js bug resolution
+
+Propeled files and nom more : runquery function
+- CanvassUtilities.php no more RunQuery
+
+
+New version 5.8.2
+
+- Mailchimp tags
+- FamilyList v2
+- PersonList v2
+- grouplist v2
+- sundayschool full v2 version
+- SundaySchoolView js upgrade (you can add a teacher directly from the view)
+- sundayschooldashboard age sorting bug resolution
+
+Bugs correction
+
+- PersonEditor.php bug resolution
+- Boostraper bug resolution
+- GroupView.js bug resolution
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php
+
+New version 5.8.1
+
+- Directory report translation update
+- Mailchimp personview familyview good information for the newsletter
+
+Bugs correction
+
+- GroupView.php bug resolution : type
+- GroupEditor.php + GroupEditor.js bug resolution
+- FamilyEditor.php bug resolution
+- Map bug correction
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update 
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php 
+
+New version 5.8.0
+
+- SelectList is rewritten with js code for PersonToGroup.php, this file is now deleted
+- Add Person To group enhancement the js part is rewritten
+- new register method through JS
+- newsletter for individual person not only for a family
+- gpdr enhancements better person extraction and count (optimisation).
+- PersonEditor better address support for individual person
+- add ReminderReport in PeopleDashboard.php
+
+
+Bugs correction
+
+- FamilyEditor bug correction
+- CSVExport.php visual bug correction
+
+Inner Beauty
+
+- The files are now deleted everything is relocated in EcclesiaCRM directory
+- Include/CanvassUtilities.php
+- Include/ReportFunctions.php
+- Include/EnvelopeFunctions.php
+- Functions.php : all the functions are now relocated in EcclesiaCRM directory
+
+Propeled files and nom more : runquery function
+- CanvasEditor.php
+- FamilyEditor.php
+- PersonEditor.php
+- PledgeEditor.php
+- PrintView.php
+- PrintPastoralCare.php
+- FinancialReports.php + bug resolution (filter)
+- CSVExport.php
+- GroupReports.php 
+- CartView.php
+- ManageEnvelopes.php
+- CSVExport.php
+- GroupReports.php
+- CartView.php
+- EcclesiaCRM/utils/OutputUtils.php
+- Reports/PledgeSummary.php
+- Reports/ZeroGivers.php
+- Reports/GroupReport.php
+- Reports/NameTags.php
+- Reports/AdvancedDeposit.php
+- Reports/TaxReport.php
+- Reports/EnvelopeReport.php
+- Reports/GroupReport.php propeled
+- DirectoryReport.php
+- PDF_Directory.php
+- propeled PDFLabel.php
+- propeled PledgeSummary.php
+- OutputUtils.php
+- DashboardItem.php
+- GroupReports.php
+- PDF_GroupDirectory.php 
+- FamilyEditor
+- CanvassEditor.php propeled
+- CSVExport.php
+- ManageEnvelopes.php propeled
+- GroupView propeled
+- PersonCustomFieldsEditor.php
+- FamilyCustomFieldsEditor.php
+- UpdateAllLatLon.php
+- PersonEditor.php
+- GeoPage.php
+- PledgeEditor.php
+- DepositSlipEditor.php
+- peopledashboard nomore runquery
+
+etc ....
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 5.8.5 (10/07/2019)
+New version 5.8.5
+
+- Menubar UTF8 changes
+- SelectList enhancement
+- Sundayschool enhancement
+- GroupEditor role upgrade
+- self-verify-updates.php + online-pending-verify.php update
+- FamiliView.php url verification
+- verify-family-info.php upgrade
+
+New version 5.8.4
+
+- SundaySchoolView Teacher props
+- ClassList.php & PhotoBook.php group prop adds
+- PersonCustomFieldsEditor.php and FamilyCustomFieldsEditor.php upgrade
+
+Bugs correction
+- GroupPropsFormEditor.php bug resolution
+- PersonView Bug resolution
+- SundaySchool teacher role Bug resolution
+- Cart bug resolution
+
+Inner Beauty
+- OptionManager upgrade : v2
+- GroupView v2
+- no more OptionManagerRowOps.php
+- no more GroupView.php
+
+Propeled files and nom more : runquery function
+
+New version 5.8.3
+
+- FundRaiser GUI update
+- PaddleNumEditor.php minor update
+- CartView enhancement
+- CartView js upgrade
+- SelectList propeled
+- PeopleDashboard is in v2
+- QueryView GUI enhancement
+- sundayschooldashboard age sorting bug resolution
+
+Bugs correction
+
+- PersonEditor.php bug resolution
+- Boostraper bug resolution
+- GroupView.js bug resolution
+
+Inner Beauty
+- Calendar api clarification
+- ManageList.js enhancements
+- GroupView.js bug resolution
+
+Propeled files and nom more : runquery function
+- CanvassUtilities.php no more RunQuery
+
+
+New version 5.8.2
+
+- Mailchimp tags
+- FamilyList v2
+- PersonList v2
+- grouplist v2
+- sundayschool full v2 version
+- SundaySchoolView js upgrade (you can add a teacher directly from the view)
+- sundayschooldashboard age sorting bug resolution
+
+Bugs correction
+
+- PersonEditor.php bug resolution
+- Boostraper bug resolution
+- GroupView.js bug resolution
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php
+
+New version 5.8.1
+
+- Directory report translation update
+- Mailchimp personview familyview good information for the newsletter
+
+Bugs correction
+
+- GroupView.php bug resolution : type
+- GroupEditor.php + GroupEditor.js bug resolution
+- FamilyEditor.php bug resolution
+- Map bug correction
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update 
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php 
+
+New version 5.8.0
+
+- SelectList is rewritten with js code for PersonToGroup.php, this file is now deleted
+- Add Person To group enhancement the js part is rewritten
+- new register method through JS
+- newsletter for individual person not only for a family
+- gpdr enhancements better person extraction and count (optimisation).
+- PersonEditor better address support for individual person
+- add ReminderReport in PeopleDashboard.php
+
+
+Bugs correction
+
+- FamilyEditor bug correction
+- CSVExport.php visual bug correction
+
+Inner Beauty
+
+- The files are now deleted everything is relocated in EcclesiaCRM directory
+- Include/CanvassUtilities.php
+- Include/ReportFunctions.php
+- Include/EnvelopeFunctions.php
+- Functions.php : all the functions are now relocated in EcclesiaCRM directory
+
+Propeled files and nom more : runquery function
+- CanvasEditor.php
+- FamilyEditor.php
+- PersonEditor.php
+- PledgeEditor.php
+- PrintView.php
+- PrintPastoralCare.php
+- FinancialReports.php + bug resolution (filter)
+- CSVExport.php
+- GroupReports.php 
+- CartView.php
+- ManageEnvelopes.php
+- CSVExport.php
+- GroupReports.php
+- CartView.php
+- EcclesiaCRM/utils/OutputUtils.php
+- Reports/PledgeSummary.php
+- Reports/ZeroGivers.php
+- Reports/GroupReport.php
+- Reports/NameTags.php
+- Reports/AdvancedDeposit.php
+- Reports/TaxReport.php
+- Reports/EnvelopeReport.php
+- Reports/GroupReport.php propeled
+- DirectoryReport.php
+- PDF_Directory.php
+- propeled PDFLabel.php
+- propeled PledgeSummary.php
+- OutputUtils.php
+- DashboardItem.php
+- GroupReports.php
+- PDF_GroupDirectory.php 
+- FamilyEditor
+- CanvassEditor.php propeled
+- CSVExport.php
+- ManageEnvelopes.php propeled
+- GroupView propeled
+- PersonCustomFieldsEditor.php
+- FamilyCustomFieldsEditor.php
+- UpdateAllLatLon.php
+- PersonEditor.php
+- GeoPage.php
+- PledgeEditor.php
+- DepositSlipEditor.php
+- peopledashboard nomore runquery
+
+etc ....
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.8.4 (03/07/2019)
+New version 5.8.4
+
+- SundaySchoolView Teacher props
+- ClassList.php & PhotoBook.php group prop adds
+- PersonCustomFieldsEditor.php and FamilyCustomFieldsEditor.php upgrade
+
+Bugs correction
+- GroupPropsFormEditor.php bug resolution
+- PersonView Bug resolution
+- SundaySchool teacher role Bug resolution
+- Cart bug resolution
+
+Inner Beauty
+- OptionManager upgrade : v2
+- GroupView v2
+- no more OptionManagerRowOps.php
+- no more GroupView.php
+
+Propeled files and nom more : runquery function
+
+New version 5.8.3
+
+- FundRaiser GUI update
+- PaddleNumEditor.php minor update
+- CartView enhancement
+- CartView js upgrade
+- SelectList propeled
+- PeopleDashboard is in v2
+- QueryView GUI enhancement
+- sundayschooldashboard age sorting bug resolution
+
+Bugs correction
+
+- PersonEditor.php bug resolution
+- Boostraper bug resolution
+- GroupView.js bug resolution
+
+Inner Beauty
+- Calendar api clarification
+- ManageList.js enhancements
+- GroupView.js bug resolution
+
+Propeled files and nom more : runquery function
+- CanvassUtilities.php no more RunQuery
+
+
+New version 5.8.2
+
+- Mailchimp tags
+- FamilyList v2
+- PersonList v2
+- grouplist v2
+- sundayschool full v2 version
+- SundaySchoolView js upgrade (you can add a teacher directly from the view)
+- sundayschooldashboard age sorting bug resolution
+
+Bugs correction
+
+- PersonEditor.php bug resolution
+- Boostraper bug resolution
+- GroupView.js bug resolution
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php
+
+New version 5.8.1
+
+- Directory report translation update
+- Mailchimp personview familyview good information for the newsletter
+
+Bugs correction
+
+- GroupView.php bug resolution : type
+- GroupEditor.php + GroupEditor.js bug resolution
+- FamilyEditor.php bug resolution
+- Map bug correction
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update 
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php 
+
+New version 5.8.0
+
+- SelectList is rewritten with js code for PersonToGroup.php, this file is now deleted
+- Add Person To group enhancement the js part is rewritten
+- new register method through JS
+- newsletter for individual person not only for a family
+- gpdr enhancements better person extraction and count (optimisation).
+- PersonEditor better address support for individual person
+- add ReminderReport in PeopleDashboard.php
+
+
+Bugs correction
+
+- FamilyEditor bug correction
+- CSVExport.php visual bug correction
+
+Inner Beauty
+
+- The files are now deleted everything is relocated in EcclesiaCRM directory
+- Include/CanvassUtilities.php
+- Include/ReportFunctions.php
+- Include/EnvelopeFunctions.php
+- Functions.php : all the functions are now relocated in EcclesiaCRM directory
+
+Propeled files and nom more : runquery function
+- CanvasEditor.php
+- FamilyEditor.php
+- PersonEditor.php
+- PledgeEditor.php
+- PrintView.php
+- PrintPastoralCare.php
+- FinancialReports.php + bug resolution (filter)
+- CSVExport.php
+- GroupReports.php 
+- CartView.php
+- ManageEnvelopes.php
+- CSVExport.php
+- GroupReports.php
+- CartView.php
+- EcclesiaCRM/utils/OutputUtils.php
+- Reports/PledgeSummary.php
+- Reports/ZeroGivers.php
+- Reports/GroupReport.php
+- Reports/NameTags.php
+- Reports/AdvancedDeposit.php
+- Reports/TaxReport.php
+- Reports/EnvelopeReport.php
+- Reports/GroupReport.php propeled
+- DirectoryReport.php
+- PDF_Directory.php
+- propeled PDFLabel.php
+- propeled PledgeSummary.php
+- OutputUtils.php
+- DashboardItem.php
+- GroupReports.php
+- PDF_GroupDirectory.php 
+- FamilyEditor
+- CanvassEditor.php propeled
+- CSVExport.php
+- ManageEnvelopes.php propeled
+- GroupView propeled
+- PersonCustomFieldsEditor.php
+- FamilyCustomFieldsEditor.php
+- UpdateAllLatLon.php
+- PersonEditor.php
+- GeoPage.php
+- PledgeEditor.php
+- DepositSlipEditor.php
+- peopledashboard nomore runquery
+
+etc ....
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.8.3 (01/07/2019)
+new version 5.8.3
+- FundRaiser GUI update
+- PaddleNumEditor.php minor update
+- CartView enhancement
+- CartView js upgrade
+- SelectList propeled
+- PeopleDashboard is in v2
+- QueryView GUI enhancement
+- sundayschooldashboard age sorting bug resolution
+
+Bugs correction
+
+- PersonEditor.php bug resolution
+- Boostraper bug resolution
+- GroupView.js bug resolution
+
+Inner Beauty
+- Calendar api clarification
+- ManageList.js enhancements
+- GroupView.js bug resolution
+
+Propeled files and nom more : runquery function
+- CanvassUtilities.php no more RunQuery
+
+
+New version 5.8.2
+
+- Mailchimp tags
+- FamilyList v2
+- PersonList v2
+- grouplist v2
+- sundayschool full v2 version
+- SundaySchoolView js upgrade (you can add a teacher directly from the view)
+- sundayschooldashboard age sorting bug resolution
+
+Bugs correction
+
+- PersonEditor.php bug resolution
+- Boostraper bug resolution
+- GroupView.js bug resolution
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php
+
+New version 5.8.1
+
+- Directory report translation update
+- Mailchimp personview familyview good information for the newsletter
+
+Bugs correction
+
+- GroupView.php bug resolution : type
+- GroupEditor.php + GroupEditor.js bug resolution
+- FamilyEditor.php bug resolution
+- Map bug correction
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update 
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php 
+
+New version 5.8.0
+
+- SelectList is rewritten with js code for PersonToGroup.php, this file is now deleted
+- Add Person To group enhancement the js part is rewritten
+- new register method through JS
+- newsletter for individual person not only for a family
+- gpdr enhancements better person extraction and count (optimisation).
+- PersonEditor better address support for individual person
+- add ReminderReport in PeopleDashboard.php
+
+
+Bugs correction
+
+- FamilyEditor bug correction
+- CSVExport.php visual bug correction
+
+Inner Beauty
+
+- The files are now deleted everything is relocated in EcclesiaCRM directory
+- Include/CanvassUtilities.php
+- Include/ReportFunctions.php
+- Include/EnvelopeFunctions.php
+- Functions.php : all the functions are now relocated in EcclesiaCRM directory
+
+Propeled files and nom more : runquery function
+- CanvasEditor.php
+- FamilyEditor.php
+- PersonEditor.php
+- PledgeEditor.php
+- PrintView.php
+- PrintPastoralCare.php
+- FinancialReports.php + bug resolution (filter)
+- CSVExport.php
+- GroupReports.php 
+- CartView.php
+- ManageEnvelopes.php
+- CSVExport.php
+- GroupReports.php
+- CartView.php
+- EcclesiaCRM/utils/OutputUtils.php
+- Reports/PledgeSummary.php
+- Reports/ZeroGivers.php
+- Reports/GroupReport.php
+- Reports/NameTags.php
+- Reports/AdvancedDeposit.php
+- Reports/TaxReport.php
+- Reports/EnvelopeReport.php
+- Reports/GroupReport.php propeled
+- DirectoryReport.php
+- PDF_Directory.php
+- propeled PDFLabel.php
+- propeled PledgeSummary.php
+- OutputUtils.php
+- DashboardItem.php
+- GroupReports.php
+- PDF_GroupDirectory.php 
+- FamilyEditor
+- CanvassEditor.php propeled
+- CSVExport.php
+- ManageEnvelopes.php propeled
+- GroupView propeled
+- PersonCustomFieldsEditor.php
+- FamilyCustomFieldsEditor.php
+- UpdateAllLatLon.php
+- PersonEditor.php
+- GeoPage.php
+- PledgeEditor.php
+- DepositSlipEditor.php
+- peopledashboard nomore runquery
+
+etc ....
+
+Inner 
+Coherence
+
+See full changelog here:
+---
+
+## 5.8.2 (24/06/2019)
+New version 5.8.2
+
+- Mailchimp tags
+- FamilyList v2
+- PersonList v2
+- grouplist v2
+- sundayschool full v2 version
+- SundaySchoolView js upgrade (you can add a teacher directly from the view)
+- sundayschooldashboard age sorting bug resolution
+
+Bugs correction
+
+- PersonEditor.php bug resolution
+- Boostraper bug resolution
+- GroupView.js bug resolution
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php
+
+New version 5.8.1
+
+- Directory report translation update
+- Mailchimp personview familyview good information for the newsletter
+
+Bugs correction
+
+- GroupView.php bug resolution : type
+- GroupEditor.php + GroupEditor.js bug resolution
+- FamilyEditor.php bug resolution
+- Map bug correction
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update 
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php 
+
+New version 5.8.0
+
+- SelectList is rewritten with js code for PersonToGroup.php, this file is now deleted
+- Add Person To group enhancement the js part is rewritten
+- new register method through JS
+- newsletter for individual person not only for a family
+- gpdr enhancements better person extraction and count (optimisation).
+- PersonEditor better address support for individual person
+- add ReminderReport in PeopleDashboard.php
+
+
+Bugs correction
+
+- FamilyEditor bug correction
+- CSVExport.php visual bug correction
+
+Inner Beauty
+
+- The files are now deleted everything is relocated in EcclesiaCRM directory
+- Include/CanvassUtilities.php
+- Include/ReportFunctions.php
+- Include/EnvelopeFunctions.php
+- Functions.php : all the functions are now relocated in EcclesiaCRM directory
+
+Propeled files and nom more : runquery function
+- CanvasEditor.php
+- FamilyEditor.php
+- PersonEditor.php
+- PledgeEditor.php
+- PrintView.php
+- PrintPastoralCare.php
+- FinancialReports.php + bug resolution (filter)
+- CSVExport.php
+- GroupReports.php 
+- CartView.php
+- ManageEnvelopes.php
+- CSVExport.php
+- GroupReports.php
+- CartView.php
+- EcclesiaCRM/utils/OutputUtils.php
+- Reports/PledgeSummary.php
+- Reports/ZeroGivers.php
+- Reports/GroupReport.php
+- Reports/NameTags.php
+- Reports/AdvancedDeposit.php
+- Reports/TaxReport.php
+- Reports/EnvelopeReport.php
+- Reports/GroupReport.php propeled
+- DirectoryReport.php
+- PDF_Directory.php
+- propeled PDFLabel.php
+- propeled PledgeSummary.php
+- OutputUtils.php
+- DashboardItem.php
+- GroupReports.php
+- PDF_GroupDirectory.php 
+- FamilyEditor
+- CanvassEditor.php propeled
+- CSVExport.php
+- ManageEnvelopes.php propeled
+- GroupView propeled
+- PersonCustomFieldsEditor.php
+- FamilyCustomFieldsEditor.php
+- UpdateAllLatLon.php
+- PersonEditor.php
+- GeoPage.php
+- PledgeEditor.php
+- DepositSlipEditor.php
+- peopledashboard nomore runquery
+
+etc ....
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.8.1 (06/06/2019)
+New version 5.8.1
+
+- Directory report translation update
+- Mailchimp personview familyview good information for the newsletter
+
+Bugs correction
+
+- GroupView.php bug resolution : type
+- GroupEditor.php + GroupEditor.js bug resolution
+- FamilyEditor.php bug resolution
+- Map bug correction
+
+Inner Beauty
+
+Propeled files and nom more : runquery function
+- GroupPropsFormEditor.php propeled + api + js
+- FamilyCustomFieldsEditor.php update 
+- PersonCustomFieldsEditor.php update
+- GroupPropsFormEditor.php
+- GroupPropsEditor.php
+- QueryList.php 
+
+New version 5.8.0
+
+- SelectList is rewritten with js code for PersonToGroup.php, this file is now deleted
+- Add Person To group enhancement the js part is rewritten
+- new register method through JS
+- newsletter for individual person not only for a family
+- gpdr enhancements better person extraction and count (optimisation).
+- PersonEditor better address support for individual person
+- add ReminderReport in PeopleDashboard.php
+
+
+Bugs correction
+
+- FamilyEditor bug correction
+- CSVExport.php visual bug correction
+
+Inner Beauty
+
+- The files are now deleted everything is relocated in EcclesiaCRM directory
+- Include/CanvassUtilities.php
+- Include/ReportFunctions.php
+- Include/EnvelopeFunctions.php
+- Functions.php : all the functions are now relocated in EcclesiaCRM directory
+
+Propeled files and nom more : runquery function
+- CanvasEditor.php
+- FamilyEditor.php
+- PersonEditor.php
+- PledgeEditor.php
+- PrintView.php
+- PrintPastoralCare.php
+- FinancialReports.php + bug resolution (filter)
+- CSVExport.php
+- GroupReports.php 
+- CartView.php
+- ManageEnvelopes.php
+- CSVExport.php
+- GroupReports.php
+- CartView.php
+- EcclesiaCRM/utils/OutputUtils.php
+- Reports/PledgeSummary.php
+- Reports/ZeroGivers.php
+- Reports/GroupReport.php
+- Reports/NameTags.php
+- Reports/AdvancedDeposit.php
+- Reports/TaxReport.php
+- Reports/EnvelopeReport.php
+- Reports/GroupReport.php propeled
+- DirectoryReport.php
+- PDF_Directory.php
+- propeled PDFLabel.php
+- propeled PledgeSummary.php
+- OutputUtils.php
+- DashboardItem.php
+- GroupReports.php
+- PDF_GroupDirectory.php 
+- FamilyEditor
+- CanvassEditor.php propeled
+- CSVExport.php
+- ManageEnvelopes.php propeled
+- GroupView propeled
+- PersonCustomFieldsEditor.php
+- FamilyCustomFieldsEditor.php
+- UpdateAllLatLon.php
+- PersonEditor.php
+- GeoPage.php
+- PledgeEditor.php
+- DepositSlipEditor.php
+- peopledashboard nomore runquery
+
+etc ....
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.8.0 (03/06/2019)
+New version 5.8.0
+
+- SelectList is rewritten with js code for PersonToGroup.php, this file is now deleted
+- Add Person To group enhancement the js part is rewritten
+- new register method through JS
+- newsletter for individual person not only for a family
+- gpdr enhancements better person extraction and count (optimisation).
+- PersonEditor better address support for individual person
+- add ReminderReport in PeopleDashboard.php
+- security upgrade : bootbox
+
+Bugs correction
+
+- FamilyEditor bug correction
+- CSVExport.php visual bug correction
+- mailchimp api for group add
+
+Inner Beauty
+
+- The files are now deleted everything is relocated in EcclesiaCRM directory
+- Include/CanvassUtilities.php
+- Include/ReportFunctions.php
+- Include/EnvelopeFunctions.php
+- Functions.php : all the functions are now relocated in EcclesiaCRM directory
+
+Propeled files and nom more : runquery function
+- CanvasEditor.php
+- FamilyEditor.php
+- PersonEditor.php
+- PledgeEditor.php
+- PrintView.php
+- PrintPastoralCare.php
+- FinancialReports.php + bug resolution (filter)
+- CSVExport.php
+- GroupReports.php 
+- CartView.php
+- ManageEnvelopes.php
+- CSVExport.php
+- GroupReports.php
+- CartView.php
+- EcclesiaCRM/utils/OutputUtils.php
+- Reports/PledgeSummary.php
+- Reports/ZeroGivers.php
+- Reports/GroupReport.php
+- Reports/NameTags.php
+- Reports/AdvancedDeposit.php
+- Reports/TaxReport.php
+- Reports/EnvelopeReport.php
+- Reports/GroupReport.php propeled
+- DirectoryReport.php
+- PDF_Directory.php
+- propeled PDFLabel.php
+- propeled PledgeSummary.php
+- OutputUtils.php
+- DashboardItem.php
+- GroupReports.php
+- PDF_GroupDirectory.php 
+- FamilyEditor
+- CanvassEditor.php propeled
+- CSVExport.php
+- ManageEnvelopes.php propeled
+- GroupView propeled
+- PersonCustomFieldsEditor.php
+- FamilyCustomFieldsEditor.php
+- UpdateAllLatLon.php
+- PersonEditor.php
+- GeoPage.php
+- PledgeEditor.php
+- DepositSlipEditor.php
+- peopledashboard nomore runquery
+
+etc ....
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 5.7.0 (06/05/2019)
+New version 5.7.0
+- EDrive role added (a user can or not have this role), everything is rewritter : drive, js code, etc ... menubar.
+- Checkin.php enhancement (Edrive add in event edition).
+- Group Menu classifications and sundayschool menuitem classifications update
+- Roles redefinitions (CSV, PDF, sundayschool CSV and PDF export) are now general roles
+- A  user can now change the AdminLTE style from himself
+- UserRole enhancements
+- User role notification (when an user role is assigned to a user)
+- map external providers (apple map, bing map etc ...), usefull on a smartphone
+- OutputUtils.php upgrade (for apple map, bing map and google map links).
+- Mailchimp improvements (now when you add all the newsletter members, the list is reloaded)
+- Mailchimp export contact as pdf/excels rows ....
+- PersonEditor : newsletter improvements
+- mailnotification update : role added (in the userlist).
+- baseuseremail authorisation rewritten
+- user upgrade : mail authorization (a user now has the right to send mail or not : GDPR).
+- user list webdavkey infos
+- SundaySchoolView security update (some user has the possibility to edit a group when the role wasn't assigned).
+- CalendarV2 enhancement for smartphones (now part will scroll properly).
+- GroupView enhancement (code clarifications).
+- GroupProperty enhancements (a members can now answered to a request : like a doodle).
+- Pastoral Care improvements (a member with the pastoral care role can now see the notes without to have the menu option role).
+- MenuBar security update : dictionnary etc ...
+
+
+Bugs correction
+- Header_head_metatag : bug resolution.
+- public home folder bug resolution.
+- Setup bug correction with localisation CRM.
+- Reservation Calendar bug resolution.
+- SettingsIndividual.php bug resolution.
+- bug correction in the usereditor part.
+- profile role bug correction, in some case when a person has the groupe role, when the profile was saved, the code could crash.
+- GroupEditor bug correction (you can now change the name of group role).
+- group deletion is now corrected.
+
+Inner Beauty
+- UserEditor.php propeled
+- SettingsIndividual.php Propeled
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.6.2 (20/04/2019)
+new version 5.6.2
+- Pastoral Care ckeditor update
+- Group specific properties upgrade
+- EventEditor.js translation
+- EventEditor.js update for Cellular phones
+- cart deactivate new menu item (You can now deactivate all the persons in the cart, and if a family is empty the family is emptied too).
+- Deactivate button in the cartView
+
+New version 5.6.0
+- brand new Document editor on full js code
+- v2 for the general and specific properties
+- Map is now in v2 too
+- PersonView and FamilyView more propel code
+- Bing Map enhancement + OpenStreepMap enhancements too.
+- Mailchimp Campaign window is now large by default
+- Timelines for person and family upgrade
+
+Bugs correction
+- Bug et résolution de filemanager pour les familles
+- in the timelines
+
+Inner Beauty
+- delete of the unusefull files
+    - PropertyTypeEditor.php
+    - PropertyTypeDelete.php
+    - PropertyTypeList.php
+    - PropertyEditor.php
+    - PropertyDelete.php
+    - DocumentDelete.php
+    - DocumentEditor.php
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.6.1 (13/04/2019)
+new version 5.6.1
+- PersonView and FamilyView previous and next member
+- bug resolution with PersonView.js
+- bug resolution with add a person to a group
+- bug resolution with add vcard to an addressbook
+
+New version 5.6.0
+- brand new Document editor on full js code
+- v2 for the general and specific properties
+- Map is now in v2 too
+- PersonView and FamilyView more propel code
+- Bing Map enhancement + OpenStreepMap enhancements too.
+- Mailchimp Campaign window is now large by default
+- Timelines for person and family upgrade
+
+Bugs correction
+- Bug et résolution de filemanager pour les familles
+- in the timelines
+
+Inner Beauty
+- delete of the unusefull files
+    - PropertyTypeEditor.php
+    - PropertyTypeDelete.php
+    - PropertyTypeList.php
+    - PropertyEditor.php
+    - PropertyDelete.php
+    - DocumentDelete.php
+    - DocumentEditor.php
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.6.0 (12/04/2019)
+New version 5.6.0
+- brand new Document editor on full js code
+- v2 for the general and specific properties
+- Map is now in v2 too
+- PersonView and FamilyView more propel code
+- Bing Map enhancement + OpenStreepMap enhancements too.
+- Mailchimp Campaign window is now large by default
+- Timelines for person and family upgrade
+
+Bugs correction
+- Bug et résolution de filemanager pour les familles
+- in the timelines
+
+Inner Beauty
+- delete of the unusefull files
+    - PropertyTypeEditor.php
+    - PropertyTypeDelete.php
+    - PropertyTypeList.php
+    - PropertyEditor.php
+    - PropertyDelete.php
+    - DocumentDelete.php
+    - DocumentEditor.php
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.5.6 (04/04/2019)
+New version 5.5.6
+- bug resolution with the file manager
+- Note Term deletion Document
+- Group Menu hierarchy classification
+- OptionManager localisation
+- PersonView coherence (Member list->Person List).
+- Some more localisation terms
+- Nom more NoteEditor and NoteDelete
+
+New version 5.5.5
+Functionality Improvements :
+- ckeditor update for pastoral care : drag and drop is now supported
+- ckeditor update for event : drag and drop is now supported
+- filebrowser update
+- Next/previous person In PersonView
+- pastoral care V2 upgrade
+- PersonEditor bug resolution
+
+New version 5.5.4
+Functionality Improvements :
+- MailChimp upgrade v4 : adding permission reminder in ckeditor + managelist
+
+New version 5.5.3
+Functionality Improvements :
+- title head upgrade with v2 api.
+- MailChimp upgrade v3 (date and translation language).
+- ckeditor bug resolution.
+
+new version 5.5.2
+Functionality Improvements :
+- Bug managelist campaign creation.
+- security update for browser and uploader images tool.
+
+new version 5.5.1
+Functionality Improvements :
+
+Bug resolution in UserList.
+- improvements in MailChimp.
+- improvements in the public folder management.
+
+5.5.0 version
+- CKeditor image upload drag and drop
+- full refactor of eDrive management
+- MenuBar clarification
+- public folder for MailChimp
+- Mailchimp improvements and speed
+- GDPR api
+- mailchimp security user
+- PHP 7.2 improvements
+- Server scripts creation
+
+Bugs correction
+- GDPRListExport.php bug resolution
+- WebDav bug resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.5.5 (24/03/2019)
+New version 5.5.5
+Functionality Improvements :
+- ckeditor update for pastoral care : drag and drop is now supported
+- ckeditor update for event : drag and drop is now supported
+- filebrowser update
+- Next/previous person In PersonView
+- pastoral care V2 upgrade
+- PersonEditor bug resolution
+
+New version 5.5.4
+Functionality Improvements :
+- MailChimp upgrade v4 : adding permission reminder in ckeditor + managelist
+
+New version 5.5.3
+Functionality Improvements :
+- title head upgrade with v2 api.
+- MailChimp upgrade v3 (date and translation language).
+- ckeditor bug resolution.
+
+new version 5.5.2
+Functionality Improvements :
+- Bug managelist campaign creation.
+- security update for browser and uploader images tool.
+
+new version 5.5.1
+Functionality Improvements :
+
+Bug resolution in UserList.
+- improvements in MailChimp.
+- improvements in the public folder management.
+
+5.5.0 version
+- CKeditor image upload drag and drop
+- full refactor of eDrive management
+- MenuBar clarification
+- public folder for MailChimp
+- Mailchimp improvements and speed
+- GDPR api
+- mailchimp security user
+- PHP 7.2 improvements
+- Server scripts creation
+
+Bugs correction
+- GDPRListExport.php bug resolution
+- WebDav bug resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.5.4 (16/03/2019)
+New version 5.5.4
+Functionality Improvements :
+- MailChimp upgrade v4 : adding permission reminder in ckeditor + managelist
+
+New version 5.5.3
+Functionality Improvements :
+- title head upgrade with v2 api.
+- MailChimp upgrade v3 (date and translation language).
+- ckeditor bug resolution.
+
+new version 5.5.2
+Functionality Improvements :
+- Bug managelist campaign creation.
+- security update for browser and uploader images tool.
+
+new version 5.5.1
+Functionality Improvements :
+
+Bug resolution in UserList.
+- improvements in MailChimp.
+- improvements in the public folder management.
+
+5.5.0 version
+- CKeditor image upload drag and drop
+- full refactor of eDrive management
+- MenuBar clarification
+- public folder for MailChimp
+- Mailchimp improvements and speed
+- GDPR api
+- mailchimp security user
+- PHP 7.2 improvements
+- Server scripts creation
+
+Bugs correction
+- GDPRListExport.php bug resolution
+- WebDav bug resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.5.3 (13/03/2019)
+new version 5.5.3
+Functionality Improvements :
+- title head upgrade with v2 api.
+- MailChimp upgrade v3 (date and translation language).
+- ckeditor bug resolution.
+
+new version 5.5.2
+Functionality Improvements :
+- Bug managelist campaign creation.
+- security update for browser and uploader images tool.
+
+new version 5.5.1
+Functionality Improvements :
+
+Bug resolution in UserList.
+- improvements in MailChimp.
+- improvements in the public folder management.
+
+5.5.0 version
+- CKeditor image upload drag and drop
+- full refactor of eDrive management
+- MenuBar clarification
+- public folder for MailChimp
+- Mailchimp improvements and speed
+- GDPR api
+- mailchimp security user
+- PHP 7.2 improvements
+- Server scripts creation
+
+Bugs correction
+- GDPRListExport.php bug resolution
+- WebDav bug resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.5.2 (08/03/2019)
+new version 5.5.2
+Functionality Improvements :
+
+- Bug managelist campaign creation.
+- security update for browser and uploader images tool.
+
+new version 5.5.1
+Functionality Improvements :
+
+Bug resolution in UserList.
+- improvements in MailChimp.
+- improvements in the public folder management.
+
+5.5.0 version
+- CKeditor image upload drag and drop
+- full refactor of eDrive management
+- MenuBar clarification
+- public folder for MailChimp
+- Mailchimp improvements and speed
+- GDPR api
+- mailchimp security user
+- PHP 7.2 improvements
+- Server scripts creation
+
+Bugs correction
+- GDPRListExport.php bug resolution
+- WebDav bug resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.5.1 (06/03/2019)
+new version 5.5.1
+Functionality Improvements :
+- Bug resolution in UserList.
+- improvements in MailChimp.
+- improvements in the public folder management.
+
+5.5.0 version
+- CKeditor image upload drag and drop
+- full refactor of eDrive management
+- MenuBar clarification
+- public folder for MailChimp
+- Mailchimp improvements and speed
+- GDPR api
+- mailchimp security user
+- PHP 7.2 improvements
+- Server scripts creation
+
+Bugs correction
+- GDPRListExport.php bug resolution
+- WebDav bug resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.5.0 (24/02/2019)
+new version 5.5.0
+Functionality Improvements :
+
+5.5.0 version
+- CKeditor upload with drag and drop images
+- new creditor image browser : drive
+- full refactor of eDrive management
+- MenuBar clarification
+- public folder for MailChimp
+- Mailchimp improvements and speed
+- GDPR api
+- mailchimp security user
+- PHP 7.2 improvements
+- Server scripts creation
+
+Bugs correction
+- GDPRListExport.php bug resolution
+- WebDav bug resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 5.4.3 (11/02/2019)
+new version 5.4.3
+Functionality Improvements :
+
+5.4.3
+- Ubuntu server 18.04 compatibilities.
+- better support with php 7.2 and mariadb at installation.
+
+5.4.2
+- Mailchimp improvements (schedule campaign introduction)
+- Mailchimp acceleration everything is now build with asynchronous system.
+- CRMJSOM.js bug resolution and adds
+- Event upgrade
+- Phili67 volunteeropportunityeditor api
+- EventEditor.js update
+- MenuBar little bug resolution
+- PersonView bug resolution
+
+5.4.1 Only bug correction :
+- CSP problem resolution : thank's to Erwan C.
+- api with logger bug resolution (system + people-family).
+- csp-report api bug correction.
+
+
+5.4.0 version
+- GDPR clarifications, we're working closely with lawers to finish the GDPR point.
+
+- Security update :
+  - EcclesiaCRM kernel is brand new inside (AdminLTE 2.4.8)
+  - Full compatibility with the EcclesiaCRM theme update
+  - all the npm packages are now at the last version
+  - all the composer package too.
+  - code clarifications in the api and the skin/js files.
+  - introduction of the v2 api : proof of concept for security purpose.
+  - when a person is de-activated the user is de-activated too.
+  - calendar sidebar enhancement
+  - Header-function security update.
+
+- For finance show since et show for is rewritten
+- The ckeditor icon merge tags update
+- Age graph people in the People Dashboard.
+- Better test to the BDD at install process.
+- PersonView upgrade (security).
+- ckeditor better support.
+- better note and note share support.
+- Login.php and Logout.php enhancements.
+- Map css upgrade.
+
+Bugs correction
+- User management bug resolutions
+- self-register.php date localisation resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.4.2 (10/02/2019)
+new version 5.4.2
+Functionality Improvements :
+
+5.4.2
+- Mailchimp improvements (schedule campaign introduction)
+- Mailchimp acceleration everything is now build with asynchronous system.
+- CRMJSOM.js bug resolution and adds
+- Event upgrade
+- Phili67 volunteeropportunityeditor api
+- EventEditor.js update
+- MenuBar little bug resolution
+- PersonView bug resolution
+
+5.4.1 Only bug correction :
+- CSP problem resolution : thank's to Erwan C.
+- api with logger bug resolution (system + people-family).
+- csp-report api bug correction.
+
+
+5.4.0 version
+- GDPR clarifications, we're working closely with lawers to finish the GDPR point.
+
+- Security update :
+  - EcclesiaCRM kernel is brand new inside (AdminLTE 2.4.8)
+  - Full compatibility with the EcclesiaCRM theme update
+  - all the npm packages are now at the last version
+  - all the composer package too.
+  - code clarifications in the api and the skin/js files.
+  - introduction of the v2 api : proof of concept for security purpose.
+  - when a person is de-activated the user is de-activated too.
+  - calendar sidebar enhancement
+  - Header-function security update.
+
+- For finance show since et show for is rewritten
+- The ckeditor icon merge tags update
+- Age graph people in the People Dashboard.
+- Better test to the BDD at install process.
+- PersonView upgrade (security).
+- ckeditor better support.
+- better note and note share support.
+- Login.php and Logout.php enhancements.
+- Map css upgrade.
+
+Bugs correction
+- User management bug resolutions
+- self-register.php date localisation resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.4.1 (06/02/2019)
+new version 5.4.1
+Functionality Improvements :
+
+Only bug correction :
+- CSP problem resolution : thank's to Erwan C.
+- api with logger bug resolution (system + people-family).
+- csp-report api bug correction.
+
+
+5.4.0 version
+- GDPR clarifications, we're working closely with lawers to finish the GDPR point.
+
+- Security update :a
+  - EcclesiaCRM kernel is brand new inside (AdminLTE 2.4.8)
+  - Full compatibility with the EcclesiaCRM theme update
+  - all the npm packages are now at the last version
+  - all the composer package too.
+  - code clarifications in the api and the skin/js files.
+  - introduction of the v2 api : proof of concept for security purpose.
+  - when a person is de-activated the user is de-activated too.
+  - calendar sidebar enhancement
+  - Header-function security update.
+
+- For finance show since et show for is rewritten
+- The ckeditor icon merge tags update
+- Age graph people in the People Dashboard.
+- Better test to the BDD at install process.
+- PersonView upgrade (security).
+- ckeditor better support.
+- better note and note share support.
+- Login.php and Logout.php enhancements.
+- Map css upgrade.
+
+Bugs correction
+- User management bug resolutions
+- self-register.php date localisation resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.4.0 (06/02/2019)
+new version 5.4.0
+Functionality Improvements :
+- GDPR clarifications, we're working closely with lawers to finish the GDPR point.
+
+- Security update :
+  - EcclesiaCRM kernel is brand new inside (AdminLTE 2.4.8)
+  - Full compatibility with the EcclesiaCRM theme update
+  - all the npm packages are now at the last version
+  - all the composer package too.
+  - code clarifications in the api and the skin/js files.
+  - introduction of the v2 api : proof of concept for security purpose.
+  - when a person is de-activated the user is de-activated too.
+  - calendar sidebar enhancement
+  - Header-function security update.
+
+- For finance show since et show for is rewritten
+- The ckeditor icon merge tags update
+- Age graph people in the People Dashboard.
+- Better test to the BDD at install process.
+- PersonView upgrade (security).
+- ckeditor better support.
+- better note and note share support.
+- Login.php and Logout.php enhancements.
+- Map css upgrade.
+
+Bugs correction
+- User management bug resolutions
+- self-register.php date localisation resolution
+- List event bug resolution for the number of people
+
+Inner Beauty
+- full new api v2
+- new clarifications in the api and skin/js code.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.3.1 (30/12/2018)
+new version 5.3.1
+Functionality Improvements :
+- Bootstraper ChurchCRM upgrade
+- CKeditor better support
+- Note and Documents improvements
+- FamilyView minor update
+- PersonView Group improvements
+- Better EDrive support
+- Better Note to word export
+- Better export managements
+
+Bugs correction
+- PersonView bug resolution
+- self-register.php date localisation resolution
+
+Inner Beauty
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.3.0 (25/12/2018)
+new version 5.3.0
+Functionality Improvements :
+- MailChimp massive upgrade 2 : groups adds
+- Vcard upgrade export for groups
+- sidebar color light
+- Update propel.php.dist
+- Setup steps: slim application error
+- CSS AdminLTE update
+- Redirect logic rewritten
+- SessionUser add
+- User admin improvements : reservation admin manager improvements.
+- user.php right upgrade
+- SystemConfig clear code
+- MenuBar update in full JS.
+- Menubar custom items in full js too.
+
+Bugs correction
+- PersonView Bug resolution
+
+Inner Beauty
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.2.0 (17/12/2018)
+new version 5.2.0
+Functionality Improvements :
+- MailChimp upgrade
+- mcrypt is deleted for php7.2 full compatibility
+- UserEditor update code cleanup
+- JS update no sort with classifications table
+- C32019 PDF_Label add
+- Calendar Reservation improvements
+- PropertyEditor.php escape bug resolution
+- Add badge format improvements
+- OpenSSL requirement in the installation process
+- Integrity check update
+- CKeditor update (now with merge tags)
+- PersonEditor NewsLetter update (a Person can now manage the newsletter flags)
+- Mailchimp : Some improvements
+- ManageList.js improvements
+- MailChimp security upgrades
+- Copyright upgrade
+- CoutryDropdown stateDropDown update
+- setup : Dropdown updates
+- Dropdown update for CartToFamily.php PersonEditor.php FamilyEditor.php
+- CSVImport.php update
+- family-register.php update
+- SelfRegister family : localisation update
+- FamilyView minor update
+- Family not in mailchimp title changes
+- No more Runquery : FamilyView.php is full propeled
+- No more Runquery : PersonView.php is full propeled
+
+
+Bugs correction
+- GDRP bug resolution
+- Badges bug resolution
+
+Inner Beauty
+- adding two mysql constraints in person2volunteeropp_p2vo.
+- property_pro has now a : pro_Comment column for GDRP.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.1.0 (16/11/2018)
+new version 5.1.0
+Functionality Improvements :
+- new role : Menu Query for In UserEditor.
+- GDRP update you can now print the GDPR Data structure.
+- GDRP update new fields (person properties and family properties).
+- Security updates in the Settings.
+- ManageEnvelopes.php is rewritten in boostraped a bug is corrected (classification).
+- CKeditor can export now to word in EDrive
+- Note is re-introduce to avoid a confusion with Edrive.
+- VolunteerOpportunityEditor.php is completely in JS rewritten.
+- financial security upgrade
+- More Preview files for EDrive
+- PersonView and FamilyView GUI update with the button delete and edit.
+- ListEvent GUI upgrade.
+- Sundayschool export translation.
+- file manager and calendar share now send an email to the shared users.
+- EDrive : FileManager enhancement (better drag behaviour).
+
+Bugs correction
+- Cart Family bug resolution.
+- Family and person deletion solved.
+- CSVCreateFile.php age bug resolution.
+- Bug resolution in resize event.
+- Bug resolution in CSV export for the sundayschool.
+
+Inner Beauty
+- adding two mysql constraints in person2volunteeropp_p2vo.
+- property_pro has now a : pro_Comment column for GDRP.
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 5.0.0 (24/10/2018)
+new version 5.0.0
+Functionality Improvements :
+- EDrive + real full file manager
+![capture d ecran 2018-10-24 a 18 01 38](https://user-images.githubusercontent.com/20263693/47444601-24221300-d7b7-11e8-9ac8-e83debadc258.png)
+- drag and drop
+![capture d ecran 2018-10-24 a 18 03 02](https://user-images.githubusercontent.com/20263693/47444672-4d42a380-d7b7-11e8-9144-094b1b80a1ac.png)
+- file preview
+![capture d ecran 2018-10-24 a 18 01 50](https://user-images.githubusercontent.com/20263693/47444616-2b492100-d7b7-11e8-889d-0c6a98b18bca.png)
+![capture d ecran 2018-10-24 a 18 01 56](https://user-images.githubusercontent.com/20263693/47444628-3308c580-d7b7-11e8-9dfe-86c66dce3d90.png)
+- easy to rename a file, you've simply to double click a file
+![capture d ecran 2018-10-24 a 18 02 23](https://user-images.githubusercontent.com/20263693/47444659-40be4b00-d7b7-11e8-925c-7510cdbe51a4.png)
+- api filemanager
+- etc ...
+
+Bugs correction
+- comma problem with numbers
+
+Inner Beauty
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.9.2 (15/10/2018)
+new version 4.9.2<br>Functionality Improvements :<br>- Calendar One recurrence event upgrade<br>- External api upgrade for the public calendar<br>- PHP 7.1 et 7.2 compatibility<br>- LettersAndLabels.php bug update<br>- PersonView and PersonEditor update<br>- Badge sticker update<br>- CartToBadge and SundaySchool Badge GUI update<br><br>Bugs correction<br>- NoteEditor.php bug resolution<br><br>Inner Beauty<br><br>Inner Coherence<br><br>See full changelog here:
+---
+
+## 4.9.1 (13/10/2018)
+new version 4.9.1
+
+Functionality Improvements :
+- GDPR data structure
+![capture d ecran 2018-10-12 a 23 50 42](https://user-images.githubusercontent.com/20263693/46901319-77d85680-ceb1-11e8-89ab-2210a791c44b.png)
+
+Bugs correction
+- IE11 compatibility again.
+![capture d ecran 2018-10-12 a 23 48 28](https://user-images.githubusercontent.com/20263693/46901320-7c047400-ceb1-11e8-8f06-d5f159dd3cfe.png)
+
+
+
+new version 4.9.0
+Functionality Improvements :
+- Calendar reservation : Room Video and computer + location too
+Now you've , four different sort of calendars :
+![capture d ecran 2018-10-04 a 11 32 58](https://user-images.githubusercontent.com/20263693/46465602-53052480-c7c9-11e8-976a-8bc348a8007a.png)
+- personal
+- group
+- room, computer, and video projector
+- share calendars
+![capture d ecran 2018-10-04 a 11 24 23](https://user-images.githubusercontent.com/20263693/46465079-1dac0700-c7c8-11e8-84e5-bdf92d865b6b.png)
+
+![capture d ecran 2018-10-04 a 11 24 33](https://user-images.githubusercontent.com/20263693/46465088-213f8e00-c7c8-11e8-93bb-b5585d4299df.png)
+
+A calendar can have now a description in the case of a resource calendars :
+![capture d ecran 2018-10-04 a 11 27 42](https://user-images.githubusercontent.com/20263693/46465311-927f4100-c7c8-11e8-8c36-18555695fdaf.png)
+
+You can see the sort of events in the view :
+![capture d ecran 2018-10-04 a 11 35 52](https://user-images.githubusercontent.com/20263693/46465752-b2fbcb00-c7c9-11e8-9546-4cdca1e1b970.png)
+
+
+A resource can be located on the map with event location feature
+![capture d ecran 2018-10-04 a 11 30 35](https://user-images.githubusercontent.com/20263693/46465477-fa358c00-c7c8-11e8-99a3-bbf3acf3e243.png)
+
+![capture d ecran 2018-10-04 a 11 29 18](https://user-images.githubusercontent.com/20263693/46465397-c78b9380-c7c8-11e8-8c8b-28c4e579f049.png)
+
+- File Manager
+![capture d ecran 2018-10-11 a 00 26 44](https://user-images.githubusercontent.com/20263693/46769547-73af0c00-ccec-11e8-9896-0295cfe128dd.png)
+![capture d ecran 2018-10-11 a 00 26 49](https://user-images.githubusercontent.com/20263693/46769850-5d558000-cced-11e8-85f0-695009c5755d.png)
+![capture d ecran 2018-10-11 a 00 26 35](https://user-images.githubusercontent.com/20263693/46769856-61819d80-cced-11e8-89e5-203cd2aa10cd.png)
+
+- personview familyview upgrade and optimisation
+- properties api security options
+- groups api upgrade
+- MenuLinks upgrade
+
+Bugs correction
+- 
+
+Inner Beauty
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.9.0 (11/10/2018)
+
+new version 4.9.0
+Functionality Improvements :
+- Calendar reservation : Room Video and computer + location too
+Now you've , four different sort of calendars :
+![capture d ecran 2018-10-04 a 11 32 58](https://user-images.githubusercontent.com/20263693/46465602-53052480-c7c9-11e8-976a-8bc348a8007a.png)
+- personal
+- group
+- room, computer, and video projector
+- share calendars
+![capture d ecran 2018-10-04 a 11 24 23](https://user-images.githubusercontent.com/20263693/46465079-1dac0700-c7c8-11e8-84e5-bdf92d865b6b.png)
+
+![capture d ecran 2018-10-04 a 11 24 33](https://user-images.githubusercontent.com/20263693/46465088-213f8e00-c7c8-11e8-93bb-b5585d4299df.png)
+
+A calendar can have now a description in the case of a resource calendars :
+![capture d ecran 2018-10-04 a 11 27 42](https://user-images.githubusercontent.com/20263693/46465311-927f4100-c7c8-11e8-8c36-18555695fdaf.png)
+
+You can see the sort of events in the view :
+![capture d ecran 2018-10-04 a 11 35 52](https://user-images.githubusercontent.com/20263693/46465752-b2fbcb00-c7c9-11e8-9546-4cdca1e1b970.png)
+
+
+A resource can be located on the map with event location feature
+![capture d ecran 2018-10-04 a 11 30 35](https://user-images.githubusercontent.com/20263693/46465477-fa358c00-c7c8-11e8-99a3-bbf3acf3e243.png)
+
+![capture d ecran 2018-10-04 a 11 29 18](https://user-images.githubusercontent.com/20263693/46465397-c78b9380-c7c8-11e8-8c8b-28c4e579f049.png)
+
+- File Manager
+![capture d ecran 2018-10-11 a 00 26 44](https://user-images.githubusercontent.com/20263693/46769547-73af0c00-ccec-11e8-9896-0295cfe128dd.png)
+![capture d ecran 2018-10-11 a 00 26 49](https://user-images.githubusercontent.com/20263693/46769850-5d558000-cced-11e8-85f0-695009c5755d.png)
+![capture d ecran 2018-10-11 a 00 26 35](https://user-images.githubusercontent.com/20263693/46769856-61819d80-cced-11e8-89e5-203cd2aa10cd.png)
+
+- personview familyview upgrade and optimisation
+- properties api security options
+- groups api upgrade
+- MenuLinks upgrade
+
+Bugs correction
+- 
+
+Inner Beauty
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.8.0 (02/10/2018)
+new version 4.8.0
+Functionality Improvements :
+- external calendar api upgrade for sabre
+- translation upgrade
+- calendarV2.php upgrade for the new external api
+- public calendar with token
+- eventsV2 upgrade (better management of recurence events).
+- groups api little upgrade
+- Cart delete CRMJsom upgrade with broadcaster/listener upgrade
+- Person deletion update for 
+- PDFLabel.php for CSV files UTF8
+- CSVImport upgrade (when no field are added a message is added to the view)
+- CSVImport + cart import too
+- Calendar upgrade (coherence with color).
+- SundaySchoolView GUI improvements : edition mode upgrade
+
+Bugs correction
+- SelectDelete.php bug resolution
+
+Inner Beauty
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.7.6 (27/09/2018)
+new version 4.7.6
+- new edition mode in SundaySchoolView, real time cart add for each user.
+![capture d ecran 2018-09-27 a 22 34 50](https://user-images.githubusercontent.com/20263693/46173091-97626300-c2a5-11e8-9f46-ddb4f161ec3a.png)
+- csv import with add persons to cart
+![capture d ecran 2018-09-27 a 22 34 26](https://user-images.githubusercontent.com/20263693/46173100-9df0da80-c2a5-11e8-8346-5461b234fa3a.png)
+- last footer.js bug update
+- re-introduction with the gettext function everywhere
+
+new version 4.7.5
+- Sundayschoolview update everything is now in real time and the add of each each user is faster, same with the deletion.
+
+new version 4.7.4
+Functionality Improvements :
+- Sundayschoolview update :
+  - New cart button for each students, 
+![capture d ecran 2018-09-22 a 20 38 04](https://user-images.githubusercontent.com/20263693/45920639-bdec5c80-bea7-11e8-9456-b8af18676402.png)
+  - the JS code is now moved to the js file too
+  - the table is now order by dates too
+  - The table can be filtered by gender
+![capture d ecran 2018-09-22 a 20 38 29](https://user-images.githubusercontent.com/20263693/45920656-e8d6b080-bea7-11e8-880f-798c4fa0ce06.png)
+  - everything is rewritten in JS code.
+  - you can add members (with roles).
+![capture d ecran 2018-09-22 a 20 38 09](https://user-images.githubusercontent.com/20263693/45920651-d3fa1d00-bea7-11e8-94bf-d6514d6ce54f.png)
+  - delete members.
+  - add them to the cart.
+  - you can now directly click the address, mail, phone numbers and to open the compatible application.
+  - BADGES : Now the people who are in the cart are directly can be badged
+  - Now when you add members, you're in edition mode, so all the unusefull part will be removed.
+![capture d ecran 2018-09-22 a 20 38 29](https://user-images.githubusercontent.com/20263693/45920653-dfe5df00-bea7-11e8-9be0-916c28562d29.png)
+- SystemConfig : Date format simplifications
+![capture d ecran 2018-09-22 a 20 47 55](https://user-images.githubusercontent.com/20263693/45920714-e58ff480-bea8-11e8-8699-a0ceda183409.png)
+- SelectList.js code security
+- PersonEditor.php message upgrade (when a family is added)
+![capture d ecran 2018-09-22 a 20 49 18](https://user-images.githubusercontent.com/20263693/45920745-3d2e6000-bea9-11e8-8974-1299d58f5cce.png)
+- Cart protection GDPR
+- CartView.php security update
+- Documents in PersonView.php reflect only one document.
+- GUI : DirectoryReports.php, BackupDatabase.php, UserPasswordChange.php
+- CSVCreateFile.php is rewritten.
+- Massiv CSVImport.php rewrite
+![capture d ecran 2018-09-22 a 20 44 30](https://user-images.githubusercontent.com/20263693/45920684-6b5f7000-bea8-11e8-86f0-b6171b9919fc.png)
+![capture d ecran 2018-09-22 a 20 44 49](https://user-images.githubusercontent.com/20263693/45920686-70242400-bea8-11e8-8d0c-d198920f4e98.png)
+- There's now a mechanism to avoid duplicate name :
+![capture d ecran 2018-09-22 a 20 45 53](https://user-images.githubusercontent.com/20263693/45920692-87fba800-bea8-11e8-8e97-ec0c5556a5c6.png)
+ - the clear mechanism is rewritten too.
+![capture d ecran 2018-09-22 a 20 45 02](https://user-images.githubusercontent.com/20263693/45920687-74504180-bea8-11e8-8c2a-f46d06f8f209.png)
+- CSV import for coordinates in family_fam
+- UserSetting.php is unusefull because of the user roles, there's no more UserDefault settings, because there's user roles.
+- LabelFunction.php is now unusefull
+
+
+Bugs correction
+- FontSelect is now rewritten, there's no more crash.
+
+Inner Beauty
+- isSundayShoolTeachForGroup is changed to isSundayShoolTeacherForGroup
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.7.5 (23/09/2018)
+new version 4.7.5
+- Sundayschoolview update everything is now in real time and the add of each each user is faster, same with the deletion.
+
+new version 4.7.4
+Functionality Improvements :
+- Sundayschoolview update :
+  - New cart button for each students, 
+![capture d ecran 2018-09-22 a 20 38 04](https://user-images.githubusercontent.com/20263693/45920639-bdec5c80-bea7-11e8-9456-b8af18676402.png)
+  - the JS code is now moved to the js file too
+  - the table is now order by dates too
+  - The table can be filtered by gender
+![capture d ecran 2018-09-22 a 20 38 29](https://user-images.githubusercontent.com/20263693/45920656-e8d6b080-bea7-11e8-880f-798c4fa0ce06.png)
+  - everything is rewritten in JS code.
+  - you can add members (with roles).
+![capture d ecran 2018-09-22 a 20 38 09](https://user-images.githubusercontent.com/20263693/45920651-d3fa1d00-bea7-11e8-94bf-d6514d6ce54f.png)
+  - delete members.
+  - add them to the cart.
+  - you can now directly click the address, mail, phone numbers and to open the compatible application.
+  - BADGES : Now the people who are in the cart are directly can be badged
+  - Now when you add members, you're in edition mode, so all the unusefull part will be removed.
+![capture d ecran 2018-09-22 a 20 38 29](https://user-images.githubusercontent.com/20263693/45920653-dfe5df00-bea7-11e8-9be0-916c28562d29.png)
+- SystemConfig : Date format simplifications
+![capture d ecran 2018-09-22 a 20 47 55](https://user-images.githubusercontent.com/20263693/45920714-e58ff480-bea8-11e8-8699-a0ceda183409.png)
+- SelectList.js code security
+- PersonEditor.php message upgrade (when a family is added)
+![capture d ecran 2018-09-22 a 20 49 18](https://user-images.githubusercontent.com/20263693/45920745-3d2e6000-bea9-11e8-8974-1299d58f5cce.png)
+- Cart protection GDPR
+- CartView.php security update
+- Documents in PersonView.php reflect only one document.
+- GUI : DirectoryReports.php, BackupDatabase.php, UserPasswordChange.php
+- CSVCreateFile.php is rewritten.
+- Massiv CSVImport.php rewrite
+![capture d ecran 2018-09-22 a 20 44 30](https://user-images.githubusercontent.com/20263693/45920684-6b5f7000-bea8-11e8-86f0-b6171b9919fc.png)
+![capture d ecran 2018-09-22 a 20 44 49](https://user-images.githubusercontent.com/20263693/45920686-70242400-bea8-11e8-8d0c-d198920f4e98.png)
+- There's now a mechanism to avoid duplicate name :
+![capture d ecran 2018-09-22 a 20 45 53](https://user-images.githubusercontent.com/20263693/45920692-87fba800-bea8-11e8-8e97-ec0c5556a5c6.png)
+ - the clear mechanism is rewritten too.
+![capture d ecran 2018-09-22 a 20 45 02](https://user-images.githubusercontent.com/20263693/45920687-74504180-bea8-11e8-8c2a-f46d06f8f209.png)
+- CSV import for coordinates in family_fam
+- UserSetting.php is unusefull because of the user roles, there's no more UserDefault settings, because there's user roles.
+- LabelFunction.php is now unusefull
+
+
+Bugs correction
+- FontSelect is now rewritten, there's no more crash.
+
+Inner Beauty
+- isSundayShoolTeachForGroup is changed to isSundayShoolTeacherForGroup
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.7.4 (22/09/2018)
+new version 4.7.4
+Functionality Improvements :
+- Sundayschoolview update :
+  - New cart button for each students, 
+![capture d ecran 2018-09-22 a 20 38 04](https://user-images.githubusercontent.com/20263693/45920639-bdec5c80-bea7-11e8-9456-b8af18676402.png)
+  - the JS code is now moved to the js file too
+  - the table is now order by dates too
+  - The table can be filtered by gender
+![capture d ecran 2018-09-22 a 20 38 29](https://user-images.githubusercontent.com/20263693/45920656-e8d6b080-bea7-11e8-880f-798c4fa0ce06.png)
+  - everything is rewritten in JS code.
+  - you can add members (with roles).
+![capture d ecran 2018-09-22 a 20 38 09](https://user-images.githubusercontent.com/20263693/45920651-d3fa1d00-bea7-11e8-94bf-d6514d6ce54f.png)
+  - delete members.
+  - add them to the cart.
+  - you can now directly click the address, mail, phone numbers and to open the compatible application.
+  - BADGES : Now the people who are in the cart are directly can be badged
+  - Now when you add members, you're in edition mode, so all the unusefull part will be removed.
+![capture d ecran 2018-09-22 a 20 38 29](https://user-images.githubusercontent.com/20263693/45920653-dfe5df00-bea7-11e8-9be0-916c28562d29.png)
+- SystemConfig : Date format simplifications
+![capture d ecran 2018-09-22 a 20 47 55](https://user-images.githubusercontent.com/20263693/45920714-e58ff480-bea8-11e8-8699-a0ceda183409.png)
+- SelectList.js code security
+- PersonEditor.php message upgrade (when a family is added)
+![capture d ecran 2018-09-22 a 20 49 18](https://user-images.githubusercontent.com/20263693/45920745-3d2e6000-bea9-11e8-8974-1299d58f5cce.png)
+- Cart protection GDPR
+- CartView.php security update
+- Documents in PersonView.php reflect only one document.
+- GUI : DirectoryReports.php, BackupDatabase.php, UserPasswordChange.php
+- CSVCreateFile.php is rewritten.
+- Massiv CSVImport.php rewrite
+![capture d ecran 2018-09-22 a 20 44 30](https://user-images.githubusercontent.com/20263693/45920684-6b5f7000-bea8-11e8-86f0-b6171b9919fc.png)
+![capture d ecran 2018-09-22 a 20 44 49](https://user-images.githubusercontent.com/20263693/45920686-70242400-bea8-11e8-8d0c-d198920f4e98.png)
+- There's now a mechanism to avoid duplicate name :
+![capture d ecran 2018-09-22 a 20 45 53](https://user-images.githubusercontent.com/20263693/45920692-87fba800-bea8-11e8-8e97-ec0c5556a5c6.png)
+ - the clear mechanism is rewritten too.
+![capture d ecran 2018-09-22 a 20 45 02](https://user-images.githubusercontent.com/20263693/45920687-74504180-bea8-11e8-8c2a-f46d06f8f209.png)
+- CSV import for coordinates in family_fam
+- UserSetting.php is unusefull because of the user roles, there's no more UserDefault settings, because there's user roles.
+- LabelFunction.php is now unusefull
+
+
+Bugs correction
+- FontSelect is now rewritten, there's no more crash.
+
+Inner Beauty
+- isSundayShoolTeachForGroup is changed to isSundayShoolTeacherForGroup
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.7.3 (15/09/2018)
+new version 4.7.3
+Functionality Improvements :
+- Add Badges to CartView.php (now you can create Badges for your team).
+- Add the ElectronicPaymentList.php a lack of a translated term
+- Badges refactor for the sundayschool too
+
+Bugs correction
+- FontSelect is now rewritten, there's no more crash in foreign language.
+
+new version 4.7.2
+Functionality Improvements :
+- Add the property to the badge.
+- Add the ElectronicPaymentList.php and rewrite it in full ORM.
+
+Bugs correction
+- PersonView and FamilyView visual bug correction.
+
+Inner Beauty
+- Security for the payment api.
+- Refactor of the Autopayment table with constraint
+
+Inner Coherence
+
+See full changelog here:
+
+new version 4.7.1
+Functionality Improvements:
+- Add badge type.
+
+new version 4.7.0
+Functionality Improvements :
+- SelectDelete.php is propeled
+- SelectDelete.php updated (it can manage Person or Family pledges)
+- PersonEditor optimisation
+- User Finance Security update
+- Menu Nice color upgrade
+- Student badges
+- DepositSlipEditor.js coherence
+- Now the Family list will view only real families
+- Personeditor rewrite in function of SelectDelete (A one person family is now deleted with the Family too).
+- Now the PersonEditor.js focus button for the address.
+- PersonEditor nice switch from one family to another
+- PersonEditor left right code refactor for the custom fields.
+- FamilyEditor left right code refactor for the custom fields.
+- CartView.php code refactor.
+- A one person Family is no more viewed.
+- FamilyEditor.php is now completely rewritten.
+- self-verify-updates.php localisation
+- Propeled code : CartToFamily.php, PropertyTypeDelete.php, CartView.php, DirectoryReports.php is now propeled
+- PersonEditor enhancement with address entry
+
+Bugs correction
+- bug PersonEditor.php bug resolution.
+- bug resolution with DirectoryReport phone numbers.
+
+Inner Beauty
+- ExpandPhoneNumber is now unusefull
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.7.2 (13/09/2018)
+new version 4.7.2
+Functionality Improvements :
+- Add the property to the badge.
+- Add the ElectronicPaymentList.php and rewrite it in full ORM.
+
+Bugs correction
+- PersonView and FamilyView visual bug correction.
+
+Inner Beauty
+- Security for the payment api.
+- Refactor of the Autopayment table with constraint
+
+Inner Coherence
+
+See full changelog here:
+
+new version 4.7.1
+Functionality Improvements:
+- Add badge type.
+
+new version 4.7.0
+Functionality Improvements :
+- SelectDelete.php is propeled
+- SelectDelete.php updated (it can manage Person or Family pledges)
+- PersonEditor optimisation
+- User Finance Security update
+- Menu Nice color upgrade
+- Student badges
+- DepositSlipEditor.js coherence
+- Now the Family list will view only real families
+- Personeditor rewrite in function of SelectDelete (A one person family is now deleted with the Family too).
+- Now the PersonEditor.js focus button for the address.
+- PersonEditor nice switch from one family to another
+- PersonEditor left right code refactor for the custom fields.
+- FamilyEditor left right code refactor for the custom fields.
+- CartView.php code refactor.
+- A one person Family is no more viewed.
+- FamilyEditor.php is now completely rewritten.
+- self-verify-updates.php localisation
+- Propeled code : CartToFamily.php, PropertyTypeDelete.php, CartView.php, DirectoryReports.php is now propeled
+- PersonEditor enhancement with address entry
+
+Bugs correction
+- bug PersonEditor.php bug resolution.
+- bug resolution with DirectoryReport phone numbers.
+
+Inner Beauty
+- ExpandPhoneNumber is now unusefull
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.7.1 (12/09/2018)
+new version 4.7.1
+Functionality Improvements:
+- Add badge type.
+
+new version 4.7.0
+Functionality Improvements :
+- SelectDelete.php is propeled
+- SelectDelete.php updated (it can manage Person or Family pledges)
+- PersonEditor optimisation
+- User Finance Security update
+- Menu Nice color upgrade
+- Student badges
+- DepositSlipEditor.js coherence
+- Now the Family list will view only real families
+- Personeditor rewrite in function of SelectDelete (A one person family is now deleted with the Family too).
+- Now the PersonEditor.js focus button for the address.
+- PersonEditor nice switch from one family to another
+- PersonEditor left right code refactor for the custom fields.
+- FamilyEditor left right code refactor for the custom fields.
+- CartView.php code refactor.
+- A one person Family is no more viewed.
+- FamilyEditor.php is now completely rewritten.
+- self-verify-updates.php localisation
+- Propeled code : CartToFamily.php, PropertyTypeDelete.php, CartView.php, DirectoryReports.php is now propeled
+- PersonEditor enhancement with address entry
+
+Bugs correction
+- bug PersonEditor.php bug resolution.
+- bug resolution with DirectoryReport phone numbers.
+
+Inner Beauty
+- ExpandPhoneNumber is now unusefull
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.7.0 (11/09/2018)
+new version 4.7.0
+Functionality Improvements :
+- SelectDelete.php is propeled
+- SelectDelete.php updated (it can manage Person or Family pledges)
+- PersonEditor optimisation
+- User Finance Security update
+- Menu Nice color upgrade
+- Student badges
+- DepositSlipEditor.js coherence
+- Now the Family list will view only real families
+- Personeditor rewrite in function of SelectDelete (A one person family is now deleted with the Family too).
+- Now the PersonEditor.js focus button for the address.
+- PersonEditor nice switch from one family to another
+- PersonEditor left right code refactor for the custom fields.
+- FamilyEditor left right code refactor for the custom fields.
+- CartView.php code refactor.
+- A one person Family is no more viewed.
+- FamilyEditor.php is now completely rewritten.
+- self-verify-updates.php localisation
+- Propeled code : CartToFamily.php, PropertyTypeDelete.php, CartView.php, DirectoryReports.php is now propeled
+- PersonEditor enhancement with address entry
+
+Bugs correction
+- bug PersonEditor.php bug resolution.
+- bug resolution with DirectoryReport phone numbers.
+
+Inner Beauty
+- ExpandPhoneNumber is now unusefull
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.6.2 (09/09/2018)
+new version 4.6.2
+Functionality Improvements :
+- DepositSlipEditor.js coherence
+- Now the Family list will view only real families
+- SelectDelete.php updated (it can manage Person or Family pledges)
+- Personeditor rewrite in function of SelectDelete (A one person family is now deleted with the Family too).
+- Now the PersonEditor.js focus button for the address.
+- PersonEditor nice switch from one family to another
+- PersonEditor left right code refactor for the custom fields.
+- FamilyEditor left right code refactor for the custom fields.
+- CartView.php code refactor.
+- A one person Family is no more viewed.
+- FamilyEditor.php is now completely rewritten.
+- self-verify-updates.php localisation
+- Propeled code : CartToFamily.php, PropertyTypeDelete.php, CartView.php, DirectoryReports.php is now propeled
+- PersonEditor enhancement with address entry
+
+Bugs correction
+- bug PersonEditor.php bug resolution.
+- bug resolution with DirectoryReport phone numbers.
+
+new version 4.6.1
+Functionality Improvements :
+- Menu Links optimisation code.
+- Propeled code : CartToFamily.php, PropertyTypeDelete.php, CartView.php, DirectoryReports.php is now propeled
+- PersonEditor enhancement with address entry
+
+Bugs correction
+- bug resolution with opened document.
+- bug resolution with DirectoryReport phone numbers.
+
+Inner Beauty
+- ExpandPhoneNumber is now unusefull
+new version 4.6.0
+Functionality Improvements :
+- Security update : JWT
+- First Implementation of JWT authentication.
+- Speed optimisation
+- CRMJSOM + security update.
+- Menu Links Updates.
+- Kiosk bug update.
+- GroupPersonPropsFormEditor.php update
+- GroupPropsFormEditor.php GUI update
+- Propeled code OptionManagerRowOps.php optimisation OptionsManager.php
+- OptionManager.php is propeled
+
+Bugs correction
+
+Inner Beauty
+- sql upgrade to implement PersonCustomMasterQuery and FamilyCustomMasterQuery classes.
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.6.1 (05/09/2018)
+new version 4.6.1
+Functionality Improvements :
+- Menu Links optimisation code.
+- Propeled code : CartToFamily.php, PropertyTypeDelete.php, CartView.php, DirectoryReports.php is now propeled
+- PersonEditor enhancement with address entry
+
+Bugs correction
+- bug resolution with opened document.
+- bug resolution with DirectoryReport phone numbers.
+
+Inner Beauty
+- ExpandPhoneNumber is now unusefull
+new version 4.6.0
+Functionality Improvements :
+- Security update : JWT
+- First Implementation of JWT authentication.
+- Speed optimisation
+- CRMJSOM + security update.
+- Menu Links Updates.
+- Kiosk bug update.
+- GroupPersonPropsFormEditor.php update
+- GroupPropsFormEditor.php GUI update
+- Propeled code OptionManagerRowOps.php optimisation OptionsManager.php
+- OptionManager.php is propeled
+
+Bugs correction
+
+Inner Beauty
+- sql upgrade to implement PersonCustomMasterQuery and FamilyCustomMasterQuery classes.
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.6.0 (02/09/2018)
+new version 4.6.0
+Functionality Improvements :
+- Security update : JWT
+- First Implementation of JWT authentication.
+- Speed optimisation
+- CRMJSOM + security update.
+- Menu Links Updates.
+- Kiosk bug update.
+- GroupPersonPropsFormEditor.php update
+- GroupPropsFormEditor.php GUI update
+- Propeled code OptionManagerRowOps.php optimisation OptionsManager.php
+- OptionManager.php is propeled
+
+Bugs correction
+
+Inner Beauty
+- sql upgrade to implement PersonCustomMasterQuery and FamilyCustomMasterQuery classes.
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.5.2 (27/08/2018)
+New version 4.5.2
+- GUI updates
+![capture d ecran 2018-08-27 a 22 27 30](https://user-images.githubusercontent.com/20263693/44684124-84f7ce00-aa48-11e8-8943-e20599a5bc97.png)
+![capture d ecran 2018-08-27 a 22 27 39](https://user-images.githubusercontent.com/20263693/44684127-86c19180-aa48-11e8-8bee-98ac1b8f7042.png)
+![capture d ecran 2018-08-27 a 22 28 04](https://user-images.githubusercontent.com/20263693/44684132-8923eb80-aa48-11e8-8f87-269362f95197.png)
+
+- Now the FamilyCustomFieldsEditor.php + PersonCustomFieldsEditor.php + order is now corrected
+- Minor Menu update
+![capture d ecran 2018-08-27 a 15 06 45](https://user-images.githubusercontent.com/20263693/44661406-e0a36680-aa0a-11e8-8648-e0d3571fe493.png)
+- More JS code in PersonView, the properties and Volunteer part need no more page reload
+
+new version 4.5.1
+Better translations.
+Now you can order the Custom Menus items
+![capture d ecran 2018-08-26 a 20 25 26](https://user-images.githubusercontent.com/20263693/44632142-29f5a680-a976-11e8-9210-424f76b6a866.png)
+
+![capture d ecran 2018-08-26 a 20 29 38](https://user-images.githubusercontent.com/20263693/44632143-2e21c400-a976-11e8-86b5-08a3d7cba511.png)
+
+new version 4.5.0
+Functionality Improvements :
+- GDPR enhancements.
+- The Pastoral care is now searchable.
+![capture d ecran 2018-08-25 a 21 08 46](https://user-images.githubusercontent.com/20263693/44621699-192c2e80-a8ab-11e8-893e-7b5b07eefcd9.png)
+- The pastoral care is now mentioned on the Main Dashboard.
+![capture d ecran 2018-08-25 a 20 47 10](https://user-images.githubusercontent.com/20263693/44621689-f13ccb00-a8aa-11e8-81b3-9f5ea969872a.png)
+- UserEditor skin is now saved in the user profile.
+- Notification upgrade modification.
+![capture d ecran 2018-08-25 a 21 09 41](https://user-images.githubusercontent.com/20263693/44621710-3660fd00-a8ab-11e8-8d81-43427f2576c9.png)
+- Security in the Webdav server (introduction of UUID directory for each users).
+- UserList massive update.
+![capture d ecran 2018-08-25 a 21 10 48](https://user-images.githubusercontent.com/20263693/44621715-5ee8f700-a8ab-11e8-812f-930d7360fabd.png)
+You can apply a role for many users together.
+- Enable Features settings.
+![capture d ecran 2018-08-25 a 21 11 38](https://user-images.githubusercontent.com/20263693/44621716-7b852f00-a8ab-11e8-9ad1-6313ef3ebff8.png)
+- Global and Personal Menu Links.
+![capture d ecran 2018-08-25 a 20 46 30](https://user-images.githubusercontent.com/20263693/44621735-c9019c00-a8ab-11e8-9066-8748ea1db3c7.png)
+![capture d ecran 2018-08-25 a 20 47 02](https://user-images.githubusercontent.com/20263693/44621737-ce5ee680-a8ab-11e8-891a-b2c2062d968e.png)
+- better translation of the property list and editor.
+- coherence with the DataTables
+
+Bugs correction
+- bug resolution when you change language to another.
+
+Inner Beauty
+- better optimisation of the js code and po code too, everything is now seperated.
+- improvements in the number translations.
+
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.5.1 (26/08/2018)
+new version 4.5.1
+Better translations.
+Now you can order the Custom Menus items
+![capture d ecran 2018-08-26 a 20 25 26](https://user-images.githubusercontent.com/20263693/44632142-29f5a680-a976-11e8-9210-424f76b6a866.png)
+
+![capture d ecran 2018-08-26 a 20 29 38](https://user-images.githubusercontent.com/20263693/44632143-2e21c400-a976-11e8-86b5-08a3d7cba511.png)
+
+new version 4.5.0
+Functionality Improvements :
+- GDPR enhancements.
+- The Pastoral care is now searchable.
+![capture d ecran 2018-08-25 a 21 08 46](https://user-images.githubusercontent.com/20263693/44621699-192c2e80-a8ab-11e8-893e-7b5b07eefcd9.png)
+- The pastoral care is now mentioned on the Main Dashboard.
+![capture d ecran 2018-08-25 a 20 47 10](https://user-images.githubusercontent.com/20263693/44621689-f13ccb00-a8aa-11e8-81b3-9f5ea969872a.png)
+- UserEditor skin is now saved in the user profile.
+- Notification upgrade modification.
+![capture d ecran 2018-08-25 a 21 09 41](https://user-images.githubusercontent.com/20263693/44621710-3660fd00-a8ab-11e8-8d81-43427f2576c9.png)
+- Security in the Webdav server (introduction of UUID directory for each users).
+- UserList massive update.
+![capture d ecran 2018-08-25 a 21 10 48](https://user-images.githubusercontent.com/20263693/44621715-5ee8f700-a8ab-11e8-812f-930d7360fabd.png)
+You can apply a role for many users together.
+- Enable Features settings.
+![capture d ecran 2018-08-25 a 21 11 38](https://user-images.githubusercontent.com/20263693/44621716-7b852f00-a8ab-11e8-9ad1-6313ef3ebff8.png)
+- Global and Personal Menu Links.
+![capture d ecran 2018-08-25 a 20 46 30](https://user-images.githubusercontent.com/20263693/44621735-c9019c00-a8ab-11e8-9066-8748ea1db3c7.png)
+![capture d ecran 2018-08-25 a 20 47 02](https://user-images.githubusercontent.com/20263693/44621737-ce5ee680-a8ab-11e8-891a-b2c2062d968e.png)
+- better translation of the property list and editor.
+- coherence with the DataTables
+
+Bugs correction
+- bug resolution when you change language to another.
+
+Inner Beauty
+- better optimisation of the js code and po code too, everything is now seperated.
+- improvements in the number translations.
+
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.5.0 (26/08/2018)
+new version 4.5.0
+Functionality Improvements :
+- GDPR enhancements.
+- The Pastoral care is now searchable.
+![capture d ecran 2018-08-25 a 21 08 46](https://user-images.githubusercontent.com/20263693/44621699-192c2e80-a8ab-11e8-893e-7b5b07eefcd9.png)
+- The pastoral care is now mentioned on the Main Dashboard.
+![capture d ecran 2018-08-25 a 20 47 10](https://user-images.githubusercontent.com/20263693/44621689-f13ccb00-a8aa-11e8-81b3-9f5ea969872a.png)
+- UserEditor skin is now saved in the user profile.
+- Notification upgrade modification.
+![capture d ecran 2018-08-25 a 21 09 41](https://user-images.githubusercontent.com/20263693/44621710-3660fd00-a8ab-11e8-8d81-43427f2576c9.png)
+- Security in the Webdav server (introduction of UUID directory for each users).
+- UserList massive update.
+![capture d ecran 2018-08-25 a 21 10 48](https://user-images.githubusercontent.com/20263693/44621715-5ee8f700-a8ab-11e8-812f-930d7360fabd.png)
+You can apply a role for many users together.
+- Enable Features settings.
+![capture d ecran 2018-08-25 a 21 11 38](https://user-images.githubusercontent.com/20263693/44621716-7b852f00-a8ab-11e8-9ad1-6313ef3ebff8.png)
+- Global and Personal Menu Links.
+![capture d ecran 2018-08-25 a 20 46 30](https://user-images.githubusercontent.com/20263693/44621735-c9019c00-a8ab-11e8-9066-8748ea1db3c7.png)
+![capture d ecran 2018-08-25 a 20 47 02](https://user-images.githubusercontent.com/20263693/44621737-ce5ee680-a8ab-11e8-891a-b2c2062d968e.png)
+- better translation of the property list and editor.
+- coherence with the DataTables
+
+Bugs correction
+- bug resolution when you change language to another.
+
+Inner Beauty
+- better optimisation of the js code and po code too, everything is now seperated.
+- improvements in the number translations.
+
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.4.2 (18/08/2018)
+new version 4.4.2
+- A bug is corrected with the new Person deactivation function and the Maps.
+
+new version 4.4.1
+- The numbers are now fully translated in foreign languages too.
+- Localisation with US datatable are now corrected.
+
+new version 4.4.0
+Functionality Improvements :
+- New full design for the CRM (brand new skin and icons).
+![capture d ecran 2018-08-11 a 18 13 07](https://user-images.githubusercontent.com/20263693/43993713-40920a68-9d92-11e8-8184-e8b503c76ba4.png)
+![capture d ecran 2018-08-11 a 18 29 34](https://user-images.githubusercontent.com/20263693/43993899-8e044f5c-9d94-11e8-8297-34a00112b706.png)
+- Favicon for iPhone, android etc ...
+![capture d ecran 2018-08-11 a 18 14 25](https://user-images.githubusercontent.com/20263693/43993725-68caf95e-9d92-11e8-90ab-e1a749362ce5.png)
+- New installation process, now everything can be set through the new installer.
+![capture d ecran 2018-08-11 a 18 16 01](https://user-images.githubusercontent.com/20263693/43993748-a8b7cbaa-9d92-11e8-8055-b49bdf3a538b.png)
+- Foreign translation at installation and better translation files, during the installation process.
+- Patoral Care : No more WhyCame, it's now Pastoral Care, a full personalisable parts, with a special role Pastoral care in the UserEditor
+![capture d ecran 2018-08-11 a 18 17 54](https://user-images.githubusercontent.com/20263693/43993762-e50cb3b8-9d92-11e8-9348-f61243627b1a.png)
+Now you can add more comments and work with different pastors :
+![capture d ecran 2018-08-11 a 18 19 45](https://user-images.githubusercontent.com/20263693/43993779-2a7645a4-9d93-11e8-82e8-90724e43d65f.png)
+![capture d ecran 2018-08-11 a 18 20 51](https://user-images.githubusercontent.com/20263693/43993788-530ec2f2-9d93-11e8-96fb-8cd4485f89e4.png)
+You can see a filter
+- It's possible to personalise the type of Pastoral care 
+![capture d ecran 2018-08-11 a 18 21 32](https://user-images.githubusercontent.com/20263693/43993795-66223536-9d93-11e8-9901-456a055c50fe.png)
+So you can follow a person as you want.
+- GDPR + DPO
+![capture d ecran 2018-08-11 a 18 23 15](https://user-images.githubusercontent.com/20263693/43993811-a62ce1bc-9d93-11e8-9856-8d8c21440031.png)
+Now you can de-activate a person :
+![capture d ecran 2018-08-11 a 18 17 54](https://user-images.githubusercontent.com/20263693/43993802-8d663ea8-9d93-11e8-85f6-3e2ca3d7809d.png)
+- To manage the GDPR and DPO : bGDPR, sGdprDpoSigner, sGdprDpoSignerEmail and iGdprExpirationDate set duration of the datas persistence
+- every part is protected in function of GDPR.
+When you de-activate a person or a family, during the 3 first years, an administrator can reactivate them.
+After only a dpo can delete or re-activate them.
+Important : it's impossible for a dpo to delete a person or a family with activated donations.
+- MaindashBoard user setting, so you can create a special profile like a full administrator.
+- Dashboard improvement
+- MailChimp role in SystemSettings + restriction
+- SystemConfig refactor
+- classification icons are now manage in real time
+- Prompt to view the number of groups.
+- Better render for printView
+- Better toolbar management
+- Spanish  support : 99% and German support : 98% .
+- better support for localized numbers in foreign languages.
+- 100% Support of belgium, France, Swiss, Austrelia  with the régions, States, provinces, cantons, Bundesland.
+- better financial Report, everything is rewritten too.
+
+Bugs correction
+- A bug in ChuchMetaData is corrected.
+- a bug with the anniversaries and birthdays event is now corrected.
+- bug with localisation event in the Calendar.
+- bug resolution when you change language to another.
+
+Inner Beauty
+- better optimisation of the js code and po code too, everything is now seperated.
+
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.4.1 (16/08/2018)
+new version 4.4.1
+- The numbers are now fully translated in foreign languages too.
+- Localisation with US datatable are now corrected.
+
+new version 4.4.0
+Functionality Improvements :
+- New full design for the CRM (brand new skin and icons).
+![capture d ecran 2018-08-11 a 18 13 07](https://user-images.githubusercontent.com/20263693/43993713-40920a68-9d92-11e8-8184-e8b503c76ba4.png)
+![capture d ecran 2018-08-11 a 18 29 34](https://user-images.githubusercontent.com/20263693/43993899-8e044f5c-9d94-11e8-8297-34a00112b706.png)
+- Favicon for iPhone, android etc ...
+![capture d ecran 2018-08-11 a 18 14 25](https://user-images.githubusercontent.com/20263693/43993725-68caf95e-9d92-11e8-90ab-e1a749362ce5.png)
+- New installation process, now everything can be set through the new installer.
+![capture d ecran 2018-08-11 a 18 16 01](https://user-images.githubusercontent.com/20263693/43993748-a8b7cbaa-9d92-11e8-8055-b49bdf3a538b.png)
+- Foreign translation at installation and better translation files, during the installation process.
+- Patoral Care : No more WhyCame, it's now Pastoral Care, a full personalisable parts, with a special role Pastoral care in the UserEditor
+![capture d ecran 2018-08-11 a 18 17 54](https://user-images.githubusercontent.com/20263693/43993762-e50cb3b8-9d92-11e8-9348-f61243627b1a.png)
+Now you can add more comments and work with different pastors :
+![capture d ecran 2018-08-11 a 18 19 45](https://user-images.githubusercontent.com/20263693/43993779-2a7645a4-9d93-11e8-82e8-90724e43d65f.png)
+![capture d ecran 2018-08-11 a 18 20 51](https://user-images.githubusercontent.com/20263693/43993788-530ec2f2-9d93-11e8-96fb-8cd4485f89e4.png)
+You can see a filter
+- It's possible to personalise the type of Pastoral care 
+![capture d ecran 2018-08-11 a 18 21 32](https://user-images.githubusercontent.com/20263693/43993795-66223536-9d93-11e8-9901-456a055c50fe.png)
+So you can follow a person as you want.
+- GDPR + DPO
+![capture d ecran 2018-08-11 a 18 23 15](https://user-images.githubusercontent.com/20263693/43993811-a62ce1bc-9d93-11e8-9856-8d8c21440031.png)
+Now you can de-activate a person :
+![capture d ecran 2018-08-11 a 18 17 54](https://user-images.githubusercontent.com/20263693/43993802-8d663ea8-9d93-11e8-85f6-3e2ca3d7809d.png)
+- To manage the GDPR and DPO : bGDPR, sGdprDpoSigner, sGdprDpoSignerEmail and iGdprExpirationDate set duration of the datas persistence
+- every part is protected in function of GDPR.
+When you de-activate a person or a family, during the 3 first years, an administrator can reactivate them.
+After only a dpo can delete or re-activate them.
+Important : it's impossible for a dpo to delete a person or a family with activated donations.
+- MaindashBoard user setting, so you can create a special profile like a full administrator.
+- Dashboard improvement
+- MailChimp role in SystemSettings + restriction
+- SystemConfig refactor
+- classification icons are now manage in real time
+- Prompt to view the number of groups.
+- Better render for printView
+- Better toolbar management
+- Spanish  support : 99% and German support : 98% .
+- better support for localized numbers in foreign languages.
+- 100% Support of belgium, France, Swiss, Austrelia  with the régions, States, provinces, cantons, Bundesland.
+- better financial Report, everything is rewritten too.
+
+Bugs correction
+- A bug in ChuchMetaData is corrected.
+- a bug with the anniversaries and birthdays event is now corrected.
+- bug with localisation event in the Calendar.
+- bug resolution when you change language to another.
+
+Inner Beauty
+- better optimisation of the js code and po code too, everything is now seperated.
+
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.4.0 (11/08/2018)
+new version 4.4.0
+Functionality Improvements :
+- New full design for the CRM (brand new skin and icons).
+![capture d ecran 2018-08-11 a 18 13 07](https://user-images.githubusercontent.com/20263693/43993713-40920a68-9d92-11e8-8184-e8b503c76ba4.png)
+![capture d ecran 2018-08-11 a 18 29 34](https://user-images.githubusercontent.com/20263693/43993899-8e044f5c-9d94-11e8-8297-34a00112b706.png)
+- Favicon for iPhone, android etc ...
+![capture d ecran 2018-08-11 a 18 14 25](https://user-images.githubusercontent.com/20263693/43993725-68caf95e-9d92-11e8-90ab-e1a749362ce5.png)
+- New installation process, now everything can be set through the new installer.
+![capture d ecran 2018-08-11 a 18 16 01](https://user-images.githubusercontent.com/20263693/43993748-a8b7cbaa-9d92-11e8-8055-b49bdf3a538b.png)
+- Foreign translation at installation and better translation files, during the installation process.
+- Patoral Care : No more WhyCame, it's now Pastoral Care, a full personalisable parts, with a special role Pastoral care in the UserEditor
+![capture d ecran 2018-08-11 a 18 17 54](https://user-images.githubusercontent.com/20263693/43993762-e50cb3b8-9d92-11e8-9348-f61243627b1a.png)
+Now you can add more comments and work with different pastors :
+![capture d ecran 2018-08-11 a 18 19 45](https://user-images.githubusercontent.com/20263693/43993779-2a7645a4-9d93-11e8-82e8-90724e43d65f.png)
+![capture d ecran 2018-08-11 a 18 20 51](https://user-images.githubusercontent.com/20263693/43993788-530ec2f2-9d93-11e8-96fb-8cd4485f89e4.png)
+You can see a filter
+- It's possible to personalise the type of Pastoral care 
+![capture d ecran 2018-08-11 a 18 21 32](https://user-images.githubusercontent.com/20263693/43993795-66223536-9d93-11e8-9901-456a055c50fe.png)
+So you can follow a person as you want.
+- GDPR + DPO
+![capture d ecran 2018-08-11 a 18 23 15](https://user-images.githubusercontent.com/20263693/43993811-a62ce1bc-9d93-11e8-9856-8d8c21440031.png)
+Now you can de-activate a person :
+![capture d ecran 2018-08-11 a 18 17 54](https://user-images.githubusercontent.com/20263693/43993802-8d663ea8-9d93-11e8-85f6-3e2ca3d7809d.png)
+- To manage the GDPR and DPO : bGDPR, sGdprDpoSigner, sGdprDpoSignerEmail and iGdprExpirationDate set duration of the datas persistence
+- every part is protected in function of GDPR.
+When you de-activate a person or a family, during the 3 first years, an administrator can reactivate them.
+After only a dpo can delete or re-activate them.
+Important : it's impossible for a dpo to delete a person or a family with activated donations.
+- MaindashBoard user setting, so you can create a special profile like a full administrator.
+- Dashboard improvement
+- MailChimp role in SystemSettings + restriction
+- SystemConfig refactor
+- classification icons are now manage in real time
+- Prompt to view the number of groups.
+- Better render for printView
+- Better toolbar management
+- Spanish  support : 99% and German support : 98% .
+- better support for localized numbers in foreign languages.
+- 100% Support of belgium, France, Swiss, Austrelia  with the régions, States, provinces, cantons, Bundesland.
+- better financial Report, everything is rewritten too.
+
+Bugs correction
+- A bug in ChuchMetaData is corrected.
+- a bug with the anniversaries and birthdays event is now corrected.
+- bug with localisation event in the Calendar.
+- bug resolution when you change language to another.
+
+Inner Beauty
+- better optimisation of the js code and po code too, everything is now seperated.
+
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.3.1 (04/07/2018)
+Functionality Improvements :
+- The personView is better managed
+- Look and feel with email/Dashboard.php
+
+Bugs correction
+- A bug in PersonEditor is corrected.
+
+Inner Beauty
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.3.0 (01/07/2018)
+new version 4.3.0
+Functionality Improvements :
+
+- Adding BingMap, OpenStreetMap to the CRM, because of the new GoogleMap prices.
+  - with BingMap :
+![capture d ecran 2018-07-01 a 09 26 08](https://user-images.githubusercontent.com/20263693/42132090-105a2868-7d11-11e8-90b5-4d382c5258ee.png)
+  - With OpenStreet Map via Leaflet :
+![capture d ecran 2018-07-01 a 09 25 23](https://user-images.githubusercontent.com/20263693/42132099-5336eec8-7d11-11e8-870d-85a872ad86fb.png)
+- The OptionManager is rewritten.
+- You can now add your icon for your map and manage theme without any iteraction with GoogleMap.
+  - To change the icons 
+   ![capture d ecran 2018-07-01 a 09 24 41](https://user-images.githubusercontent.com/20263693/42132109-8cf8ca46-7d11-11e8-88a4-2a73e7ed7f52.png)
+  - The image Picker
+![capture d ecran 2018-07-01 a 09 24 49](https://user-images.githubusercontent.com/20263693/42132110-93d6b4c2-7d11-11e8-9fad-fcddf0f3c4e8.png)
+- So the sGMapIcons key in the preferences is no more usefull.
+- The legend map has now the ability to check/unchek the icons in function of the classification.
+  - With BingMap
+![capture d ecran 2018-07-01 a 09 26 15](https://user-images.githubusercontent.com/20263693/42132085-ef12868c-7d10-11e8-95b0-9023d0871baa.png)
+-  With : OpenStreetMap
+![capture d ecran 2018-07-01 a 09 25 33](https://user-images.githubusercontent.com/20263693/42132094-2ec3aa2c-7d11-11e8-9ac0-905ebd49b569.png)
+- The Banner is Menu.php is rewritten too.
+![capture d ecran 2018-07-01 a 09 33 23](https://user-images.githubusercontent.com/20263693/42132115-d42f8b02-7d11-11e8-8e82-7a37f744d355.png)
+![capture d ecran 2018-07-01 a 09 34 03](https://user-images.githubusercontent.com/20263693/42132121-03efb588-7d12-11e8-98bc-92081088ee3c.png)
+
+
+
+- The personView too.
+
+![capture d ecran 2018-07-01 a 09 35 15](https://user-images.githubusercontent.com/20263693/42132124-1c4000e8-7d12-11e8-80f0-7fe0ecca8026.png)
+
+- introduction of debug level 0. So now the CRM will send as few as possible error message (in SLIM, Propel, and JS).
+
+Bugs correction
+- Bug correction with PersonEditor
+- calendar side bar with the eye icon under windows 7.
+- calendar exclusion is now corrected.
+- A bug correction in the formCustomField is corrected
+- Bug resolution with Event location
+- A bug with the present option for the calendars is now solved.
+- etc ...
+
+Inner Beauty
+- PersonCustomFieldsEditor.php and FamilyCustomFieldsEditor.php are now redesigned.
+- OptionManager.php is rewritten too.
+- Now the aSecurityType is now rewritten with a new function.
+- popwindow upgrade in the MapUsingGoogle.
+- new api for the maps
+
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.2.1 (23/06/2018)
+new version 4.2.1 update
+Functionality Improvements :
+
+A bug correction with the localisation Event.
+
+- Now an event can be located on MapUsingGoogle.
+![capture d ecran 2018-06-14 a 20 39 16](https://user-images.githubusercontent.com/20263693/41431386-0edf6ed6-7013-11e8-929e-a30afeb586da.png)
+- There's a new Event MenuItem : View Map
+So you can see the events on the Map :
+![capture d ecran 2018-06-14 a 20 35 14](https://user-images.githubusercontent.com/20263693/41431246-987ffc42-7012-11e8-9c62-6464ee43f401.png)
+
+- New menu items : Personal Area + documents
+![capture d ecran 2018-06-17 a 18 35 11](https://user-images.githubusercontent.com/20263693/41509998-371105ee-725d-11e8-9305-6abeeed327f9.png)
+- displayCustomField is now in the OutputUtils EcclesiaCRM part.
+- Now Group Specific properties for Person are available for a user and can be used as a formular.
+- Now location events are present everywhere.
+
+- The groupView has now a groupReport button.
+- Group Specific are now translated.
+- There's now Person Group properties : GroupPersonPropsFormEditor.php
+- FamilyView and PersonView are now secured in function of bAdmin etc ....
+- MapUsingGoogle in the info window, when you click the address you open Google Map.
+![capture d ecran 2018-06-17 a 18 37 22](https://user-images.githubusercontent.com/20263693/41510011-893f2724-725d-11e8-9fb9-a447bb6de61f.png)
+
+
+Bugs correction
+- displayCustomField.
+- Person PersonEditor update.
+- etc ...
+
+Inner Beauty
+- PersonCustomFieldsEditor.php and FamilyCustomFieldsEditor.php are now redesigned.
+- OptionManager.php is rewritten too.
+- Now the aSecurityType is now rewritten with a new function.
+
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.2.0 (17/06/2018)
+new version 4.2.0
+Functionality Improvements :
+
+- Now an event can be located on MapUsingGoogle.
+![capture d ecran 2018-06-14 a 20 39 16](https://user-images.githubusercontent.com/20263693/41431386-0edf6ed6-7013-11e8-929e-a30afeb586da.png)
+- There's a new Event MenuItem : View Map
+So you can see the events on the Map :
+![capture d ecran 2018-06-14 a 20 35 14](https://user-images.githubusercontent.com/20263693/41431246-987ffc42-7012-11e8-9c62-6464ee43f401.png)
+
+- New menu items : Personal Area + documents
+![capture d ecran 2018-06-17 a 18 35 11](https://user-images.githubusercontent.com/20263693/41509998-371105ee-725d-11e8-9305-6abeeed327f9.png)
+- displayCustomField is now in the OutputUtils EcclesiaCRM part.
+- Now Group Specific properties for Person are available for a user and can be used as a formular.
+- Now location events are present everywhere.
+
+- The groupView has now a groupReport button.
+- Group Specific are now translated.
+- There's now Person Group properties : GroupPersonPropsFormEditor.php
+- FamilyView and PersonView are now secured in function of bAdmin etc ....
+- MapUsingGoogle in the info window, when you click the address you open Google Map.
+![capture d ecran 2018-06-17 a 18 37 22](https://user-images.githubusercontent.com/20263693/41510011-893f2724-725d-11e8-9fb9-a447bb6de61f.png)
+
+
+Bugs correction
+- displayCustomField.
+- Person PersonEditor update.
+- etc ...
+
+Inner Beauty
+- PersonCustomFieldsEditor.php and FamilyCustomFieldsEditor.php are now redesigned.
+- OptionManager.php is rewritten too.
+- Now the aSecurityType is now rewritten with a new function.
+
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 4.1.0 (04/06/2018)
+new version 4.1.0
+Functionality Improvements :
+
+- There's now CKeditor templates for each users. So you can manage all your templates like you want.
+![capture d ecran 2018-06-04 a 20 29 53](https://user-images.githubusercontent.com/20263693/40935004-056af7e6-6837-11e8-92d2-03dc80fa0d55.png)
+![capture d ecran 2018-06-04 a 20 30 00](https://user-images.githubusercontent.com/20263693/40935028-1a852caa-6837-11e8-801c-8cda75f51abe.png)
+![capture d ecran 2018-06-04 a 20 30 13](https://user-images.githubusercontent.com/20263693/40935047-254210a4-6837-11e8-9baa-c73bea2605c7.png)
+
+- The MenuBar is completely rewritten, now the selected menu items are stored and kept opened.
+![capture d ecran 2018-06-04 a 20 29 23](https://user-images.githubusercontent.com/20263693/40935097-4badbcca-6837-11e8-9628-ced9786136db.png)
+
+- The Groupview is now updated for GroupManagerPerson, a user can be assign to a group to manage member (add/delete), so there's two different method to manage group (Global or local).
+- The GroupView is now fully written in js, no more reload.
+![capture d ecran 2018-06-04 a 20 33 50](https://user-images.githubusercontent.com/20263693/40935132-6b1bd3d0-6837-11e8-99cd-406e997b2c0e.png)
+- specific properties are reintroduce in the GroupView, with all the goodies (real date, text field, date field, etc ...).
+![capture d ecran 2018-06-04 a 20 34 27](https://user-images.githubusercontent.com/20263693/40935348-1edd9200-6838-11e8-967a-a948afb2aed2.png)
+- Now you can see the specific group properties for each member of the group in the person profile.
+![capture d ecran 2018-06-04 a 21 27 20](https://user-images.githubusercontent.com/20263693/40937240-3f45d808-683e-11e8-994e-00e433450652.png)
+- The Menu.php display correctly the family and the time in the right format.
+
+- For some Notification email, the confirmSigner is the current user.
+- DataTables are now sortable by dates with foreign languages.
+- Some constants upgrade sTimeEnglish etc ...
+- Now you can email directly a person or a family.
+- The userEditor is updated, only user with email address can have a user account.
+- Header-function is now full propelled.
+- Code optimisation for speed.
+- PersonEditor is rewritten in many direction.
+- etc ....
+
+
+Bugs correction
+- PersonView minor bug correction.
+- Boostrap bug correction with bootbox under Edge and FireFox (shift right of 15px).
+- PersonView bug resolution in the dataTable.
+- Bug resolution in the CalDAVPDO code.
+- PDF_GroupDirectory.php bug correction.
+- Bug correction in  SystemSettings with system sidebar.
+- etc ...
+
+Inner Beauty
+- New GroupManagerPerson to manage only one group.
+- New CKEditorTemplates and CKEditorTemplatesQuery to manage the templates.
+- GroupMaster has now a real primary key.
+
+
+Inner Coherence
+
+See full changelog here:
+
+---
+
+## 4.0.0 (17/05/2018)
+Why a 4.0 version ???
+Events/Calendars are real a powerfull new features, 6 000 lines of code have been written.
+
+The huge update is : CalDAV (ie : synchronisation with calendar).
+
+**Be carefull, the CalDAV server isn't a MIT licence the WebDAV server too.**
+
+Functionality Improvements :
+
+- There's a new flag : sTimeZoneSet in the system settings, you've have to set it correctly for the CalDAV Server.
+- Calendar/events are now completely rewritten, EcclesiaCRM is now a CalDav full server/client. I use sabre technology.
+- Everything is now rewritten with a brand new design.
+![capture d ecran 2018-05-17 a 10 18 22](https://user-images.githubusercontent.com/20263693/40165231-baa878de-59bb-11e8-9579-0e96e97f562c.png)
+
+- Brand new calendar sidebar with flexible contents.
+- EcclesiaCRM now manage Personal Calendar, Group Calendar, Share calendar.
+![capture d ecran 2018-05-17 a 10 18 30](https://user-images.githubusercontent.com/20263693/40165255-cbbb6e24-59bb-11e8-8631-46db927f071b.png)
+![capture d ecran 2018-05-17 a 10 18 34](https://user-images.githubusercontent.com/20263693/40165261-cf658988-59bb-11e8-977d-760f10242fba.png)
+- The calendar can be shared to other persons in the CRM (with Read-Write or only Read access).
+- Each user can manage his calendar colors or names, in the case of share calendar or not.
+![capture d ecran 2018-05-17 a 10 21 15](https://user-images.githubusercontent.com/20263693/40165352-114e05e6-59bc-11e8-86e5-08ed19063c4a.png)
+- The calendar can be shared inside/outside (with Read-Write access): full vcalendar support.
+![capture d ecran 2018-05-17 a 10 20 41](https://user-images.githubusercontent.com/20263693/40165371-176d8ba4-59bc-11e8-8ec5-7f77ca0bc463.png)
+- You can include/Exclude a calendar from the sidebar
+![capture d ecran 2018-05-17 a 10 20 53](https://user-images.githubusercontent.com/20263693/40165462-51df568c-59bc-11e8-80ff-9b679e681ff5.png)
+
+- To change the name of the calendar, click the name of it
+![capture d ecran 2018-05-17 a 10 36 14](https://user-images.githubusercontent.com/20263693/40166192-44a3386a-59be-11e8-860a-c4604edf03cd.png)
+
+- You can create a calendar outside in Calendar Mac or in Outlook with the right connector, it will appear in the CRM.
+
+- You've got real event withs the vcalendar vevent standard support.
+- A group Manager can create a group and the associated calendar and manage the attendees to the calendar.
+- The reccurrence events are now manage with the vevent standard fully compatible with external application
+- The drag and drop is now manage correctly with the new definition Vevent with reccurence or not.
+- There's now nice icon in each events, so you can easely see if an event is a personal/group/share event.
+- Everything is designed to manage user calendars, group calendars, share calendars as simple as possible.
+- A group has automatically a calendar and you can add user to the group and to the calendar too, with read/write access or only read access inside the CRM or outside.
+- You can visualize your calendars under Calendar, thunderBird, etc ...
+Under the CRM :
+![capture d ecran 2018-05-17 a 10 18 22](https://user-images.githubusercontent.com/20263693/40165231-baa878de-59bb-11e8-9579-0e96e97f562c.png)
+
+Under the Calendar (you can all the user calendars automatically loaded) :
+![capture d ecran 2018-05-17 a 10 26 45](https://user-images.githubusercontent.com/20263693/40165733-0827253c-59bd-11e8-9bfc-ebac0831762e.png)
+
+Under iPhone
+- The main point you can create a calendar outside of the CRM.
+- It's possible to add real attendees to a sunday group and to a normal group too.
+- ListEvent is completely rewritten with propel code and you can add a user with the new js/api directly no more EventEditor.php but the new EventEditor.js code.
+- Checkin.php is rewritten too, with the EventEditor.js. You can now add an event and make the attendance directly.
+![capture d ecran 2018-05-17 a 10 31 19](https://user-images.githubusercontent.com/20263693/40165905-7f202242-59bd-11e8-84bf-22cf6662776d.png)
+- The UserEditor.php is now deleted, everything is done with the new js code. For example in the ListEvent.php :
+![capture d ecran 2018-05-17 a 10 32 02](https://user-images.githubusercontent.com/20263693/40165963-a1a31dd8-59bd-11e8-8ecd-96bcd55b2d40.png)
+- In the calendar, when you chose the Month/Week ... view, the CRM will remind your last choice the next time.
+- A new button in the Calendar View : Actualize (this give you the choice to synchronize with other Client).
+![capture d ecran 2018-05-17 a 10 33 31](https://user-images.githubusercontent.com/20263693/40166017-c86fb624-59bd-11e8-867d-08116c434edd.png)
+
+- No more bAddEvent flag, everyone can have a calendar : personal etc...
+- A user who belongs to a sunday group, can create an attendance for his sunday, make attendees, but not modify the event in the calendar View (security), one time it's created, it's impossible to modifiy it.
+- You've to set the new localisation systemconfig : sTimeZoneSet
+- Last when you upgrade .... all the events are translated to the new format. The groups are now translated to calendar groups.
+- Nothing is lost ;-).
+
+
+- Attendees export in CSV and PDF improvements.
+- Two new flags for the user settings : bExportSundaySchoolCSV, bExportSundaySchoolPDF (So a person can manage the export of the sundayschool attendees, phototobook) and export CSV attendees.
+- New export attendees for sunday school, it's possible now to export all the attendees classes.
+![capture d ecran 2018-05-14 a 18 24 54](https://user-images.githubusercontent.com/20263693/40143636-4710f612-595c-11e8-981c-675f4d997e80.png)
+- New stats in the sunday school attendees.
+
+
+- CSP update for the youtube
+- The sidebar will collapse now by default and each user has the ability to chose or not this new feature.
+- There's two new flags too : bSidebarExpandOnHover, bSidebarCollapse, so a user can manage the behaviour of the sidebar menu.
+- Some upgrade in SettingsIndividual.php
+![capture d ecran 2018-05-17 a 10 35 04](https://user-images.githubusercontent.com/20263693/40166090-fe17c1ae-59bd-11e8-88c5-37a3b67ff75f.png)
+
+
+- sCSVExportDelemiter, sCSVExportCharset update : this two parameters are now in the user settings and no more in System settings, each user can manage the CSV export flags.
+![capture d ecran 2018-05-17 a 10 35 04](https://user-images.githubusercontent.com/20263693/40166090-fe17c1ae-59bd-11e8-88c5-37a3b67ff75f.png)
+
+- IE 11 is now fully supported with the CRM. So Chrome, Safari, FireFox, Microsoft Edge and IE 11 are fully supported.
+
+- etc .......... etc ......
+
+Bugs correction
+- ListEvent, 
+- MenuEventCount.
+- Login.
+- One in the user profiles with the semi colon char.
+- Directory export with UT8 export format is now corrected.
+- etc ...
+
+Inner Beauty
+
+- Sabre is now inside.
+- new api calendarV2/eventsV2.
+- A huge schema update for calendars.
+- brand new events_event etc ....
+- New classes for attendees for the sundayschool.
+- Many CSP updates.
+- So many Propel classes.
+- to many things ...
+
+
+Inner Coherence
+
+See full changelog here:
+---
+
+## 3.6.2 (24/04/2018)
+Functionality Improvements :
+
+- The listEvent has now a filter by month.
+- A better translation of the mail message when a user share a document to another.
+![capture d ecran 2018-04-24 a 22 11 58](https://user-images.githubusercontent.com/20263693/39211704-c31368dc-480c-11e8-9086-bdf5fc35e73c.png)
+- The GetText.php is bootstraped.
+![capture d ecran 2018-04-24 a 22 12 16](https://user-images.githubusercontent.com/20263693/39211664-a1c8992c-480c-11e8-9402-f30cb060614a.png)
+- many files are now rewritten to avoid the use of the session variables.
+- Now we've a new textfield to add Person/family/Group to an event : EditEventAttendees.php
+![capture d ecran 2018-04-24 a 22 11 06](https://user-images.githubusercontent.com/20263693/39211609-77811ebe-480c-11e8-9995-67c4dcc8c4cf.png)
+- Some translation update too.
+
+Bugs correction
+- EventEditor.php : a visual problem is corrected.
+- PersonEditor.php : a person can now edit the member of his family again.
+- etc ...
+
+
+Inner Beauty
+
+The files are completely rewritten in ORM :
+- EventEditor.php
+- GetText.php
+- ListEvents.php
+- ReportList.php
+
+
+Inner Coherence
+
+
+See full changelog here:
+---
+
+## 3.6.1 (16/04/2018)
+new version 3.6.1
+Functionality Improvements :
+
+- None
+
+Bugs correction
+- With webdav structure in the case you delete a document, when you change the name of a folder it's reflected in the CRM.
+- A bug correction for NoteEditor when you cancel the creation of the document.
+- A bug correction which could crash the code in NoteEditor.
+- etc ...
+
+
+Inner Beauty
+
+- None
+
+
+Inner Coherence
+
+
+See full changelog here:
+
+---
+
+## 3.6.0 (16/04/2018)
+Functionality Improvements : SHARE-DOCUMENT-TIMELINE
+
+- Now we've a new concept : shared document time-Line 
+![capture d ecran 2018-04-16 a 00 51 35](https://user-images.githubusercontent.com/20263693/38784326-7b5919a4-4110-11e8-938f-ec2309a26f87.png)
+- A document is now shareable (to a group, family, persons).
+![capture d ecran 2018-04-16 a 00 51 44](https://user-images.githubusercontent.com/20263693/38784328-85cb816a-4110-11e8-81ab-37b883a1c866.png)
+- A notification is send to the users when a document is shared.
+- You've got rights for each of your documents.
+![capture d ecran 2018-04-16 a 00 51 52](https://user-images.githubusercontent.com/20263693/38784329-8ccf0f86-4110-11e8-81f6-9eb578623fda.png)
+![capture d ecran 2018-04-16 a 00 52 07](https://user-images.githubusercontent.com/20263693/38784332-98ba8870-4110-11e8-91ad-aab0debadee3.png)
+- A document can't be modified if it is edited by another user.
+![capture d ecran 2018-04-16 a 00 54 39](https://user-images.githubusercontent.com/20263693/38784348-ce44b5e2-4110-11e8-9621-1fce52678bab.png)
+- the Timeline has now a filter to view only the video, file or normal document.
+![capture d ecran 2018-04-16 a 00 46 39](https://user-images.githubusercontent.com/20263693/38784309-33db2a18-4110-11e8-8425-92c02e1935c2.png)
+
+- A Document has now a title.
+![capture d ecran 2018-04-16 a 00 55 45](https://user-images.githubusercontent.com/20263693/38784356-efc349c2-4110-11e8-9112-3d902b4113bb.png)
+
+- a new api : sharedocument
+
+Bugs correction
+- With webdav structure in the case you delete a document.
+- Checkin.php will now work correctly when there's no event in the current week.
+- etc ...
+
+
+Inner Beauty
+
+- new propel schema and new DB too.
+
+
+Inner Coherence
+
+
+See full changelog here:
+
+---
+
+## 3.5.0 (04/04/2018)
+Functionality Improvements :
+
+- Autopayments and pledges for single user is now supported.
+![capture d ecran 2018-04-04 a 22 20 54](https://user-images.githubusercontent.com/20263693/38332532-81961f14-3856-11e8-92f5-8407dd9f64b9.png)
+- EcclesiaCRM is now a WebDAV server.
+![capture d ecran 2018-04-04 a 22 12 04](https://user-images.githubusercontent.com/20263693/38332253-d79a0e4e-3855-11e8-9371-95e57b9ebff9.png)
+- Full support of WebDav for any user.
+- The user now have an internal home folder to store files etc ...
+![capture d ecran 2018-04-04 a 22 17 20](https://user-images.githubusercontent.com/20263693/38332316-fbae5d6c-3855-11e8-8197-fc9126e922b4.png)
+- You can now connect your home folder through the windows or mac or KDE to your account and put files in your home folder with webdav protocol.
+- You can add files, like movies, mp3, pDF, png, jpg files and visualise them in your own account too.
+![capture d ecran 2018-04-04 a 18 51 36](https://user-images.githubusercontent.com/20263693/38332344-0fcc7856-3856-11e8-9c62-33ad49e313e8.png)
+![capture d ecran 2018-04-03 a 21 17 31](https://user-images.githubusercontent.com/20263693/38332363-18138806-3856-11e8-8df5-3fd7af589b70.png)
+- the note manager is updated too to support webDAV and files too, when you move a file in the share home folder, you'll get the modification in the notes.
+- New notification for update center.
+- The cartview is fully boostraped
+- the CartToFamily is fully boostraped
+- The calendar is now responsive too.
+
+
+Bugs correction
+- bug corrections with sunday school attendees.
+- bug correction in the sundayschoolView charts.
+- a bug is corrected in the email notification center.
+- etc ...
+
+
+Inner Beauty
+
+- new propel schema and new DB too.
+
+
+Inner Coherence
+
+
+See full changelog here:
+
+---
+
+## 3.4.4 (07/03/2018)
+new version 3.4.4
+Functionality Improvements
+- user profile  now incorporate the skin.
+- deposit/pledges are refactored and are working correctly for the calulations amounts.
+- the deposit export is now translated and is nicer too.
+- better pdf export for all the report files.
+- family pdf verification is redesigned.
+- verify-family-info.php is translated for role, groups, TRUE …
+- FamilyView has now a new color codification to make a difference with the PersonView.
+
+Bugs correction
+
+- etc ...
+
+
+Inner Beauty
+
+- new api userprofile, new propel schema and new DB too.
+
+
+Inner Coherence
+
+
+See full changelog here:
+---
+
+## 3.4.3 (02/03/2018)
+Functionality Improvements
+- new api : userprofile.
+![capture d ecran 2018-04-04 a 22 25 16](https://user-images.githubusercontent.com/20263693/38332825-30a38b5e-3857-11e8-8c75-bc43cd668b30.png)
+![capture d ecran 2018-04-04 a 22 25 24](https://user-images.githubusercontent.com/20263693/38332829-33b0ebc0-3857-11e8-8654-2a472bfb0e7f.png)
+- now we can manage user with profiles.
+![capture d ecran 2018-04-04 a 22 26 35](https://user-images.githubusercontent.com/20263693/38332947-7efcfdee-3857-11e8-9430-d0ca81714001.png)
+
+Bugs correction
+
+- etc ...
+
+
+Inner Beauty
+
+- new api userprofile, new propel schema and new DB too.
+
+
+Inner Coherence
+
+
+See full changelog here:
+---
+
+## 3.4.2 (01/03/2018)
+Functionality Improvements
+- now you can export the attendees for the sunday school as pdf file too.
+- the PledgeEditor has a bug correction.
+- AutoPaymentEditor is boostraped and propeled.
+
+Bugs correction
+
+- etc ...
+
+
+Inner Beauty
+
+
+Inner Coherence
+
+
+See full changelog here:
+
+---
+
+## 3.4.1 (26/02/2018)
+Functionality Improvements
+- an update of the checkin.php The gender is added.
+- some terms are now translated too.
+- The ListEvent.php reflect now the real count of the person who should be called at the end of the checkout.
+- When you delete an event of a repeat event, it will keep the link between events.
+- optimisation of the calendar rendering, now only the event of the current month are loaded and rendered.
+- resize and move events have now a new dialog box to move one or all the events.
+
+Bugs correction
+
+- etc ...
+
+
+Inner Beauty
+
+
+Inner Coherence
+
+
+See full changelog here:
+
+---
+
+## 3.4.0 (18/02/2018)
+Functionality Improvements
+- This update is a huge update (event scheduling + GDPR : security update + refactor of the SelectList).
+- All the CRM is refactor for security to be GDPR ready with European laws (GroupView, SundaySchoolDashboard, WhyCameEditor, FamiliyView, PersonView, NoteEditor, etc ...).
+- Security upgrade (now the workspace is restricted), a user can only see his group and his family ....
+- There is two new constant in the UserEditor: ShowCart and ShowMap (DB upgrade).
+- The cart and the map are now showable or not (it's a user configuration).
+- Now a normal user has his profile page as main dashboard.
+- A normal user can see his personal private  datas and family and can't consult the other personal information.
+- In the SundaySchoolView there's an export button to list all the events in a range.
+- Now with the Calendar, you can delete, make attendance, add attendees directly.
+- The EditUser window is refactor too.
+- The selectList is rebuild too in bootstrap and work now correctly in foreign language. The code is optimized for speed too.
+- Now you can repeat an event in the calendar, drag and drop will work with repeated events.
+- etc ...
+
+
+Bugs correction
+
+- Constraint with events attendees are now real, everything works now with sql constraint for the events event_attendees, etc ...
+- etc ...
+
+
+Inner Beauty
+
+- now I use real DB constraint to maintain correctly the DB.
+- Some parts of the schema is update with real foreign key.
+
+Inner Coherence
+
+
+See full changelog here: 
+
+---
+
+## 3.3.0 (15/04/2018)
+3.3.0
+Functionality Improvements
+- The event are now editable in the Calendar directly.
+- All the reports are now translated for the Deposit.
+- There is now a note tab in the FamilyView.
+- New note type : video, so you can include Youtube video in your notes with iframes.
+- The report Directory is translated too.
+- Search field for payement is now working correctly.
+- Every DataTable in FamilyView are full responsive with + button, the Automatic Payments and the Pledges table and the are in Javascript rewritten, no more reload.
+- New api pledges, donationfunds, payments.
+- The Deposit is now refactored too.
+- Now the Checkin.php has the possibility to add a note at the end and you can check everybody with one button.
+- etc ...
+
+
+Bugs correction
+
+- Bug systemConfig now corrected.
+- Bug in deposit is translated.
+- Bug in the report corrected.
+- Bug in the Event creator corrected.
+- etc ...
+
+
+Inner Beauty
+- Many new propel update
+- Many new db upgrade too.
+
+Inner Coherence
+- The code is refactor in the api to be the same in every parts
+
+
+See full changelog here:
+
+---
+
+## 3.2.1 (01/02/2018)
+new version 3.2.1<br>Functionality Improvements<br>- Support of Text Message.<br>- add the date to the event of Sundayschool.<br>- add the group in the title of the sundayschool event creator.<br>- Solve a problem with lands without any state new SystemConfig local variable.<br>- Report are now right translated and are working.<br>- Deposit are working too, everything is now fully translated.<br>- New variable in the localisation part to add the currency.<br>- Search in deposit is now working right.<br>- etc ...<br><br><br>Bugs correction<br><br>- Bug with the sundayschool report solved.<br>- Bug in the Cartview SelectList and PersonView.<br>- Family bug resolution with the deposit<br>- etc ...<br><br><br>Inner Beauty<br><br>Inner Coherence<br><br><br>See full changelog here:
+---
+
+## 3.2.0 (30/01/2018)
+new version 3.2.0<br>Functionality Improvements<br>- New button in the SundayClassView for making attendance.<br>- New Checkin.php to check the attendes as easy as possible.<br>- Brand new calendar add event with attendees with dates etc ...<br>- Cosmetical Optimisation of the Event window in the calendar<br>- No more Add event menu item everything is inside the calendar.<br>- Cart view icon for FamilyView, PersonView and PersonView is now really fully live update and don't anymore the old way. Now we use brodacaster/listener system.<br>- You can now add the teacher or the Student to the cart separately from the SundaySchollView.<br>- New management of the events ListEvent,EditEventAttendees, EventEditor, <br>- New ListEvents.php (you have the real attendees). There's now a checkout button.<br>- New ListEvents.php statistics mean and sum for the events with attendees.<br>- ListEvent is brand new too the add event now goes to the calendar.<br>- Better management of the Attendees on the Main dashboard, when there no attendees the badge is no more visible.<br>- New Checkin.php you've directly the current user in the case of the you want to checkout.<br>- Search fields in EditEventAttendees, ListEvents, EditEventAttendees.<br>- EditEventAttendees has now tel link for the phone numbers.<br>- EditEventAttendees has now a lots of improvement responsive datable, add group select field and a add member select fiel too.<br>- EditEventAttendees has a checkout button too.<br>- UI update for EditEventAttendees, GroupList, ListEvents are now unified.<br>- No more CartToEvent everything is in JS, it's more flexible and easy to use.<br>- New buttons for the CKeditor for the Event Window in calendar<br>- translated EventEditor.<br>- New CKEditor function.<br>- New CRM variables.<br>- etc ... etc ...<br><br><br>Bugs correction<br><br>- Bug with the sundayschool report solved.<br>- bug with Attendees resolution (data constraint resolution).<br>- bug with register menu resolution.<br>- bug on the main dashboard resolution with Attendees, it's now reflected the good attendees.<br>- Bug with the menu Events resolution.<br>- Bug sundayschool report resolution.<br>- Bug in the help menu on smartphone.<br>- Bug correction for events in ListEvents.<br>- Bug correction in the checkin.php code.<br>- Bug in PersonEditor corrected.<br>- Bug with sunday school sub menu.<br>- Bug with the chart in the sundayschoolview corrected.<br>- etc ...<br><br><br>Inner Beauty<br>- optimisation of the JS code, goal : speed<br>- new way to manage the events with trigger no more loop to manage everything in the CRMSJSOM.js<br>- the JS code is split and I use trigger to post the update, so the code is real faster. <br>- The cart is completely rewritten, the code is real faster.<br><br>Inner Coherence<br><br><br>See full changelog here:
+---
+
+## 3.1.0 (15/01/2018)
+        Happy new year 2018 !!!
+<br><br><br>Functionality Improvements<br>- sTimeEnglish for setting the time in event format.<br>- iPersonAddressStyle to support the export address in foreign format.<br>- Update sunday school export for long addresses.<br>- Update PhotoBook for nice output too.<br>- The custom search is now updated with like sql statement, so You can search in a custom field with Capital or not letter, or the beginning of the text you want to search.<br>- Timeline localisation.<br>- New Query Menu with classifications.<br>- Localisation of the tooltip in system config.<br>- add the roles student/teacher when a group is changed to a sunday group.<br>- Many comestical updates (buttons, dropdown etc ...).<br>- etc ...<br><br><br>Bugs<br><br>- send bug report.<br>- Event management corrected for french date and everything is written in ORM.<br>- many bug corrections inside ...<br><br>Inner Beauty<br><br>- New propel schema update.<br>- Add Event changes to get the code to work with php 7.1 + ORM (EventAttendQuery, EventNames.php, EditEventTypes.php).<br>- PersonEditor is now in full ORM code.<br>- SundaySchoolClassView translation problem + ORM<br>- So many new code in ORM.<br>- Update some sql code.<br>- sql update<br><br>Inner Coherence<br><br>- A propel schema is now good chosen for the future development.<br><br>See full changelog here:
+---
+
+## 3.0.0 (09/01/2018)
+       Happy new year 2018 !!!
+
+Functionality Improvements<br>- New Event Menu item which is a fusion of the calendar and the Events menu.<br>- New Sunday school menu improvement (now you can personnalise the menu in the group editor).<br>- GroupeEditor is now refactor too, with nice menu edition.<br>- Added button remove in the PersonView/GroupView too.<br>- The Popup search are now improved ...<br>- Refactor of the GroupView (the datatable, buttons etc ... follow the guide lines).<br>- PersonView is now fully translated  (the datatable, buttons etc ... follow the guide lines).<br>- Add a new delete cart and CRM persons menuitem.<br>- A new query menu item :  to find all the persons who aren't in a group before the year you mentioned).<br>- A new query menu item :  to find all the persons who are in a group.<br>- Issue submission is now improved and can be used several times without reloading the page.<br>- the issue are now send to the new git repo.<br>- The help books is now available (but in construction).<br>- The event are now modernise and work in foreign languages.<br>- Many new files are now in ORM.<br>- Calendar event filters are reintroduced.<br>- New sunday school export to pdf.<br>- etc ... <br><br><br>Bugs<br><br>- send bug report.<br>- many bug corrections inside.<br><br>Inner Beauty<br><br>- New propel schema update.<br>- and so many new things inside.<br>- No more PropertyAssign.php PropertyUnassign.php.<br>- brand new properties api.<br>- Refactor of the code more and more coherence in the code and in the propel code too.<br>- many things are now in Propel code.<br><br>Inner Coherence<br><br>- A propel schema is now good chosen for the future development.<br><br>See full changelog here:
+---
+
+## 2.10.5 (31/12/2017)
+# Happy new year!!!
+
+## Functionality Improvements
+- separate version number from the name of the CRM
+- Menu.php date update localisation
+- Add new buttons for the time line
+- PrintView image to big is now solved
+- Now the report issue on github is operational too with ecclesiacrm.
+- Better installer and No more bug with cart status at the installation of ecclesiacrm.
+- Automatic logout
+- when you try to go back to the website after a logout you're redirected to the logout.
+- new website in progress...
+
+## Bugs
+- Fix the upgrade from 2.10.3 to 2.10.5 and delete the ChurchCRM code.
+- the horrible message at the installation disappear.
+
+## Inner Beauty
+- add version number and version name in propel tool
+- Support for states per country (US &amp; CA for now)
+- New class OutputUtils FormatDate, FormatBirthDate, BirthDate
+
+See full changelog here:
+---
+
+## 2.10.4 (28/12/2017)
+        Merry Christmas everyone!!!
+
+
+Functionality Improvements
+- Locale Text updates
+- Person timeline now shows when a member was added/removed from a group
+- Event was added successfully.
+- Better improvement with Firefox and JS
+- Delete a member of a group now work perfectly 
+- the Delete button is now aligned in the PersonEditor
+- The time line is now well translated
+- Now the project has a new update center
+- A new website too
+- The project is now called : EcclesiaCRM
+- new web site in progress
+- new help ballon with the possibility
+- I extend the search field I've develop in ChurchCRM : it has the work phone too.
+- Now the student/teacher are now everywhere translated
+- etc ...
+
+Bugs
+
+- Fixed Delete Person Group Bug
+- Fixed Invalid date when Entering new Family
+- Fixed Can't delete Family
+- Add Event via Calendar corrected
+- Add All People to Cart is fully functional in JS code only
+- CKEditor missing css
+
+
+Inner Beauty
+
+- APIs to Support Country List
+- Support for states per country (US &amp; CA for now)
+- API Security updates
+
+See full changelog here:
+
+---
+
+## 2.10.3 (26/12/2017)
+essai
