@@ -9,4 +9,6 @@ fi
 
 npm install github-release-notes -g
 
-gren changelog --generate --override --token=${githubToken}
+export GREN_GITHUB_TOKEN=${githubToken}
+
+gren changelog --override --tags=all
