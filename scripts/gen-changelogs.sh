@@ -11,4 +11,6 @@ npm install github-release-notes -g
 
 export GREN_GITHUB_TOKEN=${githubToken}
 
+# for the first time : gren init
+
 gren changelog --override --tags=all
