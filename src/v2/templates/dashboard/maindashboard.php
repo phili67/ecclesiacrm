@@ -443,7 +443,7 @@ if (!$load_Elements) {
 
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="<?= $sRootPath ?>/skin/external/jquery-ui/jquery-ui.min.js"  type="text/javascript"></script>
-<script src="<?= $sRootPath ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
 
 <script src="<?= $sRootPath ?>/skin/js/dashboard.js"></script>
 
