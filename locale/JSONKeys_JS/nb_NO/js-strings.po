@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1399,6 +1399,27 @@ msgstr ""
 "<br><br>UTEN NOEN AUTORISASJON GJØR GDPR BRUKEN AV DENNE FAMILIEN "
 "ULOVLIG !!!!!"
 
+msgid "Upload Photo"
+msgstr "Last opp bilde"
+
+msgid "Upload an existing Photo"
+msgstr "Last opp et eksisterende bilde"
+
+msgid "Max photo size"
+msgstr "Maks fotostørrelse"
+
+msgid "Capture from Webcam"
+msgstr "Bilde fra webkamera"
+
+msgid "Snap Photo"
+msgstr "Snap Photo"
+
+msgid "Re-Take Photo"
+msgstr "Ta bilde på nytt"
+
+msgid "Upload Image"
+msgstr "Last opp bilde"
+
 msgid "Family Photo"
 msgstr "Familiefoto"
 
@@ -2487,29 +2508,8 @@ msgstr "Er du i ferd med å slette alle gruppemedlemmene?"
 msgid "Are you sure ? This can't be undone."
 msgstr "Er du sikker? Dette kan ikke omgjøres."
 
-msgid "Upload Photo"
-msgstr "Last opp bilde"
-
-msgid "Upload an existing Photo"
-msgstr "Last opp et eksisterende bilde"
-
-msgid "Max photo size"
-msgstr "Maks fotostørrelse"
-
-msgid "Capture from Webcam"
-msgstr "Bilde fra webkamera"
-
-msgid "Snap Photo"
-msgstr "Snap Photo"
-
-msgid "Re-Take Photo"
-msgstr "Ta bilde på nytt"
-
-msgid "Switch Camera"
-msgstr "Bytt kamera"
-
-msgid "Upload Image"
-msgstr "Last opp bilde"
+#~ msgid "Switch Camera"
+#~ msgstr "Bytt kamera"
 
 #~ msgid "Info"
 #~ msgstr "Info"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1377,6 +1377,27 @@ msgstr ""
 "活该账户！<br><br>在没有任何授权的情况下，GDPR使你对该家庭的使用成为非法"
 "的!!!!!。"
 
+msgid "Upload Photo"
+msgstr "上传照片"
+
+msgid "Upload an existing Photo"
+msgstr "上传一张现有的照片"
+
+msgid "Max photo size"
+msgstr "最大照片尺寸"
+
+msgid "Capture from Webcam"
+msgstr "从网络摄像头捕获"
+
+msgid "Snap Photo"
+msgstr "捕捉照片"
+
+msgid "Re-Take Photo"
+msgstr "重拍照片"
+
+msgid "Upload Image"
+msgstr "上传图片"
+
 msgid "Family Photo"
 msgstr "家庭照片"
 
@@ -2436,29 +2457,8 @@ msgstr "你要删除所有的组员？"
 msgid "Are you sure ? This can't be undone."
 msgstr "你确定吗？这是不可能被撤销的。"
 
-msgid "Upload Photo"
-msgstr "上传照片"
-
-msgid "Upload an existing Photo"
-msgstr "上传一张现有的照片"
-
-msgid "Max photo size"
-msgstr "最大照片尺寸"
-
-msgid "Capture from Webcam"
-msgstr "从网络摄像头捕获"
-
-msgid "Snap Photo"
-msgstr "捕捉照片"
-
-msgid "Re-Take Photo"
-msgstr "重拍照片"
-
-msgid "Switch Camera"
-msgstr "开关摄像机"
-
-msgid "Upload Image"
-msgstr "上传图片"
+#~ msgid "Switch Camera"
+#~ msgstr "开关摄像机"
 
 #~ msgid "Info"
 #~ msgstr "信息"

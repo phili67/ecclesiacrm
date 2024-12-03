@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1399,6 +1399,27 @@ msgstr ""
 "أولاً إذا كنت تريد إعادة تفعيل الحساب<br><br>بدون أيّ أيّ علاج، يُجعلُ إستخدامكَ "
 "لهذه العائلةِ lllegal! !\""
 
+msgid "Upload Photo"
+msgstr "صورة محمولة"
+
+msgid "Upload an existing Photo"
+msgstr "قم بتحميل صورة موجودة"
+
+msgid "Max photo size"
+msgstr "مقاس الصورة ماكس"
+
+msgid "Capture from Webcam"
+msgstr "التقطت من كاميرا الإنترنت"
+
+msgid "Snap Photo"
+msgstr "صورة سريعة"
+
+msgid "Re-Take Photo"
+msgstr "إعادة التقاط الصورة"
+
+msgid "Upload Image"
+msgstr "-قم بتحميل الصورة"
+
 msgid "Family Photo"
 msgstr "صورة عائلية"
 
@@ -2476,29 +2497,8 @@ msgstr "أنت على وشك حذف جميع أعضاء المجموعة؟"
 msgid "Are you sure ? This can't be undone."
 msgstr "هل أنت متأكد؟ لا يمكن إلغاء هذا"
 
-msgid "Upload Photo"
-msgstr "صورة محمولة"
-
-msgid "Upload an existing Photo"
-msgstr "قم بتحميل صورة موجودة"
-
-msgid "Max photo size"
-msgstr "مقاس الصورة ماكس"
-
-msgid "Capture from Webcam"
-msgstr "التقطت من كاميرا الإنترنت"
-
-msgid "Snap Photo"
-msgstr "صورة سريعة"
-
-msgid "Re-Take Photo"
-msgstr "إعادة التقاط الصورة"
-
-msgid "Switch Camera"
-msgstr "بدل الكاميرا"
-
-msgid "Upload Image"
-msgstr "-قم بتحميل الصورة"
+#~ msgid "Switch Camera"
+#~ msgstr "بدل الكاميرا"
 
 #~ msgid "Info"
 #~ msgstr "معلومات"

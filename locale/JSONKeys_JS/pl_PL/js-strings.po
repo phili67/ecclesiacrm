@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1400,6 +1400,27 @@ msgstr ""
 "JAKIEGOKOLWIEK ZEZWOLENIA, GDPR POWODUJE, ŻE TWOJE KORZYSTANIE Z TEGO RODO "
 "JEST NIELEGALNE !!!!!"
 
+msgid "Upload Photo"
+msgstr "Prześlij zdjęcie"
+
+msgid "Upload an existing Photo"
+msgstr "Prześlij istniejące zdjęcie"
+
+msgid "Max photo size"
+msgstr "Maks. rozmiar zdjęcia"
+
+msgid "Capture from Webcam"
+msgstr "Przechwytywanie z kamery internetowej"
+
+msgid "Snap Photo"
+msgstr "Snap Photo"
+
+msgid "Re-Take Photo"
+msgstr "Zrób zdjęcie ponownie"
+
+msgid "Upload Image"
+msgstr "Prześlij obraz"
+
 msgid "Family Photo"
 msgstr "Zdjęcie rodzinne"
 
@@ -2490,29 +2511,8 @@ msgstr "Zamierzasz usunąć wszystkich członków grupy?"
 msgid "Are you sure ? This can't be undone."
 msgstr "Czy jesteś pewien? Tego nie da się cofnąć."
 
-msgid "Upload Photo"
-msgstr "Prześlij zdjęcie"
-
-msgid "Upload an existing Photo"
-msgstr "Prześlij istniejące zdjęcie"
-
-msgid "Max photo size"
-msgstr "Maks. rozmiar zdjęcia"
-
-msgid "Capture from Webcam"
-msgstr "Przechwytywanie z kamery internetowej"
-
-msgid "Snap Photo"
-msgstr "Snap Photo"
-
-msgid "Re-Take Photo"
-msgstr "Zrób zdjęcie ponownie"
-
-msgid "Switch Camera"
-msgstr "Przełącznik Kamera"
-
-msgid "Upload Image"
-msgstr "Prześlij obraz"
+#~ msgid "Switch Camera"
+#~ msgstr "Przełącznik Kamera"
 
 #~ msgid "Info"
 #~ msgstr "Info"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1406,6 +1406,27 @@ msgstr ""
 "conta !<br>>br> SEM QUALQUER AUTORIZAÇÃO, A GDPR FAZ O SEU USO DESTA FAMÍLIA "
 "ILEGAL !!!!!"
 
+msgid "Upload Photo"
+msgstr "Carregar Foto"
+
+msgid "Upload an existing Photo"
+msgstr "Carregar uma foto existente"
+
+msgid "Max photo size"
+msgstr "Tamanho máximo da foto"
+
+msgid "Capture from Webcam"
+msgstr "Captura a partir da Webcam"
+
+msgid "Snap Photo"
+msgstr "Foto instantânea"
+
+msgid "Re-Take Photo"
+msgstr "Reaproveitar Foto"
+
+msgid "Upload Image"
+msgstr "Carregar imagem"
+
 msgid "Family Photo"
 msgstr "Foto de família"
 
@@ -2511,29 +2532,8 @@ msgstr "Estás prestes a apagar todos os membros do grupo?"
 msgid "Are you sure ? This can't be undone."
 msgstr "Tens a certeza? Isto não pode ser desfeito."
 
-msgid "Upload Photo"
-msgstr "Carregar Foto"
-
-msgid "Upload an existing Photo"
-msgstr "Carregar uma foto existente"
-
-msgid "Max photo size"
-msgstr "Tamanho máximo da foto"
-
-msgid "Capture from Webcam"
-msgstr "Captura a partir da Webcam"
-
-msgid "Snap Photo"
-msgstr "Foto instantânea"
-
-msgid "Re-Take Photo"
-msgstr "Reaproveitar Foto"
-
-msgid "Switch Camera"
-msgstr "Mudar de câmara"
-
-msgid "Upload Image"
-msgstr "Carregar imagem"
+#~ msgid "Switch Camera"
+#~ msgstr "Mudar de câmara"
 
 #~ msgid "Info"
 #~ msgstr "Informações"

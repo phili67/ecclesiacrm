@@ -5,6 +5,8 @@ $(function() {
         window.CRM.fmt = 'HH:mm';
     }
 
+
+
     $('.todo-list').sortable({
         placeholder: 'sort-highlight',
         handle: '.handle',
@@ -34,6 +36,8 @@ $(function() {
             });
         }
     });
+
+    $('.todo-list').disableSelection();
 
     function CreateListBox(name='') {
         var frm_str = '<b>' +

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1405,6 +1405,27 @@ msgstr ""
 "<br><br> БЕЗ КАКОГО-ЛИБО АВТОРИЗАЦИИ, GDPR ДЕЛАЕТ ВАШЕ ИСПОЛЬЗОВАНИЕ ЭТОЙ "
 "СЕМЬИ НЕЗАКОННЫМ !!!!!."
 
+msgid "Upload Photo"
+msgstr "Загрузить фотографию"
+
+msgid "Upload an existing Photo"
+msgstr "Загрузите существующую фотографию"
+
+msgid "Max photo size"
+msgstr "Максимальный размер фотографии"
+
+msgid "Capture from Webcam"
+msgstr "Съемка с веб-камеры"
+
+msgid "Snap Photo"
+msgstr "моментальная фотография"
+
+msgid "Re-Take Photo"
+msgstr "Повторное фотографирование"
+
+msgid "Upload Image"
+msgstr "Загрузить изображение"
+
 msgid "Family Photo"
 msgstr "Семейная фотография"
 
@@ -2493,29 +2514,8 @@ msgstr "Вы собираетесь удалить всех членов гру�
 msgid "Are you sure ? This can't be undone."
 msgstr "Вы уверены? Это нельзя отменить."
 
-msgid "Upload Photo"
-msgstr "Загрузить фотографию"
-
-msgid "Upload an existing Photo"
-msgstr "Загрузите существующую фотографию"
-
-msgid "Max photo size"
-msgstr "Максимальный размер фотографии"
-
-msgid "Capture from Webcam"
-msgstr "Съемка с веб-камеры"
-
-msgid "Snap Photo"
-msgstr "моментальная фотография"
-
-msgid "Re-Take Photo"
-msgstr "Повторное фотографирование"
-
-msgid "Switch Camera"
-msgstr "Переключение камеры"
-
-msgid "Upload Image"
-msgstr "Загрузить изображение"
+#~ msgid "Switch Camera"
+#~ msgstr "Переключение камеры"
 
 #~ msgid "Info"
 #~ msgstr "Информация"

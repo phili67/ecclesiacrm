@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1408,6 +1408,27 @@ msgstr ""
 "gjithë personat e familjes së pari, nëse do të aktivizosh llogarinë!"
 "<br><br>. Kur të vijë dhe GDP MALLI I MARIT !!"
 
+msgid "Upload Photo"
+msgstr "ngarkoje fotografinë"
+
+msgid "Upload an existing Photo"
+msgstr "ngarkoni një fotografi ekzistuese"
+
+msgid "Max photo size"
+msgstr "Max përmasa e fotografive"
+
+msgid "Capture from Webcam"
+msgstr "Kape nga kamera e internetit"
+
+msgid "Snap Photo"
+msgstr "Filloni fotografinë"
+
+msgid "Re-Take Photo"
+msgstr "Rimerrni fotografinë"
+
+msgid "Upload Image"
+msgstr "ngarkoni imazhin"
+
 msgid "Family Photo"
 msgstr "fotografi familjare"
 
@@ -2503,29 +2524,8 @@ msgstr "Ti je gati të fshish të gjithë anëtarët e grupit?"
 msgid "Are you sure ? This can't be undone."
 msgstr "A je i sigurt? kjo nuk mund të prishet."
 
-msgid "Upload Photo"
-msgstr "ngarkoje fotografinë"
-
-msgid "Upload an existing Photo"
-msgstr "ngarkoni një fotografi ekzistuese"
-
-msgid "Max photo size"
-msgstr "Max përmasa e fotografive"
-
-msgid "Capture from Webcam"
-msgstr "Kape nga kamera e internetit"
-
-msgid "Snap Photo"
-msgstr "Filloni fotografinë"
-
-msgid "Re-Take Photo"
-msgstr "Rimerrni fotografinë"
-
-msgid "Switch Camera"
-msgstr "Ndërro kamerën"
-
-msgid "Upload Image"
-msgstr "ngarkoni imazhin"
+#~ msgid "Switch Camera"
+#~ msgstr "Ndërro kamerën"
 
 #~ msgid "Info"
 #~ msgstr "Info"
