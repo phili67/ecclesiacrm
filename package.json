@@ -75,7 +75,7 @@
         "jquery": "^3.7.1",
         "jquery-photo-uploader": "github:phili67/jQuery-Photo-Uploader",
         "jquery-steps": "^1.1.0",
-        "jquery-ui-touch-punch": "^0.2.3",
+        "jquery-ui-touch-punch": "github:RWAP/jquery-ui-touch-punch",
         "jquery-validation": "^1.19.4",
         "jsqr": "^1.4.0",
         "jszip": "^3.10.1",

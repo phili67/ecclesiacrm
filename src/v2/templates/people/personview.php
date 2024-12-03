@@ -947,7 +947,7 @@ require $sRootDocument . '/Include/Header.php';
                                                                     </div>
                                                                 </code>
                                                             </div>
-                                                            
+
                                                         </div>
                                                     </div>
                                                     <div class="card-body">
@@ -1637,7 +1637,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="modal-body">
                 <p>
                     <b><?= _("Select how do you want to request the person information to be verified") ?></b>
-                </p>                
+                </p>
             </div>
             <div class="modal-footer text-center">
                 <?php
@@ -1686,7 +1686,7 @@ require $sRootDocument . '/Include/Header.php';
 <!-- Drag and drop -->
 <script src="<?= $sRootPath ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
 <script
-    src="<?= $sRootPath ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    src="<?= $sRootPath ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
 <!-- !Drag and Drop -->
 
 <?php

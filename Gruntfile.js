@@ -105,7 +105,7 @@ module.exports = function (grunt) {
                         cwd:'node_modules/ckeditor4/',
                         src: ['*.js','*.css','*.json','lang/**/*','adapters/**/*','plugins/**/*','skins/**/*'],
                         dest: 'src/skin/external/ckeditor/'
-                    },                    
+                    },
                     {
                         expand: true,
                         ter: 'isFile',
@@ -461,8 +461,8 @@ module.exports = function (grunt) {
             },
             jqueryuicss: {
                 src: [
-                    'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
-                    "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+                    'https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css',
+                    "https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"
                 ],
                 dest: 'src/skin/external/jquery-ui/'
             },
