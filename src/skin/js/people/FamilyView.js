@@ -70,6 +70,14 @@ $(function() {
       maxPhotoSize: window.CRM.maxUploadSize,
       photoHeight: window.CRM.iPhotoHeight,
       photoWidth: window.CRM.iPhotoWidth,
+      UploadPhotoText: i18next.t("Upload Photo"),
+      UploadExistingPhotoText: i18next.t("Upload an existing Photo"),
+      MaxPhotoSizeText: i18next.t("Max photo size"),
+      CaptureFromWebcamText: i18next.t("Capture from Webcam"),
+      SnapPhotoText: i18next.t("Snap Photo"),
+      ReTakePhotoText: i18next.t("Re-Take Photo"),
+      CloseText: i18next.t("Close"),
+      UploadImageText: i18next.t("Upload Image"),
       done: function (e) {
         location.reload();
       }
