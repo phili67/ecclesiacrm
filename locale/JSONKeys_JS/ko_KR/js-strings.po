@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1386,6 +1386,27 @@ msgstr ""
 "어봐야 합니다!<br><br>어떤 승인도 없이, GDPR에 따라 이 가족을 사용하는 것은 "
 "불법입니다 !!!!!."
 
+msgid "Upload Photo"
+msgstr "사진 업로드"
+
+msgid "Upload an existing Photo"
+msgstr "기존 사진 업로드"
+
+msgid "Max photo size"
+msgstr "최대 사진 크기"
+
+msgid "Capture from Webcam"
+msgstr "웹캠에서 캡처"
+
+msgid "Snap Photo"
+msgstr "스냅 사진"
+
+msgid "Re-Take Photo"
+msgstr "사진 다시 찍기"
+
+msgid "Upload Image"
+msgstr "이미지 업로드"
+
 msgid "Family Photo"
 msgstr "가족 사진"
 
@@ -2460,29 +2481,8 @@ msgstr "모든 그룹 멤버를 삭제하시려고요?"
 msgid "Are you sure ? This can't be undone."
 msgstr "정말인가요? 이건 되돌릴 수 없습니다."
 
-msgid "Upload Photo"
-msgstr "사진 업로드"
-
-msgid "Upload an existing Photo"
-msgstr "기존 사진 업로드"
-
-msgid "Max photo size"
-msgstr "최대 사진 크기"
-
-msgid "Capture from Webcam"
-msgstr "웹캠에서 캡처"
-
-msgid "Snap Photo"
-msgstr "스냅 사진"
-
-msgid "Re-Take Photo"
-msgstr "사진 다시 찍기"
-
-msgid "Switch Camera"
-msgstr "카메라 전환"
-
-msgid "Upload Image"
-msgstr "이미지 업로드"
+#~ msgid "Switch Camera"
+#~ msgstr "카메라 전환"
 
 #~ msgid "Info"
 #~ msgstr "情報"

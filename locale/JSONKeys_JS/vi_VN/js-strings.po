@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1406,6 +1406,27 @@ msgstr ""
 "cả những người trong gia đình trước, nếu bạn muốn tái kích hoạt tài khoản!"
 "<br><br>với bất kỳ một vụ án nào, GDPR làm cho anh mất hết mọi thứ! !!!"
 
+msgid "Upload Photo"
+msgstr "Ảnh đăng lên"
+
+msgid "Upload an existing Photo"
+msgstr "Tải một bức ảnh đang tồn tại"
+
+msgid "Max photo size"
+msgstr "Kích cỡ Max"
+
+msgid "Capture from Webcam"
+msgstr "Bắt được từ Webcam"
+
+msgid "Snap Photo"
+msgstr "Chụp ảnh"
+
+msgid "Re-Take Photo"
+msgstr "Lấy lại bức ảnh"
+
+msgid "Upload Image"
+msgstr "Hình ảnh đang tăng"
+
 msgid "Family Photo"
 msgstr "Ảnh gia đình"
 
@@ -2499,29 +2520,8 @@ msgstr "Anh định xóa hết các thành viên nhóm à?"
 msgid "Are you sure ? This can't be undone."
 msgstr "Anh chắc chứ? Chuyện này không thể hủy được."
 
-msgid "Upload Photo"
-msgstr "Ảnh đăng lên"
-
-msgid "Upload an existing Photo"
-msgstr "Tải một bức ảnh đang tồn tại"
-
-msgid "Max photo size"
-msgstr "Kích cỡ Max"
-
-msgid "Capture from Webcam"
-msgstr "Bắt được từ Webcam"
-
-msgid "Snap Photo"
-msgstr "Chụp ảnh"
-
-msgid "Re-Take Photo"
-msgstr "Lấy lại bức ảnh"
-
-msgid "Switch Camera"
-msgstr "Chuyển máy quay"
-
-msgid "Upload Image"
-msgstr "Hình ảnh đang tăng"
+#~ msgid "Switch Camera"
+#~ msgstr "Chuyển máy quay"
 
 #~ msgid "Info"
 #~ msgstr "Info"

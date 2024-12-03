@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1418,6 +1418,27 @@ msgstr ""
 "compte !<br><br>SANS AUTORISATION, L'UTILISATION DE CETTE FAMILLE EST "
 "ILLÉGAL !!!!"
 
+msgid "Upload Photo"
+msgstr "Télécharger la photo"
+
+msgid "Upload an existing Photo"
+msgstr "Télécharger une photo existante"
+
+msgid "Max photo size"
+msgstr "Taille maximale des photos"
+
+msgid "Capture from Webcam"
+msgstr "Capture à partir d'une webcam"
+
+msgid "Snap Photo"
+msgstr "Snap Photo"
+
+msgid "Re-Take Photo"
+msgstr "Reprise de la photo"
+
+msgid "Upload Image"
+msgstr "Télécharger l'image"
+
 msgid "Family Photo"
 msgstr "Photo de Famille"
 
@@ -2526,26 +2547,5 @@ msgstr "Vous êtes sur le point de supprimer tous les membres du groupe ?"
 msgid "Are you sure ? This can't be undone."
 msgstr "Êtes-vous sûr ? C'est irréversible."
 
-msgid "Upload Photo"
-msgstr "Télécharger la photo"
-
-msgid "Upload an existing Photo"
-msgstr "Télécharger une photo existante"
-
-msgid "Max photo size"
-msgstr "Taille maximale des photos"
-
-msgid "Capture from Webcam"
-msgstr "Capture à partir d'une webcam"
-
-msgid "Snap Photo"
-msgstr "Snap Photo"
-
-msgid "Re-Take Photo"
-msgstr "Reprise de la photo"
-
-msgid "Switch Camera"
-msgstr "Changement de caméra"
-
-msgid "Upload Image"
-msgstr "Télécharger l'image"
+#~ msgid "Switch Camera"
+#~ msgstr "Changement de caméra"

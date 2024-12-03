@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1377,6 +1377,27 @@ msgstr ""
 "ระวัง GDPR ไว้ เมื่อครอบครัว ถูกกระตุ้น คุณต้องถามทุกคนในครอบครัว ก่อน "
 "ถ้าคุณต้องการสร้างบัญชีใหม่<br><br>วิธีที่คุณมีอำนาจทำให้คุณใช้ชีวิตครอบครัวคนนี้ !!!"
 
+msgid "Upload Photo"
+msgstr "อัพโหลด รูปภาพ"
+
+msgid "Upload an existing Photo"
+msgstr "อัพโหลด ภาพถ่ายที่มีอยู่"
+
+msgid "Max photo size"
+msgstr "ขนาดแม็กซ์"
+
+msgid "Capture from Webcam"
+msgstr "จับตัวจากเว็บแคม"
+
+msgid "Snap Photo"
+msgstr "รูปถ่าย"
+
+msgid "Re-Take Photo"
+msgstr "Re-Take Photo"
+
+msgid "Upload Image"
+msgstr "อัพโหลด ภาพยนตร์"
+
 msgid "Family Photo"
 msgstr "รูปครอบครัว"
 
@@ -2440,29 +2461,8 @@ msgstr "คุณกำลังจะลบสมาชิกกลุ่มท
 msgid "Are you sure ? This can't be undone."
 msgstr "คุณแน่ใจเหรอ? นี่มันไม่สามารถแก้ไขได้"
 
-msgid "Upload Photo"
-msgstr "อัพโหลด รูปภาพ"
-
-msgid "Upload an existing Photo"
-msgstr "อัพโหลด ภาพถ่ายที่มีอยู่"
-
-msgid "Max photo size"
-msgstr "ขนาดแม็กซ์"
-
-msgid "Capture from Webcam"
-msgstr "จับตัวจากเว็บแคม"
-
-msgid "Snap Photo"
-msgstr "รูปถ่าย"
-
-msgid "Re-Take Photo"
-msgstr "Re-Take Photo"
-
-msgid "Switch Camera"
-msgstr "สลับกล้อง"
-
-msgid "Upload Image"
-msgstr "อัพโหลด ภาพยนตร์"
+#~ msgid "Switch Camera"
+#~ msgstr "สลับกล้อง"
 
 #~ msgid "Info"
 #~ msgstr "อินโฟ"

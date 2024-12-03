@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1409,6 +1409,27 @@ msgstr ""
 "<br><br>Fără nici o autorizație, GDPR face ca utilizarea acestei familii să "
 "fie ilegală !!!!!"
 
+msgid "Upload Photo"
+msgstr "Încărcați fotografia"
+
+msgid "Upload an existing Photo"
+msgstr "Încărcați o fotografie existentă"
+
+msgid "Max photo size"
+msgstr "Dimensiunea maximă a fotografiei"
+
+msgid "Capture from Webcam"
+msgstr "Captură de la Webcam"
+
+msgid "Snap Photo"
+msgstr "Snap Photo"
+
+msgid "Re-Take Photo"
+msgstr "Refaceți fotografia"
+
+msgid "Upload Image"
+msgstr "Încărcați imaginea"
+
 msgid "Family Photo"
 msgstr "Fotografie de familie"
 
@@ -2521,29 +2542,8 @@ msgstr "Sunteți pe cale să ștergeți toți membrii grupului ?"
 msgid "Are you sure ? This can't be undone."
 msgstr "Ești sigur? Asta nu poate fi anulat."
 
-msgid "Upload Photo"
-msgstr "Încărcați fotografia"
-
-msgid "Upload an existing Photo"
-msgstr "Încărcați o fotografie existentă"
-
-msgid "Max photo size"
-msgstr "Dimensiunea maximă a fotografiei"
-
-msgid "Capture from Webcam"
-msgstr "Captură de la Webcam"
-
-msgid "Snap Photo"
-msgstr "Snap Photo"
-
-msgid "Re-Take Photo"
-msgstr "Refaceți fotografia"
-
-msgid "Switch Camera"
-msgstr "Comutați camera"
-
-msgid "Upload Image"
-msgstr "Încărcați imaginea"
+#~ msgid "Switch Camera"
+#~ msgstr "Comutați camera"
 
 #~ msgid "Info"
 #~ msgstr "Informații"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1405,6 +1405,27 @@ msgstr ""
 "återaktivera kontot utan något tillstånd gör GDPR din användning av den här "
 "familjen olaglig !!!!!"
 
+msgid "Upload Photo"
+msgstr "Ladda upp en bild"
+
+msgid "Upload an existing Photo"
+msgstr "Ladda upp en befintlig bild"
+
+msgid "Max photo size"
+msgstr "Maximal storlek på fotot"
+
+msgid "Capture from Webcam"
+msgstr "Ta bilder från webbkameran"
+
+msgid "Snap Photo"
+msgstr "Snap Photo"
+
+msgid "Re-Take Photo"
+msgstr "Ta ett nytt foto"
+
+msgid "Upload Image"
+msgstr "Ladda upp en bild"
+
 msgid "Family Photo"
 msgstr "Familjefoto"
 
@@ -2492,29 +2513,8 @@ msgstr "Ska du radera alla gruppmedlemmar?"
 msgid "Are you sure ? This can't be undone."
 msgstr "Är du säker? Detta kan inte göras ogjort."
 
-msgid "Upload Photo"
-msgstr "Ladda upp en bild"
-
-msgid "Upload an existing Photo"
-msgstr "Ladda upp en befintlig bild"
-
-msgid "Max photo size"
-msgstr "Maximal storlek på fotot"
-
-msgid "Capture from Webcam"
-msgstr "Ta bilder från webbkameran"
-
-msgid "Snap Photo"
-msgstr "Snap Photo"
-
-msgid "Re-Take Photo"
-msgstr "Ta ett nytt foto"
-
-msgid "Switch Camera"
-msgstr "Växla kamera"
-
-msgid "Upload Image"
-msgstr "Ladda upp en bild"
+#~ msgid "Switch Camera"
+#~ msgstr "Växla kamera"
 
 #~ msgid "Info"
 #~ msgstr "Info"

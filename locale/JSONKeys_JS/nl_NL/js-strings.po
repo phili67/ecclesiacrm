@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1414,6 +1414,27 @@ msgstr ""
 "activeren !<br><br>ZONDER ENIGE TOESTEMMING maakt de GDPR UW GEBRUIK VAN "
 "DEZE FAMILIE ILLEGAAL !!!!!"
 
+msgid "Upload Photo"
+msgstr "Foto uploaden"
+
+msgid "Upload an existing Photo"
+msgstr "Upload een bestaande foto"
+
+msgid "Max photo size"
+msgstr "Max fotogrootte"
+
+msgid "Capture from Webcam"
+msgstr "Opnemen van Webcam"
+
+msgid "Snap Photo"
+msgstr "Snap Photo"
+
+msgid "Re-Take Photo"
+msgstr "Opnieuw foto maken"
+
+msgid "Upload Image"
+msgstr "Afbeelding uploaden"
+
 msgid "Family Photo"
 msgstr "Familie foto"
 
@@ -2514,29 +2535,8 @@ msgstr "Je staat op het punt om alle groepsleden te verwijderen?"
 msgid "Are you sure ? This can't be undone."
 msgstr "Weet je het zeker ? Dit kan niet ongedaan gemaakt worden."
 
-msgid "Upload Photo"
-msgstr "Foto uploaden"
-
-msgid "Upload an existing Photo"
-msgstr "Upload een bestaande foto"
-
-msgid "Max photo size"
-msgstr "Max fotogrootte"
-
-msgid "Capture from Webcam"
-msgstr "Opnemen van Webcam"
-
-msgid "Snap Photo"
-msgstr "Snap Photo"
-
-msgid "Re-Take Photo"
-msgstr "Opnieuw foto maken"
-
-msgid "Switch Camera"
-msgstr "Schakel camera"
-
-msgid "Upload Image"
-msgstr "Afbeelding uploaden"
+#~ msgid "Switch Camera"
+#~ msgstr "Schakel camera"
 
 #~ msgid "Info"
 #~ msgstr "Info"

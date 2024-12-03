@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1400,6 +1400,27 @@ msgstr ""
 "uudelleen !<br><br>KUN EI OLE MITÄÄN LUVANVARAISTA, GDPR MAKEUTTAA TÄMÄN "
 "PERHEEN KÄYTÖN ILLEGALISESTA !!!!!"
 
+msgid "Upload Photo"
+msgstr "Lataa kuva"
+
+msgid "Upload an existing Photo"
+msgstr "Lataa olemassa oleva valokuva"
+
+msgid "Max photo size"
+msgstr "Valokuvan enimmäiskoko"
+
+msgid "Capture from Webcam"
+msgstr "Kaappaus webkamerasta"
+
+msgid "Snap Photo"
+msgstr "Snap Photo"
+
+msgid "Re-Take Photo"
+msgstr "Ota kuva uudelleen"
+
+msgid "Upload Image"
+msgstr "Lataa kuva"
+
 msgid "Family Photo"
 msgstr "Perhekuva"
 
@@ -2490,29 +2511,8 @@ msgstr "Aiotko poistaa kaikki ryhmän jäsenet ?"
 msgid "Are you sure ? This can't be undone."
 msgstr "Oletko varma? Tätä ei voi perua."
 
-msgid "Upload Photo"
-msgstr "Lataa kuva"
-
-msgid "Upload an existing Photo"
-msgstr "Lataa olemassa oleva valokuva"
-
-msgid "Max photo size"
-msgstr "Valokuvan enimmäiskoko"
-
-msgid "Capture from Webcam"
-msgstr "Kaappaus webkamerasta"
-
-msgid "Snap Photo"
-msgstr "Snap Photo"
-
-msgid "Re-Take Photo"
-msgstr "Ota kuva uudelleen"
-
-msgid "Switch Camera"
-msgstr "Vaihda kamera"
-
-msgid "Upload Image"
-msgstr "Lataa kuva"
+#~ msgid "Switch Camera"
+#~ msgstr "Vaihda kamera"
 
 #~ msgid "Info"
 #~ msgstr "Info"

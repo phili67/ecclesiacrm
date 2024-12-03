@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-06-04T19:49:38.200Z\n"
+"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -1400,6 +1400,27 @@ msgstr ""
 "<br><br>БЕЗ БУДЬ-ЯКОЇ АВТОРИЗАЦІЇ, GDPR ЗРОБИТЬ ВАШЕ ВИКОРИСТАННЯ ЦІЄЇ СІМ'Ї "
 "НЕЛЕГАЛЬНИМ !!!!!"
 
+msgid "Upload Photo"
+msgstr "Завантажити фото"
+
+msgid "Upload an existing Photo"
+msgstr "Завантажити існуючу фотографію"
+
+msgid "Max photo size"
+msgstr "Максимальний розмір фото"
+
+msgid "Capture from Webcam"
+msgstr "Запис з веб-камери"
+
+msgid "Snap Photo"
+msgstr "Зробити фотографію"
+
+msgid "Re-Take Photo"
+msgstr "Перефотографувати"
+
+msgid "Upload Image"
+msgstr "Завантажити зображення"
+
 msgid "Family Photo"
 msgstr "Сімейне фото"
 
@@ -2482,26 +2503,5 @@ msgstr "Ви збираєтеся видалити всіх учасників �
 msgid "Are you sure ? This can't be undone."
 msgstr "Ти впевнений? Це не можна відмінити."
 
-msgid "Upload Photo"
-msgstr "Завантажити фото"
-
-msgid "Upload an existing Photo"
-msgstr "Завантажити існуючу фотографію"
-
-msgid "Max photo size"
-msgstr "Максимальний розмір фото"
-
-msgid "Capture from Webcam"
-msgstr "Запис з веб-камери"
-
-msgid "Snap Photo"
-msgstr "Зробити фотографію"
-
-msgid "Re-Take Photo"
-msgstr "Перефотографувати"
-
-msgid "Switch Camera"
-msgstr "Переключити камеру"
-
-msgid "Upload Image"
-msgstr "Завантажити зображення"
+#~ msgid "Switch Camera"
+#~ msgstr "Переключити камеру"
