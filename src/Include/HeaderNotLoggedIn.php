@@ -11,6 +11,12 @@ use EcclesiaCRM\PluginQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 $localeInfo = Bootstrapper::GetCurrentLocale();
+
+// check if we're in plugin mode to load all the css code
+$isPlugin = false;
+if (isset($container)) {
+    $isPlugin = str_contains(get_class($container), 'PluginStore');
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -30,7 +36,7 @@ $localeInfo = Bootstrapper::GetCurrentLocale();
     <!-- custom plugins css files -->
     <?php
         // we load the plugin
-        if ( file_exists('Config.php') ) {
+        if ( $isPlugin ) {// for eventworkflow and more ...
             $plugins = PluginQuery::create()
                 ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
                 ->findByActiv(true);
