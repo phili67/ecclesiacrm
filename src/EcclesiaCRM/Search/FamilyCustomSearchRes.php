@@ -44,7 +44,7 @@ class FamilyCustomSearchRes extends BaseSearchRes
                     foreach ($famCustoms as $famCustom) {
                         if (!is_null($famCustom->getVirtualColumn($customfield->getCustomField()))) {
                             $currentFieldData = OutputUtils::displayCustomField($customfield->getTypeId(), trim($famCustom->getVirtualColumn($customfield->getCustomField())), $customfield->getCustomSpecial(), false);
-                            if (strstr($currentFieldData, $qry)) {
+                            if (strstr(strtolower($currentFieldData), strtolower($qry))) {
                                 if ($this->isQuickSearch()) {
                                     $elt = [
                                         'id' => 'family-custom-id-' . $id++,

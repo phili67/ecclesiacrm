@@ -47,7 +47,7 @@ class PersonCustomSearchRes extends BaseSearchRes
                     foreach ($perCustoms as $per) {
                         if (!is_null($per->getVirtualColumn($customfield->getCustomField()))) {
                             $currentFieldData = OutputUtils::displayCustomField($customfield->getTypeId(), trim($per->getVirtualColumn($customfield->getCustomField())), $customfield->getCustomSpecial(), false);
-                            if (strstr($currentFieldData, $qry)) {
+                            if (strstr(strtolower($currentFieldData), strtolower($qry))) {
                                 if ( $this->isQuickSearch() ) {
                                     $elt = ['id' => 'person-custom-id-' . $id++,
                                         'text' => $per->getPerson()->getFullName(),
