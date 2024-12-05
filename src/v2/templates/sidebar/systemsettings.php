@@ -131,7 +131,7 @@ require $sRootDocument . '/Include/Header.php';
                                                     <input type=password size=40 maxlength=255
                                                            name='new_value[<?= $setting->getId() ?>]'
                                                            value='<?= htmlspecialchars($setting->getValue(), ENT_QUOTES) ?>'
-                                                           class= "form-control ">
+                                                           class= "form-control" autocomplete="off">
                                                     <?php
                                                 } elseif ($setting->getType() == 'textarea') {
                                                     ?>
