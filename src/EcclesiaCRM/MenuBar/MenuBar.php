@@ -45,6 +45,8 @@ class MenuBar extends Menu
         $plugins = PluginQuery::create()->filterByCategory($type)->findByActiv(true);
 
         foreach ($plugins as $plugin) {
+            $name = $plugin->getName();
+
             if ( !( SessionUser::getUser()->isEnableForPlugin($plugin->getName())
                 or SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName()) ) ) break;
 
@@ -65,7 +67,7 @@ class MenuBar extends Menu
                     if ($grp_sec == false) {
                         break;
                     }
-                    $menu = new Menu (_($menuBarItem->getDisplayName()),
+                    $menu = new Menu (dgettext("messages-".$name, $menuBarItem->getDisplayName()),
                         $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec , ($plugin->getCategoryPosition() == 'inside_category_menu')?$main_menu:null);
 
                     if ($plugin->getCategoryPosition() == 'after_category_menu') {
@@ -77,7 +79,7 @@ class MenuBar extends Menu
                     }*/
                     $first_One = false;
                 } else {
-                    $menuItem = new Menu (_($menuBarItem->getDisplayName()), $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec, $menu);
+                    $menuItem = new Menu (dgettext("messages-".$name, $menuBarItem->getDisplayName()), $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec, $menu);
                 }
 
                 $menuLinks = PluginMenuBarQuery::create()->findByLinkParentId($menuBarItem->getId());
