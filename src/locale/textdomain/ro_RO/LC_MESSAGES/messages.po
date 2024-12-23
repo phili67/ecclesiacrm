@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-08 16:52+0000\n"
+"POT-Creation-Date: 2024-12-23 11:17+0000\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -269,7 +269,7 @@ msgstr "Telefon de serviciu"
 msgid "Cell Phone"
 msgstr "Telefon mobil"
 
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:418
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:420
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
@@ -423,7 +423,7 @@ msgstr "Țara implicită dacă nu este specificată niciuna altfel"
 #: EcclesiaCRM/APIControllers/SearchController.php:251
 #: EcclesiaCRM/APIControllers/SearchController.php:256
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:275 EcclesiaCRM/MenuBar/MenuBar.php:350
+#: EcclesiaCRM/MenuBar/MenuBar.php:277 EcclesiaCRM/MenuBar/MenuBar.php:352
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/utils/OutputUtils.php:387 EcclesiaCRM/utils/OutputUtils.php:448
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1035
@@ -896,7 +896,7 @@ msgstr "Toate familiile"
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
 #: EcclesiaCRM/APIControllers/PeopleController.php:125
-#: EcclesiaCRM/MenuBar/MenuBar.php:190
+#: EcclesiaCRM/MenuBar/MenuBar.php:192
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
@@ -909,7 +909,7 @@ msgstr "Persoane"
 #: EcclesiaCRM/APIControllers/PeopleController.php:164
 #: EcclesiaCRM/APIControllers/SearchController.php:62
 #: EcclesiaCRM/APIControllers/SearchController.php:65
-#: EcclesiaCRM/MenuBar/MenuBar.php:165 EcclesiaCRM/MenuBar/MenuBar.php:197
+#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/MenuBar/MenuBar.php:199
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
@@ -928,7 +928,7 @@ msgstr "Familii"
 #: EcclesiaCRM/APIControllers/PeopleController.php:201
 #: EcclesiaCRM/APIControllers/SearchController.php:88
 #: EcclesiaCRM/APIControllers/SearchController.php:91
-#: EcclesiaCRM/MenuBar/MenuBar.php:219 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:221 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
@@ -3646,7 +3646,7 @@ msgstr "Configurare e-mail"
 msgid "Map Settings"
 msgstr "Setări hartă"
 
-#: EcclesiaCRM/dto/SystemConfig.php:298 EcclesiaCRM/MenuBar/MenuBar.php:401
+#: EcclesiaCRM/dto/SystemConfig.php:298 EcclesiaCRM/MenuBar/MenuBar.php:403
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:33
@@ -3664,7 +3664,7 @@ msgstr "Prezența la școala duminicală"
 msgid "Integration"
 msgstr "Integrare"
 
-#: EcclesiaCRM/dto/SystemConfig.php:301 EcclesiaCRM/MenuBar/MenuBar.php:126
+#: EcclesiaCRM/dto/SystemConfig.php:301 EcclesiaCRM/MenuBar/MenuBar.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 #: v2/templates/dashboard/maindashboard.php:65
@@ -3875,62 +3875,62 @@ msgstr "informații"
 msgid "Please verify your informations"
 msgstr "Vă rugăm să vă verificați informațiile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:101 Include/Header.php:88
+#: EcclesiaCRM/MenuBar/MenuBar.php:103 Include/Header.php:88
 #: Include/Header.php:149
 msgid "Private Space"
 msgstr "Spațiu privat"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:103 EcclesiaCRM/utils/MiscUtils.php:466
+#: EcclesiaCRM/MenuBar/MenuBar.php:105 EcclesiaCRM/utils/MiscUtils.php:466
 #: external/templates/registration/family-register-members.php:104
 #: Include/Header.php:257
 msgid "Home"
 msgstr "Acasă"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:106 Include/Header.php:151
+#: EcclesiaCRM/MenuBar/MenuBar.php:108 Include/Header.php:151
 #: v2/templates/people/personview.php:426
 msgid "Change Password"
 msgstr "Schimbă parola"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:107 Include/Header.php:153
+#: EcclesiaCRM/MenuBar/MenuBar.php:109 Include/Header.php:153
 #: v2/templates/people/personview.php:424
 msgid "Change Settings"
 msgstr "Modificarea setărilor"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:108 v2/templates/people/familyview.php:471
+#: EcclesiaCRM/MenuBar/MenuBar.php:110 v2/templates/people/familyview.php:471
 #: v2/templates/people/personPrint.php:591
 #: v2/templates/people/personview.php:654
 msgid "Documents"
 msgstr "Documente"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:111 v2/templates/people/personview.php:668
+#: EcclesiaCRM/MenuBar/MenuBar.php:113 v2/templates/people/personview.php:668
 #: v2/templates/user/userseditor.php:292
 msgid "EDrive"
 msgstr "EDrive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:127 EcclesiaCRM/MenuBar/MenuBar.php:167
-#: EcclesiaCRM/MenuBar/MenuBar.php:295 EcclesiaCRM/MenuBar/MenuBar.php:392
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 EcclesiaCRM/MenuBar/MenuBar.php:424
-#: EcclesiaCRM/MenuBar/MenuBar.php:518
+#: EcclesiaCRM/MenuBar/MenuBar.php:129 EcclesiaCRM/MenuBar/MenuBar.php:169
+#: EcclesiaCRM/MenuBar/MenuBar.php:297 EcclesiaCRM/MenuBar/MenuBar.php:394
+#: EcclesiaCRM/MenuBar/MenuBar.php:404 EcclesiaCRM/MenuBar/MenuBar.php:426
+#: EcclesiaCRM/MenuBar/MenuBar.php:520
 msgid "Dashboard"
 msgstr "Tabloul de bord"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:130
 msgid "Data Structure"
 msgstr "Structura datelor"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:129 EcclesiaCRM/MenuBar/MenuBar.php:195
+#: EcclesiaCRM/MenuBar/MenuBar.php:131 EcclesiaCRM/MenuBar/MenuBar.php:197
 msgid "View Inactive Persons"
 msgstr "Vizualizați persoanele inactive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:130 EcclesiaCRM/MenuBar/MenuBar.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:132 EcclesiaCRM/MenuBar/MenuBar.php:203
 msgid "View Inactive Families"
 msgstr "Vizualizați familiile inactive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:140
+#: EcclesiaCRM/MenuBar/MenuBar.php:142
 msgid "Events"
 msgstr "Evenimente"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:146 v2/templates/map/MapUsingBing.php:78
+#: EcclesiaCRM/MenuBar/MenuBar.php:148 v2/templates/map/MapUsingBing.php:78
 #: v2/templates/map/MapUsingBing.php:124 v2/templates/map/MapUsingGoogle.php:88
 #: v2/templates/map/MapUsingGoogle.php:135
 #: v2/templates/map/MapUsingLeaflet.php:72
@@ -3938,108 +3938,108 @@ msgstr "Evenimente"
 msgid "Calendar"
 msgstr "Calendar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/MenuBar/MenuBar.php:184
+#: EcclesiaCRM/MenuBar/MenuBar.php:151 EcclesiaCRM/MenuBar/MenuBar.php:186
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "Vezi pe hartă"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:152
+#: EcclesiaCRM/MenuBar/MenuBar.php:154
 msgid "List Church Events"
 msgstr "Lista evenimentelor bisericești"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:153
+#: EcclesiaCRM/MenuBar/MenuBar.php:155
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:332
 msgid "List Event Types"
 msgstr "Lista tipurilor de evenimente"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:155
+#: EcclesiaCRM/MenuBar/MenuBar.php:157
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:294
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:296
 msgid "Call the Register"
 msgstr "Sunați la Registru"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:165
+#: EcclesiaCRM/MenuBar/MenuBar.php:167
 #: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "Oameni"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:182
+#: EcclesiaCRM/MenuBar/MenuBar.php:184
 msgid "Meta Search Engine"
 msgstr "Meta motor de căutare"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:187
+#: EcclesiaCRM/MenuBar/MenuBar.php:189
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1202
 msgid "Directory reports"
 msgstr "Rapoarte de directoare"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:191 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:193 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "Adăugați o persoană nouă"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:192
+#: EcclesiaCRM/MenuBar/MenuBar.php:194
 msgid "View Single Persons"
 msgstr "Vezi Persoane singure"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:193
+#: EcclesiaCRM/MenuBar/MenuBar.php:195
 msgid "View Active Persons"
 msgstr "Vezi persoanele active"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:198
+#: EcclesiaCRM/MenuBar/MenuBar.php:200
 msgid "Add New Family"
 msgstr "Adăugați o nouă familie"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:199
+#: EcclesiaCRM/MenuBar/MenuBar.php:201
 msgid "View Active Families"
 msgstr "Vezi familiile active"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:203
+#: EcclesiaCRM/MenuBar/MenuBar.php:205
 msgid "Empty Addresses"
 msgstr "Adrese goale"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:206
+#: EcclesiaCRM/MenuBar/MenuBar.php:208
 msgid "Convert Individual to Address"
 msgstr "Conversia Persoană fizică în Adresă"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:221
+#: EcclesiaCRM/MenuBar/MenuBar.php:223
 msgid "List Groups"
 msgstr "Grupuri de liste"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:284
+#: EcclesiaCRM/MenuBar/MenuBar.php:286
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:235
 msgid "Group Assignment Helper"
 msgstr "Ajutător pentru atribuirea sarcinilor de grup"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:293
+#: EcclesiaCRM/MenuBar/MenuBar.php:295
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "Școala de duminică"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:374 EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/MenuBar/MenuBar.php:376 EcclesiaCRM/MenuBar/MenuBar.php:383
 #: Include/Footer.php:177
 msgid "Global Custom Menus"
 msgstr "Meniuri personalizate globale"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:391
+#: EcclesiaCRM/MenuBar/MenuBar.php:393
 msgid "Custom Menus"
 msgstr "Meniuri personalizate"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:403
+#: EcclesiaCRM/MenuBar/MenuBar.php:405
 msgid "By Classifications"
 msgstr "Pe clasificări"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:422
+#: EcclesiaCRM/MenuBar/MenuBar.php:424
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/people/familyview.php:171 v2/templates/user/userseditor.php:467
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:431
+#: EcclesiaCRM/MenuBar/MenuBar.php:433
 msgid "Email Lists"
 msgstr "Liste de e-mail"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:459
+#: EcclesiaCRM/MenuBar/MenuBar.php:461
 #: EcclesiaCRM/Search/PledgeSearchRes.php:64
 #: EcclesiaCRM/Search/PledgeSearchRes.php:85 Reports/AdvancedDeposit.php:269
 #: Reports/AdvancedDeposit.php:389 Reports/AdvancedDeposit.php:420
@@ -4048,64 +4048,64 @@ msgstr "Liste de e-mail"
 msgid "Deposit"
 msgstr "Depozit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:472
+#: EcclesiaCRM/MenuBar/MenuBar.php:474
 msgid "Current"
 msgstr "Curent"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:477
+#: EcclesiaCRM/MenuBar/MenuBar.php:479
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:193
 msgid "Envelope Manager"
 msgstr "Manager de plicuri"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:478
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
 msgid "View All Deposits"
 msgstr "Vezi toate depozitele"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:479
+#: EcclesiaCRM/MenuBar/MenuBar.php:481
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:374
 msgid "Electronic Payment Listing"
 msgstr "Lista de plăți electronice"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:480
+#: EcclesiaCRM/MenuBar/MenuBar.php:482
 msgid "Deposit Reports"
 msgstr "Rapoarte de depozit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:481
+#: EcclesiaCRM/MenuBar/MenuBar.php:483
 #: v2/templates/deposit/financialReports.php:52
 msgid "Giving Report (Tax Statements)"
 msgstr "Raport de donații (declarații fiscale)"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:482
+#: EcclesiaCRM/MenuBar/MenuBar.php:484
 msgid "Edit Deposit Slip"
 msgstr "Editați fișa de depozit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:494
+#: EcclesiaCRM/MenuBar/MenuBar.php:496
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "Strângere de fonduri"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:496
+#: EcclesiaCRM/MenuBar/MenuBar.php:498
 msgid "Create New Fundraiser"
 msgstr "Creați o nouă campanie de strângere de fonduri"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:497
+#: EcclesiaCRM/MenuBar/MenuBar.php:499
 msgid "View All Fundraisers"
 msgstr "Vezi toate strângerile de fonduri"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:499
+#: EcclesiaCRM/MenuBar/MenuBar.php:501
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "Editează ultima strângere de fonduri"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:560
+#: EcclesiaCRM/MenuBar/MenuBar.php:562
 msgid "Data/Reports"
 msgstr "Date/Rapoarte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:562
+#: EcclesiaCRM/MenuBar/MenuBar.php:564
 msgid "Reports Menu"
 msgstr "Meniul Rapoarte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:565 v2/templates/user/userseditor.php:457
+#: EcclesiaCRM/MenuBar/MenuBar.php:567 v2/templates/user/userseditor.php:457
 msgid "Query Menu"
 msgstr "Meniul Query"
 
