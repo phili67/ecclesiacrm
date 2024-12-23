@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-08 16:52+0000\n"
+"POT-Creation-Date: 2024-12-23 11:17+0000\n"
 "Language: ar-EG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -269,7 +269,7 @@ msgstr "هاتف عمل"
 msgid "Cell Phone"
 msgstr "هاتف خليوي"
 
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:418
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:420
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
@@ -417,7 +417,7 @@ msgstr "بلد سقوط إذا لم يحدد أي منها خلاف ذلك"
 #: EcclesiaCRM/APIControllers/SearchController.php:251
 #: EcclesiaCRM/APIControllers/SearchController.php:256
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:275 EcclesiaCRM/MenuBar/MenuBar.php:350
+#: EcclesiaCRM/MenuBar/MenuBar.php:277 EcclesiaCRM/MenuBar/MenuBar.php:352
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/utils/OutputUtils.php:387 EcclesiaCRM/utils/OutputUtils.php:448
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1035
@@ -879,7 +879,7 @@ msgstr "جميع العائلات"
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
 #: EcclesiaCRM/APIControllers/PeopleController.php:125
-#: EcclesiaCRM/MenuBar/MenuBar.php:190
+#: EcclesiaCRM/MenuBar/MenuBar.php:192
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
@@ -892,7 +892,7 @@ msgstr "الأشخاص"
 #: EcclesiaCRM/APIControllers/PeopleController.php:164
 #: EcclesiaCRM/APIControllers/SearchController.php:62
 #: EcclesiaCRM/APIControllers/SearchController.php:65
-#: EcclesiaCRM/MenuBar/MenuBar.php:165 EcclesiaCRM/MenuBar/MenuBar.php:197
+#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/MenuBar/MenuBar.php:199
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
@@ -911,7 +911,7 @@ msgstr "الأسر"
 #: EcclesiaCRM/APIControllers/PeopleController.php:201
 #: EcclesiaCRM/APIControllers/SearchController.php:88
 #: EcclesiaCRM/APIControllers/SearchController.php:91
-#: EcclesiaCRM/MenuBar/MenuBar.php:219 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:221 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
@@ -975,9 +975,8 @@ msgid "POST to cart requires a EventID"
 msgstr "من أجل العربة تتطلب هوية"
 
 #: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:546
-#, fuzzy
 msgid "POST to delete attendees requires a EventID and personID"
-msgstr "من أجل العربة تتطلب شخصية و أحداث"
+msgstr "يتطلب POST لحذف الحاضرين معرف الحدث ومعرف الشخص"
 
 #: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:774
 msgid "POST to cart requires an EventID"
@@ -2624,9 +2623,8 @@ msgid "Invalid Family"
 msgstr "عائلة غير صالحة"
 
 #: EcclesiaCRM/dto/ReportUtilities.php:86
-#, fuzzy
 msgid "Invalid Person"
-msgstr "سنة غير صالحة"
+msgstr "شخص غير صالح"
 
 #: EcclesiaCRM/dto/SystemConfig.php:47
 #: EcclesiaCRM/Service/CalendarService.php:832
@@ -2989,6 +2987,7 @@ msgstr "وتثبت ذلك لتمكين الأسرة من تسجيل الذات."
 msgid ""
 "Four digits : https://en.wikipedia.org/wiki/List_of_country_calling_codes"
 msgstr ""
+"أربعة أرقام: https://en.wikipedia.org/wiki/List_of_country_calling_codes"
 
 #: EcclesiaCRM/dto/SystemConfig.php:145
 msgid ""
@@ -3579,7 +3578,7 @@ msgstr "إعداد البريد الإلكتروني"
 msgid "Map Settings"
 msgstr "-خريطة خرائط"
 
-#: EcclesiaCRM/dto/SystemConfig.php:298 EcclesiaCRM/MenuBar/MenuBar.php:401
+#: EcclesiaCRM/dto/SystemConfig.php:298 EcclesiaCRM/MenuBar/MenuBar.php:403
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:33
@@ -3597,7 +3596,7 @@ msgstr "حضور الأحد"
 msgid "Integration"
 msgstr "التكامل"
 
-#: EcclesiaCRM/dto/SystemConfig.php:301 EcclesiaCRM/MenuBar/MenuBar.php:126
+#: EcclesiaCRM/dto/SystemConfig.php:301 EcclesiaCRM/MenuBar/MenuBar.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 #: v2/templates/dashboard/maindashboard.php:65
@@ -3801,71 +3800,69 @@ msgstr "كلمة السر"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:30
-#, fuzzy
 msgid "informations"
 msgstr "المعلومات"
 
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:36
-#, fuzzy
 msgid "Please verify your informations"
-msgstr "الرجاء التحقق من معلومات عائلتك"
+msgstr "يُرجى التحقق من معلوماتك"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:101 Include/Header.php:88
+#: EcclesiaCRM/MenuBar/MenuBar.php:103 Include/Header.php:88
 #: Include/Header.php:149
 msgid "Private Space"
 msgstr "الفضاء الخاص"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:103 EcclesiaCRM/utils/MiscUtils.php:466
+#: EcclesiaCRM/MenuBar/MenuBar.php:105 EcclesiaCRM/utils/MiscUtils.php:466
 #: external/templates/registration/family-register-members.php:104
 #: Include/Header.php:257
 msgid "Home"
 msgstr "البيت"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:106 Include/Header.php:151
+#: EcclesiaCRM/MenuBar/MenuBar.php:108 Include/Header.php:151
 #: v2/templates/people/personview.php:426
 msgid "Change Password"
 msgstr "تغيير كلمة السر"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:107 Include/Header.php:153
+#: EcclesiaCRM/MenuBar/MenuBar.php:109 Include/Header.php:153
 #: v2/templates/people/personview.php:424
 msgid "Change Settings"
 msgstr "تغيير التجهيزات"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:108 v2/templates/people/familyview.php:471
+#: EcclesiaCRM/MenuBar/MenuBar.php:110 v2/templates/people/familyview.php:471
 #: v2/templates/people/personPrint.php:591
 #: v2/templates/people/personview.php:654
 msgid "Documents"
 msgstr "الوثائق"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:111 v2/templates/people/personview.php:668
+#: EcclesiaCRM/MenuBar/MenuBar.php:113 v2/templates/people/personview.php:668
 #: v2/templates/user/userseditor.php:292
 msgid "EDrive"
 msgstr "EDRIV"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:127 EcclesiaCRM/MenuBar/MenuBar.php:167
-#: EcclesiaCRM/MenuBar/MenuBar.php:295 EcclesiaCRM/MenuBar/MenuBar.php:392
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 EcclesiaCRM/MenuBar/MenuBar.php:424
-#: EcclesiaCRM/MenuBar/MenuBar.php:518
+#: EcclesiaCRM/MenuBar/MenuBar.php:129 EcclesiaCRM/MenuBar/MenuBar.php:169
+#: EcclesiaCRM/MenuBar/MenuBar.php:297 EcclesiaCRM/MenuBar/MenuBar.php:394
+#: EcclesiaCRM/MenuBar/MenuBar.php:404 EcclesiaCRM/MenuBar/MenuBar.php:426
+#: EcclesiaCRM/MenuBar/MenuBar.php:520
 msgid "Dashboard"
 msgstr "لوحة القيادة"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:130
 msgid "Data Structure"
 msgstr "هيكل البيانات"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:129 EcclesiaCRM/MenuBar/MenuBar.php:195
+#: EcclesiaCRM/MenuBar/MenuBar.php:131 EcclesiaCRM/MenuBar/MenuBar.php:197
 msgid "View Inactive Persons"
 msgstr "الأشخاص غير النشطين"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:130 EcclesiaCRM/MenuBar/MenuBar.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:132 EcclesiaCRM/MenuBar/MenuBar.php:203
 msgid "View Inactive Families"
 msgstr "مشاهدة الأسر غير النشطة"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:140
+#: EcclesiaCRM/MenuBar/MenuBar.php:142
 msgid "Events"
 msgstr "الأحداث"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:146 v2/templates/map/MapUsingBing.php:78
+#: EcclesiaCRM/MenuBar/MenuBar.php:148 v2/templates/map/MapUsingBing.php:78
 #: v2/templates/map/MapUsingBing.php:124 v2/templates/map/MapUsingGoogle.php:88
 #: v2/templates/map/MapUsingGoogle.php:135
 #: v2/templates/map/MapUsingLeaflet.php:72
@@ -3873,108 +3870,108 @@ msgstr "الأحداث"
 msgid "Calendar"
 msgstr "الجدول الزمني"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/MenuBar/MenuBar.php:184
+#: EcclesiaCRM/MenuBar/MenuBar.php:151 EcclesiaCRM/MenuBar/MenuBar.php:186
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "رؤية على الخريطة"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:152
+#: EcclesiaCRM/MenuBar/MenuBar.php:154
 msgid "List Church Events"
 msgstr "قائمة الأحداث الكنيسة"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:153
+#: EcclesiaCRM/MenuBar/MenuBar.php:155
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:332
 msgid "List Event Types"
 msgstr "قائمة أنواع الأحداث"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:155
+#: EcclesiaCRM/MenuBar/MenuBar.php:157
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:294
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:296
 msgid "Call the Register"
 msgstr "اتصل بالسجل"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:165
+#: EcclesiaCRM/MenuBar/MenuBar.php:167
 #: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "الناس"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:182
+#: EcclesiaCRM/MenuBar/MenuBar.php:184
 msgid "Meta Search Engine"
 msgstr "محرك البحث ميتا"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:187
+#: EcclesiaCRM/MenuBar/MenuBar.php:189
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1202
 msgid "Directory reports"
 msgstr "تقارير الدليل"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:191 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:193 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "أضف شخصاً جديداً"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:192
+#: EcclesiaCRM/MenuBar/MenuBar.php:194
 msgid "View Single Persons"
 msgstr "أشخاص ذوي رؤية عزباء"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:193
+#: EcclesiaCRM/MenuBar/MenuBar.php:195
 msgid "View Active Persons"
 msgstr "أشخاص ناشطين"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:198
+#: EcclesiaCRM/MenuBar/MenuBar.php:200
 msgid "Add New Family"
 msgstr "أضف عائلة جديدة"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:199
+#: EcclesiaCRM/MenuBar/MenuBar.php:201
 msgid "View Active Families"
 msgstr "مشاهدة الأسر الناشطة"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:203
+#: EcclesiaCRM/MenuBar/MenuBar.php:205
 msgid "Empty Addresses"
 msgstr "العناوين الفارغة"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:206
+#: EcclesiaCRM/MenuBar/MenuBar.php:208
 msgid "Convert Individual to Address"
 msgstr "تحويل فردي إلى العنوان"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:221
+#: EcclesiaCRM/MenuBar/MenuBar.php:223
 msgid "List Groups"
 msgstr "قائمة المجموعات"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:284
+#: EcclesiaCRM/MenuBar/MenuBar.php:286
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:235
 msgid "Group Assignment Helper"
 msgstr "مساعد المجموعة"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:293
+#: EcclesiaCRM/MenuBar/MenuBar.php:295
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "مدرسة الأحد"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:374 EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/MenuBar/MenuBar.php:376 EcclesiaCRM/MenuBar/MenuBar.php:383
 #: Include/Footer.php:177
 msgid "Global Custom Menus"
 msgstr "(ج) وسائل الجمارك العالمية"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:391
+#: EcclesiaCRM/MenuBar/MenuBar.php:393
 msgid "Custom Menus"
 msgstr "\"منس الجمارك\""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:403
+#: EcclesiaCRM/MenuBar/MenuBar.php:405
 msgid "By Classifications"
 msgstr "بالتصنيفات"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:422
+#: EcclesiaCRM/MenuBar/MenuBar.php:424
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/people/familyview.php:171 v2/templates/user/userseditor.php:467
 msgid "MailChimp"
 msgstr "تشيمب"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:431
+#: EcclesiaCRM/MenuBar/MenuBar.php:433
 msgid "Email Lists"
 msgstr "قائمة البريد الإلكتروني"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:459
+#: EcclesiaCRM/MenuBar/MenuBar.php:461
 #: EcclesiaCRM/Search/PledgeSearchRes.php:64
 #: EcclesiaCRM/Search/PledgeSearchRes.php:85 Reports/AdvancedDeposit.php:269
 #: Reports/AdvancedDeposit.php:389 Reports/AdvancedDeposit.php:420
@@ -3983,64 +3980,64 @@ msgstr "قائمة البريد الإلكتروني"
 msgid "Deposit"
 msgstr "الإيداع"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:472
+#: EcclesiaCRM/MenuBar/MenuBar.php:474
 msgid "Current"
 msgstr "حاليا"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:477
+#: EcclesiaCRM/MenuBar/MenuBar.php:479
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:193
 msgid "Envelope Manager"
 msgstr "مدير الظرف"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:478
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
 msgid "View All Deposits"
 msgstr "شاهدوا جميع الودائع"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:479
+#: EcclesiaCRM/MenuBar/MenuBar.php:481
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:374
 msgid "Electronic Payment Listing"
 msgstr "(ب) قائمة المدفوعات الإلكترونية"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:480
+#: EcclesiaCRM/MenuBar/MenuBar.php:482
 msgid "Deposit Reports"
 msgstr "تقارير الإيداع"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:481
+#: EcclesiaCRM/MenuBar/MenuBar.php:483
 #: v2/templates/deposit/financialReports.php:52
 msgid "Giving Report (Tax Statements)"
 msgstr "تقرير إعطاء (بيانات ضريبية)"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:482
+#: EcclesiaCRM/MenuBar/MenuBar.php:484
 msgid "Edit Deposit Slip"
 msgstr "إدع الوديع سليب"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:494
+#: EcclesiaCRM/MenuBar/MenuBar.php:496
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "جمع التبرعات"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:496
+#: EcclesiaCRM/MenuBar/MenuBar.php:498
 msgid "Create New Fundraiser"
 msgstr "خلق حفل جمع تبرعات جديد"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:497
+#: EcclesiaCRM/MenuBar/MenuBar.php:499
 msgid "View All Fundraisers"
 msgstr "شاهدوا جميع جمع التبرعات"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:499
+#: EcclesiaCRM/MenuBar/MenuBar.php:501
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "\"إيد\" جمع التبرعات الأخير"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:560
+#: EcclesiaCRM/MenuBar/MenuBar.php:562
 msgid "Data/Reports"
 msgstr "Data/Reports"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:562
+#: EcclesiaCRM/MenuBar/MenuBar.php:564
 msgid "Reports Menu"
 msgstr "تقارير مفيدة"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:565 v2/templates/user/userseditor.php:457
+#: EcclesiaCRM/MenuBar/MenuBar.php:567 v2/templates/user/userseditor.php:457
 msgid "Query Menu"
 msgstr "\"منكم السحري\""
 
@@ -4164,14 +4161,12 @@ msgid "Family Data Verified"
 msgstr "تم التحقق من بيانات العائلة"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:252
-#, fuzzy
 msgid "Family Data Verified by url"
-msgstr "تم التحقق من بيانات العائلة"
+msgstr "بيانات العائلة التي تم التحقق من صحتها عن طريق الرابط"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:256
-#, fuzzy
 msgid "Family Data Verification reset"
-msgstr "التحقق العائلي"
+msgstr "إعادة تعيين التحقق من بيانات العائلة"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:260
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:410
@@ -4194,19 +4189,16 @@ msgid "Member"
 msgstr "عضو"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:398
-#, fuzzy
 msgid "Person Data Verified"
-msgstr "تم التحقق من بيانات العائلة"
+msgstr "تم التحقق من بيانات الشخص"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:402
-#, fuzzy
 msgid "Person Data Verified by url"
-msgstr "تم التحقق من بيانات العائلة"
+msgstr "بيانات الشخص التي تم التحقق من صحتها عن طريق الرابط"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:406
-#, fuzzy
 msgid "Person Data Verification reset"
-msgstr "تم التحقق من بيانات العائلة"
+msgstr "إعادة تعيين التحقق من بيانات الشخص"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:773
 #: EcclesiaCRM/Service/TimelineService.php:223
@@ -4774,9 +4766,8 @@ msgstr "فشلت"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:93
 #: EcclesiaCRM/Service/AppIntegrityService.php:102
-#, fuzzy
 msgid "Passed"
-msgstr "كلمة السر"
+msgstr "نجحت"
 
 #: EcclesiaCRM/Service/CalendarService.php:51
 msgid "Event"
@@ -4810,7 +4801,6 @@ msgid "Delete"
 msgstr "تحذف"
 
 #: EcclesiaCRM/Service/CalendarService.php:516
-#, fuzzy
 msgid "Info"
 msgstr "المعلومات"
 
@@ -4888,7 +4878,7 @@ msgstr "بريد العمل"
 #: EcclesiaCRM/Service/ConfirmReportService.php:118
 #: EcclesiaCRM/Service/ConfirmReportService.php:579
 msgid "Ok"
-msgstr ""
+msgstr "حسناً"
 
 #: EcclesiaCRM/Service/ConfirmReportService.php:437
 #: EcclesiaCRM/Service/ConfirmReportService.php:834
@@ -4918,9 +4908,8 @@ msgid "Home Address"
 msgstr "العنوان المنزلي"
 
 #: EcclesiaCRM/Service/ConfirmReportService.php:555
-#, fuzzy
 msgid "Address2"
-msgstr "العنوان 2"
+msgstr "العنوان2"
 
 #: EcclesiaCRM/Service/ConfirmReportService.php:698
 #: v2/templates/people/familyEditor.php:751
@@ -5154,7 +5143,7 @@ msgstr "NNW"
 
 #: EcclesiaCRM/utils/GeoUtils.php:259
 msgid "N"
-msgstr "ن"
+msgstr "N"
 
 #: EcclesiaCRM/utils/GeoUtils.php:261
 msgid "NNE"
@@ -5162,7 +5151,7 @@ msgstr "NNE"
 
 #: EcclesiaCRM/utils/GeoUtils.php:263
 msgid "NE"
-msgstr "لا"
+msgstr "NE"
 
 #: EcclesiaCRM/utils/GeoUtils.php:265
 msgid "ENE"
@@ -5170,7 +5159,7 @@ msgstr "ENE"
 
 #: EcclesiaCRM/utils/GeoUtils.php:267
 msgid "E"
-msgstr "هاء"
+msgstr "E"
 
 #: EcclesiaCRM/utils/GeoUtils.php:269
 msgid "ESE"
@@ -5445,9 +5434,8 @@ msgstr "مرافق الجغرافية العائلية"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1226
 #: v2/templates/people/peopledashboard.php:225
-#, fuzzy
 msgid "Letters and mailing labels for data confirmations"
-msgstr "رسائل و وصمات البريد"
+msgstr "الرسائل والملصقات البريدية لتأكيد البيانات"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1249
 #: v2/templates/people/peopledashboard.php:219
@@ -5490,9 +5478,8 @@ msgid "Person Delete Confirmation"
 msgstr "الشخص يحذف تأكيد"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1526
-#, fuzzy
 msgid "Remove Address"
-msgstr "العنوان المنزلي"
+msgstr "إزالة العنوان"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWFundListController.php:44
 msgid "Donation Fund Editor"
@@ -5641,11 +5628,11 @@ msgstr "لوحة القيادة العامة"
 
 #: EcclesiaCRM/VIEWControllers/VIEWGdprController.php:97
 msgid "GDPR Data Structure"
-msgstr "GDPR Data Structure"
+msgstr "هيكل بيانات اللائحة العامة لحماية البيانات"
 
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:55
 msgid "Group Listing"
-msgstr "Group Listing"
+msgstr "قائمة المجموعة"
 
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:171
 msgid "Sunday School Badges for"
@@ -5742,7 +5729,7 @@ msgstr "قائمة أعضاء الرعاية الرعوية حسب التصني�
 #: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
 #: Include/Footer.php:234
 msgid "Plugins"
-msgstr ""
+msgstr "المكونات الإضافية"
 
 #: EcclesiaCRM/VIEWControllers/VIEWQueryController.php:51
 msgid "Query Listing"
@@ -5772,18 +5759,16 @@ msgstr "تقارير مدرسة الأحد"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:61
 #: Include/Footer.php:246
-#, fuzzy
 msgid "System Infos"
-msgstr "ضبط النظام"
+msgstr "معلومات النظام"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:92
 msgid "Report Menu"
 msgstr "تقرير عن الذاكرة"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:132
-#, fuzzy
 msgid "System"
-msgstr "مستخدمي النظام"
+msgstr "النظام"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:168
 msgid "Convert Individuals to Addresses"
@@ -5878,9 +5863,7 @@ msgstr "نهاية التاريخ:"
 
 #: eGive.php:272 v2/templates/deposit/depositslipeditor.php:124
 msgid "Import eGive"
-msgstr ""
-"استيراد إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-إي-بي-"
-"إي-بي-إي-بي-إي-بي-إي-بي-إي-بي-سي"
+msgstr "استيراد eGive"
 
 #: eGive.php:357
 msgid "Re-import to selected family"
@@ -6030,19 +6013,16 @@ msgid "Unable to load verification info"
 msgstr "غير قادر على تحميل معلومات التحقق"
 
 #: ident/routes/verify.php:126
-#, fuzzy
 msgid "Wrong email or password"
-msgstr "دخول غير صالح أو كلمة السر"
+msgstr "بريد إلكتروني أو كلمة مرور خاطئة"
 
 #: ident/routes/verify.php:141
-#, fuzzy
 msgid "Wrong old password"
-msgstr "كلمة السر غير صالحة"
+msgstr "كلمة مرور قديمة خاطئة"
 
 #: ident/routes/verify.php:146
-#, fuzzy
 msgid "The two passwords must be identical."
-msgstr "كلمة السر الجديدة يجب أن تكون على الأقل"
+msgstr "يجب أن تكون كلمتا المرور متطابقتين."
 
 #: ident/routes/verify.php:566 ident/routes/verify.php:594
 msgid "No Changes"
@@ -6196,9 +6176,8 @@ msgid "Visit our Site"
 msgstr "زيارة موقعنا"
 
 #: ident/templates/verify/verify-person-info.php:17
-#, fuzzy
 msgid "Person Verification"
-msgstr "تصنيف الشخصية"
+msgstr "التحقق من الشخص"
 
 #: Include/FooterNotLoggedIn.php:7 Include/Footer.php:33
 msgid "Copyright"
@@ -6336,7 +6315,7 @@ msgstr "تغيير الأعمدة"
 
 #: Include/Header.php:107
 msgid "Exit Control"
-msgstr ""
+msgstr "التحكم في الخروج"
 
 #: Include/Header.php:117
 msgid "Your Cart"
@@ -7037,9 +7016,8 @@ msgid "This account has been deactiveted by an administrator."
 msgstr "هذا الحساب تم تعطيله من قبل مدير"
 
 #: session/templates/session.php:105
-#, fuzzy
 msgid "Invalid 2FA code"
-msgstr "سنة غير صالحة"
+msgstr "رمز 2FA غير صالح"
 
 #: session/templates/session.php:218 session/templates/session.php:312
 msgid "Your previous session timed out.  Please login again."
@@ -7365,9 +7343,8 @@ msgstr "أضف جدول جديد"
 #: v2/templates/calendar/calendar.php:181
 #: v2/templates/calendar/calendar.php:218
 #: v2/templates/calendar/calendar.php:254
-#, fuzzy
 msgid "Check/Uncheck all Calendars"
-msgstr "\"جدول الكنيسة\""
+msgstr "التحقق/إلغاء التحقق من جميع التقاويم"
 
 #: v2/templates/calendar/calendar.php:157
 msgid "Resources"
@@ -7606,7 +7583,7 @@ msgstr "سنة"
 
 #: v2/templates/calendar/eventnames.php:228
 msgid "DEFAULT COLOR"
-msgstr ""
+msgstr "اللون الافتراضي"
 
 #: v2/templates/calendar/eventnames.php:243
 msgid "DEFAULT START TIME"
@@ -7760,28 +7737,24 @@ msgid "Return to Calendar"
 msgstr "عودي إلى \"كاليندار\""
 
 #: v2/templates/calendar/eventtypesedit.php:41
-#, fuzzy
 msgid "Event count name deleted"
-msgstr "حسابك تم حذفه"
+msgstr "تم حذف اسم عدد الأحداث المحذوفة"
 
 #: v2/templates/calendar/eventtypesedit.php:53
-#, fuzzy
 msgid "Event count name added"
-msgstr "حتى غير الحاضرين"
+msgstr "تمت إضافة اسم عدد الأحداث المضافة"
 
 #: v2/templates/calendar/eventtypesedit.php:71
-#, fuzzy
 msgid "Name changed"
-msgstr "وفر التغييرات"
+msgstr "تم تغيير الاسم"
 
 #: v2/templates/calendar/eventtypesedit.php:89
-#, fuzzy
 msgid "Color changed"
-msgstr "برتقالي"
+msgstr "تغير اللون"
 
 #: v2/templates/calendar/eventtypesedit.php:107
 msgid "Event time modified"
-msgstr ""
+msgstr "تم تعديل وقت الحدث"
 
 #: v2/templates/calendar/eventtypesedit.php:184
 msgid "Edit Event Type"
@@ -7792,18 +7765,16 @@ msgid "Save Name"
 msgstr "أنقذ الاسم"
 
 #: v2/templates/calendar/eventtypesedit.php:208
-#, fuzzy
 msgid "Event Type Color"
-msgstr "نوع الحدث"
+msgstr "نوع الحدث اللون"
 
 #: v2/templates/calendar/eventtypesedit.php:214
-#, fuzzy
 msgid "Color"
-msgstr "كولومبيا"
+msgstr "اللون"
 
 #: v2/templates/calendar/eventtypesedit.php:222
 msgid "Save Color"
-msgstr ""
+msgstr "حفظ الألوان"
 
 #: v2/templates/calendar/eventtypesedit.php:254
 #: v2/templates/people/familylist.php:69 v2/templates/people/familylist.php:123
@@ -8123,17 +8094,15 @@ msgstr "المزيد من المعلومات"
 
 #: v2/templates/dashboard/maindashboard.php:244
 #: v2/templates/plugins/plugins.php:32
-#, fuzzy
 msgid "Plugins managements"
-msgstr "إدارة الأدوار"
+msgstr "إدارات المكونات الإضافية"
 
 #: v2/templates/dashboard/maindashboard.php:251
 #: v2/templates/gdpr/dashboard.php:45
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:52
 #: v2/templates/plugins/plugins.php:102
-#, fuzzy
 msgid "Settings"
-msgstr "-خريطة خرائط"
+msgstr "الإعدادات"
 
 #: v2/templates/deposit/autaPaymentEditor.php:801
 msgid "For the"
@@ -8795,30 +8764,28 @@ msgid "Calendar Year"
 msgstr "سنة الجدول الزمني"
 
 #: v2/templates/email/mailchimp/campaign.php:31
-#, fuzzy
 msgid "Recipients"
-msgstr "الأحداث"
+msgstr "المستلمون"
 
 #: v2/templates/email/mailchimp/campaign.php:36
 msgid "Audience"
-msgstr ""
+msgstr "الجمهور"
 
 #: v2/templates/email/mailchimp/campaign.php:39
 msgid "Delivered"
-msgstr ""
+msgstr "تم التسليم"
 
 #: v2/templates/email/mailchimp/campaign.php:48
 msgid "Opened"
-msgstr ""
+msgstr "مفتوح"
 
 #: v2/templates/email/mailchimp/campaign.php:52
-#, fuzzy
 msgid "Clicked"
-msgstr "اضغط على"
+msgstr "تم النقر"
 
 #: v2/templates/email/mailchimp/campaign.php:56
 msgid "Bounced"
-msgstr ""
+msgstr "ارتداد"
 
 #: v2/templates/email/mailchimp/campaign.php:60
 msgid "Unsubscribed"
@@ -8826,35 +8793,31 @@ msgstr "غير مشمول"
 
 #: v2/templates/email/mailchimp/campaign.php:66
 msgid "Successful deliveries"
-msgstr ""
+msgstr "عمليات التسليم الناجحة"
 
 #: v2/templates/email/mailchimp/campaign.php:72
-#, fuzzy
 msgid "Total opens"
-msgstr "مجموع المدفوعات"
+msgstr "إجمالي الافتتاحات"
 
 #: v2/templates/email/mailchimp/campaign.php:75
-#, fuzzy
 msgid "Last opened"
-msgstr "آخر منطقي"
+msgstr "آخر افتتاح"
 
 #: v2/templates/email/mailchimp/campaign.php:78
 msgid "Forwarded"
-msgstr ""
+msgstr "أُحيلت"
 
 #: v2/templates/email/mailchimp/campaign.php:81
 msgid "Forward opens"
-msgstr ""
+msgstr "يفتح للأمام"
 
 #: v2/templates/email/mailchimp/campaign.php:90
-#, fuzzy
 msgid "Clicks rate"
-msgstr "اضغط على"
+msgstr "معدل النقرات"
 
 #: v2/templates/email/mailchimp/campaign.php:93
-#, fuzzy
 msgid "Total clicks"
-msgstr "-أجزاء كاملة"
+msgstr "إجمالي النقرات"
 
 #: v2/templates/email/mailchimp/campaign.php:116
 msgid "Email Campaign Management"
@@ -9221,12 +9184,13 @@ msgstr "موقع إدارة شؤون الإعلام"
 
 #: v2/templates/gdpr/dashboard.php:36
 msgid "GDPR DPO Signer Email"
-msgstr "GDPR Signer Email"
+msgstr ""
+"البريد الإلكتروني للموقِّع على اللائحة العامة لحماية البيانات/المسؤول عن حماية "
+"البيانات"
 
 #: v2/templates/gdpr/dashboard.php:44
-#, fuzzy
 msgid "GDPR Settings"
-msgstr "-خريطة خرائط"
+msgstr "إعدادات اللائحة العامة لحماية البيانات العامة"
 
 #: v2/templates/gdpr/dashboard.php:54
 msgid "GDPR Person status"
@@ -9263,9 +9227,8 @@ msgid "Only PNG and JPEG files are managed actually !!"
 msgstr "فقط الملفات PNG و JPEG يتم تدبير ملفات في الواقع!"
 
 #: v2/templates/group/groupbadge.php:130
-#, fuzzy
 msgid "Image Name"
-msgstr "أنقذ الاسم"
+msgstr "اسم الصورة"
 
 #: v2/templates/group/groupbadge.php:187
 msgid "With QR Code"
@@ -9807,9 +9770,8 @@ msgid "Lists"
 msgstr "القوائم"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:51
-#, fuzzy
 msgid "Pastoral care Settings."
-msgstr "نوع الرعاية الرعوية"
+msgstr "إعدادات الرعاية الرعوية."
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:66
 msgid "• Statistics about persons, families ... who remain to be contacted."
@@ -10178,7 +10140,7 @@ msgstr "ليس تقرير مهتم"
 
 #: v2/templates/people/canvassEditor.php:129
 msgid "Opinions about canvassing the person/family"
-msgstr ""
+msgstr "آراء حول استطلاع رأي الشخص/العائلة حول استجواب الشخص/العائلة"
 
 #: v2/templates/people/canvassEditor.php:141
 #: v2/templates/people/familyEditor.php:918
@@ -10428,14 +10390,12 @@ msgid "Unk"
 msgstr "Unk"
 
 #: v2/templates/people/familyEditor.php:1282
-#, fuzzy
 msgid "Save and Add Family"
-msgstr "Save and Add"
+msgstr "حفظ وإضافة العائلة"
 
 #: v2/templates/people/familyEditor.php:1283
-#, fuzzy
 msgid "Save and Add Person To Family"
-msgstr "إلغاء و العودة إلى الأسرة"
+msgstr "حفظ وإضافة شخص إلى العائلة"
 
 #: v2/templates/people/familylist.php:23
 msgid "Add Family"
@@ -10726,15 +10686,19 @@ msgid ""
 "        - in PDF format for printing<br>\n"
 "        - or by e-mail (please note that at this level, e-mail is massive)."
 msgstr ""
+"يمكنك هنا اختيار تشغيل التقارير لتأكيد البيانات المخزنة في CRM، للعائلات أو "
+"على أساس فردي. <br>\n"
+"        - بصيغة PDF للطباعة<br>\n"
+"        - أو عن طريق البريد الإلكتروني (يُرجى ملاحظة أنه في هذا المستوى، يكون "
+"البريد الإلكتروني ضخمًا)."
 
 #: v2/templates/people/lettersandlabels.php:130
 msgid "People Reports"
 msgstr "تقارير الناس"
 
 #: v2/templates/people/lettersandlabels.php:135
-#, fuzzy
 msgid "Mail Label"
-msgstr "موضوع البريد"
+msgstr "ملصق البريد"
 
 #: v2/templates/people/lettersandlabels.php:143
 msgid "Recipient Naming Method"
@@ -10745,23 +10709,20 @@ msgid "Salutation Utility"
 msgstr "\"نفع التحية\""
 
 #: v2/templates/people/lettersandlabels.php:153
-#, fuzzy
 msgid "Person Custom Fields"
-msgstr "حقل الجمارك الشخصي"
+msgstr "الحقول المخصصة للأشخاص"
 
 #: v2/templates/people/lettersandlabels.php:169
-#, fuzzy
 msgid "Family Custom Fields"
-msgstr "حقل الجمارك العائلي"
+msgstr "الحقول المخصصة للعائلة"
 
 #: v2/templates/people/lettersandlabels.php:212
 msgid "Test"
-msgstr ""
+msgstr "الاختبار"
 
 #: v2/templates/people/lettersandlabels.php:221
-#, fuzzy
 msgid "Selected Members"
-msgstr "اختر جميع الأعضاء"
+msgstr "أعضاء مختارون"
 
 #: v2/templates/people/lettersandlabels.php:236
 msgid "Minimum Age"
@@ -10796,41 +10757,34 @@ msgid "Confirm data Email"
 msgstr "تأكيد البيانات الإلكترونية"
 
 #: v2/templates/people/lettersandlabels.php:276
-#, fuzzy
 msgid "Email Confirmation"
-msgstr "تأكيد"
+msgstr "تأكيد البريد الإلكتروني"
 
 #: v2/templates/people/lettersandlabels.php:289
-#, fuzzy
 msgid "Pending Persons"
-msgstr "شخص واحد"
+msgstr "الأشخاص المعلقون"
 
 #: v2/templates/people/lettersandlabels.php:290
-#, fuzzy
 msgid "Confirmed persons"
-msgstr "شخص واحد"
+msgstr "الأشخاص المؤكدين"
 
 #: v2/templates/people/lettersandlabels.php:291
 #: v2/templates/people/lettersandlabels.php:298
-#, fuzzy
 msgid "Delete Pending"
-msgstr "يحذف سجل الأشخاص"
+msgstr "حذف معلّق"
 
 #: v2/templates/people/lettersandlabels.php:292
 #: v2/templates/people/lettersandlabels.php:299
-#, fuzzy
 msgid "Delete Done Confirmation"
-msgstr "تأكيد العائلة"
+msgstr "حذف تأكيد تم الحذف"
 
 #: v2/templates/people/lettersandlabels.php:296
-#, fuzzy
 msgid "Pending Families"
-msgstr "العائلة السابقة"
+msgstr "العائلات المعلقة"
 
 #: v2/templates/people/lettersandlabels.php:297
-#, fuzzy
 msgid "Confirmed Families"
-msgstr "الأسر"
+msgstr "العائلات المؤكدة"
 
 #: v2/templates/people/peopledashboard.php:27
 msgid "People Functions"
@@ -10889,9 +10843,8 @@ msgid ""
 msgstr "تذكير التبرعات المطبوعة لجميع الناس، مصنفة حسب الأسرة حيث تم تعيينها"
 
 #: v2/templates/people/peopledashboard.php:226
-#, fuzzy
 msgid "Generate letters and mailing labels for data confirmations."
-msgstr "رسائل و بطاقات بريدية"
+msgstr "إنشاء رسائل وملصقات بريدية لتأكيد البيانات."
 
 #: v2/templates/people/peopledashboard.php:234
 msgid "Self Update"
@@ -11145,12 +11098,11 @@ msgstr "آخر محرر"
 
 #: v2/templates/people/personPrint.php:649
 msgid "Files & folders"
-msgstr ""
+msgstr "الملفات والمجلدات"
 
 #: v2/templates/people/personPrint.php:704
-#, fuzzy
 msgid "Account modifications"
-msgstr "تعديل فولدر"
+msgstr "تعديلات الحساب"
 
 #: v2/templates/people/personview.php:29
 msgid "This Person is Deactivated"
@@ -11218,9 +11170,8 @@ msgid "Modify Specific Properties"
 msgstr "تعديل الممتلكات المحددة"
 
 #: v2/templates/people/personview.php:1043
-#, fuzzy
 msgid "No specific group properties defined !"
-msgstr "ممتلكات مجموعة محددة"
+msgstr "لا توجد خصائص مجموعة محددة محددة !"
 
 #: v2/templates/people/personview.php:1151
 msgid "No volunteer opportunity assignments."
@@ -11284,28 +11235,24 @@ msgid "Actualize files"
 msgstr "نشط الملفات"
 
 #: v2/templates/people/personview.php:1639
-#, fuzzy
 msgid "Select how do you want to request the person information to be verified"
-msgstr "اختر كيف تريد طلب المعلومات العائلية للتحقق منها"
+msgstr "حدد كيف تريد طلب التحقق من معلومات الشخص المراد التحقق من معلوماته"
 
 #: v2/templates/people/selectDelete.php:46
-#, fuzzy
 msgid "Donations transferred from family"
-msgstr "نقل التبرعات إلى أسرة مختارة"
+msgstr "التبرعات المحولة من العائلة"
 
 #: v2/templates/people/selectDelete.php:56
-#, fuzzy
 msgid "eGives transferred from family"
-msgstr "سجل عائلتك"
+msgstr "العطاءات الإلكترونية المنقولة من العائلة"
 
 #: v2/templates/people/selectDelete.php:60
 msgid "All donations from this family have been moved to another family."
 msgstr "كل التبرعات من هذه العائلة تم نقلها إلى عائلة أخرى"
 
 #: v2/templates/people/selectDelete.php:79
-#, fuzzy
 msgid "All donations from this family have been deleted."
-msgstr "كل التبرعات من هذه العائلة تم نقلها إلى عائلة أخرى"
+msgstr "تم حذف جميع التبرعات من هذه العائلة."
 
 #: v2/templates/people/selectDelete.php:162
 msgid ""
@@ -11362,9 +11309,8 @@ msgid "Move Donations to Selected Family"
 msgstr "نقل التبرعات إلى أسرة مختارة"
 
 #: v2/templates/people/selectDelete.php:255
-#, fuzzy
 msgid "Delete Donations of Selected Family"
-msgstr "نقل التبرعات إلى أسرة مختارة"
+msgstr "حذف تبرعات العائلة المختارة"
 
 #: v2/templates/people/selectDelete.php:259
 msgid "Cancel and Return to Person View"
@@ -11375,9 +11321,8 @@ msgid "Move Donations to Selected Person"
 msgstr "حرك التبرعات إلى شخص مختار"
 
 #: v2/templates/people/selectDelete.php:261
-#, fuzzy
 msgid "Delete Donations of Selected Person"
-msgstr "حرك التبرعات إلى شخص مختار"
+msgstr "حذف تبرعات الشخص المحدد"
 
 #: v2/templates/people/selectDelete.php:292
 msgid "Date Updated"
@@ -11439,34 +11384,28 @@ msgid "No coordinates found"
 msgstr "لا يوجد إحداثيات"
 
 #: v2/templates/plugins/plugins.php:36
-#, fuzzy
 msgid "Add a plugin"
-msgstr "أضف تعهد جديد"
+msgstr "إضافة مكون إضافي"
 
 #: v2/templates/plugins/plugins.php:41 v2/templates/plugins/plugins.php:127
-#, fuzzy
 msgid "Add new plugin"
-msgstr "أضف تعهد جديد"
+msgstr "إضافة مكون إضافي جديد"
 
 #: v2/templates/plugins/plugins.php:44
-#, fuzzy
 msgid "Upload A Plugin"
-msgstr "حاملة ملف سي إس في"
+msgstr "تحميل مكون إضافي"
 
 #: v2/templates/plugins/plugins.php:52
-#, fuzzy
 msgid "Select the grouped action"
-msgstr "اختر مجموعة"
+msgstr "حدد الإجراء المجمّع"
 
 #: v2/templates/plugins/plugins.php:54
-#, fuzzy
 msgid "Grouped actions"
-msgstr "وظائف المجموعة"
+msgstr "الإجراءات المجمعة"
 
 #: v2/templates/plugins/plugins.php:66
-#, fuzzy
 msgid "Activated"
-msgstr "نشط"
+msgstr "مفعل"
 
 #: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:49
 msgid "Check all boxes"
@@ -11476,36 +11415,31 @@ msgstr "تفقد كل الصناديق"
 #: v2/templates/system/integritycheck.php:88
 #: v2/templates/system/integritycheck.php:151
 msgid "Plugin"
-msgstr ""
+msgstr "المكوّن الإضافي"
 
 #: v2/templates/plugins/plugins.php:84
-#, fuzzy
 msgid "Update"
-msgstr "استكمال"
+msgstr "تحديث"
 
 #: v2/templates/plugins/plugins.php:107
 msgid "guided tour"
-msgstr ""
+msgstr "جولة إرشادية"
 
 #: v2/templates/plugins/plugins.php:119
-#, fuzzy
 msgid "Details"
-msgstr "التفاصيل:"
+msgstr "التفاصيل"
 
 #: v2/templates/plugins/plugins.php:122
-#, fuzzy
 msgid "Activated Plugin"
-msgstr "نشط"
+msgstr "المكوّن الإضافي المفعل"
 
 #: v2/templates/plugins/plugins.php:122
-#, fuzzy
 msgid "Deactivated Plugin"
-msgstr "تم تعطيل"
+msgstr "المكوّن الإضافي المعطّل"
 
 #: v2/templates/plugins/plugins.php:130
-#, fuzzy
 msgid "Update/upgrade"
-msgstr "استكمال"
+msgstr "التحديث/الترقية"
 
 #: v2/templates/query/querylist.php:25
 msgid "Run a Free-Text Query"
@@ -11651,9 +11585,8 @@ msgid "Unknown Type"
 msgstr "نوع مجهول"
 
 #: v2/templates/sidebar/systemsettings.php:199
-#, fuzzy
 msgid "Definition"
-msgstr "الوصف"
+msgstr "التعريف"
 
 #: v2/templates/sidebar/volunteeropportunityeditor.php:15
 msgid "Add Volunteer Opportunity"
@@ -11842,9 +11775,8 @@ msgid "Create Event & Call the register"
 msgstr "\"إبتكر الحدث و إتصل بالسجل\""
 
 #: v2/templates/sundayschool/sundayschoolview.php:91
-#, fuzzy
 msgid "Export"
-msgstr "صدير سي إس في"
+msgstr "التصدير"
 
 #: v2/templates/sundayschool/sundayschoolview.php:99
 #: v2/templates/sundayschool/sundayschoolview.php:102
@@ -11897,7 +11829,7 @@ msgstr "يضاف أعضاء إلى مجموعة الأحد"
 
 #: v2/templates/system/convertIndividualToAddress.php:43
 msgid "Last entry ID"
-msgstr ""
+msgstr "معرف الإدخال الأخير"
 
 #: v2/templates/system/convertIndividualToAddress.php:106
 msgid "is now part of the"
@@ -11913,7 +11845,7 @@ msgstr "حوّلْ كُلّ"
 
 #: v2/templates/system/convertIndividualToAddress.php:128
 msgid "Nothing to convert !"
-msgstr ""
+msgstr "لا شيء للتحويل!"
 
 #: v2/templates/system/csvExport.php:48
 msgid "Field Selection"
@@ -12070,9 +12002,8 @@ msgid "There "
 msgstr "هناك"
 
 #: v2/templates/system/eventAttendance.php:199
-#, fuzzy
 msgid "Cart"
-msgstr "عربة الخرائط"
+msgstr "عربة التسوق"
 
 #: v2/templates/system/eventAttendance.php:248
 msgid "There are no events in this category"
@@ -12083,57 +12014,48 @@ msgid "There are no Records"
 msgstr "لا توجد سجلات"
 
 #: v2/templates/system/infos.php:16
-#, fuzzy
 msgid "EcclesiaCRM Installation Information"
-msgstr "معلومات الكنيسة"
+msgstr "معلومات تثبيت EcclesiaCRM"
 
 #: v2/templates/system/infos.php:21
-#, fuzzy
 msgid "Software Version"
-msgstr "الصيغة البرنامجية الحالية:"
+msgstr "إصدار البرنامج"
 
 #: v2/templates/system/infos.php:47
-#, fuzzy
 msgid "System Information"
-msgstr "المعلومات"
+msgstr "معلومات النظام"
 
 #: v2/templates/system/infos.php:70
-#, fuzzy
 msgid "Database"
-msgstr "قاعدة بيانات احتياطية"
+msgstr "قاعدة البيانات"
 
 #: v2/templates/system/infos.php:75
-#, fuzzy
 msgid "Database Version"
-msgstr "صيغة"
+msgstr "إصدار قاعدة البيانات"
 
 #: v2/templates/system/infos.php:79
 msgid "Database Server Version"
-msgstr ""
+msgstr "إصدار خادم قاعدة البيانات"
 
 #: v2/templates/system/infos.php:93
 msgid "Web Server"
-msgstr ""
+msgstr "خادم الويب"
 
 #: v2/templates/system/infos.php:159
-#, fuzzy
 msgid "Email Information"
-msgstr "تأكيد"
+msgstr "معلومات البريد الإلكتروني"
 
 #: v2/templates/system/infos.php:168
-#, fuzzy
 msgid "Valid Mail Server Settings"
-msgstr "إديت سيتينغز العامة"
+msgstr "إعدادات خادم البريد الصالحة"
 
 #: v2/templates/system/infos.php:178
-#, fuzzy
 msgid "Application Prerequisites"
-msgstr "الشروط المسبقة للتطبيق غير الملتقى"
+msgstr "المتطلبات الأساسية للتطبيق"
 
 #: v2/templates/system/infos.php:195
-#, fuzzy
 msgid "Application Integrity Check"
-msgstr "تم إخفاء النزاهة"
+msgstr "التحقق من سلامة التطبيق"
 
 #: v2/templates/system/infos.php:198 v2/templates/system/infos.php:233
 #: v2/templates/system/integritycheck.php:57
@@ -12147,7 +12069,6 @@ msgid "Files failing integrity check"
 msgstr "ملفات تفشل في التحقق من النزاهة"
 
 #: v2/templates/system/infos.php:206 v2/templates/system/infos.php:241
-#, fuzzy
 msgid "FileName"
 msgstr "اسم الملف"
 
@@ -12336,16 +12257,15 @@ msgstr "فشل في المواقع"
 
 #: v2/templates/user/userlist.php:59
 msgid "Take control"
-msgstr ""
+msgstr "سيطر على زمام الأمور"
 
 #: v2/templates/user/userlist.php:61
 msgid "2FA authentication"
 msgstr "إثبات صحة 2FA"
 
 #: v2/templates/user/userlist.php:82
-#, fuzzy
 msgid "Manage user account"
-msgstr "حساب مصرفي"
+msgstr "إدارة حساب المستخدم"
 
 #: v2/templates/user/userlist.php:88
 msgid "Not modifiable"
@@ -12353,35 +12273,31 @@ msgstr "غير قابل للتعديل"
 
 #: v2/templates/user/userlist.php:97
 msgid "User account webdav key"
-msgstr ""
+msgstr "مفتاح webdav لحساب المستخدم"
 
 #: v2/templates/user/userlist.php:107
 msgid "Remove user account (not the profile)"
-msgstr ""
+msgstr "إزالة حساب المستخدم (وليس الملف الشخصي)"
 
 #: v2/templates/user/userlist.php:147
-#, fuzzy
 msgid "Reset failed login"
-msgstr "فشل في المواقع"
+msgstr "إعادة تعيين تسجيل الدخول الفاشل"
 
 #: v2/templates/user/userlist.php:155
-#, fuzzy
 msgid "Change user account password"
-msgstr "تغيير كلمة السر"
+msgstr "تغيير كلمة مرور حساب المستخدم"
 
 #: v2/templates/user/userlist.php:161
-#, fuzzy
 msgid "Reset and send new user password"
-msgstr "أعد تشغيل كلمة السر"
+msgstr "إعادة تعيين كلمة مرور المستخدم الجديدة وإرسالها"
 
 #: v2/templates/user/userlist.php:171
 msgid "Take control of the account"
-msgstr ""
+msgstr "التحكم في الحساب"
 
 #: v2/templates/user/userlist.php:180
-#, fuzzy
 msgid "Manage 2 factor secret"
-msgstr "تولى رعاية الرعاية"
+msgstr "إدارة العامل 2 السري"
 
 #: v2/templates/user/userlist.php:181 v2/templates/user/userseditor.php:177
 msgid "Management"
@@ -12389,7 +12305,7 @@ msgstr "الإدارة"
 
 #: v2/templates/user/userlist.php:192
 msgid "Lock/unlock user account"
-msgstr ""
+msgstr "قفل/إلغاء قفل حساب المستخدم"
 
 #: v2/templates/user/userseditor.php:26
 msgid "Role management"
@@ -12421,9 +12337,8 @@ msgid "User"
 msgstr "المستخدم"
 
 #: v2/templates/user/userseditor.php:167 v2/templates/user/userseditor.php:791
-#, fuzzy
 msgid "Global Permissions"
-msgstr "الإذن"
+msgstr "الأذونات العالمية"
 
 #: v2/templates/user/userseditor.php:183 v2/templates/user/userseditor.php:693
 #: v2/templates/user/userseditor.php:776
@@ -12463,9 +12378,8 @@ msgid "View, Add and Edit Notes"
 msgstr "() انظر: Diew, Add and Edit Notes"
 
 #: v2/templates/user/userseditor.php:264
-#, fuzzy
 msgid "User Account Permissions"
-msgstr "أرقام حساب واضحة"
+msgstr "أذونات حساب المستخدم"
 
 #: v2/templates/user/userseditor.php:269
 msgid "Main Dashboard"
@@ -12496,9 +12410,8 @@ msgid "Allow to use the mail function and button in the CRM"
 msgstr "اسمحوا لي باستخدام وظيفة البريد والزر في CRM"
 
 #: v2/templates/user/userseditor.php:328
-#, fuzzy
 msgid "Permissions To View"
-msgstr "الإذن"
+msgstr "أذونات العرض"
 
 #: v2/templates/user/userseditor.php:334
 msgid "Show Cart"
@@ -12519,9 +12432,8 @@ msgstr ""
 "الولادة، العمر."
 
 #: v2/templates/user/userseditor.php:372
-#, fuzzy
 msgid "Export Permissions"
-msgstr "الإذن"
+msgstr "أذونات التصدير"
 
 #: v2/templates/user/userseditor.php:380
 msgid "User permission to export CSV files"
@@ -12548,9 +12460,8 @@ msgid "User permission to export CSV files for the sunday school"
 msgstr "إذن المستخدم لتصدير ملفات CSV لمدرسة الأحد"
 
 #: v2/templates/user/userseditor.php:432
-#, fuzzy
 msgid "Special Permissions"
-msgstr "الإذن"
+msgstr "الأذونات الخاصة"
 
 #: v2/templates/user/userseditor.php:438
 msgid "Manage Donations and Finance"
@@ -12577,9 +12488,8 @@ msgid "General Data Protection Regulation in UE"
 msgstr "لائحة حماية البيانات العامة في وحدة أوروبا"
 
 #: v2/templates/user/userseditor.php:511 v2/templates/user/userseditor.php:792
-#, fuzzy
 msgid "Modifiable Permissions"
-msgstr "الإذن"
+msgstr "الأذونات القابلة للتعديل"
 
 #: v2/templates/user/userseditor.php:517
 msgid ""
@@ -12602,28 +12512,24 @@ msgid "Notes"
 msgstr "الحواشي"
 
 #: v2/templates/user/userseditor.php:668 v2/templates/user/userseditor.php:793
-#, fuzzy
 msgid "Plugin permissions"
-msgstr "الإذن"
+msgstr "أذونات المكوّن الإضافي"
 
 #: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
-msgstr ""
+msgstr "إمكانيات رؤية مكونات لوحة التحكم الإضافية"
 
 #: v2/templates/user/userseditor.php:717
-#, fuzzy
 msgid "Security"
-msgstr "مجموعة الأمن"
+msgstr "الأمن"
 
 #: v2/templates/user/userseditor.php:723
-#, fuzzy
 msgid "Position"
-msgstr "إيجابي"
+msgstr "المنصب"
 
 #: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:386
-#, fuzzy
 msgid "Top"
-msgstr "إلى"
+msgstr "أعلى"
 
 #: v2/templates/user/usersettings.php:29
 msgid "Classic User Profile Settings"
@@ -12634,9 +12540,8 @@ msgid "Skin"
 msgstr "الجلد"
 
 #: v2/templates/user/usersettings.php:335
-#, fuzzy
 msgid "Specific settings"
-msgstr "أنقذ (ستيتنجز)"
+msgstr "إعدادات محددة"
 
 #: v2/templates/user/usersettings.php:417
 msgid "Two-factor authentication (2fa)"
@@ -12912,23 +12817,78 @@ msgstr "المال"
 msgid "Custom Drop-Down List"
 msgstr "قائمة الجمارك"
 
-#, fuzzy
 msgid "Confirm Datas"
-msgstr "تأكيد حذف"
+msgstr "تأكيد البيانات"
 
-# eventworkflow
 msgid "Event Workflow"
-msgstr ""
+msgstr "سير عمل الحدث"
 
 msgid "One Day"
-msgstr ""
+msgstr "يوم واحد"
 
 msgid "Several days"
-msgstr ""
+msgstr "عدة أيام"
 
-#, fuzzy
 msgid "Giving Report"
-msgstr "تقرير مولد"
+msgstr "تقرير العطاء"
+
+#~ msgid ""
+#~ "As part of the restore, external backups have been disabled.  If you wish "
+#~ "to continue automatic backups, you must manual re-enable the "
+#~ "bEnableExternalBackupTarget setting."
+#~ msgstr ""
+#~ "كجزء من الاستعادة، تم تعطيل النسخ الاحتياطية الخارجية.  إذا كنت ترغب في "
+#~ "متابعة النسخ الاحتياطية التلقائية، يجب إعادة تمكين الإعداد "
+#~ "bEnableExternalBackupTarget يدويًا."
+
+#~ msgid ""
+#~ "List of calibration parameters for the domestic water consumption model"
+#~ msgstr "قائمة معلمات المعايرة لنموذج استهلاك المياه المنزلي"
+
+#~ msgid "Water poverty"
+#~ msgstr "الفقر المائي"
+
+#~ msgid "Environmental variables"
+#~ msgstr "المتغيرات البيئية"
+
+#~ msgid "Community variables"
+#~ msgstr "متغيرات المجتمع"
+
+#~ msgid "List of configuration constants for certain elements"
+#~ msgstr "قائمة ثوابت التكوين لعناصر معينة"
+
+#~ msgid "List of threshold constants for map"
+#~ msgstr "قائمة ثوابت العتبة للخريطة"
+
+#~ msgid "VAT"
+#~ msgstr "ضريبة القيمة المضافة"
+
+#~ msgid "Reassess the number of INSEE tax households by default"
+#~ msgstr "إعادة تقييم عدد الأسر المعيشية الخاضعة لضريبة INSEE افتراضيًا"
+
+#~ msgid "without revaluation"
+#~ msgstr "بدون إعادة تقييم"
+
+#~ msgid "with revaluation"
+#~ msgstr "مع إعادة التقييم"
+
+#~ msgid "List of threshold constants for maps"
+#~ msgstr "قائمة ثوابت العتبة للخرائط"
+
+#~ msgid "Done confirmation of persons"
+#~ msgstr "تم تأكيد الأشخاص"
+
+#~ msgid "Done confirmation of families"
+#~ msgstr "تم تأكيد العائلات"
+
+#~ msgid "CustomSearch is NULL"
+#~ msgstr "البحث المخصص غير موجود"
+
+#~ msgid "Find people with a custom field value is NULL"
+#~ msgstr "البحث عن الأشخاص الذين لديهم قيمة حقل مخصص فارغة"
+
+#~ msgid "Meeting"
+#~ msgstr "الاجتماع"
 
 #~ msgid "Not assigned"
 #~ msgstr "ليس مسؤولاً"
@@ -13157,19 +13117,7 @@ msgstr "تقرير مولد"
 #~ msgid "Person assigned to a group"
 #~ msgstr "شخص مُكلف بمجموعة"
 
-#, fuzzy
-#~ msgid "Done confirmation of persons"
-#~ msgstr "حرك التبرعات إلى شخص مختار"
-
-#, fuzzy
-#~ msgid "Done confirmation of families"
-#~ msgstr "يرجى تأكيد حذف هذا السجل العائلي:"
-
 #~ msgid "CustomSearch"
-#~ msgstr "البحث الجمركي"
-
-#, fuzzy
-#~ msgid "CustomSearch is NULL"
 #~ msgstr "البحث الجمركي"
 
 #~ msgid "Returns each family with a work phone"
@@ -13244,10 +13192,6 @@ msgstr "تقرير مولد"
 #~ msgstr "ابحث عن متطوعين لمطابقة رمزين لفرصتين محددتين"
 
 #~ msgid "Find people with a custom field value"
-#~ msgstr "ابحث عن أشخاص ذوي قيمة ميدانية"
-
-#, fuzzy
-#~ msgid "Find people with a custom field value is NULL"
 #~ msgstr "ابحث عن أشخاص ذوي قيمة ميدانية"
 
 #~ msgid "Albanian"
@@ -13484,10 +13428,6 @@ msgstr "تقرير مولد"
 
 #~ msgid "Verify"
 #~ msgstr "التحقق"
-
-#, fuzzy
-#~ msgid "Meeting"
-#~ msgstr "الاجتماعات"
 
 #~ msgid "item(s) added to the Cart."
 #~ msgstr "وأضافت البنود (البنود) إلى العربة."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-08 16:52+0000\n"
+"POT-Creation-Date: 2024-12-23 11:17+0000\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -269,7 +269,7 @@ msgstr "업무용 전화"
 msgid "Cell Phone"
 msgstr "휴대폰"
 
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:418
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:420
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
@@ -418,7 +418,7 @@ msgstr "별도로 지정하지 않은 경우 기본 국가"
 #: EcclesiaCRM/APIControllers/SearchController.php:251
 #: EcclesiaCRM/APIControllers/SearchController.php:256
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:275 EcclesiaCRM/MenuBar/MenuBar.php:350
+#: EcclesiaCRM/MenuBar/MenuBar.php:277 EcclesiaCRM/MenuBar/MenuBar.php:352
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/utils/OutputUtils.php:387 EcclesiaCRM/utils/OutputUtils.php:448
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1035
@@ -885,7 +885,7 @@ msgstr "모든 가족"
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
 #: EcclesiaCRM/APIControllers/PeopleController.php:125
-#: EcclesiaCRM/MenuBar/MenuBar.php:190
+#: EcclesiaCRM/MenuBar/MenuBar.php:192
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
@@ -898,7 +898,7 @@ msgstr "사람"
 #: EcclesiaCRM/APIControllers/PeopleController.php:164
 #: EcclesiaCRM/APIControllers/SearchController.php:62
 #: EcclesiaCRM/APIControllers/SearchController.php:65
-#: EcclesiaCRM/MenuBar/MenuBar.php:165 EcclesiaCRM/MenuBar/MenuBar.php:197
+#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/MenuBar/MenuBar.php:199
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
@@ -917,7 +917,7 @@ msgstr "가족"
 #: EcclesiaCRM/APIControllers/PeopleController.php:201
 #: EcclesiaCRM/APIControllers/SearchController.php:88
 #: EcclesiaCRM/APIControllers/SearchController.php:91
-#: EcclesiaCRM/MenuBar/MenuBar.php:219 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:221 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
@@ -3575,7 +3575,7 @@ msgstr "이메일 설정"
 msgid "Map Settings"
 msgstr "지도 설정"
 
-#: EcclesiaCRM/dto/SystemConfig.php:298 EcclesiaCRM/MenuBar/MenuBar.php:401
+#: EcclesiaCRM/dto/SystemConfig.php:298 EcclesiaCRM/MenuBar/MenuBar.php:403
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:33
@@ -3593,7 +3593,7 @@ msgstr "일요일 학교 출석"
 msgid "Integration"
 msgstr "통합"
 
-#: EcclesiaCRM/dto/SystemConfig.php:301 EcclesiaCRM/MenuBar/MenuBar.php:126
+#: EcclesiaCRM/dto/SystemConfig.php:301 EcclesiaCRM/MenuBar/MenuBar.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 #: v2/templates/dashboard/maindashboard.php:65
@@ -3804,62 +3804,62 @@ msgstr "정보"
 msgid "Please verify your informations"
 msgstr "정보를 확인해 주세요."
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:101 Include/Header.php:88
+#: EcclesiaCRM/MenuBar/MenuBar.php:103 Include/Header.php:88
 #: Include/Header.php:149
 msgid "Private Space"
 msgstr "개인 공간"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:103 EcclesiaCRM/utils/MiscUtils.php:466
+#: EcclesiaCRM/MenuBar/MenuBar.php:105 EcclesiaCRM/utils/MiscUtils.php:466
 #: external/templates/registration/family-register-members.php:104
 #: Include/Header.php:257
 msgid "Home"
 msgstr "홈"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:106 Include/Header.php:151
+#: EcclesiaCRM/MenuBar/MenuBar.php:108 Include/Header.php:151
 #: v2/templates/people/personview.php:426
 msgid "Change Password"
 msgstr "비밀번호 변경"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:107 Include/Header.php:153
+#: EcclesiaCRM/MenuBar/MenuBar.php:109 Include/Header.php:153
 #: v2/templates/people/personview.php:424
 msgid "Change Settings"
 msgstr "설정 변경"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:108 v2/templates/people/familyview.php:471
+#: EcclesiaCRM/MenuBar/MenuBar.php:110 v2/templates/people/familyview.php:471
 #: v2/templates/people/personPrint.php:591
 #: v2/templates/people/personview.php:654
 msgid "Documents"
 msgstr "문서"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:111 v2/templates/people/personview.php:668
+#: EcclesiaCRM/MenuBar/MenuBar.php:113 v2/templates/people/personview.php:668
 #: v2/templates/user/userseditor.php:292
 msgid "EDrive"
 msgstr "EDrive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:127 EcclesiaCRM/MenuBar/MenuBar.php:167
-#: EcclesiaCRM/MenuBar/MenuBar.php:295 EcclesiaCRM/MenuBar/MenuBar.php:392
-#: EcclesiaCRM/MenuBar/MenuBar.php:402 EcclesiaCRM/MenuBar/MenuBar.php:424
-#: EcclesiaCRM/MenuBar/MenuBar.php:518
+#: EcclesiaCRM/MenuBar/MenuBar.php:129 EcclesiaCRM/MenuBar/MenuBar.php:169
+#: EcclesiaCRM/MenuBar/MenuBar.php:297 EcclesiaCRM/MenuBar/MenuBar.php:394
+#: EcclesiaCRM/MenuBar/MenuBar.php:404 EcclesiaCRM/MenuBar/MenuBar.php:426
+#: EcclesiaCRM/MenuBar/MenuBar.php:520
 msgid "Dashboard"
 msgstr "대시보드"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:130
 msgid "Data Structure"
 msgstr "데이터 구조"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:129 EcclesiaCRM/MenuBar/MenuBar.php:195
+#: EcclesiaCRM/MenuBar/MenuBar.php:131 EcclesiaCRM/MenuBar/MenuBar.php:197
 msgid "View Inactive Persons"
 msgstr "비활성 사용자 보기"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:130 EcclesiaCRM/MenuBar/MenuBar.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:132 EcclesiaCRM/MenuBar/MenuBar.php:203
 msgid "View Inactive Families"
 msgstr "비활성 패밀리 보기"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:140
+#: EcclesiaCRM/MenuBar/MenuBar.php:142
 msgid "Events"
 msgstr "이벤트"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:146 v2/templates/map/MapUsingBing.php:78
+#: EcclesiaCRM/MenuBar/MenuBar.php:148 v2/templates/map/MapUsingBing.php:78
 #: v2/templates/map/MapUsingBing.php:124 v2/templates/map/MapUsingGoogle.php:88
 #: v2/templates/map/MapUsingGoogle.php:135
 #: v2/templates/map/MapUsingLeaflet.php:72
@@ -3867,108 +3867,108 @@ msgstr "이벤트"
 msgid "Calendar"
 msgstr "캘린더"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/MenuBar/MenuBar.php:184
+#: EcclesiaCRM/MenuBar/MenuBar.php:151 EcclesiaCRM/MenuBar/MenuBar.php:186
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "지도에서 보기"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:152
+#: EcclesiaCRM/MenuBar/MenuBar.php:154
 msgid "List Church Events"
 msgstr "교회 이벤트 나열"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:153
+#: EcclesiaCRM/MenuBar/MenuBar.php:155
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:332
 msgid "List Event Types"
 msgstr "이벤트 유형 나열"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:155
+#: EcclesiaCRM/MenuBar/MenuBar.php:157
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:294
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:296
 msgid "Call the Register"
 msgstr "등록 센터에 전화"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:165
+#: EcclesiaCRM/MenuBar/MenuBar.php:167
 #: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "사람"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:182
+#: EcclesiaCRM/MenuBar/MenuBar.php:184
 msgid "Meta Search Engine"
 msgstr "메타 검색 엔진"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:187
+#: EcclesiaCRM/MenuBar/MenuBar.php:189
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1202
 msgid "Directory reports"
 msgstr "디렉토리 보고서"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:191 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:193 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "새 사람 추가"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:192
+#: EcclesiaCRM/MenuBar/MenuBar.php:194
 msgid "View Single Persons"
 msgstr "독신자 보기"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:193
+#: EcclesiaCRM/MenuBar/MenuBar.php:195
 msgid "View Active Persons"
 msgstr "활성 사용자 보기"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:198
+#: EcclesiaCRM/MenuBar/MenuBar.php:200
 msgid "Add New Family"
 msgstr "새 가족 추가"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:199
+#: EcclesiaCRM/MenuBar/MenuBar.php:201
 msgid "View Active Families"
 msgstr "활성 패밀리 보기"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:203
+#: EcclesiaCRM/MenuBar/MenuBar.php:205
 msgid "Empty Addresses"
 msgstr "빈 주소"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:206
+#: EcclesiaCRM/MenuBar/MenuBar.php:208
 msgid "Convert Individual to Address"
 msgstr "개인을 주소로 변환"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:221
+#: EcclesiaCRM/MenuBar/MenuBar.php:223
 msgid "List Groups"
 msgstr "그룹 목록"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:284
+#: EcclesiaCRM/MenuBar/MenuBar.php:286
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:235
 msgid "Group Assignment Helper"
 msgstr "그룹 과제 도우미"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:293
+#: EcclesiaCRM/MenuBar/MenuBar.php:295
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "주일학교"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:374 EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/MenuBar/MenuBar.php:376 EcclesiaCRM/MenuBar/MenuBar.php:383
 #: Include/Footer.php:177
 msgid "Global Custom Menus"
 msgstr "글로벌 사용자 지정 메뉴"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:391
+#: EcclesiaCRM/MenuBar/MenuBar.php:393
 msgid "Custom Menus"
 msgstr "사용자 지정 메뉴"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:403
+#: EcclesiaCRM/MenuBar/MenuBar.php:405
 msgid "By Classifications"
 msgstr "분류별"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:422
+#: EcclesiaCRM/MenuBar/MenuBar.php:424
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/people/familyview.php:171 v2/templates/user/userseditor.php:467
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:431
+#: EcclesiaCRM/MenuBar/MenuBar.php:433
 msgid "Email Lists"
 msgstr "이메일 목록"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:459
+#: EcclesiaCRM/MenuBar/MenuBar.php:461
 #: EcclesiaCRM/Search/PledgeSearchRes.php:64
 #: EcclesiaCRM/Search/PledgeSearchRes.php:85 Reports/AdvancedDeposit.php:269
 #: Reports/AdvancedDeposit.php:389 Reports/AdvancedDeposit.php:420
@@ -3977,64 +3977,64 @@ msgstr "이메일 목록"
 msgid "Deposit"
 msgstr "입금"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:472
+#: EcclesiaCRM/MenuBar/MenuBar.php:474
 msgid "Current"
 msgstr "현재"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:477
+#: EcclesiaCRM/MenuBar/MenuBar.php:479
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:193
 msgid "Envelope Manager"
 msgstr "봉투 관리자"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:478
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
 msgid "View All Deposits"
 msgstr "모든 입금 보기"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:479
+#: EcclesiaCRM/MenuBar/MenuBar.php:481
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:374
 msgid "Electronic Payment Listing"
 msgstr "전자 결제 목록"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:480
+#: EcclesiaCRM/MenuBar/MenuBar.php:482
 msgid "Deposit Reports"
 msgstr "입금 보고서"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:481
+#: EcclesiaCRM/MenuBar/MenuBar.php:483
 #: v2/templates/deposit/financialReports.php:52
 msgid "Giving Report (Tax Statements)"
 msgstr "기부금 보고서(세금 명세서)"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:482
+#: EcclesiaCRM/MenuBar/MenuBar.php:484
 msgid "Edit Deposit Slip"
 msgstr "입금 전표 편집"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:494
+#: EcclesiaCRM/MenuBar/MenuBar.php:496
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "모금 행사"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:496
+#: EcclesiaCRM/MenuBar/MenuBar.php:498
 msgid "Create New Fundraiser"
 msgstr "새 모금 행사 만들기"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:497
+#: EcclesiaCRM/MenuBar/MenuBar.php:499
 msgid "View All Fundraisers"
 msgstr "모든 모금 행사 보기"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:499
+#: EcclesiaCRM/MenuBar/MenuBar.php:501
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "마지막 모금 행사 편집"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:560
+#: EcclesiaCRM/MenuBar/MenuBar.php:562
 msgid "Data/Reports"
 msgstr "데이터/보고서"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:562
+#: EcclesiaCRM/MenuBar/MenuBar.php:564
 msgid "Reports Menu"
 msgstr "보고서 메뉴"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:565 v2/templates/user/userseditor.php:457
+#: EcclesiaCRM/MenuBar/MenuBar.php:567 v2/templates/user/userseditor.php:457
 msgid "Query Menu"
 msgstr "쿼리 메뉴"
 

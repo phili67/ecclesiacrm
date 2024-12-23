@@ -36,11 +36,10 @@ msgid "Family Role"
 msgstr "دور العائلة"
 
 msgid "Compose New Message"
-msgstr ""
+msgstr "Composer un nouveau message"
 
-#, fuzzy
 msgid "Subject:"
-msgstr "الساعة"
+msgstr "Sujet :"
 
 msgid "Close"
 msgstr "قريب"
@@ -318,24 +317,21 @@ msgstr "لقد اخترت مرتين نفس الاسم"
 msgid "for this field. Chose another one."
 msgstr "لهذا المجال اختر واحداً آخر"
 
-#, fuzzy
 msgid "Remove Plugin"
-msgstr "أزيلوا كل شيء"
+msgstr "Supprimer le plugin"
 
-#, fuzzy
 msgid "You're about to remove the plugin from yout dashboard !!!"
-msgstr "أنت على وشك حذف حملتك هل أنت متأكد؟"
+msgstr ""
+"Vous êtes sur le point de supprimer le plugin de votre tableau de bord ! !!"
 
 msgid "Confirm"
 msgstr "تأكيد"
 
-#, fuzzy
 msgid "Dashboard Item"
-msgstr "لوحة القيادة"
+msgstr "Élément du tableau de bord"
 
-#, fuzzy
 msgid "Removed from your dashboard !"
-msgstr "إبتعد عن العربة"
+msgstr "Supprimé de votre tableau de bord !"
 
 msgid "Please confirm deletion of this document"
 msgstr "يرجى تأكيد حذف هذه الوثيقة"
@@ -720,9 +716,8 @@ msgstr "عدد الحضور"
 msgid "Start Date"
 msgstr "ابدأ بالموعد"
 
-#, fuzzy
 msgid "All day"
-msgstr "جميع العلامات"
+msgstr "Toute la journée"
 
 msgid "End Date"
 msgstr "نهاية الموعد"
@@ -847,26 +842,23 @@ msgstr "الأحداث من النوع"
 msgid "Text for Event ID"
 msgstr "رسالة من أجل بطاقة التعريف"
 
-#, fuzzy
 msgid "Undo Check-out"
-msgstr "تفقد"
+msgstr "Annuler la validation"
 
-#, fuzzy
 msgid "Make Check-out"
-msgstr "تفقد"
+msgstr "Appel à valider"
 
 msgid "Edit/Make Check-out - Undo Check-out"
-msgstr ""
+msgstr "Editer/Valider un appel - Annuler un appel"
 
 msgid "You can checkout or undo the checkout of the attendees of an event"
-msgstr ""
+msgstr "Vous pourrez valider ou invalider un appel à un événement."
 
 msgid "Edit/Validate Checkout"
-msgstr ""
+msgstr "Modifier/Appel à valider"
 
-#, fuzzy
 msgid "Check-out done"
-msgstr "تاريخ التحقق"
+msgstr "Appel validé"
 
 msgid "CKEditor Template Creation"
 msgstr "CKEDITor Templeate Creation"
@@ -975,6 +967,8 @@ msgid ""
 "Be carefull, You are about to delete a user from the group and therefore the "
 "entire call history. This is strongly to be avoided."
 msgstr ""
+"Attention, vous êtes sur le point de supprimer un utilisateur du groupe et "
+"donc l'ensemble de l'historique des appels. Ceci est fortement à éviter."
 
 msgid "This can't be undone"
 msgstr "لا يمكن إلغاء هذا"
@@ -1301,13 +1295,13 @@ msgstr "هل أنت متأكد أنك تريد تغيير هذه الملكية�
 
 msgid "A kid should have a family in a sunday school group !"
 msgstr ""
+"Un enfant devrait avoir une famille dans un groupe d'école du dimanche !"
 
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "هل أنت متأكد أنك تريد إزالة أعضاء المجموعة المختارين؟"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "بيانات خاصة"
+msgstr "401 : Datas privées"
 
 msgid "Group Role"
 msgstr "دور المجموعة"
@@ -1463,14 +1457,13 @@ msgid "Date Updated"
 msgstr "موعد مستكمل"
 
 msgid "Donations/eGives Moved by"
-msgstr ""
+msgstr "Donations/eGives Proposé par"
 
 msgid "Verification URL"
 msgstr "التحقق من URL"
 
-#, fuzzy
 msgid "Password"
-msgstr "إعادة ضبط كلمة السر"
+msgstr "Mot de passe"
 
 msgid "Failed to add verification"
 msgstr "ولم يضيف التحقق"
@@ -1481,54 +1474,56 @@ msgstr "أرسلت رسالة التحقق"
 msgid "Failed to send verification email"
 msgstr "فشلت في إرسال بريد إلكتروني للتحقق"
 
-#, fuzzy
 msgid "A person name or Family"
-msgstr "1 - اسم شخص أو أسرة أو مجموعة"
+msgstr "Un nom de personne ou une famille"
 
-#, fuzzy
 msgid "Modification"
-msgstr "موعد التعديل"
+msgstr "Modification"
 
-#, fuzzy
 msgid "By persons"
-msgstr "أضف شخصًا"
+msgstr "Par les personnes"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "العنوان"
+msgstr "Par adresse"
 
 msgid "Warning !!!!"
-msgstr ""
+msgstr "Avertissement ! !!!"
 
 msgid ""
 "You're about to send a massive e-mail to all EcclesiaCRM members :<br>- "
 "prefer a test with a few people or families<br>- make sure you select all of "
 "them, either by address or by person."
 msgstr ""
+"Vous êtes sur le point d'envoyer un e-mail massif à tous les membres "
+"d'EcclesiaCRM :<br>- préférez un test avec quelques personnes ou "
+"familles<br>- assurez-vous de les sélectionner tous, soit par adresse, soit "
+"par personne."
 
-#, fuzzy
 msgid "You're about to send a e-mail to"
-msgstr "أنت على وشك إزالة ملف"
+msgstr "Vous êtes sur le point d'envoyer un e-mail à"
 
-#, fuzzy
 msgid "members"
-msgstr "الأعضاء"
+msgstr "membres"
 
-#, fuzzy
 msgid "You're about to delete all pending confirmation for all the persons."
-msgstr "أنت على وشك حذف كل غرفتك"
+msgstr ""
+"Vous êtes sur le point de supprimer toutes les confirmations en attente pour "
+"toutes les personnes."
 
-#, fuzzy
 msgid "You're about to delete all done confirmation for all the persons."
-msgstr "أنت على وشك حذف كل غرفتك"
+msgstr ""
+"Vous êtes sur le point de supprimer toutes les confirmations effectuées pour "
+"toutes les personnes."
 
-#, fuzzy
 msgid "You're about to delete all pending confirmation for all the families."
-msgstr "أنت على وشك حذف كل غرفتك"
+msgstr ""
+"Vous êtes sur le point de supprimer toutes les confirmations en attente pour "
+"toutes les familles."
 
-#, fuzzy
 msgid "You're about to delete all done confirmation for all the families."
-msgstr "أنت على وشك حذف كل غرفتك"
+msgstr ""
+"Vous êtes sur le point de supprimer toutes les confirmations effectuées pour "
+"toutes les familles."
 
 msgid "Delete this person?"
 msgstr "حذف هذا الشخص؟"
@@ -1750,10 +1745,10 @@ msgid "Activ"
 msgstr "Activ"
 
 msgid "Parent (hierarchy)"
-msgstr ""
+msgstr "Parent (hiérarchie)"
 
 msgid "Color"
-msgstr ""
+msgstr "Couleur"
 
 msgid "Send Message"
 msgstr "أرسل رسالة"
@@ -2313,22 +2308,22 @@ msgid "Deleting Subscribers..."
 msgstr "حذف المشتركين..."
 
 msgid "Confirmation of plugin removal"
-msgstr ""
+msgstr "Confirmation de la suppression du plugin"
 
-#, fuzzy
 msgid ""
 "You are about to delete the selected plugins. This action cannot be undone!"
-msgstr "هل تريد حذف هذا الشخص؟ لا يمكن أن يتم إلغاء هذا"
+msgstr ""
+"Vous êtes sur le point de supprimer les plugins sélectionnés. Cette action "
+"ne peut être annulée !"
 
-#, fuzzy
 msgid "Select your zipped plugin file"
-msgstr "اختر دورك"
+msgstr "Sélectionnez votre fichier de plugin zippé"
 
 msgid "Download the zipped file of the plugin"
-msgstr ""
+msgstr "Téléchargez le fichier zippé du plugin"
 
 msgid "Plugin download manager"
-msgstr ""
+msgstr "Gestionnaire de téléchargement de plugins"
 
 msgid "You must enter a password"
 msgstr "يجب أن تدخل كلمة السر"
@@ -2340,7 +2335,7 @@ msgid "Backup Running, Please wait."
 msgstr "الركض الاحتياطي، رجاءً إنتظر."
 
 msgid "Backup in progress, don't close the window !"
-msgstr ""
+msgstr "Sauvegarde en cours, ne fermez pas la fenêtre !"
 
 msgid "Backup Generated and copied to remote server"
 msgstr "تم توليد الدعم ونسخ إلى الخادم عن بعد"
@@ -2358,7 +2353,7 @@ msgid "Restore Running, Please wait."
 msgstr "استعادة الركض، رجاءً إنتظر"
 
 msgid "Restore backup, don't close the window !"
-msgstr ""
+msgstr "Restaurer la sauvegarde, ne pas fermer la fenêtre !"
 
 msgid "Restore Complete"
 msgstr "استعادة كامل"
@@ -2373,6 +2368,8 @@ msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
+"Des termes de recherche comme : nom, prénom, numéro de téléphone, propriété, "
+"nom de groupe, etc ..."
 
 msgid "Done !"
 msgstr "تم"
