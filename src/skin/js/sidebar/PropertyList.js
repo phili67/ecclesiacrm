@@ -187,7 +187,7 @@ window.CRM.dataPropertyListTable = new DataTable("#property-listing-table-v2", {
       );
     }
   },
-  initComplete: function (settings, json) {
+  drawCallback: function (settings) {
     loadTableEvents();
   },
   "language": {

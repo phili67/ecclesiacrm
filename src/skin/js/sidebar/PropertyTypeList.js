@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
     initComplete: function (settings, json) {
       loadTableEvents();
     },
+    drawCallback: function (settings) {
+      loadTableEvents();
+    },
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },

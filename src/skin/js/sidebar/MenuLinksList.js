@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
       }
     },
-    initComplete: function (settings, json) {
+    drawCallback: function (settings) {
       loadTableEvents();
     },
     bSort: false,

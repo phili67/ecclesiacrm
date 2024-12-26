@@ -166,7 +166,7 @@ window.CRM.dataPastoralCareTypeTable = new DataTable("#pastoral-careTable", {
       );
     }
   },
-  initComplete: function (settings, json) {
+  drawCallback: function (settings) {
     loadTableEvents();
   },
   "language": {
