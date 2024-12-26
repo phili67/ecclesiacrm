@@ -1722,6 +1722,7 @@ window.CRM.ElementListener = function(element, type, callback) {
   // this is pure vanillia code ;-)
   document.querySelectorAll(element).forEach(el=>{
       el.addEventListener(type, (event) => {
+          event.stopImmediatePropagation();
           callback(event);
       });
   });

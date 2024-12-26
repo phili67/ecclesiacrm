@@ -218,7 +218,7 @@ window.CRM.VolunteerOpportunityTable = new DataTable("#VolunteerOpportunityTable
     "language": {
         "url": window.CRM.plugin.dataTable.language.url
     },
-    initComplete: function (settings, json) {
+    drawCallback: function (settings) {
         loadTableEvents();
     },
     columns: [

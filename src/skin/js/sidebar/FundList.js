@@ -162,7 +162,7 @@ window.CRM.dataFundTable = new DataTable("#fundTable", {
       );
     }
   },
-  initComplete: function (settings, json) {
+  drawCallback: function (settings) {
     loadTableEvents();
   },
   "language": {
