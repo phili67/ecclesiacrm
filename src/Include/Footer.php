@@ -432,27 +432,35 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
         ->filterByCategory('Dashboard', Criteria::EQUAL )
         ->findByActiv(true);
 
-
-} else {
-    $plugins = PluginQuery::create()
-        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
-        ->findByActiv(true);
-}
-
-foreach ($plugins as $plugin) {
-?>
-<script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
-<?php
-    if ($plugin->getCategory() == 'Dashboard') {
-        if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/")) {
-            $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/");
-
-            foreach ($files as $file) {
-                if (!in_array($file, [".", ".."])) {
-        ?>
-                <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/js/<?= $file ?>"></script>
-<?php
+    foreach ($plugins as $plugin) {
+        if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
+            if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/")) {
+                $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/");
+    
+                foreach ($files as $file) {
+                    if (!in_array($file, [".", ".."])) {
+            ?>
+                    <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/js/<?= $file ?>"></script>
+    <?php
+                    }
                 }
+            }
+        }
+    }        
+} elseif (!is_null(SessionUser::getPluginName()) and SessionUser::getPluginName() != "") {
+    $plugin = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
+        ->filterByName(SessionUser::getPluginName())
+        ->findOneByActiv(true);
+
+    if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/")) {
+        $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/");
+
+        foreach ($files as $file) {
+            if (!in_array($file, [".", ".."])) {
+        ?>
+            <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
+        <?php
             }
         }
     }
