@@ -2676,6 +2676,30 @@ spl_autoload_register(function ($className) {
 });
 </code></pre></div>
 
+<p>4. For menus</p>
+<ul>
+<li>
+<p>For menu management in the case of a classic plugin, fixed menus can be injected via the database, see the example of the jitsimeeting plugin: <code>install.sql</code>, see above, sql entries: <code>plugin_menu_bar</code>.</p>
+</li>
+<li>
+<p>for menu link management (in the dynamic case: you create menus dynamically) correlated to a base menu, here's an example code :</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>....
+
+        // we set the new menu bar link
+        $menuBarLink = new PluginMenuBar();
+        $menuBarLink-&gt;setURL($event-&gt;getLink());
+        $menuBarLink-&gt;setName(&#39;EventWorkflow&#39;);
+        $menuBarLink-&gt;setDisplayName(InputUtils::FilterHTML($name));
+        $menuBarLink-&gt;setIcon(&#39;&#39;);
+        $menuBarLink-&gt;setLinkParentId(($type == &#39;one day&#39;)?$masterSeveralDay-&gt;getId():$masterOneDay-&gt;getId());         
+        $menuBarLink-&gt;save();
+        // end of the menu link
+
+....
+</code></pre></div>
+
 <h2 id="creating-a-dashboard-plugin">Creating a dashboard plugin<a class="headerlink" href="#creating-a-dashboard-plugin" title="Permanent link">&para;</a></h2>
 <p>1. For the injection at the database level in the "plugin" table</p>
 <p>In the database Put the plugin, we must set</p>
@@ -2785,6 +2809,27 @@ $plugin = PluginQuery::create()
 </ul>
 <p>Cela évite des chargements sales en plein milieu du code.</p>
 <h2 id="final-recommendations-for-both-types-of-plugins">Final recommendations for both types of plugins<a class="headerlink" href="#final-recommendations-for-both-types-of-plugins" title="Permanent link">&para;</a></h2>
+<p>0. VERY IMPORTANT</p>
+<p>For templates and JS/CSS code to work properly</p>
+<ul>
+<li>The plugin folder must have <strong>the same name as the plugin name</strong> (this is what plugin management and integration is all about).</li>
+<li>In the case of the JitsiMeeting view controler, note that in <code>PhpRenderer</code> we have: <code>SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/...</code> if the name differs, the templates and JS/CSS code will not load.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>    public function renderDashboard (ServerRequest $request, Response $response, array $args): Response {
+        $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().&#39;/Plugins/MeetingJitsi/v2/templates&#39;);
+
+        if ( !( SessionUser::getUser()-&gt;isEnableForPlugin(&#39;MeetingJitsi&#39;) ) ) {
+            return $response-&gt;withStatus(302)-&gt;withHeader(&#39;Location&#39;, SystemURLs::getRootPath() . /v2/dashboard&#39;);
+        }
+
+        return $renderer-&gt;render($response, &#39;meetingdashboard.php&#39;, $this-&gt;argumentDashboard());
+    }
+</code></pre></div>
+
+<ul>
+<li>Everything is done in the plugin manager to ensure that the code loads optimally. </li>
+</ul>
+<p>Translated with DeepL.com (free version)</p>
 <p>1. For translations</p>
 <ul>
 <li>For the PHP code: We don't use <code>gettext</code> but with dgettext and an associated domain <code>dgettext("messages-NewsDashboard", "News")</code> and we work with separate po code for each plugin to avoid conflicts.</li>

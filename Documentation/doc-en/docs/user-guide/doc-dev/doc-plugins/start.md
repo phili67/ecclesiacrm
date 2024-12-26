@@ -13,6 +13,7 @@ A shell command has been developed to facilitate the work: **createPluginArch.sh
 - this mechanism guarantees maximum security.
 - it is imperative to follow the fact that each plugin must have a signature which is validated by the crm (see for that the plugin documentation).
 
+
 **You have to use this Script**
 
 ```
@@ -176,6 +177,29 @@ spl_autoload_register(function ($className) {
 });
 ```
 
+4\. For menus
+
+- For menu management in the case of a classic plugin, fixed menus can be injected via the database, see the example of the jitsimeeting plugin: `install.sql`, see above, sql entries: `plugin_menu_bar`.
+
+- for menu link management (in the dynamic case: you create menus dynamically) correlated to a base menu, here's an example code :
+
+```
+....
+
+        // we set the new menu bar link
+        $menuBarLink = new PluginMenuBar();
+        $menuBarLink->setURL($event->getLink());
+        $menuBarLink->setName('EventWorkflow');
+        $menuBarLink->setDisplayName(InputUtils::FilterHTML($name));
+        $menuBarLink->setIcon('');
+        $menuBarLink->setLinkParentId(($type == 'one day')?$masterSeveralDay->getId():$masterOneDay->getId());         
+        $menuBarLink->save();
+        // end of the menu link
+
+....
+
+```
+
 ## Creating a dashboard plugin
 
 1\. For the injection at the database level in the "plugin" table
@@ -293,6 +317,28 @@ Cela évite des chargements sales en plein milieu du code.
 
 ## Final recommendations for both types of plugins
 
+0\. VERY IMPORTANT
+
+For templates and JS/CSS code to work properly
+
+- The plugin folder must have **the same name as the plugin name** (this is what plugin management and integration is all about).
+- In the case of the JitsiMeeting view controler, note that in `PhpRenderer` we have: `SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/...` if the name differs, the templates and JS/CSS code will not load.
+
+```
+    public function renderDashboard (ServerRequest $request, Response $response, array $args): Response {
+        $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/v2/templates');
+
+        if ( !( SessionUser::getUser()->isEnableForPlugin('MeetingJitsi') ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . /v2/dashboard');
+        }
+
+        return $renderer->render($response, 'meetingdashboard.php', $this->argumentDashboard());
+    }
+```
+
+- Everything is done in the plugin manager to ensure that the code loads optimally. 
+
+Translated with DeepL.com (free version)
 
 1\. For translations
 
