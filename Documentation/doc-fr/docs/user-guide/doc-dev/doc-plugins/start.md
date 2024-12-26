@@ -14,9 +14,11 @@ bash createPluginArch.sh *NameOfPlugin*
 **Attention : lire attentivement avant de démarrer**
 
 - les **routes** pour chaque plugins **sont prévues et sont incluses** dans la gestion complète des routes dans **api/plgnapi.php** (voir plus bas) et sont prévues pour être géré via contrôleurs dans l'arborescence **core/APIControllers**).
-- pour les vues des routes sont préétablies aussi **v2/routes/v2route.php** (elles sont liés éventuellement à vos propres contrôleurs **core/VIEWControllers**).
+- pour les vues des routes sont préétablies aussi **v2/routes/v2route.php** (elles sont liés éventuellement à vos propres contrôleurs **core/VIEWControllers**). On this last point, see the final recommendations for the correct operation of JS/CSS templates/code.
 - ce mécanisme garantie un maximum de sécurité.
 - il est impératif de suivre le fait que chaque plugin doit avoir une signature qui est validé par le crm (voir pour cela la documentation plugin).
+
+
 
 **Vous devez utiliser ce Script**
 
@@ -176,6 +178,30 @@ spl_autoload_register(function ($className) {
 });
 ```
 
+4\. Pour les menus
+
+- Pour la gestion des menus dans le cas d'une plugin classique,  les menus fixes, peuvent s'injecter via la base de données, voire l'exemple du plugin jitsimeeting : `install.sql`, voire ci-dessus, les entrées sql : `plugin_menu_bar`
+
+
+- attention pour la gestion des liens de menus (dans le cas dynamique : vous créez des menus dynamiquement) corrélés à un menu de base, voici un exemple de code :
+
+```
+....
+
+        // we set the new menu bar link
+        $menuBarLink = new PluginMenuBar();
+        $menuBarLink->setURL($event->getLink());
+        $menuBarLink->setName('EventWorkflow');
+        $menuBarLink->setDisplayName(InputUtils::FilterHTML($name));
+        $menuBarLink->setIcon('');
+        $menuBarLink->setLinkParentId(($type == 'one day')?$masterSeveralDay->getId():$masterOneDay->getId());         
+        $menuBarLink->save();
+        // end of the menu link
+
+....
+
+```
+
 ## Création d'un plugin dashboard
 
 1\. Pour l'injection au niveau base de données dans la table ` `plugin` `
@@ -293,6 +319,26 @@ Cela évite des chargements sales en plein milieu du code.
 
 ## Dernières recommandations pour les deux types de plugins
 
+0\. TRÈS IMPORTANT
+
+Pour le bon fonctionnement des templates et du code JS/CSS
+
+- Le dossier du plugin doit avoir **le même nom que le nom du plugin** (la gestion et l'intégration des plugins est fait pour cela)
+- Dans le cas du view controler de JitsiMeeting, on remarquera que dans `PhpRenderer` on a : `SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/...` si le nom diffère les templates ainsi que le code JS/CSS ne se chargeront pas.
+
+```
+    public function renderDashboard (ServerRequest $request, Response $response, array $args): Response {
+        $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/v2/templates');
+
+        if ( !( SessionUser::getUser()->isEnableForPlugin('MeetingJitsi') ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'meetingdashboard.php', $this->argumentDashboard());
+    }
+```
+
+- Tout est fait au niveau du gestionnaire de plugin pour que le code se charge de manière optimal. 
 
 1\. Pour les traductions
 

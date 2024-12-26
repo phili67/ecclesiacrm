@@ -2528,7 +2528,7 @@
 <p><strong>Attention : lire attentivement avant de démarrer</strong></p>
 <ul>
 <li>les <strong>routes</strong> pour chaque plugins <strong>sont prévues et sont incluses</strong> dans la gestion complète des routes dans <strong>api/plgnapi.php</strong> (voir plus bas) et sont prévues pour être géré via contrôleurs dans l'arborescence <strong>core/APIControllers</strong>).</li>
-<li>pour les vues des routes sont préétablies aussi <strong>v2/routes/v2route.php</strong> (elles sont liés éventuellement à vos propres contrôleurs <strong>core/VIEWControllers</strong>).</li>
+<li>pour les vues des routes sont préétablies aussi <strong>v2/routes/v2route.php</strong> (elles sont liés éventuellement à vos propres contrôleurs <strong>core/VIEWControllers</strong>). On this last point, see the final recommendations for the correct operation of JS/CSS templates/code.</li>
 <li>ce mécanisme garantie un maximum de sécurité.</li>
 <li>il est impératif de suivre le fait que chaque plugin doit avoir une signature qui est validé par le crm (voir pour cela la documentation plugin).</li>
 </ul>
@@ -2676,6 +2676,30 @@ spl_autoload_register(function ($className) {
 });
 </code></pre></div>
 
+<p>4. Pour les menus</p>
+<ul>
+<li>
+<p>Pour la gestion des menus dans le cas d'une plugin classique,  les menus fixes, peuvent s'injecter via la base de données, voire l'exemple du plugin jitsimeeting : <code>install.sql</code>, voire ci-dessus, les entrées sql : <code>plugin_menu_bar</code></p>
+</li>
+<li>
+<p>attention pour la gestion des liens de menus (dans le cas dynamique : vous créez des menus dynamiquement) corrélés à un menu de base, voici un exemple de code :</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>....
+
+        // we set the new menu bar link
+        $menuBarLink = new PluginMenuBar();
+        $menuBarLink-&gt;setURL($event-&gt;getLink());
+        $menuBarLink-&gt;setName(&#39;EventWorkflow&#39;);
+        $menuBarLink-&gt;setDisplayName(InputUtils::FilterHTML($name));
+        $menuBarLink-&gt;setIcon(&#39;&#39;);
+        $menuBarLink-&gt;setLinkParentId(($type == &#39;one day&#39;)?$masterSeveralDay-&gt;getId():$masterOneDay-&gt;getId());         
+        $menuBarLink-&gt;save();
+        // end of the menu link
+
+....
+</code></pre></div>
+
 <h2 id="creation-dun-plugin-dashboard">Création d'un plugin dashboard<a class="headerlink" href="#creation-dun-plugin-dashboard" title="Permanent link">&para;</a></h2>
 <p>1. Pour l'injection au niveau base de données dans la table <code></code>plugin<code></code></p>
 <p>Dans la base de données Mettre le plugin, on doit fixer</p>
@@ -2785,6 +2809,26 @@ $plugin = PluginQuery::create()
 </ul>
 <p>Cela évite des chargements sales en plein milieu du code.</p>
 <h2 id="dernieres-recommandations-pour-les-deux-types-de-plugins">Dernières recommandations pour les deux types de plugins<a class="headerlink" href="#dernieres-recommandations-pour-les-deux-types-de-plugins" title="Permanent link">&para;</a></h2>
+<p>0. TRÈS IMPORTANT</p>
+<p>Pour le bon fonctionnement des templates et du code JS/CSS</p>
+<ul>
+<li>Le dossier du plugin doit avoir <strong>le même nom que le nom du plugin</strong> (la gestion et l'intégration des plugins est fait pour cela)</li>
+<li>Dans le cas du view controler de JitsiMeeting, on remarquera que dans <code>PhpRenderer</code> on a : <code>SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/...</code> si le nom diffère les templates ainsi que le code JS/CSS ne se chargeront pas.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>    public function renderDashboard (ServerRequest $request, Response $response, array $args): Response {
+        $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().&#39;/Plugins/MeetingJitsi/v2/templates&#39;);
+
+        if ( !( SessionUser::getUser()-&gt;isEnableForPlugin(&#39;MeetingJitsi&#39;) ) ) {
+            return $response-&gt;withStatus(302)-&gt;withHeader(&#39;Location&#39;, SystemURLs::getRootPath() . &#39;/v2/dashboard&#39;);
+        }
+
+        return $renderer-&gt;render($response, &#39;meetingdashboard.php&#39;, $this-&gt;argumentDashboard());
+    }
+</code></pre></div>
+
+<ul>
+<li>Tout est fait au niveau du gestionnaire de plugin pour que le code se charge de manière optimal. </li>
+</ul>
 <p>1. Pour les traductions</p>
 <ul>
 <li>Pour le code PHP : On utilise non pas <code>gettext</code> mais avec dgettext et un domaine associé <code>dgettext("messages-NewsDashboard","News")</code> et on travaille donc avec du code po séparé pour chaque plugin pour éviter les conflits.</li>
