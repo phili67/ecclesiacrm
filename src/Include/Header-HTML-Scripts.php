@@ -7,6 +7,10 @@ use EcclesiaCRM\SessionUser;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
+if (isset($template)) {
+  $pluginName = SessionUser::getPluginNameForTemplate($template);
+}
+
 ?>
 
 <!-- Bootstrap CSS -->
@@ -25,27 +29,38 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
         ->filterByCategory('Dashboard', Criteria::EQUAL )
         ->findByActiv(true);
 
-
-} else {
-    $plugins = PluginQuery::create()
-        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
-        ->findByActiv(true);
-}
-
-foreach ($plugins as $plugin) {
-    if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/")) {
-        $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/");
-
-        foreach ($files as $file) {
-            if (!in_array($file, [".", ".."])) {
-                ?>
-                <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/css/<?= $file ?>">
-                <?php
+    foreach ($plugins as $plugin) {
+        if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/")) {
+            $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/");
+    
+            foreach ($files as $file) {
+                if (!in_array($file, [".", ".."])) {
+                    ?>
+                    <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/css/<?= $file ?>">
+                    <?php
+                }
             }
-        }
+        }    
     }
-
+} elseif (!is_null($pluginName) and $pluginName !== "") {
+    $plugin = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
+        ->filterByName($pluginName)
+        ->findOneByActiv(true);
+    if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/")) {
+          $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/");
+  
+          foreach ($files as $file) {
+              if (!in_array($file, [".", ".."])) {
+                  ?>
+                  <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/css/<?= $file ?>">
+                  <?php
+              }
+          }
+    }  
 }
+
+
 ?>
 
 <?php

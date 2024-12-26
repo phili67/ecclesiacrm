@@ -41,7 +41,7 @@ class VIEWMeetingController {
     }
 
     public function renderDashboard (ServerRequest $request, Response $response, array $args): Response {
-        $renderer = new PhpRenderer(__DIR__.'/../../v2/templates');
+        $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/v2/templates');
 
         if ( !( SessionUser::getUser()->isEnableForPlugin('MeetingJitsi') ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
@@ -88,7 +88,7 @@ class VIEWMeetingController {
     }
 
     public function renderSettings (ServerRequest $request, Response $response, array $args): Response {
-        $renderer = new PhpRenderer(__DIR__.'/../../v2/templates');
+        $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/v2/templates');
 
         if ( !( SessionUser::getUser()->isAdminEnableForPlugin('MeetingJitsi') ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');

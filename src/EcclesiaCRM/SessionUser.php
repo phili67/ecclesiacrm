@@ -5,6 +5,28 @@ use EcclesiaCRM\dto\SystemURLs;
 
 class SessionUser
 {
+    public static function getPluginNameForTemplate($template)
+    {
+        //"/var/www/CRM/src/Plugins/EventWorkflow/v2/templates/settings.php"
+        if (isset($template)) {            
+            $pathElts = explode('Plugins/', $template);
+            $plgname = explode('/', $pathElts[1]);
+
+            $_SESSION['template'] = $plgname[0];
+
+            return $plgname[0];
+        }
+
+        $_SESSION['template'] = null;
+
+        return null;
+    }
+
+    public static function getPluginName()
+    {
+        return $_SESSION['template'];
+    }
+
     public static function isActive()
     {
       return isset($_SESSION['user']);
