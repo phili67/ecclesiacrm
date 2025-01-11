@@ -117,9 +117,9 @@ class MenuBar extends Menu
             $this->addPersonMenuLinks($menu);
         }
 
-        $this->addPluginMenus('Personal', $menu);
-
         $this->addMenu($menu);
+
+        $this->addPluginMenus('Personal', $menu);
     }
 
     public function addGDPRMenu()
@@ -131,9 +131,9 @@ class MenuBar extends Menu
         $menuItem = new Menu (_("View Inactive Persons"), "fas fa-users", "v2/personlist/GDRP", true, $menu);
         $menuItem = new Menu (_("View Inactive Families"), "fas fa-users-slash", "v2/familylist/GDRP", true, $menu);
 
-        $this->addPluginMenus('GDPR', $menu);
-
         $this->addMenu($menu);
+
+        $this->addPluginMenus('GDPR', $menu);
     }
 
     public function addEventMenu()
@@ -154,11 +154,11 @@ class MenuBar extends Menu
         $menuItem = new Menu (_("List Church Events"), "far fa-calendar", "v2/calendar/events/list", true, $menu);
         $menuItem = new Menu (_("List Event Types"), "fas fa-cog", "v2/calendar/events/names", SessionUser::getUser()->isAdmin(), $menu);
         $menuItem->addLink("v2/calendar/events/types/edit");
-        $menuItem = new Menu (_("Call the Register"), "fas fa-bullhorn", "v2/calendar/events/checkin", true, $menu);
-
-        $this->addPluginMenus('Events', $menu);
+        $menuItem = new Menu (_("Call the Register"), "fas fa-bullhorn", "v2/calendar/events/checkin", true, $menu);        
 
         $this->addMenu($menu);
+
+        $this->addPluginMenus('Events', $menu);
     }
 
     private function addPeopleMenu()
@@ -210,9 +210,9 @@ class MenuBar extends Menu
             }
         }
 
-        $this->addPluginMenus('PEOPLE', $menu);
-
         $this->addMenu($menu);
+
+        $this->addPluginMenus('PEOPLE', $menu);
     }
 
     private function addGroups()
@@ -285,9 +285,9 @@ class MenuBar extends Menu
 
         $menuItem = new Menu (_("Group Assignment Helper"), "far fa-circle", "v2/people/list/groupassign", true, $menu);
 
-        $this->addPluginMenus('GROUP', $menu);
-
         $this->addMenu($menu);
+
+        $this->addPluginMenus('GROUP', $menu);
     }
 
     private function addSundaySchoolGroups()
@@ -363,9 +363,9 @@ class MenuBar extends Menu
             }
         }
 
-        $this->addPluginMenus('SundaySchool', $menu);
-
         $this->addMenu($menu);
+
+        $this->addPluginMenus('SundaySchool', $menu);
     }
 
     private function addGlobalMenuLinks()
@@ -404,9 +404,9 @@ class MenuBar extends Menu
         $menuItem1 = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/pastoralcare/dashboard", true, $menu);
         $menuItem1 = new Menu (_("By Classifications"), "fas fa-sort-amount-up-alt", "v2/pastoralcare/membersList", true, $menu);
 
-        $this->addPluginMenus('PastoralCare', $menu);
-
         $this->addMenu($menu);
+
+        $this->addPluginMenus('PastoralCare', $menu);        
     }
 
     private function addMeeting()
@@ -581,7 +581,7 @@ class MenuBar extends Menu
             $this->addGlobalMenuLinks();
         }
 
-        // we can add all the free menu you want to define
+        // we can add all the free menu you want to define after
         $this->addPluginMenus('FreeMenu');
     }
 }
