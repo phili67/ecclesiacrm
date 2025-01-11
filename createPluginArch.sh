@@ -27,7 +27,7 @@
               "infos": "Name of your team",
               "url_infos": "https://team_url",
               "url_docs": "https://doc_url",
-              "Settings_url": "meeting/settings",
+              "Settings_url": "'${pluginName}'/settings",
               "Details": "https://url;iframe=true&amp;width=772&amp;height=549",
               "UUID": "'${UUID}'",
               "licence": "NO"
