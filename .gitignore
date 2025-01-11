@@ -110,6 +110,11 @@ src/Plugins/SendInBlue
 locale/JSONKeys_JS_Plugins/SendInBlue
 propel/SendInBlue.schema.xml
 
+src/Plugins/Songs
+locale/JSONKeys_JS_Plugins/Songs
+propel/Songs.schema.xml
+
+
 # ignore vscode parameters
 .vscode
 
