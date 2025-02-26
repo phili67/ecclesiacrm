@@ -21,6 +21,8 @@ use EcclesiaCRM\CKEditorTemplates;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\InputUtils;
+use \ForceUTF8\Encoding;
 
 
 
@@ -126,9 +128,9 @@ CKEDITOR.addTemplates( 'default',
                 $template = new CKEditorTemplates();
 
                 $template->setPersonId($input->personID);
-                $template->setTitle($input->title);
-                $template->setDesc($input->desc);
-                $template->setText($input->text);
+                $template->setTitle(InputUtils::FilterString($input->title));
+                $template->setDesc(InputUtils::FilterString($input->desc));
+                $template->setText(InputUtils::FilterStringNonUTF8($input->text));
                 $template->setImage("template".rand(1, 3).".gif");
 
                 $template->save();
