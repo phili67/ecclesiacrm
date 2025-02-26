@@ -291,6 +291,13 @@ class InputUtils {
       return $sInput;
   }
 
+  public static function FilterStringNonUTF8($sInput)
+  {
+      $sInput = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $sInput);
+      
+      return $sInput;
+  }
+
   public static function FilterHTML($sInput)
   {
       $sInput = strip_tags(trim($sInput), self::$AllowedHTMLTags);
