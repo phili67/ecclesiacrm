@@ -30,7 +30,7 @@ use EcclesiaCRM\Person2group2roleP2g2rQuery;
 
 use EcclesiaCRM\Utils\RedirectUtils;
 
-function GenerateLabels(&$pdf, $iGroupId, $sTitlePosition, $iTitlelabelfontsize, $useCart=0, $sundayschoolName, $sSundaySchoolNamePosition, $iSundaySchoolNameSize, $sFirstNameFontSize,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition, $useQRCode)
+function GenerateLabels(&$pdf, $iGroupId, $sTitlePosition, $iTitlelabelfontsize, $useCart, $sundayschoolName, $sSundaySchoolNamePosition, $iSundaySchoolNameSize, $sFirstNameFontSize,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition, $useQRCode)
 {
     $group = GroupQuery::create()->findOneById($iGroupId);
 
@@ -62,12 +62,12 @@ function GenerateLabels(&$pdf, $iGroupId, $sTitlePosition, $iTitlelabelfontsize,
             }
 
             if ($useQRCode) {
-                $pdf->Add_PDF_Badge($sundayschoolName, $sTitlePosition, $iTitlelabelfontsize, $kid['LastName'], $kid['firstName'], 
+                $pdf->Add_PDF_Badge($sundayschoolName, $sTitlePosition, $iTitlelabelfontsize, $kid['LastName'], $kid['firstName'],
                     $kid['sundayschoolClass'], $sSundaySchoolNamePosition, $iSundaySchoolNameSize,
                     $props, $sFirstNameFontSize, $image, $title_red, $title_gren, $title_blue,
                     $back_red, $back_gren, $back_blue, $sImagePosition, $iGroupId, $kid['kidId']);
             } else {
-                $pdf->Add_PDF_Badge($sundayschoolName, $sTitlePosition, $iTitlelabelfontsize, $kid['LastName'], $kid['firstName'], 
+                $pdf->Add_PDF_Badge($sundayschoolName, $sTitlePosition, $iTitlelabelfontsize, $kid['LastName'], $kid['firstName'],
                     $kid['sundayschoolClass'], $sSundaySchoolNamePosition, $iSundaySchoolNameSize,
                     $props, $sFirstNameFontSize, $image, $title_red, $title_gren, $title_blue,
                     $back_red, $back_gren, $back_blue, $sImagePosition);
@@ -100,12 +100,12 @@ function GenerateLabels(&$pdf, $iGroupId, $sTitlePosition, $iTitlelabelfontsize,
                 }
             }
             if ($useQRCode) {
-                $pdf->Add_PDF_Badge($sundayschoolName, $sTitlePosition, $iTitlelabelfontsize, $member->getPerson()->getLastName(), $member->getPerson()->getFirstName(), 
+                $pdf->Add_PDF_Badge($sundayschoolName, $sTitlePosition, $iTitlelabelfontsize, $member->getPerson()->getLastName(), $member->getPerson()->getFirstName(),
                     $group->getName(),$sSundaySchoolNamePosition, $iSundaySchoolNameSize,
                     $props,$sFirstNameFontSize, $image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,
                     $sImagePosition,$iGroupId, $member->getPersonId());
             } else {
-                $pdf->Add_PDF_Badge($sundayschoolName, $sTitlePosition, $iTitlelabelfontsize, $member->getPerson()->getLastName(), $member->getPerson()->getFirstName(), 
+                $pdf->Add_PDF_Badge($sundayschoolName, $sTitlePosition, $iTitlelabelfontsize, $member->getPerson()->getLastName(), $member->getPerson()->getFirstName(),
                     $group->getName(), $sSundaySchoolNamePosition, $iSundaySchoolNameSize,
                     $props,$sFirstNameFontSize, $image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,
                     $sImagePosition);
@@ -178,7 +178,7 @@ setcookie('TitlelabelfontsizeSC', $_POST['Titlelabelfontsize'], time() + 60 * 60
 
 $sSundaySchoolNamePosition = InputUtils::LegacyFilterInput($_POST['sundaySchoolNamePosition'], 'char',255);
 setcookie('sundaySchoolNamePositionSC', $_POST['sundaySchoolNamePosition'], time() + 60 * 60 * 24 * 90, '/');
-            
+
 
 // background color
 $sBackgroudColor = InputUtils::LegacyFilterInput($_POST['backgroud-color'], 'char',255);
