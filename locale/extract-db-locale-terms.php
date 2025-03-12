@@ -64,4 +64,4 @@ foreach ($locales as $key => $value) {
 }
 file_put_contents($stringFile, "\r\n?>", FILE_APPEND);
 
-phpenmod -s cli xdebug
+//phpenmod -s cli xdebug
