@@ -1,4 +1,4 @@
-FROM php:8.3.12-apache-bookworm
+FROM php:8.3-apache-bookworm
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
@@ -45,18 +45,22 @@ RUN pecl install redis-6.0.2 && \
     docker-php-ext-enable redis
 
 # Install imagick
-# https://github.com/Imagick/imagick/archive/refs/tags/3.7.0.tar.gz
+RUN apt-get update && \
+    apt-get -y --no-install-recommends install --fix-missing libmagickwand-dev && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update \
-    && apt-get install -y libmagickwand-dev \
-    && curl -L -o /tmp/imagick.tar.gz https://github.com/Imagick/imagick/archive/7088edc353f53c4bc644573a79cdcd67a726ae16.tar.gz \
-    && tar --strip-components=1 -xf /tmp/imagick.tar.gz \
-    && phpize \
-    && ./configure \
-    && make \
-    && make install \
-    && echo "extension=imagick.so" > /usr/local/etc/php/conf.d/ext-imagick.ini \
-    && rm -rf /tmp/* \
+# Imagick Commit to install
+RUN apt-get install git && \
+    git clone https://github.com/Imagick/imagick.git --depth 1 /tmp/imagick && \
+    cd /tmp/imagick && \
+    git fetch origin master && \
+    git switch master && \
+    cd /tmp/imagick && \
+    phpize && \
+    ./configure && \
+    make && \
+    make install && \
+    docker-php-ext-enable imagick
 
 # Other PHP8 Extensions
 
