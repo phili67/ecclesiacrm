@@ -24,22 +24,21 @@ class VObjectExtract {
     {
 
         // first version*/
-        $vObject = VObject\Reader::read($calendarData);
+        //$vObject = VObject\Reader::read($calendarData);
 
         // new version
         $realStartDate = new \DateTime($start);
         $realEndDate = new \DateTime($end);
 
-        /*try {
+        try {
           $vcalendar = VObject\Reader::read($calendarData);
-          $vObject = $vcalendar->expand($realStartDate, $realEndDate);
+          $vcalendar->expand($realStartDate, $realEndDate);
 
-          if (!empty($vObject)) {
-            return NULL;
-          }
-        } catch (Exception $e) {
+          $res = $vcalendar->serialize();
+          $vObject = $vcalendar;
+        } catch (\Exception $e) {
           $vObject = VObject\Reader::read($calendarData);
-        }*/
+        }
 
 
         $title = '';

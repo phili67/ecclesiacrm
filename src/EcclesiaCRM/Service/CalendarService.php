@@ -66,13 +66,15 @@ class CalendarService
         $firstMonth = $real_firstMonth = (int)$dtOrigStart->format('m') - 1;
         $endMonth = (int)$dtOrigEnd->format('m') - 1;
 
-        $all_months = $firstMonth + 1;
+        if ($isBirthdayActive or $isAnniversaryActive) {
+            $all_months = $firstMonth + 1;
 
-        $i = 0;
-        while ($firstMonth != $endMonth and $i < 13) {
-            $firstMonth = ($firstMonth + 1) % 12;
-            $all_months .= "," . ($firstMonth + 1);
-            $i++;
+            $i = 0;
+            while ($firstMonth != $endMonth and $i < 13) {
+                $firstMonth = ($firstMonth + 1) % 12;
+                $all_months .= "," . ($firstMonth + 1);
+                $i++;
+            }
         }
 
         $events = [];
@@ -196,7 +198,7 @@ class CalendarService
             }
 
             // we get all the events for the Cal
-            $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id']);
+            $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id'], $dtOrigStart->format('Y-m-d H:i:s'), $dtOrigEnd->format('Y-m-d H:i:s'));
 
             $criteria = [0];
             if ( $for_events_list ) {
