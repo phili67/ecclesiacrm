@@ -439,7 +439,7 @@ SQL
      * @param mixed $calendarId
      * @return array
      */
-    function getCalendarObjects($calendarId)
+    function getCalendarObjects($calendarId, $start = '1998-01-01', $end = '2100-12-31')
     {
 
         if (!is_array($calendarId)) {
@@ -447,8 +447,8 @@ SQL
         }
         list($calendarId, $instanceId) = $calendarId;
 
-        $stmt = $this->pdo->prepare('SELECT event_id, event_uri, event_lastmodified, event_etag, event_calendarid, event_size, event_location, event_componenttype FROM ' . $this->calendarObjectTableName . ' WHERE event_calendarid = ?');
-        $stmt->execute([$calendarId]);
+        $stmt = $this->pdo->prepare('SELECT event_id, event_uri, event_lastmodified, event_etag, event_calendarid, event_size, event_location, event_componenttype FROM ' . $this->calendarObjectTableName . ' WHERE event_start>=? and event_end<=? and event_calendarid = ?');
+        $stmt->execute([$start, $end, $calendarId]);
 
         $result = [];
         foreach ($stmt->fetchAll(\PDO::FETCH_ASSOC) as $row) {
