@@ -21,10 +21,8 @@ class EventsDashboardItem implements DashboardItemInterface {
   }
 
   public static function getDashboardItemValue() {
-    $events = MenuEventsCount::getNumberEventsOfToday();
-
     $activeEvents = array (
-        "Events" => $events,
+        "Events" => MenuEventsCount::getNumberEventsOfToday(),
         "Birthdays" => MenuEventsCount::getNumberBirthDates(),
         "Anniversaries" => MenuEventsCount::getNumberAnniversaries()
     );

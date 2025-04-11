@@ -54,7 +54,7 @@ class CalendarService
         return $eventTypes;
     }
 
-    private function anniversaryBirthdayEvents ($start, $end, $isBirthdayActive, $isAnniversaryActive)
+    private function anniversariesBirthdaysEvents ($start, $end, $isBirthdayActive, $isAnniversaryActive)
     {
         $origStart = $start;
         $origEnd = $end;
@@ -148,7 +148,7 @@ class CalendarService
             }
         }
 
-        return ['events' => $events];
+        return $events;
     }
 
     private function realEvents ($start, $end, $for_events_list = false)
@@ -772,16 +772,18 @@ class CalendarService
     {
         $events = [];
 
-        $resRealEvents = $this->realEvents($start, $end, $for_events_list);
+        $calendarsEvents = $this->realEvents($start, $end, $for_events_list);
 
+        $anniversaryBirthdayEvents = [];
         if (!$for_events_list) {
-            $anniversaryBirthdayEvents = $this->anniversaryBirthdayEvents($start, $end, $isBirthdayActive, $isAnniversaryActive);
-            $events = array_merge($events, $anniversaryBirthdayEvents['events'], $resRealEvents['EventsListResults']);
-        } else {
-            $events = array_merge($events, $resRealEvents['EventsListResults']);
+            $anniversaryBirthdayEvents = $this->anniversariesBirthdaysEvents($start, $end, $isBirthdayActive, $isAnniversaryActive);
         }
         
-        return ['EventsListResults' => $events, 'AVG_stats' => $resRealEvents['AVG_stats']];
+        return [
+            'EventsListResults' => $calendarsEvents['EventsListResults'],  
+            'AVG_stats' => $calendarsEvents['AVG_stats'], 
+            'anniversaryBirthdayEvents' => $anniversaryBirthdayEvents
+        ];
     }
 
     public function getEventsOld($start, $end, $isBirthdayActive, $isAnniversaryActive, $for_events_list = false)

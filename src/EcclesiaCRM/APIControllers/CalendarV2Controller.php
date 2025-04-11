@@ -46,7 +46,11 @@ class CalendarV2Controller
 
         $CalendarService = $this->container->get('CalendarService');
 
-        return $response->withJson($CalendarService->getEvents($params->start, $params->end, $params->isBirthdayActive, $params->isAnniversaryActive)['EventsListResults']);;
+        $res = $CalendarService->getEvents($params->start, $params->end, $params->isBirthdayActive, $params->isAnniversaryActive);
+
+        $calendarsEvents = array_merge($res['EventsListResults'], $res['anniversaryBirthdayEvents']);
+        
+        return $response->withJson($calendarsEvents);
     }
 
     public function getallCalendarEventsForEventsList (ServerRequest $request, Response $response, array $args): Response {
