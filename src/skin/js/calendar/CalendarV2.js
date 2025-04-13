@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         $("form #typeEventrecurrence").val(event.extendedProps.freq).trigger('change');
 
                                         var fmt = window.CRM.datePickerformat.toUpperCase();
-                                        var dateStart = moment(event.extendedProps.rrule).format(fmt);
+                                        var dateStart = moment(event.extendedProps.rrule.UNTIL).format(fmt);
                                         $("#endDateEventrecurrence").val(dateStart);
                                     }
 
