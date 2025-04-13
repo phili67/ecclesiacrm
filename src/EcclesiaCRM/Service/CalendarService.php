@@ -186,6 +186,10 @@ class CalendarService
         ];
 
         foreach ($calendars as $calendar) {
+            if ($calendar['present'] == 0 || $calendar['visible'] == 0) { // this ensure the calendars are present or not
+                continue;
+            }
+            
             $calendarName = $calendar['{DAV:}displayname'];
             $calendarColor = $calendar['{http://apple.com/ns/ical/}calendar-color'];
             $writeable = ($calendar['share-access'] == 1 || $calendar['share-access'] == 3) ? true : false;
@@ -219,11 +223,7 @@ class CalendarService
                 $icon .= ' <i class="fab fa-windows"></i>&nbsp;';
             } else if ($calendar['cal_type'] == 4) { // video
                 $icon .= ' <i class="fas fa-video"></i>&nbsp;';
-            }
-
-            if ($calendar['present'] == 0 || $calendar['visible'] == 0) { // this ensure the calendars are present or not
-                continue;
-            }
+            }            
 
             $cal_category = ($calendar['grpid'] != "0") ? 'group' : 'personal';
 
@@ -296,6 +296,7 @@ class CalendarService
                 foreach ($vObject->VEVENT as $sevent) {
                     $children = $sevent->children();
 
+                    
                     $rrule = [];                    
 
                     foreach ($children as $component) {
@@ -314,15 +315,15 @@ class CalendarService
                                 'ACTION' => (!is_null($component->ACTION))?$component->ACTION->getValue():"",
                             ];
                         } else if ($component->name == 'DTSTART') {
-                            $start = (new \DateTime($component->getValue()))->format('Y-m-d H:i:s');
+                            $start = $component->getDateTime()->format('Y-m-d H:i:s');
                         } else if ($component->name == 'DTEND') {
-                            $end = (new \DateTime($component->getValue()))->format('Y-m-d H:i:s');
+                            $end = $component->getDateTime()->format('Y-m-d H:i:s');
                         } else if ($component->name == 'RRULE') {
+                            $parts = $component->getParts();
                             $rrule = [
-                                'FREQ' => $component->getValue()->FREQ,
-                                'UNTIL' => $component->getValue()->UNTIL
+                                'FREQ' => $component->getParts()['FREQ'],
+                                'UNTIL' => $component->getParts()['UNTIL']
                             ];
-                            break;
                         } else if ($component->name == 'ORGANIZER') {
                             $organiser = $component->getValue();
                         } else if (isset($component->ATTENDEE)) {
