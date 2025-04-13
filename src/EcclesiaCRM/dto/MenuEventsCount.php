@@ -23,7 +23,6 @@ use EcclesiaCRM\SessionUser;
 
 use Sabre\VObject;
 use EcclesiaCRM\MyPDO\CalDavPDO;
-use Propel\Runtime\Propel;
 
 
 class MenuEventsCount
@@ -52,6 +51,13 @@ class MenuEventsCount
         $start_date = date("Y-m-d ") . " 00:00:00";
         $end_date = date('Y-m-d H:i:s', strtotime($start_date . ' +1 day'));
 
+        // we search events from one year before to current year
+        $realStartDate = new \DateTime();// now
+
+        // only the current year ...
+        $startCalendar = (string)((int)$realStartDate->format('Y'))."-01-01";
+        $endCalendar = (string)((int)$realStartDate->format('Y'))."-12-31";
+
         // new way to manage events
         // we get the PDO for the Sabre connection from the Propel connection
         // We set the BackEnd for sabre Backends
@@ -65,7 +71,11 @@ class MenuEventsCount
         $events = [];
 
         foreach ($calendars as $calendar) {
-            $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id']);
+            if ($calendar['present'] == 0 || $calendar['visible'] == 0) { // this ensure the calendars are present or not
+                continue;
+            }
+
+            $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id'], $startCalendar, $endCalendar);
 
             foreach ($eventsForCal as $eventForCal) {
 
