@@ -1662,7 +1662,7 @@ require $sRootDocument . '/Include/Header.php';
                                         <br>
                                         <?php
 
-                                        if (array_key_exists($customField['CustomField'], $aCustomData)) {
+                                        if (!is_null($aCustomData) && array_key_exists($customField['CustomField'], $aCustomData)) {
                                             $currentFieldData = trim($aCustomData[$customField['CustomField']]);
                                         } else {
                                             $currentFieldData = '';
@@ -1695,7 +1695,7 @@ require $sRootDocument . '/Include/Header.php';
                                         ?>
                                         <label><?= $customField['CustomName'] ?></label><br>
                                         <?php
-                                        if (array_key_exists($customField['CustomField'], $aCustomData)) {
+                                        if (!is_null($aCustomData) && array_key_exists($customField['CustomField'], $aCustomData)) {
                                             $currentFieldData = trim($aCustomData[$customField['CustomField']]);
                                         } else {
                                             $currentFieldData = '';
