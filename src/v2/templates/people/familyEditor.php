@@ -998,7 +998,7 @@ require $sRootDocument . '/Include/Header.php';
                             if (OutputUtils::securityFilter($customField['CustomFieldSec'])) {
                                 echo '<label>' . $customField['CustomName'] . '</label><br>';
 
-                                if (array_key_exists($customField['CustomField'], $aCustomData)) {
+                                if (!is_null($aCustomData) && array_key_exists($customField['CustomField'], $aCustomData)) {
                                     $currentFieldData = trim($aCustomData[$customField['CustomField']]);
                                 } else {
                                     $currentFieldData = '';
@@ -1025,7 +1025,7 @@ require $sRootDocument . '/Include/Header.php';
                             if (OutputUtils::securityFilter($customField['CustomFieldSec'])) {
                                 echo '<label>' . $customField['CustomName'] . '</label><br>';
 
-                                if (array_key_exists($customField['CustomField'], $aCustomData)) {
+                                if (!is_null($aCustomData) && array_key_exists($customField['CustomField'], $aCustomData)) {
                                     $currentFieldData = trim($aCustomData[$customField['CustomField']]);
                                 } else {
                                     $currentFieldData = '';
