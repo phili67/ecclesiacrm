@@ -8,7 +8,7 @@ if [ ! -f "./BuildConfig.json" ]; then
   npm install grunt --save-dev
 fi
 
-npm rebuild node-sass
+#npm rebuild node-sass
 
 #  it's time to install all the node js files
 npm install --unsafe-perm --legacy-peer-deps --save .
