@@ -226,31 +226,21 @@ class MenuEventsCount
 
     public static function getNumberBirthDates()
     {
-        return count(self::getBirthDates());
+        return self::getBirthDates()->count();
     }
 
     public static function getAnniversaries()
     {
         $Anniversaries = FamilyQuery::create()
-            ->filterByWeddingDate(['min' => '0001-00-00']) // a Wedding Date
             ->filterByDateDeactivated(null, Criteria::EQUAL) // GDRP, Date Deactivated is null (active)
+            ->where("MONTH(fam_weddingdate) = " . date('m') . " AND DAY(fam_weddingdate) = " . date('d'))
             ->find();
-
-        $curDay = date('d');
-        $curMonth = date('m');
-
-        $families = [];
-        foreach ($Anniversaries as $anniversary) {
-            if ($anniversary->getWeddingMonth() == $curMonth && $curDay == $anniversary->getWeddingDay()) {
-                $families[] = $anniversary;
-            }
-        }
-
-        return $families;
+                
+        return $Anniversaries;
     }
 
     public static function getNumberAnniversaries()
     {
-        return count(self::getAnniversaries());
+        return self::getAnniversaries()->count();
     }
 }
