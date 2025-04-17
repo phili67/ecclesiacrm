@@ -12,7 +12,6 @@ namespace EcclesiaCRM\MyPDO;
 
 use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\MyVCalendar\VCalendarExtension;
-use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Sabre\CalDAV;
 use Sabre\DAV;
@@ -245,6 +244,8 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
             }
             $i++;
         }
+
+        return $vcalendar;
     }
 
     /**
@@ -788,7 +789,7 @@ SQL;
                 $extraData['uid'],
                 $groupId,
             ]);
-        } catch (PDOException $Exception ) {
+        } catch (\PDOException $Exception ) {
             // PHP Fatal Error. Second Argument Has To Be An Integer, But PDOException::getCode Returns A
             // String.
             LoggerUtils::getAppLogger()->info( "erreur : ".$Exception->getMessage( ) ." ". $Exception->getCode());
@@ -1145,9 +1146,12 @@ SQL;
 
         $vcalendar = new VCalendarExtension();
 
+        $vcalendar->addVTimeZone();
+
         $realVevent = $vcalendar->add('VEVENT',$vevent);
 
-        $eventSerialized = "BEGIN:VCALENDAR\r\nVERSION:2.0 PRODID:-//EcclesiaCRM.// VObject " . VObject\Version::VERSION ."//EN\r\nCALSCALE:GREGORIAN\r\n".$realVevent->serialize(false)."\r\nEND:VCALENDAR";
+        //$eventSerialized = "BEGIN:VCALENDAR\r\nVERSION:2.0 PRODID:-//EcclesiaCRM.// VObject " . VObject\Version::VERSION ."//EN\r\nCALSCALE:GREGORIAN\r\n".$realVevent->serialize(false)."\r\nEND:VCALENDAR";
+        $eventSerialized = $realVevent->serialize();
 
         $returnValues = VObjectExtract::calendarData($eventSerialized);
 
