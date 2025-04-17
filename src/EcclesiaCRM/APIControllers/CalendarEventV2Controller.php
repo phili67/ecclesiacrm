@@ -507,10 +507,11 @@ class CalendarEventV2Controller
                                     $old_UID = $sevent['UID'];
 
                                     // we have to delete the last occurence
-                                    $calendarBackend->searchAndDeleteOneEvent($vcalendar, $old_RECURRENCE_ID);
+                                    //$vcalendar = $calendarBackend->searchAndDeleteOneEvent($vcalendar, $old_RECURRENCE_ID);
                                     break;
                                 }
                             }
+                            break;
                         }
                     }
 
@@ -541,7 +542,7 @@ class CalendarEventV2Controller
                             'LOCATION' => $old_LOCATION,
                             'UID' => $old_UID,
                             'SEQUENCE' => '0',
-                            'RECURRENCE-ID' => (new \DateTime($input->reccurenceID))->format('Ymd\THis'),
+                            'RECURRENCE-ID' => (new \DateTime($input->reccurenceID))->format('Ymd\THis'),// cette partie permet de le délocaliser
                             'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
                             "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
                             //'X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAESvAEaEglnaQKg5U5IQBFCfLuA8gIfQCJdCgZGcmFuY2USAkZSGgZBbHNhY2UqCEJhcy1SaGluMglCaXNjaGhlaW06BTY3ODAwUhJSdWUgUm9iZXJ0IEtpZWZmZXJaATFiFDEgUnVlIFJvYmVydCBLaWVmZmVyKhQxIFJ1ZSBSb2JlcnQgS2llZmZlcjIUMSBSdWUgUm9iZXJ0IEtpZWZmZXIyDzY3ODAwIEJpc2NoaGVpbTIGRnJhbmNlODlAAA==;X-APPLE-RADIUS=70.58736571013601;X-TITLE="1 Rue Robert Kieffer\nBischheim, France":geo' => '48.616383,7.752878'

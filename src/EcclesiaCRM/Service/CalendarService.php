@@ -431,6 +431,7 @@ class CalendarService
                             }
                         }
                         
+                        // only in case of rrule
                         $it = new VObject\Recur\EventIterator($vObject, (string)$uid);                    
 
                         $maxDate = new \DateTime('2038-01-01');
@@ -571,7 +572,8 @@ class CalendarService
                                         $allDay,
                                         $organizer,
                                         $attentees,
-                                        $calendarType
+                                        $calendarType,
+                                        $uid
                                     ); // only the event id sould be edited and moved and have custom color   
                                     
                                     array_push($events, $event);
@@ -721,10 +723,15 @@ class CalendarService
                             $allDay,
                             $organizer,
                             $attentees,
-                            $calendarType
+                            $calendarType,
+                            $uid
                         ); // only the event id sould be edited and moved and have custom color
 
-                        array_push($events, $event);
+                        $key = array_search($uid, array_column($events, 'UID'));
+                        $result = $key !== false ? $key : null;
+                        if (is_null($result)) {
+                            array_push($events, $event);
+                        }
                     }
                     
                     // éventuellement dans le cas d'un : "BEGIN:VCALENDAR..."
@@ -1333,7 +1340,8 @@ class CalendarService
         $allDay = false,
         $organizer = null,
         $attentees = null,
-        $calendarType = 1
+        $calendarType = 1,
+        $uid = null
     ) {
         $event = [];
         switch ($type) {
@@ -1573,6 +1581,10 @@ class CalendarService
                 $event['reccurenceID'] = $reccurenceID;
             }
 
+            if (!is_null($uid)) {
+                $event['UID'] = $uid;
+            }
+
 
             $eventCounts = EventCountsQuery::Create()->findByEvtcntEventid($eventID);
 
@@ -1608,6 +1620,8 @@ class CalendarService
         $uuid = strtoupper(UUIDUtil::getUUID());
 
         $vcalendar = new VCalendarExtension();
+
+        $vcalendar->addVTimeZone();
 
         if (is_array($calendarID)) {
             $calIDs = $calendarID;
@@ -1666,7 +1680,9 @@ class CalendarService
                 'SEQUENCE' => '0',
                 'TRANSP' => 'OPAQUE',
                 'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
-                "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
+                'X-APPLE-CREATOR-IDENTITY' => 'com.apple.calendar',
+                'X-APPLE-CREATOR-TEAM-IDENTITY' => '0000000000'
+                //"X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
             ];
         } else {
 
@@ -1682,7 +1698,9 @@ class CalendarService
                 'UID' => $uuid,
                 'SEQUENCE' => '0',
                 'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
-                "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
+                'X-APPLE-CREATOR-IDENTITY' => 'com.apple.calendar',
+                'X-APPLE-CREATOR-TEAM-IDENTITY' => '0000000000'
+                //"X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
                 //'X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAESvAEaEglnaQKg5U5IQBFCfLuA8gIfQCJdCgZGcmFuY2USAkZSGgZBbHNhY2UqCEJhcy1SaGluMglCaXNjaGhlaW06BTY3ODAwUhJSdWUgUm9iZXJ0IEtpZWZmZXJaATFiFDEgUnVlIFJvYmVydCBLaWVmZmVyKhQxIFJ1ZSBSb2JlcnQgS2llZmZlcjIUMSBSdWUgUm9iZXJ0IEtpZWZmZXIyDzY3ODAwIEJpc2NoaGVpbTIGRnJhbmNlODlAAA==;X-APPLE-RADIUS=70.58736571013601;X-TITLE="1 Rue Robert Kieffer\nBischheim, France":geo' => '48.616383,7.752878'
             ];
         }
@@ -1725,6 +1743,8 @@ class CalendarService
 
         if ($alarm != _("NONE")) {
             $realVevent->add('VALARM', ['TRIGGER' => $alarm, 'DESCRIPTION' => 'Event reminder', 'ACTION' => 'DISPLAY']);
+        } else {        
+            $realVevent->add('VALARM', ['TRIGGER;VALUE' => 'DATE-TIME:19760401T005545Z', 'DESCRIPTION' => 'Event reminder', 'ACTION' => 'NONE']);            
         }
 
         // Now we move to propel, to finish the put extra infos
@@ -1830,7 +1850,7 @@ class CalendarService
 
                 $vcalendar = VObject\Reader::read($event['calendardata']);
 
-                $calendarBackend->searchAndDeleteOneEvent($vcalendar, $reccurenceID);
+                $vcalendar = $calendarBackend->searchAndDeleteOneEvent($vcalendar, $reccurenceID);
 
                 $vcalendar->VEVENT->add('EXDATE', (new \DateTime($reccurenceID))->format('Ymd\THis'));
                 $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
@@ -1898,7 +1918,7 @@ class CalendarService
                 if ($freqEventsCount > 1) { // in the case of real multiple event
                     $vcalendar = VObject\Reader::read($event['calendardata']);
 
-                    $calendarBackend->searchAndDeleteOneEvent($vcalendar, $reccurenceID);
+                    $vcalendar = $calendarBackend->searchAndDeleteOneEvent($vcalendar, $reccurenceID);
 
                     $vcalendar->VEVENT->add('EXDATE', (new \DateTime($reccurenceID))->format('Ymd\THis'));
                     $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
