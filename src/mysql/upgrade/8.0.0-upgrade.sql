@@ -262,3 +262,26 @@ INSERT IGNORE INTO `query_type` (`qry_type_id`, `qry_type_Category`) VALUES
 
 UPDATE `query_qry` SET `qry_Type_ID` = '100' WHERE `query_qry`.`qry_ID` = 6;
 
+
+-- 
+-- the cards table is redisigned
+--
+
+DROP TABLE IF EXISTS `cards`;
+
+CREATE TABLE cards (
+    id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    addressbookid INT(11) UNSIGNED NOT NULL,
+    carddata MEDIUMBLOB,
+    uri VARBINARY(200),
+    lastmodified INT(11) UNSIGNED,
+    etag VARBINARY(32),
+    personId mediumint(9) unsigned NOT NULL COMMENT '-1 personal cards, >1 for a real person in the CRM',
+    size INT(11) UNSIGNED NOT NULL,
+    UNIQUE KEY (id),
+    PRIMARY KEY  (`id`),
+    CONSTRAINT fk_cards_personId
+      FOREIGN KEY (personId) REFERENCES person_per(per_ID)
+      ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+

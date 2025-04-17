@@ -31,20 +31,6 @@ CREATE TABLE addressbookshare (
 --
 -- Table structure for table `addressbooks`
 --
-CREATE TABLE cards (
-    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    addressbookid INT(11) UNSIGNED NOT NULL,
-    carddata MEDIUMBLOB,
-    uri VARBINARY(200),
-    lastmodified INT(11) UNSIGNED,
-    etag VARBINARY(32),
-    personId mediumint(9) NOT NULL default -1 COMMENT '-1 personal cards, >1 for a real person in the CRM',
-    size INT(11) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Table structure for table `addressbooks`
---
 
 CREATE TABLE addressbookchanges (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -2002,6 +1988,25 @@ CREATE TABLE `plugin_user_role` (
     CONSTRAINT fk_plgn_usr_rl_user_id FOREIGN KEY (plgn_usr_rl_user_id) REFERENCES user_usr(usr_per_ID) ON DELETE CASCADE,
     CONSTRAINT fk_plgn_usr_rl_plugin_id FOREIGN KEY (plgn_usr_rl_plugin_id) REFERENCES plugin(plgn_ID) ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Table structure for table `addressbooks`
+--
+CREATE TABLE cards (
+    id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    addressbookid INT(11) UNSIGNED NOT NULL,
+    carddata MEDIUMBLOB,
+    uri VARBINARY(200),
+    lastmodified INT(11) UNSIGNED,
+    etag VARBINARY(32),
+    personId mediumint(9) unsigned NOT NULL COMMENT '-1 personal cards, >1 for a real person in the CRM',
+    size INT(11) UNSIGNED NOT NULL,
+    UNIQUE KEY (id),
+    PRIMARY KEY  (`id`),
+    CONSTRAINT fk_cards_personId
+      FOREIGN KEY (personId) REFERENCES person_per(per_ID)
+      ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Table structure for table `send_news_letter_user_update`
