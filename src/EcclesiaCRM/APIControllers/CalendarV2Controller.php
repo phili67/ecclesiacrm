@@ -449,7 +449,7 @@ class CalendarV2Controller
 
                 // Updating the calendar
                 $propPatch = new PropPatch([
-                    '{DAV:}displayname'                                       => $params->title
+                    '{DAV:}displayname' => $params->title
                 ]);
 
                 $calendarBackend->updateCalendar($calIDs, $propPatch);
