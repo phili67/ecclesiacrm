@@ -2,12 +2,15 @@
 
 namespace EcclesiaCRM\Service;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\Propel;
 use PDO;
 
+use Sabre\VObject\Component\VCard;
+
 use EcclesiaCRM\MyPDO\CardDavPDO;
+
 use EcclesiaCRM\Utils\MiscUtils;
+
 
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
@@ -19,8 +22,6 @@ use EcclesiaCRM\ListOption;
 use EcclesiaCRM\Person2group2roleP2g2r;
 
 use EcclesiaCRM\Map\ListOptionTableMap;
-
-
 
 class GroupService
 {
@@ -137,41 +138,44 @@ class GroupService
 
         $addressbookId = $carddavBackend->getAddressBookForGroup ($iGroupID)['id'];
 
-        // now we'll create all the cards
-        $card = 'BEGIN:VCARD
-VERSION:3.0
-PRODID:-//Apple Inc.//Mac OS X 10.12.6//EN
-N:'.$person->getLastName().';'.$person->getFirstName().';'.$person->getMiddleName().';;
-FN:'.$person->getFirstName().' '.$person->getLastName();
+        $carArr = [
+            //'N' => $person->getLastName().';'.$person->getFirstName().";;;",
+            'NAME' => $person->getLastName(),
+            'TITLE' => $person->getTitle(),
+            'FN'  => $person->getFullName(),
+            "UID" => \Sabre\DAV\UUIDUtil::getUUID()
+        ];
 
         if ( !empty($person->getWorkEmail()) ) {
-            $card .="\nEMAIL;type=INTERNET;type=WORK;type=pref:".$person->getWorkEmail();
+            $carArr['EMAIL;type=INTERNET;type=WORK;type=pref'] = $person->getWorkEmail();
         }
         if ( !empty($person->getEmail()) ) {
-            $card .="\nEMAIL;type=INTERNET;type=HOME;type=pref:".$person->getEmail();
+            $carArr["EMAIL;type=INTERNET;type=HOME;type=pref"] = $person->getEmail();
         }
 
         if ( !empty($person->getHomePhone()) ) {
-            $card .="\nTEL;type=HOME;type=VOICE;type=pref:".$person->getHomePhone();
+            $carArr["TEL;type=HOME;type=VOICE;type=pref"] = $person->getHomePhone();;
         }
 
         if ( !empty($person->getCellPhone()) ) {
-            $card .="\nTEL;type=CELL;type=VOICE:".$person->getCellPhone();
+            $carArr["TEL;type=CELL;type=VOICE"] = $person->getCellPhone();
         }
 
         if ( !empty($person->getWorkPhone()) ) {
-            $card .="\nTEL;type=WORK;type=VOICE:".$person->getWorkPhone();
+            $carArr["TEL;type=WORK;type=VOICE"] = $person->getWorkPhone();
         }
 
         if ( !empty($person->getAddress1()) || !empty($person->getCity()) || !empty($person->getZip()) ) {
-            $card .="\nitem1.ADR;type=HOME;type=pref:;;".$person->getAddress1().';'.$person->getCity().';;'.$person->getZip();
+            $carArr["item1.ADR;type=HOME;type=pref"] = $person->getAddress1().' '.$person->getCity().' '.$person->getZip();
+            $carArr["item1.X-ABADR"] = "fr";
         } else if (!is_null ($person->getFamily())) {
-            $card .="\nitem1.ADR;type=HOME;type=pref:;;".$person->getFamily()->getAddress1().';'.$person->getFamily()->getCity().';;'.$person->getFamily()->getZip();
+            $carArr["item1.ADR;type=HOME;type=pref"] = $person->getFamily()->getAddress1().' '.$person->getFamily()->getCity().' '.$person->getFamily()->getZip();
+            $carArr["item1.X-ABADR"] = "fr";
         }
 
-        $card .= "\nitem1.X-ABADR:fr
-UID:".\Sabre\DAV\UUIDUtil::getUUID().'
-END:VCARD';
+        $vcard = new VCard($carArr);
+
+        $card = $vcard->serialize(); 
 
         $carddavBackend->createCard($addressbookId, 'UUID-'.\Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
 
