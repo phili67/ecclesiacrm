@@ -805,31 +805,42 @@ class Person extends BasePerson implements iPhoto
     public function getVCard()
     {
         // we get the group
-        $vcard = new VCard([
-            'VERSION' => '3.0',// ensure it's compatible with
-            'PRODID'   => '-//EcclesiaCRM.// VObject ' . VObject\Version::VERSION . '//EN',
-            'UID' => UUIDUtil::getUUID(),
-            'FN'  => $this->getFirstName(),
-            //'ADR' => $person->getFamily()->getAddress(),
-            'N'   => [$this->getLastName(), $this->getFirstName(), '', $this->getTitle(), $this->getSuffix()],
-            'item1.X-ABADR' => 'fr',
-            'NOTE' => _("EcclesiaCRM export")
-        ]);
+        $carArr = [
+            //'N' => $this->getLastName().';'.$this->getFirstName().";;;",
+            'NAME' => $this->getLastName(),
+            'TITLE' => $this->getTitle(),
+            'FN'  => $this->getFullName(),
+            "UID" => \Sabre\DAV\UUIDUtil::getUUID()
+        ];
 
-        $vcard->add('EMAIL', $this->getEmailForNewsLetter(), ['type' => 'HOME']);
-        $vcard->add('TEL', $this->getHomePhone(), ['type' => 'pref']);
-
-        if (!empty($this->getWorkPhone())) {
-            $vcard->add('TEL', $this->getWorkPhone(), ['type' => 'WORK']);
+        if ( !empty($this->getWorkEmail()) ) {
+            $carArr['EMAIL;type=INTERNET;type=WORK;type=pref'] = $this->getWorkEmail();
+        }
+        if ( !empty($this->getEmail()) ) {
+            $carArr["EMAIL;type=INTERNET;type=HOME;type=pref"] = $this->getEmail();
         }
 
-        if (!empty($this->getCellPhone())) {
-            $vcard->add('TEL', $this->getCellPhone(), ['type' => 'CELL']);
+        if ( !empty($this->getHomePhone()) ) {
+            $carArr["TEL;type=HOME;type=VOICE;type=pref"] = $this->getHomePhone();;
         }
 
-        $vcard->add('item1.ADR', ['', '', $this->getFamily()->getAddress1(),$this->getFamily()->getCity(), $this->getFamily()->getZip(),$this->getFamily()->getZip(), $this->getFamily()->getCountry()], ['type' => 'HOME']);
+        if ( !empty($this->getCellPhone()) ) {
+            $carArr["TEL;type=CELL;type=VOICE"] = $this->getCellPhone();
+        }
 
-        $filename = $this->getLastName()."_".$this->getFirstName().".vcf";
+        if ( !empty($this->getWorkPhone()) ) {
+            $carArr["TEL;type=WORK;type=VOICE"] = $this->getWorkPhone();
+        }
+
+        if ( !empty($this->getAddress1()) || !empty($this->getCity()) || !empty($this->getZip()) ) {
+            $carArr["item1.ADR;type=HOME;type=pref"] = $this->getAddress1().' '.$this->getCity().' '.$this->getZip();
+            $carArr["item1.X-ABADR"] = "fr";
+        } else if (!is_null ($this->getFamily())) {
+            $carArr["item1.ADR;type=HOME;type=pref"] = $this->getFamily()->getAddress1().' '.$this->getFamily()->getCity().' '.$this->getFamily()->getZip();
+            $carArr["item1.X-ABADR"] = "fr";
+        }
+
+        $vcard = new VCard($carArr);
 
         return $vcard->serialize();
     }
