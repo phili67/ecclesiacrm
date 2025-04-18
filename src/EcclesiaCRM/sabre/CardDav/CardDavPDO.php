@@ -20,10 +20,11 @@ use EcclesiaCRM\Bootstrapper;
 
 use Sabre\CardDAV\Backend as SabreCardDavBase;
 
+use Sabre\DAV\PropPatch;
+
 class CardDavPDO extends SabreCardDavBase\PDO {
 
-    var $addressBookShareObjectTableName;
-    var $addressbookshareTableName;
+    var $addressBookShareTableName;
 
     function __construct($pdo=null) {
 
@@ -33,8 +34,7 @@ class CardDavPDO extends SabreCardDavBase\PDO {
 
         parent::__construct($pdo);
 
-        $this->addressBookShareObjectTableName = 'addressbookshare';
-        $this->addressbookshareTableName = 'addressbookshare';
+        $this->addressBookShareTableName = 'addressbookshare';
     }
 
     /**
@@ -142,17 +142,17 @@ WHERE addressbookshare.principaluri = ?');
      * Creates a new address book
      *
      * @param string $principalUri
-     * @param string $url Just the 'basename' of the url.
+     * @param string $uri Just the 'basename' of the uri.
      * @param array $properties
      * @return int Last insert id
      */
-    function createAddressBook($principalUri, $url, array $properties, $group=-1) {
+    function createAddressBook($principalUri, $uri, array $properties, $group=-1) {
 
         $values = [
             'displayname'  => null,
             'description'  => null,
             'principaluri' => $principalUri,
-            'uri'          => $url,
+            'uri'          => $uri,
             'groupId'      => $group,
         ];
 
@@ -180,6 +180,117 @@ WHERE addressbookshare.principaluri = ?');
 
     }
 
+    /**
+     * Creates a new shared address book
+     *
+     * @param int $addressbookid
+     * @param string $principalUri 
+     * @param string $uri Just the 'basename' of the uri.
+     * @param array $properties
+     *          string $uri Just the 'basename' of the uri.
+     * @return int Last insert id
+     */
+    function createAddressBookShare($principalUri, array $properties) {
+
+        $values = [
+            'addressbookid'=> 0, // require
+            'displayname'  => null,
+            'description'  => null,
+            'principaluri' => $principalUri, // require person principals/admin for example
+            'href'         => 0,
+            'user_id'      => -1, // require
+            'access'       => 1 // '1 = owner, 2 = read, 3 = readwrite',
+        ];
+
+        foreach ($properties as $property => $newValue) {
+
+            switch ($property) {
+                case 'addressbookid':
+                    $values['addressbookid'] = $newValue;
+                    break;
+                case '{DAV:}displayname' :
+                    $values['displayname'] = $newValue;
+                    break;
+                case '{' . CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' :
+                    $values['description'] = $newValue;
+                    break;       
+                case 'href':
+                    $values['href'] = $newValue;
+                case 'user_id':
+                    $values['user_id'] = $newValue;
+                    break;
+                case 'access':
+                    $values['access'] = $newValue;
+                    break;
+                default :
+                    throw new DAV\Exception\BadRequest('Unknown property: ' . $property);
+            }
+
+        }
+
+        $query = 'INSERT INTO ' . $this->addressBookShareTableName . ' (addressbookid, displayname, description, principaluri, user_id, href, access) VALUES (:addressbookid, :displayname, :description, :principaluri, :user_id, :href, :access)';
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute($values);
+        return $this->pdo->lastInsertId(
+            $this->addressBookShareTableName . '_id_seq'
+        );
+
+    }
+
+    /**
+     * Updates properties for an address book.
+     *
+     * The list of mutations is stored in a Sabre\DAV\PropPatch object.
+     * To do the actual updates, you must tell this object which properties
+     * you're going to process with the handle() method.
+     *
+     * Calling the handle method is like telling the PropPatch object "I
+     * promise I can handle updating this property".
+     *
+     * Read the PropPatch documentation for more info and examples.
+     *
+     * @param string $addressBookId
+     */
+    public function updateAddressBookShare($id, PropPatch $propPatch)
+    {
+        $supportedProperties = [
+            '{DAV:}displayname',
+            '{'.CardDAV\Plugin::NS_CARDDAV.'}addressbook-description',
+        ];
+
+        $propPatch->handle($supportedProperties, function ($mutations) use ($id) {
+            $updates = [];
+            foreach ($mutations as $property => $newValue) {
+                switch ($property) {
+                    case '{DAV:}displayname':
+                        $updates['displayname'] = $newValue;
+                        break;
+                    case '{'.CardDAV\Plugin::NS_CARDDAV.'}addressbook-description':
+                        $updates['description'] = $newValue;
+                        break;
+                }
+            }
+            $query = 'UPDATE '.$this->addressBookShareTableName.' SET ';
+            $first = true;
+            foreach ($updates as $key => $value) {
+                if ($first) {
+                    $first = false;
+                } else {
+                    $query .= ', ';
+                }
+                $query .= ' '.$key.' = :'.$key.' ';
+            }
+            $query .= ' WHERE id = :id';
+
+            $stmt = $this->pdo->prepare($query);
+            $updates['id'] = $id;
+
+            $stmt->execute($updates);
+
+            return true;
+        });
+    }
+
    /**
      * Deletes an entire addressbook and all its contents
      *
@@ -197,7 +308,7 @@ WHERE addressbookshare.principaluri = ?');
         $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookChangesTableName . ' WHERE addressbookid = ?');
         $stmt->execute([$addressBookId]);
 
-        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookShareObjectTableName . ' WHERE addressbookid = ?');
+        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookShareTableName . ' WHERE addressbookid = ?');
         $stmt->execute([$addressBookId]);
     }
 
@@ -215,12 +326,12 @@ WHERE addressbookshare.principaluri = ?');
         }
         $currentInvites = $this->getInvites($addressBookId);
 
-        $removeStmt = $this->pdo->prepare("DELETE FROM " . $this->addressBookShareObjectTableName . " WHERE addressBookId = ? AND href = ? AND access IN (2,3)");
-        $updateStmt = $this->pdo->prepare("UPDATE " . $this->addressBookShareObjectTableName . " SET access = ?, displayname = ? WHERE addressBookId = ? AND href = ?");
+        $removeStmt = $this->pdo->prepare("DELETE FROM " . $this->addressBookShareTableName . " WHERE addressBookId = ? AND href = ? AND access IN (2,3)");
+        $updateStmt = $this->pdo->prepare("UPDATE " . $this->addressBookShareTableName . " SET access = ?, displayname = ? WHERE addressBookId = ? AND href = ?");
 
 
     $insertStmt = $this->pdo->prepare('
-INSERT INTO ' . $this->addressBookShareObjectTableName . '
+INSERT INTO ' . $this->addressBookShareTableName . '
     (
         addressbooksid,
         principaluri,
@@ -307,7 +418,7 @@ SELECT
     access,
     href,
     displayname,
-FROM {$this->addressBookShareObjectTableName}
+FROM {$this->addressBookShareTableName}
 WHERE
     addressbooksid = ?
 SQL;
@@ -389,7 +500,7 @@ SQL;
      *
      * This method should return the following properties for each card:
      *   * carddata - raw vcard data
-     *   * uri - Some unique url
+     *   * uri - Some unique uri
      *   * lastmodified - A unix timestamp
      *
      * It's recommended to also return the following properties:
