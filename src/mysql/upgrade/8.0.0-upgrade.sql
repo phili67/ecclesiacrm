@@ -263,12 +263,42 @@ INSERT IGNORE INTO `query_type` (`qry_type_id`, `qry_type_Category`) VALUES
 UPDATE `query_qry` SET `qry_Type_ID` = '100' WHERE `query_qry`.`qry_ID` = 6;
 
 
+-- clean up 
+
+DELETE FROM addressbooks;
+DELETE FROM addressbookshare;
+DELETE FROM cards;
+
+
+--
+-- Table structure for table `addressbookshare`
+--
+
+DROP TABLE IF EXISTS `addressbookshare`;
+
+CREATE TABLE addressbookshare (
+    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    addressbookid INT(11) UNSIGNED NOT NULL,
+    principaluri VARBINARY(255),
+    displayname VARCHAR(255),
+    description TEXT,
+    href VARBINARY(100),
+    user_id mediumint(9) unsigned NOT NULL default '0',
+    access TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1 = owner, 2 = read, 3 = readwrite',
+    UNIQUE KEY (id),
+    CONSTRAINT fk_addressbookid FOREIGN KEY (addressbookid) REFERENCES addressbooks(id) ON DELETE CASCADE,
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_usr(usr_per_ID) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- 
 -- the cards table is redisigned
 --
 
 DROP TABLE IF EXISTS `cards`;
 
+--
+-- Table structure for table `addressbooks`
+--
 CREATE TABLE cards (
     id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
     addressbookid INT(11) UNSIGNED NOT NULL,
@@ -282,6 +312,8 @@ CREATE TABLE cards (
     PRIMARY KEY  (`id`),
     CONSTRAINT fk_cards_personId
       FOREIGN KEY (personId) REFERENCES person_per(per_ID)
+      ON DELETE CASCADE,
+    CONSTRAINT fk_card_addressbookid
+      FOREIGN KEY (addressbookid) REFERENCES addressbooks(id)
       ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
