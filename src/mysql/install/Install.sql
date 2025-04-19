@@ -15,36 +15,6 @@ CREATE TABLE addressbooks (
 --
 -- Table structure for table `addressbooks`
 --
-CREATE TABLE addressbookshare (
-    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    addressbookid INT(11) UNSIGNED NOT NULL,
-    principaluri VARBINARY(255),
-    displayname VARCHAR(255),
-    description TEXT,
-    href VARBINARY(100),
-    access TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1 = owner, 2 = read, 3 = readwrite',
-    UNIQUE(principaluri(100)),
-    UNIQUE(addressbookid, principaluri),
-    CONSTRAINT fk_addressbookid FOREIGN KEY (addressbookid) REFERENCES addressbooks(id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Table structure for table `addressbooks`
---
-CREATE TABLE cards (
-    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    addressbookid INT(11) UNSIGNED NOT NULL,
-    carddata MEDIUMBLOB,
-    uri VARBINARY(200),
-    lastmodified INT(11) UNSIGNED,
-    etag VARBINARY(32),
-    personId mediumint(9) NOT NULL default -1 COMMENT '-1 personal cards, >1 for a real person in the CRM',
-    size INT(11) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Table structure for table `addressbooks`
---
 
 CREATE TABLE addressbookchanges (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -2002,6 +1972,48 @@ CREATE TABLE `plugin_user_role` (
     CONSTRAINT fk_plgn_usr_rl_user_id FOREIGN KEY (plgn_usr_rl_user_id) REFERENCES user_usr(usr_per_ID) ON DELETE CASCADE,
     CONSTRAINT fk_plgn_usr_rl_plugin_id FOREIGN KEY (plgn_usr_rl_plugin_id) REFERENCES plugin(plgn_ID) ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Table structure for table `addressbooks`
+--
+CREATE TABLE cards (
+    id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    addressbookid INT(11) UNSIGNED NOT NULL,
+    carddata MEDIUMBLOB,
+    uri VARBINARY(200),
+    lastmodified INT(11) UNSIGNED,
+    etag VARBINARY(32),
+    personId mediumint(9) unsigned NOT NULL COMMENT '-1 personal cards, >1 for a real person in the CRM',
+    size INT(11) UNSIGNED NOT NULL,
+    UNIQUE KEY (id),
+    PRIMARY KEY  (`id`),
+    CONSTRAINT fk_cards_personId
+      FOREIGN KEY (personId) REFERENCES person_per(per_ID)
+      ON DELETE CASCADE,
+    CONSTRAINT fk_card_addressbookid
+      FOREIGN KEY (addressbookid) REFERENCES addressbooks(id)
+      ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--
+-- Table structure for table `addressbookshare`
+--
+CREATE TABLE addressbookshare (
+    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    addressbookid INT(11) UNSIGNED NOT NULL,
+    principaluri VARBINARY(255),
+    displayname VARCHAR(255),
+    description TEXT,
+    href VARBINARY(100),
+    user_id mediumint(9) unsigned NOT NULL default '0',
+    access TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1 = owner, 2 = read, 3 = readwrite',
+    UNIQUE KEY (id),
+    CONSTRAINT fk_addressbookid FOREIGN KEY (addressbookid) REFERENCES addressbooks(id) ON DELETE CASCADE,
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_usr(usr_per_ID) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 
 --
 -- Table structure for table `send_news_letter_user_update`

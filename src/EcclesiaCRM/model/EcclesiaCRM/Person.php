@@ -19,10 +19,7 @@ use EcclesiaCRM\Service\MailChimpService;
 
 use DateTime;
 
-use Sabre\VObject\Component\VCard;
-use Sabre\DAV\UUIDUtil;
-
-use Sabre\VObject;
+use EcclesiaCRM\CardDav\VcardUtils;
 
 /**
  * Skeleton subclass for representing a row from the 'person_per' table.
@@ -804,32 +801,7 @@ class Person extends BasePerson implements iPhoto
 
     public function getVCard()
     {
-        // we get the group
-        $vcard = new VCard([
-            'VERSION' => '3.0',// ensure it's compatible with
-            'PRODID'   => '-//EcclesiaCRM.// VObject ' . VObject\Version::VERSION . '//EN',
-            'UID' => UUIDUtil::getUUID(),
-            'FN'  => $this->getFirstName(),
-            //'ADR' => $person->getFamily()->getAddress(),
-            'N'   => [$this->getLastName(), $this->getFirstName(), '', $this->getTitle(), $this->getSuffix()],
-            'item1.X-ABADR' => 'fr',
-            'NOTE' => _("EcclesiaCRM export")
-        ]);
-
-        $vcard->add('EMAIL', $this->getEmailForNewsLetter(), ['type' => 'HOME']);
-        $vcard->add('TEL', $this->getHomePhone(), ['type' => 'pref']);
-
-        if (!empty($this->getWorkPhone())) {
-            $vcard->add('TEL', $this->getWorkPhone(), ['type' => 'WORK']);
-        }
-
-        if (!empty($this->getCellPhone())) {
-            $vcard->add('TEL', $this->getCellPhone(), ['type' => 'CELL']);
-        }
-
-        $vcard->add('item1.ADR', ['', '', $this->getFamily()->getAddress1(),$this->getFamily()->getCity(), $this->getFamily()->getZip(),$this->getFamily()->getZip(), $this->getFamily()->getCountry()], ['type' => 'HOME']);
-
-        $filename = $this->getLastName()."_".$this->getFirstName().".vcf";
+        $vcard = VcardUtils::Person2Vcard($this);
 
         return $vcard->serialize();
     }

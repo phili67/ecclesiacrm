@@ -20,9 +20,11 @@ use EcclesiaCRM\Bootstrapper;
 
 use Sabre\CardDAV\Backend as SabreCardDavBase;
 
+use Sabre\DAV\PropPatch;
+
 class CardDavPDO extends SabreCardDavBase\PDO {
 
-    var $addressBookShareObjectTableName;
+    var $addressBookShareTableName;
 
     function __construct($pdo=null) {
 
@@ -32,7 +34,7 @@ class CardDavPDO extends SabreCardDavBase\PDO {
 
         parent::__construct($pdo);
 
-        $this->addressBookShareObjectTableName = 'addressbookshare';
+        $this->addressBookShareTableName = 'addressbookshare';
     }
 
     /**
@@ -92,66 +94,45 @@ class CardDavPDO extends SabreCardDavBase\PDO {
      * @param string $principalUri
      * @return array
      */
-    function getAddressBooksForUser($principalUri) {
+    function getAddressBooksForUser($principalUri) 
+    {
 
-        $stmt = $this->pdo->prepare('SELECT id, uri, displayname, principaluri, description, synctoken FROM ' . $this->addressBooksTableName . ' WHERE principaluri = ?');
+        $stmt = $this->pdo->prepare('SELECT id, uri, displayname, principaluri, description, synctoken FROM '.$this->addressBooksTableName.' WHERE principaluri = ?');
         $stmt->execute([$principalUri]);
 
         $addressBooks = [];
 
         foreach ($stmt->fetchAll() as $row) {
-
             $addressBooks[] = [
-                'id'                                                          => $row['id'],
-                'uri'                                                         => $row['uri'],
-                'principaluri'                                                => $row['principaluri'],
-                '{DAV:}displayname'                                           => $row['displayname'],
-                '{' . CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' => $row['description'],
-                '{http://calendarserver.org/ns/}getctag'                      => $row['synctoken'],
-                '{http://sabredav.org/ns}sync-token'                          => $row['synctoken'] ? $row['synctoken'] : '0',
+                'id' => $row['id'],
+                'uri' => $row['uri'],
+                'principaluri' => $row['principaluri'],
+                '{DAV:}displayname' => $row['displayname'],
+                '{'.CardDAV\Plugin::NS_CARDDAV.'}addressbook-description' => $row['description'],
+                '{http://calendarserver.org/ns/}getctag' => $row['synctoken'],
+                '{http://sabredav.org/ns}sync-token' => $row['synctoken'] ? $row['synctoken'] : '0',
             ];
         }
 
-        // now we've to work with the shares
-        $stmt = $this->pdo->prepare(<<<SQL
-SELECT {$this->addressBooksTableName}.id as addressBookid, {$this->addressBooksTableName}.uri as uri, {$this->addressBooksTableName}.principaluri as realprincipaluri,
-       {$this->addressBooksTableName}.synctoken as synctoken,
-       {$this->addressBookShareObjectTableName}.id as addressBookShareid, {$this->addressBookShareObjectTableName}.displayname as shareDisplayname,
-       {$this->addressBookShareObjectTableName}.principaluri as shareprincipaluri,
-       {$this->addressBookShareObjectTableName}.description as shareDescription,
-       {$this->addressBookShareObjectTableName}.access as access
-         FROM {$this->addressBookShareObjectTableName}
-    LEFT JOIN {$this->addressBooksTableName} ON
-        {$this->addressBookShareObjectTableName}.addressbooksid = {$this->addressBooksTableName}.id
-WHERE {$this->addressBookShareObjectTableName}.principaluri = ? ORDER BY {$this->addressBookShareObjectTableName}.displayname ASC
-SQL
-        );
-        $stmt->execute([$principalUri]);
+        // now we loop inside de the share calendar
+        $sharetmt = $this->pdo->prepare('SELECT addressbooks.id, addressbooks.uri, addressbookshare.displayname, addressbookshare.principaluri, addressbookshare.description, addressbooks.synctoken, access, addressbookid
+FROM addressbookshare
+LEFT JOIN addressbooks ON addressbookshare.addressbookid = addressbooks.id
+WHERE addressbookshare.principaluri = ?');
+        $sharetmt->execute([$principalUri]);
 
-        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-
-            if ($row['access'] > 1) {
-              $addressBook = [
-                  'id'                                                          => $row['addressBookShareid'],
-                  'uri'                                                         => $row['uri'],
-                  'principaluri'                                                => $row['shareprincipaluri'],
-                  '{DAV:}displayname'                                           => $row['shareDisplayname'],
-                  '{' . CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' => $row['shareDescription'],
-                  '{http://calendarserver.org/ns/}getctag'                      => $row['synctoken'],
-                  '{http://sabredav.org/ns}sync-token'                          => $row['synctoken'] ? $row['synctoken'] : '0',
-                  'realprincipaluri'                                            => $row['realprincipaluri'],
-              ];
-
-              $addressBook['share-access'] = (int)$row['access'];
-              // 1 = owner, 2 = readonly, 3 = readwrite
-                // We need to find more information about the original owner.
-                // the future.
-                $addressBook['read-only'] = (int)$row['access'] === \Sabre\DAV\Sharing\Plugin::ACCESS_READ;
-                $addressBook['read-write'] = (int)$row['access'] === \Sabre\DAV\Sharing\Plugin::ACCESS_READWRITE;
-
-              // we can add the addressBook
-              $addressBooks[] = $addressBook;
-            }
+        foreach ($sharetmt->fetchAll() as $row) {
+            $addressBooks[] = [
+                'id' => $row['id'],
+                'uri' => $row['uri'],
+                'principaluri' => $row['principaluri'],
+                'access' => $row['access'],
+                'addressbookid' => $row['addressbookid'],
+                '{DAV:}displayname' => $row['displayname'],
+                '{'.CardDAV\Plugin::NS_CARDDAV.'}addressbook-description' => $row['description'],
+                '{http://calendarserver.org/ns/}getctag' => $row['synctoken'],
+                '{http://sabredav.org/ns}sync-token' => $row['synctoken'] ? $row['synctoken'] : '0'
+            ];
         }
 
         return $addressBooks;
@@ -161,17 +142,17 @@ SQL
      * Creates a new address book
      *
      * @param string $principalUri
-     * @param string $url Just the 'basename' of the url.
+     * @param string $uri Just the 'basename' of the uri.
      * @param array $properties
      * @return int Last insert id
      */
-    function createAddressBook($principalUri, $url, array $properties, $group=-1) {
+    function createAddressBook($principalUri, $uri, array $properties, $group=-1) {
 
         $values = [
             'displayname'  => null,
             'description'  => null,
             'principaluri' => $principalUri,
-            'uri'          => $url,
+            'uri'          => $uri,
             'groupId'      => $group,
         ];
 
@@ -199,6 +180,117 @@ SQL
 
     }
 
+    /**
+     * Creates a new shared address book
+     *
+     * @param int $addressbookid
+     * @param string $principalUri 
+     * @param string $uri Just the 'basename' of the uri.
+     * @param array $properties
+     *          string $uri Just the 'basename' of the uri.
+     * @return int Last insert id
+     */
+    function createAddressBookShare($principalUri, array $properties) {
+
+        $values = [
+            'addressbookid'=> 0, // require
+            'displayname'  => null,
+            'description'  => null,
+            'principaluri' => $principalUri, // require person principals/admin for example
+            'href'         => 0,
+            'user_id'      => -1, // require
+            'access'       => 1 // '1 = owner, 2 = read, 3 = readwrite',
+        ];
+
+        foreach ($properties as $property => $newValue) {
+
+            switch ($property) {
+                case 'addressbookid':
+                    $values['addressbookid'] = $newValue;
+                    break;
+                case '{DAV:}displayname' :
+                    $values['displayname'] = $newValue;
+                    break;
+                case '{' . CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' :
+                    $values['description'] = $newValue;
+                    break;       
+                case 'href':
+                    $values['href'] = $newValue;
+                case 'user_id':
+                    $values['user_id'] = $newValue;
+                    break;
+                case 'access':
+                    $values['access'] = $newValue;
+                    break;
+                default :
+                    throw new DAV\Exception\BadRequest('Unknown property: ' . $property);
+            }
+
+        }
+
+        $query = 'INSERT INTO ' . $this->addressBookShareTableName . ' (addressbookid, displayname, description, principaluri, user_id, href, access) VALUES (:addressbookid, :displayname, :description, :principaluri, :user_id, :href, :access)';
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute($values);
+        return $this->pdo->lastInsertId(
+            $this->addressBookShareTableName . '_id_seq'
+        );
+
+    }
+
+    /**
+     * Updates properties for an address book.
+     *
+     * The list of mutations is stored in a Sabre\DAV\PropPatch object.
+     * To do the actual updates, you must tell this object which properties
+     * you're going to process with the handle() method.
+     *
+     * Calling the handle method is like telling the PropPatch object "I
+     * promise I can handle updating this property".
+     *
+     * Read the PropPatch documentation for more info and examples.
+     *
+     * @param string $addressBookId
+     */
+    public function updateAddressBookShare($id, PropPatch $propPatch)
+    {
+        $supportedProperties = [
+            '{DAV:}displayname',
+            '{'.CardDAV\Plugin::NS_CARDDAV.'}addressbook-description',
+        ];
+
+        $propPatch->handle($supportedProperties, function ($mutations) use ($id) {
+            $updates = [];
+            foreach ($mutations as $property => $newValue) {
+                switch ($property) {
+                    case '{DAV:}displayname':
+                        $updates['displayname'] = $newValue;
+                        break;
+                    case '{'.CardDAV\Plugin::NS_CARDDAV.'}addressbook-description':
+                        $updates['description'] = $newValue;
+                        break;
+                }
+            }
+            $query = 'UPDATE '.$this->addressBookShareTableName.' SET ';
+            $first = true;
+            foreach ($updates as $key => $value) {
+                if ($first) {
+                    $first = false;
+                } else {
+                    $query .= ', ';
+                }
+                $query .= ' '.$key.' = :'.$key.' ';
+            }
+            $query .= ' WHERE id = :id';
+
+            $stmt = $this->pdo->prepare($query);
+            $updates['id'] = $id;
+
+            $stmt->execute($updates);
+
+            return true;
+        });
+    }
+
    /**
      * Deletes an entire addressbook and all its contents
      *
@@ -216,7 +308,7 @@ SQL
         $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookChangesTableName . ' WHERE addressbookid = ?');
         $stmt->execute([$addressBookId]);
 
-        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookShareObjectTableName . ' WHERE addressbookid = ?');
+        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookShareTableName . ' WHERE addressbookid = ?');
         $stmt->execute([$addressBookId]);
     }
 
@@ -234,12 +326,12 @@ SQL
         }
         $currentInvites = $this->getInvites($addressBookId);
 
-        $removeStmt = $this->pdo->prepare("DELETE FROM " . $this->addressBookShareObjectTableName . " WHERE addressBookId = ? AND href = ? AND access IN (2,3)");
-        $updateStmt = $this->pdo->prepare("UPDATE " . $this->addressBookShareObjectTableName . " SET access = ?, displayname = ? WHERE addressBookId = ? AND href = ?");
+        $removeStmt = $this->pdo->prepare("DELETE FROM " . $this->addressBookShareTableName . " WHERE addressBookId = ? AND href = ? AND access IN (2,3)");
+        $updateStmt = $this->pdo->prepare("UPDATE " . $this->addressBookShareTableName . " SET access = ?, displayname = ? WHERE addressBookId = ? AND href = ?");
 
 
     $insertStmt = $this->pdo->prepare('
-INSERT INTO ' . $this->addressBookShareObjectTableName . '
+INSERT INTO ' . $this->addressBookShareTableName . '
     (
         addressbooksid,
         principaluri,
@@ -326,7 +418,7 @@ SELECT
     access,
     href,
     displayname,
-FROM {$this->addressBookShareObjectTableName}
+FROM {$this->addressBookShareTableName}
 WHERE
     addressbooksid = ?
 SQL;
@@ -402,6 +494,42 @@ SQL;
         return '"' . $etag . '"';
 
     }
+
+    /**
+     * Returns all cards for a specific addressbook id.
+     *
+     * This method should return the following properties for each card:
+     *   * carddata - raw vcard data
+     *   * uri - Some unique uri
+     *   * lastmodified - A unix timestamp
+     *
+     * It's recommended to also return the following properties:
+     *   * etag - A unique etag. This must change every time the card changes.
+     *   * size - The size of the card in bytes.
+     *
+     * If these last two properties are provided, less time will be spent
+     * calculating them. If they are specified, you can also omit carddata.
+     * This may speed up certain requests, especially with large cards.
+     *
+     * @param mixed $addressbookId
+     *
+     * @return array
+     */
+    public function getCards($addressbookId)
+    {
+        $stmt = $this->pdo->prepare('SELECT id, carddata, uri, lastmodified, etag, size FROM '.$this->cardsTableName.' WHERE addressbookid = ?');
+        $stmt->execute([$addressbookId]);
+
+        $result = [];
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $row['etag'] = '"'.$row['etag'].'"';
+            $row['lastmodified'] = (int) $row['lastmodified'];
+            $result[] = $row;
+        }
+
+        return $result;
+    }
+
 
     /**
      * Returns a specific card.
