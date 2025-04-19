@@ -19,10 +19,7 @@ use EcclesiaCRM\Service\MailChimpService;
 
 use DateTime;
 
-use Sabre\VObject\Component\VCard;
-use Sabre\DAV\UUIDUtil;
-
-use Sabre\VObject;
+use EcclesiaCRM\CardDav\VcardUtils;
 
 /**
  * Skeleton subclass for representing a row from the 'person_per' table.
@@ -804,43 +801,7 @@ class Person extends BasePerson implements iPhoto
 
     public function getVCard()
     {
-        // we get the group
-        $carArr = [
-            //'N' => $this->getLastName().';'.$this->getFirstName().";;;",
-            'NAME' => $this->getLastName(),
-            'TITLE' => $this->getTitle(),
-            'FN'  => $this->getFullName(),
-            "UID" => \Sabre\DAV\UUIDUtil::getUUID()
-        ];
-
-        if ( !empty($this->getWorkEmail()) ) {
-            $carArr['EMAIL;type=INTERNET;type=WORK;type=pref'] = $this->getWorkEmail();
-        }
-        if ( !empty($this->getEmail()) ) {
-            $carArr["EMAIL;type=INTERNET;type=HOME;type=pref"] = $this->getEmail();
-        }
-
-        if ( !empty($this->getHomePhone()) ) {
-            $carArr["TEL;type=HOME;type=VOICE;type=pref"] = $this->getHomePhone();;
-        }
-
-        if ( !empty($this->getCellPhone()) ) {
-            $carArr["TEL;type=CELL;type=VOICE"] = $this->getCellPhone();
-        }
-
-        if ( !empty($this->getWorkPhone()) ) {
-            $carArr["TEL;type=WORK;type=VOICE"] = $this->getWorkPhone();
-        }
-
-        if ( !empty($this->getAddress1()) || !empty($this->getCity()) || !empty($this->getZip()) ) {
-            $carArr["item1.ADR;type=HOME;type=pref"] = $this->getAddress1().' '.$this->getCity().' '.$this->getZip();
-            $carArr["item1.X-ABADR"] = "fr";
-        } else if (!is_null ($this->getFamily())) {
-            $carArr["item1.ADR;type=HOME;type=pref"] = $this->getFamily()->getAddress1().' '.$this->getFamily()->getCity().' '.$this->getFamily()->getZip();
-            $carArr["item1.X-ABADR"] = "fr";
-        }
-
-        $vcard = new VCard($carArr);
+        $vcard = VcardUtils::Person2Vcard($this);
 
         return $vcard->serialize();
     }

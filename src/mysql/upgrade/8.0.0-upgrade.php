@@ -8,14 +8,12 @@ use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\Propel;
-use Sabre\CardDAV;
-use Sabre\DAV;
 use EcclesiaCRM\MyPDO\CardDavPDO;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\UserQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\VObject\Component\VCard;
+
+use EcclesiaCRM\CardDav\VcardUtils;
 
 
 $logger = LoggerUtils::getAppLogger();
@@ -258,43 +256,7 @@ foreach ($groups as $group) {
   foreach ($members as $member) {
     $person = $member->getPerson();
 
-
-    $carArr = [
-      //'N' => $person->getLastName().';'.$person->getFirstName().";;;",
-      'NAME' => $person->getLastName(),
-      'TITLE' => $person->getTitle(),
-      'FN'  => $person->getFullName(),
-      "UID" => \Sabre\DAV\UUIDUtil::getUUID()
-    ];
-
-    if (!empty($person->getWorkEmail())) {
-      $carArr['EMAIL;type=INTERNET;type=WORK;type=pref'] = $person->getWorkEmail();
-    }
-    if (!empty($person->getEmail())) {
-      $carArr["EMAIL;type=INTERNET;type=HOME;type=pref"] = $person->getEmail();
-    }
-
-    if (!empty($person->getHomePhone())) {
-      $carArr["TEL;type=HOME;type=VOICE;type=pref"] = $person->getHomePhone();;
-    }
-
-    if (!empty($person->getCellPhone())) {
-      $carArr["TEL;type=CELL;type=VOICE"] = $person->getCellPhone();
-    }
-
-    if (!empty($person->getWorkPhone())) {
-      $carArr["TEL;type=WORK;type=VOICE"] = $person->getWorkPhone();
-    }
-
-    if (!empty($person->getAddress1()) || !empty($person->getCity()) || !empty($person->getZip())) {
-      $carArr["item1.ADR;type=HOME;type=pref"] = $person->getAddress1() . ' ' . $person->getCity() . ' ' . $person->getZip();
-      $carArr["item1.X-ABADR"] = "fr";
-    } else if (!is_null($person->getFamily())) {
-      $carArr["item1.ADR;type=HOME;type=pref"] = $person->getFamily()->getAddress1() . ' ' . $person->getFamily()->getCity() . ' ' . $person->getFamily()->getZip();
-      $carArr["item1.X-ABADR"] = "fr";
-    }
-
-    $vcard = new VCard($carArr);
+    $vcard = VcardUtils::Person2Vcard($person);
 
     $card = $vcard->serialize();
 

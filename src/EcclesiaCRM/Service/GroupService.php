@@ -5,7 +5,7 @@ namespace EcclesiaCRM\Service;
 use Propel\Runtime\Propel;
 use PDO;
 
-use Sabre\VObject\Component\VCard;
+use EcclesiaCRM\CardDav\VcardUtils;
 
 use EcclesiaCRM\MyPDO\CardDavPDO;
 
@@ -135,48 +135,12 @@ class GroupService
         // We set the BackEnd for sabre Backends
         // we'll connect to sabre to create the group
         $carddavBackend = new CardDavPDO();
-
-        $addressbookId = $carddavBackend->getAddressBookForGroup ($iGroupID)['id'];
-
-        $carArr = [
-            //'N' => $person->getLastName().';'.$person->getFirstName().";;;",
-            'NAME' => $person->getLastName(),
-            'TITLE' => $person->getTitle(),
-            'FN'  => $person->getFullName(),
-            "UID" => \Sabre\DAV\UUIDUtil::getUUID()
-        ];
-
-        if ( !empty($person->getWorkEmail()) ) {
-            $carArr['EMAIL;type=INTERNET;type=WORK;type=pref'] = $person->getWorkEmail();
-        }
-        if ( !empty($person->getEmail()) ) {
-            $carArr["EMAIL;type=INTERNET;type=HOME;type=pref"] = $person->getEmail();
-        }
-
-        if ( !empty($person->getHomePhone()) ) {
-            $carArr["TEL;type=HOME;type=VOICE;type=pref"] = $person->getHomePhone();;
-        }
-
-        if ( !empty($person->getCellPhone()) ) {
-            $carArr["TEL;type=CELL;type=VOICE"] = $person->getCellPhone();
-        }
-
-        if ( !empty($person->getWorkPhone()) ) {
-            $carArr["TEL;type=WORK;type=VOICE"] = $person->getWorkPhone();
-        }
-
-        if ( !empty($person->getAddress1()) || !empty($person->getCity()) || !empty($person->getZip()) ) {
-            $carArr["item1.ADR;type=HOME;type=pref"] = $person->getAddress1().' '.$person->getCity().' '.$person->getZip();
-            $carArr["item1.X-ABADR"] = "fr";
-        } else if (!is_null ($person->getFamily())) {
-            $carArr["item1.ADR;type=HOME;type=pref"] = $person->getFamily()->getAddress1().' '.$person->getFamily()->getCity().' '.$person->getFamily()->getZip();
-            $carArr["item1.X-ABADR"] = "fr";
-        }
-
-        $vcard = new VCard($carArr);
-
+        $vcard = VcardUtils::Person2Vcard($person);
         $card = $vcard->serialize(); 
 
+        $addressbookId = $carddavBackend->getAddressBookForGroup ($iGroupID)['id'];               
+
+        // now we can create the vcard
         $carddavBackend->createCard($addressbookId, 'UUID-'.\Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
 
         return $this->getGroupMembers($iGroupID, $iPersonID);
