@@ -16,8 +16,7 @@ use Sabre\DAV\PropPatch;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\CardDavPDO;
 
-use Sabre\VObject\Component\VCard;
-
+use EcclesiaCRM\CardDav\VcardUtils;
 
 
 
@@ -55,42 +54,7 @@ class Group extends BaseGroup
 
         if ($addressbook['id'] != 0 && !$carddavBackend->getCardForPerson($addressbook['id'], $personId)) {
             // we've checked that we'll insert only one card per user
-            $carArr = [
-                //'N' => $person->getLastName().';'.$person->getFirstName().";;;",
-                'NAME' => $person->getLastName(),
-                'TITLE' => $person->getTitle(),
-                'FN'  => $person->getFullName(),
-                "UID" => \Sabre\DAV\UUIDUtil::getUUID()
-            ];
-
-            if ( !empty($person->getWorkEmail()) ) {
-                $carArr['EMAIL;type=INTERNET;type=WORK;type=pref'] = $person->getWorkEmail();
-            }
-            if ( !empty($person->getEmail()) ) {
-                $carArr["EMAIL;type=INTERNET;type=HOME;type=pref"] = $person->getEmail();
-            }
-
-            if ( !empty($person->getHomePhone()) ) {
-                $carArr["TEL;type=HOME;type=VOICE;type=pref"] = $person->getHomePhone();;
-            }
-
-            if ( !empty($person->getCellPhone()) ) {
-                $carArr["TEL;type=CELL;type=VOICE"] = $person->getCellPhone();
-            }
-
-            if ( !empty($person->getWorkPhone()) ) {
-                $carArr["TEL;type=WORK;type=VOICE"] = $person->getWorkPhone();
-            }
-
-            if ( !empty($person->getAddress1()) || !empty($person->getCity()) || !empty($person->getZip()) ) {
-                $carArr["item1.ADR;type=HOME;type=pref"] = $person->getAddress1().' '.$person->getCity().' '.$person->getZip();
-                $carArr["item1.X-ABADR"] = "fr";
-            } else if (!is_null ($person->getFamily())) {
-                $carArr["item1.ADR;type=HOME;type=pref"] = $person->getFamily()->getAddress1().' '.$person->getFamily()->getCity().' '.$person->getFamily()->getZip();
-                $carArr["item1.X-ABADR"] = "fr";
-            }
-
-            $vcard = new VCard($carArr);
+            $vcard = VcardUtils::Person2Vcard($person);
 
             $card = $vcard->serialize();            
 
@@ -264,14 +228,12 @@ class Group extends BaseGroup
                 [
                     'addressbookid'=> $addresbookid, // require
                     '{DAV:}displayname'  => $this->getName(),
-                    '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description'  => '',
+                    '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description'  => $this->getDescription(),
                     'href'         => 0,
                     'user_id'      => $user->getId(), // require
                     'access'       => 1 // '1 = owner, 2 = read, 3 = readwrite',                    
                 ]
             );
-
-
         }
     }
 
@@ -349,22 +311,29 @@ class Group extends BaseGroup
 
             foreach($addressbooks as $addressbook) {
                 $addressBookId = $addressbook->getId();
+
+                $propPatch = new PropPatch([
+                    '{DAV:}displayname' => $name,
+                    '{'.\Sabre\CardDAV\Plugin::NS_CARDDAV.'}addressbook-description' => $this->getDescription()
+                ]);
+
                 $ret = $carddavBackend->updateAddressBook(
-                    $addressBookId,
-                    new PropPatch([
-                        '{DAV:}displayname' => $name
-                    ])
+                    $addressBookId,$propPatch
                 );
+
+                $result = $propPatch->commit();
 
                 $addressbookShares = AddressbookshareQuery::create()->findByAddressbookid($addressBookId);
 
                 foreach ($addressbookShares as $addressbookShare) {
+                    $propPatch = new PropPatch([
+                        '{DAV:}displayname' => $name,
+                        '{'.\Sabre\CardDAV\Plugin::NS_CARDDAV.'}addressbook-description' => $this->getDescription()
+                    ]);
                     $ret = $carddavBackend->updateAddressBookShare(
-                        $addressbookShare->getId(),
-                        new PropPatch([
-                            '{DAV:}displayname' => $name
-                        ])
+                        $addressbookShare->getId(),$propPatch
                     );  
+                    $result = $propPatch->commit();
                 }
             }
         }
