@@ -13,6 +13,8 @@ use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\SendNewsLetterUserUpdateQuery;
 use EcclesiaCRM\SendNewsLetterUserUpdate;
 
+use EcclesiaCRM\MyPDO\CardDavPDO;
+
 use EcclesiaCRM\Utils\LoggerUtils;
 
 use EcclesiaCRM\Service\MailChimpService;
@@ -364,6 +366,18 @@ class Person extends BasePerson implements iPhoto
       if (!empty($this->getDateLastEdited())) {
         $this->createTimeLineNote('edit');
       }
+      
+      // we have to update all the vcards
+      $cardDav = new CardDavPDO();
+
+      $cards = $cardDav->getCardsForPerson($this->getId());
+
+      $cardData = $this->getVCard();
+
+      foreach ($cards as $card) {
+        $cardDav->updateCard($card['addressbookid'], $card['uri'], $cardData);
+      }
+
     }
 
     public function createTimeLineNote($type)

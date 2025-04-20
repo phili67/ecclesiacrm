@@ -600,6 +600,31 @@ SQL;
     }
 
     /**
+     * Returns all cards for a personId.
+     *
+     * The same set of properties must be returned as with getCards. The only
+     * exception is that 'carddata' is absolutely required.
+     *
+     * If the card does not exist, you must return false.
+     *
+     * @param string $personId
+     * @return array
+     */
+    function getCardsForPerson($personId) {
+
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->cardsTableName . ' WHERE personId = ?');
+        $stmt->execute([$personId]);
+
+        $cards = [];
+
+        foreach ($stmt->fetchAll(\PDO::FETCH_ASSOC) as $row) {
+            $cards[] = $row;
+        }
+
+        return $cards;
+    }
+
+    /**
      * Updates a card.
      *
      * The addressbook id will be passed as the first argument. This is the
