@@ -181,6 +181,27 @@ WHERE addressbookshare.principaluri = ?');
     }
 
     /**
+     * Deletes an entire addressbook and all its contents
+     *
+     * @param int $addressBookId
+     * @return void
+     */
+    function deleteAddressBook($addressBookId) {
+
+        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->cardsTableName . ' WHERE addressbookid = ?');
+        $stmt->execute([$addressBookId]);
+
+        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBooksTableName . ' WHERE id = ?');
+        $stmt->execute([$addressBookId]);
+
+        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookChangesTableName . ' WHERE addressbookid = ?');
+        $stmt->execute([$addressBookId]);
+
+        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookShareTableName . ' WHERE addressbookid = ?');
+        $stmt->execute([$addressBookId]);
+    }
+
+    /**
      * Creates a new shared address book
      *
      * @param int $addressbookid
@@ -291,25 +312,45 @@ WHERE addressbookshare.principaluri = ?');
         });
     }
 
-   /**
+    /**
      * Deletes an entire addressbook and all its contents
      *
      * @param int $addressBookId
      * @return void
      */
-    function deleteAddressBook($addressBookId) {
+    function deleteAddressBookShare($id) {
 
-        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->cardsTableName . ' WHERE addressbookid = ?');
-        $stmt->execute([$addressBookId]);
+        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookShareTableName . ' WHERE id = ?');
+        $stmt->execute([$id]);
+    }
 
-        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBooksTableName . ' WHERE id = ?');
-        $stmt->execute([$addressBookId]);
+    /**
+     * Returns the list of addressbooks for a specific user and the share too
+     *
+     * @param string $principalUri
+     * @return array
+     */
+    function getAddressBooksShareForUser($principalUri) 
+    {
+        $stmt = $this->pdo->prepare('SELECT id, addressbookid, displayname, description, principaluri, user_id, href, access FROM '.$this->addressBookShareTableName.' WHERE principaluri = ?');
+        $stmt->execute([$principalUri]);
 
-        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookChangesTableName . ' WHERE addressbookid = ?');
-        $stmt->execute([$addressBookId]);
+        $addressBooks = [];
 
-        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookShareTableName . ' WHERE addressbookid = ?');
-        $stmt->execute([$addressBookId]);
+        foreach ($stmt->fetchAll() as $row) {
+            $addressBooks[] = [
+                'id' => $row['id'],
+                'addressbookid' => $row['addressbookid'],
+                '{DAV:}displayname' => $row['displayname'],
+                '{'.CardDAV\Plugin::NS_CARDDAV.'}addressbook-description' => $row['description'],
+                'principaluri' => $row['principaluri'],
+                'user_id' => $row['user_id'],
+                'href' => $row['href'],
+                'acces' => $row['access']
+            ];
+        }
+
+        return $addressBooks;
     }
 
    /**

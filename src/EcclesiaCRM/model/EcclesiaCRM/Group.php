@@ -97,6 +97,7 @@ class Group extends BaseGroup
         // we delete the address book
         $addressbook = $carddavBackend->getAddressBookForGroup($this->getId());
         $carddavBackend->deleteAddressBook($addressbook['id']);
+        // this will delete the addressbookshare with constraint ON DELETE CASCADE
 
         // we delete the associated listOptions
         $lists = ListOptionQuery::create()->findById($this->getRoleListId());
@@ -195,7 +196,7 @@ class Group extends BaseGroup
             $uuid,
             [
                 '{DAV:}displayname' => $this->getName(),
-                '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' => 'none'
+                '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' => $this->getDescription()
             ],
             $this->getId()
         );

@@ -548,8 +548,8 @@ class VIEWUserController
                             $user->createTimeLineNote("created");
                             $user->createHomeDir();
 
-                            if ($ManageGroups) {// in the case the user is a group manager, we add all the group calendars
-                                $user->createGroupAdminCalendars();
+                            if ($ManageGroups) {// in the case the user is a group manager, we add all the group calendars and addressboks
+                                $user->createGroupAdminCalendarsAndAddressbooks();
                             }
 
                             $email = new NewAccountEmail($user, $rawPassword);
@@ -614,11 +614,12 @@ class VIEWUserController
 
                             if ($ManageGroups || $Admin) {
                                 if (!$old_ManageGroups) {// only when the user has now the role group manager
-                                    $user->deleteGroupAdminCalendars();
-                                    $user->createGroupAdminCalendars();
+                                    // calendares & shared addressboks 
+                                    $user->deleteGroupAdminCalendarsAndAddressbooks();
+                                    $user->createGroupAdminCalendarsAndAddressbooks();
                                 }
-                            } else if ($old_ManageGroups) {// only delete group calendars in the case He was a group manager
-                                $user->deleteGroupAdminCalendars();
+                            } else if ($old_ManageGroups) {// only delete group calendars and shared addressboks in the case He was a group manager
+                                $user->deleteGroupAdminCalendarsAndAddressbooks();
                             }
 
                             $email = new UpdateAccountEmail($user, _("The same as before"));
