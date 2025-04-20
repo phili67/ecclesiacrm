@@ -84,6 +84,8 @@ class User extends BaseUser
             // puis on delete le user
             $principalBackend->deletePrincipal('principals/' . $this->getUserName());
 
+            $this->deleteGroupAdminCalendarsAndAddressbooks();
+
             return true;
         }
 
@@ -123,18 +125,14 @@ class User extends BaseUser
 
     public function deleteGroupAdminAddressBookShared()
     {
-        $userAdmin = UserQuery::Create()->findOneByPersonId(1);
-
         $carddavBackend = new CardDavPDO();   
 
-        if ($this->isManageGroupsEnabled() && $userAdmin->getPersonID() != $this->getPersonID()) { // an admin can't change itself and is ever the main group manager
+        $addressbookshared = $carddavBackend->getAddressBooksShareForUser('principals/' . $this->getUserName());
 
-            $addressbookshared = $carddavBackend->getAddressBooksShareForUser('principals/' . $this->getUserName());
-
-            foreach ($addressbookshared as $addrebookshared) {
-                $carddavBackend->deleteAddressBookShare($addrebookshared['id']);
-            }            
-        }
+        foreach ($addressbookshared as $addrebookshared) {
+            $carddavBackend->deleteAddressBookShare($addrebookshared['id']);
+        }            
+        
     }
 
     public function createGroupAdminCalendars()

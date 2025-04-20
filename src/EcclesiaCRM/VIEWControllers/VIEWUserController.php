@@ -543,14 +543,14 @@ class VIEWUserController
                             $user->setEditSelf($EditSelf);
                             $user->setCanvasser($Canvasser);
 
-                            $user->save();
-
                             $user->createTimeLineNote("created");
                             $user->createHomeDir();
 
                             if ($ManageGroups) {// in the case the user is a group manager, we add all the group calendars and addressboks
                                 $user->createGroupAdminCalendarsAndAddressbooks();
                             }
+
+                            $user->save();                            
 
                             $email = new NewAccountEmail($user, $rawPassword);
                             $email->send();
