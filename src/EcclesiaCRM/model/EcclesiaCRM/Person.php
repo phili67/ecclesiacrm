@@ -361,23 +361,32 @@ class Person extends BasePerson implements iPhoto
       }
     }
 
+    public function save(?ConnectionInterface $con = null, $with_card = true): int
+    {
+      
+      $ret = parent::save($con);
+
+      if ($with_card) {
+        // we have to update all the vcards, ensure it's done one time
+        $cardDav = new CardDavPDO();
+
+        $cards = $cardDav->getCardsForPerson($this->getId());
+
+        $cardData = $this->getVCard();
+
+        foreach ($cards as $card) {
+            $cardDav->updateCard($card['addressbookid'], $card['uri'], $cardData,true);
+        }
+      }
+
+      return $ret;
+    }
+
     public function postUpdate(ConnectionInterface $con = null): void
     {
       if (!empty($this->getDateLastEdited())) {
         $this->createTimeLineNote('edit');
       }
-      
-      // we have to update all the vcards
-      $cardDav = new CardDavPDO();
-
-      $cards = $cardDav->getCardsForPerson($this->getId());
-
-      $cardData = $this->getVCard();
-
-      foreach ($cards as $card) {
-        $cardDav->updateCard($card['addressbookid'], $card['uri'], $cardData);
-      }
-
     }
 
     public function createTimeLineNote($type)
