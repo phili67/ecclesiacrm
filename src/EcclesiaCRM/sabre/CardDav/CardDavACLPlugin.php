@@ -15,6 +15,8 @@ use Sabre\DAVACL\IACL;
 
 use EcclesiaCRM\Bootstrapper;
 
+use EcclesiaCRM\UserQuery;
+
 class CardDavACLPluginExtension extends Plugin {
     /**
      * Returns a list of privileges the current user has
@@ -113,6 +115,9 @@ class CardDavACLPluginExtension extends Plugin {
      */
     public function getAcl($node)
     {
+        $userAdmin = UserQuery::Create()->findOneByPersonId(1);   
+        $adminLogin = $userAdmin->getUserName();
+
         $currentPrincipal = $this->getCurrentUserPrincipal();
 
         if (is_string($node)) {
@@ -125,7 +130,7 @@ class CardDavACLPluginExtension extends Plugin {
         if (method_exists($node,'getProperties')) {
             $infos = $node->getProperties(['id','access','addressbookid']);
 
-            if (array_key_exists('access', $infos)) {
+            if (array_key_exists('access', $infos) and ($infos['access'] == 1 or $infos['access'] == 3)) {// access '1 = owner, 2 = read, 3 = readwrite',   
                 // we have to retreive the right calendar
                 $addressbookid = $infos['addressbookid'];
 
@@ -133,20 +138,34 @@ class CardDavACLPluginExtension extends Plugin {
                 $addressBooksTableName = 'addressbooks';
 
                 $stmt = $pdo->prepare('SELECT id, uri, displayname, principaluri, description, synctoken FROM '.$addressBooksTableName.' WHERE principaluri = ? and id = ?');
-                $stmt->execute(['principals/admin', $addressbookid]);
+                $stmt->execute(['principals/'.$adminLogin, $addressbookid]);
 
 
                 $row = $stmt->fetch();                                
 
-                $path = 'addressbooks/admin/' . $row['uri'];
+                $path = 'addressbooks/'.$adminLogin.'/' . $row['uri'];
                 $node = $this->server->tree->getNodeForPath($path);
+
+                $acl[] = [
+                    'principal' => $currentPrincipal,
+                    'privilege' => '{DAV:}all',
+                    'protected' => false,
+                ];
+            } else if (array_key_exists('access', $infos) and $infos['access'] == 2) {
+                $acl[] = [
+                    'principal' => $currentPrincipal,
+                    'privilege' => '{DAV:}read',
+                    'protected' => true,
+                ];
+            } else {// we're in the case of a admin addressbook
+                $acl[] = [
+                    'principal' => $currentPrincipal,
+                    'privilege' => '{DAV:}all',
+                    'protected' => true,
+                ];
             }
 
-            $acl[] = [
-                'principal' => $currentPrincipal,
-                'privilege' => '{DAV:}read',
-                'protected' => true,
-            ];
+            
 
             return $acl;
         }
@@ -155,7 +174,7 @@ class CardDavACLPluginExtension extends Plugin {
         foreach ($this->adminPrincipals as $adminPrincipal) {
             $acl[] = [
                 'principal' => $adminPrincipal,
-                'privilege' => '{DAV:}read',
+                'privilege' => '{DAV:}all',
                 'protected' => true,
             ];
         }
