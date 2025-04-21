@@ -15,6 +15,7 @@ use EcclesiaCRM\PersonQuery;
 use Sabre\CardDAV;
 use Sabre\DAV;
 use Sabre\DAV\Xml\Element\Sharee;
+use Sabre\VObject;
 
 use EcclesiaCRM\Bootstrapper;
 
@@ -220,7 +221,7 @@ WHERE addressbookshare.principaluri = ?');
             'principaluri' => $principalUri, // require person principals/admin for example
             'href'         => 0,
             'user_id'      => -1, // require
-            'access'       => 1 // '1 = owner, 2 = read, 3 = readwrite',
+            'access'       => 3 // '1 = owner, 2 = read, 3 = readwrite',
         ];
 
         foreach ($properties as $property => $newValue) {
@@ -537,6 +538,36 @@ SQL;
     }
 
     /**
+     * Returns a specific card.
+     *
+     * The same set of properties must be returned as with getCards. The only
+     * exception is that 'carddata' is absolutely required.
+     *
+     * If the card does not exist, you must return false.
+     *
+     * @param mixed  $addressBookId
+     * @param string $cardUri
+     *
+     * @return array
+     */
+    public function getCard($addressBookId, $cardUri)
+    {
+        $stmt = $this->pdo->prepare('SELECT id, carddata, uri, lastmodified, etag, size, personId FROM '.$this->cardsTableName.' WHERE addressbookid = ? AND uri = ? LIMIT 1');
+        $stmt->execute([$addressBookId, $cardUri]);
+
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$result) {
+            return false;
+        }
+
+        $result['etag'] = '"'.$result['etag'].'"';
+        $result['lastmodified'] = (int) $result['lastmodified'];
+
+        return $result;
+    }
+
+    /**
      * Returns all cards for a specific addressbook id.
      *
      * This method should return the following properties for each card:
@@ -649,7 +680,75 @@ SQL;
      * @param string $cardData
      * @return string|null
      */
-    function updateCard($addressBookId, $cardUri, $cardData) {
+    function updateCard($addressBookId, $cardUri, $cardData, $person_is_saved = false) 
+    {   
+        if (!$person_is_saved) {
+            $vcard = VObject\Reader::read($cardData);
+            //$vcard = $vcard->convert(VObject\Document::VCARD40);
+
+            $realCard = $this->getCard($addressBookId, $cardUri);
+            $person = PersonQuery::create()->findOneById($realCard['personId']);
+
+            $family = $person->getFamily();
+
+            if (isset($vcard->TITLE)) {// function
+                $Title = $vcard->TITLE->getValue();
+                $person->setTitle($Title);
+            }
+            if (isset ($vcard->FN)) {// view named firstaname ....
+                $FN = $vcard->FN;
+            }
+            if (isset ($vcard->ROLE)) {// role
+                $role = $vcard->ROLE;
+            }
+            if (isset ($vcard->NICKNAME)) {// pseudo
+                $nickname = $vcard->NICKNAME;
+            }
+            if (isset ($vcard->N)) {// lastname
+                $N = explode(";",$vcard->N->getValue());
+                $person->setTitle($N[3]);
+                $person->setLastName($N[0]);
+                $person->setFirstName($N[1]);
+
+                $family->setName($N[0]);
+            }
+            $tels = [];
+            if (isset($vcard->TEL)) {// all the phone numbers
+                foreach($vcard->TEL as $tel) {
+                    $tels[] = $tel->getValue();                
+                }
+            }
+            $adrElts = null;
+            if (isset($vcard->ADR)) {// the address
+                $param = $vcard->ADR['TYPE'];// by type home and private
+                $adrElts = explode(";",$vcard->ADR->getValue());
+                foreach ($param as $value) {
+                    $ADR = $value;                
+                }
+                
+                $family->setAddress1($adrElts[2]);
+                $family->setCity($adrElts[3]);
+                $family->setState($adrElts[4]);
+                $family->setZip($adrElts[5]);
+                $family->setCountry($adrElts[6]);            
+
+
+                $person->setAddress1($adrElts[2]);
+                $person->setCity($adrElts[3]);
+                $person->setState($adrElts[4]);
+                $person->setZip($adrElts[5]);
+                $person->setCountry($adrElts[6]);                            
+            }
+            if (isset($vcard->ORG)) {// the firm name
+                $firmName = $vcard->ORG; // value is an array !!!!
+            }
+            if (isset($vcard->EMAL)) {// the firm name
+                $firmName = $vcard->EMAIL; // value is an array !!! First one is personal, second professional
+            }            
+
+            $person->save(null, true);
+            $family->save();
+        }
 
         $stmt = $this->pdo->prepare('UPDATE ' . $this->cardsTableName . ' SET carddata = ?, lastmodified = ?, size = ?, etag = ? WHERE uri = ? AND addressbookid =?');
 
