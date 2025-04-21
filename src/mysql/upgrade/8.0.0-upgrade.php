@@ -211,10 +211,12 @@ $logger->info("Start to delete : start group add to addressbook");
 
 $groups = GroupQuery::create()->find();
 
+$userAdmin = UserQuery::Create()->findOneByPersonId(1);        
+
 foreach ($groups as $group) {
   // first we add the adress book
   $addressbookId = $carddavBackend->createAddressBook(
-    'principals/admin',
+    'principals/'.strtolower($userAdmin->getUserName()),
     \Sabre\DAV\UUIDUtil::getUUID(),
     [
       '{DAV:}displayname'                                       => $group->getName(),
@@ -240,7 +242,7 @@ foreach ($groups as $group) {
         '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description'  => '',
         'href'         => 0,
         'user_id'      => $user->getId(), // require
-        'access'       => 1 // '1 = owner, 2 = read, 3 = readwrite',                    
+        'access'       => 3 // '1 = owner, 2 = read, 3 = readwrite',                    
       ]
     );
   }
