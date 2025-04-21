@@ -232,7 +232,7 @@ class Group extends BaseGroup
                     '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description'  => $this->getDescription(),
                     'href'         => 0,
                     'user_id'      => $user->getId(), // require
-                    'access'       => 1 // '1 = owner, 2 = read, 3 = readwrite',                    
+                    'access'       => 3 // '1 = owner, 2 = read, 3 = readwrite',                    
                 ]
             );
         }
