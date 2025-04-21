@@ -6,43 +6,45 @@ use Sabre\VObject\Component\VCard;
 use EcclesiaCRM\Person;
 
 class VcardUtils {
-    public static function Person2Vcard(Person $person) : VCard {
-        $carArr = [
-            //'N' => $person->getLastName().';'.$person->getFirstName().";;;",
-            'NAME' => $person->getLastName(),
-            'TITLE' => $person->getTitle(),
-            'FN'  => $person->getFullName(),
-            "UID" => \Sabre\DAV\UUIDUtil::getUUID()
-        ];
+    public static function Person2Vcard(Person $person) : VCard {        
+        $vcard = new VCard();
+
+        $vcard->add('NAME', $person->getLastName());
+        $vcard->add('N', [$person->getLastName(),$person->getFirstName(),'',$person->getTitle(),'']);
+        $vcard->add('TITLE', $person->getTitle());
+        $vcard->add('FN',$person->getFullName());
+        $vcard->add('UID',\Sabre\DAV\UUIDUtil::getUUID());
 
         if ( !empty($person->getWorkEmail()) ) {
-            $carArr['EMAIL;type=INTERNET;type=WORK;type=pref'] = $person->getWorkEmail();
+            $vcard->add('EMAIL', $person->getWorkEmail(), ['type' => 'WORK']);        
         }
         if ( !empty($person->getEmail()) ) {
-            $carArr["EMAIL;type=INTERNET;type=HOME;type=pref"] = $person->getEmail();
+            $vcard->add('EMAIL', $person->getEmail(), ['type' => 'HOME']);        
         }
 
         if ( !empty($person->getHomePhone()) ) {
-            $carArr["TEL;type=HOME;type=VOICE;type=pref"] = $person->getHomePhone();;
+            $vcard->add('TEL', $person->getHomePhone(), ['type' => 'HOME']);            
         }
 
         if ( !empty($person->getCellPhone()) ) {
-            $carArr["TEL;type=CELL;type=VOICE"] = $person->getCellPhone();
+            $vcard->add('TEL', $person->getCellPhone(), ['type' => 'CELL']);            
         }
 
         if ( !empty($person->getWorkPhone()) ) {
-            $carArr["TEL;type=WORK;type=VOICE"] = $person->getWorkPhone();
+            $vcard->add('TEL', $person->getWorkPhone(), ['type' => 'WORK']);            
         }
 
         if ( !empty($person->getAddress1()) || !empty($person->getCity()) || !empty($person->getZip()) ) {
-            $carArr["item1.ADR;type=HOME;type=pref"] = $person->getAddress1().' '.$person->getCity().' '.$person->getZip();
-            $carArr["item1.X-ABADR"] = "fr";
+            $vcard->add('ADR', ['', '', $person->getAddress1(), $person->getCity(),'', $person->getZip(), $person->getCountry()], ['type' => 'HOME']);  
+            // ;;100 Waters Edge;Baytown;LA;30314;United States of America
+            $vcard->add('LABEL', $person->getAddress1().' '.$person->getCity().$person->getZip().', '. $person->getCountry(), ['type' => 'HOME']);  
+            $vcard->add('X-ABADR', 'fr', ['type' => 'HOME']);              
         } else if (!is_null ($person->getFamily())) {
-            $carArr["item1.ADR;type=HOME;type=pref"] = $person->getFamily()->getAddress1().' '.$person->getFamily()->getCity().' '.$person->getFamily()->getZip();
-            $carArr["item1.X-ABADR"] = "fr";
+            $vcard->add('ADR', ['', '', $person->getFamily()->getAddress1(),$person->getFamily()->getCity(),'', $person->getFamily()->getZip(), $person->getFamily()->getCountry()], ['type' => 'HOME']);  
+            // ;;100 Waters Edge;Baytown;LA;30314;United States of America
+            $vcard->add('LABEL', $person->getFamily()->getAddress1().' '.$person->getFamily()->getCity().$person->getFamily()->getZip().', '. $person->getFamily()->getCountry(), ['type' => 'HOME']);  
+            $vcard->add('X-ABADR', 'fr', ['type' => 'HOME']);    
         }
-
-        $vcard = new VCard($carArr);
 
         return $vcard; 
     }
