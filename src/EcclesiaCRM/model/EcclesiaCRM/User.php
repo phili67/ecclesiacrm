@@ -116,7 +116,7 @@ class User extends BaseUser
                         '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description'  => '',
                         'href'         => 0,
                         'user_id'      => $this->getId(), // require
-                        'access'       => 1 // '1 = owner, 2 = read, 3 = readwrite',                    
+                        'access'       => 3 // '1 = owner, 2 = read, 3 = readwrite',                    
                     ]
                 );                                
             }
