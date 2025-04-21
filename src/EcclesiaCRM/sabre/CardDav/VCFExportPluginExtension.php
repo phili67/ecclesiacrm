@@ -16,9 +16,10 @@ use Sabre\CardDAV\Plugin;
 use Sabre\VObject;
 
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\UserQuery;
 
 use Sabre\CardDAV\IAddressBook;
-use EcclesiaCRM\MyPDO\CardDavPDO;
+
 
 
 use Sabre\CardDAV\VCFExportPlugin as VCFExportPlugin;
@@ -65,11 +66,14 @@ class VCFExportPluginExtension extends VCFExportPlugin {
             $pdo = Bootstrapper::GetPDO();            
             $addressBooksTableName = 'addressbooks';
 
+            // all the addressbooks are shared from the administrators
+            $userAdmin = UserQuery::Create()->findOneByPersonId(1);          
+
             $stmt = $pdo->prepare('SELECT id, uri, displayname, principaluri, description, synctoken FROM '.$addressBooksTableName.' WHERE principaluri = ? and id = ?');
-            $stmt->execute(['principals/admin', $addressbookid]);
+            $stmt->execute(['principals/'.strtolower($userAdmin->getUserName()), $addressbookid]);
 
             $row = $stmt->fetch();                
-            $path = 'addressbooks/admin/' . $row['uri'];
+            $path = 'addressbooks/'.strtolower($userAdmin->getUserName()).'/' . $row['uri'];
             $addressbookId = $row['id'];
             $addressbookUri = $row['uri'];
             $node = $this->server->tree->getNodeForPath($path);            
