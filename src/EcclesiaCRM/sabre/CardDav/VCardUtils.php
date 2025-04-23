@@ -11,9 +11,10 @@ class VcardUtils {
 
         $vcard->add('NAME', $person->getLastName());
         $vcard->add('N', [$person->getLastName(),$person->getFirstName(),'',$person->getTitle(),'']);
-        $vcard->add('TITLE', $person->getTitle());
+        $vcard->add('TITLE', $person->getSuffix());
         $vcard->add('FN',$person->getFullName());
         $vcard->add('UID',\Sabre\DAV\UUIDUtil::getUUID());
+        $vcard->add('BDAY', $person->getBirthDate()->format("Y-m-d"), ['type' => 'date']);
 
         if ( !empty($person->getWorkEmail()) ) {
             $vcard->add('EMAIL', $person->getWorkEmail(), ['type' => 'WORK']);        
