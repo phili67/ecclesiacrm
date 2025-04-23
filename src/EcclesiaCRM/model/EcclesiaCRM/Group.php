@@ -8,13 +8,16 @@ use EcclesiaCRM\Utils\MiscUtils;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
+use Sabre;
 use Sabre\CalDAV;
 use Sabre\DAV\Xml\Element\Sharee;
+use Sabre\DAV\PropPatch;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\CardDavPDO;
 
-use Sabre\DAV\PropPatch;
+use EcclesiaCRM\CardDav\VcardUtils;
+
 
 
 /**
@@ -51,42 +54,9 @@ class Group extends BaseGroup
 
         if ($addressbook['id'] != 0 && !$carddavBackend->getCardForPerson($addressbook['id'], $personId)) {
             // we've checked that we'll insert only one card per user
+            $vcard = VcardUtils::Person2Vcard($person);
 
-            // now we'll create all the cards
-            $card = 'BEGIN:VCARD
-VERSION:3.0
-PRODID:-//Apple Inc.//Mac OS X 10.12.6//EN
-N:' . $person->getLastName() . ';' . $person->getFirstName() . ';' . $person->getMiddleName() . ';;
-FN:' . $person->getFirstName() . ' ' . $person->getLastName();
-
-            if (!empty($person->getWorkEmail())) {
-                $card .= "\nEMAIL;type=INTERNET;type=WORK;type=pref:" . $person->getWorkEmail();
-            }
-            if (!empty($person->getEmail())) {
-                $card .= "\nEMAIL;type=INTERNET;type=HOME;type=pref:" . $person->getEmail();
-            }
-
-            if (!empty($person->getHomePhone())) {
-                $card .= "\nTEL;type=HOME;type=VOICE;type=pref:" . $person->getHomePhone();
-            }
-
-            if (!empty($person->getCellPhone())) {
-                $card .= "\nTEL;type=CELL;type=VOICE:" . $person->getCellPhone();
-            }
-
-            if (!empty($person->getWorkPhone())) {
-                $card .= "\nTEL;type=WORK;type=VOICE:" . $person->getWorkPhone();
-            }
-
-            if (!empty($person->getAddress1()) || !empty($person->getCity()) || !empty($person->getZip())) {
-                $card .= "\nitem1.ADR;type=HOME;type=pref:;;" . $person->getAddress1() . ';' . $person->getCity() . ';;' . $person->getZip();
-            } else if (!is_null($person->getFamily())) {
-                $card .= "\nitem1.ADR;type=HOME;type=pref:;;" . $person->getFamily()->getAddress1() . ';' . $person->getFamily()->getCity() . ';;' . $person->getFamily()->getZip();
-            }
-
-            $card .= "\nitem1.X-ABADR:fr
-UID:" . \Sabre\DAV\UUIDUtil::getUUID() . '
-END:VCARD';
+            $card = $vcard->serialize();            
 
             $carddavBackend->createCard($addressbook['id'], 'UUID-' . \Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
         }
@@ -127,6 +97,7 @@ END:VCARD';
         // we delete the address book
         $addressbook = $carddavBackend->getAddressBookForGroup($this->getId());
         $carddavBackend->deleteAddressBook($addressbook['id']);
+        // this will delete the addressbookshare with constraint ON DELETE CASCADE
 
         // we delete the associated listOptions
         $lists = ListOptionQuery::create()->findById($this->getRoleListId());
@@ -215,6 +186,22 @@ END:VCARD';
             $this->getId()
         );
 
+        // we add the addressbook
+        $carddavBackend = new CardDavPDO();
+
+        $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
+
+        $addresbookid = $carddavBackend->createAddressBook(
+            'principals/' . strtolower($userAdmin->getUserName()),
+            $uuid,
+            [
+                '{DAV:}displayname' => $this->getName(),
+                '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' => $this->getDescription()
+            ],
+            $this->getId()
+        );
+
+
         // we filter all the user who are admin or group manager and not the principal admin
         $users = UserQuery::Create()
             ->filterByManageGroups(true)
@@ -236,6 +223,18 @@ END:VCARD';
                     ])
                 ]
             );
+
+            $carddavBackend->createAddressBookShare(
+                'principals/'.$user->getUserName(),
+                [
+                    'addressbookid'=> $addresbookid, // require
+                    '{DAV:}displayname'  => $this->getName(),
+                    '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description'  => $this->getDescription(),
+                    'href'         => 0,
+                    'user_id'      => $user->getId(), // require
+                    'access'       => 3 // '1 = owner, 2 = read, 3 = readwrite',                    
+                ]
+            );
         }
     }
 
@@ -243,36 +242,6 @@ END:VCARD';
     {
         if (is_callable('parent::postSave')) {
             parent::postSave($con);
-
-            // Now a group is binded to a calendar !!!
-
-            // We set the BackEnd for sabre Backends
-            /*$calendarBackend = new CalDavPDO();
-            $carddavBackend = new CardDavPDO();
-
-            $calendarID = $calendarBackend->getByGroupid($this->getId());
-
-            // Updating the calendar
-            $propPatch = new PropPatch([
-                '{DAV:}displayname' => $this->getName()
-            ]);
-
-            $calendarBackend->updateCalendar([$calendarID[0], $calendarID[1]], $propPatch);
-            //$calendarBackend->updateCalendar([$calendarInstance->getCalendarid(),$calendarInstance->getId()], $propPatch);
-
-            $result = $propPatch->commit();
-
-            $addressbookId = $carddavBackend->createAddressBook(
-                'principals/admin',
-                \Sabre\DAV\UUIDUtil::getUUID(),
-                [
-                    '{DAV:}displayname' => $this->getName(),
-                    '{urn:ietf:params:xml:ns:carddav}addressbook-description' => 'AddressBook description',
-                ],
-                $this->getId()
-            );
-
-            LoggerUtils::getAppLogger()->info("really finished");*/
         }
     }
 
@@ -326,6 +295,7 @@ END:VCARD';
             $calendarInstances = CalendarinstancesQuery::Create()->findByGroupId($this->getId());
 
             $calendarBackend = new CalDavPDO();
+            $carddavBackend = new CardDavPDO();
 
             foreach ($calendarInstances as $calendarInstance) {
                 // Updating the calendar
@@ -336,6 +306,36 @@ END:VCARD';
                 $calendarBackend->updateCalendar([$calendarInstance->getCalendarid(), $calendarInstance->getId()], $propPatch);
 
                 $result = $propPatch->commit();
+            }
+
+            $addressbooks = AddressbooksQuery::create()->findByGroupid($this->getId());
+
+            foreach($addressbooks as $addressbook) {
+                $addressBookId = $addressbook->getId();
+
+                $propPatch = new PropPatch([
+                    '{DAV:}displayname' => $name,
+                    '{'.\Sabre\CardDAV\Plugin::NS_CARDDAV.'}addressbook-description' => $this->getDescription()
+                ]);
+
+                $ret = $carddavBackend->updateAddressBook(
+                    $addressBookId,$propPatch
+                );
+
+                $result = $propPatch->commit();
+
+                $addressbookShares = AddressbookshareQuery::create()->findByAddressbookid($addressBookId);
+
+                foreach ($addressbookShares as $addressbookShare) {
+                    $propPatch = new PropPatch([
+                        '{DAV:}displayname' => $name,
+                        '{'.\Sabre\CardDAV\Plugin::NS_CARDDAV.'}addressbook-description' => $this->getDescription()
+                    ]);
+                    $ret = $carddavBackend->updateAddressBookShare(
+                        $addressbookShare->getId(),$propPatch
+                    );  
+                    $result = $propPatch->commit();
+                }
             }
         }
 

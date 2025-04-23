@@ -13,6 +13,9 @@ use Firebase\JWT\JWT;
 use Sabre\DAV\Xml\Element\Sharee;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\MyPDO\CardDavPDO;
+
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
 
 use EcclesiaCRM\Service\NotificationService;
 use EcclesiaCRM\Service\SystemService;
@@ -28,23 +31,23 @@ abstract class SecurityOptions
 {
     const bNoDashBordItem = 0;
     const bAdmin = 1; // bit 0
-    const bPastoralCare = 2;// bit 1
-    const bMailChimp = 4;// bit 2
-    const bGdrpDpo = 8;// bit 3
-    const bMainDashboard = 16;// bit 4
-    const bSeePrivacyData = 32;// bit 5
-    const bAddRecords = 64;// bit 6
-    const bEditRecords = 128;// bit 7
-    const bDeleteRecords = 256;// bit 8
-    const bMenuOptions = 512;// bit 9
-    const bManageGroups = 1024;// bit 10
-    const bFinance = 2048;// bit 11
-    const bNotes = 4096;// bit 12
-    const bCanvasser = 8192;// bit 13
-    const bEditSelf = 16384;// bit 14
-    const bShowCart = 32768;// bit 15
-    const bShowMap = 65536;// bit 16
-    const bEDrive = 131072;// bit 17
+    const bPastoralCare = 2; // bit 1
+    const bMailChimp = 4; // bit 2
+    const bGdrpDpo = 8; // bit 3
+    const bMainDashboard = 16; // bit 4
+    const bSeePrivacyData = 32; // bit 5
+    const bAddRecords = 64; // bit 6
+    const bEditRecords = 128; // bit 7
+    const bDeleteRecords = 256; // bit 8
+    const bMenuOptions = 512; // bit 9
+    const bManageGroups = 1024; // bit 10
+    const bFinance = 2048; // bit 11
+    const bNotes = 4096; // bit 12
+    const bCanvasser = 8192; // bit 13
+    const bEditSelf = 16384; // bit 14
+    const bShowCart = 32768; // bit 15
+    const bShowMap = 65536; // bit 16
+    const bEDrive = 131072; // bit 17
     const bShowMenuQuery = 262144; // bit 18
     const bDashBoardUser = 1073741824; // bit 30
 }
@@ -72,141 +75,199 @@ class User extends BaseUser
     public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL): bool
     {
         if (parent::preDelete($con)) {
-          $this->deleteHomeDir();
+            $this->deleteHomeDir();
 
-          // transfert the calendars to a user
-          // now we code now in Sabre
-          $principalBackend = new PrincipalPDO();
+            // transfert the calendars to a user
+            // now we code now in Sabre
+            $principalBackend = new PrincipalPDO();
 
-          // puis on delete le user
-          $principalBackend->deletePrincipal('principals/'.$this->getUserName());
+            // puis on delete le user
+            $principalBackend->deletePrincipal('principals/' . $this->getUserName());
 
-          return true;
+            $this->deleteGroupAdminCalendarsAndAddressbooks();
+
+            return true;
         }
 
         return false;
     }
 
-    public function deleteGroupAdminCalendars ()
+    public function createGroupAdminAddressBookShared()
     {
-        $userAdmin = UserQuery::Create()->findOneByPersonId (1);
+        $userAdmin = UserQuery::Create()->findOneByPersonId(1);
+
+        $carddavBackend   = new CardDavPDO();   
+
+
+        if ($this->isManageGroupsEnabled() && $userAdmin->getPersonID() != $this->getPersonID()) { // an admin can't change itself and is ever the main group manager
+            $groups = GroupQuery::create()->find();
+
+            foreach ($groups as $group) {
+                $addressbook = $carddavBackend->getAddressBookForGroup($group->getId());
+
+                $addressbookId = $addressbook['id'];
+
+                // now we can share the new calendar to the users
+                $carddavBackend->createAddressBookShare(
+                    'principals/' . $this->getUserName(),
+                    [
+                        'addressbookid' => $addressbookId, // require
+                        '{DAV:}displayname'  => $group->getName(),
+                        '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description'  => '',
+                        'href'         => 0,
+                        'user_id'      => $this->getId(), // require
+                        'access'       => 3 // '1 = owner, 2 = read, 3 = readwrite',                    
+                    ]
+                );                                
+            }
+        }
+    }
+
+    public function deleteGroupAdminAddressBookShared()
+    {
+        $carddavBackend = new CardDavPDO();   
+
+        $addressbookshared = $carddavBackend->getAddressBooksShareForUser('principals/' . $this->getUserName());
+
+        foreach ($addressbookshared as $addrebookshared) {
+            $carddavBackend->deleteAddressBookShare($addrebookshared['id']);
+        }            
+        
+    }
+
+    public function createGroupAdminCalendars()
+    {
+        $userAdmin = UserQuery::Create()->findOneByPersonId(1);
 
         // transfert the calendars to a user
         // now we code now in Sabre
         $calendarBackend = new CalDavPDO();
 
-        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($userAdmin->getUserName()),"displayname",true);
+        if ($this->isManageGroupsEnabled() && $userAdmin->getPersonID() != $this->getPersonID()) { // an admin can't change itself and is ever the main group manager
+            // we have to add the groupCalendars
+            $calendars = $calendarBackend->getCalendarsForUser('principals/' . strtolower($userAdmin->getUserName()), "displayname", true);
 
-        foreach ($calendars as $calendar) {
-          $shares = $calendarBackend->getInvites($calendar['id']);
-
-          if ($calendar['grpid'] > 0 || $calendar['cal_type'] > 1) {// only Group Calendar are purged
-            foreach ($shares as $share) {
-                if ($share->principal == 'principals/'.strtolower($this->getUserName())) {
-                  $share->access = \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS;
+            foreach ($calendars as $calendar) {
+                // we'll connect to sabre
+                // Add a new invite
+                if ($calendar['grpid'] > 0 || $calendar['cal_type'] > 1) {
+                    $calendarBackend->updateInvites(
+                        $calendar['id'],
+                        [
+                            new Sharee([
+                                'href'         => 'mailto:' . $this->getEmail(),
+                                'principal'    => 'principals/' . strtolower($this->getUserName()),
+                                'access'       => \Sabre\DAV\Sharing\Plugin::ACCESS_READWRITE,
+                                'inviteStatus' => \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED,
+                                'properties'   => ['{DAV:}displayname' => strtolower($this->getUserName())],
+                            ])
+                        ]
+                    );
                 }
             }
-          }
-
-          $calendarBackend->updateInvites($calendar['id'],$shares);
         }
     }
 
-    public function createGroupAdminCalendars ()
+    public function deleteGroupAdminCalendars()
     {
-        $userAdmin = UserQuery::Create()->findOneByPersonId (1);
+        $userAdmin = UserQuery::Create()->findOneByPersonId(1);
 
         // transfert the calendars to a user
         // now we code now in Sabre
         $calendarBackend = new CalDavPDO();
 
-        if ( $this->isManageGroupsEnabled() && $userAdmin->getPersonID() != $this->getPersonID()) {// an admin can't change itself and is ever tge main group manager
-          // we have to add the groupCalendars
-          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($userAdmin->getUserName()),"displayname",true);
+        $calendars = $calendarBackend->getCalendarsForUser('principals/' . strtolower($userAdmin->getUserName()), "displayname", true);
 
-          foreach ($calendars as $calendar) {
-            // we'll connect to sabre
-            // Add a new invite
-            if ($calendar['grpid'] > 0 || $calendar['cal_type'] > 1) {
-              $calendarBackend->updateInvites(
-                $calendar['id'],
-                [
-                    new Sharee([
-                        'href'         => 'mailto:'.$this->getEmail(),
-                        'principal'    => 'principals/'.strtolower( $this->getUserName() ),
-                        'access'       => \Sabre\DAV\Sharing\Plugin::ACCESS_READWRITE,
-                        'inviteStatus' => \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED,
-                        'properties'   => ['{DAV:}displayname' => strtolower( $this->getUserName() )],
-                    ])
-                ]
-              );
+        foreach ($calendars as $calendar) {
+            $shares = $calendarBackend->getInvites($calendar['id']);
+
+            if ($calendar['grpid'] > 0 || $calendar['cal_type'] > 1) { // only Group Calendar are purged
+                foreach ($shares as $share) {
+                    if ($share->principal == 'principals/' . strtolower($this->getUserName())) {
+                        $share->access = \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS;
+                    }
+                }
             }
-          }
+
+            $calendarBackend->updateInvites($calendar['id'], $shares);
         }
     }
 
-    public function changePrincipalEmail ($newEmail)
+    public function createGroupAdminCalendarsAndAddressbooks()
     {
-      if ($newEmail != $this->getEmail()) {
-         try {
+        $this->createGroupAdminCalendars();
+        $this->createGroupAdminAddressBookShared();
 
-              $principal = PrincipalsQuery::Create()->findOneByEmail ($this->getEmail());
-
-              if ( !is_null ($principal) ) {
-                $principal->setEmail ($newEmail);
-                $principal->save();
-              }
-
-         } catch (\Exception $e) {
-            LoggerUtils::getAppLogger()->info('Unable to change email for : '.strtolower($this->getUserName()).'.'.$e->getMessage());              
-         }
-      }
     }
 
-    public function renameHomeDir($oldUserName,$newUserName)
+
+    public function deleteGroupAdminCalendarsAndAddressbooks()
     {
-      $oldUserName = strtolower ($oldUserName);
-      $newUserName = strtolower ($newUserName);
+        $this->deleteGroupAdminCalendars();
+        $this->deleteGroupAdminAddressBookShared();
 
-      if ($oldUserName != "admin") {// the calendars of the principal admin should be preserved
-        return;
-      }
+    }
 
-      if ($oldUserName != $newUserName) {
-         try {
-              rename(dirname(__FILE__)."/../../../".$this->getUserDir(strtolower($oldUserName)),dirname(__FILE__)."/../../../".$this->getUserDir(strtolower($newUserName)));
-              $this->setHomedir($this->getUserDir());
-              $this->save();
+    public function changePrincipalEmail($newEmail)
+    {
+        if ($newEmail != $this->getEmail()) {
+            try {
 
-              // transfert the calendars to a user
-              // now we code now in Sabre
-              $calendarBackend = new CalDavPDO();
-              $principalBackend = new PrincipalPDO();
+                $principal = PrincipalsQuery::Create()->findOneByEmail($this->getEmail());
 
-              $principalBackend->createNewPrincipal('principals/'.$newUserName, $this->getEmail() ,$newUserName);
-              $calendarBackend->moveCalendarToNewPrincipal('principals/'.$oldUserName,'principals/'.$newUserName);
+                if (!is_null($principal)) {
+                    $principal->setEmail($newEmail);
+                    $principal->save();
+                }
+            } catch (\Exception $e) {
+                LoggerUtils::getAppLogger()->info('Unable to change email for : ' . strtolower($this->getUserName()) . '.' . $e->getMessage());
+            }
+        }
+    }
 
-              // We delete the principal user => it will delete the calendars and events too.
-              $principalBackend->deletePrincipal('principals/'.$oldUserName);
+    public function renameHomeDir($oldUserName, $newUserName)
+    {
+        $oldUserName = strtolower($oldUserName);
+        $newUserName = strtolower($newUserName);
 
-         } catch (\Exception $e) {
-              LoggerUtils::getAppLogger()->info('Unable to rename home dir for user: '.strtolower($this->getUserName()).'.'.$e->getMessage());
-         }
-      }
+        if ($oldUserName != "admin") { // the calendars of the principal admin should be preserved
+            return;
+        }
+
+        if ($oldUserName != $newUserName) {
+            try {
+                rename(dirname(__FILE__) . "/../../../" . $this->getUserDir(strtolower($oldUserName)), dirname(__FILE__) . "/../../../" . $this->getUserDir(strtolower($newUserName)));
+                $this->setHomedir($this->getUserDir());
+                $this->save();
+
+                // transfert the calendars to a user
+                // now we code now in Sabre
+                $calendarBackend = new CalDavPDO();
+                $principalBackend = new PrincipalPDO();
+
+                $principalBackend->createNewPrincipal('principals/' . $newUserName, $this->getEmail(), $newUserName);
+                $calendarBackend->moveCalendarToNewPrincipal('principals/' . $oldUserName, 'principals/' . $newUserName);
+
+                // We delete the principal user => it will delete the calendars and events too.
+                $principalBackend->deletePrincipal('principals/' . $oldUserName);
+            } catch (\Exception $e) {
+                LoggerUtils::getAppLogger()->info('Unable to rename home dir for user: ' . strtolower($this->getUserName()) . '.' . $e->getMessage());
+            }
+        }
     }
 
     public function getUserName()
     {
-      $userName = parent::getUserName();
+        $userName = parent::getUserName();
 
-      return strtolower($userName);
+        return strtolower($userName);
     }
 
     public function createHomeDir()
     {
-       try {
-            if (!is_dir(dirname(__FILE__)."/../../../".$this->getUserDir())) {
-                mkdir(dirname(__FILE__)."/../../../".$this->getUserDir(), 0755, true);
+        try {
+            if (!is_dir(dirname(__FILE__) . "/../../../" . $this->getUserDir())) {
+                mkdir(dirname(__FILE__) . "/../../../" . $this->getUserDir(), 0755, true);
             }
             $this->setHomedir($this->getUserDir());
             $this->save();
@@ -214,188 +275,188 @@ class User extends BaseUser
             // now we code in Sabre
             $principalBackend = new PrincipalPDO();
 
-            $res = $principalBackend->getPrincipalByPath ("principals/".strtolower( $this->getUserName() ));
+            $res = $principalBackend->getPrincipalByPath("principals/" . strtolower($this->getUserName()));
             $calendarBackend = new CalDavPDO();
 
             if (empty($res)) {
-              $principalBackend->createNewPrincipal("principals/".strtolower( $this->getUserName() ), $this->getEmail(),strtolower($this->getUserName()));
+                $principalBackend->createNewPrincipal("principals/" . strtolower($this->getUserName()), $this->getEmail(), strtolower($this->getUserName()));
             }
 
             if ($this->isManageGroupsEnabled()) {
-              $this->createGroupAdminCalendars ();
+                $this->createGroupAdminCalendarsAndAddressbooks();                
             }
 
             // create the home public folder
             $this->createHomePublicDir();
-
-       } catch (\Exception $e) {
-            LoggerUtils::getAppLogger()->info('Unable to create home dir for user: '.strtolower($this->getUserName()).'.'.$e->getMessage());
-       }
+        } catch (\Exception $e) {
+            LoggerUtils::getAppLogger()->info('Unable to create home dir for user: ' . strtolower($this->getUserName()) . '.' . $e->getMessage());
+        }
     }
 
-    public function createHomePublicDir ()
+    public function createHomePublicDir()
     {
-      $path = $this->getUserPublicDir();
+        $path = $this->getUserPublicDir();
     }
 
     public function deleteHomeDir()
     {
-      // we code first in Sabre
-      $principalBackend = new PrincipalPDO();
+        // we code first in Sabre
+        $principalBackend = new PrincipalPDO();
 
-      $res = $principalBackend->deletePrincipal ("principals/".strtolower( $this->getUserName() ));
+        $res = $principalBackend->deletePrincipal("principals/" . strtolower($this->getUserName()));
 
-      // we code now in propel
-      MiscUtils::delTree(dirname(__FILE__)."/../../../".$this->getUserPublicDir());
-      MiscUtils::delTree(dirname(__FILE__)."/../../../".$this->getUserRootDir());
+        // we code now in propel
+        MiscUtils::delTree(dirname(__FILE__) . "/../../../" . $this->getUserPublicDir());
+        MiscUtils::delTree(dirname(__FILE__) . "/../../../" . $this->getUserRootDir());
 
-      $this->setHomedir(null);
-      $this->save();
+        $this->setHomedir(null);
+        $this->save();
     }
 
     public function ApplyRole($roleID)
     {
-      $role = UserRoleQuery::Create()->findOneById($roleID);
+        $role = UserRoleQuery::Create()->findOneById($roleID);
 
-      if (!is_null($role)) {
-        // we first apply the global settings to the user
-        $globals = explode(";",$role->getGlobal());
+        if (!is_null($role)) {
+            // we first apply the global settings to the user
+            $globals = explode(";", $role->getGlobal());
 
-        foreach ($globals as $val) {
-          $res = explode (":",$val);
+            foreach ($globals as $val) {
+                $res = explode(":", $val);
 
-          switch ($res[0]) {
-            case 'AddRecords':
-               $this->setAddRecords($res[1]);
-               break;
-            case 'EditRecords':
-               $this->setEditRecords($res[1]);
-               break;
-            case 'DeleteRecords':
-               $this->setDeleteRecords($res[1]);
-               break;
-            case 'ShowCart':
-               $this->setShowCart($res[1]);
-               break;
-            case 'ShowMap':
-               $this->setShowMap($res[1]);
-               break;
-            case 'EDrive':
-               $this->setEDrive($res[1]);
-               break;
-            case 'MenuOptions':
-               $this->setMenuOptions($res[1]);
-               break;
-            case 'ManageGroups':
-               $old_ManageGroups = $this->isManageGroupsEnabled();
-               $ManageGroups = $res[1];
+                switch ($res[0]) {
+                    case 'AddRecords':
+                        $this->setAddRecords($res[1]);
+                        break;
+                    case 'EditRecords':
+                        $this->setEditRecords($res[1]);
+                        break;
+                    case 'DeleteRecords':
+                        $this->setDeleteRecords($res[1]);
+                        break;
+                    case 'ShowCart':
+                        $this->setShowCart($res[1]);
+                        break;
+                    case 'ShowMap':
+                        $this->setShowMap($res[1]);
+                        break;
+                    case 'EDrive':
+                        $this->setEDrive($res[1]);
+                        break;
+                    case 'MenuOptions':
+                        $this->setMenuOptions($res[1]);
+                        break;
+                    case 'ManageGroups':
+                        $old_ManageGroups = $this->isManageGroupsEnabled();
+                        $ManageGroups = $res[1];
 
-               if ( $ManageGroups || $this->isAdmin() ) {
-                 if ( !$old_ManageGroups ) {// only when the user has now the role group manager
-                    $this->deleteGroupAdminCalendars();
-                    $this->createGroupAdminCalendars();
-                 }
-               } else if ($old_ManageGroups) {// only delete group calendars in the case He was a group manager
-                 $this->deleteGroupAdminCalendars();
-               }
-               $this->setManageGroups($res[1]);
-               break;
-            case 'Finance':
-               $this->setFinance($res[1]);
-               break;
-            case 'Notes':
-               $this->setNotes($res[1]);
-               break;
-            case 'EditSelf':
-               $this->setEditSelf($res[1]);
-               break;
-            case 'Canvasser':
-               $this->setCanvasser($res[1]);
-               break;
-            case 'Admin':
-               $this->setAdmin($res[1]);
-               break;
-            case 'QueryMenu':
-               $this->setShowMenuQuery($res[1]);
-               break;
-            case 'CanSendEmail':
-               $this->setCanSendEmail($res[1]);
-               break;
-            case 'ExportCSV':
-               $this->setExportCSV($res[1]);
-               break;
-            case 'CreateDirectory':
-               $this->setCreatedirectory($res[1]);
-               break;
-            case 'ExportSundaySchoolPDF':
-               $this->setExportSundaySchoolPDF($res[1]);
-               break;
-            case 'ExportSundaySchoolCSV':
-               $this->setExportSundaySchoolCSV($res[1]);
-               break;
-            case 'MainDashboard':
-               $this->setMainDashboard($res[1]);
-               break;
-            case 'SeePrivacyData':
-               $this->setSeePrivacyData($res[1]);
-               break;
-            case 'MailChimp':
-               $this->setMailChimp($res[1]);
-               break;
-            case 'GdrpDpo':
-               $this->setGdrpDpo($res[1]);
-               break;
-            case 'PastoralCare':
-               $this->setPastoralCare($res[1]);
-               break;
-          }
+                        if ($ManageGroups || $this->isAdmin()) {
+                            if (!$old_ManageGroups) { // only when the user has now the role group manager
+                                // calendars & shared addressbooks
+                                $this->deleteGroupAdminCalendarsAndAddressbooks();
+                                $this->createGroupAdminCalendarsAndAddressbooks();                                
+                            }
+                        } else if ($old_ManageGroups) { // only delete group calendars and addressboks in the case He was a group manager
+                            $this->deleteGroupAdminCalendarsAndAddressbooks();
+                        }
+                        $this->setManageGroups($res[1]);
+                        break;
+                    case 'Finance':
+                        $this->setFinance($res[1]);
+                        break;
+                    case 'Notes':
+                        $this->setNotes($res[1]);
+                        break;
+                    case 'EditSelf':
+                        $this->setEditSelf($res[1]);
+                        break;
+                    case 'Canvasser':
+                        $this->setCanvasser($res[1]);
+                        break;
+                    case 'Admin':
+                        $this->setAdmin($res[1]);
+                        break;
+                    case 'QueryMenu':
+                        $this->setShowMenuQuery($res[1]);
+                        break;
+                    case 'CanSendEmail':
+                        $this->setCanSendEmail($res[1]);
+                        break;
+                    case 'ExportCSV':
+                        $this->setExportCSV($res[1]);
+                        break;
+                    case 'CreateDirectory':
+                        $this->setCreatedirectory($res[1]);
+                        break;
+                    case 'ExportSundaySchoolPDF':
+                        $this->setExportSundaySchoolPDF($res[1]);
+                        break;
+                    case 'ExportSundaySchoolCSV':
+                        $this->setExportSundaySchoolCSV($res[1]);
+                        break;
+                    case 'MainDashboard':
+                        $this->setMainDashboard($res[1]);
+                        break;
+                    case 'SeePrivacyData':
+                        $this->setSeePrivacyData($res[1]);
+                        break;
+                    case 'MailChimp':
+                        $this->setMailChimp($res[1]);
+                        break;
+                    case 'GdrpDpo':
+                        $this->setGdrpDpo($res[1]);
+                        break;
+                    case 'PastoralCare':
+                        $this->setPastoralCare($res[1]);
+                        break;
+                }
+            }
+
+            $this->setRoleId($roleID);
+            $this->save();
+
+            // now we loop to the permissions
+            $permissions = explode(";", $role->getPermissions());
+            $values      = explode(";", $role->getValue());
+
+            for ($place = 0; $place < count($permissions); $place++) {
+                // we search the default value
+                $permission = explode(":", $permissions[$place]);
+                $value = explode(":", $values[$place]);
+
+                $global_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId(0);
+
+                if (is_null($global_cfg)) continue;
+
+                // we search if the config exist
+                $user_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId($this->getPersonId());
+
+                if (is_null($user_cfg)) {
+                    $user_cfg = new UserConfig();
+
+                    $user_cfg->setPersonId($this->getPersonId());
+                    $user_cfg->setId($global_cfg->getId());
+                    $user_cfg->setName($global_cfg->getName());
+                    $user_cfg->setType($global_cfg->getType());
+                    $user_cfg->setTooltip($global_cfg->getType());
+                }
+
+                $user_cfg->setChoicesId($global_cfg->getChoicesId());
+                $user_cfg->setPermission($permission[1]);
+
+                if ($value[1] == 'semi_colon') {
+                    $user_cfg->setValue(';');
+                } else {
+                    $user_cfg->setValue($value[1]);
+                }
+
+                $user_cfg->save();
+            }
+
+            return $role->getName();
         }
 
-        $this->setRoleId($roleID);
-        $this->save();
-
-        // now we loop to the permissions
-        $permissions = explode(";",$role->getPermissions());
-        $values      = explode(";",$role->getValue());
-
-        for ($place=0;$place<count($permissions);$place++) {
-          // we search the default value
-          $permission = explode (":",$permissions[$place]);
-          $value = explode (":",$values[$place]);
-
-          $global_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId(0);
-
-          if ( is_null($global_cfg) ) continue;
-
-          // we search if the config exist
-          $user_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId($this->getPersonId());
-
-          if ( is_null($user_cfg) ) {
-            $user_cfg = new UserConfig();
-
-            $user_cfg->setPersonId($this->getPersonId());
-            $user_cfg->setId($global_cfg->getId());
-            $user_cfg->setName($global_cfg->getName());
-            $user_cfg->setType($global_cfg->getType());
-            $user_cfg->setTooltip($global_cfg->getType());
-          }
-
-          $user_cfg->setChoicesId($global_cfg->getChoicesId());
-          $user_cfg->setPermission($permission[1]);
-
-          if ($value[1] == 'semi_colon'){
-            $user_cfg->setValue(';');
-          } else {
-            $user_cfg->setValue($value[1]);
-          }
-
-          $user_cfg->save();
-        }
-
-        return $role->getName();
-      }
-
-      return false;
+        return false;
     }
 
 
@@ -418,23 +479,23 @@ class User extends BaseUser
     public function isSundayShoolTeacherForGroup($iGroupID)
     {
         if ($this->isAdmin() || $this->isAddRecords()) {
-          return true;
+            return true;
         }
 
         $group = GroupQuery::Create()->findOneById($iGroupID);
 
         $groupRoleMembership = Person2group2roleP2g2rQuery::create()
-                            ->filterByPersonId ($this->getPersonId())
-                            ->filterByGroupId($iGroupID)
-                            ->findOne();
+            ->filterByPersonId($this->getPersonId())
+            ->filterByGroupId($iGroupID)
+            ->findOne();
 
         if (!empty($groupRoleMembership)) {
-          $groupRole = ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
-          $lst_OptionName = $groupRole->getOptionName();
+            $groupRole = ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
+            $lst_OptionName = $groupRole->getOptionName();
 
-          if ($lst_OptionName == 'Teacher') {
-            return true;
-          }
+            if ($lst_OptionName == 'Teacher') {
+                return true;
+            }
         }
 
         return false;
@@ -443,15 +504,15 @@ class User extends BaseUser
     public function belongsToGroup($iGroupID)
     {
         if ($this->isAdmin() || $this->isAddRecords()) {
-          return true;
+            return true;
         }
 
         $group = GroupQuery::Create()->findOneById($iGroupID);
 
         $groupRoleMembership = Person2group2roleP2g2rQuery::create()
-                            ->filterByPersonId ($this->getPersonId())
-                            ->filterByGroupId($iGroupID)
-                            ->findOne();
+            ->filterByPersonId($this->getPersonId())
+            ->filterByGroupId($iGroupID)
+            ->findOne();
 
         if (!empty($groupRoleMembership)) {
             return true;
@@ -470,22 +531,22 @@ class User extends BaseUser
         return $this->isAdmin() || $this->isShowMap();
     }
 
-    public function isEDriveEnabled($iPersonID=0)
+    public function isEDriveEnabled($iPersonID = 0)
     {
         if ($iPersonID == 0) {
-          $iPersonID = SessionUser::getUser()->getPersonId();
+            $iPersonID = SessionUser::getUser()->getPersonId();
         }
 
         if (SystemConfig::getBooleanValue('bGDPR')) {
-          // GDPR : only the user can see his EDRIVE
-          return $this->isEDrive() && SessionUser::getUser()->getPersonId() == $iPersonID;
+            // GDPR : only the user can see his EDRIVE
+            return $this->isEDrive() && SessionUser::getUser()->getPersonId() == $iPersonID;
         } else {
-          // not GDPR
-          $user = UserQuery::Create()->findPk($iPersonID);
+            // not GDPR
+            $user = UserQuery::Create()->findPk($iPersonID);
 
-          return ( !is_null($user) &&
-              ( $user->getPerson()->getId() == SessionUser::getUser()->getPersonId()
-              || $user->getPerson()->getFamId() == SessionUser::getUser()->getPerson()->getFamId() )) || $this->isAdmin();
+            return (!is_null($user) &&
+                ($user->getPerson()->getId() == SessionUser::getUser()->getPersonId()
+                    || $user->getPerson()->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) || $this->isAdmin();
         }
     }
 
@@ -589,7 +650,7 @@ class User extends BaseUser
     public function isMailChimpEnabled()
     {
         // an administrator shouldn't be an mailchimp manager
-        return /*$this->isAdmin() || */$this->isMailChimp();
+        return /*$this->isAdmin() || */ $this->isMailChimp();
     }
 
     public function isHtmlSourceEditorEnabled()
@@ -624,11 +685,11 @@ class User extends BaseUser
 
     public function isPasswordValid($password)
     {
-      if ($this->getIsDeactivated()) {
-        return false;
-      }
+        if ($this->getIsDeactivated()) {
+            return false;
+        }
 
-      return $this->getPassword() == $this->hashPassword($password);
+        return $this->getPassword() == $this->hashPassword($password);
     }
 
     public function hashPassword($password)
@@ -696,7 +757,8 @@ class User extends BaseUser
         return SystemConfig::getValue('iMaxFailedLogins') > 0 && $this->getFailedLogins() >= SystemConfig::getValue('iMaxFailedLogins');
     }
 
-    public function resetPasswordToRandom() {
+    public function resetPasswordToRandom()
+    {
         $password = User::randomPassword();
         $this->updatePassword($password);
         $this->setNeedPasswordChange(true);
@@ -726,11 +788,11 @@ class User extends BaseUser
         $this->createTimeLineNote("deleted");
     }
 
-    public function createTimeLineNote($type,$info = null)
+    public function createTimeLineNote($type, $info = null)
     {
         $note = new Note();
         $note->setPerId($this->getPersonId());
-        $note->setEntered((is_null($info))?SessionUser::getUser()->getPersonId():$this->getPersonId());
+        $note->setEntered((is_null($info)) ? SessionUser::getUser()->getPersonId() : $this->getPersonId());
         $note->setType('user');
 
         switch ($type) {
@@ -756,40 +818,40 @@ class User extends BaseUser
                 $note->setText(_('system user login reset'));
                 break;
             case "dav-create-file":
-                $note->setText(str_replace("home/","",$info));
-                $note->setTitle(str_replace("home/","",$info));
+                $note->setText(str_replace("home/", "", $info));
+                $note->setTitle(str_replace("home/", "", $info));
                 $note->setType('file');
                 $note->setInfo(_('Dav create file'));
                 break;
             case "dav-create-directory":
-                $note->setText(str_replace("home/","",$info));
-                $note->setTitle(str_replace("home/","",$info));
+                $note->setText(str_replace("home/", "", $info));
+                $note->setTitle(str_replace("home/", "", $info));
                 $note->setType('folder');
                 $note->setInfo(_('Dav create directory'));
                 break;
             case "dav-update-file":
-                $note->setText(str_replace("home/","",$info));
-                $note->setTitle(str_replace("home/","",$info));
+                $note->setText(str_replace("home/", "", $info));
+                $note->setTitle(str_replace("home/", "", $info));
                 $note->setType('file');
                 $note->setInfo(_('Dav update file'));
                 break;
             case "dav-move-copy-file":
-                $note->setText(str_replace("home/","",$info));
-                $note->setTitle(str_replace("home/","",$info));
+                $note->setText(str_replace("home/", "", $info));
+                $note->setTitle(str_replace("home/", "", $info));
 
-                $path = dirname(__FILE__).'/../../../'.$this->getUserRootDir().str_replace("home/","",$info);
+                $path = dirname(__FILE__) . '/../../../' . $this->getUserRootDir() . str_replace("home/", "", $info);
 
-                if (!pathinfo($path, PATHINFO_EXTENSION)) {// we are with a directory
-                  $note->setType('folder');
+                if (!pathinfo($path, PATHINFO_EXTENSION)) { // we are with a directory
+                    $note->setType('folder');
                 } else {
-                  $note->setType('file');
+                    $note->setType('file');
                 }
                 $note->setInfo(_('Dav move copy file'));
 
                 break;
             case "dav-delete-file":
-                $note->setText(str_replace("home/","",$info));
-                $note->setTitle(str_replace("home/","",$info));
+                $note->setText(str_replace("home/", "", $info));
+                $note->setTitle(str_replace("home/", "", $info));
                 $note->setType('file');
                 $note->setInfo(_('Dav delete file'));
                 break;
@@ -800,152 +862,153 @@ class User extends BaseUser
 
     public function getUserDir($username = '')
     {
-      if ($username == '') {
-        return $this->getUserRootDir()."/".strtolower($this->getUserName());
-      }
+        if ($username == '') {
+            return $this->getUserRootDir() . "/" . strtolower($this->getUserName());
+        }
 
-      return $this->getUserRootDir()."/".strtolower($username);
+        return $this->getUserRootDir() . "/" . strtolower($username);
     }
 
     public function getUserRootDir()
     {
-      return $this->private_path.$this->getWebDavKeyUUID();
+        return $this->private_path . $this->getWebDavKeyUUID();
     }
 
     public function getWebDavKeyUUID()
     {
-      if ($this->getWebdavkey() == null) {
-        $old_dir = $this->private_path.$this->getWebdavkey()."/".strtolower($this->getUserName());
+        if ($this->getWebdavkey() == null) {
+            $old_dir = $this->private_path . $this->getWebdavkey() . "/" . strtolower($this->getUserName());
 
-        $this->createWebDavUUID();
+            $this->createWebDavUUID();
 
-        // the new destination
-        $new_dir = $this->private_path.$this->getWebdavkey()."/".strtolower($this->getUserName());
+            // the new destination
+            $new_dir = $this->private_path . $this->getWebdavkey() . "/" . strtolower($this->getUserName());
 
-        // in this case we have to create the create the folder
-        if (!is_dir(dirname(__FILE__)."/../../../".$new_dir)) {
-            mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
+            // in this case we have to create the create the folder
+            if (!is_dir(dirname(__FILE__) . "/../../../" . $new_dir)) {
+                mkdir(dirname(__FILE__) . "/../../../" . $new_dir, 0755, true);
+            }
+            $this->setHomedir($new_dir);
+            $this->save();
+
+            // then we move the files
+            if (file_exists(dirname(__FILE__) . "/../../../" . $old_dir) && is_dir(dirname(__FILE__) . "/../../../" . $old_dir)) {
+                $old_dir = $this->private_path . strtolower($this->getUserName());
+
+                rename(dirname(__FILE__) . "/../../../" . $old_dir, dirname(__FILE__) . "/../../../" . $new_dir);
+            }
         }
-        $this->setHomedir($new_dir);
-        $this->save();
 
-        // then we move the files
-        if (file_exists(dirname(__FILE__)."/../../../".$old_dir) && is_dir(dirname(__FILE__)."/../../../".$old_dir)) {
-          $old_dir = $this->private_path.strtolower($this->getUserName());
-
-          rename(dirname(__FILE__)."/../../../".$old_dir,dirname(__FILE__)."/../../../".$new_dir);
-        }
-      }
-
-      return $this->getWebdavkey();
+        return $this->getWebdavkey();
     }
 
     private function createWebDavUUID()
     {
-      if ($this->getWebdavkey() == null) {
-        // we create the uuid name
-        $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
+        if ($this->getWebdavkey() == null) {
+            // we create the uuid name
+            $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
 
-        // we store the uuid
-        $this->setWebdavkey($uuid);
-        $this->save();
-      }
+            // we store the uuid
+            $this->setWebdavkey($uuid);
+            $this->save();
+        }
     }
 
     public function getUserPublicDir()
     {
-      return $this->public_path.$this->getWebDavKeyPublicUUID();
+        return $this->public_path . $this->getWebDavKeyPublicUUID();
     }
 
     public function getWebDavKeyPublicUUID()
     {
-      if ($this->getWebdavPublickey() == null) {
-        $old_dir = $this->private_path.$this->getWebdavkey()."/".strtolower($this->getUserName());
+        if ($this->getWebdavPublickey() == null) {
+            $old_dir = $this->private_path . $this->getWebdavkey() . "/" . strtolower($this->getUserName());
 
-        $this->createWebDavPublicUUID();
+            $this->createWebDavPublicUUID();
 
-        // the new destination
-        $new_dir = $this->public_path.$this->getWebdavPublickey()."/";
+            // the new destination
+            $new_dir = $this->public_path . $this->getWebdavPublickey() . "/";
 
-        // in this case we have to create the create the folder
-        if (!is_dir(dirname(__FILE__)."/../../../".$new_dir)) {
-            mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
+            // in this case we have to create the create the folder
+            if (!is_dir(dirname(__FILE__) . "/../../../" . $new_dir)) {
+                mkdir(dirname(__FILE__) . "/../../../" . $new_dir, 0755, true);
+            }
+
+            // then we move the files
+            if (file_exists(dirname(__FILE__) . "/../../../" . $old_dir) && is_dir(dirname(__FILE__) . "/../../../" . $old_dir)) {
+                $old_dir = $this->public_path;
+
+                rename(dirname(__FILE__) . "/../../../" . $old_dir, dirname(__FILE__) . "/../../../" . $new_dir);
+            }
+        } else { // in the case the public folder is referenced in the DB but not present on the hard drive
+            if (!is_dir($this->public_path . $this->getWebdavPublickey())) { // we've to create it
+                $new_dir = $this->public_path . $this->getWebdavPublickey() . "/";
+                mkdir(dirname(__FILE__) . "/../../../" . $new_dir, 0755, true);
+            }
         }
 
-        // then we move the files
-        if (file_exists(dirname(__FILE__)."/../../../".$old_dir) && is_dir(dirname(__FILE__)."/../../../".$old_dir)) {
-          $old_dir = $this->public_path;
+        // now we can create the symlink in the real home folder
+        $public_dir = dirname(__FILE__) . "/../../../" . $this->public_path . $this->getWebdavPublickey();
+        $public_dir_target_link = dirname(__FILE__) . "/../../../" . $this->getUserDir() . "/public";
 
-          rename(dirname(__FILE__)."/../../../".$old_dir,dirname(__FILE__)."/../../../".$new_dir);
+        if (is_dir($public_dir_target_link) and !is_link($public_dir_target_link)) {
+            MiscUtils::delTree($public_dir_target_link);
         }
-      } else { // in the case the public folder is referenced in the DB but not present on the hard drive
-        if ( !is_dir ($this->public_path.$this->getWebdavPublickey() ) ) {// we've to create it
-          $new_dir = $this->public_path.$this->getWebdavPublickey()."/";
-          mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
+
+        if (!is_link($public_dir_target_link)) {
+            symlink($public_dir . "/", $public_dir_target_link);
         }
-      }
 
-      // now we can create the symlink in the real home folder
-      $public_dir = dirname(__FILE__)."/../../../".$this->public_path.$this->getWebdavPublickey();
-      $public_dir_target_link = dirname(__FILE__)."/../../../".$this->getUserDir()."/public";
-
-      if ( is_dir($public_dir_target_link) and !is_link($public_dir_target_link) ) {
-          MiscUtils::delTree($public_dir_target_link);
-      }
-
-      if ( !is_link($public_dir_target_link) ) {
-          symlink($public_dir."/", $public_dir_target_link);
-      }
-
-      return $this->getWebdavPublickey();
+        return $this->getWebdavPublickey();
     }
 
 
     private function createWebDavPublicUUID()
     {
-      if ($this->getWebdavPublickey() == null) {
-        // we create the uuid name
-        $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
+        if ($this->getWebdavPublickey() == null) {
+            // we create the uuid name
+            $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
 
-        // we store the uuid
-        $this->setWebdavPublickey($uuid);
-        $this->save();
-      }
+            // we store the uuid
+            $this->setWebdavPublickey($uuid);
+            $this->save();
+        }
     }
 
-    public function deleteTimeLineNote($type,$info = null)
+    public function deleteTimeLineNote($type, $info = null)
     {
-      $notes = NoteQuery::Create ()->filterByPerId ($this->getPersonId())->findByText (str_replace("home/","",$info));
+        $notes = NoteQuery::Create()->filterByPerId($this->getPersonId())->findByText(str_replace("home/", "", $info));
 
-      if (!empty($notes)) {
-        $notes->delete();
-      }
+        if (!empty($notes)) {
+            $notes->delete();
+        }
     }
 
     // this part is called in EcclesiaCRMServer from
-    public function updateFolder($oldPath,$newPath)
+    public function updateFolder($oldPath, $newPath)
     {
-      $realOldPath = str_replace("home/","",$oldPath);
-      $realNewPath = str_replace("home/","",$newPath);
+        $realOldPath = str_replace("home/", "", $oldPath);
+        $realNewPath = str_replace("home/", "", $newPath);
 
-      $notes = NoteQuery::create()
-              ->filterByText("%$realOldPath%", Criteria::LIKE)
-              ->find();
+        $notes = NoteQuery::create()
+            ->filterByText("%$realOldPath%", Criteria::LIKE)
+            ->find();
 
-      if (!is_null ($notes)) {
-        foreach ($notes as $note) {
-          $oldName = $note->getText();
-          $newName = str_replace($oldPath,$newPath,$note->getText());
+        if (!is_null($notes)) {
+            foreach ($notes as $note) {
+                $oldName = $note->getText();
+                $newName = str_replace($oldPath, $newPath, $note->getText());
 
-          $newNote = NoteQuery::Create()->findOneById($note->getId());
-          $newNote->setText(str_replace($realOldPath,$realNewPath,$note->getText()));
-          $newNote->setCurrentEditedBy(0);
-          $newNote->save();
+                $newNote = NoteQuery::Create()->findOneById($note->getId());
+                $newNote->setText(str_replace($realOldPath, $realNewPath, $note->getText()));
+                $newNote->setCurrentEditedBy(0);
+                $newNote->save();
+            }
         }
-      }
     }
 
-    public function isEnabledSecurity($securityConfigName){
+    public function isEnabledSecurity($securityConfigName)
+    {
         if ($this->isAdmin()) {
             return true;
         }
@@ -957,36 +1020,38 @@ class User extends BaseUser
         return false;
     }
 
-    public function getUserMainSettingByString($value) {
-        $res = ($this->{$value})?true:false;
+    public function getUserMainSettingByString($value)
+    {
+        $res = ($this->{$value}) ? true : false;
         return ($res or $this->isAdmin());
     }
 
-    public function getUserConfigString($userConfigName) {
-      // we search if the config exist
+    public function getUserConfigString($userConfigName)
+    {
+        // we search if the config exist
         $userConf = UserConfigQuery::Create()->filterByName($userConfigName)->findOneByPersonId($this->getPersonId());
 
-        if ( is_null($userConf) ) {
-          $userDefault = UserConfigQuery::create()->filterByName($userConfigName)->findOneByPersonId (0);
+        if (is_null($userConf)) {
+            $userDefault = UserConfigQuery::create()->filterByName($userConfigName)->findOneByPersonId(0);
 
-          if ( !is_null ($userDefault) ) {
-            $userConf = new UserConfig();
+            if (!is_null($userDefault)) {
+                $userConf = new UserConfig();
 
-            $userConf->setPersonId ($this->getPersonId());
-            $userConf->setId ($userDefault->getId());
-            $userConf->setName($userConfigName);
-            $userConf->setValue($userDefault->getValue());
-            $userConf->setType($userDefault->getType());
-            $userConf->setChoicesId($userDefault->getChoicesId());
-            $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
-            $userConf->setPermission('FALSE');
-            $userConf->setCat($userDefault->getCat());
+                $userConf->setPersonId($this->getPersonId());
+                $userConf->setId($userDefault->getId());
+                $userConf->setName($userConfigName);
+                $userConf->setValue($userDefault->getValue());
+                $userConf->setType($userDefault->getType());
+                $userConf->setChoicesId($userDefault->getChoicesId());
+                $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
+                $userConf->setPermission('FALSE');
+                $userConf->setCat($userDefault->getCat());
 
-            $userConf->save();
-          }
-      }
+                $userConf->save();
+            }
+        }
 
-      return $userConf->getValue();
+        return $userConf->getValue();
     }
 
     public function LoginPhaseActivations($takeControl = false)
@@ -1092,7 +1157,7 @@ class User extends BaseUser
 
             $this->save();
 
-            setcookie($this->getUserName(), $this->getJwtToken(), time()+24*3600);
+            setcookie($this->getUserName(), $this->getJwtToken(), time() + 24 * 3600);
         }
         // end of JWT token activation
 
@@ -1120,8 +1185,9 @@ class User extends BaseUser
         $_SESSION['isSoftwareUpdateTestPassed'] = false;
     }
 
-    public function isEnableForPlugin($name) {
-        if ( $this->isAdmin() ) {
+    public function isEnableForPlugin($name)
+    {
+        if ($this->isAdmin()) {
             return true;
         }
 
@@ -1136,14 +1202,15 @@ class User extends BaseUser
             ->findOneByPluginId($plugin->getId());
 
         if (!is_null($role)) {
-            return ( $role->getRole() == 'user' or $role->getRole() == 'admin' )?true:false;
+            return ($role->getRole() == 'user' or $role->getRole() == 'admin') ? true : false;
         }
 
         return false;
     }
 
-    public function isAdminEnableForPlugin($name) {
-        if ( $this->isAdmin() ) {
+    public function isAdminEnableForPlugin($name)
+    {
+        if ($this->isAdmin()) {
             return true;
         }
 
@@ -1158,13 +1225,13 @@ class User extends BaseUser
             ->findOneByPluginId($plugin->getId());
 
         if (!is_null($role)) {
-            return ($role->getRole() == 'admin')?true:false;
+            return ($role->getRole() == 'admin') ? true : false;
         }
 
         return false;
     }
 
-    public function allSecuritiesBits ()
+    public function allSecuritiesBits()
     {
         $bits = SecurityOptions::bNoDashBordItem;
 
@@ -1186,44 +1253,44 @@ class User extends BaseUser
         if ($this->isSeePrivacyDataEnabled()) { // bit 5
             $bits |= SecurityOptions::bSeePrivacyData;
         }
-        if ($this->isAddRecordsEnabled()) {// bit 6
+        if ($this->isAddRecordsEnabled()) { // bit 6
             $bits |= SecurityOptions::bAddRecords;
         }
-        if ($this->isEditRecordsEnabled()) {// bit 7
+        if ($this->isEditRecordsEnabled()) { // bit 7
             $bits |= SecurityOptions::bEditRecords;
         }
-        if ($this->isDeleteRecordsEnabled()) {// bit 8
+        if ($this->isDeleteRecordsEnabled()) { // bit 8
             $bits |= SecurityOptions::bDeleteRecords;
         }
-        if ($this->isMenuOptionsEnabled()) {// bit 9
+        if ($this->isMenuOptionsEnabled()) { // bit 9
             $bits |= SecurityOptions::bMenuOptions;
         }
 
-        if ($this->isManageGroupsEnabled()) {// bit 10
+        if ($this->isManageGroupsEnabled()) { // bit 10
             $bits |= SecurityOptions::bManageGroups;
         }
-        if ($this->isFinanceEnabled()) {// bit 11
+        if ($this->isFinanceEnabled()) { // bit 11
             $bits |= SecurityOptions::bFinance;
         }
-        if ($this->isNotesEnabled()) {// bit 12
+        if ($this->isNotesEnabled()) { // bit 12
             $bits |= SecurityOptions::bNotes;
         }
-        if ($this->isCanvasserEnabled()) {// bit 13
+        if ($this->isCanvasserEnabled()) { // bit 13
             $bits |= SecurityOptions::bCanvasser;
         }
-        if ($this->isEditSelf()) {// bit 14
+        if ($this->isEditSelf()) { // bit 14
             $bits |= SecurityOptions::bEditSelf;
         }
-        if ($this->isShowCartEnabled()) {// bit 15
+        if ($this->isShowCartEnabled()) { // bit 15
             $bits |= SecurityOptions::bShowCart;
         }
-        if ($this->isShowMapEnabled()) {// bit 16
+        if ($this->isShowMapEnabled()) { // bit 16
             $bits |= SecurityOptions::bShowMap;
         }
-        if ($this->isEDriveEnabled()) {// bit 17
+        if ($this->isEDriveEnabled()) { // bit 17
             $bits |= SecurityOptions::bEDrive;
         }
-        if ($this->isShowMenuQueryEnabled()) {// bit 18
+        if ($this->isShowMenuQueryEnabled()) { // bit 18
             $bits |= SecurityOptions::bShowMenuQuery;
         }
 
@@ -1232,17 +1299,18 @@ class User extends BaseUser
         return $bits;
     }
 
-    public function isSecurityEnableForPlugin ($name, $sec = 1073741824) {
+    public function isSecurityEnableForPlugin($name, $sec = 1073741824)
+    {
         //$sec = SecurityOptions::bNone => 1073741824; by default
 
-        if ( $this->isAdmin() ) {
+        if ($this->isAdmin()) {
             return true;
         }
 
         $plugin = PluginQuery::create()->findOneByName($name);
 
-        if ($plugin->getSecurities() & $sec) {// when the bit sec is activated
-            switch($sec) {
+        if ($plugin->getSecurities() & $sec) { // when the bit sec is activated
+            switch ($sec) {
                 case 1: // bAdmin bit 0
                     return $this->isAdmin();
                 case 2: // bPastoralCare bit 1
@@ -1251,37 +1319,37 @@ class User extends BaseUser
                     return $this->isMailChimpEnabled();
                 case 8: // bit 3
                     return $this->isGdrpDpoEnabled();
-                case 16:// bit 4
+                case 16: // bit 4
                     return $this->isMainDashboardEnabled();
-                case 32:// bit 5
+                case 32: // bit 5
                     return $this->isSeePrivacyData();
-                case 64:// bit 6
+                case 64: // bit 6
                     return $this->isAddRecordsEnabled();
-                case 128:// bit 7
+                case 128: // bit 7
                     return $this->isEditRecordsEnabled();
-                case 256:// bit 8
+                case 256: // bit 8
                     return $this->isDeleteRecordsEnabled();
-                case 512:// bit 9
+                case 512: // bit 9
                     return $this->isMenuOptionsEnabled();
-                case 1024:// bit 10
+                case 1024: // bit 10
                     return $this->isManageGroupsEnabled();
-                case 2048:// bit 11
+                case 2048: // bit 11
                     return $this->isFinanceEnabled();
-                case 4096:// bit 12
+                case 4096: // bit 12
                     return $this->isNotesEnabled();
-                case 8192:// bit 13
+                case 8192: // bit 13
                     return $this->isCanvasserEnabled();
-                case 16384:// bit 14
+                case 16384: // bit 14
                     return $this->isEditSelf();
-                case 32768:// bit 15
+                case 32768: // bit 15
                     return $this->isShowCartEnabled();
-                case 65536:// bit 16
+                case 65536: // bit 16
                     return $this->isShowMapEnabled();
-                case 131072:// bit 17
+                case 131072: // bit 17
                     return $this->isEDriveEnabled();
-                case 262144:// bit 18
+                case 262144: // bit 18
                     return $this->isShowMenuQueryEnabled();
-                case 1073741824:// ever true
+                case 1073741824: // ever true
                     return true;
             }
             return true;
@@ -1292,7 +1360,7 @@ class User extends BaseUser
 
     public function getJwtSecretForApi()
     {
-        if (isset ($_SESSION['ControllerAdminUserSecret'])) {
+        if (isset($_SESSION['ControllerAdminUserSecret'])) {
             return $_SESSION['ControllerAdminUserSecret'];
         }
 
@@ -1301,7 +1369,7 @@ class User extends BaseUser
 
     public function getJwtTokenForApi()
     {
-        if (isset ($_SESSION['ControllerAdminUserToken'])) {
+        if (isset($_SESSION['ControllerAdminUserToken'])) {
             return $_SESSION['ControllerAdminUserToken'];
         }
 
@@ -1310,7 +1378,7 @@ class User extends BaseUser
 
     public function getUserNameForApi()
     {
-        if (isset ($_SESSION['ControllerAdminUserName'])) {
+        if (isset($_SESSION['ControllerAdminUserName'])) {
             $userName = $_SESSION['ControllerAdminUserName'];
         } else {
             $userName = $this->getUserName();
@@ -1322,7 +1390,7 @@ class User extends BaseUser
     public function isSecure()
     {
         // check if https is active
-        if (isset ($_SESSION['isSecure'])) {
+        if (isset($_SESSION['isSecure'])) {
             return $_SESSION['isSecure'];
         }
 
@@ -1337,7 +1405,7 @@ class User extends BaseUser
     public function getNeedPasswordChange()
     {
         if (isset($_SESSION['ControllerAdminUserId'])) return false;
-        
+
         return parent::getNeedPasswordChange();
     }
 }

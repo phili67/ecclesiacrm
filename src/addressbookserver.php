@@ -31,6 +31,9 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\RedirectUtils;
 
+use EcclesiaCRM\CardDav\VCFExportPluginExtension;
+use EcclesiaCRM\CardDav\CardDavACLPluginExtension;
+
 if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
   RedirectUtils::Redirect('members/404.php?type=Dav');
   return;
@@ -86,15 +89,17 @@ $server->setBaseUri(SystemURLs::getRootPath().'/addressbookserver.php');
 $authPlugin = new Auth\Plugin($authBackend);
 $server->addPlugin($authPlugin);
 
-$aclPlugin = new Sabre\DAVACL\Plugin();
+//$aclPlugin = new Sabre\DAVACL\Plugin();
+$aclPlugin = new CardDavACLPluginExtension();
 $server->addPlugin($aclPlugin);
 
-// the VCF export
-$vcfPlugin = new \Sabre\CardDAV\VCFExportPlugin();
-$server->addPlugin($vcfPlugin);
-
 // add the carDav
-$server->addPlugin(new Sabre\CardDAV\Plugin());
+$cardDavPlugin = new Sabre\CardDAV\Plugin();
+$server->addPlugin($cardDavPlugin);
+
+// the VCF export
+$vcfPlugin = new VCFExportPluginExtension();
+$server->addPlugin($vcfPlugin);
 
 // Support for html frontend : normally this had to be removed
 if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {

@@ -20,15 +20,22 @@
 
   <table name="addressbookshare" idMethod="native" phpName="Addressbookshare">
     <column name="id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-    <column name="addressbookid" phpName="AddressbookId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
-    <column name="principaluri" phpName="PrincipalURI" type="VARCHAR" size="255" sqlType="varbinary(255)"/>
+    <column name="addressbookid" phpName="Addressbookid" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="principaluri" phpName="Principaluri" type="VARCHAR" size="255" sqlType="varbinary(255)"/>
     <column name="displayname" phpName="Displayname" type="VARCHAR" size="255"/>
     <column name="description" phpName="Description" type="LONGVARCHAR"/>
     <column name="href" phpName="Href" type="VARCHAR" size="100" sqlType="varbinary(100)"/>
-    <column name="access" phpName="Access" type="SMALLINT" size="1" required="true" defaultValue="true"/>
+    <column name="user_id" phpName="UserId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" required="true" defaultValue="0"/>
+    <column name="access" phpName="Access" type="BOOLEAN" size="1" description="1 = owner, 2 = read, 3 = readwrite" required="true" defaultValue="true"/>
     <foreign-key foreignTable="addressbooks" name="fk_addressbookid" onDelete="CASCADE">
       <reference local="addressbookid" foreign="id"/>
     </foreign-key>
+    <foreign-key foreignTable="user_usr" name="fk_user_id" onDelete="CASCADE">
+      <reference local="user_id" foreign="usr_per_ID"/>
+    </foreign-key>
+    <index name="fk_user_id">
+      <index-column name="user_id"/>
+    </index>
     <unique name="addressbookid">
       <unique-column name="addressbookid"/>
       <unique-column name="principaluri"/>

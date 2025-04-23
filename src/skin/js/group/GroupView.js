@@ -608,7 +608,7 @@ function initDataTable() {
             + '</div>'
             + '</div>'
             + '<div class="row div-title">'
-            + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add person") + ":</div>"
+            + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add users") + ":</div>"
             + '<div class="col-md-8">'
             + '<select name="person-manager-Id" id="person-manager-Id" class="form-control select2"'
             + 'style="width:100%">'
@@ -729,11 +729,11 @@ function initDataTable() {
         $("#person-manager-Id").select2({
             language: window.CRM.shortLocale,
             minimumInputLength: 2,
-            placeholder: " -- " + i18next.t("Person") + " -- ",
+            placeholder: " -- " + i18next.t("User") + " -- ",
             allowClear: true, // This is for clear get the clear button if wanted
             ajax: {
                 url: function (params) {
-                    return window.CRM.root + "/api/people/searchonlyperson/" + params.term;
+                    return window.CRM.root + "/api/people/searchonlyuser/" + params.term;
                 },
                 dataType: 'json',
                 delay: 250,
