@@ -693,10 +693,10 @@ SQL;
 
             if (isset($vcard->TITLE)) {// function
                 $Title = $vcard->TITLE->getValue();
-                $person->setTitle($Title);
+                $person->setSuffix($Title);
             }
             if (isset ($vcard->FN)) {// view named firstaname ....
-                $FN = $vcard->FN;
+                $FN = $vcard->FN; // unusefull
             }
             if (isset ($vcard->ROLE)) {// role
                 $role = $vcard->ROLE;
@@ -704,18 +704,44 @@ SQL;
             if (isset ($vcard->NICKNAME)) {// pseudo
                 $nickname = $vcard->NICKNAME;
             }
-            if (isset ($vcard->N)) {// lastname
+            if (isset ($vcard->N)) {// lastname, firstname, title, etc ...
                 $N = explode(";",$vcard->N->getValue());
                 $person->setTitle($N[3]);
                 $person->setLastName($N[0]);
                 $person->setFirstName($N[1]);
 
+                // change family name ... we've to check if the entire family has to change name !!!
                 $family->setName($N[0]);
             }
             $tels = [];
+            if (isset($vcard->BDAY)) {// the birthdate
+                $sBirthDayDate = $vcard->BDAY->getDateTime();
+                
+                $iBirthMonth = $sBirthDayDate->format('m');
+                $iBirthDay = $sBirthDayDate->format('d');
+                $iBirthYear = $sBirthDayDate->format('Y');
+
+                $person->setBirthMonth($iBirthMonth);
+                $person->setBirthDay($iBirthDay);
+                $person->setBirthYear($iBirthYear);
+            
+            }
             if (isset($vcard->TEL)) {// all the phone numbers
+                
                 foreach($vcard->TEL as $tel) {
-                    $tels[] = $tel->getValue();                
+                    $param =  $tel['TYPE'];
+                    $type = 'None';
+                    foreach ($param as $value) {
+                        if ($value != "VOICE" and $value != "pref")
+                            $type = $value;                
+                    }
+                    if ($type == 'CELL') {
+                        $person->setCellPhone($tel->getValue());
+                    } else if ($type == 'HOME') {
+                        $person->setHomePhone($tel->getValue());
+                    } else if ($type == 'WORK') {
+                        $person->setWorkPhone($tel->getValue());
+                    }                    
                 }
             }
             $adrElts = null;
@@ -742,9 +768,22 @@ SQL;
             if (isset($vcard->ORG)) {// the firm name
                 $firmName = $vcard->ORG; // value is an array !!!!
             }
-            if (isset($vcard->EMAL)) {// the firm name
-                $firmName = $vcard->EMAIL; // value is an array !!! First one is personal, second professional
-            }            
+            if (isset($vcard->EMAIL)) {// the firm name
+                foreach($vcard->EMAIL as $email) {
+                    $param =  $email['TYPE'];
+                    $type = 'None';
+                    foreach ($param as $value) {
+                        if ($value != "VOICE" and $value != "pref") {
+                            $type = $value;                
+                        }
+                    }
+                    if ($type == 'WORK') {
+                        $person->setWorkEmail($email->getValue());
+                    } else if ($type == 'HOME') {
+                        $person->setEmail($email->getValue());
+                    }                                    
+                }
+            }
 
             $person->save(null, true);
             $family->save();
