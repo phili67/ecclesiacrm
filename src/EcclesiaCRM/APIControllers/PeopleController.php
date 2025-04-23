@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Base\UserQuery;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
@@ -30,6 +31,59 @@ class PeopleController
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+    }
+
+    public function searchonlyuser(ServerRequest $request, Response $response, array $args): Response
+    {
+        $query = $args['query'];
+        $resultsArray = [];
+
+        $id = 1;
+
+        $logger = $this->container->get('Logger');
+
+        //Person Search
+        try {
+            $searchLikeString = '%' . $query . '%';
+            $users = UserQuery::create()
+                ->filterByIsDeactivated(0)
+                ->filterByUserName($searchLikeString, Criteria::LIKE)
+                //->leftJoinPerson()
+                ->usePersonQuery()
+                    ->filterByDateDeactivated(null)// gdpr when a person is de-activated
+                    ->filterByFirstName($searchLikeString, Criteria::LIKE)
+                    ->_or()->filterByLastName($searchLikeString, Criteria::LIKE)
+                ->endUse()                
+                ->find();
+
+
+            $data = [];
+            $id++;
+
+            foreach ($users as $user) {
+                $person = $user->getPerson();
+
+                $elt = ['id' => $id++,
+                    'text' => $person->getFullName(),
+                    'personID' => $person->getId()];
+
+                array_push($data, $elt);
+            }
+
+            if (!empty($data)) {
+                $dataPerson = ['children' => $data,
+                    'id' => 0,
+                    'text' => _('Persons')];
+
+                $resultsArray = array($dataPerson);
+            }
+            
+        } catch (\Exception $e) {
+            $logger->warn($e->getMessage());
+        }
+
+
+        return $response->withJson(array_filter($resultsArray));
     }
 
     public function searchonlyperson(ServerRequest $request, Response $response, array $args): Response

@@ -11,6 +11,7 @@
 namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\Base\FamilyQuery;
+use EcclesiaCRM\Base\UserQuery;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
@@ -213,6 +214,9 @@ class PeopleGroupController
                 $manager->delete();
             }
 
+            $user = UserQuery::create()->findOneByPersonId($options->personID);
+            $user->deleteGroupAdminAddressBookShared();
+
             $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
 
             if ($managers->count()) {
@@ -267,12 +271,37 @@ class PeopleGroupController
         $options = (object)$request->getParsedBody();
 
         if (isset ($options->personID) and isset($options->groupID) and SessionUser::getUser()->isGroupManagerEnabledForId($options->groupID) ) {
-            $groupManager = new GroupManagerPerson();
+            $user = UserQuery::create()->findOneByPersonId($options->personID);
+            $group = GroupQuery::create()->findOneById($options->groupID);
 
-            $groupManager->setPersonId($options->personID);
-            $groupManager->setGroupId($options->groupID);
+            if (!is_null($user) and !is_null($group)) {                
+                $groupManager = new GroupManagerPerson();
 
-            $groupManager->save();
+                $groupManager->setPersonId($options->personID);
+                $groupManager->setGroupId($options->groupID);
+
+                $groupManager->save();
+
+                // We set the BackEnd for sabre Backends
+                $carddavBackend = new CardDavPDO();
+
+                // we have to get the addressbook master from the Admin                
+                $addressBook = $carddavBackend->getAddressBookForGroup($options->groupID);
+
+                // we create an shared addressbook
+                $carddavBackend->createAddressBookShare(
+                    'principals/' . $user->getUserName(),
+                    [
+                    'addressbookid' => $addressBook['id'], // require
+                    '{DAV:}displayname'  => $group->getName(),
+                    '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description'  => '',
+                    'href'         => 0,
+                    'user_id'      => $user->getId(), // require
+                    'access'       => 3 // '1 = owner, 2 = read, 3 = readwrite',                    
+                    ]
+                );
+            }
+
 
             return $response->withJson(['status' => "success".$options->groupID." ".$options->personID]);
         }

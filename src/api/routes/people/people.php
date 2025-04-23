@@ -21,6 +21,13 @@ $app->group('/people', function (RouteCollectorProxy $group) {
      */
   $group->get('/searchonlyperson/{query}', PeopleController::class . ':searchonlyperson' );
 
+
+    /*
+     * @! Returns a list of the person who's first name or last name matches the :query parameter
+     * #! param: ref->string :: query string ref
+     */
+  $group->get('/searchonlyuser/{query}', PeopleController::class . ':searchonlyuser' );
+
     /*
      * @! Returns a list of the members/families/groups who's first name or last name matches the :query parameter
      * #! param: ref->string :: query string ref
