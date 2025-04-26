@@ -20,10 +20,13 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\WebDav\WebDavACLPlugin;
 
+use EcclesiaCRM\Bootstrapper;
+
 if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
   RedirectUtils::Redirect('members/404.php?type=Dav');
   return;
 }
+
 
 // authentication
 $authBackend = new BasicAuth();
@@ -31,12 +34,14 @@ $authBackend->setRealm('EcclesiaCRM_DAV');
 
 $authPlugin = new Auth\Plugin($authBackend);
 
-$principalBackend = new PrincipalPDO();
+//$principalBackend = new PrincipalPDO();
+$pdo = Bootstrapper::GetPDO();
+$principalBackend = new Sabre\DAVACL\PrincipalBackend\PDO($pdo);
 
 // On entrer dans le répertoire courant du user
 $tree = [
-    new Sabre\CalDAV\Principal\Collection($principalBackend),
-    //new Sabre\DAVACL\PrincipalCollection($$principalBackend),
+    //new Sabre\CalDAV\Principal\Collection($principalBackend),
+    new Sabre\DAVACL\PrincipalCollection($principalBackend),
     new Sabre\DAVACL\FS\MyHomeCollection($principalBackend, $authBackend)
 ];
 
