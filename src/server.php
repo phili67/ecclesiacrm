@@ -36,6 +36,7 @@ $principalBackend = new PrincipalPDO();
 // On entrer dans le répertoire courant du user
 $tree = [
     new Sabre\CalDAV\Principal\Collection($principalBackend),
+    //new Sabre\DAVACL\PrincipalCollection($$principalBackend),
     new Sabre\DAVACL\FS\MyHomeCollection($principalBackend, $authBackend)
 ];
 
