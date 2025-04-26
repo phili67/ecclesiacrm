@@ -13,27 +13,17 @@ require dirname(__FILE__).'/Include/Config.php';
 
 use EcclesiaCRM\Auth\BasicAuth;
 use EcclesiaCRM\PersonalServer\EcclesiaCRMServer;
+use EcclesiaCRM\MyPDO\PrincipalPDO;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\WebDav\WebDavACLPlugin;
 
 if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
   RedirectUtils::Redirect('members/404.php?type=Dav');
   return;
 }
-
-
-//Mapping PHP errors to exceptions
-// problem with the davserver constant
-
-/*function exception_error_handler($errno, $errstr, $errfile, $errline) {
-    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-}
-set_error_handler("exception_error_handler");*/
-
-// The autoloader is unusefull : because it's done in the Config.php
-//require 'vendor/autoload.php';
 
 // authentication
 $authBackend = new BasicAuth();
@@ -41,9 +31,12 @@ $authBackend->setRealm('EcclesiaCRM_DAV');
 
 $authPlugin = new Auth\Plugin($authBackend);
 
+$principalBackend = new PrincipalPDO();
+
 // On entrer dans le répertoire courant du user
 $tree = [
-    new PersonalServer\HomeCollection($authBackend),
+    new Sabre\CalDAV\Principal\Collection($principalBackend),
+    new Sabre\DAVACL\FS\MyHomeCollection($principalBackend, $authBackend)
 ];
 
 // we create the server
@@ -58,9 +51,13 @@ $server->addPlugin($authPlugin);
 
 // The lock manager is reponsible for making sure users don't overwrite
 // each others changes.
-$lockBackend = new DAV\Locks\Backend\File('data/locks');
+/*$lockBackend = new DAV\Locks\Backend\File('data/locks');
 $lockPlugin = new DAV\Locks\Plugin($lockBackend);
-$server->addPlugin($lockPlugin);
+$server->addPlugin($lockPlugin);*/
+
+//$aclPlugin = new Sabre\DAVACL\Plugin();
+$aclPlugin = new WebDavACLPlugin();
+$server->addPlugin($aclPlugin);
 
 // This ensures that we get a pretty index in the browser, but it is
 // optional.
