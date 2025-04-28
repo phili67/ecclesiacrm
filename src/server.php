@@ -20,8 +20,6 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\WebDav\WebDavACLPlugin;
 
-use EcclesiaCRM\Bootstrapper;
-
 if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
   RedirectUtils::Redirect('members/404.php?type=Dav');
   return;
@@ -35,7 +33,6 @@ $authBackend->setRealm('EcclesiaCRM_DAV');
 $authPlugin = new Auth\Plugin($authBackend);
 
 $principalBackend = new PrincipalPDO();
-$pdo = Bootstrapper::GetPDO();
 
 // On entrer dans le répertoire courant du user
 $tree = [
@@ -62,6 +59,9 @@ $server->addPlugin($lockPlugin);
 //$aclPlugin = new Sabre\DAVACL\Plugin();
 $aclPlugin = new WebDavACLPlugin();
 $server->addPlugin($aclPlugin);
+
+// sync plugin
+$server->addPlugin(new Sabre\DAV\Sync\Plugin());
 
 // This ensures that we get a pretty index in the browser, but it is
 // optional.

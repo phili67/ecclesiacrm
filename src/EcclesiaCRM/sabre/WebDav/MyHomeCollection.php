@@ -73,9 +73,4 @@ class MyHomeCollection extends HomeCollection  {
        
        return $result;
     }
-
-    function getName() {
-        return "home";
-    }
-
 }
