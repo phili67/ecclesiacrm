@@ -34,13 +34,11 @@ $authBackend->setRealm('EcclesiaCRM_DAV');
 
 $authPlugin = new Auth\Plugin($authBackend);
 
-//$principalBackend = new PrincipalPDO();
+$principalBackend = new PrincipalPDO();
 $pdo = Bootstrapper::GetPDO();
-$principalBackend = new Sabre\DAVACL\PrincipalBackend\PDO($pdo);
 
 // On entrer dans le répertoire courant du user
 $tree = [
-    //new Sabre\CalDAV\Principal\Collection($principalBackend),
     new Sabre\DAVACL\PrincipalCollection($principalBackend),
     new Sabre\DAVACL\FS\MyHomeCollection($principalBackend, $authBackend)
 ];
@@ -57,9 +55,9 @@ $server->addPlugin($authPlugin);
 
 // The lock manager is reponsible for making sure users don't overwrite
 // each others changes.
-/*$lockBackend = new DAV\Locks\Backend\File('data/locks');
+$lockBackend = new DAV\Locks\Backend\File('data/locks');
 $lockPlugin = new DAV\Locks\Plugin($lockBackend);
-$server->addPlugin($lockPlugin);*/
+$server->addPlugin($lockPlugin);
 
 //$aclPlugin = new Sabre\DAVACL\Plugin();
 $aclPlugin = new WebDavACLPlugin();
