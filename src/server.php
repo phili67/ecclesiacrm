@@ -81,4 +81,4 @@ if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
 //
 // All we need to do now, is to fire up the server
 //
-$server->exec();
+$server->start();
