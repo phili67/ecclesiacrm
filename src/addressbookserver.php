@@ -1,19 +1,17 @@
 <?php
 
 //
-// CalendarServer
-// CalDAV support
+// AddressBookServer
+// CardDAV support
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
 //                This code can't be incoprorated in another software without any authorizaion
 //
-//  Updated : 2018/05/13
+//  Updated : 2025/04/28
 //
 
-use Sabre\DAV;
 use Sabre\DAV\Auth;
-use Sabre\CardDAV;
 
 // Include the function library
 // Very important this constant !!!!
@@ -44,40 +42,16 @@ if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
 //*****************
 date_default_timezone_set(SystemConfig::getValue('sTimeZone')); //<------ Be carefull to set the good Time Zone : 'Europe/Paris'
 
-// If you want to run the SabreDAV server in a custom location (using mod_rewrite for instance)
-
-/* Database */
-// Propel connection : pdo
-
-//$pdo = Propel::getConnection()->getWrappedConnection();
-
-// Normal Sabre way : be carefull to connect in UTF8 mode
-/*$pdo = new PDO('mysql:dbname='.$sDATABASE.';host='.$sSERVERNAME.';charset=utf8', $sUSER, $sPASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);*/
-
-//Mapping PHP errors to exceptions
-// problem with the davserver constant, this can't be used
-
-/*function exception_error_handler($errno, $errstr, $errfile, $errline) {
-    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-}
-set_error_handler("exception_error_handler");*/
-
-// The autoloader is unusefull : because it's done in the Config.php
-//require_once 'vendor/autoload.php';
-
 // Backends
-//$authBackend = new DAV\Auth\Backend\PDO($pdo);
 $authBackend = new BasicAuth();
 $authBackend->setRealm('EcclesiaCRM_DAV');
 
 $principalBackend = new PrincipalPDO();
 $carddavBackend   = new CardDavPDO();
 
-
 // Directory structure
 $tree = [
-    new Sabre\CalDAV\Principal\Collection($principalBackend),
+    new Sabre\DAVACL\PrincipalCollection($principalBackend),
     new Sabre\CardDAV\AddressBookRoot($principalBackend, $carddavBackend),
 ];
 
@@ -89,7 +63,7 @@ $server->setBaseUri(SystemURLs::getRootPath().'/addressbookserver.php');
 $authPlugin = new Auth\Plugin($authBackend);
 $server->addPlugin($authPlugin);
 
-//$aclPlugin = new Sabre\DAVACL\Plugin();
+// acls
 $aclPlugin = new CardDavACLPluginExtension();
 $server->addPlugin($aclPlugin);
 
@@ -101,6 +75,12 @@ $server->addPlugin($cardDavPlugin);
 $vcfPlugin = new VCFExportPluginExtension();
 $server->addPlugin($vcfPlugin);
 
+// the sharing plugin
+$server->addPlugin(new Sabre\DAV\Sharing\Plugin());
+
+// CardDAV-Sync plugin
+$server->addPlugin(new Sabre\DAV\Sync\Plugin());
+
 // Support for html frontend : normally this had to be removed
 if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
   $browser = new Sabre\DAV\Browser\Plugin();
@@ -109,4 +89,4 @@ if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
 
 
 // And off we go!*/
-$server->exec();
+$server->start();

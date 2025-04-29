@@ -8,7 +8,7 @@
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
 //                This code can't be incoprorated in another software without any authorizaion
 //
-//  Updated : 2018/05/13
+//  Updated : 2025/04/28
 //
 
 use Sabre\DAV;
@@ -41,40 +41,16 @@ if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
 //*****************
 date_default_timezone_set(SystemConfig::getValue('sTimeZone')); //<------ Be carefull to set the good Time Zone : 'Europe/Paris'
 
-// If you want to run the SabreDAV server in a custom location (using mod_rewrite for instance)
-
-/* Database */
-// Propel connection : pdo
-
-//$pdo = Propel::getConnection()->getWrappedConnection();
-
-// Normal Sabre way : be carefull to connect in UTF8 mode
-/*$pdo = new PDO('mysql:dbname='.$sDATABASE.';host='.$sSERVERNAME.';charset=utf8', $sUSER, $sPASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);*/
-
-//Mapping PHP errors to exceptions
-// problem with the davserver constant, this can't be used
-
-/*function exception_error_handler($errno, $errstr, $errfile, $errline) {
-    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-}
-set_error_handler("exception_error_handler");*/
-
-// The autoloader is unusefull : because it's done in the Config.php
-//require_once 'vendor/autoload.php';
-
 // Backends
-//$authBackend = new DAV\Auth\Backend\PDO($pdo);
 $authBackend = new BasicAuth();
 $authBackend->setRealm('EcclesiaCRM_DAV');
 
 $calendarBackend = new CalDavPDO();
 $principalBackend = new PrincipalPDO();
 
-
 // Directory structure
 $tree = [
-    new Sabre\CalDAV\Principal\Collection($principalBackend),
+    new Sabre\DAVACL\PrincipalCollection($principalBackend),
     new Sabre\CalDAV\CalendarRoot($principalBackend, $calendarBackend),
 ];
 
@@ -108,7 +84,7 @@ $server->addPlugin(
     new Sabre\CalDAV\Schedule\IMipPlugin(SystemConfig::getValue('sChurchEmail'))
 );
 
-// WebDAV-Sync plugin
+// CalDAV-Sync plugin
 $server->addPlugin(new Sabre\DAV\Sync\Plugin());
 
 // CalDAV Sharing support
@@ -126,4 +102,4 @@ if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
 }
 
 // And off we go!*/
-$server->exec();
+$server->start();

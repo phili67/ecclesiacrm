@@ -1,6 +1,15 @@
 <?php
 
-/* copyright 2018 Philippe Logel all rights reserved */
+//
+// WebDavServer
+// WebDAV support
+//
+//  This code is under copyright not under MIT Licence
+//  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+//                This code can't be incoprorated in another software without any authorizaion
+//
+//  Updated : 2025/04/28
+//
 
 use Sabre\DAV;
 use Sabre\DAV\Auth;
@@ -13,10 +22,12 @@ require dirname(__FILE__).'/Include/Config.php';
 
 use EcclesiaCRM\Auth\BasicAuth;
 use EcclesiaCRM\PersonalServer\EcclesiaCRMServer;
+use EcclesiaCRM\MyPDO\PrincipalPDO;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\WebDav\WebDavACLPlugin;
 
 if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
   RedirectUtils::Redirect('members/404.php?type=Dav');
@@ -24,26 +35,18 @@ if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
 }
 
 
-//Mapping PHP errors to exceptions
-// problem with the davserver constant
-
-/*function exception_error_handler($errno, $errstr, $errfile, $errline) {
-    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-}
-set_error_handler("exception_error_handler");*/
-
-// The autoloader is unusefull : because it's done in the Config.php
-//require 'vendor/autoload.php';
-
 // authentication
 $authBackend = new BasicAuth();
 $authBackend->setRealm('EcclesiaCRM_DAV');
 
 $authPlugin = new Auth\Plugin($authBackend);
 
+$principalBackend = new PrincipalPDO();
+
 // On entrer dans le répertoire courant du user
 $tree = [
-    new PersonalServer\HomeCollection($authBackend),
+    new Sabre\DAVACL\PrincipalCollection($principalBackend),
+    new Sabre\DAVACL\FS\MyHomeCollection($principalBackend, $authBackend)
 ];
 
 // we create the server
@@ -62,6 +65,16 @@ $lockBackend = new DAV\Locks\Backend\File('data/locks');
 $lockPlugin = new DAV\Locks\Plugin($lockBackend);
 $server->addPlugin($lockPlugin);
 
+//$aclPlugin = new Sabre\DAVACL\Plugin();
+$aclPlugin = new WebDavACLPlugin();
+$server->addPlugin($aclPlugin);
+
+// to share folder and files
+$server->addPlugin(new Sabre\DAV\Sharing\Plugin());
+
+// sync plugin
+$server->addPlugin(new Sabre\DAV\Sync\Plugin());
+
 // This ensures that we get a pretty index in the browser, but it is
 // optional.
 if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
@@ -71,4 +84,4 @@ if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
 //
 // All we need to do now, is to fire up the server
 //
-$server->exec();
+$server->start();
