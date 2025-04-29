@@ -69,6 +69,9 @@ $server->addPlugin($lockPlugin);
 $aclPlugin = new WebDavACLPlugin();
 $server->addPlugin($aclPlugin);
 
+// to share folder and files
+$server->addPlugin(new Sabre\DAV\Sharing\Plugin());
+
 // sync plugin
 $server->addPlugin(new Sabre\DAV\Sync\Plugin());
 
