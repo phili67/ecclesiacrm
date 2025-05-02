@@ -1,0 +1,40 @@
+.group_accordion {
+    margin-bottom:7px;
+}
+
+.group_header {
+    background-color: #dee2e6;
+}
+
+.group_header_accordion {
+    background-color: #eef3f7;
+    padding: .30rem 1.25rem;
+}
+
+div.dt-button-collection {
+    width: 200px;
+}
+
+/* new left and right sidebar */
+.group_Side_bar {
+    min-width: 400px;
+    max-width: 300px;
+    width:300px;
+}
+
+@media screen and (max-width: 800px) {
+    .group_header {
+        background-color: #97999a;
+    }
+
+    .group_header_accordion {
+        background-color: #b9b9b9;
+        padding: .30rem 1.25rem;
+    }
+
+    .group_Side_bar {
+        min-width: 400px;
+        max-width: 100%;
+        width:100%;
+    }
+}
