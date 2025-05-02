@@ -351,6 +351,18 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd:'node_modules/datatables.net-buttons-dt/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/extensions/TableTools/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-buttons-dt/css/',
+                        src: ['*.css'],
+                        dest: 'src/skin/external/datatables/extensions/TableTools/css/'
+                    },
+                    {
+                        expand: true,
                         cwd:'node_modules/datatables.net-buttons/js/',
                         src: ['*.js'],
                         dest: 'src/skin/external/datatables/extensions/TableTools/'
