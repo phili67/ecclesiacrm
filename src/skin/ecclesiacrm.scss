@@ -28,6 +28,7 @@
 //@import 'external/datatables/jquery.dataTables.min.css';
 @import 'external/datatables/css/dataTables.bootstrap4.css';
 @import 'external/datatables/css/dataTables.bootstrap4.min.css';
+@import 'external/datatables/extensions/TableTools/css/buttons.dataTables.min.css';
 @import 'external/datatables/css/buttons.bootstrap4.min.css';
 @import 'external/datatables/css/responsive.bootstrap4.min.css';
 @import 'external/datatables/extensions/RowGroup/rowGroup.dataTables.min.css';
@@ -68,3 +69,4 @@
 @import 'scss/dashboard_plungis.scss';
 @import 'scss/print.scss';
 @import 'scss/maps';
+@import 'scss/group_view';
