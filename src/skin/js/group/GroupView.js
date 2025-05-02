@@ -34,6 +34,8 @@ $(function() {
                 );
             }
         },
+        select:false,
+        info: false,
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
@@ -376,9 +378,10 @@ function initDataTable() {
             "url": window.CRM.plugin.dataTable.language.url
         },
         responsive: true,
+        select: true,
         columns: [
             {
-                width: 'auto',
+                width: '220px',
                 title: i18next.t('Name'),
                 data: 'PersonId',
                 render: function (data, type, full, meta) {
@@ -395,7 +398,7 @@ function initDataTable() {
                     })[0];
 
                     if (isShowable) {
-                        return  ' <a href="#" class="changeMembership btn btn-primary btn-sm" data-personid=' + full.PersonId + '><i class="fas fa-pencil-alt"></i></a> ' + ((thisRole != undefined) ? '<label>' + i18next.t(thisRole.OptionName)+'</label>' : '');
+                        return  ' <a href="#" class="changeMembership btn btn-primary btn-xs" data-personid=' + full.PersonId + '><i class="fas fa-pencil-alt"></i></a> ' + ((thisRole != undefined) ? i18next.t(thisRole.OptionName) : '');
                     } else {
                         return i18next.t("Private Data");
                     }
@@ -481,8 +484,138 @@ function initDataTable() {
             $(row).addClass("groupRow");
         }
     };
-    $.extend(DataTableOpts, window.CRM.plugin.dataTable);
 
+    if (window.CRM.isManageGroupsEnabled) {
+        window.CRM.plugin.dataTable.buttons.push({
+            text: '<i class="fas fa-trash-alt"></i> '+ i18next.t("Remove Selected Members"),            
+            attr: {
+                title: 'Remove Selected Members from group',
+                id: 'deleteSelectedRows'            
+            },
+            enabled: false,
+            className: 'btn btn-danger',
+            action: function (e, dt, node, config) {
+                bootbox.confirm({
+                    title: i18next.t("You're about to delete all the group members ?"),
+                    message: i18next.t("Are you sure ? This can't be undone."),
+                    buttons: {
+                        cancel: {
+                            label: i18next.t('No'),
+                            className: 'btn-primary'
+                        },
+                        confirm: {
+                            label: i18next.t('Yes'),
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            window.CRM.APIRequest({
+                                method: 'POST',
+                                path: 'groups/emptygroup',
+                                data: JSON.stringify({"groupID": groupID})
+                            },function (data) {
+                                window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+        window.CRM.plugin.dataTable.buttons.push({
+            text: '<i class="fas fa-cart-plus"></i> '+ i18next.t("Action to selected members"),
+            extend: 'collection',
+            className: 'btn btn-success',
+            enabled: false,
+            attr: {
+                id: 'addSelectedToGroup',
+                //style: "width: 300px"
+            },            
+            buttons: [
+                {
+                    text: i18next.t("Add to Cart"), 
+                    action: function (e, dt, node, config) {
+                        if (window.CRM.DataTableGroupView.rows('.selected').length > 0) {
+                            var selectedPersons = {
+                                "Persons": $.map(window.CRM.DataTableGroupView.rows('.selected').data(), function (val, i) {
+                                    return val.PersonId;
+                                })
+                            };
+                            window.CRM.cart.addPerson(selectedPersons.Persons);
+                        }
+                    }
+                },                
+                {
+                    text: i18next.t("Add to Group"), 
+                    action: function (e, dt, node, config) {
+                        window.CRM.groups.promptSelection({Type: window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role}, function (data) {
+                            selectedRows = window.CRM.DataTableGroupView.rows('.selected').data()
+                            $.each(selectedRows, function (index, value) {
+                                window.CRM.groups.addPerson(data.GroupID, value.PersonId, data.RoleID);
+                            });
+                        });
+                    }
+                },
+                {
+                    text: i18next.t("Move to Group"),
+                    action: function (e, dt, node, config) {
+                        window.CRM.groups.promptSelection({Type: window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role}, function (data) {
+                            selectedRows = window.CRM.DataTableGroupView.rows('.selected').data()
+                            $.each(selectedRows, function (index, value) {
+                                console.log(data);
+                                window.CRM.groups.addPerson(data.GroupID, value.PersonId, data.RoleID);
+                                window.CRM.groups.removePerson(window.CRM.currentGroup, value.PersonId, function () {
+                                        window.CRM.DataTableGroupView.row(function (idx, data, node) {
+                                            if (data.PersonId == value.PersonId) {
+                                                return true;
+                                            }
+                                        }).remove();
+                                        window.CRM.DataTableGroupView.rows().invalidate().draw(true);
+                                    });
+                            });
+                        });
+                    }
+                }
+            ]            
+        });
+
+        
+        window.CRM.plugin.dataTable.buttons.push({
+            text: '<i class="fas fa-trash-alt"></i> '+ i18next.t("Remove all members"),
+            className: 'btn btn-danger',
+            action: function (e, dt, node, config) {
+                bootbox.confirm({
+                    title: i18next.t("You're about to delete all the group members ?"),
+                    message: i18next.t("Are you sure ? This can't be undone."),
+                    buttons: {
+                        confirm: {
+                            label: i18next.t('Yes'),
+                            className: 'btn-danger'
+                        },
+                        cancel: {
+                            label: i18next.t('No'),
+                            className: 'btn-primary'
+                        }                        
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            window.CRM.APIRequest({
+                                method: 'POST',
+                                path: 'groups/emptygroup',
+                                data: JSON.stringify({"groupID": groupID})
+                            },function (data) {
+                                window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+                            });
+                        }
+                    }
+                });
+            }
+        });        
+    }
+
+    $.extend(DataTableOpts, window.CRM.plugin.dataTable);
+    
     window.CRM.DataTableGroupView = $("#membersTable").DataTable(DataTableOpts);
 
     $('#isGroupActive').on('change',function () {
@@ -493,6 +626,24 @@ function initDataTable() {
     });
 
     $('#isGroupEmailExport').on('change',function () {
+        if ($(this).prop('checked')) {
+            $(".sms-button").removeClass('disabled');
+            $(".email-button").removeClass('disabled');
+            $(".email-cci-button").removeClass('disabled');
+            $(".export-vcard-button").removeClass('disabled');            
+
+            $(".email-button-dropdown").prop('disabled', false);
+            $(".email-cci-button-dropdown").prop('disabled', false);
+        } else {
+            $(".sms-button").addClass('disabled');
+            $(".email-button").addClass('disabled');
+            $(".email-cci-button").addClass('disabled');
+            $(".export-vcard-button").addClass('disabled');
+
+            $(".email-button-dropdown").prop('disabled', true);;
+            $(".email-cci-button-dropdown").prop('disabled', true);;
+        }
+
         window.CRM.APIRequest({
             method: 'POST',
             path: 'groups/' + window.CRM.currentGroup + '/settings/email/export/' + $(this).prop('checked')
@@ -500,15 +651,18 @@ function initDataTable() {
     });
 
     $(document).on('click', '.groupRow', function () {
-        $(this).toggleClass('selected');
         var selectedRows = window.CRM.DataTableGroupView.rows('.selected').data().length;
-        $("#deleteSelectedRows").prop('disabled', !(selectedRows));
-        $("#deleteSelectedRows").text(i18next.t("Remove") + " (" + selectedRows + ") " + i18next.t("Members from group"));
-        $("#buttonDropdown").prop('disabled', !(selectedRows));
-        $("#addSelectedToGroup").prop('disabled', !(selectedRows));
-        $("#addSelectedToGroup").html(i18next.t("Add") + "  (" + selectedRows + ") " + i18next.t("Members to another group"));
-        $("#addSelectedToCart").prop('disabled', !(selectedRows));
-        $("#addSelectedToCart").html(i18next.t("Add") + "  (" + selectedRows + ") " + i18next.t("Members to cart"));
+        if (selectedRows) {
+            $("#deleteSelectedRows").removeClass('disabled');
+            $("#addSelectedToGroup").removeClass('disabled');
+        } else {
+            $("#deleteSelectedRows").addClass('disabled');
+            $("#addSelectedToGroup").addClass('disabled');
+        }
+        $("#deleteSelectedRows").html('<i class="fas fa-trash-alt"></i> ' + i18next.t("Remove") + " (" + selectedRows + ") " + i18next.t("Members"));
+        $("#addSelectedToGroup").html(i18next.t("Add") + "  (" + selectedRows + ") " + i18next.t("Members to cart"));
+        
+        $("#buttonDropdown").prop('disabled', !(selectedRows));        
         $("#moveSelectedToGroup").prop('disabled', !(selectedRows));
         $("#moveSelectedToGroup").html(i18next.t("Move") + "  (" + selectedRows + ") " + i18next.t("Members to another group"));
     });
@@ -580,7 +734,7 @@ function initDataTable() {
                 var optionValues = '';
 
                 for (i = 0; i < len; ++i) {
-                    optionValues += '<button class="delete-person-manager btn btn-danger btn-xs" data-personid="' + data[i].personID + '" data-groupid="' + groupID + '"> <i sclass="icon far fa-trash-alt"></i> ' + i18next.t("Delete") + '</button> '+ data[i].name + '<br/> ';
+                    optionValues += '<button class="delete-person-manager btn btn-danger btn-xs" data-personid="' + data[i].personID + '" data-groupid="' + groupID + '"> <i sclass="icon far fa-trash-alt"></i> </button> '+ data[i].name + '<br/> ';
                 }
 
                 if (optionValues != '') {
@@ -643,7 +797,7 @@ function initDataTable() {
                 option.text = data[i].name;
                 option.value = data[i].personID;
 
-                optionValues += '<button class="delete-person-manager btn btn-danger btn-xs" data-personid="' + data[i].personID + '" data-groupid="' + groupID + '"> <i class="icon far fa-trash-alt"></i> ' + i18next.t("Delete") + '</button>' + data[i].name + '<br/> ';
+                optionValues += '<button class="delete-person-manager btn btn-danger btn-xs" data-personid="' + data[i].personID + '" data-groupid="' + groupID + '"> <i class="icon far fa-trash-alt"></i> </button> ' + data[i].name + '<br/> ';
 
                 elt.appendChild(option);
             }
@@ -677,7 +831,7 @@ function initDataTable() {
                                         $("#select-manager-persons option[value='" + personID + "']").remove();
 
                                         var opts = $('#select-manager-persons > option').map(function () {
-                                            return '<button class="delete-person-manager btn btn-danger btn-xs" data-personid"' + this.value + '" data-groupid"' + groupID + '"> <i class="icon far fa-trash-alt"></i> ' + i18next.t("Delete") + '</button> ' + this.text;
+                                            return '<button class="delete-person-manager btn btn-danger btn-xs" data-personid"' + this.value + '" data-groupid"' + groupID + '"> <i class="icon far fa-trash-alt"></i> </button> ' + this.text;
                                         }).get();
 
                                         if (opts.length) {
