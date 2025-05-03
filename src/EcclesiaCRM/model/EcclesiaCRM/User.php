@@ -1187,10 +1187,6 @@ class User extends BaseUser
 
     public function isEnableForPlugin($name)
     {
-        if ($this->isAdmin()) {
-            return true;
-        }
-
         $plugin = PluginQuery::create()->findOneByName($name);
 
         if (is_null($plugin)) {
@@ -1210,10 +1206,6 @@ class User extends BaseUser
 
     public function isAdminEnableForPlugin($name)
     {
-        if ($this->isAdmin()) {
-            return true;
-        }
-
         $plugin = PluginQuery::create()->findOneByName($name);
 
         if (is_null($plugin)) {
