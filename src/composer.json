@@ -46,7 +46,7 @@
         "geocoder-php/nominatim-provider": "5.*",
         "mustache/mustache": "~2.5",
         "nexmo/client": "2.*",
-        "phpoffice/phpword": "1.2.0",
+        "phpoffice/phpword": "1.3.0",
         "defuse/php-encryption": "^2.2",
         "endroid/qr-code": "4.*",
         "ext-gettext": "*",
