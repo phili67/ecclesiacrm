@@ -145,7 +145,7 @@ if ($sEmailLink) {
 
         <div class="btn-group">
             <a class="btn btn-app <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?> email-cci-button" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank"><i class="fas fa-paper-plane"></i><?= _("Email (BCC)") ?></a>
-            <button type="button" class="btn btn-app dropdown-toggle email-button-cci-dropdown" data-toggle="dropdown" <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?>>
+            <button type="button" class="btn btn-app dropdown-toggle email-cci-button-dropdown" data-toggle="dropdown" <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?>>
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
