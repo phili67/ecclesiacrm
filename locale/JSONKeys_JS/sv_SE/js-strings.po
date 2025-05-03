@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
+"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1326,14 +1326,35 @@ msgstr "Postnummer"
 msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
-msgid "Members from group"
-msgstr "Ledamöter från gruppen"
+msgid "Remove Selected Members"
+msgstr ""
+
+msgid "You're about to delete all the group members ?"
+msgstr "Ska du radera alla gruppmedlemmar?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "Är du säker? Detta kan inte göras ogjort."
+
+msgid "Action to selected members"
+msgstr ""
+
+msgid "Add to Cart"
+msgstr "Lägg till i varukorgen"
+
+#, fuzzy
+msgid "Add to Group"
+msgstr "Lägg till varukorgen i gruppen"
+
+#, fuzzy
+msgid "Move to Group"
+msgstr "Välj grupp"
+
+#, fuzzy
+msgid "Remove all members"
+msgstr "Ta bort alla"
 
 msgid "Add"
 msgstr "Lägg till"
-
-msgid "Members to another group"
-msgstr "Medlemmar till en annan grupp"
 
 msgid "Members to cart"
 msgstr "Medlemmar i varukorgen"
@@ -1341,11 +1362,11 @@ msgstr "Medlemmar i varukorgen"
 msgid "Move"
 msgstr "Flytta"
 
+msgid "Members to another group"
+msgstr "Medlemmar till en annan grupp"
+
 msgid "Remove from Cart"
 msgstr "Ta bort från kundvagnen"
-
-msgid "Add to Cart"
-msgstr "Lägg till i varukorgen"
 
 msgid "No assigned Manager"
 msgstr "Ingen utsedd chef"
@@ -1353,8 +1374,9 @@ msgstr "Ingen utsedd chef"
 msgid "Manage Group Managers"
 msgstr "Hantera gruppchefer"
 
-msgid "Add person"
-msgstr "Lägg till person"
+#, fuzzy
+msgid "Add users"
+msgstr "Lägg till köpare"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Är du säker på att du vill ta bort den här chefen?"
@@ -2507,11 +2529,11 @@ msgstr "Köpare Nummer Redaktör"
 msgid "Select"
 msgstr "Välj"
 
-msgid "You're about to delete all the group members ?"
-msgstr "Ska du radera alla gruppmedlemmar?"
+#~ msgid "Members from group"
+#~ msgstr "Ledamöter från gruppen"
 
-msgid "Are you sure ? This can't be undone."
-msgstr "Är du säker? Detta kan inte göras ogjort."
+#~ msgid "Add person"
+#~ msgstr "Lägg till person"
 
 #~ msgid "Switch Camera"
 #~ msgstr "Växla kamera"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
+"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1327,14 +1327,35 @@ msgstr "Codice postale"
 msgid "Cell Phone"
 msgstr "Telefono cellulare"
 
-msgid "Members from group"
-msgstr "Membri del gruppo"
+msgid "Remove Selected Members"
+msgstr ""
+
+msgid "You're about to delete all the group members ?"
+msgstr "Stai per cancellare tutti i membri del gruppo?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "Sei sicuro? Questo non può essere annullato."
+
+msgid "Action to selected members"
+msgstr ""
+
+msgid "Add to Cart"
+msgstr "Aggiungi al carrello"
+
+#, fuzzy
+msgid "Add to Group"
+msgstr "Aggiungi il carrello al gruppo"
+
+#, fuzzy
+msgid "Move to Group"
+msgstr "Seleziona il gruppo"
+
+#, fuzzy
+msgid "Remove all members"
+msgstr "Rimuovere tutti"
 
 msgid "Add"
 msgstr "Aggiungi"
-
-msgid "Members to another group"
-msgstr "Membri di un altro gruppo"
 
 msgid "Members to cart"
 msgstr "Membri al carrello"
@@ -1342,11 +1363,11 @@ msgstr "Membri al carrello"
 msgid "Move"
 msgstr "Spostare"
 
+msgid "Members to another group"
+msgstr "Membri di un altro gruppo"
+
 msgid "Remove from Cart"
 msgstr "Rimuovi dal carrello"
-
-msgid "Add to Cart"
-msgstr "Aggiungi al carrello"
 
 msgid "No assigned Manager"
 msgstr "Nessun manager assegnato"
@@ -1354,8 +1375,9 @@ msgstr "Nessun manager assegnato"
 msgid "Manage Group Managers"
 msgstr "Gestire i manager del gruppo"
 
-msgid "Add person"
-msgstr "Aggiungi persona"
+#, fuzzy
+msgid "Add users"
+msgstr "Aggiungi acquirente"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Sei sicuro di voler cancellare questo Manager?"
@@ -2521,11 +2543,11 @@ msgstr "Editore del numero dell'acquirente"
 msgid "Select"
 msgstr "Seleziona"
 
-msgid "You're about to delete all the group members ?"
-msgstr "Stai per cancellare tutti i membri del gruppo?"
+#~ msgid "Members from group"
+#~ msgstr "Membri del gruppo"
 
-msgid "Are you sure ? This can't be undone."
-msgstr "Sei sicuro? Questo non può essere annullato."
+#~ msgid "Add person"
+#~ msgstr "Aggiungi persona"
 
 #~ msgid "Switch Camera"
 #~ msgstr "Switch Camera"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
+"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1334,14 +1334,35 @@ msgstr "Ταχυδρομικός κώδικας"
 msgid "Cell Phone"
 msgstr "Κινητό τηλέφωνο"
 
-msgid "Members from group"
-msgstr "Μέλη από την ομάδα"
+msgid "Remove Selected Members"
+msgstr ""
+
+msgid "You're about to delete all the group members ?"
+msgstr "Πρόκειται να διαγράψετε όλα τα μέλη της ομάδας ?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "Είσαι σίγουρος; Αυτό δεν μπορεί να αναιρεθεί."
+
+msgid "Action to selected members"
+msgstr ""
+
+msgid "Add to Cart"
+msgstr "Προσθήκη στο καλάθι"
+
+#, fuzzy
+msgid "Add to Group"
+msgstr "Προσθήκη καλαθιού σε ομάδα"
+
+#, fuzzy
+msgid "Move to Group"
+msgstr "Επιλέξτε ομάδα"
+
+#, fuzzy
+msgid "Remove all members"
+msgstr "Αφαιρέστε όλα"
 
 msgid "Add"
 msgstr "Προσθέστε"
-
-msgid "Members to another group"
-msgstr "Μέλη σε άλλη ομάδα"
 
 msgid "Members to cart"
 msgstr "Μέλη στο καλάθι"
@@ -1349,11 +1370,11 @@ msgstr "Μέλη στο καλάθι"
 msgid "Move"
 msgstr "Μετακίνηση"
 
+msgid "Members to another group"
+msgstr "Μέλη σε άλλη ομάδα"
+
 msgid "Remove from Cart"
 msgstr "Αφαίρεση από το καλάθι"
-
-msgid "Add to Cart"
-msgstr "Προσθήκη στο καλάθι"
 
 msgid "No assigned Manager"
 msgstr "Δεν έχει οριστεί διαχειριστής"
@@ -1361,8 +1382,9 @@ msgstr "Δεν έχει οριστεί διαχειριστής"
 msgid "Manage Group Managers"
 msgstr "Διαχείριση διαχειριστών ομάδων"
 
-msgid "Add person"
-msgstr "Προσθήκη ατόμου"
+#, fuzzy
+msgid "Add users"
+msgstr "Προσθήκη αγοραστή"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτόν τον Διαχειριστή;"
@@ -2543,11 +2565,11 @@ msgstr "Αριθμός αγοραστή Εκδότης"
 msgid "Select"
 msgstr "Επιλέξτε"
 
-msgid "You're about to delete all the group members ?"
-msgstr "Πρόκειται να διαγράψετε όλα τα μέλη της ομάδας ?"
+#~ msgid "Members from group"
+#~ msgstr "Μέλη από την ομάδα"
 
-msgid "Are you sure ? This can't be undone."
-msgstr "Είσαι σίγουρος; Αυτό δεν μπορεί να αναιρεθεί."
+#~ msgid "Add person"
+#~ msgstr "Προσθήκη ατόμου"
 
 #~ msgid "Switch Camera"
 #~ msgstr "Αλλαγή κάμερας"

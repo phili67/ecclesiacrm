@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 05:27+0000\n"
+"POT-Creation-Date: 2025-05-03 08:20+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,8 +43,8 @@ msgstr "Ignorera detta fält"
 msgid "Title"
 msgstr "Titel"
 
-#: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:903
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:908
+#: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:932
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:937
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:555
 #: EcclesiaCRM/Service/ConfirmReportService.php:155
@@ -98,7 +98,7 @@ msgstr "Suffix"
 #: v2/templates/people/personPrint.php:404
 #: v2/templates/sundayschool/sundayschoolview.php:226
 #: v2/templates/sundayschool/sundayschoolview.php:318
-#: v2/templates/system/csvExport.php:342
+#: v2/templates/system/csvExport.php:342 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Genus"
 
@@ -146,7 +146,7 @@ msgstr "Adress"
 #: v2/templates/people/familyEditor.php:735
 #: v2/templates/people/personEditor.php:1034
 #: v2/templates/people/personEditor.php:1210
-#: v2/templates/system/csvExport.php:90
+#: v2/templates/system/csvExport.php:90 queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Staden"
 
@@ -159,7 +159,7 @@ msgstr "Staden"
 #: v2/templates/people/familyEditor.php:744
 #: v2/templates/people/personEditor.php:1043
 #: v2/templates/people/personEditor.php:1238
-#: v2/templates/system/csvExport.php:95
+#: v2/templates/system/csvExport.php:95 queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Stat"
 
@@ -210,7 +210,7 @@ msgstr "Land"
 #: v2/templates/people/personPrint.php:225
 #: v2/templates/people/personlist.php:54 v2/templates/people/personview.php:269
 #: v2/templates/system/csvExport.php:119
-#: v2/templates/system/eventAttendance.php:198
+#: v2/templates/system/eventAttendance.php:198 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "Hemtelefon"
 
@@ -248,7 +248,7 @@ msgstr "Arbetstelefon"
 msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:420
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:470
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
@@ -285,7 +285,7 @@ msgstr "Mobiltelefon"
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:135
-#: v2/templates/system/eventAttendance.php:197
+#: v2/templates/system/eventAttendance.php:197 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "E-post"
 
@@ -399,7 +399,7 @@ msgstr "Standardland om inget land har angetts annars"
 #: EcclesiaCRM/APIControllers/SearchController.php:243
 #: EcclesiaCRM/APIControllers/SearchController.php:251
 #: EcclesiaCRM/APIControllers/SearchController.php:256
-#: EcclesiaCRM/MenuBar/MenuBar.php:277 EcclesiaCRM/MenuBar/MenuBar.php:352
+#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:394
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1035
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1047
@@ -444,7 +444,7 @@ msgstr "Ej tilldelad"
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:355
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
-#: v2/templates/system/optionManager.php:98
+#: v2/templates/system/optionManager.php:98 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Klassificering"
 
@@ -577,20 +577,20 @@ msgstr "Det går inte att utföra en fråga."
 
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:358
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:470
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:555
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:575
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:624
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:694
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:714
-#: EcclesiaCRM/Service/CalendarService.php:2058
-#: EcclesiaCRM/Service/CalendarService.php:2090
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:556
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:576
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:625
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:695
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:715
+#: EcclesiaCRM/Service/CalendarService.php:2078
+#: EcclesiaCRM/Service/CalendarService.php:2110
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "Två resursreservationer kan inte vara i samma tidslucka."
 
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:371
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:594
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:749
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:761
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:595
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:750
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:762
 msgid ""
 "This resource reservation was not created by you. You cannot edit, move or "
 "delete a resource that you do not own."
@@ -647,7 +647,7 @@ msgid "None"
 msgstr "Ingen"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:225
-#: EcclesiaCRM/Service/CalendarService.php:1557
+#: EcclesiaCRM/Service/CalendarService.php:1565
 msgid "Share"
 msgstr "Dela"
 
@@ -871,9 +871,10 @@ msgid "All Families"
 msgstr "Alla familjer"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
-#: EcclesiaCRM/APIControllers/PeopleController.php:72
-#: EcclesiaCRM/APIControllers/PeopleController.php:125
-#: EcclesiaCRM/MenuBar/MenuBar.php:192
+#: EcclesiaCRM/APIControllers/PeopleController.php:76
+#: EcclesiaCRM/APIControllers/PeopleController.php:126
+#: EcclesiaCRM/APIControllers/PeopleController.php:179
+#: EcclesiaCRM/MenuBar/MenuBar.php:210
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
@@ -883,10 +884,10 @@ msgid "Persons"
 msgstr "Personer"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:163
-#: EcclesiaCRM/APIControllers/PeopleController.php:164
+#: EcclesiaCRM/APIControllers/PeopleController.php:218
 #: EcclesiaCRM/APIControllers/SearchController.php:62
 #: EcclesiaCRM/APIControllers/SearchController.php:65
-#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/MenuBar/MenuBar.php:199
+#: EcclesiaCRM/MenuBar/MenuBar.php:183 EcclesiaCRM/MenuBar/MenuBar.php:217
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
@@ -902,10 +903,10 @@ msgid "Families"
 msgstr "Familjer"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:201
-#: EcclesiaCRM/APIControllers/PeopleController.php:201
+#: EcclesiaCRM/APIControllers/PeopleController.php:255
 #: EcclesiaCRM/APIControllers/SearchController.php:88
 #: EcclesiaCRM/APIControllers/SearchController.php:91
-#: EcclesiaCRM/MenuBar/MenuBar.php:221 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:239 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
@@ -985,18 +986,18 @@ msgstr "Familj inaktiverad"
 msgid "Family Activated"
 msgstr "Familjen aktiverad"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:469
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:851
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:498
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:880
 msgid "Deleted from group"
 msgstr "Borttagen från gruppen"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:507
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:542
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:536
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:571
 msgid "Added to group"
 msgstr "Tillagd till gruppen"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:903
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:908
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:932
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:937
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:549
@@ -1011,7 +1012,7 @@ msgstr "Tillagd till gruppen"
 #: v2/templates/group/groupPropsEditor.php:222
 #: v2/templates/group/groupPropsFormEditor.php:318
 #: v2/templates/group/groupPropsFormEditor.php:436
-#: v2/templates/group/groupedit.php:50 v2/templates/group/groupview.php:399
+#: v2/templates/group/groupedit.php:50 v2/templates/group/groupview.php:392
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:405
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:568
 #: v2/templates/people/familyCustomFieldEditor.php:337
@@ -1024,6 +1025,7 @@ msgstr "Tillagd till gruppen"
 #: v2/templates/people/personlist.php:51
 #: v2/templates/system/eventAttendance.php:196
 #: v2/templates/user/userlist.php:51 v2/templates/user/userseditor.php:714
+#: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Namn"
 
@@ -1032,7 +1034,7 @@ msgstr "Namn"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:626
 #: EcclesiaCRM/Service/CalendarService.php:283
-#: EcclesiaCRM/Service/CalendarService.php:1011
+#: EcclesiaCRM/Service/CalendarService.php:1018
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
@@ -1045,8 +1047,8 @@ msgstr "Ja"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:628
 #: EcclesiaCRM/Service/CalendarService.php:283
-#: EcclesiaCRM/Service/CalendarService.php:1011
-#: EcclesiaCRM/Service/CalendarService.php:1410
+#: EcclesiaCRM/Service/CalendarService.php:1018
+#: EcclesiaCRM/Service/CalendarService.php:1418
 #: EcclesiaCRM/Service/ConfirmReportService.php:118
 #: EcclesiaCRM/Service/ConfirmReportService.php:579
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:299
@@ -1101,7 +1103,7 @@ msgstr "Ensamstående personer"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:72
 #: EcclesiaCRM/APIControllers/SearchController.php:75
-#: v2/templates/people/peoplelist.php:44
+#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:69
 msgid "Volunteers"
 msgstr "Volontärer"
 
@@ -1130,7 +1132,7 @@ msgstr "groupmasters"
 #: v2/templates/people/personEditor.php:886
 #: v2/templates/people/personPrint.php:285
 #: v2/templates/people/personPrint.php:435
-#: v2/templates/system/csvExport.php:355
+#: v2/templates/system/csvExport.php:355 queryparameteroptions_qpo.php:2
 msgid "Male"
 msgstr "Man"
 
@@ -1145,7 +1147,7 @@ msgstr "Man"
 #: v2/templates/people/personEditor.php:887
 #: v2/templates/people/personPrint.php:285
 #: v2/templates/people/personPrint.php:435
-#: v2/templates/system/csvExport.php:356
+#: v2/templates/system/csvExport.php:356 queryparameteroptions_qpo.php:3
 msgid "Female"
 msgstr "Kvinna"
 
@@ -1154,7 +1156,7 @@ msgstr "Kvinna"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:303
 #: v2/templates/people/personPrint.php:300
 #: v2/templates/system/csvExport.php:167 v2/templates/system/csvExport.php:312
-#: v2/templates/system/optionManager.php:91
+#: v2/templates/system/optionManager.php:91 queryparameters_qrp.php:5
 msgid "Family Role"
 msgstr "Familjens roll"
 
@@ -1263,7 +1265,7 @@ msgstr "Redaktör för grupptyper"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:1554
+#: EcclesiaCRM/Service/CalendarService.php:1562
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:115
 #: Include/Footer.php:102 v2/templates/calendar/calendar.php:49
@@ -1660,8 +1662,8 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Ditt EcclesiaCRM-konto har uppdaterats"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:256 v2/templates/plugins/plugins.php:83
-#: v2/templates/user/userlist.php:62 v2/templates/user/userseditor.php:720
+#: v2/templates/plugins/plugins.php:83 v2/templates/user/userlist.php:62
+#: v2/templates/user/userseditor.php:720
 msgid "Status"
 msgstr "Status"
 
@@ -1695,39 +1697,39 @@ msgstr "information"
 msgid "Please verify your informations"
 msgstr "Vänligen verifiera dina uppgifter"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:103 Include/Header.php:88
+#: EcclesiaCRM/MenuBar/MenuBar.php:109 Include/Header.php:88
 #: Include/Header.php:149
 msgid "Private Space"
 msgstr "Privat utrymme"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:105 EcclesiaCRM/utils/MiscUtils.php:466
+#: EcclesiaCRM/MenuBar/MenuBar.php:111 EcclesiaCRM/utils/MiscUtils.php:466
 #: Include/Header.php:257
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "Hem"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:108 Include/Header.php:151
+#: EcclesiaCRM/MenuBar/MenuBar.php:114 Include/Header.php:151
 #: v2/templates/people/personview.php:426
 msgid "Change Password"
 msgstr "Ändra lösenord"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:109 Include/Header.php:153
+#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:153
 #: v2/templates/people/personview.php:424
 msgid "Change Settings"
 msgstr "Ändra inställningar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:110 v2/templates/people/familyview.php:471
+#: EcclesiaCRM/MenuBar/MenuBar.php:116 v2/templates/people/familyview.php:471
 #: v2/templates/people/personPrint.php:591
 #: v2/templates/people/personview.php:654
 msgid "Documents"
 msgstr "Dokument"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:113 v2/templates/people/personview.php:668
+#: EcclesiaCRM/MenuBar/MenuBar.php:119 v2/templates/people/personview.php:668
 #: v2/templates/user/userseditor.php:292
 msgid "EDrive"
 msgstr "EDrive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:134
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 #: EcclesiaCRM/dto/SystemConfig.php:301
@@ -1735,30 +1737,30 @@ msgstr "EDrive"
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:129 EcclesiaCRM/MenuBar/MenuBar.php:169
-#: EcclesiaCRM/MenuBar/MenuBar.php:297 EcclesiaCRM/MenuBar/MenuBar.php:394
-#: EcclesiaCRM/MenuBar/MenuBar.php:404 EcclesiaCRM/MenuBar/MenuBar.php:426
-#: EcclesiaCRM/MenuBar/MenuBar.php:520
+#: EcclesiaCRM/MenuBar/MenuBar.php:137 EcclesiaCRM/MenuBar/MenuBar.php:185
+#: EcclesiaCRM/MenuBar/MenuBar.php:339 EcclesiaCRM/MenuBar/MenuBar.php:439
+#: EcclesiaCRM/MenuBar/MenuBar.php:451 EcclesiaCRM/MenuBar/MenuBar.php:477
+#: EcclesiaCRM/MenuBar/MenuBar.php:581
 msgid "Dashboard"
 msgstr "Instrumentpanel"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:130
+#: EcclesiaCRM/MenuBar/MenuBar.php:138
 msgid "Data Structure"
 msgstr "Datastruktur"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:131 EcclesiaCRM/MenuBar/MenuBar.php:197
+#: EcclesiaCRM/MenuBar/MenuBar.php:139 EcclesiaCRM/MenuBar/MenuBar.php:215
 msgid "View Inactive Persons"
 msgstr "Visa inaktiva personer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:132 EcclesiaCRM/MenuBar/MenuBar.php:203
+#: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:221
 msgid "View Inactive Families"
 msgstr "Visa inaktiva familjer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:142
+#: EcclesiaCRM/MenuBar/MenuBar.php:153
 msgid "Events"
 msgstr "Evenemang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:148 v2/templates/map/MapUsingBing.php:78
+#: EcclesiaCRM/MenuBar/MenuBar.php:161 v2/templates/map/MapUsingBing.php:78
 #: v2/templates/map/MapUsingBing.php:124 v2/templates/map/MapUsingGoogle.php:88
 #: v2/templates/map/MapUsingGoogle.php:135
 #: v2/templates/map/MapUsingLeaflet.php:72
@@ -1766,94 +1768,100 @@ msgstr "Evenemang"
 msgid "Calendar"
 msgstr "Kalender"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:151 EcclesiaCRM/MenuBar/MenuBar.php:186
+#: EcclesiaCRM/MenuBar/MenuBar.php:164 EcclesiaCRM/MenuBar/MenuBar.php:202
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "Visa på kartan"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:154
+#: EcclesiaCRM/MenuBar/MenuBar.php:167
 msgid "List Church Events"
 msgstr "Lista över kyrkans evenemang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:155
+#: EcclesiaCRM/MenuBar/MenuBar.php:168
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:332
 msgid "List Event Types"
 msgstr "Lista över händelsetyper"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:157
+#: EcclesiaCRM/MenuBar/MenuBar.php:170
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:294
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:296
 msgid "Call the Register"
 msgstr "Ring till registret"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:167
+#: EcclesiaCRM/MenuBar/MenuBar.php:183
 #: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "Människor"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:184
+#: EcclesiaCRM/MenuBar/MenuBar.php:200
 msgid "Meta Search Engine"
 msgstr "Meta Sökmotor"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:189
+#: EcclesiaCRM/MenuBar/MenuBar.php:206
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1202
 msgid "Directory reports"
 msgstr "Katalograpporter"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:193 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:211 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "Lägg till en ny person"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:194
+#: EcclesiaCRM/MenuBar/MenuBar.php:212
 msgid "View Single Persons"
 msgstr "Visa ensamstående personer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:195
+#: EcclesiaCRM/MenuBar/MenuBar.php:213
 msgid "View Active Persons"
 msgstr "Visa aktiva personer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:200
+#: EcclesiaCRM/MenuBar/MenuBar.php:218
 msgid "Add New Family"
 msgstr "Lägg till en ny familj"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:219
 msgid "View Active Families"
 msgstr "Visa aktiva familjer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:205
+#: EcclesiaCRM/MenuBar/MenuBar.php:223
 msgid "Empty Addresses"
 msgstr "Tomma adresser"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:208
+#: EcclesiaCRM/MenuBar/MenuBar.php:226
 msgid "Convert Individual to Address"
 msgstr "Konvertera individ till adress"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:223
+#: EcclesiaCRM/MenuBar/MenuBar.php:241
 msgid "List Groups"
 msgstr "Lista grupper"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:286
+#: EcclesiaCRM/MenuBar/MenuBar.php:317
+#: v2/templates/deposit/electronicPaymentList.php:254
+#: v2/templates/group/groupedit.php:134 v2/templates/group/groupview.php:235
+msgid "Disabled"
+msgstr "Inaktiverad"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:326
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:235
 msgid "Group Assignment Helper"
 msgstr "Hjälpare för gruppuppdrag"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:295
+#: EcclesiaCRM/MenuBar/MenuBar.php:336
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "Söndagsskola"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:376 EcclesiaCRM/MenuBar/MenuBar.php:383
+#: EcclesiaCRM/MenuBar/MenuBar.php:421 EcclesiaCRM/MenuBar/MenuBar.php:428
 #: Include/Footer.php:177
 msgid "Global Custom Menus"
 msgstr "Globala anpassade menyer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:393
+#: EcclesiaCRM/MenuBar/MenuBar.php:438
 msgid "Custom Menus"
 msgstr "Anpassade menyer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:403 EcclesiaCRM/dto/SystemConfig.php:298
+#: EcclesiaCRM/MenuBar/MenuBar.php:448 EcclesiaCRM/dto/SystemConfig.php:298
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
@@ -1863,21 +1871,21 @@ msgstr "Anpassade menyer"
 msgid "Pastoral Care"
 msgstr "Pastoralvård"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:405
+#: EcclesiaCRM/MenuBar/MenuBar.php:452
 msgid "By Classifications"
 msgstr "Enligt klassificeringar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:424
+#: EcclesiaCRM/MenuBar/MenuBar.php:475
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/people/familyview.php:171 v2/templates/user/userseditor.php:467
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:433
+#: EcclesiaCRM/MenuBar/MenuBar.php:484
 msgid "Email Lists"
 msgstr "E-postlistor"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:461
+#: EcclesiaCRM/MenuBar/MenuBar.php:515
 #: EcclesiaCRM/Search/PledgeSearchRes.php:64
 #: EcclesiaCRM/Search/PledgeSearchRes.php:85 Reports/AdvancedDeposit.php:269
 #: Reports/AdvancedDeposit.php:389 Reports/AdvancedDeposit.php:420
@@ -1886,64 +1894,64 @@ msgstr "E-postlistor"
 msgid "Deposit"
 msgstr "Insättning"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:474
+#: EcclesiaCRM/MenuBar/MenuBar.php:530
 msgid "Current"
 msgstr "Aktuell"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:479
+#: EcclesiaCRM/MenuBar/MenuBar.php:535
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:193
 msgid "Envelope Manager"
 msgstr "Kuvertansvarig"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:480
+#: EcclesiaCRM/MenuBar/MenuBar.php:536
 msgid "View All Deposits"
 msgstr "Visa alla insättningar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:481
+#: EcclesiaCRM/MenuBar/MenuBar.php:537
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:374
 msgid "Electronic Payment Listing"
 msgstr "Lista över elektroniska betalningar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:482
+#: EcclesiaCRM/MenuBar/MenuBar.php:538
 msgid "Deposit Reports"
 msgstr "Rapporter om insättningar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:483
+#: EcclesiaCRM/MenuBar/MenuBar.php:539
 #: v2/templates/deposit/financialReports.php:52
 msgid "Giving Report (Tax Statements)"
 msgstr "Rapport om givande (skattedeklarationer)"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:484
+#: EcclesiaCRM/MenuBar/MenuBar.php:540
 msgid "Edit Deposit Slip"
 msgstr "Redigera inbetalningssedel"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:496
+#: EcclesiaCRM/MenuBar/MenuBar.php:552
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "Insamling"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:498
+#: EcclesiaCRM/MenuBar/MenuBar.php:556
 msgid "Create New Fundraiser"
 msgstr "Skapa en ny insamling"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:499
+#: EcclesiaCRM/MenuBar/MenuBar.php:557
 msgid "View All Fundraisers"
 msgstr "Visa alla insamlingar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:501
+#: EcclesiaCRM/MenuBar/MenuBar.php:559
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "Redigera sista insamlingen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:562
+#: EcclesiaCRM/MenuBar/MenuBar.php:612
 msgid "Data/Reports"
 msgstr "Uppgifter/rapporter"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:564
+#: EcclesiaCRM/MenuBar/MenuBar.php:614
 msgid "Reports Menu"
 msgstr "Menyn Rapporter"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:567 v2/templates/user/userseditor.php:457
+#: EcclesiaCRM/MenuBar/MenuBar.php:617 v2/templates/user/userseditor.php:457
 msgid "Query Menu"
 msgstr "Meny för sökning"
 
@@ -2224,7 +2232,7 @@ msgstr "Adresser"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:70
 #: EcclesiaCRM/Search/PledgeSearchRes.php:85
-#: EcclesiaCRM/Service/CalendarService.php:1387
+#: EcclesiaCRM/Service/CalendarService.php:1395
 #: v2/templates/calendar/eventnames.php:341
 #: v2/templates/pastoralcare/pastoralcareperson.php:167
 #: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:151
@@ -2458,7 +2466,7 @@ msgstr "Evenemang"
 msgid "Anniversary"
 msgstr "Årsdag"
 
-#: EcclesiaCRM/Service/CalendarService.php:1390
+#: EcclesiaCRM/Service/CalendarService.php:1398
 #: EcclesiaCRM/Service/ConfirmReportService.php:541
 #: ident/templates/verify/verify-family-info.php:47
 #: ident/templates/verify/verify-person-info.php:62
@@ -2468,7 +2476,6 @@ msgstr "Årsdag"
 #: v2/templates/deposit/finddepositslip.php:103
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
-#: v2/templates/group/groupview.php:288
 #: v2/templates/pastoralcare/pastoralcarefamily.php:299
 #: v2/templates/pastoralcare/pastoralcarefamily.php:306
 #: v2/templates/pastoralcare/pastoralcareperson.php:431
@@ -2479,58 +2486,58 @@ msgstr "Årsdag"
 msgid "Delete"
 msgstr "Ta bort"
 
-#: EcclesiaCRM/Service/CalendarService.php:1393
+#: EcclesiaCRM/Service/CalendarService.php:1401
 msgid "Info"
 msgstr "Info"
 
-#: EcclesiaCRM/Service/CalendarService.php:1425
+#: EcclesiaCRM/Service/CalendarService.php:1433
 msgid "Check-in"
 msgstr "Incheckning"
 
-#: EcclesiaCRM/Service/CalendarService.php:1426
+#: EcclesiaCRM/Service/CalendarService.php:1434
 msgid "Check-out"
 msgstr "Utcheckning"
 
-#: EcclesiaCRM/Service/CalendarService.php:1427
+#: EcclesiaCRM/Service/CalendarService.php:1435
 msgid "Rest"
 msgstr "Vila"
 
-#: EcclesiaCRM/Service/CalendarService.php:1448
-#: EcclesiaCRM/Service/CalendarService.php:1481
+#: EcclesiaCRM/Service/CalendarService.php:1456
+#: EcclesiaCRM/Service/CalendarService.php:1489
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "Deltagare"
 
-#: EcclesiaCRM/Service/CalendarService.php:1459
-#: EcclesiaCRM/Service/CalendarService.php:1460
-#: EcclesiaCRM/Service/CalendarService.php:1463
-#: EcclesiaCRM/Service/CalendarService.php:1464
+#: EcclesiaCRM/Service/CalendarService.php:1467
+#: EcclesiaCRM/Service/CalendarService.php:1468
+#: EcclesiaCRM/Service/CalendarService.php:1471
+#: EcclesiaCRM/Service/CalendarService.php:1472
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "Gör en utcheckning"
 
-#: EcclesiaCRM/Service/CalendarService.php:1460
-#: EcclesiaCRM/Service/CalendarService.php:1464
+#: EcclesiaCRM/Service/CalendarService.php:1468
+#: EcclesiaCRM/Service/CalendarService.php:1472
 msgid "Check-out done"
 msgstr "Utcheckning gjord"
 
-#: EcclesiaCRM/Service/CalendarService.php:1506
+#: EcclesiaCRM/Service/CalendarService.php:1514
 msgid "No Attendance Recorded"
 msgstr "Ingen närvaro registrerad"
 
-#: EcclesiaCRM/Service/CalendarService.php:1520
+#: EcclesiaCRM/Service/CalendarService.php:1528
 msgid "login"
 msgstr "inloggning"
 
-#: EcclesiaCRM/Service/CalendarService.php:1551
+#: EcclesiaCRM/Service/CalendarService.php:1559
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "Personlig kalender"
 
-#: EcclesiaCRM/Service/CalendarService.php:1726
-#: EcclesiaCRM/Service/CalendarService.php:2119
+#: EcclesiaCRM/Service/CalendarService.php:1744
+#: EcclesiaCRM/Service/CalendarService.php:2139
 #: EcclesiaCRM/dto/SystemConfig.php:47
 msgid "NONE"
 msgstr "INGA"
@@ -2643,7 +2650,7 @@ msgstr "(Ingen tilldelad familj)"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:773
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:793
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1165
@@ -2737,6 +2744,7 @@ msgid "People Dashboard"
 msgstr "Översikt över människor"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
+#: query_qry.php:8 query_qry.php:63
 msgid "Advanced Search"
 msgstr "Avancerad sökning"
 
@@ -3159,56 +3167,56 @@ msgid "Login must be a least 3 characters!"
 msgstr "Inloggningen måste bestå av minst 3 tecken!"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:561
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:630
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:631
 msgid "Login already in use, please select a different login!"
 msgstr "Inloggningen är redan i bruk, välj en annan inloggning!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:624
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:625
 msgid "The same as before"
 msgstr "Samma som tidigare"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:895
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:896
 msgid "User Editor"
 msgstr "Användarredigerare"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1032
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1033
 msgid "You must enter a password in both boxes"
 msgstr "Du måste ange ett lösenord i båda rutorna."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1038
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1101
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1039
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1102
 msgid "You must enter the same password in both boxes"
 msgstr "Du måste ange samma lösenord i båda rutorna."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1089
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1090
 msgid "Invalid password"
 msgstr "Ogiltigt lösenord"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1095
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1096
 msgid "You must enter your new password in both boxes"
 msgstr "Du måste ange ditt nya lösenord i båda rutorna"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1107
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1108
 msgid "Your password choice is too obvious. Please choose something else."
 msgstr "Ditt lösenord är för uppenbart. Välj något annat."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1113
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
 msgid "Your new password must be at least"
 msgstr "Ditt nya lösenord måste vara minst"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1113
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
 msgid "characters"
 msgstr "tecken"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1119
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1120
 msgid "You need to actually change your password (nice try, though!)"
 msgstr "Du måste faktiskt ändra ditt lösenord (bra försök!)."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1122
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1123
 msgid "Your new password is too similar to your old one.  Be more creative!"
 msgstr "Ditt nya lösenord är för likt det gamla.  Var mer kreativ!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1163
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1164
 msgid "User Password Change"
 msgstr "Ändring av användarens lösenord"
 
@@ -5421,13 +5429,13 @@ msgid "Witness"
 msgstr "Vittne"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:238
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:388
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:408
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "Skapad"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:243
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:393
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:413
 msgid "Updated"
 msgstr "Uppdaterad"
 
@@ -5444,107 +5452,104 @@ msgid "Family Data Verification reset"
 msgstr "Återställning av verifiering av familjedata"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:260
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:410
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:430
 msgid "Verification email sent"
 msgstr "E-post för verifiering skickas"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:358
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:595
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:615
 msgid "Profile Image Deleted"
 msgstr "Profilbild raderad"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:374
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:642
 msgid "Profile Image uploaded"
 msgstr "Profilbild uppladdad"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Group.php:174 Reports/CanvassReports.php:279
+#: EcclesiaCRM/model/EcclesiaCRM/Group.php:145 Reports/CanvassReports.php:279
 #: Reports/VotingMembers.php:102 v2/templates/people/selectDelete.php:339
+#: queryparameteroptions_qpo.php:15
 msgid "Member"
 msgstr "Ledamot"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:398
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:418
 msgid "Person Data Verified"
 msgstr "Person Data Verifierad"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:402
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:422
 msgid "Person Data Verified by url"
 msgstr "Personuppgifter verifierade av url"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:406
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:426
 msgid "Person Data Verification reset"
 msgstr "Återställning av personuppgiftsverifiering"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:780
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:800
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "mos gammal"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:782
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:802
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "mo gammal"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:786
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:806
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "år gammal"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:788
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "år gammal"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:816
-msgid "EcclesiaCRM export"
-msgstr "EcclesiaCRM export"
-
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:800
 msgid "system user created"
 msgstr "systemanvändare skapad"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:803
 msgid "system user updated"
 msgstr "systemanvändare uppdaterad"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:806
 msgid "system user deleted"
 msgstr "systemanvändare borttagen"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:809
 msgid "system user password reset"
 msgstr "Återställning av lösenord för systemanvändare"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:812
 msgid "system user changed password"
 msgstr "systemanvändare ändrade lösenord"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:815
 msgid "system user password changed by admin"
 msgstr "systemanvändarens lösenord har ändrats av administratören"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
 msgid "system user login reset"
 msgstr "Återställning av inloggning för systemanvändare"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
 msgid "Dav create file"
 msgstr "Dav skapar en fil"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
 msgid "Dav create directory"
 msgstr "Dav skapar en katalog"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
 msgid "Dav update file"
 msgstr "Dav uppdateringsfil"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:849
 msgid "Dav move copy file"
 msgstr "Dav flytta kopiera fil"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:856
 msgid "Dav delete file"
 msgstr "Dav raderar fil"
 
@@ -5918,7 +5923,7 @@ msgstr "People Properties"
 msgid "Edit Custom Person Fields"
 msgstr "Redigera anpassade personfält"
 
-#: Include/Footer.php:108 v2/templates/group/groupview.php:320
+#: Include/Footer.php:108 v2/templates/group/groupview.php:306
 msgid "Group Properties"
 msgstr "Gruppegenskaper"
 
@@ -7146,7 +7151,7 @@ msgstr "Kör en ny fråga"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:343
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:360
-#: v2/templates/group/groupview.php:344 v2/templates/people/familyview.php:618
+#: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:618
 #: v2/templates/people/personview.php:1105 v2/templates/query/queryview.php:393
 #: v2/templates/query/queryview.php:410
 msgid "select an option"
@@ -7547,7 +7552,7 @@ msgstr "Händelse-ID:"
 #: v2/templates/group/groupPropsEditor.php:223
 #: v2/templates/group/groupPropsFormEditor.php:319
 #: v2/templates/group/groupPropsFormEditor.php:437
-#: v2/templates/group/groupedit.php:56 v2/templates/group/groupview.php:400
+#: v2/templates/group/groupedit.php:56 v2/templates/group/groupview.php:393
 #: v2/templates/plugins/plugins.php:82
 msgid "Description"
 msgstr "Beskrivning"
@@ -8045,7 +8050,7 @@ msgstr "Märken"
 msgid "Email Cart"
 msgstr "E-postkorg"
 
-#: v2/templates/cart/cartview.php:86 v2/templates/group/groupview.php:184
+#: v2/templates/cart/cartview.php:86 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:251
 #: v2/templates/people/personview.php:414
 #: v2/templates/sundayschool/sundayschooldashboard.php:116
@@ -8218,6 +8223,7 @@ msgstr "Inaktivera"
 #: v2/templates/people/reminderreport.php:32
 #: v2/templates/people/selectDelete.php:286
 #: v2/templates/sundayschool/sundayschoolreports.php:60
+#: queryparameters_qrp.php:18
 msgid "Fiscal Year"
 msgstr "Budgetår"
 
@@ -8385,12 +8391,12 @@ msgid "Vanco ACH"
 msgstr "Vanco ACH"
 
 #: v2/templates/deposit/electronicPaymentList.php:216
-#: v2/templates/people/familyEditor.php:1086
+#: v2/templates/people/familyEditor.php:1086 queryparameters_qrp.php:11
 msgid "Month"
 msgstr "Månad"
 
 #: v2/templates/deposit/electronicPaymentList.php:217
-#: v2/templates/people/familyEditor.php:1088
+#: v2/templates/people/familyEditor.php:1088 queryparameters_qrp.php:20
 msgid "Year"
 msgstr "År"
 
@@ -8401,11 +8407,6 @@ msgstr "Vanco CC"
 #: v2/templates/deposit/electronicPaymentList.php:250
 msgid "Bank ACH"
 msgstr "Bank ACH"
-
-#: v2/templates/deposit/electronicPaymentList.php:254
-#: v2/templates/group/groupedit.php:134 v2/templates/group/groupview.php:257
-msgid "Disabled"
-msgstr "Inaktiverad"
 
 #: v2/templates/deposit/electronicPaymentList.php:295
 msgid "With checked"
@@ -9062,7 +9063,7 @@ msgstr ""
 "använder du <b>*</b>."
 
 #: v2/templates/email/mailchimp/managelist.php:75
-#: v2/templates/group/groupview.php:470
+#: v2/templates/group/groupview.php:472
 #: v2/templates/sundayschool/sundayschooldashboard.php:333
 #: v2/templates/sundayschool/sundayschoolview.php:179
 #: v2/templates/sundayschool/sundayschoolview.php:292
@@ -9360,7 +9361,7 @@ msgid "Edit List Options"
 msgstr "Redigera alternativ för listor"
 
 #: v2/templates/group/groupPropsFormEditor.php:38
-#: v2/templates/group/groupview.php:378
+#: v2/templates/group/groupview.php:368
 msgid "Group-Specific Properties"
 msgstr "Gruppspecifika egenskaper"
 
@@ -9492,7 +9493,7 @@ msgstr "Inaktivera gruppspecifika egenskaper"
 msgid "Group-specific properties are useful to make a sort of doodle"
 msgstr "Gruppspecifika egenskaper är användbara för att göra en slags doodle"
 
-#: v2/templates/group/groupedit.php:128 v2/templates/group/groupview.php:431
+#: v2/templates/group/groupedit.php:128 v2/templates/group/groupview.php:424
 msgid "Edit Group-Specific Properties Form"
 msgstr "Formuläret Redigera gruppspecifika egenskaper"
 
@@ -9578,45 +9579,21 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Gruppspecifika egenskapsfält"
 
-#: v2/templates/group/groupview.php:33
-msgid "Type of Group"
-msgstr "Typ av grupp"
-
-#: v2/templates/group/groupview.php:39
-msgid "Default Role"
-msgstr "Standardroll"
-
-#: v2/templates/group/groupview.php:45
-msgid "Total Members"
-msgstr "Totalt antal medlemmar"
-
-#: v2/templates/group/groupview.php:51
-msgid "Click to create an addressbook of the Group"
-msgstr "Klicka för att skapa en adressbok för gruppen"
-
-#: v2/templates/group/groupview.php:52
-msgid "Address Book"
-msgstr "Adressbok"
-
-#: v2/templates/group/groupview.php:68
-msgid "Group Functions"
-msgstr "Gruppfunktioner"
-
-#: v2/templates/group/groupview.php:74
+#: v2/templates/group/groupview.php:32
 msgid "Map this group"
 msgstr "Kartlägga denna grupp"
 
-#: v2/templates/group/groupview.php:82 v2/templates/people/familyview.php:228
+#: v2/templates/group/groupview.php:40 v2/templates/people/familyview.php:228
 #: v2/templates/people/personview.php:394
 msgid "Remove from Cart"
 msgstr "Ta bort från kundvagnen"
 
-#: v2/templates/group/groupview.php:86 v2/templates/people/familyview.php:235
+#: v2/templates/group/groupview.php:44 v2/templates/people/familyview.php:235
 #: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:153
 msgid "Add to Cart"
 msgstr "Lägg till i varukorgen"
 
-#: v2/templates/group/groupview.php:94
+#: v2/templates/group/groupview.php:52
 msgid ""
 "To add special Group roles or to modify the role by default or to enable "
 "Group-specific properties"
@@ -9624,28 +9601,15 @@ msgstr ""
 "Lägga till särskilda grupproller eller ändra rollen som standard eller "
 "aktivera gruppspecifika egenskaper"
 
-#: v2/templates/group/groupview.php:94
+#: v2/templates/group/groupview.php:52
 msgid "Edit this Group"
 msgstr "Redigera den här gruppen"
 
-#: v2/templates/group/groupview.php:95
+#: v2/templates/group/groupview.php:53
 msgid "Delete this Group"
 msgstr "Ta bort den här gruppen"
 
-#: v2/templates/group/groupview.php:105
-msgid "Group reports"
-msgstr "Rapporter från grupper"
-
-#: v2/templates/group/groupview.php:109
-msgid "Create here your badges or QR-Code to call the register with them"
-msgstr ""
-"Skapa här dina badges eller QR-koder för att ringa in i kassan med dem."
-
-#: v2/templates/group/groupview.php:111
-msgid "Group Badges"
-msgstr "Gruppmärken"
-
-#: v2/templates/group/groupview.php:121
+#: v2/templates/group/groupview.php:64
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:70
@@ -9653,77 +9617,88 @@ msgstr "Gruppmärken"
 msgid "Appointment"
 msgstr "Utnämning"
 
-#: v2/templates/group/groupview.php:173
+#: v2/templates/group/groupview.php:74
+msgid "Group reports"
+msgstr "Rapporter från grupper"
+
+#: v2/templates/group/groupview.php:78
+msgid "Create here your badges or QR-Code to call the register with them"
+msgstr ""
+"Skapa här dina badges eller QR-koder för att ringa in i kassan med dem."
+
+#: v2/templates/group/groupview.php:80
+msgid "Group Badges"
+msgstr "Gruppmärken"
+
+#: v2/templates/group/groupview.php:82
+msgid "Click to create an addressbook of the Group"
+msgstr "Klicka för att skapa en adressbok för gruppen"
+
+#: v2/templates/group/groupview.php:83
+msgid "Address Book"
+msgstr "Adressbok"
+
+#: v2/templates/group/groupview.php:136
 msgid "Email Group"
 msgstr "E-postgrupp"
 
-#: v2/templates/group/groupview.php:232
+#: v2/templates/group/groupview.php:195
 msgid "Text Group"
 msgstr "Textgrupp"
 
-#: v2/templates/group/groupview.php:233
+#: v2/templates/group/groupview.php:198
 msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr ""
 "Tryck på CTRL + C för att kopiera alla gruppmedlemmars telefonnummer\\."
 
-#: v2/templates/group/groupview.php:249
+#: v2/templates/group/groupview.php:223
 msgid "Quick Settings"
 msgstr "Snabbinställningar"
 
-#: v2/templates/group/groupview.php:257
+#: v2/templates/group/groupview.php:233
+#, fuzzy
+msgid "Group is"
+msgstr "Grupper"
+
+#: v2/templates/group/groupview.php:235
 #: v2/templates/sidebar/kioskmanager.php:29
 msgid "Active"
 msgstr "Aktiv"
 
-#: v2/templates/group/groupview.php:259
-msgid "Email export"
-msgstr "Export av e-post"
+#: v2/templates/group/groupview.php:239
+#, fuzzy
+msgid "The emails are"
+msgstr "Det finns"
 
-#: v2/templates/group/groupview.php:260
+#: v2/templates/group/groupview.php:241
 msgid "Include"
 msgstr "Inkludera"
 
-#: v2/templates/group/groupview.php:260
+#: v2/templates/group/groupview.php:241
 msgid "Exclude"
 msgstr "Exkludera"
 
-#: v2/templates/group/groupview.php:268
-msgid ""
-"Assign a group manager only for This Group. He can add or remove member from "
-"This Group, but not create Members."
-msgstr ""
-"Tilldela en gruppchef endast för den här gruppen. Han kan lägga till eller "
-"ta bort medlemmar från den här gruppen, men inte skapa medlemmar."
-
-#: v2/templates/group/groupview.php:268
+#: v2/templates/group/groupview.php:252
 msgid "Group Managers"
 msgstr "Gruppchefer"
 
-#: v2/templates/group/groupview.php:274
+#: v2/templates/group/groupview.php:261
 msgid "Assigned Managers"
 msgstr "Tilldelade chefer"
 
-#: v2/templates/group/groupview.php:294
+#: v2/templates/group/groupview.php:281
 msgid "No assigned Manager"
 msgstr "Ingen utsedd chef"
 
-#: v2/templates/group/groupview.php:302
+#: v2/templates/group/groupview.php:289
 msgid "Add a specific manager only for this group"
 msgstr "Lägg till en specifik chef endast för den här gruppen"
 
-#: v2/templates/group/groupview.php:302
+#: v2/templates/group/groupview.php:289
 msgid "Add Manager"
 msgstr "Lägg till chef"
 
-#: v2/templates/group/groupview.php:320
-msgid ""
-"Assign properties for This Group. This properties are global properties and "
-"this can be changed in the admin right side bar &rarr; Group Properties"
-msgstr ""
-"Tilldela egenskaper för den här gruppen. Egenskaperna är globala och kan "
-"ändras i administratörens högra sidofält &rarr; Gruppegenskaper"
-
-#: v2/templates/group/groupview.php:326 v2/templates/group/groupview.php:384
+#: v2/templates/group/groupview.php:315 v2/templates/group/groupview.php:377
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:551
 #: v2/templates/people/familyview.php:447
 #: v2/templates/people/personPrint.php:547
@@ -9731,34 +9706,26 @@ msgstr ""
 msgid "Assigned Properties"
 msgstr "Tilldelade egenskaper"
 
-#: v2/templates/group/groupview.php:339 v2/templates/people/familyview.php:608
+#: v2/templates/group/groupview.php:328 v2/templates/people/familyview.php:608
 #: v2/templates/people/personview.php:1097
 msgid "Assign a New Property"
 msgstr "Tilldela en ny egenskap"
 
-#: v2/templates/group/groupview.php:360 v2/templates/people/familyview.php:639
+#: v2/templates/group/groupview.php:349 v2/templates/people/familyview.php:639
 #: v2/templates/people/personview.php:1126
 #: v2/templates/people/personview.php:1189
 msgid "Assign"
 msgstr "Tilldela"
 
-#: v2/templates/group/groupview.php:378
-msgid ""
-"Assign properties for all members of the group. This properties are visible "
-"in each Person Profile &rarr; Assigned Group"
-msgstr ""
-"Tilldela egenskaper för alla medlemmar i gruppen. Egenskaperna är synliga i "
-"varje personprofil &rarr; Tilldelad grupp"
-
-#: v2/templates/group/groupview.php:392
+#: v2/templates/group/groupview.php:385
 msgid "No member properties have been created"
 msgstr "Inga medlemsegenskaper har skapats"
 
-#: v2/templates/group/groupview.php:422
+#: v2/templates/group/groupview.php:415
 msgid "Disabled for this group."
 msgstr "Inaktiverad för den här gruppen."
 
-#: v2/templates/group/groupview.php:422
+#: v2/templates/group/groupview.php:415
 msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
@@ -9767,33 +9734,20 @@ msgstr ""
 "göra detta trycker du på knappen ovanför: \"Redigera denna grupp\"."
 
 #: v2/templates/group/groupview.php:446
-msgid "Group Members:"
-msgstr "Medlemmar i gruppen:"
-
-#: v2/templates/group/groupview.php:449
-#: v2/templates/sundayschool/sundayschoolview.php:253
-msgid "Remove members"
-msgstr "Ta bort medlemmar"
-
-#: v2/templates/group/groupview.php:465
 msgid "Manage Group Members"
 msgstr "Hantera gruppmedlemmar"
 
-#: v2/templates/group/groupview.php:476
-msgid "Remove Selected Members from group"
-msgstr "Ta bort valda medlemmar från gruppen"
+#: v2/templates/group/groupview.php:449
+msgid "Type of Group"
+msgstr "Typ av grupp"
 
-#: v2/templates/group/groupview.php:483
-msgid "Add Selected Members to Cart"
-msgstr "Lägg till utvalda medlemmar i varukorgen"
+#: v2/templates/group/groupview.php:455
+msgid "Default Role"
+msgstr "Standardroll"
 
-#: v2/templates/group/groupview.php:489
-msgid "Add Selected Members to Group"
-msgstr "Lägg till valda medlemmar i gruppen"
-
-#: v2/templates/group/groupview.php:490
-msgid "Move Selected Members to Group"
-msgstr "Flytta valda medlemmar till en grupp"
+#: v2/templates/group/groupview.php:461
+msgid "Total Members"
+msgstr "Totalt antal medlemmar"
 
 #: v2/templates/map/MapUsingBing.php:25 v2/templates/map/MapUsingGoogle.php:26
 #: v2/templates/map/MapUsingLeaflet.php:26
@@ -9867,7 +9821,7 @@ msgstr "Inga gruppuppgifter."
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:513
 #: v2/templates/people/personPrint.php:509
 #: v2/templates/sidebar/propertylist.php:23
-#: v2/templates/user/usersettings.php:305
+#: v2/templates/user/usersettings.php:305 queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Fastighet"
 
@@ -10839,19 +10793,19 @@ msgstr "Test"
 msgid "Selected Members"
 msgstr "Utvalda medlemmar"
 
-#: v2/templates/people/lettersandlabels.php:236
+#: v2/templates/people/lettersandlabels.php:236 queryparameters_qrp.php:2
 msgid "Minimum Age"
 msgstr "Minimiålder"
 
-#: v2/templates/people/lettersandlabels.php:239
+#: v2/templates/people/lettersandlabels.php:239 queryparameters_qrp.php:23
 msgid "The minimum age for which you want records returned."
 msgstr "Den lägsta åldern för vilken du vill ha tillbaka uppgifter."
 
-#: v2/templates/people/lettersandlabels.php:244
+#: v2/templates/people/lettersandlabels.php:244 queryparameters_qrp.php:3
 msgid "Maximum Age"
 msgstr "Högsta ålder"
 
-#: v2/templates/people/lettersandlabels.php:247
+#: v2/templates/people/lettersandlabels.php:247 queryparameters_qrp.php:24
 msgid "The maximum age for which you want records returned."
 msgstr "Högsta ålder för vilken du vill ha tillbaka poster."
 
@@ -11093,7 +11047,7 @@ msgstr "Välj dina personfilter"
 msgid "Group filters"
 msgstr "Gruppfilter"
 
-#: v2/templates/people/peoplelist.php:72
+#: v2/templates/people/peoplelist.php:72 queryparameters_qrp.php:9
 msgid "Search"
 msgstr "Sök på"
 
@@ -11784,6 +11738,7 @@ msgid "Add Teachers to Cart"
 msgstr "Lägg till lärare i varukorgen"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:207
+#: queryparameters_qrp.php:12
 msgid "Class"
 msgstr "Klass"
 
@@ -11932,6 +11887,10 @@ msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 "Klicka på diagrammet eller Donut-delarna för att interagera med tabellen "
 "nedan."
+
+#: v2/templates/sundayschool/sundayschoolview.php:253
+msgid "Remove members"
+msgstr "Ta bort medlemmar"
 
 #: v2/templates/sundayschool/sundayschoolview.php:257
 msgid "Edition Mode"
@@ -12788,6 +12747,616 @@ msgstr "Förvara dem på en säker plats."
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Påbörja registrering av tvåfaktorsautentisering"
 
+#: query_qry.php:2 query_qry.php:57
+msgid "Family With Work Phone"
+msgstr "Familj med arbetstelefon"
+
+#: query_qry.php:3 query_qry.php:58
+msgid "Family Member Count"
+msgstr "Antal familjemedlemmar"
+
+#: query_qry.php:4 query_qry.php:59
+msgid "Person by Age"
+msgstr "Person efter ålder"
+
+#: query_qry.php:5 query_qry.php:60
+msgid "Total By Gender"
+msgstr "Totalt per kön"
+
+#: query_qry.php:6 query_qry.php:61
+msgid "Person by Role and Gender"
+msgstr "Personer efter roll och kön"
+
+#: query_qry.php:7 query_qry.php:62
+msgid "Person by Property"
+msgstr "Person genom egendom"
+
+#: query_qry.php:9 query_qry.php:64
+msgid "Birthdays"
+msgstr "Födelsedagar"
+
+#: query_qry.php:10 query_qry.php:65 queryparameters_qrp.php:13
+msgid "Registered students"
+msgstr "Registrerade studenter"
+
+#: query_qry.php:11 query_qry.php:66
+msgid "Membership anniversaries"
+msgstr "Årsdagar för medlemskap"
+
+#: query_qry.php:12 query_qry.php:67
+msgid "Select database users"
+msgstr "Välj databasanvändare"
+
+#: query_qry.php:13 query_qry.php:68
+msgid "Select all members"
+msgstr "Välj alla medlemmar"
+
+#: query_qry.php:15 query_qry.php:70
+msgid "Recent friends"
+msgstr "Nya vänner"
+
+#: query_qry.php:16 query_qry.php:71
+msgid "Families to Canvass"
+msgstr "Familjer som ska värva"
+
+#: query_qry.php:17 query_qry.php:72
+msgid "Pledge comparison"
+msgstr "Jämförelse av löften"
+
+#: query_qry.php:18 query_qry.php:73
+msgid "Missing pledges"
+msgstr "Saknade löften"
+
+#: query_qry.php:19 query_qry.php:74
+msgid "Credit Card People"
+msgstr "Människor med kreditkort"
+
+#: query_qry.php:20 query_qry.php:75
+msgid "Family Pledge by Fiscal Year"
+msgstr "Familjelöften per räkenskapsår"
+
+#: query_qry.php:21 query_qry.php:76
+msgid "Person not assigned to a group"
+msgstr "Person som inte tillhör någon grupp"
+
+#: query_qry.php:22 query_qry.php:77
+msgid "Person assigned to a group"
+msgstr "Person som tillhör en grupp"
+
+#: query_qry.php:23 query_qry.php:78
+msgid "Awaiting confirmation of persons"
+msgstr "Inväntar bekräftelse från personer"
+
+#: query_qry.php:24 query_qry.php:79
+msgid "Awaiting confirmation of families"
+msgstr "Inväntar bekräftelse från familjer"
+
+#: query_qry.php:25 query_qry.php:80
+msgid "Done confirmation of persons"
+msgstr "Gjord bekräftelse av personer"
+
+#: query_qry.php:26 query_qry.php:81
+msgid "Done confirmation of families"
+msgstr "Utförd bekräftelse av familjer"
+
+#: query_qry.php:27 query_qry.php:82
+msgid "CustomSearch"
+msgstr "Anpassad sökning"
+
+#: query_qry.php:28 query_qry.php:83
+msgid "CustomSearch is NULL"
+msgstr "CustomSearch är NULL"
+
+#: query_qry.php:29 query_qry.php:84
+msgid "Returns each family with a work phone"
+msgstr "Återlämnar en arbetstelefon till varje familj."
+
+#: query_qry.php:30 query_qry.php:85
+msgid "Returns each family and the total number of people assigned to them."
+msgstr ""
+"Återger varje familj och det totala antalet personer som tilldelats dem."
+
+#: query_qry.php:31 query_qry.php:86
+msgid "Returns any person records with ages between two given ages."
+msgstr "Återger alla personposter med åldrar mellan två givna åldrar."
+
+#: query_qry.php:32 query_qry.php:87
+msgid "Total of records matching a given gender."
+msgstr "Totalt antal poster som matchar ett visst kön."
+
+#: query_qry.php:33 query_qry.php:88
+msgid "Selects person records with the family role and gender specified."
+msgstr "Väljer personposter med den familjeroll och det kön som anges."
+
+#: query_qry.php:34 query_qry.php:89
+msgid "Returns person records which are assigned the given property."
+msgstr "Återger personposter som har tilldelats den angivna egenskapen."
+
+#: query_qry.php:35 query_qry.php:90
+msgid ""
+"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
+"Email."
+msgstr ""
+"Sök på någon del av namn, ort, delstat, postnummer, hemtelefon, e-post eller "
+"e-postadress på jobbet."
+
+#: query_qry.php:36 query_qry.php:91
+msgid "People with birthdays in a particular month"
+msgstr "Personer med födelsedagar i en viss månad"
+
+#: query_qry.php:37 query_qry.php:92
+msgid "Find Registered students"
+msgstr "Hitta registrerade studenter"
+
+#: query_qry.php:38 query_qry.php:93
+msgid "Members who joined in a particular month"
+msgstr "Medlemmar som anslöt sig under en viss månad"
+
+#: query_qry.php:39 query_qry.php:94
+msgid "People who are registered as database users"
+msgstr "Personer som är registrerade som databasanvändare"
+
+#: query_qry.php:40 query_qry.php:95
+msgid "People who are members"
+msgstr "Personer som är medlemmar"
+
+#: query_qry.php:41 query_qry.php:96
+msgid "Find volunteers for a particular opportunity"
+msgstr "Hitta volontärer för ett visst tillfälle"
+
+#: query_qry.php:42 query_qry.php:97
+msgid "Friends who signed up in previous months"
+msgstr "Vänner som anmält sig under tidigare månader"
+
+#: query_qry.php:43 query_qry.php:98
+msgid "People in families that are ok to canvass."
+msgstr "Människor i familjer som är okej att arbeta med."
+
+#: query_qry.php:44 query_qry.php:99
+msgid "Compare pledges between two fiscal years"
+msgstr "Jämför utfästelser mellan två räkenskapsår"
+
+#: query_qry.php:45 query_qry.php:100
+msgid "Find people who pledged one year but not another"
+msgstr "Hitta personer som har gjort en utfästelse ett år men inte ett annat."
+
+#: query_qry.php:46 query_qry.php:101
+msgid "People who are configured to pay by credit card."
+msgstr "Personer som är konfigurerade för att betala med kreditkort."
+
+#: query_qry.php:47 query_qry.php:102
+msgid ""
+"Pledge summary by family name for each fund for the selected fiscal year"
+msgstr ""
+"Sammanfattning av löften per familjenamn för varje fond för det valda "
+"räkenskapsåret."
+
+#: query_qry.php:48 query_qry.php:103
+msgid "Returns all the persons not assigned to a group."
+msgstr "Återger alla personer som inte är tilldelade en grupp."
+
+#: query_qry.php:49 query_qry.php:104
+msgid "Returns all persons assigned to a group."
+msgstr "Återger alla personer som tilldelats en grupp."
+
+#: query_qry.php:50 query_qry.php:105
+msgid "Find person who are in pending confirmation process"
+msgstr "Hitta personer som är i pågående bekräftelseprocess"
+
+#: query_qry.php:51 query_qry.php:106
+msgid "Find families who are in pending confirmation process"
+msgstr "Hitta familjer som befinner sig i en pågående bekräftelseprocess"
+
+#: query_qry.php:52 query_qry.php:107
+msgid "Look for person who have confirmed"
+msgstr "Leta efter personer som har bekräftat"
+
+#: query_qry.php:53 query_qry.php:108
+msgid "Look for families who have confirmed"
+msgstr "Leta efter familjer som har bekräftat"
+
+#: query_qry.php:54 query_qry.php:109
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr "Hitta volontärer som matchar två specifika koder för möjligheter."
+
+#: query_qry.php:55 query_qry.php:110
+msgid "Find people with a custom field value"
+msgstr "Hitta personer med ett värde i ett anpassat fält"
+
+#: query_qry.php:56 query_qry.php:111
+msgid "Find people with a custom field value is NULL"
+msgstr "Hitta personer med ett anpassat fältvärde som är NULL"
+
+#: queryparameteroptions_qpo.php:5
+msgid "Zip Code"
+msgstr "Postnummer"
+
+#: queryparameteroptions_qpo.php:9
+msgid "2012/2013"
+msgstr "2012/2013"
+
+#: queryparameteroptions_qpo.php:10
+msgid "2013/2014"
+msgstr "2013/2014"
+
+#: queryparameteroptions_qpo.php:11
+msgid "2014/2015"
+msgstr "2014/2015"
+
+#: queryparameteroptions_qpo.php:12
+msgid "2015/2016"
+msgstr "2015/2016"
+
+#: queryparameteroptions_qpo.php:14
+msgid "WorkEmail"
+msgstr "WorkEmail"
+
+#: queryparameteroptions_qpo.php:16
+msgid "Regular Attender"
+msgstr "Regelbunden deltagare"
+
+#: queryparameteroptions_qpo.php:17
+msgid "Guest"
+msgstr "Gäst"
+
+#: queryparameteroptions_qpo.php:18
+msgid "Non-Attender"
+msgstr "Icke-deltagare"
+
+#: queryparameteroptions_qpo.php:19
+msgid "Non-Attender (staff)"
+msgstr "Icke-deltagare (personal)"
+
+#: queryparameters_qrp.php:7
+msgid "Beginning Date"
+msgstr "Startdatum"
+
+#: queryparameters_qrp.php:8
+msgid "Ending Date"
+msgstr "Slutdatum"
+
+#: queryparameters_qrp.php:10
+msgid "Field"
+msgstr "Fält"
+
+#: queryparameters_qrp.php:14
+msgid "Volunteer opportunities"
+msgstr "Möjligheter till volontärarbete"
+
+#: queryparameters_qrp.php:15
+msgid "Months"
+msgstr "Månader"
+
+#: queryparameters_qrp.php:16
+msgid "First Fiscal Year"
+msgstr "Första räkenskapsåret"
+
+#: queryparameters_qrp.php:17
+msgid "Second Fiscal Year"
+msgstr "Andra räkenskapsåret"
+
+#: queryparameters_qrp.php:21
+msgid "Custom field"
+msgstr "Anpassat fält"
+
+#: queryparameters_qrp.php:22
+msgid "Field value"
+msgstr "Fältets värde"
+
+#: queryparameters_qrp.php:25
+msgid "The desired gender to search the database for."
+msgstr "Det önskade könet som ska sökas i databasen."
+
+#: queryparameters_qrp.php:26
+msgid "Select the desired family role."
+msgstr "Välj önskad familjeroll."
+
+#: queryparameters_qrp.php:27
+msgid "The gender for which you would like records returned."
+msgstr "Det kön för vilket du vill ha tillbaka uppgifter."
+
+#: queryparameters_qrp.php:28
+msgid "The property for which you would like person records returned."
+msgstr "Den fastighet för vilken du vill att personregistren ska återlämnas."
+
+#: queryparameters_qrp.php:29
+msgid ""
+"Please select the beginning date to calculate total contributions for each "
+"member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that conatain "
+"donations."
+msgstr ""
+"Välj startdatum för att beräkna de totala bidragen för varje medlem (dvs. "
+"ÅÅÅÅÅ-MM-DD). OBS: Du kan bara välja datum som innehåller bidrag."
+
+#: queryparameters_qrp.php:30
+msgid ""
+"Please enter the last date to calculate total contributions for each member "
+"(i.e. YYYY-MM-DD)."
+msgstr ""
+"Ange det sista datumet för att beräkna de totala bidragen för varje medlem "
+"(dvs. ÅÅÅÅÅ-MM-DD)."
+
+#: queryparameters_qrp.php:31
+msgid ""
+"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
+"or Work Email."
+msgstr ""
+"Ange en del av följande: Namn, ort, delstat, postnummer, hemtelefon, e-"
+"postadress eller e-postadress för arbete."
+
+#: queryparameters_qrp.php:32
+msgid "Select field to search for."
+msgstr "Välj det fält som du vill söka efter."
+
+#: queryparameters_qrp.php:33
+msgid "The birthday month for which you would like records returned."
+msgstr "Födelsedagsmånad för vilken du vill ha tillbaka uppgifter."
+
+#: queryparameters_qrp.php:34
+msgid "The sunday school class for which you would like records returned."
+msgstr "Den klass i söndagsskolan för vilken du vill ha tillbaka uppgifter."
+
+#: queryparameters_qrp.php:35
+msgid "Group of registered students"
+msgstr "Grupp av registrerade studenter"
+
+#: queryparameters_qrp.php:36
+msgid ""
+"The membership anniversary month for which you would like records returned."
+msgstr "Den månad då du vill ha tillbaka uppgifter om ditt medlemskap."
+
+#: queryparameters_qrp.php:37
+msgid "Choose a volunteer opportunity"
+msgstr "Välj ett volontärtillfälle"
+
+#: queryparameters_qrp.php:38
+msgid "Number of months since becoming a friend"
+msgstr "Antal månader sedan du blev vän"
+
+#: queryparameters_qrp.php:39
+msgid "First fiscal year for comparison"
+msgstr "Första räkenskapsåret för jämförelse"
+
+#: queryparameters_qrp.php:40
+msgid "Second fiscal year for comparison"
+msgstr "Andra räkenskapsåret för jämförelse"
+
+#: queryparameters_qrp.php:41
+msgid "Pledged this year"
+msgstr "Utfästelser i år"
+
+#: queryparameters_qrp.php:42
+msgid "but not this year"
+msgstr "men inte i år"
+
+#: queryparameters_qrp.php:43
+msgid "Fiscal Year."
+msgstr "Budgetår."
+
+#: queryparameters_qrp.php:44
+msgid "Member, Regular Attender, etc."
+msgstr "Medlem, regelbunden deltagare osv."
+
+#: queryparameters_qrp.php:45
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr "Ta fram alla personer som är födda före det år som du nämner."
+
+#: queryparameters_qrp.php:46
+msgid "First volunteer opportunity choice"
+msgstr "Första val av volontärarbete"
+
+#: queryparameters_qrp.php:47
+msgid "Second volunteer opportunity choice"
+msgstr "Andra val av volontärarbete"
+
+#: queryparameters_qrp.php:48
+msgid "Choose customer person field"
+msgstr "Välj fältet för kundperson"
+
+#: queryparameters_qrp.php:49
+msgid "Match custom field to this value"
+msgstr "Matcha det anpassade fältet med det här värdet"
+
+#: settings-locales.php:2 settings-locales.php:37
+msgid "Albanian"
+msgstr "Albanska"
+
+#: settings-locales.php:3 settings-locales.php:38
+msgid "Arabic - Egypt"
+msgstr "Arabiska - Egypten"
+
+#: settings-locales.php:4 settings-locales.php:39
+msgid "Chinese - China"
+msgstr "Kinesiska - Kina"
+
+#: settings-locales.php:5 settings-locales.php:40
+msgid "Chinese - Taiwan"
+msgstr "Kinesiska - Taiwan"
+
+#: settings-locales.php:6 settings-locales.php:41
+msgid "Danish - Denmark"
+msgstr "Danska - Danmark"
+
+#: settings-locales.php:7 settings-locales.php:42
+msgid "Dutch - Netherlands"
+msgstr "Nederländska - Nederländerna"
+
+#: settings-locales.php:8 settings-locales.php:43
+msgid "English - Australia"
+msgstr "Engelska - Australien"
+
+#: settings-locales.php:9 settings-locales.php:44
+msgid "English - Canada"
+msgstr "Engelska - Kanada"
+
+#: settings-locales.php:10 settings-locales.php:45
+msgid "English - Great Britain"
+msgstr "Engelska - Storbritannien"
+
+#: settings-locales.php:11 settings-locales.php:46
+msgid "English - United States"
+msgstr "Engelska - USA"
+
+#: settings-locales.php:12 settings-locales.php:47
+msgid "Finnish - Finland"
+msgstr "Finska - Finland"
+
+#: settings-locales.php:13 settings-locales.php:48
+msgid "French - Belgium"
+msgstr "Franska - Belgien"
+
+#: settings-locales.php:14 settings-locales.php:49
+msgid "French - Canada"
+msgstr "Franska - Kanada"
+
+#: settings-locales.php:15 settings-locales.php:50
+msgid "French - France"
+msgstr "Franska - Frankrike"
+
+#: settings-locales.php:16 settings-locales.php:51
+msgid "French - Swiss"
+msgstr "Franska - Schweiziska"
+
+#: settings-locales.php:17 settings-locales.php:52
+msgid "Greek"
+msgstr "Grekiska"
+
+#: settings-locales.php:18 settings-locales.php:53
+msgid "German - Germany"
+msgstr "Tyska - Tyskland"
+
+#: settings-locales.php:19 settings-locales.php:54
+msgid "Hungarian"
+msgstr "Ungerska"
+
+#: settings-locales.php:20 settings-locales.php:55
+msgid "Indonesian - Indonesia"
+msgstr "Indonesiska - Indonesien"
+
+#: settings-locales.php:21 settings-locales.php:56
+msgid "Italian - Italy"
+msgstr "Italienska - Italien"
+
+#: settings-locales.php:22 settings-locales.php:57
+msgid "Japan"
+msgstr "Japan"
+
+#: settings-locales.php:23 settings-locales.php:58
+msgid "Norwegian - Norvege"
+msgstr "Norsk - Norvege"
+
+#: settings-locales.php:24 settings-locales.php:59
+msgid "Polish - Poland"
+msgstr "Polska - Polen"
+
+#: settings-locales.php:25 settings-locales.php:60
+msgid "Portuguese - Brazil"
+msgstr "Portugisiska - Brasilien"
+
+#: settings-locales.php:26 settings-locales.php:61
+msgid "Portuguese - Portugal"
+msgstr "Portugisiska - Portugal"
+
+#: settings-locales.php:27 settings-locales.php:62
+msgid "Romanian - Romania"
+msgstr "Rumänska - Rumänien"
+
+#: settings-locales.php:28 settings-locales.php:63
+msgid "Russian"
+msgstr "Ryska"
+
+#: settings-locales.php:29 settings-locales.php:64
+msgid "Spanish - Spain"
+msgstr "Spanska - Spanien"
+
+#: settings-locales.php:30 settings-locales.php:65
+msgid "Sami (Northern) (Sweden)"
+msgstr "Samer (nordliga) (Sverige)"
+
+#: settings-locales.php:31 settings-locales.php:66
+msgid "Thai"
+msgstr "Thai"
+
+#: settings-locales.php:32 settings-locales.php:67
+msgid "Vietnamese"
+msgstr "Vietnamesiska"
+
+#: settings-locales.php:33 settings-locales.php:68
+msgid "Korean"
+msgstr "Koreanska"
+
+#: settings-locales.php:34 settings-locales.php:69
+msgid "Ukraine"
+msgstr "Ukraina"
+
+#: userconfig_ucfg.php:2
+msgid "User permission to send email via mailto: links"
+msgstr "Användarens tillstånd att skicka e-post via mailto: länkar"
+
+#: userconfig_ucfg.php:3
+msgid "Delimiter to separate emails in mailto: links"
+msgstr "Delimiter för att separera e-postmeddelanden i mailto:-länkar"
+
+#: userconfig_ucfg.php:4
+msgid "User permission to use IST Address Verification"
+msgstr "Användarens tillstånd att använda IST Adressverifiering"
+
+#: userconfig_ucfg.php:5
+msgid "Allow to see ballon Help"
+msgstr "Tillåt att se ballongen Hjälp"
+
+#: userconfig_ucfg.php:6
+msgid "To export to another For european CharSet use ;"
+msgstr "För att exportera till en annan För europeiska CharSet använder du ;"
+
+#: userconfig_ucfg.php:7
+msgid ""
+"Default is UTF-8, For european CharSet use Windows-1252 for example for "
+"French language."
+msgstr ""
+"Standard är UTF-8, för europeiska CharSet används Windows-1252, till exempel "
+"för franska."
+
+#: userconfig_ucfg.php:8
+msgid "Map providers for external view"
+msgstr "Kartleverantörer för extern visning"
+
+#: userconfig_ucfg.php:9
+msgid "Enable sidebar expand on hover effect for sidebar mini"
+msgstr "Aktivera sidofältet expandera vid svävande effekt för sidofältet mini"
+
+#: userconfig_ucfg.php:10
+msgid "The sidebar is collapse by default"
+msgstr "Sidofältet är som standard hopfällbart"
+
+#: userconfig_ucfg.php:11
+msgid "AdminLTE 3.0 font style"
+msgstr "AdminLTE 3.0 teckenstil"
+
+#: userconfig_ucfg.php:12
+msgid "AdminLTE 3.0 Theme sideBar style"
+msgstr "AdminLTE 3.0 Tema sideBar stil"
+
+#: userconfig_ucfg.php:13
+msgid "AdminLTE 3.0 sideBar color style"
+msgstr "AdminLTE 3.0 sideBar färg stil"
+
+#: userconfig_ucfg.php:14
+msgid "AdminLTE 3.0 navbar color style"
+msgstr "AdminLTE 3.0 navbar färg stil"
+
+#: userconfig_ucfg.php:15
+msgid "AdminLTE 3.0 brand link color style"
+msgstr "AdminLTE 3.0 varumärke länk färg stil"
+
+#: userconfig_ucfg.php:16
+msgid "AdminLTE 3.1 Dark Mode"
+msgstr "AdminLTE 3.1 mörkt läge"
+
+#: userconfig_ucfg.php:17
+msgid "AdminLTE 3.1 Dark Mode color style"
+msgstr "AdminLTE 3.1 Färgstil för mörkt läge"
+
 msgid "Jan"
 msgstr "Jan"
 
@@ -12986,6 +13555,52 @@ msgstr "Flera dagar"
 msgid "Giving Report"
 msgstr "Rapport om givande"
 
+#~ msgid "EcclesiaCRM export"
+#~ msgstr "EcclesiaCRM export"
+
+#~ msgid "Group Functions"
+#~ msgstr "Gruppfunktioner"
+
+#~ msgid "Email export"
+#~ msgstr "Export av e-post"
+
+#~ msgid ""
+#~ "Assign a group manager only for This Group. He can add or remove member "
+#~ "from This Group, but not create Members."
+#~ msgstr ""
+#~ "Tilldela en gruppchef endast för den här gruppen. Han kan lägga till "
+#~ "eller ta bort medlemmar från den här gruppen, men inte skapa medlemmar."
+
+#~ msgid ""
+#~ "Assign properties for This Group. This properties are global properties "
+#~ "and this can be changed in the admin right side bar &rarr; Group "
+#~ "Properties"
+#~ msgstr ""
+#~ "Tilldela egenskaper för den här gruppen. Egenskaperna är globala och kan "
+#~ "ändras i administratörens högra sidofält &rarr; Gruppegenskaper"
+
+#~ msgid ""
+#~ "Assign properties for all members of the group. This properties are "
+#~ "visible in each Person Profile &rarr; Assigned Group"
+#~ msgstr ""
+#~ "Tilldela egenskaper för alla medlemmar i gruppen. Egenskaperna är synliga "
+#~ "i varje personprofil &rarr; Tilldelad grupp"
+
+#~ msgid "Group Members:"
+#~ msgstr "Medlemmar i gruppen:"
+
+#~ msgid "Remove Selected Members from group"
+#~ msgstr "Ta bort valda medlemmar från gruppen"
+
+#~ msgid "Add Selected Members to Cart"
+#~ msgstr "Lägg till utvalda medlemmar i varukorgen"
+
+#~ msgid "Add Selected Members to Group"
+#~ msgstr "Lägg till valda medlemmar i gruppen"
+
+#~ msgid "Move Selected Members to Group"
+#~ msgstr "Flytta valda medlemmar till en grupp"
+
 #~ msgid "Not assigned"
 #~ msgstr "Ej tilldelad"
 
@@ -13009,475 +13624,6 @@ msgstr "Rapport om givande"
 
 #~ msgid "Anniversaries of the day"
 #~ msgstr "Dagens årsdagar"
-
-#~ msgid "Zip Code"
-#~ msgstr "Postnummer"
-
-#~ msgid "2012/2013"
-#~ msgstr "2012/2013"
-
-#~ msgid "2013/2014"
-#~ msgstr "2013/2014"
-
-#~ msgid "2014/2015"
-#~ msgstr "2014/2015"
-
-#~ msgid "2015/2016"
-#~ msgstr "2015/2016"
-
-#~ msgid "WorkEmail"
-#~ msgstr "WorkEmail"
-
-#~ msgid "Regular Attender"
-#~ msgstr "Regelbunden deltagare"
-
-#~ msgid "Guest"
-#~ msgstr "Gäst"
-
-#~ msgid "Non-Attender"
-#~ msgstr "Icke-deltagare"
-
-#~ msgid "Non-Attender (staff)"
-#~ msgstr "Icke-deltagare (personal)"
-
-#~ msgid "Beginning Date"
-#~ msgstr "Startdatum"
-
-#~ msgid "Ending Date"
-#~ msgstr "Slutdatum"
-
-#~ msgid "Field"
-#~ msgstr "Fält"
-
-#~ msgid "Registered students"
-#~ msgstr "Registrerade studenter"
-
-#~ msgid "Volunteer opportunities"
-#~ msgstr "Möjligheter till volontärarbete"
-
-#~ msgid "Months"
-#~ msgstr "Månader"
-
-#~ msgid "First Fiscal Year"
-#~ msgstr "Första räkenskapsåret"
-
-#~ msgid "Second Fiscal Year"
-#~ msgstr "Andra räkenskapsåret"
-
-#~ msgid "Custom field"
-#~ msgstr "Anpassat fält"
-
-#~ msgid "Field value"
-#~ msgstr "Fältets värde"
-
-#~ msgid "The desired gender to search the database for."
-#~ msgstr "Det önskade könet som ska sökas i databasen."
-
-#~ msgid "Select the desired family role."
-#~ msgstr "Välj önskad familjeroll."
-
-#~ msgid "The gender for which you would like records returned."
-#~ msgstr "Det kön för vilket du vill ha tillbaka uppgifter."
-
-#~ msgid "The property for which you would like person records returned."
-#~ msgstr ""
-#~ "Den fastighet för vilken du vill att personregistren ska återlämnas."
-
-#~ msgid ""
-#~ "Please select the beginning date to calculate total contributions for "
-#~ "each member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that "
-#~ "conatain donations."
-#~ msgstr ""
-#~ "Välj startdatum för att beräkna de totala bidragen för varje medlem (dvs. "
-#~ "ÅÅÅÅÅ-MM-DD). OBS: Du kan bara välja datum som innehåller bidrag."
-
-#~ msgid ""
-#~ "Please enter the last date to calculate total contributions for each "
-#~ "member (i.e. YYYY-MM-DD)."
-#~ msgstr ""
-#~ "Ange det sista datumet för att beräkna de totala bidragen för varje "
-#~ "medlem (dvs. ÅÅÅÅÅ-MM-DD)."
-
-#~ msgid ""
-#~ "Enter any part of the following: Name, City, State, Zip, Home Phone, "
-#~ "Email, or Work Email."
-#~ msgstr ""
-#~ "Ange en del av följande: Namn, ort, delstat, postnummer, hemtelefon, e-"
-#~ "postadress eller e-postadress för arbete."
-
-#~ msgid "Select field to search for."
-#~ msgstr "Välj det fält som du vill söka efter."
-
-#~ msgid "The birthday month for which you would like records returned."
-#~ msgstr "Födelsedagsmånad för vilken du vill ha tillbaka uppgifter."
-
-#~ msgid "The sunday school class for which you would like records returned."
-#~ msgstr "Den klass i söndagsskolan för vilken du vill ha tillbaka uppgifter."
-
-#~ msgid "Group of registered students"
-#~ msgstr "Grupp av registrerade studenter"
-
-#~ msgid ""
-#~ "The membership anniversary month for which you would like records "
-#~ "returned."
-#~ msgstr "Den månad då du vill ha tillbaka uppgifter om ditt medlemskap."
-
-#~ msgid "Choose a volunteer opportunity"
-#~ msgstr "Välj ett volontärtillfälle"
-
-#~ msgid "Number of months since becoming a friend"
-#~ msgstr "Antal månader sedan du blev vän"
-
-#~ msgid "First fiscal year for comparison"
-#~ msgstr "Första räkenskapsåret för jämförelse"
-
-#~ msgid "Second fiscal year for comparison"
-#~ msgstr "Andra räkenskapsåret för jämförelse"
-
-#~ msgid "Pledged this year"
-#~ msgstr "Utfästelser i år"
-
-#~ msgid "but not this year"
-#~ msgstr "men inte i år"
-
-#~ msgid "Fiscal Year."
-#~ msgstr "Budgetår."
-
-#~ msgid "Member, Regular Attender, etc."
-#~ msgstr "Medlem, regelbunden deltagare osv."
-
-#~ msgid "Get all persons who were born before the Year you mentioned."
-#~ msgstr "Ta fram alla personer som är födda före det år som du nämner."
-
-#~ msgid "First volunteer opportunity choice"
-#~ msgstr "Första val av volontärarbete"
-
-#~ msgid "Second volunteer opportunity choice"
-#~ msgstr "Andra val av volontärarbete"
-
-#~ msgid "Choose customer person field"
-#~ msgstr "Välj fältet för kundperson"
-
-#~ msgid "Match custom field to this value"
-#~ msgstr "Matcha det anpassade fältet med det här värdet"
-
-#~ msgid "Family With Work Phone"
-#~ msgstr "Familj med arbetstelefon"
-
-#~ msgid "Family Member Count"
-#~ msgstr "Antal familjemedlemmar"
-
-#~ msgid "Person by Age"
-#~ msgstr "Person efter ålder"
-
-#~ msgid "Total By Gender"
-#~ msgstr "Totalt per kön"
-
-#~ msgid "Person by Role and Gender"
-#~ msgstr "Personer efter roll och kön"
-
-#~ msgid "Person by Property"
-#~ msgstr "Person genom egendom"
-
-#~ msgid "Birthdays"
-#~ msgstr "Födelsedagar"
-
-#~ msgid "Membership anniversaries"
-#~ msgstr "Årsdagar för medlemskap"
-
-#~ msgid "Select database users"
-#~ msgstr "Välj databasanvändare"
-
-#~ msgid "Select all members"
-#~ msgstr "Välj alla medlemmar"
-
-#~ msgid "Recent friends"
-#~ msgstr "Nya vänner"
-
-#~ msgid "Families to Canvass"
-#~ msgstr "Familjer som ska värva"
-
-#~ msgid "Pledge comparison"
-#~ msgstr "Jämförelse av löften"
-
-#~ msgid "Missing pledges"
-#~ msgstr "Saknade löften"
-
-#~ msgid "Credit Card People"
-#~ msgstr "Människor med kreditkort"
-
-#~ msgid "Family Pledge by Fiscal Year"
-#~ msgstr "Familjelöften per räkenskapsår"
-
-#~ msgid "Person not assigned to a group"
-#~ msgstr "Person som inte tillhör någon grupp"
-
-#~ msgid "Person assigned to a group"
-#~ msgstr "Person som tillhör en grupp"
-
-#~ msgid "Awaiting confirmation of persons"
-#~ msgstr "Inväntar bekräftelse från personer"
-
-#~ msgid "Awaiting confirmation of families"
-#~ msgstr "Inväntar bekräftelse från familjer"
-
-#~ msgid "Done confirmation of persons"
-#~ msgstr "Gjord bekräftelse av personer"
-
-#~ msgid "Done confirmation of families"
-#~ msgstr "Utförd bekräftelse av familjer"
-
-#~ msgid "CustomSearch"
-#~ msgstr "Anpassad sökning"
-
-#~ msgid "CustomSearch is NULL"
-#~ msgstr "CustomSearch är NULL"
-
-#~ msgid "Returns each family with a work phone"
-#~ msgstr "Återlämnar en arbetstelefon till varje familj."
-
-#~ msgid "Returns each family and the total number of people assigned to them."
-#~ msgstr ""
-#~ "Återger varje familj och det totala antalet personer som tilldelats dem."
-
-#~ msgid "Returns any person records with ages between two given ages."
-#~ msgstr "Återger alla personposter med åldrar mellan två givna åldrar."
-
-#~ msgid "Total of records matching a given gender."
-#~ msgstr "Totalt antal poster som matchar ett visst kön."
-
-#~ msgid "Selects person records with the family role and gender specified."
-#~ msgstr "Väljer personposter med den familjeroll och det kön som anges."
-
-#~ msgid "Returns person records which are assigned the given property."
-#~ msgstr "Återger personposter som har tilldelats den angivna egenskapen."
-
-#~ msgid ""
-#~ "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
-#~ "Email."
-#~ msgstr ""
-#~ "Sök på någon del av namn, ort, delstat, postnummer, hemtelefon, e-post "
-#~ "eller e-postadress på jobbet."
-
-#~ msgid "People with birthdays in a particular month"
-#~ msgstr "Personer med födelsedagar i en viss månad"
-
-#~ msgid "Find Registered students"
-#~ msgstr "Hitta registrerade studenter"
-
-#~ msgid "Members who joined in a particular month"
-#~ msgstr "Medlemmar som anslöt sig under en viss månad"
-
-#~ msgid "People who are registered as database users"
-#~ msgstr "Personer som är registrerade som databasanvändare"
-
-#~ msgid "People who are members"
-#~ msgstr "Personer som är medlemmar"
-
-#~ msgid "Find volunteers for a particular opportunity"
-#~ msgstr "Hitta volontärer för ett visst tillfälle"
-
-#~ msgid "Friends who signed up in previous months"
-#~ msgstr "Vänner som anmält sig under tidigare månader"
-
-#~ msgid "People in families that are ok to canvass."
-#~ msgstr "Människor i familjer som är okej att arbeta med."
-
-#~ msgid "Compare pledges between two fiscal years"
-#~ msgstr "Jämför utfästelser mellan två räkenskapsår"
-
-#~ msgid "Find people who pledged one year but not another"
-#~ msgstr ""
-#~ "Hitta personer som har gjort en utfästelse ett år men inte ett annat."
-
-#~ msgid "People who are configured to pay by credit card."
-#~ msgstr "Personer som är konfigurerade för att betala med kreditkort."
-
-#~ msgid ""
-#~ "Pledge summary by family name for each fund for the selected fiscal year"
-#~ msgstr ""
-#~ "Sammanfattning av löften per familjenamn för varje fond för det valda "
-#~ "räkenskapsåret."
-
-#~ msgid "Returns all the persons not assigned to a group."
-#~ msgstr "Återger alla personer som inte är tilldelade en grupp."
-
-#~ msgid "Returns all persons assigned to a group."
-#~ msgstr "Återger alla personer som tilldelats en grupp."
-
-#~ msgid "Find person who are in pending confirmation process"
-#~ msgstr "Hitta personer som är i pågående bekräftelseprocess"
-
-#~ msgid "Find families who are in pending confirmation process"
-#~ msgstr "Hitta familjer som befinner sig i en pågående bekräftelseprocess"
-
-#~ msgid "Look for person who have confirmed"
-#~ msgstr "Leta efter personer som har bekräftat"
-
-#~ msgid "Look for families who have confirmed"
-#~ msgstr "Leta efter familjer som har bekräftat"
-
-#~ msgid "Find volunteers for who match two specific opportunity codes"
-#~ msgstr "Hitta volontärer som matchar två specifika koder för möjligheter."
-
-#~ msgid "Find people with a custom field value"
-#~ msgstr "Hitta personer med ett värde i ett anpassat fält"
-
-#~ msgid "Find people with a custom field value is NULL"
-#~ msgstr "Hitta personer med ett anpassat fältvärde som är NULL"
-
-#~ msgid "Albanian"
-#~ msgstr "Albanska"
-
-#~ msgid "Arabic - Egypt"
-#~ msgstr "Arabiska - Egypten"
-
-#~ msgid "Chinese - China"
-#~ msgstr "Kinesiska - Kina"
-
-#~ msgid "Chinese - Taiwan"
-#~ msgstr "Kinesiska - Taiwan"
-
-#~ msgid "Danish - Denmark"
-#~ msgstr "Danska - Danmark"
-
-#~ msgid "Dutch - Netherlands"
-#~ msgstr "Nederländska - Nederländerna"
-
-#~ msgid "English - Australia"
-#~ msgstr "Engelska - Australien"
-
-#~ msgid "English - Canada"
-#~ msgstr "Engelska - Kanada"
-
-#~ msgid "English - Great Britain"
-#~ msgstr "Engelska - Storbritannien"
-
-#~ msgid "English - United States"
-#~ msgstr "Engelska - USA"
-
-#~ msgid "Finnish - Finland"
-#~ msgstr "Finska - Finland"
-
-#~ msgid "French - Belgium"
-#~ msgstr "Franska - Belgien"
-
-#~ msgid "French - Canada"
-#~ msgstr "Franska - Kanada"
-
-#~ msgid "French - France"
-#~ msgstr "Franska - Frankrike"
-
-#~ msgid "French - Swiss"
-#~ msgstr "Franska - Schweiziska"
-
-#~ msgid "Greek"
-#~ msgstr "Grekiska"
-
-#~ msgid "German - Germany"
-#~ msgstr "Tyska - Tyskland"
-
-#~ msgid "Hungarian"
-#~ msgstr "Ungerska"
-
-#~ msgid "Indonesian - Indonesia"
-#~ msgstr "Indonesiska - Indonesien"
-
-#~ msgid "Italian - Italy"
-#~ msgstr "Italienska - Italien"
-
-#~ msgid "Japan"
-#~ msgstr "Japan"
-
-#~ msgid "Norwegian - Norvege"
-#~ msgstr "Norsk - Norvege"
-
-#~ msgid "Polish - Poland"
-#~ msgstr "Polska - Polen"
-
-#~ msgid "Portuguese - Brazil"
-#~ msgstr "Portugisiska - Brasilien"
-
-#~ msgid "Portuguese - Portugal"
-#~ msgstr "Portugisiska - Portugal"
-
-#~ msgid "Romanian - Romania"
-#~ msgstr "Rumänska - Rumänien"
-
-#~ msgid "Russian"
-#~ msgstr "Ryska"
-
-#~ msgid "Spanish - Spain"
-#~ msgstr "Spanska - Spanien"
-
-#~ msgid "Sami (Northern) (Sweden)"
-#~ msgstr "Samer (nordliga) (Sverige)"
-
-#~ msgid "Thai"
-#~ msgstr "Thai"
-
-#~ msgid "Vietnamese"
-#~ msgstr "Vietnamesiska"
-
-#~ msgid "Korean"
-#~ msgstr "Koreanska"
-
-#~ msgid "Ukraine"
-#~ msgstr "Ukraina"
-
-#~ msgid "User permission to send email via mailto: links"
-#~ msgstr "Användarens tillstånd att skicka e-post via mailto: länkar"
-
-#~ msgid "Delimiter to separate emails in mailto: links"
-#~ msgstr "Delimiter för att separera e-postmeddelanden i mailto:-länkar"
-
-#~ msgid "User permission to use IST Address Verification"
-#~ msgstr "Användarens tillstånd att använda IST Adressverifiering"
-
-#~ msgid "Allow to see ballon Help"
-#~ msgstr "Tillåt att se ballongen Hjälp"
-
-#~ msgid "To export to another For european CharSet use ;"
-#~ msgstr ""
-#~ "För att exportera till en annan För europeiska CharSet använder du ;"
-
-#~ msgid ""
-#~ "Default is UTF-8, For european CharSet use Windows-1252 for example for "
-#~ "French language."
-#~ msgstr ""
-#~ "Standard är UTF-8, för europeiska CharSet används Windows-1252, till "
-#~ "exempel för franska."
-
-#~ msgid "Map providers for external view"
-#~ msgstr "Kartleverantörer för extern visning"
-
-#~ msgid "Enable sidebar expand on hover effect for sidebar mini"
-#~ msgstr ""
-#~ "Aktivera sidofältet expandera vid svävande effekt för sidofältet mini"
-
-#~ msgid "The sidebar is collapse by default"
-#~ msgstr "Sidofältet är som standard hopfällbart"
-
-#~ msgid "AdminLTE 3.0 font style"
-#~ msgstr "AdminLTE 3.0 teckenstil"
-
-#~ msgid "AdminLTE 3.0 Theme sideBar style"
-#~ msgstr "AdminLTE 3.0 Tema sideBar stil"
-
-#~ msgid "AdminLTE 3.0 sideBar color style"
-#~ msgstr "AdminLTE 3.0 sideBar färg stil"
-
-#~ msgid "AdminLTE 3.0 navbar color style"
-#~ msgstr "AdminLTE 3.0 navbar färg stil"
-
-#~ msgid "AdminLTE 3.0 brand link color style"
-#~ msgstr "AdminLTE 3.0 varumärke länk färg stil"
-
-#~ msgid "AdminLTE 3.1 Dark Mode"
-#~ msgstr "AdminLTE 3.1 mörkt läge"
-
-#~ msgid "AdminLTE 3.1 Dark Mode color style"
-#~ msgstr "AdminLTE 3.1 Färgstil för mörkt läge"
 
 #~ msgid "Confirm Data"
 #~ msgstr "Bekräfta data"

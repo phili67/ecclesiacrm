@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 05:27+0000\n"
+"POT-Creation-Date: 2025-05-03 08:20+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,8 +43,8 @@ msgstr "Αγνοήστε αυτό το πεδίο"
 msgid "Title"
 msgstr "Τίτλος"
 
-#: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:903
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:908
+#: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:932
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:937
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:555
 #: EcclesiaCRM/Service/ConfirmReportService.php:155
@@ -98,7 +98,7 @@ msgstr "Κατάληξη"
 #: v2/templates/people/personPrint.php:404
 #: v2/templates/sundayschool/sundayschoolview.php:226
 #: v2/templates/sundayschool/sundayschoolview.php:318
-#: v2/templates/system/csvExport.php:342
+#: v2/templates/system/csvExport.php:342 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Φύλο"
 
@@ -146,7 +146,7 @@ msgstr "Διεύθυνση"
 #: v2/templates/people/familyEditor.php:735
 #: v2/templates/people/personEditor.php:1034
 #: v2/templates/people/personEditor.php:1210
-#: v2/templates/system/csvExport.php:90
+#: v2/templates/system/csvExport.php:90 queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Πόλη"
 
@@ -159,7 +159,7 @@ msgstr "Πόλη"
 #: v2/templates/people/familyEditor.php:744
 #: v2/templates/people/personEditor.php:1043
 #: v2/templates/people/personEditor.php:1238
-#: v2/templates/system/csvExport.php:95
+#: v2/templates/system/csvExport.php:95 queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Κράτος"
 
@@ -210,7 +210,7 @@ msgstr "Χώρα"
 #: v2/templates/people/personPrint.php:225
 #: v2/templates/people/personlist.php:54 v2/templates/people/personview.php:269
 #: v2/templates/system/csvExport.php:119
-#: v2/templates/system/eventAttendance.php:198
+#: v2/templates/system/eventAttendance.php:198 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "Οικιακό τηλέφωνο"
 
@@ -248,7 +248,7 @@ msgstr "Τηλέφωνο εργασίας"
 msgid "Cell Phone"
 msgstr "Κινητό τηλέφωνο"
 
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:420
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:470
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
@@ -285,7 +285,7 @@ msgstr "Κινητό τηλέφωνο"
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:135
-#: v2/templates/system/eventAttendance.php:197
+#: v2/templates/system/eventAttendance.php:197 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "Ηλεκτρονικό ταχυδρομείο"
 
@@ -401,7 +401,7 @@ msgstr "Προεπιλεγμένη χώρα εάν δεν έχει καθορι�
 #: EcclesiaCRM/APIControllers/SearchController.php:243
 #: EcclesiaCRM/APIControllers/SearchController.php:251
 #: EcclesiaCRM/APIControllers/SearchController.php:256
-#: EcclesiaCRM/MenuBar/MenuBar.php:277 EcclesiaCRM/MenuBar/MenuBar.php:352
+#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:394
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1035
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1047
@@ -446,7 +446,7 @@ msgstr "Μη ανατεθείσα"
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:355
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
-#: v2/templates/system/optionManager.php:98
+#: v2/templates/system/optionManager.php:98 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Ταξινόμηση"
 
@@ -581,20 +581,20 @@ msgstr "Δεν μπορεί να εκτελεστεί το ερώτημα."
 
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:358
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:470
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:555
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:575
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:624
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:694
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:714
-#: EcclesiaCRM/Service/CalendarService.php:2058
-#: EcclesiaCRM/Service/CalendarService.php:2090
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:556
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:576
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:625
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:695
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:715
+#: EcclesiaCRM/Service/CalendarService.php:2078
+#: EcclesiaCRM/Service/CalendarService.php:2110
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "Δύο κρατήσεις πόρων δεν μπορούν να βρίσκονται στην ίδια χρονοθυρίδα."
 
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:371
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:594
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:749
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:761
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:595
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:750
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:762
 msgid ""
 "This resource reservation was not created by you. You cannot edit, move or "
 "delete a resource that you do not own."
@@ -651,7 +651,7 @@ msgid "None"
 msgstr "Κανένα"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:225
-#: EcclesiaCRM/Service/CalendarService.php:1557
+#: EcclesiaCRM/Service/CalendarService.php:1565
 msgid "Share"
 msgstr "Μοιραστείτε το"
 
@@ -877,9 +877,10 @@ msgid "All Families"
 msgstr "Όλες οι οικογένειες"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
-#: EcclesiaCRM/APIControllers/PeopleController.php:72
-#: EcclesiaCRM/APIControllers/PeopleController.php:125
-#: EcclesiaCRM/MenuBar/MenuBar.php:192
+#: EcclesiaCRM/APIControllers/PeopleController.php:76
+#: EcclesiaCRM/APIControllers/PeopleController.php:126
+#: EcclesiaCRM/APIControllers/PeopleController.php:179
+#: EcclesiaCRM/MenuBar/MenuBar.php:210
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
@@ -889,10 +890,10 @@ msgid "Persons"
 msgstr "Άτομα"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:163
-#: EcclesiaCRM/APIControllers/PeopleController.php:164
+#: EcclesiaCRM/APIControllers/PeopleController.php:218
 #: EcclesiaCRM/APIControllers/SearchController.php:62
 #: EcclesiaCRM/APIControllers/SearchController.php:65
-#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/MenuBar/MenuBar.php:199
+#: EcclesiaCRM/MenuBar/MenuBar.php:183 EcclesiaCRM/MenuBar/MenuBar.php:217
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
@@ -908,10 +909,10 @@ msgid "Families"
 msgstr "Οικογένειες"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:201
-#: EcclesiaCRM/APIControllers/PeopleController.php:201
+#: EcclesiaCRM/APIControllers/PeopleController.php:255
 #: EcclesiaCRM/APIControllers/SearchController.php:88
 #: EcclesiaCRM/APIControllers/SearchController.php:91
-#: EcclesiaCRM/MenuBar/MenuBar.php:221 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:239 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
@@ -994,18 +995,18 @@ msgstr "Οικογένεια Απενεργοποιημένη"
 msgid "Family Activated"
 msgstr "Οικογένεια ενεργοποιημένη"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:469
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:851
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:498
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:880
 msgid "Deleted from group"
 msgstr "Διαγράφηκε από την ομάδα"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:507
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:542
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:536
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:571
 msgid "Added to group"
 msgstr "Προστέθηκε στην ομάδα"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:903
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:908
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:932
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:937
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:549
@@ -1020,7 +1021,7 @@ msgstr "Προστέθηκε στην ομάδα"
 #: v2/templates/group/groupPropsEditor.php:222
 #: v2/templates/group/groupPropsFormEditor.php:318
 #: v2/templates/group/groupPropsFormEditor.php:436
-#: v2/templates/group/groupedit.php:50 v2/templates/group/groupview.php:399
+#: v2/templates/group/groupedit.php:50 v2/templates/group/groupview.php:392
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:405
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:568
 #: v2/templates/people/familyCustomFieldEditor.php:337
@@ -1033,6 +1034,7 @@ msgstr "Προστέθηκε στην ομάδα"
 #: v2/templates/people/personlist.php:51
 #: v2/templates/system/eventAttendance.php:196
 #: v2/templates/user/userlist.php:51 v2/templates/user/userseditor.php:714
+#: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Όνομα"
 
@@ -1041,7 +1043,7 @@ msgstr "Όνομα"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:626
 #: EcclesiaCRM/Service/CalendarService.php:283
-#: EcclesiaCRM/Service/CalendarService.php:1011
+#: EcclesiaCRM/Service/CalendarService.php:1018
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
@@ -1054,8 +1056,8 @@ msgstr "Ναι"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:628
 #: EcclesiaCRM/Service/CalendarService.php:283
-#: EcclesiaCRM/Service/CalendarService.php:1011
-#: EcclesiaCRM/Service/CalendarService.php:1410
+#: EcclesiaCRM/Service/CalendarService.php:1018
+#: EcclesiaCRM/Service/CalendarService.php:1418
 #: EcclesiaCRM/Service/ConfirmReportService.php:118
 #: EcclesiaCRM/Service/ConfirmReportService.php:579
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:299
@@ -1110,7 +1112,7 @@ msgstr "Singles"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:72
 #: EcclesiaCRM/APIControllers/SearchController.php:75
-#: v2/templates/people/peoplelist.php:44
+#: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:69
 msgid "Volunteers"
 msgstr "Εθελοντές"
 
@@ -1139,7 +1141,7 @@ msgstr "groupmasters"
 #: v2/templates/people/personEditor.php:886
 #: v2/templates/people/personPrint.php:285
 #: v2/templates/people/personPrint.php:435
-#: v2/templates/system/csvExport.php:355
+#: v2/templates/system/csvExport.php:355 queryparameteroptions_qpo.php:2
 msgid "Male"
 msgstr "Αρσενικό"
 
@@ -1154,7 +1156,7 @@ msgstr "Αρσενικό"
 #: v2/templates/people/personEditor.php:887
 #: v2/templates/people/personPrint.php:285
 #: v2/templates/people/personPrint.php:435
-#: v2/templates/system/csvExport.php:356
+#: v2/templates/system/csvExport.php:356 queryparameteroptions_qpo.php:3
 msgid "Female"
 msgstr "Γυναίκα"
 
@@ -1163,7 +1165,7 @@ msgstr "Γυναίκα"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:303
 #: v2/templates/people/personPrint.php:300
 #: v2/templates/system/csvExport.php:167 v2/templates/system/csvExport.php:312
-#: v2/templates/system/optionManager.php:91
+#: v2/templates/system/optionManager.php:91 queryparameters_qrp.php:5
 msgid "Family Role"
 msgstr "Οικογενειακός ρόλος"
 
@@ -1272,7 +1274,7 @@ msgstr "Επεξεργαστής τύπων ομάδων"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:1554
+#: EcclesiaCRM/Service/CalendarService.php:1562
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:115
 #: Include/Footer.php:102 v2/templates/calendar/calendar.php:49
@@ -1671,8 +1673,8 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Ο λογαριασμός σας στο EcclesiaCRM ενημερώθηκε"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:256 v2/templates/plugins/plugins.php:83
-#: v2/templates/user/userlist.php:62 v2/templates/user/userseditor.php:720
+#: v2/templates/plugins/plugins.php:83 v2/templates/user/userlist.php:62
+#: v2/templates/user/userseditor.php:720
 msgid "Status"
 msgstr "Κατάσταση"
 
@@ -1706,39 +1708,39 @@ msgstr "πληροφορίες"
 msgid "Please verify your informations"
 msgstr "Παρακαλώ επαληθεύστε τις πληροφορίες σας"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:103 Include/Header.php:88
+#: EcclesiaCRM/MenuBar/MenuBar.php:109 Include/Header.php:88
 #: Include/Header.php:149
 msgid "Private Space"
 msgstr "Ιδιωτικός χώρος"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:105 EcclesiaCRM/utils/MiscUtils.php:466
+#: EcclesiaCRM/MenuBar/MenuBar.php:111 EcclesiaCRM/utils/MiscUtils.php:466
 #: Include/Header.php:257
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "Αρχική σελίδα"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:108 Include/Header.php:151
+#: EcclesiaCRM/MenuBar/MenuBar.php:114 Include/Header.php:151
 #: v2/templates/people/personview.php:426
 msgid "Change Password"
 msgstr "Αλλαγή κωδικού πρόσβασης"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:109 Include/Header.php:153
+#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:153
 #: v2/templates/people/personview.php:424
 msgid "Change Settings"
 msgstr "Αλλαγή ρυθμίσεων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:110 v2/templates/people/familyview.php:471
+#: EcclesiaCRM/MenuBar/MenuBar.php:116 v2/templates/people/familyview.php:471
 #: v2/templates/people/personPrint.php:591
 #: v2/templates/people/personview.php:654
 msgid "Documents"
 msgstr "Έγγραφα"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:113 v2/templates/people/personview.php:668
+#: EcclesiaCRM/MenuBar/MenuBar.php:119 v2/templates/people/personview.php:668
 #: v2/templates/user/userseditor.php:292
 msgid "EDrive"
 msgstr "EDrive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:134
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 #: EcclesiaCRM/dto/SystemConfig.php:301
@@ -1746,30 +1748,30 @@ msgstr "EDrive"
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:129 EcclesiaCRM/MenuBar/MenuBar.php:169
-#: EcclesiaCRM/MenuBar/MenuBar.php:297 EcclesiaCRM/MenuBar/MenuBar.php:394
-#: EcclesiaCRM/MenuBar/MenuBar.php:404 EcclesiaCRM/MenuBar/MenuBar.php:426
-#: EcclesiaCRM/MenuBar/MenuBar.php:520
+#: EcclesiaCRM/MenuBar/MenuBar.php:137 EcclesiaCRM/MenuBar/MenuBar.php:185
+#: EcclesiaCRM/MenuBar/MenuBar.php:339 EcclesiaCRM/MenuBar/MenuBar.php:439
+#: EcclesiaCRM/MenuBar/MenuBar.php:451 EcclesiaCRM/MenuBar/MenuBar.php:477
+#: EcclesiaCRM/MenuBar/MenuBar.php:581
 msgid "Dashboard"
 msgstr "Ταμπλό"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:130
+#: EcclesiaCRM/MenuBar/MenuBar.php:138
 msgid "Data Structure"
 msgstr "Δομή δεδομένων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:131 EcclesiaCRM/MenuBar/MenuBar.php:197
+#: EcclesiaCRM/MenuBar/MenuBar.php:139 EcclesiaCRM/MenuBar/MenuBar.php:215
 msgid "View Inactive Persons"
 msgstr "Προβολή ανενεργών ατόμων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:132 EcclesiaCRM/MenuBar/MenuBar.php:203
+#: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:221
 msgid "View Inactive Families"
 msgstr "Προβολή ανενεργών οικογενειών"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:142
+#: EcclesiaCRM/MenuBar/MenuBar.php:153
 msgid "Events"
 msgstr "Εκδηλώσεις"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:148 v2/templates/map/MapUsingBing.php:78
+#: EcclesiaCRM/MenuBar/MenuBar.php:161 v2/templates/map/MapUsingBing.php:78
 #: v2/templates/map/MapUsingBing.php:124 v2/templates/map/MapUsingGoogle.php:88
 #: v2/templates/map/MapUsingGoogle.php:135
 #: v2/templates/map/MapUsingLeaflet.php:72
@@ -1777,94 +1779,100 @@ msgstr "Εκδηλώσεις"
 msgid "Calendar"
 msgstr "Ημερολόγιο"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:151 EcclesiaCRM/MenuBar/MenuBar.php:186
+#: EcclesiaCRM/MenuBar/MenuBar.php:164 EcclesiaCRM/MenuBar/MenuBar.php:202
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "Προβολή στο χάρτη"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:154
+#: EcclesiaCRM/MenuBar/MenuBar.php:167
 msgid "List Church Events"
 msgstr "Λίστα Εκκλησιαστικών Εκδηλώσεων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:155
+#: EcclesiaCRM/MenuBar/MenuBar.php:168
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:332
 msgid "List Event Types"
 msgstr "Λίστα τύπων συμβάντων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:157
+#: EcclesiaCRM/MenuBar/MenuBar.php:170
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:294
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:296
 msgid "Call the Register"
 msgstr "Καλέστε το Μητρώο"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:167
+#: EcclesiaCRM/MenuBar/MenuBar.php:183
 #: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "Άνθρωποι"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:184
+#: EcclesiaCRM/MenuBar/MenuBar.php:200
 msgid "Meta Search Engine"
 msgstr "Μηχανή αναζήτησης Meta"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:189
+#: EcclesiaCRM/MenuBar/MenuBar.php:206
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1202
 msgid "Directory reports"
 msgstr "Αναφορές καταλόγου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:193 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:211 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "Προσθήκη νέου ατόμου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:194
+#: EcclesiaCRM/MenuBar/MenuBar.php:212
 msgid "View Single Persons"
 msgstr "Προβολή μεμονωμένων ατόμων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:195
+#: EcclesiaCRM/MenuBar/MenuBar.php:213
 msgid "View Active Persons"
 msgstr "Προβολή ενεργών ατόμων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:200
+#: EcclesiaCRM/MenuBar/MenuBar.php:218
 msgid "Add New Family"
 msgstr "Προσθήκη νέας οικογένειας"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:219
 msgid "View Active Families"
 msgstr "Προβολή ενεργών οικογενειών"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:205
+#: EcclesiaCRM/MenuBar/MenuBar.php:223
 msgid "Empty Addresses"
 msgstr "Κενές διευθύνσεις"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:208
+#: EcclesiaCRM/MenuBar/MenuBar.php:226
 msgid "Convert Individual to Address"
 msgstr "Μετατροπή Ατομικό σε Διεύθυνση"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:223
+#: EcclesiaCRM/MenuBar/MenuBar.php:241
 msgid "List Groups"
 msgstr "Λίστα ομάδων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:286
+#: EcclesiaCRM/MenuBar/MenuBar.php:317
+#: v2/templates/deposit/electronicPaymentList.php:254
+#: v2/templates/group/groupedit.php:134 v2/templates/group/groupview.php:235
+msgid "Disabled"
+msgstr "Άτομα με ειδικές ανάγκες"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:326
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:235
 msgid "Group Assignment Helper"
 msgstr "Βοηθός ανάθεσης ομάδας"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:295
+#: EcclesiaCRM/MenuBar/MenuBar.php:336
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "Κυριακάτικο Σχολείο"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:376 EcclesiaCRM/MenuBar/MenuBar.php:383
+#: EcclesiaCRM/MenuBar/MenuBar.php:421 EcclesiaCRM/MenuBar/MenuBar.php:428
 #: Include/Footer.php:177
 msgid "Global Custom Menus"
 msgstr "Παγκόσμια προσαρμοσμένα μενού"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:393
+#: EcclesiaCRM/MenuBar/MenuBar.php:438
 msgid "Custom Menus"
 msgstr "Προσαρμοσμένα μενού"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:403 EcclesiaCRM/dto/SystemConfig.php:298
+#: EcclesiaCRM/MenuBar/MenuBar.php:448 EcclesiaCRM/dto/SystemConfig.php:298
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
@@ -1874,21 +1882,21 @@ msgstr "Προσαρμοσμένα μενού"
 msgid "Pastoral Care"
 msgstr "Ποιμαντική φροντίδα"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:405
+#: EcclesiaCRM/MenuBar/MenuBar.php:452
 msgid "By Classifications"
 msgstr "Ανά ταξινομήσεις"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:424
+#: EcclesiaCRM/MenuBar/MenuBar.php:475
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/people/familyview.php:171 v2/templates/user/userseditor.php:467
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:433
+#: EcclesiaCRM/MenuBar/MenuBar.php:484
 msgid "Email Lists"
 msgstr "Λίστες ηλεκτρονικού ταχυδρομείου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:461
+#: EcclesiaCRM/MenuBar/MenuBar.php:515
 #: EcclesiaCRM/Search/PledgeSearchRes.php:64
 #: EcclesiaCRM/Search/PledgeSearchRes.php:85 Reports/AdvancedDeposit.php:269
 #: Reports/AdvancedDeposit.php:389 Reports/AdvancedDeposit.php:420
@@ -1897,64 +1905,64 @@ msgstr "Λίστες ηλεκτρονικού ταχυδρομείου"
 msgid "Deposit"
 msgstr "Κατάθεση"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:474
+#: EcclesiaCRM/MenuBar/MenuBar.php:530
 msgid "Current"
 msgstr "Τρέχον"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:479
+#: EcclesiaCRM/MenuBar/MenuBar.php:535
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:193
 msgid "Envelope Manager"
 msgstr "Διαχειριστής φακέλου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:480
+#: EcclesiaCRM/MenuBar/MenuBar.php:536
 msgid "View All Deposits"
 msgstr "Προβολή όλων των καταθέσεων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:481
+#: EcclesiaCRM/MenuBar/MenuBar.php:537
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:374
 msgid "Electronic Payment Listing"
 msgstr "Κατάλογος ηλεκτρονικών πληρωμών"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:482
+#: EcclesiaCRM/MenuBar/MenuBar.php:538
 msgid "Deposit Reports"
 msgstr "Αναφορές καταθέσεων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:483
+#: EcclesiaCRM/MenuBar/MenuBar.php:539
 #: v2/templates/deposit/financialReports.php:52
 msgid "Giving Report (Tax Statements)"
 msgstr "Έκθεση δωρεάς (φορολογικές δηλώσεις)"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:484
+#: EcclesiaCRM/MenuBar/MenuBar.php:540
 msgid "Edit Deposit Slip"
 msgstr "Επεξεργασία αποδεικτικού κατάθεσης"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:496
+#: EcclesiaCRM/MenuBar/MenuBar.php:552
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "Εράνος"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:498
+#: EcclesiaCRM/MenuBar/MenuBar.php:556
 msgid "Create New Fundraiser"
 msgstr "Δημιουργία νέου έρανου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:499
+#: EcclesiaCRM/MenuBar/MenuBar.php:557
 msgid "View All Fundraisers"
 msgstr "Προβολή όλων των εράνων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:501
+#: EcclesiaCRM/MenuBar/MenuBar.php:559
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "Επεξεργασία τελευταίου Εράνου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:562
+#: EcclesiaCRM/MenuBar/MenuBar.php:612
 msgid "Data/Reports"
 msgstr "Δεδομένα/αναφορές"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:564
+#: EcclesiaCRM/MenuBar/MenuBar.php:614
 msgid "Reports Menu"
 msgstr "Μενού αναφορών"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:567 v2/templates/user/userseditor.php:457
+#: EcclesiaCRM/MenuBar/MenuBar.php:617 v2/templates/user/userseditor.php:457
 msgid "Query Menu"
 msgstr "Μενού ερωτήσεων"
 
@@ -2235,7 +2243,7 @@ msgstr "Διευθύνσεις"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:70
 #: EcclesiaCRM/Search/PledgeSearchRes.php:85
-#: EcclesiaCRM/Service/CalendarService.php:1387
+#: EcclesiaCRM/Service/CalendarService.php:1395
 #: v2/templates/calendar/eventnames.php:341
 #: v2/templates/pastoralcare/pastoralcareperson.php:167
 #: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:151
@@ -2469,7 +2477,7 @@ msgstr "Εκδήλωση"
 msgid "Anniversary"
 msgstr "Επέτειος"
 
-#: EcclesiaCRM/Service/CalendarService.php:1390
+#: EcclesiaCRM/Service/CalendarService.php:1398
 #: EcclesiaCRM/Service/ConfirmReportService.php:541
 #: ident/templates/verify/verify-family-info.php:47
 #: ident/templates/verify/verify-person-info.php:62
@@ -2479,7 +2487,6 @@ msgstr "Επέτειος"
 #: v2/templates/deposit/finddepositslip.php:103
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
-#: v2/templates/group/groupview.php:288
 #: v2/templates/pastoralcare/pastoralcarefamily.php:299
 #: v2/templates/pastoralcare/pastoralcarefamily.php:306
 #: v2/templates/pastoralcare/pastoralcareperson.php:431
@@ -2490,58 +2497,58 @@ msgstr "Επέτειος"
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: EcclesiaCRM/Service/CalendarService.php:1393
+#: EcclesiaCRM/Service/CalendarService.php:1401
 msgid "Info"
 msgstr "Πληροφορίες"
 
-#: EcclesiaCRM/Service/CalendarService.php:1425
+#: EcclesiaCRM/Service/CalendarService.php:1433
 msgid "Check-in"
 msgstr "Check-in"
 
-#: EcclesiaCRM/Service/CalendarService.php:1426
+#: EcclesiaCRM/Service/CalendarService.php:1434
 msgid "Check-out"
 msgstr "Check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:1427
+#: EcclesiaCRM/Service/CalendarService.php:1435
 msgid "Rest"
 msgstr "Ανάπαυση"
 
-#: EcclesiaCRM/Service/CalendarService.php:1448
-#: EcclesiaCRM/Service/CalendarService.php:1481
+#: EcclesiaCRM/Service/CalendarService.php:1456
+#: EcclesiaCRM/Service/CalendarService.php:1489
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "Συμμετέχοντες"
 
-#: EcclesiaCRM/Service/CalendarService.php:1459
-#: EcclesiaCRM/Service/CalendarService.php:1460
-#: EcclesiaCRM/Service/CalendarService.php:1463
-#: EcclesiaCRM/Service/CalendarService.php:1464
+#: EcclesiaCRM/Service/CalendarService.php:1467
+#: EcclesiaCRM/Service/CalendarService.php:1468
+#: EcclesiaCRM/Service/CalendarService.php:1471
+#: EcclesiaCRM/Service/CalendarService.php:1472
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "Κάντε Check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:1460
-#: EcclesiaCRM/Service/CalendarService.php:1464
+#: EcclesiaCRM/Service/CalendarService.php:1468
+#: EcclesiaCRM/Service/CalendarService.php:1472
 msgid "Check-out done"
 msgstr "Έγινε check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:1506
+#: EcclesiaCRM/Service/CalendarService.php:1514
 msgid "No Attendance Recorded"
 msgstr "Δεν καταγράφηκε συμμετοχή"
 
-#: EcclesiaCRM/Service/CalendarService.php:1520
+#: EcclesiaCRM/Service/CalendarService.php:1528
 msgid "login"
 msgstr "Σύνδεση"
 
-#: EcclesiaCRM/Service/CalendarService.php:1551
+#: EcclesiaCRM/Service/CalendarService.php:1559
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "Προσωπικό ημερολόγιο"
 
-#: EcclesiaCRM/Service/CalendarService.php:1726
-#: EcclesiaCRM/Service/CalendarService.php:2119
+#: EcclesiaCRM/Service/CalendarService.php:1744
+#: EcclesiaCRM/Service/CalendarService.php:2139
 #: EcclesiaCRM/dto/SystemConfig.php:47
 msgid "NONE"
 msgstr "ΚΑΝΕΝΑΣ"
@@ -2654,7 +2661,7 @@ msgstr "(Δεν έχει οριστεί οικογένεια)"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:773
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:793
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1165
@@ -2748,6 +2755,7 @@ msgid "People Dashboard"
 msgstr "People Dashboard"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
+#: query_qry.php:8 query_qry.php:63
 msgid "Advanced Search"
 msgstr "Σύνθετη αναζήτηση"
 
@@ -3171,61 +3179,61 @@ msgid "Login must be a least 3 characters!"
 msgstr "Η είσοδος πρέπει να είναι τουλάχιστον 3 χαρακτήρες!"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:561
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:630
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:631
 msgid "Login already in use, please select a different login!"
 msgstr ""
 "Η σύνδεση χρησιμοποιείται ήδη, παρακαλούμε επιλέξτε μια διαφορετική σύνδεση!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:624
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:625
 msgid "The same as before"
 msgstr "Το ίδιο όπως και πριν"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:895
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:896
 msgid "User Editor"
 msgstr "Συντάκτης χρήστη"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1032
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1033
 msgid "You must enter a password in both boxes"
 msgstr "Πρέπει να εισαγάγετε έναν κωδικό πρόσβασης και στα δύο πεδία"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1038
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1101
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1039
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1102
 msgid "You must enter the same password in both boxes"
 msgstr "Πρέπει να πληκτρολογήσετε τον ίδιο κωδικό πρόσβασης και στα δύο πεδία"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1089
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1090
 msgid "Invalid password"
 msgstr "Μη έγκυρος κωδικός πρόσβασης"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1095
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1096
 msgid "You must enter your new password in both boxes"
 msgstr "Πρέπει να εισαγάγετε τον νέο σας κωδικό πρόσβασης και στα δύο πεδία"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1107
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1108
 msgid "Your password choice is too obvious. Please choose something else."
 msgstr ""
 "Η επιλογή του κωδικού πρόσβασής σας είναι πολύ προφανής. Παρακαλώ επιλέξτε "
 "κάτι άλλο."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1113
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
 msgid "Your new password must be at least"
 msgstr "Ο νέος σας κωδικός πρόσβασης πρέπει να είναι τουλάχιστον"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1113
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
 msgid "characters"
 msgstr "χαρακτήρες"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1119
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1120
 msgid "You need to actually change your password (nice try, though!)"
 msgstr "Πρέπει να αλλάξετε τον κωδικό πρόσβασής σας (καλή προσπάθεια, όμως!)"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1122
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1123
 msgid "Your new password is too similar to your old one.  Be more creative!"
 msgstr ""
 "Ο νέος σας κωδικός πρόσβασης μοιάζει πολύ με τον παλιό σας.  Γίνετε πιο "
 "δημιουργικοί!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1163
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1164
 msgid "User Password Change"
 msgstr "Αλλαγή κωδικού πρόσβασης χρήστη"
 
@@ -5486,13 +5494,13 @@ msgid "Witness"
 msgstr "Μάρτυρας"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:238
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:388
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:408
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "Δημιουργήθηκε"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:243
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:393
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:413
 msgid "Updated"
 msgstr "Ενημερωμένο"
 
@@ -5509,108 +5517,105 @@ msgid "Family Data Verification reset"
 msgstr "Επαλήθευση οικογενειακών δεδομένων"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:260
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:410
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:430
 msgid "Verification email sent"
 msgstr "Αποστολή email επαλήθευσης"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:358
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:595
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:615
 msgid "Profile Image Deleted"
 msgstr "Διαγραφή εικόνας προφίλ"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:374
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:642
 msgid "Profile Image uploaded"
 msgstr "Ανεβασμένη εικόνα προφίλ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Group.php:174 Reports/CanvassReports.php:279
+#: EcclesiaCRM/model/EcclesiaCRM/Group.php:145 Reports/CanvassReports.php:279
 #: Reports/VotingMembers.php:102 v2/templates/people/selectDelete.php:339
+#: queryparameteroptions_qpo.php:15
 msgid "Member"
 msgstr "Μέλος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:398
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:418
 msgid "Person Data Verified"
 msgstr "Επαληθευμένα δεδομένα προσώπου"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:402
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:422
 msgid "Person Data Verified by url"
 msgstr "Δεδομένα προσώπου που επαληθεύονται από url"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:406
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:426
 msgid "Person Data Verification reset"
 msgstr "Επαλήθευση δεδομένων προσώπου επαναφορά"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:780
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:800
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "mos old"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:782
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:802
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "mo παλιά"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:786
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:806
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "ετών"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:788
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "ετών"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:816
-msgid "EcclesiaCRM export"
-msgstr "Εξαγωγή EcclesiaCRM"
-
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:738
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:800
 msgid "system user created"
 msgstr "χρήστης του συστήματος που δημιουργήθηκε"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:803
 msgid "system user updated"
 msgstr "χρήστης του συστήματος ενημερώθηκε"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:744
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:806
 msgid "system user deleted"
 msgstr "Διαγραφή χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:809
 msgid "system user password reset"
 msgstr "επαναφορά κωδικού πρόσβασης χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:750
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:812
 msgid "system user changed password"
 msgstr "ο χρήστης του συστήματος άλλαξε τον κωδικό πρόσβασης"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:815
 msgid "system user password changed by admin"
 msgstr ""
 "ο κωδικός πρόσβασης του χρήστη του συστήματος άλλαξε από τον διαχειριστή"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:756
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
 msgid "system user login reset"
 msgstr "επαναφορά σύνδεσης χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:762
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
 msgid "Dav create file"
 msgstr "Dav δημιουργήστε αρχείο"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:768
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
 msgid "Dav create directory"
 msgstr "Dav create directory"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:774
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
 msgid "Dav update file"
 msgstr "Αρχείο ενημέρωσης Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:787
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:849
 msgid "Dav move copy file"
 msgstr "Dav μετακίνηση αντιγραφή αρχείου"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:794
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:856
 msgid "Dav delete file"
 msgstr "Dav delete file"
 
@@ -5989,7 +5994,7 @@ msgstr "Ιδιότητες ανθρώπων"
 msgid "Edit Custom Person Fields"
 msgstr "Επεξεργασία προσαρμοσμένων πεδίων προσώπου"
 
-#: Include/Footer.php:108 v2/templates/group/groupview.php:320
+#: Include/Footer.php:108 v2/templates/group/groupview.php:306
 msgid "Group Properties"
 msgstr "Ιδιότητες ομάδας"
 
@@ -7228,7 +7233,7 @@ msgstr "Εκτελέστε ξανά το ερώτημα"
 
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:343
 #: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:360
-#: v2/templates/group/groupview.php:344 v2/templates/people/familyview.php:618
+#: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:618
 #: v2/templates/people/personview.php:1105 v2/templates/query/queryview.php:393
 #: v2/templates/query/queryview.php:410
 msgid "select an option"
@@ -7633,7 +7638,7 @@ msgstr "Αναγνωριστικό συμβάντος:"
 #: v2/templates/group/groupPropsEditor.php:223
 #: v2/templates/group/groupPropsFormEditor.php:319
 #: v2/templates/group/groupPropsFormEditor.php:437
-#: v2/templates/group/groupedit.php:56 v2/templates/group/groupview.php:400
+#: v2/templates/group/groupedit.php:56 v2/templates/group/groupview.php:393
 #: v2/templates/plugins/plugins.php:82
 msgid "Description"
 msgstr "Περιγραφή"
@@ -8132,7 +8137,7 @@ msgstr "Κονκάρδες"
 msgid "Email Cart"
 msgstr "Καλάθι ηλεκτρονικού ταχυδρομείου"
 
-#: v2/templates/cart/cartview.php:86 v2/templates/group/groupview.php:184
+#: v2/templates/cart/cartview.php:86 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:251
 #: v2/templates/people/personview.php:414
 #: v2/templates/sundayschool/sundayschooldashboard.php:116
@@ -8305,6 +8310,7 @@ msgstr "Απενεργοποίηση"
 #: v2/templates/people/reminderreport.php:32
 #: v2/templates/people/selectDelete.php:286
 #: v2/templates/sundayschool/sundayschoolreports.php:60
+#: queryparameters_qrp.php:18
 msgid "Fiscal Year"
 msgstr "Οικονομικό έτος"
 
@@ -8472,12 +8478,12 @@ msgid "Vanco ACH"
 msgstr "Vanco ACH"
 
 #: v2/templates/deposit/electronicPaymentList.php:216
-#: v2/templates/people/familyEditor.php:1086
+#: v2/templates/people/familyEditor.php:1086 queryparameters_qrp.php:11
 msgid "Month"
 msgstr "Μήνας"
 
 #: v2/templates/deposit/electronicPaymentList.php:217
-#: v2/templates/people/familyEditor.php:1088
+#: v2/templates/people/familyEditor.php:1088 queryparameters_qrp.php:20
 msgid "Year"
 msgstr "Έτος"
 
@@ -8488,11 +8494,6 @@ msgstr "Vanco CC"
 #: v2/templates/deposit/electronicPaymentList.php:250
 msgid "Bank ACH"
 msgstr "Τράπεζα ACH"
-
-#: v2/templates/deposit/electronicPaymentList.php:254
-#: v2/templates/group/groupedit.php:134 v2/templates/group/groupview.php:257
-msgid "Disabled"
-msgstr "Άτομα με ειδικές ανάγκες"
 
 #: v2/templates/deposit/electronicPaymentList.php:295
 msgid "With checked"
@@ -9153,7 +9154,7 @@ msgstr ""
 "τα μέλη του CRM, χρησιμοποιήστε <b>*</b>."
 
 #: v2/templates/email/mailchimp/managelist.php:75
-#: v2/templates/group/groupview.php:470
+#: v2/templates/group/groupview.php:472
 #: v2/templates/sundayschool/sundayschooldashboard.php:333
 #: v2/templates/sundayschool/sundayschoolview.php:179
 #: v2/templates/sundayschool/sundayschoolview.php:292
@@ -9456,7 +9457,7 @@ msgid "Edit List Options"
 msgstr "Επεξεργασία επιλογών λίστας"
 
 #: v2/templates/group/groupPropsFormEditor.php:38
-#: v2/templates/group/groupview.php:378
+#: v2/templates/group/groupview.php:368
 msgid "Group-Specific Properties"
 msgstr "Ιδιότητες συγκεκριμένης ομάδας"
 
@@ -9589,7 +9590,7 @@ msgstr ""
 "Οι συγκεκριμένες ιδιότητες της ομάδας είναι χρήσιμες για να φτιάξετε ένα "
 "είδος doodle"
 
-#: v2/templates/group/groupedit.php:128 v2/templates/group/groupview.php:431
+#: v2/templates/group/groupedit.php:128 v2/templates/group/groupview.php:424
 msgid "Edit Group-Specific Properties Form"
 msgstr "Φόρμα Επεξεργασίας ιδιοτήτων συγκεκριμένης ομάδας"
 
@@ -9677,45 +9678,21 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Πεδία ιδιοτήτων συγκεκριμένης ομάδας"
 
-#: v2/templates/group/groupview.php:33
-msgid "Type of Group"
-msgstr "Τύπος ομάδας"
-
-#: v2/templates/group/groupview.php:39
-msgid "Default Role"
-msgstr "Προεπιλεγμένος ρόλος"
-
-#: v2/templates/group/groupview.php:45
-msgid "Total Members"
-msgstr "Σύνολο μελών"
-
-#: v2/templates/group/groupview.php:51
-msgid "Click to create an addressbook of the Group"
-msgstr "Κάντε κλικ για να δημιουργήσετε ένα βιβλίο διευθύνσεων της ομάδας"
-
-#: v2/templates/group/groupview.php:52
-msgid "Address Book"
-msgstr "Βιβλίο διευθύνσεων"
-
-#: v2/templates/group/groupview.php:68
-msgid "Group Functions"
-msgstr "Λειτουργίες ομάδας"
-
-#: v2/templates/group/groupview.php:74
+#: v2/templates/group/groupview.php:32
 msgid "Map this group"
 msgstr "Χάρτης αυτής της ομάδας"
 
-#: v2/templates/group/groupview.php:82 v2/templates/people/familyview.php:228
+#: v2/templates/group/groupview.php:40 v2/templates/people/familyview.php:228
 #: v2/templates/people/personview.php:394
 msgid "Remove from Cart"
 msgstr "Αφαίρεση από το καλάθι"
 
-#: v2/templates/group/groupview.php:86 v2/templates/people/familyview.php:235
+#: v2/templates/group/groupview.php:44 v2/templates/people/familyview.php:235
 #: v2/templates/people/personview.php:402 v2/templates/query/queryview.php:153
 msgid "Add to Cart"
 msgstr "Προσθήκη στο καλάθι"
 
-#: v2/templates/group/groupview.php:94
+#: v2/templates/group/groupview.php:52
 msgid ""
 "To add special Group roles or to modify the role by default or to enable "
 "Group-specific properties"
@@ -9724,29 +9701,15 @@ msgstr ""
 "προεπιλεγμένο ρόλο ή να ενεργοποιήσετε ιδιότητες που αφορούν συγκεκριμένες "
 "ομάδες"
 
-#: v2/templates/group/groupview.php:94
+#: v2/templates/group/groupview.php:52
 msgid "Edit this Group"
 msgstr "Επεξεργασία αυτής της ομάδας"
 
-#: v2/templates/group/groupview.php:95
+#: v2/templates/group/groupview.php:53
 msgid "Delete this Group"
 msgstr "Διαγραφή αυτής της ομάδας"
 
-#: v2/templates/group/groupview.php:105
-msgid "Group reports"
-msgstr "Αναφορές ομάδων"
-
-#: v2/templates/group/groupview.php:109
-msgid "Create here your badges or QR-Code to call the register with them"
-msgstr ""
-"Δημιουργήστε εδώ τις κονκάρδες σας ή τον κωδικό QR για να καλέσετε το ταμείο "
-"με αυτές."
-
-#: v2/templates/group/groupview.php:111
-msgid "Group Badges"
-msgstr "Κονκάρδες ομάδων"
-
-#: v2/templates/group/groupview.php:121
+#: v2/templates/group/groupview.php:64
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:70
@@ -9754,80 +9717,90 @@ msgstr "Κονκάρδες ομάδων"
 msgid "Appointment"
 msgstr "Ραντεβού"
 
-#: v2/templates/group/groupview.php:173
+#: v2/templates/group/groupview.php:74
+msgid "Group reports"
+msgstr "Αναφορές ομάδων"
+
+#: v2/templates/group/groupview.php:78
+msgid "Create here your badges or QR-Code to call the register with them"
+msgstr ""
+"Δημιουργήστε εδώ τις κονκάρδες σας ή τον κωδικό QR για να καλέσετε το ταμείο "
+"με αυτές."
+
+#: v2/templates/group/groupview.php:80
+msgid "Group Badges"
+msgstr "Κονκάρδες ομάδων"
+
+#: v2/templates/group/groupview.php:82
+msgid "Click to create an addressbook of the Group"
+msgstr "Κάντε κλικ για να δημιουργήσετε ένα βιβλίο διευθύνσεων της ομάδας"
+
+#: v2/templates/group/groupview.php:83
+msgid "Address Book"
+msgstr "Βιβλίο διευθύνσεων"
+
+#: v2/templates/group/groupview.php:136
 msgid "Email Group"
 msgstr "Ομάδα Email"
 
-#: v2/templates/group/groupview.php:232
+#: v2/templates/group/groupview.php:195
 msgid "Text Group"
 msgstr "Ομάδα κειμένου"
 
-#: v2/templates/group/groupview.php:233
+#: v2/templates/group/groupview.php:198
 msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr ""
 "Πατήστε CTRL + C για να αντιγράψετε τους αριθμούς τηλεφώνου όλων των μελών "
 "της ομάδας."
 
-#: v2/templates/group/groupview.php:249
+#: v2/templates/group/groupview.php:223
 msgid "Quick Settings"
 msgstr "Γρήγορες ρυθμίσεις"
 
-#: v2/templates/group/groupview.php:257
+#: v2/templates/group/groupview.php:233
+#, fuzzy
+msgid "Group is"
+msgstr "Ομάδες"
+
+#: v2/templates/group/groupview.php:235
 #: v2/templates/sidebar/kioskmanager.php:29
 msgid "Active"
 msgstr "Ενεργό"
 
-#: v2/templates/group/groupview.php:259
-msgid "Email export"
-msgstr "Εξαγωγή email"
+#: v2/templates/group/groupview.php:239
+#, fuzzy
+msgid "The emails are"
+msgstr "Υπάρχουν"
 
-#: v2/templates/group/groupview.php:260
+#: v2/templates/group/groupview.php:241
 msgid "Include"
 msgstr "Συμπεριλάβετε το"
 
-#: v2/templates/group/groupview.php:260
+#: v2/templates/group/groupview.php:241
 msgid "Exclude"
 msgstr "Εξαίρεση"
 
-#: v2/templates/group/groupview.php:268
-msgid ""
-"Assign a group manager only for This Group. He can add or remove member from "
-"This Group, but not create Members."
-msgstr ""
-"Εκχωρήστε έναν διαχειριστή ομάδας μόνο για Αυτή την ομάδα. Μπορεί να "
-"προσθέσει ή να αφαιρέσει μέλος από Αυτή την ομάδα, αλλά όχι να δημιουργήσει "
-"μέλη."
-
-#: v2/templates/group/groupview.php:268
+#: v2/templates/group/groupview.php:252
 msgid "Group Managers"
 msgstr "Διαχειριστές ομίλων"
 
-#: v2/templates/group/groupview.php:274
+#: v2/templates/group/groupview.php:261
 msgid "Assigned Managers"
 msgstr "Εκχωρηθέντες διαχειριστές"
 
-#: v2/templates/group/groupview.php:294
+#: v2/templates/group/groupview.php:281
 msgid "No assigned Manager"
 msgstr "Δεν έχει οριστεί διαχειριστής"
 
-#: v2/templates/group/groupview.php:302
+#: v2/templates/group/groupview.php:289
 msgid "Add a specific manager only for this group"
 msgstr "Προσθήκη ενός συγκεκριμένου διαχειριστή μόνο για αυτή την ομάδα"
 
-#: v2/templates/group/groupview.php:302
+#: v2/templates/group/groupview.php:289
 msgid "Add Manager"
 msgstr "Προσθήκη διαχειριστή"
 
-#: v2/templates/group/groupview.php:320
-msgid ""
-"Assign properties for This Group. This properties are global properties and "
-"this can be changed in the admin right side bar &rarr; Group Properties"
-msgstr ""
-"Εκχώρηση ιδιοτήτων για αυτήν την ομάδα. Αυτές οι ιδιότητες είναι παγκόσμιες "
-"ιδιότητες και μπορούν να αλλάξουν στη δεξιά μπάρα του διαχειριστή &rarr; "
-"Ιδιότητες ομάδας"
-
-#: v2/templates/group/groupview.php:326 v2/templates/group/groupview.php:384
+#: v2/templates/group/groupview.php:315 v2/templates/group/groupview.php:377
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:551
 #: v2/templates/people/familyview.php:447
 #: v2/templates/people/personPrint.php:547
@@ -9835,34 +9808,26 @@ msgstr ""
 msgid "Assigned Properties"
 msgstr "Εκχωρημένες ιδιότητες"
 
-#: v2/templates/group/groupview.php:339 v2/templates/people/familyview.php:608
+#: v2/templates/group/groupview.php:328 v2/templates/people/familyview.php:608
 #: v2/templates/people/personview.php:1097
 msgid "Assign a New Property"
 msgstr "Ανάθεση νέας ιδιότητας"
 
-#: v2/templates/group/groupview.php:360 v2/templates/people/familyview.php:639
+#: v2/templates/group/groupview.php:349 v2/templates/people/familyview.php:639
 #: v2/templates/people/personview.php:1126
 #: v2/templates/people/personview.php:1189
 msgid "Assign"
 msgstr "Ανάθεση"
 
-#: v2/templates/group/groupview.php:378
-msgid ""
-"Assign properties for all members of the group. This properties are visible "
-"in each Person Profile &rarr; Assigned Group"
-msgstr ""
-"Εκχώρηση ιδιοτήτων για όλα τα μέλη της ομάδας. Αυτές οι ιδιότητες είναι "
-"ορατές σε κάθε προφίλ προσώπου &rarr; Assigned Group"
-
-#: v2/templates/group/groupview.php:392
+#: v2/templates/group/groupview.php:385
 msgid "No member properties have been created"
 msgstr "Δεν έχουν δημιουργηθεί ιδιότητες μέλους"
 
-#: v2/templates/group/groupview.php:422
+#: v2/templates/group/groupview.php:415
 msgid "Disabled for this group."
 msgstr "Απενεργοποιημένη για αυτή την ομάδα."
 
-#: v2/templates/group/groupview.php:422
+#: v2/templates/group/groupview.php:415
 msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
@@ -9872,33 +9837,20 @@ msgstr ""
 "παραπάνω κουμπί : \"Επεξεργασία αυτής της ομάδας\""
 
 #: v2/templates/group/groupview.php:446
-msgid "Group Members:"
-msgstr "Μέλη της ομάδας:"
-
-#: v2/templates/group/groupview.php:449
-#: v2/templates/sundayschool/sundayschoolview.php:253
-msgid "Remove members"
-msgstr "Διαγραφή μελών"
-
-#: v2/templates/group/groupview.php:465
 msgid "Manage Group Members"
 msgstr "Διαχείριση μελών ομάδας"
 
-#: v2/templates/group/groupview.php:476
-msgid "Remove Selected Members from group"
-msgstr "Αφαίρεση επιλεγμένων μελών από την ομάδα"
+#: v2/templates/group/groupview.php:449
+msgid "Type of Group"
+msgstr "Τύπος ομάδας"
 
-#: v2/templates/group/groupview.php:483
-msgid "Add Selected Members to Cart"
-msgstr "Προσθήκη επιλεγμένων μελών στο καλάθι"
+#: v2/templates/group/groupview.php:455
+msgid "Default Role"
+msgstr "Προεπιλεγμένος ρόλος"
 
-#: v2/templates/group/groupview.php:489
-msgid "Add Selected Members to Group"
-msgstr "Προσθήκη επιλεγμένων μελών σε ομάδα"
-
-#: v2/templates/group/groupview.php:490
-msgid "Move Selected Members to Group"
-msgstr "Μετακίνηση επιλεγμένων μελών σε ομάδα"
+#: v2/templates/group/groupview.php:461
+msgid "Total Members"
+msgstr "Σύνολο μελών"
 
 #: v2/templates/map/MapUsingBing.php:25 v2/templates/map/MapUsingGoogle.php:26
 #: v2/templates/map/MapUsingLeaflet.php:26
@@ -9974,7 +9926,7 @@ msgstr "Δεν υπάρχουν ομαδικές εργασίες."
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:513
 #: v2/templates/people/personPrint.php:509
 #: v2/templates/sidebar/propertylist.php:23
-#: v2/templates/user/usersettings.php:305
+#: v2/templates/user/usersettings.php:305 queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Ακίνητα"
 
@@ -10956,19 +10908,19 @@ msgstr "Δοκιμή"
 msgid "Selected Members"
 msgstr "Επιλεγμένα μέλη"
 
-#: v2/templates/people/lettersandlabels.php:236
+#: v2/templates/people/lettersandlabels.php:236 queryparameters_qrp.php:2
 msgid "Minimum Age"
 msgstr "Ελάχιστη ηλικία"
 
-#: v2/templates/people/lettersandlabels.php:239
+#: v2/templates/people/lettersandlabels.php:239 queryparameters_qrp.php:23
 msgid "The minimum age for which you want records returned."
 msgstr "Η ελάχιστη ηλικία για την οποία θέλετε να επιστραφούν εγγραφές."
 
-#: v2/templates/people/lettersandlabels.php:244
+#: v2/templates/people/lettersandlabels.php:244 queryparameters_qrp.php:3
 msgid "Maximum Age"
 msgstr "Μέγιστη ηλικία"
 
-#: v2/templates/people/lettersandlabels.php:247
+#: v2/templates/people/lettersandlabels.php:247 queryparameters_qrp.php:24
 msgid "The maximum age for which you want records returned."
 msgstr "Η μέγιστη ηλικία για την οποία θέλετε να επιστραφούν εγγραφές."
 
@@ -11212,7 +11164,7 @@ msgstr "Επιλέξτε τα φίλτρα του προσώπου σας"
 msgid "Group filters"
 msgstr "Ομαδικά φίλτρα"
 
-#: v2/templates/people/peoplelist.php:72
+#: v2/templates/people/peoplelist.php:72 queryparameters_qrp.php:9
 msgid "Search"
 msgstr "Αναζήτηση"
 
@@ -11912,6 +11864,7 @@ msgid "Add Teachers to Cart"
 msgstr "Προσθήκη δασκάλων στο καλάθι"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:207
+#: queryparameters_qrp.php:12
 msgid "Class"
 msgstr "Τάξη"
 
@@ -12062,6 +12015,10 @@ msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 "Κάντε κλικ στο διάγραμμα ή στα μέρη του Donut για να αλληλεπιδράσετε με τον "
 "παρακάτω πίνακα."
+
+#: v2/templates/sundayschool/sundayschoolview.php:253
+msgid "Remove members"
+msgstr "Διαγραφή μελών"
 
 #: v2/templates/sundayschool/sundayschoolview.php:257
 msgid "Edition Mode"
@@ -12923,6 +12880,632 @@ msgstr "Αποθηκεύστε τα σε ασφαλές μέρος"
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Έναρξη εγγραφής αυθεντικοποίησης δύο παραγόντων"
 
+#: query_qry.php:2 query_qry.php:57
+msgid "Family With Work Phone"
+msgstr "Οικογένεια με τηλέφωνο εργασίας"
+
+#: query_qry.php:3 query_qry.php:58
+msgid "Family Member Count"
+msgstr "Αριθμός μελών της οικογένειας"
+
+#: query_qry.php:4 query_qry.php:59
+msgid "Person by Age"
+msgstr "Πρόσωπο ανά ηλικία"
+
+#: query_qry.php:5 query_qry.php:60
+msgid "Total By Gender"
+msgstr "Σύνολο Ανά φύλο"
+
+#: query_qry.php:6 query_qry.php:61
+msgid "Person by Role and Gender"
+msgstr "Πρόσωπο ανά ρόλο και φύλο"
+
+#: query_qry.php:7 query_qry.php:62
+msgid "Person by Property"
+msgstr "Πρόσωπο από Ιδιοκτησία"
+
+#: query_qry.php:9 query_qry.php:64
+msgid "Birthdays"
+msgstr "Γενέθλια"
+
+#: query_qry.php:10 query_qry.php:65 queryparameters_qrp.php:13
+msgid "Registered students"
+msgstr "Εγγεγραμμένοι φοιτητές"
+
+#: query_qry.php:11 query_qry.php:66
+msgid "Membership anniversaries"
+msgstr "Επέτειοι μελών"
+
+#: query_qry.php:12 query_qry.php:67
+msgid "Select database users"
+msgstr "Επιλογή χρηστών βάσης δεδομένων"
+
+#: query_qry.php:13 query_qry.php:68
+msgid "Select all members"
+msgstr "Επιλέξτε όλα τα μέλη"
+
+#: query_qry.php:15 query_qry.php:70
+msgid "Recent friends"
+msgstr "Πρόσφατοι φίλοι"
+
+#: query_qry.php:16 query_qry.php:71
+msgid "Families to Canvass"
+msgstr "Οικογένειες προς αναζήτηση"
+
+#: query_qry.php:17 query_qry.php:72
+msgid "Pledge comparison"
+msgstr "Σύγκριση υποσχέσεων"
+
+#: query_qry.php:18 query_qry.php:73
+msgid "Missing pledges"
+msgstr "Λείπουν υποσχέσεις"
+
+#: query_qry.php:19 query_qry.php:74
+msgid "Credit Card People"
+msgstr "Άνθρωποι με πιστωτική κάρτα"
+
+#: query_qry.php:20 query_qry.php:75
+msgid "Family Pledge by Fiscal Year"
+msgstr "Οικογενειακή δέσμευση ανά οικονομικό έτος"
+
+#: query_qry.php:21 query_qry.php:76
+msgid "Person not assigned to a group"
+msgstr "Άτομο που δεν έχει οριστεί σε ομάδα"
+
+#: query_qry.php:22 query_qry.php:77
+msgid "Person assigned to a group"
+msgstr "Πρόσωπο που έχει οριστεί σε ομάδα"
+
+#: query_qry.php:23 query_qry.php:78
+msgid "Awaiting confirmation of persons"
+msgstr "Εν αναμονή επιβεβαίωσης των προσώπων"
+
+#: query_qry.php:24 query_qry.php:79
+msgid "Awaiting confirmation of families"
+msgstr "Εν αναμονή της επιβεβαίωσης των οικογενειών"
+
+#: query_qry.php:25 query_qry.php:80
+msgid "Done confirmation of persons"
+msgstr "Επιβεβαίωση προσώπων"
+
+#: query_qry.php:26 query_qry.php:81
+msgid "Done confirmation of families"
+msgstr "Έγινε επιβεβαίωση των οικογενειών"
+
+#: query_qry.php:27 query_qry.php:82
+msgid "CustomSearch"
+msgstr "CustomSearch"
+
+#: query_qry.php:28 query_qry.php:83
+msgid "CustomSearch is NULL"
+msgstr "Το CustomSearch είναι NULL"
+
+#: query_qry.php:29 query_qry.php:84
+msgid "Returns each family with a work phone"
+msgstr "Επιστρέφει σε κάθε οικογένεια ένα τηλέφωνο εργασίας"
+
+#: query_qry.php:30 query_qry.php:85
+msgid "Returns each family and the total number of people assigned to them."
+msgstr ""
+"Επιστρέφει κάθε οικογένεια και τον συνολικό αριθμό των ατόμων που της έχουν "
+"ανατεθεί."
+
+#: query_qry.php:31 query_qry.php:86
+msgid "Returns any person records with ages between two given ages."
+msgstr ""
+"Επιστρέφει όλες τις εγγραφές προσώπων με ηλικίες μεταξύ δύο συγκεκριμένων "
+"ηλικιών."
+
+#: query_qry.php:32 query_qry.php:87
+msgid "Total of records matching a given gender."
+msgstr "Σύνολο εγγραφών που αντιστοιχούν σε ένα συγκεκριμένο φύλο."
+
+#: query_qry.php:33 query_qry.php:88
+msgid "Selects person records with the family role and gender specified."
+msgstr ""
+"Επιλέγει εγγραφές προσώπων με τον οικογενειακό ρόλο και το φύλο που έχουν "
+"καθοριστεί."
+
+#: query_qry.php:34 query_qry.php:89
+msgid "Returns person records which are assigned the given property."
+msgstr ""
+"Επιστρέφει τις εγγραφές προσώπων στις οποίες έχει εκχωρηθεί η συγκεκριμένη "
+"ιδιότητα."
+
+#: query_qry.php:35 query_qry.php:90
+msgid ""
+"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
+"Email."
+msgstr ""
+"Αναζήτηση με οποιοδήποτε μέρος του ονόματος, της πόλης, της πολιτείας, του "
+"ταχυδρομικού κώδικα, του οικιακού τηλεφώνου, του ηλεκτρονικού ταχυδρομείου ή "
+"του ηλεκτρονικού ταχυδρομείου εργασίας."
+
+#: query_qry.php:36 query_qry.php:91
+msgid "People with birthdays in a particular month"
+msgstr "Άτομα με γενέθλια σε συγκεκριμένο μήνα"
+
+#: query_qry.php:37 query_qry.php:92
+msgid "Find Registered students"
+msgstr "Εύρεση εγγεγραμμένων φοιτητών"
+
+#: query_qry.php:38 query_qry.php:93
+msgid "Members who joined in a particular month"
+msgstr "Μέλη που προσχώρησαν σε συγκεκριμένο μήνα"
+
+#: query_qry.php:39 query_qry.php:94
+msgid "People who are registered as database users"
+msgstr "Άτομα που είναι εγγεγραμμένα ως χρήστες της βάσης δεδομένων"
+
+#: query_qry.php:40 query_qry.php:95
+msgid "People who are members"
+msgstr "Άτομα που είναι μέλη"
+
+#: query_qry.php:41 query_qry.php:96
+msgid "Find volunteers for a particular opportunity"
+msgstr "Εύρεση εθελοντών για μια συγκεκριμένη ευκαιρία"
+
+#: query_qry.php:42 query_qry.php:97
+msgid "Friends who signed up in previous months"
+msgstr "Φίλοι που εγγράφηκαν τους προηγούμενους μήνες"
+
+#: query_qry.php:43 query_qry.php:98
+msgid "People in families that are ok to canvass."
+msgstr "Άνθρωποι σε οικογένειες που είναι εντάξει για να ψάξουν."
+
+#: query_qry.php:44 query_qry.php:99
+msgid "Compare pledges between two fiscal years"
+msgstr "Σύγκριση των δεσμεύσεων μεταξύ δύο οικονομικών ετών"
+
+#: query_qry.php:45 query_qry.php:100
+msgid "Find people who pledged one year but not another"
+msgstr "Βρείτε άτομα που δεσμεύτηκαν για ένα έτος αλλά όχι για κάποιο άλλο"
+
+#: query_qry.php:46 query_qry.php:101
+msgid "People who are configured to pay by credit card."
+msgstr "Άτομα που είναι διαμορφωμένα να πληρώνουν με πιστωτική κάρτα."
+
+#: query_qry.php:47 query_qry.php:102
+msgid ""
+"Pledge summary by family name for each fund for the selected fiscal year"
+msgstr ""
+"Σύνοψη των δεσμεύσεων ανά όνομα οικογένειας για κάθε ταμείο για το "
+"επιλεγμένο οικονομικό έτος"
+
+#: query_qry.php:48 query_qry.php:103
+msgid "Returns all the persons not assigned to a group."
+msgstr "Επιστρέφει όλα τα άτομα που δεν έχουν ανατεθεί σε μια ομάδα."
+
+#: query_qry.php:49 query_qry.php:104
+msgid "Returns all persons assigned to a group."
+msgstr "Επιστρέφει όλα τα άτομα που έχουν οριστεί σε μια ομάδα."
+
+#: query_qry.php:50 query_qry.php:105
+msgid "Find person who are in pending confirmation process"
+msgstr "Εύρεση ατόμου που βρίσκεται σε εκκρεμή διαδικασία επιβεβαίωσης"
+
+#: query_qry.php:51 query_qry.php:106
+msgid "Find families who are in pending confirmation process"
+msgstr "Βρείτε οικογένειες που βρίσκονται σε διαδικασία επιβεβαίωσης"
+
+#: query_qry.php:52 query_qry.php:107
+msgid "Look for person who have confirmed"
+msgstr "Αναζητήστε άτομο που έχει επιβεβαιώσει"
+
+#: query_qry.php:53 query_qry.php:108
+msgid "Look for families who have confirmed"
+msgstr "Αναζητήστε οικογένειες που έχουν επιβεβαιώσει"
+
+#: query_qry.php:54 query_qry.php:109
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr ""
+"Εύρεση εθελοντών που ταιριάζουν σε δύο συγκεκριμένους κωδικούς ευκαιρίας"
+
+#: query_qry.php:55 query_qry.php:110
+msgid "Find people with a custom field value"
+msgstr "Εύρεση ατόμων με μια προσαρμοσμένη τιμή πεδίου"
+
+#: query_qry.php:56 query_qry.php:111
+msgid "Find people with a custom field value is NULL"
+msgstr "Εύρεση ατόμων με τιμή προσαρμοσμένου πεδίου NULL"
+
+#: queryparameteroptions_qpo.php:5
+msgid "Zip Code"
+msgstr "Ταχυδρομικός κώδικας"
+
+#: queryparameteroptions_qpo.php:9
+msgid "2012/2013"
+msgstr "2012/2013"
+
+#: queryparameteroptions_qpo.php:10
+msgid "2013/2014"
+msgstr "2013/2014"
+
+#: queryparameteroptions_qpo.php:11
+msgid "2014/2015"
+msgstr "2014/2015"
+
+#: queryparameteroptions_qpo.php:12
+msgid "2015/2016"
+msgstr "2015/2016"
+
+#: queryparameteroptions_qpo.php:14
+msgid "WorkEmail"
+msgstr "ΕργασίαEmail"
+
+#: queryparameteroptions_qpo.php:16
+msgid "Regular Attender"
+msgstr "Τακτικός Συμμετέχων"
+
+#: queryparameteroptions_qpo.php:17
+msgid "Guest"
+msgstr "Επισκέπτης"
+
+#: queryparameteroptions_qpo.php:18
+msgid "Non-Attender"
+msgstr "Μη συμμετέχων"
+
+#: queryparameteroptions_qpo.php:19
+msgid "Non-Attender (staff)"
+msgstr "Μη συμμετέχων (προσωπικό)"
+
+#: queryparameters_qrp.php:7
+msgid "Beginning Date"
+msgstr "Ημερομηνία έναρξης"
+
+#: queryparameters_qrp.php:8
+msgid "Ending Date"
+msgstr "Ημερομηνία λήξης"
+
+#: queryparameters_qrp.php:10
+msgid "Field"
+msgstr "Πεδίο"
+
+#: queryparameters_qrp.php:14
+msgid "Volunteer opportunities"
+msgstr "Ευκαιρίες εθελοντισμού"
+
+#: queryparameters_qrp.php:15
+msgid "Months"
+msgstr "Μήνες"
+
+#: queryparameters_qrp.php:16
+msgid "First Fiscal Year"
+msgstr "Πρώτο οικονομικό έτος"
+
+#: queryparameters_qrp.php:17
+msgid "Second Fiscal Year"
+msgstr "Δεύτερο οικονομικό έτος"
+
+#: queryparameters_qrp.php:21
+msgid "Custom field"
+msgstr "Προσαρμοσμένο πεδίο"
+
+#: queryparameters_qrp.php:22
+msgid "Field value"
+msgstr "Τιμή πεδίου"
+
+#: queryparameters_qrp.php:25
+msgid "The desired gender to search the database for."
+msgstr "Το επιθυμητό φύλο για το οποίο θα γίνει αναζήτηση στη βάση δεδομένων."
+
+#: queryparameters_qrp.php:26
+msgid "Select the desired family role."
+msgstr "Επιλέξτε τον επιθυμητό οικογενειακό ρόλο."
+
+#: queryparameters_qrp.php:27
+msgid "The gender for which you would like records returned."
+msgstr "Το φύλο για το οποίο θέλετε να επιστραφούν οι εγγραφές."
+
+#: queryparameters_qrp.php:28
+msgid "The property for which you would like person records returned."
+msgstr "Το ακίνητο για το οποίο θα θέλατε να επιστραφούν οι εγγραφές προσώπων."
+
+#: queryparameters_qrp.php:29
+msgid ""
+"Please select the beginning date to calculate total contributions for each "
+"member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that conatain "
+"donations."
+msgstr ""
+"Παρακαλούμε επιλέξτε την ημερομηνία έναρξης για τον υπολογισμό των συνολικών "
+"εισφορών για κάθε μέλος (π.χ. YYYY-MM-DD). ΣΗΜΕΙΩΣΗ: Μπορείτε να επιλέξετε "
+"μόνο ημερομηνίες που αφορούν δωρεές."
+
+#: queryparameters_qrp.php:30
+msgid ""
+"Please enter the last date to calculate total contributions for each member "
+"(i.e. YYYY-MM-DD)."
+msgstr ""
+"Παρακαλούμε εισάγετε την τελευταία ημερομηνία για τον υπολογισμό των "
+"συνολικών εισφορών για κάθε μέλος (π.χ. YYYY-MM-DD)."
+
+#: queryparameters_qrp.php:31
+msgid ""
+"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
+"or Work Email."
+msgstr ""
+"Πληκτρολογήστε οποιοδήποτε μέρος από τα ακόλουθα: Όνομα, πόλη, πολιτεία, "
+"ταχυδρομικός κώδικας, τηλέφωνο οικίας, ηλεκτρονικό ταχυδρομείο ή ηλεκτρονικό "
+"ταχυδρομείο εργασίας."
+
+#: queryparameters_qrp.php:32
+msgid "Select field to search for."
+msgstr "Επιλέξτε πεδίο για αναζήτηση."
+
+#: queryparameters_qrp.php:33
+msgid "The birthday month for which you would like records returned."
+msgstr "Ο μήνας γενεθλίων για τον οποίο θέλετε να επιστραφούν οι εγγραφές."
+
+#: queryparameters_qrp.php:34
+msgid "The sunday school class for which you would like records returned."
+msgstr ""
+"Η τάξη του κατηχητικού σχολείου για την οποία θα θέλατε να επιστραφούν τα "
+"αρχεία."
+
+#: queryparameters_qrp.php:35
+msgid "Group of registered students"
+msgstr "Ομάδα εγγεγραμμένων φοιτητών"
+
+#: queryparameters_qrp.php:36
+msgid ""
+"The membership anniversary month for which you would like records returned."
+msgstr ""
+"Ο μήνας της επετείου μέλους για τον οποίο θα θέλατε να επιστραφούν τα αρχεία."
+
+#: queryparameters_qrp.php:37
+msgid "Choose a volunteer opportunity"
+msgstr "Επιλέξτε μια εθελοντική ευκαιρία"
+
+#: queryparameters_qrp.php:38
+msgid "Number of months since becoming a friend"
+msgstr "Αριθμός μηνών από τότε που γίνατε φίλοι"
+
+#: queryparameters_qrp.php:39
+msgid "First fiscal year for comparison"
+msgstr "Πρώτο οικονομικό έτος για σύγκριση"
+
+#: queryparameters_qrp.php:40
+msgid "Second fiscal year for comparison"
+msgstr "Δεύτερο οικονομικό έτος για σύγκριση"
+
+#: queryparameters_qrp.php:41
+msgid "Pledged this year"
+msgstr "Υποσχέθηκε φέτος"
+
+#: queryparameters_qrp.php:42
+msgid "but not this year"
+msgstr "αλλά όχι φέτος"
+
+#: queryparameters_qrp.php:43
+msgid "Fiscal Year."
+msgstr "Δημοσιονομικό έτος."
+
+#: queryparameters_qrp.php:44
+msgid "Member, Regular Attender, etc."
+msgstr "Μέλος, Τακτικός Συμμετέχων, κ.λπ."
+
+#: queryparameters_qrp.php:45
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr "Βρείτε όλα τα άτομα που γεννήθηκαν πριν από το έτος που αναφέρατε."
+
+#: queryparameters_qrp.php:46
+msgid "First volunteer opportunity choice"
+msgstr "Πρώτη επιλογή εθελοντικής ευκαιρίας"
+
+#: queryparameters_qrp.php:47
+msgid "Second volunteer opportunity choice"
+msgstr "Δεύτερη επιλογή εθελοντικής ευκαιρίας"
+
+#: queryparameters_qrp.php:48
+msgid "Choose customer person field"
+msgstr "Επιλέξτε το πεδίο πρόσωπο πελάτη"
+
+#: queryparameters_qrp.php:49
+msgid "Match custom field to this value"
+msgstr "Αντιστοιχία προσαρμοσμένου πεδίου με αυτή την τιμή"
+
+#: settings-locales.php:2 settings-locales.php:37
+msgid "Albanian"
+msgstr "Αλβανικά"
+
+#: settings-locales.php:3 settings-locales.php:38
+msgid "Arabic - Egypt"
+msgstr "Αραβικά - Αίγυπτος"
+
+#: settings-locales.php:4 settings-locales.php:39
+msgid "Chinese - China"
+msgstr "Κινέζικα - Κίνα"
+
+#: settings-locales.php:5 settings-locales.php:40
+msgid "Chinese - Taiwan"
+msgstr "Κινέζικα - Ταϊβάν"
+
+#: settings-locales.php:6 settings-locales.php:41
+msgid "Danish - Denmark"
+msgstr "Δανικά - Δανία"
+
+#: settings-locales.php:7 settings-locales.php:42
+msgid "Dutch - Netherlands"
+msgstr "Ολλανδικά - Ολλανδία"
+
+#: settings-locales.php:8 settings-locales.php:43
+msgid "English - Australia"
+msgstr "Αγγλικά - Αυστραλία"
+
+#: settings-locales.php:9 settings-locales.php:44
+msgid "English - Canada"
+msgstr "Αγγλικά - Καναδάς"
+
+#: settings-locales.php:10 settings-locales.php:45
+msgid "English - Great Britain"
+msgstr "Αγγλικά - Μεγάλη Βρετανία"
+
+#: settings-locales.php:11 settings-locales.php:46
+msgid "English - United States"
+msgstr "Αγγλικά - Ηνωμένες Πολιτείες"
+
+#: settings-locales.php:12 settings-locales.php:47
+msgid "Finnish - Finland"
+msgstr "Φινλανδικά - Φινλανδία"
+
+#: settings-locales.php:13 settings-locales.php:48
+msgid "French - Belgium"
+msgstr "Γαλλικά - Βέλγιο"
+
+#: settings-locales.php:14 settings-locales.php:49
+msgid "French - Canada"
+msgstr "Γαλλικά - Καναδάς"
+
+#: settings-locales.php:15 settings-locales.php:50
+msgid "French - France"
+msgstr "Γαλλικά - Γαλλία"
+
+#: settings-locales.php:16 settings-locales.php:51
+msgid "French - Swiss"
+msgstr "Γαλλικά - Ελβετικά"
+
+#: settings-locales.php:17 settings-locales.php:52
+msgid "Greek"
+msgstr "Ελληνική"
+
+#: settings-locales.php:18 settings-locales.php:53
+msgid "German - Germany"
+msgstr "Γερμανικά - Γερμανία"
+
+#: settings-locales.php:19 settings-locales.php:54
+msgid "Hungarian"
+msgstr "Ουγγρικό"
+
+#: settings-locales.php:20 settings-locales.php:55
+msgid "Indonesian - Indonesia"
+msgstr "Ινδονησιακά - Ινδονησία"
+
+#: settings-locales.php:21 settings-locales.php:56
+msgid "Italian - Italy"
+msgstr "Ιταλικά - Ιταλία"
+
+#: settings-locales.php:22 settings-locales.php:57
+msgid "Japan"
+msgstr "Ιαπωνία"
+
+#: settings-locales.php:23 settings-locales.php:58
+msgid "Norwegian - Norvege"
+msgstr "Νορβηγικά - Norvege"
+
+#: settings-locales.php:24 settings-locales.php:59
+msgid "Polish - Poland"
+msgstr "Πολωνικά - Πολωνία"
+
+#: settings-locales.php:25 settings-locales.php:60
+msgid "Portuguese - Brazil"
+msgstr "Πορτογαλικά - Βραζιλία"
+
+#: settings-locales.php:26 settings-locales.php:61
+msgid "Portuguese - Portugal"
+msgstr "Πορτογαλικά - Πορτογαλία"
+
+#: settings-locales.php:27 settings-locales.php:62
+msgid "Romanian - Romania"
+msgstr "Ρουμανικά - Ρουμανία"
+
+#: settings-locales.php:28 settings-locales.php:63
+msgid "Russian"
+msgstr "Ρωσική"
+
+#: settings-locales.php:29 settings-locales.php:64
+msgid "Spanish - Spain"
+msgstr "Ισπανικά - Ισπανία"
+
+#: settings-locales.php:30 settings-locales.php:65
+msgid "Sami (Northern) (Sweden)"
+msgstr "Σάμι (Βόρεια) (Σουηδία)"
+
+#: settings-locales.php:31 settings-locales.php:66
+msgid "Thai"
+msgstr "Ταϊλάνδης"
+
+#: settings-locales.php:32 settings-locales.php:67
+msgid "Vietnamese"
+msgstr "Βιετναμέζικα"
+
+#: settings-locales.php:33 settings-locales.php:68
+msgid "Korean"
+msgstr "Κορεάτικα"
+
+#: settings-locales.php:34 settings-locales.php:69
+msgid "Ukraine"
+msgstr "Ουκρανία"
+
+#: userconfig_ucfg.php:2
+msgid "User permission to send email via mailto: links"
+msgstr "Άδεια χρήστη για αποστολή email μέσω συνδέσμων mailto:"
+
+#: userconfig_ucfg.php:3
+msgid "Delimiter to separate emails in mailto: links"
+msgstr "Διαχωριστικό για το διαχωρισμό των email σε συνδέσμους mailto:"
+
+#: userconfig_ucfg.php:4
+msgid "User permission to use IST Address Verification"
+msgstr "Άδεια χρήστη για τη χρήση του IST Address Verification"
+
+#: userconfig_ucfg.php:5
+msgid "Allow to see ballon Help"
+msgstr "Επιτρέψτε να δείτε το μπαλόνι Βοήθεια"
+
+#: userconfig_ucfg.php:6
+msgid "To export to another For european CharSet use ;"
+msgstr "Για εξαγωγή σε άλλο Για το ευρωπαϊκό CharSet χρησιμοποιήστε ,"
+
+#: userconfig_ucfg.php:7
+msgid ""
+"Default is UTF-8, For european CharSet use Windows-1252 for example for "
+"French language."
+msgstr ""
+"Η προεπιλογή είναι UTF-8, Για το ευρωπαϊκό CharSet χρησιμοποιήστε το "
+"Windows-1252 για παράδειγμα για τη γαλλική γλώσσα."
+
+#: userconfig_ucfg.php:8
+msgid "Map providers for external view"
+msgstr "Πάροχοι χάρτη για εξωτερική προβολή"
+
+#: userconfig_ucfg.php:9
+msgid "Enable sidebar expand on hover effect for sidebar mini"
+msgstr ""
+"Ενεργοποίηση της επέκτασης της πλευρικής γραμμής κατά την αιφνιδιαστική "
+"κίνηση για την πλευρική γραμμή mini"
+
+#: userconfig_ucfg.php:10
+msgid "The sidebar is collapse by default"
+msgstr "Η πλευρική γραμμή είναι από προεπιλογή σε κατάρρευση"
+
+#: userconfig_ucfg.php:11
+msgid "AdminLTE 3.0 font style"
+msgstr "AdminLTE 3.0 στυλ γραμματοσειράς"
+
+#: userconfig_ucfg.php:12
+msgid "AdminLTE 3.0 Theme sideBar style"
+msgstr "AdminLTE 3.0 Θέμα sideBar στυλ"
+
+#: userconfig_ucfg.php:13
+msgid "AdminLTE 3.0 sideBar color style"
+msgstr "AdminLTE 3.0 στυλ χρώματος μπάρας πλευράς"
+
+#: userconfig_ucfg.php:14
+msgid "AdminLTE 3.0 navbar color style"
+msgstr "AdminLTE 3.0 στυλ χρώματος γραμμής πλοήγησης"
+
+#: userconfig_ucfg.php:15
+msgid "AdminLTE 3.0 brand link color style"
+msgstr "AdminLTE 3.0 στυλ χρώματος συνδέσμου μάρκας"
+
+#: userconfig_ucfg.php:16
+msgid "AdminLTE 3.1 Dark Mode"
+msgstr "AdminLTE 3.1 Σκοτεινή λειτουργία"
+
+#: userconfig_ucfg.php:17
+msgid "AdminLTE 3.1 Dark Mode color style"
+msgstr "AdminLTE 3.1 Dark Mode στυλ χρώματος"
+
 msgid "Jan"
 msgstr "Jan"
 
@@ -13121,6 +13704,54 @@ msgstr "Αρκετές ημέρες"
 msgid "Giving Report"
 msgstr "Έκθεση δωρεάς"
 
+#~ msgid "EcclesiaCRM export"
+#~ msgstr "Εξαγωγή EcclesiaCRM"
+
+#~ msgid "Group Functions"
+#~ msgstr "Λειτουργίες ομάδας"
+
+#~ msgid "Email export"
+#~ msgstr "Εξαγωγή email"
+
+#~ msgid ""
+#~ "Assign a group manager only for This Group. He can add or remove member "
+#~ "from This Group, but not create Members."
+#~ msgstr ""
+#~ "Εκχωρήστε έναν διαχειριστή ομάδας μόνο για Αυτή την ομάδα. Μπορεί να "
+#~ "προσθέσει ή να αφαιρέσει μέλος από Αυτή την ομάδα, αλλά όχι να "
+#~ "δημιουργήσει μέλη."
+
+#~ msgid ""
+#~ "Assign properties for This Group. This properties are global properties "
+#~ "and this can be changed in the admin right side bar &rarr; Group "
+#~ "Properties"
+#~ msgstr ""
+#~ "Εκχώρηση ιδιοτήτων για αυτήν την ομάδα. Αυτές οι ιδιότητες είναι "
+#~ "παγκόσμιες ιδιότητες και μπορούν να αλλάξουν στη δεξιά μπάρα του "
+#~ "διαχειριστή &rarr; Ιδιότητες ομάδας"
+
+#~ msgid ""
+#~ "Assign properties for all members of the group. This properties are "
+#~ "visible in each Person Profile &rarr; Assigned Group"
+#~ msgstr ""
+#~ "Εκχώρηση ιδιοτήτων για όλα τα μέλη της ομάδας. Αυτές οι ιδιότητες είναι "
+#~ "ορατές σε κάθε προφίλ προσώπου &rarr; Assigned Group"
+
+#~ msgid "Group Members:"
+#~ msgstr "Μέλη της ομάδας:"
+
+#~ msgid "Remove Selected Members from group"
+#~ msgstr "Αφαίρεση επιλεγμένων μελών από την ομάδα"
+
+#~ msgid "Add Selected Members to Cart"
+#~ msgstr "Προσθήκη επιλεγμένων μελών στο καλάθι"
+
+#~ msgid "Add Selected Members to Group"
+#~ msgstr "Προσθήκη επιλεγμένων μελών σε ομάδα"
+
+#~ msgid "Move Selected Members to Group"
+#~ msgstr "Μετακίνηση επιλεγμένων μελών σε ομάδα"
+
 #~ msgid "Not assigned"
 #~ msgstr "Δεν έχει οριστεί"
 
@@ -13145,490 +13776,6 @@ msgstr "Έκθεση δωρεάς"
 
 #~ msgid "Anniversaries of the day"
 #~ msgstr "Επέτειοι της ημέρας"
-
-#~ msgid "Zip Code"
-#~ msgstr "Ταχυδρομικός κώδικας"
-
-#~ msgid "2012/2013"
-#~ msgstr "2012/2013"
-
-#~ msgid "2013/2014"
-#~ msgstr "2013/2014"
-
-#~ msgid "2014/2015"
-#~ msgstr "2014/2015"
-
-#~ msgid "2015/2016"
-#~ msgstr "2015/2016"
-
-#~ msgid "WorkEmail"
-#~ msgstr "ΕργασίαEmail"
-
-#~ msgid "Regular Attender"
-#~ msgstr "Τακτικός Συμμετέχων"
-
-#~ msgid "Guest"
-#~ msgstr "Επισκέπτης"
-
-#~ msgid "Non-Attender"
-#~ msgstr "Μη συμμετέχων"
-
-#~ msgid "Non-Attender (staff)"
-#~ msgstr "Μη συμμετέχων (προσωπικό)"
-
-#~ msgid "Beginning Date"
-#~ msgstr "Ημερομηνία έναρξης"
-
-#~ msgid "Ending Date"
-#~ msgstr "Ημερομηνία λήξης"
-
-#~ msgid "Field"
-#~ msgstr "Πεδίο"
-
-#~ msgid "Registered students"
-#~ msgstr "Εγγεγραμμένοι φοιτητές"
-
-#~ msgid "Volunteer opportunities"
-#~ msgstr "Ευκαιρίες εθελοντισμού"
-
-#~ msgid "Months"
-#~ msgstr "Μήνες"
-
-#~ msgid "First Fiscal Year"
-#~ msgstr "Πρώτο οικονομικό έτος"
-
-#~ msgid "Second Fiscal Year"
-#~ msgstr "Δεύτερο οικονομικό έτος"
-
-#~ msgid "Custom field"
-#~ msgstr "Προσαρμοσμένο πεδίο"
-
-#~ msgid "Field value"
-#~ msgstr "Τιμή πεδίου"
-
-#~ msgid "The desired gender to search the database for."
-#~ msgstr ""
-#~ "Το επιθυμητό φύλο για το οποίο θα γίνει αναζήτηση στη βάση δεδομένων."
-
-#~ msgid "Select the desired family role."
-#~ msgstr "Επιλέξτε τον επιθυμητό οικογενειακό ρόλο."
-
-#~ msgid "The gender for which you would like records returned."
-#~ msgstr "Το φύλο για το οποίο θέλετε να επιστραφούν οι εγγραφές."
-
-#~ msgid "The property for which you would like person records returned."
-#~ msgstr ""
-#~ "Το ακίνητο για το οποίο θα θέλατε να επιστραφούν οι εγγραφές προσώπων."
-
-#~ msgid ""
-#~ "Please select the beginning date to calculate total contributions for "
-#~ "each member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that "
-#~ "conatain donations."
-#~ msgstr ""
-#~ "Παρακαλούμε επιλέξτε την ημερομηνία έναρξης για τον υπολογισμό των "
-#~ "συνολικών εισφορών για κάθε μέλος (π.χ. YYYY-MM-DD). ΣΗΜΕΙΩΣΗ: Μπορείτε "
-#~ "να επιλέξετε μόνο ημερομηνίες που αφορούν δωρεές."
-
-#~ msgid ""
-#~ "Please enter the last date to calculate total contributions for each "
-#~ "member (i.e. YYYY-MM-DD)."
-#~ msgstr ""
-#~ "Παρακαλούμε εισάγετε την τελευταία ημερομηνία για τον υπολογισμό των "
-#~ "συνολικών εισφορών για κάθε μέλος (π.χ. YYYY-MM-DD)."
-
-#~ msgid ""
-#~ "Enter any part of the following: Name, City, State, Zip, Home Phone, "
-#~ "Email, or Work Email."
-#~ msgstr ""
-#~ "Πληκτρολογήστε οποιοδήποτε μέρος από τα ακόλουθα: Όνομα, πόλη, πολιτεία, "
-#~ "ταχυδρομικός κώδικας, τηλέφωνο οικίας, ηλεκτρονικό ταχυδρομείο ή "
-#~ "ηλεκτρονικό ταχυδρομείο εργασίας."
-
-#~ msgid "Select field to search for."
-#~ msgstr "Επιλέξτε πεδίο για αναζήτηση."
-
-#~ msgid "The birthday month for which you would like records returned."
-#~ msgstr "Ο μήνας γενεθλίων για τον οποίο θέλετε να επιστραφούν οι εγγραφές."
-
-#~ msgid "The sunday school class for which you would like records returned."
-#~ msgstr ""
-#~ "Η τάξη του κατηχητικού σχολείου για την οποία θα θέλατε να επιστραφούν τα "
-#~ "αρχεία."
-
-#~ msgid "Group of registered students"
-#~ msgstr "Ομάδα εγγεγραμμένων φοιτητών"
-
-#~ msgid ""
-#~ "The membership anniversary month for which you would like records "
-#~ "returned."
-#~ msgstr ""
-#~ "Ο μήνας της επετείου μέλους για τον οποίο θα θέλατε να επιστραφούν τα "
-#~ "αρχεία."
-
-#~ msgid "Choose a volunteer opportunity"
-#~ msgstr "Επιλέξτε μια εθελοντική ευκαιρία"
-
-#~ msgid "Number of months since becoming a friend"
-#~ msgstr "Αριθμός μηνών από τότε που γίνατε φίλοι"
-
-#~ msgid "First fiscal year for comparison"
-#~ msgstr "Πρώτο οικονομικό έτος για σύγκριση"
-
-#~ msgid "Second fiscal year for comparison"
-#~ msgstr "Δεύτερο οικονομικό έτος για σύγκριση"
-
-#~ msgid "Pledged this year"
-#~ msgstr "Υποσχέθηκε φέτος"
-
-#~ msgid "but not this year"
-#~ msgstr "αλλά όχι φέτος"
-
-#~ msgid "Fiscal Year."
-#~ msgstr "Δημοσιονομικό έτος."
-
-#~ msgid "Member, Regular Attender, etc."
-#~ msgstr "Μέλος, Τακτικός Συμμετέχων, κ.λπ."
-
-#~ msgid "Get all persons who were born before the Year you mentioned."
-#~ msgstr "Βρείτε όλα τα άτομα που γεννήθηκαν πριν από το έτος που αναφέρατε."
-
-#~ msgid "First volunteer opportunity choice"
-#~ msgstr "Πρώτη επιλογή εθελοντικής ευκαιρίας"
-
-#~ msgid "Second volunteer opportunity choice"
-#~ msgstr "Δεύτερη επιλογή εθελοντικής ευκαιρίας"
-
-#~ msgid "Choose customer person field"
-#~ msgstr "Επιλέξτε το πεδίο πρόσωπο πελάτη"
-
-#~ msgid "Match custom field to this value"
-#~ msgstr "Αντιστοιχία προσαρμοσμένου πεδίου με αυτή την τιμή"
-
-#~ msgid "Family With Work Phone"
-#~ msgstr "Οικογένεια με τηλέφωνο εργασίας"
-
-#~ msgid "Family Member Count"
-#~ msgstr "Αριθμός μελών της οικογένειας"
-
-#~ msgid "Person by Age"
-#~ msgstr "Πρόσωπο ανά ηλικία"
-
-#~ msgid "Total By Gender"
-#~ msgstr "Σύνολο Ανά φύλο"
-
-#~ msgid "Person by Role and Gender"
-#~ msgstr "Πρόσωπο ανά ρόλο και φύλο"
-
-#~ msgid "Person by Property"
-#~ msgstr "Πρόσωπο από Ιδιοκτησία"
-
-#~ msgid "Birthdays"
-#~ msgstr "Γενέθλια"
-
-#~ msgid "Membership anniversaries"
-#~ msgstr "Επέτειοι μελών"
-
-#~ msgid "Select database users"
-#~ msgstr "Επιλογή χρηστών βάσης δεδομένων"
-
-#~ msgid "Select all members"
-#~ msgstr "Επιλέξτε όλα τα μέλη"
-
-#~ msgid "Recent friends"
-#~ msgstr "Πρόσφατοι φίλοι"
-
-#~ msgid "Families to Canvass"
-#~ msgstr "Οικογένειες προς αναζήτηση"
-
-#~ msgid "Pledge comparison"
-#~ msgstr "Σύγκριση υποσχέσεων"
-
-#~ msgid "Missing pledges"
-#~ msgstr "Λείπουν υποσχέσεις"
-
-#~ msgid "Credit Card People"
-#~ msgstr "Άνθρωποι με πιστωτική κάρτα"
-
-#~ msgid "Family Pledge by Fiscal Year"
-#~ msgstr "Οικογενειακή δέσμευση ανά οικονομικό έτος"
-
-#~ msgid "Person not assigned to a group"
-#~ msgstr "Άτομο που δεν έχει οριστεί σε ομάδα"
-
-#~ msgid "Person assigned to a group"
-#~ msgstr "Πρόσωπο που έχει οριστεί σε ομάδα"
-
-#~ msgid "Awaiting confirmation of persons"
-#~ msgstr "Εν αναμονή επιβεβαίωσης των προσώπων"
-
-#~ msgid "Awaiting confirmation of families"
-#~ msgstr "Εν αναμονή της επιβεβαίωσης των οικογενειών"
-
-#~ msgid "Done confirmation of persons"
-#~ msgstr "Επιβεβαίωση προσώπων"
-
-#~ msgid "Done confirmation of families"
-#~ msgstr "Έγινε επιβεβαίωση των οικογενειών"
-
-#~ msgid "CustomSearch"
-#~ msgstr "CustomSearch"
-
-#~ msgid "CustomSearch is NULL"
-#~ msgstr "Το CustomSearch είναι NULL"
-
-#~ msgid "Returns each family with a work phone"
-#~ msgstr "Επιστρέφει σε κάθε οικογένεια ένα τηλέφωνο εργασίας"
-
-#~ msgid "Returns each family and the total number of people assigned to them."
-#~ msgstr ""
-#~ "Επιστρέφει κάθε οικογένεια και τον συνολικό αριθμό των ατόμων που της "
-#~ "έχουν ανατεθεί."
-
-#~ msgid "Returns any person records with ages between two given ages."
-#~ msgstr ""
-#~ "Επιστρέφει όλες τις εγγραφές προσώπων με ηλικίες μεταξύ δύο συγκεκριμένων "
-#~ "ηλικιών."
-
-#~ msgid "Total of records matching a given gender."
-#~ msgstr "Σύνολο εγγραφών που αντιστοιχούν σε ένα συγκεκριμένο φύλο."
-
-#~ msgid "Selects person records with the family role and gender specified."
-#~ msgstr ""
-#~ "Επιλέγει εγγραφές προσώπων με τον οικογενειακό ρόλο και το φύλο που έχουν "
-#~ "καθοριστεί."
-
-#~ msgid "Returns person records which are assigned the given property."
-#~ msgstr ""
-#~ "Επιστρέφει τις εγγραφές προσώπων στις οποίες έχει εκχωρηθεί η "
-#~ "συγκεκριμένη ιδιότητα."
-
-#~ msgid ""
-#~ "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
-#~ "Email."
-#~ msgstr ""
-#~ "Αναζήτηση με οποιοδήποτε μέρος του ονόματος, της πόλης, της πολιτείας, "
-#~ "του ταχυδρομικού κώδικα, του οικιακού τηλεφώνου, του ηλεκτρονικού "
-#~ "ταχυδρομείου ή του ηλεκτρονικού ταχυδρομείου εργασίας."
-
-#~ msgid "People with birthdays in a particular month"
-#~ msgstr "Άτομα με γενέθλια σε συγκεκριμένο μήνα"
-
-#~ msgid "Find Registered students"
-#~ msgstr "Εύρεση εγγεγραμμένων φοιτητών"
-
-#~ msgid "Members who joined in a particular month"
-#~ msgstr "Μέλη που προσχώρησαν σε συγκεκριμένο μήνα"
-
-#~ msgid "People who are registered as database users"
-#~ msgstr "Άτομα που είναι εγγεγραμμένα ως χρήστες της βάσης δεδομένων"
-
-#~ msgid "People who are members"
-#~ msgstr "Άτομα που είναι μέλη"
-
-#~ msgid "Find volunteers for a particular opportunity"
-#~ msgstr "Εύρεση εθελοντών για μια συγκεκριμένη ευκαιρία"
-
-#~ msgid "Friends who signed up in previous months"
-#~ msgstr "Φίλοι που εγγράφηκαν τους προηγούμενους μήνες"
-
-#~ msgid "People in families that are ok to canvass."
-#~ msgstr "Άνθρωποι σε οικογένειες που είναι εντάξει για να ψάξουν."
-
-#~ msgid "Compare pledges between two fiscal years"
-#~ msgstr "Σύγκριση των δεσμεύσεων μεταξύ δύο οικονομικών ετών"
-
-#~ msgid "Find people who pledged one year but not another"
-#~ msgstr "Βρείτε άτομα που δεσμεύτηκαν για ένα έτος αλλά όχι για κάποιο άλλο"
-
-#~ msgid "People who are configured to pay by credit card."
-#~ msgstr "Άτομα που είναι διαμορφωμένα να πληρώνουν με πιστωτική κάρτα."
-
-#~ msgid ""
-#~ "Pledge summary by family name for each fund for the selected fiscal year"
-#~ msgstr ""
-#~ "Σύνοψη των δεσμεύσεων ανά όνομα οικογένειας για κάθε ταμείο για το "
-#~ "επιλεγμένο οικονομικό έτος"
-
-#~ msgid "Returns all the persons not assigned to a group."
-#~ msgstr "Επιστρέφει όλα τα άτομα που δεν έχουν ανατεθεί σε μια ομάδα."
-
-#~ msgid "Returns all persons assigned to a group."
-#~ msgstr "Επιστρέφει όλα τα άτομα που έχουν οριστεί σε μια ομάδα."
-
-#~ msgid "Find person who are in pending confirmation process"
-#~ msgstr "Εύρεση ατόμου που βρίσκεται σε εκκρεμή διαδικασία επιβεβαίωσης"
-
-#~ msgid "Find families who are in pending confirmation process"
-#~ msgstr "Βρείτε οικογένειες που βρίσκονται σε διαδικασία επιβεβαίωσης"
-
-#~ msgid "Look for person who have confirmed"
-#~ msgstr "Αναζητήστε άτομο που έχει επιβεβαιώσει"
-
-#~ msgid "Look for families who have confirmed"
-#~ msgstr "Αναζητήστε οικογένειες που έχουν επιβεβαιώσει"
-
-#~ msgid "Find volunteers for who match two specific opportunity codes"
-#~ msgstr ""
-#~ "Εύρεση εθελοντών που ταιριάζουν σε δύο συγκεκριμένους κωδικούς ευκαιρίας"
-
-#~ msgid "Find people with a custom field value"
-#~ msgstr "Εύρεση ατόμων με μια προσαρμοσμένη τιμή πεδίου"
-
-#~ msgid "Find people with a custom field value is NULL"
-#~ msgstr "Εύρεση ατόμων με τιμή προσαρμοσμένου πεδίου NULL"
-
-#~ msgid "Albanian"
-#~ msgstr "Αλβανικά"
-
-#~ msgid "Arabic - Egypt"
-#~ msgstr "Αραβικά - Αίγυπτος"
-
-#~ msgid "Chinese - China"
-#~ msgstr "Κινέζικα - Κίνα"
-
-#~ msgid "Chinese - Taiwan"
-#~ msgstr "Κινέζικα - Ταϊβάν"
-
-#~ msgid "Danish - Denmark"
-#~ msgstr "Δανικά - Δανία"
-
-#~ msgid "Dutch - Netherlands"
-#~ msgstr "Ολλανδικά - Ολλανδία"
-
-#~ msgid "English - Australia"
-#~ msgstr "Αγγλικά - Αυστραλία"
-
-#~ msgid "English - Canada"
-#~ msgstr "Αγγλικά - Καναδάς"
-
-#~ msgid "English - Great Britain"
-#~ msgstr "Αγγλικά - Μεγάλη Βρετανία"
-
-#~ msgid "English - United States"
-#~ msgstr "Αγγλικά - Ηνωμένες Πολιτείες"
-
-#~ msgid "Finnish - Finland"
-#~ msgstr "Φινλανδικά - Φινλανδία"
-
-#~ msgid "French - Belgium"
-#~ msgstr "Γαλλικά - Βέλγιο"
-
-#~ msgid "French - Canada"
-#~ msgstr "Γαλλικά - Καναδάς"
-
-#~ msgid "French - France"
-#~ msgstr "Γαλλικά - Γαλλία"
-
-#~ msgid "French - Swiss"
-#~ msgstr "Γαλλικά - Ελβετικά"
-
-#~ msgid "Greek"
-#~ msgstr "Ελληνική"
-
-#~ msgid "German - Germany"
-#~ msgstr "Γερμανικά - Γερμανία"
-
-#~ msgid "Hungarian"
-#~ msgstr "Ουγγρικό"
-
-#~ msgid "Indonesian - Indonesia"
-#~ msgstr "Ινδονησιακά - Ινδονησία"
-
-#~ msgid "Italian - Italy"
-#~ msgstr "Ιταλικά - Ιταλία"
-
-#~ msgid "Japan"
-#~ msgstr "Ιαπωνία"
-
-#~ msgid "Norwegian - Norvege"
-#~ msgstr "Νορβηγικά - Norvege"
-
-#~ msgid "Polish - Poland"
-#~ msgstr "Πολωνικά - Πολωνία"
-
-#~ msgid "Portuguese - Brazil"
-#~ msgstr "Πορτογαλικά - Βραζιλία"
-
-#~ msgid "Portuguese - Portugal"
-#~ msgstr "Πορτογαλικά - Πορτογαλία"
-
-#~ msgid "Romanian - Romania"
-#~ msgstr "Ρουμανικά - Ρουμανία"
-
-#~ msgid "Russian"
-#~ msgstr "Ρωσική"
-
-#~ msgid "Spanish - Spain"
-#~ msgstr "Ισπανικά - Ισπανία"
-
-#~ msgid "Sami (Northern) (Sweden)"
-#~ msgstr "Σάμι (Βόρεια) (Σουηδία)"
-
-#~ msgid "Thai"
-#~ msgstr "Ταϊλάνδης"
-
-#~ msgid "Vietnamese"
-#~ msgstr "Βιετναμέζικα"
-
-#~ msgid "Korean"
-#~ msgstr "Κορεάτικα"
-
-#~ msgid "Ukraine"
-#~ msgstr "Ουκρανία"
-
-#~ msgid "User permission to send email via mailto: links"
-#~ msgstr "Άδεια χρήστη για αποστολή email μέσω συνδέσμων mailto:"
-
-#~ msgid "Delimiter to separate emails in mailto: links"
-#~ msgstr "Διαχωριστικό για το διαχωρισμό των email σε συνδέσμους mailto:"
-
-#~ msgid "User permission to use IST Address Verification"
-#~ msgstr "Άδεια χρήστη για τη χρήση του IST Address Verification"
-
-#~ msgid "Allow to see ballon Help"
-#~ msgstr "Επιτρέψτε να δείτε το μπαλόνι Βοήθεια"
-
-#~ msgid "To export to another For european CharSet use ;"
-#~ msgstr "Για εξαγωγή σε άλλο Για το ευρωπαϊκό CharSet χρησιμοποιήστε ,"
-
-#~ msgid ""
-#~ "Default is UTF-8, For european CharSet use Windows-1252 for example for "
-#~ "French language."
-#~ msgstr ""
-#~ "Η προεπιλογή είναι UTF-8, Για το ευρωπαϊκό CharSet χρησιμοποιήστε το "
-#~ "Windows-1252 για παράδειγμα για τη γαλλική γλώσσα."
-
-#~ msgid "Map providers for external view"
-#~ msgstr "Πάροχοι χάρτη για εξωτερική προβολή"
-
-#~ msgid "Enable sidebar expand on hover effect for sidebar mini"
-#~ msgstr ""
-#~ "Ενεργοποίηση της επέκτασης της πλευρικής γραμμής κατά την αιφνιδιαστική "
-#~ "κίνηση για την πλευρική γραμμή mini"
-
-#~ msgid "The sidebar is collapse by default"
-#~ msgstr "Η πλευρική γραμμή είναι από προεπιλογή σε κατάρρευση"
-
-#~ msgid "AdminLTE 3.0 font style"
-#~ msgstr "AdminLTE 3.0 στυλ γραμματοσειράς"
-
-#~ msgid "AdminLTE 3.0 Theme sideBar style"
-#~ msgstr "AdminLTE 3.0 Θέμα sideBar στυλ"
-
-#~ msgid "AdminLTE 3.0 sideBar color style"
-#~ msgstr "AdminLTE 3.0 στυλ χρώματος μπάρας πλευράς"
-
-#~ msgid "AdminLTE 3.0 navbar color style"
-#~ msgstr "AdminLTE 3.0 στυλ χρώματος γραμμής πλοήγησης"
-
-#~ msgid "AdminLTE 3.0 brand link color style"
-#~ msgstr "AdminLTE 3.0 στυλ χρώματος συνδέσμου μάρκας"
-
-#~ msgid "AdminLTE 3.1 Dark Mode"
-#~ msgstr "AdminLTE 3.1 Σκοτεινή λειτουργία"
-
-#~ msgid "AdminLTE 3.1 Dark Mode color style"
-#~ msgstr "AdminLTE 3.1 Dark Mode στυλ χρώματος"
 
 #~ msgid "Confirm Data"
 #~ msgstr "Επιβεβαίωση δεδομένων"

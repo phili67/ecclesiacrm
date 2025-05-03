@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
+"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1329,14 +1329,35 @@ msgstr "Código postal"
 msgid "Cell Phone"
 msgstr "Teléfono móvil"
 
-msgid "Members from group"
-msgstr "Miembros del grupo"
+msgid "Remove Selected Members"
+msgstr ""
+
+msgid "You're about to delete all the group members ?"
+msgstr "¿Estás a punto de eliminar a todos los miembros del grupo?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "¿Está seguro? Esto no se puede deshacer."
+
+msgid "Action to selected members"
+msgstr ""
+
+msgid "Add to Cart"
+msgstr "Añadir a la cesta"
+
+#, fuzzy
+msgid "Add to Group"
+msgstr "Añadir cesta al grupo"
+
+#, fuzzy
+msgid "Move to Group"
+msgstr "Seleccionar grupo"
+
+#, fuzzy
+msgid "Remove all members"
+msgstr "Eliminar todo"
 
 msgid "Add"
 msgstr "Añadir"
-
-msgid "Members to another group"
-msgstr "Miembros a otro grupo"
 
 msgid "Members to cart"
 msgstr "Miembros a la cesta"
@@ -1344,11 +1365,11 @@ msgstr "Miembros a la cesta"
 msgid "Move"
 msgstr "Mover"
 
+msgid "Members to another group"
+msgstr "Miembros a otro grupo"
+
 msgid "Remove from Cart"
 msgstr "Eliminar de la cesta"
-
-msgid "Add to Cart"
-msgstr "Añadir a la cesta"
 
 msgid "No assigned Manager"
 msgstr "No hay gestor asignado"
@@ -1356,8 +1377,9 @@ msgstr "No hay gestor asignado"
 msgid "Manage Group Managers"
 msgstr "Gestionar los gestores de grupo"
 
-msgid "Add person"
-msgstr "Añadir persona"
+#, fuzzy
+msgid "Add users"
+msgstr "Añadir comprador"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "¿Está seguro de que quiere eliminar este gestor?"
@@ -2530,11 +2552,11 @@ msgstr "Editor del número de comprador"
 msgid "Select"
 msgstr "Seleccione"
 
-msgid "You're about to delete all the group members ?"
-msgstr "¿Estás a punto de eliminar a todos los miembros del grupo?"
+#~ msgid "Members from group"
+#~ msgstr "Miembros del grupo"
 
-msgid "Are you sure ? This can't be undone."
-msgstr "¿Está seguro? Esto no se puede deshacer."
+#~ msgid "Add person"
+#~ msgstr "Añadir persona"
 
 #~ msgid "Switch Camera"
 #~ msgstr "Cambiar de cámara"
