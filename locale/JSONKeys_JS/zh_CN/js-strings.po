@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
+"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1299,14 +1299,35 @@ msgstr "邮政编码"
 msgid "Cell Phone"
 msgstr "手机"
 
-msgid "Members from group"
-msgstr "小组成员"
+msgid "Remove Selected Members"
+msgstr ""
+
+msgid "You're about to delete all the group members ?"
+msgstr "你要删除所有的组员？"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "你确定吗？这是不可能被撤销的。"
+
+msgid "Action to selected members"
+msgstr ""
+
+msgid "Add to Cart"
+msgstr "添加到购物车"
+
+#, fuzzy
+msgid "Add to Group"
+msgstr "添加购物车到组"
+
+#, fuzzy
+msgid "Move to Group"
+msgstr "选择组别"
+
+#, fuzzy
+msgid "Remove all members"
+msgstr "移除所有"
 
 msgid "Add"
 msgstr "添加"
-
-msgid "Members to another group"
-msgstr "成员到另一个团体"
 
 msgid "Members to cart"
 msgstr "会员到购物车"
@@ -1314,11 +1335,11 @@ msgstr "会员到购物车"
 msgid "Move"
 msgstr "移动"
 
+msgid "Members to another group"
+msgstr "成员到另一个团体"
+
 msgid "Remove from Cart"
 msgstr "从购物车中删除"
-
-msgid "Add to Cart"
-msgstr "添加到购物车"
 
 msgid "No assigned Manager"
 msgstr "没有指定经理"
@@ -1326,8 +1347,9 @@ msgstr "没有指定经理"
 msgid "Manage Group Managers"
 msgstr "管理集团经理"
 
-msgid "Add person"
-msgstr "添加人"
+#, fuzzy
+msgid "Add users"
+msgstr "添加买家"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "你确定要删除这个经理吗？"
@@ -2451,11 +2473,11 @@ msgstr "买方编号编辑"
 msgid "Select"
 msgstr "选择"
 
-msgid "You're about to delete all the group members ?"
-msgstr "你要删除所有的组员？"
+#~ msgid "Members from group"
+#~ msgstr "小组成员"
 
-msgid "Are you sure ? This can't be undone."
-msgstr "你确定吗？这是不可能被撤销的。"
+#~ msgid "Add person"
+#~ msgstr "添加人"
 
 #~ msgid "Switch Camera"
 #~ msgstr "开关摄像机"

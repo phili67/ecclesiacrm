@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
+"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -703,8 +703,8 @@ msgstr "Localisation"
 
 msgid "To validate your address : <b>\"hit return\"</b>."
 msgstr ""
-"Attention : pour valider votre adresse : <b>\"Valider avec la touche entrée"
-"\"</b>"
+"Attention : pour valider votre adresse : <b>\"Valider avec la touche "
+"entrée\"</b>"
 
 msgid "To see the Map click this text field."
 msgstr "Pour voir la carte cliquez the champ de texte"
@@ -1338,14 +1338,35 @@ msgstr "Code postal"
 msgid "Cell Phone"
 msgstr "Téléphone portable"
 
-msgid "Members from group"
-msgstr "Membre(s) du groupe"
+msgid "Remove Selected Members"
+msgstr ""
+
+msgid "You're about to delete all the group members ?"
+msgstr "Vous êtes sur le point de supprimer tous les membres du groupe ?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "Êtes-vous sûr ? C'est irréversible."
+
+msgid "Action to selected members"
+msgstr ""
+
+msgid "Add to Cart"
+msgstr "Ajouter au Panier"
+
+#, fuzzy
+msgid "Add to Group"
+msgstr "Ajouter le panier au groupe"
+
+#, fuzzy
+msgid "Move to Group"
+msgstr "Sélectionner le groupe"
+
+#, fuzzy
+msgid "Remove all members"
+msgstr "Tout supprimer"
 
 msgid "Add"
 msgstr "Ajouter"
-
-msgid "Members to another group"
-msgstr "Membres dans un autre groupe"
 
 msgid "Members to cart"
 msgstr "Membre(s) au panier"
@@ -1353,11 +1374,11 @@ msgstr "Membre(s) au panier"
 msgid "Move"
 msgstr "Déplacer"
 
+msgid "Members to another group"
+msgstr "Membres dans un autre groupe"
+
 msgid "Remove from Cart"
 msgstr "Retirer du panier"
-
-msgid "Add to Cart"
-msgstr "Ajouter au Panier"
 
 msgid "No assigned Manager"
 msgstr "Acun Manager assigné"
@@ -1365,8 +1386,9 @@ msgstr "Acun Manager assigné"
 msgid "Manage Group Managers"
 msgstr "Gérer Managers du Groupe"
 
-msgid "Add person"
-msgstr "Ajouter une Personne"
+#, fuzzy
+msgid "Add users"
+msgstr "Ajouter Acheteur"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Etes-vous sûr de vouloir supprimer ce manager ?"
@@ -2541,11 +2563,11 @@ msgstr "Editeur Numéro Acheteur"
 msgid "Select"
 msgstr "Sélectionner"
 
-msgid "You're about to delete all the group members ?"
-msgstr "Vous êtes sur le point de supprimer tous les membres du groupe ?"
+#~ msgid "Members from group"
+#~ msgstr "Membre(s) du groupe"
 
-msgid "Are you sure ? This can't be undone."
-msgstr "Êtes-vous sûr ? C'est irréversible."
+#~ msgid "Add person"
+#~ msgstr "Ajouter une Personne"
 
 #~ msgid "Switch Camera"
 #~ msgstr "Changement de caméra"

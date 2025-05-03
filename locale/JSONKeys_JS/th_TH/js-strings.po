@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-12-03T08:14:06.329Z\n"
+"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1300,14 +1300,35 @@ msgstr "รหัสซิป"
 msgid "Cell Phone"
 msgstr "โทรศัพท์มือถือ"
 
-msgid "Members from group"
-msgstr "สมาชิกในกลุ่ม"
+msgid "Remove Selected Members"
+msgstr ""
+
+msgid "You're about to delete all the group members ?"
+msgstr "คุณกำลังจะลบสมาชิกกลุ่มทั้งหมดเลยเหรอ?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "คุณแน่ใจเหรอ? นี่มันไม่สามารถแก้ไขได้"
+
+msgid "Action to selected members"
+msgstr ""
+
+msgid "Add to Cart"
+msgstr "บวกเข้าไปที่คาร์ท"
+
+#, fuzzy
+msgid "Add to Group"
+msgstr "Add Cart to Group"
+
+#, fuzzy
+msgid "Move to Group"
+msgstr "เลือกกลุ่ม"
+
+#, fuzzy
+msgid "Remove all members"
+msgstr "ลบทั้งหมด"
 
 msgid "Add"
 msgstr "Add"
-
-msgid "Members to another group"
-msgstr "สมาชิกในกลุ่มอื่น"
 
 msgid "Members to cart"
 msgstr "สมาชิกในรถเข็น"
@@ -1315,11 +1336,11 @@ msgstr "สมาชิกในรถเข็น"
 msgid "Move"
 msgstr "ถอยไป"
 
+msgid "Members to another group"
+msgstr "สมาชิกในกลุ่มอื่น"
+
 msgid "Remove from Cart"
 msgstr "ถอดรถออก"
-
-msgid "Add to Cart"
-msgstr "บวกเข้าไปที่คาร์ท"
 
 msgid "No assigned Manager"
 msgstr "ไม่มีผู้จัดการที่ได้รับมอบหมายให้"
@@ -1327,8 +1348,9 @@ msgstr "ไม่มีผู้จัดการที่ได้รับม
 msgid "Manage Group Managers"
 msgstr "จัดการพวกกลุ่ม"
 
-msgid "Add person"
-msgstr "เพิ่มคน"
+#, fuzzy
+msgid "Add users"
+msgstr "ผู้ซื้อ"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "คุณแน่ใจนะ คุณต้องการลบผู้จัดการคนนี้"
@@ -2455,11 +2477,11 @@ msgstr "ผู้ซื้อหมายเลข"
 msgid "Select"
 msgstr "เลือก"
 
-msgid "You're about to delete all the group members ?"
-msgstr "คุณกำลังจะลบสมาชิกกลุ่มทั้งหมดเลยเหรอ?"
+#~ msgid "Members from group"
+#~ msgstr "สมาชิกในกลุ่ม"
 
-msgid "Are you sure ? This can't be undone."
-msgstr "คุณแน่ใจเหรอ? นี่มันไม่สามารถแก้ไขได้"
+#~ msgid "Add person"
+#~ msgstr "เพิ่มคน"
 
 #~ msgid "Switch Camera"
 #~ msgstr "สลับกล้อง"
