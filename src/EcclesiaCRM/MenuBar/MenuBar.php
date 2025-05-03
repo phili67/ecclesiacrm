@@ -44,11 +44,15 @@ class MenuBar extends Menu
     private function addPluginMenus($type, $main_menu=null) {
         $plugins = PluginQuery::create()->filterByCategory($type)->findByActiv(true);
 
+        $isPluginEnabledForuser = false;
+
         foreach ($plugins as $plugin) {
             $name = $plugin->getName();
 
             if ( !( SessionUser::getUser()->isEnableForPlugin($plugin->getName())
                 or SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName()) ) ) break;
+
+            $isPluginEnabledForuser = true;
 
             $menuBarItems = PluginMenuBarQuery::create()->filterByName($plugin->getName())->find();
             $first_One = true;
@@ -95,6 +99,8 @@ class MenuBar extends Menu
                 }        
             }
         }
+
+        return $isPluginEnabledForuser;
     }
 
     private function addHomeArea()
@@ -126,39 +132,53 @@ class MenuBar extends Menu
     {
         // the GDPR Menu
         $menu = new Menu (_("GDPR"), "fas fa-shield-alt", "", true);
-        $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/gdpr", true, $menu);
-        $menuItem = new Menu (_("Data Structure"), "fas fa-user-secret", "v2/gdpr/gdprdatastructure", true, $menu);
-        $menuItem = new Menu (_("View Inactive Persons"), "fas fa-users", "v2/personlist/GDRP", true, $menu);
-        $menuItem = new Menu (_("View Inactive Families"), "fas fa-users-slash", "v2/familylist/GDRP", true, $menu);
 
-        $this->addMenu($menu);
+        if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR')) {
+            $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/gdpr", true, $menu);
+            $menuItem = new Menu (_("Data Structure"), "fas fa-user-secret", "v2/gdpr/gdprdatastructure", true, $menu);
+            $menuItem = new Menu (_("View Inactive Persons"), "fas fa-users", "v2/personlist/GDRP", true, $menu);
+            $menuItem = new Menu (_("View Inactive Families"), "fas fa-users-slash", "v2/familylist/GDRP", true, $menu);
 
-        $this->addPluginMenus('GDPR', $menu);
+            $this->addMenu($menu);    
+        }
+
+        $isPluginEnabledForCurrentUser = $this->addPluginMenus('GDPR', $menu);
+
+        if ($isPluginEnabledForCurrentUser and !(SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR'))) {        
+            $this->addMenu($menu);        
+        }
     }
 
     public function addEventMenu()
     {
         // the Events Menu
         $menu = new Menu (_("Events") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "fa fa-calendar", "", true);
-        // add the badges
-        $menu->addBadge('badge badge-warning', 'EventsNumber', 0);
-        $menu->addBadge('badge badge-danger', 'BirthdateNumber', 0);
-        $menu->addBadge('badge badge-primary', 'AnniversaryNumber', 0);// badge à la place de label
+            
+        if (SystemConfig::getBooleanValue("bEnabledEvents")) {
+            // add the badges
+            $menu->addBadge('badge badge-warning', 'EventsNumber', 0);
+            $menu->addBadge('badge badge-danger', 'BirthdateNumber', 0);
+            $menu->addBadge('badge badge-primary', 'AnniversaryNumber', 0);// badge à la place de label
 
-        $menuItem = new Menu (_("Calendar"), "far fa-calendar-alt pull-left&quot;", "v2/calendar", true, $menu);
+            $menuItem = new Menu (_("Calendar"), "far fa-calendar-alt pull-left&quot;", "v2/calendar", true, $menu);
 
-        if (SessionUser::getUser()->isShowMapEnabled()) {
-            $menuItem = new Menu (_("View on Map"), "far fa-map", "v2/map/-2", true, $menu);
-        }
+            if (SessionUser::getUser()->isShowMapEnabled()) {
+                $menuItem = new Menu (_("View on Map"), "far fa-map", "v2/map/-2", true, $menu);
+            }
 
-        $menuItem = new Menu (_("List Church Events"), "far fa-calendar", "v2/calendar/events/list", true, $menu);
-        $menuItem = new Menu (_("List Event Types"), "fas fa-cog", "v2/calendar/events/names", SessionUser::getUser()->isAdmin(), $menu);
-        $menuItem->addLink("v2/calendar/events/types/edit");
-        $menuItem = new Menu (_("Call the Register"), "fas fa-bullhorn", "v2/calendar/events/checkin", true, $menu);        
+            $menuItem = new Menu (_("List Church Events"), "far fa-calendar", "v2/calendar/events/list", true, $menu);
+            $menuItem = new Menu (_("List Event Types"), "fas fa-cog", "v2/calendar/events/names", SessionUser::getUser()->isAdmin(), $menu);
+            $menuItem->addLink("v2/calendar/events/types/edit");
+            $menuItem = new Menu (_("Call the Register"), "fas fa-bullhorn", "v2/calendar/events/checkin", true, $menu);
 
-        $this->addMenu($menu);
+            $this->addMenu($menu);       
+        } 
 
-        $this->addPluginMenus('Events', $menu);
+        $isPluginEnabledForCurrentUser = $this->addPluginMenus('Events', $menu);
+
+        if ($isPluginEnabledForCurrentUser and !SystemConfig::getBooleanValue("bEnabledEvents")) {
+            $this->addMenu($menu);
+        }        
     }
 
     private function addPeopleMenu()
@@ -186,7 +206,9 @@ class MenuBar extends Menu
             $menuItem = new Menu (_("View on Map"), "far fa-map", "v2/map/-1", true, $menu);
         }
 
-        $menuItem = new Menu (_("Directory reports"), "fas fa-book", "v2/people/directory/report", true, $menu);
+        if (SessionUser::getUser()->isCreateDirectoryEnabled()) {
+            $menuItem = new Menu (_("Directory reports"), "fas fa-book", "v2/people/directory/report", true, $menu);
+        }
 
         if (SessionUser::getUser()->isEditRecordsEnabled()) {
             $menuItem = new Menu (_("Persons"), "fas fa-angle-double-right", "#", true, $menu);
@@ -210,9 +232,9 @@ class MenuBar extends Menu
             }
         }
 
-        $this->addMenu($menu);
+        $isPluginEnabledForCurrentUser = $this->addPluginMenus('PEOPLE', $menu);
 
-        $this->addPluginMenus('PEOPLE', $menu);
+        $this->addMenu($menu);        
     }
 
     private function addGroups()
@@ -238,6 +260,7 @@ class MenuBar extends Menu
                 ->filterByListOptionId($listOption->getOptionId())
                 ->endUse()
                 ->filterByType(3)// normal groups
+                ->filterByActive(1)
                 ->orderByName()
                 ->find();
 
@@ -265,107 +288,136 @@ class MenuBar extends Menu
         }
 
         // now we're searching the unclassified groups
-        $groups = GroupQuery::Create()
-            ->useGroupTypeQuery()
-            ->filterByListOptionId(0)
-            ->endUse()
-            ->filterByType(3) // normal groups
-            ->orderByName()
-            ->find();
+        if (SessionUser::getUser()->isManageGroupsEnabled()) {
+            $groups = GroupQuery::Create()
+                ->useGroupTypeQuery()
+                    ->filterByListOptionId(0)
+                ->endUse()
+                ->filterByType(3) // normal groups
+                ->filterByActive(1)
+                ->orderByName()
+                ->find();
 
-        if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
-            $menuItem = new Menu (_("Unassigned"), "far fa-user", "#", true, $menu);
+            if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+                $menuItem = new Menu (_("Unassigned"), "far fa-user", "#", true, $menu);
 
-            foreach ($groups as $group) {
-                $menuItemItem = new Menu ($group->getName(), "fas fa-angle-double-right", "v2/group/" . $group->getID() . "/view", true, $menuItem);
-                $menuItemItem->addLink("v2/group/editor/" . $group->getID());
-                $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
+                foreach ($groups as $group) {
+                    $menuItemItem = new Menu ($group->getName(), "fas fa-angle-double-right", "v2/group/" . $group->getID() . "/view", true, $menuItem);
+                    $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                    $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
+                }
             }
         }
 
-        $menuItem = new Menu (_("Group Assignment Helper"), "far fa-circle", "v2/people/list/groupassign", true, $menu);
+        // now we're searching the unactive groups
+        if (SessionUser::getUser()->isManageGroupsEnabled()) {
+            $groups = GroupQuery::Create()
+                ->filterByType(3) // normal groups
+                ->filterByActive(0)
+                ->orderByName()
+                ->find();
 
-        $this->addMenu($menu);
+            if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+                $menuItem = new Menu (_("Disabled"), "far fa-user", "#", true, $menu);
 
-        $this->addPluginMenus('GROUP', $menu);
+                foreach ($groups as $group) {
+                    $menuItemItem = new Menu ($group->getName(), "fas fa-angle-double-right", "v2/group/" . $group->getID() . "/view", true, $menuItem);
+                    $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                    $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
+                }
+            }
+    
+            $menuItem = new Menu (_("Group Assignment Helper"), "far fa-circle", "v2/people/list/groupassign", true, $menu);
+        }
+
+        $this->addMenu($menu);       
+
+        $isPluginEnabledForCurrentUser = $this->addPluginMenus('GROUP', $menu);
+         
     }
 
     private function addSundaySchoolGroups()
     {
         $menu = new Menu (_("Sunday School"), "fas fa-child", "#", true);
 
-        $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/sundayschool/dashboard", true, $menu);
-        $menuItem->addLink("v2/sundayschool/reports");
-        $menuItem->addLink("v2/system/option/manager/grptypesSundSchool");
-        $menuItem->addLink("v2/system/option/manager/grptypesSundSchool/3");
-        $menuItem->addLink("v2/system/option/manager/grptypesSundSchool/3#");
+        if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
+            $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/sundayschool/dashboard", true, $menu);
+            $menuItem->addLink("v2/sundayschool/reports");
+            $menuItem->addLink("v2/system/option/manager/grptypesSundSchool");
+            $menuItem->addLink("v2/system/option/manager/grptypesSundSchool/3");
+            $menuItem->addLink("v2/system/option/manager/grptypesSundSchool/3#");
 
 
-        $listOptions = ListOptionQuery::Create()
-            ->filterById(3) // the group category
-            ->filterByOptionType('sunday_school')
-            ->orderByOptionSequence()
-            ->find();
+            $listOptions = ListOptionQuery::Create()
+                ->filterById(3) // the group category
+                ->filterByOptionType('sunday_school')
+                ->orderByOptionSequence()
+                ->find();
 
-        foreach ($listOptions as $listOption) {
+            foreach ($listOptions as $listOption) {
+                $groups = GroupQuery::Create()
+                    ->useGroupTypeQuery()
+                    ->filterByListOptionId($listOption->getOptionId())
+                    ->endUse()
+                    ->filterByType(4)// sunday groups
+                    ->orderByName()
+                    ->find();
+
+                if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+
+                    $menuItem = new Menu ($listOption->getOptionName(), "fas fa-user", "#", true, $menu);
+
+                    foreach ($groups as $group) {
+                        $str = $group->getName();
+                        if (mb_strlen($str) > $this->_maxStr) {
+                            $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
+                        }
+
+                        $menuItemItem = new Menu ($str, "far fa-circle", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
+                        $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                        $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
+                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/sundayschool");
+                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/0/sundayschool");
+
+                        if (SessionUser::getUser()->isShowMapEnabled()) {
+                            $menuItemItem->addLink("v2/map/" . $group->getID());
+                        }
+                    }
+                }
+            }
+
+            // now we're searching the unclassified groups
             $groups = GroupQuery::Create()
                 ->useGroupTypeQuery()
-                ->filterByListOptionId($listOption->getOptionId())
+                ->filterByListOptionId(0)
                 ->endUse()
-                ->filterByType(4)// sunday groups
+                ->filterByType(4) // sunday group groups
                 ->orderByName()
                 ->find();
 
             if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
-
-                $menuItem = new Menu ($listOption->getOptionName(), "fas fa-user", "#", true, $menu);
+                $menuItem = new Menu (_("Unassigned"), "far fa-user", "#", true, $menu);
 
                 foreach ($groups as $group) {
-                    $str = $group->getName();
+                    $str = _($group->getName());
                     if (mb_strlen($str) > $this->_maxStr) {
                         $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
                     }
 
-                    $menuItemItem = new Menu ($str, "far fa-circle", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
+                    $menuItemItem = new Menu ($str, "fas fa-angle-double-right", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
                     $menuItemItem->addLink("v2/group/editor/" . $group->getID());
-                    $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
-                    $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/sundayschool");
-                    $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/0/sundayschool");
-
-                    if (SessionUser::getUser()->isShowMapEnabled()) {
-                        $menuItemItem->addLink("v2/map/" . $group->getID());
-                    }
+                    $menuItemItem->addLink("v2/group/" . $group->getID() . "/view");
                 }
             }
+
+            $this->addMenu($menu);
         }
 
-        // now we're searching the unclassified groups
-        $groups = GroupQuery::Create()
-            ->useGroupTypeQuery()
-            ->filterByListOptionId(0)
-            ->endUse()
-            ->filterByType(4) // sunday group groups
-            ->orderByName()
-            ->find();
+        $isPluginEnabledForCurrentUser = $this->addPluginMenus('SundaySchool', $menu);
 
-        if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
-            $menuItem = new Menu (_("Unassigned"), "far fa-user", "#", true, $menu);
-
-            foreach ($groups as $group) {
-                $str = _($group->getName());
-                if (mb_strlen($str) > $this->_maxStr) {
-                    $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
-                }
-
-                $menuItemItem = new Menu ($str, "fas fa-angle-double-right", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
-                $menuItemItem->addLink("v2/group/editor/" . $group->getID());
-                $menuItemItem->addLink("v2/group/" . $group->getID() . "/view");
-            }
-        }
-
-        $this->addMenu($menu);
-
-        $this->addPluginMenus('SundaySchool', $menu);
+        if ($isPluginEnabledForCurrentUser and !SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
+            $this->addMenu($menu);
+        }        
     }
 
     private function addGlobalMenuLinks()
@@ -401,17 +453,24 @@ class MenuBar extends Menu
     private function addPastoralCare()
     {
         $menu = new Menu (_("Pastoral Care"), "fas fa-heartbeat", "#", true, null, "pastoralcare_menu");
-        $menuItem1 = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/pastoralcare/dashboard", true, $menu);
-        $menuItem1 = new Menu (_("By Classifications"), "fas fa-sort-amount-up-alt", "v2/pastoralcare/membersList", true, $menu);
 
-        $this->addMenu($menu);
+        if (SessionUser::getUser()->isPastoralCareEnabled()) {
+            $menuItem1 = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/pastoralcare/dashboard", true, $menu);
+            $menuItem1 = new Menu (_("By Classifications"), "fas fa-sort-amount-up-alt", "v2/pastoralcare/membersList", true, $menu);
 
-        $this->addPluginMenus('PastoralCare', $menu);        
+            $this->addMenu($menu);
+        }
+
+        $isPluginEnabledForCurrentUser = $this->addPluginMenus('PastoralCare', $menu);     
+        
+        if ($isPluginEnabledForCurrentUser and !SessionUser::getUser()->isPastoralCareEnabled()) {
+            $this->addMenu($menu);
+        }
     }
 
     private function addMeeting()
     {
-        $this->addPluginMenus('Meeting');
+        $isPluginEnabledForCurrentUser = $this->addPluginMenus('Meeting');
     }
 
     private function addMailMenu()
@@ -419,99 +478,116 @@ class MenuBar extends Menu
         // the Email
         $menu = new Menu (_("Email"), "fas fa-envelope", "#", true);
 
-        $mailchimp = new MailChimpService();
+        if (SessionUser::getUser()->isMailChimpEnabled()) {
+            $mailchimp = new MailChimpService();
 
-        $menuMain = new Menu (_("MailChimp"), "fab fa-mailchimp", "#", SessionUser::getUser()->isMailChimpEnabled(), $menu);
+            $menuMain = new Menu (_("MailChimp"), "fab fa-mailchimp", "#", SessionUser::getUser()->isMailChimpEnabled(), $menu);
 
-        $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
-        $menuItem->addLink("v2/mailchimp/duplicateemails");
-        $menuItem->addLink("v2/mailchimp/debug");
-        $menuItem->addLink("v2/mailchimp/notinmailchimpemailspersons");
-        $menuItem->addLink("v2/mailchimp/notinmailchimpemailsfamilies");
+            $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
+            $menuItem->addLink("v2/mailchimp/duplicateemails");
+            $menuItem->addLink("v2/mailchimp/debug");
+            $menuItem->addLink("v2/mailchimp/notinmailchimpemailspersons");
+            $menuItem->addLink("v2/mailchimp/notinmailchimpemailsfamilies");
 
 
-        $menuItemItem = new Menu (_("Email Lists"), "fas fa-list", "#", true, $menuMain, "lists_class_menu " . (($mailchimp->isLoaded()) ? "" : "hidden"));
+            $menuItemItem = new Menu (_("Email Lists"), "fas fa-list", "#", true, $menuMain, "lists_class_menu " . (($mailchimp->isLoaded()) ? "" : "hidden"));
 
-        if ($mailchimp->isLoaded()) {// to accelerate the v2/dashboard the first time
-            $mcLists = $mailchimp->getLists();
+            if ($mailchimp->isLoaded()) {// to accelerate the v2/dashboard the first time
+                $mcLists = $mailchimp->getLists();
 
-            foreach ($mcLists as $list) {
-                $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/, "fas fa-mail-bulk", "v2/mailchimp/managelist/" . $list['id'], true, $menuItemItem, "listName" . $list['id']);
+                foreach ($mcLists as $list) {
+                    $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/, "fas fa-mail-bulk", "v2/mailchimp/managelist/" . $list['id'], true, $menuItemItem, "listName" . $list['id']);
 
-                $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
+                    $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
 
-                $campaigns = array_merge($campaigns[0], $campaigns[1]);
+                    $campaigns = array_merge($campaigns[0], $campaigns[1]);
 
-                foreach ($campaigns as $campaign) {
-                    //$menuItemItemItem = new Menu ($campaign['settings']['title'],"far fa-circle","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
-                    $menuItemItemItem->addLink("v2/mailchimp/campaign/" . $campaign['id']);
+                    foreach ($campaigns as $campaign) {
+                        //$menuItemItemItem = new Menu ($campaign['settings']['title'],"far fa-circle","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
+                        $menuItemItemItem->addLink("v2/mailchimp/campaign/" . $campaign['id']);
+                    }
                 }
+            } else {// we add just a false item
+                $menuItemItemItem = new Menu ("false item", "far fa-circle", "#", true, $menuItemItem, "#");
             }
-        } else {// we add just a false item
-            $menuItemItemItem = new Menu ("false item", "far fa-circle", "#", true, $menuItemItem, "#");
+
+            $this->addMenu($menu);
         }
 
-        $this->addPluginMenus('Mail', $menu);
+        $isPluginEnabledForCurrentUser = $this->addPluginMenus('Mail', $menu);
 
-        $this->addMenu($menu);
+        if ($isPluginEnabledForCurrentUser and !SessionUser::getUser()->isMailChimpEnabled()) {
+            $this->addMenu($menu);
+        }
     }
 
     private function addDepositMenu()
     {
         $menu = new Menu (_("Deposit") . "&nbsp;&nbsp;&nbsp;", "fa fa-cash-register", "#", SessionUser::getUser()->isFinanceEnabled());
-        // add the badges
-        $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
-        $deposits = DepositQuery::Create()->find();
 
-        $numberDeposit = 0;
+        if (SystemConfig::getBooleanValue("bEnabledFinance") && SessionUser::getUser()->isFinanceEnabled()) {
+            // add the badges
+            $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
+            $deposits = DepositQuery::Create()->find();
 
-        if (!empty($deposits)) {
-            $numberDeposit = $deposits->count();
+            $numberDeposit = 0;
+
+            if (!empty($deposits)) {
+                $numberDeposit = $deposits->count();
+            }
+
+            //echo '<small class="badge pull-right bg-green count-deposit">'.$numberDeposit. "</small>".((!empty($deposit))?('<small class="badge pull-right bg-blue current-deposit" data-id="'.$_SESSION['iCurrentDeposit'].'">'._("Current")." : ".$_SESSION['iCurrentDeposit'] . "</small>"):"")."\n";
+            if (!empty($deposit)) {
+                $menu->addBadge('badge badge-primary current-deposit', '', _("Current") . " : " . $_SESSION['iCurrentDeposit'], $_SESSION['iCurrentDeposit']);
+            }
+            $menu->addBadge('badge badge-success  count-deposit', '', $numberDeposit);
+
+
+            $menuItem = new Menu (_("Envelope Manager"), "fas fa-envelope", "v2/deposit/manage/envelopes", SessionUser::getUser()->isFinanceEnabled(), $menu);
+            $menuItem = new Menu (_("View All Deposits"), "fas fa-tachometer-alt", "v2/deposit/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
+            $menuItem = new Menu (_("Electronic Payment Listing"), "fas fa-credit-card", "v2/deposit/electronic/payment/list", SessionUser::getUser()->isFinanceEnabled(), $menu);
+            $menuItem = new Menu (_("Deposit Reports"), "fas fa-file-pdf", "v2/deposit/financial/reports", SessionUser::getUser()->isFinanceEnabled(), $menu);
+            $menuItem = new Menu (_("Giving Report (Tax Statements)"), "fas fa-file-pdf", "v2/deposit/tax/report", SessionUser::getUser()->isFinanceEnabled(), $menu);
+            $menuItem = new Menu (_("Edit Deposit Slip") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentDeposit'] . '</small>', "fas fa-file-invoice-dollar", "v2/deposit/slipeditor/" . $_SESSION['iCurrentDeposit'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
+
+            $this->addMenu($menu);
         }
 
-        //echo '<small class="badge pull-right bg-green count-deposit">'.$numberDeposit. "</small>".((!empty($deposit))?('<small class="badge pull-right bg-blue current-deposit" data-id="'.$_SESSION['iCurrentDeposit'].'">'._("Current")." : ".$_SESSION['iCurrentDeposit'] . "</small>"):"")."\n";
-        if (!empty($deposit)) {
-            $menu->addBadge('badge badge-primary current-deposit', '', _("Current") . " : " . $_SESSION['iCurrentDeposit'], $_SESSION['iCurrentDeposit']);
+        $isPluginEnabledForCurrentUser = $this->addPluginMenus('Deposit', $menu);
+
+        if ($isPluginEnabledForCurrentUser and !(SystemConfig::getBooleanValue("bEnabledFinance") && SessionUser::getUser()->isFinanceEnabled())) {
+            $this->addMenu($menu);
         }
-        $menu->addBadge('badge badge-success  count-deposit', '', $numberDeposit);
-
-
-        $menuItem = new Menu (_("Envelope Manager"), "fas fa-envelope", "v2/deposit/manage/envelopes", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("View All Deposits"), "fas fa-tachometer-alt", "v2/deposit/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("Electronic Payment Listing"), "fas fa-credit-card", "v2/deposit/electronic/payment/list", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("Deposit Reports"), "fas fa-file-pdf", "v2/deposit/financial/reports", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("Giving Report (Tax Statements)"), "fas fa-file-pdf", "v2/deposit/tax/report", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("Edit Deposit Slip") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentDeposit'] . '</small>', "fas fa-file-invoice-dollar", "v2/deposit/slipeditor/" . $_SESSION['iCurrentDeposit'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
-
-        $this->addPluginMenus('Deposit', $menu);
-
-        $this->addMenu($menu);
     }
 
     private function addFundraiserMenu()
     {
-        // the menu Fundraisers
-        if (!SessionUser::getUser()->isFinanceEnabled()) return;
-
         $menu = new Menu (_("Fundraiser"), "fas fa-money-check-alt", "#", SessionUser::getUser()->isFinanceEnabled());
 
-        $menuItem = new Menu (_("Create New Fundraiser"), "fas fa-box", "v2/fundraiser/editor", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("View All Fundraisers"), "fas fa-eye", "v2/fundraiser/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        if (isset($_SESSION['iCurrentFundraiser'])) {
-            $menuItem = new Menu (_("Edit Last Fundraiser") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentFundraiser'] . '</small>', "far fa-circle", "v2/fundraiser/editor/" . $_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
+        if (SystemConfig::getBooleanValue("bEnabledFundraiser") and SessionUser::getUser()->isFinanceEnabled()) {
+
+            $menuItem = new Menu (_("Create New Fundraiser"), "fas fa-box", "v2/fundraiser/editor", SessionUser::getUser()->isFinanceEnabled(), $menu);
+            $menuItem = new Menu (_("View All Fundraisers"), "fas fa-eye", "v2/fundraiser/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
+            if (isset($_SESSION['iCurrentFundraiser'])) {
+                $menuItem = new Menu (_("Edit Last Fundraiser") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentFundraiser'] . '</small>', "far fa-circle", "v2/fundraiser/editor/" . $_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
+            }
+            if (isset($_SESSION['iCurrentFundraiser'])) {
+                $menuItem->addLink("v2/fundraiser/paddlenum/list/" . $_SESSION['iCurrentFundraiser']);
+
+            }
+
+            if (isset($_SESSION['iCurrentFundraiser'])) {
+                $menuItem->addLink('PaddleNumList.php?FundRaiserID=' . $_SESSION['iCurrentFundraiser']);
+            }
+
+            $this->addMenu($menu);
         }
-        if (isset($_SESSION['iCurrentFundraiser'])) {
-            $menuItem->addLink("v2/fundraiser/paddlenum/list/" . $_SESSION['iCurrentFundraiser']);
 
+        $isPluginEnabledForCurrentUser =  $this->addPluginMenus('Funds', $menu);
+
+        if ($isPluginEnabledForCurrentUser and !(SystemConfig::getBooleanValue("bEnabledFundraiser") and SessionUser::getUser()->isFinanceEnabled())) {
+            $this->addMenu($menu);
         }
-
-        if (isset($_SESSION['iCurrentFundraiser'])) {
-            $menuItem->addLink('PaddleNumList.php?FundRaiserID=' . $_SESSION['iCurrentFundraiser']);
-        }
-
-        $this->addPluginMenus('Funds', $menu);
-
-        $this->addMenu($menu);
     }
 
     private function createMenuBar()
@@ -522,58 +598,37 @@ class MenuBar extends Menu
 
         $this->addMenu($menuItem);
 
-        $this->addHomeArea();
-        if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR')) {
-            $this->addGDPRMenu();
-        }
-
-        if (SystemConfig::getBooleanValue("bEnabledEvents")) {
-            $this->addEventMenu();
-        }
-
-        $this->addPeopleMenu();
+        $this->addHomeArea();        
+        $this->addGDPRMenu();        
+        $this->addEventMenu();
+        $this->addPeopleMenu();        
         $this->addGroups();
-
-        // we add the sundayschool groups
-        if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
-            $this->addSundaySchoolGroups();
-        }
-
-        $this->addMeeting();
-
-        if (SessionUser::getUser()->isPastoralCareEnabled()) {
-            $this->addPastoralCare();
-        }
-
-        if (SessionUser::getUser()->isMailChimpEnabled()) {
-            $this->addMailMenu();
-        }
-
-        // The deposit
-        if (SystemConfig::getBooleanValue("bEnabledFinance") && SessionUser::getUser()->isFinanceEnabled()) {
-            $this->addDepositMenu();
-        }
-
-        if (SystemConfig::getBooleanValue("bEnabledFundraiser")) {
-            $this->addFundraiserMenu();
-        }
+        $this->addSundaySchoolGroups();
+        $this->addMeeting();        
+        $this->addPastoralCare();
+        $this->addMailMenu();
+        $this->addDepositMenu();
+        
+        $this->addFundraiserMenu();
 
         // the menu report
-        $menu = new Menu (_("Data/Reports"), "far fa-file-pdf", "#", SessionUser::getUser()->isShowMenuQueryEnabled());
-
-        $menuItem = new Menu (_("Reports Menu"), "far fa-circle", "v2/system/report/list", SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool'), $menu);
-        $menuItem->addLink('v2/people/canvass/automation');
-
-        $menuItem = new Menu (_("Query Menu"), "fas fa-database", "v2/query/list", SessionUser::getUser()->isShowMenuQueryEnabled(), $menu);
-
-        for ($i=1;$i <100;$i++) {
-            $menuItem->addLink('v2/query/view/'.$i);
-        }
-
-        $menuItem->addLink('v2/query/sql');
-
         if (SessionUser::getUser()->isShowMenuQueryEnabled()) {
-            $this->addMenu($menu);
+            $menu = new Menu (_("Data/Reports"), "far fa-file-pdf", "#", SessionUser::getUser()->isShowMenuQueryEnabled());
+
+            $menuItem = new Menu (_("Reports Menu"), "far fa-circle", "v2/system/report/list", SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool'), $menu);
+            $menuItem->addLink('v2/people/canvass/automation');
+
+            $menuItem = new Menu (_("Query Menu"), "fas fa-database", "v2/query/list", SessionUser::getUser()->isShowMenuQueryEnabled(), $menu);
+
+            for ($i=1;$i <100;$i++) {
+                $menuItem->addLink('v2/query/view/'.$i);
+            }
+
+            $menuItem->addLink('v2/query/sql');
+
+            if (SessionUser::getUser()->isShowMenuQueryEnabled()) {
+                $this->addMenu($menu);
+            }
         }
 
 

@@ -622,6 +622,8 @@ function initDataTable() {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'groups/' + window.CRM.currentGroup + '/settings/active/' + $(this).prop('checked')
+        }, function (selection) {
+            location.reload();
         });
     });
 
