@@ -25,6 +25,23 @@ class EcclesiaCRMServer extends DAV\Server
 {
    protected $authBackend;
 
+   /**
+     * Sets up the server.
+     *
+     * If a Sabre\DAV\Tree object is passed as an argument, it will
+     * use it as the directory tree. If a Sabre\DAV\INode is passed, it
+     * will create a Sabre\DAV\Tree and use the node as the root.
+     *
+     * If nothing is passed, a Sabre\DAV\SimpleCollection is created in
+     * a Sabre\DAV\Tree.
+     *
+     * If an array is passed, we automatically create a root node, and use
+     * the nodes in the array as top-level children.
+     *
+     * @param Tree|INode|array|null $treeOrNode The tree object
+     *
+     * @throws Exception
+     */
    function __construct($treeOrNode = null,$authBackend = null) {
      $this->authBackend = $authBackend;
 
