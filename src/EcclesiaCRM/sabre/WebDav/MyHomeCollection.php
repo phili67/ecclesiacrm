@@ -25,10 +25,13 @@ class MyHomeCollection extends HomeCollection  {
     protected $authBackend;
     protected $principalBackend;
 
-    public function __construct(BackendInterface $principalBackend, $authBackend, $principalPrefix = 'principals')
+    protected $webDavBackend;
+
+    public function __construct(BackendInterface $principalBackend, $authBackend, $webDavBackend, $principalPrefix = 'principals')
     {
         $this->authBackend = $authBackend;
         $this->principalBackend = $principalBackend;
+        $this->webDavBackend = $webDavBackend;
         parent::__construct($principalBackend, SystemURLs::getRootPath().'private/userdir/',$principalPrefix);
     }
 
@@ -64,6 +67,7 @@ class MyHomeCollection extends HomeCollection  {
         return new MyHomeCollectionSharing(
             $this->authBackend,
             $this->principalBackend,
+            $this->webDavBackend,
             $path,
             $acl,
             $owner

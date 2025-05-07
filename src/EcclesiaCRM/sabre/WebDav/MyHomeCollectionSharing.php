@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sabre\DAVACL\FS;
 
+use EcclesiaCRM\MyPDO\WebDavPDO;
 use Sabre\DAV\Exception\Forbidden;
 use Sabre\DAV\Exception\NotFound;
 use Sabre\DAV\FSExt\Directory as BaseCollection;
@@ -49,6 +50,8 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      */
     protected $principalBackend;
 
+    protected $webDavBackend;
+
     /**
      * Constructor.
      *
@@ -57,13 +60,15 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      * @param array          $acl   ACL rules
      * @param string|null    $owner principal owner string
      */
-    public function __construct(BasicAuth $authBackend, PrincipalPDO $principalBackend, $path, array $acl, $owner = null)
+    public function __construct(BasicAuth $authBackend, PrincipalPDO $principalBackend,WebDavPDO $webDavBackend, $path, array $acl, $owner = null)
     {
         parent::__construct($path);
         $this->acl = $acl;
         $this->owner = $owner;
+
         $this->authBackend = $authBackend;
         $this->principalBackend = $principalBackend;
+        $this->webDavBackend = $webDavBackend;
     }
 
     /**
@@ -89,9 +94,9 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
             throw new Forbidden('Permission denied to . and ..');
         }
         if (is_dir($path)) {
-            return new self($this->authBackend, $this->principalBackend, $path, $this->acl, $this->owner);
+            return new self($this->authBackend, $this->principalBackend, $this->webDavBackend, $path, $this->acl, $this->owner);
         } else {
-            return new File($path, $this->acl, $this->owner);
+            return new MyFileSharing($this->authBackend, $this->principalBackend, $this->webDavBackend, $path, $this->acl, $this->owner);
         }
     }
 
@@ -137,7 +142,7 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      */
     public function getShareAccess()
     {
-        return $this->principalBackend->getShareAccess($this);
+        return $this->webDavBackend->getShareAccess($this);
     }
 
     /**
@@ -153,7 +158,7 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      */
     public function getShareResourceUri()
     {
-        return $this->principalBackend->getShareResourceUri($this);
+        return $this->webDavBackend->getShareResourceUri($this);
     }
 
     /**
@@ -165,7 +170,7 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      */
     public function updateInvites(array $sharees)
     {
-        $this->principalBackend->updateInvites($this, $sharees);
+        $this->webDavBackend->updateInvites($this, $sharees);
     }
 
     /**
@@ -186,6 +191,6 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      */
     public function getInvites()
     {
-        return $this->principalBackend->getInvites($this);
+        return $this->webDavBackend->getInvites($this);
     }
 }

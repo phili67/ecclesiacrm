@@ -11,6 +11,7 @@
 //  Updated : 2025/04/28
 //
 
+
 use Sabre\DAV;
 use Sabre\DAV\Auth;
 
@@ -23,6 +24,7 @@ require dirname(__FILE__).'/Include/Config.php';
 use EcclesiaCRM\Auth\BasicAuth;
 use EcclesiaCRM\PersonalServer\EcclesiaCRMServer;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
+use EcclesiaCRM\MyPDO\WebDavPDO;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
@@ -42,11 +44,12 @@ $authBackend->setRealm('EcclesiaCRM_DAV');
 $authPlugin = new Auth\Plugin($authBackend);
 
 $principalBackend = new PrincipalPDO();
+$webDavBackend = new WebDavPDO();
 
 // On entre dans le répertoire courant du user
 $tree = [
     new Sabre\DAVACL\PrincipalCollection($principalBackend),
-    new Sabre\DAVACL\FS\MyHomeCollection($principalBackend, $authBackend)
+    new Sabre\DAVACL\FS\MyHomeCollection($principalBackend, $authBackend, $webDavBackend)
 ];
 
 // we create the server
@@ -59,13 +62,7 @@ $server->setBaseUri(SystemURLs::getRootPath().'/server.php');
 // Adding the plugin to the server : authentication
 $server->addPlugin($authPlugin);
 
-// The lock manager is reponsible for making sure users don't overwrite
-// each others changes.
-$lockBackend = new DAV\Locks\Backend\File('data/locks');
-$lockPlugin = new DAV\Locks\Plugin($lockBackend);
-$server->addPlugin($lockPlugin);
-
-//$aclPlugin = new Sabre\DAVACL\Plugin();
+// ACL plugin
 $aclPlugin = new WebDavACLPlugin();
 $server->addPlugin($aclPlugin);
 
@@ -74,6 +71,11 @@ $server->addPlugin(new Sabre\DAV\Sharing\Plugin());
 
 // sync plugin
 $server->addPlugin(new Sabre\DAV\Sync\Plugin());
+
+// Create the lock backend
+$locksBackend = new Sabre\DAV\Locks\Backend\File(SystemURLs::getRootPath().'/tmp_attach/davlocks');
+$locksPlugin = new Sabre\DAV\Locks\Plugin($locksBackend);
+$server->addPlugin($locksPlugin);
 
 // This ensures that we get a pretty index in the browser, but it is
 // optional.
