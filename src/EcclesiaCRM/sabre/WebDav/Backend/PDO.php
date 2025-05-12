@@ -42,45 +42,10 @@ class PDO extends AbstractBackend implements  SharingSupport //,SyncSupport, Sub
      *
      * @var string
      */
-    public $calendarTableName = 'calendars';
+    public $collectionsTableName = 'collections';
 
-    /**
-     * The table name that will be used for calendars instances.
-     *
-     * A single calendar can have multiple instances, if the calendar is
-     * shared.
-     *
-     * @var string
-     */
-    public $calendarInstancesTableName = 'calendarinstances';
+    public $collectionsinstancesTableName = 'collectionsinstances';
 
-    /**
-     * The table name that will be used for calendar objects.
-     *
-     * @var string
-     */
-    public $calendarObjectTableName = 'calendarobjects';
-
-    /**
-     * The table name that will be used for tracking changes in calendars.
-     *
-     * @var string
-     */
-    public $calendarChangesTableName = 'calendarchanges';
-
-    /**
-     * The table name that will be used inbox items.
-     *
-     * @var string
-     */
-    public $schedulingObjectTableName = 'schedulingobjects';
-
-    /**
-     * The table name that will be used for calendar subscriptions.
-     *
-     * @var string
-     */
-    public $calendarSubscriptionsTableName = 'calendarsubscriptions';
 
     /**
      * List of CalDAV properties, and how they map to database fieldnames
@@ -198,16 +163,16 @@ class PDO extends AbstractBackend implements  SharingSupport //,SyncSupport, Sub
         list($calendarId, $instanceId) = $calendarId;
 
         $query = <<<SQL
-SELECT
-    principaluri,
-    access,
-    share_href,
-    share_displayname,
-    share_invitestatus
-FROM {$this->calendarInstancesTableName}
-WHERE
-    calendarid = ?
-SQL;
+            SELECT
+                principaluri,
+                access,
+                share_href,
+                share_displayname,
+                share_invitestatus
+            FROM {$this->collectionsTableName}
+            WHERE
+                calendarid = ?
+            SQL;
 
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([$calendarId]);

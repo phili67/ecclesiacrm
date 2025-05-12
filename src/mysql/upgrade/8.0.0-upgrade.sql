@@ -322,26 +322,41 @@ CREATE TABLE cards (
 -- 2025-05-07
 
 --
--- Table structure for table `collections` for sharing files or directories : sabre
+-- Table structure for table `collections` for for a file or folder to share
 --
 
 CREATE TABLE collections (
      id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-     uri VARBINARY(200) NOT NULL,
-     email VARBINARY(80),
+     principaluri VARBINARY(255),
      ownerId mediumint(9) unsigned default NULL,
      ownerPath VARBINARY(1024) NOT NULL,
+     CONSTRAINT fk_collection_personId
+         FOREIGN KEY (ownerId)
+             REFERENCES person_per(per_ID)
+             ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--
+-- Table structure for table `collectionsinstances` for sharing files or directories : sabre
+--
+
+CREATE TABLE collectionsinstances (
+     id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+     uri VARBINARY(200) NOT NULL,
+     collections_id INTEGER UNSIGNED NOT NULL,
+     principaluri VARBINARY(255),
      guestId mediumint(9) unsigned default NULL,
      guestPath VARBINARY(1024) NOT NULL,
      access TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1 = owner, 2 = read, 3 = readwrite',
      share_invitestatus TINYINT(1) NOT NULL DEFAULT '2' COMMENT '1 = noresponse, 2 = accepted, 3 = declined, 4 = invalid',
      UNIQUE(uri),
-     CONSTRAINT fk_collection_personId
-         FOREIGN KEY (ownerId)
-             REFERENCES person_per(per_ID)
-             ON DELETE CASCADE,
      CONSTRAINT fk_collection_guestId
          FOREIGN KEY (guestId)
              REFERENCES person_per(per_ID)
+             ON DELETE CASCADE,
+     CONSTRAINT fk_collections_id
+         FOREIGN KEY (collections_id)
+             REFERENCES collections(id)
              ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

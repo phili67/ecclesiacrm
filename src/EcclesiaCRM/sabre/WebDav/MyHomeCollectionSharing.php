@@ -13,7 +13,7 @@ use Sabre\DAVACL\IACL;
 use Sabre\DAV\Sharing\ISharedNode;
 
 use EcclesiaCRM\Auth\BasicAuth;
-
+use EcclesiaCRM\Base\UserQuery;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 
 /**
@@ -52,6 +52,7 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
 
     protected $webDavBackend;
 
+    
     /**
      * Constructor.
      *
@@ -107,7 +108,7 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      *
      * @return string|null
      */
-    public function getOwner()
+    public function getOwner(): string
     {
         return $this->owner;
     }
@@ -124,7 +125,7 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      *
      * @return array
      */
-    public function getACL()
+    public function getACL(): array
     {
         return $this->acl;
     }
@@ -140,7 +141,7 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      *
      * @return int
      */
-    public function getShareAccess()
+    public function getShareAccess(): int
     {
         return $this->webDavBackend->getShareAccess($this);
     }
@@ -156,7 +157,7 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      *
      * @return string
      */
-    public function getShareResourceUri()
+    public function getShareResourceUri(): string
     {
         return $this->webDavBackend->getShareResourceUri($this);
     }
@@ -168,8 +169,29 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      *
      * @param \Sabre\DAV\Xml\Element\Sharee[] $sharees
      */
-    public function updateInvites(array $sharees)
+    public function updateInvites(array $sharees): void
     {
+        foreach($sharees as $sharee) {
+            $res = explode(':', $sharee->href);
+            if (count($res) != 2) {
+                continue;            
+            }
+            $email = $res[1];
+
+            $user = UserQuery::create()
+                ->usePersonQuery()
+                    ->filterByWorkEmail($email)
+                    ->_or()
+                    ->filterByEmail($email)
+                ->endUse()
+                ->findOne();
+
+            if (is_null($user)) {
+                continue;
+            }
+            $sharee->principal = 'principals/'.$user->getUserName();
+            
+        }
         $this->webDavBackend->updateInvites($this, $sharees);
     }
 
@@ -189,7 +211,7 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      *
      * @return \Sabre\DAV\Xml\Element\Sharee[]
      */
-    public function getInvites()
+    public function getInvites(): array
     {
         return $this->webDavBackend->getInvites($this);
     }

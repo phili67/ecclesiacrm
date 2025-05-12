@@ -15,6 +15,8 @@ use EcclesiaCRM\Bootstrapper;
 use Sabre\DAV\Xml\Element\Sharee;
 use Sabre\WebDAV\Backend as SabreWebDavBase;
 
+use EcclesiaCRM\UserQuery;
+
 class WebDavPDO extends SabreWebDavBase\PDO
 {
     function __construct($pdo=null)
@@ -51,7 +53,111 @@ class WebDavPDO extends SabreWebDavBase\PDO
      */
     public function updateInvites($mycol, array $sharees)
     {
-        $coucou = "toto";
+        foreach($sharees as $sharee) {
+            $res = explode(':', $sharee->href);
+            if (count($res) != 2) {
+                continue;            
+            }
+            $email = $res[1];
+
+            $user = UserQuery::create()
+                ->usePersonQuery()
+                    ->filterByWorkEmail($email)
+                    ->_or()
+                    ->filterByEmail($email)
+                ->endUse()
+                ->findOne();
+
+            if (is_null($user)) {
+                continue;
+            }
+
+            $username = $user->getUserName();
+
+            $removeStmt = $this->pdo->prepare("DELETE FROM " . $this->collectionsTableName . " WHERE ownerPath = ? AND ownerPath = ? AND access IN (2,3)");
+            $updateStmt = $this->pdo->prepare("UPDATE " . $this->collectionsTableName . " SET access = ?, ownerPath = ?, share_href = ? WHERE ownerPath = ? AND ownerId = ?");
+
+            $insertStmt = $this->pdo->prepare('
+                INSERT INTO ' . $this->collectionsTableName . '
+                    (
+                        uri,
+                        email,
+                        ownerId,
+                        ownerPath,
+                        access,
+                        share_invitestatus
+                    )
+                    SELECT
+                        ?,
+                        ?,
+                        ?,
+                        displayname,
+                        grpid,
+                        cal_type,
+                        ?,
+                        description,
+                        calendarorder,
+                        calendarcolor,
+                        timezone,
+                        1,
+                        ?,
+                        ?,
+                        ?
+                    FROM ' . $this->collectionsTableName . ' WHERE id = ?');
+
+            foreach ($sharees as $sharee) {
+
+                if ($sharee->access === \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS) {
+                    // if access was set no NOACCESS, it means access for an
+                    // existing sharee was removed.
+                    $removeStmt->execute([$calendarId, $sharee->href]);
+                    continue;
+                }
+
+                if (is_null($sharee->principal)) {
+                    // If the server could not determine the principal automatically,
+                    // we will mark the invite status as invalid.
+                    $sharee->inviteStatus = \Sabre\DAV\Sharing\Plugin::INVITE_INVALID;
+                } else {
+                    // Because sabre/dav does not yet have an invitation system,
+                    // every invite is automatically accepted for now.
+                    $sharee->inviteStatus = \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED;
+                }
+
+                foreach ($currentInvites as $oldSharee) {
+
+                    if ($oldSharee->href === $sharee->href or $oldSharee->principal === $sharee->principal) {
+                        // This is an update
+                        $sharee->properties = array_merge(
+                            $oldSharee->properties,
+                            $sharee->properties
+                        );
+                        $updateStmt->execute([
+                            $sharee->access,
+                            isset($sharee->properties['{DAV:}displayname']) ? $sharee->properties['{DAV:}displayname'] : null,
+                            $sharee->inviteStatus ?: $oldSharee->inviteStatus,
+                            $sharee->href,
+                            $calendarId,
+                            $sharee->principal
+                        ]);
+                        continue 2;
+                    }
+
+                }
+                // If we got here, it means it was a new sharee
+                $insertStmt->execute([
+                    $calendarId,
+                    $sharee->principal,
+                    $sharee->access,
+                    \Sabre\DAV\UUIDUtil::getUUID(),
+                    $sharee->href,
+                    isset($sharee->properties['{DAV:}displayname']) ? $sharee->properties['{DAV:}displayname'] : null,
+                    $sharee->inviteStatus ?: \Sabre\DAV\Sharing\Plugin::INVITE_NORESPONSE,
+                    $instanceId
+                ]);
+
+            }
+        }
     }
 
     /**
@@ -73,7 +179,7 @@ class WebDavPDO extends SabreWebDavBase\PDO
     public function getInvites($mycol)
     {
         return [new Sharee([
-            'href' => 'toto',
+            'href' => 'admin',
             'access' => \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS,
         ])];
 
@@ -89,7 +195,7 @@ SELECT
     share_href,
     share_displayname,
     share_invitestatus
-FROM {$this->calendarInstancesTableName}
+FROM {$this->collectionsTableName}
 WHERE
     calendarid = ?
 SQL;
