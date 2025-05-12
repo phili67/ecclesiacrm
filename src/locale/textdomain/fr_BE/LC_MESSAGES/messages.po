@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-03 08:20+0000\n"
+"POT-Creation-Date: 2025-05-07 21:05+0000\n"
 "Language: fr_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -248,7 +248,7 @@ msgstr "Tél. Professionnel"
 msgid "Cell Phone"
 msgstr "Tél. portable"
 
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:470
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:479
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
@@ -398,7 +398,7 @@ msgstr "Pays par défaut si aucune indication contraire"
 #: EcclesiaCRM/APIControllers/SearchController.php:243
 #: EcclesiaCRM/APIControllers/SearchController.php:251
 #: EcclesiaCRM/APIControllers/SearchController.php:256
-#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:394
+#: EcclesiaCRM/MenuBar/MenuBar.php:302 EcclesiaCRM/MenuBar/MenuBar.php:399
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1035
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1047
@@ -883,7 +883,7 @@ msgstr "Toutes les familles"
 #: EcclesiaCRM/APIControllers/PeopleController.php:76
 #: EcclesiaCRM/APIControllers/PeopleController.php:126
 #: EcclesiaCRM/APIControllers/PeopleController.php:179
-#: EcclesiaCRM/MenuBar/MenuBar.php:210
+#: EcclesiaCRM/MenuBar/MenuBar.php:214
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
@@ -896,7 +896,7 @@ msgstr "Personnes"
 #: EcclesiaCRM/APIControllers/PeopleController.php:218
 #: EcclesiaCRM/APIControllers/SearchController.php:62
 #: EcclesiaCRM/APIControllers/SearchController.php:65
-#: EcclesiaCRM/MenuBar/MenuBar.php:183 EcclesiaCRM/MenuBar/MenuBar.php:217
+#: EcclesiaCRM/MenuBar/MenuBar.php:187 EcclesiaCRM/MenuBar/MenuBar.php:221
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
@@ -915,7 +915,7 @@ msgstr "Familles"
 #: EcclesiaCRM/APIControllers/PeopleController.php:255
 #: EcclesiaCRM/APIControllers/SearchController.php:88
 #: EcclesiaCRM/APIControllers/SearchController.php:91
-#: EcclesiaCRM/MenuBar/MenuBar.php:239 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:243 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
@@ -1750,10 +1750,10 @@ msgstr "EDrive"
 msgid "GDPR"
 msgstr "RGPD"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:137 EcclesiaCRM/MenuBar/MenuBar.php:185
-#: EcclesiaCRM/MenuBar/MenuBar.php:339 EcclesiaCRM/MenuBar/MenuBar.php:439
-#: EcclesiaCRM/MenuBar/MenuBar.php:451 EcclesiaCRM/MenuBar/MenuBar.php:477
-#: EcclesiaCRM/MenuBar/MenuBar.php:581
+#: EcclesiaCRM/MenuBar/MenuBar.php:137 EcclesiaCRM/MenuBar/MenuBar.php:189
+#: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:446
+#: EcclesiaCRM/MenuBar/MenuBar.php:458 EcclesiaCRM/MenuBar/MenuBar.php:486
+#: EcclesiaCRM/MenuBar/MenuBar.php:596
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
@@ -1761,19 +1761,19 @@ msgstr "Tableau de bord"
 msgid "Data Structure"
 msgstr "Structure de données"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:139 EcclesiaCRM/MenuBar/MenuBar.php:215
+#: EcclesiaCRM/MenuBar/MenuBar.php:139 EcclesiaCRM/MenuBar/MenuBar.php:219
 msgid "View Inactive Persons"
 msgstr "Afficher les Personnes inactives"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:221
+#: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:225
 msgid "View Inactive Families"
 msgstr "Afficher les familles inactives"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:153
+#: EcclesiaCRM/MenuBar/MenuBar.php:155
 msgid "Events"
 msgstr "Evénements"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:161 v2/templates/map/MapUsingBing.php:78
+#: EcclesiaCRM/MenuBar/MenuBar.php:163 v2/templates/map/MapUsingBing.php:78
 #: v2/templates/map/MapUsingBing.php:124 v2/templates/map/MapUsingGoogle.php:88
 #: v2/templates/map/MapUsingGoogle.php:135
 #: v2/templates/map/MapUsingLeaflet.php:72
@@ -1781,100 +1781,100 @@ msgstr "Evénements"
 msgid "Calendar"
 msgstr "Calendrier"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:164 EcclesiaCRM/MenuBar/MenuBar.php:202
+#: EcclesiaCRM/MenuBar/MenuBar.php:166 EcclesiaCRM/MenuBar/MenuBar.php:206
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "Voir sur la carte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:167
+#: EcclesiaCRM/MenuBar/MenuBar.php:169
 msgid "List Church Events"
 msgstr "Lister les événements"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:168
+#: EcclesiaCRM/MenuBar/MenuBar.php:170
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:332
 msgid "List Event Types"
 msgstr "Liste Evénements Types"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:170
+#: EcclesiaCRM/MenuBar/MenuBar.php:172
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:294
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:296
 msgid "Call the Register"
 msgstr "Faire l'appel"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:183
+#: EcclesiaCRM/MenuBar/MenuBar.php:187
 #: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "Personnes"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:200
+#: EcclesiaCRM/MenuBar/MenuBar.php:204
 msgid "Meta Search Engine"
 msgstr "Moteur de recherche"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:206
+#: EcclesiaCRM/MenuBar/MenuBar.php:210
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1202
 msgid "Directory reports"
 msgstr "Créer un Annuaire"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:211 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:215 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "Ajouter une nouvelle personne"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:212
+#: EcclesiaCRM/MenuBar/MenuBar.php:216
 msgid "View Single Persons"
 msgstr "Afficher les personnes seules"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:213
+#: EcclesiaCRM/MenuBar/MenuBar.php:217
 msgid "View Active Persons"
 msgstr "Afficher les personnes activées"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:218
+#: EcclesiaCRM/MenuBar/MenuBar.php:222
 msgid "Add New Family"
 msgstr "Ajouter une nouvelle famille"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:219
+#: EcclesiaCRM/MenuBar/MenuBar.php:223
 msgid "View Active Families"
 msgstr "Afficher les familles actives"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:223
+#: EcclesiaCRM/MenuBar/MenuBar.php:227
 msgid "Empty Addresses"
 msgstr "Adresses sans personne"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:226
+#: EcclesiaCRM/MenuBar/MenuBar.php:230
 msgid "Convert Individual to Address"
 msgstr "Convertir individu en adresse"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:241
+#: EcclesiaCRM/MenuBar/MenuBar.php:245
 msgid "List Groups"
 msgstr "Lister les groupes"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:317
+#: EcclesiaCRM/MenuBar/MenuBar.php:321
 #: v2/templates/deposit/electronicPaymentList.php:254
 #: v2/templates/group/groupedit.php:134 v2/templates/group/groupview.php:235
 msgid "Disabled"
 msgstr "Désactivé"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:326
+#: EcclesiaCRM/MenuBar/MenuBar.php:330
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:235
 msgid "Group Assignment Helper"
 msgstr "Attribuer membre au groupe"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:336
+#: EcclesiaCRM/MenuBar/MenuBar.php:341
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "École du dimanche"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:421 EcclesiaCRM/MenuBar/MenuBar.php:428
+#: EcclesiaCRM/MenuBar/MenuBar.php:428 EcclesiaCRM/MenuBar/MenuBar.php:435
 #: Include/Footer.php:177
 msgid "Global Custom Menus"
 msgstr "Menus Perso. Globaux"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:438
+#: EcclesiaCRM/MenuBar/MenuBar.php:445
 msgid "Custom Menus"
 msgstr "Menus Perso."
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:448 EcclesiaCRM/dto/SystemConfig.php:298
+#: EcclesiaCRM/MenuBar/MenuBar.php:455 EcclesiaCRM/dto/SystemConfig.php:298
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
@@ -1884,21 +1884,21 @@ msgstr "Menus Perso."
 msgid "Pastoral Care"
 msgstr "Suivi pastoral"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:452
+#: EcclesiaCRM/MenuBar/MenuBar.php:459
 msgid "By Classifications"
 msgstr "Par Classification"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:475
+#: EcclesiaCRM/MenuBar/MenuBar.php:484
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/people/familyview.php:171 v2/templates/user/userseditor.php:467
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:484
+#: EcclesiaCRM/MenuBar/MenuBar.php:493
 msgid "Email Lists"
 msgstr "Listes de Diffusion"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:515
+#: EcclesiaCRM/MenuBar/MenuBar.php:526
 #: EcclesiaCRM/Search/PledgeSearchRes.php:64
 #: EcclesiaCRM/Search/PledgeSearchRes.php:85 Reports/AdvancedDeposit.php:269
 #: Reports/AdvancedDeposit.php:389 Reports/AdvancedDeposit.php:420
@@ -1907,64 +1907,64 @@ msgstr "Listes de Diffusion"
 msgid "Deposit"
 msgstr "Dépôt"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:530
+#: EcclesiaCRM/MenuBar/MenuBar.php:541
 msgid "Current"
 msgstr "Courant"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:535
+#: EcclesiaCRM/MenuBar/MenuBar.php:546
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:193
 msgid "Envelope Manager"
 msgstr "Gestionnaire d&#39;Enveloppes"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:536
+#: EcclesiaCRM/MenuBar/MenuBar.php:547
 msgid "View All Deposits"
 msgstr "Afficher tous les dépôts"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:537
+#: EcclesiaCRM/MenuBar/MenuBar.php:548
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:374
 msgid "Electronic Payment Listing"
 msgstr "Liste des paiements électronique"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:538
+#: EcclesiaCRM/MenuBar/MenuBar.php:549
 msgid "Deposit Reports"
 msgstr "Rapports des dépôts"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:539
+#: EcclesiaCRM/MenuBar/MenuBar.php:550
 #: v2/templates/deposit/financialReports.php:52
 msgid "Giving Report (Tax Statements)"
 msgstr "Rapport des dons (Déclarations fiscales)"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:540
+#: EcclesiaCRM/MenuBar/MenuBar.php:551
 msgid "Edit Deposit Slip"
 msgstr "Modifier bordereau"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:552
+#: EcclesiaCRM/MenuBar/MenuBar.php:565
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "Collecte de fonds"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:556
+#: EcclesiaCRM/MenuBar/MenuBar.php:569
 msgid "Create New Fundraiser"
 msgstr "Créer nouvelle collecte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:557
+#: EcclesiaCRM/MenuBar/MenuBar.php:570
 msgid "View All Fundraisers"
 msgstr "Afficher toutes les collectes"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:559
+#: EcclesiaCRM/MenuBar/MenuBar.php:572
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "Modifier dernière collecte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:612
+#: EcclesiaCRM/MenuBar/MenuBar.php:616
 msgid "Data/Reports"
 msgstr "Données/Rapports"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:614
+#: EcclesiaCRM/MenuBar/MenuBar.php:618
 msgid "Reports Menu"
 msgstr "Menu des Rapports"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:617 v2/templates/user/userseditor.php:457
+#: EcclesiaCRM/MenuBar/MenuBar.php:621 v2/templates/user/userseditor.php:457
 msgid "Query Menu"
 msgstr "Menu Requête"
 
@@ -13267,135 +13267,135 @@ msgstr "Choisir le champ personnalisé de personne"
 msgid "Match custom field to this value"
 msgstr "Faire correspondre le champ personnalisé à cette valeur"
 
-#: settings-locales.php:2 settings-locales.php:37
+#: settings-locales.php:2
 msgid "Albanian"
 msgstr "Albanais"
 
-#: settings-locales.php:3 settings-locales.php:38
+#: settings-locales.php:3
 msgid "Arabic - Egypt"
 msgstr "Arabe - Egypte"
 
-#: settings-locales.php:4 settings-locales.php:39
+#: settings-locales.php:4
 msgid "Chinese - China"
 msgstr "Chinois - Chine"
 
-#: settings-locales.php:5 settings-locales.php:40
+#: settings-locales.php:5
 msgid "Chinese - Taiwan"
 msgstr "Chinois - Taiwan"
 
-#: settings-locales.php:6 settings-locales.php:41
+#: settings-locales.php:6
 msgid "Danish - Denmark"
 msgstr "Danois - Danemark"
 
-#: settings-locales.php:7 settings-locales.php:42
+#: settings-locales.php:7
 msgid "Dutch - Netherlands"
 msgstr "Hollandais - Hollande"
 
-#: settings-locales.php:8 settings-locales.php:43
+#: settings-locales.php:8
 msgid "English - Australia"
 msgstr "Anglais - Australie"
 
-#: settings-locales.php:9 settings-locales.php:44
+#: settings-locales.php:9
 msgid "English - Canada"
 msgstr "Anglais - Canada"
 
-#: settings-locales.php:10 settings-locales.php:45
+#: settings-locales.php:10
 msgid "English - Great Britain"
 msgstr "Anglais - Grande Bretagne"
 
-#: settings-locales.php:11 settings-locales.php:46
+#: settings-locales.php:11
 msgid "English - United States"
 msgstr "Anglais - USA"
 
-#: settings-locales.php:12 settings-locales.php:47
+#: settings-locales.php:12
 msgid "Finnish - Finland"
 msgstr "Finnois - Finlande"
 
-#: settings-locales.php:13 settings-locales.php:48
+#: settings-locales.php:13
 msgid "French - Belgium"
 msgstr "Français - Belgique"
 
-#: settings-locales.php:14 settings-locales.php:49
+#: settings-locales.php:14
 msgid "French - Canada"
 msgstr "Français - Canada"
 
-#: settings-locales.php:15 settings-locales.php:50
+#: settings-locales.php:15
 msgid "French - France"
 msgstr "Français - France"
 
-#: settings-locales.php:16 settings-locales.php:51
+#: settings-locales.php:16
 msgid "French - Swiss"
 msgstr "Français - Suisse"
 
-#: settings-locales.php:17 settings-locales.php:52
+#: settings-locales.php:17
 msgid "Greek"
 msgstr "Grec"
 
-#: settings-locales.php:18 settings-locales.php:53
+#: settings-locales.php:18
 msgid "German - Germany"
 msgstr "Allemand - Allemagne"
 
-#: settings-locales.php:19 settings-locales.php:54
+#: settings-locales.php:19
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: settings-locales.php:20 settings-locales.php:55
+#: settings-locales.php:20
 msgid "Indonesian - Indonesia"
 msgstr "Indonésien - Indonésie"
 
-#: settings-locales.php:21 settings-locales.php:56
+#: settings-locales.php:21
 msgid "Italian - Italy"
 msgstr "Italien - Italie"
 
-#: settings-locales.php:22 settings-locales.php:57
+#: settings-locales.php:22
 msgid "Japan"
 msgstr "Japon"
 
-#: settings-locales.php:23 settings-locales.php:58
+#: settings-locales.php:23
 msgid "Norwegian - Norvege"
 msgstr "Norvégien - Norvege"
 
-#: settings-locales.php:24 settings-locales.php:59
+#: settings-locales.php:24
 msgid "Polish - Poland"
 msgstr "Polonais - Pologne"
 
-#: settings-locales.php:25 settings-locales.php:60
+#: settings-locales.php:25
 msgid "Portuguese - Brazil"
 msgstr "Portugais - Brésil"
 
-#: settings-locales.php:26 settings-locales.php:61
+#: settings-locales.php:26
 msgid "Portuguese - Portugal"
 msgstr "Portugais - Portugal"
 
-#: settings-locales.php:27 settings-locales.php:62
+#: settings-locales.php:27
 msgid "Romanian - Romania"
 msgstr "Roumain - Roumanie"
 
-#: settings-locales.php:28 settings-locales.php:63
+#: settings-locales.php:28
 msgid "Russian"
 msgstr "Russe"
 
-#: settings-locales.php:29 settings-locales.php:64
+#: settings-locales.php:29
 msgid "Spanish - Spain"
 msgstr "Espagnol - Espagne"
 
-#: settings-locales.php:30 settings-locales.php:65
+#: settings-locales.php:30
 msgid "Sami (Northern) (Sweden)"
 msgstr "Sami (Northern) (Suède)"
 
-#: settings-locales.php:31 settings-locales.php:66
+#: settings-locales.php:31
 msgid "Thai"
 msgstr "Thai"
 
-#: settings-locales.php:32 settings-locales.php:67
+#: settings-locales.php:32
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: settings-locales.php:33 settings-locales.php:68
+#: settings-locales.php:33
 msgid "Korean"
 msgstr "Coréen"
 
-#: settings-locales.php:34 settings-locales.php:69
+#: settings-locales.php:34
 msgid "Ukraine"
 msgstr "Ukraine"
 
