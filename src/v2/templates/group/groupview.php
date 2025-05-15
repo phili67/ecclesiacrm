@@ -3,7 +3,7 @@
 /*******************************************************************************
  *
  *  filename    : groupview.php
- *  last change : 2019-07-03
+ *  last change : 2025-05-13
  *  description : manage a group view
  *
  *  http://www.ecclesiacrm.com/
@@ -328,7 +328,7 @@ if ($sPhoneLink) {
                                             <h4><strong><?= _('Assign a New Property') ?>:</strong></h4>
 
                                             <div class="row">
-                                                <div class="form-group col-xs-12 col-md-7">
+                                                <div class="form-group col-xs-12 col-md-12">
                                                     <select name="PropertyId" id="input-group-properties" class="input-group-properties form-control select2" style="width:100%" data-groupID="<?= $iGroupID ?>">
                                                         <option disabled selected> -- <?= _('select an option') ?> -- </option>
                                                         <?php
@@ -344,8 +344,8 @@ if ($sPhoneLink) {
 
                                                     </select>
                                                 </div>
-                                                <div id="prompt-box" class="col-xs-12 col-md-7"></div>
-                                                <div class="form-group col-xs-12 col-md-7">
+                                                <div id="prompt-box" class="col-xs-12 col-md-12"></div>
+                                                <div class="form-group col-xs-12 col-md-12">
                                                     <input type="submit" class="btn btn-primary assign-property-btn" value="<?= _('Assign') ?>">
                                                 </div>
                                             </div>
