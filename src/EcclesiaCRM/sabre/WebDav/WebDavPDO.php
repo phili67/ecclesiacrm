@@ -39,9 +39,11 @@ class WebDavPDO extends SabreWebDavBase\PDO
      *
      * @return string
      */
-    public function getShareResourceUri($mycol)
+    public function getShareResourceUri($mycol):string
     {
-        $coucou = "toto";
+        $coucou = "titi";
+
+        return $coucou;
     }
 
     /**
