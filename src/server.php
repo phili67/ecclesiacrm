@@ -72,10 +72,10 @@ $server->addPlugin(new Sabre\DAV\Sharing\Plugin());
 // sync plugin
 $server->addPlugin(new Sabre\DAV\Sync\Plugin());
 
-// Create the lock backend
-$locksBackend = new Sabre\DAV\Locks\Backend\File(SystemURLs::getRootPath().'/tmp_attach/davlocks');
-$locksPlugin = new Sabre\DAV\Locks\Plugin($locksBackend);
-$server->addPlugin($locksPlugin);
+// The lock manager is reponsible for making sure users don't overwrite
+$lockBackend = new DAV\Locks\Backend\File('data/locks');
+$lockPlugin = new DAV\Locks\Plugin($lockBackend);
+$server->addPlugin($lockPlugin);
 
 // This ensures that we get a pretty index in the browser, but it is
 // optional.
