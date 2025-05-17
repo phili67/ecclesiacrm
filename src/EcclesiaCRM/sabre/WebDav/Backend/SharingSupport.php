@@ -49,12 +49,4 @@ interface SharingSupport extends BackendInterface
      * @return \Sabre\DAV\Xml\Element\Sharee[]
      */
     public function getInvites($calendarId);
-
-    /**
-     * Publishes a calendar.
-     *
-     * @param mixed $calendarId
-     * @param bool  $value
-     */
-    public function setPublishStatus($calendarId, $value);
 }
