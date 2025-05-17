@@ -16,6 +16,7 @@ use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\WebDav\Utils\SabreUtils;
 
 class DocumentFileManagerController
 {
@@ -600,14 +601,24 @@ class DocumentFileManagerController
                 $userName = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
                 $extension = pathinfo($params->oldName, PATHINFO_EXTENSION);
-
+                
                 $oldName = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . MiscUtils::convertUTF8AccentuedString2Unicode($params->oldName);
                 if (!file_exists($oldName)) {// in the case the file name isn't in unicode format
                     $oldName = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $params->oldName;
                 }
                 $newName = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $params->newName . (($params->type == 'file') ? "." . $extension : "");
 
+                $principalUri = "principals/".$user->getUserName();
+                $oldPath = "home/".$user->getUserName().$currentpath.$params->oldName;
+                $newPath = "home/".$user->getUserName().$currentpath.$params->newName.".".$extension;
+
+                if (SabreUtils::fileOrCollectionACL($principalUri, $oldPath) != 3) {
+                    return $response->withJson(['success' => false]);
+                }
+
                 if (rename($oldName, $newName)) {
+                    SabreUtils::moveSharedFileOrCollection($principalUri, $oldPath, $newPath);
+
                     $searchLikeString = $userName . $currentpath . $params->oldName;
 
                     $oldDir = $searchLikeString = str_replace("//", "/", $searchLikeString);
