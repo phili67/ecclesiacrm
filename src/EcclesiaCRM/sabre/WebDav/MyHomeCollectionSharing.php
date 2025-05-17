@@ -41,13 +41,15 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
      */
     protected $owner;
 
-    protected $authBackend;
+    protected $ownerPath;
 
     /**
      * Owner uri, or null for no owner.
      *
      * @var PrincipalPDO
      */
+    protected $authBackend;
+
     protected $principalBackend;
 
     protected $webDavBackend;
@@ -64,6 +66,8 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
     public function __construct(BasicAuth $authBackend, PrincipalPDO $principalBackend,WebDavPDO $webDavBackend, $path, array $acl, $owner = null)
     {
         parent::__construct($path);
+        
+        $this->ownerPath = $path;
         $this->acl = $acl;
         $this->owner = $owner;
 
@@ -111,6 +115,18 @@ class MyHomeCollectionSharing extends BaseCollection implements IACL, ISharedNod
     public function getOwner(): string
     {
         return $this->owner;
+    }
+
+     /**
+     * Returns the owner path.
+     *
+     * This must be a url to a principal, or null if there's no owner
+     *
+     * @return string|null
+     */
+    public function getPath(): string
+    {
+        return $this->ownerPath;
     }
 
     /**
