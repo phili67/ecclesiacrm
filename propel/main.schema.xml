@@ -26,7 +26,7 @@
     <column name="description" phpName="Description" type="LONGVARCHAR"/>
     <column name="href" phpName="Href" type="VARCHAR" size="100" sqlType="varbinary(100)"/>
     <column name="user_id" phpName="UserId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" required="true" defaultValue="0"/>
-    <column name="access" phpName="Access" type="BOOLEAN" size="1" description="1 = owner, 2 = read, 3 = readwrite" required="true" defaultValue="true"/>
+    <column name="access" phpName="Access" type="SMALLINT" size="1" description="1 = owner, 2 = read, 3 = readwrite" required="true" defaultValue="true"/>
     <foreign-key foreignTable="addressbooks" name="fk_addressbookid" onDelete="CASCADE">
       <reference local="addressbookid" foreign="id"/>
     </foreign-key>
@@ -187,7 +187,7 @@
     <column name="principaluri" phpName="Principaluri" type="VARCHAR" size="255" sqlType="varbinary(255)"/>
     <column name="guestId" phpName="Guestid" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
     <column name="guestPath" phpName="Guestpath" type="VARCHAR" size="1024" sqlType="varbinary(1024)" required="true"/>
-    <column name="access" phpName="Access" type="BOOLEAN" size="1" description="1 = owner, 2 = read, 3 = readwrite" required="true" defaultValue="true"/>
+    <column name="access" phpName="Access" type="SMALLINT" size="1" description="1 = owner, 2 = read, 3 = readwrite" required="true" defaultValue="true"/>
     <column name="share_invitestatus" phpName="ShareInvitestatus" type="BOOLEAN" size="1" description="1 = noresponse, 2 = accepted, 3 = declined, 4 = invalid" required="true" defaultValue="2"/>
     <foreign-key foreignTable="person_per" name="fk_collection_guestId" onDelete="CASCADE">
       <reference local="guestId" foreign="per_ID"/>
