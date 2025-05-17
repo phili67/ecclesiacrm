@@ -18,6 +18,8 @@ use Sabre\DAV\Sharing\ISharedNode;
  */
 class MyFileSharing extends File implements ISharedNode
 {
+    protected $ownerPath;
+
     protected $authBackend;
 
     /**
@@ -40,11 +42,25 @@ class MyFileSharing extends File implements ISharedNode
     {
         parent::__construct($path, $acl, $owner);
 
+        $this->ownerPath = $path;
+
         $this->authBackend = $authBackend;
         $this->principalBackend = $principalBackend;
         $this->webDavBackend = $webDavBackend;
     }
 
+    /**
+     * Returns the owner path.
+     *
+     * This must be a url to a principal, or null if there's no owner
+     *
+     * @return string|null
+     */
+    public function getPath(): string
+    {
+        return $this->ownerPath;
+    }
+    
     // for sharing files directory
 
     /**
