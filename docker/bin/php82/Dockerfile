@@ -1,4 +1,4 @@
-FROM php:8.2.7-apache-buster
+FROM php:8.3-apache-bookworm
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
@@ -14,7 +14,7 @@ RUN apt-get -y update --fix-missing && \
 
 # Install useful tools and install important libaries
 RUN apt-get -y update && \
-    apt-get -y --no-install-recommends install nano wget \
+    apt-get -y --no-install-recommends install nano wget unzip \
 dialog \
 libsqlite3-dev \
 libsqlite3-0 && \
@@ -36,19 +36,26 @@ openssl && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN pecl install xdebug-3.2.1 && \
+RUN pecl install xdebug-3.3.1 && \
     docker-php-ext-enable xdebug && \
     mkdir /var/log/xdebug
 
 # Install redis
-RUN pecl install redis-5.3.7 && \
+RUN pecl install redis-6.0.2 && \
     docker-php-ext-enable redis
 
-# Install imagick
-RUN apt-get update; \
-        apt-get install -y libmagickwand-dev; \
-        pecl install imagick; \
-        docker-php-ext-enable imagick;
+# Imagick Commit to install
+RUN apt-get update && apt-get install -y \
+    imagemagick \
+    libmagickwand-dev \
+    && git clone https://github.com/Imagick/imagick --depth 1 /tmp/imagick \
+    && cd /tmp/imagick \
+    && phpize && ./configure \
+    && make \
+    && make install \
+    && apt-get clean
+
+RUN docker-php-ext-enable imagick
 
 # Other PHP8 Extensions
 
@@ -86,12 +93,13 @@ RUN a2enmod rewrite headers
 # Cleanup
 RUN rm -rf /usr/src/*
 
+
 ####################################
 #
 # Run the rest of the installation
 #
 ####################################
-#RUN sed -i_bak 's/rights=\"none\" pattern=\"PDF\"/rights=\"read | write\" pattern=\"PDF\"/' /etc/ImageMagick-6/policy.xml
+RUN sed -i_bak 's/rights=\"none\" pattern=\"PDF\"/rights=\"read | write\" pattern=\"PDF\"/' /etc/ImageMagick-6/policy.xml
 
 #
 # Add extra tools for dev
