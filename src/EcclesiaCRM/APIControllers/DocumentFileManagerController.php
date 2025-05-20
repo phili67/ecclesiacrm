@@ -505,7 +505,25 @@ class DocumentFileManagerController
 
                         mkdir($newDest, 0755, true);
 
+                        // sabre 
+                        $principalUri = "principals/".$user->getUserName();
+                        $oldPath = "home/".$user->getUserName().$currentpath.$file;
+                        if ($params->folder == "/..") {
+                            $url_to_array = parse_url($currentpath);
+                            $path = dirname($url_to_array['path']);            
+                            $newPath = "home/".$user->getUserName().$path . $file;
+                        } else {
+                            $newPath = "home/".$user->getUserName().$currentpath.substr($params->folder, 1) . $file;
+                        }
+
+                        if (SabreUtils::fileOrCollectionACL($principalUri, $newPath) != 3) {// 3 : SPlugin::ACCESS_READWRITE;
+                            return $response->withJson(['success' => false, "message" => _("Right of access to the file or folder the prohibited recording")]);
+                        }
+                        
                         if (rename($currentDest, $newDest)) {
+                            SabreUtils::moveSharedFileOrCollection($principalUri, $oldPath, $newPath);
+                            // end of sabre
+
                             $searchLikeString = $userName . $currentpath . substr($file, 1) . '%';
                             $searchLikeString = str_replace("//", "/", $searchLikeString);
 
@@ -553,7 +571,27 @@ class DocumentFileManagerController
                             break;
                         }
 
+                        // sabre 
+                        $principalUri = "principals/".$user->getUserName();
+                        $oldPath = "home/".$user->getUserName().$currentpath.$file;
+                        
+                        if ($params->folder == "/..") {
+                            $url_to_array = parse_url($currentpath);
+                            $path = dirname($url_to_array['path']);            
+                            $newPath = "home/".$user->getUserName().$path . $file;
+                        } else {
+                            $newPath = "home/".$user->getUserName().$currentpath.substr($params->folder, 1) . "/" . $file;
+                        }
+                        
+
+                        if (SabreUtils::fileOrCollectionACL($principalUri, $newPath) != 3) {// 3 : SPlugin::ACCESS_READWRITE;
+                            return $response->withJson(['success' => false, "message" => _("Right of access to the file or folder the prohibited recording")]);
+                        }                                                
+
                         if (rename($currentDest, $newDest)) {
+                            SabreUtils::moveSharedFileOrCollection($principalUri, $oldPath, $newPath);
+                            // end of sabre
+                        
                             $searchLikeString = $userName . $currentpath . $file . '%';
                             $searchLikeString = str_replace("//", "/", $searchLikeString);
                             $notes = NoteQuery::Create()->filterByPerId($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
