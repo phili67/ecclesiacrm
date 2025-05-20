@@ -147,9 +147,17 @@ class EcclesiaCRMServer extends DAV\Server
         return false;
       }
 
+      $principalIUri = SabreUtils::getPrincipalsFromUri($uri);
+
+      if (SabreUtils::fileOrCollectionACL($principalIUri, $uri) != SPlugin::ACCESS_READWRITE) {
+        // only file that have SPlugin::ACCESS_READWRITE can be changed
+        return false;
+      }
+
       if (strpos($uri,"._") == false && strpos($uri,".DS_Store") == false) {
-           $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());
-           $currentUser->deleteTimeLineNote("dav-delete-file",MiscUtils::convertUnicodeAccentuedString2UTF8($uri));
+          $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());
+          $currentUser->deleteTimeLineNote("dav-delete-file",MiscUtils::convertUnicodeAccentuedString2UTF8($uri));
+          SabreUtils::removeSharedFileOrCollection($principalIUri, $uri);
       }
 
       return true;

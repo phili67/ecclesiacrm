@@ -2,8 +2,6 @@
 
 namespace EcclesiaCRM\WebDav\Utils;
 
-
-use EcclesiaCRM\Base\Collectionsinstances;
 use EcclesiaCRM\Base\CollectionsinstancesQuery;
 use EcclesiaCRM\Base\CollectionsQuery;
 use EcclesiaCRM\Base\UserQuery;
@@ -138,6 +136,47 @@ class SabreUtils {
                 }
 
                 symlink($ownerPath , $newPath);                
+            }
+        }
+    }
+
+    /**
+     * delete shared file or Folder from an old path to a new
+     * this assume that : SabreUtils::moveSharedFileOrCollection is already used
+     * 
+     * String : principalURI (principals/admin)
+     * String : $oldPath (home/....)
+     */
+    public static function removeSharedFileOrCollection ($principalURI, $oldPath)
+    {
+        $userName = explode("/", $principalURI)[1];// now we get the username
+        $user = UserQuery::create()->findOneByUserName($userName);
+
+        $oldPath = $user->getUserRootDir() . "/" . str_replace("home/", "", $oldPath);
+
+        // first we try to move the owner collection : file or directory 
+        $collection = CollectionsQuery::create()->findOneByOwnerpath($oldPath);
+        if (!is_null($collection)) {            
+            $collection->delete();
+        } else {
+            $collectionInstance = CollectionsinstancesQuery::create()
+                ->findOneByGuestpath($oldPath);
+
+            if (!is_null($collectionInstance)) {
+                $collectionId = $collectionInstance->getCollectionsId();                
+                $collectionInstance->delete();
+                
+                 $collectionInstances = CollectionsinstancesQuery::create()
+                    ->findByCollectionsId($collectionId);
+                
+                if ($collectionInstances->count() == 0) {
+                    // the is no more shared file or folder on this shared collection
+                    // it's times to delete
+                    $collection = CollectionsQuery::create()->findOneById($collectionId);
+                    if (!is_null($collection)){
+                        $collection->delete();
+                    }
+                }
             }
         }
     }

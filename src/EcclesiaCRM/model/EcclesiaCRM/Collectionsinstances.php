@@ -4,6 +4,10 @@ namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\Collectionsinstances as BaseCollectionsinstances;
 
+use Propel\Runtime\Connection\ConnectionInterface;
+
+use EcclesiaCRM\dto\SystemURLs;
+
 /**
  * Skeleton subclass for representing a row from the 'collectionsinstances' table.
  *
@@ -15,5 +19,4 @@ use EcclesiaCRM\Base\Collectionsinstances as BaseCollectionsinstances;
  */
 class Collectionsinstances extends BaseCollectionsinstances
 {
-
 }

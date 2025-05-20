@@ -311,6 +311,13 @@ class DocumentFileManagerController
                 $userName = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
+                $principalUri = "principals/".$user->getUserName();
+                $oldPath = "home/".$user->getUserName().$currentpath.$params->folder;
+                
+                if (SabreUtils::fileOrCollectionACL($principalUri, $oldPath) != 3) {// 3 : SPlugin::ACCESS_READWRITE;
+                    return $response->withJson(['success' => false, "message" => _("Right of access to folder problem")]);
+                }
+
                 $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $params->folder;
 
                 $searchLikeString = $userName . $currentpath . substr($params->folder, 1) . '%';
@@ -342,6 +349,17 @@ class DocumentFileManagerController
                 $userName = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
+                // for sabre
+                $principalUri = "principals/".$user->getUserName();
+                $sabrePath = "home/".$user->getUserName().$currentpath.MiscUtils::convertUTF8AccentuedString2Unicode($params->file);
+                
+                if (SabreUtils::fileOrCollectionACL($principalUri, $sabrePath) != 3) {// 3 : SPlugin::ACCESS_READWRITE;
+                    return $response->withJson(['success' => false, "message" => _("Right of access to folder problem")]);
+                }
+
+                SabreUtils::removeSharedFileOrCollection($principalUri, $sabrePath);
+                // end of sabre
+
                 $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . MiscUtils::convertUTF8AccentuedString2Unicode($params->file);
 
                 if (!file_exists($currentNoteDir)) {// in the case the file name isn't in unicode format
@@ -362,7 +380,7 @@ class DocumentFileManagerController
             }
         }
 
-        return $response->withJson(['success' => false]);
+        return $response->withJson(['success' => false, "message" => _("Contact error at api")]);
     }
 
     public function deleteFiles(ServerRequest $request, Response $response, array $args): Response
@@ -378,6 +396,8 @@ class DocumentFileManagerController
                 $realNoteDir = $userDir = $user->getUserRootDir();
                 $userName = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
+                // for sabre
+                $principalUri = "principals/".$user->getUserName();                        
 
                 foreach ($params->files as $file) {
                     if ($file[0] == '/') {
@@ -390,6 +410,15 @@ class DocumentFileManagerController
                             $error[] = _("You can't erase the public folder !");
                             continue;
                         }
+
+                        // the sabre part                         
+                        $sabrePath = "home/".$user->getUserName().$currentpath.$file;   
+                        
+                        if (SabreUtils::fileOrCollectionACL($principalUri, $sabrePath) != 3) {// 3 : SPlugin::ACCESS_READWRITE;
+                            return $response->withJson(['success' => false, "message" => _("Right of access to the file or folder the prohibited recording")]);
+                        }          
+                        
+                        SabreUtils::removeSharedFileOrCollection($principalUri, $sabrePath);
 
                         if (MiscUtils::delTree($currentNoteDir)) {
                             $searchLikeString = $userName . $currentpath . $file . '%';
@@ -407,12 +436,24 @@ class DocumentFileManagerController
 
                         $currentNoteDir = str_replace("//", "/", $currentNoteDir);
 
+                        // the sabre part 
+                        $sabrePath = "home/".$user->getUserName().$currentpath.$file;                
+
                         $utf8Test = MiscUtils::convertUTF8AccentuedString2Unicode($currentNoteDir);
                         if (file_exists($utf8Test)) {// in the case the file name isn't in unicode format
                             $currentNoteDir = $utf8Test;
+                            $sabrePath = MiscUtils::convertUTF8AccentuedString2Unicode($sabrePath);
                         }
 
-                        if (unlink($currentNoteDir)) {
+                        // sabre part
+                        if (SabreUtils::fileOrCollectionACL($principalUri, $sabrePath) != 3) {// 3 : SPlugin::ACCESS_READWRITE;
+                            return $response->withJson(['success' => false, "message" => _("Right of access to the file or folder the prohibited recording")]);
+                        }
+
+                        SabreUtils::removeSharedFileOrCollection($principalUri, $sabrePath);
+                        // end of the sabre part
+                        
+                        if (unlink($currentNoteDir)) {                                                        
                             $searchLikeString = $userName . $currentpath . $file . '%';
                             $searchLikeString = str_replace("//", "/", $searchLikeString);
 
@@ -612,8 +653,8 @@ class DocumentFileManagerController
                 $oldPath = "home/".$user->getUserName().$currentpath.$params->oldName;
                 $newPath = "home/".$user->getUserName().$currentpath.$params->newName.".".$extension;
 
-                if (SabreUtils::fileOrCollectionACL($principalUri, $oldPath) != 3) {
-                    return $response->withJson(['success' => false]);
+                if (SabreUtils::fileOrCollectionACL($principalUri, $oldPath) != 3) {// 3 : SPlugin::ACCESS_READWRITE;
+                    return $response->withJson(['success' => false, "message" => _("Right of access to the file or folder the prohibited recording")]);
                 }
 
                 if (rename($oldName, $newName)) {
@@ -649,7 +690,7 @@ class DocumentFileManagerController
             }
         }
 
-        return $response->withJson(['success' => false]);
+        return $response->withJson(['success' => false, "message" => _("Contact error at api")]);
     }
 
     public function uploadFile(ServerRequest $request, Response $response, array $args): Response
