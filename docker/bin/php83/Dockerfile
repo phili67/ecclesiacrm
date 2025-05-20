@@ -44,23 +44,18 @@ RUN pecl install xdebug-3.3.1 && \
 RUN pecl install redis-6.0.2 && \
     docker-php-ext-enable redis
 
-# Install imagick
-RUN apt-get update && \
-    apt-get -y --no-install-recommends install --fix-missing libmagickwand-dev && \
-    rm -rf /var/lib/apt/lists/*
-
 # Imagick Commit to install
-RUN apt-get install git && \
-    git clone https://github.com/Imagick/imagick.git --depth 1 /tmp/imagick && \
-    cd /tmp/imagick && \
-    git fetch origin master && \
-    git switch master && \
-    cd /tmp/imagick && \
-    phpize && \
-    ./configure && \
-    make && \
-    make install && \
-    docker-php-ext-enable imagick
+RUN apt-get update && apt-get install -y \
+    imagemagick \
+    libmagickwand-dev \
+    && git clone https://github.com/Imagick/imagick --depth 1 /tmp/imagick \
+    && cd /tmp/imagick \
+    && phpize && ./configure \
+    && make \
+    && make install \
+    && apt-get clean
+
+RUN docker-php-ext-enable imagick
 
 # Other PHP8 Extensions
 
