@@ -7,7 +7,7 @@
 }
 
 .group_header_accordion {
-    background-color: #eef3f7;
+    background-color: #ffffff;
     padding: .30rem 1.25rem;
 }
 
@@ -27,14 +27,16 @@ div.dt-button-collection {
         background-color: #97999a;
     }
 
-    .group_header_accordion {
-        background-color: #b9b9b9;
-        padding: .30rem 1.25rem;
-    }
-
     .group_Side_bar {
         min-width: 400px;
         max-width: 100%;
         width:100%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .group_header_accordion {
+        background-color: #2d2c2c;
+        padding: .30rem 1.25rem;
     }
 }
