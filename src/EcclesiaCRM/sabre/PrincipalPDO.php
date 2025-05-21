@@ -14,6 +14,8 @@ namespace EcclesiaCRM\MyPDO;
 //  Updated     : 2018/05/13
 //
 
+use Sabre\DAV\Sharing\Plugin as SPlugin;
+use Sabre\DAV\Xml\Element\Sharee;
 use Sabre\DAVACL\PrincipalBackend as SabrePrincipalBase;
 
 use EcclesiaCRM\Bootstrapper;
@@ -79,12 +81,9 @@ class PrincipalPDO extends SabrePrincipalBase\PDO {
      * @return void
      */
     function createNewPrincipal($uri,$email,$displayname) {
-
       //if (empty($this->findByUri("mailto:".$email, 'principals'))) {
         $stmt = $this->pdo->prepare('INSERT INTO ' . $this->tableName . ' (uri,email,displayname) VALUES (?, ?, ?)');
         $stmt->execute([$uri,$email,$displayname]);
       //}
-
     }
-
 }

@@ -20,6 +20,9 @@ use Sabre\HTTP\RequestInterface;
 
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\WebDav\Utils\SabreUtils;
+
+use Sabre\DAV\Sharing\Plugin as SPlugin;
 
 class EcclesiaCRMServer extends DAV\Server
 {
@@ -82,19 +85,24 @@ class EcclesiaCRMServer extends DAV\Server
       // this is the old path
       $oldPath = $request->getPath();
 
-      // we search the new path, it will in the destination part
-      $res = parent::getCopyAndMoveInfo($request);
+      $principalIUri = SabreUtils::getPrincipalsFromUri($oldPath);
 
-      /*return [
-            'destination'       => $destination,
-            'destinationExists' => !!$destinationNode,
-            'destinationNode'   => $destinationNode,
-      ];*/
+      if (SabreUtils::fileOrCollectionACL($principalIUri, $oldPath) != SPlugin::ACCESS_READWRITE) {
+        // only file that have SPlugin::ACCESS_READWRITE can be changed
+        return [];
+      }
+
+      // we search the new path, it will in the destination part
+      $res = parent::getCopyAndMoveInfo($request);      
 
       if (strpos($res['destination'],"._") == false && strpos($res['destination'],".DS_Store") == false) {
            $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());
            $currentUser->createTimeLineNote("dav-move-copy-file",$res['destination']);
            $currentUser->updateFolder($oldPath,MiscUtils::convertUnicodeAccentuedString2UTF8($res['destination']));
+
+           $principalIUri = SabreUtils::getPrincipalsFromUri($oldPath);
+
+           SabreUtils::moveSharedFileOrCollection($principalIUri, $oldPath, $res['destination']);
       }
 
       return $res;
@@ -139,9 +147,17 @@ class EcclesiaCRMServer extends DAV\Server
         return false;
       }
 
+      $principalIUri = SabreUtils::getPrincipalsFromUri($uri);
+
+      if (SabreUtils::fileOrCollectionACL($principalIUri, $uri) != SPlugin::ACCESS_READWRITE) {
+        // only file that have SPlugin::ACCESS_READWRITE can be changed
+        return false;
+      }
+
       if (strpos($uri,"._") == false && strpos($uri,".DS_Store") == false) {
-           $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());
-           $currentUser->deleteTimeLineNote("dav-delete-file",MiscUtils::convertUnicodeAccentuedString2UTF8($uri));
+          $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());
+          $currentUser->deleteTimeLineNote("dav-delete-file",MiscUtils::convertUnicodeAccentuedString2UTF8($uri));
+          SabreUtils::removeSharedFileOrCollection($principalIUri, $uri);
       }
 
       return true;

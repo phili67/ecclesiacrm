@@ -147,6 +147,42 @@ INSERT INTO principals (uri,email,displayname) VALUES
 ('principals/admin/calendar-proxy-read', null, null),
 ('principals/admin/calendar-proxy-write', null, null);
 
+CREATE TABLE collections (
+     id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+     principaluri VARBINARY(255),
+     ownerId mediumint(9) unsigned default NULL,
+     ownerPath VARBINARY(1024) NOT NULL,
+     CONSTRAINT fk_collection_personId
+         FOREIGN KEY (ownerId)
+             REFERENCES person_per(per_ID)
+             ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--
+-- Table structure for table `collectionsinstances` for sharing files or directories : sabre
+--
+
+CREATE TABLE collectionsinstances (
+     id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+     uri VARBINARY(200) NOT NULL,
+     collections_id INTEGER UNSIGNED NOT NULL,
+     principaluri VARBINARY(255),
+     guestId mediumint(9) unsigned default NULL,
+     guestPath VARBINARY(1024) NOT NULL,
+     access TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1 = owner, 2 = read, 3 = readwrite',
+     share_invitestatus TINYINT(1) NOT NULL DEFAULT '2' COMMENT '1 = noresponse, 2 = accepted, 3 = declined, 4 = invalid',
+     UNIQUE(uri),
+     CONSTRAINT fk_collection_guestId
+         FOREIGN KEY (guestId)
+             REFERENCES person_per(per_ID)
+             ON DELETE CASCADE,
+     CONSTRAINT fk_collections_id
+         FOREIGN KEY (collections_id)
+             REFERENCES collections(id)
+             ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Table structure for table `groupmembers`
 --
@@ -2024,7 +2060,7 @@ CREATE TABLE `send_news_letter_user_update` (
   `snl_person_ID` mediumint(9) unsigned NOT NULL,
   `snl_state` enum('Add','Delete') NOT NULL default 'Add',
   PRIMARY KEY  (`snl_ID`),
-  CONSTRAINT fk_snl_person_ID FOREIGN KEY (snl_person_ID) REFERENCES person_per(per_id) ON DELETE CASCADE  
+  CONSTRAINT fk_snl_person_ID FOREIGN KEY (snl_person_ID) REFERENCES person_per(per_id) ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci PACK_KEYS=0 AUTO_INCREMENT=1 ;
 
 --

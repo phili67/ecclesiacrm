@@ -14,6 +14,8 @@ use Sabre\Uri;
 use Sabre\DAVACL\FS\HomeCollection;
 use Sabre\DAVACL\PrincipalBackend\BackendInterface;
 
+use Sabre\DAVACL\FS\MyHomeCollectionSharing;
+
 use EcclesiaCRM\dto\SystemURLs;
 
 
@@ -21,10 +23,15 @@ use EcclesiaCRM\dto\SystemURLs;
 class MyHomeCollection extends HomeCollection  {
 
     protected $authBackend;
+    protected $principalBackend;
 
-    public function __construct(BackendInterface $principalBackend, $authBackend, $principalPrefix = 'principals')
+    protected $webDavBackend;
+
+    public function __construct(BackendInterface $principalBackend, $authBackend, $webDavBackend, $principalPrefix = 'principals')
     {
         $this->authBackend = $authBackend;
+        $this->principalBackend = $principalBackend;
+        $this->webDavBackend = $webDavBackend;
         parent::__construct($principalBackend, SystemURLs::getRootPath().'private/userdir/',$principalPrefix);
     }
 
@@ -57,7 +64,10 @@ class MyHomeCollection extends HomeCollection  {
             mkdir($path, 0777, true);
         }
 
-        return new Collection(
+        return new MyHomeCollectionSharing(
+            $this->authBackend,
+            $this->principalBackend,
+            $this->webDavBackend,
             $path,
             $acl,
             $owner
@@ -66,11 +76,11 @@ class MyHomeCollection extends HomeCollection  {
 
     function getChildren() {
        $result = [];
-       
+
        // for the login user
        $dir = new FS\Directory($this->authBackend->getHomeFolderName().'/');
        $result[] = $dir;
-       
+
        return $result;
     }
 }
