@@ -77,7 +77,8 @@ class DocumentFileManagerController
         $currentpath = $user->getCurrentpath();
 
         $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath;
-
+        $sabrepath = $realNoteDir . "/" . $userName . $currentpath;
+        
         $result = [];
         $files = array_diff(scandir($currentNoteDir), array('.', '..', '.DS_Store', '._.DS_Store'));
         foreach ($files as $file) {
@@ -93,29 +94,17 @@ class DocumentFileManagerController
             $item['id'] = 0;
             $item['perID'] = 0;// by default the file longs to the owner
 
-            if (!is_null($note)) {
-                $item['id'] = $note->getId();
-                $item['isShared'] = $note->isShared();
-                $item['perID'] = $note->getPerId();
-            } else {
-                $fileName = basename($file);
+            $sabrePathToFile = $sabrepath.$file;
+            $rights = SabreUtils::getFileOrDirectoryInfos($sabrePathToFile);
 
-                // now we create the note
-                $note = new Note();
-                $note->setPerId($args['personID']);
-                $note->setFamId(0);
-                $note->setTitle($fileName);
-                $note->setPrivate(1);
-                $note->setText($userName . $currentpath . $fileName);
-                $note->setType('file');
-                $note->setEntered(SessionUser::getUser()->getPersonId());
-                $note->setInfo(gettext('Create file'));
-
-                $note->save();
-
-                $item['id'] = $note->getId();
-                $item['isShared'] = $note->isShared();
-                $item['perID'] = $note->getPerId();
+            if (count($rights)) {
+                $item['id'] = null;
+                $item['isShared'] = 1;
+                $item['perID'] = SessionUser::getUser()->getPersonId();
+            } else {                
+                $item['id'] = null;
+                $item['isShared'] = 0;
+                $item['perID'] = SessionUser::getUser()->getPersonId();
             }
 
             $item['name'] = $file;
@@ -125,7 +114,7 @@ class DocumentFileManagerController
             $item['icon'] = MiscUtils::FileIcon($file);
             $item['path'] = $userName . $currentpath . $file;
 
-            $size = 28;
+            $size = 24;
 
             $item['dir'] = false;
             if (is_dir("$currentNoteDir/$file")) {
@@ -133,7 +122,7 @@ class DocumentFileManagerController
                 $item['dir'] = true;
                 $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png"; //'far fa-folder text-yellow';
                 $item['type'] = gettext("Folder");
-                $size = 40;
+                $size = 34;
             }
 
             $item['icon'] = '<img src="' . $item['icon']  . '" width="' . $size . '">';//;"<i class='" . $item['icon'] . " fa-2x'></i>";
@@ -217,11 +206,42 @@ class DocumentFileManagerController
         $params = (object)$request->getParsedBody();
 
         if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->name) and SessionUser::getId() == $params->personID) {
-            $user = UserQuery::create()->findPk($params->personID);
+            $user = UserQuery::create()->findOneByPersonId($params->personID);
             if (!is_null($user)) {
                 $userName = $user->getUserName();
                 $currentPath = $user->getCurrentpath();
                 $extension = pathinfo($params->name, PATHINFO_EXTENSION);
+
+                $realNoteDir = $user->getUserRootDir();
+                
+                $sabrepath = $realNoteDir . "/" . $userName . $currentPath;
+        
+                $sabrePathToFile = $sabrepath.$params->name;
+                $rights = SabreUtils::getFileOrDirectoryInfos($sabrePathToFile);
+
+                $userRights = "";
+
+                /*if (count($rights)) {
+                    foreach ($rights as $right) {
+                        $principals = $right->principal;
+                        $shared_username = explode("/", $principals)[1];
+                        $shareUser = UserQuery::create()->findOneByUserName($shared_username);
+
+                        $access = $right->access;
+                        $displayName = $shareUser->getPerson()->getFullName();
+
+                        $userRights .= '<div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                ' . $displayName . '
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">'._("Read").'</a>
+                                <a class="dropdown-item" href="#">'._("Read-Write").'</a>                            
+                            </div>
+                            </div>';
+                        
+                    }
+                }*/
 
                 if (!(
                     strtolower($extension) == 'mp4' || strtolower($extension) == 'mov' || strtolower($extension) == 'ogg' || strtolower($extension) == 'm4a'
@@ -231,10 +251,18 @@ class DocumentFileManagerController
                     || strtolower($extension) == 'm' || strtolower($extension) == 'vbs' || strtolower($extension) == 'admx' || strtolower($extension) == 'adml'
                     || strtolower($extension) == 'ics' || strtolower($extension) == 'csv' || strtolower($extension) == 'sql' || strtolower($extension) == 'docx'
                 )) {
-                    return $response->withJson(['success' => true, 'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath() . "/api/filemanager/getFile/" . $params->personID . "/" . $userName . $currentPath . $params->name)]);
+                    return $response->withJson([
+                        'success' => true, 
+                        'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath() . "/api/filemanager/getFile/" . $params->personID . "/" . $userName . $currentPath . $params->name),
+                        //'rights' => $userRights
+                    ]);
                 } else {
                     $realNoteDir = $userDir = $user->getUserRootDir();
-                    return $response->withJson(['success' => true, 'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath() . "/api/filemanager/getFile/" . $params->personID . "/" . $userName . $currentPath . $params->name, SystemURLs::getRootPath() . "/" . $user->getUserRootDir() . "/" . $userName . $currentPath . $params->name)]);
+                    return $response->withJson([
+                            'success' => true, 
+                            'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath() . "/api/filemanager/getFile/" . $params->personID . "/" . $userName . $currentPath . $params->name, SystemURLs::getRootPath() . "/" . $user->getUserRootDir() . "/" . $userName . $currentPath . $params->name),
+                            //'rights' => $userRights
+                        ]);
                 }
             }
         }
