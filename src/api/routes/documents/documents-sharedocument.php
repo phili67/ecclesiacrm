@@ -22,6 +22,11 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      */
     $group->post('/getallperson', DocumentShareController::class . ':getAllShareForPerson' );
     /*
+     * @! get all shared persons for a rows
+     * #! param: ref->array :: rows
+     */
+    $group->post('/getallpersonsabre', DocumentShareController::class . ':getAllShareForPersonSabre' );
+    /*
      * @! share a note to a personID from currentPersonID
      * #! param: ref->int :: personID
      * #! param: ref->int :: noteId
@@ -29,6 +34,13 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      * #! param: ref->bool :: notification
      */
     $group->post('/addperson', DocumentShareController::class . ':addPersonToShare' );
+    /*
+     * @! share a note to a personID from currentPersonID
+     * #! param: ref->int :: personID
+     * #! param: ref->int :: currentPersonID
+     * #! param: ref->array :: all the rows
+     */
+    $group->post('/addpersonsabre', DocumentShareController::class . ':addPersonSabreToShare' );    
     /*
      * @! share a note to a familyID from currentPersonID
      * #! param: ref->int :: familyID
@@ -58,6 +70,14 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      * #! param: ref->int :: rightAccess
      */
     $group->post('/setrights', DocumentShareController::class . ':setRightsForPerson' );
+    /*
+     * @! set right access to a note
+     * #! param: ref->string :: currentPersonID : principal/admin
+     * #! param: ref->int :: personID
+     * #! param: ref->array :: rows (the lines)
+     * #! param: ref->int :: rightAccess
+     */
+    $group->post('/setrightssabre', DocumentShareController::class . ':setRightsSabreForPerson' );
     /*
      * @! delete a note
      * #! param: ref->int :: noteId
