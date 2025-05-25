@@ -2,13 +2,18 @@
 
 namespace EcclesiaCRM\WebDav\Utils;
 
+use EcclesiaCRM\Collections;
+use EcclesiaCRM\Collectionsinstances;
 use EcclesiaCRM\Base\CollectionsinstancesQuery;
 use EcclesiaCRM\Base\CollectionsQuery;
 use EcclesiaCRM\Base\UserQuery;
 
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\MiscUtils;
+
+use Sabre\DAV\Xml\Element\Sharee;
 use Sabre\DAV\Sharing\Plugin as SPlugin;
 
-use EcclesiaCRM\dto\SystemURLs;
 
 class SabreUtils {
 
@@ -77,6 +82,206 @@ class SabreUtils {
         }
 
         return SPlugin::ACCESS_READWRITE;
+    }
+
+    /**
+     * share a file or a folder
+     * 
+     * @param int $ownerPersonId
+     * @param string $ownerPaths, example : private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/wsl1.png
+     * @param string $ownerPrinpals example : principals/admin"
+     * @param string $ownerNameCollection example : wsl1.png
+     * @param \Sabre\DAV\Xml\Element\Sharee[] $sharees :
+     *   mailto:philippe.logel@gmail.com
+     *   principal = null
+     *   properties = array(0)
+     *   access = 3
+     *   comment = null
+     *   inviteStatus = null
+     */
+    public static function shareFileOrDirectory($ownerPersonId, $ownerPaths, $ownerPrinpals, $ownerNameCollection, $sharees): void
+    {
+        // we create the root file or directory
+        $collections = CollectionsQuery::create()
+            ->filterByOwnerid($ownerPersonId)
+            ->filterByOwnerpath($ownerPaths)
+            ->findOneByPrincipaluri($ownerPrinpals);
+
+        if (is_null($collections)) {
+            $collections = new Collections();
+            
+            $collections->setOwnerid($ownerPersonId);
+            $collections->setOwnerpath($ownerPaths);            
+            $collections->setPrincipaluri($ownerPrinpals);
+
+            $collections->save();
+        }   
+
+        foreach($sharees as $sharee) {
+            $res = explode(':', $sharee->href);
+            if (count($res) != 2) {
+                continue;            
+            }
+            $email = $res[1];
+
+            $guestUser = UserQuery::create()
+                ->usePersonQuery()
+                    ->filterByWorkEmail($email)
+                    ->_or()
+                    ->filterByEmail($email)
+                ->endUse()
+                ->findOne();    
+                
+            $guestPath = $guestUser->getUserDir() . "/". $ownerNameCollection;
+            
+            $guestPrincipals = "principals/".$guestUser->getUserName();
+            $access = $sharee->access;
+
+            $collectionsInstance = CollectionsinstancesQuery::create()
+                ->filterByCollectionsId($collections->getId())
+                ->findOneByPrincipaluri($guestPrincipals);
+
+
+            if ($sharee->access === \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS) {
+                // if access was set no NOACCESS, it means access for an
+                // existing sharee was removed.
+                if (!is_null($collectionsInstance)){
+                    // we have to purge the link
+                    $guestPath = SystemURLs::getDocumentRoot()."/".$guestPath;
+
+                    if (is_link($guestPath)) {
+                        unlink($guestPath);
+                    }
+                    $collectionsInstance->delete();
+                }                        
+                continue;
+            }
+
+            if (is_null($sharee->principal)) {
+                // If the server could not determine the principal automatically,
+                // we will mark the invite status as invalid.
+                $sharee->inviteStatus = \Sabre\DAV\Sharing\Plugin::INVITE_INVALID;
+            } else {
+                // Because sabre/dav does not yet have an invitation system,
+                // every invite is automatically accepted for now.
+                $sharee->inviteStatus = \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED;
+            }
+
+            $ownerPaths = SystemURLs::getDocumentRoot()."/".$ownerPaths;
+
+            if (is_null($collectionsInstance)) {
+                $collectionsInstance = new Collectionsinstances();
+                
+                $collectionsInstance->setCollectionsId($collections->getId());
+                $collectionsInstance->setPrincipaluri($guestPrincipals);
+                $collectionsInstance->setShareInvitestatus($sharee->inviteStatus);
+                $collectionsInstance->setGuestpath($guestPath);
+                $collectionsInstance->setGuestid($guestUser->getPerson()->getId());
+                $collectionsInstance->setUri(MiscUtils::gen_uuid());
+                $collectionsInstance->setAccess($access);            
+
+                $guestPath = SystemURLs::getDocumentRoot()."/".$guestPath;
+
+                if (is_link($guestPath)) {
+                    unlink($guestPath);
+                }
+                                           
+                symlink($ownerPaths , $guestPath);
+
+                $collectionsInstance->save();
+            } else {
+                // we update the $collectionsInstance
+                $collectionsInstance->setCollectionsId($collections->getId());
+                $collectionsInstance->setPrincipaluri($guestPrincipals);
+                $collectionsInstance->setShareInvitestatus($sharee->inviteStatus);
+                $collectionsInstance->setGuestpath($guestPath);
+                $collectionsInstance->setGuestid($guestUser->getPerson()->getId());
+                //$collectionsInstance->setUri(MiscUtils::gen_uuid()); // is unusefull
+                $collectionsInstance->setAccess($access);            
+
+                $guestPath = SystemURLs::getDocumentRoot()."/".$guestPath;
+
+                if (is_link($guestPath)) {
+                    unlink($guestPath);
+                }
+                                           
+                symlink($ownerPaths , $guestPath);
+
+                $collectionsInstance->save();
+            }
+        }
+    }
+
+    /**
+     * get a file or a directory infos
+     * 
+     * @param string $ownerPah, example : private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/wsl1.png
+     * 
+     * return \Sabre\DAV\Xml\Element\Sharee[]
+     */
+    public static function getFileOrDirectoryInfos($ownerPah): array
+    {
+        $collections = CollectionsQuery::create()
+            ->findOneByOwnerpath($ownerPah);
+
+        $result = [];
+
+        if (!is_null($collections)) {
+            $collectionsInstances = CollectionsinstancesQuery::create()
+                ->findByCollectionsId($collections->getId());
+
+            
+            foreach ($collectionsInstances as $collectionsInstance) {
+                $ret = explode("/", $collectionsInstance->getPrincipaluri());
+                
+                if (count($ret) < 2) continue;
+                
+                $username = $ret[1];
+                $user = UserQuery::create()->findOneByUserName($username);
+
+                if (is_null($user)) continue;
+                
+                $result[] = new Sharee([
+                    'href' => "mailto:".$user->getPerson()->getEmail(),
+                    'access' => $collectionsInstance->getAccess(),
+                    /// Everyone is always immediately accepted, for now.
+                    'inviteStatus' => (int) $collectionsInstance->getShareInvitestatus(),
+                    'properties' => ['{DAV:}displayname' => $user->getPerson()->getFullName()],
+                    'principal' => $collectionsInstance->getPrincipaluri(),
+                ]);
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * check the file permission and check in the path if the right is writeable
+     * 
+     * @param string $path, example : private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/wsl1.png
+     * 
+     * return int
+     */
+    public static function getShareAccess ($path): int
+    {
+        $collections = CollectionsQuery::create()
+            ->findOneByOwnerpath($path);
+
+        if (!is_null($collections)) {
+            $collectionsInstances = CollectionsinstancesQuery::create()
+                ->findOneByCollectionsId($collections->getId());
+            
+            
+            if (!is_null($collectionsInstances))
+            {
+                return $collectionsInstances->getAccess();
+            } else {// there is no more shared file or folder
+                $collections->delete();
+            }
+        }
+        
+
+        return SPlugin::ACCESS_NOTSHARED;
     }
 
     /**
