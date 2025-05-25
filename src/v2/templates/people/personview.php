@@ -547,7 +547,7 @@ require $sRootDocument . '/Include/Header.php';
                             $activeTab = "timeline";
                             ?>
                             <li class="nav-item">
-                                <a class="nav-link <?= (!$bDocuments && !$bEDrive && !$bGroup) ? "active" : "" ?>"
+                                <a class="nav-link <?= (!$bDocuments && !$bGroup) ? "active" : "" ?>"
                                    href=" #timeline" aria-controls="timeline" role="tab"
                                    data-toggle="tab"><i class="fas fa-clock"></i> <?= _('Timeline') ?></a></li>
                             <?php
@@ -654,21 +654,7 @@ require $sRootDocument . '/Include/Header.php';
                                         class="far fa-copy"></i> <?= _("Documents") ?></a></li>
                             <?php
                         }
-                        ?>
-                        <?php
-                        if (SessionUser::getUser()->isEDriveEnabled($PersonInfos['iPersonID'])) {
-                            if ($bEDrive) $activeTab = 'edrive';
-                            ?>
-                            <li class="nav-item">
-                                <a class="nav-link  <?= ($bEDrive) ? "active" : "" ?>"
-                                   href="#edrive"
-                                   aria-controls="edrive"
-                                   role="tab"
-                                   data-toggle="tab" <?= ($bDocuments) ? "aria-expanded=\"true\"" : "" ?>><i
-                                        class="fas fa-cloud"></i> <?= _("EDrive") ?></a></li>
-                            <?php
-                        }
-                        ?>
+                        ?>                        
                     </ul>
                 </div>
 
@@ -1494,89 +1480,6 @@ require $sRootDocument . '/Include/Header.php';
                             <!-- END timeline item -->
                         </div>
                     </div>
-                    <?php
-                    if (SessionUser::getUser()->isEDriveEnabled($PersonInfos['iPersonID'])) {
-                        ?>
-                        <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'edrive') ? "active" : "" ?>"
-                             id="edrive">
-                            <div class="row filter-note-type card" style="line-height:54px">
-                                <div class="col-md-12" style="line-height:25px">
-                                    <table width=400px>
-                                        <tr>
-                                            <td>
-                                                  <span class="time-line-head-red">
-                                                    <?= _("All Files") ?>
-                                                  </span>
-
-                                                &nbsp;&nbsp;&nbsp;
-
-                                                <div class="btn-group">
-                                                  <?php
-                                                    if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
-                                                  ?>
-                                                        <button type="button" id="uploadFile" class="btn btn-success btn-sm drag-elements" data-personid="<?= $PersonInfos['iPersonID'] ?>" data-toggle="tooltip" data-placement="top" title="<?= _("Upload a file in EDrive") ?>">
-                                                            &nbsp;&nbsp;<i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;
-                                                        </button>
-                                                  <?php
-                                                    }
-                                                    ?>
-
-                                                    <button type="button" class="btn btn-primary btn-sm drag-elements new-folder" data-personid="<?= $PersonInfos['iPersonID'] ?>"
-                                                            data-toggle="tooltip" data-placement="top" title="<?= _("Create a Folder") ?>">
-                                                        &nbsp;&nbsp;<i class="far fa-folder"></i>&nbsp;&nbsp;
-                                                    </button>
-
-                                                    <button type="button" class="btn btn-danger btn-sm drag-elements trash-drop" data-personid="<?= $PersonInfos['iPersonID'] ?>"
-                                                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete") ?>">
-                                                        &nbsp;&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;
-                                                    </button>
-
-                                                    <button type="button" class="btn btn-info btn-sm drag-elements folder-back-drop" data-personid="<?= $PersonInfos['iPersonID'] ?>"
-                                                            data-toggle="tooltip" data-placement="top" title="<?= _("Up One Level") ?>"
-                                                        <?= (!is_null($PersonInfos['user']) && $PersonInfos['user']->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
-                                                        &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
-                                                    </button>
-
-
-                                                    <button type="button" class="btn btn-default btn-sm drag-elements filemanager-refresh"
-                                                            data-toggle="tooltip" data-placement="top" title="<?= _("Actualize files") ?>">
-                                                        &nbsp;&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;&nbsp;
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <div class="row">
-                                <div class="col-md-12 filmanager-left">
-                                    <table class="table table-striped table-bordered" id="edrive-table"
-                                           width="100%"></table>
-                                </div>
-                                <div class="col-md-3 filmanager-right" style="display: none;">
-                                    <h3><?= _("Preview") ?>
-                                        <button type="button" class="close close-file-preview" data-dismiss="alert"
-                                                aria-hidden="true">×
-                                        </button>
-                                    </h3>
-                                    <span class="preview"></span>
-                                </div>
-                            </div>
-                            <hr/>
-                            <div class="row">
-                                <div class="col-md-12">
-                <span class="float-left" id="currentPath">
-                  <?= !is_null($PersonInfos['user']) ? MiscUtils::pathToPathWithIcons($PersonInfos['user']->getCurrentpath()) : "" ?>
-                </span>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                    ?>
                 </div>
             </div>
         </div>
@@ -1667,10 +1570,6 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
-<?php if (SessionUser::getUser()->isEDriveEnabled($PersonInfos['iPersonID'])) : ?>
-<script src="<?= $sRootPath ?>/skin/js/filemanager.js"></script>
-<?php endif ?>
-
 <script src="<?= $sRootPath ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/people/MemberView.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/people/AddRemoveCart.js"></script>
@@ -1718,7 +1617,6 @@ if ($sMapProvider == 'OpenStreetMap') {
     window.CRM.personFullName = "<?= $PersonInfos['person']->getFullName() ?>";
     window.CRM.normalMail = "<?= $PersonInfos['sEmail'] ?>";
     window.CRM.workMail = "<?= $PersonInfos['person']->getWorkEmail() ?>";
-    window.CRM.browserImage = false;
 
     window.CRM.contentsExternalCssFont = '<?= $contentsExternalCssFont ?>';
     window.CRM.extraFont = '<?= $extraFont ?>';
