@@ -748,7 +748,7 @@ class MiscUtils
         //return $icon . " bg-gray-light";
     }
 
-    public static function simpleEmbedFiles($path, $realPath = NULL)
+    public static function simpleEmbedFiles($path, $realPath = NULL, $height = '200px')
     {
         $uuid = MiscUtils::gen_uuid();
 
@@ -774,6 +774,7 @@ class MiscUtils
             case "jpg":
             case "jpeg":
             case "png":
+                //$res .= '<img src="' . $path . '" style="display: flex;justify-content: center;height: '.$height.'"/>';
                 $res .= '<img src="' . $path . '" style="width: 100%"/>';
                 break;
             case "txt":
@@ -801,7 +802,7 @@ class MiscUtils
                 $res .= '</div>';
                 break;
             case "pdf":
-                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" style=\"width: 100%;height:300px\">";
+                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" style=\"width: 100%;\">";
                 $res .= "<embed src=\"" . $realPath . "\" type=\"application/pdf\" />\n";
                 $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
                 $res .= "</object>";
