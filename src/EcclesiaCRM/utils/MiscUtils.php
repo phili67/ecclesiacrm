@@ -755,7 +755,9 @@ class MiscUtils
         $filename = basename($path);
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-        $res = ($extension == "") ? (_("Folder") . " : " . $filename) : (_("File") . " : <a href=\"" . $path . "\">\"" . $filename . "\"</a><br>");
+        $name = ($extension == "") ? (_("Folder") . " : " . $filename) : (_("File") . " : <a href=\"" . $path . "\">\"" . $filename . "\"</a><br>");
+
+        $res = "";
 
         switch (strtolower($extension)) {
             /*case "doc":
@@ -847,7 +849,10 @@ class MiscUtils
                 break;
         }
 
-        return $res;
+        return [
+            'name' => $name, 
+            'content' => $res
+        ];
     }
 
     public static function embedFiles($path)
