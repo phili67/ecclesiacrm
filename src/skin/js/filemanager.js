@@ -208,6 +208,7 @@ $(function() {
                     if (data && data.success) {
                         $('.filmanager-left').removeClass("col-md-12").addClass("col-md-9");
                         $('.filmanager-right').show();
+                        $('.preview-title').html(data.name);                    
                         $('.preview').html(data.path);
                         
                         addSharedPersonsSabre();
@@ -784,9 +785,7 @@ $(function() {
 
     // the share files
     window.CRM.BootboxContentShareFiles = function () {
-        var frm_str = '<h3 style="margin-top:-5px">' + i18next.t("Share your File") + '</h3>'
-            + '<div>'
-            + '<div class="row div-title">'
+        var frm_str = '<div>'
             + '<div class="col-md-4">'
             + '<span style="color: red">*</span>' + i18next.t("With") + ":"
             + '</div>'
@@ -818,8 +817,7 @@ $(function() {
             + '<select name="person-group-Id" id="person-group-Id" class="form-control select2"'
             + 'style="width:100%">'
             + '</select>'
-            + '</div>'
-            + '</div>'
+            + '</div>'            
             + '</div>';
 
         var object = $('<div/>').html(frm_str).contents();
@@ -932,6 +930,8 @@ $(function() {
                 option.text = data[i].name;
                 //option.title = data[i].type;
                 option.value = data[i].id;
+
+                //option.classList.add("fontawesome");
 
                 elt.appendChild(option);
             }
@@ -1144,6 +1144,7 @@ $(function() {
 
         var modal = bootbox.dialog({
             message: window.CRM.BootboxContentShareFiles(),
+            title:i18next.t("Share your File"),
             size: "large",
             buttons: [
                 {
