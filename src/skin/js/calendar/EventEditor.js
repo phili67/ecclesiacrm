@@ -552,7 +552,7 @@ function setActiveState(value) {
 }
 
 
-function BootboxContent(start, end, windowtitle, title) {
+function BootboxContent(start, end, title) {
     var time_format;
     var fmt = window.CRM.datePickerformat.toUpperCase();
 
@@ -567,14 +567,15 @@ function BootboxContent(start, end, windowtitle, title) {
     var dateEnd = moment(end).format(fmt);
     var timeEnd = moment(end).format(time_format);
 
-    var frm_str = '<h3 style="margin-top:-5px">' + windowtitle + '</h3><form id="some-form">'
+    var frm_str = '<form id="some-form">'
         + '<div>'
-        + '  <div class="row div-title EventTitle">'
+        + '  <div class="row EventTitle">'
         + '      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Title') + ":</div>"
-        + '          <div class="col-md-9">'
+        + '      <div class="col-md-9">'
         + "              <input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required " + ((title != undefined) ? ("value='" + title + "'") : "") + ">"
-        + '          </div>'
         + '      </div>'
+        + '  </div>'
+        + ' <br>'
         + '  <div class="row  div-title EventLocation">'
         + '      <div class="col-md-3">' + i18next.t('Location') + ":</div>"
         + '      <div class="col-md-9">'
@@ -786,8 +787,9 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
     }
 
     var modal = bootbox.dialog({
-        message: BootboxContent(start, end, windowtitle, title),
+        message: BootboxContent(start, end, title),
         size: 'large',
+        title: windowtitle,
         buttons: [
             {
                 label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
