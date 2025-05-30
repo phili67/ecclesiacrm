@@ -251,16 +251,22 @@ class DocumentFileManagerController
                     || strtolower($extension) == 'm' || strtolower($extension) == 'vbs' || strtolower($extension) == 'admx' || strtolower($extension) == 'adml'
                     || strtolower($extension) == 'ics' || strtolower($extension) == 'csv' || strtolower($extension) == 'sql' || strtolower($extension) == 'docx'
                 )) {
+                    $res = MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath() . "/api/filemanager/getFile/" . $params->personID . "/" . $userName . $currentPath . $params->name);
+
                     return $response->withJson([
                         'success' => true, 
-                        'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath() . "/api/filemanager/getFile/" . $params->personID . "/" . $userName . $currentPath . $params->name),
+                        'name' => $res['name'],
+                        'path' => $res['content']
                         //'rights' => $userRights
                     ]);
                 } else {
                     $realNoteDir = $userDir = $user->getUserRootDir();
+                    $res = MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath() . "/api/filemanager/getFile/" . $params->personID . "/" . $userName . $currentPath . $params->name, SystemURLs::getRootPath() . "/" . $user->getUserRootDir() . "/" . $userName . $currentPath . $params->name);
+                    
                     return $response->withJson([
                             'success' => true, 
-                            'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath() . "/api/filemanager/getFile/" . $params->personID . "/" . $userName . $currentPath . $params->name, SystemURLs::getRootPath() . "/" . $user->getUserRootDir() . "/" . $userName . $currentPath . $params->name),
+                            'name' => $res['name'],
+                            'path' => $res['content']
                             //'rights' => $userRights
                         ]);
                 }
