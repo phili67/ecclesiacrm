@@ -115,10 +115,6 @@ class MenuBar extends Menu
         $menuItem = new Menu (_("Change Settings"), "fas fa-cog", "v2/users/settings", true, $menu);
         $menuItem = new Menu (_("Documents"), "fas fa-file", "v2/people/person/view/" . SessionUser::getUser()->getPersonId() . "/Documents", true, $menu);
 
-        if (SessionUser::getUser()->isEDrive()) {
-            $menuItem = new Menu (_("EDrive"), "fas fa-cloud", "v2/people/person/view/" . SessionUser::getUser()->getPersonId() . "/eDrive", true, $menu);
-        }
-
         if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
             $this->addPersonMenuLinks($menu);
         }
@@ -560,6 +556,17 @@ class MenuBar extends Menu
         }
     }
 
+    private function addEdrive()
+    {
+        if (SessionUser::getUser()->isEDriveEnabled()) {
+            $menu = new Menu (_("EDrive"), "fa fa-cloud", "#", SessionUser::getUser()->isFinanceEnabled());
+
+            $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/edrive/dashboard", true, $menu);
+
+            $this->addMenu($menu);
+        }
+    }
+
     private function addFundraiserMenu()
     {
         $menu = new Menu (_("Fundraiser"), "fas fa-money-check-alt", "#", SessionUser::getUser()->isFinanceEnabled());
@@ -598,7 +605,8 @@ class MenuBar extends Menu
 
         $this->addMenu($menuItem);
 
-        $this->addHomeArea();        
+        $this->addHomeArea();   
+        $this->addEdrive();     
         $this->addGDPRMenu();        
         $this->addEventMenu();
         $this->addPeopleMenu();        

@@ -61,6 +61,9 @@ if (SessionUser::getUser()->getNeedPasswordChange()) {// only one route is stayi
     // the main dashboard
     require_once __DIR__ . '/routes/dashboard.php';
 
+    // edrive
+    require_once __DIR__ . '/routes/edrive/edrive.php';
+
     // the routes
     require_once __DIR__ . '/routes/user/user.php';
     require_once __DIR__ . '/routes/calendar/calendar.php';

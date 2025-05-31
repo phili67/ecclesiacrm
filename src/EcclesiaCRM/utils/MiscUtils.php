@@ -748,14 +748,16 @@ class MiscUtils
         //return $icon . " bg-gray-light";
     }
 
-    public static function simpleEmbedFiles($path, $realPath = NULL)
+    public static function simpleEmbedFiles($path, $realPath = NULL, $height = '200px')
     {
         $uuid = MiscUtils::gen_uuid();
 
         $filename = basename($path);
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-        $res = ($extension == "") ? (_("Folder") . " : " . $filename) : (_("File") . " : <a href=\"" . $path . "\">\"" . $filename . "\"</a><br>");
+        $name = ($extension == "") ? (_("Folder") . " : " . $filename) : (_("File") . " : <a href=\"" . $path . "\">\"" . $filename . "\"</a><br>");
+
+        $res = "";
 
         switch (strtolower($extension)) {
             /*case "doc":
@@ -774,7 +776,7 @@ class MiscUtils
             case "jpg":
             case "jpeg":
             case "png":
-                $res .= '<img src="' . $path . '" style="width: 100%"/>';
+                $res .= '<img src="' . $path . '" class="file-image-preview"/>';
                 break;
             case "txt":
             case "ps1":
@@ -801,7 +803,7 @@ class MiscUtils
                 $res .= '</div>';
                 break;
             case "pdf":
-                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" style=\"width: 100%;height:300px\">";
+                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
                 $res .= "<embed src=\"" . $realPath . "\" type=\"application/pdf\" />\n";
                 $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
                 $res .= "</object>";
@@ -846,7 +848,10 @@ class MiscUtils
                 break;
         }
 
-        return $res;
+        return [
+            'name' => $name, 
+            'content' => $res
+        ];
     }
 
     public static function embedFiles($path)
