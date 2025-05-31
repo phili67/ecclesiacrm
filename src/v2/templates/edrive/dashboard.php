@@ -61,11 +61,11 @@ require $sRootDocument . '/Include/Header.php';
 <br>
 
 <div class="row">
-    <div class="col-md-12 filmanager-left">
+    <div class="col filmanager-left">
         <table class="table table-striped table-bordered dataTable no-footer dtr-inline" id="edrive-table"
             width="100%"></table>
     </div>
-    <div class="col-md-3 filmanager-right" style="display: none;">
+    <div class="col filmanager-right" style="display: none;">
         <label>
             <span class="preview-title" style="width: 100%;"></span><button type="button" class="close close-file-preview" data-dismiss="alert" aria-hidden="true">×</button>
             <span class="preview"></span>
@@ -102,8 +102,8 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Action</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" role="button"  href="#"><?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . "--" ?></a>
+                        <a class="dropdown-item" role="button"  href="#"><?= _("[👀 ✐]") . ' -- ' . _("[RW]") ?></a>
                     </div>
                     </div>
                     <select name="person-group-rights-sabre" id="person-group-rights-sabre" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">

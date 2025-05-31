@@ -15,10 +15,36 @@
     text-align:center;
 }
 
+.filmanager-right {
+        -ms-flex: 0 0 380px;
+        flex: 0 0 380px;
+        //background-color: greenyellow; 
+} 
+
+.file-image-preview {
+    width: 370px; 
+    height: 200px; 
+    object-fit: cover;
+}
+
+.close-file-preview {
+    margin-top: -20px;
+}
+
+.pdf-preview-filemanager {
+    width: 380px;height:550px;
+}
+
 /* <select size="6" style="width:100%" id="select-share-persons-sabre" class="fontawesome" multiple></select> */
 .fontawesome {
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
   font-weight: 900;
   font-size: 11px;
+}
+
+@media (max-width: 690px) {
+    /*.filmanager-right {
+        display: none; 
+    } */
 }
 

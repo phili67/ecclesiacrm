@@ -206,7 +206,6 @@ $(function() {
                     data: JSON.stringify({"personID": window.CRM.currentPersonID, "name": id})
                 },function (data) {
                     if (data && data.success) {
-                        $('.filmanager-left').removeClass("col-md-12").addClass("col-md-9");
                         $('.filmanager-right').show();
                         $('.preview-title').html(data.name);                    
                         $('.preview').html(data.path);
@@ -289,7 +288,6 @@ $(function() {
     });
 
     $("body").on('click', '.close-file-preview', function (e) {
-        $('.filmanager-left').removeClass("col-md-9").addClass("col-md-12");
         $('.filmanager-right').hide();
     });
 

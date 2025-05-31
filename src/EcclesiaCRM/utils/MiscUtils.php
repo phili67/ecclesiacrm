@@ -776,8 +776,7 @@ class MiscUtils
             case "jpg":
             case "jpeg":
             case "png":
-                //$res .= '<img src="' . $path . '" style="display: flex;justify-content: center;height: '.$height.'"/>';
-                $res .= '<img src="' . $path . '" style="width: 100%"/>';
+                $res .= '<img src="' . $path . '" class="file-image-preview"/>';
                 break;
             case "txt":
             case "ps1":
@@ -804,7 +803,7 @@ class MiscUtils
                 $res .= '</div>';
                 break;
             case "pdf":
-                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" style=\"width: 100%;\">";
+                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
                 $res .= "<embed src=\"" . $realPath . "\" type=\"application/pdf\" />\n";
                 $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
                 $res .= "</object>";
