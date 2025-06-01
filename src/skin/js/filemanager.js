@@ -827,11 +827,11 @@ $(function() {
     $("#preview-person-group-sabre-Id").select2({
         language: window.CRM.shortLocale,
         minimumInputLength: 2,
-        placeholder: " -- " + i18next.t("Person or Family or Group") + " -- ",
+        placeholder: " -- " + i18next.t("User") + " -- ",
         allowClear: true, // This is for clear get the clear button if wanted
         ajax: {
             url: function (params) {
-                return window.CRM.root + "/api/people/search/" + params.term;
+                return window.CRM.root + "/api/people/searchonlyuser/" + params.term;
             },
             headers: {
                 "Authorization" : "Bearer "+window.CRM.jwtToken
@@ -843,62 +843,6 @@ $(function() {
                 return {results: data};
             },
             cache: true
-        }
-    });
-
-    $("#preview-person-group-sabre-Id").on("select2:select", function (e) {
-        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
-        let rows=[];  
-        for (let i=0; i < data.length ;i++){
-           rows.push(data[i]);
-        }
-
-        let notification = document.getElementById("sendEmail-sabre").checked
-        let access = document.getElementById("person-group-rights-sabre").value;
-        
-        if (e.params.data.personID !== undefined) {
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'sharedocument/addpersonsabre',
-                data: JSON.stringify({
-                    "currentPersonID": window.CRM.currentPersonID,
-                    "personToShareID": e.params.data.personID,
-                    "rows": rows,
-                    "access": access, // by default read and write
-                    "notification": 0
-                })
-            },function (data) {
-                addSharedPersonsSabre();
-                window.CRM.reloadEDriveTable();
-            });
-        } else if (e.params.data.groupID !== undefined) {
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'sharedocument/addgroup',
-                data: JSON.stringify({
-                    "noteId": noteId,
-                    "currentPersonID": window.CRM.currentPersonID,
-                    "groupID": e.params.data.groupID,
-                    "notification": notification
-                })
-            },function (data) {
-                addSharedPersonsSabre();
-                window.CRM.reloadEDriveTable();
-            });
-        } else if (e.params.data.familyID !== undefined) {
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'sharedocument/addfamily',
-                data: JSON.stringify({
-                    "noteId": noteId,
-                    "currentPersonID": window.CRM.currentPersonID,
-                    "familyID": e.params.data.familyID,
-                    "notification": notification
-                })
-            },function (data) {
-                addSharedPersonsSabre();
-                window.CRM.reloadEDriveTable();
-            });
         }
     });
 
@@ -940,6 +884,72 @@ $(function() {
 
     $("#select-share-persons-sabre").on('change',function () {
         $("#person-group-rights-sabre").val(0);
+    });
+
+    $("#set-right-read").on('click',function () {
+        var rightAccess = 2;        
+        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
+        var rows=[];  
+        for (let i=0; i < data.length ;i++){
+           rows.push(data[i]);
+        }        
+
+        $('#select-share-persons-sabre :selected').each(function (i, sel) {
+            var selection = sel;
+            let personID = $(sel).val();
+            let str = $(sel).text();
+            
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/setrightssabre',
+                data: JSON.stringify({
+                    "rows":rows,
+                    "currentPersonID": window.CRM.currentPersonID,                    
+                    "personToShareID": personID, 
+                    "rightAccess": rightAccess
+                })
+            },function (data) {
+                if (rightAccess == 2) {
+                    res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
+                } else {
+                    res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
+                }
+                $(selection).text(res);
+            })            
+        });
+    });
+
+     $("#set-right-read-write").on('click',function () {
+        var rightAccess = 3;      
+        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
+        var rows=[];  
+        for (let i=0; i < data.length ;i++){
+           rows.push(data[i]);
+        }        
+
+        $('#select-share-persons-sabre :selected').each(function (i, sel) {
+            var selection = sel;
+            let personID = $(sel).val();
+            let str = $(sel).text();
+            
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/setrightssabre',
+                data: JSON.stringify({
+                    "rows":rows,
+                    "currentPersonID": window.CRM.currentPersonID,                    
+                    "personToShareID": personID, 
+                    "rightAccess": rightAccess
+                })
+            },function (data) {
+                if (rightAccess == 2) {
+                    res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
+                } else {
+                    res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
+                }
+                $(selection).text(res);
+            })            
+        });
     });
 
 
