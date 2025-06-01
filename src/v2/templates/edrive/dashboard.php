@@ -73,7 +73,7 @@ require $sRootDocument . '/Include/Header.php';
         <br>
         <label><?= _("Internal sharing") ?></label>
         <span class="shared" width="100%"></span>
-        <hr/>
+        <hr />
         <div>
             <div class="row">
                 <div class="col-md-4"></div>
@@ -96,21 +96,14 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="col-md-4"><span style="color: red">*</span><?= _("Set Rights") ?>:</div>
                 <div class="col-md-8">
                     <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" role="button"  href="#"><?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . "--" ?></a>
-                        <a class="dropdown-item" role="button"  href="#"><?= _("[👀 ✐]") . ' -- ' . _("[RW]") ?></a>
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . "--" ?>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" role="button" id="set-right-read" href="#"><?= _("[👀  ]") . ' -- ' . _("[R ]") ?></a>
+                            <a class="dropdown-item" role="button" id="set-right-read-write" href="#"><?= _("[👀 ✐]") . ' -- ' . _("[RW]") ?></a>
+                        </div>
                     </div>
-                    </div>
-                    <select name="person-group-rights-sabre" id="person-group-rights-sabre" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
-                        <option value="0"><?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . "--" ?></option>
-                        <option data-content="<i class='fa fa-address-book-o' aria-hidden='true'></i>Option1" value="2"><?= _("[👀  ]") . ' -- ' . _("[R ]") ?></option>
-                        <option value="3"><?= _("[👀 ✐]") . ' -- ' . _("[RW]") ?></option>
-                    </select>
                 </div>
             </div>
             <div class="row div-title">
@@ -120,10 +113,10 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
             <div class="row div-title">
-                <div class="col-md-4"><span style="color: red">*</span><?= ("Add persons/Family/groups") ?>:</div>
-                <div class="col-md-8">
+                <div class="col-md-3"><span style="color: red">*</span><?= ("Add user") ?>:</div>
+                <div class="col-md-9">
                     <a data-toggle="popover" title="" data-content="<?= _("Use this method to share files with individuals or teams within your organization. If the recipient already has access to the share, but can't locate it, you can send them the internal link to facilitate access.") ?>" target="_blank" class="blue infoFiles" data-original-title="<?= _("Definition") ?>"><i class="far  fa-question-circle"></i></a>
-                    <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:100%"></select>
+                    <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:90%"></select>
                 </div>
             </div>
         </div>
