@@ -42,7 +42,7 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      */
     $group->post('/addpersonsabre', DocumentShareController::class . ':addPersonSabreToShare' );    
     /*
-     * @! share a note to a familyID from currentPersonID
+     * @! share a note to a familyID from currentPersonID 
      * #! param: ref->int :: familyID
      * #! param: ref->int :: noteId
      * #! param: ref->int :: currentPersonID
@@ -50,7 +50,7 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      */
     $group->post('/addfamily', DocumentShareController::class . ':addFamilyToShare' );
     /*
-     * @! share a note to a groupID from currentPersonID
+     * @! share a note to a groupID from currentPersonID (deprecated)
      * #! param: ref->int :: groupID
      * #! param: ref->int :: noteId
      * #! param: ref->int :: currentPersonID
@@ -58,7 +58,7 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      */
     $group->post('/addgroup', DocumentShareController::class . ':addGroupToShare' );
     /*
-     * @! remove a personID from a share note
+     * @! remove a personID from a share note (deprecated)
      * #! param: ref->int :: personID
      * #! param: ref->int :: noteId
      */
