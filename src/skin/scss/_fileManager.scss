@@ -16,9 +16,11 @@
 }
 
 .filmanager-right {
-        -ms-flex: 0 0 380px;
-        flex: 0 0 380px;
-        //background-color: greenyellow; 
+    -ms-flex: 0 0 380px;
+    flex: 0 0 380px;
+    border-left: 1px solid rgba(0, 0, 0, .125);
+    top: -21px;
+    margin-bottom: -40px;
 } 
 
 .file-image-preview {
@@ -42,6 +44,16 @@
   font-size: 11px;
 }
 
+.form-control-access-rights {
+    margin-left:-3px;
+}
+
+.div-title-file-manager {
+    padding-top: 0px;
+    padding-bottom: 7px;
+    margin-right: -20px;
+}
+
 @media (max-width: 890px) {
     .filmanager-right {
        -ms-flex: 0 0 100%;
@@ -53,5 +65,15 @@
         height: 200px;
         object-fit: cover;
     }
+
+    .filmanager-right {
+        border-left: solid 0px #8a2121;
+    } 
+}
+
+@media (prefers-color-scheme: dark) {
+    .filmanager-right {
+        border-left: solid 1px #a19d9d;
+    } 
 }
 
