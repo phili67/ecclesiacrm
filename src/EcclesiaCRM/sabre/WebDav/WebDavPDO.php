@@ -10,17 +10,14 @@
 
 namespace EcclesiaCRM\MyPDO;
 
-use Collator;
 use EcclesiaCRM\Bootstrapper;
 
-use Sabre\DAV\Xml\Element\Sharee;
 use Sabre\WebDAV\Backend as SabreWebDavBase;
 
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\CollectionsQuery;
 use EcclesiaCRM\CollectionsinstancesQuery;
 use EcclesiaCRM\WebDav\Utils\SabreUtils;
-use Sabre\DAV\Sharing\Plugin as SPlugin;
 
 
 class WebDavPDO extends SabreWebDavBase\PDO
