@@ -85,6 +85,11 @@ $(function() {
                             '   <button type="button" class="btn btn-' + (full.isShared?'success':'default') + ' btn-sm shareFile" data-personid="1"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
                             '</div>';
                         return ret;
+                    } else if (!full.link) {
+                        var ret = '<div class="btn-group">' +
+                            '   <button type="button" class="btn btn-' + (full.isShared?'success':'default') + ' btn-sm shareFile" data-personid="1"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
+                            '</div>';
+                        return ret;
                     }
 
                     return '';
@@ -493,7 +498,6 @@ $(function() {
     });
 
     $('.folder-back-drop').droppable({
-
         drop: function (event, ui) {
             var name = $(ui.draggable).attr('id');
             var folderName = '/..';
@@ -691,6 +695,7 @@ $(function() {
     });
 
 
+    // dead code
     const BootboxContentUploadFile = () => {
         var frm_str = '  <form action="#" method="post" id="formId" enctype="multipart/form-data">'
             + '  <div class="card">'
@@ -710,6 +715,7 @@ $(function() {
         return object
     }
 
+    // dead code
     const CreateUploadFileWindow = () => {
         var modal = bootbox.dialog({
             title: i18next.t("Upload your Files"),
@@ -782,6 +788,7 @@ $(function() {
 
 
     // the share files
+    // dead code
     window.CRM.BootboxContentShareFiles = function () {
         var frm_str = '<div>'
             + '<div class="col-md-4">'
@@ -846,7 +853,40 @@ $(function() {
         }
     });
 
+    $("#preview-person-group-sabre-Id").on("select2:select", function (e) {
+        let access = 2; // read by default
+        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
+        let rows=[];  
+        for (let i=0; i < data.length ;i++){
+           rows.push(data[i]);
+        }
+
+        let notification = document.getElementById("sendEmail-sabre").checked
+
+        if (e.params.data.personID !== undefined) {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addpersonsabre',
+                data: JSON.stringify({
+                    "currentPersonID": window.CRM.currentPersonID,
+                    "personToShareID": e.params.data.personID,
+                    "rows": rows,
+                    "access": access, // by default read and write
+                    "notification": notification
+                })
+            },function (data) {
+                addSharedPersonsSabre();
+                window.CRM.reloadEDriveTable();
+            });
+        }
+    });
+
     const addSharedPersonsSabre = () => {
+        $("#dropdownMenuButtonRights").prop('disabled', true);
+        $("#delete-share").prop('disabled', true);
+        $("#delete-all-share").prop('disabled', true);        
+
+
         let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
         let rows=[];  
         for (let i=0; i < data.length ;i++){
@@ -880,10 +920,17 @@ $(function() {
         });
     }
 
-
-
     $("#select-share-persons-sabre").on('change',function () {
-        $("#person-group-rights-sabre").val(0);
+        let values = $('#select-share-persons-sabre').val();
+
+        let activated = false;
+        if (values.length > 0) {
+            activated = true;
+        }
+
+        $("#dropdownMenuButtonRights").prop('disabled', !activated);
+        $("#delete-share").prop('disabled', !activated);
+        $("#delete-all-share").prop('disabled', !activated);        
     });
 
     $("#set-right-read").on('click',function () {
@@ -987,6 +1034,64 @@ $(function() {
 
         
     });
+
+    $("#delete-share").on('click',function () {      
+        var realRows = window.CRM.dataEDriveTable.rows( { selected: true });
+        var data = realRows.data();
+        var rows = [];  
+        for (let i=0; i < data.length ;i++){
+           rows.push(data[i]);
+        }  
+
+        bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function (result) {
+            if (result) {
+                $('#select-share-persons-sabre :selected').each(function (i, sel) {     
+                    var personID = $(sel).val();
+                           
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'sharedocument/deletepersonsabre',
+                        data: JSON.stringify({"rows": rows, "personID": window.CRM.currentPersonID})
+                    },function (data) {
+                        window.CRM.reloadEDriveTable();     
+                        $("#select-share-persons-sabre option[value='" + personID + "']").remove();
+                        window.CRM.dataEDriveTable.row(realRows).select();                   
+
+                        /*if (data.count == 0) {
+                            window.CRM.reloadEDriveTable();                
+                            $("#preview-person-group-sabre-Id").val("").trigger("change");
+                        } */                       
+                    });
+                });
+            }
+        });                          
+    });
+    
+
+    $("#delete-all-share").on('click',function () {        
+        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
+        var rows=[];  
+        for (let i=0; i < data.length ;i++){
+           rows.push(data[i]);
+        }
+        bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function (result) {
+            if (result) {
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'sharedocument/cleardocumentsabre',
+                    data: JSON.stringify({"rows": rows})
+                },function (data) {
+                    addPersonsFromNotes(noteId);
+                    $(state).css('color', '#777');
+                    $(button).data('shared', 0);
+                    modal.modal("hide");
+                    window.CRM.reloadEDriveTable();
+                });   
+            }
+        });                          
+    });
+
+    
 
        
 // dead code
@@ -1146,6 +1251,7 @@ $(function() {
         });
     }
 
+    // dead code
     const openShareFilesWindow = (event, button, state) => {
         var noteId = event.currentTarget.dataset.id;
         var isShared = event.currentTarget.dataset.shared;
@@ -1231,6 +1337,7 @@ $(function() {
 
     var isOpened = false;
 
+    // dead code
     $(document).on('click', '.shareFile', function (event) {
         var button = $(this); //Assuming first tab is selected by default
         var state = button.find('.share-color');

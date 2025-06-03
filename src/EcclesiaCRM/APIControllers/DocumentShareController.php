@@ -25,6 +25,8 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\WebDav\Utils\SabreUtils;
 use Sabre\DAV\Xml\Element\Sharee;
 
+use EcclesiaCRM\Utils\MiscUtils;
+
 class DocumentShareController
 {
     private $container;
@@ -251,6 +253,24 @@ class DocumentShareController
         $noteShare = NoteShareQuery::Create()->findByNoteId($params->noteId);
 
         return $response->withJson(['status' => "success",'count' => $noteShare->count()]);
+    }
+
+    public function deletePersonSabreFromShare (ServerRequest $request, Response $response, array $args): Response {
+        $params = (object)$request->getParsedBody();
+
+        if (isset ($params->personID) && isset ($params->rows)) {
+            $currentUser = UserQuery::create()->findOneByPersonId($params->personID);
+            $currentUserName = $currentUser->getUserName();            
+            
+            $ownerPrinpals = 'principals/'.$currentUserName;
+
+            foreach ($params->rows as $row) {
+                $sabrePath = "home/".$row['path'];
+                SabreUtils::removeSharedFileOrCollection($ownerPrinpals, $sabrePath);            
+            }
+        }
+
+        return $response->withJson(['status' => "success",'count' => 0]);
     }
 
     public function setRightsForPerson (ServerRequest $request, Response $response, array $args): Response {

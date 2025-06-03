@@ -60,9 +60,16 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
     /*
      * @! remove a personID from a share note (deprecated)
      * #! param: ref->int :: personID
-     * #! param: ref->int :: noteId
+     * #! param: ref->array :: rows
      */
     $group->post('/deleteperson', DocumentShareController::class . ':deletePersonFromShare' );
+    /*
+     * @! remove a personID from a share note (deprecated)
+     * #! param: ref->int :: personID
+     * #! param: ref->int :: noteId
+     */
+    $group->post('/deletepersonsabre', DocumentShareController::class . ':deletePersonSabreFromShare' );
+
     /*
      * @! set right access to a note (deprecated)
      * #! param: ref->int :: personID
