@@ -48,11 +48,10 @@ class PeopleController
             $users = UserQuery::create()
                 ->filterByIsDeactivated(0)
                 ->filterByUserName($searchLikeString, Criteria::LIKE)
-                //->leftJoinPerson()
                 ->usePersonQuery()
-                    ->filterByDateDeactivated(null)// gdpr when a person is de-activated
-                    ->filterByFirstName($searchLikeString, Criteria::LIKE)
+                    ->_or()->filterByFirstName($searchLikeString, Criteria::LIKE)
                     ->_or()->filterByLastName($searchLikeString, Criteria::LIKE)
+                    ->_or()->filterByMiddleName($searchLikeString, Criteria::LIKE)                    
                 ->endUse()                
                 ->find();
 
@@ -100,9 +99,9 @@ class PeopleController
             $searchLikeString = '%' . $query . '%';
             $people = PersonQuery::create()->
             filterByDateDeactivated(null)->// gdpr when a person is de-activated
-            filterByFirstName($searchLikeString, Criteria::LIKE)->
-            _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
-            limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
+                filterByFirstName($searchLikeString, Criteria::LIKE)->
+                _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
+                limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
 
 
             if (!empty($people)) {
