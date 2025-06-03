@@ -88,8 +88,8 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="row div-title">
                         <div class="col-md-4"></div>
                         <div class="col-md-8 col-center">
-                            <button type="button" class="btn btn-sm btn-warning"><i class="fas fa-times"></i> <?= _("Delete") ?></button>
-                            &nbsp;<button type="button" class="btn btn-sm btn-danger"><i class="far fa-stop-circle"></i> <?= _("Stop sharing") ?></button>
+                            <button type="button" class="btn btn-sm btn-warning" id="delete-all-share" disabled><i class="fas fa-times"></i> <?= _("Delete") ?></button>
+                            &nbsp;<button type="button" class="btn btn-sm btn-danger" id="delete-share" disabled><i class="far fa-stop-circle"></i> <?= _("Stop sharing") ?></button>
                         </div>
                     </div>
                     <div class="row div-title-file-manager">
@@ -105,7 +105,7 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="col-md-4"><span style="color: red">*</span><?= _("Set Rights") ?>:</div>
                         <div class="col-md-8">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
                                     <?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . "--" ?>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
