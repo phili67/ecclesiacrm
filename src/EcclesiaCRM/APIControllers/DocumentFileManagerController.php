@@ -253,6 +253,7 @@ class DocumentFileManagerController
                     || strtolower($extension) == 'pdf' || strtolower($extension) == 'mp3' || strtolower($extension) == 'py' || strtolower($extension) == 'ru'
                     || strtolower($extension) == 'm' || strtolower($extension) == 'vbs' || strtolower($extension) == 'admx' || strtolower($extension) == 'adml'
                     || strtolower($extension) == 'ics' || strtolower($extension) == 'csv' || strtolower($extension) == 'sql' || strtolower($extension) == 'docx'
+                    || strtolower($extension) == 'xlsx' || strtolower($extension) == 'xls'
                 )) {
                     $res = MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath() . "/api/filemanager/getFile/" . $params->personID . "/" . $userName . $currentPath . $params->name);
 

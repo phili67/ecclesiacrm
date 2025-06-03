@@ -872,12 +872,28 @@ class MiscUtils
                 break;
             case "xls":
             case "xlsx":
-                $res .= '<img src="' . $realPath . '/Images/Icons/XLS.png" width="100">';
+                // Read contents                          
+                $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath);
+
+                \PhpOffice\PhpSpreadsheet\IOFactory::registerWriter('Pdf', \PhpOffice\PhpSpreadsheet\Writer\Pdf\Tcpdf::class);
+                $objWriter = new \PhpOffice\PhpSpreadsheet\Writer\Pdf\Tcpdf($spreadsheet);
+
+                $filename = MiscUtils::gen_uuid();
+                $realPath = SystemURLs::getDocumentRoot() . "/Images/tmp/" . $filename . ".pdf";
+                $objWriter->save($realPath);
+
+
+                $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+
+                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
+                $res .= "<embed src=\"" . $realPath . "\" type=\"application/pdf\" />\n";
+                $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
+                $res .= "</object>";
                 break;
-            /*case "doc": 
-            case "docx":
-                $res .= '<img src="'. $realPath .'/Images/Icons/DOC.png" width="100">';
-                break;*/
+            case "ppt": 
+            case "pptx":
+                $res .= '<img src="'. $realPath .'/Images/Icons/PPT.png" width="100">';
+                break;
             default: // it's a folder
                 $res .= '<img src="' . $realPath . '/Images/Icons/FOLDER.png" width="140">';
         }
