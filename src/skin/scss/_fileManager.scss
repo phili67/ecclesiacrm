@@ -30,7 +30,9 @@
 }
 
 .close-file-preview {
-    margin-top: -20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
 .pdf-preview-filemanager {
@@ -52,6 +54,10 @@
     padding-top: 0px;
     padding-bottom: 7px;
     margin-right: -20px;
+}
+
+.preview img {
+    margin-left: 130px;
 }
 
 @media (max-width: 890px) {
