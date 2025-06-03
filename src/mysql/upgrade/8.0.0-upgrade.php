@@ -199,6 +199,12 @@ unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/sabre/CardDavPDO.php");
 unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/sabre/VCalendarExtension.php");
 unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/sabre/VObjectExtract.php");
 
+// 2025-06-01
+mkdir(SystemURLs::getDocumentRoot()."/Images/tmp", 0755);
+
+// vonage nexmo is now unusefull
+MiscUtils::delTree(SystemURLs::getDocumentRoot() . "/vendor/vonage");
+
 
 // we get the PDO for the Sabre connection from the Propel connection
 // now we update the CardDav 
