@@ -113,6 +113,7 @@ class DocumentFileManagerController
             $item['size'] = MiscUtils::FileSizeConvert(filesize($currentNoteDir . "/" . $file));
             $item['icon'] = MiscUtils::FileIcon($file);
             $item['path'] = $userName . $currentpath . $file;
+            $item['link'] = false;
 
             $size = 24;
 
@@ -123,6 +124,8 @@ class DocumentFileManagerController
                 $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png"; //'far fa-folder text-yellow';
                 $item['type'] = gettext("Folder");
                 $size = 34;
+            } else if (is_link("$currentNoteDir/$file")) {
+                $item['link'] = true;
             }
 
             $item['icon'] = '<img src="' . $item['icon']  . '" width="' . $size . '">';//;"<i class='" . $item['icon'] . " fa-2x'></i>";
@@ -611,8 +614,12 @@ class DocumentFileManagerController
                         
                         if ($params->folder == "/..") {
                             $url_to_array = parse_url($currentpath);
-                            $path = dirname($url_to_array['path']);            
-                            $newPath = "home/".$user->getUserName().$path . $file;
+                            $path = dirname($url_to_array['path']);
+                            if (substr($path, -1) == "/") {
+                                $newPath = "home/".$user->getUserName().$path . $file;
+                            } else {
+                                $newPath = "home/".$user->getUserName().$path . "/" . $file;
+                            }
                         } else {
                             $newPath = "home/".$user->getUserName().$currentpath.substr($params->folder, 1) . "/" . $file;
                         }
