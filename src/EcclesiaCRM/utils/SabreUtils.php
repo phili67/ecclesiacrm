@@ -10,7 +10,7 @@ use EcclesiaCRM\Base\UserQuery;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\MiscUtils;
-
+use PhpOffice\PhpSpreadsheet\Calculation\Logical\Boolean;
 use Sabre\DAV\Xml\Element\Sharee;
 use Sabre\DAV\Sharing\Plugin as SPlugin;
 
@@ -347,7 +347,7 @@ class SabreUtils {
 
     /**
      * delete shared file or Folder from an old path to a new
-     * this assume that : SabreUtils::moveSharedFileOrCollection is already used
+     * this assume that : SabreUtils::removeSharedFileOrCollection
      * 
      * String : principalURI (principals/admin)
      * String : $oldPath (home/....)
@@ -384,5 +384,45 @@ class SabreUtils {
                 }
             }
         }
+    }
+
+    /**
+     * delete shared file or Folder from an old path to a new
+     * this assume that : SabreUtils::removeSharedFileOrCollection
+     * 
+     * String : $ownerPrincipalURI (principals/admin)
+     * String : $ownerPath (home/....)
+     * String : $guestPrincipalUri (principals/plogel2)
+     */
+    public static function removeSharedForPersonPrincipal ($ownerPrincipalURI, $ownerPath, $guestPrincipalUri): bool
+    {
+        $userName = explode("/", $ownerPrincipalURI)[1];// now we get the username
+        $user = UserQuery::create()->findOneByUserName($userName);
+
+        $oldPath = $user->getUserRootDir() . "/" . str_replace("home/", "", $ownerPath);
+
+        // first we try to move the owner collection : file or directory 
+        $collection = CollectionsQuery::create()->findOneByOwnerpath($oldPath);
+        if (!is_null($collection)) {            
+            $collectionInstance = CollectionsinstancesQuery::create()
+                ->filterByCollectionsId($collection->getId())
+                ->findOneByPrincipaluri($guestPrincipalUri);
+
+            if (!is_null($collectionInstance)) {                
+                $guestPath = SystemURLs::getDocumentRoot()."/".$collectionInstance->getGuestpath();
+
+                if (is_link($guestPath)) {
+                    unlink($guestPath);
+                }
+                
+                $collectionInstance->delete();
+                
+                return true;
+            }
+
+            return false;            
+        }
+
+        return true;
     }
 }

@@ -258,19 +258,22 @@ class DocumentShareController
     public function deletePersonSabreFromShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->rows)) {
-            $currentUser = UserQuery::create()->findOneByPersonId($params->personID);
+        if (isset ($params->personPrincipal) && isset ($params->rows) and isset($params->currentPersonID)) {     
+            $currentUser = UserQuery::create()->findOneByPersonId($params->currentPersonID);
             $currentUserName = $currentUser->getUserName();            
             
             $ownerPrinpals = 'principals/'.$currentUserName;
 
             foreach ($params->rows as $row) {
                 $sabrePath = "home/".$row['path'];
-                SabreUtils::removeSharedFileOrCollection($ownerPrinpals, $sabrePath);            
+                if (SabreUtils::removeSharedForPersonPrincipal($ownerPrinpals, $sabrePath, $params->personPrincipal)) {
+                    return $response->withJson(['status' => "success",'count' => 0]);
+                }
             }
         }
 
-        return $response->withJson(['status' => "success",'count' => 0]);
+        return $response->withJson(['status' => "failed"]);
+        
     }
 
     public function setRightsForPerson (ServerRequest $request, Response $response, array $args): Response {
