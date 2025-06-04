@@ -21,6 +21,7 @@ use EcclesiaCRM\Service\NotificationService;
 use EcclesiaCRM\Service\SystemService;
 
 use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 use DateTime;
 use DateTimeZone;
@@ -1399,5 +1400,12 @@ class User extends BaseUser
         if (isset($_SESSION['ControllerAdminUserId'])) return false;
 
         return parent::getNeedPasswordChange();
+    }
+
+    public function checkEdrive() : bool 
+    {
+        $ownerPath =  SystemURLs::getDocumentRoot() . "/" . $this->getUserDir();
+
+        return is_dir($ownerPath);
     }
 }
