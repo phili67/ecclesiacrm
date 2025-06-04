@@ -24,19 +24,12 @@ require $sRootDocument . '/Include/Header.php';
     <div class="card-header">
         <div class="row">
             <div class="col-md-12">
-                <div class="btn-group">                    
                 
-                    <button type="button" class="btn btn-info btn-sm drag-elements folder-back-drop" data-personid="<?= $personId ?>"
-                        data-toggle="tooltip" data-placement="top" title="<?= _("Up One Level") ?>"
-                        <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
-                        &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
-                    </button>
-
-                </div>
             </div>
         </div>
-    </div>
-    <?php if ($user->isNotesEnabled() || ($user->isEditSelfEnabled())) { ?>
+    </div>      
+    <div class="card-body">     
+        <?php if ($user->isNotesEnabled() || ($user->isEditSelfEnabled())) { ?>
     <form action="#" method="post" id="formId" enctype="multipart/form-data">
         <div class="card">
             <div class="card-body">
@@ -50,10 +43,16 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
     </form>
-    <?php } ?>  
-    <div class="card-body">        
+    <?php } ?>   
         <div class="row">
             <div class="col filmanager-left">
+                <div class="btn-group">                                    
+                    <button type="button" class="btn btn-info btn-sm drag-elements folder-back-drop upload-button" data-personid="<?= $personId ?>"
+                        data-toggle="tooltip" data-placement="top" title="<?= _("Up One Level") ?>"
+                        <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
+                        &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
+                    </button>
+                </div>
                 <table class="table table-striped table-bordered dataTable no-footer dtr-inline" id="edrive-table"
                     width="100%"></table>
 

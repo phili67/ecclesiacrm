@@ -20,7 +20,9 @@
     flex: 0 0 380px;
     border-left: 1px solid rgba(0, 0, 0, .125);
     top: -21px;
+    margin-top:6px;
     margin-bottom: -40px;
+    padding-top: 10px;
 } 
 
 .file-image-preview {
@@ -60,8 +62,22 @@
     margin-left: 130px;
 }
 
+.upload-button {
+    position: absolute !important;
+    margin-top: 9px;
+    height: 32px;
+    z-index: 20;
+    padding: 6px;
+    width: 37px;
+}
+
+.shift-flex-wrapper-right {
+    margin-left:41px !important;
+}
+
 @media (max-width: 890px) {
     .filmanager-right {
+        margin-top:0px;
        -ms-flex: 0 0 100%;
         flex: 0 0 100%;
     } 

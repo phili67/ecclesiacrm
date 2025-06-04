@@ -134,6 +134,9 @@ $(function () {
         },
         "initComplete": function (settings, json) {
             installDragAndDrop();
+            if (window.CRM.currentpath !== "/") {
+                $(".flex-wrap").addClass('shift-flex-wrapper-right');
+            }
         }
     };
 
@@ -284,7 +287,7 @@ $(function () {
                 }
             });
         });
-    });
+    });    
 
     // click in the table
     $('#edrive-table tbody').on('click', 'tr', function(e) {
@@ -619,6 +622,7 @@ $(function () {
             if (data && data.success) {
                 window.CRM.reloadEDriveTable(function () {
                     $(".folder-back-drop").show();
+                    $(".flex-wrap").addClass('shift-flex-wrapper-right');
                     $("#currentPath").html(data.currentPath);
                     selected.length = 0;// no more selected files
                 });
@@ -661,8 +665,10 @@ $(function () {
             if (data && data.success) {
                 window.CRM.reloadEDriveTable(function () {
                     if (data.isHomeFolder) {
+                        $(".flex-wrap").removeClass('shift-flex-wrapper-right');
                         $(".folder-back-drop").hide();
                     } else {
+                        $(".flex-wrap").addClass('shift-flex-wrapper-right');
                         $(".folder-back-drop").show();
                     }
 
