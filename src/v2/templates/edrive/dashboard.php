@@ -24,42 +24,33 @@ require $sRootDocument . '/Include/Header.php';
     <div class="card-header">
         <div class="row">
             <div class="col-md-12">
-                <div class="btn-group">
-                    <?php
-                    if ($user->isNotesEnabled() || ($user->isEditSelfEnabled())) {
-                    ?>
-                        <button type="button" id="uploadFile" class="btn btn-success btn-sm drag-elements" data-personid="<?= $personId ?>" data-toggle="tooltip" data-placement="top" title="<?= _("Upload a file in EDrive") ?>">
-                            &nbsp;&nbsp;<i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;
-                        </button>
-                    <?php
-                    }
-                    ?>
-
-                    <button type="button" class="btn btn-primary btn-sm drag-elements new-folder" data-personid="<?= $personId ?>"
-                        data-toggle="tooltip" data-placement="top" title="<?= _("Create a Folder") ?>">
-                        &nbsp;&nbsp;<i class="far fa-folder"></i>&nbsp;&nbsp;
-                    </button>
-
-                    <button type="button" class="btn btn-danger btn-sm drag-elements trash-drop" data-personid="<?= $personId ?>"
-                        data-toggle="tooltip" data-placement="top" title="<?= _("Delete") ?>">
-                        &nbsp;&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;
-                    </button>
-
+                <div class="btn-group">                    
+                
                     <button type="button" class="btn btn-info btn-sm drag-elements folder-back-drop" data-personid="<?= $personId ?>"
                         data-toggle="tooltip" data-placement="top" title="<?= _("Up One Level") ?>"
                         <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
                         &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
                     </button>
 
-
-                    <button type="button" class="btn btn-default btn-sm drag-elements filemanager-refresh"
-                        data-toggle="tooltip" data-placement="top" title="<?= _("Actualize files") ?>">
-                        &nbsp;&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;&nbsp;
-                    </button>
                 </div>
             </div>
         </div>
     </div>
+    <?php if ($user->isNotesEnabled() || ($user->isEditSelfEnabled())) { ?>
+    <form action="#" method="post" id="formId" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-body">
+                <label for="noteInputFile"><?= _("Files input") ?></label>
+                <input type="file" id="noteInputFile" name="noteInputFile[]" multiple>
+                    <?= _('Upload your files') ?>
+                    <input type="submit" class="btn btn-success" name="Submit" value="<?= _("Upload") ?>">
+            </div>
+            <div class="card-footer">
+                
+            </div>
+        </div>
+    </form>
+    <?php } ?>  
     <div class="card-body">        
         <div class="row">
             <div class="col filmanager-left">
@@ -122,10 +113,20 @@ require $sRootDocument . '/Include/Header.php';
                             <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:90%"></select>
                         </div>
                     </div>
+                    <br/>
                     <div class="row">
-                        <div class="col-md-6"><span style="color: red">*</span><?= _("Send email notification") ?>:</div>
                         <div class="col-md-6">
-                            <input id="sendEmail-sabre" type="checkbox">
+                            <span style="color: red">*</span>
+                            <input id="sendEmail-sabre" type="checkbox" name="sendEmail-sabre"> <label for="sendEmail-sabre"><?= _("Send email notification") ?></label>
+                        </div>
+                        <div class="col-md-3">
+                            <label><?= _("With Right") ?> :</label>
+                        </div>
+                        <div class="col-md-3">
+                            <select name="person-group-Id" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
+                                <option value="2">[👀  ] -- [R ]</option>
+                                <option value="3">[👀 ✐] -- [RW]</option>
+                            </select>
                         </div>
                     </div>
                     <br/>
@@ -137,7 +138,8 @@ require $sRootDocument . '/Include/Header.php';
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.currentPersonID = <?= $personId ?>;
-    window.CRM.browserImage = false
+    window.CRM.browserImage = false,
+    window.CRM.currentpath = '<?= $user->getCurrentpath() ?>';
 </script>
 
 <!-- Drag and drop -->

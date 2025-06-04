@@ -1,6 +1,6 @@
 /* copyright 2018 Philippe Logel */
 
-$(function() {
+$(function () {
     // Helper function to get parameters from the query string.
     // use to search the ckeditor function to put the right param in the ckeditor image tool
     const getUrlParam = (paramName) => {
@@ -25,7 +25,7 @@ $(function() {
     var uploadWindow = null;
     var oldTextField = null;
 
-    window.CRM.dataEDriveTable = $("#edrive-table").DataTable({
+    var DataTableOpts = {
         ajax: {
             url: window.CRM.root + "/api/filemanager/" + window.CRM.currentPersonID,
             type: 'POST',
@@ -33,7 +33,7 @@ $(function() {
             dataSrc: "files",
             "beforeSend": function (xhr) {
                 xhr.setRequestHeader('Authorization',
-                    "Bearer " +  window.CRM.jwtToken
+                    "Bearer " + window.CRM.jwtToken
                 );
             }
         },
@@ -82,12 +82,12 @@ $(function() {
                     if (!full.dir) {
                         var ret = '<div class="btn-group">' +
                             '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-primary btn-sm" data-personid="1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
-                            '   <button type="button" class="btn btn-' + (full.isShared?'success':'default') + ' btn-sm shareFile" data-personid="1"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
+                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="1"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
                             '</div>';
                         return ret;
                     } else if (!full.link) {
                         var ret = '<div class="btn-group">' +
-                            '   <button type="button" class="btn btn-' + (full.isShared?'success':'default') + ' btn-sm shareFile" data-personid="1"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
+                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="1"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
                             '</div>';
                         return ret;
                     }
@@ -135,8 +135,128 @@ $(function() {
         "initComplete": function (settings, json) {
             installDragAndDrop();
         }
+    };
+
+
+    $.extend(DataTableOpts, window.CRM.plugin.dataTable);
+
+    window.CRM.plugin.dataTable.buttons.push({
+        text: '<i class="fas fa-trash-alt"></i> ' + i18next.t("Delete"),
+        attr: {
+            id: 'trash-drop',
+            'data-personid':window.CRM.currentPersonID,
+            'data-toggle':"tooltip",
+            'data-placement': "top",
+            'title': i18next.t("Delete"),            
+        },
+        enabled: false,
+        className: 'btn btn-danger btn-sm drag-elements trash-drop ui-droppable',
+        action: function (e, dt, node, config) {
+            var selected = $.map(window.CRM.dataEDriveTable.rows('.selected').data(), function (item) {
+                return item['name']
+            });
+
+            var title = "";
+
+            if (selected.length > 1) {
+                title = i18next.t("You are about to delete several items together")
+            } else if (selected.length == 1) {
+                title = i18next.t("You're about to remove an item");
+            }
+
+            if (selected.length) {
+                bootbox.confirm({
+                    title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + title + '</span>',
+                    message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + '</span>',
+                    buttons: {
+                        cancel: {
+                            label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
+                            className: 'btn-primary'
+                        },
+                        confirm: {
+                            label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            window.CRM.APIRequest({
+                                method: 'POST',
+                                path: 'filemanager/deleteFiles',
+                                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "files": selected })
+                            }, function (data) {
+                                if (data && data.success) {
+                                    if (data.error.length) {
+                                        alert(data.error[0]);
+                                    }
+                                    window.CRM.reloadEDriveTable(function () {
+                                        selected.length = 0;
+                                    });
+                                }
+                            });
+                        }
+                    }
+                });
+            } else {
+                window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("You've to select at least one line !!!"));
+            }
+        }
     });
 
+    window.CRM.plugin.dataTable.buttons.push({
+        text: '<i class="far fa-folder"></i> ' + i18next.t("Create a Folder"),
+        className: 'btn btn-warning btn-sm new-folder',
+        attr: {
+            id: 'new-folder',
+            'data-personid':window.CRM.currentPersonID,
+            'title': i18next.t("Create a Folder"),
+            'data-toggle': 'tooltip',
+            'data-placement':"top"
+        },
+        enabled: true,        
+        action: function (e, dt, node, config) {
+            var personID = $('#new-folder').data("personid");
+
+            bootbox.prompt(i18next.t("Set your Folder name"), function (result) {
+                if (result != '' && result != null) {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'filemanager/newFolder',
+                        data: JSON.stringify({ "personID": personID, "folder": result })
+                    }, function (data) {
+                        if (data && !data.success) {
+                            window.CRM.DisplayAlert(i18next.t("Error"), data.message);
+                        }
+
+                        window.CRM.reloadEDriveTable(function () {
+                            selected.length = 0;// no more selected files
+                        });
+                    });
+                }
+            });
+        }
+    });
+
+    window.CRM.plugin.dataTable.buttons.push({
+        text: '<i class="fas fa-sync-alt"></i> ' + i18next.t("Actualize files"),
+        className: 'btn btn-default btn-sm drag-elements filemanager-refresh',
+        attr: {
+            id: 'filemanager-refresh',
+            'data-personid':window.CRM.currentPersonID,
+            'title': i18next.t("Actualize files"),
+            'data-toggle': 'tooltip',
+            'data-placement':"top"
+        },
+        enabled: true,        
+        action: function (e, dt, node, config) {
+            var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
+            window.CRM.reloadEDriveTable(function () {
+                realRows.select();        
+            });
+        }
+    });
+
+    window.CRM.dataEDriveTable = $("#edrive-table").DataTable(DataTableOpts);
 
     $("body").on('click', '.filemanager-download', function (e) {
         var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data()
@@ -144,16 +264,16 @@ $(function() {
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'filemanager/getRealLink',
-                data: JSON.stringify({"personID": window.CRM.currentPersonID, "pathFile": value.path})
-            },function (data) {
+                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "pathFile": value.path })
+            }, function (data) {
                 if (data && data.success) {
                     var fileUrl = data.address;
                     if (window.CRM.donatedItemID) {
                         window.CRM.APIRequest({
                             method: 'POST',
                             path: 'fundraiser/donatedItem/submit/picture',
-                            data: JSON.stringify({"DonatedItemID": window.CRM.donatedItemID, "pathFile": fileUrl})
-                        },function (data) {
+                            data: JSON.stringify({ "DonatedItemID": window.CRM.donatedItemID, "pathFile": fileUrl })
+                        }, function (data) {
                             window.close();
                         });
                     } else {
@@ -166,9 +286,53 @@ $(function() {
         });
     });
 
+    // click in the table
+    $('#edrive-table tbody').on('click', 'tr', function(e) {
+        var data = window.CRM.dataEDriveTable.row(this).data();
+        let id = data['name'];
+        
+        if (window.CRM.browserImage == true) {
+            if (selectedRows) {
+                $(".filemanager-download").css("display", "block");
+            } else {
+                $(".filemanager-download").css("display", "none");
+            }
+        }
 
-    $('#edrive-table tbody').on('click', 'td', function (e) {
+        $(this).toggleClass('selected');
 
+        var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
+
+        if (selectedRows) {
+            $("#trash-drop").removeClass('disabled');            
+        } else {
+            $("#trash-drop").addClass('disabled');            
+        }
+
+        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform))) && selectedRows >= 1) {
+
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'filemanager/getPreview',
+                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
+            }, function (data) {
+                if (data && data.success) {
+                    $('.filmanager-right').show();
+                    $('.preview-title').html(data.name);
+                    $('.preview').html(data.path);
+
+                    addSharedPersonsSabre();
+                }
+            });
+        } else {
+            $('.filmanager-right').hide();
+            $('.preview-title').html(data.name);
+            $('.preview').html('');
+        }
+    });
+
+    /*$('#edrive-table tbody').on('click', 'td', function (e) {
         var id = $(this).parent().attr('id');
         var col = window.CRM.dataEDriveTable.cell(this).index().column;
 
@@ -186,12 +350,13 @@ $(function() {
                 selected.splice(index, 1);
             }
 
-            $(this).parent().toggleClass('selected');
+            //$(this).parent().toggleClass('selected');
 
             var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
 
             if (selectedRows == 0) {
                 selected.length = 0;// no lines
+                $('.filmanager-right').hide();
             }
 
             if (window.CRM.browserImage == true) {
@@ -208,13 +373,13 @@ $(function() {
                 window.CRM.APIRequest({
                     method: 'POST',
                     path: 'filemanager/getPreview',
-                    data: JSON.stringify({"personID": window.CRM.currentPersonID, "name": id})
-                },function (data) {
+                    data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
+                }, function (data) {
                     if (data && data.success) {
                         $('.filmanager-right').show();
-                        $('.preview-title').html(data.name);                    
+                        $('.preview-title').html(data.name);
                         $('.preview').html(data.path);
-                        
+
                         addSharedPersonsSabre();
                     }
                 });
@@ -223,7 +388,7 @@ $(function() {
             }
         }
 
-    });
+    });*/
 
 
     $("body").on('click', '.fileName', function (e) {
@@ -255,7 +420,7 @@ $(function() {
                                 "newName": result,
                                 "type": type
                             })
-                        },function (data) {
+                        }, function (data) {
                             if (data && data.success) {
                                 window.CRM.reloadEDriveTable();
                             }
@@ -314,7 +479,7 @@ $(function() {
                         "newName": newName,
                         "type": type
                     })
-                },function (data) {
+                }, function (data) {
                     if (data && data.success) {
                         window.CRM.reloadEDriveTable();
                     }
@@ -337,166 +502,6 @@ $(function() {
         }
     });
 
-    $('.trash-drop').on('click', function () {
-        var selected = $.map(window.CRM.dataEDriveTable.rows('.selected').data(), function (item) {
-            return item['name']
-        });
-
-        var title = "";
-
-        if (selected.length > 1) {
-            title = i18next.t("You are about to delete several items together")
-        } else if (selected.length == 1) {
-            title = i18next.t("You're about to remove an item");
-        }
-
-        if (selected.length) {
-            bootbox.confirm({
-                title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + title + '</span>',
-                message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + '</span>',
-                buttons: {
-                    cancel: {
-                        label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
-                        className: 'btn-primary'
-                    },
-                    confirm: {
-                        label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
-                        className: 'btn-danger'
-                    }
-                },
-                callback: function (result) {
-                    if (result) {
-                        window.CRM.APIRequest({
-                            method: 'POST',
-                            path: 'filemanager/deleteFiles',
-                            data: JSON.stringify({"personID": window.CRM.currentPersonID, "files": selected})
-                        },function (data) {
-                            if (data && data.success) {
-                                if (data.error.length) {
-                                    alert(data.error[0]);
-                                }
-                                window.CRM.reloadEDriveTable(function () {
-                                    selected.length = 0;
-                                });
-                            }
-                        });
-                    }
-                }
-            });
-        } else {
-            window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("You've to select at least one line !!!"));
-        }
-    });
-
-    $('.trash-drop').droppable({
-        drop: function (event, ui) {
-            var selected = $.map(window.CRM.dataEDriveTable.rows('.selected').data(), function (item) {
-                return item['name']
-            });
-
-            var len = selected.length;
-
-            if (len > 1) {
-                bootbox.confirm({
-                    title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("You are about to delete several items together") + '</span>',
-                    message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + '</span>',
-                    buttons: {
-                        cancel: {
-                            label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
-                            className: 'btn-primary'
-                        },
-                        confirm: {
-                            label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
-                            className: 'btn-danger'
-                        }
-                    },
-                    callback: function (result) {
-                        if (result) {
-                            window.CRM.APIRequest({
-                                method: 'POST',
-                                path: 'filemanager/deleteFiles',
-                                data: JSON.stringify({"personID": window.CRM.currentPersonID, "files": selected})
-                            },function (data) {
-                                if (data && data.success) {
-                                    window.CRM.reloadEDriveTable(function () {
-                                        selected.length = 0;
-                                    });
-                                }
-                            });
-                        }
-                    }
-                });
-
-                return;
-            }
-
-            var name = $(ui.draggable).attr('id');
-            var type = $(ui.draggable).attr('type');
-
-            if (type == 'folder') {
-                bootbox.confirm({
-                    title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("You're about to remove a folder and it's content") + '</span>',
-                    message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + '</span>',
-                    buttons: {
-                        cancel: {
-                            label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
-                            className: 'btn-primary'
-                        },
-                        confirm: {
-                            label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
-                            className: 'btn-danger'
-                        }
-                    },
-                    callback: function (result) {
-                        if (result) {
-                            window.CRM.APIRequest({
-                                method: 'POST',
-                                path: 'filemanager/deleteFiles',
-                                data: JSON.stringify({"personID": window.CRM.currentPersonID, "files": [name]})
-                            },function (data) {
-                                if (data && data.success) {
-                                    window.CRM.reloadEDriveTable(function () {
-                                        selected.length = 0;
-                                    });
-                                }
-                            });
-                        }
-                    }
-                });
-            } else {// in the case of a file
-                bootbox.confirm({
-                    title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("You're about to remove an item") + "</span>",
-                    message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + "</span>",
-                    buttons: {
-                        cancel: {
-                            label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
-                            className: 'btn-primary'
-                        },
-                        confirm: {
-                            label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
-                            className: 'btn-danger'
-                        }
-                    },
-                    callback: function (result) {
-                        if (result) {
-                            window.CRM.APIRequest({
-                                method: 'POST',
-                                path: 'filemanager/deleteFiles',
-                                data: JSON.stringify({"personID": window.CRM.currentPersonID, "files": [name]})
-                            },function (data) {
-                                if (data && data.success) {
-                                    window.CRM.reloadEDriveTable(function () {
-                                        selected.length = 0;
-                                    });
-                                }
-                            });
-                        }
-                    }
-                });
-            }
-        }
-    });
-
     $('.folder-back-drop').droppable({
         drop: function (event, ui) {
             var name = $(ui.draggable).attr('id');
@@ -515,7 +520,7 @@ $(function() {
                         "folder": folderName,
                         "files": selected
                     })
-                },function (data) {
+                }, function (data) {
                     if (data && !data.success) {
                         window.CRM.DisplayAlert(i18next.t("Error"), data.message);
                     }
@@ -533,7 +538,7 @@ $(function() {
                         "folder": folderName,
                         "files": [name]
                     })
-                },function (data) {
+                }, function (data) {
                     if (data && !data.success) {
                         window.CRM.DisplayAlert(i18next.t("Error"), data.message);
                     }
@@ -573,7 +578,7 @@ $(function() {
                             "folder": folderName,
                             "files": selected
                         })
-                    },function (data) {
+                    }, function (data) {
                         if (data && !data.success) {
                             window.CRM.DisplayAlert(i18next.t("Error"), data.message);
                         }
@@ -591,7 +596,7 @@ $(function() {
                             "folder": folderName,
                             "files": [name]
                         })
-                    },function (data) {
+                    }, function (data) {
                         if (data && !data.success) {
                             window.CRM.DisplayAlert(i18next.t("Error"), data.message);
                         }
@@ -609,8 +614,8 @@ $(function() {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'filemanager/changeFolder',
-            data: JSON.stringify({"personID": personID, "folder": folder})
-        },function (data) {
+            data: JSON.stringify({ "personID": personID, "folder": folder })
+        }, function (data) {
             if (data && data.success) {
                 window.CRM.reloadEDriveTable(function () {
                     $(".folder-back-drop").show();
@@ -620,11 +625,6 @@ $(function() {
             }
         });
     }
-
-    $(document).on('click', '.filemanager-refresh', function () {
-        window.CRM.reloadEDriveTable(function () {
-        });
-    });
 
     $(document).on('click', '.change-folder', function () {
         if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
@@ -650,28 +650,6 @@ $(function() {
         }
     });
 
-    $(".new-folder").on('click', function () {
-        var personID = $(this).data("personid");
-
-        bootbox.prompt(i18next.t("Set your Folder name"), function (result) {
-            if (result != '') {
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'filemanager/newFolder',
-                    data: JSON.stringify({"personID": personID, "folder": result})
-                },function (data) {
-                    if (data && !data.success) {
-                        window.CRM.DisplayAlert(i18next.t("Error"), data.message);
-                    }
-
-                    window.CRM.reloadEDriveTable(function () {
-                        selected.length = 0;// no more selected files
-                    });
-                });
-            }
-        });
-    });
-
     $(".folder-back-drop").on('click', function () {
         var personID = $(this).data("personid");
 
@@ -694,69 +672,21 @@ $(function() {
         });
     });
 
-
-    // dead code
-    const BootboxContentUploadFile = () => {
-        var frm_str = '  <form action="#" method="post" id="formId" enctype="multipart/form-data">'
-            + '  <div class="card">'
-            + '     <div class="card-body">'
-            + '       <label for="noteInputFile">' + i18next.t("Files input") + " : " + '</label>'
-            + '       <input type="file" id="noteInputFile" name="noteInputFile[]" multiple>'
-            + '       ' + i18next.t('Upload your files')
-            + '     </div>'
-            + '     <div class="card-footer">'
-            + '       <input type="submit" class="btn btn-success" name="Submit" value="' + i18next.t("Upload") + '">'
-            + '     </div>'
-            + '  </div>'
-            + '  </form>';
-
-        var object = $('<div/>').html(frm_str).contents();
-
-        return object
-    }
-
-    // dead code
-    const CreateUploadFileWindow = () => {
-        var modal = bootbox.dialog({
-            title: i18next.t("Upload your Files"),
-            message: BootboxContentUploadFile(),
-            size: "large",
-            buttons: [
-                {
-                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
-                    className: "btn btn-default",
-                    callback: function () {
-                        modal.modal("hide");
-                        return true;
-                    }
-                },
-            ],
-            show: false,
-            onEscape: function () {
-                modal.modal("hide");
-            }
-        });
-
-        uploadEvent();
-
-        return modal;
-    }
-
     const uploadEvent = () => {
         window.CRM.ElementListener('#formId', 'submit', function (event) {
             event.preventDefault();
-            
+
             const fileInput = document.getElementById('noteInputFile');
 
             let totalFilesToUpload = fileInput.files.length;
 
             //nothing was selected 
-            if(totalFilesToUpload === 0) {
+            if (totalFilesToUpload === 0) {
                 alert('Please select one or more files.');
                 return;
             }
 
-            for(let i=0;i<totalFilesToUpload; i++) {
+            for (let i = 0; i < totalFilesToUpload; i++) {
                 const file = fileInput.files[i];
                 const formData = new FormData();
                 formData.append('noteInputFile', file);
@@ -780,57 +710,7 @@ $(function() {
         });
     }
 
-    $("#uploadFile").on('click', function () {
-        uploadWindow = CreateUploadFileWindow();
-
-        uploadWindow.modal("show");
-    });
-
-
-    // the share files
-    // dead code
-    window.CRM.BootboxContentShareFiles = function () {
-        var frm_str = '<div>'
-            + '<div class="col-md-4">'
-            + '<span style="color: red">*</span>' + i18next.t("With") + ":"
-            + '</div>'
-            + '<div class="col-md-8">'
-            + '<select size="6" style="width:100%" id="select-share-persons" multiple>'
-            + '</select>'
-            + '</div>'
-            + '</div>'
-            + '<div class="row div-title">'
-            + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Rights") + ":</div>"
-            + '<div class="col-md-8">'
-            + '<select name="person-group-Id" id="person-group-rights" class="form-control form-control-sm"'
-            + 'style="width:100%" data-placeholder="text to place">'
-            + '<option value="0">' + i18next.t("Select your rights") + " [👀  ]" + i18next.t("or") + "[👀 ✐]" + ' -- </option>'
-            + '<option value="1">' + i18next.t("[👀  ]") + ' -- ' + i18next.t("[R ]") + '</option>'
-            + '<option value="2">' + i18next.t("[👀 ✐]") + ' -- ' + i18next.t("[RW]") + '</option>'
-            + '</select>'
-            + '</div>'
-            + '</div>'
-            + '<div class="row div-title">'
-            + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Send email notification") + ":</div>"
-            + '<div class="col-md-8">'
-            + '<input id="sendEmail" type="checkbox">'
-            + '</div>'
-            + '</div>'
-            + '<div class="row div-title">'
-            + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add persons/Family/groups") + ":</div>"
-            + '<div class="col-md-8">'
-            + '<select name="person-group-Id" id="person-group-Id" class="form-control select2"'
-            + 'style="width:100%">'
-            + '</select>'
-            + '</div>'            
-            + '</div>';
-
-        var object = $('<div/>').html(frm_str).contents();
-
-        return object
-    }
-
-// Share Files management
+    // Share Files management
     $("#preview-person-group-sabre-Id").select2({
         language: window.CRM.shortLocale,
         minimumInputLength: 2,
@@ -838,27 +718,28 @@ $(function() {
         allowClear: true, // This is for clear get the clear button if wanted
         ajax: {
             url: function (params) {
-                return window.CRM.root + "/api/people/searchonlyuser/" + params.term;
+                return window.CRM.root + "/api/people/searchonlyuserwithedrive/" + params.term;
             },
             headers: {
-                "Authorization" : "Bearer "+window.CRM.jwtToken
+                "Authorization": "Bearer " + window.CRM.jwtToken
             },
             dataType: 'json',
             delay: 250,
             data: "",
             processResults: function (data, params) {
-                return {results: data};
+                return { results: data };
             },
             cache: true
         }
     });
 
     $("#preview-person-group-sabre-Id").on("select2:select", function (e) {
-        let access = 2; // read by default
-        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
-        let rows=[];  
-        for (let i=0; i < data.length ;i++){
-           rows.push(data[i]);
+        let access = $("#person-group-rights").val();
+        var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
+        let data = realRows.data();
+        let rows = [];
+        for (let i = 0; i < data.length; i++) {
+            rows.push(data[i]);
         }
 
         let notification = document.getElementById("sendEmail-sabre").checked
@@ -874,9 +755,11 @@ $(function() {
                     "access": access, // by default read and write
                     "notification": notification
                 })
-            },function (data) {
+            }, function (data) {
+                window.CRM.reloadEDriveTable(function () {
+                    realRows.select();
+                });
                 addSharedPersonsSabre();
-                window.CRM.reloadEDriveTable();
             });
         }
     });
@@ -884,13 +767,12 @@ $(function() {
     const addSharedPersonsSabre = () => {
         $("#dropdownMenuButtonRights").prop('disabled', true);
         $("#delete-share").prop('disabled', true);
-        $("#delete-all-share").prop('disabled', true);        
+        $("#delete-all-share").prop('disabled', true);
 
-
-        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
-        let rows=[];  
-        for (let i=0; i < data.length ;i++){
-           rows.push(data[i]);
+        let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
+        let rows = [];
+        for (let i = 0; i < data.length; i++) {
+            rows.push(data[i]);
         }
 
         $('#select-share-persons-sabre').find('option').remove();
@@ -902,7 +784,7 @@ $(function() {
                 "currentPersonID": window.CRM.currentPersonID,
                 "rows": rows
             })
-        },function (data) {
+        }, function (data) {
             var elt = document.getElementById("select-share-persons-sabre");
             var len = data.length;
 
@@ -920,7 +802,7 @@ $(function() {
         });
     }
 
-    $("#select-share-persons-sabre").on('change',function () {
+    $("#select-share-persons-sabre").on('change', function () {
         let values = $('#select-share-persons-sabre').val();
 
         let activated = false;
@@ -930,424 +812,164 @@ $(function() {
 
         $("#dropdownMenuButtonRights").prop('disabled', !activated);
         $("#delete-share").prop('disabled', !activated);
-        $("#delete-all-share").prop('disabled', !activated);        
+        $("#delete-all-share").prop('disabled', !activated);
     });
 
-    $("#set-right-read").on('click',function () {
-        var rightAccess = 2;        
-        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
-        var rows=[];  
-        for (let i=0; i < data.length ;i++){
-           rows.push(data[i]);
-        }        
+    $("#set-right-read").on('click', function () {
+        var rightAccess = 2;
+        let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
+        var rows = [];
+        for (let i = 0; i < data.length; i++) {
+            rows.push(data[i]);
+        }
 
         $('#select-share-persons-sabre :selected').each(function (i, sel) {
             var selection = sel;
             let personID = $(sel).val();
             let str = $(sel).text();
-            
+
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'sharedocument/setrightssabre',
                 data: JSON.stringify({
-                    "rows":rows,
-                    "currentPersonID": window.CRM.currentPersonID,                    
-                    "personToShareID": personID, 
+                    "rows": rows,
+                    "currentPersonID": window.CRM.currentPersonID,
+                    "personToShareID": personID,
                     "rightAccess": rightAccess
                 })
-            },function (data) {
+            }, function (data) {
                 if (rightAccess == 2) {
                     res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
                 } else {
                     res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
                 }
                 $(selection).text(res);
-            })            
+            })
         });
     });
 
-     $("#set-right-read-write").on('click',function () {
-        var rightAccess = 3;      
-        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
-        var rows=[];  
-        for (let i=0; i < data.length ;i++){
-           rows.push(data[i]);
-        }        
+    $("#set-right-read-write").on('click', function () {
+        var rightAccess = 3;
+        let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
+        var rows = [];
+        for (let i = 0; i < data.length; i++) {
+            rows.push(data[i]);
+        }
 
         $('#select-share-persons-sabre :selected').each(function (i, sel) {
             var selection = sel;
             let personID = $(sel).val();
             let str = $(sel).text();
-            
+
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'sharedocument/setrightssabre',
                 data: JSON.stringify({
-                    "rows":rows,
-                    "currentPersonID": window.CRM.currentPersonID,                    
-                    "personToShareID": personID, 
+                    "rows": rows,
+                    "currentPersonID": window.CRM.currentPersonID,
+                    "personToShareID": personID,
                     "rightAccess": rightAccess
                 })
-            },function (data) {
+            }, function (data) {
                 if (rightAccess == 2) {
                     res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
                 } else {
                     res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
                 }
                 $(selection).text(res);
-            })            
+            })
         });
     });
 
 
-    $("#person-group-rights-sabre").on('change',function () {
-        var rightAccess = parseInt($(this).val());        
-        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
-        var rows=[];  
-        for (let i=0; i < data.length ;i++){
-           rows.push(data[i]);
-        }        
+    $("#person-group-rights-sabre").on('change', function () {
+        var rightAccess = parseInt($(this).val());
+        let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
+        var rows = [];
+        for (let i = 0; i < data.length; i++) {
+            rows.push(data[i]);
+        }
 
         $('#select-share-persons-sabre :selected').each(function (i, sel) {
             var selection = sel;
             let personID = $(sel).val();
             let str = $(sel).text();
-            
+
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'sharedocument/setrightssabre',
                 data: JSON.stringify({
-                    "rows":rows,
-                    "currentPersonID": window.CRM.currentPersonID,                    
-                    "personToShareID": personID, 
+                    "rows": rows,
+                    "currentPersonID": window.CRM.currentPersonID,
+                    "personToShareID": personID,
                     "rightAccess": rightAccess
                 })
-            },function (data) {
+            }, function (data) {
                 if (rightAccess == 2) {
                     res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
                 } else {
                     res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
                 }
                 $(selection).text(res);
-            })            
+            })
         });
-
-        
     });
 
-    $("#delete-share").on('click',function () {      
-        var realRows = window.CRM.dataEDriveTable.rows( { selected: true });
+    $("#delete-share").on('click', function () {
+        var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
         var data = realRows.data();
-        var rows = [];  
-        for (let i=0; i < data.length ;i++){
-           rows.push(data[i]);
-        }  
+        var rows = [];
+        for (let i = 0; i < data.length; i++) {
+            rows.push(data[i]);
+        }
 
         bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function (result) {
             if (result) {
-                $('#select-share-persons-sabre :selected').each(function (i, sel) {     
-                    var personID = $(sel).val();
-                           
+                $('#select-share-persons-sabre :selected').each(function (i, sel) {
+                    var personPrincipal = $(sel).val();
+
                     window.CRM.APIRequest({
                         method: 'POST',
                         path: 'sharedocument/deletepersonsabre',
-                        data: JSON.stringify({"rows": rows, "personID": window.CRM.currentPersonID})
-                    },function (data) {
-                        window.CRM.reloadEDriveTable();     
-                        $("#select-share-persons-sabre option[value='" + personID + "']").remove();
-                        window.CRM.dataEDriveTable.row(realRows).select();                   
-
-                        /*if (data.count == 0) {
-                            window.CRM.reloadEDriveTable();                
-                            $("#preview-person-group-sabre-Id").val("").trigger("change");
-                        } */                       
+                        data: JSON.stringify({
+                            "rows": rows,
+                            "personPrincipal": personPrincipal,
+                            "currentPersonID": window.CRM.currentPersonID
+                        })
+                    }, function (data) {
+                        window.CRM.reloadEDriveTable(function () {
+                            realRows.select();
+                        });
+                        $("#select-share-persons-sabre option[value='" + personPrincipal + "']").remove();
+                        addSharedPersonsSabre();
                     });
                 });
             }
-        });                          
+        });
     });
-    
 
-    $("#delete-all-share").on('click',function () {        
-        let data=window.CRM.dataEDriveTable.rows( { selected: true }).data();
-        var rows=[];  
-        for (let i=0; i < data.length ;i++){
-           rows.push(data[i]);
+
+    $("#delete-all-share").on('click', function () {
+        let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
+        var rows = [];
+        for (let i = 0; i < data.length; i++) {
+            rows.push(data[i]);
         }
         bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function (result) {
             if (result) {
                 window.CRM.APIRequest({
                     method: 'POST',
                     path: 'sharedocument/cleardocumentsabre',
-                    data: JSON.stringify({"rows": rows})
-                },function (data) {
+                    data: JSON.stringify({ "rows": rows })
+                }, function (data) {
                     addPersonsFromNotes(noteId);
                     $(state).css('color', '#777');
                     $(button).data('shared', 0);
                     modal.modal("hide");
                     window.CRM.reloadEDriveTable();
-                });   
-            }
-        });                          
-    });
-
-    
-
-       
-// dead code
-    const addPersonsFromNotes = (noteId) => {
-        $('#select-share-persons').find('option').remove();
-
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'sharedocument/getallperson',
-            data: JSON.stringify({"noteId": noteId})
-        },function (data) {
-            var elt = document.getElementById("select-share-persons");
-            var len = data.length;
-
-            for (i = 0; i < len; ++i) {
-                var option = document.createElement("option");
-                // there is a groups.type in function of the new plan of schema
-                option.text = data[i].name;
-                //option.title = data[i].type;
-                option.value = data[i].id;
-
-                elt.appendChild(option);
-            }
-        });
-
-        //addProfilesToMainDropdown();
-    }
-
-    
-    
-    // dead  code
-    window.CRM.addSharedButtonsActions = function (noteId, isShared, button, state, modal) {
-        $("#person-group-Id").select2({
-            language: window.CRM.shortLocale,
-            minimumInputLength: 2,
-            placeholder: " -- " + i18next.t("Person or Family or Group") + " -- ",
-            allowClear: true, // This is for clear get the clear button if wanted
-            ajax: {
-                url: function (params) {
-                    return window.CRM.root + "/api/people/search/" + params.term;
-                },
-                headers: {
-                    "Authorization" : "Bearer "+window.CRM.jwtToken
-                },
-                dataType: 'json',
-                delay: 250,
-                data: "",
-                processResults: function (data, params) {
-                    return {results: data};
-                },
-                cache: true
-            }
-        });
-
-        $("#person-group-rights").on('change',function () {
-            var rightAccess = $(this).val();
-            var deferreds = [];
-            var i = 0;
-
-            $('#select-share-persons :selected').each(function (i, sel) {
-                var personID = $(sel).val();
-                var str = $(sel).text();
-
-                deferreds.push(
-                    window.CRM.APIRequest({
-                        method: 'POST',
-                        path: 'sharedocument/setrights',
-                        data: JSON.stringify({"noteId": noteId, "personID": personID, "rightAccess": rightAccess})
-                    },function (data) {
-                        if (rightAccess == 1) {
-                            res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
-                        } else {
-                            res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
-                        }
-
-                        var elt = [personID, res];
-                        deferreds[i++] = elt;
-                    })
-                );
-
-            });
-
-            $.when.apply($, deferreds).done(function (data) {
-                // all images are now prefetched
-                //addPersonsFromNotes(noteId);
-
-                deferreds.forEach(function (element) {
-                    $('#select-share-persons option[value="' + element[0] + '"]').text(element[1]);
-                });
-
-                $("#person-group-rights option:first").attr('selected', 'selected');
-            });
-        });
-
-        $("#select-share-persons").on('change',function () {
-            $("#person-group-rights").val(0);
-        });
-
-
-        $("#person-group-Id").on("select2:select", function (e) {
-            var notification = ($("#sendEmail").is(':checked')) ? 1 : 0;
-
-            if (e.params.data.personID !== undefined) {
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'sharedocument/addperson',
-                    data: JSON.stringify({
-                        "noteId": noteId,
-                        "currentPersonID": window.CRM.currentPersonID,
-                        "personID": e.params.data.personID,
-                        "notification": notification
-                    })
-                },function (data) {
-                    addPersonsFromNotes(noteId);
-                    $(state).css('color', 'green');
-                    $(button).data('shared', 1);
-                });
-            } else if (e.params.data.groupID !== undefined) {
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'sharedocument/addgroup',
-                    data: JSON.stringify({
-                        "noteId": noteId,
-                        "currentPersonID": window.CRM.currentPersonID,
-                        "groupID": e.params.data.groupID,
-                        "notification": notification
-                    })
-                },function (data) {
-                    addPersonsFromNotes(noteId);
-                    $(state).css('color', 'green');
-                    $(button).data('shared', 1);
-                });
-            } else if (e.params.data.familyID !== undefined) {
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'sharedocument/addfamily',
-                    data: JSON.stringify({
-                        "noteId": noteId,
-                        "currentPersonID": window.CRM.currentPersonID,
-                        "familyID": e.params.data.familyID,
-                        "notification": notification
-                    })
-                },function (data) {
-                    addPersonsFromNotes(noteId);
-                    $(state).css('color', 'green');
-                    $(button).data('shared', 1);
                 });
             }
         });
-
-        addPersonsFromNotes(noteId);
-        modal.modal('show');
-
-        // this will ensure that image and table can be focused
-        $(document).on('focusin', function (e) {
-            e.stopImmediatePropagation();
-        });
-    }
-
-    // dead code
-    const openShareFilesWindow = (event, button, state) => {
-        var noteId = event.currentTarget.dataset.id;
-        var isShared = event.currentTarget.dataset.shared;
-
-        var modal = bootbox.dialog({
-            message: window.CRM.BootboxContentShareFiles(),
-            title:i18next.t("Share your File"),
-            size: "large",
-            buttons: [
-                {
-                    label: '<i class="fas fa-times"></i> ' + i18next.t("Delete"),
-                    className: "btn btn-warning",
-                    callback: function () {
-                        bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function (result) {
-                            if (result) {
-                                $('#select-share-persons :selected').each(function (i, sel) {
-                                    var personID = $(sel).val();
-
-                                    window.CRM.APIRequest({
-                                        method: 'POST',
-                                        path: 'sharedocument/deleteperson',
-                                        data: JSON.stringify({"noteId": noteId, "personID": personID})
-                                    },function (data) {
-                                        $("#select-share-persons option[value='" + personID + "']").remove();
-
-                                        if (data.count == 0) {
-                                            $(state).css('color', '#777');
-                                            $(button).data('shared', 0);
-                                        }
-
-                                        $("#person-group-Id").val("").trigger("change");
-                                    });
-                                });
-                            }
-                        });
-                        return false;
-                    }
-                },
-                {
-                    label: '<i class="far fa-stop-circle"></i> ' + i18next.t("Stop sharing"),
-                    className: "btn btn-danger",
-                    callback: function () {
-                        bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function (result) {
-                            if (result) {
-                                window.CRM.APIRequest({
-                                    method: 'POST',
-                                    path: 'sharedocument/cleardocument',
-                                    data: JSON.stringify({"noteId": noteId})
-                                },function (data) {
-                                    addPersonsFromNotes(noteId);
-                                    $(state).css('color', '#777');
-                                    $(button).data('shared', 0);
-                                    modal.modal("hide");
-                                    window.CRM.reloadEDriveTable();
-                                });
-                            }
-                        });
-                        return false;
-                    }
-                },
-                {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t("Ok"),
-                    className: "btn btn-primary",
-                    callback: function () {
-                        window.CRM.reloadEDriveTable(function () {
-                            uploadWindow.modal("hide");
-                        });
-                        return true;
-                    }
-                },
-            ],
-            show: false,
-            onEscape: function () {
-                window.CRM.dataEDriveTable.ajax.reload(function (json) {
-                    modal.modal("hide");
-                    installDragAndDrop();
-                });
-            }
-        });
-
-        window.CRM.addSharedButtonsActions(noteId, isShared, button, state, modal);
-    }
-
-    var isOpened = false;
-
-    // dead code
-    $(document).on('click', '.shareFile', function (event) {
-        var button = $(this); //Assuming first tab is selected by default
-        var state = button.find('.share-color');
-
-        if (!isOpened) {
-            openShareFilesWindow(event, button, state);
-            isOpened = true;
-        } else {
-            isOpened = false;
-        }
     });
 
     $.fn.dataTable.moment = function (format, locale) {
@@ -1394,7 +1016,5 @@ $(function() {
         installDragAndDrop();
     });
 
+    uploadEvent();
 });
-
-
-
