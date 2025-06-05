@@ -62,13 +62,14 @@
     margin-left: 130px;
 }
 
-.upload-button {
+.folder-back-button {
     position: absolute !important;
     margin-top: 9px;
     height: 32px;
     z-index: 20;
     padding: 6px;
     width: 37px;
+    border: 2px solid gray;
 }
 
 .shift-flex-wrapper-right {

@@ -47,7 +47,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="row">
             <div class="col filmanager-left">
                 <div class="btn-group">                                    
-                    <button type="button" class="btn btn-info btn-sm drag-elements folder-back-drop upload-button" data-personid="<?= $personId ?>"
+                    <button type="button" class="btn btn-info btn-sm drag-elements folder-back-drop folder-back-button" data-personid="<?= $personId ?>"
                         data-toggle="tooltip" data-placement="top" title="<?= _("Up One Level") ?>"
                         <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
                         &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
