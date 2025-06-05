@@ -22,31 +22,24 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="card">
     <div class="card-header">
-        <div class="row">
-            <div class="col-md-12">
-                
-            </div>
-        </div>
-    </div>      
-    <div class="card-body">     
+        <h3 class="card-title"><?= _('Edrive : File manager') ?></h3>        
+    </div>
+    <div class="card-body">
         <?php if ($user->isNotesEnabled() || ($user->isEditSelfEnabled())) { ?>
-    <form action="#" method="post" id="formId" enctype="multipart/form-data">
-        <div class="card">
-            <div class="card-body">
-                <label for="noteInputFile"><?= _("Files input") ?></label>
-                <input type="file" id="noteInputFile" name="noteInputFile[]" multiple>
-                    <?= _('Upload your files') ?>
-                    <button type="submit" class="btn btn-success" name="Submit"><?= _("Upload") ?></button>
-            </div>
-            <div class="card-footer">
-
-            </div>
-        </div>
-    </form>
-    <?php } ?>   
+            <form action="#" method="post" id="formId" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-body">
+                        <label for="noteInputFile"><?= _("Files input") ?></label>
+                        <input type="file" id="noteInputFile" name="noteInputFile[]" multiple>
+                        <?= _('Upload your files') ?>
+                        <button type="submit" class="btn btn-success" name="Submit"><i class="fas fa-cloud-upload-alt"></i> <?= _("Upload") ?></button>
+                    </div>
+                </div>
+            </form>
+        <?php } ?>
         <div class="row">
             <div class="col filmanager-left">
-                <div class="btn-group">                                    
+                <div class="btn-group">
                     <button type="button" class="btn btn-primary btn-sm drag-elements folder-back-drop folder-back-button" data-personid="<?= $personId ?>"
                         data-toggle="tooltip" data-placement="top" title="<?= _("Move up one level, or drag the file(s) to move them up one level.") ?>"
                         <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
@@ -77,14 +70,14 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="row div-title">
                         <div class="col-md-4"></div>
                         <div class="col-md-8 col-center">
-                            <button type="button" class="btn btn-sm btn-secondary" 
-                            id="delete-all-share" 
-                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete all shares") ?>"
-                            disabled><i class="fas fa-times"></i> <?= _("Delete") ?></button>
+                            <button type="button" class="btn btn-sm btn-secondary"
+                                id="delete-all-share"
+                                data-toggle="tooltip" data-placement="top" title="<?= _("Delete all shares") ?>"
+                                disabled><i class="fas fa-times"></i> <?= _("Delete") ?></button>
                             &nbsp;
-                            <button type="button" class="btn btn-sm btn-secondary" id="delete-share" 
-                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete shares for the selected users") ?>"
-                            disabled><i class="far fa-stop-circle"></i> <?= _("Stop sharing") ?></button>
+                            <button type="button" class="btn btn-sm btn-secondary" id="delete-share"
+                                data-toggle="tooltip" data-placement="top" title="<?= _("Delete shares for the selected users") ?>"
+                                disabled><i class="far fa-stop-circle"></i> <?= _("Stop sharing") ?></button>
                         </div>
                     </div>
                     <div class="row div-title-file-manager">
@@ -100,8 +93,8 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="col-md-4"><span style="color: red">*</span><?= _("Set Rights") ?>:</div>
                         <div class="col-md-8">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" 
-                                    id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true" 
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false" disabled>
                                     <?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . "--" ?>
                                 </button>
@@ -121,7 +114,7 @@ require $sRootDocument . '/Include/Header.php';
                             <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:90%"></select>
                         </div>
                     </div>
-                    <br/>
+                    <br />
                     <div class="row">
                         <div class="col-md-6">
                             <span style="color: red">*</span>
@@ -132,12 +125,12 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                         <div class="col-md-3">
                             <select name="person-group-Id" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
-                                <option value="2">[👀  ] -- [R ]</option>
+                                <option value="2">[👀 ] -- [R ]</option>
                                 <option value="3">[👀 ✐] -- [RW]</option>
                             </select>
                         </div>
                     </div>
-                    <br/>
+                    <br />
                 </div>
             </div>
         </div>
@@ -147,7 +140,7 @@ require $sRootDocument . '/Include/Header.php';
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.currentPersonID = <?= $personId ?>;
     window.CRM.browserImage = false,
-    window.CRM.currentpath = '<?= $user->getCurrentpath() ?>';
+        window.CRM.currentpath = '<?= $user->getCurrentpath() ?>';
 </script>
 
 <!-- Drag and drop -->
