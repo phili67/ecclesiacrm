@@ -15,6 +15,20 @@
     text-align:center;
 }
 
+.preview-title-label {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.hr-filemanager {
+    margin-left: -8px;
+    margin-right: -19px;
+}
+
+.fille-mamager-label-small{
+    font-size: 12px !important;
+}
+
 .filmanager-right {
     -ms-flex: 0 0 380px;
     flex: 0 0 380px;
@@ -60,6 +74,7 @@
 
 .preview img {
     margin-left: 130px;
+    border: 1px solid #007bff;
 }
 
 .folder-back-button {
@@ -74,6 +89,22 @@
 
 .shift-flex-wrapper-right {
     margin-left:41px !important;
+}
+
+.filemanager-text-container {
+    overflow: auto; 
+    width:377px; 
+    height:240px;
+    border:1px;
+    border-style: solid;border-color: lightgray;
+    font-size: 12px;
+    font-weight: 400;
+    border: 2px solid rgb(98, 190, 255);
+}
+
+#person-group-rights {
+    margin-top: -5px;
+    margin-left:-18px;
 }
 
 @media (max-width: 890px) {
@@ -98,5 +129,9 @@
     .filmanager-right {
         border-left: solid 1px #a19d9d;
     } 
+
+    .folder-back-button { 
+        border-color: #93c5f9 !important;
+    }
 }
 

@@ -36,10 +36,10 @@ require $sRootDocument . '/Include/Header.php';
                 <label for="noteInputFile"><?= _("Files input") ?></label>
                 <input type="file" id="noteInputFile" name="noteInputFile[]" multiple>
                     <?= _('Upload your files') ?>
-                    <input type="submit" class="btn btn-success" name="Submit" value="<?= _("Upload") ?>">
+                    <button type="submit" class="btn btn-success" name="Submit"><?= _("Upload") ?></button>
             </div>
             <div class="card-footer">
-                
+
             </div>
         </div>
     </form>
@@ -48,14 +48,12 @@ require $sRootDocument . '/Include/Header.php';
             <div class="col filmanager-left">
                 <div class="btn-group">                                    
                     <button type="button" class="btn btn-primary btn-sm drag-elements folder-back-drop folder-back-button" data-personid="<?= $personId ?>"
-                        data-toggle="tooltip" data-placement="top" title="<?= _("Up One Level") ?>"
+                        data-toggle="tooltip" data-placement="top" title="<?= _("Move up one level, or drag the file(s) to move them up one level.") ?>"
                         <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
                         &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
                     </button>
                 </div>
-                <table class="table table-striped table-bordered dataTable no-footer dtr-inline" id="edrive-table"
-                    width="100%"></table>
-
+                <table class="table table-striped table-bordered dataTable no-footer dtr-inline" id="edrive-table" width="100%"></table>
                 <hr />
                 <div class="row">
                     <div class="col-md-12">
@@ -67,8 +65,9 @@ require $sRootDocument . '/Include/Header.php';
 
             </div>
             <div class="col filmanager-right" style="display: none;">
-                <label>
+                <label class="preview-title-label">
                     <span class="preview-title" style="width: 100%;"></span><button type="button" class="close close-file-preview" data-dismiss="alert" aria-hidden="true">×</button>
+                    <hr class="hr-filemanager" />
                     <span class="preview"></span>
                 </label>
                 <br>
@@ -78,8 +77,14 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="row div-title">
                         <div class="col-md-4"></div>
                         <div class="col-md-8 col-center">
-                            <button type="button" class="btn btn-sm btn-warning" id="delete-all-share" disabled><i class="fas fa-times"></i> <?= _("Delete") ?></button>
-                            &nbsp;<button type="button" class="btn btn-sm btn-danger" id="delete-share" disabled><i class="far fa-stop-circle"></i> <?= _("Stop sharing") ?></button>
+                            <button type="button" class="btn btn-sm btn-secondary" 
+                            id="delete-all-share" 
+                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete all shares") ?>"
+                            disabled><i class="fas fa-times"></i> <?= _("Delete") ?></button>
+                            &nbsp;
+                            <button type="button" class="btn btn-sm btn-secondary" id="delete-share" 
+                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete shares for the selected users") ?>"
+                            disabled><i class="far fa-stop-circle"></i> <?= _("Stop sharing") ?></button>
                         </div>
                     </div>
                     <div class="row div-title-file-manager">
@@ -95,7 +100,9 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="col-md-4"><span style="color: red">*</span><?= _("Set Rights") ?>:</div>
                         <div class="col-md-8">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" 
+                                    id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true" 
+                                    aria-expanded="false" disabled>
                                     <?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . "--" ?>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -106,7 +113,9 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                     </div>
                     <div class="row div-title">
-                        <div class="col-md-3"><span style="color: red">*</span><?= ("Add user") ?>:</div>
+                        <div class="col-md-3">
+                            <span style="color: red">*</span><?= ("Add user") ?>:
+                        </div>
                         <div class="col-md-9">
                             <a data-toggle="popover" title="" data-content="<?= _("Use this method to share files with individuals or teams within your organization. If the recipient already has access to the share, but can't locate it, you can send them the internal link to facilitate access.") ?>" target="_blank" class="blue infoFiles" data-original-title="<?= _("Definition") ?>"><i class="far  fa-question-circle"></i></a>
                             <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:90%"></select>
@@ -116,10 +125,10 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="row">
                         <div class="col-md-6">
                             <span style="color: red">*</span>
-                            <input id="sendEmail-sabre" type="checkbox" name="sendEmail-sabre"> <label for="sendEmail-sabre"><?= _("Send email notification") ?></label>
+                            <input id="sendEmail-sabre" type="checkbox" name="sendEmail-sabre"> <label for="sendEmail-sabre" class="fille-mamager-label-small"><?= _("Send email notification") ?></label>
                         </div>
                         <div class="col-md-3">
-                            <label><?= _("With Right") ?> :</label>
+                            <label class="fille-mamager-label-small"><?= _("With Right") ?> :</label>
                         </div>
                         <div class="col-md-3">
                             <select name="person-group-Id" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">

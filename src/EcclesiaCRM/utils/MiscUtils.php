@@ -7,18 +7,22 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemURLs;
 
 use EcclesiaCRM\PledgeQuery;
+use EcclesiaCRM\PluginQuery;
 
-use PhpOffice\PhpWord\IOFactory;
-use Propel\Runtime\Propel;
-
+use PhpOffice\PhpWord\IOFactory as PHPWordIOFactory;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Html;
 use PhpOffice\PhpWord\Style\ListItem;
-use \PhpOffice\PhpWord\Element\AbstractContainer;
-use EcclesiaCRM\PluginQuery;
+use PhpOffice\PhpWord\Element\AbstractContainer;
+use PhpOffice\PhpWord\Settings as PHPWordSettings;
+
+use PhpOffice\PhpSpreadsheet\IOFactory as PHPSpreadSheetIOFactory;
+use PhpOffice\PhpSpreadsheet\Style\Border;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf as PHPSpreadSheePDF;
 
 use Propel\Runtime\ActiveQuery\Criteria;
-use PhpOffice\PhpWord\Reader\Word2007\Settings;
+use Propel\Runtime\Propel;
 
 use DOMNode;
 
@@ -754,6 +758,16 @@ class MiscUtils
         //return $icon . " bg-gray-light";
     }
 
+    public static function temporyDirectory ()
+    {
+        $tmpDirectory = SystemURLs::getDocumentRoot() . "/Images/tmp";
+        if (!file_exists($tmpDirectory)) {
+            mkdir($tmpDirectory, 0755, true);
+        }
+
+        return $tmpDirectory;
+    }
+
     public static function simpleEmbedFiles($path, $realPath = NULL, $height = '200px')
     {        
         $filename = basename($path);
@@ -764,7 +778,9 @@ class MiscUtils
         $res = "";
 
         // clean the directory
-        foreach (new \DirectoryIterator(SystemURLs::getDocumentRoot() . "/Images/tmp") as $fileInfo) {
+        $tmpDirectory = self::temporyDirectory();
+        
+        foreach (new \DirectoryIterator($tmpDirectory) as $fileInfo) {
             if (!$fileInfo->isDot()) {
                 unlink($fileInfo->getPathname());
             }
@@ -772,15 +788,17 @@ class MiscUtils
 
         switch (strtolower($extension)) {
             case "doc":
+                $res .= '<img src="'. $realPath .'/Images/Icons/DOC.png" width="100">';
+                break;
             case "docx":
                 // Read contents                          
-                $phpWord = \PhpOffice\PhpWord\IOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath);
+                $phpWord = PHPWordIOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath);
 
                 $rendererName = \PhpOffice\PhpWord\Settings::PDF_RENDERER_TCPDF;
                 $rendererLibraryPath = SystemURLs::getDocumentRoot() . ('/vendor/tecnickcom/tcpdf');
                 \PhpOffice\PhpWord\Settings::setPdfRenderer($rendererName, $rendererLibraryPath);
 
-                $objWriter = IOFactory::createWriter($phpWord, 'PDF');
+                $objWriter = PHPWordIOFactory::createWriter($phpWord, 'PDF');
 
                 $filename = MiscUtils::gen_uuid();
                 $realPath = SystemURLs::getDocumentRoot() . "/Images/tmp/" . $filename . ".pdf";
@@ -799,6 +817,28 @@ class MiscUtils
             case "png":
                 $res .= '<img src="' . $path . '" class="file-image-preview"/>';
                 break;
+            case "csv":
+                $handle = fopen(dirname(__FILE__) . "/../.." . $realPath, "r");
+                $data = fgetcsv($handle, 1000, ",");
+                
+                $content = '<table border="1" cellpadding="5">';
+                while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+
+                    $content .= '<tr>';
+                    foreach ($data as $index=>$val) {
+                        $content .= '<td>';
+                        $content .=  htmlentities($val, ENT_QUOTES);
+                        $content .= '</td>';
+                    }
+                    $content .= '</tr>';
+                }
+                $content .= "</table>";
+                fclose($handle);
+
+                $res .= '<div class="filemanager-text-container">';
+                $res .= $content;
+                $res .= '</div>';                
+                break;
             case "txt":
             case "ps1":
             case "c":
@@ -813,13 +853,12 @@ class MiscUtils
             case "vbs":
             case "admx":
             case "adml":
-            case "ics":
-            case "csv":
+            case "ics":            
             case "sql":
                 $content = file_get_contents(dirname(__FILE__) . "/../.." . $realPath);
                 $content = nl2br(mb_convert_encoding($content, 'UTF-8', mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
 
-                $res .= '<div style="overflow: auto; width:100%; height:240px;border:1px;border-style: solid;border-color: lightgray;">';
+                $res .= '<div class="filemanager-text-container">';
                 $res .= $content;
                 $res .= '</div>';
                 break;
@@ -873,10 +912,49 @@ class MiscUtils
             case "xls":
             case "xlsx":
                 // Read contents                          
-                $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath);
+                $spreadsheet = PHPSpreadSheetIOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath);
 
-                \PhpOffice\PhpSpreadsheet\IOFactory::registerWriter('Pdf', \PhpOffice\PhpSpreadsheet\Writer\Pdf\Tcpdf::class);
-                $objWriter = new \PhpOffice\PhpSpreadsheet\Writer\Pdf\Tcpdf($spreadsheet);
+                $xls_data = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+                $sheet = $spreadsheet->getActiveSheet();
+
+                $sheet->setShowGridlines(true);
+
+                $styleArray = [
+                    'borders' => [
+                        'bottom' => ['borderStyle' => 'hair', 'color' => ['argb' => 'FFFF0000']],
+                        'top' => ['borderStyle' => 'hair', 'color' => ['argb' => 'FFFF0000']],
+                        'right' => ['borderStyle' => 'hair', 'color' => ['argb' => 'FF00FF00']],
+                        'left' => ['borderStyle' => 'hair', 'color' => ['argb' => 'FF00FF00']],
+                    ],
+                ];
+                $sheet->getStyle('A1:A1')->applyFromArray($styleArray);
+
+                $spreadsheet->getDefaultStyle()
+                    ->getBorders()
+                    ->getTop()
+                    ->setBorderStyle(Border::BORDER_THIN)
+                    ->setColor(new Color('000000'));
+
+                $spreadsheet->getDefaultStyle()
+                    ->getBorders()
+                    ->getBottom()
+                    ->setBorderStyle(Border::BORDER_THIN)
+                    ->setColor(new Color('000000'));
+
+                $spreadsheet->getDefaultStyle()
+                    ->getBorders()
+                    ->getLeft()
+                    ->setBorderStyle(Border::BORDER_THIN)
+                    ->setColor(new Color('000000'));
+
+                $spreadsheet->getDefaultStyle()
+                    ->getBorders()
+                    ->getRight()
+                    ->setBorderStyle(Border::BORDER_THIN)
+                    ->setColor(new Color('000000'));
+
+                PHPSpreadSheetIOFactory::registerWriter('Pdf', PHPSpreadSheePDF\Tcpdf::class);
+                $objWriter = new PHPSpreadSheePDF\Tcpdf($spreadsheet);
 
                 $filename = MiscUtils::gen_uuid();
                 $realPath = SystemURLs::getDocumentRoot() . "/Images/tmp/" . $filename . ".pdf";
