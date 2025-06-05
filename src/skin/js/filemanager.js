@@ -207,8 +207,8 @@ $(function () {
     });
 
     window.CRM.plugin.dataTable.buttons.push({
-        text: '<i class="far fa-folder"></i> ' + i18next.t("Create a Folder"),
-        className: 'btn btn-warning btn-sm new-folder',
+        text: '<i class="fas fa-folder"></i> ' + i18next.t("Create a Folder"),
+        className: 'btn btn-secondary btn-sm new-folder',
         attr: {
             id: 'new-folder',
             'data-personid':window.CRM.currentPersonID,
@@ -242,7 +242,7 @@ $(function () {
 
     window.CRM.plugin.dataTable.buttons.push({
         text: '<i class="fas fa-sync-alt"></i> ' + i18next.t("Actualize files"),
-        className: 'btn btn-default btn-sm drag-elements filemanager-refresh',
+        className: 'btn btn-secondary btn-sm drag-elements filemanager-refresh',
         attr: {
             id: 'filemanager-refresh',
             'data-personid':window.CRM.currentPersonID,
