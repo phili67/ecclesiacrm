@@ -81,7 +81,7 @@ $(function () {
                 render: function (data, type, full, meta) {
                     if (!full.dir) {
                         var ret = '<div class="btn-group">' +
-                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-primary btn-sm" data-personid="1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
+                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-secondary btn-sm" data-personid="1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
                             '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="1"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
                             '</div>';
                         return ret;

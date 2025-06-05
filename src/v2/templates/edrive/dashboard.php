@@ -46,7 +46,7 @@ require $sRootDocument . '/Include/Header.php';
                         &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
                     </button>
                 </div>
-                <table class="table table-striped table-bordered dataTable no-footer dtr-inline" id="edrive-table" width="100%"></table>
+                <table class="table dataTable table-hover no-footer" id="edrive-table" width="100%"></table>
                 <hr />
                 <div class="row">
                     <div class="col-md-12">
