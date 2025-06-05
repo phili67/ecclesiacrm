@@ -21,6 +21,8 @@ security-checker.phar
 src/Images/Family
 src/Images/Person
 
+src/Images/tmp
+
 # public dir
 src/public/userdir/*
 src/private/userdir/*
