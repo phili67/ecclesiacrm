@@ -7,17 +7,22 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemURLs;
 
 use EcclesiaCRM\PledgeQuery;
+use EcclesiaCRM\PluginQuery;
 
-use PhpOffice\PhpWord\IOFactory;
-use Propel\Runtime\Propel;
-
+use PhpOffice\PhpWord\IOFactory as PHPWordIOFactory;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Html;
 use PhpOffice\PhpWord\Style\ListItem;
-use \PhpOffice\PhpWord\Element\AbstractContainer;
-use EcclesiaCRM\PluginQuery;
+use PhpOffice\PhpWord\Element\AbstractContainer;
+use PhpOffice\PhpWord\Settings as PHPWordSettings;
+
+use PhpOffice\PhpSpreadsheet\IOFactory as PHPSpreadSheetIOFactory;
+use PhpOffice\PhpSpreadsheet\Style\Border;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf as PHPSpreadSheePDF;
 
 use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\Propel;
 
 use DOMNode;
 
@@ -50,7 +55,8 @@ class MiscUtils
      * @param int $length The length that you want your random password to be.
      * @return string The random password.
      */
-    public static function random_password($length){
+    public static function random_password($length)
+    {
         //A list of characters that can be used in our
         //random password.
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!-.[]?*()';
@@ -59,18 +65,19 @@ class MiscUtils
         //Get the index of the last character in our $characters string.
         $characterListLength = mb_strlen($characters, '8bit') - 1;
         //Loop from 1 to the $length that was specified.
-        foreach(range(1, $length) as $i){
+        foreach (range(1, $length) as $i) {
             $password .= $characters[random_int(0, $characterListLength)];
         }
         return $password;
-
     }
 
-    public static function PropTypes ($type) {
+    public static function PropTypes($type)
+    {
         return _(self::aPropTypes[$type]);
     }
 
-    public static function ProTypeCount() {
+    public static function ProTypeCount()
+    {
         return count(self::aPropTypes);
     }
 
@@ -434,7 +441,8 @@ class MiscUtils
         $uriUtf8 = str_replace(
             ["á", "à", "â", "ä", "À", "Ä", "Â", "ç", "Ç", "é", "è", "ê", "É", "È", "Ê", "Ë", "í", "ì", "ï", "Ï", "î", "Î"], // this are two byte char
             ["á", "à", "â", "ä", "À", "Ä", "Â", "ç", "Ç", "é", "è", "ê", "É", "È", "Ê", "Ë", "í", "ì", "ï", "Ï", "î", "Î"], // this are one byte char
-            $string);
+            $string
+        );
 
         return $uriUtf8;
     }
@@ -448,7 +456,8 @@ class MiscUtils
         $uriUnicode = str_replace(
             ["á", "à", "â", "ä", "À", "Ä", "Â", "ç", "Ç", "é", "è", "ê", "É", "È", "Ê", "Ë", "í", "ì", "ï", "Ï", "î", "Î"], // this are one byte char
             ["á", "à", "â", "ä", "À", "Ä", "Â", "ç", "Ç", "é", "è", "ê", "É", "È", "Ê", "Ë", "í", "ì", "ï", "Ï", "î", "Î"], //this are two byte char
-            $string);
+            $string
+        );
 
         return $uriUnicode;
     }
@@ -471,7 +480,7 @@ class MiscUtils
                 $first = false;
             }
 
-            if (!empty ($items[$i])) {
+            if (!empty($items[$i])) {
                 $res .= "&nbsp;&nbsp;<i class='far fa-folder text-yellow'></i> " . $items[$i];
 
                 if ($i != $len - 2) {
@@ -573,7 +582,8 @@ class MiscUtils
         return str_replace("." . $basePath, "", $path);
     }
 
-    private static function FileIconTimeLine($ext) {
+    private static function FileIconTimeLine($ext)
+    {
         switch (strtolower($ext)) {
             case "doc":
             case "docx":
@@ -651,7 +661,7 @@ class MiscUtils
         return $icon . " bg-gray-light";
     }
 
-    public static function FileIcon($path, $timeline=false)
+    public static function FileIcon($path, $timeline = false)
     {
         $filename = basename($path);
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -666,31 +676,31 @@ class MiscUtils
             case "doc":
             case "docx":
             case "odt":
-                $icon =  "DOC.png";//' far fa-file-word text-blue ';
+                $icon =  "DOC.png"; //' far fa-file-word text-blue ';
                 break;
             case "zip":
-                $icon =  "ZIP.png";//' far fa-file-word text-blue ';
+                $icon =  "ZIP.png"; //' far fa-file-word text-blue ';
                 break;
             case "ics":
-                $icon =  "ICS.png";//' far fa-calendar text-red';
+                $icon =  "ICS.png"; //' far fa-calendar text-red';
                 break;
             case "sql":
-                $icon =  "SQL.png";//' fas fa-database text-red';
+                $icon =  "SQL.png"; //' fas fa-database text-red';
                 break;
             case "xls":
             case "xlsx":
             case "ods":
             case "csv":
-                $icon =  "XLS.png";//' far fa-file-excel text-olive';
+                $icon =  "XLS.png"; //' far fa-file-excel text-olive';
                 break;
             case "ppt":
             case "pptx":
             case "ods":
-                $icon =  "PPT.png";//' far fa-file-powerpoint text-red';
+                $icon =  "PPT.png"; //' far fa-file-powerpoint text-red';
                 break;
             case "jpg":
             case "jpeg":
-                $icon =  "JPG.png";//
+                $icon =  "JPG.png"; //
                 break;
             case "png":
                 $icon =  "PNG.png"; //' far fa-file-image text-teal';
@@ -748,33 +758,86 @@ class MiscUtils
         //return $icon . " bg-gray-light";
     }
 
-    public static function simpleEmbedFiles($path, $realPath = NULL)
+    public static function temporyDirectory ()
     {
-        $uuid = MiscUtils::gen_uuid();
+        $tmpDirectory = SystemURLs::getDocumentRoot() . "/Images/tmp";
+        if (!file_exists($tmpDirectory)) {
+            mkdir($tmpDirectory, 0755, true);
+        }
 
+        return $tmpDirectory;
+    }
+
+    public static function simpleEmbedFiles($path, $realPath = NULL, $height = '200px')
+    {        
         $filename = basename($path);
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-        $res = ($extension == "") ? (_("Folder") . " : " . $filename) : (_("File") . " : <a href=\"" . $path . "\">\"" . $filename . "\"</a><br>");
+        $name = ($extension == "") ? (_("Folder") . " : " . $filename) : (_("File") . " : <a href=\"" . $path . "\">\"" . $filename . "\"</a><br>");
+
+        $res = "";
+
+        // clean the directory
+        $tmpDirectory = self::temporyDirectory();
+        
+        foreach (new \DirectoryIterator($tmpDirectory) as $fileInfo) {
+            if (!$fileInfo->isDot()) {
+                unlink($fileInfo->getPathname());
+            }
+        }
 
         switch (strtolower($extension)) {
-            /*case "doc":
+            case "doc":
+                $res .= '<img src="'. $realPath .'/Images/Icons/DOC.png" width="100">';
+                break;
             case "docx":
-              $writers = array('Word2007' => 'docx', 'ODText' => 'odt', 'RTF' => 'rtf', 'HTML' => 'html', 'PDF' => 'pdf');
+                // Read contents                          
+                $phpWord = PHPWordIOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath);
 
-              // Read contents
-              $phpWord = \PhpOffice\PhpWord\IOFactory::load(dirname(__FILE__)."/../..".$realPath);
+                $rendererName = \PhpOffice\PhpWord\Settings::PDF_RENDERER_TCPDF;
+                $rendererLibraryPath = SystemURLs::getDocumentRoot() . ('/vendor/tecnickcom/tcpdf');
+                \PhpOffice\PhpWord\Settings::setPdfRenderer($rendererName, $rendererLibraryPath);
 
-              // Save file
-              //$res .=  $phpWord;
-              ob_start();
-              //echo write($phpWord, 'php://output', $writers);
-              $res .= ob_end_clean();
-              break;*/
+                $objWriter = PHPWordIOFactory::createWriter($phpWord, 'PDF');
+
+                $filename = MiscUtils::gen_uuid();
+                $realPath = SystemURLs::getDocumentRoot() . "/Images/tmp/" . $filename . ".pdf";
+                $objWriter->save($realPath);
+
+
+                $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+
+                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
+                $res .= "<embed src=\"" . $realPath . "\" type=\"application/pdf\" />\n";
+                $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
+                $res .= "</object>";
+                break;
             case "jpg":
             case "jpeg":
             case "png":
-                $res .= '<img src="' . $path . '" style="width: 100%"/>';
+                $res .= '<img src="' . $path . '" class="file-image-preview"/>';
+                break;
+            case "csv":
+                $handle = fopen(dirname(__FILE__) . "/../.." . $realPath, "r");
+                $data = fgetcsv($handle, 1000, ",");
+                
+                $content = '<table border="1" cellpadding="5">';
+                while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+
+                    $content .= '<tr>';
+                    foreach ($data as $index=>$val) {
+                        $content .= '<td>';
+                        $content .=  htmlentities($val, ENT_QUOTES);
+                        $content .= '</td>';
+                    }
+                    $content .= '</tr>';
+                }
+                $content .= "</table>";
+                fclose($handle);
+
+                $res .= '<div class="filemanager-text-container">';
+                $res .= $content;
+                $res .= '</div>';                
                 break;
             case "txt":
             case "ps1":
@@ -790,18 +853,17 @@ class MiscUtils
             case "vbs":
             case "admx":
             case "adml":
-            case "ics":
-            case "csv":
+            case "ics":            
             case "sql":
                 $content = file_get_contents(dirname(__FILE__) . "/../.." . $realPath);
                 $content = nl2br(mb_convert_encoding($content, 'UTF-8', mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
 
-                $res .= '<div style="overflow: auto; width:100%; height:240px;border:1px;border-style: solid;border-color: lightgray;">';
+                $res .= '<div class="filemanager-text-container">';
                 $res .= $content;
                 $res .= '</div>';
                 break;
             case "pdf":
-                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" style=\"width: 100%;height:300px\">";
+                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
                 $res .= "<embed src=\"" . $realPath . "\" type=\"application/pdf\" />\n";
                 $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
                 $res .= "</object>";
@@ -844,9 +906,80 @@ class MiscUtils
                 $res .= _("Your browser does not support the video tag.") . "\n";
                 $res .= "</video>";
                 break;
+            case "zip":
+                $res .= '<img src="' . $realPath . '/Images/Icons/ZIP.png" width="100">';
+                break;
+            case "xls":
+            case "xlsx":
+                // Read contents                          
+                $spreadsheet = PHPSpreadSheetIOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath);
+
+                $xls_data = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+                $sheet = $spreadsheet->getActiveSheet();
+
+                $sheet->setShowGridlines(true);
+
+                $styleArray = [
+                    'borders' => [
+                        'bottom' => ['borderStyle' => 'hair', 'color' => ['argb' => 'FFFF0000']],
+                        'top' => ['borderStyle' => 'hair', 'color' => ['argb' => 'FFFF0000']],
+                        'right' => ['borderStyle' => 'hair', 'color' => ['argb' => 'FF00FF00']],
+                        'left' => ['borderStyle' => 'hair', 'color' => ['argb' => 'FF00FF00']],
+                    ],
+                ];
+                $sheet->getStyle('A1:A1')->applyFromArray($styleArray);
+
+                $spreadsheet->getDefaultStyle()
+                    ->getBorders()
+                    ->getTop()
+                    ->setBorderStyle(Border::BORDER_THIN)
+                    ->setColor(new Color('000000'));
+
+                $spreadsheet->getDefaultStyle()
+                    ->getBorders()
+                    ->getBottom()
+                    ->setBorderStyle(Border::BORDER_THIN)
+                    ->setColor(new Color('000000'));
+
+                $spreadsheet->getDefaultStyle()
+                    ->getBorders()
+                    ->getLeft()
+                    ->setBorderStyle(Border::BORDER_THIN)
+                    ->setColor(new Color('000000'));
+
+                $spreadsheet->getDefaultStyle()
+                    ->getBorders()
+                    ->getRight()
+                    ->setBorderStyle(Border::BORDER_THIN)
+                    ->setColor(new Color('000000'));
+
+                PHPSpreadSheetIOFactory::registerWriter('Pdf', PHPSpreadSheePDF\Tcpdf::class);
+                $objWriter = new PHPSpreadSheePDF\Tcpdf($spreadsheet);
+
+                $filename = MiscUtils::gen_uuid();
+                $realPath = SystemURLs::getDocumentRoot() . "/Images/tmp/" . $filename . ".pdf";
+                $objWriter->save($realPath);
+
+
+                $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+
+                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
+                $res .= "<embed src=\"" . $realPath . "\" type=\"application/pdf\" />\n";
+                $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
+                $res .= "</object>";
+                break;
+            case "ppt": 
+            case "pptx":
+                $res .= '<img src="'. $realPath .'/Images/Icons/PPT.png" width="100">';
+                break;
+            default: // it's a folder
+                $res .= '<img src="' . $realPath . '/Images/Icons/FOLDER.png" width="140">';
         }
 
-        return $res;
+        return [
+            'name' => $name,
+            'content' => $res
+        ];
     }
 
     public static function embedFiles($path)
@@ -974,9 +1107,11 @@ class MiscUtils
 
     public static function gen_uuid()
     {
-        return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+        return sprintf(
+            '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
             // 32 bits for "time_low"
-            mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff),
 
             // 16 bits for "time_mid"
             mt_rand(0, 0xffff),
@@ -991,7 +1126,9 @@ class MiscUtils
             mt_rand(0, 0x3fff) | 0x8000,
 
             // 48 bits for "node"
-            mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+            mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff)
         );
     }
 
@@ -1065,7 +1202,6 @@ class MiscUtils
         } else {
             return $baseCacheTime + $var;
         }
-
     }
 
     public static function getPhotoCacheExpirationTimestamp()
@@ -1319,7 +1455,6 @@ class MiscUtils
             $Email = urlencode($Email);  // Mailto should comply with RFC 2368
 
             $res .= '<a class="dropdown-item" href="' . $href . mb_substr($Email, 0, -3) . '" class="dropdown-item">' . _($role) . '</a>';
-
         }
 
         return $res;
@@ -1392,7 +1527,7 @@ class MiscUtils
 
     public static function requireUserGroupMembership($allowedRoles = null)
     {
-        if (isset($_SESSION['updateDataBase']) && $_SESSION['updateDataBase'] == true) {// we don't have to interfer with this test
+        if (isset($_SESSION['updateDataBase']) && $_SESSION['updateDataBase'] == true) { // we don't have to interfer with this test
             return true;
         }
 
@@ -1420,18 +1555,18 @@ class MiscUtils
         return substr(sha1(rand()), 0, $length);
     }
 
-    public static function createWordImageDir ()
+    public static function createWordImageDir()
     {
         //Vérifier toutes les parties phpWord
         $wordPath = "/Images/Word_Export_IMG/";
         $wordImagesDirectory = SystemURLs::getDocumentRoot() . $wordPath;
 
-        if ( !file_exists($wordImagesDirectory) ) {
+        if (!file_exists($wordImagesDirectory)) {
             mkdir($wordImagesDirectory, 0777, true);
         }
     }
 
-    public static function removeWordImageDir ()
+    public static function removeWordImageDir()
     {
         //Vérifier toutes les parties phpWord
         $wordPath = "/Images/Word_Export_IMG/";
@@ -1454,13 +1589,13 @@ class MiscUtils
      *
      */
 
-    public static function RenderDOMNode(AbstractContainer $section, DOMNode $domNode, $extras = null) {
+    public static function RenderDOMNode(AbstractContainer $section, DOMNode $domNode, $extras = null)
+    {
         $wordPath = "/Images/Word_Export_IMG/";
         $wordImagesDirectory = SystemURLs::getDocumentRoot() . $wordPath;
 
-        foreach ($domNode->childNodes as $node)
-        {
-            if ( in_array($node->nodeName, self::types) ) {
+        foreach ($domNode->childNodes as $node) {
+            if (in_array($node->nodeName, self::types)) {
                 $array = false;
                 foreach ($node->attributes as $attr) {
                     $array[$attr->localName] = $attr->nodeValue;
@@ -1485,11 +1620,11 @@ class MiscUtils
                         $extras = null;
                         $height = $height = 100;
 
-                        if (isset ($array['style']) ){
+                        if (isset($array['style'])) {
                             // [style] => height:23px; width:23px
-                            $buff = explode (";",$array['style']);
-                            $height = str_replace(["px"," "],"",explode(":",$buff[0])[1]);
-                            $width = str_replace(["px"," "],"",explode(":",$buff[1])[1]);
+                            $buff = explode(";", $array['style']);
+                            $height = str_replace(["px", " "], "", explode(":", $buff[0])[1]);
+                            $width = str_replace(["px", " "], "", explode(":", $buff[1])[1]);
                         }
 
                         // we make a copy in the case of a link : http:// ....
@@ -1497,7 +1632,7 @@ class MiscUtils
                         $path = explode("?", $old_src);
 
                         $path_parts = pathinfo($path[0]);
-                        $new_file = MiscUtils::generateRandomString(15).".".$path_parts['extension'];
+                        $new_file = MiscUtils::generateRandomString(15) . "." . $path_parts['extension'];
 
                         copy($old_src, $wordImagesDirectory . $new_file);
 
@@ -1523,7 +1658,9 @@ class MiscUtils
                         break;
                     case 'a':
                         $extras = null;
-                        $section->addLink($array['href'], $node->nodeValue,
+                        $section->addLink(
+                            $array['href'],
+                            $node->nodeValue,
                             array('name' => 'courier', 'size' => 10, 'color' => '0000FF')
                         );
                         break;
@@ -1550,19 +1687,20 @@ class MiscUtils
                     case 'u':
                         $section->addText(
                             $node->nodeValue,
-                            array('name' => 'courier', 'size' => 10,'underline' => 'single')
+                            array('name' => 'courier', 'size' => 10, 'underline' => 'single')
                         );
                         break;
                 }
             }
 
-            if($node->hasChildNodes()) {
+            if ($node->hasChildNodes()) {
                 self::RenderDOMNode($section, $node, $extras);
             }
         }
     }
 
-    public static function saveHtmlAsWordFile ($userName, $realNoteDir, $currentpath, $html, $title = null) {
+    public static function saveHtmlAsWordFile($userName, $realNoteDir, $currentpath, $html, $title = null)
+    {
 
         $html = str_replace(array("\n", "\r"), '', $html);
 
@@ -1592,7 +1730,7 @@ class MiscUtils
         // [THE HTML]
         $section = $pw->addSection();
 
-        MiscUtils::RenderDOMNode ($section, $doc);
+        MiscUtils::RenderDOMNode($section, $doc);
 
         // we set a random title
         if (is_null($title)) {
@@ -1600,8 +1738,8 @@ class MiscUtils
         }
 
         // [SAVE FILE ON THE SERVER]
-        $filePath = $userName . $currentpath . $title.".docx";
-        $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$filePath;
+        $filePath = $userName . $currentpath . $title . ".docx";
+        $tmpFile = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $filePath;
 
         // Saving the document as OOXML file...
         $objWriter = IOFactory::createWriter($pw, 'Word2007');
@@ -1613,28 +1751,30 @@ class MiscUtils
     }
 
     // Quality is a number between 0 (best compression) and 100 (best quality)
-    public static function png2jpg($originalFile, $outputFile, $quality=100) {
+    public static function png2jpg($originalFile, $outputFile, $quality = 100)
+    {
         $image = imagecreatefrompng($originalFile);
         imagejpeg($image, $outputFile, $quality);
         imagedestroy($image);
     }
 
-    public static function replace_img_src($img_tag) {
+    public static function replace_img_src($img_tag)
+    {
 
         //Vérifier toutes les parties phpWord
         $wordPath = "/Images/Word_Export_IMG/";
         $wordImagesDirectory = SystemURLs::getDocumentRoot() . $wordPath;
         $rootPath = SystemURLs::getRootPath();
 
-        if ( !empty($rootPath) ) {
-            $rootPath = $rootPath."/";
+        if (!empty($rootPath)) {
+            $rootPath = $rootPath . "/";
         }
 
         $doc = new \DOMDocument('1.0', 'UTF-8');
         $doc->loadHTML(mb_convert_encoding($img_tag, 'HTML-ENTITIES', 'UTF-8'));
         $tags = $doc->getElementsByTagName('img');
 
-        $url = 'http'.(isset($_SERVER['HTTPS']) ? 's' : '').'://' . $rootPath . $_SERVER['HTTP_HOST']."$wordPath";
+        $url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $rootPath . $_SERVER['HTTP_HOST'] . "$wordPath";
 
         foreach ($tags as $tag) {
             $old_src = $tag->getAttribute('src');
@@ -1642,7 +1782,7 @@ class MiscUtils
             $path = explode("?", $old_src);
 
             $path_parts = pathinfo($path[0]);
-            $new_file = MiscUtils::generateRandomString(15).".".$path_parts['extension'];
+            $new_file = MiscUtils::generateRandomString(15) . "." . $path_parts['extension'];
             //$new_file = MiscUtils::generateRandomString(15).".jpg";
 
             /*if ($path_parts['extension'] != 'png') {
@@ -1651,7 +1791,7 @@ class MiscUtils
             copy($old_src, $wordImagesDirectory . $new_file);
             //}
 
-            $new_src_url = $url . $new_file;//'website.com/assets/'.$old_src;
+            $new_src_url = $url . $new_file; //'website.com/assets/'.$old_src;
 
             $tag->setAttribute('src', $new_src_url);
             $tag->setAttribute('alt', "coucou");
@@ -1660,7 +1800,7 @@ class MiscUtils
         $res = $doc->saveHTML();
 
         $body = $doc->getElementsByTagName('body');
-        if ( $body && 0<$body->length ) {
+        if ($body && 0 < $body->length) {
             $body = $body->item(0);
             $res = $doc->savehtml($body);
 
@@ -1675,7 +1815,7 @@ class MiscUtils
         return $res;
     }
 
-    public static function saveHtmlAsWordFilePhpWord ($userName, $realNoteDir, $currentpath, $html, $title = null)
+    public static function saveHtmlAsWordFilePhpWord($userName, $realNoteDir, $currentpath, $html, $title = null)
     {
         MiscUtils::removeWordImageDir();
 
@@ -1694,18 +1834,18 @@ class MiscUtils
             'font' =>  ['name' => 'courier', 'size' => 10, 'color' => '111111', 'bold' => true]
         ];*/
         //PhpWordHTMLExtension::addHtml($section, MiscUtils::replace_img_src($html) , false, false, $options);
-        Html::addHtml( $section, MiscUtils::replace_img_src($html) , false, false, $options);
+        Html::addHtml($section, MiscUtils::replace_img_src($html), false, false, $options);
 
         // we set a random title
         if (is_null($title)) {
-            $title = "note_".MiscUtils::generateRandomString(5);
+            $title = "note_" . MiscUtils::generateRandomString(5);
         }
 
         // we set a random title
 
         // [SAVE FILE ON THE SERVER]
-        $filePath = $userName . $currentpath . $title.".docx";
-        $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$filePath;
+        $filePath = $userName . $currentpath . $title . ".docx";
+        $tmpFile = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $filePath;
 
         $pw->save($tmpFile, "Word2007");
 
@@ -1722,7 +1862,7 @@ class MiscUtils
             return $result;
         } elseif ($bStopOnError) {
             if (SystemConfig::getValue('sLogLevel') == "100") { // debug level
-                die(_('Cannot execute query.')."<p>$sSQL<p>".mysqli_error($cnInfoCentral));
+                die(_('Cannot execute query.') . "<p>$sSQL<p>" . mysqli_error($cnInfoCentral));
             } else {
                 die('Database error or invalid data');
             }
@@ -1731,29 +1871,27 @@ class MiscUtils
         }
     }
 
-    public static function pluginInformations ()
+    public static function pluginInformations()
     {
         if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
             // only dashboard plugins are loaded on the maindashboard page
             $plugins = PluginQuery::create()
-                ->filterByCategory('Dashboard', Criteria::EQUAL )
+                ->filterByCategory('Dashboard', Criteria::EQUAL)
                 ->findByActiv(true);
-
-
         } else {
             $plugins = PluginQuery::create()
-                ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
+                ->filterByCategory('Dashboard', Criteria::NOT_EQUAL)
                 ->findByActiv(true);
         }
 
         $pluginNames = "false";
         $isMailerAvalaible = "false";
 
-        if ( $plugins->count() > 0 ) {
+        if ($plugins->count() > 0) {
             $pluginNames = "{";
             foreach ($plugins as $plugin) {
                 $pluginNames .= "'" . $plugin->getName() . "':'window.CRM." . $plugin->getName() . "_i18keys', ";
-                if ( $plugin->isMailer() and SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName() )) {
+                if ($plugin->isMailer() and SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName())) {
                     $isMailerAvalaible = "true";
                 }
             }
@@ -1766,23 +1904,23 @@ class MiscUtils
         return ["pluginNames" => $pluginNames, "isMailerAvalaible" => $isMailerAvalaible];
     }
 
-    public static function SanitizeExtension ($ext)
+    public static function SanitizeExtension($ext)
     {
-        if (in_array($ext, self::extensions_to_sanitize) ) {
+        if (in_array($ext, self::extensions_to_sanitize)) {
             return "txt";
         }
         return $ext;
     }
 
-    public static function mb_ucfirst ($string)
+    public static function mb_ucfirst($string)
     {
         return mb_strtoupper(mb_substr($string, 0, 1)) . mb_substr($string, 1);
     }
 
     // check if https is available
-    public static function isSecure() {
-        return
-          (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
-          || $_SERVER['SERVER_PORT'] == 443;
+    public static function isSecure()
+    {
+        return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+            || $_SERVER['SERVER_PORT'] == 443;
     }
 }

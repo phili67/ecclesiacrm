@@ -1,0 +1,154 @@
+.fileName {
+    width: 100%;
+    background-color: transparent;
+}
+
+.infoFiles {
+    float: right;
+}
+
+#edrive-table tbody th, #edrive-table tbody td {
+    padding: 5px 10px; /* e.g. change 8x to 4px here */
+}
+
+.col-center {
+    text-align:center;
+}
+
+.preview-title-label {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.hr-filemanager {
+    margin-left: -8px;
+    margin-right: -19px;
+}
+
+.fille-mamager-label-small{
+    font-size: 12px !important;
+}
+
+.filmanager-right {
+    -ms-flex: 0 0 380px;
+    flex: 0 0 380px;
+    border-left: 1px solid rgba(0, 0, 0, .125);
+    top: -21px;
+    margin-top:6px;
+    margin-bottom: -40px;
+    padding-top: 10px;
+} 
+
+.file-image-preview {
+    width: 370px; 
+    height: 200px; 
+    object-fit: cover;
+}
+
+.close-file-preview {
+    position: absolute;
+    top: 12px;
+    right: 0px;
+}
+
+.pdf-preview-filemanager {
+    width: 380px;height:550px;
+}
+
+/* <select size="6" style="width:100%" id="select-share-persons-sabre" class="fontawesome" multiple></select> */
+.fontawesome {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+}
+
+.form-control-access-rights {
+    margin-left:-3px;
+}
+
+.div-title-file-manager {
+    padding-top: 0px;
+    padding-bottom: 7px;
+    margin-right: -20px;
+}
+
+.preview img {
+    margin-left: 130px;
+    border: 1px solid #007bff;
+}
+
+.folder-back-button {
+    position: absolute !important;
+    margin-top: 7px;
+    height: 37px;
+    z-index: 20;
+    padding: 5px;
+    width: 37px;
+    border: 2px solid rgb(98, 190, 255);
+}
+
+.shift-flex-wrapper-right {
+    margin-left:41px !important;
+}
+
+.filemanager-text-container {
+    background-color: white;
+    color:black;
+    overflow: auto; 
+    width:377px; 
+    height:240px;
+    border:1px;
+    border-style: solid;border-color: lightgray;
+    font-size: 12px;
+    font-weight: 400;
+    border: 2px solid rgb(98, 190, 255);
+}
+
+#person-group-rights {
+    margin-top: -5px;
+    margin-left:-18px;
+}
+
+@media (max-width: 890px) {
+    .filmanager-right {
+        margin-top:0px;
+       -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    } 
+    
+    .file-image-preview {
+        width: 370px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .preview img {
+        margin-left: 40px;
+        width:90%;
+    }
+
+    .filemanager-text-container {
+        width:100%;
+    }
+
+
+    .filmanager-right {
+        border-left: solid 0px #8a2121;
+    } 
+
+    #person-group-rights {
+        margin-top: 0px;
+        margin-left:0px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .filmanager-right {
+        border-left: solid 1px #a19d9d;
+    } 
+
+    .folder-back-button { 
+        border-color: #93c5f9 !important;
+    }
+}
+

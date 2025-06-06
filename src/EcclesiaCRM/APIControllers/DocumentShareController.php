@@ -22,6 +22,10 @@ use EcclesiaCRM\NoteShareQuery;
 use EcclesiaCRM\NoteShare;
 use EcclesiaCRM\Emails\DocumentEmail;
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\WebDav\Utils\SabreUtils;
+use Sabre\DAV\Xml\Element\Sharee;
+
+use EcclesiaCRM\Utils\MiscUtils;
 
 class DocumentShareController
 {
@@ -56,6 +60,31 @@ class DocumentShareController
         return $response->withJson($result);
     }
 
+    public function getAllShareForPersonSabre(ServerRequest $request, Response $response, array $args): Response {
+        $params = (object)$request->getParsedBody();
+
+        $result = [];
+
+        if (isset ($params->rows)) {
+            $currentUser = UserQuery::create()->findOneByPersonId($params->currentPersonID);
+            
+            foreach ($params->rows as $row) {
+                $ownerPaths = $currentUser->getUserRootDir()."/".$row['path'];
+                $sharees = SabreUtils::getFileOrDirectoryInfos($ownerPaths);
+
+                foreach ($sharees as $info) {
+                    $person = [
+                        'id' => $info->principal,
+                        'name' => (($info->access == 3)?gettext("[👀 ✐]"):gettext("[👀  ]"))."   ".$info->principal];
+
+                    array_push($result, $person);                
+                }
+            }
+        }
+
+        return $response->withJson($result);
+    }
+
     public function addPersonToShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
@@ -81,6 +110,64 @@ class DocumentShareController
 
                 return $response->withJson(['status' => "success"]);
             }
+        }
+
+        return $response->withJson(['status' => "failed"]);
+    }
+
+    // new way through sabre !
+    public function addPersonSabreToShare (ServerRequest $request, Response $response, array $args): Response {
+        $params = (object)$request->getParsedBody();
+
+        if (isset ($params->currentPersonID) && isset ($params->rows) && isset($params->personToShareID) && isset ($params->notification) && isset($params->access)) {
+            $access = $params->access;
+
+            $currentUser = UserQuery::create()->findOneByPersonId($params->currentPersonID);
+            $ownerPersonId = $currentUser->getPersonId();
+            $currentUserName = $currentUser->getUserName();
+            
+            $ownerPrinpals = 'principals/'.$currentUserName;
+
+            $userToShare = UserQuery::create()->findOneByPersonId($params->personToShareID);
+            $userToShareUserName = $userToShare->getUserName();
+
+            /*$noteShare = NoteShareQuery::Create()->filterBySharePerId($userToShare->getPersonId())->findOneByNoteId($params->noteId);
+
+            // share in the timeline too
+            if ( empty($noteShare) && $params->currentPersonID != $params->personID && $params->noteId > 0) {
+                $noteShare = new NoteShare();
+
+                $noteShare->setSharePerId($userToShare->getPersonId());
+                $noteShare->setNoteId($params->noteId);
+
+                $noteShare->save();
+            }*/
+            
+            foreach ($params->rows as $row) {
+                $ownerPaths = $currentUser->getUserRootDir()."/".$row['path']; ///private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/wsl1.png
+                $ownerNameCollection = basename($ownerPaths);
+                $sharees = [];
+                $sharees[] = new Sharee([
+                    'href' => "mailto:".$userToShare->getPerson()->getEmail(),
+                    'access' => $access,
+                    /// Everyone is always immediately accepted, for now.
+                    'inviteStatus' => (int) null,
+                    'properties' => ['{DAV:}displayname' => $userToShare->getPerson()->getFullName()],
+                    'principal' => 'principals/'.$userToShareUserName
+                ]);
+
+                SabreUtils::shareFileOrDirectory($ownerPersonId, $ownerPaths, $ownerPrinpals, $ownerNameCollection, $sharees);
+
+                // send notification !!
+                if (isset ($params->notification)  && $params->notification) {                    
+                    if ( !empty($userToShare) ){
+                        $email = new DocumentEmail($userToShare, gettext("You can visualize it in your account, in the time Line or the notes tab."));
+                        $email->send();
+                    }
+                }
+            }
+            
+            return $response->withJson(['status' => "success"]);            
         }
 
         return $response->withJson(['status' => "failed"]);
@@ -168,6 +255,27 @@ class DocumentShareController
         return $response->withJson(['status' => "success",'count' => $noteShare->count()]);
     }
 
+    public function deletePersonSabreFromShare (ServerRequest $request, Response $response, array $args): Response {
+        $params = (object)$request->getParsedBody();
+
+        if (isset ($params->personPrincipal) && isset ($params->rows) and isset($params->currentPersonID)) {     
+            $currentUser = UserQuery::create()->findOneByPersonId($params->currentPersonID);
+            $currentUserName = $currentUser->getUserName();            
+            
+            $ownerPrinpals = 'principals/'.$currentUserName;
+
+            foreach ($params->rows as $row) {
+                $sabrePath = "home/".$row['path'];
+                if (SabreUtils::removeSharedForPersonPrincipal($ownerPrinpals, $sabrePath, $params->personPrincipal)) {
+                    return $response->withJson(['status' => "success",'count' => 0]);
+                }
+            }
+        }
+
+        return $response->withJson(['status' => "failed"]);
+        
+    }
+
     public function setRightsForPerson (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
@@ -180,6 +288,51 @@ class DocumentShareController
 
         return $response->withJson(['status' => "success"]);
     }
+
+    public function setRightsSabreForPerson (ServerRequest $request, Response $response, array $args): Response {
+        $params = (object)$request->getParsedBody();
+
+        if (isset($params->currentPersonID) && isset ($params->personToShareID) && isset ($params->rightAccess) && $params->rightAccess > 0) {
+            $access = $params->rightAccess;
+
+            $currentUser = UserQuery::create()->findOneByPersonId($params->currentPersonID);
+            $ownerPersonId = $currentUser->getPersonId();
+            $currentUserName = $currentUser->getUserName();
+            
+            $ownerPrinpals = 'principals/'.$currentUserName;
+
+            $personToShareUsername = explode("/", $params->personToShareID)[1];
+            $userToShare = UserQuery::create()->findOneByUserName($personToShareUsername);
+            $userToShareUserName = $userToShare->getUserName();
+
+            // now we can share all the rows from currentPersonID to the personToShareID
+            foreach ($params->rows as $row) {            
+                $ownerPaths = $currentUser->getUserRootDir()."/".$row['path']; ///private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/wsl1.png
+                $ownerNameCollection = basename($ownerPaths);
+                $sharees = [];
+                $sharees[] = new Sharee([
+                    'href' => "mailto:".$userToShare->getPerson()->getEmail(),
+                    'access' => $access,
+                    /// Everyone is always immediately accepted, for now.
+                    'inviteStatus' => (int) null,
+                    'properties' => ['{DAV:}displayname' => $userToShare->getPerson()->getFullName()],
+                    'principal' => 'principals/'.$userToShareUserName
+                ]);
+
+                SabreUtils::shareFileOrDirectory($ownerPersonId, $ownerPaths, $ownerPrinpals, $ownerNameCollection, $sharees);
+
+                // send notification !!
+                if (isset ($params->notification)  && $params->notification) {                    
+                    if ( !empty($userToShare) ){
+                        $email = new DocumentEmail($userToShare, gettext("You can visualize it in your account, in the time Line or the notes tab."));
+                        $email->send();
+                    }
+                }
+            }
+        }
+
+        return $response->withJson(['status' => "success"]);
+    }    
 
     public function clearDocument (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();

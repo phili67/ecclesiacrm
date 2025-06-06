@@ -23,6 +23,7 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\SessionUser;
 
 class PeopleController
 {
@@ -48,11 +49,10 @@ class PeopleController
             $users = UserQuery::create()
                 ->filterByIsDeactivated(0)
                 ->filterByUserName($searchLikeString, Criteria::LIKE)
-                //->leftJoinPerson()
                 ->usePersonQuery()
-                    ->filterByDateDeactivated(null)// gdpr when a person is de-activated
-                    ->filterByFirstName($searchLikeString, Criteria::LIKE)
+                    ->_or()->filterByFirstName($searchLikeString, Criteria::LIKE)
                     ->_or()->filterByLastName($searchLikeString, Criteria::LIKE)
+                    ->_or()->filterByMiddleName($searchLikeString, Criteria::LIKE)                    
                 ->endUse()                
                 ->find();
 
@@ -61,6 +61,65 @@ class PeopleController
             $id++;
 
             foreach ($users as $user) {
+                // user account is activated
+                if ($user->isDeactivated())
+                $person = $user->getPerson();
+
+                $elt = ['id' => $id++,
+                    'text' => $person->getFullName(),
+                    'personID' => $person->getId()];
+
+                array_push($data, $elt);
+            }
+
+            if (!empty($data)) {
+                $dataPerson = ['children' => $data,
+                    'id' => 0,
+                    'text' => _('Persons')];
+
+                $resultsArray = array($dataPerson);
+            }
+            
+        } catch (\Exception $e) {
+            $logger->warn($e->getMessage());
+        }
+
+
+        return $response->withJson(array_filter($resultsArray));
+    }
+
+    public function searchonlyuserwithedrive(ServerRequest $request, Response $response, array $args): Response
+    {
+        $query = $args['query'];
+        $resultsArray = [];
+
+        $currentUserId = SessionUser::getId();
+
+        $id = 1;
+
+        $logger = $this->container->get('Logger');
+
+        //Person Search
+        try {
+            $searchLikeString = '%' . $query . '%';
+            $users = UserQuery::create()
+                ->filterByIsDeactivated(0)
+                ->filterByUserName($searchLikeString, Criteria::LIKE)
+                ->usePersonQuery()
+                    ->filterByDateDeactivated(null)
+                    ->_or()->filterByFirstName($searchLikeString, Criteria::LIKE)
+                    ->_or()->filterByLastName($searchLikeString, Criteria::LIKE)
+                    ->_or()->filterByMiddleName($searchLikeString, Criteria::LIKE)                    
+                ->endUse()                
+                ->find();
+
+
+            $data = [];
+            $id++;
+
+            foreach ($users as $user) {
+                // user account is activated
+                if (!$user->checkEdrive() or $user->getId() == $currentUserId) continue;
                 $person = $user->getPerson();
 
                 $elt = ['id' => $id++,
@@ -100,9 +159,9 @@ class PeopleController
             $searchLikeString = '%' . $query . '%';
             $people = PersonQuery::create()->
             filterByDateDeactivated(null)->// gdpr when a person is de-activated
-            filterByFirstName($searchLikeString, Criteria::LIKE)->
-            _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
-            limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
+                filterByFirstName($searchLikeString, Criteria::LIKE)->
+                _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
+                limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
 
 
             if (!empty($people)) {
