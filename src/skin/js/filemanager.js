@@ -40,19 +40,24 @@ $(function () {
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
+        order: [[1, 'asc']],
         searching: true,
         select: true,
         paging: false,
-        columns: [
+        columns: [            
             {
                 width: '5%',
                 title: i18next.t('Icon'),
                 data: 'icon',
                 render: function (data, type, full, meta) {
+                    let locked_icon = '';
+                    if (full.locked) {
+                        locked_icon = ' <i class="fa-solid fa-lock"></i>';
+                    }
                     if (!full.dir) {
-                        return '<span class="drag drag-file" id="' + full.name + '" type="file" data-path="' + full.path + '" data-perid="' + full.perID + '">' + data + '</span>';
+                        return '<span class="drag drag-file" id="' + full.name + '" type="file" data-path="' + full.path + '" data-perid="' + full.perID + '">' + data + locked_icon+ '</span>';
                     } else {
-                        return '<a class="change-folder" data-personid="' + window.CRM.currentPersonID + '" data-folder="' + full.name + '"><span class="drag drop" id="' + full.name + '" type="folder">' + data + '</span>';
+                        return '<a class="change-folder" data-personid="' + window.CRM.currentPersonID + '" data-folder="' + full.name + '"><span class="drag drop" id="' + full.name + '" type="folder">' + data + locked_icon + '</span>';
                     }
                 }
             },
@@ -79,15 +84,21 @@ $(function () {
                 title: i18next.t('Actions'),
                 data: 'id',
                 render: function (data, type, full, meta) {
-                    if (!full.dir) {
+                    if (!full.dir && !full.link) {
                         var ret = '<div class="btn-group">' +
-                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-secondary btn-sm" data-personid="1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
-                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="1"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
+                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-secondary btn-sm" data-personid="' + window.CRM.currentPersonID + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
+                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
                             '</div>';
                         return ret;
                     } else if (!full.link) {
                         var ret = '<div class="btn-group">' +
-                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="1"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
+                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
+                            '</div>';
+                        return ret;
+                    } else if (full.link) {
+                        var ret = '<div class="btn-group">' +
+                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-secondary btn-sm" data-personid="' + window.CRM.currentPersonID + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
+                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-link"></i></button>' +
                             '</div>';
                         return ret;
                     }
@@ -312,27 +323,27 @@ $(function () {
             $("#trash-drop").addClass('disabled');            
         }
 
-        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform))) && selectedRows >= 1) {
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'filemanager/getPreview',
-                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
-            }, function (data) {
-                if (data && data.success) {
-                    $('.filmanager-right').show();
+        
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'filemanager/getPreview',
+            data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
+        }, function (data) {
+            if (data && data.success) {
+                $('.filmanager-right').show();
                     $('.preview-title').html(data.name);
                     $('.preview').html(data.path);
+                if (data.link) {
+                    $('.share-part').hide();
+                } else {
+                    $('.share-part').show();                    
 
                     addSharedPersonsSabre();
                 }
-            });
-        } else {
-            $('.filmanager-right').hide();
-            $('.preview-title').html(data.name);
-            $('.preview').html('');
-        }
+                
+            }
+        });
+        
     });
 
     /*$('#edrive-table tbody').on('click', 'td', function (e) {
@@ -370,9 +381,6 @@ $(function () {
                 }
             }
 
-            if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
-                (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform))) && selectedRows == 1) {
-
                 window.CRM.APIRequest({
                     method: 'POST',
                     path: 'filemanager/getPreview',
@@ -386,17 +394,15 @@ $(function () {
                         addSharedPersonsSabre();
                     }
                 });
-            } else {
-                $('.preview').html('');
-            }
+            
         }
 
     });*/
 
 
     $("body").on('click', '.fileName', function (e) {
-        if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))) {
+        if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.userAgent) ||
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.platform)))) {
             // we're on a SmartPhone
             var oldName = $(this).data("name");
             var fileName = '';
@@ -435,8 +441,8 @@ $(function () {
     });
 
     $("body").on('dblclick', '.drag-file', function (e) {
-        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))) {
+        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.userAgent) ||
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.platform)))) {
             var perID = $(this).data("perid");
             var path = $(this).data("path");
 
@@ -445,8 +451,8 @@ $(function () {
     });
 
     $("body").on('dblclick', '.fileName', function (e) {
-        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))) {
+        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.userAgent) ||
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.platform)))) {
             // we're on a computer
             if (oldTextField != null) {
                 $(oldTextField).css("background", "transparent");
@@ -631,8 +637,8 @@ $(function () {
     }
 
     $(document).on('click', '.change-folder', function () {
-        if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))) {
+        if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.userAgent) ||
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.platform)))) {
             var personID = $(this).data("personid");
             var folder = $(this).data("folder");
 
@@ -645,8 +651,8 @@ $(function () {
         var personID = $(this).data("personid");
         var folder = $(this).data("folder");
 
-        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))) {
+        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.userAgent) ||
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.platform)))) {
             var personID = $(this).data("personid");
             var folder = $(this).data("folder");
 

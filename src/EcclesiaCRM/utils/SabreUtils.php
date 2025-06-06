@@ -250,6 +250,30 @@ class SabreUtils {
                     'principal' => $collectionsInstance->getPrincipaluri(),
                 ]);
             }
+        } else {
+            // we're in a case of a collection instance
+            $collectionsInstance = CollectionsinstancesQuery::create()
+                ->findOneByGuestpath($ownerPah);
+
+            if (!is_null($collectionsInstance)) {
+                $ret = explode("/", $collectionsInstance->getPrincipaluri());
+
+                if (count($ret) < 2) return $result;
+
+                $username = $ret[1];
+                    $user = UserQuery::create()->findOneByUserName($username);
+
+                if (is_null($user)) return $result;
+                
+                $result[] = new Sharee([
+                    'href' => "mailto:".$user->getPerson()->getEmail(),
+                    'access' => $collectionsInstance->getAccess(),
+                    /// Everyone is always immediately accepted, for now.
+                    'inviteStatus' => (int) $collectionsInstance->getShareInvitestatus(),
+                    'properties' => ['{DAV:}displayname' => $user->getPerson()->getFullName()],
+                    'principal' => $collectionsInstance->getPrincipaluri(),
+                ]);  
+            }          
         }
 
         return $result;

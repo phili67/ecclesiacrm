@@ -92,6 +92,8 @@
 }
 
 .filemanager-text-container {
+    background-color: white;
+    color:black;
     overflow: auto; 
     width:377px; 
     height:240px;
@@ -120,9 +122,24 @@
         object-fit: cover;
     }
 
+    .preview img {
+        margin-left: 40px;
+        width:90%;
+    }
+
+    .filemanager-text-container {
+        width:100%;
+    }
+
+
     .filmanager-right {
         border-left: solid 0px #8a2121;
     } 
+
+    #person-group-rights {
+        margin-top: 0px;
+        margin-left:0px;
+    }
 }
 
 @media (prefers-color-scheme: dark) {

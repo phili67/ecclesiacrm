@@ -76,7 +76,7 @@ class DocumentFileManagerController
         $userName = $user->getUserName();
         $currentpath = $user->getCurrentpath();
 
-        $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath;
+        $currentNoteDir = SystemURLs::getDocumentRoot() ."/". $realNoteDir . "/" . $userName . $currentpath;
         $sabrepath = $realNoteDir . "/" . $userName . $currentpath;
         
         $result = [];
@@ -97,14 +97,17 @@ class DocumentFileManagerController
             $sabrePathToFile = $sabrepath.$file;
             $rights = SabreUtils::getFileOrDirectoryInfos($sabrePathToFile);
 
+            $item['locked'] = false;
+
             if (count($rights)) {
                 $item['id'] = null;
                 $item['isShared'] = 1;
                 $item['perID'] = SessionUser::getUser()->getPersonId();
+                $item['locked'] = $rights[0]->access == 2;
             } else {                
                 $item['id'] = null;
                 $item['isShared'] = 0;
-                $item['perID'] = SessionUser::getUser()->getPersonId();
+                $item['perID'] = SessionUser::getUser()->getPersonId();                
             }
 
             $item['name'] = $file;
@@ -126,6 +129,8 @@ class DocumentFileManagerController
                 $size = 34;
             } else if (is_link("$currentNoteDir/$file")) {
                 $item['link'] = true;
+            } else {
+                $item['locked'] = false;
             }
 
             $item['icon'] = '<img src="' . $item['icon']  . '" width="' . $size . '">';//;"<i class='" . $item['icon'] . " fa-2x'></i>";
@@ -214,6 +219,15 @@ class DocumentFileManagerController
                 $userName = $user->getUserName();
                 $currentPath = $user->getCurrentpath();
                 $extension = pathinfo($params->name, PATHINFO_EXTENSION);
+                $file = $params->name;
+
+                $realNoteDir = $userDir = $user->getUserRootDir();
+                $userName = $user->getUserName();
+                $currentpath = $user->getCurrentpath();
+
+                $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath;
+                $sabrepath = $realNoteDir . "/" . $userName . $currentpath;
+        
 
                 $realNoteDir = $user->getUserRootDir();
                 
@@ -222,9 +236,37 @@ class DocumentFileManagerController
                 $sabrePathToFile = $sabrepath.$params->name;
                 $rights = SabreUtils::getFileOrDirectoryInfos($sabrePathToFile);
 
-                $userRights = "";
+                if (count($rights)) {
+                    $item['id'] = null;
+                    $item['isShared'] = 1;
+                    $item['perID'] = SessionUser::getUser()->getPersonId();
+                } else {                
+                    $item['id'] = null;
+                    $item['isShared'] = 0;
+                    $item['perID'] = SessionUser::getUser()->getPersonId();
+                }
 
-                /*if (count($rights)) {
+                $item['name'] = $file;
+                $item['date'] = date(SystemConfig::getValue("sDateFormatLong"), filemtime($currentNoteDir . "/" . $file));
+                $item['type'] = $extension;
+                $item['size'] = MiscUtils::FileSizeConvert(filesize($currentNoteDir . "/" . $file));
+                $item['icon'] = MiscUtils::FileIcon($file);
+                $item['path'] = $userName . $currentpath . $file;
+                $item['link'] = false;
+
+                $item['dir'] = false;
+                if (is_dir("$currentNoteDir/$file")) {
+                    $item['dir'] = true;
+                    $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png"; //'far fa-folder text-yellow';
+                    $item['type'] = gettext("Folder");
+                    $size = 34;
+                } else if (is_link("$currentNoteDir/$file")) {
+                    $item['link'] = true;
+                }
+
+                /*$userRights = "";
+
+                if (count($rights)) {
                     foreach ($rights as $right) {
                         $principals = $right->principal;
                         $shared_username = explode("/", $principals)[1];
@@ -260,8 +302,12 @@ class DocumentFileManagerController
                     return $response->withJson([
                         'success' => true, 
                         'name' => $res['name'],
-                        'path' => $res['content']
-                        //'rights' => $userRights
+                        'path' => $res['content'],
+                        'rights' => $rights[0],
+                        'dir' => $item['dir'],
+                        'link' => $item['link'],
+                        'icon' => $item['icon'],
+                        'type' => $item['type']
                     ]);
                 } else {
                     $realNoteDir = $userDir = $user->getUserRootDir();
@@ -270,8 +316,12 @@ class DocumentFileManagerController
                     return $response->withJson([
                             'success' => true, 
                             'name' => $res['name'],
-                            'path' => $res['content']
-                            //'rights' => $userRights
+                            'path' => $res['content'],
+                            'rights' => $rights[0],
+                            'dir' => $item['dir'],
+                            'link' => $item['link'],
+                            'icon' => $item['icon'],
+                            'type' => $item['type']
                         ]);
                 }
             }
