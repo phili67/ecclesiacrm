@@ -55,7 +55,7 @@ class DocumentFileManagerController
         $userName = $user->getUserName();
         $currentpath = $user->getCurrentpath();
 
-        $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath;
+        $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath;
 
         $files = array_diff(scandir($currentNoteDir), array('.', '..', '.DS_Store', '._.DS_Store'));
 
@@ -178,10 +178,10 @@ class DocumentFileManagerController
             if (!is_null($note) && ($note->isShared() > 0 || SessionUser::getUser()->isAdmin()
                     || SessionUser::getUser()->getPersonId() == $args['personID']
                     || $per->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
-                $file = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . MiscUtils::convertUTF8AccentuedString2Unicode($name);
+                $file = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . MiscUtils::convertUTF8AccentuedString2Unicode($name);
 
                 if ( !file_exists($file) ) {// in the case the file name isn't in unicode format
-                    $file = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $name;
+                    $file = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $name;
                 }
 
                 if ( !file_exists($file) ) {
@@ -225,7 +225,7 @@ class DocumentFileManagerController
                 $userName = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
-                $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath;
+                $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath;
                 $sabrepath = $realNoteDir . "/" . $userName . $currentpath;
         
 
@@ -262,31 +262,7 @@ class DocumentFileManagerController
                     $size = 34;
                 } else if (is_link("$currentNoteDir/$file")) {
                     $item['link'] = true;
-                }
-
-                /*$userRights = "";
-
-                if (count($rights)) {
-                    foreach ($rights as $right) {
-                        $principals = $right->principal;
-                        $shared_username = explode("/", $principals)[1];
-                        $shareUser = UserQuery::create()->findOneByUserName($shared_username);
-
-                        $access = $right->access;
-                        $displayName = $shareUser->getPerson()->getFullName();
-
-                        $userRights .= '<div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ' . $displayName . '
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">'._("Read").'</a>
-                                <a class="dropdown-item" href="#">'._("Read-Write").'</a>                            
-                            </div>
-                            </div>';
-                        
-                    }
-                }*/
+                }                
 
                 if (!(
                     strtolower($extension) == 'mp4' || strtolower($extension) == 'mov' || strtolower($extension) == 'ogg' || strtolower($extension) == 'm4a'
@@ -346,11 +322,10 @@ class DocumentFileManagerController
                     return $response->withJson(['success' => false]);
                 }
 
-                $realNoteDir = $userDir = $user->getUserRootDir();
-                $userName = $user->getUserName();
-                $currentpath = $user->getCurrentpath();
+                $realNoteDir = $user->getUserRootDir();
+                $userName = $user->getUserName();                
 
-                $currentNoteDir = SystemURLs::getDocumentRoot()."/". $realNoteDir . "/" . $userName . $currentpath;
+                $currentNoteDir = SystemURLs::getDocumentRoot()."/". $realNoteDir . "/" . $userName . $currentPath;
 
                 if (is_dir("$currentNoteDir")) {
                     $user->setCurrentpath($currentPath);
@@ -390,13 +365,20 @@ class DocumentFileManagerController
                     $currentPath = "/";
                 }
 
-                $user->setCurrentpath($currentPath);
+                $realNoteDir = $user->getUserRootDir();
+                $userName = $user->getUserName();
 
-                $user->save();
+                $currentNoteDir = SystemURLs::getDocumentRoot()."/". $realNoteDir . "/" . $userName . $currentPath;
 
-                $_SESSION['user'] = $user;
+                if (is_dir("$currentNoteDir")) {                
+                    $user->setCurrentpath($currentPath);
 
-                return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($currentPath), "isHomeFolder" => ($currentPath == "/") ? true : false, "numberOfFiles" => $this->numberOfFiles($params->personID)]);
+                    $user->save();
+
+                    $_SESSION['user'] = $user;
+
+                    return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($currentPath), "isHomeFolder" => ($currentPath == "/") ? true : false, "numberOfFiles" => $this->numberOfFiles($params->personID)]);
+                }
             }
         }
 
@@ -422,7 +404,7 @@ class DocumentFileManagerController
                     return $response->withJson(['success' => false, "message" => _("Right of access to folder problem")]);
                 }
 
-                $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $params->folder;
+                $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $params->folder;
 
                 $searchLikeString = $userName . $currentpath . substr($params->folder, 1) . '%';
                 $searchLikeString = str_replace("//", "/", $searchLikeString);
@@ -464,10 +446,10 @@ class DocumentFileManagerController
                 SabreUtils::removeSharedFileOrCollection($principalUri, $sabrePath);
                 // end of sabre
 
-                $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . MiscUtils::convertUTF8AccentuedString2Unicode($params->file);
+                $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . MiscUtils::convertUTF8AccentuedString2Unicode($params->file);
 
                 if (!file_exists($currentNoteDir)) {// in the case the file name isn't in unicode format
-                    $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $params->file;
+                    $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $params->file;
                 }
 
                 $searchLikeString = $userName . $currentpath . $params->file . '%';
@@ -506,7 +488,7 @@ class DocumentFileManagerController
                 foreach ($params->files as $file) {
                     if ($file[0] == '/') {
                         // we're in a case of a folder
-                        $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $file;
+                        $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $file;
 
                         $currentNoteDir = str_replace("//", "/", $currentNoteDir);
 
@@ -536,7 +518,7 @@ class DocumentFileManagerController
                         }
                     } else {
                         // in the case of a file
-                        $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $file;
+                        $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $file;
 
                         $currentNoteDir = str_replace("//", "/", $currentNoteDir);
 
@@ -589,14 +571,16 @@ class DocumentFileManagerController
                 $userName = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
-                $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $params->files;
+                $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $params->files;
 
                 foreach ($params->files as $file) {
+                    if ($file == '/public') continue;
+
                     if ($file[0] == '/') {
                         // we're in a case of a folder
                         // $file is a folder here
-                        $currentDest = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $file;
-                        $newDest = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . substr($params->folder, 1) . $file;
+                        $currentDest = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $file;
+                        $newDest = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . substr($params->folder, 1) . $file;
 
                         if (strpos($newDest, $userName . "/public/../") > 0) {
                             $newDest = str_replace("/public/../", "/", $newDest);
@@ -662,8 +646,8 @@ class DocumentFileManagerController
                             }
                         }
                     } else {
-                        $currentDest = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $file;
-                        $newDest = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . substr($params->folder, 1) . "/" . $file;
+                        $currentDest = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $file;
+                        $newDest = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . substr($params->folder, 1) . "/" . $file;
 
                         if (strpos($newDest, $userName . "/public/../") > 0) {
                             $newDest = str_replace("/public/../", "/", $newDest);
@@ -748,7 +732,7 @@ class DocumentFileManagerController
                 $userName = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
-                $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $params->folder;
+                $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $params->folder;
 
                 if (is_dir($currentNoteDir)) {
                     return $response->withJson(['success' => false, "message" => gettext("A Folder") . " \"" . $params->folder . "\" " . gettext("already exists at this place.")]);
@@ -783,17 +767,22 @@ class DocumentFileManagerController
         if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->oldName) and isset ($params->newName) and isset ($params->type) and SessionUser::getId() == $params->personID) {
 
             $user = UserQuery::create()->findPk($params->personID);
+            $currentpath = $user->getCurrentpath();
+                
             if (!is_null($user)) {
+                if ($params->oldName == '/public' and $currentpath == "/") {
+                    return $response->withJson(['success' => false, "message" => _("can't rename public folder")]);
+                }
+
                 $realNoteDir = $userDir = $user->getUserRootDir();
                 $userName = $user->getUserName();
-                $currentpath = $user->getCurrentpath();
                 $extension = pathinfo($params->oldName, PATHINFO_EXTENSION);
                 
-                $oldName = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . MiscUtils::convertUTF8AccentuedString2Unicode($params->oldName);
+                $oldName = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . MiscUtils::convertUTF8AccentuedString2Unicode($params->oldName);
                 if (!file_exists($oldName)) {// in the case the file name isn't in unicode format
-                    $oldName = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $params->oldName;
+                    $oldName = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $params->oldName;
                 }
-                $newName = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath . $params->newName . (($params->type == 'file') ? "." . $extension : "");
+                $newName = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $params->newName . (($params->type == 'file') ? "." . $extension : "");
 
                 $principalUri = "principals/".$user->getUserName();
                 $oldPath = "home/".$user->getUserName().$currentpath.$params->oldName;
@@ -856,7 +845,7 @@ class DocumentFileManagerController
             return $response->withJson(['success' => "failed"]);
         }
 
-        $currentNoteDir = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $userName . $currentpath;
+        $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath;
 
         $file = $_FILES['noteInputFile'];
 
