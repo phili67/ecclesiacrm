@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -343,9 +343,6 @@ msgstr "Si prega di confermare la cancellazione di questo documento"
 msgid "Document Delete Confirmation"
 msgstr "Conferma di cancellazione del documento"
 
-msgid "Document Editor"
-msgstr "Editor di documenti"
-
 msgid "Document Title"
 msgstr "Titolo del documento"
 
@@ -367,6 +364,9 @@ msgstr "audio"
 msgid "Private"
 msgstr "Privato"
 
+msgid "Document Editor"
+msgstr "Editor di documenti"
+
 msgid "You have to set a Title for your document"
 msgstr "Devi impostare un titolo per il tuo documento"
 
@@ -385,8 +385,8 @@ msgstr "Tipo"
 msgid "Size"
 msgstr "Dimensione"
 
-msgid "Set a File/Folder name"
-msgstr "Impostare un nome di file/cartella"
+msgid "Delete"
+msgstr "Cancellare"
 
 msgid "You are about to delete several items together"
 msgstr "Stai per cancellare diversi elementi insieme"
@@ -397,77 +397,35 @@ msgstr "Stai per rimuovere un elemento"
 msgid "This can't be undone !!!!"
 msgstr "Questo non può essere annullato !!!!"
 
-msgid "Delete"
-msgstr "Cancellare"
-
 msgid "You've to select at least one line !!!"
 msgstr "Dovete selezionare almeno una linea!!!"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Stai per rimuovere una cartella e il suo contenuto"
+msgid "Create a Folder"
+msgstr "Creare una cartella"
 
 msgid "Set your Folder name"
 msgstr "Imposta il nome della tua cartella"
 
-msgid "Files input"
-msgstr "Ingresso dei file"
+msgid "Actualize files"
+msgstr "Attualizzare i file"
 
-msgid "Upload your files"
-msgstr "Carica i tuoi file"
+msgid "Set a File/Folder name"
+msgstr "Impostare un nome di file/cartella"
 
-msgid "Upload"
-msgstr "Carica"
-
-msgid "Upload your Files"
-msgstr "Carica i tuoi file"
-
-msgid "Share your File"
-msgstr "Condividi il tuo file"
-
-msgid "With"
-msgstr "Con"
-
-msgid "Set Rights"
-msgstr "Impostare i diritti"
-
-msgid "Select your rights"
-msgstr "Seleziona i tuoi diritti"
-
-msgid "or"
-msgstr "o"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "Utente"
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW]"
-
-msgid "Send email notification"
-msgstr "Invia una notifica via e-mail"
-
-msgid "Add persons/Family/groups"
-msgstr "Aggiungere persone/famiglie/gruppi"
-
-msgid "Person or Family or Group"
-msgstr "Persona o famiglia o gruppo"
+msgid "[👀  ]"
+msgstr "[👀 ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Sei sicuro? Stai per cancellare questa persona?"
 
-msgid "Stop sharing"
-msgstr "Smettere di condividere"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Sei sicuro? Stai per smettere di condividere il tuo documento?"
-
-msgid "Ok"
-msgstr "Ok"
 
 msgid "Tracking"
 msgstr "Monitoraggio di"
@@ -526,14 +484,47 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[ESCLUDERE]"
 
+msgid "Ok"
+msgstr "Ok"
+
 msgid "Share your Calendar"
 msgstr "Condividi il tuo calendario"
+
+msgid "With"
+msgstr "Con"
+
+msgid "Set Rights"
+msgstr "Impostare i diritti"
+
+msgid "Select your rights"
+msgstr "Seleziona i tuoi diritti"
+
+msgid "or"
+msgstr "o"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "Invia una notifica via e-mail"
+
+msgid "Add persons/Family/groups"
+msgstr "Aggiungere persone/famiglie/gruppi"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Sei sicuro di voler cancellare questa condivisione?"
 
+msgid "Stop sharing"
+msgstr "Smettere di condividere"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "Sei sicuro di voler smettere di condividere il tuo documento?"
+
+msgid "Person or Family or Group"
+msgstr "Persona o famiglia o gruppo"
 
 msgid "Are you sure?"
 msgstr "Sei sicuro?"
@@ -1039,9 +1030,6 @@ msgstr "Crearne uno."
 msgid "Group"
 msgstr "Gruppo"
 
-msgid "User"
-msgstr "Utente"
-
 msgid "No event now."
 msgstr "Nessun evento ora."
 
@@ -1328,7 +1316,7 @@ msgid "Cell Phone"
 msgstr "Telefono cellulare"
 
 msgid "Remove Selected Members"
-msgstr ""
+msgstr "Rimuovere i membri selezionati"
 
 msgid "You're about to delete all the group members ?"
 msgstr "Stai per cancellare tutti i membri del gruppo?"
@@ -1342,17 +1330,14 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "Aggiungi al carrello"
 
-#, fuzzy
 msgid "Add to Group"
-msgstr "Aggiungi il carrello al gruppo"
+msgstr "Aggiungi al gruppo"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "Seleziona il gruppo"
+msgstr "Spostare nel gruppo"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "Rimuovere tutti"
+msgstr "Rimuovere tutti i membri"
 
 msgid "Add"
 msgstr "Aggiungi"
@@ -1375,9 +1360,8 @@ msgstr "Nessun manager assegnato"
 msgid "Manage Group Managers"
 msgstr "Gestire i manager del gruppo"
 
-#, fuzzy
 msgid "Add users"
-msgstr "Aggiungi acquirente"
+msgstr "Aggiungi utenti"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Sei sicuro di voler cancellare questo Manager?"
@@ -2542,6 +2526,34 @@ msgstr "Editore del numero dell'acquirente"
 
 msgid "Select"
 msgstr "Seleziona"
+
+#~ msgid ""
+#~ "Use this method to share files with individuals or teams within your "
+#~ "organization. If the recipient already has access to the share, but can't "
+#~ "locate it, you can send them the internal link to facilitate access."
+#~ msgstr ""
+#~ "Utilizzate questo metodo per condividere i file con individui o team "
+#~ "all'interno della vostra organizzazione. Se il destinatario ha già "
+#~ "accesso alla condivisione, ma non riesce a trovarla, è possibile "
+#~ "inviargli il link interno per facilitare l'accesso."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "Stai per rimuovere una cartella e il suo contenuto"
+
+#~ msgid "Files input"
+#~ msgstr "Ingresso dei file"
+
+#~ msgid "Upload your files"
+#~ msgstr "Carica i tuoi file"
+
+#~ msgid "Upload"
+#~ msgstr "Carica"
+
+#~ msgid "Upload your Files"
+#~ msgstr "Carica i tuoi file"
+
+#~ msgid "Share your File"
+#~ msgstr "Condividi il tuo file"
 
 #~ msgid "Members from group"
 #~ msgstr "Membri del gruppo"

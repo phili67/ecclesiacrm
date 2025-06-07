@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -345,9 +345,6 @@ msgstr "Bevestig de verwijdering van dit document"
 msgid "Document Delete Confirmation"
 msgstr "Bevestiging verwijderen document"
 
-msgid "Document Editor"
-msgstr "Document redacteur"
-
 msgid "Document Title"
 msgstr "Titel van het document"
 
@@ -369,6 +366,9 @@ msgstr "audio"
 msgid "Private"
 msgstr "Privé"
 
+msgid "Document Editor"
+msgstr "Document redacteur"
+
 msgid "You have to set a Title for your document"
 msgstr "U moet een titel instellen voor uw document"
 
@@ -387,8 +387,8 @@ msgstr "Type"
 msgid "Size"
 msgstr "Maat"
 
-msgid "Set a File/Folder name"
-msgstr "Een bestands-/mapnaam instellen"
+msgid "Delete"
+msgstr "Delete"
 
 msgid "You are about to delete several items together"
 msgstr "U staat op het punt om meerdere items tegelijk te verwijderen"
@@ -399,77 +399,35 @@ msgstr "Je staat op het punt om een item te verwijderen"
 msgid "This can't be undone !!!!"
 msgstr "Dit kan niet ongedaan worden gemaakt !!!!"
 
-msgid "Delete"
-msgstr "Delete"
-
 msgid "You've to select at least one line !!!"
 msgstr "Je moet minstens één lijn kiezen!!!"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Je staat op het punt om een map en zijn inhoud te verwijderen"
+msgid "Create a Folder"
+msgstr "Een map maken"
 
 msgid "Set your Folder name"
 msgstr "Stel uw mapnaam in"
 
-msgid "Files input"
-msgstr "Bestanden invoer"
+msgid "Actualize files"
+msgstr "Bestanden actualiseren"
 
-msgid "Upload your files"
-msgstr "Upload uw bestanden"
+msgid "Set a File/Folder name"
+msgstr "Een bestands-/mapnaam instellen"
 
-msgid "Upload"
-msgstr "Upload"
-
-msgid "Upload your Files"
-msgstr "Upload uw bestanden"
-
-msgid "Share your File"
-msgstr "Uw bestand delen"
-
-msgid "With"
-msgstr "Met"
-
-msgid "Set Rights"
-msgstr "Rechten instellen"
-
-msgid "Select your rights"
-msgstr "Kies uw rechten"
-
-msgid "or"
-msgstr "of"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "Gebruiker"
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW]"
-
-msgid "Send email notification"
-msgstr "E-mail bericht verzenden"
-
-msgid "Add persons/Family/groups"
-msgstr "Personen/familie/groepen toevoegen"
-
-msgid "Person or Family or Group"
-msgstr "Persoon of gezin of groep"
+msgid "[👀  ]"
+msgstr "[👀 ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Ben je zeker? Ga je deze persoon verwijderen?"
 
-msgid "Stop sharing"
-msgstr "Stop met delen"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Ben je zeker ? Ga je stoppen met het delen van je document?"
-
-msgid "Ok"
-msgstr "Ok"
 
 msgid "Tracking"
 msgstr "Volgen"
@@ -528,14 +486,47 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Ok"
+msgstr "Ok"
+
 msgid "Share your Calendar"
 msgstr "Deel uw agenda"
+
+msgid "With"
+msgstr "Met"
+
+msgid "Set Rights"
+msgstr "Rechten instellen"
+
+msgid "Select your rights"
+msgstr "Kies uw rechten"
+
+msgid "or"
+msgstr "of"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "E-mail bericht verzenden"
+
+msgid "Add persons/Family/groups"
+msgstr "Personen/familie/groepen toevoegen"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Weet je zeker dat je dit aandeel wilt verwijderen?"
 
+msgid "Stop sharing"
+msgstr "Stop met delen"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "Weet u zeker dat u wilt stoppen met het delen van uw document?"
+
+msgid "Person or Family or Group"
+msgstr "Persoon of gezin of groep"
 
 msgid "Are you sure?"
 msgstr "Ben je zeker?"
@@ -1046,9 +1037,6 @@ msgstr "Maak er een."
 msgid "Group"
 msgstr "Groep"
 
-msgid "User"
-msgstr "Gebruiker"
-
 msgid "No event now."
 msgstr "Geen gebeurtenis nu."
 
@@ -1335,7 +1323,7 @@ msgid "Cell Phone"
 msgstr "Mobiele telefoon"
 
 msgid "Remove Selected Members"
-msgstr ""
+msgstr "Geselecteerde leden verwijderen"
 
 msgid "You're about to delete all the group members ?"
 msgstr "Je staat op het punt om alle groepsleden te verwijderen?"
@@ -1349,17 +1337,14 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "In winkelwagen"
 
-#, fuzzy
 msgid "Add to Group"
 msgstr "Toevoegen aan groep"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "Selecteer groep"
+msgstr "Naar groep"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "Verwijder alle"
+msgstr "Alle leden verwijderen"
 
 msgid "Add"
 msgstr "Toevoegen"
@@ -1382,9 +1367,8 @@ msgstr "Geen toegewezen Manager"
 msgid "Manage Group Managers"
 msgstr "Beheer Groep Managers"
 
-#, fuzzy
 msgid "Add users"
-msgstr "Koper toevoegen"
+msgstr "Gebruikers toevoegen"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Weet je zeker, dat je deze Manager wilt verwijderen ?"
@@ -2550,6 +2534,34 @@ msgstr "Redacteur kopersnummer"
 
 msgid "Select"
 msgstr "Selecteer"
+
+#~ msgid ""
+#~ "Use this method to share files with individuals or teams within your "
+#~ "organization. If the recipient already has access to the share, but can't "
+#~ "locate it, you can send them the internal link to facilitate access."
+#~ msgstr ""
+#~ "Gebruik deze methode om bestanden te delen met individuen of teams binnen "
+#~ "je organisatie. Als de ontvanger al toegang heeft tot de share, maar deze "
+#~ "niet kan vinden, kun je hem of haar de interne link sturen om de toegang "
+#~ "te vergemakkelijken."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "Je staat op het punt om een map en zijn inhoud te verwijderen"
+
+#~ msgid "Files input"
+#~ msgstr "Bestanden invoer"
+
+#~ msgid "Upload your files"
+#~ msgstr "Upload uw bestanden"
+
+#~ msgid "Upload"
+#~ msgstr "Upload"
+
+#~ msgid "Upload your Files"
+#~ msgstr "Upload uw bestanden"
+
+#~ msgid "Share your File"
+#~ msgstr "Uw bestand delen"
 
 #~ msgid "Members from group"
 #~ msgstr "Leden van de groep"

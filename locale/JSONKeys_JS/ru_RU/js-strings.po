@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -345,9 +345,6 @@ msgstr "Пожалуйста, подтвердите удаление этого
 msgid "Document Delete Confirmation"
 msgstr "Подтверждение удаления документа"
 
-msgid "Document Editor"
-msgstr "Редактор документов"
-
 msgid "Document Title"
 msgstr "Название документа"
 
@@ -369,6 +366,9 @@ msgstr "аудио"
 msgid "Private"
 msgstr "Частный"
 
+msgid "Document Editor"
+msgstr "Редактор документов"
+
 msgid "You have to set a Title for your document"
 msgstr "Вы должны задать заголовок для документа"
 
@@ -387,8 +387,8 @@ msgstr "Тип"
 msgid "Size"
 msgstr "Размер"
 
-msgid "Set a File/Folder name"
-msgstr "Задайте имя файла/папки"
+msgid "Delete"
+msgstr "Удалить"
 
 msgid "You are about to delete several items together"
 msgstr "Вы собираетесь удалить несколько элементов вместе"
@@ -399,77 +399,35 @@ msgstr "Вы собираетесь удалить элемент"
 msgid "This can't be undone !!!!"
 msgstr "Этого не отменить !!!!"
 
-msgid "Delete"
-msgstr "Удалить"
-
 msgid "You've to select at least one line !!!"
 msgstr "Вы должны выбрать хотя бы одну линию!!!"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Вы собираетесь удалить папку и ее содержимое"
+msgid "Create a Folder"
+msgstr "Создать папку"
 
 msgid "Set your Folder name"
 msgstr "Задайте имя папки"
 
-msgid "Files input"
-msgstr "Ввод файлов"
+msgid "Actualize files"
+msgstr "Актуализация файлов"
 
-msgid "Upload your files"
-msgstr "Загрузите свои файлы"
+msgid "Set a File/Folder name"
+msgstr "Задайте имя файла/папки"
 
-msgid "Upload"
-msgstr "Загрузить"
-
-msgid "Upload your Files"
-msgstr "Загрузите свои файлы"
-
-msgid "Share your File"
-msgstr "Поделитесь своим файлом"
-
-msgid "With"
-msgstr "С"
-
-msgid "Set Rights"
-msgstr "Установить права"
-
-msgid "Select your rights"
-msgstr "Выберите свои права"
-
-msgid "or"
-msgstr "или"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "Пользователь"
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW]."
-
-msgid "Send email notification"
-msgstr "Отправить уведомление по электронной почте"
-
-msgid "Add persons/Family/groups"
-msgstr "Добавить людей/семью/группы"
-
-msgid "Person or Family or Group"
-msgstr "Человек, семья или группа"
+msgid "[👀  ]"
+msgstr "[👀 ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Вы уверены? Вы собираетесь удалить этого человека?"
 
-msgid "Stop sharing"
-msgstr "Прекратите делиться"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Вы уверены? Вы собираетесь прекратить обмен документами?"
-
-msgid "Ok"
-msgstr "Хорошо"
 
 msgid "Tracking"
 msgstr "Отслеживание"
@@ -528,14 +486,47 @@ msgstr "[ВКЛЮЧЕНО]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Ok"
+msgstr "Хорошо"
+
 msgid "Share your Calendar"
 msgstr "Поделитесь своим календарем"
+
+msgid "With"
+msgstr "С"
+
+msgid "Set Rights"
+msgstr "Установить права"
+
+msgid "Select your rights"
+msgstr "Выберите свои права"
+
+msgid "or"
+msgstr "или"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]."
+
+msgid "Send email notification"
+msgstr "Отправить уведомление по электронной почте"
+
+msgid "Add persons/Family/groups"
+msgstr "Добавить людей/семью/группы"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Вы уверены, что хотите удалить этот ресурс?"
 
+msgid "Stop sharing"
+msgstr "Прекратите делиться"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "Вы уверены, что хотите прекратить совместное использование документа?"
+
+msgid "Person or Family or Group"
+msgstr "Человек, семья или группа"
 
 msgid "Are you sure?"
 msgstr "Вы уверены?"
@@ -1038,9 +1029,6 @@ msgstr "Создайте его."
 msgid "Group"
 msgstr "Группа"
 
-msgid "User"
-msgstr "Пользователь"
-
 msgid "No event now."
 msgstr "Сейчас никаких событий."
 
@@ -1326,7 +1314,7 @@ msgid "Cell Phone"
 msgstr "Мобильный телефон"
 
 msgid "Remove Selected Members"
-msgstr ""
+msgstr "Удалить выбранных членов"
 
 msgid "You're about to delete all the group members ?"
 msgstr "Вы собираетесь удалить всех членов группы?"
@@ -1340,17 +1328,14 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "Добавить в корзину"
 
-#, fuzzy
 msgid "Add to Group"
-msgstr "Добавить корзину в группу"
+msgstr "Добавить в группу"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "Выберите группу"
+msgstr "Перейти в группу"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "Удалить все"
+msgstr "Удалить всех членов"
 
 msgid "Add"
 msgstr "Добавить"
@@ -1373,9 +1358,8 @@ msgstr "Менеджер не назначен"
 msgid "Manage Group Managers"
 msgstr "Управление менеджерами групп"
 
-#, fuzzy
 msgid "Add users"
-msgstr "Добавить покупателя"
+msgstr "Добавить пользователей"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Вы уверены, что хотите удалить этого менеджера?"
@@ -2529,6 +2513,34 @@ msgstr "Редактор номеров покупателей"
 
 msgid "Select"
 msgstr "Выберите"
+
+#~ msgid ""
+#~ "Use this method to share files with individuals or teams within your "
+#~ "organization. If the recipient already has access to the share, but can't "
+#~ "locate it, you can send them the internal link to facilitate access."
+#~ msgstr ""
+#~ "Используйте этот метод для обмена файлами с отдельными сотрудниками или "
+#~ "командами в вашей организации. Если у получателя уже есть доступ к "
+#~ "ресурсу, но он не может его найти, вы можете отправить ему внутреннюю "
+#~ "ссылку, чтобы облегчить доступ."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "Вы собираетесь удалить папку и ее содержимое"
+
+#~ msgid "Files input"
+#~ msgstr "Ввод файлов"
+
+#~ msgid "Upload your files"
+#~ msgstr "Загрузите свои файлы"
+
+#~ msgid "Upload"
+#~ msgstr "Загрузить"
+
+#~ msgid "Upload your Files"
+#~ msgstr "Загрузите свои файлы"
+
+#~ msgid "Share your File"
+#~ msgstr "Поделитесь своим файлом"
 
 #~ msgid "Members from group"
 #~ msgstr "Члены группы"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 21:05+0000\n"
+"POT-Creation-Date: 2025-06-06 15:19+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -248,7 +248,7 @@ msgstr "ทำงานโทรศัพท์"
 msgid "Cell Phone"
 msgstr "โทรศัพท์มือถือ"
 
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:479
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:475
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
@@ -281,7 +281,7 @@ msgstr "โทรศัพท์มือถือ"
 #: v2/templates/people/personPrint.php:340
 #: v2/templates/people/personview.php:283
 #: v2/templates/people/personview.php:411
-#: v2/templates/people/personview.php:792
+#: v2/templates/people/personview.php:778
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:135
@@ -394,7 +394,7 @@ msgstr "เป็นประเทศที่ไม่มีใครระบ
 #: EcclesiaCRM/APIControllers/SearchController.php:243
 #: EcclesiaCRM/APIControllers/SearchController.php:251
 #: EcclesiaCRM/APIControllers/SearchController.php:256
-#: EcclesiaCRM/MenuBar/MenuBar.php:302 EcclesiaCRM/MenuBar/MenuBar.php:399
+#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:395
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1035
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1047
@@ -554,7 +554,7 @@ msgstr "ข้อมูลนำเข้า สำเร็จ"
 msgid "persons were imported"
 msgstr "ส่วนบุคคลนำเข้ามา"
 
-#: CatchCreatePayment.php:72 EcclesiaCRM/utils/MiscUtils.php:1725
+#: CatchCreatePayment.php:72 EcclesiaCRM/utils/MiscUtils.php:1865
 #: v2/templates/deposit/autoPaymentClearAccount.php:30
 msgid "Cannot execute query."
 msgstr "คำถามที่ไม่สามารถดำเนินการได้"
@@ -624,7 +624,7 @@ msgstr "วิดีโอ"
 #: v2/templates/people/personPrint.php:382
 #: v2/templates/people/personPrint.php:638
 #: v2/templates/people/personPrint.php:697
-#: v2/templates/people/personview.php:991
+#: v2/templates/people/personview.php:977
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
 msgstr "ไม่มี"
@@ -724,9 +724,8 @@ msgid "Your cart has been successfully emptied"
 msgstr "รถเข็นของคุณเสร็จสมบูรณ์"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:111
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:175
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:689
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:173
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:871
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:698
 #: uploader/upload.php:82
 msgid "Create file"
@@ -742,58 +741,83 @@ msgstr "เอกสารนี้เปิดโดย"
 msgid "Minutes left"
 msgstr "เหลืออีกนาที"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:134
-#: EcclesiaCRM/utils/MiscUtils.php:758
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:128
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:261
+#: EcclesiaCRM/utils/MiscUtils.php:776
 msgid "Folder"
 msgstr "พ่อ"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:196
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:194
 msgid "Document not found"
 msgstr "เอกสารยังไม่พบเลย"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:389
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:406
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:445
+msgid "Right of access to folder problem"
+msgstr ""
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:471
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:823
+msgid "Contact error at api"
+msgstr ""
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:498
 msgid "You can't erase the public folder !"
 msgstr "คุณลบแฟ้มสาธารณะไม่ได้นะ"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:460
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:566
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:506
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:538
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:608
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:680
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:787
+msgid "Right of access to the file or folder the prohibited recording"
+msgstr ""
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:590
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:738
 msgid "A Folder"
 msgstr "คนโฟล์"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:460
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:510
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:566
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:590
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:658
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:738
 msgid "already exists at this place."
 msgstr "มีอยู่ที่นี่แล้ว"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:490
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:638
 msgid "Folder modification"
 msgstr "ปรับเปลี่ยนพันธุ์"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:492
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:535
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:640
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:707
 msgid "File modification"
 msgstr "ปรับแฟ้ม"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:510
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:658
 msgid "A File"
 msgstr "ไฟล์"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:578
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:750
 msgid "New Folder"
 msgstr "โฟลเดอร์ใหม่"
 
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:50
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
+#: v2/templates/edrive/dashboard.php:103
 msgid "[👀  ]"
 msgstr "[👀  ]"
 
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:50
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
+#: v2/templates/edrive/dashboard.php:104
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:77
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:111
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:145
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:106
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:164
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:198
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:232
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:327
 msgid ""
 "You can visualize it in your account, in the time Line or the notes tab."
 msgstr "คุณสามารถมองภาพมันในบัญชีของคุณ ในเวลาที่เส้นตรงหรือบันทึก"
@@ -852,10 +876,11 @@ msgid "All Families"
 msgstr "ครอบครัวทั้งหมด"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
-#: EcclesiaCRM/APIControllers/PeopleController.php:76
-#: EcclesiaCRM/APIControllers/PeopleController.php:126
-#: EcclesiaCRM/APIControllers/PeopleController.php:179
-#: EcclesiaCRM/MenuBar/MenuBar.php:214
+#: EcclesiaCRM/APIControllers/PeopleController.php:78
+#: EcclesiaCRM/APIControllers/PeopleController.php:135
+#: EcclesiaCRM/APIControllers/PeopleController.php:185
+#: EcclesiaCRM/APIControllers/PeopleController.php:238
+#: EcclesiaCRM/MenuBar/MenuBar.php:210
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
@@ -865,10 +890,10 @@ msgid "Persons"
 msgstr "สุขภาพ"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:163
-#: EcclesiaCRM/APIControllers/PeopleController.php:218
+#: EcclesiaCRM/APIControllers/PeopleController.php:277
 #: EcclesiaCRM/APIControllers/SearchController.php:62
 #: EcclesiaCRM/APIControllers/SearchController.php:65
-#: EcclesiaCRM/MenuBar/MenuBar.php:187 EcclesiaCRM/MenuBar/MenuBar.php:221
+#: EcclesiaCRM/MenuBar/MenuBar.php:183 EcclesiaCRM/MenuBar/MenuBar.php:217
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
@@ -884,10 +909,10 @@ msgid "Families"
 msgstr "ครอบครัว"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:201
-#: EcclesiaCRM/APIControllers/PeopleController.php:255
+#: EcclesiaCRM/APIControllers/PeopleController.php:314
 #: EcclesiaCRM/APIControllers/SearchController.php:88
 #: EcclesiaCRM/APIControllers/SearchController.php:91
-#: EcclesiaCRM/MenuBar/MenuBar.php:243 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:239 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
@@ -1166,7 +1191,7 @@ msgstr "กลุ่มประเภท"
 #: v2/templates/people/familyview.php:338
 #: v2/templates/people/personPrint.php:405
 #: v2/templates/people/personPrint.php:470
-#: v2/templates/people/personview.php:790
+#: v2/templates/people/personview.php:776
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:726
@@ -1680,7 +1705,7 @@ msgstr "กรุณาตรวจสอบข้อมูลของครอ
 msgid "Private Space"
 msgstr "อวกาศส่วนตัว"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:111 EcclesiaCRM/utils/MiscUtils.php:466
+#: EcclesiaCRM/MenuBar/MenuBar.php:111 EcclesiaCRM/utils/MiscUtils.php:475
 #: Include/Header.php:257
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
@@ -1702,12 +1727,7 @@ msgstr "เปลี่ยนตังค์"
 msgid "Documents"
 msgstr "เอกสารนี้"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:119 v2/templates/people/personview.php:668
-#: v2/templates/user/userseditor.php:292
-msgid "EDrive"
-msgstr "EDrive"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:134
+#: EcclesiaCRM/MenuBar/MenuBar.php:130
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 #: EcclesiaCRM/dto/SystemConfig.php:301
@@ -1715,30 +1735,30 @@ msgstr "EDrive"
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:137 EcclesiaCRM/MenuBar/MenuBar.php:189
-#: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:446
-#: EcclesiaCRM/MenuBar/MenuBar.php:458 EcclesiaCRM/MenuBar/MenuBar.php:486
-#: EcclesiaCRM/MenuBar/MenuBar.php:596
+#: EcclesiaCRM/MenuBar/MenuBar.php:133 EcclesiaCRM/MenuBar/MenuBar.php:185
+#: EcclesiaCRM/MenuBar/MenuBar.php:340 EcclesiaCRM/MenuBar/MenuBar.php:442
+#: EcclesiaCRM/MenuBar/MenuBar.php:454 EcclesiaCRM/MenuBar/MenuBar.php:482
+#: EcclesiaCRM/MenuBar/MenuBar.php:564 EcclesiaCRM/MenuBar/MenuBar.php:603
 msgid "Dashboard"
 msgstr "กระดาน"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:138
+#: EcclesiaCRM/MenuBar/MenuBar.php:134
 msgid "Data Structure"
 msgstr "ระบบสร้างฐาน"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:139 EcclesiaCRM/MenuBar/MenuBar.php:219
+#: EcclesiaCRM/MenuBar/MenuBar.php:135 EcclesiaCRM/MenuBar/MenuBar.php:215
 msgid "View Inactive Persons"
 msgstr "วิวส์บุคคลติดต่อสู้"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:225
+#: EcclesiaCRM/MenuBar/MenuBar.php:136 EcclesiaCRM/MenuBar/MenuBar.php:221
 msgid "View Inactive Families"
 msgstr "วิว แอร์ฟิวส์"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:155
+#: EcclesiaCRM/MenuBar/MenuBar.php:151
 msgid "Events"
 msgstr "อีกส์"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:163 v2/templates/map/MapUsingBing.php:78
+#: EcclesiaCRM/MenuBar/MenuBar.php:159 v2/templates/map/MapUsingBing.php:78
 #: v2/templates/map/MapUsingBing.php:124 v2/templates/map/MapUsingGoogle.php:88
 #: v2/templates/map/MapUsingGoogle.php:135
 #: v2/templates/map/MapUsingLeaflet.php:72
@@ -1746,100 +1766,100 @@ msgstr "อีกส์"
 msgid "Calendar"
 msgstr "ปฏิทิน"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:166 EcclesiaCRM/MenuBar/MenuBar.php:206
+#: EcclesiaCRM/MenuBar/MenuBar.php:162 EcclesiaCRM/MenuBar/MenuBar.php:202
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "วิวสำหรับแผนที่"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:169
+#: EcclesiaCRM/MenuBar/MenuBar.php:165
 msgid "List Church Events"
 msgstr "รายชื่อ เชอร์ช อีนส์"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:170
+#: EcclesiaCRM/MenuBar/MenuBar.php:166
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:332
 msgid "List Event Types"
 msgstr "พิมพ์รายชื่อ"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:172
+#: EcclesiaCRM/MenuBar/MenuBar.php:168
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:294
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:296
 msgid "Call the Register"
 msgstr "โทรหาเรจิสเตอร์"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:187
+#: EcclesiaCRM/MenuBar/MenuBar.php:183
 #: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "ผู้คน"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:204
+#: EcclesiaCRM/MenuBar/MenuBar.php:200
 msgid "Meta Search Engine"
 msgstr "เครื่องยนต์ค้นหาเมต้า"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:210
+#: EcclesiaCRM/MenuBar/MenuBar.php:206
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1202
 msgid "Directory reports"
 msgstr "รายงานโดยตรง"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:215 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:211 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "Add New Person"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:216
+#: EcclesiaCRM/MenuBar/MenuBar.php:212
 msgid "View Single Persons"
 msgstr "วิว โสด หน่อย"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:217
+#: EcclesiaCRM/MenuBar/MenuBar.php:213
 msgid "View Active Persons"
 msgstr "วิว บุคคล"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:222
+#: EcclesiaCRM/MenuBar/MenuBar.php:218
 msgid "Add New Family"
 msgstr "เพิ่มครอบครัวใหม่"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:223
+#: EcclesiaCRM/MenuBar/MenuBar.php:219
 msgid "View Active Families"
 msgstr "วิว แอคชิฟ ครอบครัว"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:227
+#: EcclesiaCRM/MenuBar/MenuBar.php:223
 msgid "Empty Addresses"
 msgstr "ที่อยู่ที่ว่างเปล่า"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:230
+#: EcclesiaCRM/MenuBar/MenuBar.php:226
 msgid "Convert Individual to Address"
 msgstr "ทำให้บุคคลต่างๆ ที่อยู่อาศัย"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:245
+#: EcclesiaCRM/MenuBar/MenuBar.php:241
 msgid "List Groups"
 msgstr "ลิซกลุ่ม"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:321
+#: EcclesiaCRM/MenuBar/MenuBar.php:317
 #: v2/templates/deposit/electronicPaymentList.php:254
 #: v2/templates/group/groupedit.php:134 v2/templates/group/groupview.php:235
 msgid "Disabled"
 msgstr "ไม่ได้"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:330
+#: EcclesiaCRM/MenuBar/MenuBar.php:326
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:235
 msgid "Group Assignment Helper"
 msgstr "ผู้ช่วยกลุ่ม"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:341
+#: EcclesiaCRM/MenuBar/MenuBar.php:337
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "โรงเรียนวันอาทิตย์"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:428 EcclesiaCRM/MenuBar/MenuBar.php:435
+#: EcclesiaCRM/MenuBar/MenuBar.php:424 EcclesiaCRM/MenuBar/MenuBar.php:431
 #: Include/Footer.php:177
 msgid "Global Custom Menus"
 msgstr "โกลบอล คุสตาม เมนัส"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:445
+#: EcclesiaCRM/MenuBar/MenuBar.php:441
 msgid "Custom Menus"
 msgstr "ลูกค้าเมนัส"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:455 EcclesiaCRM/dto/SystemConfig.php:298
+#: EcclesiaCRM/MenuBar/MenuBar.php:451 EcclesiaCRM/dto/SystemConfig.php:298
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
@@ -1849,21 +1869,21 @@ msgstr "ลูกค้าเมนัส"
 msgid "Pastoral Care"
 msgstr "ภูมิใจบาทหลวง"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:459
+#: EcclesiaCRM/MenuBar/MenuBar.php:455
 msgid "By Classifications"
 msgstr "ขอสาบานต่อลมที่พิจารณา"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:484
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/people/familyview.php:171 v2/templates/user/userseditor.php:467
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:493
+#: EcclesiaCRM/MenuBar/MenuBar.php:489
 msgid "Email Lists"
 msgstr "รายชื่ออีเมล์"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:526
+#: EcclesiaCRM/MenuBar/MenuBar.php:522
 #: EcclesiaCRM/Search/PledgeSearchRes.php:64
 #: EcclesiaCRM/Search/PledgeSearchRes.php:85 Reports/AdvancedDeposit.php:269
 #: Reports/AdvancedDeposit.php:389 Reports/AdvancedDeposit.php:420
@@ -1872,64 +1892,68 @@ msgstr "รายชื่ออีเมล์"
 msgid "Deposit"
 msgstr "ข้างนอก"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:541
+#: EcclesiaCRM/MenuBar/MenuBar.php:537
 msgid "Current"
 msgstr "ตอนนี้"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:546
+#: EcclesiaCRM/MenuBar/MenuBar.php:542
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:193
 msgid "Envelope Manager"
 msgstr "ผู้จัดการที่ดี"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:547
+#: EcclesiaCRM/MenuBar/MenuBar.php:543
 msgid "View All Deposits"
 msgstr "วิวทั้งหมดดีโพส"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:548
+#: EcclesiaCRM/MenuBar/MenuBar.php:544
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:374
 msgid "Electronic Payment Listing"
 msgstr "รายชื่อค่าจ้างอิเล็กทรอนิกส์"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:549
+#: EcclesiaCRM/MenuBar/MenuBar.php:545
 msgid "Deposit Reports"
 msgstr "รายงานข่าวสาร"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:550
+#: EcclesiaCRM/MenuBar/MenuBar.php:546
 #: v2/templates/deposit/financialReports.php:52
 msgid "Giving Report (Tax Statements)"
 msgstr "รายงานภาษี"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:551
+#: EcclesiaCRM/MenuBar/MenuBar.php:547
 msgid "Edit Deposit Slip"
 msgstr "แก้ไข Deposit Slip"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:565
+#: EcclesiaCRM/MenuBar/MenuBar.php:562 v2/templates/user/userseditor.php:292
+msgid "EDrive"
+msgstr "EDrive"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:572
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "ผู้รับเงิน"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:569
+#: EcclesiaCRM/MenuBar/MenuBar.php:576
 msgid "Create New Fundraiser"
 msgstr "สร้างผู้บริหารเงินใหม่"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:570
+#: EcclesiaCRM/MenuBar/MenuBar.php:577
 msgid "View All Fundraisers"
 msgstr "ดูรายการทุน"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:572
+#: EcclesiaCRM/MenuBar/MenuBar.php:579
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "แก้ไขสุดท้าย"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:616
+#: EcclesiaCRM/MenuBar/MenuBar.php:624
 msgid "Data/Reports"
 msgstr "ข้อมูล/รายงาน"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:618
+#: EcclesiaCRM/MenuBar/MenuBar.php:626
 msgid "Reports Menu"
 msgstr "รายงาน Menu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:621 v2/templates/user/userseditor.php:457
+#: EcclesiaCRM/MenuBar/MenuBar.php:629 v2/templates/user/userseditor.php:457
 msgid "Query Menu"
 msgstr "เคอรี่ เมนู"
 
@@ -2061,7 +2085,7 @@ msgstr "ผู้ใหญ่เด็ก"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:185
 #: v2/templates/people/familyview.php:340
-#: v2/templates/people/personview.php:791
+#: v2/templates/people/personview.php:777
 msgid "Birthday"
 msgstr "วันเกิด"
 
@@ -2270,7 +2294,7 @@ msgstr "สมาชิก"
 #: v2/templates/people/personlist.php:102
 #: v2/templates/people/personlist.php:103
 #: v2/templates/people/personview.php:344
-#: v2/templates/people/personview.php:1592
+#: v2/templates/people/personview.php:1495
 #: v2/templates/sundayschool/sundayschooldashboard.php:296
 #: v2/templates/sundayschool/sundayschooldashboard.php:297
 #: v2/templates/sundayschool/sundayschooldashboard.php:298
@@ -2453,6 +2477,7 @@ msgstr "วันครบรอบ"
 #: v2/templates/calendar/eventnames.php:347
 #: v2/templates/deposit/electronicPaymentList.php:301
 #: v2/templates/deposit/finddepositslip.php:103
+#: v2/templates/edrive/dashboard.php:77
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/pastoralcare/pastoralcarefamily.php:299
@@ -2460,8 +2485,7 @@ msgstr "วันครบรอบ"
 #: v2/templates/pastoralcare/pastoralcareperson.php:431
 #: v2/templates/pastoralcare/pastoralcareperson.php:438
 #: v2/templates/people/familyview.php:890
-#: v2/templates/people/personview.php:1530
-#: v2/templates/people/personview.php:1621 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/personview.php:1524 v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "ลบ"
 
@@ -2657,7 +2681,7 @@ msgid "by"
 msgstr "โดย"
 
 #: EcclesiaCRM/Service/TimelineService.php:332
-#: EcclesiaCRM/utils/MiscUtils.php:758 EcclesiaCRM/utils/MiscUtils.php:861
+#: EcclesiaCRM/utils/MiscUtils.php:776 EcclesiaCRM/utils/MiscUtils.php:994
 msgid "File"
 msgstr "ไฟล์"
 
@@ -2959,6 +2983,11 @@ msgstr "บันทึกการจ่ายเงิน"
 msgid "Payment Editor - New Deposit Slip Will Be Created"
 msgstr "บันทึกการจ่ายเงิน \\ N ข้อมูลใหม่ที่จะสร้างขึ้น"
 
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:51
+#, fuzzy
+msgid "Edrive : Dashboard "
+msgstr "กระดาน"
+
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:56
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:80
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:178
@@ -3088,7 +3117,6 @@ msgid "Query Listing"
 msgstr "รายชื่อ เคอรี่ ลิสติ้ง"
 
 #: EcclesiaCRM/VIEWControllers/VIEWQueryController.php:100
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:31
 msgid "Query View"
 msgstr "Query View"
 
@@ -5436,51 +5464,51 @@ msgstr "แก่"
 msgid "yr old"
 msgstr "แก่"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:801
 msgid "system user created"
 msgstr "ผู้ใช้ระบบสร้าง"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:803
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:804
 msgid "system user updated"
 msgstr "ผู้ใช้ระบบอัพเดทขึ้น"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:807
 msgid "system user deleted"
 msgstr "ผู้ใช้ระบบลบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:809
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:810
 msgid "system user password reset"
 msgstr "รหัสผ่านระบบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:812
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:813
 msgid "system user changed password"
 msgstr "ผู้ใช้ระบบเปลี่ยนรหัสผ่าน"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:815
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:816
 msgid "system user password changed by admin"
 msgstr "รหัสผ่านระบบ เปลี่ยนโดยเอพิษ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:819
 msgid "system user login reset"
 msgstr "ระบบรีเซ็ตผู้ใช้ระบบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:825
 msgid "Dav create file"
 msgstr "เดฟสร้างแฟ้มข้อมูล"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:831
 msgid "Dav create directory"
 msgstr "เดฟสร้างไดเรกทอรี่"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:837
 msgid "Dav update file"
 msgstr "แฟ้มข้อมูลดาว"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:849
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:850
 msgid "Dav move copy file"
 msgstr "เดฟย้ายประวัติ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:856
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:857
 msgid "Dav delete file"
 msgstr "เดฟลบไฟล์"
 
@@ -5717,45 +5745,46 @@ msgstr "ไม่สนอินซอมเพิลท์<br>แอดเด�
 msgid "File Type"
 msgstr "ประเภทไฟล์"
 
-#: EcclesiaCRM/utils/MiscUtils.php:806
+#: EcclesiaCRM/utils/MiscUtils.php:812 EcclesiaCRM/utils/MiscUtils.php:868
+#: EcclesiaCRM/utils/MiscUtils.php:968
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "คุณต้องใช้ผู้ชมพีดีเอฟหรือดาวน์โหลดไฟล์ที่นี่"
 
-#: EcclesiaCRM/utils/MiscUtils.php:813 EcclesiaCRM/utils/MiscUtils.php:818
-#: EcclesiaCRM/utils/MiscUtils.php:822 EcclesiaCRM/utils/MiscUtils.php:928
+#: EcclesiaCRM/utils/MiscUtils.php:875 EcclesiaCRM/utils/MiscUtils.php:880
+#: EcclesiaCRM/utils/MiscUtils.php:884 EcclesiaCRM/utils/MiscUtils.php:1061
 msgid "Your browser does not support the audio element."
 msgstr "เบราเซอร์ของคุณไม่สนับสนุน ธาตุเสียง"
 
-#: EcclesiaCRM/utils/MiscUtils.php:828 EcclesiaCRM/utils/MiscUtils.php:835
-#: EcclesiaCRM/utils/MiscUtils.php:844 EcclesiaCRM/utils/MiscUtils.php:938
-#: EcclesiaCRM/utils/MiscUtils.php:949 EcclesiaCRM/utils/MiscUtils.php:964
+#: EcclesiaCRM/utils/MiscUtils.php:890 EcclesiaCRM/utils/MiscUtils.php:897
+#: EcclesiaCRM/utils/MiscUtils.php:906 EcclesiaCRM/utils/MiscUtils.php:1071
+#: EcclesiaCRM/utils/MiscUtils.php:1082 EcclesiaCRM/utils/MiscUtils.php:1097
 msgid "Your browser does not support the video tag."
 msgstr "เบราเซอร์ของคุณไม่สนับสนุนวิดีโอแท็ก"
 
-#: EcclesiaCRM/utils/MiscUtils.php:870 EcclesiaCRM/utils/MiscUtils.php:902
-#: EcclesiaCRM/utils/MiscUtils.php:911 EcclesiaCRM/utils/MiscUtils.php:926
-#: EcclesiaCRM/utils/MiscUtils.php:935 EcclesiaCRM/utils/MiscUtils.php:945
-#: EcclesiaCRM/utils/MiscUtils.php:958
+#: EcclesiaCRM/utils/MiscUtils.php:1003 EcclesiaCRM/utils/MiscUtils.php:1035
+#: EcclesiaCRM/utils/MiscUtils.php:1044 EcclesiaCRM/utils/MiscUtils.php:1059
+#: EcclesiaCRM/utils/MiscUtils.php:1068 EcclesiaCRM/utils/MiscUtils.php:1078
+#: EcclesiaCRM/utils/MiscUtils.php:1091
 msgid "Expand"
 msgstr "ขยาย"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1006
+#: EcclesiaCRM/utils/MiscUtils.php:1143
 msgid "Classic Document"
 msgstr "เอกสารคลาสสิค"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1009
+#: EcclesiaCRM/utils/MiscUtils.php:1146
 msgid "Classic Video"
 msgstr "วีดีโอคลาสสิค"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1012
+#: EcclesiaCRM/utils/MiscUtils.php:1149
 msgid "Classic File"
 msgstr "ไฟล์คลาสสิค"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1015
+#: EcclesiaCRM/utils/MiscUtils.php:1152
 msgid "Classic Audio"
 msgstr "เสียงคลาสสิค"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1122
+#: EcclesiaCRM/utils/MiscUtils.php:1258
 msgid "Select Fiscal Year"
 msgstr "เลือกปีฟิสคาล"
 
@@ -6330,7 +6359,7 @@ msgstr ""
 #: v2/templates/people/familyview.php:859
 #: v2/templates/people/personPrint.php:218
 #: v2/templates/people/personview.php:165
-#: v2/templates/people/personview.php:1589
+#: v2/templates/people/personview.php:1492
 msgid "Informations"
 msgstr "ข้อมูล"
 
@@ -6634,7 +6663,7 @@ msgstr "กำลังเสริมดาวน์โหลด รับท�
 msgid "File Manager"
 msgstr "ผู้จัดการไฟล์"
 
-#: browser/browse.php:42 v2/templates/people/personview.php:1517
+#: browser/browse.php:42
 msgid "Upload a file in EDrive"
 msgstr "อัพโหลดไฟล์ในอีไดรฟ์"
 
@@ -6643,7 +6672,6 @@ msgid "Download"
 msgstr "ดาวน์โหลด"
 
 #: browser/browse.php:72 v2/templates/group/groupbadge.php:207
-#: v2/templates/people/personview.php:1560
 msgid "Preview"
 msgstr "ว่าไง"
 
@@ -6761,7 +6789,7 @@ msgstr "ทะเบียน"
 #: v2/templates/people/familyEditor.php:1058
 #: v2/templates/people/familyview.php:327
 #: v2/templates/people/personPrint.php:400
-#: v2/templates/people/personview.php:789
+#: v2/templates/people/personview.php:775
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "สมาชิกครอบครัว"
@@ -6943,7 +6971,7 @@ msgstr "เราได้พบข้อผิดพลาด ที่ส่�
 #: v2/templates/people/familyview.php:889
 #: v2/templates/people/lettersandlabels.php:269
 #: v2/templates/people/personEditor.php:1740
-#: v2/templates/people/personview.php:1620
+#: v2/templates/people/personview.php:1523
 #: v2/templates/people/reminderreport.php:42
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -7010,78 +7038,6 @@ msgstr "ครอบครัวของเซลฟ์ จดทะเบี�
 #: members/self-verify-updates.php:13
 msgid "Self Verify"
 msgstr "ตรวจสอบตัวเอง"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:108
-#: v2/templates/query/queryview.php:35
-msgid "This value is required."
-msgstr "ค่านี้จำเป็น"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:121
-#: v2/templates/query/queryview.php:46
-msgid "This value must be numeric."
-msgstr "ค่านี้ต้องเป็นตัวเลข"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:126
-#: v2/templates/query/queryview.php:51
-msgid "This value must be at least "
-msgstr "ค่านี้ต้องเป็นอย่างน้อย"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:131
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:144
-#: v2/templates/query/queryview.php:55 v2/templates/query/queryview.php:68
-msgid "This value cannot be more than "
-msgstr "ค่านี้ไม่ได้มากกว่า"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:144
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:149
-#: v2/templates/query/queryview.php:68 v2/templates/query/queryview.php:72
-msgid " characters long"
-msgstr "ลัทธิยาว"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:149
-#: v2/templates/query/queryview.php:72
-msgid "This value cannot be less than "
-msgstr "ค่านี้ไม่ได้น้อยกว่า"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
-#: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:117
-#: v2/templates/query/queryview.php:230
-msgid " record(s) returned"
-msgstr "บันทึกกลับมา"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
-#: v2/templates/query/queryview.php:132
-msgid "Add To Cart"
-msgstr "เพิ่มเข้ารหัส"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
-#: v2/templates/query/queryview.php:134
-msgid "Intersect With Cart"
-msgstr "อินเตอร์เซก กับ คาร์ท"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
-#: v2/templates/query/queryview.php:136
-msgid "Remove From Cart"
-msgstr "ถอดรถออก"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
-#: v2/templates/query/queryview.php:236
-msgid "Run Query Again"
-msgstr "วิ่งเเคอรี่อีกที"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:343
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:360
-#: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:618
-#: v2/templates/people/personview.php:1105 v2/templates/query/queryview.php:393
-#: v2/templates/query/queryview.php:410
-msgid "select an option"
-msgstr "เลือกทางเลือก"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:407
-#: v2/templates/query/queryview.php:453
-msgid "Execute Query"
-msgstr "ปฏิบัติการ เคอรี่"
 
 #: session/templates/session.php:50 session/templates/session.php:68
 msgid "Invalid login or password"
@@ -7473,7 +7429,7 @@ msgstr "บรรยาย"
 #: v2/templates/calendar/eventnames.php:306
 #: v2/templates/deposit/depositslipeditor.php:163
 #: v2/templates/deposit/electronicPaymentList.php:199
-#: v2/templates/people/personview.php:914
+#: v2/templates/people/personview.php:900
 msgid "Action"
 msgstr "แอคชั่น"
 
@@ -7880,7 +7836,8 @@ msgid "Pictures in the Image folder: "
 msgstr "ภาพในแฟ้มภาพภาพนี้"
 
 #: v2/templates/cart/carttobadge.php:127 v2/templates/cart/carttobadge.php:133
-#: v2/templates/group/groupbadge.php:158 v2/templates/group/groupbadge.php:164
+#: v2/templates/edrive/dashboard.php:35 v2/templates/group/groupbadge.php:158
+#: v2/templates/group/groupbadge.php:164
 msgid "Upload"
 msgstr "อัพโหลด"
 
@@ -8105,6 +8062,7 @@ msgstr "สำหรับ"
 
 #: v2/templates/deposit/autaPaymentEditor.php:806
 #: v2/templates/deposit/pledgeEditor.php:40
+#: v2/templates/edrive/dashboard.php:100
 #: v2/templates/people/personEditor.php:1011
 msgid "or"
 msgstr "หรือ"
@@ -8599,7 +8557,7 @@ msgstr "Generate Deposit Slip for Selected Rows (PDF)"
 
 #: v2/templates/deposit/finddepositslip.php:93
 #: v2/templates/people/familyview.php:880
-#: v2/templates/people/personview.php:1609
+#: v2/templates/people/personview.php:1512
 msgid "Confirm Delete"
 msgstr "ยืนยันการลบ"
 
@@ -8748,6 +8706,89 @@ msgstr "ไม่มีเงินพลังงานได้"
 #: v2/templates/deposit/taxReport.php:29
 msgid "Calendar Year"
 msgstr "ปีปฏิเสธ"
+
+#: v2/templates/edrive/dashboard.php:25
+#, fuzzy
+msgid "Edrive : File manager"
+msgstr "ผู้จัดการไฟล์"
+
+#: v2/templates/edrive/dashboard.php:32
+#, fuzzy
+msgid "Files input"
+msgstr "ไฟล์หายไป"
+
+#: v2/templates/edrive/dashboard.php:34
+#, fuzzy
+msgid "Upload your files"
+msgstr "อัพโหลด ไฟล์"
+
+#: v2/templates/edrive/dashboard.php:44
+msgid "Move up one level, or drag the file(s) to move them up one level."
+msgstr ""
+
+#: v2/templates/edrive/dashboard.php:68
+msgid "Internal sharing"
+msgstr ""
+
+#: v2/templates/edrive/dashboard.php:76
+#, fuzzy
+msgid "Delete all shares"
+msgstr "ลบห้องทั้งหมดด้วย"
+
+#: v2/templates/edrive/dashboard.php:80
+#, fuzzy
+msgid "Delete shares for the selected users"
+msgstr "ย้ายบริจาคที่จะเลือกคน"
+
+#: v2/templates/edrive/dashboard.php:81
+#, fuzzy
+msgid "Stop sharing"
+msgstr "ฤดูใบไม้ผลิ"
+
+#: v2/templates/edrive/dashboard.php:86
+msgid "With"
+msgstr ""
+
+#: v2/templates/edrive/dashboard.php:94
+#, fuzzy
+msgid "Set Rights"
+msgstr "ใช่"
+
+#: v2/templates/edrive/dashboard.php:100
+#, fuzzy
+msgid "Select your rights"
+msgstr "ตั้งองค์ประกอบของคุณ"
+
+#: v2/templates/edrive/dashboard.php:103
+msgid "[R ]"
+msgstr ""
+
+#: v2/templates/edrive/dashboard.php:104
+msgid "[RW]"
+msgstr ""
+
+#: v2/templates/edrive/dashboard.php:114
+msgid ""
+"Use this method to share files with individuals or teams within your "
+"organization. If the recipient already has access to the share, but can't "
+"locate it, you can send them the internal link to facilitate access."
+msgstr ""
+
+#: v2/templates/edrive/dashboard.php:114
+#: v2/templates/sidebar/systemsettings.php:199
+#, fuzzy
+msgid "Definition"
+msgstr "บรรยาย"
+
+#: v2/templates/edrive/dashboard.php:122
+#, fuzzy
+msgid "Send email notification"
+msgstr "ปรับแฟ้ม"
+
+#: v2/templates/edrive/dashboard.php:125
+#, fuzzy
+msgid "With Right"
+msgstr "ใช่"
 
 #: v2/templates/email/mailchimp/campaign.php:31
 #, fuzzy
@@ -9597,13 +9638,19 @@ msgid "Assigned Properties"
 msgstr "ออกคำสั่งทรัพย์สิน"
 
 #: v2/templates/group/groupview.php:328 v2/templates/people/familyview.php:608
-#: v2/templates/people/personview.php:1097
+#: v2/templates/people/personview.php:1083
 msgid "Assign a New Property"
 msgstr "จงออกสมบัติใหม่"
 
+#: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:618
+#: v2/templates/people/personview.php:1091 v2/templates/query/queryview.php:393
+#: v2/templates/query/queryview.php:410
+msgid "select an option"
+msgstr "เลือกทางเลือก"
+
 #: v2/templates/group/groupview.php:349 v2/templates/people/familyview.php:639
-#: v2/templates/people/personview.php:1126
-#: v2/templates/people/personview.php:1189
+#: v2/templates/people/personview.php:1112
+#: v2/templates/people/personview.php:1175
 msgid "Assign"
 msgstr "ถูกถอน"
 
@@ -9700,7 +9747,7 @@ msgstr "กลุ่มที่ถูกส่งตัว"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
 #: v2/templates/people/personPrint.php:463
-#: v2/templates/people/personview.php:879
+#: v2/templates/people/personview.php:865
 msgid "No group assignments."
 msgstr "ไม่มีการบ้านค่ะ"
 
@@ -9721,7 +9768,7 @@ msgstr "ค่า"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
 #: v2/templates/people/personPrint.php:559
-#: v2/templates/people/personview.php:1081
+#: v2/templates/people/personview.php:1067
 msgid "No property assignments."
 msgstr "ไม่มีการบ้านคุณ"
 
@@ -10443,65 +10490,65 @@ msgid "Pledges and Payments"
 msgstr "มีค่าจ้างและค่าจ้าง"
 
 #: v2/templates/people/familyview.php:615
-#: v2/templates/people/personview.php:1103
-#: v2/templates/people/personview.php:1174
-#: v2/templates/people/personview.php:1312
+#: v2/templates/people/personview.php:1089
+#: v2/templates/people/personview.php:1160
+#: v2/templates/people/personview.php:1298
 msgid "Select"
 msgstr "เลือก"
 
 #: v2/templates/people/familyview.php:667
-#: v2/templates/people/personview.php:1220
+#: v2/templates/people/personview.php:1206
 msgid "Add a new automatic payment"
 msgstr "เพิ่มเงินอัตโนมัติอัตโนมัติ"
 
 #: v2/templates/people/familyview.php:676
-#: v2/templates/people/personview.php:1241
+#: v2/templates/people/personview.php:1227
 msgid "Show Pledges"
 msgstr "แสดง Pledges"
 
 #: v2/templates/people/familyview.php:680
-#: v2/templates/people/personview.php:1245
+#: v2/templates/people/personview.php:1231
 msgid "Show Payments"
 msgstr "โชว์เงินให้ดู"
 
 #: v2/templates/people/familyview.php:683
-#: v2/templates/people/personview.php:1248
+#: v2/templates/people/personview.php:1234
 msgid "From"
 msgstr "จาก"
 
 #: v2/templates/people/familyview.php:692
-#: v2/templates/people/personview.php:1257
+#: v2/templates/people/personview.php:1243
 msgid "To"
 msgstr "เพื่อ"
 
 #: v2/templates/people/familyview.php:715
-#: v2/templates/people/personview.php:1270
+#: v2/templates/people/personview.php:1256
 msgid "Add a new pledge"
 msgstr "เพิ่มคำสัญญาใหม่"
 
 #: v2/templates/people/familyview.php:717
-#: v2/templates/people/personview.php:1272
+#: v2/templates/people/personview.php:1258
 msgid "Add a new payment"
 msgstr "เพิ่มเงินใหม่"
 
 #: v2/templates/people/familyview.php:725
-#: v2/templates/people/personview.php:1288
+#: v2/templates/people/personview.php:1274
 msgid " Canvass Entry"
 msgstr "ตรวจสอบ"
 
 #: v2/templates/people/familyview.php:885
-#: v2/templates/people/personview.php:1614
+#: v2/templates/people/personview.php:1517
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "คุณกำลังจะลบรูปถ่ายวิเคราะห์ทิ้ง ขั้นตอนนี้ไม่สามารถแก้ไขได้"
 
 #: v2/templates/people/familyview.php:886
-#: v2/templates/people/personview.php:1616
+#: v2/templates/people/personview.php:1519
 msgid "Do you want to proceed?"
 msgstr "คุณต้องการที่จะทำต่อไป?"
 
 #: v2/templates/people/familyview.php:901
-#: v2/templates/people/personview.php:1634
+#: v2/templates/people/personview.php:1537
 msgid "Request Family Info Verification"
 msgstr "ขอสัญญาณครอบครัว อินโฟ"
 
@@ -10517,18 +10564,18 @@ msgstr "คุณกำลังจะส่งอีเมล์สำเนา
 
 #: v2/templates/people/familyview.php:933
 #: v2/templates/people/familyview.php:937
-#: v2/templates/people/personview.php:1648
-#: v2/templates/people/personview.php:1652
+#: v2/templates/people/personview.php:1551
+#: v2/templates/people/personview.php:1555
 msgid "Online Verification"
 msgstr "ระบบออนไลน์"
 
 #: v2/templates/people/familyview.php:944
-#: v2/templates/people/personview.php:1659
+#: v2/templates/people/personview.php:1562
 msgid "PDF Report"
 msgstr "PDF รายงาน"
 
 #: v2/templates/people/familyview.php:948
-#: v2/templates/people/personview.php:1663
+#: v2/templates/people/personview.php:1566
 msgid "Verified In Person"
 msgstr "ได้รับการแสดงในฐานะ"
 
@@ -11087,97 +11134,81 @@ msgstr "นี่"
 msgid "Delete this Record"
 msgstr "ลบบันทึกนี้ซะ"
 
-#: v2/templates/people/personview.php:765
+#: v2/templates/people/personview.php:751
 msgid "click to download"
 msgstr "คลิกที่ดาวน์โหลด"
 
-#: v2/templates/people/personview.php:924
+#: v2/templates/people/personview.php:910
 msgid "Change Role"
 msgstr "เปลี่ยนโรล"
 
-#: v2/templates/people/personview.php:931
+#: v2/templates/people/personview.php:917
 msgid "Update Properties"
 msgstr "อัพเดททรัพย์สิน"
 
-#: v2/templates/people/personview.php:969
+#: v2/templates/people/personview.php:955
 msgid "Group Informations"
 msgstr "ข้อมูลกลุ่ม"
 
-#: v2/templates/people/personview.php:1010
+#: v2/templates/people/personview.php:996
 msgid "Person Informations"
 msgstr "ข้อมูลของคนร้าย"
 
-#: v2/templates/people/personview.php:1032
+#: v2/templates/people/personview.php:1018
 msgid "Modify Specific Properties"
 msgstr "ปรับเปลี่ยนสมบัติพิเศษ"
 
-#: v2/templates/people/personview.php:1043
+#: v2/templates/people/personview.php:1029
 #, fuzzy
 msgid "No specific group properties defined !"
 msgstr "บริษัทพิเศษกลุ่ม"
 
-#: v2/templates/people/personview.php:1151
+#: v2/templates/people/personview.php:1137
 msgid "No volunteer opportunity assignments."
 msgstr "ไม่มีงานอาสาสมัครที่ได้รับมอบหมายให้"
 
-#: v2/templates/people/personview.php:1166
+#: v2/templates/people/personview.php:1152
 msgid "Assign a New Volunteer Opportunity"
 msgstr "ออกรายการให้โอกาส Volunteer ใหม่"
 
-#: v2/templates/people/personview.php:1225
-#: v2/templates/people/personview.php:1277
+#: v2/templates/people/personview.php:1211
+#: v2/templates/people/personview.php:1263
 msgid "You must set an address for this person"
 msgstr "คุณต้องทำที่อยู่ให้คนๆนี้"
 
-#: v2/templates/people/personview.php:1313
+#: v2/templates/people/personview.php:1299
 msgid "Filter your documents by : "
 msgstr "Filter your documents by :"
 
-#: v2/templates/people/personview.php:1314
+#: v2/templates/people/personview.php:1300
 msgid "All type"
 msgstr "ทุกประเภท"
 
-#: v2/templates/people/personview.php:1319
+#: v2/templates/people/personview.php:1305
 msgid "Shared documents"
 msgstr "แบ่งเอกสาร"
 
-#: v2/templates/people/personview.php:1355
+#: v2/templates/people/personview.php:1341
 msgid "Edit this document"
 msgstr "แก้ไขเอกสารนี้"
 
-#: v2/templates/people/personview.php:1365
+#: v2/templates/people/personview.php:1351
 msgid "Delete this document"
 msgstr "ลบเอกสารนี้ซะ"
 
-#: v2/templates/people/personview.php:1376
+#: v2/templates/people/personview.php:1362
 msgid "Share this document to another user"
 msgstr "แบ่งเอกสารนี้ให้ผู้ใช้อีกคนหนึ่ง"
 
-#: v2/templates/people/personview.php:1389
+#: v2/templates/people/personview.php:1375
 msgid "Export this document to word Format"
 msgstr "ตีเอกสารนี้ให้คำว่า ฟอร์แมท"
 
-#: v2/templates/people/personview.php:1432
+#: v2/templates/people/personview.php:1418
 msgid "Last modification by"
 msgstr "ปรับแต่งสุดท้าย"
 
-#: v2/templates/people/personview.php:1508
-msgid "All Files"
-msgstr "ทุกไฟล์"
-
-#: v2/templates/people/personview.php:1525
-msgid "Create a Folder"
-msgstr "สร้างคนโฟเดอร์"
-
-#: v2/templates/people/personview.php:1535
-msgid "Up One Level"
-msgstr "ขึ้นระดับหนึ่ง"
-
 #: v2/templates/people/personview.php:1542
-msgid "Actualize files"
-msgstr "แฟ้มถ่ายทำจริง"
-
-#: v2/templates/people/personview.php:1639
 #, fuzzy
 msgid "Select how do you want to request the person information to be verified"
 msgstr "เลือกที่จะขอร้อง ข้อมูลครอบครัวให้ได้รับการตรวจสอบ"
@@ -11421,6 +11452,55 @@ msgstr "ผลข้อมูลข่าวสาร CSV"
 msgid "Execute SQL"
 msgstr "ปฏิบัติการ SQL"
 
+#: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:117
+#: v2/templates/query/queryview.php:230
+msgid " record(s) returned"
+msgstr "บันทึกกลับมา"
+
+#: v2/templates/query/queryview.php:35
+msgid "This value is required."
+msgstr "ค่านี้จำเป็น"
+
+#: v2/templates/query/queryview.php:46
+msgid "This value must be numeric."
+msgstr "ค่านี้ต้องเป็นตัวเลข"
+
+#: v2/templates/query/queryview.php:51
+msgid "This value must be at least "
+msgstr "ค่านี้ต้องเป็นอย่างน้อย"
+
+#: v2/templates/query/queryview.php:55 v2/templates/query/queryview.php:68
+msgid "This value cannot be more than "
+msgstr "ค่านี้ไม่ได้มากกว่า"
+
+#: v2/templates/query/queryview.php:68 v2/templates/query/queryview.php:72
+msgid " characters long"
+msgstr "ลัทธิยาว"
+
+#: v2/templates/query/queryview.php:72
+msgid "This value cannot be less than "
+msgstr "ค่านี้ไม่ได้น้อยกว่า"
+
+#: v2/templates/query/queryview.php:132
+msgid "Add To Cart"
+msgstr "เพิ่มเข้ารหัส"
+
+#: v2/templates/query/queryview.php:134
+msgid "Intersect With Cart"
+msgstr "อินเตอร์เซก กับ คาร์ท"
+
+#: v2/templates/query/queryview.php:136
+msgid "Remove From Cart"
+msgstr "ถอดรถออก"
+
+#: v2/templates/query/queryview.php:236
+msgid "Run Query Again"
+msgstr "วิ่งเเคอรี่อีกที"
+
+#: v2/templates/query/queryview.php:453
+msgid "Execute Query"
+msgstr "ปฏิบัติการ เคอรี่"
+
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
 "Be carefull ! By deleting Fund type, the recorded datas for pledges or "
@@ -11527,11 +11607,6 @@ msgstr "แก้ไข"
 #: v2/templates/sidebar/systemsettings.php:182
 msgid "Unknown Type"
 msgstr "ไม่ทราบวิธีที่ไม่ทราบ"
-
-#: v2/templates/sidebar/systemsettings.php:199
-#, fuzzy
-msgid "Definition"
-msgstr "บรรยาย"
 
 #: v2/templates/sidebar/volunteeropportunityeditor.php:15
 msgid "Add Volunteer Opportunity"
@@ -13404,6 +13479,18 @@ msgstr ""
 msgid "Giving Report"
 msgstr "รายงานด้านการเงิน"
 
+#~ msgid "All Files"
+#~ msgstr "ทุกไฟล์"
+
+#~ msgid "Create a Folder"
+#~ msgstr "สร้างคนโฟเดอร์"
+
+#~ msgid "Up One Level"
+#~ msgstr "ขึ้นระดับหนึ่ง"
+
+#~ msgid "Actualize files"
+#~ msgstr "แฟ้มถ่ายทำจริง"
+
 #~ msgid "EcclesiaCRM export"
 #~ msgstr "EcclesiaCRM ส่งออก"
 
@@ -13590,9 +13677,6 @@ msgstr "รายงานด้านการเงิน"
 
 #~ msgid "This action will delete all your rooms"
 #~ msgstr "การกระทำนี้จะลบทุกห้องของคุณ"
-
-#~ msgid "Delete all Rooms"
-#~ msgstr "ลบห้องทั้งหมดด้วย"
 
 #~ msgid "Room Name"
 #~ msgstr "ห้องชื่อ"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -343,9 +343,6 @@ msgstr "Bekräfta att detta dokument har raderats"
 msgid "Document Delete Confirmation"
 msgstr "Bekräftelse för radering av dokument"
 
-msgid "Document Editor"
-msgstr "Dokumentredaktör"
-
 msgid "Document Title"
 msgstr "Titel på dokumentet"
 
@@ -367,6 +364,9 @@ msgstr "ljud"
 msgid "Private"
 msgstr "Privat"
 
+msgid "Document Editor"
+msgstr "Dokumentredaktör"
+
 msgid "You have to set a Title for your document"
 msgstr "Du måste ange en titel för dokumentet."
 
@@ -385,8 +385,8 @@ msgstr "Typ"
 msgid "Size"
 msgstr "Storlek"
 
-msgid "Set a File/Folder name"
-msgstr "Ange ett fil-/mappnamn"
+msgid "Delete"
+msgstr "Ta bort"
 
 msgid "You are about to delete several items together"
 msgstr "Du är på väg att radera flera objekt tillsammans"
@@ -397,77 +397,35 @@ msgstr "Du är på väg att ta bort ett objekt"
 msgid "This can't be undone !!!!"
 msgstr "Detta kan inte göras ogjort !!!!"
 
-msgid "Delete"
-msgstr "Ta bort"
-
 msgid "You've to select at least one line !!!"
 msgstr "Du måste välja minst en rad !!!!"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Du är på väg att ta bort en mapp och dess innehåll"
+msgid "Create a Folder"
+msgstr "Skapa en mapp"
 
 msgid "Set your Folder name"
 msgstr "Ange ditt mappnamn"
 
-msgid "Files input"
-msgstr "Inmatade filer"
+msgid "Actualize files"
+msgstr "Aktualisera filer"
 
-msgid "Upload your files"
-msgstr "Ladda upp dina filer"
+msgid "Set a File/Folder name"
+msgstr "Ange ett fil-/mappnamn"
 
-msgid "Upload"
-msgstr "Ladda upp"
-
-msgid "Upload your Files"
-msgstr "Ladda upp dina filer"
-
-msgid "Share your File"
-msgstr "Dela din fil"
-
-msgid "With"
-msgstr "Med"
-
-msgid "Set Rights"
-msgstr "Ange rättigheter"
-
-msgid "Select your rights"
-msgstr "Välj dina rättigheter"
-
-msgid "or"
-msgstr "eller ."
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "Användare"
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW]"
-
-msgid "Send email notification"
-msgstr "Skicka e-postmeddelande"
-
-msgid "Add persons/Family/groups"
-msgstr "Lägg till personer/familjer/grupper"
-
-msgid "Person or Family or Group"
-msgstr "Person, familj eller grupp"
+msgid "[👀  ]"
+msgstr "[👀 ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Är du säker? Ska du radera den här personen?"
 
-msgid "Stop sharing"
-msgstr "Sluta dela med dig"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Är du säker? Ska du sluta dela med dig av ditt dokument?"
-
-msgid "Ok"
-msgstr "Ok"
 
 msgid "Tracking"
 msgstr "Spårning av"
@@ -526,14 +484,47 @@ msgstr "[INKLUDERA]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Ok"
+msgstr "Ok"
+
 msgid "Share your Calendar"
 msgstr "Dela din kalender"
+
+msgid "With"
+msgstr "Med"
+
+msgid "Set Rights"
+msgstr "Ange rättigheter"
+
+msgid "Select your rights"
+msgstr "Välj dina rättigheter"
+
+msgid "or"
+msgstr "eller ."
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "Skicka e-postmeddelande"
+
+msgid "Add persons/Family/groups"
+msgstr "Lägg till personer/familjer/grupper"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Är du säker på att du vill ta bort den här andelen?"
 
+msgid "Stop sharing"
+msgstr "Sluta dela med dig"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "Är du säker på att du vill sluta dela ditt dokument?"
+
+msgid "Person or Family or Group"
+msgstr "Person, familj eller grupp"
 
 msgid "Are you sure?"
 msgstr "Är du säker?"
@@ -1038,9 +1029,6 @@ msgstr "Skapa en."
 msgid "Group"
 msgstr "Grupp"
 
-msgid "User"
-msgstr "Användare"
-
 msgid "No event now."
 msgstr "Inga evenemang nu."
 
@@ -1327,7 +1315,7 @@ msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
 msgid "Remove Selected Members"
-msgstr ""
+msgstr "Ta bort valda medlemmar"
 
 msgid "You're about to delete all the group members ?"
 msgstr "Ska du radera alla gruppmedlemmar?"
@@ -1341,17 +1329,14 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "Lägg till i varukorgen"
 
-#, fuzzy
 msgid "Add to Group"
-msgstr "Lägg till varukorgen i gruppen"
+msgstr "Lägg till i grupp"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "Välj grupp"
+msgstr "Flytta till grupp"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "Ta bort alla"
+msgstr "Ta bort alla medlemmar"
 
 msgid "Add"
 msgstr "Lägg till"
@@ -1374,9 +1359,8 @@ msgstr "Ingen utsedd chef"
 msgid "Manage Group Managers"
 msgstr "Hantera gruppchefer"
 
-#, fuzzy
 msgid "Add users"
-msgstr "Lägg till köpare"
+msgstr "Lägg till användare"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Är du säker på att du vill ta bort den här chefen?"
@@ -2528,6 +2512,34 @@ msgstr "Köpare Nummer Redaktör"
 
 msgid "Select"
 msgstr "Välj"
+
+#~ msgid ""
+#~ "Use this method to share files with individuals or teams within your "
+#~ "organization. If the recipient already has access to the share, but can't "
+#~ "locate it, you can send them the internal link to facilitate access."
+#~ msgstr ""
+#~ "Använd den här metoden för att dela filer med enskilda personer eller "
+#~ "team inom organisationen. Om mottagaren redan har tillgång till filen, "
+#~ "men inte kan hitta den, kan du skicka den interna länken för att "
+#~ "underlätta åtkomsten."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "Du är på väg att ta bort en mapp och dess innehåll"
+
+#~ msgid "Files input"
+#~ msgstr "Inmatade filer"
+
+#~ msgid "Upload your files"
+#~ msgstr "Ladda upp dina filer"
+
+#~ msgid "Upload"
+#~ msgstr "Ladda upp"
+
+#~ msgid "Upload your Files"
+#~ msgstr "Ladda upp dina filer"
+
+#~ msgid "Share your File"
+#~ msgstr "Dela din fil"
 
 #~ msgid "Members from group"
 #~ msgstr "Ledamöter från gruppen"

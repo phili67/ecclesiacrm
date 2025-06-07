@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 21:05+0000\n"
+"POT-Creation-Date: 2025-06-06 16:13+0000\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -248,7 +248,7 @@ msgstr "Munkahelyi telefon"
 msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:479
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:475
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:356
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:399
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:598
@@ -281,7 +281,7 @@ msgstr "Mobiltelefon"
 #: v2/templates/people/personPrint.php:340
 #: v2/templates/people/personview.php:283
 #: v2/templates/people/personview.php:411
-#: v2/templates/people/personview.php:792
+#: v2/templates/people/personview.php:778
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:135
@@ -402,7 +402,7 @@ msgstr "Alapértelmezett ország, ha nincs megadva egyébként"
 #: EcclesiaCRM/APIControllers/SearchController.php:243
 #: EcclesiaCRM/APIControllers/SearchController.php:251
 #: EcclesiaCRM/APIControllers/SearchController.php:256
-#: EcclesiaCRM/MenuBar/MenuBar.php:302 EcclesiaCRM/MenuBar/MenuBar.php:399
+#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:395
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1035
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1047
@@ -576,7 +576,7 @@ msgstr "Az adatimport sikeres."
 msgid "persons were imported"
 msgstr "személyeket importáltak"
 
-#: CatchCreatePayment.php:72 EcclesiaCRM/utils/MiscUtils.php:1725
+#: CatchCreatePayment.php:72 EcclesiaCRM/utils/MiscUtils.php:1865
 #: v2/templates/deposit/autoPaymentClearAccount.php:30
 msgid "Cannot execute query."
 msgstr "A lekérdezést nem lehet végrehajtani."
@@ -647,7 +647,7 @@ msgstr "Videó"
 #: v2/templates/people/personPrint.php:382
 #: v2/templates/people/personPrint.php:638
 #: v2/templates/people/personPrint.php:697
-#: v2/templates/people/personview.php:991
+#: v2/templates/people/personview.php:977
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
 msgstr "Nincs"
@@ -749,9 +749,8 @@ msgid "Your cart has been successfully emptied"
 msgstr "A kosár sikeresen kiürült"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:111
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:175
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:689
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:173
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:871
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:698
 #: uploader/upload.php:82
 msgid "Create file"
@@ -767,58 +766,84 @@ msgstr "Ezt a dokumentumot a"
 msgid "Minutes left"
 msgstr "Maradt percek"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:134
-#: EcclesiaCRM/utils/MiscUtils.php:758
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:128
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:261
+#: EcclesiaCRM/utils/MiscUtils.php:776
 msgid "Folder"
 msgstr "Mappa"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:196
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:194
 msgid "Document not found"
 msgstr "Nem talált dokumentum"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:389
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:406
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:445
+msgid "Right of access to folder problem"
+msgstr "Hozzáférési jog a mappa problémájához"
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:471
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:823
+msgid "Contact error at api"
+msgstr "Kapcsolat hiba az api-nál"
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:498
 msgid "You can't erase the public folder !"
 msgstr "A nyilvános mappát nem lehet törölni !"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:460
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:566
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:506
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:538
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:608
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:680
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:787
+msgid "Right of access to the file or folder the prohibited recording"
+msgstr ""
+"A tiltott felvételt tartalmazó irathoz vagy mappához való hozzáférés joga"
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:590
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:738
 msgid "A Folder"
 msgstr "Egy mappa"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:460
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:510
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:566
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:590
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:658
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:738
 msgid "already exists at this place."
 msgstr "már létezik ezen a helyen."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:490
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:638
 msgid "Folder modification"
 msgstr "Mappa módosítása"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:492
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:535
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:640
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:707
 msgid "File modification"
 msgstr "Fájl módosítás"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:510
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:658
 msgid "A File"
 msgstr "Egy fájl"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:578
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:750
 msgid "New Folder"
 msgstr "Új mappa"
 
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:50
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
+#: v2/templates/edrive/dashboard.php:103
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:50
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
+#: v2/templates/edrive/dashboard.php:104
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:77
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:111
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:145
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:106
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:164
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:198
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:232
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:327
 msgid ""
 "You can visualize it in your account, in the time Line or the notes tab."
 msgstr "Ezt megjelenítheti a fiókjában, az idővonalban vagy a jegyzetek lapon."
@@ -877,10 +902,11 @@ msgid "All Families"
 msgstr "Minden család"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:123
-#: EcclesiaCRM/APIControllers/PeopleController.php:76
-#: EcclesiaCRM/APIControllers/PeopleController.php:126
-#: EcclesiaCRM/APIControllers/PeopleController.php:179
-#: EcclesiaCRM/MenuBar/MenuBar.php:214
+#: EcclesiaCRM/APIControllers/PeopleController.php:78
+#: EcclesiaCRM/APIControllers/PeopleController.php:135
+#: EcclesiaCRM/APIControllers/PeopleController.php:185
+#: EcclesiaCRM/APIControllers/PeopleController.php:238
+#: EcclesiaCRM/MenuBar/MenuBar.php:210
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:75
@@ -890,10 +916,10 @@ msgid "Persons"
 msgstr "Személyek"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:163
-#: EcclesiaCRM/APIControllers/PeopleController.php:218
+#: EcclesiaCRM/APIControllers/PeopleController.php:277
 #: EcclesiaCRM/APIControllers/SearchController.php:62
 #: EcclesiaCRM/APIControllers/SearchController.php:65
-#: EcclesiaCRM/MenuBar/MenuBar.php:187 EcclesiaCRM/MenuBar/MenuBar.php:221
+#: EcclesiaCRM/MenuBar/MenuBar.php:183 EcclesiaCRM/MenuBar/MenuBar.php:217
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
@@ -909,10 +935,10 @@ msgid "Families"
 msgstr "Családok"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:201
-#: EcclesiaCRM/APIControllers/PeopleController.php:255
+#: EcclesiaCRM/APIControllers/PeopleController.php:314
 #: EcclesiaCRM/APIControllers/SearchController.php:88
 #: EcclesiaCRM/APIControllers/SearchController.php:91
-#: EcclesiaCRM/MenuBar/MenuBar.php:243 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:239 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
@@ -1191,7 +1217,7 @@ msgstr "Csoport típusa"
 #: v2/templates/people/familyview.php:338
 #: v2/templates/people/personPrint.php:405
 #: v2/templates/people/personPrint.php:470
-#: v2/templates/people/personview.php:790
+#: v2/templates/people/personview.php:776
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:726
@@ -1707,7 +1733,7 @@ msgstr "Kérjük, ellenőrizze adatait"
 msgid "Private Space"
 msgstr "Privát tér"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:111 EcclesiaCRM/utils/MiscUtils.php:466
+#: EcclesiaCRM/MenuBar/MenuBar.php:111 EcclesiaCRM/utils/MiscUtils.php:475
 #: Include/Header.php:257
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
@@ -1729,12 +1755,7 @@ msgstr "Beállítások módosítása"
 msgid "Documents"
 msgstr "Dokumentumok"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:119 v2/templates/people/personview.php:668
-#: v2/templates/user/userseditor.php:292
-msgid "EDrive"
-msgstr "EDrive"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:134
+#: EcclesiaCRM/MenuBar/MenuBar.php:130
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
 #: EcclesiaCRM/dto/SystemConfig.php:301
@@ -1742,30 +1763,30 @@ msgstr "EDrive"
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:137 EcclesiaCRM/MenuBar/MenuBar.php:189
-#: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:446
-#: EcclesiaCRM/MenuBar/MenuBar.php:458 EcclesiaCRM/MenuBar/MenuBar.php:486
-#: EcclesiaCRM/MenuBar/MenuBar.php:596
+#: EcclesiaCRM/MenuBar/MenuBar.php:133 EcclesiaCRM/MenuBar/MenuBar.php:185
+#: EcclesiaCRM/MenuBar/MenuBar.php:340 EcclesiaCRM/MenuBar/MenuBar.php:442
+#: EcclesiaCRM/MenuBar/MenuBar.php:454 EcclesiaCRM/MenuBar/MenuBar.php:482
+#: EcclesiaCRM/MenuBar/MenuBar.php:564 EcclesiaCRM/MenuBar/MenuBar.php:603
 msgid "Dashboard"
 msgstr "Műszerfal"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:138
+#: EcclesiaCRM/MenuBar/MenuBar.php:134
 msgid "Data Structure"
 msgstr "Adatszerkezet"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:139 EcclesiaCRM/MenuBar/MenuBar.php:219
+#: EcclesiaCRM/MenuBar/MenuBar.php:135 EcclesiaCRM/MenuBar/MenuBar.php:215
 msgid "View Inactive Persons"
 msgstr "Inaktív személyek megtekintése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:225
+#: EcclesiaCRM/MenuBar/MenuBar.php:136 EcclesiaCRM/MenuBar/MenuBar.php:221
 msgid "View Inactive Families"
 msgstr "Inaktív családok megtekintése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:155
+#: EcclesiaCRM/MenuBar/MenuBar.php:151
 msgid "Events"
 msgstr "Események"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:163 v2/templates/map/MapUsingBing.php:78
+#: EcclesiaCRM/MenuBar/MenuBar.php:159 v2/templates/map/MapUsingBing.php:78
 #: v2/templates/map/MapUsingBing.php:124 v2/templates/map/MapUsingGoogle.php:88
 #: v2/templates/map/MapUsingGoogle.php:135
 #: v2/templates/map/MapUsingLeaflet.php:72
@@ -1773,100 +1794,100 @@ msgstr "Események"
 msgid "Calendar"
 msgstr "Naptár"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:166 EcclesiaCRM/MenuBar/MenuBar.php:206
+#: EcclesiaCRM/MenuBar/MenuBar.php:162 EcclesiaCRM/MenuBar/MenuBar.php:202
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "Nézet a térképen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:169
+#: EcclesiaCRM/MenuBar/MenuBar.php:165
 msgid "List Church Events"
 msgstr "Egyházi események listája"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:170
+#: EcclesiaCRM/MenuBar/MenuBar.php:166
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:332
 msgid "List Event Types"
 msgstr "Eseménytípusok listája"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:172
+#: EcclesiaCRM/MenuBar/MenuBar.php:168
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:294
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:296
 msgid "Call the Register"
 msgstr "Hívja a nyilvántartást"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:187
+#: EcclesiaCRM/MenuBar/MenuBar.php:183
 #: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "Emberek"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:204
+#: EcclesiaCRM/MenuBar/MenuBar.php:200
 msgid "Meta Search Engine"
 msgstr "Meta keresőmotor"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:210
+#: EcclesiaCRM/MenuBar/MenuBar.php:206
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1202
 msgid "Directory reports"
 msgstr "Címtárjelentések"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:215 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:211 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "Új személy hozzáadása"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:216
+#: EcclesiaCRM/MenuBar/MenuBar.php:212
 msgid "View Single Persons"
 msgstr "Egyedülálló személyek megtekintése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:217
+#: EcclesiaCRM/MenuBar/MenuBar.php:213
 msgid "View Active Persons"
 msgstr "Aktív személyek megtekintése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:222
+#: EcclesiaCRM/MenuBar/MenuBar.php:218
 msgid "Add New Family"
 msgstr "Új család hozzáadása"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:223
+#: EcclesiaCRM/MenuBar/MenuBar.php:219
 msgid "View Active Families"
 msgstr "Aktív családok megtekintése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:227
+#: EcclesiaCRM/MenuBar/MenuBar.php:223
 msgid "Empty Addresses"
 msgstr "Üres címek"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:230
+#: EcclesiaCRM/MenuBar/MenuBar.php:226
 msgid "Convert Individual to Address"
 msgstr "Egyén átalakítása címre"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:245
+#: EcclesiaCRM/MenuBar/MenuBar.php:241
 msgid "List Groups"
 msgstr "Csoportok listája"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:321
+#: EcclesiaCRM/MenuBar/MenuBar.php:317
 #: v2/templates/deposit/electronicPaymentList.php:254
 #: v2/templates/group/groupedit.php:134 v2/templates/group/groupview.php:235
 msgid "Disabled"
 msgstr "Mozgáskorlátozottak"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:330
+#: EcclesiaCRM/MenuBar/MenuBar.php:326
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:235
 msgid "Group Assignment Helper"
 msgstr "Csoportos hozzárendelés segítője"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:341
+#: EcclesiaCRM/MenuBar/MenuBar.php:337
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "Vasárnapi iskola"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:428 EcclesiaCRM/MenuBar/MenuBar.php:435
+#: EcclesiaCRM/MenuBar/MenuBar.php:424 EcclesiaCRM/MenuBar/MenuBar.php:431
 #: Include/Footer.php:177
 msgid "Global Custom Menus"
 msgstr "Globális egyéni menük"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:445
+#: EcclesiaCRM/MenuBar/MenuBar.php:441
 msgid "Custom Menus"
 msgstr "Egyéni menük"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:455 EcclesiaCRM/dto/SystemConfig.php:298
+#: EcclesiaCRM/MenuBar/MenuBar.php:451 EcclesiaCRM/dto/SystemConfig.php:298
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
@@ -1876,21 +1897,21 @@ msgstr "Egyéni menük"
 msgid "Pastoral Care"
 msgstr "Lelkipásztori gondozás"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:459
+#: EcclesiaCRM/MenuBar/MenuBar.php:455
 msgid "By Classifications"
 msgstr "Osztályozások szerint"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:484
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/people/familyview.php:171 v2/templates/user/userseditor.php:467
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:493
+#: EcclesiaCRM/MenuBar/MenuBar.php:489
 msgid "Email Lists"
 msgstr "Email listák"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:526
+#: EcclesiaCRM/MenuBar/MenuBar.php:522
 #: EcclesiaCRM/Search/PledgeSearchRes.php:64
 #: EcclesiaCRM/Search/PledgeSearchRes.php:85 Reports/AdvancedDeposit.php:269
 #: Reports/AdvancedDeposit.php:389 Reports/AdvancedDeposit.php:420
@@ -1899,64 +1920,68 @@ msgstr "Email listák"
 msgid "Deposit"
 msgstr "Letét"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:541
+#: EcclesiaCRM/MenuBar/MenuBar.php:537
 msgid "Current"
 msgstr "Jelenlegi"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:546
+#: EcclesiaCRM/MenuBar/MenuBar.php:542
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:193
 msgid "Envelope Manager"
 msgstr "Boríték menedzser"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:547
+#: EcclesiaCRM/MenuBar/MenuBar.php:543
 msgid "View All Deposits"
 msgstr "Minden betét megtekintése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:548
+#: EcclesiaCRM/MenuBar/MenuBar.php:544
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:374
 msgid "Electronic Payment Listing"
 msgstr "Elektronikus fizetési lista"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:549
+#: EcclesiaCRM/MenuBar/MenuBar.php:545
 msgid "Deposit Reports"
 msgstr "Befizetési jelentések"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:550
+#: EcclesiaCRM/MenuBar/MenuBar.php:546
 #: v2/templates/deposit/financialReports.php:52
 msgid "Giving Report (Tax Statements)"
 msgstr "Adományozási jelentés (adóbevallások)"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:551
+#: EcclesiaCRM/MenuBar/MenuBar.php:547
 msgid "Edit Deposit Slip"
 msgstr "Befizetési bizonylat szerkesztése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:565
+#: EcclesiaCRM/MenuBar/MenuBar.php:562 v2/templates/user/userseditor.php:292
+msgid "EDrive"
+msgstr "EDrive"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:572
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "Adománygyűjtő"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:569
+#: EcclesiaCRM/MenuBar/MenuBar.php:576
 msgid "Create New Fundraiser"
 msgstr "Új adománygyűjtő létrehozása"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:570
+#: EcclesiaCRM/MenuBar/MenuBar.php:577
 msgid "View All Fundraisers"
 msgstr "Minden adománygyűjtő megtekintése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:572
+#: EcclesiaCRM/MenuBar/MenuBar.php:579
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "Szerkesztés Utolsó adománygyűjtő"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:616
+#: EcclesiaCRM/MenuBar/MenuBar.php:624
 msgid "Data/Reports"
 msgstr "Adatok/Beszámolók"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:618
+#: EcclesiaCRM/MenuBar/MenuBar.php:626
 msgid "Reports Menu"
 msgstr "Jelentések menü"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:621 v2/templates/user/userseditor.php:457
+#: EcclesiaCRM/MenuBar/MenuBar.php:629 v2/templates/user/userseditor.php:457
 msgid "Query Menu"
 msgstr "Lekérdezés menü"
 
@@ -2088,7 +2113,7 @@ msgstr "Felnőtt/gyermek"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:185
 #: v2/templates/people/familyview.php:340
-#: v2/templates/people/personview.php:791
+#: v2/templates/people/personview.php:777
 msgid "Birthday"
 msgstr "Születésnap"
 
@@ -2297,7 +2322,7 @@ msgstr "Tagok"
 #: v2/templates/people/personlist.php:102
 #: v2/templates/people/personlist.php:103
 #: v2/templates/people/personview.php:344
-#: v2/templates/people/personview.php:1592
+#: v2/templates/people/personview.php:1495
 #: v2/templates/sundayschool/sundayschooldashboard.php:296
 #: v2/templates/sundayschool/sundayschooldashboard.php:297
 #: v2/templates/sundayschool/sundayschooldashboard.php:298
@@ -2479,6 +2504,7 @@ msgstr "Évforduló"
 #: v2/templates/calendar/eventnames.php:347
 #: v2/templates/deposit/electronicPaymentList.php:301
 #: v2/templates/deposit/finddepositslip.php:103
+#: v2/templates/edrive/dashboard.php:77
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/pastoralcare/pastoralcarefamily.php:299
@@ -2486,8 +2512,7 @@ msgstr "Évforduló"
 #: v2/templates/pastoralcare/pastoralcareperson.php:431
 #: v2/templates/pastoralcare/pastoralcareperson.php:438
 #: v2/templates/people/familyview.php:890
-#: v2/templates/people/personview.php:1530
-#: v2/templates/people/personview.php:1621 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/personview.php:1524 v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "Törölje a  címet."
 
@@ -2681,7 +2706,7 @@ msgid "by"
 msgstr " "
 
 #: EcclesiaCRM/Service/TimelineService.php:332
-#: EcclesiaCRM/utils/MiscUtils.php:758 EcclesiaCRM/utils/MiscUtils.php:861
+#: EcclesiaCRM/utils/MiscUtils.php:776 EcclesiaCRM/utils/MiscUtils.php:994
 msgid "File"
 msgstr "Fájl"
 
@@ -2981,6 +3006,10 @@ msgstr "Fizetési szerkesztő - Meglévő fizetés módosítása"
 msgid "Payment Editor - New Deposit Slip Will Be Created"
 msgstr "Fizetési szerkesztő - Új befizetési bizonylat jön létre"
 
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:51
+msgid "Edrive : Dashboard "
+msgstr "Edrive : Műszerfal"
+
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:56
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:80
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:178
@@ -3110,7 +3139,6 @@ msgid "Query Listing"
 msgstr "Lekérdezés listázása"
 
 #: EcclesiaCRM/VIEWControllers/VIEWQueryController.php:100
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:31
 msgid "Query View"
 msgstr "Lekérdezés nézet"
 
@@ -5534,51 +5562,51 @@ msgstr "éves"
 msgid "yr old"
 msgstr "éves"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:801
 msgid "system user created"
 msgstr "létrehozott rendszerfelhasználó"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:803
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:804
 msgid "system user updated"
 msgstr "rendszerfelhasználó frissítve"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:807
 msgid "system user deleted"
 msgstr "rendszerfelhasználó törölve"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:809
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:810
 msgid "system user password reset"
 msgstr "rendszer felhasználói jelszó visszaállítása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:812
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:813
 msgid "system user changed password"
 msgstr "a rendszerfelhasználó megváltoztatta a jelszavát"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:815
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:816
 msgid "system user password changed by admin"
 msgstr "rendszerfelhasználó jelszava admin által megváltoztatva"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:819
 msgid "system user login reset"
 msgstr "rendszer felhasználói bejelentkezés visszaállítása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:825
 msgid "Dav create file"
 msgstr "Dav fájl létrehozása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:831
 msgid "Dav create directory"
 msgstr "Dav könyvtár létrehozása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:837
 msgid "Dav update file"
 msgstr "Dav frissítési fájl"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:849
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:850
 msgid "Dav move copy file"
 msgstr "Dav move másolás fájl"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:856
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:857
 msgid "Dav delete file"
 msgstr "Dav fájl törlése"
 
@@ -5818,45 +5846,46 @@ msgstr "Teljesítetlen<br>címek figyelmen kívül hagyása"
 msgid "File Type"
 msgstr "Fájltípus"
 
-#: EcclesiaCRM/utils/MiscUtils.php:806
+#: EcclesiaCRM/utils/MiscUtils.php:812 EcclesiaCRM/utils/MiscUtils.php:868
+#: EcclesiaCRM/utils/MiscUtils.php:968
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "PDF megtekintő programot kell használnod, vagy töltsd le a fájlt innen"
 
-#: EcclesiaCRM/utils/MiscUtils.php:813 EcclesiaCRM/utils/MiscUtils.php:818
-#: EcclesiaCRM/utils/MiscUtils.php:822 EcclesiaCRM/utils/MiscUtils.php:928
+#: EcclesiaCRM/utils/MiscUtils.php:875 EcclesiaCRM/utils/MiscUtils.php:880
+#: EcclesiaCRM/utils/MiscUtils.php:884 EcclesiaCRM/utils/MiscUtils.php:1061
 msgid "Your browser does not support the audio element."
 msgstr "Az Ön böngészője nem támogatja a hangelemeket."
 
-#: EcclesiaCRM/utils/MiscUtils.php:828 EcclesiaCRM/utils/MiscUtils.php:835
-#: EcclesiaCRM/utils/MiscUtils.php:844 EcclesiaCRM/utils/MiscUtils.php:938
-#: EcclesiaCRM/utils/MiscUtils.php:949 EcclesiaCRM/utils/MiscUtils.php:964
+#: EcclesiaCRM/utils/MiscUtils.php:890 EcclesiaCRM/utils/MiscUtils.php:897
+#: EcclesiaCRM/utils/MiscUtils.php:906 EcclesiaCRM/utils/MiscUtils.php:1071
+#: EcclesiaCRM/utils/MiscUtils.php:1082 EcclesiaCRM/utils/MiscUtils.php:1097
 msgid "Your browser does not support the video tag."
 msgstr "Az Ön böngészője nem támogatja a videó tag-et."
 
-#: EcclesiaCRM/utils/MiscUtils.php:870 EcclesiaCRM/utils/MiscUtils.php:902
-#: EcclesiaCRM/utils/MiscUtils.php:911 EcclesiaCRM/utils/MiscUtils.php:926
-#: EcclesiaCRM/utils/MiscUtils.php:935 EcclesiaCRM/utils/MiscUtils.php:945
-#: EcclesiaCRM/utils/MiscUtils.php:958
+#: EcclesiaCRM/utils/MiscUtils.php:1003 EcclesiaCRM/utils/MiscUtils.php:1035
+#: EcclesiaCRM/utils/MiscUtils.php:1044 EcclesiaCRM/utils/MiscUtils.php:1059
+#: EcclesiaCRM/utils/MiscUtils.php:1068 EcclesiaCRM/utils/MiscUtils.php:1078
+#: EcclesiaCRM/utils/MiscUtils.php:1091
 msgid "Expand"
 msgstr "Expand"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1006
+#: EcclesiaCRM/utils/MiscUtils.php:1143
 msgid "Classic Document"
 msgstr "Klasszikus dokumentum"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1009
+#: EcclesiaCRM/utils/MiscUtils.php:1146
 msgid "Classic Video"
 msgstr "Klasszikus videó"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1012
+#: EcclesiaCRM/utils/MiscUtils.php:1149
 msgid "Classic File"
 msgstr "Klasszikus fájl"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1015
+#: EcclesiaCRM/utils/MiscUtils.php:1152
 msgid "Classic Audio"
 msgstr "Klasszikus hang"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1122
+#: EcclesiaCRM/utils/MiscUtils.php:1258
 msgid "Select Fiscal Year"
 msgstr "Válassza ki az adóévet"
 
@@ -6434,7 +6463,7 @@ msgstr ""
 #: v2/templates/people/familyview.php:859
 #: v2/templates/people/personPrint.php:218
 #: v2/templates/people/personview.php:165
-#: v2/templates/people/personview.php:1589
+#: v2/templates/people/personview.php:1492
 msgid "Informations"
 msgstr "Információk"
 
@@ -6742,7 +6771,7 @@ msgstr "Biztonsági mentés letöltve, másolat a kiszolgálón eltávolítva"
 msgid "File Manager"
 msgstr "Fájlkezelő"
 
-#: browser/browse.php:42 v2/templates/people/personview.php:1517
+#: browser/browse.php:42
 msgid "Upload a file in EDrive"
 msgstr "Fájl feltöltése az EDrive-ban"
 
@@ -6751,7 +6780,6 @@ msgid "Download"
 msgstr "Letöltés"
 
 #: browser/browse.php:72 v2/templates/group/groupbadge.php:207
-#: v2/templates/people/personview.php:1560
 msgid "Preview"
 msgstr "Előnézet"
 
@@ -6869,7 +6897,7 @@ msgstr "Regisztráció"
 #: v2/templates/people/familyEditor.php:1058
 #: v2/templates/people/familyview.php:327
 #: v2/templates/people/personPrint.php:400
-#: v2/templates/people/personview.php:789
+#: v2/templates/people/personview.php:775
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "Családtagok"
@@ -7054,7 +7082,7 @@ msgstr "Hiba lépett fel az Ön ellenőrzési adatainak elküldésekor"
 #: v2/templates/people/familyview.php:889
 #: v2/templates/people/lettersandlabels.php:269
 #: v2/templates/people/personEditor.php:1740
-#: v2/templates/people/personview.php:1620
+#: v2/templates/people/personview.php:1523
 #: v2/templates/people/reminderreport.php:42
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -7120,78 +7148,6 @@ msgstr "Családok Önregisztráció"
 #: members/self-verify-updates.php:13
 msgid "Self Verify"
 msgstr "Önellenőrzés"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:108
-#: v2/templates/query/queryview.php:35
-msgid "This value is required."
-msgstr "Ez az érték kötelező."
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:121
-#: v2/templates/query/queryview.php:46
-msgid "This value must be numeric."
-msgstr "Ennek az értéknek numerikusnak kell lennie."
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:126
-#: v2/templates/query/queryview.php:51
-msgid "This value must be at least "
-msgstr "Ennek az értéknek legalább"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:131
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:144
-#: v2/templates/query/queryview.php:55 v2/templates/query/queryview.php:68
-msgid "This value cannot be more than "
-msgstr "Ez az érték nem lehet több, mint"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:144
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:149
-#: v2/templates/query/queryview.php:68 v2/templates/query/queryview.php:72
-msgid " characters long"
-msgstr " karakter hosszú"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:149
-#: v2/templates/query/queryview.php:72
-msgid "This value cannot be less than "
-msgstr "Ez az érték nem lehet kisebb, mint"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:197
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:268
-#: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:117
-#: v2/templates/query/queryview.php:230
-msgid " record(s) returned"
-msgstr " visszaküldött rekord(ok)"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:278
-#: v2/templates/query/queryview.php:132
-msgid "Add To Cart"
-msgstr "Kosárba"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:279
-#: v2/templates/query/queryview.php:134
-msgid "Intersect With Cart"
-msgstr "Metszéspont a kosárral"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:280
-#: v2/templates/query/queryview.php:136
-msgid "Remove From Cart"
-msgstr "Kosárból eltávolítani"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:287
-#: v2/templates/query/queryview.php:236
-msgid "Run Query Again"
-msgstr "Futtassa újra a lekérdezést"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:343
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:360
-#: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:618
-#: v2/templates/people/personview.php:1105 v2/templates/query/queryview.php:393
-#: v2/templates/query/queryview.php:410
-msgid "select an option"
-msgstr "válasszon ki egy opciót"
-
-#: public/userdir/114EDC23-7781-4373-B18C-F877A935D6D7/QueryView_New.php:407
-#: v2/templates/query/queryview.php:453
-msgid "Execute Query"
-msgstr "Lekérdezés végrehajtása"
 
 #: session/templates/session.php:50 session/templates/session.php:68
 msgid "Invalid login or password"
@@ -7592,7 +7548,7 @@ msgstr "Leírás"
 #: v2/templates/calendar/eventnames.php:306
 #: v2/templates/deposit/depositslipeditor.php:163
 #: v2/templates/deposit/electronicPaymentList.php:199
-#: v2/templates/people/personview.php:914
+#: v2/templates/people/personview.php:900
 msgid "Action"
 msgstr "Akció"
 
@@ -7998,7 +7954,8 @@ msgid "Pictures in the Image folder: "
 msgstr "Képek a Kép mappában:"
 
 #: v2/templates/cart/carttobadge.php:127 v2/templates/cart/carttobadge.php:133
-#: v2/templates/group/groupbadge.php:158 v2/templates/group/groupbadge.php:164
+#: v2/templates/edrive/dashboard.php:35 v2/templates/group/groupbadge.php:158
+#: v2/templates/group/groupbadge.php:164
 msgid "Upload"
 msgstr "Feltöltés"
 
@@ -8221,6 +8178,7 @@ msgstr "A"
 
 #: v2/templates/deposit/autaPaymentEditor.php:806
 #: v2/templates/deposit/pledgeEditor.php:40
+#: v2/templates/edrive/dashboard.php:100
 #: v2/templates/people/personEditor.php:1011
 msgid "or"
 msgstr "vagy"
@@ -8724,7 +8682,7 @@ msgstr "Befizetési bizonylat generálása kiválasztott sorokhoz (PDF)"
 
 #: v2/templates/deposit/finddepositslip.php:93
 #: v2/templates/people/familyview.php:880
-#: v2/templates/people/personview.php:1609
+#: v2/templates/people/personview.php:1512
 msgid "Confirm Delete"
 msgstr "Törlés megerősítése"
 
@@ -8876,6 +8834,83 @@ msgstr "Nem levonható összeg"
 #: v2/templates/deposit/taxReport.php:29
 msgid "Calendar Year"
 msgstr "Naptári év"
+
+#: v2/templates/edrive/dashboard.php:25
+msgid "Edrive : File manager"
+msgstr "Edrive : Fájlkezelő"
+
+#: v2/templates/edrive/dashboard.php:32
+msgid "Files input"
+msgstr "Fájlok bemenet"
+
+#: v2/templates/edrive/dashboard.php:34
+msgid "Upload your files"
+msgstr "Fájlok feltöltése"
+
+#: v2/templates/edrive/dashboard.php:44
+msgid "Move up one level, or drag the file(s) to move them up one level."
+msgstr ""
+"Lépjen egy szinttel feljebb, vagy húzza a fájl(ok)at egy szinttel feljebb."
+
+#: v2/templates/edrive/dashboard.php:68
+msgid "Internal sharing"
+msgstr "Belső megosztás"
+
+#: v2/templates/edrive/dashboard.php:76
+msgid "Delete all shares"
+msgstr "Minden részvény törlése"
+
+#: v2/templates/edrive/dashboard.php:80
+msgid "Delete shares for the selected users"
+msgstr "Megosztások törlése a kiválasztott felhasználók számára"
+
+#: v2/templates/edrive/dashboard.php:81
+msgid "Stop sharing"
+msgstr "Ne ossza meg többet"
+
+#: v2/templates/edrive/dashboard.php:86
+msgid "With"
+msgstr "A  címen"
+
+#: v2/templates/edrive/dashboard.php:94
+msgid "Set Rights"
+msgstr "Jogok beállítása"
+
+#: v2/templates/edrive/dashboard.php:100
+msgid "Select your rights"
+msgstr "Válassza ki a jogait"
+
+#: v2/templates/edrive/dashboard.php:103
+msgid "[R ]"
+msgstr "[R ]"
+
+#: v2/templates/edrive/dashboard.php:104
+msgid "[RW]"
+msgstr "[RW]"
+
+#: v2/templates/edrive/dashboard.php:114
+msgid ""
+"Use this method to share files with individuals or teams within your "
+"organization. If the recipient already has access to the share, but can't "
+"locate it, you can send them the internal link to facilitate access."
+msgstr ""
+"Ezzel a módszerrel oszthat meg fájlokat egyénekkel vagy csapatokkal a "
+"szervezeten belül. Ha a címzettnek már van hozzáférése a megosztáshoz, de "
+"nem találja azt, elküldheti neki a belső linket a hozzáférés megkönnyítése "
+"érdekében."
+
+#: v2/templates/edrive/dashboard.php:114
+#: v2/templates/sidebar/systemsettings.php:199
+msgid "Definition"
+msgstr "Meghatározás"
+
+#: v2/templates/edrive/dashboard.php:122
+msgid "Send email notification"
+msgstr "E-mail értesítés küldése"
+
+#: v2/templates/edrive/dashboard.php:125
+msgid "With Right"
+msgstr "Jobbra"
 
 #: v2/templates/email/mailchimp/campaign.php:31
 msgid "Recipients"
@@ -9693,9 +9728,8 @@ msgid "Quick Settings"
 msgstr "Gyors beállítások"
 
 #: v2/templates/group/groupview.php:233
-#, fuzzy
 msgid "Group is"
-msgstr "Csoportok"
+msgstr "A csoport"
 
 #: v2/templates/group/groupview.php:235
 #: v2/templates/sidebar/kioskmanager.php:29
@@ -9703,9 +9737,8 @@ msgid "Active"
 msgstr "Aktív"
 
 #: v2/templates/group/groupview.php:239
-#, fuzzy
 msgid "The emails are"
-msgstr "Vannak"
+msgstr "Az e-mailek a következők"
 
 #: v2/templates/group/groupview.php:241
 msgid "Include"
@@ -9744,13 +9777,19 @@ msgid "Assigned Properties"
 msgstr "Hozzárendelt tulajdonságok"
 
 #: v2/templates/group/groupview.php:328 v2/templates/people/familyview.php:608
-#: v2/templates/people/personview.php:1097
+#: v2/templates/people/personview.php:1083
 msgid "Assign a New Property"
 msgstr "Új tulajdonság hozzárendelése"
 
+#: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:618
+#: v2/templates/people/personview.php:1091 v2/templates/query/queryview.php:393
+#: v2/templates/query/queryview.php:410
+msgid "select an option"
+msgstr "válasszon ki egy opciót"
+
 #: v2/templates/group/groupview.php:349 v2/templates/people/familyview.php:639
-#: v2/templates/people/personview.php:1126
-#: v2/templates/people/personview.php:1189
+#: v2/templates/people/personview.php:1112
+#: v2/templates/people/personview.php:1175
 msgid "Assign"
 msgstr "Hozzárendelés"
 
@@ -9854,7 +9893,7 @@ msgstr "Hozzárendelt csoportok"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
 #: v2/templates/people/personPrint.php:463
-#: v2/templates/people/personview.php:879
+#: v2/templates/people/personview.php:865
 msgid "No group assignments."
 msgstr "Nincs csoportos feladat."
 
@@ -9875,7 +9914,7 @@ msgstr "Érték"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
 #: v2/templates/people/personPrint.php:559
-#: v2/templates/people/personview.php:1081
+#: v2/templates/people/personview.php:1067
 msgid "No property assignments."
 msgstr "Nincsenek tulajdonjog-kiutalások."
 
@@ -10613,65 +10652,65 @@ msgid "Pledges and Payments"
 msgstr "Zálogjogok és kifizetések"
 
 #: v2/templates/people/familyview.php:615
-#: v2/templates/people/personview.php:1103
-#: v2/templates/people/personview.php:1174
-#: v2/templates/people/personview.php:1312
+#: v2/templates/people/personview.php:1089
+#: v2/templates/people/personview.php:1160
+#: v2/templates/people/personview.php:1298
 msgid "Select"
 msgstr "Válassza ki a  címet."
 
 #: v2/templates/people/familyview.php:667
-#: v2/templates/people/personview.php:1220
+#: v2/templates/people/personview.php:1206
 msgid "Add a new automatic payment"
 msgstr "Új automatikus fizetés hozzáadása"
 
 #: v2/templates/people/familyview.php:676
-#: v2/templates/people/personview.php:1241
+#: v2/templates/people/personview.php:1227
 msgid "Show Pledges"
 msgstr "Mutasd meg a zálogokat"
 
 #: v2/templates/people/familyview.php:680
-#: v2/templates/people/personview.php:1245
+#: v2/templates/people/personview.php:1231
 msgid "Show Payments"
 msgstr "Fizetések megjelenítése"
 
 #: v2/templates/people/familyview.php:683
-#: v2/templates/people/personview.php:1248
+#: v2/templates/people/personview.php:1234
 msgid "From"
 msgstr "A  címről"
 
 #: v2/templates/people/familyview.php:692
-#: v2/templates/people/personview.php:1257
+#: v2/templates/people/personview.php:1243
 msgid "To"
 msgstr "A  címre."
 
 #: v2/templates/people/familyview.php:715
-#: v2/templates/people/personview.php:1270
+#: v2/templates/people/personview.php:1256
 msgid "Add a new pledge"
 msgstr "Új ígéret hozzáadása"
 
 #: v2/templates/people/familyview.php:717
-#: v2/templates/people/personview.php:1272
+#: v2/templates/people/personview.php:1258
 msgid "Add a new payment"
 msgstr "Új fizetés hozzáadása"
 
 #: v2/templates/people/familyview.php:725
-#: v2/templates/people/personview.php:1288
+#: v2/templates/people/personview.php:1274
 msgid " Canvass Entry"
 msgstr " Canvass bejegyzés"
 
 #: v2/templates/people/familyview.php:885
-#: v2/templates/people/personview.php:1614
+#: v2/templates/people/personview.php:1517
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "A profilkép törlése előtt áll, ez az eljárás visszafordíthatatlan."
 
 #: v2/templates/people/familyview.php:886
-#: v2/templates/people/personview.php:1616
+#: v2/templates/people/personview.php:1519
 msgid "Do you want to proceed?"
 msgstr "Akarod folytatni?"
 
 #: v2/templates/people/familyview.php:901
-#: v2/templates/people/personview.php:1634
+#: v2/templates/people/personview.php:1537
 msgid "Request Family Info Verification"
 msgstr "Családi információk ellenőrzésének kérése"
 
@@ -10689,18 +10728,18 @@ msgstr ""
 
 #: v2/templates/people/familyview.php:933
 #: v2/templates/people/familyview.php:937
-#: v2/templates/people/personview.php:1648
-#: v2/templates/people/personview.php:1652
+#: v2/templates/people/personview.php:1551
+#: v2/templates/people/personview.php:1555
 msgid "Online Verification"
 msgstr "Online ellenőrzés"
 
 #: v2/templates/people/familyview.php:944
-#: v2/templates/people/personview.php:1659
+#: v2/templates/people/personview.php:1562
 msgid "PDF Report"
 msgstr "PDF jelentés"
 
 #: v2/templates/people/familyview.php:948
-#: v2/templates/people/personview.php:1663
+#: v2/templates/people/personview.php:1566
 msgid "Verified In Person"
 msgstr "Személyesen ellenőrizve"
 
@@ -11265,96 +11304,80 @@ msgstr " ez a személy"
 msgid "Delete this Record"
 msgstr "A rekord törlése"
 
-#: v2/templates/people/personview.php:765
+#: v2/templates/people/personview.php:751
 msgid "click to download"
 msgstr "kattintson a letöltéshez"
 
-#: v2/templates/people/personview.php:924
+#: v2/templates/people/personview.php:910
 msgid "Change Role"
 msgstr "Szerepváltás"
 
-#: v2/templates/people/personview.php:931
+#: v2/templates/people/personview.php:917
 msgid "Update Properties"
 msgstr "Tulajdonságok frissítése"
 
-#: v2/templates/people/personview.php:969
+#: v2/templates/people/personview.php:955
 msgid "Group Informations"
 msgstr "Csoportinformációk"
 
-#: v2/templates/people/personview.php:1010
+#: v2/templates/people/personview.php:996
 msgid "Person Informations"
 msgstr "Személyi információk"
 
-#: v2/templates/people/personview.php:1032
+#: v2/templates/people/personview.php:1018
 msgid "Modify Specific Properties"
 msgstr "Speciális tulajdonságok módosítása"
 
-#: v2/templates/people/personview.php:1043
+#: v2/templates/people/personview.php:1029
 msgid "No specific group properties defined !"
 msgstr "Nincsenek meghatározott csoporttulajdonságok !"
 
-#: v2/templates/people/personview.php:1151
+#: v2/templates/people/personview.php:1137
 msgid "No volunteer opportunity assignments."
 msgstr "Nincsenek önkéntes lehetőségek kijelölése."
 
-#: v2/templates/people/personview.php:1166
+#: v2/templates/people/personview.php:1152
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Új önkéntes lehetőség hozzárendelése"
 
-#: v2/templates/people/personview.php:1225
-#: v2/templates/people/personview.php:1277
+#: v2/templates/people/personview.php:1211
+#: v2/templates/people/personview.php:1263
 msgid "You must set an address for this person"
 msgstr "Meg kell adnia egy címet ennek a személynek"
 
-#: v2/templates/people/personview.php:1313
+#: v2/templates/people/personview.php:1299
 msgid "Filter your documents by : "
 msgstr "Szűrje a dokumentumokat :"
 
-#: v2/templates/people/personview.php:1314
+#: v2/templates/people/personview.php:1300
 msgid "All type"
 msgstr "Minden típus"
 
-#: v2/templates/people/personview.php:1319
+#: v2/templates/people/personview.php:1305
 msgid "Shared documents"
 msgstr "Megosztott dokumentumok"
 
-#: v2/templates/people/personview.php:1355
+#: v2/templates/people/personview.php:1341
 msgid "Edit this document"
 msgstr "A dokumentum szerkesztése"
 
-#: v2/templates/people/personview.php:1365
+#: v2/templates/people/personview.php:1351
 msgid "Delete this document"
 msgstr "A dokumentum törlése"
 
-#: v2/templates/people/personview.php:1376
+#: v2/templates/people/personview.php:1362
 msgid "Share this document to another user"
 msgstr "A dokumentum megosztása egy másik felhasználóval"
 
-#: v2/templates/people/personview.php:1389
+#: v2/templates/people/personview.php:1375
 msgid "Export this document to word Format"
 msgstr "A dokumentum exportálása word formátumba"
 
-#: v2/templates/people/personview.php:1432
+#: v2/templates/people/personview.php:1418
 msgid "Last modification by"
 msgstr "Utolsó módosítás:"
 
-#: v2/templates/people/personview.php:1508
-msgid "All Files"
-msgstr "Minden fájl"
-
-#: v2/templates/people/personview.php:1525
-msgid "Create a Folder"
-msgstr "Mappa létrehozása"
-
-#: v2/templates/people/personview.php:1535
-msgid "Up One Level"
-msgstr "Egy szinttel feljebb"
-
 #: v2/templates/people/personview.php:1542
-msgid "Actualize files"
-msgstr "Aktualizálja a fájlokat"
-
-#: v2/templates/people/personview.php:1639
 msgid "Select how do you want to request the person information to be verified"
 msgstr "Válassza ki, hogyan szeretné a személy adatait ellenőrizni."
 
@@ -11595,6 +11618,55 @@ msgstr "Eredmények exportálása CSV fájlba"
 msgid "Execute SQL"
 msgstr "SQL végrehajtása"
 
+#: v2/templates/query/querysql.php:190 v2/templates/query/queryview.php:117
+#: v2/templates/query/queryview.php:230
+msgid " record(s) returned"
+msgstr " visszaküldött rekord(ok)"
+
+#: v2/templates/query/queryview.php:35
+msgid "This value is required."
+msgstr "Ez az érték kötelező."
+
+#: v2/templates/query/queryview.php:46
+msgid "This value must be numeric."
+msgstr "Ennek az értéknek numerikusnak kell lennie."
+
+#: v2/templates/query/queryview.php:51
+msgid "This value must be at least "
+msgstr "Ennek az értéknek legalább"
+
+#: v2/templates/query/queryview.php:55 v2/templates/query/queryview.php:68
+msgid "This value cannot be more than "
+msgstr "Ez az érték nem lehet több, mint"
+
+#: v2/templates/query/queryview.php:68 v2/templates/query/queryview.php:72
+msgid " characters long"
+msgstr " karakter hosszú"
+
+#: v2/templates/query/queryview.php:72
+msgid "This value cannot be less than "
+msgstr "Ez az érték nem lehet kisebb, mint"
+
+#: v2/templates/query/queryview.php:132
+msgid "Add To Cart"
+msgstr "Kosárba"
+
+#: v2/templates/query/queryview.php:134
+msgid "Intersect With Cart"
+msgstr "Metszéspont a kosárral"
+
+#: v2/templates/query/queryview.php:136
+msgid "Remove From Cart"
+msgstr "Kosárból eltávolítani"
+
+#: v2/templates/query/queryview.php:236
+msgid "Run Query Again"
+msgstr "Futtassa újra a lekérdezést"
+
+#: v2/templates/query/queryview.php:453
+msgid "Execute Query"
+msgstr "Lekérdezés végrehajtása"
+
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
 "Be carefull ! By deleting Fund type, the recorded datas for pledges or "
@@ -11706,10 +11778,6 @@ msgstr "Beállítások szerkesztése"
 #: v2/templates/sidebar/systemsettings.php:182
 msgid "Unknown Type"
 msgstr "Ismeretlen típus"
-
-#: v2/templates/sidebar/systemsettings.php:199
-msgid "Definition"
-msgstr "Meghatározás"
 
 #: v2/templates/sidebar/volunteeropportunityeditor.php:15
 msgid "Add Volunteer Opportunity"
@@ -13621,6 +13689,18 @@ msgstr "Több nap"
 msgid "Giving Report"
 msgstr "Adományozási jelentés"
 
+#~ msgid "All Files"
+#~ msgstr "Minden fájl"
+
+#~ msgid "Create a Folder"
+#~ msgstr "Mappa létrehozása"
+
+#~ msgid "Up One Level"
+#~ msgstr "Egy szinttel feljebb"
+
+#~ msgid "Actualize files"
+#~ msgstr "Aktualizálja a fájlokat"
+
 #~ msgid "EcclesiaCRM export"
 #~ msgstr "EcclesiaCRM export"
 
@@ -13826,9 +13906,6 @@ msgstr "Adományozási jelentés"
 
 #~ msgid "This action will delete all your rooms"
 #~ msgstr "Ez a művelet törli az összes szobát"
-
-#~ msgid "Delete all Rooms"
-#~ msgstr "Minden szoba törlése"
 
 #~ msgid "Room Name"
 #~ msgstr "Szoba neve"
@@ -14154,9 +14231,6 @@ msgstr "Adományozási jelentés"
 #~ msgid "All Family Roles"
 #~ msgstr "Minden családi szerep"
 
-#~ msgid "All Contact Properties"
-#~ msgstr "Minden érintkezési tulajdonság"
-
 #~ msgid "All Group Types"
 #~ msgstr "Minden csoporttípus"
 
@@ -14439,12 +14513,6 @@ msgstr "Adományozási jelentés"
 
 #~ msgid "Choose your Note Type"
 #~ msgstr "Válassza ki a jegyzet típusát"
-
-#~ msgid "File input"
-#~ msgstr "Fájl bemenet"
-
-#~ msgid "Upload your file"
-#~ msgstr "Fájl feltöltése"
 
 #~ msgid "Private"
 #~ msgstr "Privát"
@@ -14844,9 +14912,3 @@ msgstr "Adományozási jelentés"
 
 #~ msgid "TRUE"
 #~ msgstr "TRUE"
-
-#~ msgid "[RW]"
-#~ msgstr "[RW]"
-
-#~ msgid "[R ]"
-#~ msgstr "[R ]"

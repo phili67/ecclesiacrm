@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -347,9 +347,6 @@ msgstr "Bitte bestätigen Sie die Löschung dieses Dokuments"
 msgid "Document Delete Confirmation"
 msgstr "Dokument Löschbestätigung"
 
-msgid "Document Editor"
-msgstr "Dokument-Editor"
-
 msgid "Document Title"
 msgstr "Titel des Dokuments"
 
@@ -371,6 +368,9 @@ msgstr "Audio"
 msgid "Private"
 msgstr "Privat"
 
+msgid "Document Editor"
+msgstr "Dokument-Editor"
+
 msgid "You have to set a Title for your document"
 msgstr "Sie müssen einen Titel für Ihr Dokument festlegen"
 
@@ -389,8 +389,8 @@ msgstr "Typ"
 msgid "Size"
 msgstr "Größe"
 
-msgid "Set a File/Folder name"
-msgstr "Einen Datei-/Ordnernamen festlegen"
+msgid "Delete"
+msgstr "Löschen"
 
 msgid "You are about to delete several items together"
 msgstr "Sie sind dabei, mehrere Objekte zusammen zu löschen"
@@ -401,77 +401,35 @@ msgstr "Sie sind dabei, einen Artikel zu entfernen"
 msgid "This can't be undone !!!!"
 msgstr "Das kann nicht rückgängig gemacht werden !!!!"
 
-msgid "Delete"
-msgstr "Löschen"
-
 msgid "You've to select at least one line !!!"
 msgstr "Sie müssen mindestens eine Zeile auswählen!!!"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Sie sind dabei, einen Ordner und seinen Inhalt zu löschen"
+msgid "Create a Folder"
+msgstr "Erstellen eines Ordners"
 
 msgid "Set your Folder name"
 msgstr "Legen Sie Ihren Ordnernamen fest"
 
-msgid "Files input"
-msgstr "Eingabe von Dateien"
+msgid "Actualize files"
+msgstr "Dateien aktualisieren"
 
-msgid "Upload your files"
-msgstr "Laden Sie Ihre Dateien hoch"
+msgid "Set a File/Folder name"
+msgstr "Einen Datei-/Ordnernamen festlegen"
 
-msgid "Upload"
-msgstr "Hochladen"
-
-msgid "Upload your Files"
-msgstr "Laden Sie Ihre Dateien hoch"
-
-msgid "Share your File"
-msgstr "Teilen Sie Ihre Datei"
-
-msgid "With"
-msgstr "Mit"
-
-msgid "Set Rights"
-msgstr "Rechte festlegen"
-
-msgid "Select your rights"
-msgstr "Wählen Sie Ihre Rechte"
-
-msgid "or"
-msgstr "oder"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "Benutzer"
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW]"
-
-msgid "Send email notification"
-msgstr "E-Mail-Benachrichtigung senden"
-
-msgid "Add persons/Family/groups"
-msgstr "Personen/Familie/Gruppen hinzufügen"
-
-msgid "Person or Family or Group"
-msgstr "Person oder Familie oder Gruppe"
+msgid "[👀  ]"
+msgstr "[👀 ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Sind Sie sicher? Sie sind dabei, diese Person zu löschen?"
 
-msgid "Stop sharing"
-msgstr "Nicht mehr teilen"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Sind Sie sicher? Sie wollen Ihr Dokument nicht mehr weitergeben?"
-
-msgid "Ok"
-msgstr "Ok"
 
 msgid "Tracking"
 msgstr "Nachverfolgung"
@@ -530,14 +488,47 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Ok"
+msgstr "Ok"
+
 msgid "Share your Calendar"
 msgstr "Teilen Sie Ihren Kalender"
+
+msgid "With"
+msgstr "Mit"
+
+msgid "Set Rights"
+msgstr "Rechte festlegen"
+
+msgid "Select your rights"
+msgstr "Wählen Sie Ihre Rechte"
+
+msgid "or"
+msgstr "oder"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "E-Mail-Benachrichtigung senden"
+
+msgid "Add persons/Family/groups"
+msgstr "Personen/Familie/Gruppen hinzufügen"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Sind Sie sicher, dass Sie diese Freigabe löschen möchten?"
 
+msgid "Stop sharing"
+msgstr "Nicht mehr teilen"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "Sind Sie sicher, dass Sie Ihr Dokument nicht mehr freigeben möchten?"
+
+msgid "Person or Family or Group"
+msgstr "Person oder Familie oder Gruppe"
 
 msgid "Are you sure?"
 msgstr "Sind Sie sicher?"
@@ -1046,9 +1037,6 @@ msgstr "Erstellen Sie eine."
 msgid "Group"
 msgstr "Gruppe"
 
-msgid "User"
-msgstr "Benutzer"
-
 msgid "No event now."
 msgstr "Jetzt keine Veranstaltung."
 
@@ -1343,7 +1331,7 @@ msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
 msgid "Remove Selected Members"
-msgstr ""
+msgstr "Ausgewählte Mitglieder entfernen"
 
 msgid "You're about to delete all the group members ?"
 msgstr "Sie sind dabei, alle Gruppenmitglieder zu löschen?"
@@ -1357,17 +1345,14 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "Zum Warenkorb hinzufügen"
 
-#, fuzzy
 msgid "Add to Group"
-msgstr "Warenkorb zur Gruppe hinzufügen"
+msgstr "Zur Gruppe hinzufügen"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "Gruppe auswählen"
+msgstr "Zur Gruppe verschieben"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "Alle entfernen"
+msgstr "Alle Mitglieder entfernen"
 
 msgid "Add"
 msgstr "hinzufügen"
@@ -1390,9 +1375,8 @@ msgstr "Kein zugewiesener Manager"
 msgid "Manage Group Managers"
 msgstr "Verwalten von Gruppenleitern"
 
-#, fuzzy
 msgid "Add users"
-msgstr "Käufer hinzufügen"
+msgstr "Benutzer hinzufügen"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Sind Sie sicher, dass Sie diesen Manager löschen möchten?"
@@ -2570,6 +2554,34 @@ msgstr "Editor für Käufernummern"
 
 msgid "Select"
 msgstr "Wählen Sie"
+
+#~ msgid ""
+#~ "Use this method to share files with individuals or teams within your "
+#~ "organization. If the recipient already has access to the share, but can't "
+#~ "locate it, you can send them the internal link to facilitate access."
+#~ msgstr ""
+#~ "Verwenden Sie diese Methode, um Dateien für Einzelpersonen oder Teams "
+#~ "innerhalb Ihrer Organisation freizugeben. Wenn der Empfänger bereits "
+#~ "Zugriff auf die Freigabe hat, diese aber nicht finden kann, können Sie "
+#~ "ihm den internen Link senden, um den Zugriff zu erleichtern."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "Sie sind dabei, einen Ordner und seinen Inhalt zu löschen"
+
+#~ msgid "Files input"
+#~ msgstr "Eingabe von Dateien"
+
+#~ msgid "Upload your files"
+#~ msgstr "Laden Sie Ihre Dateien hoch"
+
+#~ msgid "Upload"
+#~ msgstr "Hochladen"
+
+#~ msgid "Upload your Files"
+#~ msgstr "Laden Sie Ihre Dateien hoch"
+
+#~ msgid "Share your File"
+#~ msgstr "Teilen Sie Ihre Datei"
 
 #~ msgid "Members from group"
 #~ msgstr "Mitglieder der Gruppe"

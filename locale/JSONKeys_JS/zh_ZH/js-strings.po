@@ -2452,6 +2452,35 @@ msgstr "正在备份，请勿关闭窗口 ！"
 msgid "Restore backup, don't close the window !"
 msgstr "恢复备份，不要关闭窗口 ！"
 
+msgid "Create a Folder"
+msgstr "创建文件夹"
+
+msgid ""
+"Use this method to share files with individuals or teams within your "
+"organization. If the recipient already has access to the share, but can't "
+"locate it, you can send them the internal link to facilitate access."
+msgstr ""
+"使用此方法与组织内的个人或团队共享文件。如果接收者已经有访问共享文件的权限，"
+"但却找不到文件，你可以向他们发送内部链接，以方便他们访问。"
+
+msgid "Actualize files"
+msgstr "实现文件"
+
+msgid "Add to Group"
+msgstr "添加到小组"
+
+msgid "Move to Group"
+msgstr "移至组别"
+
+msgid "Remove all members"
+msgstr "删除所有成员"
+
+msgid "Add users"
+msgstr "添加用户"
+
+msgid "Remove Selected Members"
+msgstr "删除选定的成员"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 
