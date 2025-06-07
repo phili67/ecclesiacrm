@@ -574,6 +574,8 @@ class DocumentFileManagerController
                 $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $params->files;
 
                 foreach ($params->files as $file) {
+                    if ($file == '/public') continue;
+
                     if ($file[0] == '/') {
                         // we're in a case of a folder
                         // $file is a folder here
@@ -765,10 +767,15 @@ class DocumentFileManagerController
         if (SessionUser::getUser()->isEDriveEnabled() and isset ($params->personID) and isset ($params->oldName) and isset ($params->newName) and isset ($params->type) and SessionUser::getId() == $params->personID) {
 
             $user = UserQuery::create()->findPk($params->personID);
+            $currentpath = $user->getCurrentpath();
+                
             if (!is_null($user)) {
+                if ($params->oldName == '/public' and $currentpath == "/") {
+                    return $response->withJson(['success' => false, "message" => _("can't rename public folder")]);
+                }
+
                 $realNoteDir = $userDir = $user->getUserRootDir();
                 $userName = $user->getUserName();
-                $currentpath = $user->getCurrentpath();
                 $extension = pathinfo($params->oldName, PATHINFO_EXTENSION);
                 
                 $oldName = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . MiscUtils::convertUTF8AccentuedString2Unicode($params->oldName);

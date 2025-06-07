@@ -399,6 +399,7 @@ $(function () {
             // we're on a SmartPhone
             var oldName = $(this).data("name");
             var fileName = '';
+            var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
 
             if (oldName[0] == '/') {
                 fileName = oldName.substring(1);
@@ -424,7 +425,14 @@ $(function () {
                             })
                         }, function (data) {
                             if (data && data.success) {
-                                window.CRM.reloadEDriveTable();
+                                window.CRM.reloadEDriveTable(function () {
+                                    realRows.select();
+                                });
+                            } else {
+                                window.CRM.DisplayAlert(i18next.t("Error"), data.message);
+                                window.CRM.reloadEDriveTable(function () {
+                                   realRows.select();
+                                });
                             }
                         });
                     }
@@ -463,6 +471,7 @@ $(function () {
 
 
     $("body").on('keypress', '.fileName', function (e) {
+        var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
         var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
         var newName = $(this).val();
         var oldName = $(this).data("name");
@@ -481,8 +490,16 @@ $(function () {
                     })
                 }, function (data) {
                     if (data && data.success) {
-                        window.CRM.reloadEDriveTable();
+                        window.CRM.reloadEDriveTable(function () {
+                           realRows.select();
+                        });
+                    } else  {
+                        window.CRM.DisplayAlert(i18next.t("Error"), data.message);
+                        window.CRM.reloadEDriveTable(function () {
+                            realRows.select();
+                        });
                     }
+                    
                 });
                 break;
             case 27:// ESC
