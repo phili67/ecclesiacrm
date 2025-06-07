@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T15:19:56.829Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -346,9 +346,6 @@ msgstr "Ju lutem konfirmoni fshirjen e këtij dokumenti"
 msgid "Document Delete Confirmation"
 msgstr "Dokumenti fshin konfirmimin"
 
-msgid "Document Editor"
-msgstr "redaktor i dokumenteve"
-
 msgid "Document Title"
 msgstr "Titull i dokumenteve"
 
@@ -370,6 +367,9 @@ msgstr "audio"
 msgid "Private"
 msgstr "private"
 
+msgid "Document Editor"
+msgstr "redaktor i dokumenteve"
+
 msgid "You have to set a Title for your document"
 msgstr "Duhet të vendosësh Titullin për dokumentin tënd"
 
@@ -388,8 +388,8 @@ msgstr "Tip"
 msgid "Size"
 msgstr "përmasa"
 
-msgid "Set a File/Folder name"
-msgstr "vendos emrin e filmit/folder"
+msgid "Delete"
+msgstr "Fshije."
 
 msgid "You are about to delete several items together"
 msgstr "Do të fshini disa sende së bashku"
@@ -400,77 +400,37 @@ msgstr "Do të heqësh një send"
 msgid "This can't be undone !!!!"
 msgstr "Kjo nuk mund të prishet! !!!!"
 
-msgid "Delete"
-msgstr "Fshije."
-
 msgid "You've to select at least one line !!!"
 msgstr "Duhet të zgjedhësh të paktën një vijë! !"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "ti do të heqësh një dosje dhe është e përmbajtur"
+#, fuzzy
+msgid "Create a Folder"
+msgstr "krijo një."
 
 msgid "Set your Folder name"
 msgstr "vendos emrin tënd folder"
 
-msgid "Files input"
-msgstr "Informacion dokumentesh"
+#, fuzzy
+msgid "Actualize files"
+msgstr "Aktualize"
 
-msgid "Upload your files"
-msgstr "ngarkoni dosjet tuaja"
+msgid "Set a File/Folder name"
+msgstr "vendos emrin e filmit/folder"
 
-msgid "Upload"
-msgstr "ngarkoje."
-
-msgid "Upload your Files"
-msgstr "ngarkoni dokumentet tuaja"
-
-msgid "Share your File"
-msgstr "Ndani dosjen tuaj"
-
-msgid "With"
-msgstr "me"
-
-msgid "Set Rights"
-msgstr "Përgatisni të drejtat"
-
-msgid "Select your rights"
-msgstr "Zgjidh të drejtat e tua"
-
-msgid "or"
-msgstr "ose"
-
-msgid "[👀  ]"
-msgstr "[👀  ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "përdorues."
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW]"
-
-msgid "Send email notification"
-msgstr "Dërgo njoftimin e e-mail"
-
-msgid "Add persons/Family/groups"
-msgstr "Add persona/Family/grupe"
-
-msgid "Person or Family or Group"
-msgstr "Personi ose Familja ose Grupi"
+msgid "[👀  ]"
+msgstr "[👀  ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "A je i sigurt? Ti je gati ta fshish këtë person?"
 
-msgid "Stop sharing"
-msgstr "mjaft më"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "A je i sigurt? a jeni gati ta ndani dokumentin tuaj?"
-
-msgid "Ok"
-msgstr "ok"
 
 msgid "Tracking"
 msgstr "gjurmimi."
@@ -529,14 +489,47 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[exclude]"
 
+msgid "Ok"
+msgstr "ok"
+
 msgid "Share your Calendar"
 msgstr "Ndaje kalendarin tënd"
+
+msgid "With"
+msgstr "me"
+
+msgid "Set Rights"
+msgstr "Përgatisni të drejtat"
+
+msgid "Select your rights"
+msgstr "Zgjidh të drejtat e tua"
+
+msgid "or"
+msgstr "ose"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "Dërgo njoftimin e e-mail"
+
+msgid "Add persons/Family/groups"
+msgstr "Add persona/Family/grupe"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "a je i sigurt që dëshiron ta fshish këtë karrocë?"
 
+msgid "Stop sharing"
+msgstr "mjaft më"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "A jeni i sigurt, ju doni të ndaluar ndarjen e dokumentit tuaj?"
+
+msgid "Person or Family or Group"
+msgstr "Personi ose Familja ose Grupi"
 
 msgid "Are you sure?"
 msgstr "Je i sigurt?"
@@ -1038,9 +1031,6 @@ msgstr "krijo një."
 
 msgid "Group"
 msgstr "Grup"
-
-msgid "User"
-msgstr "përdorues."
 
 msgid "No event now."
 msgstr "Nuk ka ngjarje tani."
@@ -2539,6 +2529,24 @@ msgstr "Blerësit numërësor"
 
 msgid "Select"
 msgstr "Zgjedh."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "ti do të heqësh një dosje dhe është e përmbajtur"
+
+#~ msgid "Files input"
+#~ msgstr "Informacion dokumentesh"
+
+#~ msgid "Upload your files"
+#~ msgstr "ngarkoni dosjet tuaja"
+
+#~ msgid "Upload"
+#~ msgstr "ngarkoje."
+
+#~ msgid "Upload your Files"
+#~ msgstr "ngarkoni dokumentet tuaja"
+
+#~ msgid "Share your File"
+#~ msgstr "Ndani dosjen tuaj"
 
 #~ msgid "Members from group"
 #~ msgstr "Anëtarë nga grupi"

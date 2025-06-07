@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -341,9 +341,6 @@ msgstr "Vahvistakaa tämän asiakirjan poistaminen"
 msgid "Document Delete Confirmation"
 msgstr "Asiakirjan poiston vahvistus"
 
-msgid "Document Editor"
-msgstr "Asiakirjan editori"
-
 msgid "Document Title"
 msgstr "Asiakirjan otsikko"
 
@@ -365,6 +362,9 @@ msgstr "audio"
 msgid "Private"
 msgstr "Yksityinen"
 
+msgid "Document Editor"
+msgstr "Asiakirjan editori"
+
 msgid "You have to set a Title for your document"
 msgstr "Asiakirjalle on määritettävä otsikko"
 
@@ -383,8 +383,8 @@ msgstr "Tyyppi"
 msgid "Size"
 msgstr "Koko"
 
-msgid "Set a File/Folder name"
-msgstr "Tiedoston/kansioiden nimen asettaminen"
+msgid "Delete"
+msgstr "Poista"
 
 msgid "You are about to delete several items together"
 msgstr "Olet poistamassa useita kohteita yhdessä"
@@ -395,77 +395,35 @@ msgstr "Olet poistamassa kohdetta"
 msgid "This can't be undone !!!!"
 msgstr "Tätä ei voi perua !!!!"
 
-msgid "Delete"
-msgstr "Poista"
-
 msgid "You've to select at least one line !!!"
 msgstr "Sinun on valittava vähintään yksi rivi !!!!"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Olet poistamassa kansiota ja sen sisältöä."
+msgid "Create a Folder"
+msgstr "Luo kansio"
 
 msgid "Set your Folder name"
 msgstr "Aseta kansion nimi"
 
-msgid "Files input"
-msgstr "Tiedostojen syöttö"
+msgid "Actualize files"
+msgstr "Aktivoi tiedostot"
 
-msgid "Upload your files"
-msgstr "Lataa tiedostosi"
+msgid "Set a File/Folder name"
+msgstr "Tiedoston/kansioiden nimen asettaminen"
 
-msgid "Upload"
-msgstr "Lataa"
-
-msgid "Upload your Files"
-msgstr "Lataa tiedostosi"
-
-msgid "Share your File"
-msgstr "Jaa tiedostosi"
-
-msgid "With"
-msgstr "Osoitteessa"
-
-msgid "Set Rights"
-msgstr "Aseta oikeudet"
-
-msgid "Select your rights"
-msgstr "Valitse oikeutesi"
-
-msgid "or"
-msgstr "tai"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "Käyttäjä"
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW]"
-
-msgid "Send email notification"
-msgstr "Lähetä sähköposti-ilmoitus"
-
-msgid "Add persons/Family/groups"
-msgstr "Lisää henkilöitä/perheitä/ryhmiä"
-
-msgid "Person or Family or Group"
-msgstr "Henkilö tai perhe tai ryhmä"
+msgid "[👀  ]"
+msgstr "[👀 ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Oletko varma? Aiotko poistaa tämän henkilön?"
 
-msgid "Stop sharing"
-msgstr "Lopeta jakaminen"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Oletko varma? Aiotko lopettaa dokumenttisi jakamisen ?"
-
-msgid "Ok"
-msgstr "Ok"
 
 msgid "Tracking"
 msgstr "Seuranta"
@@ -524,14 +482,47 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Ok"
+msgstr "Ok"
+
 msgid "Share your Calendar"
 msgstr "Jaa kalenterisi"
+
+msgid "With"
+msgstr "Osoitteessa"
+
+msgid "Set Rights"
+msgstr "Aseta oikeudet"
+
+msgid "Select your rights"
+msgstr "Valitse oikeutesi"
+
+msgid "or"
+msgstr "tai"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "Lähetä sähköposti-ilmoitus"
+
+msgid "Add persons/Family/groups"
+msgstr "Lisää henkilöitä/perheitä/ryhmiä"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Oletko varma, että haluat poistaa tämän Jako ?"
 
+msgid "Stop sharing"
+msgstr "Lopeta jakaminen"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "Oletko varma, että haluat lopettaa asiakirjan jakamisen?"
+
+msgid "Person or Family or Group"
+msgstr "Henkilö tai perhe tai ryhmä"
 
 msgid "Are you sure?"
 msgstr "Oletko varma?"
@@ -1032,9 +1023,6 @@ msgstr "Luo yksi."
 msgid "Group"
 msgstr "Ryhmä"
 
-msgid "User"
-msgstr "Käyttäjä"
-
 msgid "No event now."
 msgstr "Ei tapahtumaa nyt."
 
@@ -1321,7 +1309,7 @@ msgid "Cell Phone"
 msgstr "Matkapuhelin"
 
 msgid "Remove Selected Members"
-msgstr ""
+msgstr "Poista valitut jäsenet"
 
 msgid "You're about to delete all the group members ?"
 msgstr "Aiotko poistaa kaikki ryhmän jäsenet ?"
@@ -1335,17 +1323,14 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "Lisää ostoskoriin"
 
-#, fuzzy
 msgid "Add to Group"
-msgstr "Lisää ostoskori ryhmään"
+msgstr "Lisää ryhmään"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "Valitse ryhmä"
+msgstr "Siirry ryhmään"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "Poista kaikki"
+msgstr "Poista kaikki jäsenet"
 
 msgid "Add"
 msgstr "Lisää"
@@ -1368,9 +1353,8 @@ msgstr "Ei nimettyä johtajaa"
 msgid "Manage Group Managers"
 msgstr "Hallitse ryhmänjohtajia"
 
-#, fuzzy
 msgid "Add users"
-msgstr "Lisää ostaja"
+msgstr "Lisää käyttäjiä"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Oletko varma, että haluat poistaa tämän Managerin?"
@@ -2526,6 +2510,34 @@ msgstr "Ostaja Numero Editor"
 
 msgid "Select"
 msgstr "Valitse"
+
+#~ msgid ""
+#~ "Use this method to share files with individuals or teams within your "
+#~ "organization. If the recipient already has access to the share, but can't "
+#~ "locate it, you can send them the internal link to facilitate access."
+#~ msgstr ""
+#~ "Tällä menetelmällä voit jakaa tiedostoja yksittäisten henkilöiden tai "
+#~ "tiimien kanssa organisaatiossasi. Jos vastaanottajalla on jo pääsy "
+#~ "jakoon, mutta hän ei löydä sitä, voit lähettää hänelle sisäisen linkin "
+#~ "käytön helpottamiseksi."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "Olet poistamassa kansiota ja sen sisältöä."
+
+#~ msgid "Files input"
+#~ msgstr "Tiedostojen syöttö"
+
+#~ msgid "Upload your files"
+#~ msgstr "Lataa tiedostosi"
+
+#~ msgid "Upload"
+#~ msgstr "Lataa"
+
+#~ msgid "Upload your Files"
+#~ msgstr "Lataa tiedostosi"
+
+#~ msgid "Share your File"
+#~ msgstr "Jaa tiedostosi"
 
 #~ msgid "Members from group"
 #~ msgstr "Ryhmän jäsenet"

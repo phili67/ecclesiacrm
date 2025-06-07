@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -347,9 +347,6 @@ msgstr "Kérjük, erősítse meg a dokumentum törlését"
 msgid "Document Delete Confirmation"
 msgstr "Dokumentum törlésének megerősítése"
 
-msgid "Document Editor"
-msgstr "Dokumentumszerkesztő"
-
 msgid "Document Title"
 msgstr "Dokumentum címe"
 
@@ -371,6 +368,9 @@ msgstr "audio"
 msgid "Private"
 msgstr "Privát"
 
+msgid "Document Editor"
+msgstr "Dokumentumszerkesztő"
+
 msgid "You have to set a Title for your document"
 msgstr "Meg kell adnia a dokumentum címét"
 
@@ -389,8 +389,8 @@ msgstr "Típus"
 msgid "Size"
 msgstr "Méret"
 
-msgid "Set a File/Folder name"
-msgstr "Fájl/mappa nevének beállítása"
+msgid "Delete"
+msgstr "Törölje a  címet."
 
 msgid "You are about to delete several items together"
 msgstr "Több elemet kíván együttesen törölni"
@@ -401,77 +401,35 @@ msgstr "Egy elemet készül eltávolítani"
 msgid "This can't be undone !!!!"
 msgstr "Ezt nem lehet visszacsinálni !!!!"
 
-msgid "Delete"
-msgstr "Törölje a  címet."
-
 msgid "You've to select at least one line !!!"
 msgstr "Legalább egy sort ki kell választanod !!!"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Egy mappát és annak tartalmát készül eltávolítani"
+msgid "Create a Folder"
+msgstr "Mappa létrehozása"
 
 msgid "Set your Folder name"
 msgstr "Állítsa be a mappa nevét"
 
-msgid "Files input"
-msgstr "Fájlok bemenet"
+msgid "Actualize files"
+msgstr "Aktualizálja a fájlokat"
 
-msgid "Upload your files"
-msgstr "Fájlok feltöltése"
+msgid "Set a File/Folder name"
+msgstr "Fájl/mappa nevének beállítása"
 
-msgid "Upload"
-msgstr "Feltöltés"
-
-msgid "Upload your Files"
-msgstr "Fájlok feltöltése"
-
-msgid "Share your File"
-msgstr "Fájl megosztása"
-
-msgid "With"
-msgstr "A  címen"
-
-msgid "Set Rights"
-msgstr "Jogok beállítása"
-
-msgid "Select your rights"
-msgstr "Válassza ki a jogait"
-
-msgid "or"
-msgstr "vagy"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "Felhasználó"
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW]"
-
-msgid "Send email notification"
-msgstr "E-mail értesítés küldése"
-
-msgid "Add persons/Family/groups"
-msgstr "Személyek/család/csoportok hozzáadása"
-
-msgid "Person or Family or Group"
-msgstr "Személy vagy család vagy csoport"
+msgid "[👀  ]"
+msgstr "[👀 ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Biztos vagy benne? Törölni akarod ezt a személyt?"
 
-msgid "Stop sharing"
-msgstr "Ne ossza meg többet"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Biztos vagy benne? Nem akarja tovább megosztani a dokumentumát ?"
-
-msgid "Ok"
-msgstr "Oké"
 
 msgid "Tracking"
 msgstr "Nyomon követés"
@@ -530,14 +488,47 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Ok"
+msgstr "Oké"
+
 msgid "Share your Calendar"
 msgstr "Naptár megosztása"
+
+msgid "With"
+msgstr "A  címen"
+
+msgid "Set Rights"
+msgstr "Jogok beállítása"
+
+msgid "Select your rights"
+msgstr "Válassza ki a jogait"
+
+msgid "or"
+msgstr "vagy"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "E-mail értesítés küldése"
+
+msgid "Add persons/Family/groups"
+msgstr "Személyek/család/csoportok hozzáadása"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Biztos vagy benne, hogy törölni akarod ezt a megosztást?"
 
+msgid "Stop sharing"
+msgstr "Ne ossza meg többet"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "Biztos vagy benne, hogy nem akarod megosztani a dokumentumodat ?"
+
+msgid "Person or Family or Group"
+msgstr "Személy vagy család vagy csoport"
 
 msgid "Are you sure?"
 msgstr "Biztos vagy benne?"
@@ -1041,9 +1032,6 @@ msgstr "Hozzon létre egyet."
 msgid "Group"
 msgstr "Csoport"
 
-msgid "User"
-msgstr "Felhasználó"
-
 msgid "No event now."
 msgstr "Most nincs esemény."
 
@@ -1329,7 +1317,7 @@ msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
 msgid "Remove Selected Members"
-msgstr ""
+msgstr "Kijelölt tagok eltávolítása"
 
 msgid "You're about to delete all the group members ?"
 msgstr "Az összes csoporttagot törölni akarod ?"
@@ -1343,17 +1331,14 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "Hozzáadás a kosárhoz"
 
-#, fuzzy
 msgid "Add to Group"
-msgstr "Kosár hozzáadása a csoporthoz"
+msgstr "Hozzáadás a csoporthoz"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "Csoport kiválasztása"
+msgstr "Mozgás a csoportba"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "Távolítson el mindent"
+msgstr "Minden tag eltávolítása"
 
 msgid "Add"
 msgstr "Add"
@@ -1376,9 +1361,8 @@ msgstr "Nincs kijelölt menedzser"
 msgid "Manage Group Managers"
 msgstr "Csoportvezetők kezelése"
 
-#, fuzzy
 msgid "Add users"
-msgstr "Vevő hozzáadása"
+msgstr "Felhasználók hozzáadása"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Biztos, hogy törölni szeretné ezt a menedzsert?"
@@ -2543,6 +2527,34 @@ msgstr "Vevőszám szerkesztő"
 
 msgid "Select"
 msgstr "Válassza ki a  címet."
+
+#~ msgid ""
+#~ "Use this method to share files with individuals or teams within your "
+#~ "organization. If the recipient already has access to the share, but can't "
+#~ "locate it, you can send them the internal link to facilitate access."
+#~ msgstr ""
+#~ "Ezzel a módszerrel oszthat meg fájlokat egyénekkel vagy csapatokkal a "
+#~ "szervezeten belül. Ha a címzettnek már van hozzáférése a megosztáshoz, de "
+#~ "nem találja azt, elküldheti neki a belső linket a hozzáférés "
+#~ "megkönnyítése érdekében."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "Egy mappát és annak tartalmát készül eltávolítani"
+
+#~ msgid "Files input"
+#~ msgstr "Fájlok bemenet"
+
+#~ msgid "Upload your files"
+#~ msgstr "Fájlok feltöltése"
+
+#~ msgid "Upload"
+#~ msgstr "Feltöltés"
+
+#~ msgid "Upload your Files"
+#~ msgstr "Fájlok feltöltése"
+
+#~ msgid "Share your File"
+#~ msgstr "Fájl megosztása"
 
 #~ msgid "Members from group"
 #~ msgstr "A csoport tagjai"

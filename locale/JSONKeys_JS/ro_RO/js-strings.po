@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -345,9 +345,6 @@ msgstr "Vă rugăm să confirmați ștergerea acestui document"
 msgid "Document Delete Confirmation"
 msgstr "Confirmare de ștergere a documentului"
 
-msgid "Document Editor"
-msgstr "Editor de documente"
-
 msgid "Document Title"
 msgstr "Titlul documentului"
 
@@ -369,6 +366,9 @@ msgstr "audio"
 msgid "Private"
 msgstr "Privat"
 
+msgid "Document Editor"
+msgstr "Editor de documente"
+
 msgid "You have to set a Title for your document"
 msgstr "Trebuie să setați un titlu pentru documentul dvs."
 
@@ -387,8 +387,8 @@ msgstr "Tip"
 msgid "Size"
 msgstr "Dimensiune"
 
-msgid "Set a File/Folder name"
-msgstr "Setați un nume de fișier/folder"
+msgid "Delete"
+msgstr "Ștergeți"
 
 msgid "You are about to delete several items together"
 msgstr "Sunteți pe cale să ștergeți mai multe elemente împreună"
@@ -399,77 +399,35 @@ msgstr "Sunteți pe cale să eliminați un element"
 msgid "This can't be undone !!!!"
 msgstr "Asta nu poate fi anulat !!!!"
 
-msgid "Delete"
-msgstr "Ștergeți"
-
 msgid "You've to select at least one line !!!"
 msgstr "Trebuie să selectați cel puțin o linie!!!"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Sunteți pe cale să eliminați un dosar și conținutul acestuia"
+msgid "Create a Folder"
+msgstr "Crearea unui dosar"
 
 msgid "Set your Folder name"
 msgstr "Setați numele dosarului dvs."
 
-msgid "Files input"
-msgstr "Intrarea fișierelor"
+msgid "Actualize files"
+msgstr "Actualizați fișierele"
 
-msgid "Upload your files"
-msgstr "Încărcați fișierele dvs."
+msgid "Set a File/Folder name"
+msgstr "Setați un nume de fișier/folder"
 
-msgid "Upload"
-msgstr "Încărcați"
-
-msgid "Upload your Files"
-msgstr "Încărcați fișierele dvs."
-
-msgid "Share your File"
-msgstr "Partajați fișierul dvs."
-
-msgid "With"
-msgstr "Cu"
-
-msgid "Set Rights"
-msgstr "Set de drepturi"
-
-msgid "Select your rights"
-msgstr "Selectați drepturile dumneavoastră"
-
-msgid "or"
-msgstr "sau"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "Utilizator"
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW]"
-
-msgid "Send email notification"
-msgstr "Trimiteți o notificare prin e-mail"
-
-msgid "Add persons/Family/groups"
-msgstr "Adăugați persoane/familii/grupuri"
-
-msgid "Person or Family or Group"
-msgstr "Persoană sau familie sau grup"
+msgid "[👀  ]"
+msgstr "[👀 ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Ești sigur? Ești pe cale să ștergi această persoană?"
 
-msgid "Stop sharing"
-msgstr "Opriți partajarea"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Ești sigur? Sunteți pe cale să nu mai partajați documentul?"
-
-msgid "Ok"
-msgstr "Ok"
 
 msgid "Tracking"
 msgstr "Urmărire"
@@ -528,14 +486,47 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Ok"
+msgstr "Ok"
+
 msgid "Share your Calendar"
 msgstr "Partajați calendarul dvs."
+
+msgid "With"
+msgstr "Cu"
+
+msgid "Set Rights"
+msgstr "Set de drepturi"
+
+msgid "Select your rights"
+msgstr "Selectați drepturile dumneavoastră"
+
+msgid "or"
+msgstr "sau"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "Trimiteți o notificare prin e-mail"
+
+msgid "Add persons/Family/groups"
+msgstr "Adăugați persoane/familii/grupuri"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Sunteți sigur că doriți să ștergeți acest Share?"
 
+msgid "Stop sharing"
+msgstr "Opriți partajarea"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "Sunteți sigur că nu mai doriți să vă partajați documentul?"
+
+msgid "Person or Family or Group"
+msgstr "Persoană sau familie sau grup"
 
 msgid "Are you sure?"
 msgstr "Ești sigur?"
@@ -1038,9 +1029,6 @@ msgstr "Creați unul."
 msgid "Group"
 msgstr "Grup"
 
-msgid "User"
-msgstr "Utilizator"
-
 msgid "No event now."
 msgstr "Nu există niciun eveniment acum."
 
@@ -1330,7 +1318,7 @@ msgid "Cell Phone"
 msgstr "Telefon mobil"
 
 msgid "Remove Selected Members"
-msgstr ""
+msgstr "Eliminarea membrilor selectați"
 
 msgid "You're about to delete all the group members ?"
 msgstr "Sunteți pe cale să ștergeți toți membrii grupului ?"
@@ -1344,17 +1332,14 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "Adaugă în coș"
 
-#, fuzzy
 msgid "Add to Group"
-msgstr "Adăugați coșul la grup"
+msgstr "Adaugă la grup"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "Selectați grupul"
+msgstr "Mutare la grup"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "Eliminați toate"
+msgstr "Eliminați toți membrii"
 
 msgid "Add"
 msgstr "Adăugați"
@@ -1377,9 +1362,8 @@ msgstr "Nici un manager desemnat Manager"
 msgid "Manage Group Managers"
 msgstr "Gestionați managerii de grup"
 
-#, fuzzy
 msgid "Add users"
-msgstr "Adăugați cumpărător"
+msgstr "Adăugați utilizatori"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Sunteți sigur că doriți să ștergeți acest Manager?"
@@ -2557,6 +2541,34 @@ msgstr "Numărul cumpărătorului Editor"
 
 msgid "Select"
 msgstr "Selectați"
+
+#~ msgid ""
+#~ "Use this method to share files with individuals or teams within your "
+#~ "organization. If the recipient already has access to the share, but can't "
+#~ "locate it, you can send them the internal link to facilitate access."
+#~ msgstr ""
+#~ "Utilizați această metodă pentru a partaja fișiere cu persoane sau echipe "
+#~ "din cadrul organizației dvs. Dacă destinatarul are deja acces la "
+#~ "partajare, dar nu o poate localiza, îi puteți trimite link-ul intern "
+#~ "pentru a facilita accesul."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "Sunteți pe cale să eliminați un dosar și conținutul acestuia"
+
+#~ msgid "Files input"
+#~ msgstr "Intrarea fișierelor"
+
+#~ msgid "Upload your files"
+#~ msgstr "Încărcați fișierele dvs."
+
+#~ msgid "Upload"
+#~ msgstr "Încărcați"
+
+#~ msgid "Upload your Files"
+#~ msgstr "Încărcați fișierele dvs."
+
+#~ msgid "Share your File"
+#~ msgstr "Partajați fișierul dvs."
 
 #~ msgid "Members from group"
 #~ msgstr "Membri din grup"

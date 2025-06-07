@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -341,9 +341,6 @@ msgstr "Vennligst bekreft sletting av dette dokumentet"
 msgid "Document Delete Confirmation"
 msgstr "Bekreftelse på sletting av dokument"
 
-msgid "Document Editor"
-msgstr "Dokumentredigering"
-
 msgid "Document Title"
 msgstr "Dokumentets tittel"
 
@@ -365,6 +362,9 @@ msgstr "lyd"
 msgid "Private"
 msgstr "Privat"
 
+msgid "Document Editor"
+msgstr "Dokumentredigering"
+
 msgid "You have to set a Title for your document"
 msgstr "Du må angi en tittel for dokumentet ditt"
 
@@ -383,8 +383,8 @@ msgstr "Type"
 msgid "Size"
 msgstr "Størrelse"
 
-msgid "Set a File/Folder name"
-msgstr "Angi et fil-/mappenavn"
+msgid "Delete"
+msgstr "Slett"
 
 msgid "You are about to delete several items together"
 msgstr "Du er i ferd med å slette flere elementer sammen"
@@ -395,77 +395,35 @@ msgstr "Du er i ferd med å fjerne et element"
 msgid "This can't be undone !!!!"
 msgstr "Dette kan ikke gjøres om !!!!"
 
-msgid "Delete"
-msgstr "Slett"
-
 msgid "You've to select at least one line !!!"
 msgstr "Du må velge minst én linje !!!!"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Du er i ferd med å fjerne en mappe og innholdet i den."
+msgid "Create a Folder"
+msgstr "Opprett en mappe"
 
 msgid "Set your Folder name"
 msgstr "Angi mappenavn"
 
-msgid "Files input"
-msgstr "Innlegging av filer"
+msgid "Actualize files"
+msgstr "Aktualiser filer"
 
-msgid "Upload your files"
-msgstr "Last opp filene dine"
+msgid "Set a File/Folder name"
+msgstr "Angi et fil-/mappenavn"
 
-msgid "Upload"
-msgstr "Last opp"
-
-msgid "Upload your Files"
-msgstr "Last opp filene dine"
-
-msgid "Share your File"
-msgstr "Del filen din"
-
-msgid "With"
-msgstr "Med"
-
-msgid "Set Rights"
-msgstr "Angi rettigheter"
-
-msgid "Select your rights"
-msgstr "Velg dine rettigheter"
-
-msgid "or"
-msgstr "eller"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "Bruker"
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW] [RW]"
-
-msgid "Send email notification"
-msgstr "Send e-postvarsling"
-
-msgid "Add persons/Family/groups"
-msgstr "Legg til personer/familie/grupper"
-
-msgid "Person or Family or Group"
-msgstr "Person eller familie eller gruppe"
+msgid "[👀  ]"
+msgstr "[👀 ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Er du sikker? Er du i ferd med å slette denne personen?"
 
-msgid "Stop sharing"
-msgstr "Slutt å dele"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Er du sikker? Er du i ferd med å slutte å dele dokumentet ditt?"
-
-msgid "Ok"
-msgstr "Ok"
 
 msgid "Tracking"
 msgstr "Sporing"
@@ -524,14 +482,47 @@ msgstr "[INKLUDERER]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Ok"
+msgstr "Ok"
+
 msgid "Share your Calendar"
 msgstr "Del kalenderen din"
+
+msgid "With"
+msgstr "Med"
+
+msgid "Set Rights"
+msgstr "Angi rettigheter"
+
+msgid "Select your rights"
+msgstr "Velg dine rettigheter"
+
+msgid "or"
+msgstr "eller"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW] [RW]"
+
+msgid "Send email notification"
+msgstr "Send e-postvarsling"
+
+msgid "Add persons/Family/groups"
+msgstr "Legg til personer/familie/grupper"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Er du sikker på at du vil slette denne delingen?"
 
+msgid "Stop sharing"
+msgstr "Slutt å dele"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "Er du sikker på at du vil slutte å dele dokumentet ditt?"
+
+msgid "Person or Family or Group"
+msgstr "Person eller familie eller gruppe"
 
 msgid "Are you sure?"
 msgstr "Er du sikker?"
@@ -1032,9 +1023,6 @@ msgstr "Opprett en."
 msgid "Group"
 msgstr "Gruppe"
 
-msgid "User"
-msgstr "Bruker"
-
 msgid "No event now."
 msgstr "Ingen hendelse nå."
 
@@ -1320,7 +1308,7 @@ msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
 msgid "Remove Selected Members"
-msgstr ""
+msgstr "Fjern valgte medlemmer"
 
 msgid "You're about to delete all the group members ?"
 msgstr "Er du i ferd med å slette alle gruppemedlemmene?"
@@ -1334,17 +1322,14 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "Legg i handlekurven"
 
-#, fuzzy
 msgid "Add to Group"
-msgstr "Legg til kurv i gruppe"
+msgstr "Legg til i gruppe"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "Velg gruppe"
+msgstr "Flytt til gruppe"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "Fjern alle"
+msgstr "Fjern alle medlemmer"
 
 msgid "Add"
 msgstr "Legg til"
@@ -1367,9 +1352,8 @@ msgstr "Ingen tildelt leder"
 msgid "Manage Group Managers"
 msgstr "Administrere gruppeledere"
 
-#, fuzzy
 msgid "Add users"
-msgstr "Legg til kjøper"
+msgstr "Legg til brukere"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Er du sikker på at du vil slette denne lederen?"
@@ -2523,6 +2507,34 @@ msgstr "Innkjøpernummer Redaktør"
 
 msgid "Select"
 msgstr "Velg"
+
+#~ msgid ""
+#~ "Use this method to share files with individuals or teams within your "
+#~ "organization. If the recipient already has access to the share, but can't "
+#~ "locate it, you can send them the internal link to facilitate access."
+#~ msgstr ""
+#~ "Bruk denne metoden til å dele filer med enkeltpersoner eller team i "
+#~ "organisasjonen. Hvis mottakeren allerede har tilgang til delingen, men "
+#~ "ikke kan finne den, kan du sende dem den interne lenken for å gjøre det "
+#~ "lettere å få tilgang."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "Du er i ferd med å fjerne en mappe og innholdet i den."
+
+#~ msgid "Files input"
+#~ msgstr "Innlegging av filer"
+
+#~ msgid "Upload your files"
+#~ msgstr "Last opp filene dine"
+
+#~ msgid "Upload"
+#~ msgstr "Last opp"
+
+#~ msgid "Upload your Files"
+#~ msgstr "Last opp filene dine"
+
+#~ msgid "Share your File"
+#~ msgstr "Del filen din"
 
 #~ msgid "Members from group"
 #~ msgstr "Medlemmer fra gruppen"

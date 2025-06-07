@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-03T08:15:18.235Z\n"
+"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -343,9 +343,6 @@ msgstr "Bekræft venligst sletning af dette dokument"
 msgid "Document Delete Confirmation"
 msgstr "Bekræftelse af sletning af dokument"
 
-msgid "Document Editor"
-msgstr "Dokumentredaktør"
-
 msgid "Document Title"
 msgstr "Dokumentets titel"
 
@@ -367,6 +364,9 @@ msgstr "lyd"
 msgid "Private"
 msgstr "Privat"
 
+msgid "Document Editor"
+msgstr "Dokumentredaktør"
+
 msgid "You have to set a Title for your document"
 msgstr "Du skal angive en titel for dit dokument"
 
@@ -385,8 +385,8 @@ msgstr "Type"
 msgid "Size"
 msgstr "Størrelse"
 
-msgid "Set a File/Folder name"
-msgstr "Indstil et fil/mappenavn"
+msgid "Delete"
+msgstr "Slet"
 
 msgid "You are about to delete several items together"
 msgstr "Du er ved at slette flere elementer sammen"
@@ -397,77 +397,35 @@ msgstr "Du er ved at fjerne en vare"
 msgid "This can't be undone !!!!"
 msgstr "Dette kan ikke gøres om igen !!!!"
 
-msgid "Delete"
-msgstr "Slet"
-
 msgid "You've to select at least one line !!!"
 msgstr "Du skal vælge mindst én linje !!!"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Du er ved at fjerne en mappe og dens indhold"
+msgid "Create a Folder"
+msgstr "Opret en mappe"
 
 msgid "Set your Folder name"
 msgstr "Indstil navnet på din mappe"
 
-msgid "Files input"
-msgstr "Indtastning af filer"
+msgid "Actualize files"
+msgstr "Aktualiser filer"
 
-msgid "Upload your files"
-msgstr "Upload dine filer"
+msgid "Set a File/Folder name"
+msgstr "Indstil et fil/mappenavn"
 
-msgid "Upload"
-msgstr "Upload"
-
-msgid "Upload your Files"
-msgstr "Upload dine filer"
-
-msgid "Share your File"
-msgstr "Del din fil"
-
-msgid "With"
-msgstr "Med"
-
-msgid "Set Rights"
-msgstr "Indstille rettigheder"
-
-msgid "Select your rights"
-msgstr "Vælg dine rettigheder"
-
-msgid "or"
-msgstr "eller"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[R ]"
-msgstr "[R ]"
+msgid "User"
+msgstr "Bruger"
 
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-msgid "[RW]"
-msgstr "[RW]"
-
-msgid "Send email notification"
-msgstr "Send en e-mail-meddelelse"
-
-msgid "Add persons/Family/groups"
-msgstr "Tilføj personer/familie/grupper"
-
-msgid "Person or Family or Group"
-msgstr "Person eller familie eller gruppe"
+msgid "[👀  ]"
+msgstr "[👀 ]"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Er du sikker? Er du ved at slette denne person?"
 
-msgid "Stop sharing"
-msgstr "Stop med at dele"
-
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Er du sikker? Er du ved at stoppe med at dele dit dokument?"
-
-msgid "Ok"
-msgstr "Ok"
 
 msgid "Tracking"
 msgstr "Sporing"
@@ -526,14 +484,47 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[UDELUKKEN]"
 
+msgid "Ok"
+msgstr "Ok"
+
 msgid "Share your Calendar"
 msgstr "Del din kalender"
+
+msgid "With"
+msgstr "Med"
+
+msgid "Set Rights"
+msgstr "Indstille rettigheder"
+
+msgid "Select your rights"
+msgstr "Vælg dine rettigheder"
+
+msgid "or"
+msgstr "eller"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "Send en e-mail-meddelelse"
+
+msgid "Add persons/Family/groups"
+msgstr "Tilføj personer/familie/grupper"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Er du sikker på, at du vil slette dette Share ?"
 
+msgid "Stop sharing"
+msgstr "Stop med at dele"
+
 msgid "Are you sure, you want to stop sharing your document ?"
 msgstr "Er du sikker på, at du ikke længere vil dele dit dokument?"
+
+msgid "Person or Family or Group"
+msgstr "Person eller familie eller gruppe"
 
 msgid "Are you sure?"
 msgstr "Er du sikker?"
@@ -1036,9 +1027,6 @@ msgstr "Opret en."
 msgid "Group"
 msgstr "Gruppe"
 
-msgid "User"
-msgstr "Bruger"
-
 msgid "No event now."
 msgstr "Ingen begivenhed nu."
 
@@ -1325,7 +1313,7 @@ msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
 msgid "Remove Selected Members"
-msgstr ""
+msgstr "Fjern udvalgte medlemmer"
 
 msgid "You're about to delete all the group members ?"
 msgstr "Er du ved at slette alle gruppens medlemmer?"
@@ -1339,17 +1327,14 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "Tilføj til indkøbskurv"
 
-#, fuzzy
 msgid "Add to Group"
-msgstr "Tilføj kurv til gruppe"
+msgstr "Tilføj til gruppe"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "Vælg gruppe"
+msgstr "Flyt til gruppe"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "Fjern alle"
+msgstr "Fjern alle medlemmer"
 
 msgid "Add"
 msgstr "Tilføj"
@@ -1372,9 +1357,8 @@ msgstr "Ingen tilknyttet leder"
 msgid "Manage Group Managers"
 msgstr "Administrer gruppechefer"
 
-#, fuzzy
 msgid "Add users"
-msgstr "Tilføj køber"
+msgstr "Tilføj brugere"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Er du sikker på, at du vil slette denne Manager?"
@@ -2527,6 +2511,33 @@ msgstr "Købernummer Editor"
 
 msgid "Select"
 msgstr "Vælg"
+
+#~ msgid ""
+#~ "Use this method to share files with individuals or teams within your "
+#~ "organization. If the recipient already has access to the share, but can't "
+#~ "locate it, you can send them the internal link to facilitate access."
+#~ msgstr ""
+#~ "Brug denne metode til at dele filer med enkeltpersoner eller teams i din "
+#~ "organisation. Hvis modtageren allerede har adgang til delingen, men ikke "
+#~ "kan finde den, kan du sende dem det interne link for at lette adgangen."
+
+#~ msgid "You're about to remove a folder and it's content"
+#~ msgstr "Du er ved at fjerne en mappe og dens indhold"
+
+#~ msgid "Files input"
+#~ msgstr "Indtastning af filer"
+
+#~ msgid "Upload your files"
+#~ msgstr "Upload dine filer"
+
+#~ msgid "Upload"
+#~ msgstr "Upload"
+
+#~ msgid "Upload your Files"
+#~ msgstr "Upload dine filer"
+
+#~ msgid "Share your File"
+#~ msgstr "Del din fil"
 
 #~ msgid "Members from group"
 #~ msgstr "Medlemmer fra gruppen"
