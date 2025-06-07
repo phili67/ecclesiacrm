@@ -158,7 +158,7 @@ Header_system_notifications();
                                 </td>
                             </tr>
                         </table>
-                        <p class="nav-link"><b><?= SessionUser::getUser()->getName() ?></b></p>
+                        <p class="nav-link nav-link-bottom"><?= SessionUser::getUser()->getName(true) ?></p>
                     </li>
                 </ul>
             </li>

@@ -462,9 +462,9 @@ class User extends BaseUser
 
 
 
-    public function getName()
+    public function getName($menu = false)
     {
-        return $this->getPerson()->getFullName();
+        return $this->getPerson()->getFullName($menu);
     }
 
     public function getEmail()

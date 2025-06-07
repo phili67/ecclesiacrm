@@ -223,9 +223,9 @@ class Person extends BasePerson implements iPhoto
       return $this;
     }
 
-    public function getFullName()
+    public function getFullName($menu=false)
     {
-        return $this->getFormattedName(SystemConfig::getValue('iPersonNameStyle'));
+        return $this->getFormattedName(SystemConfig::getValue('iPersonNameStyle'), $menu);
     }
 
     public function getUrlIcon()
@@ -666,7 +666,7 @@ class Person extends BasePerson implements iPhoto
      * @param $Style
      * @return string
      */
-    public function getFormattedName($Style)
+    public function getFormattedName($Style, $menu)
     {
         $nameString = '';
         switch ($Style) {
@@ -681,8 +681,10 @@ class Person extends BasePerson implements iPhoto
                 if ($this->getLastName()) {
                     $nameString .= ' ' . $this->getLastName();
                 }
-                if ($this->getSuffix()) {
+                if ($this->getSuffix() and !$menu) {
                     $nameString .= ', ' . $this->getSuffix();
+                } else if ($this->getSuffix() and $menu) {
+                    $nameString .= ', <small>' . $this->getSuffix() .'</small>';
                 }
                 break;
 
@@ -697,13 +699,15 @@ class Person extends BasePerson implements iPhoto
                 if ($this->getLastName()) {
                     $nameString .= ' ' . $this->getLastName();
                 }
-                if ($this->getSuffix()) {
+                if ($this->getSuffix() and !$menu) {
                     $nameString .= ', ' . $this->getSuffix();
+                } else if ($this->getSuffix() and $menu) {
+                    $nameString .= ', <small>' . $this->getSuffix() .'</small>';
                 }
                 break;
 
             case 2:
-                if ($this->getLastName()) {
+                if ($this->getLastName() and !$menu) {
                     $nameString .= $this->getLastName() . ', ';
                 }
                 if ($this->getTitle()) {
@@ -713,8 +717,10 @@ class Person extends BasePerson implements iPhoto
                 if ($this->getMiddleName()) {
                     $nameString .= ' ' . $this->getMiddleName();
                 }
-                if ($this->getSuffix()) {
+                if ($this->getSuffix() and !$menu) {
                     $nameString .= ', ' . $this->getSuffix();
+                } else if ($this->getSuffix() and $menu) {
+                    $nameString .= ', <small>' . $this->getSuffix() .'</small>';
                 }
                 break;
 
@@ -729,8 +735,10 @@ class Person extends BasePerson implements iPhoto
                 if ($this->getMiddleName()) {
                     $nameString .= ' ' . strtoupper(mb_substr($this->getMiddleName(), 0, 1, 'UTF-8')) . '.';
                 }
-                if ($this->getSuffix()) {
+                if ($this->getSuffix() and !$menu) {
                     $nameString .= ', ' . $this->getSuffix();
+                } else if ($this->getSuffix() and $menu) {
+                    $nameString .= ', <small>' . $this->getSuffix() .'</small>';
                 }
                 break;
 
