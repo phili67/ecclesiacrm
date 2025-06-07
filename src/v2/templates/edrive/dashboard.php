@@ -71,12 +71,12 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="row div-title">
                             <div class="col-md-4"></div>
                             <div class="col-md-8 col-center">
-                                <button type="button" class="btn btn-sm btn-secondary"
+                                <button type="button" class="btn btn-sm btn-secondary btn-xs"
                                     id="delete-all-share"
                                     data-toggle="tooltip" data-placement="top" title="<?= _("Delete all shares") ?>"
                                     disabled><i class="fas fa-times"></i> <?= _("Delete") ?></button>
                                 &nbsp;
-                                <button type="button" class="btn btn-sm btn-secondary" id="delete-share"
+                                <button type="button" class="btn btn-sm btn-secondary btn-xs" id="delete-share"
                                     data-toggle="tooltip" data-placement="top" title="<?= _("Delete shares for the selected users") ?>"
                                     disabled><i class="far fa-stop-circle"></i> <?= _("Stop sharing") ?></button>
                             </div>
@@ -94,7 +94,7 @@ require $sRootDocument . '/Include/Header.php';
                             <div class="col-md-4"><span style="color: red">*</span><?= _("Set Rights") ?>:</div>
                             <div class="col-md-8">
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    <button class="btn btn-secondary dropdown-toggle btn-xs" type="button"
                                         id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false" disabled>
                                         <?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . "--" ?>
