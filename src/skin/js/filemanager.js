@@ -302,8 +302,11 @@ $(function () {
 
     // click in the table
     $('#edrive-table tbody').on('click', 'tr', function(e) {
+        let column = window.CRM.dataEDriveTable.column( this ).index();//unusefull at this moment
         var data = window.CRM.dataEDriveTable.row(this).data();
         let id = data['name'];
+
+        $(this).toggleClass('selected');
         
         if (window.CRM.browserImage == true) {
             if (selectedRows) {
@@ -311,9 +314,7 @@ $(function () {
             } else {
                 $(".filemanager-download").css("display", "none");
             }
-        }
-
-        $(this).toggleClass('selected');
+        }        
 
         var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
 
@@ -331,8 +332,8 @@ $(function () {
         }, function (data) {
             if (data && data.success) {
                 $('.filmanager-right').show();
-                    $('.preview-title').html(data.name);
-                    $('.preview').html(data.path);
+                $('.preview-title').html(data.name);
+                $('.preview').html(data.path);
                 if (data.link) {
                     $('.share-part').hide();
                 } else {
@@ -342,35 +343,24 @@ $(function () {
                 }
                 
             }
-        });
-        
+        });        
     });
 
     /*$('#edrive-table tbody').on('click', 'td', function (e) {
-        var id = $(this).parent().attr('id');
+        var data = window.CRM.dataEDriveTable.row($(this).parent()).data();
+        let id = data['name'];
+
         var col = window.CRM.dataEDriveTable.cell(this).index().column;
 
         if (!(col == 2)) {
-            if (!e.shiftKey) {
-                selected.length = 0;// no lines
-                $('#edrive-table tbody tr').removeClass('selected');
-            }
-
-            var index = $.inArray(id, selected);
-
-            if (index === -1) {
-                selected.push(id);
-            } else {
-                selected.splice(index, 1);
-            }
-
-            //$(this).parent().toggleClass('selected');
+            $(this).parent().toggleClass('selected');
 
             var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
 
-            if (selectedRows == 0) {
-                selected.length = 0;// no lines
-                $('.filmanager-right').hide();
+            if (selectedRows) {
+                $("#trash-drop").removeClass('disabled');
+            } else {
+                $("#trash-drop").addClass('disabled');
             }
 
             if (window.CRM.browserImage == true) {
@@ -381,28 +371,31 @@ $(function () {
                 }
             }
 
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'filemanager/getPreview',
-                    data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
-                }, function (data) {
-                    if (data && data.success) {
-                        $('.filmanager-right').show();
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'filemanager/getPreview',
+                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
+            }, function (data) {
+                if (data && data.success) {
+                    $('.filmanager-right').show();
                         $('.preview-title').html(data.name);
                         $('.preview').html(data.path);
+                    if (data.link) {
+                        $('.share-part').hide();
+                    } else {
+                        $('.share-part').show();                    
 
                         addSharedPersonsSabre();
                     }
-                });
-            
+                    
+                }
+            });               
         }
-
     });*/
 
 
     $("body").on('click', '.fileName', function (e) {
-        if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.platform)))) {
+        if (navigator.userAgent.match(/iPad|iPhone|Android|BlackBerry|Windows Phone|webOS/i)) {
             // we're on a SmartPhone
             var oldName = $(this).data("name");
             var fileName = '';
@@ -441,8 +434,7 @@ $(function () {
     });
 
     $("body").on('dblclick', '.drag-file', function (e) {
-        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.platform)))) {
+        if (!navigator.userAgent.match(/iPad|iPhone|Android|BlackBerry|Windows Phone|webOS/i)) {
             var perID = $(this).data("perid");
             var path = $(this).data("path");
 
@@ -451,8 +443,7 @@ $(function () {
     });
 
     $("body").on('dblclick', '.fileName', function (e) {
-        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.platform)))) {
+        if (!navigator.userAgent.match(/iPad|iPhone|Android|BlackBerry|Windows Phone|webOS/i)) {
             // we're on a computer
             if (oldTextField != null) {
                 $(oldTextField).css("background", "transparent");
@@ -626,6 +617,7 @@ $(function () {
             data: JSON.stringify({ "personID": personID, "folder": folder })
         }, function (data) {
             if (data && data.success) {
+                $('.filmanager-right').hide();
                 window.CRM.reloadEDriveTable(function () {
                     $(".folder-back-drop").show();
                     $(".flex-wrap").addClass('shift-flex-wrapper-right');
@@ -637,8 +629,7 @@ $(function () {
     }
 
     $(document).on('click', '.change-folder', function () {
-        if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.platform)))) {
+        if (navigator.userAgent.match(/iPad|iPhone|Android|BlackBerry|Windows Phone|webOS/i)) {
             var personID = $(this).data("personid");
             var folder = $(this).data("folder");
 
@@ -651,8 +642,7 @@ $(function () {
         var personID = $(this).data("personid");
         var folder = $(this).data("folder");
 
-        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.userAgent) ||
-            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Mozilla/i.test(navigator.platform)))) {
+        if (!navigator.userAgent.match(/iPad|iPhone|Android|BlackBerry|Windows Phone|webOS/i)) {
             var personID = $(this).data("personid");
             var folder = $(this).data("folder");
 

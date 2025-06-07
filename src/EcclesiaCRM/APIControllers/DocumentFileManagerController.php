@@ -338,12 +338,28 @@ class DocumentFileManagerController
 
             $user = UserQuery::create()->findPk($params->personID);
             if (!is_null($user)) {
-                $user->setCurrentpath($user->getCurrentpath() . substr($params->folder, 1) . "/");
-                $user->save();
+                $currentPath = $user->getCurrentpath() . substr($params->folder, 1) . "/";
 
-                $_SESSION['user'] = $user;
+                $user = UserQuery::create()->findPk($params->personID);
 
-                return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($user->getCurrentpath()), "numberOfFiles" => $this->numberOfFiles($params->personID)]);
+                if (is_null($user)) {// in the case the user is null
+                    return $response->withJson(['success' => false]);
+                }
+
+                $realNoteDir = $userDir = $user->getUserRootDir();
+                $userName = $user->getUserName();
+                $currentpath = $user->getCurrentpath();
+
+                $currentNoteDir = SystemURLs::getDocumentRoot()."/". $realNoteDir . "/" . $userName . $currentpath;
+
+                if (is_dir("$currentNoteDir")) {
+                    $user->setCurrentpath($currentPath);
+                    $user->save();
+
+                    $_SESSION['user'] = $user;
+
+                    return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($user->getCurrentpath()), "numberOfFiles" => $this->numberOfFiles($params->personID)]);
+                }
             }
         }
 
