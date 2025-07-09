@@ -25,9 +25,7 @@
     },
     "require": {
         "php": ">=8.0.0",
-        "propel/propel": "2.0.0-beta3",
-        "symfony/framework-bundle": "5.3.15",
-        "symfony/http-kernel": "5.4.20.*",
+        "propel/propel": "2.0.0-beta4",
         "drewm/mailchimp-api": "v2.5.4",
         "slim/slim": "4.*",
         "slim/php-view": "3.2.0",
