@@ -391,6 +391,14 @@ a {
     background: rgb(241, 241, 241);
 }
 
+.fas-blue {
+    color:blue;
+}
+
+.fas-gray {
+    color:gray;
+}
+
 .fas-red {
     color:red;
 }
@@ -407,14 +415,39 @@ a {
     max-height: 100%;
 }
 
+.fa-stack-custom {
+    display: inline-block;
+    height: 1.15em !important;
+    line-height: 1.15em !important;
+    position: relative !important;
+    vertical-align: middle !important;
+    width: 1.75em !important;
+}
+
+.card-header-custom {
+    padding: 0.35rem .35rem 0.1rem;
+}
+
 @media (prefers-color-scheme: dark) {
+    .fas-blue {
+        color:#8da9ff !important;
+    }
+
+    .fas-gray {
+       color:rgb(181, 180, 180) !important;
+    }
+
     .fas-red {
-        color:rgb(255, 110, 110);
+        color:rgb(255, 110, 110) !important;
     }
 
     .fas-green {
-        color:rgb(107, 180, 107);
+        color:rgb(107, 180, 107) !important;
     }    
+
+    .card-header {
+        border-bottom: 1px solid rgba(227, 227, 227, 0.125);
+    }
 }
 
 .nav-link-bottom {

@@ -404,33 +404,34 @@ $(function() {
                 width: 'auto',
                 title: i18next.t('Action'),
                 data: 'kidId',
-                render: function (data, type, full, meta) {
+                render: function (data, type, full, meta) {                    
                     var res = '<table  style="width:100px;background-color: transparent !important;" class="outer"><tr style="background-color: transparent !important;"><td>';
 
+                    res += '<div class="btn-group" role="group" aria-label="Basic example" >';
+
                     if (full.inCart == 0) {
-                        res += '<a ' + (window.CRM.showCart ? 'class="AddOneStudentToCart"' : '') + ' data-cartpersonid="' + data + '">'
-                            + '<span class="fa-stack">'
-                            + '  <i class="fas fa-square fa-stack-2x"></i>'
-                            + '  <i class="fas fa-stack-1x fa-inverse ' + (window.CRM.showCart ? 'fa-cart-plus' : 'fa-question') + '"></i>'
+                        res += '<a ' + (window.CRM.showCart ? 'class="AddOneStudentToCart btn btn-default btn-xs"' : ' class="btn btn-xs btn-default"') + ' data-cartpersonid="' + data + '">'
+                            + '<span class="fa-stack fa-stack-custom">'
+                            + '  <i class="fas fas-blue fa-stack-1x fa-inverse ' + (window.CRM.showCart ? 'fa-cart-plus' : 'fa-question') + '"></i>'
                             + '</span>'
                             + '</a>';
                     } else {
-                        res += '<a ' + (window.CRM.showCart ? 'class="RemoveOneStudentFromCart"' : '') + ' data-cartpersonid="' + data + '">'
-                            + '<span class="fa-stack">'
-                            + '  <i class="fas fa-square fa-stack-2x"></i>'
-                            + '  <i class="fas fa-stack-1x fa-inverse ' + (window.CRM.showCart ? 'fa-times' : 'fa-question') + '"></i>'
+                        res += '<a ' + (window.CRM.showCart ? 'class="RemoveOneStudentFromCart btn btn-default btn-xs"' : ' class="btn  btn-xs"') + ' data-cartpersonid="' + data + '" style="color:blue">'
+                            + '<span class="fa-stack fa-stack-custom">'                            
+                            + '  <i class="fas fas-blue  fa-stack-1x fa-inverse ' + (window.CRM.showCart ? 'fa-times' : 'fa-question') + '"></i>'
                             + '</span>'
                         '</a>';
                     }
 
                     if (canDeleteMembers) {
-                        res += '<a class="delete-person" data-person_name="' + full.firstName + ' ' + full.LastName + '" data-person_id="' + data + '" data-view="family">'
-                            + '  <span class="fa-stack" style="color:red">'
-                            + '    <i class="fas fa-square fa-stack-2x"></i>'
-                            + '    <i class="far fa-trash-alt fa-stack-1x fa-inverse"></i>'
+                        res += '<a class="delete-person btn btn-default btn-xs" data-person_name="' + full.firstName + ' ' + full.LastName + '" data-person_id="' + data + '" data-view="family">'
+                            + '  <span class="fa-stack fa-stack-custom">'                            
+                            + '    <i class="far fas-red fa-stack-1x fa-inverse fa-trash-alt"></i>'
                             + '  </span>'
                             + '</a>';
                     }
+                    
+                    res += '</div>'
 
                     res += "</td></tr></table>";
 
