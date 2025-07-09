@@ -307,6 +307,8 @@ $(function () {
         let id = data['name'];
 
         $(this).toggleClass('selected');
+
+        var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
         
         if (window.CRM.browserImage == true) {
             if (selectedRows) {
@@ -315,8 +317,6 @@ $(function () {
                 $(".filemanager-download").css("display", "none");
             }
         }        
-
-        var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
 
         if (selectedRows) {
             $("#trash-drop").removeClass('disabled');            

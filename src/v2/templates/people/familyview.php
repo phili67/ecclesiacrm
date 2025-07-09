@@ -322,7 +322,7 @@ require $sRootDocument . '/Include/Header.php';
             if ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                 ?>
                 <div class="card card-default">
-                    <div class="card-header border-0">
+                    <div class="card-header border-1">
                         <h3 class="card-title">
                             <?= _("Family Members") ?>
                         </h3>
@@ -433,7 +433,7 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header  border-0">
+                            <div class="card-header  border-1 card-header-custom">
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-pills">
                                     <li class="nav-item">

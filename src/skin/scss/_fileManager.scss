@@ -79,12 +79,20 @@
 
 .folder-back-button {
     position: absolute !important;
-    margin-top: 7px;
+    margin-top: 0.55em;
+    height: 3em;
+    z-index: 20;
+    padding: 7px 3px;
+    /*margin-top: 7px;
     height: 37px;
     z-index: 20;
-    padding: 5px;
+    padding: 5px;*/
     width: 37px;
     border: 2px solid rgb(98, 190, 255);
+}
+
+.edrive-table-browse {
+    margin-top:10px;
 }
 
 .shift-flex-wrapper-right {

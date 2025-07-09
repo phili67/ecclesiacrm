@@ -1392,13 +1392,13 @@ class CalendarService
             '                <tbody><tr class="no-background-theme">' .
             '                  <td style="width:100px;padding: 7px 2px;border:none;text-align: center">' .
             '                     <div class="btn-group" role="group" aria-label="Basic example">' .
-            '                       <button type="submit"  name="Action" data-link="' . $link . '" data-id="' . $eventID .  '" title="' . _('Edit') . '" style="color:' . (($eventRights != "") ? 'blue' : 'gray') . '" class="EditEvent btn btn-default btn-xs" ' . (($eventRights) ? '' : 'disabled') . '>' .
+            '                       <button type="submit"  name="Action" data-link="' . $link . '" data-id="' . $eventID .  '" title="' . _('Edit') . '"  class="EditEvent btn btn-default btn-xs ' . (($eventRights != "") ? 'fas-blue' : 'fas-gray') . '" ' . (($eventRights) ? '' : 'disabled') . '>' .
             $icon .
             '                        </button>' .
-            '                      <button type="submit" name="Action" data-dateStart="' . $start . '" data-reccurenceid="' . $reccurenceID . '" data-recurrent="' . $recurrent . '" data-calendarid="' . $calendarid . '" data-id="' . $eventID . '" title="' . _('Delete') . '"  style="color:' . (($eventRights != "") ? 'red' : 'gray') . '" class="DeleteEvent btn btn-default btn-xs" ' . (($eventRights) ? '' : 'disabled') . '>' .
+            '                      <button type="submit" name="Action" data-dateStart="' . $start . '" data-reccurenceid="' . $reccurenceID . '" data-recurrent="' . $recurrent . '" data-calendarid="' . $calendarid . '" data-id="' . $eventID . '" title="' . _('Delete') . '"  class="DeleteEvent btn btn-default btn-xs ' . (($eventRights != "") ? 'fas-red' : 'fas gray') . '" ' . (($eventRights) ? '' : 'disabled') . '>' .
             '                        <i class="fas fa-trash-alt"></i>' .
             '                      </button>' .
-            '                      <button type="submit" name="Action" data-id="' . $eventID . '" title="' . _('Info') . '" style="color:' . (($text != "" && $eventRights) ? 'green' : 'gray') . '" class="EventInfo btn btn-default btn-xs" ' . (($text != "") ? '' : 'disabled') . '>' .
+            '                      <button type="submit" name="Action" data-id="' . $eventID . '" title="' . _('Info') . '" class="EventInfo btn btn-default btn-xs ' . (($text != "" && $eventRights) ? 'fas-green' : 'fas-gray') . '" ' . (($text != "") ? '' : 'disabled') . '>' .
             '                        <i class="far fa-file"></i>' .
             '                      </button>' .
             '                    </div>' .

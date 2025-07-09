@@ -54,7 +54,18 @@ $(function() {
                 title: i18next.t('Group Name'),
                 data: 'Name',
                 render: function (data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + '/v2/group/' + full.Id + '/view"><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas fa-search-plus fa-stack-1x fa-inverse"></i></span></a><a href="' + window.CRM.root + '/v2/group/editor/' + full.Id + '"><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i></span></a>' + data;
+                    return  '<div class="btn-group" role="group" aria-label="Buttons">'
+                        + '<a href="' + window.CRM.root + '/v2/group/' + full.Id + '/view" class="btn btn-default btn-xs">'
+                        + '<span class="fa-stack fa-stack-custom">'
+                        +    '<i class="fas fa-stack-1x fa-inverse fa-search-plus fas-blue"></i>'
+                        + '</span>'
+                        + '</a>'
+                        + '<a href="' + window.CRM.root + '/v2/group/editor/' + full.Id + '"  class="btn btn-default btn-xs">'
+                        +    '<span class="fa-stack fa-stack-custom">'
+                        +       '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse fas-blue"></i>'
+                        +    '</span>'
+                        +  '</a> ' + data
+                        +  '</div>';
                 }
             },
             {
@@ -78,9 +89,9 @@ $(function() {
                     }
 
                     if ($.inArray(full.Id, window.CRM.groupsInCart) > -1) {
-                        return "<span>" + i18next.t("All members of this group are in the cart") + "</span>&nbsp;<a class=\"btn btn-xs btn-danger \" id=\"removeGroupFromCart\" data-groupid=\"" + full.Id + "\">" + i18next.t("Remove all") + "</a>";
+                        return '<span id="groupspanid-' + full.Id + '">' + i18next.t("All members of this group are in the cart") + '</span>&nbsp;<a class="btn btn-xs btn-default" id="removeGroupFromCart" data-groupid="' + full.Id + '"><span class="fa-stack"><i class="fas fa-stack-1x fa-inverse fa-times fas-red" ></i></span></a>';
                     } else if (window.CRM.showCart) {
-                        return "<span>" + i18next.t("Not all members of this group are in the cart") + "</span>&nbsp;<a id=\"AddGroupToCart\" class=\"btn btn-xs btn-primary" + activLink + "\" data-groupid=\"" + full.Id + "\">" + i18next.t("Add all") + "</a>";
+                        return '<span id="groupspanid-' + full.Id + '">' + i18next.t("Not all members of this group are in the cart") + '</span>&nbsp;<a id="AddGroupToCart" class="btn btn-xs btn-default ' + activLink + '" data-groupid="' + full.Id + '"><span class="fa-stack"><i class="fas fa-stack-1x fa-inverse fa-cart-plus fas-blue" ></i></span></a>';
                     } else {
                         return i18next.t("Cart isn't showable");
                     }
@@ -118,24 +129,25 @@ $(function() {
 
     $(document).on("click", "#AddGroupToCart", function (link) {
         var groupid = $(this).data("groupid");
-        var parent = $(this).parent().find("span");
+        var parentText = $("#groupspanid-"+groupid);
+        var parentLink = $(this);
+        var linkSpan = $(this).find("i");
         window.CRM.cart.addGroup(groupid, function (data) {
-            link.target.id = "removeGroupFromCart";
-            link.target.className = "btn btn-xs btn-danger";
-            link.target.innerText = i18next.t("Remove all");
-            parent.text(i18next.t("All members of this group are in the cart"));
+            parentLink.attr("id", "removeGroupFromCart");
+            linkSpan.removeClass('fa-cart-plus fas-blue').addClass('fa-times fas-red');
+            parentText.text(i18next.t("All members of this group are in the cart"));
         });
     });
 
     $(document).on("click", "#removeGroupFromCart", function (link) {
         var groupid = $(this).data("groupid");
-        var parent = $(this).parent().find("span");
+        var parentText = $("#groupspanid-"+groupid);
+        var parentLink = $(this);
+        var linkSpan = $(this).find("i");
         window.CRM.cart.removeGroup(groupid, function (data) {
-            link.target.id = "AddGroupToCart";
-            link.target.className = "btn btn-xs btn-primary";
-            link.target.innerText = i18next.t("Add all");
-            parent.text(i18next.t("Not all members of this group are in the cart"));
+            parentLink.attr("id", "AddGroupToCart");
+            linkSpan.removeClass('fa-times fas-red').addClass('fa-cart-plus fas-blue');
+            parentText.text(i18next.t("Not all members of this group are in the cart"));
         });
     });
-
 });

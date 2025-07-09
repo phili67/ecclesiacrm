@@ -536,7 +536,7 @@ require $sRootDocument . '/Include/Header.php';
             if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled())) {
             ?>
             <div class="card">
-                <div class="card-header  border-1">
+                <div class="card-header  border-1 card-header-custom">
                     <!-- Nav tabs -->
                     <ul class="nav nav-pills">
                         <?php
@@ -812,10 +812,10 @@ require $sRootDocument . '/Include/Header.php';
                                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                                     ?>
                                                     <a class="AddToPeopleCart" data-cartpersonid="<?= $tmpPersonId ?>">
-                    <span class="fa-stack">
-                      <i class="fas fa-square fa-stack-2x"></i>
-                      <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
-                    </span>
+                                                        <span class="fa-stack">
+                                                        <i class="fas fa-square fa-stack-2x"></i>
+                                                        <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
+                                                        </span>
                                                     </a>
                                                     <?php
                                                 }
@@ -823,18 +823,18 @@ require $sRootDocument . '/Include/Header.php';
                                                 if ($bOkToEdit) {
                                                     ?>
                                                     <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $tmpPersonId ?>">
-                      <span class="fa-stack" style="color:green">
-                        <i class="fas fa-square fa-stack-2x"></i>
-                        <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
-                      </span>
+                                                        <span class="fa-stack" style="color:green">
+                                                            <i class="fas fa-square fa-stack-2x"></i>
+                                                            <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
+                                                        </span>
                                                     </a>
                                                     <a class="delete-person"
                                                        data-person_name="<?= $familyMember->getFullName() ?>"
                                                        data-person_id="<?= $tmpPersonId ?>" data-view="family">
-                      <span class="fa-stack" style="color:red">
-                          <i class="fas fa-square fa-stack-2x"></i>
-                          <i class="far fa-trash-alt fa-stack-1x fa-inverse"></i>
-                      </span>
+                                                            <span class="fa-stack" style="color:red">
+                                                                <i class="fas fa-square fa-stack-2x"></i>
+                                                                <i class="far fa-trash-alt fa-stack-1x fa-inverse"></i>
+                                                            </span>
                                                     </a>
                                                     <?php
                                                 }

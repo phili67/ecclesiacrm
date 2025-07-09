@@ -32,7 +32,7 @@ ob_start();
   ?>
 </head>
 
-<body class="sidebar-mini <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>">
+<body class="sidebar-mini <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?> <?= Theme::getFontSize() ?>">
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;

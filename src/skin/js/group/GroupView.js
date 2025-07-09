@@ -398,7 +398,10 @@ function initDataTable() {
                     })[0];
 
                     if (isShowable) {
-                        return  ' <a href="#" class="changeMembership btn btn-primary btn-xs" data-personid=' + full.PersonId + '><i class="fas fa-pencil-alt"></i></a> ' + ((thisRole != undefined) ? i18next.t(thisRole.OptionName) : '');
+                        return  ' <a href="#" class="changeMembership btn btn-default btn-xs" data-personid=' + full.PersonId + '>'
+                            +'<span class="fa-stack fa-stack-custom">'
+                            +'<i class="fas fa-stack-1x fa-inverse fa-pencil-alt fas-blue"></i></a> ' + ((thisRole != undefined) ? i18next.t(thisRole.OptionName) : '');
+                            +'</span>'
                     } else {
                         return i18next.t("Private Data");
                     }
@@ -487,7 +490,7 @@ function initDataTable() {
 
     if (window.CRM.isManageGroupsEnabled) {
         window.CRM.plugin.dataTable.buttons.push({
-            text: '<i class="fas fa-trash-alt"></i> '+ i18next.t("Remove Selected Members"),            
+            text: '<i class="fas fa-trash-alt"></i> ' + i18next.t("Remove") + " (" + 0 + ") " + i18next.t("Members"),            
             attr: {
                 title: 'Remove Selected Members from group',
                 id: 'deleteSelectedRows'            
@@ -524,7 +527,7 @@ function initDataTable() {
         });
 
         window.CRM.plugin.dataTable.buttons.push({
-            text: '<i class="fas fa-cart-plus"></i> '+ i18next.t("Action to selected members"),
+            text: '<i class="fas fa-cart-plus"></i> ' + i18next.t("Add") + "  (" + 0 + ") " + i18next.t("Members to cart"),
             extend: 'collection',
             className: 'btn btn-success',
             enabled: false,
@@ -662,7 +665,7 @@ function initDataTable() {
             $("#addSelectedToGroup").addClass('disabled');
         }
         $("#deleteSelectedRows").html('<i class="fas fa-trash-alt"></i> ' + i18next.t("Remove") + " (" + selectedRows + ") " + i18next.t("Members"));
-        $("#addSelectedToGroup").html(i18next.t("Add") + "  (" + selectedRows + ") " + i18next.t("Members to cart"));
+        $("#addSelectedToGroup").html('<i class="fas fa-cart-plus"></i> ' + i18next.t("Add") + "  (" + selectedRows + ") " + i18next.t("Members to cart"));
         
         $("#buttonDropdown").prop('disabled', !(selectedRows));        
         $("#moveSelectedToGroup").prop('disabled', !(selectedRows));
