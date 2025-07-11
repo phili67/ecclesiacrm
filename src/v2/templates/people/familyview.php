@@ -166,7 +166,7 @@ require $sRootDocument . '/Include/Header.php';
                                 <a href="mailto:<?= $family->getEmail() ?>"><span><?= $family->getEmail() ?></span></a>
                             </li>
                             <?php
-                            if ($mailchimp->isActive()) {
+                            if ($isMailChimpActive) {
                                 ?>
                                 <li><strong><i class="fa-li fas fa-paper-plane"></i><?= _("MailChimp") ?>:</strong>
                                     <span id="mailChimpUserNormal"></span>

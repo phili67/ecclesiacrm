@@ -529,8 +529,6 @@ class VIEWPeopleController {
         $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $famEmail, true);
         $sUnformattedEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $famEmail, false);
 
-        $isMailChimpActive = $mailchimp->isActive();
-
         $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
             (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId()) ||
             (SessionUser::getUser()->isEditSelfEnabled() && $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())
@@ -703,7 +701,7 @@ class VIEWPeopleController {
                 'lat'                   => $lat,
                 'lng'                   => $lng,                
             ],
-            'isMailChimpActive'         => $isMailChimpActive,
+            'isMailChimpActive'         => $mailchimp->isActive(),
             'iLittleMapZoom'            => $iLittleMapZoom,
             'sMapProvider'              => $sMapProvider,
             'sGoogleMapKey'             => $sGoogleMapKey
@@ -791,8 +789,9 @@ class VIEWPeopleController {
             SELECT s1.fam_ID, 
                 LEAD(s1.fam_ID, 1) OVER (ORDER BY s1.fam_Name ASC) AS next_id 
             FROM family_fam as s1
-   	        LEFT JOIN person_per ON s1.fam_ID = person_per.per_ID
-            WHERE s1.fam_DateDeactivated IS NULL AND fam_ID in (
+   	        LEFT JOIN person_per 
+            ON s1.fam_ID = person_per.per_ID
+            WHERE s1.fam_ID in (
 					SELECT res.fam_ID
                     FROM family_fam, (
                         SELECT s2.fam_ID, s2.fam_DateDeactivated,  s2.fam_ID AS FamId, COUNT(person_per.per_ID) AS cnt 
@@ -829,8 +828,9 @@ class VIEWPeopleController {
             SELECT s1.fam_ID, 
                 LEAD(s1.fam_ID, 1) OVER (ORDER BY s1.fam_Name DESC) AS previous_id 
             FROM family_fam as s1
-   	        LEFT JOIN person_per ON s1.fam_ID = person_per.per_ID
-            WHERE s1.fam_DateDeactivated IS NULL AND fam_ID in (
+   	        LEFT JOIN person_per 
+            ON s1.fam_ID = person_per.per_ID
+            WHERE s1.fam_ID in (
 					SELECT res.fam_ID
                     FROM family_fam, (
                         SELECT s2.fam_ID, s2.fam_DateDeactivated,  s2.fam_ID AS FamId, COUNT(person_per.per_ID) AS cnt 
@@ -994,7 +994,7 @@ class VIEWPeopleController {
             'maxMainTimeLineItems'      => $maxMainTimeLineItems,
             'timelineService'           => $timelineService,
             'timelineServiceItems'      => $timelineServiceItems,
-            'mailchimp'                 => $mailchimp,
+            'isMailChimpActive'         => $mailchimp->isActive(),
             'curYear'                   => $curYear,
             'iCurrentUserFamID'         => $iCurrentUserFamID,
             'ormAutoPayments'           => $ormAutoPayments,
