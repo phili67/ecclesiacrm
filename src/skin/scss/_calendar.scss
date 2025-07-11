@@ -186,6 +186,16 @@ margin-bottom: 0px;
     margin-top: 2px;
 }
 
+.BootboxContentShare {
+    width:100%;
+    margin-left:-20px;
+    margin-bottom:15px
+}
+
+.BootboxContentCalendarPresence {
+    width:100%;
+}
+
 @media screen and (max-width: 800px) {
     .event-infos-sidebar-calendar {
         min-width: 300px;

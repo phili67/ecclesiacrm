@@ -761,11 +761,11 @@ function initDataTable() {
             + '<span style="color: red">*</span>' + i18next.t("With") + ":"
             + '</div>'
             + '<div class="col-md-8">'
-            + '<select size="6" style="width:100%" id="select-manager-persons" multiple>'
+            + '<select size="6" class="form-control GroupViewBootboxContentManager" id="select-manager-persons" multiple>'
             + '</select>'
             + '</div>'
             + '</div>'
-            + '<div class="row div-title">'
+            + '<div class="row">'
             + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add users") + ":</div>"
             + '<div class="col-md-8">'
             + '<select name="person-manager-Id" id="person-manager-Id" class="form-control select2"'
