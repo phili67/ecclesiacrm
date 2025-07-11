@@ -383,13 +383,13 @@ require $sRootDocument . '/Include/Header.php';
                                         ?>
                                     </td>
                                     <td style="width: 20%;">
+                                        <div class="btn-group">
                                         <?php
                                         if (SessionUser::getUser()->isShowCartEnabled()) {
                                             ?>
-                                            <a class="AddToPeopleCart" data-cartpersonid="<?= $person->getId() ?>">
+                                            <a class="AddToPeopleCart btn btn-default btn-xs" data-cartpersonid="<?= $person->getId() ?>">
                                                 <span class="fa-stack">
-                                                <i class="fas fa-square fa-stack-2x"></i>
-                                                <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
+                                                    <i class="fas fa-cart-plus fa-stack-1x fa-inverse fas-blue"></i>
                                                 </span>
                                             </a>
                                             <?php
@@ -399,22 +399,21 @@ require $sRootDocument . '/Include/Header.php';
                                         if ($bOkToEdit) {
                                             ?>
                                             <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $person->getId() ?>"
-                                               class="table-link">
-                                                <span class="fa-stack" style="color:green">
-                                                <i class="fas fa-square fa-stack-2x"></i>
-                                                <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
+                                               class="table-link btn btn-default btn-xs">
+                                                <span class="fa-stack">                                                
+                                                <i class="fas fa-pencil-alt fa-stack-1x fa-inverse fas-green"></i>
                                                 </span>
                                             </a>
-                                            <a class="delete-person" data-person_name="<?= $person->getFullName() ?>"
+                                            <a class="delete-person btn btn-default btn-xs" data-person_name="<?= $person->getFullName() ?>"
                                                data-person_id="<?= $person->getId() ?>" data-view="family">
-                                                <span class="fa-stack" style="color:red">
-                                                    <i class="fas fa-square fa-stack-2x"></i>
-                                                    <i class="far fa-trash-alt fa-stack-1x fa-inverse"></i>
+                                                <span class="fa-stack">
+                                                    <i class="far fa-trash-alt fa-stack-1x fa-inverse fas-red"></i>
                                                 </span>
                                             </a>
                                             <?php
                                         }
                                         ?>
+                                        </div>
                                     </td>
                                 </tr>
                                 <?php
@@ -520,10 +519,8 @@ require $sRootDocument . '/Include/Header.php';
                                                                 if (isset($item["editLink"])) {
                                                                     ?>
                                                                     <?= $item["editLink"] ?>
-                                                                    <span class="fa-stack">
-                                                                        <i class="fas fa-square fa-stack-2x"></i>
-                                                                        <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
-                                                                    </span>                                                                
+                                                                        <i class="fas fa-edit"></i>
+                                                                    </a>
                                                                 <?php
                                                                 }
 
@@ -565,9 +562,8 @@ require $sRootDocument . '/Include/Header.php';
                                                                 if (isset($item["editLink"])) {
                                                                     ?>
                                                                     <?= $item["editLink"] ?>
-                                                                    <button type="button" class="btn btn-primary"><i
-                                                                            class="fas fa-edit"></i></button>
-                                                                    </a>
+                                                                        <i class="fas fa-edit"></i>
+                                                                    </a>                                                                    
                                                                     <?php
                                                                 }
 
@@ -755,15 +751,15 @@ require $sRootDocument . '/Include/Header.php';
                                                             <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
                                                             &nbsp;
 
+                                                            <div class="btn-group">
                                                             <?php
                                                             if ($item['slim']) {
                                                                 if ($item['editLink'] != '') {
                                                                     ?>
                                                                     <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
-                                                                    data-famid="<?= $item['famID'] ?>" class="editDocument">
-                                                                <span class="fa-stack">
-                                                                <i class="fas fa-square fa-stack-2x"></i>
-                                                                <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
+                                                                        data-famid="<?= $item['famID'] ?>" class="btn btn-primary btn-sm editDocument">                                                               
+                                                                        <i class="fas fa-edit"></i>
+                                                                    </a>
                                                                 </span>
                                                             </a>
                                                                     <?php
@@ -772,16 +768,14 @@ require $sRootDocument . '/Include/Header.php';
                                                                 if ($item['deleteLink'] != '') {
                                                                     ?>
                                                                     <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
-                                                                        data-famid="<?= $item['famID'] ?>" class="deleteDocument">
-                                                                        <span class="fa-stack">
-                                                                            <i class="fas fa-square fa-stack-2x" style="color:red"></i>
-                                                                            <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
-                                                                        </span>
+                                                                        data-famid="<?= $item['famID'] ?>" class="btn btn-danger btn-sm deleteDocument">                                                                        
+                                                                            <i class="fas fa-trash-alt"></i>
                                                                     </a>
                                                                 <?php
                                                                 }
                                                             }
                                                             ?>
+                                                            </div>
                                                         </span>
                                                         <h3 class="timeline-header">
                                                             <?php
@@ -806,14 +800,15 @@ require $sRootDocument . '/Include/Header.php';
                                                                 <?php
                                                                 if (!$item['slim']) {
                                                                     ?>
+                                                                    <div class="btn-group">
                                                                     <?php
                                                                     if ($item['editLink'] != '') {
                                                                         ?>
                                                                         <a href="#" data-id="<?= $item['id'] ?>"
                                                                            data-perid="<?= $item['perID'] ?>"
-                                                                           data-famid="<?= $item['famID'] ?>" class="editDocument">
-                                                                            <button type="button" class="btn btn-primary"><i
-                                                                                    class="fas fa-edit"></i></button>
+                                                                           data-famid="<?= $item['famID'] ?>" 
+                                                                           class="btn btn-primary btn-sm editDocument">
+                                                                            <i class="fas fa-edit"></i>
                                                                         </a>
                                                                         <?php
                                                                     }
@@ -823,13 +818,13 @@ require $sRootDocument . '/Include/Header.php';
                                                                         <a href="#" data-id="<?= $item['id'] ?>"
                                                                            data-perid="<?= $item['perID'] ?>"
                                                                            data-famid="<?= $item['famID'] ?>"
-                                                                           class="deleteDocument">
-                                                                            <button type="button" class="btn btn-danger"><i
-                                                                                    class="fas fa-trash-alt"></i></button>
+                                                                           class="btn btn-primary btn-sm  deleteDocument">
+                                                                            <i class="fas fa-trash-alt"></i>
                                                                         </a>
                                                                         <?php
                                                                     }
                                                                     ?>
+                                                                    </div>
 
                                                                     <?php
                                                                 }
