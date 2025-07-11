@@ -29,10 +29,14 @@ class TimelineService
         $this->currentUser = SessionUser::getUser();
     }
 
-    public function getForFamily($familyID)
+    public function getForFamily($familyID, $limit=10)
     {
         $timeline = [];
-        $familyNotes = NoteQuery::create()->findByFamId($familyID);
+        $familyNotes = NoteQuery::create()
+            ->orderByDateLastEdited(Criteria::DESC)
+            ->limit($limit)
+            ->findByFamId($familyID);
+
         foreach ($familyNotes as $dbNote) {
             $item = $this->noteToTimelineItem($dbNote);
             if (!is_null($item)) {
@@ -106,7 +110,7 @@ class TimelineService
         return $timeline;
     }
 
-    private function notesForPerson($personID, $noteTypes=null): array
+    private function notesForPerson($personID, $noteTypes=null, $limit=10): array
     {
         $firstTime = true;
 
@@ -127,7 +131,7 @@ class TimelineService
           }
         }
 
-        foreach ($personQuery->orderByDateEntered(Criteria::DESC)->limit(15)->find() as $dbNote) {
+        foreach ($personQuery->orderByDateEntered(Criteria::DESC)->limit($limit)->find() as $dbNote) {
             $item = $this->noteToTimelineItem($dbNote);
             if (!is_null($item)) {
                 $timeline[$item['key']] = $item;
@@ -138,7 +142,7 @@ class TimelineService
             ->useNoteQuery()
             ->orderByDateEntered(Criteria::DESC)
             ->endUse()
-            ->limit(15)            
+            ->limit(20)            
             ->findBySharePerId($personID);
 
         // we only share the file from other users

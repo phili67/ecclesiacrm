@@ -587,21 +587,21 @@ class VIEWPeopleController {
         $sPageTitle = _('Person Profile');
         $sPageTitleSpan = $sPageTitle . ' <span style="float:right"><div class="btn-group">';
         if ($previous_id > 0) {
-            $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $previous_id . '\'">
+            $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-secondary mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $previous_id . '\'">
         <span class="mat-button-wrapper"><i class="far fa-hand-point-left"></i></span>
         <div class="mat-button-ripple mat-ripple" ></div>
         <div class="mat-button-focus-overlay"></div>
         </button>';
         }
 
-        $sPageTitleSpan .= '<button title="' . _('Person List') . '" class="btn btn-round btn-info mat-raised-button"  type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/personlist\'">
+        $sPageTitleSpan .= '<button title="' . _('Person List') . '" class="btn btn-round btn-secondary mat-raised-button"  type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/personlist\'">
         <span class="mat-button-wrapper"><i class="fas fa-list-ul"></i></span>
         <div class="mat-button-ripple mat-ripple" ></div>
         <div class="mat-button-focus-overlay"></div>
         </button>';
 
         if ($next_id > 0) {
-            $sPageTitleSpan .= '<button title="' . _('Next Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $next_id . '\'">
+            $sPageTitleSpan .= '<button title="' . _('Next Person') . '" class="btn btn-round btn-secondary mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $next_id . '\'">
         <span class="mat-button-wrapper"><i class="far fa-hand-point-right"></i></span>
         <div class="mat-button-ripple mat-ripple"></div>
         <div class="mat-button-focus-overlay"></div>
@@ -753,15 +753,6 @@ class VIEWPeopleController {
     {
         $family = FamilyQuery::create()->findPk($iFamilyID);
 
-        $persons = $family->getActivatedPeople();
-
-        if (count($persons) == 1) {
-            return [
-                'error' => true,
-                'link'  => "v2/people/person/view/" . $persons[0]->getId()
-            ];
-        }
-        
         // we get the TimelineService
         $maxMainTimeLineItems = 20; // max number
 
@@ -780,20 +771,40 @@ class VIEWPeopleController {
         }        
 
         // by default in the next previous person : dectivated are not showned
-        // find the next personID
+        // find the next FamilyID
         $previous_id = $last_id = 0;
         $next_id = 0;        
 
         $connection = Propel::getConnection();
 
-        $sSQL = "SELECT t.next_id 
+        /*$sSQL = "SELECT t.next_id 
         FROM (
             SELECT fam_ID, 
                 LEAD(fam_ID, 1) OVER (ORDER BY fam_Name ASC) AS next_id 
             FROM family_fam
             WHERE fam_DateDeactivated IS NULL 
         ) t 
-        WHERE t.fam_ID = ".$iFamilyID.";";
+        WHERE t.fam_ID = ".$iFamilyID.";";*/
+
+        $sSQL = "SELECT t.next_id 
+        FROM (
+            SELECT s1.fam_ID, 
+                LEAD(s1.fam_ID, 1) OVER (ORDER BY s1.fam_Name ASC) AS next_id 
+            FROM family_fam as s1
+   	        LEFT JOIN person_per ON s1.fam_ID = person_per.per_ID
+            WHERE s1.fam_DateDeactivated IS NULL AND fam_ID in (
+					SELECT res.fam_ID
+                    FROM family_fam, (
+                        SELECT s2.fam_ID, s2.fam_DateDeactivated,  s2.fam_ID AS FamId, COUNT(person_per.per_ID) AS cnt 
+                        FROM family_fam as s2
+                        INNER JOIN person_per  
+                        ON (s2.fam_ID=person_per.per_fam_ID) 
+                        WHERE person_per.per_DateDeactivated IS NULL  AND s2.fam_DateDeactivated IS NULL  
+                        GROUP BY s2.fam_ID) AS res 
+                        WHERE res.cnt>1 AND family_fam.fam_ID=res.FamId ORDER BY family_fam.fam_Name ASC	
+                    )
+            ) t 
+            WHERE t.fam_ID =".$iFamilyID.";";
 
         $statement = $connection->prepare($sSQL);
         $statement->execute();
@@ -805,14 +816,33 @@ class VIEWPeopleController {
         }
 
         // get previous id
-        $sSQL = "SELECT t.previous_id 
+        /*$sSQL = "SELECT t.previous_id 
         FROM (
             SELECT fam_ID, 
                 LEAD(fam_ID, 1) OVER (ORDER BY fam_Name DESC) AS previous_id 
             FROM family_fam
             WHERE fam_DateDeactivated IS NULL 
         ) t 
-        WHERE t.fam_ID = ".$iFamilyID.";";
+        WHERE t.fam_ID = ".$iFamilyID.";";*/
+        $sSQL = "SELECT t.previous_id 
+        FROM (
+            SELECT s1.fam_ID, 
+                LEAD(s1.fam_ID, 1) OVER (ORDER BY s1.fam_Name DESC) AS previous_id 
+            FROM family_fam as s1
+   	        LEFT JOIN person_per ON s1.fam_ID = person_per.per_ID
+            WHERE s1.fam_DateDeactivated IS NULL AND fam_ID in (
+					SELECT res.fam_ID
+                    FROM family_fam, (
+                        SELECT s2.fam_ID, s2.fam_DateDeactivated,  s2.fam_ID AS FamId, COUNT(person_per.per_ID) AS cnt 
+                        FROM family_fam as s2
+                        INNER JOIN person_per  
+                        ON (s2.fam_ID=person_per.per_fam_ID) 
+                        WHERE person_per.per_DateDeactivated IS NULL  AND s2.fam_DateDeactivated IS NULL  
+                        GROUP BY s2.fam_ID) AS res 
+                        WHERE res.cnt>1 AND family_fam.fam_ID=res.FamId ORDER BY family_fam.fam_Name ASC	
+                    )
+            ) t 
+            WHERE t.fam_ID =".$iFamilyID.";";
 
         $statement = $connection->prepare($sSQL);
         $statement->execute();
@@ -924,21 +954,21 @@ class VIEWPeopleController {
         $sPageTitle = _("Family View");
         $sPageTitleSpan = $sPageTitle . '<span style="float:right"><div class="btn-group">';
         if ($previous_id > 0) {
-            $sPageTitleSpan .= '<button title="' . _('Previous Family') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $previous_id . '\'">
+            $sPageTitleSpan .= '<button title="' . _('Previous Family') . '" class="btn btn-round btn-secondary mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $previous_id . '\'">
         <span class="mat-button-wrapper"><i class="far fa-hand-point-left"></i></span>
         <div class="mat-button-ripple mat-ripple" matripple=""></div>
         <div class="mat-button-focus-overlay"></div>
         </button>';
         }
 
-        $sPageTitleSpan .= '<button title="' . _('Family List') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/familylist\'">
+        $sPageTitleSpan .= '<button title="' . _('Family List') . '" class="btn btn-round btn-secondary mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/familylist\'">
         <span class="mat-button-wrapper"><i class="fas fa-list-ul"></i></span>
         <div class="mat-button-ripple mat-ripple" matripple=""></div>
         <div class="mat-button-focus-overlay"></div>
         </button>';
 
         if ($next_id > 0) {
-            $sPageTitleSpan .= '<button title="' . _('Next Family') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $next_id . '\'">
+            $sPageTitleSpan .= '<button title="' . _('Next Family') . '" class="btn btn-round btn-secondary mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $next_id . '\'">
         <span class="mat-button-wrapper"><i class="far fa-hand-point-right"></i></span>
         <div class="mat-button-ripple mat-ripple" matripple=""></div>
         <div class="mat-button-focus-overlay"></div>

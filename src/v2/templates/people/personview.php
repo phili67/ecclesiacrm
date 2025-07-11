@@ -700,21 +700,17 @@ require $sRootDocument . '/Include/Header.php';
 
                                     <!-- timeline item -->
                                     <?php
-                                    $countMainTimeLine = 0;  // number of items in the MainTimeLines
-
+                                    
                                     foreach ($timelineServiceItems as $item) {
-                                        $countMainTimeLine++;
-
-                                        if ($countMainTimeLine > $maxMainTimeLineItems) break;// we break after 20 $items
                                         ?>
                                         <div>
                                             <!-- timeline icon -->
                                             <i class="fa <?= $item['style'] ?>"></i>
 
                                             <div class="timeline-item">
-                  <span class="time">
-                    <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
-                  </span>
+                                                <span class="time">
+                                                    <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
+                                                </span>
                                                 <?php
                                                 if (isset($item['style2'])) {
                                                     ?>
@@ -1569,12 +1565,6 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/document.js"></script>
 <!-- !Document editor -->
-
-<!-- Drag and drop -->
-<script src="<?= $sRootPath ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
-<script
-    src="<?= $sRootPath ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
-<!-- !Drag and Drop -->
 
 <?php
 if ($sMapProvider == 'OpenStreetMap') {
