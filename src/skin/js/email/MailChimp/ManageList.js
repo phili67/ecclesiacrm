@@ -919,9 +919,9 @@ $(function() {
 
     function BootboxCampaignContent(nameTag) {
 
-        var frm_str = '<h3 style="margin-top:-5px">' + i18next.t("Email Campaign Creation") + '</h3><form id="some-form">'
+        var frm_str = '<form id="some-form">'
             + '<div>'
-            + '<div class="row div-title">'
+            + '<div class="row">'
             + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Campaign Title') + ":</div>"
             + '<div class="col-md-9">'
             + "<input type='text' id='CampaignTitle' placeholder=\"" + i18next.t("Your Campaign Title") + "\" size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
@@ -957,6 +957,7 @@ $(function() {
             tagName = i18next.t("All list members");
         }
         var modal = bootbox.dialog({
+            title: i18next.t("Email Campaign Creation"),
             message: BootboxCampaignContent(tagName),
             size: 'extra-large',
             buttons: [

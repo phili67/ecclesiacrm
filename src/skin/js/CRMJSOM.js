@@ -114,7 +114,7 @@ window.CRM.showGlobalMessage = function (message, alertClass) {
 }
 
 window.CRM.dialogLoadingFunction =  function (message) {
-window.CRM.dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fas fa-spin fa-spinner"></i> ' + message + '</div>' });
+  window.CRM.dialogLoading = bootbox.dialog({ title:i18next.t("In progress"), message: '<div class="text-center"><i class="fas fa-spin fa-spinner"></i> ' + message + '</div>' });
 }
 
 window.CRM.closeDialogLoadingFunction = function () {

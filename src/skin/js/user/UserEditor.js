@@ -79,18 +79,18 @@ function addRolesToMainDropdown()
           responsive: true
         });
 
-        function BootboxContent(){
-          var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Role management")+'</h3>'
-             + '<div>'
-                  +'<div class="row div-title">'
+        function BootboxContent(){          
+          var frm_str = '<div>'
+                  +'<div class="row">'
                     +'<div class="col-md-4">'
                     + '<span style="color: red">*</span>' + i18next.t("Select your Role") + ":"
                     +'</div>'
                     +'<div class="col-md-8">'
-                    +'<select size="6" style="width:100%" id="select-userrole">'
+                    +'<select size="6" style="width:100%" id="select-userrole" class="form-control">'
                     +'</select>'
                    +'</div>'
                   +'</div>'
+                  +'</br>'
                   +'<div class="row div-title">'
                     +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Role Name") + ":</div>"
                     +'<div class="col-md-8">'
@@ -118,16 +118,17 @@ function addRolesToMainDropdown()
 
         $("#manageRole").on('click',function() {
           var modal = bootbox.dialog({
+             title:i18next.t("Role management"),
              message: BootboxContent(),
              buttons: [
               {
-               label: i18next.t("Close"),
+               label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
                className: "btn btn-success",
                callback: function() {
                }
               },
               {
-               label: i18next.t("Delete"),
+               label: '<i class="fas fa-pencil-alt"></i> ' + i18next.t("Delete"),
                className: "btn btn-danger",
                callback: function() {
                   var roleID = $('#select-userrole').val();
@@ -147,7 +148,7 @@ function addRolesToMainDropdown()
                }
               },
               {
-               label: i18next.t("Rename"),
+               label: '<i class="fas fa-pencil-alt"></i> ' + i18next.t("Rename"),
                className: "btn btn-primary",
                callback: function() {
                   var roleID = $('#select-userrole').val();

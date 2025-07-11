@@ -160,8 +160,8 @@ $(function() {
     });
 
     function BootboxContent(type, visible) {
-        var frm_str = '<h3 style="margin-top:-5px">' + i18next.t("Pastoral Care Note Creation") + '</h3><form id="some-form">'
-            + '<div class="row div-title">'
+        var frm_str = '<form id="some-form">'
+            + '<div class="row">'
             + '<div class="col-md-3">' + i18next.t('Type') + ":</div>"
             + '<div class="col-md-9"><b>'
             + type
@@ -207,6 +207,7 @@ $(function() {
         }
 
         var modal = bootbox.dialog({
+            title: i18next.t("Pastoral Care Note Creation"),
             message: BootboxContent(typeDesc, visible),
             size: 'large',
             buttons: [

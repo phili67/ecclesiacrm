@@ -79,10 +79,8 @@ $(function() {
 
     function BootboxContent(sTitleText, sDocType, sText) {
 
-        var frm_str = '<h3 style="margin-top:-5px">' + i18next.t("News Editor", {ns: 'NewsDashboard'}) + '</h3>'
-            + '<form id="some-form">'
-            + '<div>'
-            + '<div class="row div-title">'
+        var frm_str = '<div>'
+            + '<div class="row">'
             + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('News Title', {ns: 'NewsDashboard'}) + ":</div>"
             + '<div class="col-md-9">'
             + '<input type="text" id="NewsTitle" placeholder="' + i18next.t("Set your News title", {ns: 'NewsDashboard'}) + '" size="30" maxlength="100" class="form-control form-control-sm"  width="100%" style="width: 100%" required>'
@@ -104,8 +102,7 @@ $(function() {
             + '<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
             + '<textarea name="NewsText" cols="80" class="form-control form-control-sm" id="NewsText"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
             + '</div>'
-            + '</div>'
-            + '</form>';
+            + '</div>';
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -115,7 +112,8 @@ $(function() {
     function NewsEditorWindow(mode, newsID) {
 
         var modal = bootbox.dialog({
-            message: BootboxContent(),
+            title: i18next.t("News Editor", {ns: 'NewsDashboard'}),
+            message: BootboxContent(),            
             size: 'large',
             buttons: [
                 {

@@ -21,6 +21,7 @@
           },function(data) {
             if (key == 13) {
               var dialog = bootbox.dialog({
+                title: i18next.t("Message"),
                 message  : i18next.t("Your operation completed successfully."),
               });
 
