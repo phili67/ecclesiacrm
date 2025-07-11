@@ -155,9 +155,8 @@ function addShareCalendarPresence(type) {
 }
 
 function BootboxContentCalendarPresence() {
-    var frm_str = '<h3 style="margin-top:-5px">' + i18next.t("Include/Exclude your Calendars in the SideBar") + '</h3>'
-        + '<div>'
-        + '  <div class="row div-title">'
+    var frm_str ='<div>'
+        + '  <div class="row">'
         + '      <div class="col-md-4">'
         + '          <span style="color: red">*</span>' + i18next.t("Calendars") + ":"
         + '      </div>'
@@ -186,6 +185,7 @@ function BootboxContentCalendarPresence() {
 function CreateCalendarPresenceWindow(type) {
     var modal = bootbox.dialog({
         message: BootboxContentCalendarPresence(),
+        title: i18next.t("Include/Exclude your Calendars in the SideBar"),
         buttons: [
             {
                 label: '<i class="fas fa-check"></i> ' + i18next.t("Ok"),
@@ -320,9 +320,8 @@ function addPersonsFromCalendar(calendarId) {
 }
 
 function BootboxContentShare() {
-    var frm_str = '<h3 style="margin-top:-5px">' + i18next.t("Share your Calendar") + '</h3>'
-        + '<div>'
-        + '<div class="row div-title">'
+    var frm_str = '<div>'
+        + '<div class="row">'
         + '<div class="col-md-4">'
         + '<span style="color: red">*</span>' + i18next.t("With") + ":"
         + '</div>'
@@ -366,6 +365,7 @@ function BootboxContentShare() {
 function createShareWindow(calIDs) {
     var modal = bootbox.dialog({
         message: BootboxContentShare(),
+        title: i18next.t("Share your Calendar"),
         size: "large",
         buttons: [
             {

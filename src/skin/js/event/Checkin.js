@@ -439,11 +439,7 @@ $(function() {
     /* QRCode code */
     const BootboxContent = () => {
 
-        var frm_str = '<h3 style="margin-top:-5px"></h3>'
-            + '<div>'
-            +'  <div class="row">'
-            +'      <div class="col-md-12"><p>' +i18next.t("QR Code : Call the register") + '</p></div>'
-            +'  </div>'
+        var frm_str = '<div>'
             +'  <div class="row">'
             +'      <div class="col-md-12">'
             +'          <div id="loadingMessage">🎥 '+ i18next.t("Unable to access video stream (please make sure you have a webcam enabled)") + '</div>'
@@ -466,6 +462,7 @@ $(function() {
     $(document).on("click", "#qrcode-call", function () {
 
         var modal = bootbox.dialog({
+            title: i18next.t("QR Code : Call the register"),
             message: BootboxContent(),
             //size: 'large',
             onShown: function(e) {

@@ -73,6 +73,7 @@ $(function() {
 
     const PersonWindow = (data, personId) => {
         var modal = bootbox.dialog({
+            title: i18next.t("Message"),
             message: BootboxContent(data),
             buttons: [
                 {
@@ -182,6 +183,7 @@ $(function() {
         var _fields = fields;
 
         var modal = bootbox.dialog({
+            title: i18next.t("Message"),
             message: BootboxContent(data, custom),
             size: "large",
             buttons: [

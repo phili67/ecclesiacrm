@@ -74,9 +74,9 @@ $(function() {
     }
 
     function BootboxContent( windowtitle, number ) {
-        var frm_str = '<h3 style="margin-top:-5px">' + i18next.t ('Buyer Number Editor') + '</h3><div id="some-form">'
+        var frm_str = '<div id="some-form">'
             + '<div>'
-            + '  <div class="row  div-title BuyerTitle">'
+            + '  <div class="row  BuyerTitle">'
             + '      <div class="col-md-3"><label>' + i18next.t('Add buyer') + "</label></div>"
             + '  </div>'
             + '  <div class="row NumberTitle">'
@@ -190,6 +190,7 @@ $(function() {
         ]);
 
         window.CRM.addbuyerModal = bootbox.dialog({
+            title:i18next.t ('Buyer Number Editor'),
             message: BootboxContent(windowtitle, iPaddleNum),
             size: 'large',
             buttons: buttons,

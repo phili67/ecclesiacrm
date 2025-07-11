@@ -79,6 +79,7 @@ $(function() {
         var _fields = fields;
 
         var modal = bootbox.dialog({
+            title: i18next.t("Message"),
             message: BootboxContent(data, custom),
             size: 'xl',
             buttons: [

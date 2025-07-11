@@ -755,9 +755,8 @@ function initDataTable() {
 
 
     function BootboxContentManager() {
-        var frm_str = '<h3 style="margin-top:-5px">' + i18next.t("Manage Group Managers") + '</h3>'
-            + '<div>'
-            + '<div class="row div-title">'
+        var frm_str =  '<div>'
+            + '<div class="row">'
             + '<div class="col-md-4">'
             + '<span style="color: red">*</span>' + i18next.t("With") + ":"
             + '</div>'
@@ -817,6 +816,7 @@ function initDataTable() {
 
     function createManagerWindow(groupID) {
         var modal = bootbox.dialog({
+            title: i18next.t("Manage Group Managers"),
             message: BootboxContentManager(),
             buttons: [
                 {

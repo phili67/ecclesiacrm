@@ -3,18 +3,17 @@
  * © Philippe Logel
  */
 
-function BootboxMail(suject, body) {
-    var frm_str = '<h3 style="margin-top:-5px">' + i18next.t("Compose New Message") + '</h3>'
-        + '<form id="some-form">';
+function BootboxMail(subject, body) {
+    var frm_str = '';
 
-    if (suject != null) {
-        if (suject == 0) {
-            suject = "";
+    if (subject != null) {
+        if (subject == 0) {
+            subject = "";
         }
         frm_str += '<div>'
-            + '<div class="row div-title" style="margin-left:-15px;margin-right:-15px">'
+            + '<div class="row" style="margin-left:-15px;margin-right:-15px">'
             + '<div class="col-md-12">'
-            + '<input type="text" id="MailSubject" placeholder="' + i18next.t("Subject:") + '" size="30" maxlength="100" class="form-control"  value="' + suject + '" width="100%" style="width: 100%" required>'
+            + '<input type="text" id="MailSubject" placeholder="' + i18next.t("Subject:") + '" size="30" maxlength="100" class="form-control"  value="' + subject + '" width="100%" style="width: 100%" required>'
             + '</div>'
             + '</div>';
     }
@@ -26,15 +25,14 @@ function BootboxMail(suject, body) {
         + '</div>'
         + '<div class="row  eventNotes">'
         + '</div>'
-        + '</div>'
-        + '</form>';
+        + '</div>';
 
     var object = $('<div/>').html(frm_str).contents();
 
     return object;
 }
 
-window.CRM.mail = function (suject, body, route, extraParams, callback ) {
+window.CRM.mail = function (subject, body, route, extraParams, callback ) {
     /* the route can be used like :
         - arguments :
             • subject       : optional
@@ -64,7 +62,8 @@ window.CRM.mail = function (suject, body, route, extraParams, callback ) {
         // we use the mailto system : subject and body are optional
         body = body. replace(/(?:\ r\n|\r|\n)/g, '<br>');
         var modal = bootbox.dialog({
-            message: BootboxMail(suject, body),
+            message: BootboxMail(subject, body),
+            title: i18next.t("Compose New Message"),
             size: 'large',
             buttons: [
                 {
@@ -81,7 +80,7 @@ window.CRM.mail = function (suject, body, route, extraParams, callback ) {
                     callback: function () {
                         var mailSubject = '';
 
-                        if (suject != null) {
+                        if (subject != null) {
                             mailSubject = $('#MailSubject').val();
                         }
                         var htmlBody = CKEDITOR.instances['MailText'].getData();
