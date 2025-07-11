@@ -287,6 +287,245 @@ $(function () {
     //addProfilesToMainDropdown();
   }
 
+  // the share files
+  window.CRM.BootboxContentShareFiles = function (){
+    var frm_str = '<div>'
+            +'<div class="row">'
+              +'<div class="col-md-4">'
+              + '<span style="color: red">*</span>' + i18next.t("With") + ":"
+              +'</div>'
+              +'<div class="col-md-8">'
+              +'<select size="6" class="form-control" style="width:100%" id="select-share-persons" multiple>'
+              +'</select>'
+             +'</div>'
+            +'</div>'
+            +'<br/>'
+            +'<div class="row">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Rights") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<select name="person-group-Id" id="person-group-rights" class="form-control input-sm"'
+                    +'style="width:100%" data-placeholder="text to place">'
+                    +'<option value="0">'+i18next.t("Select your rights")+" [👀  ]"+i18next.t("or")+"[👀 ✐]"+' -- </option>'
+                    +'<option value="1">'+i18next.t("[👀  ]")+' -- '+i18next.t("[R ]")+'</option>'
+                    +'<option value="2">'+i18next.t("[👀 ✐]")+' -- '+i18next.t("[RW]")+'</option>'
+                +'</select>'
+              +'</div>'
+            +'</div>'
+            +'<br/>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Send email notification") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<input id="sendEmail" type="checkbox">'
+              +'</div>'
+            +'</div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add persons/Family/groups") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<select name="person-group-Id" id="person-group-Id" class="form-control select2"'
+                    +'style="width:100%">'
+                +'</select>'
+              +'</div>'
+            +'</div>'
+          +'</div>';
+
+          var object = $('<div/>').html(frm_str).contents();
+
+        return object
+  }
+
+  // share your notes
+  window.CRM.addSharedButtonsActions = function (noteId,isShared,button,state,modal){
+     $("#person-group-Id").select2({
+        language: window.CRM.shortLocale,
+        minimumInputLength: 2,
+        placeholder: " -- "+i18next.t("Person or Family or Group")+" -- ",
+        allowClear: true, // This is for clear get the clear button if wanted
+        ajax: {
+            url: function (params){
+              return window.CRM.root + "/api/people/search/" + params.term;
+            },
+             headers: {
+                "Authorization": "Bearer " + window.CRM.jwtToken
+            },
+            dataType: 'json',
+            delay: 250,
+            data: "",
+            processResults: function (data, params) {
+              return {results: data};
+            },
+            cache: true
+        }
+      });
+
+     $("#person-group-rights").on('change', function() {
+       var rightAccess = $(this).val();
+       var deferreds = [];
+       var i = 0;
+
+       $('#select-share-persons :selected').each(function(i, sel){
+          var personID = $(sel).val();
+          var str = $(sel).text();
+
+          deferreds.push(
+            window.CRM.APIRequest({
+               method: 'POST',
+               path: 'sharedocument/setrights',
+               data: JSON.stringify({"noteId":noteId,"personID": personID,"rightAccess":rightAccess})
+            }, function(data) {
+              if (rightAccess == 1) {
+                res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
+              } else {
+                res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
+              }
+
+              var elt = [personID,res];
+              deferreds[i++] = elt;
+            })
+          );
+
+        });
+
+        $.when.apply($, deferreds).done(function(data) {
+         // all images are now prefetched
+         //addPersonsFromNotes(noteId);
+
+         deferreds.forEach(function(element) {
+           $('#select-share-persons option[value="'+element[0]+'"]').text(element[1]);
+         });
+
+         $("#person-group-rights option:first").attr('selected','selected');
+        });
+     });
+
+     $("#select-share-persons").on('change', function() {
+       $("#person-group-rights").val(0);
+     });
+
+
+     $("#person-group-Id").on("select2:select",function (e) {
+       var notification = ($("#sendEmail").is(':checked'))?1:0;
+
+       if (e.params.data.personID !== undefined) {
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addperson',
+                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"personID": e.params.data.personID,"notification":notification})
+           }, function(data) {
+             addPersonsFromNotes(noteId);
+             $(state).css('color', 'green');
+             $(button).data('shared',1);
+           });
+        } else if (e.params.data.groupID !== undefined) {
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addgroup',
+                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"groupID": e.params.data.groupID,"notification":notification})
+           }, function(data) {
+             addPersonsFromNotes(noteId);
+             $(state).css('color', 'green');
+             $(button).data('shared',1);
+           });
+        } else if (e.params.data.familyID !== undefined) {
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addfamily',
+                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"familyID": e.params.data.familyID,"notification":notification})
+           }, function(data) {
+             addPersonsFromNotes(noteId);
+             $(state).css('color', 'green');
+             $(button).data('shared',1);
+           });
+        }
+     });
+
+     addPersonsFromNotes(noteId);
+     modal.modal('show');
+
+    // this will ensure that image and table can be focused
+    $(document).on('focusin', function(e) {e.stopImmediatePropagation();});  }
+
+  function openShareFilesWindow (event, button, state) {
+    var noteId = event.currentTarget.dataset.id;
+    var isShared = event.currentTarget.dataset.shared;
+
+    var modal = bootbox.dialog({
+       title: i18next.t("Share your Document"),
+       message: window.CRM.BootboxContentShareFiles(),
+       size:"large",
+       buttons: [
+        {
+         label: '<i class="fa fa-times"></i> ' + i18next.t("Delete"),
+         className: "btn btn-warning",
+         callback: function() {
+            bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function(result){
+              if (result) {
+                $('#select-share-persons :selected').each(function(i, sel){
+                  var personID = $(sel).val();
+
+                  window.CRM.APIRequest({
+                     method: 'POST',
+                     path: 'sharedocument/deleteperson',
+                     data: JSON.stringify({"noteId":noteId,"personID": personID})
+                  }, function(data) {
+                    $("#select-share-persons option[value='"+personID+"']").remove();
+
+                    if (data.count == 0) {
+                      $(state).css('color', '#777');
+                      $(button).data('shared',0);
+                    }
+
+                    $("#person-group-Id").val("").trigger("change");
+                  });
+                });
+              }
+            });
+            return false;
+         }
+        },
+        {
+         label: '<i class="fa fa-stop-circle-o"></i> ' + i18next.t("Stop sharing"),
+         className: "btn btn-danger",
+         callback: function() {
+          bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function(result){
+            if (result) {
+              window.CRM.APIRequest({
+                 method: 'POST',
+                 path: 'sharedocument/cleardocument',
+                 data: JSON.stringify({"noteId":noteId})
+              }, function(data) {
+                addPersonsFromNotes(noteId);
+                $(state).css('color', '#777');
+                $(button).data('shared',0);
+                modal.modal("hide");
+                window.CRM.reloadEDriveTable();
+              });
+            }
+          });
+          return false;
+         }
+        },
+        {
+         label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
+         className: "btn btn-primary",
+         callback: function() {
+            window.CRM.reloadEDriveTable(function() {
+              uploadWindow.modal("hide");
+            });
+            return true;
+         }
+        },
+       ],
+       show: false,
+       onEscape: function() {
+          window.CRM.dataEDriveTable.ajax.reload(function(json) {
+            modal.modal("hide");
+            installDragAndDrop();
+          });
+       }
+     });
+
+    window.CRM.addSharedButtonsActions(noteId,isShared,button,state,modal);
+  }
 
   $(".shareNote").on('click', function (event) {
     var noteId = event.currentTarget.dataset.id;
@@ -296,6 +535,7 @@ $(function () {
     var state = button.find('.fa-stack-2x');
 
     var modal = bootbox.dialog({
+      title:i18next.t("Share your Document"),
       message: window.CRM.BootboxContentShareFiles(),
       size: "large",
       buttons: [
@@ -366,6 +606,8 @@ $(function () {
 
     window.CRM.addSharedButtonsActions(noteId, isShared, button, state, modal);
   });
+
+  // end of share notes
 
   $(".filter-timeline").on('change', function () {
     switch ($(this).val()) {

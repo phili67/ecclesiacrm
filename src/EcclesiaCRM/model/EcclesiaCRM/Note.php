@@ -33,17 +33,22 @@ class Note extends BaseNote
         $url = '<a href="#" data-id="' . $this->getId() . '" data-perid="';
 
         if ($this->getPerId() != '') {
-            $url .= $this->getPerId().'" data-famid="0" class="editDocument">';
+            $url .= $this->getPerId().'" data-famid="0" class="editDocument btn btn-primary btn-sm"';
         } else {
-            $url .= '0" data-famid="' . $this->getFamId() . '" class="editDocument">';
+            $url .= '0" data-famid="' . $this->getFamId() . '" class="editDocument btn btn-primary btn-sm"';
         }
+
+        $url .= 'data-toggle="tooltip" data-placement="bottom" title="'. _("Edit this document") .'">';
 
         return $url;
     }
 
     public function getDeleteLink()
     {
-        return '<a href="#" data-id="' . $this->getId() . '" data-perid="' . $this->getPerId() .'" data-famid="' . $this->getFamId() . '" class="deleteDocument">';
+        return '<a href="#" data-id="' . $this->getId() . '" data-perid="' . $this->getPerId() .'" 
+            data-famid="' . $this->getFamId() . '" 
+            data-toggle="tooltip" data-placement="bottom" title="'. _("Delete this document") .'"
+            class="btn btn-danger btn-sm deleteDocument">';
     }
 
     public function getDisplayEditedDate($format = 'Y-m-d H:i:s')// you have to set the time to 0-23, if not all the time are set to AM.

@@ -808,13 +808,13 @@ require $sRootDocument . '/Include/Header.php';
                                                 ?>
                                             </td>
                                             <td style="width: 20%;">
+                                                <div class="btn-group">
                                                 <?php
                                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                                     ?>
-                                                    <a class="AddToPeopleCart" data-cartpersonid="<?= $tmpPersonId ?>">
+                                                    <a class="AddToPeopleCart btn btn-default btn-xs" data-cartpersonid="<?= $tmpPersonId ?>">
                                                         <span class="fa-stack">
-                                                        <i class="fas fa-square fa-stack-2x"></i>
-                                                        <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
+                                                            <i class="fas fa-cart-plus fa-stack-1x fa-inverse fas-blue"></i>
                                                         </span>
                                                     </a>
                                                     <?php
@@ -822,23 +822,22 @@ require $sRootDocument . '/Include/Header.php';
 
                                                 if ($bOkToEdit) {
                                                     ?>
-                                                    <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $tmpPersonId ?>">
-                                                        <span class="fa-stack" style="color:green">
-                                                            <i class="fas fa-square fa-stack-2x"></i>
-                                                            <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
+                                                    <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $tmpPersonId ?>" class="btn btn-default btn-xs">
+                                                        <span class="fa-stack">
+                                                            <i class="fas fa-pencil-alt fa-stack-1x fa-inverse fas-green"></i>
                                                         </span>
                                                     </a>
-                                                    <a class="delete-person"
+                                                    <a class="delete-person btn btn-default btn-xs"
                                                        data-person_name="<?= $familyMember->getFullName() ?>"
                                                        data-person_id="<?= $tmpPersonId ?>" data-view="family">
-                                                            <span class="fa-stack" style="color:red">
-                                                                <i class="fas fa-square fa-stack-2x"></i>
-                                                                <i class="far fa-trash-alt fa-stack-1x fa-inverse"></i>
+                                                            <span class="fa-stack">
+                                                                <i class="far fa-trash-alt fa-stack-1x fa-inverse fas-red"></i>
                                                             </span>
                                                     </a>
                                                     <?php
                                                 }
                                                 ?>
+                                                </div>
                                             </td>
                                         </tr>
                                         <?php
@@ -1323,63 +1322,54 @@ require $sRootDocument . '/Include/Header.php';
 
                                     $note_content = $item['text']; // this assume only the last note is visible
                                     ?>
-                                    <div
-                                        class="type-<?= $item['type'] ?><?= (isset($item['style2']) ? " type-shared" : "") ?>">
+                                    <div class="type-<?= $item['type'] ?><?= (isset($item['style2']) ? " type-shared" : "") ?>">
                                         <!-- timeline icon -->
-                                        <i class="fa <?= $item['style'] ?> icon-<?= $item['type'] ?><?= (isset($item['style2']) ? " icon-shared" : "") ?>"></i>
+                                        <i class="fas <?= $item['style'] ?> icon-<?= $item['type'] ?><?= (isset($item['style2']) ? " icon-shared" : "") ?>"></i>
 
                                         <div class="timeline-item">
-                                                <span class="time">
-                     <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
-                      &nbsp;
-                     <?php
-                     if ($item['slim'] && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
-                         if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2)) {
-                             ?>
-                             <!--<a href="<?= $item['editLink'] ?>">-->
-                             <?= $item['editLink'] ?>
-                             <span class="fa-stack" data-toggle="tooltip" data-placement="bottom" title="<?= _("Edit this document") ?>">
-                          <i class="fas fa-square fa-stack-2x"></i>
-                          <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
-                        </span>
-                             </a>
-                             <?php
-                         }
-                         if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
-                             ?>
-                             <?= $item['deleteLink'] ?>
-                             <span class="fa-stack" data-toggle="tooltip" data-placement="bottom" title="<?= _("Delete this document") ?>">
-                          <i class="fas fa-square fa-stack-2x" style="color:red"></i>
-                          <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
-                        </span>
-                             </a>
-                             <?php
-                         }
-                         if (!isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
-                             ?>
-                             <span class="fa-stack shareNote" data-id="<?= $item['id'] ?>"
-                                   data-shared="<?= $item['isShared'] ?>"
-                                   data-toggle="tooltip" data-placement="bottom" title="<?= _("Share this document to another user") ?>">
-                          <i class="fas fa-square fa-stack-2x"
-                             style="color:<?= $item['isShared'] ? "green" : "#777" ?>"></i>
-                          <i class="fas fa-share-square fa-stack-1x fa-inverse"></i>
-                        </span>
-                             <?php
-                         }
-                     } ?>
+                                            <span class="time">
+                                                <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
+                                                &nbsp;
+                                                <div class="btn-group">
                                                     <?php
-                                                    if ($item['type'] == 'note' && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()) {
-                                                        ?>
-                                                        <span class="fa-stack saveNoteAsWordFile"
-                                                              data-id="<?= $item['id'] ?>"
-                                                              data-toggle="tooltip" data-placement="bottom" title="<?= _("Export this document to word Format") ?>">
-                          <i class="fas fa-square fa-stack-2x" style="color:#001FFF"></i>
-                          <i class="fas fa-file-word fa-stack-1x fa-inverse"></i>
-                        </span>
-                                                        <?php
-                                                    }
-                                                    ?>
-                    </span>
+                                                    if ($item['slim'] && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
+                                                        if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2)) {
+                                                            ?>                            
+                                                            <!--<a href="<?= $item['editLink'] ?>">-->
+                                                            <?= $item['editLink'] ?>
+                                                                <i class="fas fa-edit"></i>
+                                                            </a>
+                                                            <?php
+                                                        }
+                                                        if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
+                                                            ?>
+                                                            <?= $item['deleteLink'] ?>
+                                                                <i class="fas fa-trash-alt"></i>
+                                                            </a>
+                                                            <?php
+                                                        }
+                                                        if (!isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
+                                                            ?>
+                                                            <a href="#" data-id="<?= $item['id'] ?>"
+                                                                data-shared="<?= $item['isShared'] ?>" 
+                                                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Share this document to another user") ?>"
+                                                                class="shareNote btn btn-<?= $item['isShared'] ? "success" : "default" ?> btn-sm">                                
+                                                                <i class="fas fa-share-square"></i>
+                                                            </a>                            
+                                                            <?php
+                                                        }
+                                                        if ($item['type'] == 'note' && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()) {
+                                                            ?>
+                                                            <a href="#" data-id="<?= $item['id'] ?>"
+                                                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Export this document to word Format") ?>"
+                                                                class="saveNoteAsWordFile btn btn-<?= $item['isShared'] ? "primary" : "default" ?> btn-sm">                                
+                                                                <i class="fas fa-file-word"></i>
+                                                            </a>                           
+                                                            <?php
+                                                        }                    
+                                                    } ?>
+                                                </div>
+                                            </span>                                        
 
                                             <?php
                                             if (isset($item['style2'])) {
@@ -1427,47 +1417,45 @@ require $sRootDocument . '/Include/Header.php';
                                             if ((SessionUser::getUser()->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
                                                 ?>
                                                 <div class="timeline-footer">
-                                                    <?php
-                                                    if (!$item['slim']) {
-                                                        if ($item['editLink'] != '') {
-                                                            ?>
-                                                            <?= $item['editLink'] ?>
-                                                            <button type="button" class="btn btn-primary editDocument"
-                                                                    data-id="<?= $item['id'] ?>"
-                                                                    data-perid="<?= $item['perID'] ?>" data-famid="0"><i
-                                                                    class="fas fa-edit"></i></button>
-                                                            </button>
-                                                            <?php
-                                                        }
+                                                    <div class="btn-group">
+                                                        <?php
+                                                        if (!$item['slim']) {
+                                                            if ($item['editLink'] != '') {
+                                                                ?>
+                                                                <?= $item['editLink'] ?>
+                                                                    <i class="fas fa-edit"></i>
+                                                                </a>
+                                                                <?php
+                                                            }
 
-                                                        if ($item['deleteLink'] != '') {
-                                                            ?>
-                                                            <?= $item['deleteLink'] ?>
-                                                            <button type="button" class="btn btn-danger"><i
-                                                                    class="fas fa-trash-alt"></i></button>
-                                                            </button>
-                                                            <?php
-                                                        }
+                                                            if ($item['deleteLink'] != '') {
+                                                                ?>
+                                                                <?= $item['deleteLink'] ?>
+                                                                    <i class="fas fa-trash-alt"></i></button>
+                                                                </a>
+                                                                <?php
+                                                            }
 
-                                                        if (!isset($item['sharePersonID'])) {
+                                                            if (!isset($item['sharePersonID'])) {
+                                                                ?>
+                                                                <button type="button" data-id="<?= $item['id'] ?>"
+                                                                        data-shared="<?= $item['isShared'] ?>"
+                                                                        class="btn btn-sm  btn-<?= $item['isShared'] ? "success" : "default"
+                                                                        ?> shareNote">
+                                                                        <i class="fas fa-share-square"></i>
+                                                                </button>
+                                                                <?php
+                                                            }
                                                             ?>
                                                             <button type="button" data-id="<?= $item['id'] ?>"
                                                                     data-shared="<?= $item['isShared'] ?>"
-                                                                    class="btn btn-<?= $item['isShared'] ? "success" : "default"
-                                                                    ?> shareNote"><i class="fas fa-share-square"></i>
+                                                                    class="btn btn-sm  btn-<?= $item['isShared'] ? "primary" : "default"?> saveNoteAsWordFile">
+                                                                    <i class="fas fa-file-word"></i>
                                                             </button>
-                                                            <?php
+                                                        <?php
                                                         }
                                                         ?>
-                                                        <button type="button" data-id="<?= $item['id'] ?>"
-                                                                data-shared="<?= $item['isShared'] ?>"
-                                                                class="btn btn-<?= $item['isShared'] ? "success" : "default"
-                                                                ?> shareNote"><i class="fas fa-share-square"></i>
-                                                        </button>
-
-                                                        <?php
-                                                    }
-                                                    ?>
+                                                    </div>
                                                 </div>
                                                 <?php
                                             } ?>
