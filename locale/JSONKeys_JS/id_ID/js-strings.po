@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
+"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,12 +35,12 @@ msgstr "Klasifikasi"
 msgid "Family Role"
 msgstr "Keluarga Role"
 
-msgid "Compose New Message"
-msgstr ""
-
 #, fuzzy
 msgid "Subject:"
 msgstr "Subjek"
+
+msgid "Compose New Message"
+msgstr ""
 
 msgid "Close"
 msgstr "Dekat"
@@ -69,6 +69,10 @@ msgid ""
 msgstr ""
 "Semua daftar yang terisi di Ecclesia, CRM di luar negeri. Ini adalah B. Jika "
 "kau ingin mengelola mereka, klik pemberitahuan ini! ABS-B-"
+
+#, fuzzy
+msgid "In progress"
+msgstr "Sedang dalam proses..."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Ada masalah mengambil objek yang diminta"
@@ -469,9 +473,6 @@ msgstr "Video"
 msgid "Description"
 msgstr "Deskripsi"
 
-msgid "Include/Exclude your Calendars in the SideBar"
-msgstr "Include/Exclude kalender Anda di SideBar"
-
 msgid "Calendars"
 msgstr "Kalender"
 
@@ -487,11 +488,11 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Include/Exclude kalender Anda di SideBar"
+
 msgid "Ok"
 msgstr "Ok"
-
-msgid "Share your Calendar"
-msgstr "Berbagi kalender Anda"
 
 msgid "With"
 msgstr "Dengan"
@@ -516,6 +517,9 @@ msgstr "Kirim pesan email"
 
 msgid "Add persons/Family/groups"
 msgstr "Tambahkan orang-orang/Keluarga/kelompok"
+
+msgid "Share your Calendar"
+msgstr "Berbagi kalender Anda"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Apakah Anda yakin, Anda ingin menghapus Share ini?"
@@ -1003,9 +1007,6 @@ msgstr "Checkout Date"
 msgid "Checkout By"
 msgstr "Checkout By"
 
-msgid "QR Code : Call the register"
-msgstr "Panggil daftar"
-
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
@@ -1014,6 +1015,9 @@ msgstr ""
 
 msgid "no detected QR Code"
 msgstr "tidak terdeteksi kode QR"
+
+msgid "QR Code : Call the register"
+msgstr "Panggil daftar"
 
 msgid "Loading video..."
 msgstr "Memuat video..."
@@ -1248,14 +1252,8 @@ msgstr "Status Grup Cart"
 msgid "All members of this group are in the cart"
 msgstr "Semua anggota kelompok ini berada di kereta"
 
-msgid "Remove all"
-msgstr "Hapus semua"
-
 msgid "Not all members of this group are in the cart"
 msgstr "Tidak semua anggota kelompok ini berada di kereta"
-
-msgid "Add all"
-msgstr "Tambahkan semua"
 
 msgid "Cart isn't showable"
 msgstr "Mobil tidak bisa dipamerkan"
@@ -1316,17 +1314,17 @@ msgstr "Kode Zip"
 msgid "Cell Phone"
 msgstr "Ponsel"
 
-msgid "Remove Selected Members"
-msgstr "Hapus Anggota yang Dipilih"
-
 msgid "You're about to delete all the group members ?"
 msgstr "Kau akan menghapus semua anggota grup?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Apakah Anda yakin? Ini tidak bisa dibatalkan."
 
-msgid "Action to selected members"
-msgstr ""
+msgid "Add"
+msgstr "Add"
+
+msgid "Members to cart"
+msgstr "Anggota ke gerobak"
 
 msgid "Add to Cart"
 msgstr "Tambahkan ke Cart"
@@ -1340,12 +1338,6 @@ msgstr "Pindah ke Grup"
 msgid "Remove all members"
 msgstr "Hapus semua anggota"
 
-msgid "Add"
-msgstr "Add"
-
-msgid "Members to cart"
-msgstr "Anggota ke gerobak"
-
 msgid "Move"
 msgstr "Bergerak"
 
@@ -1358,11 +1350,11 @@ msgstr "Lepaskan dari Cart"
 msgid "No assigned Manager"
 msgstr "Tidak ada Manager yang ditugaskan"
 
-msgid "Manage Group Managers"
-msgstr "Manajer Grup Manajer"
-
 msgid "Add users"
 msgstr "Menambahkan pengguna"
+
+msgid "Manage Group Managers"
+msgstr "Manajer Grup Manajer"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Apakah Anda yakin, Anda ingin menghapus Manager ini?"
@@ -1598,6 +1590,10 @@ msgstr "Aktifkan"
 
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Kau yakin ingin menghapus keanggotaan orang ini"
+
+#, fuzzy
+msgid "Share your Document"
+msgstr "Atur gelar dokumenmu"
 
 msgid "Change classification"
 msgstr "Mengubah klasifikasi"
@@ -1974,11 +1970,11 @@ msgstr ""
 msgid "The user must have an email address."
 msgstr "Pengguna pasti punya alamat email."
 
-msgid "Role management"
-msgstr "Manajemen Role"
-
 msgid "Select your Role"
 msgstr "Pilih Role-mu"
+
+msgid "Role management"
+msgstr "Manajemen Role"
 
 msgid "Are you sure? You're about to delete this Role."
 msgstr "Kau yakin? Kau akan menghapus Role ini."
@@ -2140,9 +2136,6 @@ msgstr "Untuk lebih banyak info melihat kita"
 msgid "support docs."
 msgstr "dukungan docs."
 
-msgid "List Creation"
-msgstr "Penciptaan daftar"
-
 msgid "List Title"
 msgstr "Daftar gelar"
 
@@ -2160,6 +2153,9 @@ msgstr "Arsip Bars"
 
 msgid "Public"
 msgstr "Publik"
+
+msgid "List Creation"
+msgstr "Penciptaan daftar"
 
 msgid "People"
 msgstr "Orang-orang"
@@ -2303,9 +2299,6 @@ msgstr ""
 "kembali membukanya untuk mengatur daftar. Untuk menghapus data besar, "
 "MailChimp API lambat."
 
-msgid "Email Campaign Creation"
-msgstr "Kejadian Kampanye Email"
-
 msgid "Campaign Title"
 msgstr "Judul Kampanye"
 
@@ -2323,6 +2316,9 @@ msgstr "Subjek Mail-mu"
 
 msgid "All list members"
 msgstr "Semua anggota daftar"
+
+msgid "Email Campaign Creation"
+msgstr "Kejadian Kampanye Email"
 
 msgid "Adding Campaign ..."
 msgstr "Menambahkan Kampanye..."
@@ -2452,9 +2448,6 @@ msgstr "Kunjungan terakhir/panggilan"
 msgid "Delete Pastoral Care Type"
 msgstr "Hapus Pastor Care Tipe"
 
-msgid "Pastoral Care Note Creation"
-msgstr "Pendeta Perawatan Pastor"
-
 msgid "For every administrator"
 msgstr "Untuk setiap administrator"
 
@@ -2469,6 +2462,9 @@ msgstr "Termasuk semua anggota keluarga"
 
 msgid "Include"
 msgstr "Termasuk"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Pendeta Perawatan Pastor"
 
 msgid "Last Name (Family Name)"
 msgstr "Nama terakhir (nama keluarga)"
@@ -2523,6 +2519,15 @@ msgstr "Pembeli Editor"
 
 msgid "Select"
 msgstr "Pilih"
+
+#~ msgid "Remove all"
+#~ msgstr "Hapus semua"
+
+#~ msgid "Add all"
+#~ msgstr "Tambahkan semua"
+
+#~ msgid "Remove Selected Members"
+#~ msgstr "Hapus Anggota yang Dipilih"
 
 #~ msgid ""
 #~ "Use this method to share files with individuals or teams within your "

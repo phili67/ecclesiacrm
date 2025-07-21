@@ -1,7 +1,6 @@
 {
     "Remove": "Видалити",
     "Edit": "Редагувати",
-    "News Editor": "Редактор новин",
     "News Title": "Назва новини",
     "Set your News title": "Налаштуйте заголовок новини",
     "Choose your News Type": "Виберіть тип новини",
@@ -10,5 +9,6 @@
     "To note": "На замітку",
     "Important": "Важливо",
     "Very important": "Дуже важливо",
+    "News Editor": "Редактор новин",
     "You have to set a Title for your news": "Ви маєте встановити заголовок для вашої новини"
 }

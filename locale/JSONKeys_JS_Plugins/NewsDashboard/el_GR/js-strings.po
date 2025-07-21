@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08T12:26:32.744Z\n"
+"POT-Creation-Date: 2025-07-21T13:16:32.560Z\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,9 +14,6 @@ msgstr "Αφαιρέστε το"
 
 msgid "Edit"
 msgstr "Επεξεργασία"
-
-msgid "News Editor"
-msgstr "Συντάκτης ειδήσεων"
 
 msgid "News Title"
 msgstr "Τίτλος ειδήσεων"
@@ -41,6 +38,9 @@ msgstr "Σημαντικό"
 
 msgid "Very important"
 msgstr "Πολύ σημαντικό"
+
+msgid "News Editor"
+msgstr "Συντάκτης ειδήσεων"
 
 msgid "You have to set a Title for your news"
 msgstr "Πρέπει να ορίσετε έναν τίτλο για τις ειδήσεις σας"

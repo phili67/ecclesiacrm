@@ -1,7 +1,6 @@
 {
     "Remove": "제거",
     "Edit": "편집",
-    "News Editor": "뉴스 편집기",
     "News Title": "뉴스 제목",
     "Set your News title": "뉴스 제목 설정",
     "Choose your News Type": "뉴스 유형 선택",
@@ -10,5 +9,6 @@
     "To note": "참고 사항",
     "Important": "중요",
     "Very important": "매우 중요",
+    "News Editor": "뉴스 편집기",
     "You have to set a Title for your news": "뉴스 제목을 설정해야 합니다."
 }

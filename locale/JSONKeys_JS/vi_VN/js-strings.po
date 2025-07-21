@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-06-06T15:19:56.829Z\n"
+"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,12 +36,12 @@ msgstr "Tuyệt mật"
 msgid "Family Role"
 msgstr "Gia đình Role"
 
-msgid "Compose New Message"
-msgstr ""
-
 #, fuzzy
 msgid "Subject:"
 msgstr "Đối tượng"
+
+msgid "Compose New Message"
+msgstr ""
 
 msgid "Close"
 msgstr "Gần đúng."
@@ -70,6 +70,10 @@ msgid ""
 msgstr ""
 "Tất cả các danh sách đã được nạp vào năm 1998<b>CRM</b>.<br><b>Nếu bạn muốn "
 "quản lý họ, hãy nhấp vào thông báo này!</b>"
+
+#, fuzzy
+msgid "In progress"
+msgstr "Đang tiến hành..."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Có một vấn đề lấy lại được vật yêu cầu"
@@ -471,9 +475,6 @@ msgstr "Video"
 msgid "Description"
 msgstr "Mô tả"
 
-msgid "Include/Exclude your Calendars in the SideBar"
-msgstr "Bao gồm cả lịch trình của anh ở Sidebar"
-
 msgid "Calendars"
 msgstr "Lịch"
 
@@ -489,11 +490,11 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Bao gồm cả lịch trình của anh ở Sidebar"
+
 msgid "Ok"
 msgstr "Được rồi."
-
-msgid "Share your Calendar"
-msgstr "Chia sẻ lịch đi"
 
 msgid "With"
 msgstr "Với"
@@ -518,6 +519,9 @@ msgstr "Gửi email thông báo"
 
 msgid "Add persons/Family/groups"
 msgstr "Cộng thêm người/gia đình"
+
+msgid "Share your Calendar"
+msgstr "Chia sẻ lịch đi"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Anh có chắc là muốn xóa đoạn chia sẻ này không?"
@@ -1000,9 +1004,6 @@ msgstr "Ngày kiểm tra"
 msgid "Checkout By"
 msgstr "Kiểm tra trước"
 
-msgid "QR Code : Call the register"
-msgstr "Mã QR : Gọi cho máy tính tiền"
-
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
@@ -1011,6 +1012,9 @@ msgstr ""
 
 msgid "no detected QR Code"
 msgstr "không phát hiện mã QR"
+
+msgid "QR Code : Call the register"
+msgstr "Mã QR : Gọi cho máy tính tiền"
 
 msgid "Loading video..."
 msgstr "Đang tải video..."
@@ -1248,14 +1252,8 @@ msgstr "Tình trạng tập thể"
 msgid "All members of this group are in the cart"
 msgstr "Tất cả các thành viên trong nhóm đều ở trong xe"
 
-msgid "Remove all"
-msgstr "Loại bỏ tất cả"
-
 msgid "Not all members of this group are in the cart"
 msgstr "Không phải tất cả thành viên trong nhóm này đều nằm trong xe"
-
-msgid "Add all"
-msgstr "Cộng tất cả"
 
 msgid "Cart isn't showable"
 msgstr "Cái xe không được cho thấy"
@@ -1317,17 +1315,17 @@ msgstr "Mã Zip"
 msgid "Cell Phone"
 msgstr "Điện thoại di động"
 
-msgid "Remove Selected Members"
-msgstr ""
-
 msgid "You're about to delete all the group members ?"
 msgstr "Anh định xóa hết các thành viên nhóm à?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Anh chắc chứ? Chuyện này không thể hủy được."
 
-msgid "Action to selected members"
-msgstr ""
+msgid "Add"
+msgstr "Thêm"
+
+msgid "Members to cart"
+msgstr "Các thành viên lên xe"
 
 msgid "Add to Cart"
 msgstr "Thêm vào Cart"
@@ -1344,12 +1342,6 @@ msgstr "Lựa chọn tập đoàn"
 msgid "Remove all members"
 msgstr "Loại bỏ tất cả"
 
-msgid "Add"
-msgstr "Thêm"
-
-msgid "Members to cart"
-msgstr "Các thành viên lên xe"
-
 msgid "Move"
 msgstr "Đi"
 
@@ -1362,12 +1354,12 @@ msgstr "Rời khỏi Cart"
 msgid "No assigned Manager"
 msgstr "Không quản lý nào"
 
-msgid "Manage Group Managers"
-msgstr "Quản lý tập đoàn quản lý"
-
 #, fuzzy
 msgid "Add users"
 msgstr "Người mua thêm"
+
+msgid "Manage Group Managers"
+msgstr "Quản lý tập đoàn quản lý"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Anh có chắc là muốn xóa tên quản lý này không?"
@@ -1605,6 +1597,10 @@ msgstr "Kích hoạt"
 
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Anh có chắc là muốn loại bỏ thành viên của người này không?"
+
+#, fuzzy
+msgid "Share your Document"
+msgstr "Đặt tên của anh đi"
 
 msgid "Change classification"
 msgstr "Thay đổi phân loại"
@@ -1979,11 +1975,11 @@ msgstr ""
 msgid "The user must have an email address."
 msgstr "Người dùng phải có địa chỉ email."
 
-msgid "Role management"
-msgstr "Quản lý Role"
-
 msgid "Select your Role"
 msgstr "Chọn Role đi"
+
+msgid "Role management"
+msgstr "Quản lý Role"
 
 msgid "Are you sure? You're about to delete this Role."
 msgstr "Anh chắc chứ? Anh sắp xóa đoạn này rồi."
@@ -2143,9 +2139,6 @@ msgstr "Để có thêm thông tin xem"
 msgid "support docs."
 msgstr "hỗ trợ bác sĩ."
 
-msgid "List Creation"
-msgstr "Tạo hóa List"
-
 msgid "List Title"
 msgstr "List Title"
 
@@ -2163,6 +2156,9 @@ msgstr "Quán Archive Bars"
 
 msgid "Public"
 msgstr "Công chúng"
+
+msgid "List Creation"
+msgstr "Tạo hóa List"
 
 msgid "People"
 msgstr "Mọi người"
@@ -2304,9 +2300,6 @@ msgstr ""
 "kiểm soát danh sách của bạn.<br>để xóa dữ liệu khổng lồ, Mailchimp API là "
 "chậm."
 
-msgid "Email Campaign Creation"
-msgstr "Tạo ra chiến dịch Email"
-
 msgid "Campaign Title"
 msgstr "Chiến dịch Title"
 
@@ -2324,6 +2317,9 @@ msgstr "Vật thể bức thư của anh"
 
 msgid "All list members"
 msgstr "Tất cả các thành viên"
+
+msgid "Email Campaign Creation"
+msgstr "Tạo ra chiến dịch Email"
 
 msgid "Adding Campaign ..."
 msgstr "Cộng tác chiến tranh..."
@@ -2454,9 +2450,6 @@ msgstr "Chuyến viếng thăm cuối cùng"
 msgid "Delete Pastoral Care Type"
 msgstr "Xóa mục sư Care Type"
 
-msgid "Pastoral Care Note Creation"
-msgstr "Tạo vật mục sư Care Note"
-
 msgid "For every administrator"
 msgstr "Cho tất cả các nhà quản lý"
 
@@ -2471,6 +2464,9 @@ msgstr "Bao gồm tất cả những thành viên trong gia đình"
 
 msgid "Include"
 msgstr "Bao gồm cả"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Tạo vật mục sư Care Note"
 
 msgid "Last Name (Family Name)"
 msgstr "Tên cuối cùng (Tên gia đình)"
@@ -2525,6 +2521,12 @@ msgstr "Biên tập viên số khách hàng"
 
 msgid "Select"
 msgstr "Chọn đi"
+
+#~ msgid "Remove all"
+#~ msgstr "Loại bỏ tất cả"
+
+#~ msgid "Add all"
+#~ msgstr "Cộng tất cả"
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "Bạn sắp lấy một tập tài liệu và nó là nội dung"

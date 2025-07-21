@@ -1,7 +1,6 @@
 {
     "Remove": "Αφαιρέστε το",
     "Edit": "Επεξεργασία",
-    "News Editor": "Συντάκτης ειδήσεων",
     "News Title": "Τίτλος ειδήσεων",
     "Set your News title": "Ορίστε τον τίτλο των Ειδήσεων σας",
     "Choose your News Type": "Επιλέξτε τον τύπο ειδήσεων σας",
@@ -10,5 +9,6 @@
     "To note": "Να σημειωθεί",
     "Important": "Σημαντικό",
     "Very important": "Πολύ σημαντικό",
+    "News Editor": "Συντάκτης ειδήσεων",
     "You have to set a Title for your news": "Πρέπει να ορίσετε έναν τίτλο για τις ειδήσεις σας"
 }

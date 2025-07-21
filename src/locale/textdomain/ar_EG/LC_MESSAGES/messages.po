@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-06 16:13+0000\n"
+"POT-Creation-Date: 2025-07-21 13:15+0000\n"
 "Language: ar-EG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +56,7 @@ msgstr "العنوان"
 #: v2/templates/people/familyEditor.php:1080
 #: v2/templates/people/personEditor.php:900
 #: v2/templates/people/personlist.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:258
+#: v2/templates/sundayschool/sundayschooldashboard.php:257
 #: v2/templates/system/csvExport.php:63 v2/templates/user/userlist.php:52
 msgid "First Name"
 msgstr "الاسم الأول"
@@ -78,7 +78,7 @@ msgstr "الاسم الأوسط"
 #: v2/templates/deposit/manageEnvelopes.php:157
 #: v2/templates/people/familyEditor.php:1082
 #: v2/templates/people/personEditor.php:922
-#: v2/templates/sundayschool/sundayschooldashboard.php:259
+#: v2/templates/sundayschool/sundayschooldashboard.php:258
 #: v2/templates/system/csvExport.php:53
 msgid "Last Name"
 msgstr "الاسم الأخير"
@@ -281,8 +281,8 @@ msgstr "هاتف خليوي"
 #: v2/templates/people/personPrint.php:340
 #: v2/templates/people/personview.php:283
 #: v2/templates/people/personview.php:411
-#: v2/templates/people/personview.php:778
-#: v2/templates/sundayschool/sundayschooldashboard.php:107
+#: v2/templates/people/personview.php:774
+#: v2/templates/sundayschool/sundayschooldashboard.php:108
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:135
 #: v2/templates/system/eventAttendance.php:197 queryparameteroptions_qpo.php:13
@@ -300,7 +300,7 @@ msgstr "العمل/البريد الإلكتروني الآخر"
 #: v2/templates/pastoralcare/pastoralcareperson.php:236
 #: v2/templates/people/personPrint.php:290
 #: v2/templates/people/personview.php:227
-#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschooldashboard.php:259
 #: v2/templates/sundayschool/sundayschoolview.php:317
 msgid "Birth Date"
 msgstr "تاريخ الولادة"
@@ -398,8 +398,8 @@ msgstr "بلد سقوط إذا لم يحدد أي منها خلاف ذلك"
 #: EcclesiaCRM/APIControllers/SearchController.php:256
 #: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:395
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1035
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1047
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1065
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1077
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:83
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/utils/OutputUtils.php:387 EcclesiaCRM/utils/OutputUtils.php:448
@@ -632,7 +632,7 @@ msgstr "فيديو"
 #: v2/templates/people/personPrint.php:382
 #: v2/templates/people/personPrint.php:638
 #: v2/templates/people/personPrint.php:697
-#: v2/templates/people/personview.php:977
+#: v2/templates/people/personview.php:972
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
 msgstr "لا أحد"
@@ -735,19 +735,19 @@ msgstr "عربتك قد أفرغت بنجاح"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:173
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:871
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:876
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:698
 #: uploader/upload.php:82
 msgid "Create file"
 msgstr "إبتكر ملف"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
-#: EcclesiaCRM/Service/TimelineService.php:257
+#: EcclesiaCRM/Service/TimelineService.php:261
 msgid "This document is opened by"
 msgstr "1- افتتحت هذه الوثيقة"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
-#: EcclesiaCRM/Service/TimelineService.php:257
+#: EcclesiaCRM/Service/TimelineService.php:261
 msgid "Minutes left"
 msgstr "غادرت دقائق"
 
@@ -761,25 +761,25 @@ msgstr "فولدر"
 msgid "Document not found"
 msgstr "لم يتم العثور على الوثيقة"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:406
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:445
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:404
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:443
 msgid "Right of access to folder problem"
 msgstr "الحق في الوصول إلى مشكلة الوصول إلى المجلد"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:471
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:823
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:469
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:828
 msgid "Contact error at api"
 msgstr "خطأ في الاتصال بـ api"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:498
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:496
 msgid "You can't erase the public folder !"
 msgstr "لا يمكنك محو الملف العام"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:506
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:538
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:504
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:536
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:608
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:680
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:787
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:792
 msgid "Right of access to the file or folder the prohibited recording"
 msgstr "حق الوصول إلى الملف أو المجلد المحظور التسجيل المحظور"
 
@@ -811,15 +811,20 @@ msgstr "ملف"
 msgid "New Folder"
 msgstr "فولدر الجديد"
 
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:774
+#, fuzzy
+msgid "can't rename public folder"
+msgstr "لا يمكنك محو الملف العام"
+
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: v2/templates/edrive/dashboard.php:103
+#: browser/browse.php:126 v2/templates/edrive/dashboard.php:104
 msgid "[👀  ]"
 msgstr "[👀  ]"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: v2/templates/edrive/dashboard.php:104
+#: browser/browse.php:127 v2/templates/edrive/dashboard.php:105
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
@@ -914,7 +919,7 @@ msgstr "الأشخاص"
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:109
 #: v2/templates/people/peoplelist.php:20 v2/templates/people/peoplelist.php:44
-#: v2/templates/sundayschool/sundayschooldashboard.php:61
+#: v2/templates/sundayschool/sundayschooldashboard.php:62
 msgid "Families"
 msgstr "الأسر"
 
@@ -1200,7 +1205,7 @@ msgstr "نوع المجموعة"
 #: v2/templates/people/familyview.php:338
 #: v2/templates/people/personPrint.php:405
 #: v2/templates/people/personPrint.php:470
-#: v2/templates/people/personview.php:776
+#: v2/templates/people/personview.php:772
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:726
@@ -1381,7 +1386,7 @@ msgstr "محرر خيارات قوائم الجمارك العائلية"
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:37
 #: EcclesiaCRM/Service/ConfirmReportService.php:132
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1398
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1428
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
 #: Include/Footer.php:85 Reports/GDPR/GDPRDataStructureExport.php:84
 #: v2/templates/deposit/autaPaymentEditor.php:801
@@ -1403,7 +1408,7 @@ msgstr "الشخص"
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
 #: EcclesiaCRM/Service/ConfirmReportService.php:636
-#: EcclesiaCRM/Service/TimelineService.php:218
+#: EcclesiaCRM/Service/TimelineService.php:222
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: EcclesiaCRM/dto/ReportUtilities.php:71 Include/Footer.php:68
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -1732,7 +1737,7 @@ msgstr "تغيير كلمة السر"
 msgid "Change Settings"
 msgstr "تغيير التجهيزات"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:116 v2/templates/people/familyview.php:471
+#: EcclesiaCRM/MenuBar/MenuBar.php:116 v2/templates/people/familyview.php:470
 #: v2/templates/people/personPrint.php:591
 #: v2/templates/people/personview.php:654
 msgid "Documents"
@@ -1809,7 +1814,7 @@ msgid "Meta Search Engine"
 msgstr "محرك البحث ميتا"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:206
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1202
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1232
 msgid "Directory reports"
 msgstr "تقارير الدليل"
 
@@ -1997,7 +2002,7 @@ msgstr "الميلاد"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 Reports/CanvassReports.php:278
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:408
 #: v2/templates/people/personPrint.php:406
-#: v2/templates/sundayschool/sundayschooldashboard.php:261
+#: v2/templates/sundayschool/sundayschooldashboard.php:260
 msgid "Age"
 msgstr "العمر"
 
@@ -2013,8 +2018,8 @@ msgstr "ألف - البيانات"
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:105
 #: Reports/ClassAttendance.php:97 Reports/ClassAttendance.php:256
 #: Reports/ClassList.php:218 Reports/PhotoBook.php:70
-#: v2/templates/sundayschool/sundayschooldashboard.php:38
-#: v2/templates/sundayschool/sundayschooldashboard.php:208
+#: v2/templates/sundayschool/sundayschooldashboard.php:39
+#: v2/templates/sundayschool/sundayschooldashboard.php:211
 #: v2/templates/sundayschool/sundayschoolview.php:148
 msgid "Teachers"
 msgstr "المعلمون"
@@ -2096,7 +2101,7 @@ msgstr "الكبار/الطفل"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:185
 #: v2/templates/people/familyview.php:340
-#: v2/templates/people/personview.php:777
+#: v2/templates/people/personview.php:773
 msgid "Birthday"
 msgstr "عيد الميلاد"
 
@@ -2192,8 +2197,8 @@ msgstr "الجرار"
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:269
 #: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
 #: Reports/PhotoBook.php:72
-#: v2/templates/sundayschool/sundayschooldashboard.php:49
-#: v2/templates/sundayschool/sundayschooldashboard.php:209
+#: v2/templates/sundayschool/sundayschooldashboard.php:50
+#: v2/templates/sundayschool/sundayschooldashboard.php:212
 #: v2/templates/sundayschool/sundayschoolview.php:250
 msgid "Students"
 msgstr "الطلاب"
@@ -2299,16 +2304,16 @@ msgstr "الأعضاء"
 #: v2/templates/people/familylist.php:110
 #: v2/templates/people/familylist.php:111
 #: v2/templates/people/familyview.php:180
-#: v2/templates/people/familyview.php:862 v2/templates/people/personlist.php:98
+#: v2/templates/people/familyview.php:857 v2/templates/people/personlist.php:98
 #: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
 #: v2/templates/people/personlist.php:101
 #: v2/templates/people/personlist.php:102
 #: v2/templates/people/personlist.php:103
 #: v2/templates/people/personview.php:344
-#: v2/templates/people/personview.php:1495
-#: v2/templates/sundayschool/sundayschooldashboard.php:296
-#: v2/templates/sundayschool/sundayschooldashboard.php:297
-#: v2/templates/sundayschool/sundayschooldashboard.php:298
+#: v2/templates/people/personview.php:1479
+#: v2/templates/sundayschool/sundayschooldashboard.php:292
+#: v2/templates/sundayschool/sundayschooldashboard.php:293
+#: v2/templates/sundayschool/sundayschooldashboard.php:294
 #: v2/templates/sundayschool/sundayschoolview.php:161
 msgid "Private Data"
 msgstr "بيانات خاصة"
@@ -2335,7 +2340,7 @@ msgstr "ملكيات العائلات"
 
 #: EcclesiaCRM/Search/FamilySearchRes.php:44
 #: EcclesiaCRM/Service/PersonService.php:49
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1400
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1430
 msgid "family"
 msgstr "الأسرة"
 
@@ -2480,22 +2485,22 @@ msgid "Anniversary"
 msgstr "الذكرى السنوية"
 
 #: EcclesiaCRM/Service/CalendarService.php:1398
-#: EcclesiaCRM/Service/ConfirmReportService.php:541
+#: EcclesiaCRM/Service/ConfirmReportService.php:541 browser/browse.php:100
 #: ident/templates/verify/verify-family-info.php:47
 #: ident/templates/verify/verify-person-info.php:62
 #: v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/calendar/eventnames.php:347
 #: v2/templates/deposit/electronicPaymentList.php:301
 #: v2/templates/deposit/finddepositslip.php:103
-#: v2/templates/edrive/dashboard.php:77
+#: v2/templates/edrive/dashboard.php:78
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/pastoralcare/pastoralcarefamily.php:299
 #: v2/templates/pastoralcare/pastoralcarefamily.php:306
 #: v2/templates/pastoralcare/pastoralcareperson.php:431
 #: v2/templates/pastoralcare/pastoralcareperson.php:438
-#: v2/templates/people/familyview.php:890
-#: v2/templates/people/personview.php:1524 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/familyview.php:885
+#: v2/templates/people/personview.php:1508 v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "تحذف"
 
@@ -2608,7 +2613,7 @@ msgstr "تعديل"
 #: EcclesiaCRM/Service/ConfirmReportService.php:679
 #: EcclesiaCRM/Service/ConfirmReportService.php:725
 #: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:262
+#: v2/templates/sundayschool/sundayschooldashboard.php:261
 msgid "Home Address"
 msgstr "العنوان المنزلي"
 
@@ -2657,28 +2662,28 @@ msgstr "من الـ"
 msgid "(No assigned family)"
 msgstr "(لا توجد أسرة مسندة)"
 
-#: EcclesiaCRM/Service/TimelineService.php:223
+#: EcclesiaCRM/Service/TimelineService.php:227
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:140
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:793
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:801
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1165
 msgid "Unknown"
 msgstr "مجهول"
 
-#: EcclesiaCRM/Service/TimelineService.php:225
+#: EcclesiaCRM/Service/TimelineService.php:229
 msgid "Self Registration"
 msgstr "تسجيل الذات"
 
-#: EcclesiaCRM/Service/TimelineService.php:227
+#: EcclesiaCRM/Service/TimelineService.php:231
 msgid "Self Verification"
 msgstr "التحقق الذاتي"
 
-#: EcclesiaCRM/Service/TimelineService.php:268
-#: EcclesiaCRM/Service/TimelineService.php:271
+#: EcclesiaCRM/Service/TimelineService.php:272
+#: EcclesiaCRM/Service/TimelineService.php:275
 #: v2/templates/people/lettersandlabels.php:201
 #: v2/templates/people/lettersandlabels.php:233
 #: v2/templates/people/personPrint.php:630
@@ -2688,12 +2693,12 @@ msgstr "التحقق الذاتي"
 msgid "by"
 msgstr "بواسطة"
 
-#: EcclesiaCRM/Service/TimelineService.php:332
+#: EcclesiaCRM/Service/TimelineService.php:336
 #: EcclesiaCRM/utils/MiscUtils.php:776 EcclesiaCRM/utils/MiscUtils.php:994
 msgid "File"
 msgstr "الملف"
 
-#: EcclesiaCRM/Service/TimelineService.php:367
+#: EcclesiaCRM/Service/TimelineService.php:371
 msgid "Shared by"
 msgstr "مشترك من قبل"
 
@@ -2746,7 +2751,7 @@ msgid "Single Persons"
 msgstr "شخص واحد"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:934
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:964
 #: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:16
 msgid "Family List"
 msgstr "قائمة الأسرة"
@@ -2768,92 +2773,92 @@ msgstr "قائمة الأشخاص"
 msgid "Person Editor"
 msgstr "محرر الشخصية"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:587
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:650
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:585
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:648
 #: v2/templates/group/groupPropsFormEditor.php:321
 msgid "Person Profile"
 msgstr "ملف شخصي"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:590
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:588
 msgid "Previous Person"
 msgstr "شخص سابق"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:597
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:595
 #: EcclesiaCRM/VIEWControllers/People/VIEWPersonListController.php:95
 #: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:16
 msgid "Person List"
 msgstr "قائمة الأشخاص"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:604
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:602
 msgid "Next Person"
 msgstr "الشخص التالي"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:924
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:954
 msgid "Family View"
 msgstr "مشاهدة العائلة"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:927
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:957
 msgid "Previous Family"
 msgstr "العائلة السابقة"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:941
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:971
 msgid "Next Family"
 msgstr "العائلة القادمة"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1007
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1037
 msgid "Update Latitude & Longitude"
 msgstr "Update Latitude & Longitude"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1161
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1191
 msgid "Family Geographic Utilities"
 msgstr "مرافق الجغرافية العائلية"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1226
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1256
 #: v2/templates/people/peopledashboard.php:225
 msgid "Letters and mailing labels for data confirmations"
 msgstr "الرسائل والملصقات البريدية لتأكيد البيانات"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1249
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1279
 #: v2/templates/people/peopledashboard.php:219
 msgid "Pledge Reminder Report"
 msgstr "تقرير تذكير التعهد"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1275
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1305
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:580
 msgid "Printable View"
 msgstr "رؤية مطبوعة"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1304
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1334
 msgid "Family Editor"
 msgstr "محرر عائلي"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1326
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1356
 msgid "Custom Person Fields Editor"
 msgstr "محرر حقول الجمارك"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1347
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1377
 msgid "Custom Family Fields Editor"
 msgstr "محرر حقول العائلة"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1398
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1400
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1428
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1430
 msgid "Canvass Input for the"
 msgstr "مدخلات من أجل"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1428
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1458
 #: v2/templates/system/reportlist.php:43
 msgid "Canvass Automation"
 msgstr "\"كانفاس أوتوماتيون\""
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1522
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1552
 msgid "Family Delete Confirmation"
 msgstr "تأكيد العائلة"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1524
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1554
 msgid "Person Delete Confirmation"
 msgstr "الشخص يحذف تأكيد"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1526
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1556
 msgid "Remove Address"
 msgstr "إزالة العنوان"
 
@@ -5454,6 +5459,14 @@ msgstr "تم رفع صورة الصورة"
 msgid "Member"
 msgstr "عضو"
 
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:41
+msgid "Edit this document"
+msgstr "-حرر هذه الوثيقة"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:50
+msgid "Delete this document"
+msgstr "احذف هذه الوثيقة"
+
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:418
 msgid "Person Data Verified"
 msgstr "تم التحقق من بيانات الشخص"
@@ -5466,23 +5479,23 @@ msgstr "بيانات الشخص التي تم التحقق من صحتها عن 
 msgid "Person Data Verification reset"
 msgstr "إعادة تعيين التحقق من بيانات الشخص"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "قديم جداً"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:802
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:810
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "مو) عجوز)"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:814
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "يا لك من كبير"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:816
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "عجوز"
@@ -6382,10 +6395,10 @@ msgstr ""
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:223
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
 #: v2/templates/pastoralcare/pastoralcareperson.php:176
-#: v2/templates/people/familyview.php:859
+#: v2/templates/people/familyview.php:854
 #: v2/templates/people/personPrint.php:218
 #: v2/templates/people/personview.php:165
-#: v2/templates/people/personview.php:1492
+#: v2/templates/people/personview.php:1476
 msgid "Informations"
 msgstr "المعلومات"
 
@@ -6689,17 +6702,102 @@ msgstr "تم نقل النسخ الاحتياطية، تم إزالة الخاد
 msgid "File Manager"
 msgstr "مدير الملفات"
 
-#: browser/browse.php:42
-msgid "Upload a file in EDrive"
-msgstr "\"أوقع ملف في \"إيدرايف"
+#: browser/browse.php:41 v2/templates/edrive/dashboard.php:25
+msgid "Edrive : File manager"
+msgstr "إدرايف: مدير الملفات"
 
-#: browser/browse.php:45
+#: browser/browse.php:44
 msgid "Download"
 msgstr "تحميل"
 
-#: browser/browse.php:72 v2/templates/group/groupbadge.php:207
-msgid "Preview"
-msgstr "سابق"
+#: browser/browse.php:45
+msgid "Insert"
+msgstr ""
+
+#: browser/browse.php:54 v2/templates/edrive/dashboard.php:32
+msgid "Files input"
+msgstr "إدخال الملفات"
+
+#: browser/browse.php:56 v2/templates/edrive/dashboard.php:34
+msgid "Upload your files"
+msgstr "تحميل ملفاتك"
+
+#: browser/browse.php:57 v2/templates/cart/carttobadge.php:127
+#: v2/templates/cart/carttobadge.php:133 v2/templates/edrive/dashboard.php:35
+#: v2/templates/group/groupbadge.php:158 v2/templates/group/groupbadge.php:164
+msgid "Upload"
+msgstr "\"تو بلود\""
+
+#: browser/browse.php:66 v2/templates/edrive/dashboard.php:44
+msgid "Move up one level, or drag the file(s) to move them up one level."
+msgstr ""
+"تحرك لأعلى مستوى واحد، أو اسحب الملف (الملفات) لنقلها لأعلى مستوى واحد."
+
+#: browser/browse.php:91 v2/templates/edrive/dashboard.php:69
+msgid "Internal sharing"
+msgstr "المشاركة الداخلية"
+
+#: browser/browse.php:99 v2/templates/edrive/dashboard.php:77
+msgid "Delete all shares"
+msgstr "حذف جميع الأسهم"
+
+#: browser/browse.php:103 v2/templates/edrive/dashboard.php:81
+msgid "Delete shares for the selected users"
+msgstr "حذف المشاركات للمستخدمين المحددين"
+
+#: browser/browse.php:104 v2/templates/edrive/dashboard.php:82
+msgid "Stop sharing"
+msgstr "توقف عن المشاركة"
+
+#: browser/browse.php:109 v2/templates/edrive/dashboard.php:87
+msgid "With"
+msgstr "مع"
+
+#: browser/browse.php:117 v2/templates/edrive/dashboard.php:95
+msgid "Set Rights"
+msgstr "تعيين الحقوق"
+
+#: browser/browse.php:123 v2/templates/edrive/dashboard.php:101
+msgid "Select your rights"
+msgstr "اختر حقوقك"
+
+#: browser/browse.php:123 v2/templates/deposit/autaPaymentEditor.php:806
+#: v2/templates/deposit/pledgeEditor.php:40
+#: v2/templates/edrive/dashboard.php:101
+#: v2/templates/people/personEditor.php:1011
+msgid "or"
+msgstr "أو"
+
+#: browser/browse.php:126 v2/templates/edrive/dashboard.php:104
+msgid "[R ]"
+msgstr ""
+
+#: browser/browse.php:127 v2/templates/edrive/dashboard.php:105
+msgid "[RW]"
+msgstr ""
+
+#: browser/browse.php:137 v2/templates/edrive/dashboard.php:115
+msgid ""
+"Use this method to share files with individuals or teams within your "
+"organization. If the recipient already has access to the share, but can't "
+"locate it, you can send them the internal link to facilitate access."
+msgstr ""
+"استخدم هذه الطريقة لمشاركة الملفات مع الأفراد أو الفرق داخل مؤسستك. إذا كان "
+"المستلم لديه بالفعل حق الوصول إلى المشاركة، ولكن لا يمكنه تحديد موقعها، "
+"يمكنك إرسال الرابط الداخلي لتسهيل الوصول إليها."
+
+#: browser/browse.php:137 v2/templates/edrive/dashboard.php:115
+#: v2/templates/sidebar/systemsettings.php:199
+msgid "Definition"
+msgstr "التعريف"
+
+#: browser/browse.php:145 v2/templates/edrive/dashboard.php:123
+msgid "Send email notification"
+msgstr "إرسال إشعار بالبريد الإلكتروني"
+
+#: browser/browse.php:148 v2/templates/edrive/dashboard.php:126
+msgid "With Right"
+msgstr "مع اليمين"
 
 #: eGive.php:80
 msgid "eGive Import"
@@ -6815,7 +6913,7 @@ msgstr "السجل"
 #: v2/templates/people/familyEditor.php:1058
 #: v2/templates/people/familyview.php:327
 #: v2/templates/people/personPrint.php:400
-#: v2/templates/people/personview.php:775
+#: v2/templates/people/personview.php:771
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "أفراد العائلة"
@@ -6993,12 +7091,12 @@ msgstr "لقد واجهنا خطأ في تقديم بيانات التحقق ا�
 #: v2/templates/people/canvassEditor.php:239
 #: v2/templates/people/directoryreport.php:326
 #: v2/templates/people/familyEditor.php:1287
-#: v2/templates/people/familyview.php:889
+#: v2/templates/people/familyview.php:884
 #: v2/templates/people/lettersandlabels.php:269
 #: v2/templates/people/personEditor.php:1740
-#: v2/templates/people/personview.php:1523
+#: v2/templates/people/personview.php:1507
 #: v2/templates/people/reminderreport.php:42
-#: v2/templates/sundayschool/sundayschooldashboard.php:331
+#: v2/templates/sundayschool/sundayschooldashboard.php:327
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 #: v2/templates/user/userseditor.php:814 v2/templates/user/usersettings.php:61
 #: v2/templates/user/usersettings.php:324
@@ -7452,7 +7550,7 @@ msgstr "الوصف"
 #: v2/templates/calendar/eventnames.php:306
 #: v2/templates/deposit/depositslipeditor.php:163
 #: v2/templates/deposit/electronicPaymentList.php:199
-#: v2/templates/people/personview.php:900
+#: v2/templates/people/personview.php:895
 msgid "Action"
 msgstr "الإجراء"
 
@@ -7852,12 +7950,6 @@ msgstr "اسم مدرسة الأحد"
 msgid "Pictures in the Image folder: "
 msgstr "الصور في مجلد الصور:"
 
-#: v2/templates/cart/carttobadge.php:127 v2/templates/cart/carttobadge.php:133
-#: v2/templates/edrive/dashboard.php:35 v2/templates/group/groupbadge.php:158
-#: v2/templates/group/groupbadge.php:164
-msgid "Upload"
-msgstr "\"تو بلود\""
-
 #: v2/templates/cart/carttobadge.php:139 v2/templates/group/groupbadge.php:170
 msgid "Image Position"
 msgstr "موقع الصورة"
@@ -7940,7 +8032,7 @@ msgstr "عربة البريد الإلكتروني"
 #: v2/templates/cart/cartview.php:86 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:251
 #: v2/templates/people/personview.php:414
-#: v2/templates/sundayschool/sundayschooldashboard.php:116
+#: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
 msgid "Email (BCC)"
 msgstr "البريد الإلكتروني"
@@ -8048,7 +8140,7 @@ msgid "See All People"
 msgstr "انظر إلى جميع الناس"
 
 #: v2/templates/dashboard/maindashboard.php:204
-#: v2/templates/sundayschool/sundayschooldashboard.php:194
+#: v2/templates/sundayschool/sundayschooldashboard.php:197
 msgid "Sunday School Classes"
 msgstr "دروس مدرسة الأحد"
 
@@ -8074,13 +8166,6 @@ msgstr "الإعدادات"
 #: v2/templates/deposit/autaPaymentEditor.php:801
 msgid "For the"
 msgstr "من أجل"
-
-#: v2/templates/deposit/autaPaymentEditor.php:806
-#: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:100
-#: v2/templates/people/personEditor.php:1011
-msgid "or"
-msgstr "أو"
 
 #: v2/templates/deposit/autaPaymentEditor.php:809
 msgid ""
@@ -8574,8 +8659,8 @@ msgid "Generate Deposit Slip for Selected Rows (PDF)"
 msgstr "3 - توليد الوديع لشركة صفوف مختارة"
 
 #: v2/templates/deposit/finddepositslip.php:93
-#: v2/templates/people/familyview.php:880
-#: v2/templates/people/personview.php:1512
+#: v2/templates/people/familyview.php:875
+#: v2/templates/people/personview.php:1496
 msgid "Confirm Delete"
 msgstr "تأكيد حذف"
 
@@ -8726,82 +8811,6 @@ msgstr "كمية غير قابلة للخصم"
 #: v2/templates/deposit/taxReport.php:29
 msgid "Calendar Year"
 msgstr "سنة الجدول الزمني"
-
-#: v2/templates/edrive/dashboard.php:25
-msgid "Edrive : File manager"
-msgstr "إدرايف: مدير الملفات"
-
-#: v2/templates/edrive/dashboard.php:32
-msgid "Files input"
-msgstr "إدخال الملفات"
-
-#: v2/templates/edrive/dashboard.php:34
-msgid "Upload your files"
-msgstr "تحميل ملفاتك"
-
-#: v2/templates/edrive/dashboard.php:44
-msgid "Move up one level, or drag the file(s) to move them up one level."
-msgstr ""
-"تحرك لأعلى مستوى واحد، أو اسحب الملف (الملفات) لنقلها لأعلى مستوى واحد."
-
-#: v2/templates/edrive/dashboard.php:68
-msgid "Internal sharing"
-msgstr "المشاركة الداخلية"
-
-#: v2/templates/edrive/dashboard.php:76
-msgid "Delete all shares"
-msgstr "حذف جميع الأسهم"
-
-#: v2/templates/edrive/dashboard.php:80
-msgid "Delete shares for the selected users"
-msgstr "حذف المشاركات للمستخدمين المحددين"
-
-#: v2/templates/edrive/dashboard.php:81
-msgid "Stop sharing"
-msgstr "توقف عن المشاركة"
-
-#: v2/templates/edrive/dashboard.php:86
-msgid "With"
-msgstr "مع"
-
-#: v2/templates/edrive/dashboard.php:94
-msgid "Set Rights"
-msgstr "تعيين الحقوق"
-
-#: v2/templates/edrive/dashboard.php:100
-msgid "Select your rights"
-msgstr "اختر حقوقك"
-
-#: v2/templates/edrive/dashboard.php:103
-msgid "[R ]"
-msgstr ""
-
-#: v2/templates/edrive/dashboard.php:104
-msgid "[RW]"
-msgstr ""
-
-#: v2/templates/edrive/dashboard.php:114
-msgid ""
-"Use this method to share files with individuals or teams within your "
-"organization. If the recipient already has access to the share, but can't "
-"locate it, you can send them the internal link to facilitate access."
-msgstr ""
-"استخدم هذه الطريقة لمشاركة الملفات مع الأفراد أو الفرق داخل مؤسستك. إذا كان "
-"المستلم لديه بالفعل حق الوصول إلى المشاركة، ولكن لا يمكنه تحديد موقعها، "
-"يمكنك إرسال الرابط الداخلي لتسهيل الوصول إليها."
-
-#: v2/templates/edrive/dashboard.php:114
-#: v2/templates/sidebar/systemsettings.php:199
-msgid "Definition"
-msgstr "التعريف"
-
-#: v2/templates/edrive/dashboard.php:122
-msgid "Send email notification"
-msgstr "إرسال إشعار بالبريد الإلكتروني"
-
-#: v2/templates/edrive/dashboard.php:125
-msgid "With Right"
-msgstr "مع اليمين"
 
 #: v2/templates/email/mailchimp/campaign.php:31
 msgid "Recipients"
@@ -9015,7 +9024,7 @@ msgstr ""
 
 #: v2/templates/email/mailchimp/managelist.php:75
 #: v2/templates/group/groupview.php:472
-#: v2/templates/sundayschool/sundayschooldashboard.php:333
+#: v2/templates/sundayschool/sundayschooldashboard.php:329
 #: v2/templates/sundayschool/sundayschoolview.php:179
 #: v2/templates/sundayschool/sundayschoolview.php:292
 msgid "Add"
@@ -9390,6 +9399,10 @@ msgstr "اسم الصورة"
 msgid "With QR Code"
 msgstr "مع رمز QR"
 
+#: v2/templates/group/groupbadge.php:207
+msgid "Preview"
+msgstr "سابق"
+
 #: v2/templates/group/groupedit.php:41
 msgid "Special Group Settings : Sunday School Type"
 msgstr "Special Group Settings: Sunday School Type"
@@ -9640,26 +9653,26 @@ msgstr "أضف المدير"
 
 #: v2/templates/group/groupview.php:315 v2/templates/group/groupview.php:377
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:551
-#: v2/templates/people/familyview.php:447
+#: v2/templates/people/familyview.php:446
 #: v2/templates/people/personPrint.php:547
 #: v2/templates/people/personview.php:597
 msgid "Assigned Properties"
 msgstr "ممتلكات مخصصة"
 
-#: v2/templates/group/groupview.php:328 v2/templates/people/familyview.php:608
-#: v2/templates/people/personview.php:1083
+#: v2/templates/group/groupview.php:328 v2/templates/people/familyview.php:604
+#: v2/templates/people/personview.php:1078
 msgid "Assign a New Property"
 msgstr "-قم بتأسيس ملكية جديدة"
 
-#: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:618
-#: v2/templates/people/personview.php:1091 v2/templates/query/queryview.php:393
+#: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:614
+#: v2/templates/people/personview.php:1086 v2/templates/query/queryview.php:393
 #: v2/templates/query/queryview.php:410
 msgid "select an option"
 msgstr "اختر خياراً"
 
-#: v2/templates/group/groupview.php:349 v2/templates/people/familyview.php:639
-#: v2/templates/people/personview.php:1112
-#: v2/templates/people/personview.php:1175
+#: v2/templates/group/groupview.php:349 v2/templates/people/familyview.php:635
+#: v2/templates/people/personview.php:1107
+#: v2/templates/people/personview.php:1170
 msgid "Assign"
 msgstr "التزمع"
 
@@ -9760,7 +9773,7 @@ msgstr "مجموعات مخصصة"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
 #: v2/templates/people/personPrint.php:463
-#: v2/templates/people/personview.php:865
+#: v2/templates/people/personview.php:860
 msgid "No group assignments."
 msgstr "لا مهام جماعية"
 
@@ -9781,7 +9794,7 @@ msgstr "القيمة"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
 #: v2/templates/people/personPrint.php:559
-#: v2/templates/people/personview.php:1067
+#: v2/templates/people/personview.php:1062
 msgid "No property assignments."
 msgstr "لا توجد مهمات ملكية"
 
@@ -10496,89 +10509,89 @@ msgstr "هذه العائلة"
 msgid "Delete this Family"
 msgstr "احذف هذه العائلة"
 
-#: v2/templates/people/familyview.php:442
+#: v2/templates/people/familyview.php:441
 #: v2/templates/people/personview.php:552
 msgid "Timeline"
 msgstr "الوقت المحدد"
 
-#: v2/templates/people/familyview.php:456
+#: v2/templates/people/familyview.php:455
 #: v2/templates/people/personview.php:627
 msgid "Automatic Payments"
 msgstr "المدفوعات الآلية"
 
-#: v2/templates/people/familyview.php:462
+#: v2/templates/people/familyview.php:461
 #: v2/templates/people/personview.php:634
 msgid "Pledges and Payments"
 msgstr "التعهدات والمدفوعات"
 
-#: v2/templates/people/familyview.php:615
-#: v2/templates/people/personview.php:1089
-#: v2/templates/people/personview.php:1160
-#: v2/templates/people/personview.php:1298
+#: v2/templates/people/familyview.php:611
+#: v2/templates/people/personview.php:1084
+#: v2/templates/people/personview.php:1155
+#: v2/templates/people/personview.php:1293
 msgid "Select"
 msgstr "اختيار"
 
-#: v2/templates/people/familyview.php:667
-#: v2/templates/people/personview.php:1206
+#: v2/templates/people/familyview.php:663
+#: v2/templates/people/personview.php:1201
 msgid "Add a new automatic payment"
 msgstr "أضف دفعة تلقائية جديدة"
 
-#: v2/templates/people/familyview.php:676
-#: v2/templates/people/personview.php:1227
+#: v2/templates/people/familyview.php:672
+#: v2/templates/people/personview.php:1222
 msgid "Show Pledges"
 msgstr "أظهر التعهدات"
 
-#: v2/templates/people/familyview.php:680
-#: v2/templates/people/personview.php:1231
+#: v2/templates/people/familyview.php:676
+#: v2/templates/people/personview.php:1226
 msgid "Show Payments"
 msgstr "أظهر المدفوعات"
 
-#: v2/templates/people/familyview.php:683
-#: v2/templates/people/personview.php:1234
+#: v2/templates/people/familyview.php:679
+#: v2/templates/people/personview.php:1229
 msgid "From"
 msgstr "من"
 
-#: v2/templates/people/familyview.php:692
-#: v2/templates/people/personview.php:1243
+#: v2/templates/people/familyview.php:688
+#: v2/templates/people/personview.php:1238
 msgid "To"
 msgstr "إلى"
 
-#: v2/templates/people/familyview.php:715
-#: v2/templates/people/personview.php:1256
+#: v2/templates/people/familyview.php:711
+#: v2/templates/people/personview.php:1251
 msgid "Add a new pledge"
 msgstr "أضف تعهد جديد"
 
-#: v2/templates/people/familyview.php:717
-#: v2/templates/people/personview.php:1258
+#: v2/templates/people/familyview.php:713
+#: v2/templates/people/personview.php:1253
 msgid "Add a new payment"
 msgstr "أضف دفعة جديدة"
 
-#: v2/templates/people/familyview.php:725
-#: v2/templates/people/personview.php:1274
+#: v2/templates/people/familyview.php:721
+#: v2/templates/people/personview.php:1269
 msgid " Canvass Entry"
 msgstr "دخول مدخل"
 
-#: v2/templates/people/familyview.php:885
-#: v2/templates/people/personview.php:1517
+#: v2/templates/people/familyview.php:880
+#: v2/templates/people/personview.php:1501
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "أنت على وشك حذف صورة الملف، هذا الإجراء لا رجعة فيه."
 
-#: v2/templates/people/familyview.php:886
-#: v2/templates/people/personview.php:1519
+#: v2/templates/people/familyview.php:881
+#: v2/templates/people/personview.php:1503
 msgid "Do you want to proceed?"
 msgstr "هل تريد أن تتابع؟"
 
-#: v2/templates/people/familyview.php:901
-#: v2/templates/people/personview.php:1537
+#: v2/templates/people/familyview.php:896
+#: v2/templates/people/personview.php:1521
 msgid "Request Family Info Verification"
 msgstr "اطلب التحقق من معلومات الأسرة"
 
-#: v2/templates/people/familyview.php:906
+#: v2/templates/people/familyview.php:901
 msgid "Select how do you want to request the family information to be verified"
 msgstr "اختر كيف تريد طلب المعلومات العائلية للتحقق منها"
 
-#: v2/templates/people/familyview.php:911
+#: v2/templates/people/familyview.php:906
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
@@ -10586,20 +10599,20 @@ msgstr ""
 "أنت على وشك إرسال نسخة من المعلومات العائلية في PDF إلى الرسائل الإلكترونية "
 "التالية"
 
-#: v2/templates/people/familyview.php:933
-#: v2/templates/people/familyview.php:937
-#: v2/templates/people/personview.php:1551
-#: v2/templates/people/personview.php:1555
+#: v2/templates/people/familyview.php:928
+#: v2/templates/people/familyview.php:932
+#: v2/templates/people/personview.php:1535
+#: v2/templates/people/personview.php:1539
 msgid "Online Verification"
 msgstr "التحقق على الإنترنت"
 
-#: v2/templates/people/familyview.php:944
-#: v2/templates/people/personview.php:1562
+#: v2/templates/people/familyview.php:939
+#: v2/templates/people/personview.php:1546
 msgid "PDF Report"
 msgstr "تقرير PDF"
 
-#: v2/templates/people/familyview.php:948
-#: v2/templates/people/personview.php:1566
+#: v2/templates/people/familyview.php:943
+#: v2/templates/people/personview.php:1550
 msgid "Verified In Person"
 msgstr "تم التحقق من شخصي"
 
@@ -10826,7 +10839,7 @@ msgstr "أطفال مدرسة الأحد"
 #: v2/templates/people/peopledashboard.php:194
 #: v2/templates/people/peopledashboard.php:234
 #: v2/templates/people/peopledashboard.php:241
-#: v2/templates/sundayschool/sundayschooldashboard.php:148
+#: v2/templates/sundayschool/sundayschooldashboard.php:151
 msgid "Reports"
 msgstr "التقارير"
 
@@ -10909,12 +10922,12 @@ msgid "Women"
 msgstr "المرأة"
 
 #: v2/templates/people/peopledashboard.php:394
-#: v2/templates/sundayschool/sundayschooldashboard.php:73
+#: v2/templates/sundayschool/sundayschooldashboard.php:74
 msgid "Boys"
 msgstr "يا أولاد"
 
 #: v2/templates/people/peopledashboard.php:399
-#: v2/templates/sundayschool/sundayschooldashboard.php:85
+#: v2/templates/sundayschool/sundayschooldashboard.php:86
 msgid "Girls"
 msgstr "الفتيات"
 
@@ -11154,80 +11167,72 @@ msgstr "هذا الشخص"
 msgid "Delete this Record"
 msgstr "احذف هذا التسجيل"
 
-#: v2/templates/people/personview.php:751
+#: v2/templates/people/personview.php:747
 msgid "click to download"
 msgstr "إضغط على التحميل"
 
-#: v2/templates/people/personview.php:910
+#: v2/templates/people/personview.php:905
 msgid "Change Role"
 msgstr "تغيير دور"
 
-#: v2/templates/people/personview.php:917
+#: v2/templates/people/personview.php:912
 msgid "Update Properties"
 msgstr "تحديث الممتلكات"
 
-#: v2/templates/people/personview.php:955
+#: v2/templates/people/personview.php:950
 msgid "Group Informations"
 msgstr "Group Informations"
 
-#: v2/templates/people/personview.php:996
+#: v2/templates/people/personview.php:991
 msgid "Person Informations"
 msgstr "معلومات شخصية"
 
-#: v2/templates/people/personview.php:1018
+#: v2/templates/people/personview.php:1013
 msgid "Modify Specific Properties"
 msgstr "تعديل الممتلكات المحددة"
 
-#: v2/templates/people/personview.php:1029
+#: v2/templates/people/personview.php:1024
 msgid "No specific group properties defined !"
 msgstr "لا توجد خصائص مجموعة محددة محددة !"
 
-#: v2/templates/people/personview.php:1137
+#: v2/templates/people/personview.php:1132
 msgid "No volunteer opportunity assignments."
 msgstr "لا توجد مهمات لفرص تطوعية"
 
-#: v2/templates/people/personview.php:1152
+#: v2/templates/people/personview.php:1147
 msgid "Assign a New Volunteer Opportunity"
 msgstr "(ب) إنشاء فرصة جديدة للمتطوعين"
 
-#: v2/templates/people/personview.php:1211
-#: v2/templates/people/personview.php:1263
+#: v2/templates/people/personview.php:1206
+#: v2/templates/people/personview.php:1258
 msgid "You must set an address for this person"
 msgstr "يجب أن تضع عنوان لهذا الشخص"
 
-#: v2/templates/people/personview.php:1299
+#: v2/templates/people/personview.php:1294
 msgid "Filter your documents by : "
 msgstr "قم بحمل وثائقك"
 
-#: v2/templates/people/personview.php:1300
+#: v2/templates/people/personview.php:1295
 msgid "All type"
 msgstr "كل النوع"
 
-#: v2/templates/people/personview.php:1305
+#: v2/templates/people/personview.php:1300
 msgid "Shared documents"
 msgstr "الوثائق المشتركة"
 
-#: v2/templates/people/personview.php:1341
-msgid "Edit this document"
-msgstr "-حرر هذه الوثيقة"
-
 #: v2/templates/people/personview.php:1351
-msgid "Delete this document"
-msgstr "احذف هذه الوثيقة"
-
-#: v2/templates/people/personview.php:1362
 msgid "Share this document to another user"
 msgstr "شارك هذه الوثيقة لمستخدم آخر"
 
-#: v2/templates/people/personview.php:1375
+#: v2/templates/people/personview.php:1360
 msgid "Export this document to word Format"
 msgstr "تصدير هذه الوثيقة إلى كلمة \"شكل\""
 
-#: v2/templates/people/personview.php:1418
+#: v2/templates/people/personview.php:1404
 msgid "Last modification by"
 msgstr "آخر تعديل"
 
-#: v2/templates/people/personview.php:1542
+#: v2/templates/people/personview.php:1526
 msgid "Select how do you want to request the person information to be verified"
 msgstr "حدد كيف تريد طلب التحقق من معلومات الشخص المراد التحقق من معلوماته"
 
@@ -11618,26 +11623,26 @@ msgstr "نوع مجهول"
 msgid "Add Volunteer Opportunity"
 msgstr "أضف فرصة للمتطوعين"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:26
+#: v2/templates/sundayschool/sundayschooldashboard.php:27
 msgid "Classes"
 msgstr "الفئات"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:96
+#: v2/templates/sundayschool/sundayschooldashboard.php:97
 msgid "Functions"
 msgstr "الوظائف"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:110
-#: v2/templates/sundayschool/sundayschooldashboard.php:119
+#: v2/templates/sundayschool/sundayschooldashboard.php:111
+#: v2/templates/sundayschool/sundayschooldashboard.php:120
 #: v2/templates/sundayschool/sundayschoolview.php:46
 #: v2/templates/sundayschool/sundayschoolview.php:55
 msgid "Toggle Dropdown"
 msgstr "تهريب هبوط"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:129
+#: v2/templates/sundayschool/sundayschooldashboard.php:130
 msgid "Add New Class"
 msgstr "أضف صف جديد"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:138
+#: v2/templates/sundayschool/sundayschooldashboard.php:141
 msgid ""
 "Be Careful! You are about to create or recreate all the events of all the "
 "Sunday school classes to call the register."
@@ -11645,60 +11650,60 @@ msgstr ""
 "كن حذرا! أنت على وشك أن تصنع أو تعيد تصميم كل الأحداث في دروس الأحد لتتصل "
 "بالسجل"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:140
+#: v2/templates/sundayschool/sundayschooldashboard.php:143
 msgid "Create Events & Call the register"
 msgstr "\"إبتكر الأحداث و اتصل بالسجل\""
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:147
+#: v2/templates/sundayschool/sundayschooldashboard.php:150
 msgid "Generate class lists and attendance sheets"
 msgstr "تولّد قوائم الطبقة و أوراق الحضور"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:147
+#: v2/templates/sundayschool/sundayschooldashboard.php:150
 msgid "To export your attendance, Photobooks, Attendance sheet, and Class list"
 msgstr "لتصدير حضورك، فوتوبوكس، ورقة الحضور وقائمة الصفوف"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:155
+#: v2/templates/sundayschool/sundayschooldashboard.php:158
 msgid "Export All Classes, Kids, and Parent to CSV file"
 msgstr "تصدير كل فئات الأطفال والأمهات إلى ملف سي إس في"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:156
+#: v2/templates/sundayschool/sundayschooldashboard.php:159
 msgid "Export to CSV"
 msgstr "تصدّر إلى سي إس في"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:164
+#: v2/templates/sundayschool/sundayschooldashboard.php:167
 #: v2/templates/sundayschool/sundayschoolview.php:117
 msgid "Remove Students from Cart"
 msgstr "أزل الطلاب من العربة"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:169
+#: v2/templates/sundayschool/sundayschooldashboard.php:172
 #: v2/templates/sundayschool/sundayschoolview.php:123
 msgid "Add Students to Cart"
 msgstr "أضف الطلاب إلى العربة"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:177
+#: v2/templates/sundayschool/sundayschooldashboard.php:180
 #: v2/templates/sundayschool/sundayschoolview.php:132
 msgid "Remove Teachers from Cart"
 msgstr "أزل المعلمين من العربة"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:182
+#: v2/templates/sundayschool/sundayschooldashboard.php:185
 #: v2/templates/sundayschool/sundayschoolview.php:138
 msgid "Add Teachers to Cart"
 msgstr "أضف معلمين إلى العربة"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:207
+#: v2/templates/sundayschool/sundayschooldashboard.php:210
 #: queryparameters_qrp.php:12
 msgid "Class"
 msgstr "الفئة"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:244
+#: v2/templates/sundayschool/sundayschooldashboard.php:243
 msgid "Students not in a Sunday School Class"
 msgstr "الطلاب ليسوا في صف مدرسة الأحد"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:319
+#: v2/templates/sundayschool/sundayschooldashboard.php:315
 msgid "Add Sunday School Class"
 msgstr "أضف صف مدرسة الأحد"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:325
+#: v2/templates/sundayschool/sundayschooldashboard.php:321
 msgid "Enter Name"
 msgstr "أدخل الاسم"
 
@@ -13470,6 +13475,9 @@ msgstr "عدة أيام"
 
 msgid "Giving Report"
 msgstr "تقرير العطاء"
+
+#~ msgid "Upload a file in EDrive"
+#~ msgstr "\"أوقع ملف في \"إيدرايف"
 
 #~ msgid "All Files"
 #~ msgstr "كل الملفات"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
+"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,11 @@ msgstr "Ταξινόμηση"
 msgid "Family Role"
 msgstr "Οικογενειακός ρόλος"
 
-msgid "Compose New Message"
-msgstr "Σύνταξη νέου μηνύματος"
-
 msgid "Subject:"
 msgstr "Θέμα:"
+
+msgid "Compose New Message"
+msgstr "Σύνταξη νέου μηνύματος"
 
 msgid "Close"
 msgstr "Κλείστε το"
@@ -70,6 +70,10 @@ msgid ""
 msgstr ""
 "Όλες οι λίστες έχουν πλέον φορτωθεί στο Ecclesia<b>CRM</b>.<br><b>Αν θέλετε "
 "να τις διαχειριστείτε, κάντε κλικ σε αυτή την ειδοποίηση !</b>"
+
+#, fuzzy
+msgid "In progress"
+msgstr "Σε εξέλιξη...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Υπήρξε πρόβλημα στην ανάκτηση του ζητούμενου αντικειμένου"
@@ -468,9 +472,6 @@ msgstr "Βίντεο"
 msgid "Description"
 msgstr "Περιγραφή"
 
-msgid "Include/Exclude your Calendars in the SideBar"
-msgstr "Συμπεριλάβετε/αποκλείστε τα ημερολόγιά σας στο SideBar"
-
 msgid "Calendars"
 msgstr "Ημερολόγια"
 
@@ -486,11 +487,11 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[ΑΠΟΚΛΕΙΣΜΟΣ]"
 
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Συμπεριλάβετε/αποκλείστε τα ημερολόγιά σας στο SideBar"
+
 msgid "Ok"
 msgstr "Εντάξει"
-
-msgid "Share your Calendar"
-msgstr "Μοιραστείτε το Ημερολόγιό σας"
 
 msgid "With"
 msgstr "Με"
@@ -515,6 +516,9 @@ msgstr "Αποστολή ειδοποίησης μέσω email"
 
 msgid "Add persons/Family/groups"
 msgstr "Προσθέστε πρόσωπα/οικογένεια/ομάδες"
+
+msgid "Share your Calendar"
+msgstr "Μοιραστείτε το Ημερολόγιό σας"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το Share?"
@@ -1004,9 +1008,6 @@ msgstr "Ημερομηνία checkout"
 msgid "Checkout By"
 msgstr "Checkout Με"
 
-msgid "QR Code : Call the register"
-msgstr "Κωδικός QR : Καλέστε το μητρώο"
-
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
@@ -1015,6 +1016,9 @@ msgstr ""
 
 msgid "no detected QR Code"
 msgstr "δεν εντοπίστηκε κωδικός QR"
+
+msgid "QR Code : Call the register"
+msgstr "Κωδικός QR : Καλέστε το μητρώο"
 
 msgid "Loading video..."
 msgstr "Φόρτωση βίντεο..."
@@ -1251,14 +1255,8 @@ msgstr "Κατάσταση καλαθιού ομάδας"
 msgid "All members of this group are in the cart"
 msgstr "Όλα τα μέλη αυτής της ομάδας βρίσκονται στο καλάθι"
 
-msgid "Remove all"
-msgstr "Αφαιρέστε όλα"
-
 msgid "Not all members of this group are in the cart"
 msgstr "Δεν είναι όλα τα μέλη αυτής της ομάδας στο καλάθι"
-
-msgid "Add all"
-msgstr "Προσθέστε όλα"
 
 msgid "Cart isn't showable"
 msgstr "Το καλάθι δεν μπορεί να εμφανιστεί"
@@ -1322,17 +1320,17 @@ msgstr "Ταχυδρομικός κώδικας"
 msgid "Cell Phone"
 msgstr "Κινητό τηλέφωνο"
 
-msgid "Remove Selected Members"
-msgstr "Κατάργηση επιλεγμένων μελών"
-
 msgid "You're about to delete all the group members ?"
 msgstr "Πρόκειται να διαγράψετε όλα τα μέλη της ομάδας ?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Είσαι σίγουρος; Αυτό δεν μπορεί να αναιρεθεί."
 
-msgid "Action to selected members"
-msgstr ""
+msgid "Add"
+msgstr "Προσθέστε"
+
+msgid "Members to cart"
+msgstr "Μέλη στο καλάθι"
 
 msgid "Add to Cart"
 msgstr "Προσθήκη στο καλάθι"
@@ -1346,12 +1344,6 @@ msgstr "Μετακίνηση σε ομάδα"
 msgid "Remove all members"
 msgstr "Αφαιρέστε όλα τα μέλη"
 
-msgid "Add"
-msgstr "Προσθέστε"
-
-msgid "Members to cart"
-msgstr "Μέλη στο καλάθι"
-
 msgid "Move"
 msgstr "Μετακίνηση"
 
@@ -1364,11 +1356,11 @@ msgstr "Αφαίρεση από το καλάθι"
 msgid "No assigned Manager"
 msgstr "Δεν έχει οριστεί διαχειριστής"
 
-msgid "Manage Group Managers"
-msgstr "Διαχείριση διαχειριστών ομάδων"
-
 msgid "Add users"
 msgstr "Προσθήκη χρηστών"
+
+msgid "Manage Group Managers"
+msgstr "Διαχείριση διαχειριστών ομάδων"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτόν τον Διαχειριστή;"
@@ -1610,6 +1602,10 @@ msgid "Are you sure you want to remove this person's membership from"
 msgstr ""
 "Είστε σίγουροι ότι θέλετε να αφαιρέσετε την ιδιότητα μέλους αυτού του ατόμου "
 "από το"
+
+#, fuzzy
+msgid "Share your Document"
+msgstr "Ορίστε τον τίτλο του εγγράφου σας"
 
 msgid "Change classification"
 msgstr "Αλλαγή ταξινόμησης"
@@ -1989,11 +1985,11 @@ msgstr ""
 msgid "The user must have an email address."
 msgstr "Ο χρήστης πρέπει να διαθέτει διεύθυνση ηλεκτρονικού ταχυδρομείου."
 
-msgid "Role management"
-msgstr "Διαχείριση ρόλων"
-
 msgid "Select your Role"
 msgstr "Επιλέξτε το ρόλο σας"
+
+msgid "Role management"
+msgstr "Διαχείριση ρόλων"
 
 msgid "Are you sure? You're about to delete this Role."
 msgstr "Είσαι σίγουρος; Είστε έτοιμοι να διαγράψετε αυτόν τον Ρόλο."
@@ -2158,9 +2154,6 @@ msgstr "Για περισσότερες πληροφορίες δείτε το"
 msgid "support docs."
 msgstr "έγγραφα υποστήριξης."
 
-msgid "List Creation"
-msgstr "Δημιουργία λίστας"
-
 msgid "List Title"
 msgstr "Τίτλος λίστας"
 
@@ -2178,6 +2171,9 @@ msgstr "Μπαρ αρχείου"
 
 msgid "Public"
 msgstr "Δημόσιο"
+
+msgid "List Creation"
+msgstr "Δημιουργία λίστας"
 
 msgid "People"
 msgstr "Άνθρωποι"
@@ -2323,9 +2319,6 @@ msgstr ""
 "της ώρας να το ανοίξετε ξανά για να διαχειριστείτε τη λίστα σας.<br>Για να "
 "διαγράψετε τεράστια δεδομένα, το API του MailChimp είναι αργό."
 
-msgid "Email Campaign Creation"
-msgstr "Δημιουργία καμπάνιας email"
-
 msgid "Campaign Title"
 msgstr "Τίτλος καμπάνιας"
 
@@ -2343,6 +2336,9 @@ msgstr "Το θέμα της αλληλογραφίας σας"
 
 msgid "All list members"
 msgstr "Όλα τα μέλη του καταλόγου"
+
+msgid "Email Campaign Creation"
+msgstr "Δημιουργία καμπάνιας email"
 
 msgid "Adding Campaign ..."
 msgstr "Προσθήκη εκστρατείας ..."
@@ -2477,9 +2473,6 @@ msgstr "Τελευταία επίσκεψη/κλήση"
 msgid "Delete Pastoral Care Type"
 msgstr "Διαγραφή τύπου ποιμαντικής φροντίδας"
 
-msgid "Pastoral Care Note Creation"
-msgstr "Ποιμαντική Φροντίδα Δημιουργία σημειώματος"
-
 msgid "For every administrator"
 msgstr "Για κάθε διαχειριστή"
 
@@ -2494,6 +2487,9 @@ msgstr "Συμπεριλάβετε όλα τα μέλη της οικογένε�
 
 msgid "Include"
 msgstr "Συμπεριλάβετε το"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Ποιμαντική Φροντίδα Δημιουργία σημειώματος"
 
 msgid "Last Name (Family Name)"
 msgstr "Επώνυμο (οικογενειακό όνομα)"
@@ -2548,6 +2544,15 @@ msgstr "Αριθμός αγοραστή Εκδότης"
 
 msgid "Select"
 msgstr "Επιλέξτε"
+
+#~ msgid "Remove all"
+#~ msgstr "Αφαιρέστε όλα"
+
+#~ msgid "Add all"
+#~ msgstr "Προσθέστε όλα"
+
+#~ msgid "Remove Selected Members"
+#~ msgstr "Κατάργηση επιλεγμένων μελών"
 
 #~ msgid ""
 #~ "Use this method to share files with individuals or teams within your "

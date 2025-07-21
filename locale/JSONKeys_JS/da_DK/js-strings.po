@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
+"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,11 +35,11 @@ msgstr "Klassifikation"
 msgid "Family Role"
 msgstr "Familiens rolle"
 
-msgid "Compose New Message"
-msgstr "Udarbejdelse af ny besked"
-
 msgid "Subject:"
 msgstr "Emneord:"
+
+msgid "Compose New Message"
+msgstr "Udarbejdelse af ny besked"
 
 msgid "Close"
 msgstr "Luk"
@@ -68,6 +68,10 @@ msgid ""
 msgstr ""
 "Alle listerne er nu indlæst i Ecclesia<b>CRM</b>.<br><b>Hvis du ønsker at "
 "administrere dem, skal du klikke på denne meddelelse !</b>"
+
+#, fuzzy
+msgid "In progress"
+msgstr "I gang...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Der var et problem med at hente det ønskede objekt"
@@ -466,9 +470,6 @@ msgstr "Video"
 msgid "Description"
 msgstr "Beskrivelse"
 
-msgid "Include/Exclude your Calendars in the SideBar"
-msgstr "Medtag/undgå dine kalendere i sidebarmen"
-
 msgid "Calendars"
 msgstr "Kalendere"
 
@@ -484,11 +485,11 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[UDELUKKEN]"
 
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Medtag/undgå dine kalendere i sidebarmen"
+
 msgid "Ok"
 msgstr "Ok"
-
-msgid "Share your Calendar"
-msgstr "Del din kalender"
 
 msgid "With"
 msgstr "Med"
@@ -513,6 +514,9 @@ msgstr "Send en e-mail-meddelelse"
 
 msgid "Add persons/Family/groups"
 msgstr "Tilføj personer/familie/grupper"
+
+msgid "Share your Calendar"
+msgstr "Del din kalender"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Er du sikker på, at du vil slette dette Share ?"
@@ -998,9 +1002,6 @@ msgstr "Dato for udtjekning"
 msgid "Checkout By"
 msgstr "Checkout af"
 
-msgid "QR Code : Call the register"
-msgstr "QR-kode : Ring til registret"
-
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
@@ -1008,6 +1009,9 @@ msgstr ""
 
 msgid "no detected QR Code"
 msgstr "ingen opdaget QR-kode"
+
+msgid "QR Code : Call the register"
+msgstr "QR-kode : Ring til registret"
 
 msgid "Loading video..."
 msgstr "Indlæser video..."
@@ -1244,14 +1248,8 @@ msgstr "Status for gruppekurv"
 msgid "All members of this group are in the cart"
 msgstr "Alle medlemmer af denne gruppe er i kurven"
 
-msgid "Remove all"
-msgstr "Fjern alle"
-
 msgid "Not all members of this group are in the cart"
 msgstr "Ikke alle medlemmer af denne gruppe er i vognen"
-
-msgid "Add all"
-msgstr "Tilføj alle"
 
 msgid "Cart isn't showable"
 msgstr "Kurven kan ikke vises"
@@ -1312,17 +1310,17 @@ msgstr "Postnummer"
 msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
-msgid "Remove Selected Members"
-msgstr "Fjern udvalgte medlemmer"
-
 msgid "You're about to delete all the group members ?"
 msgstr "Er du ved at slette alle gruppens medlemmer?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Er du sikker? Dette kan ikke gøres om."
 
-msgid "Action to selected members"
-msgstr ""
+msgid "Add"
+msgstr "Tilføj"
+
+msgid "Members to cart"
+msgstr "Medlemmer til indkøbskurv"
 
 msgid "Add to Cart"
 msgstr "Tilføj til indkøbskurv"
@@ -1336,12 +1334,6 @@ msgstr "Flyt til gruppe"
 msgid "Remove all members"
 msgstr "Fjern alle medlemmer"
 
-msgid "Add"
-msgstr "Tilføj"
-
-msgid "Members to cart"
-msgstr "Medlemmer til indkøbskurv"
-
 msgid "Move"
 msgstr "Flyt"
 
@@ -1354,11 +1346,11 @@ msgstr "Fjern fra indkøbskurven"
 msgid "No assigned Manager"
 msgstr "Ingen tilknyttet leder"
 
-msgid "Manage Group Managers"
-msgstr "Administrer gruppechefer"
-
 msgid "Add users"
 msgstr "Tilføj brugere"
+
+msgid "Manage Group Managers"
+msgstr "Administrer gruppechefer"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Er du sikker på, at du vil slette denne Manager?"
@@ -1588,6 +1580,10 @@ msgstr "Aktivér"
 
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Er du sikker på, at du ønsker at fjerne denne persons medlemskab fra"
+
+#, fuzzy
+msgid "Share your Document"
+msgstr "Indstil din dokumenttitel"
 
 msgid "Change classification"
 msgstr "Ændring af klassifikation"
@@ -1963,11 +1959,11 @@ msgstr ""
 msgid "The user must have an email address."
 msgstr "Brugeren skal have en e-mailadresse."
 
-msgid "Role management"
-msgstr "Forvaltning af roller"
-
 msgid "Select your Role"
 msgstr "Vælg din rolle"
+
+msgid "Role management"
+msgstr "Forvaltning af roller"
 
 msgid "Are you sure? You're about to delete this Role."
 msgstr "Er du sikker? Du er ved at slette denne rolle."
@@ -2127,9 +2123,6 @@ msgstr "For mere information se vores"
 msgid "support docs."
 msgstr "supportdokumentation."
 
-msgid "List Creation"
-msgstr "Oprettelse af liste"
-
 msgid "List Title"
 msgstr "Liste Titel"
 
@@ -2147,6 +2140,9 @@ msgstr "Arkiv Bars"
 
 msgid "Public"
 msgstr "Offentlig"
+
+msgid "List Creation"
+msgstr "Oprettelse af liste"
 
 msgid "People"
 msgstr "Mennesker"
@@ -2291,9 +2287,6 @@ msgstr ""
 "administrere din liste.<br>MailChimp API er langsomt til at slette store "
 "data."
 
-msgid "Email Campaign Creation"
-msgstr "Oprettelse af e-mail-kampagner"
-
 msgid "Campaign Title"
 msgstr "Titel på kampagnen"
 
@@ -2311,6 +2304,9 @@ msgstr "Emne for din mail"
 
 msgid "All list members"
 msgstr "Alle listemedlemmer"
+
+msgid "Email Campaign Creation"
+msgstr "Oprettelse af e-mail-kampagner"
 
 msgid "Adding Campaign ..."
 msgstr "Tilføjelse af kampagne ..."
@@ -2440,9 +2436,6 @@ msgstr "Sidste besøg/opkald"
 msgid "Delete Pastoral Care Type"
 msgstr "Slet Pastoral Care Type"
 
-msgid "Pastoral Care Note Creation"
-msgstr "Pastoral Care Note Creation"
-
 msgid "For every administrator"
 msgstr "For hver administrator"
 
@@ -2457,6 +2450,9 @@ msgstr "Medtag alle familiemedlemmer"
 
 msgid "Include"
 msgstr "Inkluder"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Pastoral Care Note Creation"
 
 msgid "Last Name (Family Name)"
 msgstr "Efternavn (efternavn)"
@@ -2511,6 +2507,15 @@ msgstr "Købernummer Editor"
 
 msgid "Select"
 msgstr "Vælg"
+
+#~ msgid "Remove all"
+#~ msgstr "Fjern alle"
+
+#~ msgid "Add all"
+#~ msgstr "Tilføj alle"
+
+#~ msgid "Remove Selected Members"
+#~ msgstr "Fjern udvalgte medlemmer"
 
 #~ msgid ""
 #~ "Use this method to share files with individuals or teams within your "

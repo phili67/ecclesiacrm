@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
+"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,11 +36,11 @@ msgstr "Classificatie"
 msgid "Family Role"
 msgstr "Rol van de familie"
 
-msgid "Compose New Message"
-msgstr "Nieuw bericht opstellen"
-
 msgid "Subject:"
 msgstr "Onderwerp:"
+
+msgid "Compose New Message"
+msgstr "Nieuw bericht opstellen"
 
 msgid "Close"
 msgstr "Sluiten"
@@ -69,6 +69,10 @@ msgid ""
 msgstr ""
 "Alle lijsten zijn nu geladen in Ecclesia<b>CRM</b>.<br><b>Als u ze wilt "
 "beheren, klik dan op deze melding !</b>"
+
+#, fuzzy
+msgid "In progress"
+msgstr "In uitvoering...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Er was een probleem met het ophalen van het gevraagde object"
@@ -468,9 +472,6 @@ msgstr "Video"
 msgid "Description"
 msgstr "Beschrijving"
 
-msgid "Include/Exclude your Calendars in the SideBar"
-msgstr "Uw kalenders in de SideBar opnemen/uitsluiten"
-
 msgid "Calendars"
 msgstr "Kalenders"
 
@@ -486,11 +487,11 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Uw kalenders in de SideBar opnemen/uitsluiten"
+
 msgid "Ok"
 msgstr "Ok"
-
-msgid "Share your Calendar"
-msgstr "Deel uw agenda"
 
 msgid "With"
 msgstr "Met"
@@ -515,6 +516,9 @@ msgstr "E-mail bericht verzenden"
 
 msgid "Add persons/Family/groups"
 msgstr "Personen/familie/groepen toevoegen"
+
+msgid "Share your Calendar"
+msgstr "Deel uw agenda"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Weet je zeker dat je dit aandeel wilt verwijderen?"
@@ -1008,9 +1012,6 @@ msgstr "Vertrekdatum"
 msgid "Checkout By"
 msgstr "Uitchecken door"
 
-msgid "QR Code : Call the register"
-msgstr "QR Code : Bel het register"
-
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
@@ -1018,6 +1019,9 @@ msgstr ""
 
 msgid "no detected QR Code"
 msgstr "geen gedetecteerde QR Code"
+
+msgid "QR Code : Call the register"
+msgstr "QR Code : Bel het register"
 
 msgid "Loading video..."
 msgstr "Video wordt geladen..."
@@ -1254,14 +1258,8 @@ msgstr "Groep Cart Status"
 msgid "All members of this group are in the cart"
 msgstr "Alle leden van deze groep zitten in de kar"
 
-msgid "Remove all"
-msgstr "Verwijder alle"
-
 msgid "Not all members of this group are in the cart"
 msgstr "Niet alle leden van deze groep zitten in de kar"
-
-msgid "Add all"
-msgstr "Alles toevoegen"
 
 msgid "Cart isn't showable"
 msgstr "Cart is niet toonbaar"
@@ -1322,17 +1320,17 @@ msgstr "Postcode"
 msgid "Cell Phone"
 msgstr "Mobiele telefoon"
 
-msgid "Remove Selected Members"
-msgstr "Geselecteerde leden verwijderen"
-
 msgid "You're about to delete all the group members ?"
 msgstr "Je staat op het punt om alle groepsleden te verwijderen?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Weet je het zeker ? Dit kan niet ongedaan gemaakt worden."
 
-msgid "Action to selected members"
-msgstr ""
+msgid "Add"
+msgstr "Toevoegen"
+
+msgid "Members to cart"
+msgstr "Leden naar winkelwagen"
 
 msgid "Add to Cart"
 msgstr "In winkelwagen"
@@ -1346,12 +1344,6 @@ msgstr "Naar groep"
 msgid "Remove all members"
 msgstr "Alle leden verwijderen"
 
-msgid "Add"
-msgstr "Toevoegen"
-
-msgid "Members to cart"
-msgstr "Leden naar winkelwagen"
-
 msgid "Move"
 msgstr "Verplaats"
 
@@ -1364,11 +1356,11 @@ msgstr "Verwijderen uit winkelwagen"
 msgid "No assigned Manager"
 msgstr "Geen toegewezen Manager"
 
-msgid "Manage Group Managers"
-msgstr "Beheer Groep Managers"
-
 msgid "Add users"
 msgstr "Gebruikers toevoegen"
+
+msgid "Manage Group Managers"
+msgstr "Beheer Groep Managers"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Weet je zeker, dat je deze Manager wilt verwijderen ?"
@@ -1607,6 +1599,10 @@ msgstr "Activeer"
 msgid "Are you sure you want to remove this person's membership from"
 msgstr ""
 "Weet u zeker dat u het lidmaatschap van deze persoon wilt verwijderen van"
+
+#, fuzzy
+msgid "Share your Document"
+msgstr "Stel uw document titel in"
 
 msgid "Change classification"
 msgstr "Wijziging classificatie"
@@ -1983,11 +1979,11 @@ msgstr ""
 msgid "The user must have an email address."
 msgstr "De gebruiker moet een e-mailadres hebben."
 
-msgid "Role management"
-msgstr "Rollenbeheer"
-
 msgid "Select your Role"
 msgstr "Selecteer uw rol"
+
+msgid "Role management"
+msgstr "Rollenbeheer"
 
 msgid "Are you sure? You're about to delete this Role."
 msgstr "Ben je zeker? Je staat op het punt om deze rol te verwijderen."
@@ -2148,9 +2144,6 @@ msgstr "Voor meer info zie onze"
 msgid "support docs."
 msgstr "ondersteunende documenten."
 
-msgid "List Creation"
-msgstr "Lijst creatie"
-
 msgid "List Title"
 msgstr "Lijst Titel"
 
@@ -2168,6 +2161,9 @@ msgstr "Archief Bars"
 
 msgid "Public"
 msgstr "Publiek"
+
+msgid "List Creation"
+msgstr "Lijst creatie"
 
 msgid "People"
 msgstr "Mensen"
@@ -2310,9 +2306,6 @@ msgstr ""
 "om je lijst te beheren.<br>Om grote datas te verwijderen, is MailChimp API "
 "traag."
 
-msgid "Email Campaign Creation"
-msgstr "Creatie van e-mailcampagnes"
-
 msgid "Campaign Title"
 msgstr "Titel van de campagne"
 
@@ -2330,6 +2323,9 @@ msgstr "Onderwerp van uw e-mail"
 
 msgid "All list members"
 msgstr "Alle leden van de lijst"
+
+msgid "Email Campaign Creation"
+msgstr "Creatie van e-mailcampagnes"
 
 msgid "Adding Campaign ..."
 msgstr "Campagne toevoegen..."
@@ -2463,9 +2459,6 @@ msgstr "Laatste bezoek/oproep"
 msgid "Delete Pastoral Care Type"
 msgstr "Verwijder Pastorale Zorg Type"
 
-msgid "Pastoral Care Note Creation"
-msgstr "Pastorale Zorg Notitie Creatie"
-
 msgid "For every administrator"
 msgstr "Voor elke beheerder"
 
@@ -2480,6 +2473,9 @@ msgstr "Betrek alle familieleden"
 
 msgid "Include"
 msgstr "Neem  op."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Pastorale Zorg Notitie Creatie"
 
 msgid "Last Name (Family Name)"
 msgstr "Achternaam (familienaam)"
@@ -2534,6 +2530,15 @@ msgstr "Redacteur kopersnummer"
 
 msgid "Select"
 msgstr "Selecteer"
+
+#~ msgid "Remove all"
+#~ msgstr "Verwijder alle"
+
+#~ msgid "Add all"
+#~ msgstr "Alles toevoegen"
+
+#~ msgid "Remove Selected Members"
+#~ msgstr "Geselecteerde leden verwijderen"
 
 #~ msgid ""
 #~ "Use this method to share files with individuals or teams within your "

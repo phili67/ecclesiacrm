@@ -1,7 +1,6 @@
 {
     "Remove": "削除",
     "Edit": "編集",
-    "News Editor": "ニュースエディター",
     "News Title": "ニュースタイトル",
     "Set your News title": "ニュースのタイトルを設定する",
     "Choose your News Type": "ニュースの種類を選択してください",
@@ -10,5 +9,6 @@
     "To note": "注意事項",
     "Important": "重要",
     "Very important": "非常に重要",
+    "News Editor": "ニュースエディター",
     "You have to set a Title for your news": "ニュースのタイトルを設定する必要があります"
 }

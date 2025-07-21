@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
+"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,11 +36,11 @@ msgstr "Klasyfikacja"
 msgid "Family Role"
 msgstr "Rola rodziny"
 
-msgid "Compose New Message"
-msgstr "Utwórz nową wiadomość"
-
 msgid "Subject:"
 msgstr "Przedmiot:"
+
+msgid "Compose New Message"
+msgstr "Utwórz nową wiadomość"
 
 msgid "Close"
 msgstr "Zamknij"
@@ -69,6 +69,10 @@ msgid ""
 msgstr ""
 "Wszystkie listy są teraz załadowane w Ecclesia<b>CRM</b>.<br><b>Jeśli chcesz "
 "nimi zarządzać, kliknij to powiadomienie !</b>."
+
+#, fuzzy
+msgid "In progress"
+msgstr "W trakcie realizacji...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Wystąpił problem z pobraniem żądanego obiektu"
@@ -466,9 +470,6 @@ msgstr "Wideo"
 msgid "Description"
 msgstr "Opis"
 
-msgid "Include/Exclude your Calendars in the SideBar"
-msgstr "Włączanie/wyłączanie kalendarzy w pasku bocznym"
-
 msgid "Calendars"
 msgstr "Kalendarze"
 
@@ -484,11 +485,11 @@ msgstr "[INCLUDE]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Włączanie/wyłączanie kalendarzy w pasku bocznym"
+
 msgid "Ok"
 msgstr "Ok"
-
-msgid "Share your Calendar"
-msgstr "Udostępnij swój kalendarz"
 
 msgid "With"
 msgstr "Z"
@@ -513,6 +514,9 @@ msgstr "Wyślij powiadomienie e-mail"
 
 msgid "Add persons/Family/groups"
 msgstr "Dodaj osoby/rodziny/grupy"
+
+msgid "Share your Calendar"
+msgstr "Udostępnij swój kalendarz"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Czy jesteś pewien, że chcesz usunąć ten udział?"
@@ -994,9 +998,6 @@ msgstr "Data wymeldowania"
 msgid "Checkout By"
 msgstr "Kasa przez"
 
-msgid "QR Code : Call the register"
-msgstr "Kod QR : Zadzwoń do rejestru"
-
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
@@ -1005,6 +1006,9 @@ msgstr ""
 
 msgid "no detected QR Code"
 msgstr "nie wykryto kodu QR"
+
+msgid "QR Code : Call the register"
+msgstr "Kod QR : Zadzwoń do rejestru"
 
 msgid "Loading video..."
 msgstr "Ładowanie filmu..."
@@ -1240,14 +1244,8 @@ msgstr "Stan koszyka grupowego"
 msgid "All members of this group are in the cart"
 msgstr "Wszyscy członkowie tej grupy znajdują się w koszyku"
 
-msgid "Remove all"
-msgstr "Usuń wszystko"
-
 msgid "Not all members of this group are in the cart"
 msgstr "Nie wszyscy członkowie tej grupy są w koszyku"
-
-msgid "Add all"
-msgstr "Dodaj wszystkie"
 
 msgid "Cart isn't showable"
 msgstr "Koszyk nie jest widoczny"
@@ -1308,17 +1306,17 @@ msgstr "Kod pocztowy"
 msgid "Cell Phone"
 msgstr "Telefon komórkowy"
 
-msgid "Remove Selected Members"
-msgstr "Usuń wybranych członków"
-
 msgid "You're about to delete all the group members ?"
 msgstr "Zamierzasz usunąć wszystkich członków grupy?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Czy jesteś pewien? Tego nie da się cofnąć."
 
-msgid "Action to selected members"
-msgstr ""
+msgid "Add"
+msgstr "Dodaj"
+
+msgid "Members to cart"
+msgstr "Członkowie do koszyka"
 
 msgid "Add to Cart"
 msgstr "Dodaj do koszyka"
@@ -1332,12 +1330,6 @@ msgstr "Przejście do grupy"
 msgid "Remove all members"
 msgstr "Usuń wszystkich członków"
 
-msgid "Add"
-msgstr "Dodaj"
-
-msgid "Members to cart"
-msgstr "Członkowie do koszyka"
-
 msgid "Move"
 msgstr "Przesuń"
 
@@ -1350,11 +1342,11 @@ msgstr "Usuń z koszyka"
 msgid "No assigned Manager"
 msgstr "Brak przypisanego menedżera"
 
-msgid "Manage Group Managers"
-msgstr "Zarządzaj menedżerami grup"
-
 msgid "Add users"
 msgstr "Dodaj użytkowników"
+
+msgid "Manage Group Managers"
+msgstr "Zarządzaj menedżerami grup"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Czy jesteś pewien, że chcesz usunąć tego menedżera?"
@@ -1590,6 +1582,9 @@ msgstr "Aktywuj"
 
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Czy jesteś pewien, że chcesz usunąć członkostwo tej osoby z"
+
+msgid "Share your Document"
+msgstr "Udostępnij swój dokument"
 
 msgid "Change classification"
 msgstr "Zmiana klasyfikacji"
@@ -1964,11 +1959,11 @@ msgstr ""
 msgid "The user must have an email address."
 msgstr "Użytkownik musi posiadać adres e-mail."
 
-msgid "Role management"
-msgstr "Zarządzanie rolami"
-
 msgid "Select your Role"
 msgstr "Wybierz swoją rolę"
+
+msgid "Role management"
+msgstr "Zarządzanie rolami"
 
 msgid "Are you sure? You're about to delete this Role."
 msgstr "Czy na pewno? Zamierzasz usunąć tę Rolę."
@@ -2128,9 +2123,6 @@ msgstr "Więcej informacji można znaleźć na naszej stronie"
 msgid "support docs."
 msgstr "dokumenty pomocnicze."
 
-msgid "List Creation"
-msgstr "Tworzenie listy"
-
 msgid "List Title"
 msgstr "Lista Tytuł"
 
@@ -2148,6 +2140,9 @@ msgstr "Belki archiwalne"
 
 msgid "Public"
 msgstr "Publiczne"
+
+msgid "List Creation"
+msgstr "Tworzenie listy"
 
 msgid "People"
 msgstr "Ludzie"
@@ -2290,9 +2285,6 @@ msgstr ""
 "otworzyć go do zarządzania listą.<br>Do usuwania dużych danych, MailChimp "
 "API jest powolny."
 
-msgid "Email Campaign Creation"
-msgstr "Tworzenie kampanii e-mailowych"
-
 msgid "Campaign Title"
 msgstr "Tytuł kampanii"
 
@@ -2310,6 +2302,9 @@ msgstr "Temat Twojej poczty"
 
 msgid "All list members"
 msgstr "Wszyscy członkowie listy"
+
+msgid "Email Campaign Creation"
+msgstr "Tworzenie kampanii e-mailowych"
 
 msgid "Adding Campaign ..."
 msgstr "Dodawanie kampanii ..."
@@ -2439,9 +2434,6 @@ msgstr "Ostatnia wizyta/ wezwanie"
 msgid "Delete Pastoral Care Type"
 msgstr "Usuń Typ opieki duszpasterskiej"
 
-msgid "Pastoral Care Note Creation"
-msgstr "Duszpasterstwo Notatka Utworzenie"
-
 msgid "For every administrator"
 msgstr "Dla każdego administratora"
 
@@ -2456,6 +2448,9 @@ msgstr "Uwzględnij wszystkich członków rodziny"
 
 msgid "Include"
 msgstr "Włącz"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Duszpasterstwo Notatka Utworzenie"
 
 msgid "Last Name (Family Name)"
 msgstr "Nazwisko (nazwisko rodowe)"
@@ -2510,6 +2505,15 @@ msgstr "Numer nabywcy Edytor"
 
 msgid "Select"
 msgstr "Wybierz"
+
+#~ msgid "Remove all"
+#~ msgstr "Usuń wszystko"
+
+#~ msgid "Add all"
+#~ msgstr "Dodaj wszystkie"
+
+#~ msgid "Remove Selected Members"
+#~ msgstr "Usuń wybranych członków"
 
 #~ msgid ""
 #~ "Use this method to share files with individuals or teams within your "
@@ -2614,9 +2618,6 @@ msgstr "Wybierz"
 
 #~ msgid "Add all tags for the selected members in the list..."
 #~ msgstr "Dodaj wszystkie znaczniki dla zaznaczonych członków na liście..."
-
-#~ msgid "Share your Document"
-#~ msgstr "Udostępnij swój dokument"
 
 #~ msgid "Sunday School Menu assignement"
 #~ msgstr "Przydział menu dla szkółki niedzielnej"

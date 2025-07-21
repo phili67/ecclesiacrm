@@ -5,16 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-06-06T16:14:56.945Z\n"
-"PO-Revision-Date: 2025-06-06T16:14:56.945Z\n"
+"POT-Creation-Date: 2025-07-21T13:47:11.077Z\n"
+"PO-Revision-Date: 2025-07-21T13:47:11.077Z\n"
 
 msgid "Remove"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
-
-msgid "News Editor"
 msgstr ""
 
 msgid "News Title"
@@ -39,6 +36,9 @@ msgid "Important"
 msgstr ""
 
 msgid "Very important"
+msgstr ""
+
+msgid "News Editor"
 msgstr ""
 
 msgid "You have to set a Title for your news"

@@ -1,7 +1,6 @@
 {
     "Remove": "Verwijder",
     "Edit": "Bewerken",
-    "News Editor": "Nieuwsredacteur",
     "News Title": "Nieuws Titel",
     "Set your News title": "Stel uw nieuwstitel in",
     "Choose your News Type": "Kies uw nieuwstype",
@@ -10,5 +9,6 @@
     "To note": "Om op te merken",
     "Important": "Belangrijk",
     "Very important": "Zeer belangrijk",
+    "News Editor": "Nieuwsredacteur",
     "You have to set a Title for your news": "Je moet een Titel instellen voor je nieuws"
 }

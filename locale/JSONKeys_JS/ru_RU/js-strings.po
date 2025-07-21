@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-06-06T16:13:10.341Z\n"
+"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,11 +36,11 @@ msgstr "Классификация"
 msgid "Family Role"
 msgstr "Роль семьи"
 
-msgid "Compose New Message"
-msgstr "Составить новое сообщение"
-
 msgid "Subject:"
 msgstr "Тема:"
+
+msgid "Compose New Message"
+msgstr "Составить новое сообщение"
 
 msgid "Close"
 msgstr "Закрыть"
@@ -69,6 +69,10 @@ msgid ""
 msgstr ""
 "Все списки теперь загружены в Ecclesia<b>CRM</b>.<br><b>Если вы хотите "
 "управлять ими, нажмите на это уведомление!"
+
+#, fuzzy
+msgid "In progress"
+msgstr "В процессе работы...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Возникла проблема с получением запрошенного объекта"
@@ -468,9 +472,6 @@ msgstr "Видео"
 msgid "Description"
 msgstr "Описание"
 
-msgid "Include/Exclude your Calendars in the SideBar"
-msgstr "Включить/исключить календари в боковой панели"
-
 msgid "Calendars"
 msgstr "Календари"
 
@@ -486,11 +487,11 @@ msgstr "[ВКЛЮЧЕНО]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUDE]"
 
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Включить/исключить календари в боковой панели"
+
 msgid "Ok"
 msgstr "Хорошо"
-
-msgid "Share your Calendar"
-msgstr "Поделитесь своим календарем"
 
 msgid "With"
 msgstr "С"
@@ -515,6 +516,9 @@ msgstr "Отправить уведомление по электронной п
 
 msgid "Add persons/Family/groups"
 msgstr "Добавить людей/семью/группы"
+
+msgid "Share your Calendar"
+msgstr "Поделитесь своим календарем"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Вы уверены, что хотите удалить этот ресурс?"
@@ -999,9 +1003,6 @@ msgstr "Дата выписки"
 msgid "Checkout By"
 msgstr "Выезд по"
 
-msgid "QR Code : Call the register"
-msgstr "QR-код : Позвоните в кассу"
-
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
@@ -1010,6 +1011,9 @@ msgstr ""
 
 msgid "no detected QR Code"
 msgstr "не обнаружен QR-код"
+
+msgid "QR Code : Call the register"
+msgstr "QR-код : Позвоните в кассу"
 
 msgid "Loading video..."
 msgstr "Загрузка видео..."
@@ -1245,14 +1249,8 @@ msgstr "Состояние групповой корзины"
 msgid "All members of this group are in the cart"
 msgstr "Все члены этой группы находятся в корзине"
 
-msgid "Remove all"
-msgstr "Удалить все"
-
 msgid "Not all members of this group are in the cart"
 msgstr "Не все члены этой группы находятся в тележке"
-
-msgid "Add all"
-msgstr "Добавить все"
 
 msgid "Cart isn't showable"
 msgstr "Корзина не отображается"
@@ -1313,17 +1311,17 @@ msgstr "Почтовый индекс"
 msgid "Cell Phone"
 msgstr "Мобильный телефон"
 
-msgid "Remove Selected Members"
-msgstr "Удалить выбранных членов"
-
 msgid "You're about to delete all the group members ?"
 msgstr "Вы собираетесь удалить всех членов группы?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Вы уверены? Это нельзя отменить."
 
-msgid "Action to selected members"
-msgstr ""
+msgid "Add"
+msgstr "Добавить"
+
+msgid "Members to cart"
+msgstr "Участники в корзину"
 
 msgid "Add to Cart"
 msgstr "Добавить в корзину"
@@ -1337,12 +1335,6 @@ msgstr "Перейти в группу"
 msgid "Remove all members"
 msgstr "Удалить всех членов"
 
-msgid "Add"
-msgstr "Добавить"
-
-msgid "Members to cart"
-msgstr "Участники в корзину"
-
 msgid "Move"
 msgstr "Переместить"
 
@@ -1355,11 +1347,11 @@ msgstr "Удалить из корзины"
 msgid "No assigned Manager"
 msgstr "Менеджер не назначен"
 
-msgid "Manage Group Managers"
-msgstr "Управление менеджерами групп"
-
 msgid "Add users"
 msgstr "Добавить пользователей"
+
+msgid "Manage Group Managers"
+msgstr "Управление менеджерами групп"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Вы уверены, что хотите удалить этого менеджера?"
@@ -1590,6 +1582,10 @@ msgstr "Активировать"
 
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Вы уверены, что хотите удалить членство этого человека из"
+
+#, fuzzy
+msgid "Share your Document"
+msgstr "Задайте название документа"
 
 msgid "Change classification"
 msgstr "Классификация изменений"
@@ -1964,11 +1960,11 @@ msgstr ""
 msgid "The user must have an email address."
 msgstr "Пользователь должен иметь адрес электронной почты."
 
-msgid "Role management"
-msgstr "Управление ролями"
-
 msgid "Select your Role"
 msgstr "Выберите свою роль"
+
+msgid "Role management"
+msgstr "Управление ролями"
 
 msgid "Are you sure? You're about to delete this Role."
 msgstr "Вы уверены? Вы собираетесь удалить эту Роль."
@@ -2129,9 +2125,6 @@ msgstr "Для получения дополнительной информац�
 msgid "support docs."
 msgstr "вспомогательные документы."
 
-msgid "List Creation"
-msgstr "Создание списка"
-
 msgid "List Title"
 msgstr "Название списка"
 
@@ -2149,6 +2142,9 @@ msgstr "Архивные бары"
 
 msgid "Public"
 msgstr "Общественность"
+
+msgid "List Creation"
+msgstr "Создание списка"
 
 msgid "People"
 msgstr "Люди"
@@ -2291,9 +2287,6 @@ msgstr ""
 "для управления списком.<br> Для удаления огромных баз данных, MailChimp API "
 "работает медленно."
 
-msgid "Email Campaign Creation"
-msgstr "Создание кампаний по электронной почте"
-
 msgid "Campaign Title"
 msgstr "Название кампании"
 
@@ -2311,6 +2304,9 @@ msgstr "Тема вашего письма"
 
 msgid "All list members"
 msgstr "Все члены списка"
+
+msgid "Email Campaign Creation"
+msgstr "Создание кампаний по электронной почте"
 
 msgid "Adding Campaign ..."
 msgstr "Добавление кампании ..."
@@ -2442,9 +2438,6 @@ msgstr "Последний визит/звонок"
 msgid "Delete Pastoral Care Type"
 msgstr "Удалить тип пасторского ухода"
 
-msgid "Pastoral Care Note Creation"
-msgstr "Пасторское попечение Примечание Создание"
-
 msgid "For every administrator"
 msgstr "Для каждого администратора"
 
@@ -2459,6 +2452,9 @@ msgstr "Включите всех членов семьи"
 
 msgid "Include"
 msgstr "Включить"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Пасторское попечение Примечание Создание"
 
 msgid "Last Name (Family Name)"
 msgstr "Фамилия (имя семьи)"
@@ -2513,6 +2509,15 @@ msgstr "Редактор номеров покупателей"
 
 msgid "Select"
 msgstr "Выберите"
+
+#~ msgid "Remove all"
+#~ msgstr "Удалить все"
+
+#~ msgid "Add all"
+#~ msgstr "Добавить все"
+
+#~ msgid "Remove Selected Members"
+#~ msgstr "Удалить выбранных членов"
 
 #~ msgid ""
 #~ "Use this method to share files with individuals or teams within your "

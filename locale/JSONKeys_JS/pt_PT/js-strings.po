@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-06-06T15:19:56.829Z\n"
+"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,11 @@ msgstr "Classificação"
 msgid "Family Role"
 msgstr "Papel de Família"
 
-msgid "Compose New Message"
-msgstr "Compor Nova Mensagem"
-
 msgid "Subject:"
 msgstr "Assunto:"
+
+msgid "Compose New Message"
+msgstr "Compor Nova Mensagem"
 
 msgid "Close"
 msgstr "Fechar"
@@ -70,6 +70,10 @@ msgid ""
 msgstr ""
 "Todas as listas estão agora carregadas em Ecclesia<b>CRM</b>.<br>b>b> Se "
 "você quiser gerenciá-las, clique nesta notificação !</b>"
+
+#, fuzzy
+msgid "In progress"
+msgstr "Em progresso...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Houve um problema na recuperação do objecto solicitado."
@@ -469,9 +473,6 @@ msgstr "Vídeo"
 msgid "Description"
 msgstr "Descrição"
 
-msgid "Include/Exclude your Calendars in the SideBar"
-msgstr "Incluir/Excluir os seus Calendários na Barra Lateral"
-
 msgid "Calendars"
 msgstr "Calendários"
 
@@ -487,11 +488,11 @@ msgstr "[INCLUÍDO]"
 msgid "[EXCLUDE]"
 msgstr "[EXCLUÍDO]"
 
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Incluir/Excluir os seus Calendários na Barra Lateral"
+
 msgid "Ok"
 msgstr "Ok"
-
-msgid "Share your Calendar"
-msgstr "Partilhe o seu Calendário"
 
 msgid "With"
 msgstr "Com"
@@ -516,6 +517,9 @@ msgstr "Enviar notificação por e-mail"
 
 msgid "Add persons/Family/groups"
 msgstr "Adicionar pessoas/família/grupos"
+
+msgid "Share your Calendar"
+msgstr "Partilhe o seu Calendário"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Tem a certeza que quer apagar esta partilha?"
@@ -1002,9 +1006,6 @@ msgstr "Data de Saída"
 msgid "Checkout By"
 msgstr "Checkout Por"
 
-msgid "QR Code : Call the register"
-msgstr "Código QR : Ligue para o registo"
-
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
@@ -1013,6 +1014,9 @@ msgstr ""
 
 msgid "no detected QR Code"
 msgstr "sem código QR detectado"
+
+msgid "QR Code : Call the register"
+msgstr "Código QR : Ligue para o registo"
 
 msgid "Loading video..."
 msgstr "A carregar o vídeo..."
@@ -1248,14 +1252,8 @@ msgstr "Status do carrinho de grupo"
 msgid "All members of this group are in the cart"
 msgstr "Todos os membros deste grupo estão no carrinho"
 
-msgid "Remove all"
-msgstr "Remover tudo"
-
 msgid "Not all members of this group are in the cart"
 msgstr "Nem todos os membros deste grupo estão no carrinho"
-
-msgid "Add all"
-msgstr "Acrescentar tudo"
 
 msgid "Cart isn't showable"
 msgstr "O carrinho não está à mostra"
@@ -1316,17 +1314,17 @@ msgstr "Código Postal"
 msgid "Cell Phone"
 msgstr "Telemóvel"
 
-msgid "Remove Selected Members"
-msgstr ""
-
 msgid "You're about to delete all the group members ?"
 msgstr "Estás prestes a apagar todos os membros do grupo?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Tens a certeza? Isto não pode ser desfeito."
 
-msgid "Action to selected members"
-msgstr ""
+msgid "Add"
+msgstr "Adicione"
+
+msgid "Members to cart"
+msgstr "Membros a carregar"
 
 msgid "Add to Cart"
 msgstr "Adicionar ao carrinho"
@@ -1343,12 +1341,6 @@ msgstr "Selecione o Grupo"
 msgid "Remove all members"
 msgstr "Remover tudo"
 
-msgid "Add"
-msgstr "Adicione"
-
-msgid "Members to cart"
-msgstr "Membros a carregar"
-
 msgid "Move"
 msgstr "Mudança"
 
@@ -1361,12 +1353,12 @@ msgstr "Retirar do carrinho"
 msgid "No assigned Manager"
 msgstr "Nenhum gerente designado"
 
-msgid "Manage Group Managers"
-msgstr "Gerenciar Gerentes de Grupo"
-
 #, fuzzy
 msgid "Add users"
 msgstr "Adicionar comprador"
+
+msgid "Manage Group Managers"
+msgstr "Gerenciar Gerentes de Grupo"
 
 msgid "Are you sure, you want to delete this Manager ?"
 msgstr "Tem a certeza, quer apagar este Gerente?"
@@ -1604,6 +1596,9 @@ msgstr "Ativar"
 
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Tem a certeza que quer remover a filiação desta pessoa de"
+
+msgid "Share your Document"
+msgstr "Partilhe o seu Documento"
 
 msgid "Change classification"
 msgstr "Alterar classificação"
@@ -1986,11 +1981,11 @@ msgstr ""
 msgid "The user must have an email address."
 msgstr "O usuário deve ter um endereço de e-mail."
 
-msgid "Role management"
-msgstr "Gestão de papéis"
-
 msgid "Select your Role"
 msgstr "Selecione o seu papel"
+
+msgid "Role management"
+msgstr "Gestão de papéis"
 
 msgid "Are you sure? You're about to delete this Role."
 msgstr "Tens a certeza? Estás prestes a apagar esta função."
@@ -2151,9 +2146,6 @@ msgstr "Para mais informações, consulte o nosso"
 msgid "support docs."
 msgstr "documentos de apoio."
 
-msgid "List Creation"
-msgstr "Criação de listas"
-
 msgid "List Title"
 msgstr "Título da Lista"
 
@@ -2171,6 +2163,9 @@ msgstr "Barras de Arquivo"
 
 msgid "Public"
 msgstr "Público"
+
+msgid "List Creation"
+msgstr "Criação de listas"
 
 msgid "People"
 msgstr "Pessoas"
@@ -2313,9 +2308,6 @@ msgstr ""
 "Na verdade, é melhor deixar o CRM, e em uma hora reabri-lo para gerenciar "
 "sua lista.<br>Para excluir dados enormes, o MailChimp API é lento."
 
-msgid "Email Campaign Creation"
-msgstr "Criação de campanhas por e-mail"
-
 msgid "Campaign Title"
 msgstr "Título da campanha"
 
@@ -2333,6 +2325,9 @@ msgstr "Assunto do seu correio"
 
 msgid "All list members"
 msgstr "Todos os membros da lista"
+
+msgid "Email Campaign Creation"
+msgstr "Criação de campanhas por e-mail"
 
 msgid "Adding Campaign ..."
 msgstr "Campanha de Adição ..."
@@ -2466,9 +2461,6 @@ msgstr "Última visita/chamada"
 msgid "Delete Pastoral Care Type"
 msgstr "Apagar Tipo de Cuidados Pastorais"
 
-msgid "Pastoral Care Note Creation"
-msgstr "Criação da Nota de Cuidados Pastorais"
-
 msgid "For every administrator"
 msgstr "Para cada administrador"
 
@@ -2483,6 +2475,9 @@ msgstr "Incluir todos os membros da família"
 
 msgid "Include"
 msgstr "Incluir"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Criação da Nota de Cuidados Pastorais"
 
 msgid "Last Name (Family Name)"
 msgstr "Sobrenome (Sobrenome)"
@@ -2537,6 +2532,12 @@ msgstr "Comprador Número Editor"
 
 msgid "Select"
 msgstr "Selecione"
+
+#~ msgid "Remove all"
+#~ msgstr "Remover tudo"
+
+#~ msgid "Add all"
+#~ msgstr "Acrescentar tudo"
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "Você está prestes a remover uma pasta e o seu conteúdo"
@@ -2632,9 +2633,6 @@ msgstr "Selecione"
 #~ msgid "Add all tags for the selected members in the list..."
 #~ msgstr ""
 #~ "Adicionar todas as etiquetas para os membros selecionados na lista..."
-
-#~ msgid "Share your Document"
-#~ msgstr "Partilhe o seu Documento"
 
 #~ msgid "Sunday School Menu assignement"
 #~ msgstr "Atribuição do Menu da Escola Dominical"
