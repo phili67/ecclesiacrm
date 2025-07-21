@@ -1,7 +1,6 @@
 {
     "Remove": "Eliminar",
     "Edit": "Editar",
-    "News Editor": "Editor de noticias",
     "News Title": "Título de la noticia",
     "Set your News title": "Establezca el título de sus noticias",
     "Choose your News Type": "Elija su tipo de noticia",
@@ -10,5 +9,6 @@
     "To note": "A tener en cuenta",
     "Important": "Importante",
     "Very important": "Muy importante",
+    "News Editor": "Editor de noticias",
     "You have to set a Title for your news": "Tienes que poner un título a tus noticias"
 }

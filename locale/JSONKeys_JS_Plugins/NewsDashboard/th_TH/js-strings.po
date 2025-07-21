@@ -4,9 +4,6 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-msgid "News Editor"
-msgstr ""
-
 msgid "News Title"
 msgstr ""
 
@@ -29,6 +26,9 @@ msgid "Important"
 msgstr ""
 
 msgid "Very important"
+msgstr ""
+
+msgid "News Editor"
 msgstr ""
 
 msgid "You have to set a Title for your news"

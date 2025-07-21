@@ -1,7 +1,6 @@
 {
     "Remove": "移除",
     "Edit": "编辑",
-    "News Editor": "新闻编辑",
     "News Title": "新闻标题",
     "Set your News title": "设置你的新闻标题",
     "Choose your News Type": "选择你的新闻类型",
@@ -10,5 +9,6 @@
     "To note": "要注意的是",
     "Important": "重要的是",
     "Very important": "非常重要",
+    "News Editor": "新闻编辑",
     "You have to set a Title for your news": "你必须为你的新闻设置一个标题"
 }

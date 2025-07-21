@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-06 15:19+0000\n"
+"POT-Creation-Date: 2025-07-21 13:15+0000\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +56,7 @@ msgstr "Judul"
 #: v2/templates/people/familyEditor.php:1080
 #: v2/templates/people/personEditor.php:900
 #: v2/templates/people/personlist.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:258
+#: v2/templates/sundayschool/sundayschooldashboard.php:257
 #: v2/templates/system/csvExport.php:63 v2/templates/user/userlist.php:52
 msgid "First Name"
 msgstr "Nama pertama"
@@ -78,7 +78,7 @@ msgstr "Nama tengah"
 #: v2/templates/deposit/manageEnvelopes.php:157
 #: v2/templates/people/familyEditor.php:1082
 #: v2/templates/people/personEditor.php:922
-#: v2/templates/sundayschool/sundayschooldashboard.php:259
+#: v2/templates/sundayschool/sundayschooldashboard.php:258
 #: v2/templates/system/csvExport.php:53
 msgid "Last Name"
 msgstr "Nama terakhir"
@@ -281,8 +281,8 @@ msgstr "Ponsel"
 #: v2/templates/people/personPrint.php:340
 #: v2/templates/people/personview.php:283
 #: v2/templates/people/personview.php:411
-#: v2/templates/people/personview.php:778
-#: v2/templates/sundayschool/sundayschooldashboard.php:107
+#: v2/templates/people/personview.php:774
+#: v2/templates/sundayschool/sundayschooldashboard.php:108
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:135
 #: v2/templates/system/eventAttendance.php:197 queryparameteroptions_qpo.php:13
@@ -300,7 +300,7 @@ msgstr "Bekerja/Email lainnya"
 #: v2/templates/pastoralcare/pastoralcareperson.php:236
 #: v2/templates/people/personPrint.php:290
 #: v2/templates/people/personview.php:227
-#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschooldashboard.php:259
 #: v2/templates/sundayschool/sundayschoolview.php:317
 msgid "Birth Date"
 msgstr "Tanggal lahir"
@@ -408,8 +408,8 @@ msgstr "Defaul negara jika tidak ada yang spesifikasi sebaliknya"
 #: EcclesiaCRM/APIControllers/SearchController.php:256
 #: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:395
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1035
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1047
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1065
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1077
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:83
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/utils/OutputUtils.php:387 EcclesiaCRM/utils/OutputUtils.php:448
@@ -660,7 +660,7 @@ msgstr "Video"
 #: v2/templates/people/personPrint.php:382
 #: v2/templates/people/personPrint.php:638
 #: v2/templates/people/personPrint.php:697
-#: v2/templates/people/personview.php:977
+#: v2/templates/people/personview.php:972
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
 msgstr "Tidak ada"
@@ -762,19 +762,19 @@ msgstr "Keretamu telah berhasil dikosongkan"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:173
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:871
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:876
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:698
 #: uploader/upload.php:82
 msgid "Create file"
 msgstr "Buat file"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
-#: EcclesiaCRM/Service/TimelineService.php:257
+#: EcclesiaCRM/Service/TimelineService.php:261
 msgid "This document is opened by"
 msgstr "Dokumen ini dibuka"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
-#: EcclesiaCRM/Service/TimelineService.php:257
+#: EcclesiaCRM/Service/TimelineService.php:261
 msgid "Minutes left"
 msgstr "Menit tersisa"
 
@@ -788,25 +788,25 @@ msgstr "Folder"
 msgid "Document not found"
 msgstr "Dokumen tidak ditemukan"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:406
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:445
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:404
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:443
 msgid "Right of access to folder problem"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:471
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:823
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:469
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:828
 msgid "Contact error at api"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:498
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:496
 msgid "You can't erase the public folder !"
 msgstr "Kau tak bisa menghapus map publik!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:506
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:538
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:504
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:536
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:608
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:680
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:787
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:792
 msgid "Right of access to the file or folder the prohibited recording"
 msgstr ""
 
@@ -838,15 +838,20 @@ msgstr "Sebuah File"
 msgid "New Folder"
 msgstr "New Folder"
 
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:774
+#, fuzzy
+msgid "can't rename public folder"
+msgstr "Kau tak bisa menghapus map publik!"
+
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: v2/templates/edrive/dashboard.php:103
+#: browser/browse.php:126 v2/templates/edrive/dashboard.php:104
 msgid "[👀  ]"
 msgstr "[👀]"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: v2/templates/edrive/dashboard.php:104
+#: browser/browse.php:127 v2/templates/edrive/dashboard.php:105
 msgid "[👀 ✐]"
 msgstr "[👀 Ϩ"
 
@@ -942,7 +947,7 @@ msgstr "Orang-orang"
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:109
 #: v2/templates/people/peoplelist.php:20 v2/templates/people/peoplelist.php:44
-#: v2/templates/sundayschool/sundayschooldashboard.php:61
+#: v2/templates/sundayschool/sundayschooldashboard.php:62
 msgid "Families"
 msgstr "Keluarga"
 
@@ -1229,7 +1234,7 @@ msgstr "Kelompok tipe"
 #: v2/templates/people/familyview.php:338
 #: v2/templates/people/personPrint.php:405
 #: v2/templates/people/personPrint.php:470
-#: v2/templates/people/personview.php:776
+#: v2/templates/people/personview.php:772
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:726
@@ -1410,7 +1415,7 @@ msgstr "Editor Opsi Bidang Keluarga"
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:37
 #: EcclesiaCRM/Service/ConfirmReportService.php:132
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1398
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1428
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
 #: Include/Footer.php:85 Reports/GDPR/GDPRDataStructureExport.php:84
 #: v2/templates/deposit/autaPaymentEditor.php:801
@@ -1432,7 +1437,7 @@ msgstr "PERSON"
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
 #: EcclesiaCRM/Service/ConfirmReportService.php:636
-#: EcclesiaCRM/Service/TimelineService.php:218
+#: EcclesiaCRM/Service/TimelineService.php:222
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: EcclesiaCRM/dto/ReportUtilities.php:71 Include/Footer.php:68
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -1760,7 +1765,7 @@ msgstr "Ganti kata sandi"
 msgid "Change Settings"
 msgstr "Mengubah peraturan"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:116 v2/templates/people/familyview.php:471
+#: EcclesiaCRM/MenuBar/MenuBar.php:116 v2/templates/people/familyview.php:470
 #: v2/templates/people/personPrint.php:591
 #: v2/templates/people/personview.php:654
 msgid "Documents"
@@ -1837,7 +1842,7 @@ msgid "Meta Search Engine"
 msgstr "Mesin pencarian Meta"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:206
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1202
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1232
 msgid "Directory reports"
 msgstr "Laporan Direktori"
 
@@ -2025,7 +2030,7 @@ msgstr "Tanggal lahirnya"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 Reports/CanvassReports.php:278
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:408
 #: v2/templates/people/personPrint.php:406
-#: v2/templates/sundayschool/sundayschooldashboard.php:261
+#: v2/templates/sundayschool/sundayschooldashboard.php:260
 msgid "Age"
 msgstr "Umur"
 
@@ -2041,8 +2046,8 @@ msgstr "Stats"
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:105
 #: Reports/ClassAttendance.php:97 Reports/ClassAttendance.php:256
 #: Reports/ClassList.php:218 Reports/PhotoBook.php:70
-#: v2/templates/sundayschool/sundayschooldashboard.php:38
-#: v2/templates/sundayschool/sundayschooldashboard.php:208
+#: v2/templates/sundayschool/sundayschooldashboard.php:39
+#: v2/templates/sundayschool/sundayschooldashboard.php:211
 #: v2/templates/sundayschool/sundayschoolview.php:148
 msgid "Teachers"
 msgstr "Guru"
@@ -2124,7 +2129,7 @@ msgstr "Dewasa/Anak"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:185
 #: v2/templates/people/familyview.php:340
-#: v2/templates/people/personview.php:777
+#: v2/templates/people/personview.php:773
 msgid "Birthday"
 msgstr "Ulang Tahun."
 
@@ -2220,8 +2225,8 @@ msgstr "Tractor"
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:269
 #: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
 #: Reports/PhotoBook.php:72
-#: v2/templates/sundayschool/sundayschooldashboard.php:49
-#: v2/templates/sundayschool/sundayschooldashboard.php:209
+#: v2/templates/sundayschool/sundayschooldashboard.php:50
+#: v2/templates/sundayschool/sundayschooldashboard.php:212
 #: v2/templates/sundayschool/sundayschoolview.php:250
 msgid "Students"
 msgstr "Siswa"
@@ -2327,16 +2332,16 @@ msgstr "Anggota"
 #: v2/templates/people/familylist.php:110
 #: v2/templates/people/familylist.php:111
 #: v2/templates/people/familyview.php:180
-#: v2/templates/people/familyview.php:862 v2/templates/people/personlist.php:98
+#: v2/templates/people/familyview.php:857 v2/templates/people/personlist.php:98
 #: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
 #: v2/templates/people/personlist.php:101
 #: v2/templates/people/personlist.php:102
 #: v2/templates/people/personlist.php:103
 #: v2/templates/people/personview.php:344
-#: v2/templates/people/personview.php:1495
-#: v2/templates/sundayschool/sundayschooldashboard.php:296
-#: v2/templates/sundayschool/sundayschooldashboard.php:297
-#: v2/templates/sundayschool/sundayschooldashboard.php:298
+#: v2/templates/people/personview.php:1479
+#: v2/templates/sundayschool/sundayschooldashboard.php:292
+#: v2/templates/sundayschool/sundayschooldashboard.php:293
+#: v2/templates/sundayschool/sundayschooldashboard.php:294
 #: v2/templates/sundayschool/sundayschoolview.php:161
 msgid "Private Data"
 msgstr "Private Data"
@@ -2363,7 +2368,7 @@ msgstr "Properti keluarga"
 
 #: EcclesiaCRM/Search/FamilySearchRes.php:44
 #: EcclesiaCRM/Service/PersonService.php:49
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1400
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1430
 msgid "family"
 msgstr "Keluarga"
 
@@ -2508,22 +2513,22 @@ msgid "Anniversary"
 msgstr "Ulang tahun."
 
 #: EcclesiaCRM/Service/CalendarService.php:1398
-#: EcclesiaCRM/Service/ConfirmReportService.php:541
+#: EcclesiaCRM/Service/ConfirmReportService.php:541 browser/browse.php:100
 #: ident/templates/verify/verify-family-info.php:47
 #: ident/templates/verify/verify-person-info.php:62
 #: v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/calendar/eventnames.php:347
 #: v2/templates/deposit/electronicPaymentList.php:301
 #: v2/templates/deposit/finddepositslip.php:103
-#: v2/templates/edrive/dashboard.php:77
+#: v2/templates/edrive/dashboard.php:78
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/pastoralcare/pastoralcarefamily.php:299
 #: v2/templates/pastoralcare/pastoralcarefamily.php:306
 #: v2/templates/pastoralcare/pastoralcareperson.php:431
 #: v2/templates/pastoralcare/pastoralcareperson.php:438
-#: v2/templates/people/familyview.php:890
-#: v2/templates/people/personview.php:1524 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/familyview.php:885
+#: v2/templates/people/personview.php:1508 v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "Hapus"
 
@@ -2637,7 +2642,7 @@ msgstr "Modify"
 #: EcclesiaCRM/Service/ConfirmReportService.php:679
 #: EcclesiaCRM/Service/ConfirmReportService.php:725
 #: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:262
+#: v2/templates/sundayschool/sundayschooldashboard.php:261
 msgid "Home Address"
 msgstr "Alamat rumah"
 
@@ -2686,28 +2691,28 @@ msgstr "dari itu"
 msgid "(No assigned family)"
 msgstr "(Tidak ada keluarga yang ditugaskan)"
 
-#: EcclesiaCRM/Service/TimelineService.php:223
+#: EcclesiaCRM/Service/TimelineService.php:227
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:140
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:793
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:801
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1165
 msgid "Unknown"
 msgstr "Tidak diketahui"
 
-#: EcclesiaCRM/Service/TimelineService.php:225
+#: EcclesiaCRM/Service/TimelineService.php:229
 msgid "Self Registration"
 msgstr "Pendaftaran diri"
 
-#: EcclesiaCRM/Service/TimelineService.php:227
+#: EcclesiaCRM/Service/TimelineService.php:231
 msgid "Self Verification"
 msgstr "Verifikasi diri"
 
-#: EcclesiaCRM/Service/TimelineService.php:268
-#: EcclesiaCRM/Service/TimelineService.php:271
+#: EcclesiaCRM/Service/TimelineService.php:272
+#: EcclesiaCRM/Service/TimelineService.php:275
 #: v2/templates/people/lettersandlabels.php:201
 #: v2/templates/people/lettersandlabels.php:233
 #: v2/templates/people/personPrint.php:630
@@ -2717,12 +2722,12 @@ msgstr "Verifikasi diri"
 msgid "by"
 msgstr "By"
 
-#: EcclesiaCRM/Service/TimelineService.php:332
+#: EcclesiaCRM/Service/TimelineService.php:336
 #: EcclesiaCRM/utils/MiscUtils.php:776 EcclesiaCRM/utils/MiscUtils.php:994
 msgid "File"
 msgstr "Berkas"
 
-#: EcclesiaCRM/Service/TimelineService.php:367
+#: EcclesiaCRM/Service/TimelineService.php:371
 msgid "Shared by"
 msgstr "Dibagi oleh"
 
@@ -2775,7 +2780,7 @@ msgid "Single Persons"
 msgstr "Satu orang"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:934
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:964
 #: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:16
 msgid "Family List"
 msgstr "Daftar Keluarga"
@@ -2797,92 +2802,92 @@ msgstr "Orang Listing"
 msgid "Person Editor"
 msgstr "Editor orang"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:587
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:650
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:585
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:648
 #: v2/templates/group/groupPropsFormEditor.php:321
 msgid "Person Profile"
 msgstr "Profil Person"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:590
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:588
 msgid "Previous Person"
 msgstr "Previous Person"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:597
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:595
 #: EcclesiaCRM/VIEWControllers/People/VIEWPersonListController.php:95
 #: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:16
 msgid "Person List"
 msgstr "Daftar orang"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:604
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:602
 msgid "Next Person"
 msgstr "Orang berikutnya"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:924
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:954
 msgid "Family View"
 msgstr "View keluarga"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:927
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:957
 msgid "Previous Family"
 msgstr "Sebelumnya Keluarga"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:941
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:971
 msgid "Next Family"
 msgstr "Keluarga berikutnya"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1007
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1037
 msgid "Update Latitude & Longitude"
 msgstr "Update Latitude £ Longitude"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1161
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1191
 msgid "Family Geographic Utilities"
 msgstr "Utilitas Geografis keluarga"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1226
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1256
 #: v2/templates/people/peopledashboard.php:225
 msgid "Letters and mailing labels for data confirmations"
 msgstr "Surat dan label surat untuk konfirmasi data"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1249
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1279
 #: v2/templates/people/peopledashboard.php:219
 msgid "Pledge Reminder Report"
 msgstr "Laporan Pengingat Pledge"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1275
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1305
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:580
 msgid "Printable View"
 msgstr "Pemandangan yang sangat penting"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1304
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1334
 msgid "Family Editor"
 msgstr "Editor keluarga"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1326
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1356
 msgid "Custom Person Fields Editor"
 msgstr "Editor Custom Person Fields"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1347
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1377
 msgid "Custom Family Fields Editor"
 msgstr "Editor Fields Keluarga Custom"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1398
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1400
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1428
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1430
 msgid "Canvass Input for the"
 msgstr "Input Canvass untuk itu"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1428
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1458
 #: v2/templates/system/reportlist.php:43
 msgid "Canvass Automation"
 msgstr "Otomation Canvass"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1522
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1552
 msgid "Family Delete Confirmation"
 msgstr "Konfirmasi Hapus Keluarga"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1524
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1554
 msgid "Person Delete Confirmation"
 msgstr "Orang menghapus Konfirmasi"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1526
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1556
 msgid "Remove Address"
 msgstr "Hapus Alamat"
 
@@ -5514,6 +5519,14 @@ msgstr "Imaja Profil diunggah"
 msgid "Member"
 msgstr "Anggota"
 
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:41
+msgid "Edit this document"
+msgstr "Edit dokumen ini"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:50
+msgid "Delete this document"
+msgstr "Hapus dokumen ini"
+
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:418
 msgid "Person Data Verified"
 msgstr "Data Orang Terverifikasi"
@@ -5526,23 +5539,23 @@ msgstr "Data Orang Terverifikasi oleh url"
 msgid "Person Data Verification reset"
 msgstr "Pengaturan ulang Verifikasi Data Orang"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "mos tua"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:802
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:810
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "mo tua"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:814
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "tua-mu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:816
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "tua mu"
@@ -6442,10 +6455,10 @@ msgstr "Signu___________________________________________________________________
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:223
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
 #: v2/templates/pastoralcare/pastoralcareperson.php:176
-#: v2/templates/people/familyview.php:859
+#: v2/templates/people/familyview.php:854
 #: v2/templates/people/personPrint.php:218
 #: v2/templates/people/personview.php:165
-#: v2/templates/people/personview.php:1492
+#: v2/templates/people/personview.php:1476
 msgid "Informations"
 msgstr "Informasi"
 
@@ -6749,17 +6762,108 @@ msgstr "Backup Download, Copy on server dihapus"
 msgid "File Manager"
 msgstr "File Manager"
 
-#: browser/browse.php:42
-msgid "Upload a file in EDrive"
-msgstr "Upload file di EDrive"
+#: browser/browse.php:41 v2/templates/edrive/dashboard.php:25
+#, fuzzy
+msgid "Edrive : File manager"
+msgstr "File Manager"
 
-#: browser/browse.php:45
+#: browser/browse.php:44
 msgid "Download"
 msgstr "Download"
 
-#: browser/browse.php:72 v2/templates/group/groupbadge.php:207
-msgid "Preview"
-msgstr "Preview"
+#: browser/browse.php:45
+msgid "Insert"
+msgstr ""
+
+#: browser/browse.php:54 v2/templates/edrive/dashboard.php:32
+#, fuzzy
+msgid "Files input"
+msgstr "Berkas hilang"
+
+#: browser/browse.php:56 v2/templates/edrive/dashboard.php:34
+#, fuzzy
+msgid "Upload your files"
+msgstr "Upload file Anda"
+
+#: browser/browse.php:57 v2/templates/cart/carttobadge.php:127
+#: v2/templates/cart/carttobadge.php:133 v2/templates/edrive/dashboard.php:35
+#: v2/templates/group/groupbadge.php:158 v2/templates/group/groupbadge.php:164
+msgid "Upload"
+msgstr "Upload"
+
+#: browser/browse.php:66 v2/templates/edrive/dashboard.php:44
+msgid "Move up one level, or drag the file(s) to move them up one level."
+msgstr ""
+
+#: browser/browse.php:91 v2/templates/edrive/dashboard.php:69
+msgid "Internal sharing"
+msgstr ""
+
+#: browser/browse.php:99 v2/templates/edrive/dashboard.php:77
+#, fuzzy
+msgid "Delete all shares"
+msgstr "Hapus semua kamar"
+
+#: browser/browse.php:103 v2/templates/edrive/dashboard.php:81
+#, fuzzy
+msgid "Delete shares for the selected users"
+msgstr "Menghapus Donasi dari Orang yang Dipilih"
+
+#: browser/browse.php:104 v2/templates/edrive/dashboard.php:82
+#, fuzzy
+msgid "Stop sharing"
+msgstr "Musim semi"
+
+#: browser/browse.php:109 v2/templates/edrive/dashboard.php:87
+msgid "With"
+msgstr ""
+
+#: browser/browse.php:117 v2/templates/edrive/dashboard.php:95
+#, fuzzy
+msgid "Set Rights"
+msgstr "Benar"
+
+#: browser/browse.php:123 v2/templates/edrive/dashboard.php:101
+#, fuzzy
+msgid "Select your rights"
+msgstr "Atur elemen Anda"
+
+#: browser/browse.php:123 v2/templates/deposit/autaPaymentEditor.php:806
+#: v2/templates/deposit/pledgeEditor.php:40
+#: v2/templates/edrive/dashboard.php:101
+#: v2/templates/people/personEditor.php:1011
+msgid "or"
+msgstr "Atau"
+
+#: browser/browse.php:126 v2/templates/edrive/dashboard.php:104
+msgid "[R ]"
+msgstr ""
+
+#: browser/browse.php:127 v2/templates/edrive/dashboard.php:105
+msgid "[RW]"
+msgstr ""
+
+#: browser/browse.php:137 v2/templates/edrive/dashboard.php:115
+msgid ""
+"Use this method to share files with individuals or teams within your "
+"organization. If the recipient already has access to the share, but can't "
+"locate it, you can send them the internal link to facilitate access."
+msgstr ""
+
+#: browser/browse.php:137 v2/templates/edrive/dashboard.php:115
+#: v2/templates/sidebar/systemsettings.php:199
+msgid "Definition"
+msgstr "Definisi"
+
+#: browser/browse.php:145 v2/templates/edrive/dashboard.php:123
+#, fuzzy
+msgid "Send email notification"
+msgstr "File modifikasi"
+
+#: browser/browse.php:148 v2/templates/edrive/dashboard.php:126
+#, fuzzy
+msgid "With Right"
+msgstr "Benar"
 
 #: eGive.php:80
 msgid "eGive Import"
@@ -6876,7 +6980,7 @@ msgstr "Daftar"
 #: v2/templates/people/familyEditor.php:1058
 #: v2/templates/people/familyview.php:327
 #: v2/templates/people/personPrint.php:400
-#: v2/templates/people/personview.php:775
+#: v2/templates/people/personview.php:771
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "Keluarga Anggota"
@@ -7059,12 +7163,12 @@ msgstr "Kami menemukan kesalahan yang mengajukan data verifikasi Anda"
 #: v2/templates/people/canvassEditor.php:239
 #: v2/templates/people/directoryreport.php:326
 #: v2/templates/people/familyEditor.php:1287
-#: v2/templates/people/familyview.php:889
+#: v2/templates/people/familyview.php:884
 #: v2/templates/people/lettersandlabels.php:269
 #: v2/templates/people/personEditor.php:1740
-#: v2/templates/people/personview.php:1523
+#: v2/templates/people/personview.php:1507
 #: v2/templates/people/reminderreport.php:42
-#: v2/templates/sundayschool/sundayschooldashboard.php:331
+#: v2/templates/sundayschool/sundayschooldashboard.php:327
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 #: v2/templates/user/userseditor.php:814 v2/templates/user/usersettings.php:61
 #: v2/templates/user/usersettings.php:324
@@ -7526,7 +7630,7 @@ msgstr "Deskripsi"
 #: v2/templates/calendar/eventnames.php:306
 #: v2/templates/deposit/depositslipeditor.php:163
 #: v2/templates/deposit/electronicPaymentList.php:199
-#: v2/templates/people/personview.php:900
+#: v2/templates/people/personview.php:895
 msgid "Action"
 msgstr "Action"
 
@@ -7930,12 +8034,6 @@ msgstr "Nama sekolah Minggu"
 msgid "Pictures in the Image folder: "
 msgstr "Foto dalam folder Image:"
 
-#: v2/templates/cart/carttobadge.php:127 v2/templates/cart/carttobadge.php:133
-#: v2/templates/edrive/dashboard.php:35 v2/templates/group/groupbadge.php:158
-#: v2/templates/group/groupbadge.php:164
-msgid "Upload"
-msgstr "Upload"
-
 #: v2/templates/cart/carttobadge.php:139 v2/templates/group/groupbadge.php:170
 msgid "Image Position"
 msgstr "Posisi gambar"
@@ -8018,7 +8116,7 @@ msgstr "Email Cart"
 #: v2/templates/cart/cartview.php:86 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:251
 #: v2/templates/people/personview.php:414
-#: v2/templates/sundayschool/sundayschooldashboard.php:116
+#: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
 msgid "Email (BCC)"
 msgstr "Email (BCC)"
@@ -8126,7 +8224,7 @@ msgid "See All People"
 msgstr "Lihat All People"
 
 #: v2/templates/dashboard/maindashboard.php:204
-#: v2/templates/sundayschool/sundayschooldashboard.php:194
+#: v2/templates/sundayschool/sundayschooldashboard.php:197
 msgid "Sunday School Classes"
 msgstr "Sekolah Minggu"
 
@@ -8154,13 +8252,6 @@ msgstr "Peta Setting"
 #: v2/templates/deposit/autaPaymentEditor.php:801
 msgid "For the"
 msgstr "Untuk itu"
-
-#: v2/templates/deposit/autaPaymentEditor.php:806
-#: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:100
-#: v2/templates/people/personEditor.php:1011
-msgid "or"
-msgstr "Atau"
 
 #: v2/templates/deposit/autaPaymentEditor.php:809
 msgid ""
@@ -8657,8 +8748,8 @@ msgid "Generate Deposit Slip for Selected Rows (PDF)"
 msgstr "Generate Deposit Slip untuk Terpilih Rows (PDF)"
 
 #: v2/templates/deposit/finddepositslip.php:93
-#: v2/templates/people/familyview.php:880
-#: v2/templates/people/personview.php:1512
+#: v2/templates/people/familyview.php:875
+#: v2/templates/people/personview.php:1496
 msgid "Confirm Delete"
 msgstr "Konfirmasi Hapus"
 
@@ -8811,88 +8902,6 @@ msgstr "Jumlah yang tak bisa dikurangi"
 #: v2/templates/deposit/taxReport.php:29
 msgid "Calendar Year"
 msgstr "Tahun Kalender"
-
-#: v2/templates/edrive/dashboard.php:25
-#, fuzzy
-msgid "Edrive : File manager"
-msgstr "File Manager"
-
-#: v2/templates/edrive/dashboard.php:32
-#, fuzzy
-msgid "Files input"
-msgstr "Berkas hilang"
-
-#: v2/templates/edrive/dashboard.php:34
-#, fuzzy
-msgid "Upload your files"
-msgstr "Upload file Anda"
-
-#: v2/templates/edrive/dashboard.php:44
-msgid "Move up one level, or drag the file(s) to move them up one level."
-msgstr ""
-
-#: v2/templates/edrive/dashboard.php:68
-msgid "Internal sharing"
-msgstr ""
-
-#: v2/templates/edrive/dashboard.php:76
-#, fuzzy
-msgid "Delete all shares"
-msgstr "Hapus semua kamar"
-
-#: v2/templates/edrive/dashboard.php:80
-#, fuzzy
-msgid "Delete shares for the selected users"
-msgstr "Menghapus Donasi dari Orang yang Dipilih"
-
-#: v2/templates/edrive/dashboard.php:81
-#, fuzzy
-msgid "Stop sharing"
-msgstr "Musim semi"
-
-#: v2/templates/edrive/dashboard.php:86
-msgid "With"
-msgstr ""
-
-#: v2/templates/edrive/dashboard.php:94
-#, fuzzy
-msgid "Set Rights"
-msgstr "Benar"
-
-#: v2/templates/edrive/dashboard.php:100
-#, fuzzy
-msgid "Select your rights"
-msgstr "Atur elemen Anda"
-
-#: v2/templates/edrive/dashboard.php:103
-msgid "[R ]"
-msgstr ""
-
-#: v2/templates/edrive/dashboard.php:104
-msgid "[RW]"
-msgstr ""
-
-#: v2/templates/edrive/dashboard.php:114
-msgid ""
-"Use this method to share files with individuals or teams within your "
-"organization. If the recipient already has access to the share, but can't "
-"locate it, you can send them the internal link to facilitate access."
-msgstr ""
-
-#: v2/templates/edrive/dashboard.php:114
-#: v2/templates/sidebar/systemsettings.php:199
-msgid "Definition"
-msgstr "Definisi"
-
-#: v2/templates/edrive/dashboard.php:122
-#, fuzzy
-msgid "Send email notification"
-msgstr "File modifikasi"
-
-#: v2/templates/edrive/dashboard.php:125
-#, fuzzy
-msgid "With Right"
-msgstr "Benar"
 
 #: v2/templates/email/mailchimp/campaign.php:31
 #, fuzzy
@@ -9124,7 +9133,7 @@ msgstr ""
 
 #: v2/templates/email/mailchimp/managelist.php:75
 #: v2/templates/group/groupview.php:472
-#: v2/templates/sundayschool/sundayschooldashboard.php:333
+#: v2/templates/sundayschool/sundayschooldashboard.php:329
 #: v2/templates/sundayschool/sundayschoolview.php:179
 #: v2/templates/sundayschool/sundayschoolview.php:292
 msgid "Add"
@@ -9503,6 +9512,10 @@ msgstr "Nama Gambar"
 msgid "With QR Code"
 msgstr "Dengan kode QR"
 
+#: v2/templates/group/groupbadge.php:207
+msgid "Preview"
+msgstr "Preview"
+
 #: v2/templates/group/groupedit.php:41
 msgid "Special Group Settings : Sunday School Type"
 msgstr "Pasukan Khusus: Sekolah Minggu"
@@ -9756,26 +9769,26 @@ msgstr "Tambahkan Manajer"
 
 #: v2/templates/group/groupview.php:315 v2/templates/group/groupview.php:377
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:551
-#: v2/templates/people/familyview.php:447
+#: v2/templates/people/familyview.php:446
 #: v2/templates/people/personPrint.php:547
 #: v2/templates/people/personview.php:597
 msgid "Assigned Properties"
 msgstr "Ditugaskan Properties"
 
-#: v2/templates/group/groupview.php:328 v2/templates/people/familyview.php:608
-#: v2/templates/people/personview.php:1083
+#: v2/templates/group/groupview.php:328 v2/templates/people/familyview.php:604
+#: v2/templates/people/personview.php:1078
 msgid "Assign a New Property"
 msgstr "Assign a Property baru"
 
-#: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:618
-#: v2/templates/people/personview.php:1091 v2/templates/query/queryview.php:393
+#: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:614
+#: v2/templates/people/personview.php:1086 v2/templates/query/queryview.php:393
 #: v2/templates/query/queryview.php:410
 msgid "select an option"
 msgstr "pilih pilihan"
 
-#: v2/templates/group/groupview.php:349 v2/templates/people/familyview.php:639
-#: v2/templates/people/personview.php:1112
-#: v2/templates/people/personview.php:1175
+#: v2/templates/group/groupview.php:349 v2/templates/people/familyview.php:635
+#: v2/templates/people/personview.php:1107
+#: v2/templates/people/personview.php:1170
 msgid "Assign"
 msgstr "Assign"
 
@@ -9876,7 +9889,7 @@ msgstr "Ditugaskan kelompok"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
 #: v2/templates/people/personPrint.php:463
-#: v2/templates/people/personview.php:865
+#: v2/templates/people/personview.php:860
 msgid "No group assignments."
 msgstr "Tidak ada tugas kelompok."
 
@@ -9897,7 +9910,7 @@ msgstr "Value"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
 #: v2/templates/people/personPrint.php:559
-#: v2/templates/people/personview.php:1067
+#: v2/templates/people/personview.php:1062
 msgid "No property assignments."
 msgstr "Tidak ada tugas properti."
 
@@ -10618,90 +10631,90 @@ msgstr "keluarga ini"
 msgid "Delete this Family"
 msgstr "Hapus keluarga ini"
 
-#: v2/templates/people/familyview.php:442
+#: v2/templates/people/familyview.php:441
 #: v2/templates/people/personview.php:552
 msgid "Timeline"
 msgstr "Timeline"
 
-#: v2/templates/people/familyview.php:456
+#: v2/templates/people/familyview.php:455
 #: v2/templates/people/personview.php:627
 msgid "Automatic Payments"
 msgstr "Pembayaran otomatis"
 
-#: v2/templates/people/familyview.php:462
+#: v2/templates/people/familyview.php:461
 #: v2/templates/people/personview.php:634
 msgid "Pledges and Payments"
 msgstr "Pledges dan Payments"
 
-#: v2/templates/people/familyview.php:615
-#: v2/templates/people/personview.php:1089
-#: v2/templates/people/personview.php:1160
-#: v2/templates/people/personview.php:1298
+#: v2/templates/people/familyview.php:611
+#: v2/templates/people/personview.php:1084
+#: v2/templates/people/personview.php:1155
+#: v2/templates/people/personview.php:1293
 msgid "Select"
 msgstr "Pilih"
 
-#: v2/templates/people/familyview.php:667
-#: v2/templates/people/personview.php:1206
+#: v2/templates/people/familyview.php:663
+#: v2/templates/people/personview.php:1201
 msgid "Add a new automatic payment"
 msgstr "Tambahkan pembayaran otomatis baru"
 
-#: v2/templates/people/familyview.php:676
-#: v2/templates/people/personview.php:1227
+#: v2/templates/people/familyview.php:672
+#: v2/templates/people/personview.php:1222
 msgid "Show Pledges"
 msgstr "Pertunjukan Pledges"
 
-#: v2/templates/people/familyview.php:680
-#: v2/templates/people/personview.php:1231
+#: v2/templates/people/familyview.php:676
+#: v2/templates/people/personview.php:1226
 msgid "Show Payments"
 msgstr "Tunjukkan pembayaran"
 
-#: v2/templates/people/familyview.php:683
-#: v2/templates/people/personview.php:1234
+#: v2/templates/people/familyview.php:679
+#: v2/templates/people/personview.php:1229
 msgid "From"
 msgstr "Dari"
 
-#: v2/templates/people/familyview.php:692
-#: v2/templates/people/personview.php:1243
+#: v2/templates/people/familyview.php:688
+#: v2/templates/people/personview.php:1238
 msgid "To"
 msgstr "To"
 
-#: v2/templates/people/familyview.php:715
-#: v2/templates/people/personview.php:1256
+#: v2/templates/people/familyview.php:711
+#: v2/templates/people/personview.php:1251
 msgid "Add a new pledge"
 msgstr "Tambahkan janji baru"
 
-#: v2/templates/people/familyview.php:717
-#: v2/templates/people/personview.php:1258
+#: v2/templates/people/familyview.php:713
+#: v2/templates/people/personview.php:1253
 msgid "Add a new payment"
 msgstr "Tambahkan pembayaran baru"
 
-#: v2/templates/people/familyview.php:725
-#: v2/templates/people/personview.php:1274
+#: v2/templates/people/familyview.php:721
+#: v2/templates/people/personview.php:1269
 msgid " Canvass Entry"
 msgstr "Canvass Entry"
 
-#: v2/templates/people/familyview.php:885
-#: v2/templates/people/personview.php:1517
+#: v2/templates/people/familyview.php:880
+#: v2/templates/people/personview.php:1501
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "Kau akan menghapus foto profil, prosedur ini tidak bisa dibalik."
 
-#: v2/templates/people/familyview.php:886
-#: v2/templates/people/personview.php:1519
+#: v2/templates/people/familyview.php:881
+#: v2/templates/people/personview.php:1503
 msgid "Do you want to proceed?"
 msgstr "Kau ingin melanjutkan?"
 
-#: v2/templates/people/familyview.php:901
-#: v2/templates/people/personview.php:1537
+#: v2/templates/people/familyview.php:896
+#: v2/templates/people/personview.php:1521
 msgid "Request Family Info Verification"
 msgstr "Meminta Verifikasi Info Keluarga"
 
-#: v2/templates/people/familyview.php:906
+#: v2/templates/people/familyview.php:901
 msgid "Select how do you want to request the family information to be verified"
 msgstr ""
 "Pilih bagaimana kau ingin meminta informasi keluarga untuk diverifikasi"
 
-#: v2/templates/people/familyview.php:911
+#: v2/templates/people/familyview.php:906
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
@@ -10709,20 +10722,20 @@ msgstr ""
 "Kau akan mengirim salinan email dari informasi keluarga di PDF ke email "
 "berikut"
 
-#: v2/templates/people/familyview.php:933
-#: v2/templates/people/familyview.php:937
-#: v2/templates/people/personview.php:1551
-#: v2/templates/people/personview.php:1555
+#: v2/templates/people/familyview.php:928
+#: v2/templates/people/familyview.php:932
+#: v2/templates/people/personview.php:1535
+#: v2/templates/people/personview.php:1539
 msgid "Online Verification"
 msgstr "Verifikasi online"
 
-#: v2/templates/people/familyview.php:944
-#: v2/templates/people/personview.php:1562
+#: v2/templates/people/familyview.php:939
+#: v2/templates/people/personview.php:1546
 msgid "PDF Report"
 msgstr "PDF Laporan"
 
-#: v2/templates/people/familyview.php:948
-#: v2/templates/people/personview.php:1566
+#: v2/templates/people/familyview.php:943
+#: v2/templates/people/personview.php:1550
 msgid "Verified In Person"
 msgstr "Diverifikasi In Prson"
 
@@ -10949,7 +10962,7 @@ msgstr "Minggu sekolah anak-anak"
 #: v2/templates/people/peopledashboard.php:194
 #: v2/templates/people/peopledashboard.php:234
 #: v2/templates/people/peopledashboard.php:241
-#: v2/templates/sundayschool/sundayschooldashboard.php:148
+#: v2/templates/sundayschool/sundayschooldashboard.php:151
 msgid "Reports"
 msgstr "Laporan"
 
@@ -11036,12 +11049,12 @@ msgid "Women"
 msgstr "Wanita"
 
 #: v2/templates/people/peopledashboard.php:394
-#: v2/templates/sundayschool/sundayschooldashboard.php:73
+#: v2/templates/sundayschool/sundayschooldashboard.php:74
 msgid "Boys"
 msgstr "Anak-anak"
 
 #: v2/templates/people/peopledashboard.php:399
-#: v2/templates/sundayschool/sundayschooldashboard.php:85
+#: v2/templates/sundayschool/sundayschooldashboard.php:86
 msgid "Girls"
 msgstr "Gadis-gadis"
 
@@ -11283,80 +11296,72 @@ msgstr "orang ini"
 msgid "Delete this Record"
 msgstr "Hapus kitab ini"
 
-#: v2/templates/people/personview.php:751
+#: v2/templates/people/personview.php:747
 msgid "click to download"
 msgstr "klik untuk mengunduh"
 
-#: v2/templates/people/personview.php:910
+#: v2/templates/people/personview.php:905
 msgid "Change Role"
 msgstr "Ganti Role"
 
-#: v2/templates/people/personview.php:917
+#: v2/templates/people/personview.php:912
 msgid "Update Properties"
 msgstr "Perubahan Properti"
 
-#: v2/templates/people/personview.php:955
+#: v2/templates/people/personview.php:950
 msgid "Group Informations"
 msgstr "Informasi kelompok"
 
-#: v2/templates/people/personview.php:996
+#: v2/templates/people/personview.php:991
 msgid "Person Informations"
 msgstr "Informasi orang"
 
-#: v2/templates/people/personview.php:1018
+#: v2/templates/people/personview.php:1013
 msgid "Modify Specific Properties"
 msgstr "Properti Spesifik Modifikasi"
 
-#: v2/templates/people/personview.php:1029
+#: v2/templates/people/personview.php:1024
 msgid "No specific group properties defined !"
 msgstr "Tidak ada properti grup tertentu yang didefinisikan!"
 
-#: v2/templates/people/personview.php:1137
+#: v2/templates/people/personview.php:1132
 msgid "No volunteer opportunity assignments."
 msgstr "Tidak ada tugas sukarelawan."
 
-#: v2/templates/people/personview.php:1152
+#: v2/templates/people/personview.php:1147
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Tanyakan peluang Volunteer baru"
 
-#: v2/templates/people/personview.php:1211
-#: v2/templates/people/personview.php:1263
+#: v2/templates/people/personview.php:1206
+#: v2/templates/people/personview.php:1258
 msgid "You must set an address for this person"
 msgstr "Kau harus mengatur alamat orang ini"
 
-#: v2/templates/people/personview.php:1299
+#: v2/templates/people/personview.php:1294
 msgid "Filter your documents by : "
 msgstr "Mengisi dokumen Anda dengan:"
 
-#: v2/templates/people/personview.php:1300
+#: v2/templates/people/personview.php:1295
 msgid "All type"
 msgstr "Semua jenis"
 
-#: v2/templates/people/personview.php:1305
+#: v2/templates/people/personview.php:1300
 msgid "Shared documents"
 msgstr "Dokumen yang dibagi"
 
-#: v2/templates/people/personview.php:1341
-msgid "Edit this document"
-msgstr "Edit dokumen ini"
-
 #: v2/templates/people/personview.php:1351
-msgid "Delete this document"
-msgstr "Hapus dokumen ini"
-
-#: v2/templates/people/personview.php:1362
 msgid "Share this document to another user"
 msgstr "Berbagi dokumen ini untuk pengguna lain"
 
-#: v2/templates/people/personview.php:1375
+#: v2/templates/people/personview.php:1360
 msgid "Export this document to word Format"
 msgstr "Laporkan dokumen ini untuk kata Format"
 
-#: v2/templates/people/personview.php:1418
+#: v2/templates/people/personview.php:1404
 msgid "Last modification by"
 msgstr "Modifikasi terakhir oleh"
 
-#: v2/templates/people/personview.php:1542
+#: v2/templates/people/personview.php:1526
 msgid "Select how do you want to request the person information to be verified"
 msgstr ""
 "Pilih bagaimana Anda ingin meminta informasi orang yang akan diverifikasi"
@@ -11768,26 +11773,26 @@ msgstr "Tipe yang tak dikenal"
 msgid "Add Volunteer Opportunity"
 msgstr "Tambahkan peluang sukarelawan"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:26
+#: v2/templates/sundayschool/sundayschooldashboard.php:27
 msgid "Classes"
 msgstr "Kelas"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:96
+#: v2/templates/sundayschool/sundayschooldashboard.php:97
 msgid "Functions"
 msgstr "Fungsi"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:110
-#: v2/templates/sundayschool/sundayschooldashboard.php:119
+#: v2/templates/sundayschool/sundayschooldashboard.php:111
+#: v2/templates/sundayschool/sundayschooldashboard.php:120
 #: v2/templates/sundayschool/sundayschoolview.php:46
 #: v2/templates/sundayschool/sundayschoolview.php:55
 msgid "Toggle Dropdown"
 msgstr "Turunkan"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:129
+#: v2/templates/sundayschool/sundayschooldashboard.php:130
 msgid "Add New Class"
 msgstr "Tambahkan Kelas baru"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:138
+#: v2/templates/sundayschool/sundayschooldashboard.php:141
 msgid ""
 "Be Careful! You are about to create or recreate all the events of all the "
 "Sunday school classes to call the register."
@@ -11795,62 +11800,62 @@ msgstr ""
 "Hati-hati! Kau akan menciptakan atau menciptakan ulang semua peristiwa di "
 "sekolah Minggu untuk memanggil kasir."
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:140
+#: v2/templates/sundayschool/sundayschooldashboard.php:143
 msgid "Create Events & Call the register"
 msgstr "Buat Event andCall the register"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:147
+#: v2/templates/sundayschool/sundayschooldashboard.php:150
 msgid "Generate class lists and attendance sheets"
 msgstr "Daftar kelas generasi dan lembar kehadiran"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:147
+#: v2/templates/sundayschool/sundayschooldashboard.php:150
 msgid "To export your attendance, Photobooks, Attendance sheet, and Class list"
 msgstr ""
 "Untuk mengekspor kehadiranmu, Photobooks, catatan kewaspadaan, dan daftar "
 "Kelas"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:155
+#: v2/templates/sundayschool/sundayschooldashboard.php:158
 msgid "Export All Classes, Kids, and Parent to CSV file"
 msgstr "Laporan All Classes, anak-anak, dan orang tua untuk file CSV"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:156
+#: v2/templates/sundayschool/sundayschooldashboard.php:159
 msgid "Export to CSV"
 msgstr "Export ke CSV"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:164
+#: v2/templates/sundayschool/sundayschooldashboard.php:167
 #: v2/templates/sundayschool/sundayschoolview.php:117
 msgid "Remove Students from Cart"
 msgstr "Lepaskan siswa dari Cart"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:169
+#: v2/templates/sundayschool/sundayschooldashboard.php:172
 #: v2/templates/sundayschool/sundayschoolview.php:123
 msgid "Add Students to Cart"
 msgstr "Tambahkan mahasiswa ke Cart"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:177
+#: v2/templates/sundayschool/sundayschooldashboard.php:180
 #: v2/templates/sundayschool/sundayschoolview.php:132
 msgid "Remove Teachers from Cart"
 msgstr "Lepaskan Guru dari Cart"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:182
+#: v2/templates/sundayschool/sundayschooldashboard.php:185
 #: v2/templates/sundayschool/sundayschoolview.php:138
 msgid "Add Teachers to Cart"
 msgstr "Tambahkan Guru ke Cart"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:207
+#: v2/templates/sundayschool/sundayschooldashboard.php:210
 #: queryparameters_qrp.php:12
 msgid "Class"
 msgstr "Kelas"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:244
+#: v2/templates/sundayschool/sundayschooldashboard.php:243
 msgid "Students not in a Sunday School Class"
 msgstr "Siswa tidak di kelas Minggu"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:319
+#: v2/templates/sundayschool/sundayschooldashboard.php:315
 msgid "Add Sunday School Class"
 msgstr "Tambahkan hari Minggu Kelas"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:325
+#: v2/templates/sundayschool/sundayschooldashboard.php:321
 msgid "Enter Name"
 msgstr "Masukkan nama"
 
@@ -13665,6 +13670,9 @@ msgstr ""
 
 msgid "Giving Report"
 msgstr "Memberikan Laporan"
+
+#~ msgid "Upload a file in EDrive"
+#~ msgstr "Upload file di EDrive"
 
 #~ msgid "All Files"
 #~ msgstr "Semua Files"
