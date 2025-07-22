@@ -345,4 +345,24 @@ class DocumentShareController
 
         return $response->withJson(['status' => "success"]);
     }
+
+    public function cleardocumentsabre (ServerRequest $request, Response $response, array $args): Response {
+        $params = (object)$request->getParsedBody();
+
+        if (isset ($params->rows) and isset($params->currentPersonID)) {     
+            $currentUser = UserQuery::create()->findOneByPersonId($params->currentPersonID);
+            $currentUserName = $currentUser->getUserName();            
+            
+            $ownerPrinpals = 'principals/'.$currentUserName;
+
+            foreach ($params->rows as $row) {
+                $sabrePath = "home/".$row['path'];
+                if (SabreUtils::removeAllSharedForPersonPrincipal($ownerPrinpals, $sabrePath)) {
+                    return $response->withJson(['status' => "success",'count' => 0]);
+                }
+            }
+        }
+
+        return $response->withJson(['status' => "failed"]);
+    }
 }
