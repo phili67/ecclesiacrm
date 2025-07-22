@@ -27,7 +27,7 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      */
     $group->post('/getallpersonsabre', DocumentShareController::class . ':getAllShareForPersonSabre' );
     /*
-     * @! share a note to a personID from currentPersonID (deprecated)
+     * @! share a note to a personID from currentPersonID 
      * #! param: ref->int :: personID
      * #! param: ref->int :: noteId
      * #! param: ref->int :: currentPersonID
@@ -50,7 +50,7 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      */
     $group->post('/addfamily', DocumentShareController::class . ':addFamilyToShare' );
     /*
-     * @! share a note to a groupID from currentPersonID (deprecated)
+     * @! share a note to a groupID from currentPersonID 
      * #! param: ref->int :: groupID
      * #! param: ref->int :: noteId
      * #! param: ref->int :: currentPersonID
@@ -58,20 +58,21 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      */
     $group->post('/addgroup', DocumentShareController::class . ':addGroupToShare' );
     /*
-     * @! remove a personID from a share note (deprecated)
+     * @! remove a personID from a share note 
      * #! param: ref->int :: personID
      * #! param: ref->array :: rows
      */
     $group->post('/deleteperson', DocumentShareController::class . ':deletePersonFromShare' );
     /*
-     * @! remove a personID from a share note (deprecated)
-     * #! param: ref->int :: personID
-     * #! param: ref->int :: noteId
+     * @! remove a personID from a share note 
+     * #! param: ref->string :: personPrincipal
+     * #! param: ref->array :: rows
+     * #! param: ref->int :: currentPersonID
      */
     $group->post('/deletepersonsabre', DocumentShareController::class . ':deletePersonSabreFromShare' );
 
     /*
-     * @! set right access to a note (deprecated)
+     * @! set right access to a note 
      * #! param: ref->int :: personID
      * #! param: ref->int :: noteId
      * #! param: ref->int :: rightAccess
@@ -90,5 +91,14 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      * #! param: ref->int :: noteId
      */
     $group->post('/cleardocument', DocumentShareController::class . ':clearDocument' );
+
+    /*
+     * @! cleardocument
+     * #! param: ref->int :: personID
+     * #! param: ref->int :: noteId
+     * #! param: ref->int :: rightAccess
+     
+     */
+    $group->post('/cleardocumentsabre', DocumentShareController::class . ':cleardocumentsabre' );
 
 });

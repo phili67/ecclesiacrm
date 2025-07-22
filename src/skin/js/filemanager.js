@@ -785,8 +785,7 @@ $(function () {
 
     const addSharedPersonsSabre = () => {
         $("#dropdownMenuButtonRights").prop('disabled', true);
-        $("#delete-share").prop('disabled', true);
-        $("#delete-all-share").prop('disabled', true);
+        $("#delete-share").prop('disabled', true);    
 
         let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
         let rows = [];
@@ -807,6 +806,8 @@ $(function () {
             var elt = document.getElementById("select-share-persons-sabre");
             var len = data.length;
 
+            $("#delete-all-share").prop('disabled', (len>0)?false:true);
+            
             for (i = 0; i < len; ++i) {
                 var option = document.createElement("option");
                 // there is a groups.type in function of the new plan of schema
@@ -831,7 +832,7 @@ $(function () {
 
         $("#dropdownMenuButtonRights").prop('disabled', !activated);
         $("#delete-share").prop('disabled', !activated);
-        $("#delete-all-share").prop('disabled', !activated);
+        //$("#delete-all-share").prop('disabled', !activated);
     });
 
     $("#set-right-read").on('click', function () {
@@ -942,51 +943,81 @@ $(function () {
             rows.push(data[i]);
         }
 
-        bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function (result) {
-            if (result) {
-                $('#select-share-persons-sabre :selected').each(function (i, sel) {
-                    var personPrincipal = $(sel).val();
+        bootbox.confirm({title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t('Are you sure you want to stop sharing for selected users?') + '</span>',
+            message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + '</span>',
+            buttons: {
+                cancel: {
+                    label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
+                    className: 'btn-primary'
+                },
+                confirm: {
+                    label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
+                    className: 'btn-danger'
+                }
+            },
+            callback: function (result) {
+                if (result) {
+                    $('#select-share-persons-sabre').each(function (i, sel) {
+                        var personPrincipal = $(sel).val();
 
-                    window.CRM.APIRequest({
-                        method: 'POST',
-                        path: 'sharedocument/deletepersonsabre',
-                        data: JSON.stringify({
-                            "rows": rows,
-                            "personPrincipal": personPrincipal,
-                            "currentPersonID": window.CRM.currentPersonID
-                        })
-                    }, function (data) {
-                        window.CRM.reloadEDriveTable(function () {
-                            realRows.select();
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'sharedocument/deletepersonsabre',
+                            data: JSON.stringify({
+                                "rows": rows,
+                                "personPrincipal": personPrincipal,
+                                "currentPersonID": window.CRM.currentPersonID
+                            })
+                        }, function (data) {
+                            window.CRM.reloadEDriveTable(function () {
+                                realRows.select();
+                            });
+                            $("#select-share-persons-sabre option[value='" + personPrincipal + "']").remove();
+                            addSharedPersonsSabre();
                         });
-                        $("#select-share-persons-sabre option[value='" + personPrincipal + "']").remove();
-                        addSharedPersonsSabre();
                     });
-                });
+                }
             }
         });
     });
 
 
     $("#delete-all-share").on('click', function () {
-        let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
+        var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
+        var data = realRows.data();
         var rows = [];
         for (let i = 0; i < data.length; i++) {
             rows.push(data[i]);
         }
-        bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function (result) {
-            if (result) {
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'sharedocument/cleardocumentsabre',
-                    data: JSON.stringify({ "rows": rows })
-                }, function (data) {
-                    addPersonsFromNotes(noteId);
-                    $(state).css('color', '#777');
-                    $(button).data('shared', 0);
-                    modal.modal("hide");
-                    window.CRM.reloadEDriveTable();
-                });
+
+        bootbox.confirm({title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t('Are you sure, you want to stop all sharing ?') + '</span>',
+            message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + '</span>',
+            buttons: {
+                cancel: {
+                    label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
+                    className: 'btn-primary'
+                },
+                confirm: {
+                    label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
+                    className: 'btn-danger'
+                }
+            },
+            callback:  function (result) {
+                if (result) {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'sharedocument/cleardocumentsabre',
+                        data: JSON.stringify({ 
+                            "rows": rows,
+                            "currentPersonID": window.CRM.currentPersonID
+                        })
+                    }, function (data) {
+                        window.CRM.reloadEDriveTable(function () {
+                            realRows.select();
+                        });
+                        addSharedPersonsSabre();
+                    });
+                }
             }
         });
     });
