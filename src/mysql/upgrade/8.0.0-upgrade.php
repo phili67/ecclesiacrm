@@ -205,6 +205,10 @@ mkdir(SystemURLs::getDocumentRoot()."/Images/tmp", 0755);
 // vonage nexmo is now unusefull
 MiscUtils::delTree(SystemURLs::getDocumentRoot() . "/vendor/vonage");
 
+// 2025-07-23
+unlink(SystemURLs::getDocumentRoot() . "/src/skin/js/email/MailChimp/Debug.js");
+unlink(SystemURLs::getDocumentRoot() . "/src/v2/templates/email/mailchimp/debug.php");
+
 
 // we get the PDO for the Sabre connection from the Propel connection
 // now we update the CardDav 

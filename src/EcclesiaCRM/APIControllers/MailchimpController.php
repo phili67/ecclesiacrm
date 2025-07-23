@@ -22,12 +22,9 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\GroupQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
-use PHPMailer\PHPMailer\PHPMailer;
-
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Map\FamilyTableMap;
-use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\SessionUser;
 
 
@@ -968,48 +965,5 @@ class MailchimpController
         }
 
         return $response->withJson(['success' => false]);
-    }
-
-    // test connection
-    public function testEmailConnectionMVC (ServerRequest $request, Response $response, array $args): Response
-    {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
-        $mailer = new PHPMailer();
-        $message = "";
-        if (!empty(SystemConfig::getValue("sSMTPHost")) && !empty(ChurchMetaData::getChurchEmail())) {
-            $mailer->IsSMTP();
-            $mailer->CharSet = 'UTF-8';
-            $mailer->Timeout = intval(SystemConfig::getValue("iSMTPTimeout"));
-            $res = explode(":", SystemConfig::getValue("sSMTPHost"));
-            $mailer->Host = $res[0];
-            $mailer->Port  = intval($res[1]);
-            if (SystemConfig::getBooleanValue("bSMTPAuth")) {
-                $mailer->SMTPAuth = true;
-                $result = "<b>SMTP Auth Used</b></br></br>";
-                $mailer->Username = SystemConfig::getValue("sSMTPUser");
-                $mailer->Password = SystemConfig::getValue("sSMTPPass");
-            }
-            $mailer->SMTPDebug = 3;
-            $mailer->Subject = "Test SMTP Email";
-            $mailer->setFrom(ChurchMetaData::getChurchEmail());
-            $mailer->addAddress(ChurchMetaData::getChurchEmail());
-            $mailer->Body = "test email";
-            $mailer->Debugoutput = "html";
-        } else {
-            $message = _("SMTP Host is not setup, please visit the settings page");
-        }
-
-        if (empty($message)) {
-            ob_start();
-            $mailer->send();
-            $result .= ob_get_clean();
-            ob_end_flush();
-            return $response->withJson(['success' => true,"result" => $result]);
-        } else {
-            return $response->withJson(['success' => false,"error" => $message]);
-        }
-    }
+    }    
 }

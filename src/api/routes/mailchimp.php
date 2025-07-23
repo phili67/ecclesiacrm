@@ -178,12 +178,6 @@ $app->group('/mailchimp', function (RouteCollectorProxy $group) {
     */
     $group->post('/addgroup', MailchimpController::class . ':addGroup' );
 
-
-    /*
-    * @! Test if connection is available
-    */
-    $group->post('/testConnection', MailchimpController::class . ':testEmailConnectionMVC' );
-
 });
 
 

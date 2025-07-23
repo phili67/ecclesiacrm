@@ -45,7 +45,12 @@ $app->group('/system', function (RouteCollectorProxy $group) {
     * #! param: ref->string :: Source -> cart
     */
     $group->get('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );
-    $group->post('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );    
+    $group->post('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );   
+    
+    /*
+    * @! email debug
+    */
+    $group->get('/email/debug', VIEWSystemController::class . ':renderEMailDebug');    
 });
 
 

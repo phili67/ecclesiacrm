@@ -22,6 +22,8 @@ use EcclesiaCRM\Utils\InputUtils;
 
 use Slim\Views\PhpRenderer;
 
+use EcclesiaCRM\Service\MailChimpService;
+
 class VIEWSystemController {
 
     private $container;
@@ -258,5 +260,29 @@ class VIEWSystemController {
         ];
 
         return $paramsArguments;
-    }    
+    } 
+    
+    public function renderEMailDebug (ServerRequest $request, Response $response, array $args): Response {
+        $renderer = new PhpRenderer('templates/system/');
+
+        if ( !( SessionUser::getUser()->isAdmin())) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'emaildebug.php', $this->emailDebugArgumentsArray());
+    }
+
+    public function emailDebugArgumentsArray ()
+    {
+        $sPageTitle = _("Debug Email Connection");
+
+        $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
+            'sRootDocument'   => SystemURLs::getDocumentRoot(),
+            'sPageTitle'      => $sPageTitle,
+            'isMenuOption'    => SessionUser::getUser()->isMenuOptionsEnabled()
+        ];
+
+        return $paramsArguments;
+    }
+
 }

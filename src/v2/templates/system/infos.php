@@ -67,60 +67,6 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                <h4><?= _("Database") ?></h4>
-            </div>
-            <div class="card-body overflow-auto">
-                <table class="table table-striped">
-                    <tr>
-                        <td>EcclesiaCRM <?= _("Database Version") ?></td>
-                        <td><?= SystemService::getDBVersion() ?></td>
-                    </tr>
-                    <tr>
-                        <td><?= _("Database Server Version") ?></td>
-                        <td><?= SystemService::getDBServerVersion() ?></td>
-                    </tr>
-                    <tr>
-                        <td>DSN</td>
-                        <td><?= Bootstrapper::getDSN() ?></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="card">
-            <div class="card-header">
-                <h4><?= _("Web Server") ?></h4>
-            </div>
-            <div class="card-body overflow-auto">
-                <table class="table table-striped">
-                    <tr>
-                        <td><?= $_SERVER["SERVER_SOFTWARE"] ?></td>
-                    </tr>
-<?php
-if (function_exists('apache_get_modules')) {
-    foreach (apache_get_modules() as $item) {
-        echo <<<EOD
-<tr>
-    <td>$item</td>
-</tr>
-EOD;
-    }
-} else {
-    echo <<<EOD
-<tr>
-    <td><i>function <pre>apache_get_modules</pre> does not exist!</i></td>
-</tr>
-EOD;
-}
-?>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="card">
-            <div class="card-header">
                 <h4>PHP</h4>
             </div>
             <div class="card-body overflow-auto">
@@ -156,21 +102,59 @@ EOD;
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                <h4><?= _("Email Information") ?></h4>
+                <h4><?= _("Web Server") ?></h4>
             </div>
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
                     <tr>
-                        <td>SMTP Host</td>
-                        <td><?= SystemConfig::getValue("sSMTPHost") ?></td>
+                        <td><?= $_SERVER["SERVER_SOFTWARE"] ?></td>
+                    </tr>
+<?php
+if (function_exists('apache_get_modules')) {
+    foreach (apache_get_modules() as $item) {
+        echo <<<EOD
+<tr>
+    <td>$item</td>
+</tr>
+EOD;
+    }
+} else {
+    echo <<<EOD
+<tr>
+    <td><i>function <pre>apache_get_modules</pre> does not exist!</i></td>
+</tr>
+EOD;
+}
+?>
+                </table>
+            </div>
+        </div>        
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h4><?= _("Database") ?></h4>
+            </div>
+            <div class="card-body overflow-auto">
+                <table class="table table-striped">
+                    <tr>
+                        <td>EcclesiaCRM <?= _("Database Version") ?></td>
+                        <td><?= SystemService::getDBVersion() ?></td>
                     </tr>
                     <tr>
-                        <td><?= _("Valid Mail Server Settings") ?></td>
-                        <td><?= SystemConfig::hasValidMailServerSettings() ? "true" : "false" ?></td>
+                        <td><?= _("Database Server Version") ?></td>
+                        <td><?= SystemService::getDBServerVersion() ?></td>
+                    </tr>
+                    <tr>
+                        <td>DSN</td>
+                        <td><?= Bootstrapper::getDSN() ?></td>
                     </tr>
                 </table>
             </div>
-        </div>
+        </div>        
+    </div>
+    <div class="col-lg-4">
+        
     </div>
     <div class="col-lg-4">
         <div class="card">
@@ -186,6 +170,29 @@ EOD;
                         </tr>
                     <?php } ?>
                 </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h4><?= _("Email Information") ?></h4>
+            </div>
+            <div class="card-body overflow-auto">
+                <table class="table table-striped">
+                    <tr>
+                        <td>SMTP Host</td>
+                        <td><?= SystemConfig::getValue("sSMTPHost") ?></td>
+                    </tr>
+                    <tr>
+                        <td><?= _("Valid Mail Server Settings") ?></td>
+                        <td><?= SystemConfig::hasValidMailServerSettings() ? "true" : "false" ?></td>
+                    </tr>
+                </table>
+
+                <hr/>
+
+                <label><?= _("System Infos") ?></label>
+
+                <p id="mailTest"><?= _("Testing connection .....") ?></p>
             </div>
         </div>
     </div>
@@ -292,5 +299,7 @@ EOD;
   });
 
 </script>
+
+<script src="<?= $sRootPath ?>/skin/js/system/EmailDebug.js"></script>
 
 <?php include SystemURLs::getDocumentRoot() . '/Include/Footer.php'; ?>
