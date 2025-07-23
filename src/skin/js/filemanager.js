@@ -336,8 +336,11 @@ $(function () {
                 $('.preview').html(data.path);
                 if (data.link) {
                     $('.share-part').hide();
+                    $('.share-part-another-user').show();
+                    sharedByPersonsSabre();
                 } else {
-                    $('.share-part').show();                    
+                    $('.share-part').show();             
+                    $('.share-part-another-user').hide();       
 
                     addSharedPersonsSabre();
                 }
@@ -782,6 +785,32 @@ $(function () {
             });
         }
     });
+
+    
+    const sharedByPersonsSabre = () => {
+        let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
+        let rows = [];
+        for (let i = 0; i < data.length; i++) {
+            rows.push(data[i]);
+        }
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'sharedocument/getShareInfosSabre',
+            data: JSON.stringify({
+                "currentPersonID": window.CRM.currentPersonID,
+                "rows": rows
+            })}, function (data) {
+                let res = '<ul>';
+                for (const element of data) {
+                    res += '<li>' + element['fullName'] + '</li>';
+                }
+                res += '</ul>';
+
+                $(".share-part-another-user-content").html(res);
+            }
+        );
+    }
 
     const addSharedPersonsSabre = () => {
         $("#dropdownMenuButtonRights").prop('disabled', true);

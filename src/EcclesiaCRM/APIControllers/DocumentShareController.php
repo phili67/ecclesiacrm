@@ -365,4 +365,31 @@ class DocumentShareController
 
         return $response->withJson(['status' => "failed"]);
     }
+    
+    public function getShareInfosSabre(ServerRequest $request, Response $response, array $args): Response {
+        $params = (object)$request->getParsedBody();
+
+        $result = [];
+
+        if (isset ($params->rows)) {
+            $currentUser = UserQuery::create()->findOneByPersonId($params->currentPersonID);
+            
+            foreach ($params->rows as $row) {
+                $ownerPaths = $currentUser->getUserRootDir()."/".$row['path'];
+            
+                $sharees = SabreUtils::getFileOrDirectoryInfos($ownerPaths);
+                
+                foreach ($sharees as $info) {
+                    $person = [
+                        'principal' => $info->principal,
+                        'fullName' => (($info->access == 3)?gettext("[👀 ✐]"):gettext("[👀  ]"))."   ".$info->properties['{DAV:}displayname']
+                    ];
+
+                    array_push($result, $person);                
+                }
+            }
+        }
+
+        return $response->withJson($result);
+    }
 }
