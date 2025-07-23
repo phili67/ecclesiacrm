@@ -258,20 +258,41 @@ class SabreUtils {
             if (!is_null($collectionsInstance)) {
                 $ret = explode("/", $collectionsInstance->getPrincipaluri());
 
+                $username = $ret[1];
+                $user = UserQuery::create()->findOneByUserName($username);
+
+
+                $ownerUserName = $user->getPerson()->getFullName();
+                $ownerEmail = $user->getPerson()->getEmail();
+                $principal = $collectionsInstance->getPrincipaluri();
+
+                $collectionID = $collectionsInstance->getCollectionsId();
+
+                $collection = CollectionsQuery::create()
+                    ->findOneById($collectionID);
+                
+                if (!is_null($collection)) {
+                    $principal = $collection->getPrincipaluri();
+                    $ownerUserId = $collection->getOwnerid();
+                    $owerUser = UserQuery::create()->findOneByPersonId($ownerUserId);
+
+                    $ownerUserName = $owerUser->getPerson()->getFullName();
+                    $ownerEmail = $owerUser->getPerson()->getEmail();
+                }
+
+                
                 if (count($ret) < 2) return $result;
 
-                $username = $ret[1];
-                    $user = UserQuery::create()->findOneByUserName($username);
-
+                
                 if (is_null($user)) return $result;
                 
                 $result[] = new Sharee([
-                    'href' => "mailto:".$user->getPerson()->getEmail(),
+                    'href' => "mailto:".$ownerEmail,
                     'access' => $collectionsInstance->getAccess(),
                     /// Everyone is always immediately accepted, for now.
                     'inviteStatus' => (int) $collectionsInstance->getShareInvitestatus(),
-                    'properties' => ['{DAV:}displayname' => $user->getPerson()->getFullName()],
-                    'principal' => $collectionsInstance->getPrincipaluri(),
+                    'properties' => ['{DAV:}displayname' => $ownerUserName],
+                    'principal' => $principal
                 ]);  
             }          
         }

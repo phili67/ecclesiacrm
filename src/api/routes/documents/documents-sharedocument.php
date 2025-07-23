@@ -23,6 +23,7 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
     $group->post('/getallperson', DocumentShareController::class . ':getAllShareForPerson' );
     /*
      * @! get all shared persons for all the selected rows (sabre)
+     * #! param: ref->int :: currentPersonID
      * #! param: ref->array :: rows
      */
     $group->post('/getallpersonsabre', DocumentShareController::class . ':getAllShareForPersonSabre' );
@@ -101,4 +102,10 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      */
     $group->post('/cleardocumentsabre', DocumentShareController::class . ':cleardocumentsabre' );
 
+    /*
+     * @! get all shared persons for all the selected rows (sabre)
+     * #! param: ref->int :: currentPersonID
+     * #! param: ref->array :: rows
+     */
+    $group->post('/getShareInfosSabre', DocumentShareController::class . ':getShareInfosSabre' );    
 });

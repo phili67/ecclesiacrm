@@ -135,6 +135,12 @@ require $sRootDocument . '/Include/Header.php';
                             <br />
                         </div>
                     </div>
+                    <div class="share-part-another-user" style="display: none; ">
+                        <label><?= _("Share By") ?></label>
+                        <hr class="hr-filemanager">
+                        <span class="shared" width="100%"></span>
+                        <div class="share-part-another-user-content"></div>                        
+                    </div>
                 </div>
             </div>
         </div>
