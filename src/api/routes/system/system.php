@@ -32,6 +32,11 @@ $app->group('/system', function (RouteCollectorProxy $group) {
     */
     $group->post('/deletefile', SystemController::class . ':deleteFile' );
 
+    /*
+    * @! Test if email connection is available
+    */
+    $group->post('/testEmailConnection', SystemController::class . ':testEmailConnectionMVC' );
+
 });
 
 

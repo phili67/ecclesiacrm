@@ -10,7 +10,7 @@
 $(function() {
     window.CRM.APIRequest({
       method: 'POST',
-      path: 'mailchimp/testConnection'
+      path: 'system/testEmailConnection'
     },function(data) {
       if (data.success == true) {
         $("#mailTest").html(data.result);

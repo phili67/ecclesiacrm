@@ -2,9 +2,9 @@
 /*******************************************************************************
  *
  *  filename    : debug.php
- *  last change : 2019/2/6
+ *  last change : 2025-07-23
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2019/2/6 Philippe Logel
+ *  copyright   : Copyright 2025-07-23 Philippe Logel
  *
  ******************************************************************************/
 
@@ -17,7 +17,7 @@ require $sRootDocument . '/Include/Header.php';
 
 </div>
 
-<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Debug.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/system/EmailDebug.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 

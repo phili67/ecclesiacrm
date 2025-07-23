@@ -61,35 +61,7 @@ class VIEWMailchimpController {
         ];
 
         return $paramsArguments;
-    }
-
-
-    public function renderMailChimpDebug (ServerRequest $request, Response $response, array $args): Response {
-        $renderer = new PhpRenderer('templates/email/mailchimp/');
-
-        if ( !( SessionUser::getUser()->isMailChimpEnabled() ) ) {
-            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
-        }
-
-        return $renderer->render($response, 'debug.php', $this->mailchimpDebugArgumentsArray());
-    }
-
-    public function mailchimpDebugArgumentsArray ()
-    {
-        $sPageTitle = _("Debug Email Connection");
-
-        $mailchimp       = new MailChimpService();
-        $mailChimpStatus = $mailchimp->getConnectionStatus();
-
-        $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
-            'sRootDocument'   => SystemURLs::getDocumentRoot(),
-            'sPageTitle'      => $sPageTitle,
-            'isMenuOption'    => SessionUser::getUser()->isMenuOptionsEnabled()
-        ];
-
-        return $paramsArguments;
-    }
-
+    }        
 
     public function renderMailChimpCampaign (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/email/mailchimp/');
