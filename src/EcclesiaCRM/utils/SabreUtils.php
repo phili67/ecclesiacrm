@@ -99,7 +99,7 @@ class SabreUtils {
      *   comment = null
      *   inviteStatus = null
      */
-    public static function shareFileOrDirectory($ownerPersonId, $ownerPaths, $ownerPrinpals, $ownerNameCollection, $sharees): void
+    public static function shareFileOrDirectory($ownerPersonId, $ownerPaths, $ownerPrinpals, $ownerNameCollection, $sharees, $setRight=false): void
     {
         // we create the root file or directory
         $collections = CollectionsQuery::create()
@@ -131,8 +131,24 @@ class SabreUtils {
                     ->filterByEmail($email)
                 ->endUse()
                 ->findOne();    
+
+            
                 
             $guestPath = $guestUser->getUserDir() . "/". $ownerNameCollection;
+            
+            // we have to test if the path is good
+            $guestPathTest = SystemURLs::getDocumentRoot()."/".$guestPath;
+
+            if (file_exists($guestPathTest) and !$setRight) {
+                $path_parts = pathinfo($guestPath);
+                $dir = $path_parts['dirname'];
+                $baseName = $path_parts['basename'];
+                $extension = $path_parts['extension'];
+                $filename = $path_parts['filename'];
+
+                $guestPath = $dir."/".$filename . "-" . MiscUtils::gen_uuid() . "." .$extension;                
+            }
+            // end of test !!!
             
             $guestPrincipals = "principals/".$guestUser->getUserName();
             $access = $sharee->access;
@@ -463,6 +479,8 @@ class SabreUtils {
                 $collectionInstance->delete();                                
             }
 
+            $collection->delete();
+
             return true;            
         }
 
@@ -499,9 +517,22 @@ class SabreUtils {
                 }
                 
                 $collectionInstance->delete();
+
+                // we have to delete the collection
+                $collectionInstances = CollectionsinstancesQuery::create()
+                    ->filterByCollectionsId($collection->getId())
+                    ->find();
+
+                // there's no more shared file or folder
+                if ($collectionInstances->count() == 0) {
+                    $collection->delete();
+                }                
                 
                 return true;
             }
+
+            // we have to delete the collection
+            $collection->delete();
 
             return false;            
         }
