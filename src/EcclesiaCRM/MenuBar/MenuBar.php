@@ -481,7 +481,7 @@ class MenuBar extends Menu
 
             $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
             $menuItem->addLink("v2/mailchimp/duplicateemails");
-            $menuItem->addLink("v2/system/debug");
+            $menuItem->addLink("v2/system/email/debug");
             $menuItem->addLink("v2/mailchimp/notinmailchimpemailspersons");
             $menuItem->addLink("v2/mailchimp/notinmailchimpemailsfamilies");
 
