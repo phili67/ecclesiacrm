@@ -792,6 +792,10 @@ class DocumentFileManagerController
                     return $response->withJson(['success' => false, "message" => _("Right of access to the file or folder the prohibited recording")]);
                 }
 
+                if (file_exists($newName)) {
+                    return $response->withJson(['success' => false, "message" => _("The file or folder name already exists!!!")]);
+                }
+
                 if (rename($oldName, $newName)) {
                     SabreUtils::moveSharedFileOrCollection($principalUri, $oldPath, $newPath);
 

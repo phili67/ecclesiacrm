@@ -319,7 +319,7 @@ class DocumentShareController
                     'principal' => 'principals/'.$userToShareUserName
                 ]);
 
-                SabreUtils::shareFileOrDirectory($ownerPersonId, $ownerPaths, $ownerPrinpals, $ownerNameCollection, $sharees);
+                SabreUtils::shareFileOrDirectory($ownerPersonId, $ownerPaths, $ownerPrinpals, $ownerNameCollection, $sharees, true);
 
                 // send notification !!
                 if (isset ($params->notification)  && $params->notification) {                    
