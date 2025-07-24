@@ -2,10 +2,10 @@ window.CRM.ElementListener('#restoredatabase', 'submit', function (event) {
     event.preventDefault();
 
     const file = document.getElementById('restoreFile').files[0];
-        
+
     if (window.FileReader) { // if the browser supports FileReader, validate the flie locally before uploading.
         if (file.size > window.CRM.maxUploadSizeBytes) {
-            window.CRM.DisplayErrorMessage("/api/database/restore", {message: i18next.t('The selected file exceeds this servers maximum upload size of') + " : " + window.CRM.maxUploadSize});
+            window.CRM.DisplayErrorMessage("/api/database/restore", { message: i18next.t('The selected file exceeds this servers maximum upload size of') + " : " + window.CRM.maxUploadSize });
             return false;
         }
     }
@@ -17,14 +17,13 @@ window.CRM.ElementListener('#restoredatabase', 'submit', function (event) {
     formData.append('restoreFile', file);
 
     window.CRM.dialogLoadingFunction(i18next.t("Restore backup, don't close the window !"), function () {
-        fetch(window.CRM.root + '/api/database/restore', {            
+        fetch(window.CRM.root + '/api/database/restore', {
             method: 'POST',
             headers: {
                 'Authorization': 'Bearer ' + window.CRM.jwtToken,
             },
             body: formData, // our data object
-        })
-            .then(res => res.json())
+        }).then(res => res.json())
             .then(data => {
                 if (data.Messages !== undefined && data.Messages.length > 0) {
                     $.each(data.Messages, function (index, value) {
@@ -34,15 +33,16 @@ window.CRM.ElementListener('#restoredatabase', 'submit', function (event) {
                 }
                 $("#restorestatus").css("color", "green");
                 $("#restorestatus").html(i18next.t('Restore Complete'));
-                $("#restoreNextStep").html('<a href="' + window.CRM.root + '/session/logout" class="btn btn-primary">'+i18next.t("Login to restored Database")+'</a>');
+                $("#restoreNextStep").html('<a href="' + window.CRM.root + '/session/logout" class="btn btn-primary">' + i18next.t("Login to restored Database") + '</a>');
 
                 window.CRM.closeDialogLoadingFunction();
-            })
-            .catch(error => {
+            }).catch(error => {
+                window.CRM.closeDialogLoadingFunction();
+
                 $("#restorestatus").css("color", "red");
                 $("#restorestatus").html(i18next.t('Restore Error.'));
 
-                window.CRM.closeDialogLoadingFunction();
+                console.log(error.name + " " + error.message);
             });
     });
 
