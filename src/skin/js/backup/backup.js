@@ -38,42 +38,42 @@ function doBackup(isRemote)
         $("#backupstatus").html(i18next.t("Backup Running, Please wait."));
         console.log(formData);
 
-        window.CRM.dialogLoadingFunction(i18next.t("Backup in progress, don't close the window !"));
-
-        fetch(endpointURL, {            
-            method: 'POST',
-            headers: {
-                'Content-Type': "application/json; charset=utf-8",
-                'Authorization': 'Bearer ' + window.CRM.jwtToken,
-            },
-            body: JSON.stringify(formData), // our data object
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.result === true) {
-                    var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('" + data.filename + "')\"><i class='fas fa-download'></i>  " + data.filename + "</button>";
-                    $("#backupstatus").css("color", "green");
-                    if (isRemote) {
-                        $("#backupstatus").html(i18next.t("Backup Generated and copied to remote server"));
+        window.CRM.dialogLoadingFunction(i18next.t("Backup in progress, don't close the window !"), function() {
+            fetch(endpointURL, {            
+                method: 'POST',
+                headers: {
+                    'Content-Type': "application/json; charset=utf-8",
+                    'Authorization': 'Bearer ' + window.CRM.jwtToken,
+                },
+                body: JSON.stringify(formData), // our data object
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.result === true) {
+                        var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('" + data.filename + "')\"><i class='fas fa-download'></i>  " + data.filename + "</button>";
+                        $("#backupstatus").css("color", "green");
+                        if (isRemote) {
+                            $("#backupstatus").html(i18next.t("Backup Generated and copied to remote server"));
+                        } else {
+                            $("#backupstatus").html(i18next.t("Backup Complete, Ready for Download."));
+                            $("#resultFiles").html(downloadButton);
+                        }
                     } else {
-                        $("#backupstatus").html(i18next.t("Backup Complete, Ready for Download."));
-                        $("#resultFiles").html(downloadButton);
+                        $("#backupstatus").css("color","red");
+                        $("#backupstatus").html("Backup Error.");
                     }
-                } else {
+
+                    window.CRM.closeDialogLoadingFunction();
+                })
+                .catch(error => {
+                    // enter your logic for when there is an error (ex. error toast)
                     $("#backupstatus").css("color","red");
                     $("#backupstatus").html("Backup Error.");
-                }
 
-                window.CRM.closeDialogLoadingFunction();
-            })
-            .catch(error => {
-                // enter your logic for when there is an error (ex. error toast)
-                $("#backupstatus").css("color","red");
-                $("#backupstatus").html("Backup Error.");
-
-                window.CRM.closeDialogLoadingFunction();
-            });
+                    window.CRM.closeDialogLoadingFunction();
+                });
+        });        
     }
 }
 
