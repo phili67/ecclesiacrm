@@ -264,7 +264,7 @@ Header_system_notifications();
         <!-- Main content -->
         <section class="content">
             <div class="main-box-body clearfix" style="display:none" id="globalMessage">
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success" role="alert" id="globalMessageAlert">
                     <i class="fas fa-exclamation-triangle"></i><span id="globalMessageText"></span>
                 </div>
             </div>

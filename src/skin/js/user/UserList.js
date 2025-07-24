@@ -193,8 +193,11 @@ $(function () {
                         method: 'POST',
                         path: 'users/' + userId + "/password/reset"
                     }, function (data) {
-                        if (data.status == "success")
-                            window.CRM.showGlobalMessage(i18next.t("Password reset for") + userName, "info");
+                        if (data.status == "success") {
+                            window.CRM.showGlobalMessage(i18next.t("Password reset for") + userName, "success");
+                        } else {
+                            window.CRM.showGlobalMessage(i18next.t("Password reset for") + userName + " : " + i18next.t("Mail connection failure"), "danger");
+                        }
                     });
                 }
             }

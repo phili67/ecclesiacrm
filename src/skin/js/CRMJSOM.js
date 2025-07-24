@@ -68,6 +68,26 @@ window.CRM.DisplayNormalAlert = function(title,message,callback) {
 alert(title + "\n\n" + message);
 }
 
+window.CRM.showGlobalMessage = function (message, alertClass) {
+  $("#globalMessageText").text(message);
+  $("#globalMessageAlert").removeClass("alert-danger");
+  $("#globalMessageAlert").removeClass("alert-warning");
+  $("#globalMessageAlert").removeClass("alert-info");
+  $("#globalMessageAlert").removeClass("alert-success");
+  $("#globalMessageAlert").addClass("alert-"+alertClass);
+  $("#globalMessage").show("slow");
+}
+
+window.CRM.dialogLoadingFunction =  function (message) {
+  window.CRM.dialogLoading = bootbox.dialog({ title:i18next.t("In progress"), message: '<div class="text-center"><i class="fas fa-spin fa-spinner"></i> ' + message + '</div>' });
+}
+
+window.CRM.closeDialogLoadingFunction = function () {
+if (window.CRM.dialogLoading != null) {
+  window.CRM.dialogLoading.modal('hide');
+}
+}
+
 window.CRM.renderMailchimpLists = function  () {
 
   window.CRM.APIRequest({
@@ -101,26 +121,6 @@ window.CRM.renderMailchimpLists = function  () {
     }
 
   });
-}
-
-window.CRM.showGlobalMessage = function (message, alertClass) {
-  $("#globalMessageText").text(message);
-  $("#globalMessageAlert").removeClass("alert-danger");
-  $("#globalMessageAlert").removeClass("alert-warning");
-  $("#globalMessageAlert").removeClass("alert-info");
-  $("#globalMessageAlert").removeClass("alert-success");
-  $("#globalMessageAlert").addClass("alert-"+alertClass);
-  $("#globalMessage").show("slow");
-}
-
-window.CRM.dialogLoadingFunction =  function (message) {
-  window.CRM.dialogLoading = bootbox.dialog({ title:i18next.t("In progress"), message: '<div class="text-center"><i class="fas fa-spin fa-spinner"></i> ' + message + '</div>' });
-}
-
-window.CRM.closeDialogLoadingFunction = function () {
-if (window.CRM.dialogLoading != null) {
-  window.CRM.dialogLoading.modal('hide');
-}
 }
 
 window.CRM.notify = function(icon,title,message,link,type,place,delay,target,horizontal) {

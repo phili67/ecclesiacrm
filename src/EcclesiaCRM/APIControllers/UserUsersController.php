@@ -53,7 +53,7 @@ class UserUsersController
                 $logger = $this->container->get('Logger');
                 $logger->error($email->getError());
 
-                throw new \Exception($email->getError());
+                return $response->withStatus(200)->withJson(['status' => "failed"]);
             }
         } else {
             return $response->withStatus(404);
