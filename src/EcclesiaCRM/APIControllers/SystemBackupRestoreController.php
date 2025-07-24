@@ -51,10 +51,16 @@ class SystemBackupRestoreController
 
         $input = (object) $request->getParsedBody();
 
+        $logger = $this->container->get('Logger');
+
+        $logger->info("Start normal Backup");
+
         $createBackup = new CreateBackup($input);
         $backup = $createBackup->run();
 
-        return $response->write(json_encode(get_object_vars($backup)));
+        $logger->info("Stop normal Backup");
+
+        return $response->withJson(get_object_vars($backup));
     }
 
     public function backupRemote (ServerRequest $request, Response $response, array $args): Response {
@@ -74,7 +80,7 @@ class SystemBackupRestoreController
 
         $logger->info("Stop remote Backup");
 
-        return $response->write(json_encode(get_object_vars($backup)));
+        return $response->withJson(get_object_vars($backup));
     }
 
     public function restore (ServerRequest $request, Response $response, array $args): Response {
@@ -87,7 +93,7 @@ class SystemBackupRestoreController
         $restoreJob = new RestoreBackup($fileName);
         $restore = $restoreJob->run();
 
-        return $response->write(json_encode(get_object_vars($restore)));
+        return $response->withJson(get_object_vars($restore));
     }
 
     public function download (ServerRequest $request, Response $response, array $args): Response
