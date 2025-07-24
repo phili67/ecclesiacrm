@@ -78,14 +78,31 @@ window.CRM.showGlobalMessage = function (message, alertClass) {
   $("#globalMessage").show("slow");
 }
 
-window.CRM.dialogLoadingFunction =  function (message) {
-  window.CRM.dialogLoading = bootbox.dialog({ title:i18next.t("In progress"), message: '<div class="text-center"><i class="fas fa-spin fa-spinner"></i> ' + message + '</div>' });
+window.CRM.dialogLoading = null;
+
+window.CRM.dialogLoadingFunction =  function (message, callback) {
+  window.CRM.dialogLoading = bootbox.dialog(
+    { 
+      closeButton: false,
+      title:i18next.t("In progress"), 
+      message: '<div class="text-center"><i class="fas fa-spin fa-spinner"></i> ' + message + '</div>',
+      onShown: function(e) {
+        if (callback) {
+          callback();
+        } else {
+          window.CRM.closeDialogLoadingFunction();
+        }
+      }  
+    });
+
+    window.CRM.dialogLoading.modal('show');
 }
 
 window.CRM.closeDialogLoadingFunction = function () {
-if (window.CRM.dialogLoading != null) {
-  window.CRM.dialogLoading.modal('hide');
-}
+  if (window.CRM.dialogLoading != null) {
+    window.CRM.dialogLoading.modal('hide');
+    window.CRM.dialogLoading = null;
+  }
 }
 
 window.CRM.renderMailchimpLists = function  () {

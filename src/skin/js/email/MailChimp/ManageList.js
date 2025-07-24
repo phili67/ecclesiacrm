@@ -392,37 +392,37 @@ $(function() {
             if (tag == -1) {
                 bootbox.prompt(i18next.t("Add your tag name"), function (name) {
                     if (name != null && name != "") {
-                        window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'));
+                        window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'), function () {
+                            window.CRM.APIRequest({
+                                method: 'POST',
+                                path: 'mailchimp/list/addTag',
+                                data: JSON.stringify({
+                                    "list_id": window.CRM.list_ID,
+                                    "tag": tag,
+                                    "name": name,
+                                    "emails": emails
+                                })
+                            }, function (data) {
+                                var result = data.result[0];
 
-                        window.CRM.APIRequest({
-                            method: 'POST',
-                            path: 'mailchimp/list/addTag',
-                            data: JSON.stringify({
-                                "list_id": window.CRM.list_ID,
-                                "tag": tag,
-                                "name": name,
-                                "emails": emails
-                            })
-                        }, function (data) {
-                            var result = data.result[0];
-
-                            if (data.success) {
-                                window.CRM.dataListTable.ajax.reload(function (json) {
-                                    window.CRM.closeDialogLoadingFunction();
-                                    $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + result.id + '" data-name="' + result.name + '" id="dropdown-item-add-' + result.id + '"><i class="fas fa-tag"></i> ' + result.name + '</a>');
-
-                                    tagsButtons = '<tr id="delete-tag-tr-' + result.id + '">';
-                                    tagsButtons += '<td>&bullet; ' + result.name + ' </td><td><a class="delete-tag btn btn btn-danger btn-xs" data-id="' + result.id + '" data-listid="' + result.list_id + '"><i style="cursor:pointer;" class="icon far fa-trash-alt"></i> </a></td>';
-                                    tagsButtons += '</tr>';
-
-                                    $("#allTagsRightView").append(tagsButtons);
-                                    window.CRM.closeDialogLoadingFunction();
-                                }, false);
-                            } else if (data.success == false && data.error) {
                                 window.CRM.closeDialogLoadingFunction();
-                                window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                            }
+                                if (data.success) {
+                                    window.CRM.dataListTable.ajax.reload(function (json) {
+                                        
+                                        $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + result.id + '" data-name="' + result.name + '" id="dropdown-item-add-' + result.id + '"><i class="fas fa-tag"></i> ' + result.name + '</a>');
+                                        tagsButtons = '<tr id="delete-tag-tr-' + result.id + '">';
+                                        tagsButtons += '<td>&bullet; ' + result.name + ' </td><td><a class="delete-tag btn btn btn-danger btn-xs" data-id="' + result.id + '" data-listid="' + result.list_id + '"><i style="cursor:pointer;" class="icon far fa-trash-alt"></i> </a></td>';
+                                        tagsButtons += '</tr>';
+
+                                        $("#allTagsRightView").append(tagsButtons);
+                                    }, false);
+                                } else if (data.success == false && data.error) {
+                                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                                }
+                            });
                         });
+
+                        
                     } else if (name != null) {
                         window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("Name is empty !!"));
                     }
@@ -441,27 +441,28 @@ $(function() {
                     },
                     callback: function (result) {
                         if (result) {
-                            window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'));
-                            window.CRM.APIRequest({
-                                method: 'POST',
-                                path: 'mailchimp/list/addTag',
-                                data: JSON.stringify({
-                                    "list_id": window.CRM.list_ID,
-                                    "tag": tag,
-                                    "name": name,
-                                    "emails": emails
-                                })
-                            }, function (data) {
-                                if (data.success) {
-                                    window.CRM.dataListTable.ajax.reload(function (json) {
-                                        render_container();
+                            window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'), function() {
+                                window.CRM.APIRequest({
+                                    method: 'POST',
+                                    path: 'mailchimp/list/addTag',
+                                    data: JSON.stringify({
+                                        "list_id": window.CRM.list_ID,
+                                        "tag": tag,
+                                        "name": name,
+                                        "emails": emails
+                                    })
+                                }, function (data) {
+                                    if (data.success) {
+                                        window.CRM.dataListTable.ajax.reload(function (json) {
+                                            render_container();                                            
+                                        }, false);
+                                    } else if (data.success == false && data.error) {
                                         window.CRM.closeDialogLoadingFunction();
-                                    }, false);
-                                } else if (data.success == false && data.error) {
-                                    window.CRM.closeDialogLoadingFunction();
-                                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                                }
+                                        window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                                    }
+                                });
                             });
+                            
                         }
                     }
                 });
@@ -508,40 +509,42 @@ $(function() {
                     callback: function (tag) {
                         if (tag && tag != -1) {
                             console.log(tag);
-                            window.CRM.dialogLoadingFunction(i18next.t('Removing tags...'));
-                            window.CRM.APIRequest({
-                                method: 'POST',
-                                path: 'mailchimp/list/removeTagForMembers',
-                                data: JSON.stringify({
-                                    "list_id": window.CRM.list_ID,
-                                    "tag": tag,
-                                    "name": name,
-                                    "emails": emails
-                                })
-                            }, function (data) {
-                                if (data.success) {
+                            window.CRM.dialogLoadingFunction(i18next.t('Removing tags...'), function() {
+                                window.CRM.APIRequest({
+                                    method: 'POST',
+                                    path: 'mailchimp/list/removeTagForMembers',
+                                    data: JSON.stringify({
+                                        "list_id": window.CRM.list_ID,
+                                        "tag": tag,
+                                        "name": name,
+                                        "emails": emails
+                                    })
+                                }, function (data) {
+                                    if (data.success) {
+                                        window.CRM.dataListTable.ajax.reload(function (json) {
+                                            window.CRM.closeDialogLoadingFunction();
+                                        }, false);
+                                        //addTagsToMainDropdown();
+                                        //changeState();
+                                    } else if (data.success == false && data.error) {
+                                        window.CRM.closeDialogLoadingFunction();
+                                        window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                                    }
+                                });
+                            });
+                            
+                        } else if (tag != null) {
+                            window.CRM.dialogLoadingFunction(i18next.t('Deleting all tags for the selected members in the list...'), function() {
+                                window.CRM.APIRequest({
+                                    method: 'POST',
+                                    path: 'mailchimp/list/removeAllTagsForMembers',
+                                    data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
+                                }, function (data) {
                                     window.CRM.dataListTable.ajax.reload(function (json) {
                                         window.CRM.closeDialogLoadingFunction();
                                     }, false);
-                                    //addTagsToMainDropdown();
-                                    //changeState();
-                                } else if (data.success == false && data.error) {
-                                    window.CRM.closeDialogLoadingFunction();
-                                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                                }
-                            });
-                        } else if (tag != null) {
-                            window.CRM.dialogLoadingFunction(i18next.t('Deleting all tags for the selected members in the list...'));
-
-                            window.CRM.APIRequest({
-                                method: 'POST',
-                                path: 'mailchimp/list/removeAllTagsForMembers',
-                                data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
-                            }, function (data) {
-                                window.CRM.dataListTable.ajax.reload(function (json) {
-                                    window.CRM.closeDialogLoadingFunction();
-                                }, false);
-                            });
+                                });
+                            });                            
                         }
                     }
                 });
@@ -570,19 +573,19 @@ $(function() {
             },
             callback: function (result) {
                 if (result) {
-                    window.CRM.dialogLoadingFunction(i18next.t("Deleting tag"));
-
-                    window.CRM.APIRequest({
-                        method: 'POST',
-                        path: 'mailchimp/list/removeTag',
-                        data: JSON.stringify({"list_id": listID, "tag_ID": tagID})
-                    }, function (data) {
-                        window.CRM.dataListTable.ajax.reload(function () {
-                            window.CRM.closeDialogLoadingFunction();
-                            $("#dropdown-item-add-"+tagID).remove();
-                            $("#delete-tag-tr-"+tagID).remove();
-                        }, false);
-                    });
+                    window.CRM.dialogLoadingFunction(i18next.t("Deleting tag"), function() {
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'mailchimp/list/removeTag',
+                            data: JSON.stringify({"list_id": listID, "tag_ID": tagID})
+                        }, function (data) {
+                            window.CRM.dataListTable.ajax.reload(function () {
+                                window.CRM.closeDialogLoadingFunction();
+                                $("#dropdown-item-add-"+tagID).remove();
+                                $("#delete-tag-tr-"+tagID).remove();
+                            }, false);
+                        });
+                    });                    
                 }
             }
         });
@@ -661,116 +664,124 @@ $(function() {
         var list_id = $(this).data("listid");
 
         if (e.params.data.personID !== undefined) {
-            window.CRM.dialogLoadingFunction(i18next.t("Loading subscriber"));
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'mailchimp/addperson',
-                data: JSON.stringify({"list_id": list_id, "personID": e.params.data.personID})
-            }, function (data) {
-                if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function (json) {
-                        render_container();
-                    }, false);
-                } else if (data.error) {
-                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                    window.CRM.closeDialogLoadingFunction();
-                }
-                $(".person-group-Id-Share").val('').trigger('change');
-            });
+            window.CRM.dialogLoadingFunction(i18next.t("Loading subscriber"), function() {
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'mailchimp/addperson',
+                    data: JSON.stringify({"list_id": list_id, "personID": e.params.data.personID})
+                }, function (data) {
+                    if (data.success) {
+                        window.CRM.dataListTable.ajax.reload(function (json) {
+                            render_container();                        
+                        }, false);
+                    } else if (data.error) {
+                        window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                        window.CRM.closeDialogLoadingFunction();
+                    }
+                    $(".person-group-Id-Share").val('').trigger('change');
+                });
+            });            
         } else if (e.params.data.groupID !== undefined) {
-            window.CRM.dialogLoadingFunction(i18next.t("Loading subscribers from Group"));
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'mailchimp/addgroup',
-                data: JSON.stringify({"list_id": list_id, "groupID": e.params.data.groupID})
-            }, function (data) {
-                if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function (json) {
-                        render_container();
-                    }, false);
-                } else if (data.error) {
-                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                    window.CRM.closeDialogLoadingFunction();
-                }
-            });
+            window.CRM.dialogLoadingFunction(i18next.t("Loading subscribers from Group"), function() {
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'mailchimp/addgroup',
+                    data: JSON.stringify({"list_id": list_id, "groupID": e.params.data.groupID})
+                }, function (data) {
+                    if (data.success) {
+                        window.CRM.dataListTable.ajax.reload(function (json) {
+                            render_container();                            
+                        }, false);
+                    } else if (data.error) {
+                        window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                        window.CRM.closeDialogLoadingFunction();
+                    }
+                });
+            });            
         } else if (e.params.data.familyID !== undefined) {
-            window.CRM.dialogLoadingFunction(i18next.t("Loading subscribers from family"));
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'mailchimp/addfamily',
-                data: JSON.stringify({"list_id": list_id, "familyID": e.params.data.familyID})
-            }, function (data) {
-                if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function (json) {
-                        render_container();
-                    }, false);
-                } else if (data.error) {
-                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                    window.CRM.closeDialogLoadingFunction();
-                }
+            window.CRM.dialogLoadingFunction(i18next.t("Loading subscribers from family"), function() {
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'mailchimp/addfamily',
+                    data: JSON.stringify({"list_id": list_id, "familyID": e.params.data.familyID})
+                }, function (data) {
+                    if (data.success) {
+                        window.CRM.dataListTable.ajax.reload(function (json) {
+                            render_container();
+                        }, false);
+                    } else if (data.error) {
+                        window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                        window.CRM.closeDialogLoadingFunction();
+                    }
+                });
             });
         } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 1) {
-            window.CRM.dialogLoadingFunction(i18next.t("Loading all persons from EcclesiaCRM<br>This could take a while !") + '<br>' + i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow."));
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'mailchimp/addallpersons',
-                data: JSON.stringify({"list_id": list_id})
-            }, function (data) {
-                if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function (json) {
-                        render_container();
-                    }, false);
-                } else if (data.error) {
-                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                    window.CRM.dataListTable.ajax.reload(function (json) {
-                        render_container();
-                    }, false);
-                }
-            });
+            window.CRM.dialogLoadingFunction(
+                i18next.t("Loading all persons from EcclesiaCRM<br>This could take a while !") + '<br>' 
+                + i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow."),
+                function() {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'mailchimp/addallpersons',
+                        data: JSON.stringify({"list_id": list_id})
+                    }, function (data) {
+                        if (data.success) {
+                            window.CRM.dataListTable.ajax.reload(function (json) {
+                                render_container();
+                            }, false);
+                        } else if (data.error) {
+                            window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                            window.CRM.dataListTable.ajax.reload(function (json) {
+                                render_container();
+                            }, false);
+                        }
+                    });
+                });            
         } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 2) {
-            window.CRM.dialogLoadingFunction(i18next.t("Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !") + '<br>' + i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow."));
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'mailchimp/addallnewsletterpersons',
-                data: JSON.stringify({"list_id": list_id})
-            }, function (data) {
-                if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function (json) {
-                        render_container();
-                    }, false);
-                } else if (data.error) {
-                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                    window.CRM.dataListTable.ajax.reload(function (json) {
-                        render_container();
-                    }, false);
-                }
-            });
+            window.CRM.dialogLoadingFunction(
+                i18next.t("Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !") + '<br>' 
+                + i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow."),
+                function() {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'mailchimp/addallnewsletterpersons',
+                        data: JSON.stringify({"list_id": list_id})
+                    }, function (data) {
+                        if (data.success) {
+                            window.CRM.dataListTable.ajax.reload(function (json) {
+                                render_container();
+                            }, false);
+                        } else if (data.error) {
+                            window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                            window.CRM.dataListTable.ajax.reload(function (json) {
+                                render_container();
+                            }, false);
+                        }
+                    });
+             });
         } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 3) {
-            window.CRM.dialogLoadingFunction(i18next.t("Loading all families first headpeople subscribers from EcclesiaCRM<br>This could take a while !") + '<br>' + i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow."));
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'mailchimp/addAllFamilies',
-                data: JSON.stringify({"list_id": list_id})
-            }, function (data) {
-                if (data.success) {
-                    window.CRM.dataListTable.ajax.reload(function (json) {
-                        render_container();
-                    }, false);
-                } else if (data.error) {
-                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                    window.CRM.dataListTable.ajax.reload(function (json) {
-                        render_container();
-                    }, false);
-                }
-            });
+            window.CRM.dialogLoadingFunction(
+                i18next.t("Loading all families first headpeople subscribers from EcclesiaCRM<br>This could take a while !") 
+                + '<br>' + i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow."),
+                function() {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'mailchimp/addAllFamilies',
+                        data: JSON.stringify({"list_id": list_id})
+                    }, function (data) {
+                        if (data.success) {
+                            window.CRM.dataListTable.ajax.reload(function (json) {
+                                render_container();
+                            }, false);
+                        } else if (data.error) {
+                            window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                            window.CRM.dataListTable.ajax.reload(function (json) {
+                                render_container();
+                            }, false);
+                        }
+                    });
+            });            
         }
-
     });
 
 
@@ -792,22 +803,22 @@ $(function() {
             ],
             callback: function (status) {
                 if (status) {
-                    window.CRM.dialogLoadingFunction(i18next.t("Changing status ..."));
-
-                    window.CRM.APIRequest({
-                        method: 'POST',
-                        path: 'mailchimp/status',
-                        data: JSON.stringify({"list_id": window.CRM.list_ID, "status": status, "email": email})
-                    }, function (data) {
-                        if (data.success) {
-                            window.CRM.dataListTable.ajax.reload(function (json) {
-                                render_container();
-                            }, false);
-                        } else if (data.success == false && data.error) {
-                            window.CRM.closeDialogLoadingFunction();
-                            window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                        }
-                    });
+                    window.CRM.dialogLoadingFunction(i18next.t("Changing status ..."), function() {
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'mailchimp/status',
+                            data: JSON.stringify({"list_id": window.CRM.list_ID, "status": status, "email": email})
+                        }, function (data) {
+                            if (data.success) {
+                                window.CRM.dataListTable.ajax.reload(function (json) {
+                                    render_container();
+                                }, false);
+                            } else if (data.success == false && data.error) {
+                                window.CRM.closeDialogLoadingFunction();
+                                window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                            }
+                        });
+                    });                    
                 }
             }
         });
@@ -830,21 +841,23 @@ $(function() {
             },
             callback: function (result) {
                 if (result) {
-                    window.CRM.dialogLoadingFunction(i18next.t('Deleting Subscriber...'));
-                    window.CRM.APIRequest({
-                        method: 'POST',
-                        path: 'mailchimp/suppress',
-                        data: JSON.stringify({"list_id": window.CRM.list_ID, "email": email})
-                    }, function (data) {
-                        if (data.success) {
-                            window.CRM.dataListTable.ajax.reload(function (json) {
-                                render_container();
-                            }, false);
-                        } else if (data.success == false && data.error) {
-                            window.CRM.closeDialogLoadingFunction();
-                            window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                        }
+                    window.CRM.dialogLoadingFunction(i18next.t('Deleting Subscriber...'), function() {
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'mailchimp/suppress',
+                            data: JSON.stringify({"list_id": window.CRM.list_ID, "email": email})
+                        }, function (data) {
+                            if (data.success) {
+                                window.CRM.dataListTable.ajax.reload(function (json) {
+                                    render_container();
+                                }, false);
+                            } else if (data.success == false && data.error) {
+                                window.CRM.closeDialogLoadingFunction();
+                                window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                            }
+                        });
                     });
+                    
                 }
             }
         });
@@ -900,18 +913,23 @@ $(function() {
             },
             callback: function (result) {
                 if (result) {
-                    window.CRM.dialogLoadingFunction(i18next.t('Deleting all subscribers...') + '<br>' + i18next.t("In fact, you've better to leave the CRM, and in a quater of an hour re-open it to manage your list.<br>To delete huge datas, MailChimp API is slow."));
-
-                    window.CRM.APIRequest({
-                        method: 'POST',
-                        path: 'mailchimp/deleteallsubscribers',
-                        data: JSON.stringify({"list_id": window.CRM.list_ID})
-                    }, function (data) {
-                        if (data.success) {
-                            window.CRM.dataListTable.ajax.reload(null, false);
-                            render_container();
-                        }
+                    window.CRM.dialogLoadingFunction(i18next.t('Deleting all subscribers...') 
+                    + '<br>' + i18next.t("In fact, you've better to leave the CRM, and in a quater of an hour re-open it to manage your list.<br>To delete huge datas, MailChimp API is slow."),
+                    function() {
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'mailchimp/deleteallsubscribers',
+                            data: JSON.stringify({"list_id": window.CRM.list_ID})
+                        }, function (data) {
+                            if (data.success) {
+                                window.CRM.dataListTable.ajax.reload(function (json) {
+                                    render_container();
+                                }, false);
+                            }
+                        });
                     });
+
+                    
                 }
             }
         });
@@ -979,41 +997,42 @@ $(function() {
                             var htmlBody = CKEDITOR.instances['campaignNotes'].getData();//$('form #campaignNotes').val();
 
 
-                            window.CRM.dialogLoadingFunction(i18next.t("Adding Campaign ..."));
-
-                            window.CRM.APIRequest({
-                                method: 'POST',
-                                path: 'mailchimp/campaign/actions/create',
-                                data: JSON.stringify({
-                                    "list_id": window.CRM.list_ID,
-                                    "tagId": tagId,
-                                    "subject": Subject,
-                                    "title": campaignTitle,
-                                    "htmlBody": htmlBody
-                                })
-                            }, function (data) {
-                                if (data.success) {
-                                    bootbox.confirm({
-                                        message: i18next.t("Would like to manage directly this new campaign ?"),
-                                        buttons: {
-                                            confirm: {
-                                                label: '<i class="fas fa-check"></i> ' + i18next.t('Yes'),
-                                                className: 'btn-primary'
+                            window.CRM.dialogLoadingFunction(i18next.t("Adding Campaign ..."), function() {
+                                window.CRM.APIRequest({
+                                    method: 'POST',
+                                    path: 'mailchimp/campaign/actions/create',
+                                    data: JSON.stringify({
+                                        "list_id": window.CRM.list_ID,
+                                        "tagId": tagId,
+                                        "subject": Subject,
+                                        "title": campaignTitle,
+                                        "htmlBody": htmlBody
+                                    })
+                                }, function (data) {
+                                    window.CRM.closeDialogLoadingFunction();
+                                    if (data.success) {
+                                        bootbox.confirm({
+                                            message: i18next.t("Would like to manage directly this new campaign ?"),
+                                            buttons: {
+                                                confirm: {
+                                                    label: '<i class="fas fa-check"></i> ' + i18next.t('Yes'),
+                                                    className: 'btn-primary'
+                                                },
+                                                cancel: {
+                                                    label: '<i class="fas fa-times"></i> ' + i18next.t('No'),
+                                                    className: 'btn-default'
+                                                }
                                             },
-                                            cancel: {
-                                                label: '<i class="fas fa-times"></i> ' + i18next.t('No'),
-                                                className: 'btn-default'
+                                            callback: function (result) {
+                                                render_container();
+                                                if (result) {
+                                                    window.location.href = window.CRM.root + "/v2/mailchimp/campaign/" + data.result[0].id;
+                                                }
                                             }
-                                        },
-                                        callback: function (result) {
-                                            render_container();
-                                            if (result) {
-                                                window.location.href = window.CRM.root + "/v2/mailchimp/campaign/" + data.result[0].id;
-                                            }
-                                        }
-                                    });
-                                }
-                            });
+                                        });
+                                    }
+                                });
+                            });                            
                         } else {
                             window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t("You have to set a Campaign Title for your eMail Campaign"));
 
@@ -1150,8 +1169,9 @@ $(function() {
                     data: JSON.stringify({"list_id": window.CRM.list_ID, "status": status, "email": email})
                 }, function (data) {
                     if (data.success) {
-                        window.CRM.dataListTable.ajax.reload(null, false);
-                        render_container();
+                        window.CRM.dataListTable.ajax.reload(function (json) {
+                            render_container();
+                        }, false);                        
                     } else if (data.success == false && data.error) {
                         window.CRM.closeDialogLoadingFunction();
                         window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));

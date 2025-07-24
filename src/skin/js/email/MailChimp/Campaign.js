@@ -107,39 +107,39 @@ $(function() {
             realScheduleDate = moment(dateStart + ' ' + timeStart, fmt).utc().format();
         }
 
-        window.CRM.dialogLoadingFunction(i18next.t("Saving Campaign ..."));
+        window.CRM.dialogLoadingFunction(i18next.t("Saving Campaign ..."), function() {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'mailchimp/campaign/actions/save',
+                data: JSON.stringify({
+                    "campaign_id": window.CRM.campaign_Id,
+                    "subject": subject,
+                    "content": content,
+                    "realScheduleDate": realScheduleDate,
+                    "isSchedule": isSchedule,
+                    "oldStatus": window.CRM.status
+                })
+            },function (data) {
+                window.CRM.closeDialogLoadingFunction();
 
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'mailchimp/campaign/actions/save',
-            data: JSON.stringify({
-                "campaign_id": window.CRM.campaign_Id,
-                "subject": subject,
-                "content": content,
-                "realScheduleDate": realScheduleDate,
-                "isSchedule": isSchedule,
-                "oldStatus": window.CRM.status
-            })
-        },function (data) {
-            window.CRM.closeDialogLoadingFunction();
+                if (data.success == true) {
+                    window.CRM.DisplayAlert(i18next.t("Campaign"), i18next.t("saved successfully"));
+                } else if (data.success == false && data.error1.detail) {
+                    window.CRM.DisplayAlert(i18next.t("Error"), data.error1.detail);
+                } else if (data.success == false && data.error2.detail) {
+                    window.CRM.DisplayAlert(i18next.t("Error"), data.error2.detail);
+                } else if (data.success == false && data.error3.detail) {
+                    window.CRM.DisplayAlert(i18next.t("Error"), data.error3.detail);
+                }
 
-            if (data.success == true) {
-                window.CRM.DisplayAlert(i18next.t("Campaign"), i18next.t("saved successfully"));
-            } else if (data.success == false && data.error1.detail) {
-                window.CRM.DisplayAlert(i18next.t("Error"), data.error1.detail);
-            } else if (data.success == false && data.error2.detail) {
-                window.CRM.DisplayAlert(i18next.t("Error"), data.error2.detail);
-            } else if (data.success == false && data.error3.detail) {
-                window.CRM.DisplayAlert(i18next.t("Error"), data.error3.detail);
-            }
+                $('.status').html("(" + i18next.t(data.status) + ")");
 
-            $('.status').html("(" + i18next.t(data.status) + ")");
+                window.CRM.status = data.status;
 
-            window.CRM.status = data.status;
-
-            if (data.status == "paused") {
-                $("#sendCampaign").show();
-            }
+                if (data.status == "paused") {
+                    $("#sendCampaign").show();
+                }
+            });
         });
     });
 
