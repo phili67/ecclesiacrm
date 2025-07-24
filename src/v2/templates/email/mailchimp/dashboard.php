@@ -80,9 +80,6 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
                         <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailsfamilies" class="btn btn-app btn-app-mailchimp">
                             <i class="far fa-bell-slash"></i> <?= _("Families Not In MailChimp") ?>
                         </a>
-                        <a href="<?= $sRootPath ?>/v2/system/email/debug" class="btn btn-app btn-app-mailchimp" data-toggle="tooltip"  data-placement="bottom" title="<?= _("To debug your email connection") ?>">
-                            <i class="fas fa-stethoscope"></i><?= _("Debug") ?>
-                        </a>
                     </p>
                     <?= _('You can import the generated CSV file to external email system.') ?>
                     <?= _("For MailChimp see") ?> <a
