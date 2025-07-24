@@ -456,7 +456,7 @@ class CreateBackup extends JobBase
         $phar->compress(\Phar::GZ);
         unlink($this->saveTo);
         $this->saveTo .= '.gz';
-        LoggerUtils::getAppLogger()->info("Full backup file");
+        LoggerUtils::getAppLogger()->info("Finished Full backup file");
     }
 
     private function EncryptBackupFileGPG()
