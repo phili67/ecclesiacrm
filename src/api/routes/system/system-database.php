@@ -36,5 +36,10 @@ $app->group('/database', function (RouteCollectorProxy $group) {
     * #! param: ref->string :: filename
     */
     $group->delete('/people/clear', SystemBackupRestoreController::class . ':clearPeopleTables' );
+    /*
+    * @! Clear all people from the database (admin)
+    * #! param: ref->string :: filename
+    */
+    $group->get('/backup/result', SystemBackupRestoreController::class . ':getBackupResult' );
 
 });
