@@ -5,7 +5,7 @@
 //  copyright   : 2021 Philippe Logel all right reserved not MIT licence
 //                This code can't be included in another software
 //
-//  Updated : 2021/04/06
+//  Updated : 2025/07/28
 //
 
 namespace EcclesiaCRM\APIControllers;
@@ -34,6 +34,7 @@ use Propel\Runtime\Propel;
 use EcclesiaCRM\Backup\RestoreBackup;
 use EcclesiaCRM\Backup\CreateBackup;
 use EcclesiaCRM\Backup\DownloadManager;
+use EcclesiaCRM\dto\SystemConfig;
 
 class SystemBackupRestoreController
 {
@@ -55,12 +56,15 @@ class SystemBackupRestoreController
 
         $logger->info("Start normal Backup");
 
-        $createBackup = new CreateBackup($input);
-        $backup = $createBackup->run();
+        $cmd = "php ".SystemURLs::getDocumentRoot()."/backuptools/backup.php iRemote=".$input->iRemote." iArchiveType='".$input->iArchiveType."' bEncryptBackup=".(($input->bEncryptBackup==true)?"true":"false")." password='".$input->password."'";
+
+        shell_exec($cmd. "> /dev/null 2>/dev/null &" );// execute commande without 
+
+        $date = file_get_contents(SystemURLs::getDocumentRoot().'/tmp_attach/backup_in_progress.txt');
 
         $logger->info("Stop normal Backup");
 
-        return $response->withJson(get_object_vars($backup));
+        return $response->withJson(['result' => true, 'in_progress' => 'true', 'start' => $date]);
     }
 
     public function backupRemote (ServerRequest $request, Response $response, array $args): Response {
@@ -75,12 +79,15 @@ class SystemBackupRestoreController
 
         $logger->info("Start remote Backup");
 
-        $createBackup = new CreateBackup($input);
-        $backup = $createBackup->run();
+       $cmd = "php ".SystemURLs::getDocumentRoot()."/backuptools/backup.php iRemote=".$input->iRemote." iArchiveType='".$input->iArchiveType."' bEncryptBackup=".(($input->bEncryptBackup==true)?"true":"false")." password='".$input->password."'";
+
+        shell_exec($cmd. "> /dev/null 2>/dev/null &" );// execute commande without 
+
+        $date = file_get_contents(SystemURLs::getDocumentRoot().'/tmp_attach/backup_in_progress.txt');
 
         $logger->info("Stop remote Backup");
 
-        return $response->withJson(get_object_vars($backup));
+        return $response->withJson(['result' => true, 'in_progress' => 'true', 'start' => $date]);
     }
 
     public function restore (ServerRequest $request, Response $response, array $args): Response {
@@ -100,11 +107,11 @@ class SystemBackupRestoreController
     {
         if ( !SessionUser::isAdmin() ) {
             return $response->withStatus(401);
-        }
+        }       
 
         $filename = $args['filename'];
-        DownloadManager::run($filename);
-        exit;// bug resolution for safari
+
+        return DownloadManager::run($response, $filename);    
     }
 
     public function clearPeopleTables (ServerRequest $request, Response $response, array $args): Response
@@ -159,5 +166,45 @@ class SystemBackupRestoreController
         $_SESSION['aPeopleCart'] = [];
 
         return $response->withJson(['success' => true, 'msg' => gettext('The people and families has been cleared from the database.')]);
+    }
+    
+    public function getBackupResult (ServerRequest $request, Response $response, array $args): Response
+    {
+        if ( !SessionUser::isAdmin() ) {
+            return $response->withStatus(401);
+        }
+
+        $BackupDone = $RemoteBackup = $Backup_In_Progress = false;
+        $message = "";
+        $Backup_Result_Datas = [];
+
+        $backup_result_url = SystemURLs::getDocumentRoot().'/tmp_attach/backup_result.json';
+        
+        if (file_exists(SystemURLs::getDocumentRoot().'/tmp_attach/backup_result.json')) {
+            $BackupDone = true;
+            $message = _("Backup Complete, Ready for Download.");
+            $content = file_get_contents($backup_result_url);
+            $Backup_Result_Datas =  json_decode($content,true); 
+            
+        }        
+
+        if (file_exists(SystemURLs::getDocumentRoot().'/tmp_attach/backup_in_progress.txt')) {
+            $Backup_In_Progress = true;
+            $message = _("Background backup In progress");
+        }
+
+        if (SystemConfig::getBooleanValue('bEnableExternalBackupTarget') && SystemConfig::getValue('sExternalBackupAutoInterval') > 0) {
+            $RemoteBackup = true;
+            
+            $message = _("Backup Generated and copied to remote server");
+        }
+
+        return $response->withJson([
+            'BackupDone' => $BackupDone,
+            'Backup_In_Progress' => $Backup_In_Progress,
+            'RemoteBackup' => $RemoteBackup,
+            'message' => $message,
+            'Backup_Result_Datas' => $Backup_Result_Datas
+        ]);
     }
 }
