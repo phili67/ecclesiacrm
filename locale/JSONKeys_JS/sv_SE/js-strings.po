@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,6 +59,9 @@ msgstr "Spårning av stacken"
 msgid "ERROR"
 msgstr "FEL"
 
+msgid "In progress"
+msgstr "Pågående arbete"
+
 msgid "Mailchimp"
 msgstr "Mailchimp"
 
@@ -68,10 +71,6 @@ msgid ""
 msgstr ""
 "Alla listor är nu laddade i Ecclesia<b>CRM</b>.<br><b>Om du vill hantera dem "
 "klickar du på detta meddelande !</b>"
-
-#, fuzzy
-msgid "In progress"
-msgstr "Under arbete...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Det fanns ett problem med att hämta det begärda objektet."
@@ -425,11 +424,11 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Är du säker? Ska du radera den här personen?"
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "Är du säker på att du vill stoppa delningen för utvalda användare?"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Är du säker? Ska du sluta dela med dig av ditt dokument?"
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "Är du säker på att du vill stoppa all delning?"
 
 msgid "Tracking"
 msgstr "Spårning av"
@@ -1582,9 +1581,14 @@ msgstr "Aktivera"
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Är du säker på att du vill ta bort den här personens medlemskap från"
 
-#, fuzzy
 msgid "Share your Document"
-msgstr "Ange en titel för dokumentet"
+msgstr "Dela ditt dokument"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Är du säker? Ska du radera den här personen?"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Är du säker? Ska du sluta dela med dig av ditt dokument?"
 
 msgid "Change classification"
 msgstr "Ändra klassificering"
@@ -2026,6 +2030,9 @@ msgstr "Bekräfta återställningen av lösenordet för den här användaren"
 msgid "Password reset for"
 msgstr "Återställning av lösenord för"
 
+msgid "Mail connection failure"
+msgstr "Fel i e-postanslutningen"
+
 msgid "Two factors authentications"
 msgstr "Autentisering med två faktorer"
 
@@ -2345,6 +2352,9 @@ msgstr "Ladda ner den komprimerade filen med insticksprogrammet"
 msgid "Plugin download manager"
 msgstr "Hanterare för nedladdning av insticksprogram"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Säkerhetskopiering hämtad, kopia på server borttagen"
+
 msgid "You must enter a password"
 msgstr "Du måste ange ett lösenord"
 
@@ -2357,14 +2367,14 @@ msgstr "Säkerhetskopiering körs, vänligen vänta."
 msgid "Backup in progress, don't close the window !"
 msgstr "Backup pågår, stäng inte fönstret!"
 
-msgid "Backup Generated and copied to remote server"
-msgstr "Säkerhetskopiering Genereras och kopieras till fjärrserver"
+msgid "Background backup in progress to remote server"
+msgstr "Bakgrundsbackup pågår till fjärrserver"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "Säkerhetskopiering klar, redo för nedladdning."
+msgid "Background backup in progress"
+msgstr "Säkerhetskopiering av bakgrund pågår"
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "Säkerhetskopiering hämtad, kopia på server borttagen"
+msgid "Backup Error."
+msgstr "Fel vid säkerhetskopiering."
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr ""
@@ -2508,6 +2518,15 @@ msgstr "Köpare Nummer Redaktör"
 
 msgid "Select"
 msgstr "Välj"
+
+#~ msgid "Songs"
+#~ msgstr "Sånger"
+
+#~ msgid "Settings"
+#~ msgstr "Inställningar"
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "Säkerhetskopiering klar, redo för nedladdning."
 
 #~ msgid "Remove all"
 #~ msgstr "Ta bort alla"

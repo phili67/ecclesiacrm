@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,6 +59,9 @@ msgstr "スタックトレース"
 msgid "ERROR"
 msgstr "ERROR"
 
+msgid "In progress"
+msgstr "進行中"
+
 msgid "Mailchimp"
 msgstr "Mailchimp"
 
@@ -68,10 +71,6 @@ msgid ""
 msgstr ""
 "すべてのリストは、Ecclesia<b>CRM</b>に読み込まれました。<br><b>リストを管理し"
 "たい場合は、この通知をクリックしてください!"
-
-#, fuzzy
-msgid "In progress"
-msgstr "進行中...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "要求されたオブジェクトの取得に問題がありました。"
@@ -420,11 +419,11 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "本当にそうですか？この人物を削除しようとしているのか？"
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "選択したユーザーの共有を停止してもよろしいですか？"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "本当にそうですか？ドキュメントの共有をやめようとしているのでは？"
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "本当にすべての共有を止めたいのですか？"
 
 msgid "Tracking"
 msgstr "トラッキング"
@@ -1574,9 +1573,14 @@ msgstr "アクティベート"
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "この人のメンバーシップを削除してもよろしいですか？"
 
-#, fuzzy
 msgid "Share your Document"
-msgstr "ドキュメントのタイトル設定"
+msgstr "ドキュメントを共有する"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "本当にそうですか？この人物を削除しようとしているのか？"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "本当にそうですか？ドキュメントの共有をやめようとしているのでは？"
 
 msgid "Change classification"
 msgstr "分類の変更"
@@ -2018,6 +2022,9 @@ msgstr "このユーザーのパスワードリセットを確認してくださ
 msgid "Password reset for"
 msgstr "のパスワードリセット"
 
+msgid "Mail connection failure"
+msgstr "メール接続障害"
+
 msgid "Two factors authentications"
 msgstr "二要素認証"
 
@@ -2329,6 +2336,9 @@ msgstr "プラグインのZIPファイルをダウンロードする"
 msgid "Plugin download manager"
 msgstr "プラグインダウンロードマネージャー"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "バックアップをダウンロードし、サーバー上のコピーを削除"
+
 msgid "You must enter a password"
 msgstr "パスワードの入力が必要"
 
@@ -2341,14 +2351,14 @@ msgstr "Backup Running, Please wait."
 msgid "Backup in progress, don't close the window !"
 msgstr "バックアップ中、ウィンドウを閉じないでください！"
 
-msgid "Backup Generated and copied to remote server"
-msgstr "バックアップ 生成され、リモートサーバーにコピーされる"
+msgid "Background backup in progress to remote server"
+msgstr "リモートサーバーへのバックグラウンドバックアップ中"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "バックアップが完了し、ダウンロードできるようになりました。"
+msgid "Background backup in progress"
+msgstr "バックグラウンドバックアップ中"
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "バックアップをダウンロードし、サーバー上のコピーを削除"
+msgid "Backup Error."
+msgstr "バックアップエラー。"
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr ""
@@ -2490,6 +2500,15 @@ msgstr "バイヤーナンバー編集部"
 
 msgid "Select"
 msgstr "セレクト"
+
+#~ msgid "Songs"
+#~ msgstr "曲目"
+
+#~ msgid "Settings"
+#~ msgstr "設定"
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "バックアップが完了し、ダウンロードできるようになりました。"
 
 #~ msgid "Remove all"
 #~ msgstr "すべて削除"

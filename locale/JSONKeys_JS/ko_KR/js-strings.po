@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,6 +59,9 @@ msgstr "스택 추적"
 msgid "ERROR"
 msgstr "오류"
 
+msgid "In progress"
+msgstr "진행 중"
+
 msgid "Mailchimp"
 msgstr "메일침프"
 
@@ -68,10 +71,6 @@ msgid ""
 msgstr ""
 "이제 모든 목록이 Ecclesia<b>CRM</b>에 로드됩니다.<br><b>목록을 관리하려면 이 "
 "알림을 클릭하세요!</b>"
-
-#, fuzzy
-msgid "In progress"
-msgstr "진행 중...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "요청된 개체를 검색하는 데 문제가 있습니다."
@@ -419,11 +418,11 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "정말인가요? 이 사람을 삭제하시겠습니까?"
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "선택한 사용자에 대한 공유를 중지하시겠습니까?"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "정말인가요? 문서 공유를 중단하시겠습니까?"
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "정말 모든 공유를 중지하시겠습니까?"
 
 msgid "Tracking"
 msgstr "추적"
@@ -1562,9 +1561,14 @@ msgstr "활성화"
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "이 사람의 멤버십을 다음에서 삭제하시겠습니까?"
 
-#, fuzzy
 msgid "Share your Document"
-msgstr "문서 제목 설정"
+msgstr "문서 공유"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "정말인가요? 이 사람을 삭제하시겠습니까?"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "정말인가요? 문서 공유를 중단하시겠습니까?"
 
 msgid "Change classification"
 msgstr "분류 변경"
@@ -2002,6 +2006,9 @@ msgstr "이 사용자의 비밀번호 재설정을 확인해 주세요."
 msgid "Password reset for"
 msgstr "비밀번호 재설정 대상"
 
+msgid "Mail connection failure"
+msgstr "메일 연결 실패"
+
 msgid "Two factors authentications"
 msgstr "2단계 인증"
 
@@ -2316,6 +2323,9 @@ msgstr "플러그인 압축 파일 다운로드"
 msgid "Plugin download manager"
 msgstr "플러그인 다운로드 관리자"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "백업 다운로드됨, 서버에 복사본 제거됨"
+
 msgid "You must enter a password"
 msgstr "비밀번호를 입력해야 합니다."
 
@@ -2328,14 +2338,14 @@ msgstr "백업 실행 중, 잠시만 기다려주세요."
 msgid "Backup in progress, don't close the window !"
 msgstr "백업 진행 중, 창을 닫지 마세요!"
 
-msgid "Backup Generated and copied to remote server"
-msgstr "백업 생성 및 원격 서버에 복사"
+msgid "Background backup in progress to remote server"
+msgstr "원격 서버에 백그라운드 백업 진행 중"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "백업 완료, 다운로드 준비 완료."
+msgid "Background backup in progress"
+msgstr "백그라운드 백업 진행 중"
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "백업 다운로드됨, 서버에 복사본 제거됨"
+msgid "Backup Error."
+msgstr "백업 오류."
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "선택한 파일이 이 서버의 최대 업로드 크기를 초과합니다."
@@ -2476,6 +2486,15 @@ msgstr "구매자 번호 편집기"
 
 msgid "Select"
 msgstr "선택"
+
+#~ msgid "Songs"
+#~ msgstr "노래"
+
+#~ msgid "Settings"
+#~ msgstr "설정"
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "백업 완료, 다운로드 준비 완료."
 
 #~ msgid "Remove all"
 #~ msgstr "모두 제거"

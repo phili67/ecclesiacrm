@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,6 +59,9 @@ msgstr "(ستاك تريس)"
 msgid "ERROR"
 msgstr "RROR"
 
+msgid "In progress"
+msgstr "قيد التنفيذ"
+
 msgid "Mailchimp"
 msgstr "تشيمب البريد"
 
@@ -68,10 +71,6 @@ msgid ""
 msgstr ""
 "وتم تحميل جميع القوائم الآن فيEcclesia<b>CRM</b>.<br><b>إذا كنت تريد أن "
 "تديرها، اضغط هذا الإخطار!</b>"
-
-#, fuzzy
-msgid "In progress"
-msgstr "جاري..."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "كانت هناك مشكلة في استرجاع الجسم المطلوب"
@@ -421,11 +420,11 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀  ]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "هل أنت متأكد؟ هل أنت على وشك حذف هذا الشخص؟"
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "هل تريد بالتأكيد إيقاف المشاركة لمستخدمين محددين؟"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "هل أنت متأكد؟ هل أنت على وشك التوقف عن مشاركة وثيقتك؟"
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "هل أنت متأكد من أنك تريد إيقاف جميع المشاركات؟"
 
 msgid "Tracking"
 msgstr "التعقب"
@@ -1579,9 +1578,14 @@ msgstr "نشط"
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "هل أنت متأكد أنك تريد إزالة عضوية هذا الشخص"
 
-#, fuzzy
 msgid "Share your Document"
-msgstr "ضع لقب وثيقتك"
+msgstr "شارك مستندك"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "هل أنت متأكد؟ هل أنت على وشك حذف هذا الشخص؟"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "هل أنت متأكد؟ هل أنت على وشك التوقف عن مشاركة وثيقتك؟"
 
 msgid "Change classification"
 msgstr "تصنيف التغيير"
@@ -2014,6 +2018,9 @@ msgstr "الرجاء تأكيد كلمة السر من هذا المستخدم"
 msgid "Password reset for"
 msgstr "إعادة ضبط كلمة السر"
 
+msgid "Mail connection failure"
+msgstr "فشل اتصال البريد"
+
 msgid "Two factors authentications"
 msgstr "عاملان موثقان"
 
@@ -2327,6 +2334,9 @@ msgstr "Téléchargez le fichier zippé du plugin"
 msgid "Plugin download manager"
 msgstr "Gestionnaire de téléchargement de plugins"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "تم نقل النسخ الاحتياطية، تم إزالة الخادم"
+
 msgid "You must enter a password"
 msgstr "يجب أن تدخل كلمة السر"
 
@@ -2339,14 +2349,14 @@ msgstr "الركض الاحتياطي، رجاءً إنتظر."
 msgid "Backup in progress, don't close the window !"
 msgstr "Sauvegarde en cours, ne fermez pas la fenêtre !"
 
-msgid "Backup Generated and copied to remote server"
-msgstr "تم توليد الدعم ونسخ إلى الخادم عن بعد"
+msgid "Background backup in progress to remote server"
+msgstr "النسخ الاحتياطي في الخلفية قيد التقدم إلى خادم بعيد"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "الدعم الكامل، جاهز للتحميل."
+msgid "Background backup in progress"
+msgstr "النسخ الاحتياطي في الخلفية قيد التنفيذ"
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "تم نقل النسخ الاحتياطية، تم إزالة الخادم"
+msgid "Backup Error."
+msgstr "خطأ في النسخ الاحتياطي."
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "الملف المختار يتجاوز حجم الخوادم بأقصى حجم"
@@ -2489,6 +2499,15 @@ msgstr "المشتري محرر التحرير"
 
 msgid "Select"
 msgstr "اختيار"
+
+#~ msgid "Songs"
+#~ msgstr "الأغاني"
+
+#~ msgid "Settings"
+#~ msgstr "الإعدادات"
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "الدعم الكامل، جاهز للتحميل."
 
 #~ msgid "Remove all"
 #~ msgstr "أزيلوا كل شيء"

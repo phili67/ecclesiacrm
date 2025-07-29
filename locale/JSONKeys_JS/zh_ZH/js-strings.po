@@ -2481,6 +2481,33 @@ msgstr "添加用户"
 msgid "Remove Selected Members"
 msgstr "删除选定的成员"
 
+msgid "Songs"
+msgstr "歌曲"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "In progress"
+msgstr "进行中"
+
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "您确定要停止共享选定的用户吗？"
+
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "你确定要停止所有共享？"
+
+msgid "Background backup in progress to remote server"
+msgstr "正在向远程服务器进行后台备份"
+
+msgid "Background backup in progress"
+msgstr "正在进行后台备份"
+
+msgid "Backup Error."
+msgstr "备份错误。"
+
+msgid "Mail connection failure"
+msgstr "邮件连接失败"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 
