@@ -197,8 +197,7 @@ class DocumentFileManagerController
                 $response = $response
                     ->withHeader('Content-Type', 'application/octet-stream')
                     ->withHeader('Content-Disposition', 'attachment;filename="' . basename($file) . '"')
-                    ->withAddedHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
-                    ->withHeader('Cache-Control', 'post-check=0, pre-check=0')
+                    ->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0')
                     ->withHeader('Pragma', 'no-cache')
                     ->withBody((new \Slim\Psr7\Stream(fopen($file, 'rb'))));
 
