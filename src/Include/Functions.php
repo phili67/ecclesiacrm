@@ -81,10 +81,8 @@ function addslashes_deep($value)
 }
 
 // If Magic Quotes is turned off, do the same thing manually..
-if (!isset($_SESSION['bHasMagicQuotes'])) {
+if (isset($_SESSION['bHasMagicQuotes']) and !$_SESSION['bHasMagicQuotes']) {
     foreach ($_REQUEST as $key => $value) {
         $value = addslashes_deep($value);
     }
 }
-
-$sGlobalMessageClass = 'success';
