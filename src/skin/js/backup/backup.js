@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location = window.CRM.root + "/api/database/download/" + filename;
 
             // after we reload page
-            window.location.reload();            
+            setTimeout(function() {
+                window.location.reload();    
+            }, 10000);                    
         });
     }  
     
