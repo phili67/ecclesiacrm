@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T09:19:41.914Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,6 +60,10 @@ msgstr "แทรซ์"
 msgid "ERROR"
 msgstr "อีร์โรร์"
 
+#, fuzzy
+msgid "In progress"
+msgstr "ในความคืบหน้า"
+
 msgid "Mailchimp"
 msgstr "ใบไม้ผลิตภัณฑ์"
 
@@ -69,10 +73,6 @@ msgid ""
 msgstr ""
 "รายชื่อทั้งหมดถูกโหลดในปีEcclesia<b>CRM</b><br><b>ถ้าคุณต้องการจัดการพวกเขา "
 "ก็กดการแจ้งเตือน</b>"
-
-#, fuzzy
-msgid "In progress"
-msgstr "ในความคืบหน้า"
 
 msgid "There was a problem retrieving the requested object"
 msgstr "มีปัญหาเรียกคืนของที่ได้รับการขอ"
@@ -423,11 +423,13 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀  ]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "คุณแน่ใจเหรอ? คุณกำลังจะลบ ผู้ชายคนนี้หรือ?"
+#, fuzzy
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "คุณแน่ใจนะ คุณอยากหยุด แบ่งเอกสารของคุณ"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "คุณแน่ใจเหรอ? คุณกำลังจะหยุด แบ่งเอกสารของคุณ?"
+#, fuzzy
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "คุณแน่ใจนะ คุณอยากหยุด แบ่งเอกสารของคุณ"
 
 msgid "Tracking"
 msgstr "ตามรอย"
@@ -1571,6 +1573,12 @@ msgstr "คุณแน่ใจนะว่าคุณต้องการ �
 msgid "Share your Document"
 msgstr "ตั้งชื่อเอกสารของคุณ"
 
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "คุณแน่ใจเหรอ? คุณกำลังจะลบ ผู้ชายคนนี้หรือ?"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "คุณแน่ใจเหรอ? คุณกำลังจะหยุด แบ่งเอกสารของคุณ?"
+
 msgid "Change classification"
 msgstr "เปลี่ยนความหมายใหม่"
 
@@ -1991,6 +1999,9 @@ msgstr "กรุณายืนยันรหัสผ่านผู้ใช
 msgid "Password reset for"
 msgstr "รหัสผ่าน"
 
+msgid "Mail connection failure"
+msgstr ""
+
 msgid "Two factors authentications"
 msgstr "สองตัวประกอบการตรวจสอบ"
 
@@ -2302,6 +2313,9 @@ msgstr ""
 msgid "Plugin download manager"
 msgstr ""
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "กำลังเสริมดาวน์โหลด รับทราบ เซิร์ฟเวอร์ออก"
+
 msgid "You must enter a password"
 msgstr "คุณต้องเข้าไปในรหัสผ่าน"
 
@@ -2314,14 +2328,15 @@ msgstr "กำลังเสริม โปรดรอ"
 msgid "Backup in progress, don't close the window !"
 msgstr ""
 
-msgid "Backup Generated and copied to remote server"
+#, fuzzy
+msgid "Background backup in progress to remote server"
 msgstr "สำรองสำรองและเก็บคัดลอก เซิร์ฟเวอร์ระยะไกล"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "เสร็จสมบูรณ์ พร้อมสำหรับดาวน์โหลด"
+msgid "Background backup in progress"
+msgstr ""
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "กำลังเสริมดาวน์โหลด รับทราบ เซิร์ฟเวอร์ออก"
+msgid "Backup Error."
+msgstr ""
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "ไฟล์ที่ถูกเลือกเกิน เกิน เซอร์เวอร์อัพโหลดสูงสุด"
@@ -2462,6 +2477,9 @@ msgstr "ผู้ซื้อหมายเลข"
 
 msgid "Select"
 msgstr "เลือก"
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "เสร็จสมบูรณ์ พร้อมสำหรับดาวน์โหลด"
 
 #~ msgid "Remove all"
 #~ msgstr "ลบทั้งหมด"

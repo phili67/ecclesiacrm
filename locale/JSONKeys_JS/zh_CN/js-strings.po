@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T09:19:41.914Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,6 +60,10 @@ msgstr "堆栈跟踪"
 msgid "ERROR"
 msgstr "错误"
 
+#, fuzzy
+msgid "In progress"
+msgstr "在进展中...."
+
 msgid "Mailchimp"
 msgstr "邮件营销"
 
@@ -69,10 +73,6 @@ msgid ""
 msgstr ""
 "所有的名单现在已经加载到Ecclesia<b>CRM</b>。<br><b>如果你想管理它们，请点击这"
 "个通知！</b>。"
-
-#, fuzzy
-msgid "In progress"
-msgstr "在进展中...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "检索所请求的对象时出现了问题"
@@ -423,11 +423,13 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "你确定吗？你要删除这个人？"
+#, fuzzy
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "你确定你要停止分享你的文件吗？"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "你确定吗？你要停止分享你的文件了吗？"
+#, fuzzy
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "你确定你要停止分享你的文件吗？"
 
 msgid "Tracking"
 msgstr "追踪"
@@ -1570,6 +1572,12 @@ msgstr "你确定要把这个人的会员资格从"
 msgid "Share your Document"
 msgstr "分享您的文件"
 
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "你确定吗？你要删除这个人？"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "你确定吗？你要停止分享你的文件了吗？"
+
 msgid "Change classification"
 msgstr "改变分类"
 
@@ -1989,6 +1997,9 @@ msgstr "请确认该用户的密码重置"
 msgid "Password reset for"
 msgstr "密码重设为"
 
+msgid "Mail connection failure"
+msgstr ""
+
 msgid "Two factors authentications"
 msgstr "双因素认证"
 
@@ -2297,6 +2308,9 @@ msgstr "下载该插件的压缩文件"
 msgid "Plugin download manager"
 msgstr "插件下载管理器"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "备份已下载，服务器上的拷贝已删除"
+
 msgid "You must enter a password"
 msgstr "你必须输入一个密码"
 
@@ -2309,14 +2323,15 @@ msgstr "备份正在运行，请等待。"
 msgid "Backup in progress, don't close the window !"
 msgstr ""
 
-msgid "Backup Generated and copied to remote server"
+#, fuzzy
+msgid "Background backup in progress to remote server"
 msgstr "生成备份并复制到远程服务器"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "备份完成，可供下载。"
+msgid "Background backup in progress"
+msgstr ""
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "备份已下载，服务器上的拷贝已删除"
+msgid "Backup Error."
+msgstr ""
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "所选文件超过了本服务器的最大上传尺寸"
@@ -2457,6 +2472,9 @@ msgstr "买方编号编辑"
 
 msgid "Select"
 msgstr "选择"
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "备份完成，可供下载。"
 
 #~ msgid "Remove all"
 #~ msgstr "移除所有"

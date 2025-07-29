@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T09:19:41.914Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,6 +60,10 @@ msgstr "Stek Trace"
 msgid "ERROR"
 msgstr "ERROR"
 
+#, fuzzy
+msgid "In progress"
+msgstr "në progres..."
+
 msgid "Mailchimp"
 msgstr "Mailkim."
 
@@ -69,10 +73,6 @@ msgid ""
 msgstr ""
 "të gjitha listat janë të mbushura meEcclesia<b>crm</b>.<br><b>nëse doni t'i "
 "menaxhoni, shtypni këtë njoftim!</b>"
-
-#, fuzzy
-msgid "In progress"
-msgstr "në progres..."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "kishte një problem të ririfitonte objektin e kërkuar"
@@ -430,11 +430,13 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀  ]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "A je i sigurt? Ti je gati ta fshish këtë person?"
+#, fuzzy
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "A jeni i sigurt, ju doni të ndaluar ndarjen e dokumentit tuaj?"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "A je i sigurt? a jeni gati ta ndani dokumentin tuaj?"
+#, fuzzy
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "A jeni i sigurt, ju doni të ndaluar ndarjen e dokumentit tuaj?"
 
 msgid "Tracking"
 msgstr "gjurmimi."
@@ -1604,6 +1606,12 @@ msgstr "Je i sigurt që do të heqësh anëtarësimin e këtij personi"
 msgid "Share your Document"
 msgstr "vendosni titullin tuaj të dokumentit"
 
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "A je i sigurt? Ti je gati ta fshish këtë person?"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "A je i sigurt? a jeni gati ta ndani dokumentin tuaj?"
+
 msgid "Change classification"
 msgstr "Ndrysho klasifikimin"
 
@@ -2044,6 +2052,9 @@ msgstr "Ju lutem konfirmoni fjalëkalimin e këtij përdoruesi"
 msgid "Password reset for"
 msgstr "Fjalëkalimi u rivendos"
 
+msgid "Mail connection failure"
+msgstr ""
+
 msgid "Two factors authentications"
 msgstr "dy faktorë vërtetime"
 
@@ -2365,6 +2376,9 @@ msgstr ""
 msgid "Plugin download manager"
 msgstr ""
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Përforcohu, u shkarkova, e kuptova serverin"
+
 msgid "You must enter a password"
 msgstr "duhet të fusësh ndonjë fjalëkalim"
 
@@ -2377,14 +2391,15 @@ msgstr "arratisje, të lutem, prit."
 msgid "Backup in progress, don't close the window !"
 msgstr ""
 
-msgid "Backup Generated and copied to remote server"
+#, fuzzy
+msgid "Background backup in progress to remote server"
 msgstr "përforcime u gjenerua dhe u kopjuan në server"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "Përforcime e plotë, gati për shkarkim."
+msgid "Background backup in progress"
+msgstr ""
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "Përforcohu, u shkarkova, e kuptova serverin"
+msgid "Backup Error."
+msgstr ""
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "dosja e zgjedhur e tejkalon këtë server masën e ngarkimit me maksimum"
@@ -2525,6 +2540,9 @@ msgstr "Blerësit numërësor"
 
 msgid "Select"
 msgstr "Zgjedh."
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "Përforcime e plotë, gati për shkarkim."
 
 #~ msgid "Remove all"
 #~ msgstr "Largoni të gjitha"

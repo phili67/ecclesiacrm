@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,9 @@ msgstr "Urmărirea stivei"
 msgid "ERROR"
 msgstr "ERROR"
 
+msgid "In progress"
+msgstr "În curs de desfășurare"
+
 msgid "Mailchimp"
 msgstr "Mailchimp"
 
@@ -70,10 +73,6 @@ msgid ""
 msgstr ""
 "Toate listele sunt acum încărcate în Ecclesia<b>CRM</b>.<br><b>Dacă doriți "
 "să le gestionați, dați click pe această notificare !</b>"
-
-#, fuzzy
-msgid "In progress"
-msgstr "În curs de desfășurare...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "A existat o problemă în recuperarea obiectului solicitat"
@@ -427,11 +426,12 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Ești sigur? Ești pe cale să ștergi această persoană?"
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr ""
+"Sunteți sigur că doriți să opriți partajarea pentru utilizatorii selectați?"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Ești sigur? Sunteți pe cale să nu mai partajați documentul?"
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "Sunteți sigur că doriți să opriți toate partajele?"
 
 msgid "Tracking"
 msgstr "Urmărire"
@@ -1597,9 +1597,14 @@ msgstr ""
 "Sunteți sigur că doriți să eliminați calitatea de membru a acestei persoane "
 "din"
 
-#, fuzzy
 msgid "Share your Document"
-msgstr "Setați titlul documentului dvs."
+msgstr "Partajați documentul dvs."
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Ești sigur? Ești pe cale să ștergi această persoană?"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Ești sigur? Sunteți pe cale să nu mai partajați documentul?"
 
 msgid "Change classification"
 msgstr "Modificarea clasificării"
@@ -2050,6 +2055,9 @@ msgstr "Vă rugăm să confirmați resetarea parolei acestui utilizator"
 msgid "Password reset for"
 msgstr "Resetarea parolei pentru"
 
+msgid "Mail connection failure"
+msgstr "Eșecul conexiunii poștale"
+
 msgid "Two factors authentications"
 msgstr "Autentificări cu doi factori"
 
@@ -2373,6 +2381,9 @@ msgstr "Descărcați fișierul zippat al plugin-ului"
 msgid "Plugin download manager"
 msgstr "Manager de descărcare a plugin-urilor"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Copie de rezervă descărcată, copie pe server eliminată"
+
 msgid "You must enter a password"
 msgstr "Trebuie să introduceți o parolă"
 
@@ -2385,14 +2396,14 @@ msgstr "Backup în curs de execuție, vă rugăm să așteptați."
 msgid "Backup in progress, don't close the window !"
 msgstr "Copie de siguranță în curs de desfășurare, nu închideți fereastra !"
 
-msgid "Backup Generated and copied to remote server"
-msgstr "Copie de rezervă Generată și copiată pe serverul de la distanță"
+msgid "Background backup in progress to remote server"
+msgstr "Backup în fundal în desfășurare către serverul de la distanță"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "Copie de rezervă completă, gata de descărcare."
+msgid "Background backup in progress"
+msgstr "Backup în fundal în desfășurare"
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "Copie de rezervă descărcată, copie pe server eliminată"
+msgid "Backup Error."
+msgstr "Eroare de rezervă."
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr ""
@@ -2537,6 +2548,15 @@ msgstr "Numărul cumpărătorului Editor"
 
 msgid "Select"
 msgstr "Selectați"
+
+#~ msgid "Songs"
+#~ msgstr "Cântece"
+
+#~ msgid "Settings"
+#~ msgstr "Setări"
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "Copie de rezervă completă, gata de descărcare."
 
 #~ msgid "Remove all"
 #~ msgstr "Eliminați toate"

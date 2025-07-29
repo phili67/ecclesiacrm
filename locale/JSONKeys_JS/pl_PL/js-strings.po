@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,6 +60,9 @@ msgstr "Śledzenie stosu"
 msgid "ERROR"
 msgstr "ERROR"
 
+msgid "In progress"
+msgstr "W toku"
+
 msgid "Mailchimp"
 msgstr "Mailchimp"
 
@@ -69,10 +72,6 @@ msgid ""
 msgstr ""
 "Wszystkie listy są teraz załadowane w Ecclesia<b>CRM</b>.<br><b>Jeśli chcesz "
 "nimi zarządzać, kliknij to powiadomienie !</b>."
-
-#, fuzzy
-msgid "In progress"
-msgstr "W trakcie realizacji...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Wystąpił problem z pobraniem żądanego obiektu"
@@ -425,11 +424,12 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Czy na pewno? Zamierzasz usunąć tę osobę?"
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr ""
+"Czy na pewno chcesz zatrzymać udostępnianie dla wybranych użytkowników?"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Czy jesteś pewien, że ? Zamierzasz przestać udostępniać swój dokument?"
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "Jesteś pewien, że chcesz zatrzymać wszelkie udostępnianie?"
 
 msgid "Tracking"
 msgstr "Śledzenie strony"
@@ -1586,6 +1586,12 @@ msgstr "Czy jesteś pewien, że chcesz usunąć członkostwo tej osoby z"
 msgid "Share your Document"
 msgstr "Udostępnij swój dokument"
 
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Czy na pewno? Zamierzasz usunąć tę osobę?"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Czy jesteś pewien, że ? Zamierzasz przestać udostępniać swój dokument?"
+
 msgid "Change classification"
 msgstr "Zmiana klasyfikacji"
 
@@ -2027,6 +2033,9 @@ msgstr "Proszę potwierdzić reset hasła dla tego użytkownika"
 msgid "Password reset for"
 msgstr "Resetowanie hasła dla"
 
+msgid "Mail connection failure"
+msgstr "Błąd połączenia pocztowego"
+
 msgid "Two factors authentications"
 msgstr "Uwierzytelnianie dwuskładnikowe"
 
@@ -2343,6 +2352,9 @@ msgstr "Pobierz zzipowany plik wtyczki"
 msgid "Plugin download manager"
 msgstr "Menedżer pobierania wtyczek"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Kopia zapasowa pobrana, kopia na serwerze usunięta"
+
 msgid "You must enter a password"
 msgstr "Należy wprowadzić hasło."
 
@@ -2355,14 +2367,14 @@ msgstr "Backup Running, Please wait."
 msgid "Backup in progress, don't close the window !"
 msgstr "Trwa tworzenie kopii zapasowej, nie zamykaj okna!"
 
-msgid "Backup Generated and copied to remote server"
-msgstr "Kopia zapasowa wygenerowana i skopiowana na zdalny serwer"
+msgid "Background backup in progress to remote server"
+msgstr "Trwa tworzenie kopii zapasowej w tle na serwerze zdalnym"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "Backup zakończony, gotowy do pobrania."
+msgid "Background backup in progress"
+msgstr "Trwa tworzenie kopii zapasowej w tle"
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "Kopia zapasowa pobrana, kopia na serwerze usunięta"
+msgid "Backup Error."
+msgstr "Błąd kopii zapasowej."
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "Wybrany plik przekracza maksymalną wielkość wysyłaną przez serwer"
@@ -2505,6 +2517,15 @@ msgstr "Numer nabywcy Edytor"
 
 msgid "Select"
 msgstr "Wybierz"
+
+#~ msgid "Songs"
+#~ msgstr "Piosenki"
+
+#~ msgid "Settings"
+#~ msgstr "Ustawienia"
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "Backup zakończony, gotowy do pobrania."
 
 #~ msgid "Remove all"
 #~ msgstr "Usuń wszystko"

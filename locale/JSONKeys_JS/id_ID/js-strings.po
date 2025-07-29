@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,6 +60,9 @@ msgstr "Stack Trace"
 msgid "ERROR"
 msgstr "ERROR"
 
+msgid "In progress"
+msgstr "Sedang berlangsung"
+
 msgid "Mailchimp"
 msgstr "Mailchimp"
 
@@ -69,10 +72,6 @@ msgid ""
 msgstr ""
 "Semua daftar yang terisi di Ecclesia, CRM di luar negeri. Ini adalah B. Jika "
 "kau ingin mengelola mereka, klik pemberitahuan ini! ABS-B-"
-
-#, fuzzy
-msgid "In progress"
-msgstr "Sedang dalam proses..."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Ada masalah mengambil objek yang diminta"
@@ -428,11 +427,11 @@ msgstr "[👀]"
 msgid "[👀  ]"
 msgstr "[👀]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Apakah Anda yakin? Kau akan menghapus orang ini?"
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "Apakah Anda yakin ingin berhenti berbagi untuk pengguna tertentu?"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Apakah Anda yakin? Kau akan berhenti berbagi dokumen?"
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "Apakah Anda yakin, Anda ingin menghentikan semua berbagi?"
 
 msgid "Tracking"
 msgstr "Melacak"
@@ -1591,9 +1590,14 @@ msgstr "Aktifkan"
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Kau yakin ingin menghapus keanggotaan orang ini"
 
-#, fuzzy
 msgid "Share your Document"
-msgstr "Atur gelar dokumenmu"
+msgstr "Bagikan Dokumen Anda"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Apakah Anda yakin? Kau akan menghapus orang ini?"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Apakah Anda yakin? Kau akan berhenti berbagi dokumen?"
 
 msgid "Change classification"
 msgstr "Mengubah klasifikasi"
@@ -2038,6 +2042,9 @@ msgstr "Tolong konfirmasi ulang password pengguna ini"
 msgid "Password reset for"
 msgstr "Password reset untuk"
 
+msgid "Mail connection failure"
+msgstr "Kegagalan koneksi email"
+
 msgid "Two factors authentications"
 msgstr "Dua faktor otentikasi"
 
@@ -2359,6 +2366,9 @@ msgstr ""
 msgid "Plugin download manager"
 msgstr ""
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Backup Download, Copy on server dihapus"
+
 msgid "You must enter a password"
 msgstr "Kau harus masukkan kata sandinya"
 
@@ -2371,14 +2381,14 @@ msgstr "Backup Running, tolong tunggu."
 msgid "Backup in progress, don't close the window !"
 msgstr "Pencadangan sedang berlangsung, jangan tutup jendela!"
 
-msgid "Backup Generated and copied to remote server"
-msgstr "Bantuan Generated dan disalin ke server remote"
+msgid "Background backup in progress to remote server"
+msgstr "Pencadangan latar belakang sedang berlangsung ke server jarak jauh"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "Backup Complete, Ready for Download."
+msgid "Background backup in progress"
+msgstr "Pencadangan latar belakang sedang berlangsung"
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "Backup Download, Copy on server dihapus"
+msgid "Backup Error."
+msgstr "Kesalahan Pencadangan."
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "File yang terpilih melebihi ukuran upload server ini maksimum"
@@ -2519,6 +2529,15 @@ msgstr "Pembeli Editor"
 
 msgid "Select"
 msgstr "Pilih"
+
+#~ msgid "Songs"
+#~ msgstr "Lagu"
+
+#~ msgid "Settings"
+#~ msgstr "Pengaturan"
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "Backup Complete, Ready for Download."
 
 #~ msgid "Remove all"
 #~ msgstr "Hapus semua"

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-22 06:29+0000\n"
+"POT-Creation-Date: 2025-07-29 14:58+0000\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: CSVImport.php:121 Include/Footer.php:279
+#: CSVImport.php:121 Include/Footer.php:281
 msgid "CSV Import"
 msgstr "Importación de CSV"
 
@@ -430,7 +430,7 @@ msgstr "País por defecto si no se especifica otro"
 #: v2/templates/people/personPrint.php:297
 #: v2/templates/people/personPrint.php:302
 #: v2/templates/people/selectDelete.php:205
-#: v2/templates/sidebar/systemsettings.php:178
+#: v2/templates/sidebar/systemsettings.php:179
 msgid "Unassigned"
 msgstr "No asignado"
 
@@ -748,7 +748,7 @@ msgstr "Su cesta se ha vaciado con éxito"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:173
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:876
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:879
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:698
 #: uploader/upload.php:82
 msgid "Create file"
@@ -765,7 +765,7 @@ msgid "Minutes left"
 msgstr "Quedan minutos"
 
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:128
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:261
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:260
 #: EcclesiaCRM/utils/MiscUtils.php:776
 msgid "Folder"
 msgstr "Carpeta"
@@ -774,69 +774,74 @@ msgstr "Carpeta"
 msgid "Document not found"
 msgstr "Documento no encontrado"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:404
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:443
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:403
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:442
 msgid "Right of access to folder problem"
 msgstr "Derecho de acceso al problema de las carpetas"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:469
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:828
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:468
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:831
 msgid "Contact error at api"
 msgstr "Error de contacto en la api"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:496
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:495
 msgid "You can't erase the public folder !"
 msgstr "¡No se puede borrar la carpeta pública!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:504
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:536
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:608
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:680
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:792
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:503
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:535
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:607
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:679
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:791
 msgid "Right of access to the file or folder the prohibited recording"
 msgstr "Derecho de acceso al expediente o carpeta de la grabación prohibida"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:590
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:738
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:589
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:737
 msgid "A Folder"
 msgstr "Una carpeta"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:590
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:658
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:738
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:589
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:657
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:737
 msgid "already exists at this place."
 msgstr "ya existe en este lugar."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:638
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:637
 msgid "Folder modification"
 msgstr "Modificación de la carpeta"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:640
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:707
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:639
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:706
 msgid "File modification"
 msgstr "Modificación de archivos"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:658
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:657
 msgid "A File"
 msgstr "Un archivo"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:750
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:749
 msgid "New Folder"
 msgstr "Carpeta nueva"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:774
-#, fuzzy
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:773
 msgid "can't rename public folder"
-msgstr "¡No se puede borrar la carpeta pública!"
+msgstr "no se puede renombrar la carpeta pública"
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:795
+msgid "The file or folder name already exists!!!"
+msgstr "¡¡¡El nombre del archivo o carpeta ya existe!!!"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:385
 #: browser/browse.php:126 v2/templates/edrive/dashboard.php:104
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:385
 #: browser/browse.php:127 v2/templates/edrive/dashboard.php:105
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
@@ -876,36 +881,36 @@ msgstr "Efectivo"
 msgid "Checks"
 msgstr "Comprobaciones"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:51
+#: EcclesiaCRM/APIControllers/MailchimpController.php:48
 msgid "persons"
 msgstr "personas"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:51
+#: EcclesiaCRM/APIControllers/MailchimpController.php:48
 msgid "people"
 msgstr "personas"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:59
+#: EcclesiaCRM/APIControllers/MailchimpController.php:56
 #: v2/templates/people/peopledashboard.php:30
 msgid "All People"
 msgstr "Todas las personas"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:74
+#: EcclesiaCRM/APIControllers/MailchimpController.php:71
 msgid "newsletter"
 msgstr "boletín de noticias"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:80
+#: EcclesiaCRM/APIControllers/MailchimpController.php:77
 #: EcclesiaCRM/Search/FamilySearchRes.php:44 v2/templates/cart/cartview.php:195
 msgid "families"
 msgstr "familias"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:88
+#: EcclesiaCRM/APIControllers/MailchimpController.php:85
 #: v2/templates/deposit/financialReports.php:390
 #: v2/templates/people/geopage.php:135
 #: v2/templates/people/peopledashboard.php:66
 msgid "All Families"
 msgstr "Todas las familias"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:123
+#: EcclesiaCRM/APIControllers/MailchimpController.php:120
 #: EcclesiaCRM/APIControllers/PeopleController.php:78
 #: EcclesiaCRM/APIControllers/PeopleController.php:135
 #: EcclesiaCRM/APIControllers/PeopleController.php:185
@@ -919,7 +924,7 @@ msgstr "Todas las familias"
 msgid "Persons"
 msgstr "Personas"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:163
+#: EcclesiaCRM/APIControllers/MailchimpController.php:160
 #: EcclesiaCRM/APIControllers/PeopleController.php:277
 #: EcclesiaCRM/APIControllers/SearchController.php:62
 #: EcclesiaCRM/APIControllers/SearchController.php:65
@@ -938,7 +943,7 @@ msgstr "Personas"
 msgid "Families"
 msgstr "Familias"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:201
+#: EcclesiaCRM/APIControllers/MailchimpController.php:198
 #: EcclesiaCRM/APIControllers/PeopleController.php:314
 #: EcclesiaCRM/APIControllers/SearchController.php:88
 #: EcclesiaCRM/APIControllers/SearchController.php:91
@@ -954,11 +959,6 @@ msgstr "Familias"
 #: v2/templates/people/peoplelist.php:44 v2/templates/people/personview.php:122
 msgid "Groups"
 msgstr "Grupos"
-
-#: EcclesiaCRM/APIControllers/MailchimpController.php:1002
-msgid "SMTP Host is not setup, please visit the settings page"
-msgstr ""
-"El host SMTP no está configurado, por favor visite la página de configuración"
 
 #: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:291
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
@@ -1114,7 +1114,7 @@ msgid "Person Activated"
 msgstr "Persona activada"
 
 #: EcclesiaCRM/APIControllers/PluginsController.php:131
-#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
+#: EcclesiaCRM/BackupManager.php:245 EcclesiaCRM/BackupManager.php:426
 msgid "Impossible to open"
 msgstr "Imposible de abrir"
 
@@ -1504,9 +1504,30 @@ msgstr "No se ha podido asignar el papel."
 msgid "Error"
 msgstr "Error"
 
-#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:155
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:168
 msgid "The people and families has been cleared from the database."
 msgstr "Las personas y las familias han sido eliminadas de la base de datos."
+
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:185
+#: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:53
+#: UpgradeCRM.php:106
+msgid "Backup Complete, Ready for Download."
+msgstr "Copia de seguridad completa, lista para descargar."
+
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:193
+#: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:61
+msgid "Background backup In progress"
+msgstr "Copia de seguridad de fondo En curso"
+
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:199
+#: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:67
+msgid "Backup Generated and copied to remote server"
+msgstr "Copia de seguridad generada y copiada al servidor remoto"
+
+#: EcclesiaCRM/APIControllers/SystemController.php:88
+msgid "SMTP Host is not setup, please visit the settings page"
+msgstr ""
+"El host SMTP no está configurado, por favor visite la página de configuración"
 
 #: EcclesiaCRM/APIControllers/UserRoleController.php:59
 #: EcclesiaCRM/APIControllers/UserRoleController.php:83
@@ -1524,28 +1545,28 @@ msgstr "Su rol de usuario ha cambiado"
 msgid "Account Activated"
 msgstr "Cuenta activada"
 
-#: EcclesiaCRM/BackupManager.php:141
+#: EcclesiaCRM/BackupManager.php:162
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr ""
 "El archivo seleccionado excede el tamaño máximo de carga de este servidor de"
 
-#: EcclesiaCRM/BackupManager.php:161
+#: EcclesiaCRM/BackupManager.php:182
 msgid "GPG Backup need a password to work"
 msgstr "La copia de seguridad GPG necesita una contraseña para funcionar"
 
-#: EcclesiaCRM/BackupManager.php:255
+#: EcclesiaCRM/BackupManager.php:276
 msgid "Backup archive does not contain a database"
 msgstr "El archivo de copia de seguridad no contiene una base de datos"
 
-#: EcclesiaCRM/BackupManager.php:287
+#: EcclesiaCRM/BackupManager.php:308
 msgid "Unknown File Type"
 msgstr "Tipo de archivo desconocido"
 
-#: EcclesiaCRM/BackupManager.php:287
+#: EcclesiaCRM/BackupManager.php:308
 msgid "from file"
 msgstr "del archivo"
 
-#: EcclesiaCRM/BackupManager.php:294
+#: EcclesiaCRM/BackupManager.php:315
 msgid ""
 "As part of the restore, external backups have been disabled.  If you wish to "
 "continue automatic backups, you must manuall re-enable the "
@@ -1718,7 +1739,7 @@ msgstr "Inicio de sesión"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
 #: ident/templates/verify/login-info.php:38 session/templates/session.php:247
-#: session/templates/session.php:347 v2/templates/backup/backup.php:67
+#: session/templates/session.php:347 v2/templates/backup/backup.php:85
 #: v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "Contraseña"
@@ -1760,8 +1781,8 @@ msgid "Documents"
 msgstr "Documentos"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:130
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
 #: EcclesiaCRM/dto/SystemConfig.php:301
 #: v2/templates/dashboard/maindashboard.php:65
 msgid "GDPR"
@@ -2751,13 +2772,13 @@ msgstr "Cónyuge"
 msgid "Child"
 msgstr "Niño"
 
-#: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:270
+#: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:73
+#: Include/Footer.php:262
 msgid "Backup Database"
 msgstr "Base de datos de respaldo"
 
-#: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:262
+#: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:48
+#: Include/Footer.php:270
 msgid "Restore Database"
 msgstr "Restaurar la base de datos"
 
@@ -2884,7 +2905,7 @@ msgid "Donation Fund Editor"
 msgstr "Editor del Fondo de Donación"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:288 v2/templates/calendar/checkin.php:32
+#: Include/Footer.php:301 v2/templates/calendar/checkin.php:32
 msgid "Kiosk Manager"
 msgstr "Gestor de quioscos"
 
@@ -2911,8 +2932,8 @@ msgstr "Lista de propiedades"
 msgid "Property Type List"
 msgstr "Lista de tipos de propiedad"
 
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:102
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:131
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:106
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:136
 msgid "General Settings"
 msgstr "Configuración general"
 
@@ -3068,31 +3089,27 @@ msgstr "para"
 msgid "MailChimp Dashboard"
 msgstr "Panel de control de MailChimp"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:79
-msgid "Debug Email Connection"
-msgstr "Depurar la conexión de correo electrónico"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:114
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:115
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:86
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:87
 msgid "Email Campaign"
 msgstr "Campaña de correo electrónico"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:156
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:157
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
 msgid "Email List"
 msgstr "Lista de correo electrónico"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:194
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:166
 #: v2/templates/email/mailchimp/dashboard.php:75
 msgid "Find Duplicate Emails"
 msgstr "Encontrar correos electrónicos duplicados"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:220
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:192
 #: v2/templates/email/mailchimp/dashboard.php:78
 msgid "Persons Not In MailChimp"
 msgstr "Personas que no están en MailChimp"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:245
+#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:217
 #: v2/templates/email/mailchimp/dashboard.php:81
 msgid "Families Not In MailChimp"
 msgstr "Familias que no están en MailChimp"
@@ -3166,29 +3183,33 @@ msgstr ""
 msgid "Sunday School Reports"
 msgstr "Informes de la Escuela Dominical"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:61
-#: Include/Footer.php:246
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:63
+#: Include/Footer.php:246 v2/templates/system/infos.php:193
 msgid "System Infos"
 msgstr "Información del sistema"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:92
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:94
 msgid "Report Menu"
 msgstr "Menú de informes"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:132
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:134
 msgid "System"
 msgstr "Sistema"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:168
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:170
 msgid "Convert Individuals to Addresses"
 msgstr "Convertir individuos en direcciones"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:202
-#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:248
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:204
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:250
 #: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:378
 msgid "CSV Export"
 msgstr "Exportación CSV"
+
+#: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:277
+msgid "Debug Email Connection"
+msgstr "Depurar la conexión de correo electrónico"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
@@ -6008,7 +6029,7 @@ msgstr "Editar los fondos de donación"
 msgid "Pastoral Care Type"
 msgstr "Tipo de atención pastoral"
 
-#: Include/Footer.php:192 Include/Footer.php:298
+#: Include/Footer.php:192 Include/Footer.php:311
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Póngase en contacto con su administrador para cambiar la configuración del "
@@ -6022,7 +6043,7 @@ msgstr "Editar la configuración general"
 msgid "System Users"
 msgstr "Usuarios del sistema"
 
-#: Include/Footer.php:309
+#: Include/Footer.php:290
 msgid "CSV Export Records"
 msgstr "Exportación de registros CSV"
 
@@ -6769,10 +6790,6 @@ msgstr "Paso 4: Iniciar sesión"
 msgid "Login to Upgraded System"
 msgstr "Acceder al sistema actualizado"
 
-#: UpgradeCRM.php:106
-msgid "Backup Complete, Ready for Download."
-msgstr "Copia de seguridad completa, lista para descargar."
-
 #: UpgradeCRM.php:116
 msgid "Backup Error."
 msgstr "Error de copia de seguridad."
@@ -6795,7 +6812,7 @@ msgstr "Descargar"
 
 #: browser/browse.php:45
 msgid "Insert"
-msgstr ""
+msgstr "Inserte"
 
 #: browser/browse.php:54 v2/templates/edrive/dashboard.php:32
 msgid "Files input"
@@ -6870,7 +6887,7 @@ msgstr ""
 "acceso."
 
 #: browser/browse.php:137 v2/templates/edrive/dashboard.php:115
-#: v2/templates/sidebar/systemsettings.php:199
+#: v2/templates/sidebar/systemsettings.php:200
 msgid "Definition"
 msgstr "Definición"
 
@@ -6881,6 +6898,10 @@ msgstr "Enviar notificación por correo electrónico"
 #: browser/browse.php:148 v2/templates/edrive/dashboard.php:126
 msgid "With Right"
 msgstr "Con Derecho"
+
+#: browser/browse.php:161 v2/templates/edrive/dashboard.php:139
+msgid "Share By"
+msgstr "Compartir por"
 
 #: eGive.php:80
 msgid "eGive Import"
@@ -7114,7 +7135,7 @@ msgstr "Confirmar nueva contraseña"
 #: v2/templates/people/personEditor.php:1564
 #: v2/templates/people/personEditor.php:1644
 #: v2/templates/people/personEditor.php:1732
-#: v2/templates/sidebar/systemsettings.php:41
+#: v2/templates/sidebar/systemsettings.php:43
 #: v2/templates/user/changepassword.php:72
 msgid "Save"
 msgstr "Guardar"
@@ -7324,14 +7345,14 @@ msgstr "Correo electrónico de la madre"
 msgid "Properties"
 msgstr "Propiedades"
 
-#: v2/templates/backup/backup.php:22
+#: v2/templates/backup/backup.php:24
 msgid ""
 "This tool will assist you in manually backing up the EcclesiaCRM database."
 msgstr ""
 "Esta herramienta le ayudará a realizar una copia de seguridad manual de la "
 "base de datos de EcclesiaCRM."
 
-#: v2/templates/backup/backup.php:26
+#: v2/templates/backup/backup.php:28
 msgid ""
 "You should make a manual backup at least once a week unless you already have "
 "a regular backup procedule for your systems."
@@ -7340,7 +7361,7 @@ msgstr ""
 "menos que ya tenga un procedimiento de copia de seguridad regular para sus "
 "sistemas."
 
-#: v2/templates/backup/backup.php:27
+#: v2/templates/backup/backup.php:29
 msgid ""
 "After you download the backup file, you should make two copies. Put one of "
 "them in a fire-proof safe on-site and the other in a safe location off-site."
@@ -7349,7 +7370,7 @@ msgstr ""
 "copias. Coloca una de ellas en una caja fuerte a prueba de incendios en el "
 "sitio y la otra en un lugar seguro fuera del sitio."
 
-#: v2/templates/backup/backup.php:28
+#: v2/templates/backup/backup.php:30
 msgid ""
 "If you are concerned about confidentiality of data stored in the EcclesiaCRM "
 "database, you should encrypt the backup data if it will be stored somewhere "
@@ -7359,7 +7380,7 @@ msgstr ""
 "datos de EcclesiaCRM, debería encriptar los datos de la copia de seguridad "
 "si van a ser almacenados en algún lugar potencialmente accesible para otros"
 
-#: v2/templates/backup/backup.php:29
+#: v2/templates/backup/backup.php:31
 msgid ""
 "For added backup security, you can e-mail the backup to yourself at an e-"
 "mail account hosted off-site or to a trusted friend.  Be sure to use "
@@ -7370,45 +7391,49 @@ msgstr ""
 "fuera de las instalaciones o a un amigo de confianza.  Sin embargo, "
 "asegúrate de utilizar el cifrado si haces esto."
 
-#: v2/templates/backup/backup.php:34
+#: v2/templates/backup/backup.php:35
 msgid "Select archive type"
 msgstr "Seleccione el tipo de archivo"
 
-#: v2/templates/backup/backup.php:45
+#: v2/templates/backup/backup.php:42 v2/templates/backup/backup.php:51
+#: v2/templates/backup/backup.php:57
+msgid "Database only"
+msgstr "Sólo base de datos"
+
+#: v2/templates/backup/backup.php:57
 msgid "Uncompressed"
 msgstr "Sin comprimir"
 
-#: v2/templates/backup/backup.php:47
-msgid "tar.gz (Include Photos)"
-msgstr "tar.gz (incluye fotos)"
+#: v2/templates/backup/backup.php:62
+msgid ""
+"Full backup, tar.gz (Include Database, Photos, public and private folders)"
+msgstr ""
+"Copia de seguridad completa, tar.gz (incluye base de datos, fotos y carpetas "
+"públicas y privadas)"
 
-#: v2/templates/backup/backup.php:59
+#: v2/templates/backup/backup.php:76
 msgid "Encrypt backup file with a password?"
 msgstr "¿Encriptar el archivo de copia de seguridad con una contraseña?"
 
-#: v2/templates/backup/backup.php:67 v2/templates/backup/restore.php:35
+#: v2/templates/backup/backup.php:85 v2/templates/backup/restore.php:35
 msgid "encryption"
 msgstr "codificación"
 
-#: v2/templates/backup/backup.php:73
+#: v2/templates/backup/backup.php:91
 msgid "Re-type Password"
 msgstr "Vuelva a escribir la contraseña"
 
-#: v2/templates/backup/backup.php:91
+#: v2/templates/backup/backup.php:112
 msgid "Generate and Download Backup"
 msgstr "Generar y descargar la copia de seguridad"
 
-#: v2/templates/backup/backup.php:95
+#: v2/templates/backup/backup.php:116
 msgid "Generate and Ship Backup to External Storage"
 msgstr "Generar y enviar copias de seguridad a un almacenamiento externo"
 
-#: v2/templates/backup/backup.php:103
+#: v2/templates/backup/backup.php:123
 msgid "Backup Status:"
 msgstr "Estado de la copia de seguridad:"
-
-#: v2/templates/backup/backup.php:104
-msgid "No Backup Running"
-msgstr "No se ejecuta la copia de seguridad"
 
 #: v2/templates/backup/restore.php:21
 msgid "Select Database Files"
@@ -8798,7 +8823,7 @@ msgstr "Por favor, asegúrese de que esto es lo que quiere hacer."
 
 #: v2/templates/deposit/finddepositslip.php:100
 #: v2/templates/group/groupedit.php:31
-#: v2/templates/sidebar/systemsettings.php:40
+#: v2/templates/sidebar/systemsettings.php:42
 msgid "Close"
 msgstr "Cerrar"
 
@@ -9084,31 +9109,19 @@ msgstr "Crear lista"
 msgid "Generate CSV"
 msgstr "Generar CSV"
 
-#: v2/templates/email/mailchimp/dashboard.php:83
-msgid "To debug your email connection"
-msgstr "Para depurar su conexión de correo electrónico"
-
 #: v2/templates/email/mailchimp/dashboard.php:84
-msgid "Debug"
-msgstr "Depurar"
-
-#: v2/templates/email/mailchimp/dashboard.php:87
 msgid "You can import the generated CSV file to external email system."
 msgstr ""
 "Puede importar el archivo CSV generado a un sistema de correo electrónico "
 "externo."
 
-#: v2/templates/email/mailchimp/dashboard.php:88
+#: v2/templates/email/mailchimp/dashboard.php:85
 msgid "For MailChimp see"
 msgstr "Para MailChimp, véase"
 
-#: v2/templates/email/mailchimp/dashboard.php:90
+#: v2/templates/email/mailchimp/dashboard.php:87
 msgid "import subscribers to a list."
 msgstr "importar suscriptores a una lista."
-
-#: v2/templates/email/mailchimp/debug.php:16
-msgid "Testing connection ....."
-msgstr "Prueba de conexión ....."
 
 #: v2/templates/email/mailchimp/duplicateemails.php:16
 msgid "Duplicate Emails"
@@ -9925,7 +9938,7 @@ msgstr "Propiedad"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:569
 #: v2/templates/people/personPrint.php:510
 #: v2/templates/people/personPrint.php:566
-#: v2/templates/sidebar/systemsettings.php:90
+#: v2/templates/sidebar/systemsettings.php:91
 msgid "Value"
 msgstr "Valor"
 
@@ -11569,7 +11582,7 @@ msgstr "Activado"
 msgid "Check all boxes"
 msgstr "Marque todas las casillas"
 
-#: v2/templates/plugins/plugins.php:81 v2/templates/system/infos.php:240
+#: v2/templates/plugins/plugins.php:81 v2/templates/system/infos.php:247
 #: v2/templates/system/integritycheck.php:88
 #: v2/templates/system/integritycheck.php:151
 msgid "Plugin"
@@ -11751,48 +11764,48 @@ msgstr ""
 "¡Tenga cuidado! Al eliminar propiedades, todas las personas, familias y "
 "grupos se verán afectados."
 
-#: v2/templates/sidebar/systemsettings.php:16
+#: v2/templates/sidebar/systemsettings.php:17
 msgid "Setting saved"
 msgstr "Ajuste guardado"
 
-#: v2/templates/sidebar/systemsettings.php:32
+#: v2/templates/sidebar/systemsettings.php:34
 msgid "Edit JSON Settings"
 msgstr "Editar la configuración de JSON"
 
-#: v2/templates/sidebar/systemsettings.php:68
+#: v2/templates/sidebar/systemsettings.php:76
 #: v2/templates/user/userseditor.php:811 v2/templates/user/usersettings.php:62
 #: v2/templates/user/usersettings.php:325
 #: v2/templates/user/usersettings.php:404
 msgid "Save Settings"
 msgstr "Guardar la configuración"
 
-#: v2/templates/sidebar/systemsettings.php:89
+#: v2/templates/sidebar/systemsettings.php:90
 #: v2/templates/user/userseditor.php:524 v2/templates/user/usersettings.php:35
 #: v2/templates/user/usersettings.php:86
 msgid "Variable name"
 msgstr "Nombre de la variable"
 
-#: v2/templates/sidebar/systemsettings.php:91
+#: v2/templates/sidebar/systemsettings.php:92
 msgid "Default Value"
 msgstr "Valor por defecto"
 
-#: v2/templates/sidebar/systemsettings.php:158
+#: v2/templates/sidebar/systemsettings.php:159
 #: v2/templates/user/userseditor.php:561 v2/templates/user/userseditor.php:614
 #: v2/templates/user/usersettings.php:276
 msgid "False"
 msgstr "Falso"
 
-#: v2/templates/sidebar/systemsettings.php:159
+#: v2/templates/sidebar/systemsettings.php:160
 #: v2/templates/user/userseditor.php:562 v2/templates/user/userseditor.php:615
 #: v2/templates/user/usersettings.php:277
 msgid "True"
 msgstr "Verdadero"
 
-#: v2/templates/sidebar/systemsettings.php:168
+#: v2/templates/sidebar/systemsettings.php:169
 msgid "Edit Settings"
 msgstr "Editar la configuración"
 
-#: v2/templates/sidebar/systemsettings.php:182
+#: v2/templates/sidebar/systemsettings.php:183
 msgid "Unknown Type"
 msgstr "Tipo desconocido"
 
@@ -12247,54 +12260,58 @@ msgstr "Versión del software"
 msgid "System Information"
 msgstr "Información del sistema"
 
-#: v2/templates/system/infos.php:70
-msgid "Database"
-msgstr "Base de datos"
-
-#: v2/templates/system/infos.php:75
-msgid "Database Version"
-msgstr "Versión de la base de datos"
-
-#: v2/templates/system/infos.php:79
-msgid "Database Server Version"
-msgstr "Versión del servidor de base de datos"
-
-#: v2/templates/system/infos.php:93
+#: v2/templates/system/infos.php:105
 msgid "Web Server"
 msgstr "Servidor web"
 
-#: v2/templates/system/infos.php:159
-msgid "Email Information"
-msgstr "Información por correo electrónico"
+#: v2/templates/system/infos.php:136
+msgid "Database"
+msgstr "Base de datos"
 
-#: v2/templates/system/infos.php:168
-msgid "Valid Mail Server Settings"
-msgstr "Configuración válida del servidor de correo"
+#: v2/templates/system/infos.php:141
+msgid "Database Version"
+msgstr "Versión de la base de datos"
 
-#: v2/templates/system/infos.php:178
+#: v2/templates/system/infos.php:145
+msgid "Database Server Version"
+msgstr "Versión del servidor de base de datos"
+
+#: v2/templates/system/infos.php:162
 msgid "Application Prerequisites"
 msgstr "Requisitos previos de la aplicación"
 
+#: v2/templates/system/infos.php:177
+msgid "Email Information"
+msgstr "Información por correo electrónico"
+
+#: v2/templates/system/infos.php:186
+msgid "Valid Mail Server Settings"
+msgstr "Configuración válida del servidor de correo"
+
 #: v2/templates/system/infos.php:195
+msgid "Testing connection ....."
+msgstr "Prueba de conexión ....."
+
+#: v2/templates/system/infos.php:202
 msgid "Application Integrity Check"
 msgstr "Comprobación de la integridad de la aplicación"
 
-#: v2/templates/system/infos.php:198 v2/templates/system/infos.php:233
+#: v2/templates/system/infos.php:205 v2/templates/system/infos.php:240
 #: v2/templates/system/integritycheck.php:57
 msgid "Details:"
 msgstr "Detalles:"
 
-#: v2/templates/system/infos.php:203 v2/templates/system/infos.php:237
+#: v2/templates/system/infos.php:210 v2/templates/system/infos.php:244
 #: v2/templates/system/integritycheck.php:62
 #: v2/templates/system/integritycheck.php:125
 msgid "Files failing integrity check"
 msgstr "Archivos que fallan en la comprobación de integridad"
 
-#: v2/templates/system/infos.php:206 v2/templates/system/infos.php:241
+#: v2/templates/system/infos.php:213 v2/templates/system/infos.php:248
 msgid "FileName"
 msgstr "Nombre de archivo"
 
-#: v2/templates/system/infos.php:207 v2/templates/system/infos.php:242
+#: v2/templates/system/infos.php:214 v2/templates/system/infos.php:249
 #: v2/templates/system/integritycheck.php:79
 #: v2/templates/system/integritycheck.php:106
 #: v2/templates/system/integritycheck.php:142
@@ -12302,7 +12319,7 @@ msgstr "Nombre de archivo"
 msgid "Expected Hash"
 msgstr "Hash esperado"
 
-#: v2/templates/system/infos.php:208 v2/templates/system/infos.php:243
+#: v2/templates/system/infos.php:215 v2/templates/system/infos.php:250
 #: v2/templates/system/integritycheck.php:80
 #: v2/templates/system/integritycheck.php:107
 #: v2/templates/system/integritycheck.php:143
@@ -12310,7 +12327,7 @@ msgstr "Hash esperado"
 msgid "Actual Hash"
 msgstr "Hash real"
 
-#: v2/templates/system/infos.php:219 v2/templates/system/infos.php:256
+#: v2/templates/system/infos.php:226 v2/templates/system/infos.php:263
 #: v2/templates/system/integritycheck.php:73
 #: v2/templates/system/integritycheck.php:100
 #: v2/templates/system/integritycheck.php:136
@@ -13708,6 +13725,18 @@ msgstr "Varios días"
 
 msgid "Giving Report"
 msgstr "Informe de donaciones"
+
+#~ msgid "tar.gz (Include Photos)"
+#~ msgstr "tar.gz (incluye fotos)"
+
+#~ msgid "No Backup Running"
+#~ msgstr "No se ejecuta la copia de seguridad"
+
+#~ msgid "To debug your email connection"
+#~ msgstr "Para depurar su conexión de correo electrónico"
+
+#~ msgid "Debug"
+#~ msgstr "Depurar"
 
 #~ msgid "Upload a file in EDrive"
 #~ msgstr "Cargar un archivo en EDrive"

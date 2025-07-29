@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-21T13:15:47.675Z\n"
+"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,6 +59,9 @@ msgstr "Sporing af stakken"
 msgid "ERROR"
 msgstr "FEJL"
 
+msgid "In progress"
+msgstr "Igangværende"
+
 msgid "Mailchimp"
 msgstr "Mailchimp"
 
@@ -68,10 +71,6 @@ msgid ""
 msgstr ""
 "Alle listerne er nu indlæst i Ecclesia<b>CRM</b>.<br><b>Hvis du ønsker at "
 "administrere dem, skal du klikke på denne meddelelse !</b>"
-
-#, fuzzy
-msgid "In progress"
-msgstr "I gang...."
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Der var et problem med at hente det ønskede objekt"
@@ -425,11 +424,11 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Er du sikker? Er du ved at slette denne person?"
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "Er du sikker på, at du vil stoppe deling for udvalgte brugere?"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Er du sikker? Er du ved at stoppe med at dele dit dokument?"
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "Er du sikker på, at du vil stoppe al deling?"
 
 msgid "Tracking"
 msgstr "Sporing"
@@ -1581,9 +1580,14 @@ msgstr "Aktivér"
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Er du sikker på, at du ønsker at fjerne denne persons medlemskab fra"
 
-#, fuzzy
 msgid "Share your Document"
-msgstr "Indstil din dokumenttitel"
+msgstr "Del dit dokument"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Er du sikker? Er du ved at slette denne person?"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Er du sikker? Er du ved at stoppe med at dele dit dokument?"
 
 msgid "Change classification"
 msgstr "Ændring af klassifikation"
@@ -2027,6 +2031,9 @@ msgstr "Bekræft venligst nulstillingen af denne brugers adgangskode"
 msgid "Password reset for"
 msgstr "Nulstilling af adgangskode for"
 
+msgid "Mail connection failure"
+msgstr "Fejl i mailforbindelsen"
+
 msgid "Two factors authentications"
 msgstr "Godkendelse af to faktorer"
 
@@ -2346,6 +2353,9 @@ msgstr "Download den komprimerede fil af plugin'et"
 msgid "Plugin download manager"
 msgstr "Plugin download manager"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Sikkerhedskopi downloadet, kopi på serveren fjernet"
+
 msgid "You must enter a password"
 msgstr "Du skal indtaste en adgangskode"
 
@@ -2358,14 +2368,14 @@ msgstr "Backup kører, vent venligst."
 msgid "Backup in progress, don't close the window !"
 msgstr "Backup i gang, luk ikke vinduet!"
 
-msgid "Backup Generated and copied to remote server"
-msgstr "Backup Genereres og kopieres til fjernserver"
+msgid "Background backup in progress to remote server"
+msgstr "Baggrundsbackup i gang til fjernserver"
 
-msgid "Backup Complete, Ready for Download."
-msgstr "Sikkerhedskopien er færdig, klar til download."
+msgid "Background backup in progress"
+msgstr "Baggrundsbackup i gang"
 
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "Sikkerhedskopi downloadet, kopi på serveren fjernet"
+msgid "Backup Error."
+msgstr "Backup-fejl."
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "Den valgte fil overstiger denne servers maksimale uploadstørrelse på"
@@ -2507,6 +2517,15 @@ msgstr "Købernummer Editor"
 
 msgid "Select"
 msgstr "Vælg"
+
+#~ msgid "Songs"
+#~ msgstr "Sange"
+
+#~ msgid "Settings"
+#~ msgstr "Indstillinger"
+
+#~ msgid "Backup Complete, Ready for Download."
+#~ msgstr "Sikkerhedskopien er færdig, klar til download."
 
 #~ msgid "Remove all"
 #~ msgstr "Fjern alle"
