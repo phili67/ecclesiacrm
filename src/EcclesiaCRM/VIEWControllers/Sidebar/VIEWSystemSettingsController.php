@@ -50,6 +50,10 @@ class VIEWSystemSettingsController {
         // Save Settings
         if (isset($_POST['save'])) {
             $new_value = $_POST['new_value'];
+            $Mode = '';
+            if ($_POST['Mode']) {
+                $Mode=$_POST['Mode'];
+            }
             $type = $_POST['type'];
             ksort($type);
             reset($type);
@@ -106,7 +110,8 @@ class VIEWSystemSettingsController {
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
             'sPageTitle'    => $sPageTitle,
-            'saved'         => $saved
+            'saved'         => $saved,
+            'Mode'          => $Mode
         ];
         return $paramsArguments;
     }
