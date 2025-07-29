@@ -1,13 +1,13 @@
 <?php
 
-
 //
 //  This code is under copyright not under MIT Licence
-//  copyright   : 2022 Philippe Logel all right reserved not MIT licence
+//  copyright   : 2021 Philippe Logel all right reserved not MIT licence
 //                This code can't be included in another software
 //
-//  Updated : 2022/01/05
+//  Updated : 2025/07/28
 //
+
 
 namespace EcclesiaCRM\VIEWControllers;
 
@@ -20,6 +20,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 
 use Slim\Views\PhpRenderer;
+
 
 class VIEWRestoreController {
 
@@ -44,7 +45,7 @@ class VIEWRestoreController {
     {
         $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle'  => _('Restore Database'),
+            'sPageTitle'  => _('Restore Database')."/CRM",
             'encryptionMethod' => SystemConfig::getValue('sPGP')
         ];
 

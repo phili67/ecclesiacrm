@@ -1,5 +1,13 @@
 <?php
 
+//
+//  This code is under copyright not under MIT Licence
+//  copyright   : 2021 Philippe Logel all right reserved not MIT licence
+//                This code can't be included in another software
+//
+//  Updated : 2025/07/28
+//
+
 namespace EcclesiaCRM\Backup;
 
 use EcclesiaCRM\Bootstrapper;
@@ -20,6 +28,7 @@ use Ifsnop\Mysqldump\Mysqldump;
 use Propel\Runtime\Propel;
 use ZipArchive;
 use Defuse\Crypto\File;
+use SlimDownloadEnd\SlimDownLoadStreamInterface;
 
 abstract class BackupType
 {
@@ -128,6 +137,18 @@ class RestoreBackup extends JobBase
      */
     protected $restorePassword;
 
+    /*
+    *
+    * @string
+    */
+    protected $encryptCommand;
+
+    /*
+    *
+    * @string
+    */
+    protected $saveTo;
+
 
     private function IsIncomingFileFailed()
     {
@@ -206,7 +227,7 @@ class RestoreBackup extends JobBase
         $connection = Propel::getConnection();
 
         $SQLfile = $this->backupDir . str_replace('.gz', '', $this->file['name']);
-        file_put_contents($SQLfile, gzopen($this->uploadedFileDestination, r));
+        file_put_contents($SQLfile, gzopen($this->uploadedFileDestination, 'r'));
         SQLUtils::sqlImport($SQLfile, $connection);
     }
 
@@ -612,51 +633,53 @@ class CreateBackup extends JobBase
 
 class DownloadManager
 {
-    static function run($filename)
+    static function run($response, $filename)
     {
         set_time_limit(0);
-        $path = SystemURLs::getDocumentRoot() . "/tmp_attach/EcclesiaCRMBackups/$filename";
-        if (file_exists($path)) {
-            if ($fd = fopen($path, 'r')) {
-                $fsize = filesize($path);
-                $path_parts = pathinfo($path);
-                $ext = strtolower($path_parts['extension']);
-                switch ($ext) {
-                    case 'gz':
-                        header('Content-type: application/x-gzip');
-                        header('Content-Disposition: attachment; filename="' . $path_parts['basename'] . '"');
-                        break;
-                    case 'tar.gz':
-                        header('Content-type: application/x-gzip');
-                        header('Content-Disposition: attachment; filename="' . $path_parts['basename'] . '"');
-                        break;
-                    case 'sql':
-                        header('Content-type: text/plain');
-                        header('Content-Disposition: attachment; filename="' . $path_parts['basename'] . '"');
-                        break;
-                    case 'gpg':
-                        header('Content-type: application/pgp-encrypted');
-                        header('Content-Disposition: attachment; filename="' . $path_parts['basename'] . '"');
-                        break;
-                    case 'zip':
-                        header('Content-type: application/zip');
-                        header('Content-Disposition: attachment; filename="' . $path_parts['basename'] . '"');
-                        break;
-                    // add more headers for other content types here
-                    default:
-                        header('Content-type: application/octet-stream');
-                        header('Content-Disposition: filename="' . $path_parts['basename'] . '"');
-                        break;
-                }
-                header("Content-length: $fsize");
-                header('Cache-control: private'); //use this to open files directly
-                while (!feof($fd)) {
-                    $buffer = fread($fd, 2048);
-                    echo $buffer;
-                }
-            }
-            fclose($fd);
-            FileSystemUtils::recursiveRemoveDirectory(SystemURLs::getDocumentRoot() . '/tmp_attach/', true);
+        $content_type = "";
+        $content_Disposition = "";
+
+        $file = SystemURLs::getDocumentRoot() . "/tmp_attach/EcclesiaCRMBackups/$filename";
+        if (file_exists($file)) {
+            $fsize = filesize($file);
+            $path_parts = pathinfo($file);
+            $ext = strtolower($path_parts['extension']);
+            switch ($ext) {
+                case 'gz':
+                    $content_type = 'application/x-gzip';
+                    $content_Disposition = 'attachment; filename="' . $path_parts['basename'] . '"';
+                    break;
+                case 'tar.gz':
+                    $content_type = 'application/x-gzip';
+                    $content_Disposition = 'attachment; filename="' . $path_parts['basename'] . '"';
+                    break;
+                case 'sql':
+                    $content_type = 'text/plain';
+                    $content_Disposition = 'attachment; filename="' . $path_parts['basename'] . '"';
+                    break;
+                case 'gpg':
+                    $content_type = 'application/pgp-encrypted';
+                    $content_Disposition = 'attachment; filename="' . $path_parts['basename'] . '"';
+                    break;
+                case 'zip':
+                    $content_type = 'application/zip';
+                    $content_Disposition = 'attachment; filename="' . $path_parts['basename'] . '"';
+                    break;
+                // add more headers for other content types here
+                default:
+                    $content_type = 'application/octet-stream';
+                    $content_Disposition = 'filename="' . $path_parts['basename'] . '"';
+                    break;
+            }                                    
+            //
         }
+
+        return $response
+                    ->withHeader('Content-Type', $content_type)
+                    ->withAddedHeader('Content-length', $fsize)
+                    ->withAddedHeader('Content-Disposition', $content_Disposition)
+                    ->withAddedHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0')
+                    ->withAddedHeader('Pragma', 'no-cache')
+                    ->withBody((new SlimDownLoadStreamInterface(fopen($file, 'rb'))));
     }
 }

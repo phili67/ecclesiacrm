@@ -3,7 +3,7 @@
 /*******************************************************************************
  *
  *  filename    : templates/backup.php
- *  last change : 2019-11-21
+ *  last change : 2025-07-28
  *  description : manage the backup
  *
  *  http://www.ecclesiacrm.com/
@@ -13,6 +13,8 @@
  *                This code can't be incorporated in another software authorization
  *
  ******************************************************************************/
+
+use EcclesiaCRM\dto\SystemURLs;
 
 require $sRootDocument . '/Include/Header.php';
 ?>
@@ -87,12 +89,12 @@ require $sRootDocument . '/Include/Header.php';
             ?>
             <div class="row">
                 <div class="col-lg-3">
-                    <input type="button" class="btn btn-primary" id="doBackup"
-                           <?= 'value="' . _('Generate and Download Backup') . '"' ?>>
+                    <button class="btn btn-primary" type="button" id="doBackup" <?= ($Backup_In_Progress or $BackupDone)?'disabled':''?>>
+                        <i class="fa-solid fa-hard-drive"></i> <i class="fa-solid fa-play"></i> <?= _('Generate and Download Backup') ?></button>
                 </div>
                 <div class="col-lg-5">
-                    <input type="button" class="btn btn-primary" id="doRemoteBackup"
-                           <?= 'value="' . _('Generate and Ship Backup to External Storage') . '"' ?>>
+                    <button class="btn btn-primary" type="button" id="doRemoteBackup" <?= (!($RemoteBackup and !($Backup_In_Progress or $BackupDone)))?'disabled':''?>>
+                        <i class="fa-solid fa-cloud"></i> <i class="fa-solid fa-play"></i> <?= _('Generate and Ship Backup to External Storage') ?></button>
                 </div>
             </div>
         </form>
@@ -100,12 +102,22 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 <div class="card">
     <div class="card-header  border-1">
-        <h1 class="card-title"><?= _('Backup Status:') ?> </h1>&nbsp;<h1 class="card-title" id="backupstatus"
-                                                                        style="color:red"> <?= _('No Backup Running') ?></h1>
+        <h1 class="card-title"><?= _('Backup Status:') ?> </h1>
+            <h1 class="card-title" id="backupstatus"
+                style="color:<?= $BackupDone?'green':'orange' ?>"> &nbsp; <?= $message ?></h1>
     </div>
     <div class="card-body" id="resultFiles">
+        <?php if ($BackupDone) { ?>
+            <button class="btn btn-primary" id="downloadbutton" role="button" data-filename="<?= $Backup_Result_Datas['filename'] ?>">
+                <i class='fa-solid fa-upload'></i>  <?= $Backup_Result_Datas['filename'] ?></button>
+        <?php } ?>
     </div>
 </div>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    window.CRM.isInProgress  = <?= $Backup_In_Progress?"true":"false" ?>;
+    window.CRM.BackupDone =  <?= $BackupDone?"true":"false" ?>;
+</script>
 
 <script src="<?= $sRootPath ?>/skin/js/backup/backup.js"></script>
 
