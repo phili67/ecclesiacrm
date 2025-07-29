@@ -1736,27 +1736,87 @@ refresh: function () {
   callback : the function to target
 */
 window.CRM.ElementListener = function(element, type, callback) {
-  // this is pure vanillia code ;-)
-  document.querySelectorAll(element).forEach(el=>{
+  if (element[0] == '#') {
+    el = document.getElementById(element.substring(1));
+    el.addEventListener(type, (event) => {
+          event.stopImmediatePropagation();
+          callback(event);
+      });
+  } else {
+    document.querySelectorAll(element).forEach(el=>{
       el.addEventListener(type, (event) => {
           event.stopImmediatePropagation();
           callback(event);
       });
   });
+  }
+  
 }
 
 window.CRM.addClass = function(element, c = "btn-default") {
-  // this is pure vanillia code ;-)
-  document.querySelectorAll(element).forEach(el=>{
-      el.classList.add(c);
-  });
+  if (element[0] == '#') {
+    el = document.getElementById(element.substring(1));
+    el.classList.add(c);
+  } else {
+    document.querySelectorAll(element.substring(1)).forEach(el=>{
+        el.classList.add(c);
+    });
+  }
 }
 
 window.CRM.removeClass = function(element, c = "btn-default") {
-  // this is pure vanillia code ;-)
-  document.querySelectorAll(element).forEach(el=>{
-      el.classList.remove(c);
-  });
+  if (element[0] == '#') {
+    el = document.getElementById(element.substring(1));
+    el.classList.remove(c);
+  } else {
+    document.querySelectorAll(element).forEach(el=>{
+        el.classList.remove(c);
+    });
+  }
+}
+
+window.CRM.class = function(element, c = "btn-default") {
+  if (element[0] == '#') {
+    el = document.getElementById(element.substring(1));
+    el.setAttribute('class', c);
+  } else {
+    document.querySelectorAll(element).forEach(el=>{
+        el.setAttribute('class', c);
+    });
+  }
+}
+
+window.CRM.css = function(element, c = "color:redd") {
+  if (element[0] == '#') {
+    el = document.getElementById(element.substring(1));
+    el.setAttribute('style', c);
+  } else {
+    document.querySelectorAll(element).forEach(el=>{
+        el.setAttribute('style', c);
+    });
+  }
+}
+
+window.CRM.html = function(element, t = "test") {
+  if (element[0] == '#') {
+    el = document.getElementById(element.substring(1));
+    el.innerText =  t;
+  } else {
+    document.querySelectorAll(element).forEach(el=>{
+      el.innerText =  t;
+    });
+  }
+}
+
+window.CRM.disabled = function (element, p=false) {
+  if (element[0] == '#') {
+    el = document.getElementById(element.substring(1));
+    el.disabled =  p;
+  } else {
+    document.querySelectorAll(element).forEach(el=>{
+      el.disabled =  p;
+    });
+  }
 }
 
 
