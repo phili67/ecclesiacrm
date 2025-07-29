@@ -252,6 +252,6 @@ require $sRootDocument . '/Include/Header.php';
     });
 </script>
 
-<script src="<?= $sRootPath ?>/skin/js/system/SystemSettings.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/sidebar/SystemSettings.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
