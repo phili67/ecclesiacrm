@@ -30,40 +30,56 @@ require $sRootDocument . '/Include/Header.php';
             <li><?= _('If you are concerned about confidentiality of data stored in the EcclesiaCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others') ?></li>
             <li><?= _('For added backup security, you can e-mail the backup to yourself at an e-mail account hosted off-site or to a trusted friend.  Be sure to use encryption if you do this, however.') ?></li>
         </ul>
-        <form method="post" action="<?= $sRootPath ?>/api/database/backup" id="BackupDatabase">
             <div class="row">
                 <div class="col-lg-12">
-                    <?= _('Select archive type') ?>:&nbsp;
-                    <?php
-                    if ($hasGZIP) {
-                        ?>
-                        <input type="radio" name="archiveType" value="0"> GZip
+                    <label><?= _('Select archive type') ?></label>
+                    <div class="form-group">
                         <?php
-                    }
-                    ?>
-                    <?php if ($hasZIP) {
-                        ?><input type="radio" name="archiveType" value="1"> Zip<?php
-                    } ?>
-                    &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="2" checked> <?= _('Uncompressed') ?>
-                    &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="3"
-                                             checked> <?= _('tar.gz (Include Photos)') ?>
+                        if ($hasGZIP) {
+                            ?>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="archiveType" value="0" <?= ($hasGZIP)?'checked':'' ?>> 
+                                <label class="form-check-label">GZip (<?= _("Database only") ?>)</label>                            
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <?php if ($hasZIP) {
+                            ?>
+                            <div class="form-check">
+                                <input class="form-check-input"  type="radio" name="archiveType" value="1" <?= (!$hasGZIP and $hasZIP)?'checked':'' ?>> 
+                                <label class="form-check-label">Zip (<?= _("Database only") ?>)</label>                            
+                            </div>                                
+                        <?php
+                        } ?>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="archiveType" value="2" <?= (!$hasGZIP and !$hasZIP)?'checked':'' ?>> 
+                            <label class="form-check-label"><?= _('Uncompressed') ?> (<?= _("Database only") ?>)</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="archiveType" value="3"> 
+                            <label class="form-check-label"><?= _('Full backup, tar.gz (Include Database, Photos, public and private folders)') ?></label>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <BR>
 
             <?php
             if ($encryptionMethod != "None") {
                 ?>
                 <div class="row">
                     <div class="col-lg-12">
-                        <input type="checkbox" name="encryptBackup"
-                               value="1"><?= _('Encrypt backup file with a password?') ?>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox" name="encryptBackup" id="encryptBackup" value="1">
+                            <label for="encryptBackup" class="custom-control-label"><?= _('Encrypt backup file with a password?') ?></label>
+                        </div>                    
+                      </div>                        
                     </div>
                 </div>
 
-                <br>
-
+                
                 <div class="row">
                     <div class="col-lg-2">
                         (<?= $encryptionMethod ?>) <?= _("encryption") ?>, <?= _('Password') ?>:
@@ -87,6 +103,9 @@ require $sRootDocument . '/Include/Header.php';
                 <?php
             }
             ?>
+
+    </div>
+    <div class="card-footer">
             <div class="row">
                 <div class="col-lg-3">
                     <button class="btn btn-primary" type="button" id="doBackup" <?= ($Backup_In_Progress or $BackupDone)?'disabled':''?>>
@@ -97,7 +116,6 @@ require $sRootDocument . '/Include/Header.php';
                         <i class="fa-solid fa-cloud"></i> <i class="fa-solid fa-play"></i> <?= _('Generate and Ship Backup to External Storage') ?></button>
                 </div>
             </div>
-        </form>
     </div>
 </div>
 <div class="card">
