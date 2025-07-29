@@ -54,7 +54,9 @@ $app->add(new JwtAuthentication([
         SystemURLs::getRootPath()."/api/filemanager/getFile/", SystemURLs::getRootPath()."/api/synchronize/page",
         SystemURLs::getRootPath(). "/api/database",
         SystemURLs::getRootPath(). "/api/plugins",
-        SystemURLs::getRootPath(). "/api/groups/addressbook/extract/"],
+        SystemURLs::getRootPath(). "/api/groups/addressbook/extract/",
+        SystemURLs::getRootPath(). "/api/cart/addressbook/extract"
+    ],
     "algorithm" => "HS256",
     "error" => function ($response, $arguments) {
         $data["status"] = "error";

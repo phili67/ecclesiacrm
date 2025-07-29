@@ -1110,9 +1110,6 @@ class User extends BaseUser
         // Create the Cart
         $_SESSION['aPeopleCart'] = [];
 
-        // Create the variable for the Global Message
-        $_SESSION['sGlobalMessage'] = '';
-
         // Initialize the last operation time
         $_SESSION['tLastOperation'] = time();
 

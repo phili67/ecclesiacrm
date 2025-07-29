@@ -38,7 +38,8 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
     if (!empty($eventCountName)) {
         $eventCountName->delete();
 
-        $sGlobalMessage = " "._("Event count name deleted");
+        $sGlobalMessageClass = 'success';        
+        $sGlobalMessage = " "._("Event count name deleted");        
     }
 } else {
     switch ($_POST['Action']) {
@@ -50,6 +51,7 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
 
             $eventCountName->save();
 
+            $sGlobalMessageClass = 'success';
             $sGlobalMessage = " "._("Event count name added");
 
             break;
@@ -68,6 +70,7 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
             $theID = '';
             $_POST['Action'] = '';
 
+            $sGlobalMessageClass = 'success';
             $sGlobalMessage = " "._("Name changed");
 
             break;
@@ -86,6 +89,7 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
             $theID = '';
             $_POST['Action'] = '';
 
+            $sGlobalMessageClass = 'success';
             $sGlobalMessage = " "._("Color changed");
             break;
 
@@ -104,6 +108,7 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
             $theID = '';
             $_POST['Action'] = '';
 
+            $sGlobalMessageClass = 'success';
             $sGlobalMessage = " "._("Event time modified");
             break;
     }

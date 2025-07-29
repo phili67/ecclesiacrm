@@ -15,9 +15,7 @@
 use EcclesiaCRM\EventCountsQuery;
  
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
-
 
 require $sRootDocument . '/Include/Header.php';
 ?>
@@ -43,14 +41,10 @@ require $sRootDocument . '/Include/Header.php';
     <?php
     if (!is_null($searchEventInActivEvent)) {
         ?>
-
         <div class="col-md-1">
             <label class="control-label"><?= _('Select Event'); ?></label>
         </div>
         <div class="col-md-4">
-            <?php if ($sGlobalMessage): ?>
-                <p><?= $sGlobalMessage ?></p>
-            <?php endif; ?>
             <form name="selectEvent" action="<?= $sRootPath ?>/v2/calendar/events/checkin" method="POST">
                 <div class="form-group">
                     <div class="inputGroupContainer">

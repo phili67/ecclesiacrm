@@ -479,6 +479,8 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Footer.js"></script>
 
 <?php if (isset($sGlobalMessage)) {
+    // to use this function :
+    // put $sGlobalMessage at the top of your template and use : $sGlobalMessageClass too (primary, success, etc ...)
     ?>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         $(function() {
