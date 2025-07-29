@@ -259,7 +259,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                     <a href="<?= SystemURLs::getRootPath() ?>/v2/backup">
                         <i class="menu-icon fas fa-database bg-green"></i>
                         <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('Backup Database') ?></h4>
+                            <h4 class="control-sidebar-subheading"><?= _('Backup Database')."/CRM" ?></h4>
                         </div>
                     </a>
                 </div>
@@ -267,7 +267,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                     <a href="<?= SystemURLs::getRootPath() ?>/v2/restore">
                         <i class="menu-icon fas fa-database bg-yellow-gradient"></i>
                         <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('Restore Database') ?></h4>
+                            <h4 class="control-sidebar-subheading"><?= _('Restore Database')."/CRM" ?></h4>
                         </div>
                     </a>
                 </div>
