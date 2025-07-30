@@ -6,22 +6,23 @@ require '../Include/Config.php';
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
-use Slim\HttpCache\Cache;
 use DI\Container;
-
-use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
+use EcclesiaCRM\dto\SystemConfig;
 
 $rootPath = str_replace('/external/index.php', '', $_SERVER['SCRIPT_NAME']);
 
 // Instantiate the app
 $container = new Container();
 
-$settings = require __DIR__.'/../Include/slim/settings.php';
-$settings($container);
-
 AppFactory::setContainer($container);
 
 $app = AppFactory::create();
+
+if (SystemConfig::getValue('sLogLevel') == 0) {
+    $errorMiddleware = $app->addErrorMiddleware(false, false, false);
+} else {
+    $errorMiddleware = $app->addErrorMiddleware(true, true, true);
+}
 
 // Register the http cache middleware.
 //$app->add( new Cache('private', 0) );
