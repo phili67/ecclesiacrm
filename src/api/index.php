@@ -20,6 +20,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 
 // security access, if no user exit
 if (SessionUser::getId() ==  0) RedirectUtils::Redirect('session/login');
@@ -29,12 +30,26 @@ $rootPath = str_replace('/api/index.php', '', $_SERVER['SCRIPT_NAME']);
 // Instantiate the app
 $container = new Container();
 
-$settings = require_once __DIR__.'/../Include/slim/settings.php';
-$settings($container);
-
 AppFactory::setContainer($container);
 
 $app = AppFactory::create();
+
+/**
+ * Add Error Middleware
+ *
+ * @param bool                  $displayErrorDetails -> Should be set to false in production
+ * @param bool                  $logErrors -> Parameter is passed to the default ErrorHandler
+ * @param bool                  $logErrorDetails -> Display error details in error log
+ * @param LoggerInterface|null  $logger -> Optional PSR-3 Logger  
+ *
+ * Note: This middleware should be added last. It will not handle any exceptions/errors
+ * for middleware added after it.
+ */
+if (SystemConfig::getValue('sLogLevel') == 0) {
+    $errorMiddleware = $app->addErrorMiddleware(false, false, false);
+} else {
+    $errorMiddleware = $app->addErrorMiddleware(true, true, true);
+}
 
 $contentLengthMiddleware = new ContentLengthMiddleware();
 $app->add($contentLengthMiddleware);
