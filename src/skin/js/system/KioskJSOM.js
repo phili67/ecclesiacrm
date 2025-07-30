@@ -45,11 +45,10 @@ window.CRM.kiosk = {
                 );
             userHeaderDiv.append(imageDiv);
             userHeaderDiv.append($("<h3>", {
-                class: "widget-user-username",
+                class: "widget-user-username-kiosk",
                 text: classMember.displayName
             })).append($("<h3>", {
-                class: "widget-user-desc",
-                style: "clear:both",
+                class: "widget-user-desc-kiosk",                
                 text: i18next.t(classMember.classRole)
             }));
             innerDiv.append(userHeaderDiv);
@@ -69,12 +68,12 @@ window.CRM.kiosk = {
                     )
                     .append($("<div>", {class: "col-md-4"})
                         .append($("<button>", {
-                                class: "btn btn-danger parentAlertButton",
+                                class: "btn btn-secondary parentAlertButton",
                                 style: "width:100%",
                                 text: " " + i18next.t("Trigger Parent Alert"),
                                 "data-personid": classMember.personId
                             })
-                                .prepend($("<i>", {class: "far fa-envelope-o", 'aria-hidden': "true"}))
+                                .prepend($("<i>", {class: "fa fas fa-envelope", 'aria-hidden': "true"}))
                         )
                     )
                 ));

@@ -1,7 +1,6 @@
 <?php
 
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Bootstrapper;
 
 // Set the page title and include HTML header
 $sPageTitle = "EcclesiaCRM - Sunday School Device Kiosk";
@@ -18,19 +17,15 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 <div id="event">
     <div class="container" id="eventDetails">
         <div class="row">
-            <div class="col-md-2">
-                <span id="eventKiosk"></span>
-            </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <span id="eventTitle"></span>
+                <span id="eventKiosk"></span>
+                <br>
             </div>
-            <div class="col-md-2">
-                <span><?= _("Start Time") ?></span>
-                <span id="startTime"></span>
-            </div>
-            <div class="col-md-2">
-                <span><?= _("End Time") ?></span>
-                <span id="endTime"></span>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <span><?= _("Start Time") ?></span><span id="startTime"></span>
+                <span><?= _("End Time") ?></span><span id="endTime"></span>
             </div>
         </div>
     </div>
