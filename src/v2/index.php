@@ -29,9 +29,6 @@ $rootPath = str_replace('/v2/index.php', '', $_SERVER['SCRIPT_NAME']);
 
 $container = new Container();
 
-$settings = require_once __DIR__.'/../Include/slim/settings.php';
-$settings($container);
-
 AppFactory::setContainer($container);
 
 $app = AppFactory::create();
