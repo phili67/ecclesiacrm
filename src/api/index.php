@@ -20,7 +20,6 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\dto\SystemConfig;
 
 // security access, if no user exit
 if (SessionUser::getId() ==  0) RedirectUtils::Redirect('session/login');
@@ -33,12 +32,6 @@ $container = new Container();
 AppFactory::setContainer($container);
 
 $app = AppFactory::create();
-
-if (SystemConfig::getValue('sLogLevel') == 0) {
-    $errorMiddleware = $app->addErrorMiddleware(false, false, false);
-} else {
-    $errorMiddleware = $app->addErrorMiddleware(true, true, true);
-}
 
 $contentLengthMiddleware = new ContentLengthMiddleware();
 $app->add($contentLengthMiddleware);

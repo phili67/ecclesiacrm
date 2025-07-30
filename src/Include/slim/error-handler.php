@@ -3,6 +3,8 @@
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+use EcclesiaCRM\dto\SystemConfig;
+
 // use : throw new HttpNotFoundException($request, _('Document not found')); in v2 route for example
 
 // errorHandler
@@ -58,9 +60,56 @@ $customNotAllowedErrorHandler = function (
     return $response->getBody()->write('Method must be one of: ' .  $exception->getMessage());
 };
 
+// notFoundHandler
+$customUnauthorizedErrorHandler = function (
+    Request $request,
+    Throwable $exception,
+    bool $displayErrorDetails,
+    bool $logErrors,
+    bool $logErrorDetails
+) use ($app) {
+    $response = new Response();
+    $response->getBody()->write($exception->getMessage() . " : " . $request->getMethod() . ' on ' . $request->getUri());
+    return $response->withStatus(401);    
+};
+
+// notFoundHandler
+$customInternalServerErrorHandler = function (
+    Request $request,
+    Throwable $exception,
+    bool $displayErrorDetails,
+    bool $logErrors,
+    bool $logErrorDetails
+) use ($app) {
+    $response = new Response();
+    $response->getBody()->write($exception->getMessage() . " : " . $request->getMethod() . ' on ' . $request->getUri());
+    return $response->withStatus(500);    
+};
+
+// notFoundHandler
+$customForbiddenErrorHandler = function (
+    Request $request,
+    Throwable $exception,
+    bool $displayErrorDetails,
+    bool $logErrors,
+    bool $logErrorDetails
+) use ($app) {
+    $response = new Response();
+    $response->getBody()->write($exception->getMessage() . " : " . $request->getMethod() . ' on ' . $request->getUri());
+    return $response->withStatus(403);    
+};
+
 // Add Error Middleware
-$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+if (SystemConfig::getValue('sLogLevel') == 0) {
+    $errorMiddleware = $app->addErrorMiddleware(false, false, false);
+} else {
+    $errorMiddleware = $app->addErrorMiddleware(true, true, true);
+}
 
 $errorMiddleware->setErrorHandler(Slim\Exception\HttpBadRequestException::class, $customErrorHandler);
 $errorMiddleware->setErrorHandler(Slim\Exception\HttpNotFoundException::class, $customNotFoundErrorHandler);
 $errorMiddleware->setErrorHandler(Slim\Exception\HttpMethodNotAllowedException::class, $customNotAllowedErrorHandler);
+$errorMiddleware->setErrorHandler(Slim\Exception\HttpUnauthorizedException::class, $customUnauthorizedErrorHandler);
+$errorMiddleware->setErrorHandler(Slim\Exception\HttpInternalServerErrorException::class, $customInternalServerErrorHandler);
+$errorMiddleware->setErrorHandler(Slim\Exception\HttpForbiddenException::class, $customForbiddenErrorHandler);
+

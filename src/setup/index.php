@@ -26,12 +26,6 @@ if (file_exists('../Include/Config.php')) {
 
     $app = AppFactory::create();
 
-    if (SystemConfig::getValue('sLogLevel') == 0) {
-        $errorMiddleware = $app->addErrorMiddleware(false, false, false);
-    } else {
-        $errorMiddleware = $app->addErrorMiddleware(true, true, true);
-    }
-
     $app->setBasePath($rootPath . "/setup");
 
     require __DIR__.'/../Include/slim/error-handler.php';
