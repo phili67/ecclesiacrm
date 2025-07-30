@@ -124,7 +124,7 @@ class DocumentFileManagerController
             if (is_dir("$currentNoteDir/$file")) {
                 $item['name'] = "/" . $file;
                 $item['dir'] = true;
-                $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png"; //'far fa-folder text-yellow';
+                $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png"; 
                 $item['type'] = gettext("Folder");
                 $size = 34;
             } else if (is_link("$currentNoteDir/$file")) {
@@ -133,7 +133,7 @@ class DocumentFileManagerController
                 $item['locked'] = false;
             }
 
-            $item['icon'] = '<img src="' . $item['icon']  . '" width="' . $size . '">';//;"<i class='" . $item['icon'] . " fa-2x'></i>";
+            $item['icon'] = '<img src="' . $item['icon']  . '" width="' . $size . '">';
 
             $result[] = $item;
         }
