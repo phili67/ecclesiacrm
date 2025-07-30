@@ -22,12 +22,6 @@ AppFactory::setContainer($container);
 
 $app = AppFactory::create();
 
-if (SystemConfig::getValue('sLogLevel') == 0) {
-    $errorMiddleware = $app->addErrorMiddleware(false, false, false);
-} else {
-    $errorMiddleware = $app->addErrorMiddleware(true, true, true);
-}
-
 $app->setBasePath($rootPath . "/kiosk");
 
 $app->add( new VersionMiddleware() );
