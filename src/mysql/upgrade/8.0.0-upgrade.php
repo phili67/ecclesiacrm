@@ -212,6 +212,10 @@ unlink(SystemURLs::getDocumentRoot() . "/v2/templates/email/mailchimp/debug.php"
 // 2025-07-28
 unlink(SystemURLs::getDocumentRoot() . "/skin/js/system/SystemSettings.js");
 
+// 2025-07-29
+unlink(SystemURLs::getDocumentRoot() . "/Include/slim/settings.php");
+unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/APIControllers/MeetingController.php");
+
 
 // we get the PDO for the Sabre connection from the Propel connection
 // now we update the CardDav 
