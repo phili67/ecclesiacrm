@@ -259,8 +259,12 @@ window.CRM.kiosk = {
             method: "POST",
             data: JSON.stringify({"PersonId": personId})
         },function (data) {
-            //window.CRM.kiosk.startEventLoop();
-            //TODO:  Signal to the kiosk user that the notification was sent
+            if (data.status) {
+                alert('Message Sent');
+            } else {
+                alert('error');
+            }
+            //window.CRM.kiosk.startEventLoop();                        
         });
 
     },
