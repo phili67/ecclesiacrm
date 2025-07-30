@@ -481,7 +481,7 @@ class MiscUtils
             }
 
             if (!empty($items[$i])) {
-                $res .= "&nbsp;&nbsp;<i class='far fa-folder text-yellow'></i> " . $items[$i];
+                $res .= '&nbsp;&nbsp;<img src="' . SystemURLs::getRootPath(). '/Images/Icons/FOLDER.png" width="24"> ' . $items[$i];
 
                 if ($i != $len - 2) {
                     $res .= "&nbsp;&nbsp;<i class='fas fa-caret-right'></i>";
@@ -728,6 +728,9 @@ class MiscUtils
             case "adml":
                 $icon =  "CODE.png"; //'fas fa-file-code text-black';
                 break;
+            case "rtf":
+                $icon =  "RTF.png"; //'fas fa-file-code text-black';
+                break;
             case "pdf":
                 $icon =  "PDF.png"; // 'far fa-file-pdf  text-red';
                 break;
@@ -789,6 +792,28 @@ class MiscUtils
         switch (strtolower($extension)) {
             case "doc":
                 $res .= '<img src="'. $realPath .'/Images/Icons/DOC.png" width="100">';
+                break;
+            case "rtf":
+                // Read contents                          
+                $phpWord = PHPWordIOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath, 'RTF');
+
+                $rendererName = \PhpOffice\PhpWord\Settings::PDF_RENDERER_TCPDF;
+                $rendererLibraryPath = SystemURLs::getDocumentRoot() . ('/vendor/tecnickcom/tcpdf');
+                \PhpOffice\PhpWord\Settings::setPdfRenderer($rendererName, $rendererLibraryPath);
+
+                $objWriter = PHPWordIOFactory::createWriter($phpWord, 'PDF');
+
+                $filename = MiscUtils::gen_uuid();
+                $realPath = SystemURLs::getDocumentRoot() . "/Images/tmp/" . $filename . ".pdf";
+                $objWriter->save($realPath);
+
+
+                $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+
+                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
+                $res .= "<embed src=\"" . $realPath . "\" type=\"application/pdf\" />\n";
+                $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
+                $res .= "</object>";
                 break;
             case "docx":
                 // Read contents                          
@@ -969,8 +994,26 @@ class MiscUtils
                 $res .= "</object>";
                 break;
             case "ppt": 
-            case "pptx":
                 $res .= '<img src="'. $realPath .'/Images/Icons/PPT.png" width="100">';
+                break;
+            case "pptx":
+                $reader = \PhpOffice\PhpPresentation\IOFactory::createReader("PowerPoint2007");
+
+                $spreadsheet = $reader->load(SystemURLs::getDocumentRoot() . "/" . $realPath);
+
+                $PDFWriter = new \PhpOffice\PhpPresentation\Writer\PDF\DomPDF($spreadsheet);
+
+                $filename = MiscUtils::gen_uuid();
+                $realPath = SystemURLs::getDocumentRoot() . "/Images/tmp/" . $filename . ".pdf";
+
+                $PDFWriter->save($realPath);
+
+                $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+
+                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
+                $res .= "<embed src=\"" . $realPath . "\" type=\"application/pdf\" />\n";
+                $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
+                $res .= "</object>";
                 break;
             default: // it's a folder
                 $res .= '<img src="' . $realPath . '/Images/Icons/FOLDER.png" width="140">';

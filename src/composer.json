@@ -44,6 +44,7 @@
         "geocoder-php/nominatim-provider": "5.*",
         "mustache/mustache": "~2.14.2",
         "phpoffice/phpword": "^1.4.0",
+        "phpoffice/phppresentation": "^1.2",
         "phpoffice/phpspreadsheet": "^1.29.11",
         "defuse/php-encryption": "^2.4.0",
         "endroid/qr-code": "4.*",
@@ -55,8 +56,9 @@
         "http-interop/http-factory-guzzle": "^1.2.0",
         "php-di/php-di": "7.0.*",
         "tecnickcom/tcpdf": "^6.10.0",
+        "dompdf/dompdf": "^3.1",        
         "robthree/twofactorauth": "^1.8.2",
-        "jimtools/jwt-auth": "^1.1.0"
+        "jimtools/jwt-auth": "^1.1.0"        
     },
     "autoload": {
         "classmap": [
