@@ -106,6 +106,11 @@ class Notification
   {
    
     $methods = [];
+    $sendStatus = [
+        "status"=>"",
+        "methods"=>[]
+    ];
+
     if(SystemConfig::hasValidMailServerSettings())
     {
       $send = $this->sendEmail();
@@ -121,12 +126,11 @@ class Notification
       $send = (boolean)($this->sendProjector());
       array_push($methods,"projector: ".$send);
     }
-    $sendStatus = [
-        "status"=>"",
-        "methods"=>$methods
-    ];
+
+    $sendStatus['status'] = true;
+    $sendStatus['methods'] = $methods;    
     
-    return json_encode($sendStatus);
+    return $sendStatus;
     
   }
   
