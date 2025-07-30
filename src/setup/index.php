@@ -22,12 +22,15 @@ if (file_exists('../Include/Config.php')) {
     // Instantiate the app
     $container = new Container();
 
-    $settings = require __DIR__ . '/../Include/slim/settings.php';
-    $settings($container);
-
     AppFactory::setContainer($container);
 
     $app = AppFactory::create();
+
+    if (SystemConfig::getValue('sLogLevel') == 0) {
+        $errorMiddleware = $app->addErrorMiddleware(false, false, false);
+    } else {
+        $errorMiddleware = $app->addErrorMiddleware(true, true, true);
+    }
 
     $app->setBasePath($rootPath . "/setup");
 
