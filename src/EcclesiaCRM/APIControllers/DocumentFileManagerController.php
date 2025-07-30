@@ -256,7 +256,7 @@ class DocumentFileManagerController
                 $item['dir'] = false;
                 if (is_dir("$currentNoteDir/$file")) {
                     $item['dir'] = true;
-                    $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png"; //'far fa-folder text-yellow';
+                    $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png";
                     $item['type'] = gettext("Folder");
                     $size = 34;
                 } else if (is_link("$currentNoteDir/$file")) {
