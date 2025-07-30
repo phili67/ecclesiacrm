@@ -1,11 +1,14 @@
 <?php
 
+use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+
+// use : throw new HttpNotFoundException($request, _('Document not found')); in v2 route for example
 
 // errorHandler
 $customErrorHandler = function (
     Request $request,
-    \Throwable $exception,
+    Throwable $exception,
     bool $displayErrorDetails,
     bool $logErrors,
     bool $logErrorDetails
@@ -20,42 +23,39 @@ $customErrorHandler = function (
         'trace' => explode("\n", $exception->getTraceAsString())
     ];
 
-    return $response->withStatus(500)
-        ->withHeader('Content-Type', 'application/json')
-        ->write(json_encode($data));
+    return $response->getBody()
+        ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));    
 };
 
 // notFoundHandler
 $customNotFoundErrorHandler = function (
     Request $request,
-    \Throwable $exception,
+    Throwable $exception,
     bool $displayErrorDetails,
     bool $logErrors,
     bool $logErrorDetails
 ) use ($app) {
     $response = $app->getResponseFactory()->createResponse();
     if ( strstr( $request->getUri(), '/api/' ) ) {
-        $response->getBody()->write("Can't find route for " . $request->getMethod() . ' on ' . $request->getUri());
+        $response = new Response();
+        $response->getBody()->write($exception->getMessage() . " : " . $request->getMethod() . ' on ' . $request->getUri());
+        return $response->withStatus(404);
     } else {
-        $response = $response->withRedirect('/v2/error/404/' . $request->getMethod() . '/' . str_replace('/', ' ', $request->getUri()));
+        return $response->withRedirect('/v2/error/404/' . $request->getMethod() . '/' . str_replace('/', ' ', $request->getUri()));
     }
-    return $response->withStatus(404);
 };
 
 // notAllowedHandler
 $customNotAllowedErrorHandler = function (
     Request $request,
-    \Throwable $exception,
+    Throwable $exception,
     bool $displayErrorDetails,
     bool $logErrors,
     bool $logErrorDetails
 ) use ($app) {
     $response = $app->getResponseFactory()->createResponse();
 
-    return $response->withStatus(405)
-        ->withHeader('Allow', $exception->getMessage())
-        ->withHeader('Content-type', 'text/html')
-        ->write('Method must be one of: ' . implode(', ', $exception->getMessage()));
+    return $response->getBody()->write('Method must be one of: ' .  $exception->getMessage());
 };
 
 // Add Error Middleware
@@ -63,4 +63,4 @@ $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
 $errorMiddleware->setErrorHandler(Slim\Exception\HttpBadRequestException::class, $customErrorHandler);
 $errorMiddleware->setErrorHandler(Slim\Exception\HttpNotFoundException::class, $customNotFoundErrorHandler);
-$errorMiddleware->setErrorHandler(Slim\Exception\HttpNotAllowedException::class, $customNotAllowedErrorHandler);
+$errorMiddleware->setErrorHandler(Slim\Exception\HttpMethodNotAllowedException::class, $customNotAllowedErrorHandler);
