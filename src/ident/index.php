@@ -12,7 +12,7 @@ use DI\Container;
 use EcclesiaCRM\Slim\Error\handlers;
 
 use EcclesiaCRM\PluginQuery;
-
+use EcclesiaCRM\Slim\dependencies;
 
 $rootPath = str_replace('/ident/index.php', '', $_SERVER['SCRIPT_NAME']);
 
@@ -29,7 +29,7 @@ $app = AppFactory::create();
 $app->setBasePath($rootPath . "/ident");
 
 // Set up
-require_once __DIR__.'/dependencies.php';
+dependencies::install($container, true);
 
 $handlers = new handlers($app);
 $handlers->installHandlers();
