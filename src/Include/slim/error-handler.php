@@ -5,7 +5,13 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 use EcclesiaCRM\dto\SystemConfig;
 
-// use : throw new HttpNotFoundException($request, _('Document not found')); in v2 route for example
+// use : throw new HttpBadRequestException($request, _('Bad request')); in v2 route for example error 400
+// use : throw new HttpNotFoundException($request, _('Document not found')); in v2 route for example error 404
+// use : throw new HttpMethodNotAllowedException($request, _(Method 'Not allowed')); in v2 route for example error 405
+// use : throw new HttpUnauthorizedException($request, _('Forbidden')); in v2 route for example error 401
+// use : throw new HttpInternalServerErrorException($request, _('Internal server error')); in v2 route for example error 500
+// use : throw new HttpForbiddenException($request, _('Forbidenne exception')); in v2 route for example error 403
+
 
 // errorHandler
 $customErrorHandler = function (
