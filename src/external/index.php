@@ -7,6 +7,7 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
 use DI\Container;
+use EcclesiaCRM\Slim\dependencies;
 
 use EcclesiaCRM\Slim\Error\handlers;
 
@@ -25,8 +26,9 @@ $app = AppFactory::create();
 $app->setBasePath($rootPath . "/external");
 
 // Set up
-require __DIR__.'/dependencies.php';
+dependencies::install($container, true);
 
+// error handlers
 $handlers = new handlers($app);
 $handlers->installHandlers();
 

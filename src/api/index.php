@@ -20,7 +20,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\dto\SystemURLs;
-
+use EcclesiaCRM\Slim\dependencies;
 use EcclesiaCRM\Slim\Error\handlers;
 
 // security access, if no user exit
@@ -67,7 +67,7 @@ $app->add(new JwtAuthentication([
 ]));
 
 // Set up
-require_once __DIR__.'/dependencies.php';
+dependencies::install($container);
 
 $handlers = new handlers($app);
 $handlers->installHandlers();
