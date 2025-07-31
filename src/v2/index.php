@@ -18,10 +18,11 @@ use EcclesiaCRM\PluginQuery;
 
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\VIEWControllers\VIEWUserController;
+use EcclesiaCRM\Slim\Error\handlers;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
-use EcclesiaCRM\VIEWControllers\VIEWUserController;
 
 if (SessionUser::getId() ==  0) RedirectUtils::Redirect('session/login');
 
@@ -43,7 +44,8 @@ $app->setBasePath($rootPath . "/v2");
 
 $app->add(new VersionMiddleware());
 
-require_once __DIR__.'/../Include/slim/error-handler.php';
+$handlers = new handlers($app);
+$handlers->installHandlers();
 
 if (SessionUser::getUser()->getNeedPasswordChange()) {// only one route is staying
     $app->get('/users/change/password', VIEWUserController::class . ':renderChangePassword' );

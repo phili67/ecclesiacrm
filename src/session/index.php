@@ -7,7 +7,8 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
 use DI\Container;
-use EcclesiaCRM\dto\SystemConfig;
+
+use EcclesiaCRM\Slim\Error\handlers;
 
 $rootPath = str_replace('/session/index.php', '', $_SERVER['SCRIPT_NAME']);
 
@@ -25,7 +26,10 @@ $app->setBasePath($rootPath . "/session");
 
 // Set up
 require __DIR__.'/dependencies.php';
-require __DIR__ . '/../Include/slim/error-handler.php';
+
+$handlers = new handlers($app);
+$handlers->installHandlers();
+
 
 // routes
 require_once __DIR__ . '/routes/session.php';
