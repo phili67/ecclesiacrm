@@ -13,6 +13,7 @@ use EcclesiaCRM\KioskDevice;
 use EcclesiaCRM\KioskDeviceQuery;
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
+use EcclesiaCRM\Slim\Error\handlers;
 
 $rootPath = str_replace('/kiosk/index.php', '', $_SERVER['SCRIPT_NAME']);
 
@@ -58,7 +59,9 @@ $container->set('kiosk', function () {
 });
 
 // error handlers
-require __DIR__ . '/../Include/slim/error-handler.php';
+$handlers = new handlers($app);
+$handlers->installHandlers();
+
 
 // routes
 require __DIR__ . '/routes/kiosk.php';

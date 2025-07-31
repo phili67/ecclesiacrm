@@ -21,6 +21,8 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
+use EcclesiaCRM\Slim\Error\handlers;
+
 // security access, if no user exit
 if (SessionUser::getId() ==  0) RedirectUtils::Redirect('session/login');
 
@@ -66,7 +68,9 @@ $app->add(new JwtAuthentication([
 
 // Set up
 require_once __DIR__.'/dependencies.php';
-require_once __DIR__.'/../Include/slim/error-handler.php';
+
+$handlers = new handlers($app);
+$handlers->installHandlers();
 
 // calendar and events routes
 require_once __DIR__.'/routes/calendar/calendar-calendarV2.php';

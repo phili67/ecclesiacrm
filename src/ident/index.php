@@ -9,7 +9,10 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use Slim\Factory\AppFactory;
 use DI\Container;
 
+use EcclesiaCRM\Slim\Error\handlers;
+
 use EcclesiaCRM\PluginQuery;
+
 
 $rootPath = str_replace('/ident/index.php', '', $_SERVER['SCRIPT_NAME']);
 
@@ -27,7 +30,9 @@ $app->setBasePath($rootPath . "/ident");
 
 // Set up
 require_once __DIR__.'/dependencies.php';
-require_once __DIR__ . '/../Include/slim/error-handler.php';
+
+$handlers = new handlers($app);
+$handlers->installHandlers();
 
 // routes
 require_once __DIR__ . '/routes/verify.php';
@@ -48,7 +53,6 @@ foreach ($plugins as $plugin) {
         }
     }
 }
-
 
 // Run app
 $app->run();

@@ -8,6 +8,8 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use Slim\Factory\AppFactory;
 use DI\Container;
 
+use EcclesiaCRM\Slim\Error\handlers;
+
 $rootPath = str_replace('/external/index.php', '', $_SERVER['SCRIPT_NAME']);
 
 // Instantiate the app
@@ -24,7 +26,9 @@ $app->setBasePath($rootPath . "/external");
 
 // Set up
 require __DIR__.'/dependencies.php';
-require __DIR__ . '/../Include/slim/error-handler.php';
+
+$handlers = new handlers($app);
+$handlers->installHandlers();
 
 // routes
 require __DIR__ . '/routes/calendar.php';

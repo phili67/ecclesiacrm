@@ -2,9 +2,12 @@
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Slim\Error\handlers;
 
 use Slim\Factory\AppFactory;
 use DI\Container;
+
+
 
 error_reporting(E_ALL);
 ini_set('log_errors', 1);
@@ -28,7 +31,9 @@ if (file_exists('../Include/Config.php')) {
 
     $app->setBasePath($rootPath . "/setup");
 
-    require __DIR__.'/../Include/slim/error-handler.php';
+    $handlers = new handlers($app);
+    $handlers->installHandlers();
+
     require __DIR__ . '/routes/setup.php';
 
     $app->run();
