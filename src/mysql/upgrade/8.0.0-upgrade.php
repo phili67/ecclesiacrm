@@ -224,6 +224,10 @@ unlink(SystemURLs::getDocumentRoot() . "/Include/domMenu-IE.js");
 unlink(SystemURLs::getDocumentRoot() . "/Include/domMenu.js");
 unlink(SystemURLs::getDocumentRoot() . "/Include/domTT.js");
 unlink(SystemURLs::getDocumentRoot() . "/Include/winlocalelist.php");
+unlink(SystemURLs::getDocumentRoot() . "/api/dependencies.php");
+unlink(SystemURLs::getDocumentRoot() . "/external/dependencies.php");
+unlink(SystemURLs::getDocumentRoot() . "/ident/dependencies.php");
+unlink(SystemURLs::getDocumentRoot() . "/session/dependencies.php");
 
 // we get the PDO for the Sabre connection from the Propel connection
 // now we update the CardDav 
