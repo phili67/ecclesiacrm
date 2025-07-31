@@ -216,6 +216,14 @@ unlink(SystemURLs::getDocumentRoot() . "/skin/js/system/SystemSettings.js");
 unlink(SystemURLs::getDocumentRoot() . "/Include/slim/settings.php");
 unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/APIControllers/MeetingController.php");
 
+// 2025-07-31
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/Include/slim/");
+unlink(SystemURLs::getDocumentRoot() . "/Include/AuthorizeNetConfig.php");
+unlink(SystemURLs::getDocumentRoot() . "/Include/alphaAPI.js");
+unlink(SystemURLs::getDocumentRoot() . "/Include/domMenu-IE.js");
+unlink(SystemURLs::getDocumentRoot() . "/Include/domMenu.js");
+unlink(SystemURLs::getDocumentRoot() . "/Include/domTT.js");
+unlink(SystemURLs::getDocumentRoot() . "/Include/winlocalelist.php");
 
 // we get the PDO for the Sabre connection from the Propel connection
 // now we update the CardDav 
