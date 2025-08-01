@@ -315,7 +315,7 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
                         <td>
                             <table class='table-simple-padding outer'>
                                     <tr class="no-background-theme">
-                                        <td><div style="background-color:<?= $aDefColorType[$row] ?>;width:30px;height:30px;border: 2px solid black;"></div></td>
+                                        <td><div style="background-color:<?= $aDefColorType[$row] ?>;width:20px;height:20px;border: 1px solid black;"></div></td>
                                         <td><?= $aTypeName[$row] ?></td>
                                     </tr>
                             </table>
