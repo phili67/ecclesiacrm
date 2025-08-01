@@ -6,7 +6,7 @@ use EcclesiaCRM\Base\Event as BaseEvent;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\MyPDO\VObjectExtract;
-
+use Symfony\Component\Validator\Constraints\IsNull;
 
 /**
  * Skeleton subclass for representing a row from the 'events_event' table.
@@ -24,41 +24,67 @@ class Event extends BaseEvent
     private $_freqlastOccurence = -1; // for each parts of getCalendardata
     private $_freq              = -1; // for frequence type DAILY ...
 
-    public function checkInPerson($PersonId)
+    public function checkInPerson($PersonId) : array
     {
         $AttendanceRecord = EventAttendQuery::create()
             ->filterByEvent($this)
             ->filterByPersonId($PersonId)
             ->findOneOrCreate();
 
-        $AttendanceRecord->setEvent($this)
-            ->setPersonId($PersonId)
-            ->setCheckinDate(date('Y-m-d H:i:s'))
-            ->setCheckoutDate(null)
-            ->save();
+        if (!is_null(($AttendanceRecord))) {
+            $AttendanceRecord->setEvent($this)
+                ->setPersonId($PersonId)
+                ->setCheckinDate(date('Y-m-d H:i:s'))
+                ->setCheckoutDate(null)
+                ->save();
 
-        return array("status" => "success");
+            return array("status" => "success");
+        }
 
+        return array("status" => "failed");
     }
 
-    public function unCheckInPerson($PersonId)
+    public function unCheckInPerson($PersonId) : array
     {
         $AttendanceRecord = EventAttendQuery::create()
             ->filterByEvent($this)
             ->filterByPersonId($PersonId)
             ->findOneOrCreate();
 
-        $AttendanceRecord->setEvent($this)
-            ->setPersonId($PersonId)
-            ->setCheckinDate(NULL)
-            ->setCheckoutDate(null)
-            ->save();
+        if (!is_null(($AttendanceRecord))) {
+            $AttendanceRecord->setEvent($this)
+                ->setPersonId($PersonId)
+                ->setCheckinDate(NULL)
+                ->setCheckoutDate(null)
+                ->save();
 
-        return array("status" => "success");
+            return array("status" => "success");
+        }
 
+        return array("status" => "failed");
     }
 
-    public function unCheckOutPerson($PersonId)
+    public function unCheckOutPerson($PersonId) : array
+    {
+        $AttendanceRecord = EventAttendQuery::create()
+            ->filterByEvent($this)
+            ->filterByPersonId($PersonId)
+            ->filterByCheckinDate(NULL, Criteria::NOT_EQUAL)
+            ->findOne();
+        
+        if (!is_null(($AttendanceRecord))) {
+            $AttendanceRecord->setEvent($this)
+                ->setPersonId($PersonId)
+                ->setCheckoutDate(NULL)
+                ->save();
+
+            return array("status" => "success");
+        }   
+
+        return array("status" => "failed");
+    }
+
+    public function checkOutPerson($PersonId) : array
     {
         $AttendanceRecord = EventAttendQuery::create()
             ->filterByEvent($this)
@@ -66,30 +92,16 @@ class Event extends BaseEvent
             ->filterByCheckinDate(NULL, Criteria::NOT_EQUAL)
             ->findOne();
 
-        $AttendanceRecord->setEvent($this)
-            ->setPersonId($PersonId)
-            ->setCheckoutDate(NULL)
-            ->save();
+        if (!is_null(($AttendanceRecord))) {
+            $AttendanceRecord->setEvent($this)
+                ->setPersonId($PersonId)
+                ->setCheckoutDate(date('Y-m-d H:i:s'))
+                ->save();
 
-        return array("status" => "success");
+            return array("status" => "success");
+        }
 
-    }
-
-    public function checkOutPerson($PersonId)
-    {
-        $AttendanceRecord = EventAttendQuery::create()
-            ->filterByEvent($this)
-            ->filterByPersonId($PersonId)
-            ->filterByCheckinDate(NULL, Criteria::NOT_EQUAL)
-            ->findOne();
-
-        $AttendanceRecord->setEvent($this)
-            ->setPersonId($PersonId)
-            ->setCheckoutDate(date('Y-m-d H:i:s'))
-            ->save();
-
-        return array("status" => "success");
-
+        return array("status" => "failed");
     }
 
     public function getLatitude()
