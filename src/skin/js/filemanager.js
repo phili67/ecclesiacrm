@@ -701,6 +701,21 @@ $(function () {
                         if (allRequests == 0) window.CRM.closeDialogLoadingFunction();
                     }
 
+                    req.onload = function() {
+                        if (req.status != 200) { // analyze HTTP status of the response
+                            alert(`Error ${req.status}: ${req.statusText}`); // e.g. 404: Not Found
+                        } else { // show the result
+                            alert(`Done, got ${req.response.length} bytes ${req.ecrmPlace}`); // response is the server response
+                        }
+                    };
+
+                    // Fires when upload is complete
+                    req.onerror = (event) => {
+                        // after we reload page
+                        allRequests--;
+                        window.CRM.DisplayAlert (i18next.t("Download Error"), `Error ${req.status}: ${req.statusText}`);
+                    }
+
                     req.send(formData); // Sends request
                 }
             });            
