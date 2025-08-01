@@ -665,6 +665,8 @@ $(function () {
                 alert('Please select one or more files.');
                 return;
             }
+        
+            window.CRM.css (".download-zone", "display:block");
 
             var allRequests = totalFilesToUpload;
 
@@ -699,13 +701,18 @@ $(function () {
 
                         allRequests--;
                         if (allRequests == 0) window.CRM.closeDialogLoadingFunction();
+                        window.CRM.css (".download-zone", "display:none");                        
                     }
 
-                    req.onload = function() {
+                    req.onload = (event) => {
                         if (req.status != 200) { // analyze HTTP status of the response
                             alert(`Error ${req.status}: ${req.statusText}`); // e.g. 404: Not Found
-                        } else { // show the result
-                            alert(`Done, got ${req.response.length} bytes ${req.ecrmPlace}`); // response is the server response
+                        } else if (typeof req.response === "string") {
+                            let response = JSON.parse(req.response);
+                            if (response.status == "failed") {
+                                //alert(`Done, got ${req.response.length} bytes ${req.ecrmPlace}`); // response is the server response
+                                window.CRM.DisplayAlert (i18next.t("Download Error"), `Error ${req.status}: ${req.statusText}`);
+                            }                                                      
                         }
                     };
 
@@ -714,6 +721,7 @@ $(function () {
                         // after we reload page
                         allRequests--;
                         window.CRM.DisplayAlert (i18next.t("Download Error"), `Error ${req.status}: ${req.statusText}`);
+                        window.CRM.css (".download-zone", "display:none");
                     }
 
                     req.send(formData); // Sends request

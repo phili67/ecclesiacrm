@@ -46,8 +46,8 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-6">
+                                <div class="col-md-2 download-zone" style="display: none"><label><?= _("Download status") ?></label></div>
+                                <div class="col-md-6 download-zone" style="display: none">
                                     <progress id="progress-bar" value="0" max="100"></progress> <label id="progress-bar-label" for="progress-bar">0%</label>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <?= _('Upload your files') ?>
+                                    <label><?= _('Upload your files') ?></label>
                                 </div>
                                 <div class="col-md-6">
                                     <button type="submit" class="btn btn-success" name="Submit"><i class="fas fa-cloud-upload-alt"></i> <?= _("Upload") ?></button><br />
