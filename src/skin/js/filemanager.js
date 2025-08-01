@@ -1,4 +1,4 @@
-/* copyright 2018 Philippe Logel */
+/* copyright 2025 Philippe Logel */
 
 $(function () {
     // Helper function to get parameters from the query string.
@@ -205,6 +205,8 @@ $(function () {
                                     }
                                     window.CRM.reloadEDriveTable(function () {
                                         selected.length = 0;
+                                        $('.filmanager-right').hide();
+                                        $("#trash-drop").addClass('disabled');
                                     });
                                 }
                             });
@@ -301,14 +303,50 @@ $(function () {
     });    
 
     // click in the table
-    $('#edrive-table tbody').on('click', 'tr', function(e) {
+    $('#edrive-table tbody').on('click', 'tr', function(event) {
         let column = window.CRM.dataEDriveTable.column( this ).index();//unusefull at this moment
         var data = window.CRM.dataEDriveTable.row(this).data();
         let id = data['name'];
 
-        $(this).toggleClass('selected');
+        let ctrlKey = event.ctrlKey;// on pc        
+        let altKey = event.altKey;
+        let shiftKey = event.shiftKey;
+        let optionKey = event.metaKey;// on mac
 
         var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
+
+        let clickedRowIsSelected = true;
+
+        let classes = $(this).attr('class').split(/\s+/);
+        let res = $(this).hasClass('selected');
+        if ( $(this).hasClass('selected')==false ) {
+            clickedRowIsSelected = false;
+        }
+
+
+
+        if ((ctrlKey || optionKey)) {
+            if (clickedRowIsSelected == true) {
+                selectedRows--;
+            } else {
+                selectedRows++;
+            }
+        } else if (shiftKey) {
+            if (clickedRowIsSelected == true) {
+                selectedRows--;
+            } else {
+                selectedRows++;
+            }
+        } else {
+            if (clickedRowIsSelected == true) {
+                selectedRows--;
+            } else {
+                selectedRows=1;
+            }
+        }
+
+        $(this).toggleClass('selected');
+        
         
         if (window.CRM.browserImage == true) {
             if (selectedRows) {
@@ -324,56 +362,9 @@ $(function () {
             $("#trash-drop").addClass('disabled');            
         }
 
-        
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'filemanager/getPreview',
-            data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
-        }, function (data) {
-            if (data && data.success) {
-                $('.filmanager-right').show();
-                $('.preview-title').html(data.name);
-                $('.preview').html(data.path);
-                if (data.link) {
-                    $('.share-part').hide();
-                    $('.share-part-another-user').show();
-                    sharedByPersonsSabre();
-                } else {
-                    $('.share-part').show();             
-                    $('.share-part-another-user').hide();       
-
-                    addSharedPersonsSabre();
-                }
-                
-            }
-        });        
-    });
-
-    /*$('#edrive-table tbody').on('click', 'td', function (e) {
-        var data = window.CRM.dataEDriveTable.row($(this).parent()).data();
-        let id = data['name'];
-
-        var col = window.CRM.dataEDriveTable.cell(this).index().column;
-
-        if (!(col == 2)) {
-            $(this).parent().toggleClass('selected');
-
-            var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
-
-            if (selectedRows) {
-                $("#trash-drop").removeClass('disabled');
-            } else {
-                $("#trash-drop").addClass('disabled');
-            }
-
-            if (window.CRM.browserImage == true) {
-                if (selectedRows) {
-                    $(".filemanager-download").css("display", "block");
-                } else {
-                    $(".filemanager-download").css("display", "none");
-                }
-            }
-
+        if (selectedRows != 1) {
+            $('.filmanager-right').hide();
+        } else {        
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'filemanager/getPreview',
@@ -381,20 +372,23 @@ $(function () {
             }, function (data) {
                 if (data && data.success) {
                     $('.filmanager-right').show();
-                        $('.preview-title').html(data.name);
-                        $('.preview').html(data.path);
+                    $('.preview-title').html(data.name);
+                    $('.preview').html(data.path);
                     if (data.link) {
                         $('.share-part').hide();
+                        $('.share-part-another-user').show();
+                        sharedByPersonsSabre();
                     } else {
-                        $('.share-part').show();                    
+                        $('.share-part').show();             
+                        $('.share-part-another-user').hide();       
 
                         addSharedPersonsSabre();
                     }
                     
                 }
-            });               
+            });        
         }
-    });*/
+    });
 
 
     $("body").on('click', '.fileName', function (e) {
@@ -696,39 +690,82 @@ $(function () {
 
     const uploadEvent = () => {
         window.CRM.ElementListener('#formId', 'submit', function (event) {
+            var progress = document.getElementById('progress-bar');
+            var progress_label = document.getElementById('progress-bar-label');
+            
             event.preventDefault();
 
-            const fileInput = document.getElementById('noteInputFile');
+            var fileInput = document.getElementById('noteInputFile');
 
-            let totalFilesToUpload = fileInput.files.length;
+            var totalFilesToUpload = fileInput.files.length;
 
             //nothing was selected 
             if (totalFilesToUpload === 0) {
                 alert('Please select one or more files.');
                 return;
             }
+        
+            window.CRM.css (".download-zone", "display:block");
 
-            for (let i = 0; i < totalFilesToUpload; i++) {
-                const file = fileInput.files[i];
-                const formData = new FormData();
-                formData.append('noteInputFile', file);
+            var allRequests = totalFilesToUpload;
 
-                const request = new Request(window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Authorization': 'Bearer ' + window.CRM.jwtToken,
-                    }
-                });
+            window.CRM.dialogLoadingFunction('Upload in progress', function() {
+                for (var f = 0; f < totalFilesToUpload; f++) {
+                    // Select user file from file list (always position 0 for 1 files)
+                    const file = fileInput.files[f];
 
-                fetch(request)
-                    .then(response => response.json())
-                    .then(data => {
-                        window.CRM.reloadEDriveTable(function () {
-                            uploadWindow.modal("hide");
-                        });
+                    // Embed file to FormData object, which will automatically set request headers
+                    const formData = new FormData();
+                    formData.append('noteInputFile', file);
+
+                    /* A POST request using XML object */
+                    const req = new XMLHttpRequest(); // Initialize request
+                    req.open('POST', window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID); // Specify request type and endpoint
+                    req.setRequestHeader('Authorization', 'Bearer ' + window.CRM.jwtToken);
+                    req.ecrmPlace = f;
+
+                    // Add event listener to upload listening for progress. Function fires
+                    // regularly, with progress contained in "e" object
+                    req.upload.addEventListener('progress', (event) => {
+                        // Every time progress occurs
+                        const percentComplete = (event.loaded / event.total)*100; // Calculate percentage complete via "e" object
+                        progress.setAttribute('value', percentComplete); // Update value of progress HTML element
+                        progress_label.innerText = Math.round(percentComplete)+"%"; // Prints progress in progress element label as well                        
                     });
-            }
+                    
+                    // Fires when upload is complete
+                    req.onloadend = (event) => {
+                        // after we reload page
+                        window.CRM.reloadEDriveTable();                        
+
+                        allRequests--;
+                        if (allRequests == 0) window.CRM.closeDialogLoadingFunction();
+                        window.CRM.css (".download-zone", "display:none");                        
+                    }
+
+                    req.onload = (event) => {
+                        if (req.status != 200) { // analyze HTTP status of the response
+                            alert(`Error ${req.status}: ${req.statusText}`); // e.g. 404: Not Found
+                        } else if (typeof req.response === "string") {
+                            let response = JSON.parse(req.response);
+                            if (response.status == "failed") {
+                                //alert(`Done, got ${req.response.length} bytes ${req.ecrmPlace}`); // response is the server response
+                                window.CRM.DisplayAlert (i18next.t("Download Error"), `Error ${req.status}: ${req.statusText}`);
+                            }                                                      
+                        }
+                    };
+
+                    // Fires when upload is complete
+                    req.onerror = (event) => {
+                        // after we reload page
+                        allRequests--;
+                        window.CRM.DisplayAlert (i18next.t("Download Error"), `Error ${req.status}: ${req.statusText}`);
+                        window.CRM.css (".download-zone", "display:none");
+                    }
+
+                    req.send(formData); // Sends request
+                }
+            });            
         });
     }
 
