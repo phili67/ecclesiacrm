@@ -303,14 +303,50 @@ $(function () {
     });    
 
     // click in the table
-    $('#edrive-table tbody').on('click', 'tr', function(e) {
+    $('#edrive-table tbody').on('click', 'tr', function(event) {
         let column = window.CRM.dataEDriveTable.column( this ).index();//unusefull at this moment
         var data = window.CRM.dataEDriveTable.row(this).data();
         let id = data['name'];
 
-        $(this).toggleClass('selected');
+        let ctrlKey = event.ctrlKey;// on pc        
+        let altKey = event.altKey;
+        let shiftKey = event.shiftKey;
+        let optionKey = event.metaKey;// on mac
 
         var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
+
+        let clickedRowIsSelected = true;
+
+        let classes = $(this).attr('class').split(/\s+/);
+        let res = $(this).hasClass('selected');
+        if ( $(this).hasClass('selected')==false ) {
+            clickedRowIsSelected = false;
+        }
+
+
+
+        if ((ctrlKey || optionKey)) {
+            if (clickedRowIsSelected == true) {
+                selectedRows--;
+            } else {
+                selectedRows++;
+            }
+        } else if (shiftKey) {
+            if (clickedRowIsSelected == true) {
+                selectedRows--;
+            } else {
+                selectedRows++;
+            }
+        } else {
+            if (clickedRowIsSelected == true) {
+                selectedRows--;
+            } else {
+                selectedRows=1;
+            }
+        }
+
+        $(this).toggleClass('selected');
+        
         
         if (window.CRM.browserImage == true) {
             if (selectedRows) {
@@ -326,29 +362,32 @@ $(function () {
             $("#trash-drop").addClass('disabled');            
         }
 
-        
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'filemanager/getPreview',
-            data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
-        }, function (data) {
-            if (data && data.success) {
-                $('.filmanager-right').show();
-                $('.preview-title').html(data.name);
-                $('.preview').html(data.path);
-                if (data.link) {
-                    $('.share-part').hide();
-                    $('.share-part-another-user').show();
-                    sharedByPersonsSabre();
-                } else {
-                    $('.share-part').show();             
-                    $('.share-part-another-user').hide();       
+        if (selectedRows != 1) {
+            $('.filmanager-right').hide();
+        } else {        
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'filemanager/getPreview',
+                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
+            }, function (data) {
+                if (data && data.success) {
+                    $('.filmanager-right').show();
+                    $('.preview-title').html(data.name);
+                    $('.preview').html(data.path);
+                    if (data.link) {
+                        $('.share-part').hide();
+                        $('.share-part-another-user').show();
+                        sharedByPersonsSabre();
+                    } else {
+                        $('.share-part').show();             
+                        $('.share-part-another-user').hide();       
 
-                    addSharedPersonsSabre();
+                        addSharedPersonsSabre();
+                    }
+                    
                 }
-                
-            }
-        });        
+            });        
+        }
     });
 
 
