@@ -1,4 +1,4 @@
-/* copyright 2018 Philippe Logel */
+/* copyright 2025 Philippe Logel */
 
 $(function () {
     // Helper function to get parameters from the query string.
@@ -205,6 +205,8 @@ $(function () {
                                     }
                                     window.CRM.reloadEDriveTable(function () {
                                         selected.length = 0;
+                                        $('.filmanager-right').hide();
+                                        $("#trash-drop").addClass('disabled');
                                     });
                                 }
                             });
@@ -348,53 +350,6 @@ $(function () {
             }
         });        
     });
-
-    /*$('#edrive-table tbody').on('click', 'td', function (e) {
-        var data = window.CRM.dataEDriveTable.row($(this).parent()).data();
-        let id = data['name'];
-
-        var col = window.CRM.dataEDriveTable.cell(this).index().column;
-
-        if (!(col == 2)) {
-            $(this).parent().toggleClass('selected');
-
-            var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
-
-            if (selectedRows) {
-                $("#trash-drop").removeClass('disabled');
-            } else {
-                $("#trash-drop").addClass('disabled');
-            }
-
-            if (window.CRM.browserImage == true) {
-                if (selectedRows) {
-                    $(".filemanager-download").css("display", "block");
-                } else {
-                    $(".filemanager-download").css("display", "none");
-                }
-            }
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'filemanager/getPreview',
-                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
-            }, function (data) {
-                if (data && data.success) {
-                    $('.filmanager-right').show();
-                        $('.preview-title').html(data.name);
-                        $('.preview').html(data.path);
-                    if (data.link) {
-                        $('.share-part').hide();
-                    } else {
-                        $('.share-part').show();                    
-
-                        addSharedPersonsSabre();
-                    }
-                    
-                }
-            });               
-        }
-    });*/
 
 
     $("body").on('click', '.fileName', function (e) {
@@ -696,11 +651,14 @@ $(function () {
 
     const uploadEvent = () => {
         window.CRM.ElementListener('#formId', 'submit', function (event) {
+            var progress = document.getElementById('progress-bar');
+            var progress_label = document.getElementById('progress-bar-label');
+            
             event.preventDefault();
 
-            const fileInput = document.getElementById('noteInputFile');
+            var fileInput = document.getElementById('noteInputFile');
 
-            let totalFilesToUpload = fileInput.files.length;
+            var totalFilesToUpload = fileInput.files.length;
 
             //nothing was selected 
             if (totalFilesToUpload === 0) {
@@ -708,27 +666,44 @@ $(function () {
                 return;
             }
 
-            for (let i = 0; i < totalFilesToUpload; i++) {
-                const file = fileInput.files[i];
-                const formData = new FormData();
-                formData.append('noteInputFile', file);
+            var allRequests = totalFilesToUpload;
 
-                const request = new Request(window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Authorization': 'Bearer ' + window.CRM.jwtToken,
-                    }
-                });
+            window.CRM.dialogLoadingFunction('Upload in progress', function() {
+                for (var f = 0; f < totalFilesToUpload; f++) {
+                    // Select user file from file list (always position 0 for 1 files)
+                    const file = fileInput.files[f];
 
-                fetch(request)
-                    .then(response => response.json())
-                    .then(data => {
-                        window.CRM.reloadEDriveTable(function () {
-                            uploadWindow.modal("hide");
-                        });
+                    // Embed file to FormData object, which will automatically set request headers
+                    const formData = new FormData();
+                    formData.append('noteInputFile', file);
+
+                    /* A POST request using XML object */
+                    const req = new XMLHttpRequest(); // Initialize request
+                    req.open('POST', window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID); // Specify request type and endpoint
+                    req.setRequestHeader('Authorization', 'Bearer ' + window.CRM.jwtToken);
+                    req.ecrmPlace = f;
+
+                    // Add event listener to upload listening for progress. Function fires
+                    // regularly, with progress contained in "e" object
+                    req.upload.addEventListener('progress', (event) => {
+                        // Every time progress occurs
+                        const percentComplete = (event.loaded / event.total)*100; // Calculate percentage complete via "e" object
+                        progress.setAttribute('value', percentComplete); // Update value of progress HTML element
+                        progress_label.innerText = Math.round(percentComplete)+"%"; // Prints progress in progress element label as well                        
                     });
-            }
+                    
+                    // Fires when upload is complete
+                    req.onloadend = (event) => {
+                        // after we reload page
+                        window.CRM.reloadEDriveTable();                        
+
+                        allRequests--;
+                        if (allRequests == 0) window.CRM.closeDialogLoadingFunction();
+                    }
+
+                    req.send(formData); // Sends request
+                }
+            });            
         });
     }
 
