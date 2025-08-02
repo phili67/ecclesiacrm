@@ -25,7 +25,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Propel;
 
 use DOMNode;
-
+use PhpOffice\PhpPresentation\IOFactory;
 
 class MiscUtils
 {
@@ -1785,8 +1785,9 @@ class MiscUtils
         $tmpFile = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $filePath;
 
         // Saving the document as OOXML file...
-        $objWriter = IOFactory::createWriter($pw, 'Word2007');
-        $objWriter->save($tmpFile);
+        $pw->save($tmpFile, "Word2007");
+        /*$objWriter = IOFactory::createWriter($pw, 'Word2007');
+        $objWriter->save($tmpFile);*/
 
         MiscUtils::removeWordImageDir();
 
@@ -1965,5 +1966,27 @@ class MiscUtils
     {
         return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
             || $_SERVER['SERVER_PORT'] == 443;
+    }
+
+    // only dashboard plugins are loaded on the maindashboard page
+    public static function expandDirectories($base_dir, $pluginName) {
+        $directories = array();
+        foreach(scandir($base_dir) as $file) {
+            if($file == '.' || $file == '..') continue;
+            
+            $dir = $base_dir.DIRECTORY_SEPARATOR.$file;
+
+            $rootDir = str_replace(SystemURLs::getDocumentRoot()."/", '', $base_dir.DIRECTORY_SEPARATOR);
+
+            if(is_dir($dir)) {
+                $directories []= $dir;
+                $directories = array_merge($directories, Self::expandDirectories($dir, $pluginName));
+            } else {
+                ?>
+                    <script src="<?= SystemURLs::getRootPath() ?>/<?= $rootDir.$file ?>"></script>
+                <?php
+            }                
+        }
+        return $directories;
     }
 }
