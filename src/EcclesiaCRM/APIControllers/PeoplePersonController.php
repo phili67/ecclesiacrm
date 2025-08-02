@@ -51,6 +51,7 @@ use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
 use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
+use Slim\Exception\HttpNotFoundException;
 
 class PeoplePersonController
 {
@@ -768,7 +769,7 @@ class PeoplePersonController
                 throw new \Exception($email->getError());
             }
         } else {
-            $response = $response->withStatus(404)->getBody()->write("personId: " . $personId . " not found");
+            throw new HttpNotFoundException($request, "personId: " . $personId . " not found");            
         }
         return $response;
     }
@@ -783,7 +784,7 @@ class PeoplePersonController
 
             return $response->withJson(["status" => $personEmailSent]);
         } else {
-            $response = $response->withStatus(404)->getBody()->write("personId: " . $personId . " not found");
+            throw new HttpNotFoundException($request, "personId: " . $personId . " not found");            
         }
         return $response;
     }
@@ -795,7 +796,7 @@ class PeoplePersonController
             $person->verify();
             $response = $response->withStatus(200);
         } else {
-            $response = $response->withStatus(404)->getBody()->write("personId: " . $personId . " not found");
+            throw new HttpNotFoundException($request, "personId: " . $personId . " not found");            
         }
         return $response;
     }

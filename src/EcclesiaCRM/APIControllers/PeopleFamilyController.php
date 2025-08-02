@@ -42,6 +42,7 @@ use EcclesiaCRM\SessionUser;
 
 use EcclesiaCRM\Reports\EmailUsers;
 use Family;
+use Slim\Exception\HttpNotFoundException;
 
 class PeopleFamilyController
 {
@@ -245,7 +246,7 @@ class PeopleFamilyController
                 throw new \Exception($email->getError());
             }
         } else {
-            $response = $response->withStatus(404)->getBody()->write("familyId: " . $familyId . " not found");
+            throw new HttpNotFoundException($request, "familyId: " . $familyId . " not found");            
         }
         return $response;
     }
@@ -259,8 +260,8 @@ class PeopleFamilyController
             $familyEmailSent = $fams_to_contact->renderAndSend('family');
 
             return $response->withJson(["status" => $familyEmailSent]);
-        } else {
-            $response = $response->withStatus(404)->getBody()->write("familyId: " . $familyId . " not found");
+        } else {            
+            throw new HttpNotFoundException($request, "familyId: " . $familyId . " not found");
         }
         return $response;
     }
@@ -272,7 +273,7 @@ class PeopleFamilyController
             $family->verify();
             $response = $response->withStatus(200);
         } else {
-            $response = $response->withStatus(404)->getBody()->write("familyId: " . $familyId . " not found");
+            throw new HttpNotFoundException($request, "familyId: " . $familyId . " not found");            
         }
         return $response;
     }
@@ -366,7 +367,7 @@ class PeopleFamilyController
 
             return $response->withJson($geoLocationInfo);
         }
-        return $response->withStatus(404)->getBody()->write("familyId: " . $familyId . " not found");
+        throw new HttpNotFoundException($request, "familyId: " . $familyId . " not found");
     }
 
     public function deleteFamilyField(ServerRequest $request, Response $response, array $args): Response {

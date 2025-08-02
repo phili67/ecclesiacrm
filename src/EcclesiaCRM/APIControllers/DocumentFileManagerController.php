@@ -17,6 +17,7 @@ use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\WebDav\Utils\SabreUtils;
+use Slim\Exception\HttpNotFoundException;
 
 class DocumentFileManagerController
 {
@@ -125,7 +126,7 @@ class DocumentFileManagerController
                 $item['name'] = "/" . $file;
                 $item['dir'] = true;
                 $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png"; 
-                $item['type'] = gettext("Folder");
+                $item['type'] = _("Folder");
                 $size = 34;
             } else if (is_link("$currentNoteDir/$file")) {
                 $item['link'] = true;
@@ -170,7 +171,7 @@ class DocumentFileManagerController
                 $note->setText($userName . $currentpath . $fileName);
                 $note->setType('file');
                 $note->setEntered(SessionUser::getUser()->getPersonId());
-                $note->setInfo(gettext('Create file'));
+                $note->setInfo(_('Create file'));
 
                 $note->save();
             }
@@ -189,9 +190,8 @@ class DocumentFileManagerController
                     if ( !is_null($note) ) {
                         $note->delete();
                     }
-                    return $response->withStatus(404)
-                        ->withHeader('Content-Type', 'text/html')
-                        ->write( gettext('Document not found') );
+
+                    throw new HttpNotFoundException($request, _('Document not found'));                    
                 }
 
                 $response = $response
@@ -205,7 +205,7 @@ class DocumentFileManagerController
             }
         }
 
-        return $response->withStatus(404);
+        throw new HttpNotFoundException($request, _('Document not found'));
     }
 
     public function getPreview(ServerRequest $request, Response $response, array $args): Response
@@ -257,7 +257,7 @@ class DocumentFileManagerController
                 if (is_dir("$currentNoteDir/$file")) {
                     $item['dir'] = true;
                     $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png";
-                    $item['type'] = gettext("Folder");
+                    $item['type'] = _("Folder");
                     $size = 34;
                 } else if (is_link("$currentNoteDir/$file")) {
                     $item['link'] = true;
@@ -586,7 +586,7 @@ class DocumentFileManagerController
                         }
 
                         if (is_dir($newDest)) {
-                            return $response->withJson(['success' => false, "message" => gettext("A Folder") . " \"" . substr($file, 1) . "\" " . gettext("already exists at this place.")]);
+                            return $response->withJson(['success' => false, "message" => _("A Folder") . " \"" . substr($file, 1) . "\" " . _("already exists at this place.")]);
                             break;
                         }
 
@@ -634,9 +634,9 @@ class DocumentFileManagerController
                                     $note->setText($dropDir . $rest);
 
                                     if ($note->getType() == 'folder') {
-                                        $note->setInfo(gettext('Folder modification'));
+                                        $note->setInfo(_('Folder modification'));
                                     } else {
-                                        $note->setInfo(gettext('File modification'));
+                                        $note->setInfo(_('File modification'));
                                     }
 
                                     $note->setEntered(SessionUser::getUser()->getPersonId());
@@ -654,7 +654,7 @@ class DocumentFileManagerController
 
 
                         if (file_exists($newDest)) {
-                            return $response->withJson(['success' => false, "message" => gettext("A File") . " \"" . $file . "\" " . gettext("already exists at this place.")]);
+                            return $response->withJson(['success' => false, "message" => _("A File") . " \"" . $file . "\" " . _("already exists at this place.")]);
                             break;
                         }
 
@@ -703,7 +703,7 @@ class DocumentFileManagerController
                                     $rest = str_replace($userName . $currentpath, "", $note->getText());
 
                                     $note->setText($dropDir . $rest);
-                                    $note->setInfo(gettext('File modification'));
+                                    $note->setInfo(_('File modification'));
                                     $note->setEntered(SessionUser::getUser()->getPersonId());
                                     $note->save();
                                 }
@@ -734,7 +734,7 @@ class DocumentFileManagerController
                 $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath . $params->folder;
 
                 if (is_dir($currentNoteDir)) {
-                    return $response->withJson(['success' => false, "message" => gettext("A Folder") . " \"" . $params->folder . "\" " . gettext("already exists at this place.")]);
+                    return $response->withJson(['success' => false, "message" => _("A Folder") . " \"" . $params->folder . "\" " . _("already exists at this place.")]);
                 }
 
                 // now we create the note
@@ -746,7 +746,7 @@ class DocumentFileManagerController
                 $note->setText($userName . $currentpath . $params->folder);
                 $note->setType('folder');
                 $note->setEntered(SessionUser::getUser()->getPersonId());
-                $note->setInfo(gettext('New Folder'));
+                $note->setInfo(_('New Folder'));
 
                 $note->save();
 
@@ -876,7 +876,7 @@ class DocumentFileManagerController
             $note->setText($userName . $currentpath . $fileName);
             $note->setType('file');
             $note->setEntered(SessionUser::getUser()->getPersonId());
-            $note->setInfo(gettext('Create file'));
+            $note->setInfo(_('Create file'));
 
             $note->save();
         }

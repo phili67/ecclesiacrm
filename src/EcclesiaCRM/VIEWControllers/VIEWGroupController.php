@@ -29,7 +29,7 @@ use EcclesiaCRM\PersonQuery;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\CalendarinstancesQuery;
-
+use Slim\Exception\HttpNotFoundException;
 use Slim\Views\PhpRenderer;
 
 class VIEWGroupController {
@@ -69,7 +69,14 @@ class VIEWGroupController {
     public function groupView (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/group/');
 
-        return $renderer->render($response, 'groupview.php', $this->renderGroupViewArray($args['groupID']));
+        $groupID = $args['groupID'];
+
+        $thisGroup = GroupQuery::create()->findOneById($groupID);
+        if (is_null($thisGroup)) {
+            throw new HttpNotFoundException($request, "groupID: " . $groupID . " not found");
+        }
+
+        return $renderer->render($response, 'groupview.php', $this->renderGroupViewArray($groupID));
     }
 
     public function renderGroupViewArray ($iGroupID)
@@ -146,6 +153,11 @@ class VIEWGroupController {
         $groupId = $args['groupId'];
         $useCart = $args['useCart'];
 
+        $thisGroup = GroupQuery::create()->findOneById($groupId);
+        if (is_null($thisGroup)) {
+            throw new HttpNotFoundException($request, "groupID: " . $groupId . " not found");
+        }
+
         if ( !( SessionUser::getUser()->isSundayShoolTeacherForGroup($groupId) || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
@@ -194,14 +206,15 @@ class VIEWGroupController {
     public function groupEdit (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/group/');
 
-        if (!isset($args['groupId'])) {
+        if (!isset($args['groupId']) or !( SessionUser::getUser()->isGroupManagerEnabled() )) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/group/list');
         }
 
         $groupId = $args['groupId'];
 
-        if ( !( SessionUser::getUser()->isGroupManagerEnabled() ) ) {
-            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        $thisGroup = GroupQuery::create()->findOneById($groupId);
+        if (is_null($thisGroup)) {
+            throw new HttpNotFoundException($request, "groupID: " . $groupId . " not found");
         }
 
         return $renderer->render($response, 'groupedit.php', $this->argumentsGroupEditArray($groupId));
