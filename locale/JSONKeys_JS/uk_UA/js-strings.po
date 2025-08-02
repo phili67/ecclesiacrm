@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
+"POT-Creation-Date: 2025-08-02T18:56:25.346Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -415,8 +415,14 @@ msgstr "Встановіть ім'я папки"
 msgid "Actualize files"
 msgstr "Актуалізація файлів"
 
+msgid "preview currently being created"
+msgstr ""
+
 msgid "Set a File/Folder name"
 msgstr "Задати ім'я файлу/папки"
+
+msgid "Download Error"
+msgstr ""
 
 msgid "User"
 msgstr "Користувач"

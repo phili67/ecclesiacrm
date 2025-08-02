@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
+"POT-Creation-Date: 2025-08-02T18:56:25.346Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -414,8 +414,14 @@ msgstr "Setați numele dosarului dvs."
 msgid "Actualize files"
 msgstr "Actualizați fișierele"
 
+msgid "preview currently being created"
+msgstr ""
+
 msgid "Set a File/Folder name"
 msgstr "Setați un nume de fișier/folder"
+
+msgid "Download Error"
+msgstr ""
 
 msgid "User"
 msgstr "Utilizator"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-29 14:58+0000\n"
+"POT-Creation-Date: 2025-08-02 18:56+0000\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,8 +43,8 @@ msgstr "Dieses Feld ignorieren"
 msgid "Title"
 msgstr "Titel"
 
-#: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:932
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:937
+#: CSVImport.php:235 EcclesiaCRM/APIControllers/PeopleGroupController.php:933
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:938
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:555
 #: EcclesiaCRM/Service/ConfirmReportService.php:155
@@ -115,8 +115,8 @@ msgstr "Umschlag für Spenden"
 #: EcclesiaCRM/Service/ConfirmReportService.php:725 Reports/PDFLabel.php:859
 #: external/templates/registration/family-register-done.php:28
 #: external/templates/registration/family-register.php:47
-#: v2/templates/cart/cartToFamily.php:350
-#: v2/templates/cart/cartToFamily.php:360
+#: v2/templates/cart/cartToFamily.php:348
+#: v2/templates/cart/cartToFamily.php:358
 #: v2/templates/deposit/autaPaymentEditor.php:914
 #: v2/templates/deposit/autaPaymentEditor.php:922
 #: v2/templates/group/groupreports.php:128
@@ -140,7 +140,7 @@ msgstr "Adresse"
 #: CSVImport.php:243 EcclesiaCRM/Service/ConfirmReportService.php:221
 #: EcclesiaCRM/Service/ConfirmReportService.php:679 Reports/PDFLabel.php:859
 #: external/templates/registration/family-register.php:58
-#: v2/templates/cart/cartToFamily.php:370
+#: v2/templates/cart/cartToFamily.php:368
 #: v2/templates/deposit/autaPaymentEditor.php:930
 #: v2/templates/people/directoryreport.php:281
 #: v2/templates/people/familyEditor.php:735
@@ -153,7 +153,7 @@ msgstr "Stadt"
 #: CSVImport.php:244 EcclesiaCRM/Service/ConfirmReportService.php:691
 #: Reports/PDFLabel.php:859
 #: external/templates/registration/family-register.php:62
-#: v2/templates/cart/cartToFamily.php:384
+#: v2/templates/cart/cartToFamily.php:382
 #: v2/templates/deposit/autaPaymentEditor.php:938
 #: v2/templates/people/directoryreport.php:287
 #: v2/templates/people/familyEditor.php:744
@@ -166,7 +166,7 @@ msgstr "Staat"
 #: CSVImport.php:245 EcclesiaCRM/Service/ConfirmReportService.php:216
 #: EcclesiaCRM/Service/ConfirmReportService.php:704 Reports/PDFLabel.php:859
 #: external/templates/registration/family-register.php:73
-#: v2/templates/cart/cartToFamily.php:402
+#: v2/templates/cart/cartToFamily.php:400
 #: v2/templates/deposit/autaPaymentEditor.php:946
 #: v2/templates/people/directoryreport.php:293
 #: v2/templates/people/familyEditor.php:758
@@ -177,7 +177,7 @@ msgid "Zip"
 msgstr "Reißverschluss"
 
 #: CSVImport.php:246 EcclesiaCRM/Service/ConfirmReportService.php:717
-#: v2/templates/cart/cartToFamily.php:416
+#: v2/templates/cart/cartToFamily.php:414
 #: v2/templates/deposit/autaPaymentEditor.php:954
 #: v2/templates/people/familyEditor.php:768
 #: v2/templates/people/personEditor.php:1068
@@ -198,7 +198,7 @@ msgstr "Land"
 #: external/templates/registration/family-register.php:85
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/calendar/eventattendeesedit.php:60
-#: v2/templates/cart/cartToFamily.php:425
+#: v2/templates/cart/cartToFamily.php:423
 #: v2/templates/group/groupreports.php:129
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:230
 #: v2/templates/pastoralcare/pastoralcarefamily.php:181
@@ -223,7 +223,7 @@ msgstr "Telefon zu Hause"
 #: EcclesiaCRM/Service/ConfirmReportService.php:563
 #: EcclesiaCRM/Service/ConfirmReportService.php:750
 #: EcclesiaCRM/Service/ConfirmReportService.php:753
-#: Reports/ConfirmReport.php:501 v2/templates/cart/cartToFamily.php:444
+#: Reports/ConfirmReport.php:501 v2/templates/cart/cartToFamily.php:442
 #: v2/templates/group/groupreports.php:130
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:235
 #: v2/templates/pastoralcare/pastoralcarefamily.php:187
@@ -266,7 +266,7 @@ msgstr "Mobiltelefon"
 #: external/templates/registration/family-register-members.php:88
 #: ident/templates/verify/login-info.php:34
 #: v2/templates/calendar/eventattendeesedit.php:58
-#: v2/templates/cart/cartToFamily.php:483
+#: v2/templates/cart/cartToFamily.php:481
 #: v2/templates/deposit/autaPaymentEditor.php:970
 #: v2/templates/group/groupreports.php:132
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:342
@@ -314,7 +314,7 @@ msgstr "Datum der Mitgliedschaft"
 
 #: CSVImport.php:254 EcclesiaCRM/Service/ConfirmReportService.php:574
 #: EcclesiaCRM/Service/ConfirmReportService.php:779
-#: v2/templates/cart/cartToFamily.php:311
+#: v2/templates/cart/cartToFamily.php:309
 #: v2/templates/pastoralcare/pastoralcarefamily.php:167
 #: v2/templates/people/directoryreport.php:184
 #: v2/templates/people/familyEditor.php:886
@@ -396,8 +396,8 @@ msgstr ""
 msgid "Default country if none specified otherwise"
 msgstr "Standardland, wenn kein anderes angegeben wurde"
 
-#: CSVImport.php:386 EcclesiaCRM/APIControllers/PeoplePersonController.php:156
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:167
+#: CSVImport.php:386 EcclesiaCRM/APIControllers/PeoplePersonController.php:157
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:168
 #: EcclesiaCRM/APIControllers/SearchController.php:225
 #: EcclesiaCRM/APIControllers/SearchController.php:230
 #: EcclesiaCRM/APIControllers/SearchController.php:238
@@ -408,7 +408,7 @@ msgstr "Standardland, wenn kein anderes angegeben wurde"
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1065
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1077
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:83
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:90
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/utils/OutputUtils.php:387 EcclesiaCRM/utils/OutputUtils.php:448
 #: eGive.php:346 v2/templates/deposit/autaPaymentEditor.php:811
@@ -579,7 +579,7 @@ msgstr "Datenimport erfolgreich."
 msgid "persons were imported"
 msgstr "Personen wurden eingeführt"
 
-#: CatchCreatePayment.php:72 EcclesiaCRM/utils/MiscUtils.php:1865
+#: CatchCreatePayment.php:72 EcclesiaCRM/utils/MiscUtils.php:1909
 #: v2/templates/deposit/autoPaymentClearAccount.php:30
 msgid "Cannot execute query."
 msgstr "Abfrage kann nicht ausgeführt werden."
@@ -636,8 +636,8 @@ msgstr "Video"
 #: v2/templates/calendar/eventnames.php:112
 #: v2/templates/calendar/eventnames.php:124
 #: v2/templates/calendar/eventnames.php:179
-#: v2/templates/calendar/eventtypesedit.php:139
-#: v2/templates/calendar/eventtypesedit.php:151
+#: v2/templates/calendar/eventtypesedit.php:144
+#: v2/templates/calendar/eventtypesedit.php:156
 #: v2/templates/cart/carttobadge.php:117
 #: v2/templates/deposit/autaPaymentEditor.php:883
 #: v2/templates/group/groupbadge.php:148 v2/templates/group/groupreports.php:47
@@ -755,9 +755,9 @@ msgid "Your cart has been successfully emptied"
 msgstr "Ihr Warenkorb wurde erfolgreich geleert"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:173
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:174
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:879
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:698
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:699
 #: uploader/upload.php:82
 msgid "Create file"
 msgstr "Datei erstellen"
@@ -772,13 +772,14 @@ msgstr "Dieses Dokument wird geöffnet durch"
 msgid "Minutes left"
 msgstr "Verbleibende Minuten"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:128
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:129
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:260
-#: EcclesiaCRM/utils/MiscUtils.php:776
+#: EcclesiaCRM/utils/MiscUtils.php:779
 msgid "Folder"
 msgstr "Mappe"
 
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:194
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:208
 msgid "Document not found"
 msgstr "Dokument nicht gefunden"
 
@@ -845,14 +846,14 @@ msgstr "Der Datei- oder Ordnername existiert bereits!!!"
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: browser/browse.php:126 v2/templates/edrive/dashboard.php:104
+#: browser/browse.php:155 v2/templates/edrive/dashboard.php:133
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: browser/browse.php:127 v2/templates/edrive/dashboard.php:105
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:134
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
@@ -1025,27 +1026,27 @@ msgstr ""
 msgid "POST to cart requires an EventID"
 msgstr "POST zum Warenkorb erfordert eine EventID"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:345
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:346
 #: ident/routes/verify.php:450
 msgid "Family Deactivated"
 msgstr "Familie Deaktiviert"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:347
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:348
 msgid "Family Activated"
 msgstr "Familie Aktiviert"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:498
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:880
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:499
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:881
 msgid "Deleted from group"
 msgstr "Aus der Gruppe gestrichen"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:536
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:571
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:537
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:572
 msgid "Added to group"
 msgstr "Zur Gruppe hinzugefügt"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:932
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:937
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:933
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:938
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:549
@@ -1056,7 +1057,7 @@ msgstr "Zur Gruppe hinzugefügt"
 #: Reports/FundRaiserStatement.php:169 Reports/PDFLabel.php:859
 #: v2/templates/calendar/eventattendeesedit.php:56
 #: v2/templates/calendar/eventnames.php:302
-#: v2/templates/cart/cartToFamily.php:223
+#: v2/templates/cart/cartToFamily.php:221
 #: v2/templates/group/groupPropsEditor.php:222
 #: v2/templates/group/groupPropsFormEditor.php:318
 #: v2/templates/group/groupPropsFormEditor.php:436
@@ -1077,8 +1078,8 @@ msgstr "Zur Gruppe hinzugefügt"
 msgid "Name"
 msgstr "Name"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:186
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:206
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:187
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:207
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:626
 #: EcclesiaCRM/Service/CalendarService.php:283
@@ -1090,8 +1091,8 @@ msgstr "Name"
 msgid "Yes"
 msgstr "Ja"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:199
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:208
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:200
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:209
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:628
 #: EcclesiaCRM/Service/CalendarService.php:283
@@ -1107,8 +1108,8 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:599
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:606
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:600
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:607
 #: EcclesiaCRM/APIControllers/UserUsersController.php:136
 #: EcclesiaCRM/APIControllers/UserUsersController.php:142
 #: EcclesiaCRM/dto/Cart.php:342 EcclesiaCRM/dto/Cart.php:348
@@ -1116,11 +1117,11 @@ msgstr "Nein"
 msgid "Account Deactivated"
 msgstr "Deaktiviertes Konto"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:660
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:661
 msgid "Person Deactivated"
 msgstr "Person Deaktiviert"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:660
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:661
 msgid "Person Activated"
 msgstr "Person Aktiviert"
 
@@ -1315,7 +1316,7 @@ msgstr "Gruppentypen-Editor"
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
 #: EcclesiaCRM/Service/CalendarService.php:1562
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:115
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:122
 #: Include/Footer.php:102 v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:45
 #: v2/templates/system/optionManager.php:122
@@ -1605,7 +1606,7 @@ msgstr "Kirchengucker"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:226
 #: Reports/ConfirmReport.php:275
 #: external/templates/registration/family-register.php:36
-#: v2/templates/cart/cartToFamily.php:296
+#: v2/templates/cart/cartToFamily.php:294
 #: v2/templates/people/familyEditor.php:711
 #: v2/templates/people/lettersandlabels.php:147
 #: v2/templates/people/personEditor.php:1011
@@ -1841,13 +1842,13 @@ msgid "List Church Events"
 msgstr "Liste kirchlicher Veranstaltungen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:166
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:332
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:338
 msgid "List Event Types"
 msgstr "Ereignistypen auflisten"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:168
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:294
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:296
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:300
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:302
 msgid "Call the Register"
 msgstr "Rufen Sie das Register an"
 
@@ -2316,7 +2317,7 @@ msgstr "Adresse"
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
 #: ident/templates/verify/login-info.php:15
-#: v2/templates/cart/cartToFamily.php:190
+#: v2/templates/cart/cartToFamily.php:188
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/pastoralcare/pastoralcarefamily.php:359
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:22
@@ -2535,14 +2536,14 @@ msgid "Anniversary"
 msgstr "Jahrestag"
 
 #: EcclesiaCRM/Service/CalendarService.php:1398
-#: EcclesiaCRM/Service/ConfirmReportService.php:541 browser/browse.php:100
+#: EcclesiaCRM/Service/ConfirmReportService.php:541 browser/browse.php:129
 #: ident/templates/verify/verify-family-info.php:47
 #: ident/templates/verify/verify-person-info.php:62
 #: v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/calendar/eventnames.php:347
 #: v2/templates/deposit/electronicPaymentList.php:301
 #: v2/templates/deposit/finddepositslip.php:103
-#: v2/templates/edrive/dashboard.php:78
+#: v2/templates/edrive/dashboard.php:107
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/pastoralcare/pastoralcarefamily.php:299
@@ -2615,7 +2616,7 @@ msgstr "KEINE"
 #: EcclesiaCRM/Service/ConfirmReportService.php:493
 #: EcclesiaCRM/Service/ConfirmReportService.php:566
 #: EcclesiaCRM/Service/ConfirmReportService.php:759
-#: v2/templates/cart/cartToFamily.php:464
+#: v2/templates/cart/cartToFamily.php:462
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:240
 #: v2/templates/pastoralcare/pastoralcarefamily.php:194
 #: v2/templates/pastoralcare/pastoralcareperson.php:266
@@ -2745,7 +2746,7 @@ msgid "by"
 msgstr "von"
 
 #: EcclesiaCRM/Service/TimelineService.php:336
-#: EcclesiaCRM/utils/MiscUtils.php:776 EcclesiaCRM/utils/MiscUtils.php:994
+#: EcclesiaCRM/utils/MiscUtils.php:779 EcclesiaCRM/utils/MiscUtils.php:1037
 msgid "File"
 msgstr "Datei"
 
@@ -2918,7 +2919,7 @@ msgid "Donation Fund Editor"
 msgstr "Spendenfonds Editor"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:301 v2/templates/calendar/checkin.php:32
+#: Include/Footer.php:301 v2/templates/calendar/checkin.php:30
 msgid "Kiosk Manager"
 msgstr "Kiosk-Manager"
 
@@ -2967,7 +2968,7 @@ msgstr "Auflistung aller kirchlichen Veranstaltungen"
 msgid "Event Attendees"
 msgstr "Teilnehmer an der Veranstaltung"
 
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:357
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:363
 msgid "Edit Event Types"
 msgstr "Ereignistypen bearbeiten"
 
@@ -3045,7 +3046,7 @@ msgstr "Zahlungseditor - Vorhandene Zahlung ändern"
 msgid "Payment Editor - New Deposit Slip Will Be Created"
 msgstr "Zahlungseditor - Es wird ein neuer Einzahlungsbeleg erstellt"
 
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:51
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:49
 msgid "Edrive : Dashboard "
 msgstr "Edrive : Dashboard"
 
@@ -3076,24 +3077,24 @@ msgstr "GDPR-Datenstruktur"
 msgid "Group Listing"
 msgstr "Auflistung der Gruppen"
 
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:171
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:183
 msgid "Sunday School Badges for"
 msgstr "Sonntagsschulabzeichen für"
 
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:173
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:185
 msgid "Badges for Group"
 msgstr "Abzeichen für die Gruppe"
 
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:227
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:240
 msgid "Group Editor"
 msgstr "Gruppen-Editor"
 
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:331
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:392
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:344
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:405
 msgid "Group-Specific Properties Form Editor:"
 msgstr "Formular-Editor für gruppenspezifische Eigenschaften:"
 
-#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:331
+#: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:344
 #: v2/templates/error/404.php:20
 msgid "for"
 msgstr "für"
@@ -5906,47 +5907,48 @@ msgstr "Unvollständige<br>Adressen ignorieren"
 msgid "File Type"
 msgstr "Datei Typ"
 
-#: EcclesiaCRM/utils/MiscUtils.php:812 EcclesiaCRM/utils/MiscUtils.php:868
-#: EcclesiaCRM/utils/MiscUtils.php:968
+#: EcclesiaCRM/utils/MiscUtils.php:815 EcclesiaCRM/utils/MiscUtils.php:837
+#: EcclesiaCRM/utils/MiscUtils.php:893 EcclesiaCRM/utils/MiscUtils.php:993
+#: EcclesiaCRM/utils/MiscUtils.php:1015
 msgid "You've to use a PDF viewer or download the file here "
 msgstr ""
 "Sie müssen einen PDF-Viewer verwenden oder die Datei hier herunterladen"
 
-#: EcclesiaCRM/utils/MiscUtils.php:875 EcclesiaCRM/utils/MiscUtils.php:880
-#: EcclesiaCRM/utils/MiscUtils.php:884 EcclesiaCRM/utils/MiscUtils.php:1061
+#: EcclesiaCRM/utils/MiscUtils.php:900 EcclesiaCRM/utils/MiscUtils.php:905
+#: EcclesiaCRM/utils/MiscUtils.php:909 EcclesiaCRM/utils/MiscUtils.php:1104
 msgid "Your browser does not support the audio element."
 msgstr "Ihr Browser unterstützt das Audioelement nicht."
 
-#: EcclesiaCRM/utils/MiscUtils.php:890 EcclesiaCRM/utils/MiscUtils.php:897
-#: EcclesiaCRM/utils/MiscUtils.php:906 EcclesiaCRM/utils/MiscUtils.php:1071
-#: EcclesiaCRM/utils/MiscUtils.php:1082 EcclesiaCRM/utils/MiscUtils.php:1097
+#: EcclesiaCRM/utils/MiscUtils.php:915 EcclesiaCRM/utils/MiscUtils.php:922
+#: EcclesiaCRM/utils/MiscUtils.php:931 EcclesiaCRM/utils/MiscUtils.php:1114
+#: EcclesiaCRM/utils/MiscUtils.php:1125 EcclesiaCRM/utils/MiscUtils.php:1140
 msgid "Your browser does not support the video tag."
 msgstr "Ihr Browser unterstützt das Video-Tag nicht."
 
-#: EcclesiaCRM/utils/MiscUtils.php:1003 EcclesiaCRM/utils/MiscUtils.php:1035
-#: EcclesiaCRM/utils/MiscUtils.php:1044 EcclesiaCRM/utils/MiscUtils.php:1059
-#: EcclesiaCRM/utils/MiscUtils.php:1068 EcclesiaCRM/utils/MiscUtils.php:1078
-#: EcclesiaCRM/utils/MiscUtils.php:1091
+#: EcclesiaCRM/utils/MiscUtils.php:1046 EcclesiaCRM/utils/MiscUtils.php:1078
+#: EcclesiaCRM/utils/MiscUtils.php:1087 EcclesiaCRM/utils/MiscUtils.php:1102
+#: EcclesiaCRM/utils/MiscUtils.php:1111 EcclesiaCRM/utils/MiscUtils.php:1121
+#: EcclesiaCRM/utils/MiscUtils.php:1134
 msgid "Expand"
 msgstr "Erweitern Sie"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1143
+#: EcclesiaCRM/utils/MiscUtils.php:1186
 msgid "Classic Document"
 msgstr "Klassisches Dokument"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1146
+#: EcclesiaCRM/utils/MiscUtils.php:1189
 msgid "Classic Video"
 msgstr "Klassisches Video"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1149
+#: EcclesiaCRM/utils/MiscUtils.php:1192
 msgid "Classic File"
 msgstr "Klassische Datei"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1152
+#: EcclesiaCRM/utils/MiscUtils.php:1195
 msgid "Classic Audio"
 msgstr "Klassisches Audio"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1258
+#: EcclesiaCRM/utils/MiscUtils.php:1301
 msgid "Select Fiscal Year"
 msgstr "Steuerjahr auswählen"
 
@@ -5983,9 +5985,9 @@ msgstr "Herbst"
 msgid "This custom field isn't configured correctly"
 msgstr "Dieses benutzerdefinierte Feld ist nicht richtig konfiguriert"
 
-#: EcclesiaCRM/utils/OutputUtils.php:435 v2/templates/cart/cartToFamily.php:438
-#: v2/templates/cart/cartToFamily.php:458
-#: v2/templates/cart/cartToFamily.php:477
+#: EcclesiaCRM/utils/OutputUtils.php:435 v2/templates/cart/cartToFamily.php:436
+#: v2/templates/cart/cartToFamily.php:456
+#: v2/templates/cart/cartToFamily.php:475
 #: v2/templates/people/familyEditor.php:818
 #: v2/templates/people/familyEditor.php:832
 #: v2/templates/people/familyEditor.php:845
@@ -6845,70 +6847,80 @@ msgstr "Herunterladen"
 msgid "Insert"
 msgstr "einfügen."
 
-#: browser/browse.php:54 v2/templates/edrive/dashboard.php:32
+#: browser/browse.php:56 v2/templates/edrive/dashboard.php:34
+#, fuzzy
+msgid "Download files"
+msgstr "Herunterladen"
+
+#: browser/browse.php:63 v2/templates/edrive/dashboard.php:41
 msgid "Files input"
 msgstr "Eingabe von Dateien"
 
-#: browser/browse.php:56 v2/templates/edrive/dashboard.php:34
+#: browser/browse.php:71 v2/templates/edrive/dashboard.php:49
+#, fuzzy
+msgid "Download status"
+msgstr "Herunterladen"
+
+#: browser/browse.php:80 v2/templates/edrive/dashboard.php:58
 msgid "Upload your files"
 msgstr "Laden Sie Ihre Dateien hoch"
 
-#: browser/browse.php:57 v2/templates/cart/carttobadge.php:127
-#: v2/templates/cart/carttobadge.php:133 v2/templates/edrive/dashboard.php:35
+#: browser/browse.php:83 v2/templates/cart/carttobadge.php:127
+#: v2/templates/cart/carttobadge.php:133 v2/templates/edrive/dashboard.php:61
 #: v2/templates/group/groupbadge.php:158 v2/templates/group/groupbadge.php:164
 msgid "Upload"
 msgstr "Hochladen"
 
-#: browser/browse.php:66 v2/templates/edrive/dashboard.php:44
+#: browser/browse.php:95 v2/templates/edrive/dashboard.php:73
 msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr ""
 "Gehen Sie eine Ebene höher, oder ziehen Sie die Datei(en), um sie eine Ebene "
 "höher zu verschieben."
 
-#: browser/browse.php:91 v2/templates/edrive/dashboard.php:69
+#: browser/browse.php:120 v2/templates/edrive/dashboard.php:98
 msgid "Internal sharing"
 msgstr "Interne Aufteilung"
 
-#: browser/browse.php:99 v2/templates/edrive/dashboard.php:77
+#: browser/browse.php:128 v2/templates/edrive/dashboard.php:106
 msgid "Delete all shares"
 msgstr "Alle Aktien löschen"
 
-#: browser/browse.php:103 v2/templates/edrive/dashboard.php:81
+#: browser/browse.php:132 v2/templates/edrive/dashboard.php:110
 msgid "Delete shares for the selected users"
 msgstr "Freigaben für die ausgewählten Benutzer löschen"
 
-#: browser/browse.php:104 v2/templates/edrive/dashboard.php:82
+#: browser/browse.php:133 v2/templates/edrive/dashboard.php:111
 msgid "Stop sharing"
 msgstr "Nicht mehr teilen"
 
-#: browser/browse.php:109 v2/templates/edrive/dashboard.php:87
+#: browser/browse.php:138 v2/templates/edrive/dashboard.php:116
 msgid "With"
 msgstr "Mit"
 
-#: browser/browse.php:117 v2/templates/edrive/dashboard.php:95
+#: browser/browse.php:146 v2/templates/edrive/dashboard.php:124
 msgid "Set Rights"
 msgstr "Rechte festlegen"
 
-#: browser/browse.php:123 v2/templates/edrive/dashboard.php:101
+#: browser/browse.php:152 v2/templates/edrive/dashboard.php:130
 msgid "Select your rights"
 msgstr "Wählen Sie Ihre Rechte"
 
-#: browser/browse.php:123 v2/templates/deposit/autaPaymentEditor.php:806
+#: browser/browse.php:152 v2/templates/deposit/autaPaymentEditor.php:806
 #: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:101
+#: v2/templates/edrive/dashboard.php:130
 #: v2/templates/people/personEditor.php:1011
 msgid "or"
 msgstr "oder"
 
-#: browser/browse.php:126 v2/templates/edrive/dashboard.php:104
+#: browser/browse.php:155 v2/templates/edrive/dashboard.php:133
 msgid "[R ]"
 msgstr ""
 
-#: browser/browse.php:127 v2/templates/edrive/dashboard.php:105
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:134
 msgid "[RW]"
 msgstr ""
 
-#: browser/browse.php:137 v2/templates/edrive/dashboard.php:115
+#: browser/browse.php:166 v2/templates/edrive/dashboard.php:144
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
@@ -6919,20 +6931,20 @@ msgstr ""
 "auf die Freigabe hat, diese aber nicht finden kann, können Sie ihm den "
 "internen Link senden, um den Zugriff zu erleichtern."
 
-#: browser/browse.php:137 v2/templates/edrive/dashboard.php:115
+#: browser/browse.php:166 v2/templates/edrive/dashboard.php:144
 #: v2/templates/sidebar/systemsettings.php:200
 msgid "Definition"
 msgstr "Definition"
 
-#: browser/browse.php:145 v2/templates/edrive/dashboard.php:123
+#: browser/browse.php:174 v2/templates/edrive/dashboard.php:152
 msgid "Send email notification"
 msgstr "E-Mail-Benachrichtigung senden"
 
-#: browser/browse.php:148 v2/templates/edrive/dashboard.php:126
+#: browser/browse.php:177 v2/templates/edrive/dashboard.php:155
 msgid "With Right"
 msgstr "Mit Recht"
 
-#: browser/browse.php:161 v2/templates/edrive/dashboard.php:139
+#: browser/browse.php:190 v2/templates/edrive/dashboard.php:168
 msgid "Share By"
 msgstr "Teilen durch"
 
@@ -7221,7 +7233,7 @@ msgstr ""
 
 #: ident/templates/verify/verify-family-info.php:109
 #: ident/templates/verify/verify-person-info.php:102
-#: v2/templates/calendar/checkin.php:323
+#: v2/templates/calendar/checkin.php:317
 #: v2/templates/calendar/eventnames.php:270
 #: v2/templates/deposit/autaPaymentEditor.php:1088
 #: v2/templates/deposit/financialReports.php:64
@@ -7264,12 +7276,12 @@ msgstr "Besuchen Sie unsere Website"
 msgid "Person Verification"
 msgstr "Überprüfung der Person"
 
-#: kiosk/templates/kioskDevices/sunday-school-class-view.php:28
+#: kiosk/templates/kioskDevices/sunday-school-class-view.php:27
 #: v2/templates/calendar/eventnames.php:304
 msgid "Start Time"
 msgstr "Startzeit"
 
-#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
+#: kiosk/templates/kioskDevices/sunday-school-class-view.php:28
 msgid "End Time"
 msgstr "Endzeit"
 
@@ -7593,103 +7605,103 @@ msgstr "Benutzer"
 msgid "Exclude/include the Shared"
 msgstr "Ausschluss/Einschluss des Shared"
 
-#: v2/templates/calendar/checkin.php:27 v2/templates/calendar/eventslist.php:30
+#: v2/templates/calendar/checkin.php:25 v2/templates/calendar/eventslist.php:30
 msgid "Add New Event"
 msgstr "Neues Ereignis hinzufügen"
 
-#: v2/templates/calendar/checkin.php:30
+#: v2/templates/calendar/checkin.php:28
 msgid "QR Code Call"
 msgstr "QR-Code Aufruf"
 
-#: v2/templates/calendar/checkin.php:38
+#: v2/templates/calendar/checkin.php:36
 msgid "Edit Attendees"
 msgstr "Teilnehmer bearbeiten"
 
-#: v2/templates/calendar/checkin.php:48
+#: v2/templates/calendar/checkin.php:45
 msgid "Select Event"
 msgstr "Ereignis auswählen"
 
-#: v2/templates/calendar/checkin.php:62
+#: v2/templates/calendar/checkin.php:56
 msgid "Select event"
 msgstr "Ereignis auswählen"
 
-#: v2/templates/calendar/checkin.php:97
+#: v2/templates/calendar/checkin.php:91
 msgid "Listing"
 msgstr "Auflistung"
 
-#: v2/templates/calendar/checkin.php:103
+#: v2/templates/calendar/checkin.php:97
 msgid "Checkin"
 msgstr "Einchecken"
 
-#: v2/templates/calendar/checkin.php:109 v2/templates/calendar/checkin.php:124
+#: v2/templates/calendar/checkin.php:103 v2/templates/calendar/checkin.php:118
 msgid "Check all"
 msgstr "Alle prüfen"
 
-#: v2/templates/calendar/checkin.php:113 v2/templates/calendar/checkin.php:129
+#: v2/templates/calendar/checkin.php:107 v2/templates/calendar/checkin.php:123
 msgid "Uncheck all"
 msgstr "Alle abwählen"
 
-#: v2/templates/calendar/checkin.php:118
+#: v2/templates/calendar/checkin.php:112
 msgid "Checkout"
 msgstr "Kasse"
 
-#: v2/templates/calendar/checkin.php:134
+#: v2/templates/calendar/checkin.php:128
 msgid "Number of rows"
 msgstr "Anzahl der Zeilen"
 
-#: v2/templates/calendar/checkin.php:166
+#: v2/templates/calendar/checkin.php:160
 msgid "Set your free attendees"
 msgstr "Legen Sie Ihre freien Teilnehmer fest"
 
-#: v2/templates/calendar/checkin.php:179
+#: v2/templates/calendar/checkin.php:173
 msgid "Set your attendees Event"
 msgstr "Teilnehmer festlegen Veranstaltung"
 
-#: v2/templates/calendar/checkin.php:218
+#: v2/templates/calendar/checkin.php:212
 msgid "Your description"
 msgstr "Ihre Beschreibung"
 
-#: v2/templates/calendar/checkin.php:230
+#: v2/templates/calendar/checkin.php:224
 msgid "Add Free Attendees Count"
 msgstr "Anzahl der freien Teilnehmer hinzufügen"
 
-#: v2/templates/calendar/checkin.php:258
+#: v2/templates/calendar/checkin.php:252
 msgid "Add single child/parents Attendees"
 msgstr "Einzelne Kinder/Eltern hinzufügen Teilnehmer"
 
-#: v2/templates/calendar/checkin.php:271
+#: v2/templates/calendar/checkin.php:265
 msgid "Add Attendees for Event"
 msgstr "Teilnehmer für Veranstaltung hinzufügen"
 
-#: v2/templates/calendar/checkin.php:278 v2/templates/calendar/checkin.php:287
+#: v2/templates/calendar/checkin.php:272 v2/templates/calendar/checkin.php:281
 msgid "Person's Name"
 msgstr "Name der Person"
 
-#: v2/templates/calendar/checkin.php:299
+#: v2/templates/calendar/checkin.php:293
 msgid "Adult Name(Optional)"
 msgstr "Name des Erwachsenen (fakultativ)"
 
-#: v2/templates/calendar/checkin.php:307
+#: v2/templates/calendar/checkin.php:301
 msgid "Checked in By(Optional)"
 msgstr "Eingecheckt von (optional)"
 
-#: v2/templates/calendar/checkin.php:317
+#: v2/templates/calendar/checkin.php:311
 msgid "Add and Checkin"
 msgstr "Hinzufügen und Einchecken"
 
-#: v2/templates/calendar/checkin.php:329
+#: v2/templates/calendar/checkin.php:323
 msgid "Add Visitor"
 msgstr "Besucher hinzufügen"
 
-#: v2/templates/calendar/checkin.php:346
+#: v2/templates/calendar/checkin.php:340
 msgid "Add some notes"
 msgstr "Einige Notizen hinzufügen"
 
-#: v2/templates/calendar/checkin.php:361
+#: v2/templates/calendar/checkin.php:355
 msgid "Validate Attendance"
 msgstr "Anwesenheit validieren"
 
-#: v2/templates/calendar/checkin.php:375
+#: v2/templates/calendar/checkin.php:369
 #: v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "Zurück zu Veranstaltungen"
@@ -7737,22 +7749,22 @@ msgid "Delele All Attendees"
 msgstr "Delele Alle Teilnehmer"
 
 #: v2/templates/calendar/eventnames.php:115
-#: v2/templates/calendar/eventtypesedit.php:142
+#: v2/templates/calendar/eventtypesedit.php:147
 msgid "Weekly on"
 msgstr "Wöchentlich am"
 
 #: v2/templates/calendar/eventnames.php:115
-#: v2/templates/calendar/eventtypesedit.php:142
+#: v2/templates/calendar/eventtypesedit.php:147
 msgid "s"
 msgstr "s"
 
 #: v2/templates/calendar/eventnames.php:118
-#: v2/templates/calendar/eventtypesedit.php:145
+#: v2/templates/calendar/eventtypesedit.php:150
 msgid "Monthly on"
 msgstr "Monatlich am"
 
 #: v2/templates/calendar/eventnames.php:121
-#: v2/templates/calendar/eventtypesedit.php:148
+#: v2/templates/calendar/eventtypesedit.php:153
 msgid "Yearly on"
 msgstr "Jährlich am"
 
@@ -7762,7 +7774,7 @@ msgstr "NAME DER EREIGNISART"
 
 #: v2/templates/calendar/eventnames.php:174
 #: v2/templates/calendar/eventnames.php:303
-#: v2/templates/calendar/eventtypesedit.php:228
+#: v2/templates/calendar/eventtypesedit.php:233
 msgid "Recurrence Pattern"
 msgstr "Wiederholungsmuster"
 
@@ -7870,12 +7882,12 @@ msgid "custom event types"
 msgstr "benutzerdefinierte Ereignistypen"
 
 #: v2/templates/calendar/eventnames.php:301
-#: v2/templates/calendar/eventtypesedit.php:194
+#: v2/templates/calendar/eventtypesedit.php:199
 msgid "Event Type"
 msgstr "Veranstaltungstyp"
 
 #: v2/templates/calendar/eventnames.php:305
-#: v2/templates/calendar/eventtypesedit.php:244
+#: v2/templates/calendar/eventtypesedit.php:249
 msgid "Attendance Counts"
 msgstr "Anwesenheit zählt"
 
@@ -7968,61 +7980,61 @@ msgstr "Ereignisse im Jahr"
 msgid "Return to Calendar"
 msgstr "Zurück zu Kalender"
 
-#: v2/templates/calendar/eventtypesedit.php:41
+#: v2/templates/calendar/eventtypesedit.php:42
 msgid "Event count name deleted"
 msgstr "Name der Ereigniszählung gelöscht"
 
-#: v2/templates/calendar/eventtypesedit.php:53
+#: v2/templates/calendar/eventtypesedit.php:55
 msgid "Event count name added"
 msgstr "Name der Ereigniszählung hinzugefügt"
 
-#: v2/templates/calendar/eventtypesedit.php:71
+#: v2/templates/calendar/eventtypesedit.php:74
 msgid "Name changed"
 msgstr "Name geändert"
 
-#: v2/templates/calendar/eventtypesedit.php:89
+#: v2/templates/calendar/eventtypesedit.php:93
 msgid "Color changed"
 msgstr "Farbe geändert"
 
-#: v2/templates/calendar/eventtypesedit.php:107
+#: v2/templates/calendar/eventtypesedit.php:112
 msgid "Event time modified"
 msgstr "Uhrzeit des Ereignisses geändert"
 
-#: v2/templates/calendar/eventtypesedit.php:184
+#: v2/templates/calendar/eventtypesedit.php:189
 msgid "Edit Event Type"
 msgstr "Ereignistyp bearbeiten"
 
-#: v2/templates/calendar/eventtypesedit.php:202
+#: v2/templates/calendar/eventtypesedit.php:207
 msgid "Save Name"
 msgstr "Name speichern"
 
-#: v2/templates/calendar/eventtypesedit.php:208
+#: v2/templates/calendar/eventtypesedit.php:213
 msgid "Event Type Color"
 msgstr "Ereignis Typ Farbe"
 
-#: v2/templates/calendar/eventtypesedit.php:214
+#: v2/templates/calendar/eventtypesedit.php:219
 msgid "Color"
 msgstr "Farbe"
 
-#: v2/templates/calendar/eventtypesedit.php:222
+#: v2/templates/calendar/eventtypesedit.php:227
 msgid "Save Color"
 msgstr "Farbe speichern"
 
-#: v2/templates/calendar/eventtypesedit.php:254
+#: v2/templates/calendar/eventtypesedit.php:259
 #: v2/templates/people/familylist.php:69 v2/templates/people/familylist.php:123
 #: v2/templates/people/personlist.php:61 v2/templates/people/personlist.php:111
 msgid "Remove"
 msgstr "entfernen"
 
-#: v2/templates/calendar/eventtypesedit.php:263
+#: v2/templates/calendar/eventtypesedit.php:268
 msgid "New Attendance Count"
 msgstr "Neue Anwesenheitsliste"
 
-#: v2/templates/calendar/eventtypesedit.php:267
+#: v2/templates/calendar/eventtypesedit.php:272
 msgid "Add counter"
 msgstr "Zähler hinzufügen"
 
-#: v2/templates/calendar/eventtypesedit.php:277
+#: v2/templates/calendar/eventtypesedit.php:282
 msgid "Return to Event Types"
 msgstr "Zurück zu Ereignistypen"
 
@@ -8030,48 +8042,48 @@ msgstr "Zurück zu Ereignistypen"
 msgid "No family name entered!"
 msgstr "Kein Familienname eingegeben!"
 
-#: v2/templates/cart/cartToFamily.php:224
+#: v2/templates/cart/cartToFamily.php:222
 msgid "Assign Role"
 msgstr "Rolle zuweisen"
 
-#: v2/templates/cart/cartToFamily.php:247
+#: v2/templates/cart/cartToFamily.php:245
 msgid "Already in a family"
 msgstr "Bereits in einer Familie"
 
-#: v2/templates/cart/cartToFamily.php:262
+#: v2/templates/cart/cartToFamily.php:260
 msgid "Choose or create a family"
 msgstr "Eine Familie auswählen oder erstellen"
 
-#: v2/templates/cart/cartToFamily.php:267
-#: v2/templates/cart/cartToFamily.php:500
+#: v2/templates/cart/cartToFamily.php:265
+#: v2/templates/cart/cartToFamily.php:498
 msgid "Add to Family"
 msgstr "Zur Familie hinzufügen"
 
-#: v2/templates/cart/cartToFamily.php:271
+#: v2/templates/cart/cartToFamily.php:269
 msgid "Create new family"
 msgstr "Neue Familie erstellen"
 
-#: v2/templates/cart/cartToFamily.php:290
+#: v2/templates/cart/cartToFamily.php:288
 msgid "If adding a new family, enter data below."
 msgstr "Wenn Sie eine neue Familie hinzufügen, geben Sie die Daten unten ein."
 
-#: v2/templates/cart/cartToFamily.php:328
+#: v2/templates/cart/cartToFamily.php:326
 msgid "Use address/contact data from"
 msgstr "Verwenden Sie Adress-/Kontaktdaten aus"
 
-#: v2/templates/cart/cartToFamily.php:332
+#: v2/templates/cart/cartToFamily.php:330
 msgid "Only the new data below"
 msgstr "Nur die folgenden neuen Daten"
 
-#: v2/templates/cart/cartToFamily.php:391
+#: v2/templates/cart/cartToFamily.php:389
 msgid "OR"
 msgstr "OR"
 
-#: v2/templates/cart/cartToFamily.php:396
+#: v2/templates/cart/cartToFamily.php:394
 msgid "(Use the textbox for countries other than US and Canada)"
 msgstr "(Verwenden Sie das Textfeld für andere Länder als die USA und Kanada)"
 
-#: v2/templates/cart/cartToFamily.php:506
+#: v2/templates/cart/cartToFamily.php:504
 msgid "Your cart is empty!"
 msgstr "Ihr Warenkorb ist leer!"
 

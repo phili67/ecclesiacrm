@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-29T11:15:37.333Z\n"
+"POT-Creation-Date: 2025-08-02T18:56:25.346Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -410,8 +410,14 @@ msgstr "Angi mappenavn"
 msgid "Actualize files"
 msgstr "Aktualiser filer"
 
+msgid "preview currently being created"
+msgstr ""
+
 msgid "Set a File/Folder name"
 msgstr "Angi et fil-/mappenavn"
+
+msgid "Download Error"
+msgstr ""
 
 msgid "User"
 msgstr "Bruker"
