@@ -16,8 +16,6 @@ use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\Utils\RedirectUtils;
-
 
 use Slim\Views\PhpRenderer;
 
