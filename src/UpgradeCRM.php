@@ -87,7 +87,7 @@ Header_body_scripts();
 </div>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
  $("#doBackup").on('click',function(){
-   $("#status1").html('<i class="far fa-circle-notch fa-spin"></i>');
+   $("#status1").html('<i class="fas fa-spin fa-spinner"></i>');
 
    fetch(window.CRM.root +'/api/database/backup', {            
         method: 'POST',
@@ -118,7 +118,7 @@ Header_body_scripts();
  });
 
  $("#fetchUpdate").on('click',function(){
-    $("#status2").html('<i class="far fa-circle-notch fa-spin"></i>');
+    $("#status2").html('<i class="fas fa-spin fa-spinner"></i>');
 
     fetch(window.CRM.root +'/api/systemupgrade/downloadlatestrelease', {            
         method: 'GET',
@@ -140,7 +140,7 @@ Header_body_scripts();
  });
 
  $("#applyUpdate").on('click',function(){
-   $("#status3").html('<i class="far fa-circle-notch fa-spin"></i>');
+   $("#status3").html('<i class="fas fa-spin fa-spinner"></i>');
    fetch(window.CRM.root +'/api/systemupgrade/doupgrade', {            
         method: 'POST',
         headers: {
