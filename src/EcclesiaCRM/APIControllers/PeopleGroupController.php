@@ -43,6 +43,7 @@ use EcclesiaCRM\Reports\PDF_Badge;
 use EcclesiaCRM\MyPDO\CardDavPDO;
 use EcclesiaCRM\Service\GroupService;
 use Propel\Runtime\Propel;
+use Slim\Exception\HttpInternalServerErrorException;
 
 class PeopleGroupController
 {
@@ -195,7 +196,7 @@ class PeopleGroupController
         if ( isset ($options->groupID) and SessionUser::getUser()->isManageGroupsEnabled() ) {
             $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
 
-            if ($managers != null) {
+            if (!is_null($managers)) {
                 $managers->delete();
             }
             return $response->withJson(['status' => "success"]);
@@ -210,7 +211,7 @@ class PeopleGroupController
         if ( isset ($options->groupID) and isset ($options->personID) and SessionUser::getUser()->isManageGroupsEnabled() ) {
             $manager = GroupManagerPersonQuery::Create()->filterByPersonID($options->personID)->filterByGroupId($options->groupID)->findOne();
 
-            if ($manager != null) {
+            if (!is_null($manager)) {
                 $manager->delete();
             }
 
@@ -632,16 +633,16 @@ class PeopleGroupController
         $flag = $args['value'];
         if ($flag == "true" || $flag == "false") {
             $group = GroupQuery::create()->findOneById($groupID);
-            if ($group != null) {
+            if (!is_null($group)) {
                 $group->setActive($flag);
                 $group->save();
             } else {
-                return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid group id']);
-            }
-            return $response->withJson(['status' => "success"]);
+                throw new HttpInternalServerErrorException($request, 'invalid group id');                
+            }            
         } else {
-            return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid status value']);
+            throw new HttpInternalServerErrorException($request, 'invalid status value');            
         }
+        return $response->withJson(['status' => "success"]);
     }
 
     public function settingsEmailExportVvalue(ServerRequest $request, Response $response, array $args): Response {
@@ -649,15 +650,15 @@ class PeopleGroupController
         $flag = $args['value'];
         if ($flag == "true" || $flag == "false") {
             $group = GroupQuery::create()->findOneById($groupID);
-            if ($group != null) {
+            if (!is_null($group)) {
                 $group->setIncludeInEmailExport($flag);
                 $group->save();
             } else {
-                return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid group id']);
+                throw new HttpInternalServerErrorException($request, 'invalid group id');                
             }
             return $response->withJson(['status' => "success"]);
         } else {
-            return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid export value']);
+            throw new HttpInternalServerErrorException($request, 'invalid export value');
         }
     }
 

@@ -261,16 +261,22 @@ class VIEWCalendarController {
 
 
         //Start off by first picking the event to check people in for
+        // We filter only the events in the current month
         $activeEvents = EventQuery::Create()
             ->filterByInActive(1, Criteria::NOT_EQUAL)
-            ->Where('MONTH(event_start) = ' . date('m') . ' AND YEAR(event_start)=' . date('Y'))// We filter only the events from the current month
+            ->Where('MONTH(event_start) = ' . date('m') . ' AND YEAR(event_start)=' . date('Y')
+                . ' OR MONTH(event_end) = ' . date('m') . ' AND YEAR(event_end)=' . date('Y'))
             ->orderByStart('desc')
             ->find();
 
+        $date = date('Y-m-d');
+
         $searchEventInActivEvent = EventQuery::Create()
             ->filterByInActive(1, Criteria::NOT_EQUAL)
-            ->Where('MONTH(event_start) = ' . date('m') . ' AND YEAR(event_start)=' . date('Y'))// We filter only the events from the current month
-            ->findOneById($EventID);
+            ->Where("event_start <= '" . $date . "' AND '". $date . "' <= event_end")// We filter only the events from the current month
+            ->filterById($EventID)
+            ->findOne();
+            
 
         //get Event Details
         $event = EventQuery::Create()
