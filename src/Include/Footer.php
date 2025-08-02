@@ -18,7 +18,7 @@ use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Theme;
 
 use EcclesiaCRM\PluginQuery;
-
+use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 ?>
@@ -429,25 +429,22 @@ use Propel\Runtime\ActiveQuery\Criteria;
 <?php
 // we load the plugin
 if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
-    // only dashboard plugins are loaded on the maindashboard page
     $plugins = PluginQuery::create()
+        ->filterByActiv(1)
         ->filterByCategory('Dashboard', Criteria::EQUAL )
+        ->usePluginUserRoleQuery()
+            ->filterByUserId(SessionUser::getId())
+            ->filterByDashboardVisible(true)
+        ->endUse()
         ->findByActiv(true);
 
     foreach ($plugins as $plugin) {
-        if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
-            if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/")) {
-                $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/");
-    
-                foreach ($files as $file) {
-                    if (!in_array($file, [".", ".."])) {
-            ?>
-                    <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/js/<?= $file ?>"></script>
-    <?php
-                    }
-                }
-            }
-        }
+        ?>
+            <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
+        <?php
+        if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/")) {
+            $directories = MiscUtils::expandDirectories(SystemURLs::getDocumentRoot() . "/Plugins/" . $plugin->getName() . "/skin/js", $plugin->getName());        
+        }        
     }        
 } elseif (!is_null(SessionUser::getPluginName()) and SessionUser::getPluginName() != "") {
     $plugin = PluginQuery::create()
@@ -455,17 +452,9 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
         ->filterByName(SessionUser::getPluginName())
         ->findOneByActiv(true);
 
-    if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/")) {
-        $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/");
-
-        foreach ($files as $file) {
-            if (!in_array($file, [".", ".."])) {
-        ?>
-            <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
-        <?php
-            }
-        }
-    }
+    ?>
+        <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
+    <?php
 }
 ?>
 
