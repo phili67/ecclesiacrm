@@ -364,14 +364,29 @@ $(function () {
 
         if (selectedRows != 1) {
             $('.filmanager-right').hide();
-        } else {        
+        } else {   
+
+            $('.filmanager-right').show();
+
+            $('.preview').html("");
+
+            $('.preview-title').html(i18next.t("preview currently being created"));
+
+            let h2 = document.createElement('h2');
+
+            let icon = document.createElement('i');
+            icon.setAttribute('class','fas fa-spin fa-spinner');//fas fa-spin fa-spinner
+
+            h2.append(icon);
+
+            $('.preview').append(h2);                        
+            
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'filemanager/getPreview',
                 data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
             }, function (data) {
-                if (data && data.success) {
-                    $('.filmanager-right').show();
+                if (data && data.success) {                    
                     $('.preview-title').html(data.name);
                     $('.preview').html(data.path);
                     if (data.link) {
