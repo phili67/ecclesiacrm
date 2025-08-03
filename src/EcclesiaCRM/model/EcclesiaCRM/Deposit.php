@@ -47,7 +47,7 @@ class Deposit extends BaseDeposit
             throw new \Exception('No Payments on this Deposit', 404);
         }
 
-        $orgName = 'EcclesiaCRM Deposit Data';
+        $orgName = 'CRM Deposit Data';
         $OFXReturn->content = 'OFXHEADER:100'.PHP_EOL.
             'DATA:OFXSGML'.PHP_EOL.
             'VERSION:102'.PHP_EOL.

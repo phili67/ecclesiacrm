@@ -20,7 +20,7 @@ class UpdateAccountEmail extends BaseUserEmail
 
     protected function buildMessageBody()
     {
-        return _("Your EcclesiaCRM account was updated").":";
+        return _("Your CRM account was updated").":";
     }
 
     public function getTokens()

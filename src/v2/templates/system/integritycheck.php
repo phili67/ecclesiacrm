@@ -32,14 +32,14 @@ if (AppIntegrityService::arePrerequisitesMet()) {
     ?>
   <div class="alert alert-success">
     <h4><?= _('All Application Prerequisites Satisfied') ?> </h4>
-    <p><?= _('All components that EcclesiaCRM relies upon are present and correctly configured on this server') ?></p>
+    <p><?= _('All components that CRM relies upon are present and correctly configured on this server') ?></p>
   </div>
   <?php
 } else {
         ?>
   <div class="alert alert-danger">
     <h4><?= _('Unmet Application Prerequisites') ?> </h4>
-    <p><?= _('Certain components that EcclesiaCRM relies upon are missing or improperly configured on this server.  The application may continue to function, but may produce unexpected behavior.') ?></p>
+    <p><?= _('Certain components that CRM relies upon are missing or improperly configured on this server.  The application may continue to function, but may produce unexpected behavior.') ?></p>
     <ul>
       <?php
       foreach (AppIntegrityService::getUnmetPrerequisites() as $prerequisite) {

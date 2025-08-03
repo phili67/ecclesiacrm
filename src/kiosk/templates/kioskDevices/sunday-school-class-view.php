@@ -3,7 +3,7 @@
 use EcclesiaCRM\dto\SystemURLs;
 
 // Set the page title and include HTML header
-$sPageTitle = "EcclesiaCRM - Sunday School Device Kiosk";
+$sPageTitle = "CRM - Sunday School Device Kiosk";
 require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 
 ?>

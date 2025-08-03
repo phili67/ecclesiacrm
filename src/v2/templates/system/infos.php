@@ -13,12 +13,12 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                <h4><?= _("EcclesiaCRM Installation Information") ?></h4>
+                <h4><?= _("CRM Installation Information") ?></h4>
             </div>
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
                     <tr>
-                        <td>EcclesiaCRM <?= _("Software Version") ?></td>
+                        <td><?= Bootstrapper::getAppName() ?> <?= _("Software Version") ?></td>
                         <td><?= SystemService::getInstalledVersion() ?></td>
                     </tr>
                     <tr>
@@ -138,7 +138,7 @@ EOD;
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
                     <tr>
-                        <td>EcclesiaCRM <?= _("Database Version") ?></td>
+                        <td><?= Bootstrapper::getAppName() ?> <?= _("Database Version") ?></td>
                         <td><?= SystemService::getDBVersion() ?></td>
                     </tr>
                     <tr>

@@ -1,17 +1,19 @@
 <?php
+
+use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\dto\ChurchMetaData;
 
 // Set the page title and include HTML header
-$sPageTitle = "EcclesiaCRM - Family Verification";
+$sPageTitle = "CRM - Family Verification";
 require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 ?>
     <div class="login-box" id="Login" <?= ($_SESSION['iLoginType'] != "Lock") ? "" : 'style="display: none;"' ?>>
         <!-- /.login-logo -->
         <div class="card login-box-body card card-outline card-success">
             <div class="card-header login-logo">
-                Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?><br>
+                <?= Bootstrapper::getAppName() ?> <?= SystemService::getDBMainVersion() ?><br>
                 <b><?= _('Members') ?></b>
             </div>
             <div class="card-body login-card-body">

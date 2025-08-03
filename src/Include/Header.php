@@ -219,10 +219,10 @@ Header_system_notifications();
     <aside class="main-sidebar <?= Theme::getCurrentSideBarTypeColor() ?> <?= Theme::isSidebarExpandOnHoverEnabled() ?> elevation-2" <?= (Theme::getCurrentSideBarMainColor() == 'light')?'style="background:repeating-linear-gradient(0deg,rgba(255,255,255,0.95),rgba(200,200,200,0.95)),url(/Images/sidebar.jpg);background-repeat: repeat-y;"':'style="background: repeating-linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(114, 114, 114, 0.95)),url(/Images/sidebar.jpg);background-repeat: repeat-y;"' ?>>
         <!-- sidebar: style can be found in sidebar.less -->
         <a href="<?= SystemURLs::getRootPath() ?>/v2/dashboard" class="brand-link <?= Theme::getCurrentNavBrandLinkColor() ?>">
-            <img src="<?= SystemURLs::getRootPath() ?>/icon-small.png" alt="EcclesiaCRM Logo"
+            <img src="<?= SystemURLs::getRootPath() ?>/icon-small.png" alt="CRM Logo"
                  class="brand-image img-circle-20 elevation-1" style="opacity: .8">
             <span
-                class="brand-text font-weight-light">Ecclesia<b>CRM</b> <?= SystemService::getDBMainVersion() ?> (B46)</span>
+                class="brand-text font-weight-light"><?= Bootstrapper::getAppName() ?> <?= SystemService::getDBMainVersion() ?> (B46)</span>
         </a>
 
         <section class="sidebar">

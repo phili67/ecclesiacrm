@@ -131,7 +131,7 @@ class SystemService
             'Platform Information | ' . php_uname($mode = 'a') . "\r\n" .
             'PHP Version | ' . phpversion() . "\r\n" .
             'SQL Version | ' . $this->getDBServerVersion() . "\r\n" .
-            'EcclesiaCRM Version |' . $_SESSION['sSoftwareInstalledVersion'] . "\r\n" .
+            'CRM Version |' . $_SESSION['sSoftwareInstalledVersion'] . "\r\n" .
             'Reporting Browser |' . $_SERVER['HTTP_USER_AGENT'] . "\r\n".
             'Prerequisite Status |' . ( AppIntegrityService::arePrerequisitesMet() ? "All Prerequisites met" : "Missing Prerequisites: " .json_encode(AppIntegrityService::getUnmetPrerequisites()))."\r\n";
             //'Integrity check status |' . file_get_contents(SystemURLs::getDocumentRoot() . '/integrityCheck.json')."\r\n";

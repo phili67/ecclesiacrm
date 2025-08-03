@@ -155,7 +155,7 @@ require $sRootDocument . '/Include/Header.php';
                                         href="tel:<?= $sCellPhone ?>"><?= $sCellPhone ?></a></span></li>
                             <li><strong><i class="fa-li fas fa-mobile"></i><?= _('Text Message') ?>:
                                 </strong><span><a
-                                        href="sms:<?= $sCellPhone ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span>
+                                        href="sms:<?= $sCellPhone ?>&body=<?= _("CRM text message") ?>"><?= $sCellPhone ?></a></span>
                             </li>
 
                             <?php

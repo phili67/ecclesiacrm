@@ -3,7 +3,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 
 // Set the page title and include HTML header
-$sPageTitle = "EcclesiaCRM - Family Verification";
+$sPageTitle = "CRM - Family Verification";
 require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 ?>
 

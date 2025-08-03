@@ -137,7 +137,7 @@ window.CRM.renderMailchimpLists = function  () {
       real_listMenu.html(listItems);
 
       if ( data.firstLoaded == true ) {
-        window.CRM.notify('fas fa-info-circle',i18next.t("Mailchimp"), i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top",50000);
+        window.CRM.notify('fas fa-info-circle',i18next.t("Mailchimp"), i18next.t("All the lists are now loaded in the CRM.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top",50000);
       }
     }
 
@@ -906,7 +906,7 @@ window.CRM.cart={
       path:"register/isRegisterRequired"
     },function(data) {
       if (data.Register) {
-         window.CRM.notify('fa  fa-info-circle',i18next.t("Register")+".",i18next.t("Register your software to EcclesiaCRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\"><i class=\"fas fa-arrow-circle-right\"></i></a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"Left");
+         window.CRM.notify('fa  fa-info-circle',i18next.t("Register")+".",i18next.t("Register your software to CRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\"><i class=\"fas fa-arrow-circle-right\"></i></a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"Left");
       }
     });
 
@@ -1005,7 +1005,7 @@ window.CRM.register = function () {
           + '</div>'
           + '<div class="card card-primary">'
           + '  <div class="card-header  border-1">'
-          +    i18next.t('Please register your copy of EcclesiaCRM by checking over this information and pressing the Send button.')
+          +    i18next.t('Please register your copy of CRM by checking over this information and pressing the Send button.')
           + '  '
           +    i18next.t('This information is used only to track the usage of this software.')
           + '  </div>'
@@ -1018,7 +1018,7 @@ window.CRM.register = function () {
           +      i18next.t('Zip') + ':' + data.ChurchZip + '<br>'
           +      i18next.t('Country') + ':' + data.ChurchCountry + '<br>'
           +      i18next.t('Church Email') + ':' + data.ChurchEmail + '<br>'
-          +      'EcclesiaCRM ' + i18next.t('Base URL') + ':' + data.EcclesiaCRMURL + '<br>'
+          +      'CRM ' + i18next.t('Base URL') + ':' + data.EcclesiaCRMURL + '<br>'
           +      '<br>' + i18next.t('Message')
           +      '<textarea class= "form-control form-control-sm" id="registeremailmessage" name="emailmessage" rows="10" cols="72">' + data.EmailMessage + '</textarea>'
           +      '<input type="hidden" name="EcclesiaCRMURL" value="' + data.EcclesiaCRMURL + '"/>'

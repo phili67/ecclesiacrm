@@ -1,5 +1,6 @@
 <?php
 
+use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 
@@ -12,7 +13,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
         <div class="card card-outline card-primary">
             <div class="card-header login-logo">
                 <?php
-                $headerHTML = 'Ecclesia<b>CRM</b>';
+                $headerHTML = Bootstrapper::getAppName();
                 $sHeader = SystemConfig::getValue("sHeader");
                 $sChurchName = SystemConfig::getValue("sChurchName");
                 if (!empty($sHeader)) {

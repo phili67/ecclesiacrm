@@ -30,6 +30,7 @@ namespace EcclesiaCRM
       private static $allowableURLs;
       private static $DavServer;
       private static $localeInfo;
+      private static $sAppName;
 
       /**
        *
@@ -39,7 +40,8 @@ namespace EcclesiaCRM
       private static $serviceContainer;
       private static $serviceContainer2;
 
-      public static function init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false)
+      public static function init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, 
+            $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false,$sAppName)
       {
           global $debugBootstrapper;
           self::$databaseServerName = $sSERVERNAME;
@@ -52,6 +54,7 @@ namespace EcclesiaCRM
           self::$allowableURLs = $URL;
           self::$DavServer = $davserver;
           self::$localeInfo = NULL;
+          self::$sAppName = $sAppName;
 
           try {
               SystemURLs::init($sRootPath, $URL, dirname(dirname(__FILE__)));
@@ -113,6 +116,11 @@ namespace EcclesiaCRM
               self::$localeInfo = new LocaleInfo(SystemConfig::getValue('sLanguage'));
 
           return self::$localeInfo;
+      }
+
+      public static function getAppName(): string
+      {
+        return self::$sAppName;
       }
 
       public static function getRealLocalInfo()
@@ -253,7 +261,7 @@ namespace EcclesiaCRM
       }
       private static function isDatabaseEmpty()
       {
-          self::$bootStrapLogger->debug("Checking for EcclesiaCRM Datbase tables");
+          self::$bootStrapLogger->debug("Checking for CRM Database tables");
           $connection = Propel::getConnection();
           $query = "SHOW TABLES FROM `".self::$databaseName."`";
           $statement = $connection->prepare($query);
@@ -269,7 +277,7 @@ namespace EcclesiaCRM
 
       private static function installEcclesiaCRMSchema()
       {
-          self::$bootStrapLogger->info("Installing EcclesiaCRM Schema");
+          self::$bootStrapLogger->info("Installing CRM Schema");
           $connection = Propel::getConnection();
           $version = new Version();
           $version->setVersion(SystemService::getInstalledVersion());
@@ -292,7 +300,7 @@ namespace EcclesiaCRM
 
           $version->setUpdateEnd(new \DateTime());
           $version->save();
-          self::$bootStrapLogger->info("Installed EcclesiaCRM Schema version: " . SystemService::getInstalledVersion());
+          self::$bootStrapLogger->info("Installed CRM Schema version: " . SystemService::getInstalledVersion());
       }
 
       private static function initSession()
@@ -410,7 +418,7 @@ namespace EcclesiaCRM
           }
           require 'Include/HeaderNotLoggedIn.php'; ?>
           <div class='container'>
-              <h3>EcclesiaCRM – <?= _($header) ?></h3>
+              <h3><?= self::getAppName() ?> – <?= _($header) ?></h3>
               <div class='alert alert-danger text-center' style='margin-top: 20px;'>
                   <?= _($message) ?>
               </div>

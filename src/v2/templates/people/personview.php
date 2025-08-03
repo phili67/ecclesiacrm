@@ -259,7 +259,7 @@ require $sRootDocument . '/Include/Header.php';
                                             href="tel:<?= $PersonInfos['sCellPhoneUnformatted'] ?>"><?= $PersonInfos['sCellPhone'] ?></a></span></li>
                                 <li><strong><i class="fa-li fas fa-mobile"></i><?= _('Text Message') ?>:</strong>
                                     <span><a
-                                            href="sms:<?= str_replace(' ', '', $PersonInfos['sCellPhoneUnformatted']) ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $PersonInfos['sCellPhone'] ?></a></span>
+                                            href="sms:<?= str_replace(' ', '', $PersonInfos['sCellPhoneUnformatted']) ?>&body=<?= _("CRM text message") ?>"><?= $PersonInfos['sCellPhone'] ?></a></span>
                                 </li>
                                 <?php
                             }

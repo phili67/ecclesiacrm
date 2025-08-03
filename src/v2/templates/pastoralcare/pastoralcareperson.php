@@ -268,7 +268,7 @@ $sFamilyEmails = [];
                                         href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
                             <li><strong><i class="fa-li fas fa-mobile"></i><?= _('Text Message') ?>:</strong>
                                 <span><a
-                                        href="sms:<?= str_replace(' ', '', $sCellPhoneUnformatted) ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span>
+                                        href="sms:<?= str_replace(' ', '', $sCellPhoneUnformatted) ?>&body=<?= _("CRM text message") ?>"><?= $sCellPhone ?></a></span>
                             </li>
                             <?php
                         }
