@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-08-02T18:56:25.346Z\n"
+"POT-Creation-Date: 2025-08-03T18:42:00.158Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,12 +35,11 @@ msgstr "种类"
 msgid "Family Role"
 msgstr "家庭角色"
 
-#, fuzzy
 msgid "Subject:"
 msgstr "主题"
 
 msgid "Compose New Message"
-msgstr ""
+msgstr "撰写新信息"
 
 msgid "Close"
 msgstr "关闭"
@@ -60,18 +59,17 @@ msgstr "堆栈跟踪"
 msgid "ERROR"
 msgstr "错误"
 
-#, fuzzy
 msgid "In progress"
-msgstr "在进展中...."
+msgstr "进行中"
 
 msgid "Mailchimp"
 msgstr "邮件营销"
 
 msgid ""
-"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to "
-"manage them, click this notification !</b>"
+"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
+"click this notification !</b>"
 msgstr ""
-"所有的名单现在已经加载到Ecclesia<b>CRM</b>。<br><b>如果你想管理它们，请点击这"
+"所有的名单现在已经加载到<b>CRM</b>。<br><b>如果你想管理它们，请点击这"
 "个通知！</b>。"
 
 msgid "There was a problem retrieving the requested object"
@@ -318,24 +316,20 @@ msgstr "你已经选择了两次相同的名字"
 msgid "for this field. Chose another one."
 msgstr "为这个领域。选择另一个。"
 
-#, fuzzy
 msgid "Remove Plugin"
-msgstr "移除所有"
+msgstr "删除插件"
 
-#, fuzzy
 msgid "You're about to remove the plugin from yout dashboard !!!"
-msgstr "你即将删除你的活动!你确定吗？"
+msgstr "您即将从您的仪表板上删除插件！！！！！！！！！！！！您将会看到一个新的插件，它将会在您的仪表板上显示！"
 
 msgid "Confirm"
 msgstr "确认"
 
-#, fuzzy
 msgid "Dashboard Item"
-msgstr "仪表板"
+msgstr "仪表板项目"
 
-#, fuzzy
 msgid "Removed from your dashboard !"
-msgstr "从购物车中删除"
+msgstr "已从您的仪表板上删除 !"
 
 msgid "Please confirm deletion of this document"
 msgstr "请确认删除此文件"
@@ -400,25 +394,23 @@ msgstr "这是不可能被撤销的 !!!!"
 msgid "You've to select at least one line !!!"
 msgstr "你必须至少选择一条线！！！。"
 
-#, fuzzy
 msgid "Create a Folder"
-msgstr "创建一个。"
+msgstr "创建文件夹"
 
 msgid "Set your Folder name"
 msgstr "设置你的文件夹名称"
 
-#, fuzzy
 msgid "Actualize files"
-msgstr "落实"
+msgstr "实现文件"
 
 msgid "preview currently being created"
-msgstr ""
+msgstr "正在创建预览"
 
 msgid "Set a File/Folder name"
 msgstr "设置一个文件/文件夹名称"
 
 msgid "Download Error"
-msgstr ""
+msgstr "下载错误"
 
 msgid "User"
 msgstr "用户"
@@ -429,13 +421,11 @@ msgstr "[👀 ✐]"
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
-#, fuzzy
 msgid "Are you sure you want to stop sharing for selected users?"
-msgstr "你确定你要停止分享你的文件吗？"
+msgstr "您确定要停止共享选定的用户吗？"
 
-#, fuzzy
 msgid "Are you sure, you want to stop all sharing ?"
-msgstr "你确定你要停止分享你的文件吗？"
+msgstr "你确定要停止所有共享？"
 
 msgid "Tracking"
 msgstr "追踪"
@@ -712,9 +702,8 @@ msgstr "出席率统计"
 msgid "Start Date"
 msgstr "开始日期"
 
-#, fuzzy
 msgid "All day"
-msgstr "所有标签"
+msgstr "全天"
 
 msgid "End Date"
 msgstr "结束日期"
@@ -839,26 +828,23 @@ msgstr "按类型划分的活动"
 msgid "Text for Event ID"
 msgstr "事件ID的文本"
 
-#, fuzzy
 msgid "Undo Check-out"
-msgstr "结账"
+msgstr "撤销退房"
 
-#, fuzzy
 msgid "Make Check-out"
 msgstr "结账"
 
 msgid "Edit/Make Check-out - Undo Check-out"
-msgstr ""
+msgstr "编辑/制作退房 - 撤销退房"
 
 msgid "You can checkout or undo the checkout of the attendees of an event"
-msgstr ""
+msgstr "您可以签出或取消签出活动的与会者"
 
 msgid "Edit/Validate Checkout"
-msgstr ""
+msgstr "编辑/验证结账"
 
-#, fuzzy
 msgid "Check-out done"
-msgstr "结账日期"
+msgstr "退房已完成"
 
 msgid "CKEditor Template Creation"
 msgstr "CKEditor模板创建"
@@ -966,7 +952,7 @@ msgstr "用户删除确认"
 msgid ""
 "Be carefull, You are about to delete a user from the group and therefore the "
 "entire call history. This is strongly to be avoided."
-msgstr ""
+msgstr "请注意，您将从组中删除一个用户，从而删除整个通话记录。请尽量避免这样做。"
 
 msgid "This can't be undone"
 msgstr "这是不可能被撤销的"
@@ -1274,14 +1260,13 @@ msgid "Are you sure you want to change this property?"
 msgstr "你确定你要改变这个属性吗？"
 
 msgid "A kid should have a family in a sunday school group !"
-msgstr ""
+msgstr "孩子应该在主日学校小组里有一个家庭！"
 
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "你确定要删除所选组的成员吗？"
 
-#, fuzzy
 msgid "401 : Private Datas"
-msgstr "私人数据"
+msgstr "401 : Private Datas"
 
 msgid "Group Role"
 msgstr "集团角色"
@@ -1310,17 +1295,14 @@ msgstr "会员到购物车"
 msgid "Add to Cart"
 msgstr "添加到购物车"
 
-#, fuzzy
 msgid "Add to Group"
-msgstr "添加购物车到组"
+msgstr "添加到小组"
 
-#, fuzzy
 msgid "Move to Group"
-msgstr "选择组别"
+msgstr "移至组别"
 
-#, fuzzy
 msgid "Remove all members"
-msgstr "移除所有"
+msgstr "删除所有成员"
 
 msgid "Move"
 msgstr "移动"
@@ -1334,9 +1316,8 @@ msgstr "从购物车中删除"
 msgid "No assigned Manager"
 msgstr "没有指定经理"
 
-#, fuzzy
 msgid "Add users"
-msgstr "添加买家"
+msgstr "添加用户"
 
 msgid "Manage Group Managers"
 msgstr "管理集团经理"
@@ -1453,14 +1434,13 @@ msgid "Date Updated"
 msgstr "更新日期"
 
 msgid "Donations/eGives Moved by"
-msgstr ""
+msgstr "捐赠/电子捐赠"
 
 msgid "Verification URL"
 msgstr "验证网址"
 
-#, fuzzy
 msgid "Password"
-msgstr "密码重设为"
+msgstr "密码"
 
 msgid "Failed to add verification"
 msgstr "添加验证失败"
@@ -1471,54 +1451,44 @@ msgstr "发送验证邮件"
 msgid "Failed to send verification email"
 msgstr "发送验证邮件失败"
 
-#, fuzzy
 msgid "A person name or Family"
-msgstr "一个人的名字或家庭或团体"
+msgstr "一人名或家庭"
 
-#, fuzzy
 msgid "Modification"
-msgstr "修改日期"
+msgstr "修改"
 
-#, fuzzy
 msgid "By persons"
-msgstr "添加人"
+msgstr "由个人"
 
-#, fuzzy
 msgid "By Adresses"
-msgstr "地址"
+msgstr "按地址"
 
 msgid "Warning !!!!"
-msgstr ""
+msgstr "警告 !!!!"
 
 msgid ""
 "You're about to send a massive e-mail to all EcclesiaCRM members :<br>- "
 "prefer a test with a few people or families<br>- make sure you select all of "
 "them, either by address or by person."
-msgstr ""
+msgstr "您即将向 EcclesiaCRM 的所有成员发送一封大容量电子邮件：<br>- 请选择几个人或家庭进行测试<br>- 确保您按地址或个人选择了所有成员。"
 
-#, fuzzy
 msgid "You're about to send a e-mail to"
-msgstr "你要删除一个文件"
+msgstr "您要发送电子邮件至"
 
-#, fuzzy
 msgid "members"
 msgstr "成员"
 
-#, fuzzy
 msgid "You're about to delete all pending confirmation for all the persons."
-msgstr "你即将删除你所有的房间。"
+msgstr "您将删除所有人员的所有待确认信息。"
 
-#, fuzzy
 msgid "You're about to delete all done confirmation for all the persons."
-msgstr "你即将删除你所有的房间。"
+msgstr "您将删除所有人员的所有已完成确认。"
 
-#, fuzzy
 msgid "You're about to delete all pending confirmation for all the families."
-msgstr "你即将删除你所有的房间。"
+msgstr "您将删除所有家庭的所有待确认信息。"
 
-#, fuzzy
 msgid "You're about to delete all done confirmation for all the families."
-msgstr "你即将删除你所有的房间。"
+msgstr "您将删除所有家庭的所有确认信息。"
 
 msgid "Delete this person?"
 msgstr "删除这个人？"
@@ -1744,10 +1714,10 @@ msgid "Activ"
 msgstr "激活"
 
 msgid "Parent (hierarchy)"
-msgstr ""
+msgstr "父级（层级"
 
 msgid "Color"
-msgstr ""
+msgstr "颜色"
 
 msgid "Send Message"
 msgstr "发送信息"
@@ -2004,7 +1974,7 @@ msgid "Password reset for"
 msgstr "密码重设为"
 
 msgid "Mail connection failure"
-msgstr ""
+msgstr "邮件连接失败"
 
 msgid "Two factors authentications"
 msgstr "双因素认证"
@@ -2327,17 +2297,16 @@ msgid "Backup Running, Please wait."
 msgstr "备份正在运行，请等待。"
 
 msgid "Backup in progress, don't close the window !"
-msgstr ""
+msgstr "正在备份，请勿关闭窗口 ！"
 
-#, fuzzy
 msgid "Background backup in progress to remote server"
-msgstr "生成备份并复制到远程服务器"
+msgstr "正在向远程服务器进行后台备份"
 
 msgid "Background backup in progress"
-msgstr ""
+msgstr "正在进行后台备份"
 
 msgid "Backup Error."
-msgstr ""
+msgstr "备份错误。"
 
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "所选文件超过了本服务器的最大上传尺寸"
@@ -2346,7 +2315,7 @@ msgid "Restore Running, Please wait."
 msgstr "恢复运行，请等待。"
 
 msgid "Restore backup, don't close the window !"
-msgstr ""
+msgstr "恢复备份，不要关闭窗口 ！"
 
 msgid "Restore Complete"
 msgstr "恢复完成"
@@ -2360,7 +2329,7 @@ msgstr "复原错误。"
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
-msgstr ""
+msgstr "搜索条件如：姓名、电话号码、属性、组名等..."
 
 msgid "Done !"
 msgstr "完成了!"
@@ -2478,137 +2447,3 @@ msgstr "买方编号编辑"
 
 msgid "Select"
 msgstr "选择"
-
-#~ msgid "Backup Complete, Ready for Download."
-#~ msgstr "备份完成，可供下载。"
-
-#~ msgid "Remove all"
-#~ msgstr "移除所有"
-
-#~ msgid "Add all"
-#~ msgstr "添加所有"
-
-#~ msgid "You're about to remove a folder and it's content"
-#~ msgstr "你要删除一个文件夹和它的内容"
-
-#~ msgid "Files input"
-#~ msgstr "文件输入"
-
-#~ msgid "Upload your files"
-#~ msgstr "上传你的文件"
-
-#~ msgid "Upload"
-#~ msgstr "上传"
-
-#~ msgid "Upload your Files"
-#~ msgstr "上传你的文件"
-
-#~ msgid "Share your File"
-#~ msgstr "分享您的文件"
-
-#~ msgid "Members from group"
-#~ msgstr "小组成员"
-
-#~ msgid "Add person"
-#~ msgstr "添加人"
-
-#~ msgid "Switch Camera"
-#~ msgstr "开关摄像机"
-
-#~ msgid "Info"
-#~ msgstr "信息"
-
-#, fuzzy
-#~ msgid "Moved!"
-#~ msgstr "移动"
-
-#~ msgid "Problem"
-#~ msgstr "问题"
-
-#~ msgid ""
-#~ "Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
-#~ "webcam<br/>• Sharing your windows<br/> won't work with meeting."
-#~ msgstr ""
-#~ "Safari还不支持Jitsi，请使用其他东西！<br/>- 你的网络摄像头<br/>- 分享你的"
-#~ "窗口<br/> 不会与会议合作。"
-
-#~ msgid "Set a Jitsi room name"
-#~ msgstr "设置一个Jitsi房间名称"
-
-#~ msgid "Delete all Rooms?"
-#~ msgstr "删除所有房间？"
-
-#~ msgid "All"
-#~ msgstr "全部"
-
-#~ msgid ""
-#~ "Deleting an event will also delete all attendance counts for that event."
-#~ msgstr "删除一个活动也将删除该活动的所有出席人数。"
-
-#~ msgid "Are you sure you want to DELETE the event ?"
-#~ msgstr "你确定你要删除该事件吗？"
-
-#~ msgid ""
-#~ "You can create the event automatically with the students<br> - OR - "
-#~ "<br>Add the students to the cart and create an event to add them after."
-#~ msgstr ""
-#~ "你可以和学生一起自动创建事件<br> - 或者 - <br>将学生添加到购物车，然后创建"
-#~ "一个事件来添加他们。"
-
-#~ msgid "Liste par mois"
-#~ msgstr "按月列表"
-
-#~ msgid "Never"
-#~ msgstr "从不"
-
-#~ msgid "Attendances"
-#~ msgstr "就诊人数"
-
-#~ msgid "link"
-#~ msgstr "链接"
-
-#~ msgid "Present"
-#~ msgstr "目前"
-
-#~ msgid "Absent"
-#~ msgstr "缺席"
-
-#~ msgid "Attendance"
-#~ msgstr "出席情况"
-
-#~ msgid "Add all tags for the selected members in the list..."
-#~ msgstr "添加列表中选定成员的所有标签..."
-
-#~ msgid "Sunday School Menu assignement"
-#~ msgstr "主日学菜单的分配"
-
-#~ msgid "Sunday School Sub Menu"
-#~ msgstr "主日学次级菜单"
-
-#~ msgid "Sunday School"
-#~ msgstr "主日学"
-
-#~ msgid "List Details"
-#~ msgstr "列表详情"
-
-#~ msgid "Edit Value"
-#~ msgstr "编辑价值"
-
-#~ msgid ""
-#~ "Warning!  Do not select this option if you plan to add to an existing "
-#~ "database.<br/>"
-#~ msgstr "警告!  如果你打算添加到一个现有的数据库，请不要选择这个选项。"
-
-#~ msgid ""
-#~ "Use only if unsatisfied with initial import.  All person and member data "
-#~ "will be destroyed!"
-#~ msgstr "仅在对初始导入不满意时使用。  所有个人和成员的数据都将被销毁!"
-
-#~ msgid "Cart"
-#~ msgstr "頧行"
-
-#~ msgid "Are you sure, you want to delete this Person ?"
-#~ msgstr "你确定你要删除这个人吗？"
-
-#~ msgid "Set the year range to export"
-#~ msgstr "设置要出口的年份范围"
