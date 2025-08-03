@@ -151,7 +151,7 @@ class SystemConfig
             "sDateFilenameFormat" => new ConfigItem(106, "sDateFilenameFormat", "text", "Ymd-Gis"),
             "sDatePickerPlaceHolder" => new ConfigItem(109, "sDatePickerPlaceHolder", "choice", "yyyy-mm-dd", _("For defining the date in Date-Picker, per default : yyyy-mm-dd, In French : dd/mm/yyyy for example."), '', '{"Choices":["yyyy-mm-dd","dd/mm/yyyy","mm-dd-yyyy","mm/dd/yyyy"]}'),
             "sDatePickerFormat" => new ConfigItem(110, "sDatePickerFormat", "choice", "Y-m-d", _("For defining the date in Date-Picker, per default : Y-m-d, In French : d/m/Y for example."), '', '{"Choices":["Y-m-d","d/m/Y","m-d-Y","m/d/Y"]}'),
-            "bRegistered" => new ConfigItem(999, "bRegistered", "boolean", "0", _("EcclesiaCRM has been registered.  The EcclesiaCRM team uses registration information to track usage.  This information is kept confidential and never released or sold.  If this field is true the registration option in the admin menu changes to update registration.")),
+            "bRegistered" => new ConfigItem(999, "bRegistered", "boolean", "0", _("CRM has been registered.  The CRM team uses registration information to track usage.  This information is kept confidential and never released or sold.  If this field is true the registration option in the admin menu changes to update registration.")),
             "leftX" => new ConfigItem(1001, "leftX", "number", "20", _("Left Margin (1 = 1/100th inch)")),
             "incrementY" => new ConfigItem(1002, "incrementY", "number", "4", _("Line Thickness (1 = 1/100th inch")),
             "sChurchName" => new ConfigItem(1003, "sChurchName", "text", "", _("Church Name")),

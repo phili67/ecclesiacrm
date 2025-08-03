@@ -417,8 +417,8 @@ require_once $sRootDocument . '/Include/Header.php';
                 <div class="card-title"><?= _("Two-factor authentication (2fa)") ?> </div>
             </div>
             <div class="card-body" id="TwoFAEnrollmentSteps">
-                <p><?= _("Enrolling your EcclesiaCRM user account in Two Factor Authentication provides an EcclesiaCRM layer of defense against bad actors trying to access your account") ?>.</p>
-                <p><?= _("EcclesiaCRM Two factor supports any TOTP authenticator app") ?></p>
+                <p><?= _("Enrolling your CRM user account in Two Factor Authentication provides an CRM layer of defense against bad actors trying to access your account") ?>.</p>
+                <p><?= _("CRM Two factor supports any TOTP authenticator app") ?></p>
                 <hr>
                 <div class="row">
                     <div class="col-md-4">
@@ -432,7 +432,7 @@ require_once $sRootDocument . '/Include/Header.php';
                         <p><i class="far fa-check-square"></i> <?= _("After successfully entering both your credentials, and the one-time code, you'll be logged in as normal") ?></p></div>
                 </div>
                 <div class="clearfix"></div>
-                <div class="callout callout-warning"><p><?= _("To prevent being locked out of your EcclesiaCRM account, please ensure you're ready to complete two factor enrollment before clicking begin") ?></p>
+                <div class="callout callout-warning"><p><?= _("To prevent being locked out of your CRM account, please ensure you're ready to complete two factor enrollment before clicking begin") ?></p>
                 </div>
                 <ul>
                     <li><?= _("Beginning enrollment will invalidate any previously enrolled 2 factor devices and recovery codes.") ?>

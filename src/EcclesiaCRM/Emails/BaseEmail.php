@@ -2,6 +2,7 @@
 
 namespace EcclesiaCRM\Emails;
 
+use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\ChurchMetaData;
@@ -104,6 +105,8 @@ abstract class BaseEmail
             "confirmSigner" => SystemConfig::getValue('sConfirmSigner'),
             "unsubscribeStart" => SystemConfig::getValue('sUnsubscribeStart'),
             "unsubscribeEnd" => SystemConfig::getValue('sUnsubscribeEnd'),
+            "churAppaName" => Bootstrapper::getAppName(),
+            "currentYear" => date("Y")
         ];
     }
 

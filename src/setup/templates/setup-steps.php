@@ -37,7 +37,7 @@ function select_Timezone($selected = '') {
 
 $URL = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
-$sPageTitle = 'EcclesiaCRM – Setup';
+$sPageTitle = 'CRM – Setup';
 require '../Include/HeaderNotLoggedIn.php';
 ?>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
@@ -62,7 +62,7 @@ require '../Include/HeaderNotLoggedIn.php';
 
 </style>
 
-<h1 class="text-center">Welcome to Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?> setup wizard</h1>
+<h1 class="text-center">Welcome to App<b>CRM</b><?=SystemService::getPackageMainVersion() ?> setup wizard</h1>
 <p/><br/>
 <form id="setup-form">
     <div id="wizard">
@@ -71,7 +71,7 @@ require '../Include/HeaderNotLoggedIn.php';
             <table class="table table-condensed" id="prerequisites"><tbody></tbody></table>
             <p/>
             <div class="alert alert-warning" id="prerequisites-war">
-                This server isn't quite ready for Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?>. If you know what you are doing.
+                This server isn't quite ready for App<b>CRM</b><?=SystemService::getPackageMainVersion() ?>. If you know what you are doing.
                 <a href="#" id="skipCheck"><b>Click here</b></a>.
             </div>
         </section>
@@ -102,7 +102,7 @@ require '../Include/HeaderNotLoggedIn.php';
                        value="<?= \EcclesiaCRM\dto\SystemURLs::getRootPath() ?>" class= "form-control form-control-sm"
                        aria-describedby="ROOT_PATH_HELP">
                 <small id="ROOT_PATH_HELP" class="form-text text-muted">
-                    Root path of your Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?> installation ( THIS MUST BE SET CORRECTLY! )
+                    Root path of your App<b>CRM</b><?=SystemService::getPackageMainVersion() ?> installation ( THIS MUST BE SET CORRECTLY! )
                     <p/>
                     <i><b>Examples:</b></i>
                     <p/>
@@ -427,7 +427,7 @@ require '../Include/HeaderNotLoggedIn.php';
         <h2>Final infos</h2>
         <section>
             <div class="alert alert-success" id="prerequisites-war">
-                To open a connection to Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?>, use the information below :
+                To open a connection to App<b>CRM</b><?=SystemService::getPackageMainVersion() ?>, use the information below :
                 <ul style="padding-left:20px">
                   <li>login    : <b>admin</b></li>
                   <li>password : <b>changeme</b></li>

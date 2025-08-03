@@ -568,7 +568,7 @@ class MiscUtils
     {
         $test = str_replace($basePath, "", $path);
 
-        $res = strstr($test, "/");
+        $res = strstr($test, DIRECTORY_SEPARATOR);
 
         if (strlen($res) > 0) {
             return false;
@@ -795,7 +795,7 @@ class MiscUtils
                 break;
             case "rtf":
                 // Read contents                          
-                $phpWord = PHPWordIOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath, 'RTF');
+                $phpWord = PHPWordIOFactory::load(SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath, 'RTF');
 
                 $rendererName = \PhpOffice\PhpWord\Settings::PDF_RENDERER_TCPDF;
                 $rendererLibraryPath = SystemURLs::getDocumentRoot() . ('/vendor/tecnickcom/tcpdf');
@@ -817,7 +817,7 @@ class MiscUtils
                 break;
             case "docx":
                 // Read contents                          
-                $phpWord = PHPWordIOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath);
+                $phpWord = PHPWordIOFactory::load(SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath);
 
                 $rendererName = \PhpOffice\PhpWord\Settings::PDF_RENDERER_TCPDF;
                 $rendererLibraryPath = SystemURLs::getDocumentRoot() . ('/vendor/tecnickcom/tcpdf');
@@ -937,7 +937,7 @@ class MiscUtils
             case "xls":
             case "xlsx":
                 // Read contents                          
-                $spreadsheet = PHPSpreadSheetIOFactory::load(SystemURLs::getDocumentRoot() . "/" . $realPath);
+                $spreadsheet = PHPSpreadSheetIOFactory::load(SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath);
 
                 $xls_data = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
                 $sheet = $spreadsheet->getActiveSheet();
@@ -999,7 +999,7 @@ class MiscUtils
             case "pptx":
                 $reader = \PhpOffice\PhpPresentation\IOFactory::createReader("PowerPoint2007");
 
-                $spreadsheet = $reader->load(SystemURLs::getDocumentRoot() . "/" . $realPath);
+                $spreadsheet = $reader->load(SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath);
 
                 $PDFWriter = new \PhpOffice\PhpPresentation\Writer\PDF\DomPDF($spreadsheet);
 
@@ -1782,7 +1782,7 @@ class MiscUtils
 
         // [SAVE FILE ON THE SERVER]
         $filePath = $userName . $currentpath . $title . ".docx";
-        $tmpFile = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $filePath;
+        $tmpFile = dirname(__FILE__) . "/../../" . $realNoteDir . DIRECTORY_SEPARATOR . $filePath;
 
         // Saving the document as OOXML file...
         $pw->save($tmpFile, "Word2007");
@@ -1811,7 +1811,7 @@ class MiscUtils
         $rootPath = SystemURLs::getRootPath();
 
         if (!empty($rootPath)) {
-            $rootPath = $rootPath . "/";
+            $rootPath = $rootPath . DIRECTORY_SEPARATOR;
         }
 
         $doc = new \DOMDocument('1.0', 'UTF-8');
@@ -1889,7 +1889,7 @@ class MiscUtils
 
         // [SAVE FILE ON THE SERVER]
         $filePath = $userName . $currentpath . $title . ".docx";
-        $tmpFile = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $filePath;
+        $tmpFile = dirname(__FILE__) . "/../../" . $realNoteDir . DIRECTORY_SEPARATOR . $filePath;
 
         $pw->save($tmpFile, "Word2007");
 
@@ -1976,7 +1976,7 @@ class MiscUtils
             
             $dir = $base_dir.DIRECTORY_SEPARATOR.$file;
 
-            $rootDir = str_replace(SystemURLs::getDocumentRoot()."/", '', $base_dir.DIRECTORY_SEPARATOR);
+            $rootDir = str_replace(SystemURLs::getDocumentRoot().DIRECTORY_SEPARATOR, '', $base_dir.DIRECTORY_SEPARATOR);
 
             if(is_dir($dir)) {
                 $directories []= $dir;

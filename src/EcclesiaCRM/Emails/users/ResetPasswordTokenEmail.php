@@ -19,7 +19,7 @@ class ResetPasswordTokenEmail extends BaseUserEmail
 
     protected function buildMessageBody()
     {
-        return gettext("You can reset your EcclesiaCRM password by clicking this link").":";
+        return gettext("You can reset your CRM password by clicking this link").":";
     }
 
     public function getTokens()

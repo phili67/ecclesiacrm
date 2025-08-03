@@ -51,7 +51,7 @@ Header_body_scripts();
       <div class="timeline-item" >
         <h3 class="timeline-header"><?= gettext('Step 2: Fetch Update Package on Server') ?> <span id="status2"></span></h3>
         <div class="timeline-body" id="fetchPhase" style="display: none">
-          <p><?= gettext('Fetch the latest files from the EcclesiaCRM GitHub release page')?></p>
+          <p><?= gettext('Fetch the latest files from the CRM GitHub release page')?></p>
           <input type="button" class="btn btn-primary" id="fetchUpdate" <?= 'value="'.gettext('Fetch Update Files').'"' ?> >
         </div>
       </div>

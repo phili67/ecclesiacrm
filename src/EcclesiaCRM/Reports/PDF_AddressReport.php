@@ -97,7 +97,7 @@ class PDF_AddressReport extends ChurchInfoReportTCPDF
         $this->_Margin_Top = 12;
 
         $this->Set_Char_Size(20);
-        $this->Write(10, 'EcclesiaCRM USPS Address Verification Report');
+        $this->Write(10, 'CRM USPS Address Verification Report');
         $this->Set_Char_Size(12);
     }
 

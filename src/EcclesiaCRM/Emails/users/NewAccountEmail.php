@@ -21,7 +21,7 @@ class NewAccountEmail extends BaseUserEmail
 
     protected function buildMessageBody()
     {
-        return _("A EcclesiaCRM account was created for you").":";
+        return _("A CRM account was created for you").":";
     }
 
     public function getTokens()

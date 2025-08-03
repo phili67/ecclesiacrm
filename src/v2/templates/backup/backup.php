@@ -21,13 +21,13 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="card">
     <div class="card-header border-1">
-        <h3 class="card-title"><?= _('This tool will assist you in manually backing up the EcclesiaCRM database.') ?></h3>
+        <h3 class="card-title"><?= _('This tool will assist you in manually backing up the CRM database.') ?></h3>
     </div>
     <div class="card-body">
         <ul>
             <li><?= _('You should make a manual backup at least once a week unless you already have a regular backup procedule for your systems.') ?></li>
             <li><?= _('After you download the backup file, you should make two copies. Put one of them in a fire-proof safe on-site and the other in a safe location off-site.') ?></li>
-            <li><?= _('If you are concerned about confidentiality of data stored in the EcclesiaCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others') ?></li>
+            <li><?= _('If you are concerned about confidentiality of data stored in the CRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others') ?></li>
             <li><?= _('For added backup security, you can e-mail the backup to yourself at an e-mail account hosted off-site or to a trusted friend.  Be sure to use encryption if you do this, however.') ?></li>
         </ul>
             <div class="row">

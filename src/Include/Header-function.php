@@ -109,7 +109,7 @@ function Header_modals()
                           </div>
                           <br/>
                           <ul>
-                              <li><?= _("When you click \"submit,\" an error report will be posted to the EcclesiaCRM GitHub Issue tracker.") ?></li>
+                              <li><?= _("When you click \"submit,\" an error report will be posted to the CRM GitHub Issue tracker.") ?></li>
                               <li><?= _('Please do not include any confidential information.') ?></li>
                               <li><?= _('Some general information about your system will be submitted along with the request such as Server version and browser headers.') ?></li>
                               <li><?= _('No personally identifiable information will be submitted unless you purposefully include it.') ?></li>
