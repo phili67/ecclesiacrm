@@ -64,11 +64,10 @@ msgid "Mailchimp"
 msgstr "邮件营销"
 
 msgid ""
-"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to "
-"manage them, click this notification !</b>"
+"All the lists are now loaded in CRM.<br><b>If you want to manage them, click "
+"this notification !</b>"
 msgstr ""
-"所有的名单现在已经加载到Ecclesia<b>CRM</b>。<br><b>如果你想管理它们，请点击这"
-"个通知！</b>。"
+"所有的名单现在已经加载到CRM。<br><b>如果你想管理它们，请点击这个通知！</b>。"
 
 msgid "There was a problem retrieving the requested object"
 msgstr "检索所请求的对象时出现了问题"
@@ -2507,6 +2506,17 @@ msgstr "备份错误。"
 
 msgid "Mail connection failure"
 msgstr "邮件连接失败"
+
+msgid ""
+"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
+"click this notification !</b>"
+msgstr " 1235  4568 如果您想管理这些列表，请单击此通知 !"
+
+msgid "preview currently being created"
+msgstr "正在创建预览"
+
+msgid "Download Error"
+msgstr "下载错误"
 
 #~ msgid "Info"
 #~ msgstr "信息"

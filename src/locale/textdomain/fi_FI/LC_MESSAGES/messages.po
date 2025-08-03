@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-02 18:56+0000\n"
+"POT-Creation-Date: 2025-08-03 19:20+0000\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -264,7 +264,7 @@ msgstr "Matkapuhelin"
 #: Reports/FundRaiserStatement.php:172 Reports/GroupReport.php:138
 #: Reports/MemberEmailExport.php:26
 #: external/templates/registration/family-register-members.php:88
-#: ident/templates/verify/login-info.php:34
+#: ident/templates/verify/login-info.php:36
 #: v2/templates/calendar/eventattendeesedit.php:58
 #: v2/templates/cart/cartToFamily.php:481
 #: v2/templates/deposit/autaPaymentEditor.php:970
@@ -1728,15 +1728,15 @@ msgstr "Tarkista perheesi tiedot"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:42
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:46
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
-#: external/templates/password/enter-username.php:46
+#: external/templates/password/enter-username.php:47
 #: external/templates/password/password-check-email.php:30
-#: ident/templates/verify/login-info.php:44 session/templates/session.php:266
+#: ident/templates/verify/login-info.php:46 session/templates/session.php:266
 msgid "Login"
 msgstr "Kirjaudu sisään"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:38 session/templates/session.php:247
+#: ident/templates/verify/login-info.php:40 session/templates/session.php:247
 #: session/templates/session.php:347 v2/templates/backup/backup.php:85
 #: v2/templates/user/userlist.php:57
 msgid "Password"
@@ -2301,7 +2301,7 @@ msgstr "Addresse"
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
-#: ident/templates/verify/login-info.php:15
+#: ident/templates/verify/login-info.php:17
 #: v2/templates/cart/cartToFamily.php:188
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/pastoralcare/pastoralcarefamily.php:359
@@ -6092,7 +6092,7 @@ msgid "View Issue on GitHub"
 msgstr "Näytä ongelma GitHubissa"
 
 #: Include/Header-function.php:131
-#: external/templates/password/enter-username.php:41
+#: external/templates/password/enter-username.php:42
 msgid "OK"
 msgstr "OK"
 
@@ -6785,18 +6785,16 @@ msgid "Insert"
 msgstr "Lisää"
 
 #: browser/browse.php:56 v2/templates/edrive/dashboard.php:34
-#, fuzzy
 msgid "Download files"
-msgstr "Lataa"
+msgstr "Lataa tiedostoja"
 
 #: browser/browse.php:63 v2/templates/edrive/dashboard.php:41
 msgid "Files input"
 msgstr "Tiedostojen syöttö"
 
 #: browser/browse.php:71 v2/templates/edrive/dashboard.php:49
-#, fuzzy
 msgid "Download status"
-msgstr "Lataa"
+msgstr "Lataa tila"
 
 #: browser/browse.php:80 v2/templates/edrive/dashboard.php:58
 msgid "Upload your files"
@@ -6933,17 +6931,17 @@ msgstr "Fatal error in eGive API datastream: '"
 msgid "Unable to reset password"
 msgstr "Salasanaa ei voi palauttaa"
 
-#: external/templates/404.php:4 ident/templates/404.php:4
+#: external/templates/404.php:5 ident/templates/404.php:5
 #: kiosk/templates/404.php:4
 msgid "Page not fond"
 msgstr "Sivu ei miellytä"
 
-#: external/templates/404.php:14 ident/templates/404.php:14
+#: external/templates/404.php:15 ident/templates/404.php:15
 #: kiosk/templates/404.php:14
 msgid "Oops! Page not found."
 msgstr "Hups! Sivua ei löydy."
 
-#: external/templates/password/enter-username.php:7
+#: external/templates/password/enter-username.php:8
 #: external/templates/password/password-check-email.php:7
 #: external/templates/registration/family-register-done.php:6
 #: external/templates/registration/family-register-members.php:8
@@ -6951,24 +6949,24 @@ msgstr "Hups! Sivua ei löydy."
 msgid "Family Registration"
 msgstr "Perheen rekisteröinti"
 
-#: external/templates/password/enter-username.php:28
+#: external/templates/password/enter-username.php:29
 msgid "Reset your password"
 msgstr "Nollaa salasanasi"
 
-#: external/templates/password/enter-username.php:32
+#: external/templates/password/enter-username.php:33
 #: v2/templates/user/userseditor.php:88 v2/templates/user/userseditor.php:147
 msgid "Login Name"
 msgstr "Kirjautumisnimi"
 
-#: external/templates/password/enter-username.php:61
+#: external/templates/password/enter-username.php:62
 msgid "Check your email for a password reset link"
 msgstr "Tarkista sähköpostiisi salasanan palautuslinkki"
 
-#: external/templates/password/enter-username.php:69
+#: external/templates/password/enter-username.php:70
 msgid "Sorry, we are unable to process your request at this point in time."
 msgstr "Valitettavasti emme voi käsitellä pyyntöäsi tällä hetkellä."
 
-#: external/templates/password/enter-username.php:73
+#: external/templates/password/enter-username.php:74
 msgid "Login Name is Required"
 msgstr "Kirjautumisnimi vaaditaan"
 
@@ -7118,7 +7116,7 @@ msgstr "Vahvista uusi salasana"
 msgid "Save"
 msgstr "Tallenna"
 
-#: ident/templates/verify/login-info.php:21 session/templates/session.php:213
+#: ident/templates/verify/login-info.php:23 session/templates/session.php:213
 #: session/templates/session.php:305
 msgid "Please Login"
 msgstr "Kirjaudu sisään"

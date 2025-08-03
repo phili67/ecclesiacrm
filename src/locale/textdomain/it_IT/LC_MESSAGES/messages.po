@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-02 18:56+0000\n"
+"POT-Creation-Date: 2025-08-03 19:20+0000\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -264,7 +264,7 @@ msgstr "Telefono cellulare"
 #: Reports/FundRaiserStatement.php:172 Reports/GroupReport.php:138
 #: Reports/MemberEmailExport.php:26
 #: external/templates/registration/family-register-members.php:88
-#: ident/templates/verify/login-info.php:34
+#: ident/templates/verify/login-info.php:36
 #: v2/templates/calendar/eventattendeesedit.php:58
 #: v2/templates/cart/cartToFamily.php:481
 #: v2/templates/deposit/autaPaymentEditor.php:970
@@ -1730,15 +1730,15 @@ msgstr "Verifica le informazioni della tua famiglia"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:42
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:46
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
-#: external/templates/password/enter-username.php:46
+#: external/templates/password/enter-username.php:47
 #: external/templates/password/password-check-email.php:30
-#: ident/templates/verify/login-info.php:44 session/templates/session.php:266
+#: ident/templates/verify/login-info.php:46 session/templates/session.php:266
 msgid "Login"
 msgstr "Accesso"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:38 session/templates/session.php:247
+#: ident/templates/verify/login-info.php:40 session/templates/session.php:247
 #: session/templates/session.php:347 v2/templates/backup/backup.php:85
 #: v2/templates/user/userlist.php:57
 msgid "Password"
@@ -2303,7 +2303,7 @@ msgstr "Indirizzo"
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
-#: ident/templates/verify/login-info.php:15
+#: ident/templates/verify/login-info.php:17
 #: v2/templates/cart/cartToFamily.php:188
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/pastoralcare/pastoralcarefamily.php:359
@@ -6104,7 +6104,7 @@ msgid "View Issue on GitHub"
 msgstr "Visualizza il problema su GitHub"
 
 #: Include/Header-function.php:131
-#: external/templates/password/enter-username.php:41
+#: external/templates/password/enter-username.php:42
 msgid "OK"
 msgstr "OK"
 
@@ -6800,18 +6800,16 @@ msgid "Insert"
 msgstr "Inserire"
 
 #: browser/browse.php:56 v2/templates/edrive/dashboard.php:34
-#, fuzzy
 msgid "Download files"
-msgstr "Scaricare"
+msgstr "Scarica i file"
 
 #: browser/browse.php:63 v2/templates/edrive/dashboard.php:41
 msgid "Files input"
 msgstr "Ingresso dei file"
 
 #: browser/browse.php:71 v2/templates/edrive/dashboard.php:49
-#, fuzzy
 msgid "Download status"
-msgstr "Scaricare"
+msgstr "Stato del download"
 
 #: browser/browse.php:80 v2/templates/edrive/dashboard.php:58
 msgid "Upload your files"
@@ -6947,17 +6945,17 @@ msgstr "Errore fatale in eGive API datastream: '"
 msgid "Unable to reset password"
 msgstr "Impossibile reimpostare la password"
 
-#: external/templates/404.php:4 ident/templates/404.php:4
+#: external/templates/404.php:5 ident/templates/404.php:5
 #: kiosk/templates/404.php:4
 msgid "Page not fond"
 msgstr "Pagina non affezionata"
 
-#: external/templates/404.php:14 ident/templates/404.php:14
+#: external/templates/404.php:15 ident/templates/404.php:15
 #: kiosk/templates/404.php:14
 msgid "Oops! Page not found."
 msgstr "Ops! Pagina non trovata."
 
-#: external/templates/password/enter-username.php:7
+#: external/templates/password/enter-username.php:8
 #: external/templates/password/password-check-email.php:7
 #: external/templates/registration/family-register-done.php:6
 #: external/templates/registration/family-register-members.php:8
@@ -6965,26 +6963,26 @@ msgstr "Ops! Pagina non trovata."
 msgid "Family Registration"
 msgstr "Registrazione della famiglia"
 
-#: external/templates/password/enter-username.php:28
+#: external/templates/password/enter-username.php:29
 msgid "Reset your password"
 msgstr "Ripristina la tua password"
 
-#: external/templates/password/enter-username.php:32
+#: external/templates/password/enter-username.php:33
 #: v2/templates/user/userseditor.php:88 v2/templates/user/userseditor.php:147
 msgid "Login Name"
 msgstr "Nome di accesso"
 
-#: external/templates/password/enter-username.php:61
+#: external/templates/password/enter-username.php:62
 msgid "Check your email for a password reset link"
 msgstr "Controlla la tua email per un link di reset della password"
 
-#: external/templates/password/enter-username.php:69
+#: external/templates/password/enter-username.php:70
 msgid "Sorry, we are unable to process your request at this point in time."
 msgstr ""
 "Siamo spiacenti, non siamo in grado di elaborare la sua richiesta in questo "
 "momento."
 
-#: external/templates/password/enter-username.php:73
+#: external/templates/password/enter-username.php:74
 msgid "Login Name is Required"
 msgstr "Il nome di accesso è richiesto"
 
@@ -7135,7 +7133,7 @@ msgstr "Conferma la nuova password"
 msgid "Save"
 msgstr "Salva"
 
-#: ident/templates/verify/login-info.php:21 session/templates/session.php:213
+#: ident/templates/verify/login-info.php:23 session/templates/session.php:213
 #: session/templates/session.php:305
 msgid "Please Login"
 msgstr "Per favore, accedi"
