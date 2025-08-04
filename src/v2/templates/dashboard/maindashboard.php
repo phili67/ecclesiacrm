@@ -29,6 +29,10 @@ $plugins = PluginQuery::create()
     ->filterByActiv(1)
     ->filterByCategory('Dashboard')
     ->filterByDashboardDefaultOrientation('widget', Criteria::NOT_EQUAL)
+    ->usePluginUserRoleQuery()
+        ->filterByUserId(SessionUser::getId())
+        ->filterByDashboardVisible(true)
+    ->endUse()
     ->find();
 
 foreach ($plugins as $plugin) {
@@ -54,6 +58,10 @@ $pluginWidgets = PluginQuery::create()
     ->filterByActiv(1)
     ->filterByCategory('Dashboard')
     ->filterByDashboardDefaultOrientation('widget', Criteria::EQUAL)
+    ->usePluginUserRoleQuery()
+        ->filterByUserId(SessionUser::getId())
+        ->filterByDashboardVisible(true)
+    ->endUse()        
     ->find();
 
 foreach ($pluginWidgets as $plugin) {
@@ -144,33 +152,6 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
     }
 }
 ?>
-
-<?php if (SessionUser::getUser()->isMainDashboardEnabled()) { ?>
-    <!-- Small boxes (Stat box) -->
-    <div class="row">        
-        <div class="col-lg-2 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-gradient-maroon">
-                <div class="inner">
-                    <h3 id="groupsCountDashboard">
-                        <?= $dashboardCounts['groupsCount'] ?>
-                    </h3>
-                    <p>
-                        <?= _('Groups') ?>
-                    </p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <a href="<?= $sRootPath ?>/v2/group/list" class="small-box-footer">
-                    <?= _('More info') ?> <i class="fas fa-arrow-circle-right"></i>
-                </a>
-            </div>
-        </div><!-- ./col -->
-    </div><!-- /.row -->
-
-
-<?php } ?>
 
 <!-- widgets -->
 <div class="row">

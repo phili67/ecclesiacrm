@@ -1,2 +1,2 @@
 INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`, `plgn_UserRole_Dashboard_Availability`)
-VALUES ('SundaySchoolDashboardWidget', 'Widget Dashboard Plugin : to see sunday school informations', 'Dashboard', NULL, '', '1', '1.0', 'sundayschool_w_', 'inside_category_menu', 'widget', 'bg-gradient-yellow text-black',1074266112,1);
+VALUES ('SundaySchoolDashboardWidget', 'Widget Dashboard Plugin : to see sunday school informations', 'Dashboard', NULL, '', '1', '1.0', 'sundayschool_w_', 'inside_category_menu', 'widget', 'bg-gradient-yellow text-black',1074266112,0);

@@ -77,6 +77,9 @@ class Plugin extends BasePlugin
         if ( $this->getSecurities() & SecurityOptions::bShowMenuQuery ) {
             $res .= " bShowMenuQuery";
         }
+        if ( $this->getSecurities() & SecurityOptions::bSundaySchool ) {
+            $res .= " bSundaySchool";
+        }
         if ( $this->getSecurities() & SecurityOptions::bDashBoardUser ) {
             $res .= " bDashboardUser";
         }

@@ -672,6 +672,7 @@ require $sRootDocument . '/Include/Header.php';
                                     $plugins = PluginQuery::create()
                                         ->filterByCategory('Dashboard', Criteria::NOT_EQUAL)
                                         ->find();
+
                                     foreach ($plugins as $plugin) {
                                         $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
 
@@ -708,6 +709,75 @@ require $sRootDocument . '/Include/Header.php';
                                     </label>
                                 </div>
                                 <div class="card-body">
+                                <label><?= _("Widgets") ?></label>
+                                <div class="row">
+                                            <div class="col-md-4">
+                                                <label><?= _("Name") ?></label>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><?= _("Security") ?></label>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label><?= _("Status") ?></label>
+                                            </div>
+                                            <div class="col-md-2 d-none">
+                                               <label><?= _("Position") ?></label>
+                                            </div>
+                                            <div class="col-md-2 d-none">
+                                                <label><?= _("Role") ?></label>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    $plugins = PluginQuery::create()
+                                        ->filterByCategory('Dashboard', Criteria::EQUAL)
+                                        ->filterByDashboardDefaultOrientation('widget', Criteria::EQUAL)
+                                        ->orderByName()
+                                        ->find();
+                                    foreach ($plugins as $plugin) {
+                                        $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
+
+                                        $visible = 0;
+                                        $place = 'top';
+                                        if (!is_null($role)) {
+                                            $visible = $role->getDashboardVisible();
+                                            $place = $role->getDashboardOrientation();
+                                        }
+
+                                        // on this special case there only two possibilities : user or admin
+                                        $role_sel = 'user';
+                                        if ( !is_null($role) ) {
+                                            $role_sel = $role->getRole();
+                                        }
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-md-4">&bullet;
+                                                <?= $plugin->getName() ?>:
+                                            </div>
+                                            <div class="col-md-2">
+                                                <?= $plugin->getPluginSecurityName() ?>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <select class="form-control form-control-sm"
+                                                        name="new_plugin[<?= $plugin->getId() ?>]">
+                                                    <option value="0" <?= ($visible == false)?'SELECTED':'' ?>><?= _('No') ?>
+                                                    <option value="1" <?= ($visible == true)?'SELECTED':'' ?>><?= _('Yes') ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <select class="form-control form-control-sm d-none"
+                                                        name="new_plugin_place[<?= $plugin->getId() ?>]">
+                                                    <option value="widget" SELECTED><?= _('widget') ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 d-none">
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+
+                                <hr/>
+                                <label><?= _("Dashboard Plugins") ?></label>
                                 <div class="row">
                                             <div class="col-md-4">
                                                 <label><?= _("Name") ?></label>
@@ -728,6 +798,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <?php
                                     $plugins = PluginQuery::create()
                                         ->filterByCategory('Dashboard', Criteria::EQUAL)
+                                        ->filterByDashboardDefaultOrientation('widget', Criteria::NOT_EQUAL)
                                         ->orderByName()
                                         ->find();
                                     foreach ($plugins as $plugin) {
@@ -765,6 +836,7 @@ require $sRootDocument . '/Include/Header.php';
                                                         name="new_plugin_place[<?= $plugin->getId() ?>]">
                                                     <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
                                                     <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
+                                                    <option value="center" <?= ($place == 'center')?'SELECTED':'' ?>><?= _('Center') ?>
                                                     <option value="right" <?= ($place == 'right')?'SELECTED':'' ?>><?= _('Right') ?>
                                                 </select>
                                             </div>
