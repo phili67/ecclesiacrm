@@ -16,7 +16,6 @@ namespace EcclesiaCRM\MenuBar;
 
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GroupQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\MenuLinkQuery;
 use EcclesiaCRM\PluginQuery;
@@ -27,6 +26,7 @@ use EcclesiaCRM\Service\MailChimpService;
 
 use EcclesiaCRM\SessionUser;
 
+use Propel\Runtime\ActiveQuery\Criteria;
 
 class MenuBar extends Menu
 {
