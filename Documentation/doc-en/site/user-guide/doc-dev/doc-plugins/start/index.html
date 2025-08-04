@@ -2598,8 +2598,8 @@ signatures.json
 <p>1. Concerning injection into the database in the "plugin" table</p>
 <p>In the database Put the plugin, we must set</p>
 <ul>
-<li><code>plgn_Category</code> ``will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
-  Personal', 'GDPR', 'Events', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu
+<li><code>plgn_Category</code> will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
+  <code>'Personal', 'GDPR', 'Events', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu', 'EDRive'</code>
 -</li>
 <li>a <code>plgn_Description</code> description, e.g.: 'Plugin to show the current connected users</li>
 <li>a version <code>`plgn_version</code> `` to e.g. '1.0</li>
@@ -2702,9 +2702,11 @@ spl_autoload_register(function ($className) {
 
 <h2 id="creating-a-dashboard-plugin">Creating a dashboard plugin<a class="headerlink" href="#creating-a-dashboard-plugin" title="Permanent link">&para;</a></h2>
 <p>1. For the injection at the database level in the "plugin" table</p>
+<p>'widget'</p>
 <p>In the database Put the plugin, we must set</p>
 <ul>
-<li><code>plgn_Category</code> <code>to</code>Dashboard``.</li>
+<li><code>plgn_Category</code> to <code>Dashboard</code>.</li>
+<li><code>plgn_default_orientation</code> to <code>widget</code> if you want to have a widget (the little square in the top main dashboard)</li>
 <li>a description <code>plgn_Description</code> to ``Plugin to show the current connected users</li>
 <li>a version <code>`plgn_version</code> `` to '1.0' for example</li>
 <li>the prefix type for the <code>plgn_prefix</code> entries to <code>cud_</code>.</li>

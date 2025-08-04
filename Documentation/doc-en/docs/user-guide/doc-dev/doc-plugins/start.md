@@ -91,8 +91,8 @@ The signature is created via the tool provided by the CRM : **grunt genPluginsSi
 
 In the database Put the plugin, we must set
 
-- ``plgn_Category`` ``will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
-  Personal', 'GDPR', 'Events', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu
+- ```plgn_Category``` will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
+  ```'Personal', 'GDPR', 'Events', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu', 'EDRive'```
 -
 - a ``plgn_Description`` description, e.g.: 'Plugin to show the current connected users
 - a version ```plgn_version`` `` to e.g. '1.0
@@ -204,9 +204,14 @@ spl_autoload_register(function ($className) {
 
 1\. For the injection at the database level in the "plugin" table
 
+'widget'
+
+
+
 In the database Put the plugin, we must set
 
-- ``plgn_Category`` ``to ``Dashboard``.
+- ``plgn_Category`` to ``Dashboard``.
+- ``plgn_default_orientation`` to ``widget`` if you want to have a widget (the little square in the top main dashboard)
 - a description ``plgn_Description`` to ``Plugin to show the current connected users
 - a version ```plgn_version`` `` to '1.0' for example
 - the prefix type for the `plgn_prefix` entries to `cud_`.

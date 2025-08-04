@@ -2599,7 +2599,7 @@ signatures.json
 <p>Dans la base de données Mettre le plugin, on doit fixer</p>
 <ul>
 <li><code>`plgn_Category`</code> permettra de mettre l'entrée du plugin dans le menu à gauche dans la partie Personnel, RGPD, Etc .... les options sont
-<code>'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu'</code>
+<code>'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu', 'EDrive'</code>
 -</li>
 <li>une description <code>`plgn_Description`</code> à par exemple : 'Plugin to show the current connected users'</li>
 <li>une version <code>`plgn_version`</code> à '1.0' par exemple</li>
@@ -2705,6 +2705,7 @@ spl_autoload_register(function ($className) {
 <p>Dans la base de données Mettre le plugin, on doit fixer</p>
 <ul>
 <li><code>`plgn_Category`</code> à 'Dashboard'</li>
+<li><code>plgn_default_orientation</code> à <code>widget</code> si vous souhaitez définir un petit plugin d'information sous forme de petit rectangle, dans la partie tout en haut de la page principale du CRM. </li>
 <li>une description <code>`plgn_Description`</code> à 'Plugin to show the current connected users'</li>
 <li>une version <code>`plgn_version`</code> à '1.0' par exemple</li>
 <li>le type de prefixe pour les entrées <code>`plgn_prefix`</code> à 'cud_'</li>
