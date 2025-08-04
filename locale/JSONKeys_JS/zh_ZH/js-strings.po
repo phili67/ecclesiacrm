@@ -2518,6 +2518,14 @@ msgstr "正在创建预览"
 msgid "Download Error"
 msgstr "下载错误"
 
+msgid "Register your software to CRM team."
+msgstr "向 CRM 团队注册您的软件。"
+
+msgid ""
+"Please register your copy of CRM by checking over this information and "
+"pressing the Send button."
+msgstr "请核对这些信息并按发送按钮注册您的 CRM 版本。"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 

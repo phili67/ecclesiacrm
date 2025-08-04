@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-08-03T18:42:00.158Z\n"
+"POT-Creation-Date: 2025-08-04T14:30:42.584Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,7 +160,8 @@ msgstr ""
 msgid "Register"
 msgstr "regjistrues."
 
-msgid "Register your software to EcclesiaCRM team."
+#, fuzzy
+msgid "Register your software to CRM team."
 msgstr "regjistro programin për programin Ecclesiacrm."
 
 msgid "Simply click this"
@@ -217,9 +218,10 @@ msgstr "Nëse do të bësh ndryshime në regjistrimin e të dhënave, shko"
 msgid "Admin->Edit General Settings"
 msgstr "Ademin-- Seksionet e Përgjithshme të Edit"
 
+#, fuzzy
 msgid ""
-"Please register your copy of EcclesiaCRM by checking over this information "
-"and pressing the Send button."
+"Please register your copy of CRM by checking over this information and "
+"pressing the Send button."
 msgstr ""
 "Ju lutem regjistroni kopjen e EcclesiaCRM duke kontrolluar informacionin dhe "
 "shtypjen e butonit."

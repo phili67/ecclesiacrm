@@ -1,0 +1,1 @@
+try {window.CRM.SingleDashboardWidget_i18keys = {};} catch(e) {};
