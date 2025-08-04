@@ -94,7 +94,7 @@ La signature est créée via l'outil fourni par le CRM : **grunt genPluginsSigna
 Dans la base de données Mettre le plugin, on doit fixer
 
 - ``` `plgn_Category` ``` permettra de mettre l'entrée du plugin dans le menu à gauche dans la partie Personnel, RGPD, Etc .... les options sont
-```  'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu' ```
+```  'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu', 'EDrive' ```
 -
 - une description ``` `plgn_Description` ``` à par exemple : 'Plugin to show the current connected users'
 - une version ``` `plgn_version` ``` à '1.0' par exemple
@@ -209,6 +209,7 @@ spl_autoload_register(function ($className) {
 Dans la base de données Mettre le plugin, on doit fixer
 
 - ``` `plgn_Category` ``` à 'Dashboard'
+- ```plgn_default_orientation``` à ```widget``` si vous souhaitez définir un petit plugin d'information sous forme de petit rectangle, dans la partie tout en haut de la page principale du CRM. 
 - une description ``` `plgn_Description` ``` à 'Plugin to show the current connected users'
 - une version ``` `plgn_version` ``` à '1.0' par exemple
 - le type de prefixe pour les entrées ``` `plgn_prefix` ``` à 'cud_'
