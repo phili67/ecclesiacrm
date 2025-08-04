@@ -1298,10 +1298,6 @@ class User extends BaseUser
 
     public function isSecurityEnableForPlugin($name, $sec = 1073741824)
     {
-        if ($this->isAdmin()) {
-            return true;
-        }
-
         $plugin = PluginQuery::create()->findOneByName($name);
 
         if ($plugin->getSecurities() & $sec) { // when the bit sec is activated

@@ -147,32 +147,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 
 <?php if (SessionUser::getUser()->isMainDashboardEnabled()) { ?>
     <!-- Small boxes (Stat box) -->
-    <div class="row">
-        <?php
-        if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
-        ?>
-            <div class="col-lg-2 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-gradient-yellow">
-                    <div class="inner">
-                        <h3 id="groupStatsSundaySchool">
-                            <?= $dashboardCounts['SundaySchoolCount'] ?>
-                        </h3>
-                        <p>
-                            <?= _('Sunday School Classes') ?>
-                        </p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <a href="<?= $sRootPath ?>/v2/sundayschool/dashboard" class="small-box-footer">
-                        <?= _('More info') ?> <i class="fas fa-arrow-circle-right"></i>
-                    </a>
-                </div>
-            </div><!-- ./col -->
-        <?php
-        }
-        ?>
+    <div class="row">        
         <div class="col-lg-2 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-gradient-maroon">
