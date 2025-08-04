@@ -41,8 +41,11 @@ class MenuBar extends Menu
         $this->createMenuBar();
     }
 
-    private function addPluginMenus($type, $main_menu=null) {
-        $plugins = PluginQuery::create()->filterByCategory($type)->findByActiv(true);
+    private function addPluginMenus($type, $main_menu=null, $category_position = 'after_category_menu') {
+        $plugins = PluginQuery::create()
+            ->filterByCategory($type)
+            ->filterByCategoryPosition($category_position)
+            ->findByActiv(true);
 
         $isPluginEnabledForuser = false;
 
@@ -55,8 +58,7 @@ class MenuBar extends Menu
             $isPluginEnabledForuser = true;
 
             $menuBarItems = PluginMenuBarQuery::create()->filterByName($plugin->getName())->find();
-            $first_One = true;
-            $menu_count = $menuBarItems->count();
+            $first_One = true;            
             $menu = null;
             foreach ($menuBarItems as $menuBarItem) {
                 if (!is_null($menuBarItem->getLinkParentId())) continue;
@@ -72,9 +74,9 @@ class MenuBar extends Menu
                         break;
                     }
                     $menu = new Menu (dgettext("messages-".$name, $menuBarItem->getDisplayName()),
-                        $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec , ($plugin->getCategoryPosition() == 'inside_category_menu')?$main_menu:null);
+                        $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec , ($category_position == 'inside_category_menu')?$main_menu:null);
 
-                    if ($plugin->getCategoryPosition() == 'after_category_menu') {
+                    if ($category_position == 'after_category_menu') {
                         $this->addMenu($menu);
                     }
 
@@ -119,9 +121,9 @@ class MenuBar extends Menu
             $this->addPersonMenuLinks($menu);
         }
 
-        $this->addMenu($menu);
-
-        $this->addPluginMenus('Personal', $menu);
+        $this->addPluginMenus('Personal', $menu, 'inside_category_menu');
+        $this->addMenu($menu);       
+        $this->addPluginMenus('Personal', $menu, 'after_category_menu');
     }
 
     public function addGDPRMenu()
@@ -135,13 +137,9 @@ class MenuBar extends Menu
             $menuItem = new Menu (_("View Inactive Persons"), "fas fa-users", "v2/personlist/GDRP", true, $menu);
             $menuItem = new Menu (_("View Inactive Families"), "fas fa-users-slash", "v2/familylist/GDRP", true, $menu);
 
-            $this->addMenu($menu);    
-        }
-
-        $isPluginEnabledForCurrentUser = $this->addPluginMenus('GDPR', $menu);
-
-        if ($isPluginEnabledForCurrentUser and !(SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR'))) {        
-            $this->addMenu($menu);        
+            $this->addPluginMenus('GDPR', $menu, 'inside_category_menu');
+            $this->addMenu($menu);       
+            $this->addPluginMenus('GDPR', $menu, 'after_category_menu');
         }
     }
 
@@ -167,14 +165,10 @@ class MenuBar extends Menu
             $menuItem->addLink("v2/calendar/events/types/edit");
             $menuItem = new Menu (_("Call the Register"), "fas fa-bullhorn", "v2/calendar/events/checkin", true, $menu);
 
+            $this->addPluginMenus('Events', $menu, 'inside_category_menu');
             $this->addMenu($menu);       
-        } 
-
-        $isPluginEnabledForCurrentUser = $this->addPluginMenus('Events', $menu);
-
-        if ($isPluginEnabledForCurrentUser and !SystemConfig::getBooleanValue("bEnabledEvents")) {
-            $this->addMenu($menu);
-        }        
+            $this->addPluginMenus('Events', $menu, 'after_category_menu');
+        }         
     }
 
     private function addPeopleMenu()
@@ -228,9 +222,9 @@ class MenuBar extends Menu
             }
         }
 
-        $isPluginEnabledForCurrentUser = $this->addPluginMenus('PEOPLE', $menu);
-
-        $this->addMenu($menu);        
+        $this->addPluginMenus('PEOPLE', $menu, 'inside_category_menu');
+        $this->addMenu($menu);       
+        $this->addPluginMenus('PEOPLE', $menu, 'after_category_menu');
     }
 
     private function addGroups()
@@ -326,10 +320,9 @@ class MenuBar extends Menu
             $menuItem = new Menu (_("Group Assignment Helper"), "far fa-circle", "v2/people/list/groupassign", true, $menu);
         }
 
+        $this->addPluginMenus('GROUP', $menu, 'inside_category_menu');
         $this->addMenu($menu);       
-
-        $isPluginEnabledForCurrentUser = $this->addPluginMenus('GROUP', $menu);
-         
+        $this->addPluginMenus('GROUP', $menu, 'after_category_menu');         
     }
 
     private function addSundaySchoolGroups()
@@ -406,14 +399,10 @@ class MenuBar extends Menu
                 }
             }
 
-            $this->addMenu($menu);
-        }
-
-        $isPluginEnabledForCurrentUser = $this->addPluginMenus('SundaySchool', $menu);
-
-        if ($isPluginEnabledForCurrentUser and !SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
-            $this->addMenu($menu);
-        }        
+            $this->addPluginMenus('SundaySchool', $menu, 'inside_category_menu');
+            $this->addMenu($menu);       
+            $this->addPluginMenus('SundaySchool', $menu, 'after_category_menu');  
+        }                           
     }
 
     private function addGlobalMenuLinks()
@@ -448,19 +437,19 @@ class MenuBar extends Menu
 
     private function addPastoralCare()
     {
-        $menu = new Menu (_("Pastoral Care"), "fas fa-heartbeat", "#", true, null, "pastoralcare_menu");
+        if ( SystemConfig::getBooleanValue("bEnabledPastoralCare") ) {       
+            $menu = new Menu (_("Pastoral Care"), "fas fa-heartbeat", "#", true, null, "pastoralcare_menu");
 
-        if (SessionUser::getUser()->isPastoralCareEnabled()) {
-            $menuItem1 = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/pastoralcare/dashboard", true, $menu);
-            $menuItem1 = new Menu (_("By Classifications"), "fas fa-sort-amount-up-alt", "v2/pastoralcare/membersList", true, $menu);
+            if (SessionUser::getUser()->isPastoralCareEnabled()) {
+                $menuItem1 = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/pastoralcare/dashboard", true, $menu);
+                $menuItem1 = new Menu (_("By Classifications"), "fas fa-sort-amount-up-alt", "v2/pastoralcare/membersList", true, $menu);
 
-            $this->addMenu($menu);
-        }
+                $this->addMenu($menu);
+            }
 
-        $isPluginEnabledForCurrentUser = $this->addPluginMenus('PastoralCare', $menu);     
-        
-        if ($isPluginEnabledForCurrentUser and !SessionUser::getUser()->isPastoralCareEnabled()) {
-            $this->addMenu($menu);
+            $this->addPluginMenus('PastoralCare', $menu, 'inside_category_menu');
+            $this->addMenu($menu);       
+            $this->addPluginMenus('PastoralCare', $menu, 'after_category_menu');  
         }
     }
 
@@ -471,49 +460,47 @@ class MenuBar extends Menu
 
     private function addMailMenu()
     {
-        // the Email
-        $menu = new Menu (_("Email"), "fas fa-envelope", "#", true);
+        if ( SystemConfig::getBooleanValue("bEnabledFinance") ) {        
+            // the Email
+            $menu = new Menu (_("Email"), "fas fa-envelope", "#", true);
 
-        if (SessionUser::getUser()->isMailChimpEnabled()) {
-            $mailchimp = new MailChimpService();
+            if (SessionUser::getUser()->isMailChimpEnabled()) {
+                $mailchimp = new MailChimpService();
 
-            $menuMain = new Menu (_("MailChimp"), "fab fa-mailchimp", "#", SessionUser::getUser()->isMailChimpEnabled(), $menu);
+                $menuMain = new Menu (_("MailChimp"), "fab fa-mailchimp", "#", SessionUser::getUser()->isMailChimpEnabled(), $menu);
 
-            $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
-            $menuItem->addLink("v2/mailchimp/duplicateemails");
-            $menuItem->addLink("v2/system/email/debug");
-            $menuItem->addLink("v2/mailchimp/notinmailchimpemailspersons");
-            $menuItem->addLink("v2/mailchimp/notinmailchimpemailsfamilies");
+                $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
+                $menuItem->addLink("v2/mailchimp/duplicateemails");
+                $menuItem->addLink("v2/system/email/debug");
+                $menuItem->addLink("v2/mailchimp/notinmailchimpemailspersons");
+                $menuItem->addLink("v2/mailchimp/notinmailchimpemailsfamilies");
 
 
-            $menuItemItem = new Menu (_("Email Lists"), "fas fa-list", "#", true, $menuMain, "lists_class_menu " . (($mailchimp->isLoaded()) ? "" : "hidden"));
+                $menuItemItem = new Menu (_("Email Lists"), "fas fa-list", "#", true, $menuMain, "lists_class_menu " . (($mailchimp->isLoaded()) ? "" : "hidden"));
 
-            if ($mailchimp->isLoaded()) {// to accelerate the v2/dashboard the first time
-                $mcLists = $mailchimp->getLists();
+                if ($mailchimp->isLoaded()) {// to accelerate the v2/dashboard the first time
+                    $mcLists = $mailchimp->getLists();
 
-                foreach ($mcLists as $list) {
-                    $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/, "fas fa-mail-bulk", "v2/mailchimp/managelist/" . $list['id'], true, $menuItemItem, "listName" . $list['id']);
+                    foreach ($mcLists as $list) {
+                        $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/, "fas fa-mail-bulk", "v2/mailchimp/managelist/" . $list['id'], true, $menuItemItem, "listName" . $list['id']);
 
-                    $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
+                        $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
 
-                    $campaigns = array_merge($campaigns[0], $campaigns[1]);
+                        $campaigns = array_merge($campaigns[0], $campaigns[1]);
 
-                    foreach ($campaigns as $campaign) {
-                        //$menuItemItemItem = new Menu ($campaign['settings']['title'],"far fa-circle","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
-                        $menuItemItemItem->addLink("v2/mailchimp/campaign/" . $campaign['id']);
+                        foreach ($campaigns as $campaign) {
+                            //$menuItemItemItem = new Menu ($campaign['settings']['title'],"far fa-circle","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
+                            $menuItemItemItem->addLink("v2/mailchimp/campaign/" . $campaign['id']);
+                        }
                     }
+                } else {// we add just a false item
+                    $menuItemItemItem = new Menu ("false item", "far fa-circle", "#", true, $menuItemItem, "#");
                 }
-            } else {// we add just a false item
-                $menuItemItemItem = new Menu ("false item", "far fa-circle", "#", true, $menuItemItem, "#");
-            }
 
-            $this->addMenu($menu);
-        }
-
-        $isPluginEnabledForCurrentUser = $this->addPluginMenus('Mail', $menu);
-
-        if ($isPluginEnabledForCurrentUser and !SessionUser::getUser()->isMailChimpEnabled()) {
-            $this->addMenu($menu);
+                $this->addPluginMenus('Mail', $menu, 'inside_category_menu');
+                $this->addMenu($menu);       
+                $this->addPluginMenus('Mail', $menu, 'after_category_menu');
+            }            
         }
     }
 
@@ -546,14 +533,10 @@ class MenuBar extends Menu
             $menuItem = new Menu (_("Giving Report (Tax Statements)"), "fas fa-file-pdf", "v2/deposit/tax/report", SessionUser::getUser()->isFinanceEnabled(), $menu);
             $menuItem = new Menu (_("Edit Deposit Slip") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentDeposit'] . '</small>', "fas fa-file-invoice-dollar", "v2/deposit/slipeditor/" . $_SESSION['iCurrentDeposit'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
 
-            $this->addMenu($menu);
-        }
-
-        $isPluginEnabledForCurrentUser = $this->addPluginMenus('Deposit', $menu);
-
-        if ($isPluginEnabledForCurrentUser and !(SystemConfig::getBooleanValue("bEnabledFinance") && SessionUser::getUser()->isFinanceEnabled())) {
-            $this->addMenu($menu);
-        }
+            $this->addPluginMenus('Deposit', $menu, 'inside_category_menu');
+            $this->addMenu($menu);       
+            $this->addPluginMenus('Deposit', $menu, 'after_category_menu');
+        }        
     }
 
     private function addEdrive()
@@ -563,7 +546,9 @@ class MenuBar extends Menu
 
             $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/edrive/dashboard", true, $menu);
 
-            $this->addMenu($menu);
+            $this->addPluginMenus('EDrive', $menu, 'inside_category_menu');
+            $this->addMenu($menu);       
+            $this->addPluginMenus('EDrive', $menu, 'after_category_menu');
         }
     }
 
@@ -587,13 +572,9 @@ class MenuBar extends Menu
                 $menuItem->addLink('PaddleNumList.php?FundRaiserID=' . $_SESSION['iCurrentFundraiser']);
             }
 
-            $this->addMenu($menu);
-        }
-
-        $isPluginEnabledForCurrentUser =  $this->addPluginMenus('Funds', $menu);
-
-        if ($isPluginEnabledForCurrentUser and !(SystemConfig::getBooleanValue("bEnabledFundraiser") and SessionUser::getUser()->isFinanceEnabled())) {
-            $this->addMenu($menu);
+            $this->addPluginMenus('Funds', $menu, 'inside_category_menu');
+            $this->addMenu($menu);       
+            $this->addPluginMenus('Funds', $menu, 'after_category_menu');
         }
     }
 

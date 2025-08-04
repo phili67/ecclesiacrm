@@ -280,7 +280,9 @@ class SystemConfig
             "iPersonAddressStyle" => new ConfigItem(2089, "iPersonAddressStyle", "choice", "", _("Set the export address)"), "", json_encode(SystemConfig::getAddressChoices())),
             "sMailChimpEmailSender" => new ConfigItem(2090, "sMailChimpEmailSender", "text", "", _("email address of the mailchimp sender.")),
             "sMailChimpContentsExternalCssFont" => new ConfigItem(2091, "sMailChimpContentsExternalCssFont", "textarea", "", _("Link to a style sheet for a particular font. This is useful for the font menu of ckeditor : https://fonts.googleapis.com/css?family=Abril+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i")),
-            "sMailChimpExtraFont" => new ConfigItem(2092, "sMailChimpExtraFont", "textarea", "", _("Here we put the font in the form fontnametodisplay/yourfontname. It is useful for the font menu of ckeditor, for example : Abril/Abril Fatface"))
+            "sMailChimpExtraFont" => new ConfigItem(2092, "sMailChimpExtraFont", "textarea", "", _("Here we put the font in the form fontnametodisplay/yourfontname. It is useful for the font menu of ckeditor, for example : Abril/Abril Fatface")),
+            "bEnabledPastoralCare" => new ConfigItem(2100, "bEnabledPastoralCare", "boolean", "1", _("Use Pastoralcare.")),
+            "bEnabledEdrive" => new ConfigItem(2101, "bEnabledEdrive", "boolean", "1", _("Use Edrive."))
         );
     }
 
@@ -288,7 +290,7 @@ class SystemConfig
     {
         return array(
             _('Entity Information') => ["sEntityName", "sEntityAddress", "sEntityCity", "sEntityState", "sEntityZip", "sEntityCountry", "sEntityPhone", "sEntityEmail", "sHomeAreaCode", "sTimeZone", "iEntityLatitude", "iEntityLongitude", "sEntityWebSite", "sEntityFB", "sEntityTwitter"],
-            _('Enabled Features') => ["bEnabledEvents", "bEnabledSundaySchool", "bEnabledEmail", "bEnabledFinance", "bEnabledFundraiser", "bEnabledMenuLinks"],
+            _('Enabled Features') => ["bEnabledEvents", "bEnabledSundaySchool", "bEnabledEmail", "bEnabledFinance", "bEnabledFundraiser", "bEnabledMenuLinks", "bEnabledPastoralCare", "bEnabledEdrive"],
             _('System Settings') => ["sLogLevel", "bRegistered", "bCSVAdminOnly", "sHeader", "bEnableIntegrityCheck", "iIntegrityCheckInterval", "sLastIntegrityCheckTimeStamp", "iPhotoClientCacheDuration", "bHSTSEnable", "iDocumentTimeLeft", "bThumbnailIconPresence"],
             _('Localization') => ["sLanguage", "bStateUnusefull", "sDistanceUnit", "sPhoneFormat", "sPhoneFormatWithExt", "sPhoneFormatCell", "sPhoneCountryCallingCode", "bTimeEnglish", "sDateFormatLong", "sTimeFormat", "sDateFormatNoYear", "sDateFormatShort", "sDateTimeFormat", "sDateFilenameFormat", "sDatePickerFormat", "sDatePickerPlaceHolder"],
             _('User setup') => ["iMinPasswordLength", "iMinPasswordChange", "iMaxFailedLogins", "iSessionTimeout", "aDisallowedPasswords", "bEnableLostPassword"],

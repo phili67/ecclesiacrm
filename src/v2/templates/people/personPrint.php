@@ -8,30 +8,32 @@
  *
  ******************************************************************************/
 
-use Propel\Runtime\Propel;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
 use EcclesiaCRM\Map\Record2propertyR2pTableMap;
+use EcclesiaCRM\GroupPropMasterQuery;
+use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\NoteQuery;
+
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Map\GroupTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\NoteTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
 
-use EcclesiaCRM\GroupPropMasterQuery;
-use EcclesiaCRM\Record2propertyR2pQuery;
-use EcclesiaCRM\NoteQuery;
-use Symfony\Component\HttpFoundation\Session\Session;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\SessionUser;
+
+use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 $connection = Propel::getConnection();
 
@@ -74,16 +76,35 @@ if (!is_null($rawQry->findOneByPerId($iPersonID))) {
 }
 
 // Get the Groups this Person is assigned to
-$ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
-       ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID,GroupTableMap::COL_GRP_ID,Criteria::LEFT_JOIN)
-       ->addMultipleJoin(array(array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID,ListOptionTableMap::COL_LST_OPTIONID),array(GroupTableMap::COL_GRP_ROLELISTID,ListOptionTableMap::COL_LST_ID)),Criteria::LEFT_JOIN)
-       ->add(ListOptionTableMap::COL_LST_OPTIONNAME, null, Criteria::ISNOTNULL)
-       ->Where(Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID.' = '.$iPersonID.' ORDER BY grp_Name')
-       ->addAsColumn('roleName',ListOptionTableMap::COL_LST_OPTIONNAME)
-       ->addAsColumn('groupName',GroupTableMap::COL_GRP_NAME)
-       ->addAsColumn('groupID',GroupTableMap::COL_GRP_ID)
-       ->addAsColumn('hasSpecialProps',GroupTableMap::COL_GRP_HASSPECIALPROPS)
-       ->find();
+if (SystemConfig::getBooleanValue('bEnabledSundaySchool')) {
+    $ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
+        ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
+        ->addMultipleJoin(
+            array(
+                array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID, ListOptionTableMap::COL_LST_OPTIONID),
+                array(GroupTableMap::COL_GRP_ROLELISTID, ListOptionTableMap::COL_LST_ID)),
+            Criteria::LEFT_JOIN)
+        ->add(ListOptionTableMap::COL_LST_OPTIONNAME, null, Criteria::ISNOTNULL)
+        ->Where(Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID . ' = ' . $iPersonID . ' ORDER BY grp_Name')
+        ->addAsColumn('roleName', ListOptionTableMap::COL_LST_OPTIONNAME)
+        ->addAsColumn('groupName', GroupTableMap::COL_GRP_NAME)                
+        ->addAsColumn('hasSpecialProps', GroupTableMap::COL_GRP_HASSPECIALPROPS)
+        ->find();
+} else {
+    $ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
+        ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
+        ->addMultipleJoin(
+            array(
+                array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID, ListOptionTableMap::COL_LST_OPTIONID),
+                array(GroupTableMap::COL_GRP_ROLELISTID, ListOptionTableMap::COL_LST_ID)),
+            Criteria::LEFT_JOIN)
+        ->add(ListOptionTableMap::COL_LST_OPTIONNAME, null, Criteria::ISNOTNULL)
+        ->Where(GroupTableMap::COL_GRP_NAME . ' <> 4 AND ' . Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID . ' = ' . $iPersonID . ' ORDER BY grp_Name')
+        ->addAsColumn('roleName', ListOptionTableMap::COL_LST_OPTIONNAME)
+        ->addAsColumn('groupName', GroupTableMap::COL_GRP_NAME)                
+        ->addAsColumn('hasSpecialProps', GroupTableMap::COL_GRP_HASSPECIALPROPS)
+        ->find();
+}
 
 
 // Get the Properties assigned to this Person
