@@ -534,6 +534,8 @@ class User extends BaseUser
 
     public function isEDriveEnabled($iPersonID = 0)
     {
+        if (!SystemConfig::getBooleanValue('bEnabledEdrive')) return false;
+        
         if ($iPersonID == 0) {
             $iPersonID = SessionUser::getUser()->getPersonId();
         }
@@ -622,10 +624,7 @@ class User extends BaseUser
 
     public function isFinanceEnabled()
     {
-        /*if (!SystemConfig::getBooleanValue('bEnabledFinance'))
-          return false;*/
-
-        return $this->isAdmin() || $this->isFinance();
+        return ($this->isAdmin() || $this->isFinance()) and SystemConfig::getBooleanValue('bEnabledFinance');
     }
 
     public function isNotesEnabled()
@@ -645,7 +644,7 @@ class User extends BaseUser
 
     public function isPastoralCareEnabled()
     {
-        return $this->isAdmin() || $this->isPastoralCare();
+        return ($this->isAdmin() || $this->isPastoralCare()) and SystemConfig::getBooleanValue('bEnabledPastoralCare');
     }
 
     public function isMailChimpEnabled()
@@ -661,7 +660,7 @@ class User extends BaseUser
 
     public function isGdrpDpoEnabled()
     {
-        return $this->isAdmin() || $this->isGdrpDpo() || !SystemConfig::getBooleanValue('bGDPR');
+        return ($this->isAdmin() || $this->isGdrpDpo()) and SystemConfig::getBooleanValue('bGDPR');
     }
 
     public function isMainDashboardEnabled()
@@ -700,17 +699,17 @@ class User extends BaseUser
 
     public function isEmailEnabled()
     {
-        return $this->isAdmin() || $this->getCanSendEmail();
+        return ($this->isAdmin() || $this->getCanSendEmail()) and SystemConfig::getBooleanValue('bEnabledEmail');
     }
 
     public function isExportSundaySchoolCSVEnabled()
     {
-        return $this->isAdmin() || $this->isExportSundaySchoolCSV();
+        return ($this->isAdmin() || $this->isExportSundaySchoolCSV()) and SystemConfig::getBooleanValue('bEnabledSundaySchool');
     }
 
     public function isExportSundaySchoolPDFEnabled()
     {
-        return $this->isAdmin() || $this->isExportSundaySchoolPDF();
+        return ($this->isAdmin() || $this->isExportSundaySchoolPDF()) and SystemConfig::getBooleanValue('bEnabledSundaySchool');
     }
 
     public function isCreateDirectoryEnabled()
