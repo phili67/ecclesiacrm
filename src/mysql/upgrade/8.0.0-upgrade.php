@@ -229,6 +229,8 @@ unlink(SystemURLs::getDocumentRoot() . "/external/dependencies.php");
 unlink(SystemURLs::getDocumentRoot() . "/ident/dependencies.php");
 unlink(SystemURLs::getDocumentRoot() . "/session/dependencies.php");
 
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/debug/");
+
 // we get the PDO for the Sabre connection from the Propel connection
 // now we update the CardDav 
 // every person in group should have a view on the addrebooks of the group
