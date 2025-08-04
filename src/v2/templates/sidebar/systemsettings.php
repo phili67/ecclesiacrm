@@ -53,7 +53,7 @@ require $sRootDocument . '/Include/Header.php';
                         $categories = SystemConfig::getCategories();
                         $categories_modes = [];
                         foreach (array_keys($categories) as $key) {
-                            if ($key == 'Church Information') {
+                            if ($key == 'Entity Information') {
                                 $categories_modes[$key] = '';
                             } else {
                                 $categories_modes[$key] = strtolower(str_replace(' ', '', $key));

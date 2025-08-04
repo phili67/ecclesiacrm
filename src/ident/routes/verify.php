@@ -570,7 +570,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                     $note->setText($message);
                     $note->save();
 
-                    $mail = new FamilyVerificationValidation([SystemConfig::getValue("sChurchEmail")], $family->getName(), $token->getToken(), $message, $family->getId());
+                    $mail = new FamilyVerificationValidation([SystemConfig::getValue("sEntityEmail")], $family->getName(), $token->getToken(), $message, $family->getId());
 
                     if (($familyEmailSent = $mail->send())) {
                         $this->familiesEmailed = $this->familiesEmailed + 1;
@@ -598,7 +598,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                     $note->setText($message);
                     $note->save();
 
-                    $mail = new PersonVerificationValidation([SystemConfig::getValue("sChurchEmail")], $person->getFullName(), $token->getToken(), $message, $person->getId());
+                    $mail = new PersonVerificationValidation([SystemConfig::getValue("sEntityEmail")], $person->getFullName(), $token->getToken(), $message, $person->getId());
 
                     if (($personEmailSent = $mail->send())) {
                         $this->personEmailSent = $this->personEmailSent + 1;

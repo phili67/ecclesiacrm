@@ -44,7 +44,7 @@ $(function() {
     } else {
       if (this.value == -1) {// we create a new family
         // we fields are blank
-        $('#famcountry-input').val(window.CRM.sChurchCountry).trigger('change');
+        $('#famcountry-input').val(window.CRM.sEntityCountry).trigger('change');
         $('#famstate-input').val('').trigger('change');
         $('#FamName').val('');
         $('#FamAddress1').val('');

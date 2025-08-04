@@ -81,7 +81,7 @@ $server->addPlugin(
 );
 
 $server->addPlugin(
-    new Sabre\CalDAV\Schedule\IMipPlugin(SystemConfig::getValue('sChurchEmail'))
+    new Sabre\CalDAV\Schedule\IMipPlugin(SystemConfig::getValue('sEntityEmail'))
 );
 
 // CalDAV-Sync plugin

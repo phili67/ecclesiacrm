@@ -261,9 +261,9 @@ if ($output == 'pdf') {
                 $curX = 60;
                 $this->WriteAt($curX, $curY, _('Please detach this slip and mail with your next gift.'));
                 $curY += (1.5 * SystemConfig::getValue('incrementY'));
-                $church_mailing = _('Please mail you next gift to ').SystemConfig::getValue('sChurchName').', '
-                    .SystemConfig::getValue('sChurchAddress').', '.SystemConfig::getValue('sChurchCity').', '.SystemConfig::getValue('sChurchState').'  '
-                    .SystemConfig::getValue('sChurchZip')._(', Phone: ').SystemConfig::getValue('sChurchPhone');
+                $church_mailing = _('Please mail you next gift to ').SystemConfig::getValue('sEntityName').', '
+                    .SystemConfig::getValue('sEntityAddress').', '.SystemConfig::getValue('sEntityCity').', '.SystemConfig::getValue('sEntityState').'  '
+                    .SystemConfig::getValue('sEntityZip')._(', Phone: ').SystemConfig::getValue('sEntityPhone');
                 $this->SetFont('Times', 'I', 10);
                 $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $church_mailing);
                 $this->SetFont('Times', '', 10);
@@ -286,13 +286,13 @@ if ($output == 'pdf') {
                 }
                 $curX = 30;
                 $curY = 246;
-                $this->WriteAt(SystemConfig::getValue('leftX') + 5, $curY, SystemConfig::getValue('sChurchName'));
+                $this->WriteAt(SystemConfig::getValue('leftX') + 5, $curY, SystemConfig::getValue('sEntityName'));
                 $curY += SystemConfig::getValue('incrementY');
-                if (SystemConfig::getValue('sChurchAddress') != '') {
-                    $this->WriteAt(SystemConfig::getValue('leftX') + 5, $curY, SystemConfig::getValue('sChurchAddress'));
+                if (SystemConfig::getValue('sEntityAddress') != '') {
+                    $this->WriteAt(SystemConfig::getValue('leftX') + 5, $curY, SystemConfig::getValue('sEntityAddress'));
                     $curY += SystemConfig::getValue('incrementY');
                 }
-                $this->WriteAt(SystemConfig::getValue('leftX') + 5, $curY, SystemConfig::getValue('sChurchCity').', '.SystemConfig::getValue('sChurchState').'  '.SystemConfig::getValue('sChurchZip'));
+                $this->WriteAt(SystemConfig::getValue('leftX') + 5, $curY, SystemConfig::getValue('sEntityCity').', '.SystemConfig::getValue('sEntityState').'  '.SystemConfig::getValue('sEntityZip'));
                 $curY += SystemConfig::getValue('incrementY');
                 if ($fam_Country != '' && $fam_Country != 'USA' && $fam_Country != 'United States') {
                     $this->WriteAt(SystemConfig::getValue('leftX') + 5, $curY, $fam_Country);

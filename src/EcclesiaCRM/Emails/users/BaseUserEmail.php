@@ -18,7 +18,7 @@ abstract class BaseUserEmail extends BaseEmail
     {
         parent::__construct([$user->getEmail()]);
         $this->user = $user;
-        $this->mail->Subject = SystemConfig::getValue("sChurchName") . ": " . $this->getSubSubject();
+        $this->mail->Subject = SystemConfig::getValue("sEntityName") . ": " . $this->getSubSubject();
         $this->mail->isHTML(true);
         $this->mail->msgHTML($this->buildMessage());
     }

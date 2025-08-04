@@ -12,7 +12,7 @@ class NotificationEmail extends BaseEmail
     {
         $this->notificationSource = $notificationSource;
         parent::__construct($toAddresses);
-        $this->mail->Subject = SystemConfig::getValue("sChurchName") . ": " . $this->getSubSubject();
+        $this->mail->Subject = SystemConfig::getValue("sEntityName") . ": " . $this->getSubSubject();
         $this->mail->isHTML(true);
         $this->mail->msgHTML($this->buildMessage());
     }

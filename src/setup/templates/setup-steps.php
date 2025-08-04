@@ -190,60 +190,60 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
 
             <div class="form-group">
-                <label for="sChurchName">Church Name</label>
-                <input type="text" name="sChurchName" id="sChurchName" class= "form-control form-control-sm"
+                <label for="sEntityName">Church Name</label>
+                <input type="text" name="sEntityName" id="sEntityName" class= "form-control form-control-sm"
                        aria-describedby="sChurchNameHelp" required>
                 <small id="sChurchNameHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
-                <label for="sChurchAddress">Church Address (1 street Christian)</label>
-                <input type="text" name="sChurchAddress" id="sChurchAddress" class= "form-control form-control-sm"
+                <label for="sEntityAddress">Church Address (1 street Christian)</label>
+                <input type="text" name="sEntityAddress" id="sEntityAddress" class= "form-control form-control-sm"
                        aria-describedby="sChurchAddressHelp" required>
                 <small id="sChurchAddressHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
-                <label for="sChurchCity">Church City (New York)</label>
-                <input type="text" name="sChurchCity" id="sChurchCity" class= "form-control form-control-sm"
+                <label for="sEntityCity">Church City (New York)</label>
+                <input type="text" name="sEntityCity" id="sEntityCity" class= "form-control form-control-sm"
                        aria-describedby="sChurchCityHelp" required>
                 <small id="sChurchCityHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
-                <label for="sChurchZip">Church Zip</label>
-                <input type="text" name="sChurchZip" id="sChurchZip" class= "form-control form-control-sm"
+                <label for="sEntityZip">Church Zip</label>
+                <input type="text" name="sEntityZip" id="sEntityZip" class= "form-control form-control-sm"
                        aria-describedby="sChurchZipHelp" required>
                 <small id="sChurchZipHelp" class="form-text text-muted"></small>
             </div>
 
 <!--            <div class="form-group">
-                <label for="sChurchState">Church State</label>
+                <label for="sEntityState">Church State</label>
                     <?php
                         $statesDDF = new StateDropDown();
-                        echo $statesDDF->getDropDown("","sChurchState");
+                        echo $statesDDF->getDropDown("","sEntityState");
                     ?>
                 <small id="sChurchStateHelp" class="form-text text-muted"></small>
             </div>-->
 
             <div class="form-group">
-                <label for="sChurchCountry">Church Country</label>
+                <label for="sEntityCountry">Church Country</label>
                     <?php
                       $countriesDDF = new CountryDropDown();
-                      echo $countriesDDF->getDropDown("", "sChurchCountry");
+                      echo $countriesDDF->getDropDown("", "sEntityCountry");
                     ?>
                 <small id="sChurchCountryHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
-                <label for="sChurchPhone">Church Phone</label>
-                <input type="text" name="sChurchPhone" id="sChurchPhone" class= "form-control form-control-sm"
+                <label for="sEntityPhone">Church Phone</label>
+                <input type="text" name="sEntityPhone" id="sEntityPhone" class= "form-control form-control-sm"
                        aria-describedby="sChurchPhoneHelp">
                 <small id="sChurchPhoneHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
-                <label for="sChurchEmail">Church email</label>
-                <input type="email" name="sChurchEmail" id="sChurchEmail" class= "form-control form-control-sm"
+                <label for="sEntityEmail">Church email</label>
+                <input type="email" name="sEntityEmail" id="sEntityEmail" class= "form-control form-control-sm"
                        aria-describedby="sChurchEmailHelp" required>
                 <small id="sChurchEmailHelp" class="form-text text-muted"></small>
             </div>
@@ -255,7 +255,7 @@ require '../Include/HeaderNotLoggedIn.php';
         <h2>Church Signer | Tax Signer | DPO GDPR</h2>
         <section>
             <div class="form-group">
-                <label for="sChurchName">Confirm Signer</label>
+                <label for="sEntityName">Confirm Signer</label>
                 <input type="text" name="sConfirmSigner" id="sConfirmSigner" class= "form-control form-control-sm"
                        aria-describedby="sConfirmSignerHelp" required>
                 <small id="sConfirmSignerHelp" class="form-text text-muted">
@@ -319,21 +319,21 @@ require '../Include/HeaderNotLoggedIn.php';
         <section>
 
             <div class="form-group">
-                <label for="sChurchName">Church WebSite</label>
-                <input type="text" name="sChurchWebSite" id="sChurchWebSite" class= "form-control form-control-sm"
+                <label for="sEntityName">Church WebSite</label>
+                <input type="text" name="sEntityWebSite" id="sEntityWebSite" class= "form-control form-control-sm"
                        aria-describedby="sChurchWebSiteHelp">
                 <small id="sChurchWebSiteHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
-                <label for="sChurchAddress">Church FaceBook</label>
-                <input type="text" name="sChurchFB" id="sChurchFB" class= "form-control form-control-sm"
+                <label for="sEntityAddress">Church FaceBook</label>
+                <input type="text" name="sEntityFB" id="sEntityFB" class= "form-control form-control-sm"
                        aria-describedby="sChurchFBHelp">
                 <small id="sChurchFBHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
-                <label for="sChurchTwitter">Church Twitter</label>
-                <input type="text" name="sChurchTwitter" id="sChurchTwitter" class= "form-control form-control-sm"
+                <label for="sEntityTwitter">Church Twitter</label>
+                <input type="text" name="sEntityTwitter" id="sEntityTwitter" class= "form-control form-control-sm"
                        aria-describedby="sChurchTwitterHelp">
                 <small id="sChurchFBHelp" class="form-text text-muted"></small>
             </div>

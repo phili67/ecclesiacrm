@@ -198,7 +198,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
            icon: window.CRM.root + "/skin/icons/church.png",
       };
 
-      addMarkerWithInfowindow(map,churchloc,icon,"titre","<?= SystemConfig::getValue('sChurchName') ?>");
+      addMarkerWithInfowindow(map,churchloc,icon,"titre","<?= SystemConfig::getValue('sEntityName') ?>");
 
       // set the default place
       map.setView({

@@ -284,14 +284,14 @@ class MailChimpService
     {
         $name = $name; // List Name
 
-        $company = SystemConfig::getValue('sChurchName');
-        $address1 = SystemConfig::getValue('sChurchAddress');
+        $company = SystemConfig::getValue('sEntityName');
+        $address1 = SystemConfig::getValue('sEntityAddress');
         $address2 = "";
-        $city = SystemConfig::getValue('sChurchCity');
-        $state = SystemConfig::getValue('sChurchState');
-        $zip = SystemConfig::getValue('sChurchZip');
-        $country = SystemConfig::getValue('sChurchCountry');
-        $phone = SystemConfig::getValue('sChurchPhone');
+        $city = SystemConfig::getValue('sEntityCity');
+        $state = SystemConfig::getValue('sEntityState');
+        $zip = SystemConfig::getValue('sEntityZip');
+        $country = SystemConfig::getValue('sEntityCountry');
+        $phone = SystemConfig::getValue('sEntityPhone');
         $permission_reminder = $PermissionReminder;
         $archive_bars = $ArchiveBars; // Whether campaigns for this list use the Archive Bar in archives by default : true false
 
@@ -305,14 +305,14 @@ class MailChimpService
         if (empty($from_email)) {
             $from_email = (!empty (SessionUser::getUser()->getPerson()->getEmail())) ? SessionUser::getUser()->getPerson()->getEmail() : SessionUser::getUser()->getPerson()->getWorkEmail();
             if (empty ($from_email)) {
-                $from_email = SystemConfig::getValue('sChurchEmail');
+                $from_email = SystemConfig::getValue('sEntityEmail');
             }
         }
         $subject = $subject;
         $language = substr(SystemConfig::getValue('sLanguage'), 0, 2);
 
-        $notify_subs = SystemConfig::getValue('sChurchEmail'); // The email address to send subscribe notifications to.
-        $notify_unsubs = SystemConfig::getValue('sChurchEmail'); // The email address to send subscribe notifications to.
+        $notify_subs = SystemConfig::getValue('sEntityEmail'); // The email address to send subscribe notifications to.
+        $notify_unsubs = SystemConfig::getValue('sEntityEmail'); // The email address to send subscribe notifications to.
         $type = true; //Whether the list supports multiple formats for emails. When set to true, subscribers can choose whether they want to receive HTML or plain-text emails. When set to false, subscribers will receive HTML emails, with a plain-text alternative backup.
         $visibility = $Status; // Whether this list is public or private : pub or prv
 
@@ -816,13 +816,13 @@ class MailChimpService
 
     public function createCampaign($list_id, $tag_Id, $subject, $title, $htmlBody)
     {
-        $from_name = SystemConfig::getValue('sChurchName');
+        $from_name = SystemConfig::getValue('sEntityName');
         $from_email = SystemConfig::getValue("sMailChimpEmailSender");
 
         if (empty($from_email)) {
             $from_email = (!empty (SessionUser::getUser()->getPerson()->getEmail())) ? SessionUser::getUser()->getPerson()->getEmail() : SessionUser::getUser()->getPerson()->getWorkEmail();
             if (empty ($from_email)) {
-                $from_email = SystemConfig::getValue('sChurchEmail');
+                $from_email = SystemConfig::getValue('sEntityEmail');
             }
         }
 

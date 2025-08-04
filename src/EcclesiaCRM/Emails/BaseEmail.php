@@ -2,14 +2,17 @@
 
 namespace EcclesiaCRM\Emails;
 
+use Mustache_Engine;
+use Mustache_Loader_FilesystemLoader;
+
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\ChurchMetaData;
-use Mustache_Engine;
-use Mustache_Loader_FilesystemLoader;
-use Monolog\Logger;
+use EcclesiaCRM\Service\SystemService;
+
 use PHPMailer\PHPMailer\PHPMailer;
+use Monolog\Logger;
 
 abstract class BaseEmail
 {
@@ -106,7 +109,7 @@ abstract class BaseEmail
             "unsubscribeStart" => SystemConfig::getValue('sUnsubscribeStart'),
             "unsubscribeEnd" => SystemConfig::getValue('sUnsubscribeEnd'),
             "SoftwareName" => Bootstrapper::getSoftwareName(),
-            "currentYear" => date("Y")
+            "currentYear" => SystemService::getCopyrightDate()
         ];
     }
 
