@@ -209,13 +209,11 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
         if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
             continue;
 
-        if ($i % 6 == 0) {
-            if ($i > 0) {
-    ?>
+        if ($i % 6 == 0 and $i > 0) {
+        ?>
                 </row>
                 <row>
         <?php
-            }
         }
         $i++;
 
