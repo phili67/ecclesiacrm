@@ -50,6 +50,7 @@ abstract class SecurityOptions
     const bShowMap = 65536; // bit 16
     const bEDrive = 131072; // bit 17
     const bShowMenuQuery = 262144; // bit 18
+    const bSundaySchool = 524288; // bit 19
     const bDashBoardUser = 1073741824; // bit 30
 }
 
@@ -678,6 +679,11 @@ class User extends BaseUser
         return $this->isAdmin() || $this->isShowMenuQuery();
     }
 
+    public function isShowSundaySchool()
+    {
+        return SystemConfig::getBooleanValue('bEnabledSundaySchool');
+    }
+
     public function updatePassword($password)
     {
         $this->setPassword($this->hashPassword($password));
@@ -1254,7 +1260,6 @@ class User extends BaseUser
         if ($this->isMenuOptionsEnabled()) { // bit 9
             $bits |= SecurityOptions::bMenuOptions;
         }
-
         if ($this->isManageGroupsEnabled()) { // bit 10
             $bits |= SecurityOptions::bManageGroups;
         }
@@ -1282,6 +1287,9 @@ class User extends BaseUser
         if ($this->isShowMenuQueryEnabled()) { // bit 18
             $bits |= SecurityOptions::bShowMenuQuery;
         }
+        if ($this->isShowMenuQueryEnabled()) { // bit 19
+            $bits |= SecurityOptions::bSundaySchool;
+        }
 
         $bits |= SecurityOptions::bDashBoardUser;
 
@@ -1290,8 +1298,6 @@ class User extends BaseUser
 
     public function isSecurityEnableForPlugin($name, $sec = 1073741824)
     {
-        //$sec = SecurityOptions::bNone => 1073741824; by default
-
         if ($this->isAdmin()) {
             return true;
         }
@@ -1338,6 +1344,8 @@ class User extends BaseUser
                     return $this->isEDriveEnabled();
                 case 262144: // bit 18
                     return $this->isShowMenuQueryEnabled();
+                case 524288: // bit 19
+                    return $this->isShowSundaySchool();
                 case 1073741824: // ever true
                     return true;
             }
