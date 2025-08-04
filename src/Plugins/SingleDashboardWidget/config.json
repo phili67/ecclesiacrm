@@ -1,13 +1,13 @@
 {
-              "Name": "SingleDashboardWidget",
-              "copyrights": "Philippe Logel © EcclesiaCRM Team",
-              "version": "1.0",
-              "Description": "Widget ton view single person informations",
-              "infos": "iMathGeo & Softwares",
-              "url_infos": "https://www.ecclesiacrm.com",
-              "url_docs": "https://www.ecclesiacrm.com",
-              "Settings_url": "",
-              "Details": "https://url;iframe=true&amp;width=772&amp;height=549",
-              "UUID": "92c24d87-980b-427f-9cac-b8008f4a89b8",
-              "licence": "NO"
-          }
+    "Name": "SingleDashboardWidget",
+    "copyrights": "Philippe Logel © EcclesiaCRM Team",
+    "version": "1.0",
+    "Description": "Widget ton view single person informations",
+    "infos": "iMathGeo & Softwares",
+    "url_infos": "https://www.ecclesiacrm.com",
+    "url_docs": "https://www.ecclesiacrm.com",
+    "Settings_url": "",
+    "Details": "https://url;iframe=true&amp;width=772&amp;height=549",
+    "UUID": "92c24d87-980b-427f-9cac-b8008f4a89b8",
+    "licence": "NO"
+}
