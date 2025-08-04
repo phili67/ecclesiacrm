@@ -1,0 +1,2 @@
+INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`, `plgn_UserRole_Dashboard_Availability`)
+VALUES ('PersonDashboardWidget', 'Widget Dashboard Plugin : to see persons informations', 'Dashboard', NULL, '', '1', '1.0', 'person_w_', 'inside_category_menu', 'widget', 'bg-gradient-purple text-white',1073741824,1);
