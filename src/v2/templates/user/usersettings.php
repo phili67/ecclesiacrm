@@ -355,7 +355,7 @@ require_once $sRootDocument . '/Include/Header.php';
                     ->orderByName()
                     ->find();
 
-                foreach ($plugins as $plugin) {
+                foreach ($plugins as $plugin) {                
                     $role = PluginUserRoleQuery::create()
                         ->filterByUserId($iPersonID)
                         ->findOneByPluginId($plugin->getId());
@@ -382,14 +382,10 @@ require_once $sRootDocument . '/Include/Header.php';
                                 <option value="1" <?= ($visible == true)?'SELECTED':'' ?>><?= _('Yes') ?>
                             </select>
                         </div>
-                        <div class="<?= $place=='widget'?'d-lg-none':'col-md-3' ?>">
+                        <div class="d-none">
                             <select class="form-control form-control-sm "
                                     name="new_plugin_place[<?= $plugin->getId() ?>]">
-                                <option value="widget" <?= ($place == 'widget')?'SELECTED':'' ?> hidden><?= _('widget') ?>
-                                <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
-                                <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
-                                <option value="center" <?= ($place == 'center')?'SELECTED':'' ?>><?= _('Center') ?>
-                                <option value="right" <?= ($place == 'right')?'SELECTED':'' ?>><?= _('Right') ?>
+                                <option value="widget" SELECTED><?= _('widget') ?>
                             </select>
                         </div>
                     </div>
@@ -435,10 +431,9 @@ require_once $sRootDocument . '/Include/Header.php';
                                 <option value="1" <?= ($visible == true)?'SELECTED':'' ?>><?= _('Yes') ?>
                             </select>
                         </div>
-                        <div class="<?= $place=='widget'?'d-lg-none':'col-md-3' ?>">
+                        <div class="col-md-3">
                             <select class="form-control form-control-sm "
                                     name="new_plugin_place[<?= $plugin->getId() ?>]">
-                                <option value="widget" <?= ($place == 'widget')?'SELECTED':'' ?> hidden><?= _('widget') ?>
                                 <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
                                 <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
                                 <option value="center" <?= ($place == 'center')?'SELECTED':'' ?>><?= _('Center') ?>

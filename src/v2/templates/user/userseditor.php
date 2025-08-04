@@ -306,7 +306,7 @@ require $sRootDocument . '/Include/Header.php';
                                                                    value="1"<?= ($usr_HtmlSourceEditor) ? ' checked' : '' ?>>
                                                         </div>
                                                     </div>
-                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledEmail')?'row':'d-lg-none' ?>">
+                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledEmail')?'row':'d-none' ?>">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('Can Send Email') ?>:<br/>
                                                             <span
@@ -396,7 +396,7 @@ require $sRootDocument . '/Include/Header.php';
 
                                                         </div>
                                                     </div>
-                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledSundaySchool')?'row':'d-lg-none' ?>">
+                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledSundaySchool')?'row':'d-none' ?>">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('Sunday school PDF') ?>:<br/>
                                                             <span
@@ -408,7 +408,7 @@ require $sRootDocument . '/Include/Header.php';
                                                             &nbsp;
                                                         </div>
                                                     </div>
-                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledSundaySchool')?'row':'d-lg-none' ?>">
+                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledSundaySchool')?'row':'d-none' ?>">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('Sunday school CSV') ?>:<br/>
                                                             <span
@@ -434,7 +434,7 @@ require $sRootDocument . '/Include/Header.php';
                                                     </h3>
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="<?= (SystemConfig::getBooleanValue('bEnabledFinance') or SystemConfig::getBooleanValue('bEnabledFundraiser'))?'row':'d-lg-none' ?>">
+                                                    <div class="<?= (SystemConfig::getBooleanValue('bEnabledFinance') or SystemConfig::getBooleanValue('bEnabledFundraiser'))?'row':'d-none' ?>">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('Manage Donations and Finance') ?>:
                                                         </div>
@@ -463,7 +463,7 @@ require $sRootDocument . '/Include/Header.php';
                                                                    value="1"<?= ($usr_showMenuQuery) ? ' checked' : '' ?>>
                                                         </div>
                                                     </div>
-                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledEmail')?'row':'d-lg-none' ?>">
+                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledEmail')?'row':'d-none' ?>">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('MailChimp') ?>:<br/>
                                                             <span class="SmallText">(<?= _('Allow a user to use MailChimp tool') ?>)</span>
@@ -474,7 +474,7 @@ require $sRootDocument . '/Include/Header.php';
                                                             &nbsp;
                                                         </div>
                                                     </div>
-                                                    <div class="<?= SystemConfig::getBooleanValue('bGDPR')?'row':'d-lg-none' ?>">
+                                                    <div class="<?= SystemConfig::getBooleanValue('bGDPR')?'row':'d-none' ?>">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _("GRPD Data Protection Officer") ?>:<br/>
                                                             <span
@@ -485,7 +485,7 @@ require $sRootDocument . '/Include/Header.php';
                                                                    value="1"<?= ($usr_GDRP_DPO) ? ' checked' : '' ?>>
                                                         </div>
                                                     </div>
-                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledPastoralCare')?'row':'d-lg-none' ?>">
+                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledPastoralCare')?'row':'d-none' ?>">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('Pastoral Care') ?>:
                                                         </div>
