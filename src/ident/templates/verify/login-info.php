@@ -13,7 +13,7 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
         <!-- /.login-logo -->
         <div class="card login-box-body card card-outline card-success">
             <div class="card-header login-logo">
-                <?= Bootstrapper::getAppName() ?> <?= SystemService::getDBMainVersion() ?><br>
+                <?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?><br>
                 <b><?= _('Members') ?></b>
             </div>
             <div class="card-body login-card-body">

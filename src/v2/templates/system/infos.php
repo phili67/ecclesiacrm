@@ -18,7 +18,7 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
                     <tr>
-                        <td><?= Bootstrapper::getAppName() ?> <?= _("Software Version") ?></td>
+                        <td><?= Bootstrapper::getSoftwareName() ?> <?= _("Software Version") ?></td>
                         <td><?= SystemService::getInstalledVersion() ?></td>
                     </tr>
                     <tr>
@@ -138,7 +138,7 @@ EOD;
             <div class="card-body overflow-auto">
                 <table class="table table-striped">
                     <tr>
-                        <td><?= Bootstrapper::getAppName() ?> <?= _("Database Version") ?></td>
+                        <td><?= Bootstrapper::getSoftwareName() ?> <?= _("Database Version") ?></td>
                         <td><?= SystemService::getDBVersion() ?></td>
                     </tr>
                     <tr>

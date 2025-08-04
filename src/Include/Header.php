@@ -222,7 +222,7 @@ Header_system_notifications();
             <img src="<?= SystemURLs::getRootPath() ?>/icon-small.png" alt="CRM Logo"
                  class="brand-image img-circle-20 elevation-1" style="opacity: .8">
             <span
-                class="brand-text font-weight-light"><?= Bootstrapper::getAppName() ?> <?= SystemService::getDBMainVersion() ?> (B46)</span>
+                class="brand-text font-weight-light"><?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?> (B46)</span>
         </a>
 
         <section class="sidebar">
