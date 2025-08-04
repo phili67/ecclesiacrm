@@ -56,12 +56,7 @@ foreach ($plugins as $plugin) {
 $pluginWidgets = PluginQuery::create()
     ->filterByActiv(1)
     ->filterByCategory('Dashboard')
-    ->usePluginUserRoleQuery()
-        ->filterByDashboardOrientation('widget')
-        ->filterByUserId(SessionUser::getId())
-        ->filterByDashboardVisible(true)
-    ->endUse()
-    ->filterByDashboardDefaultOrientation('widget', Criteria::EQUAL)
+    ->filterByDashboardDefaultOrientation('widget', Criteria::EQUAL)    
     ->find();
 
 foreach ($pluginWidgets as $plugin) {
@@ -73,10 +68,10 @@ foreach ($pluginWidgets as $plugin) {
         $plgnRole = new PluginUserRole();
 
         $plgnRole->setPluginId($plugin->getId());
-
         $plgnRole->setUserId(SessionUser::getId());
         $plgnRole->setDashboardColor($plugin->getDashboardDefaultColor());
         $plgnRole->setDashboardOrientation($plugin->getDashboardDefaultOrientation());
+        $plgnRole->setDashboardVisible(true);
 
         $plgnRole->save();
     }
@@ -160,28 +155,7 @@ if (!$load_Elements) {
     <?php if ( SessionUser::getUser()->isMainDashboardEnabled() ) { ?>
     <!-- Small boxes (Stat box) -->
     <div class="row">        
-        <div class="col-lg-2 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-gradient-blue">
-                <div class="inner">
-                    <h3 id="realFamilyCNT">
-                        <?= $dashboardCounts['familyCount'] ?>
-                    </h3>
-                    <p>
-                        <?= _("Families") ?>
-                    </p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-male" style="right: 124px"></i><i class="fas fa-female" style="right: 67px"></i><i
-                        class="fas fa-child"></i>
-                </div>
-                <div class="small-box-footer">
-                    <a href="<?= $sRootPath ?>/v2/people/list/family" style="color:#ffffff">
-                        <?= _('View') ?> <?= _("Familles") ?> <i class="fas fa-arrow-circle-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div><!-- ./col -->
+        
         <div class="col-lg-2 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-gradient-purple">
@@ -251,12 +225,12 @@ if (!$load_Elements) {
     <?php } ?>
 
     <!-- widgets -->
-    <row>
+    <div class="row">
     <?php 
         $widgetCount = $pluginWidgets->count();
 
         $i=0;
-        foreach ($pluginWidgets as $pluginWidget) {
+        foreach ($pluginWidgets as $plugin) {
             if ($i%6 == 0) {
                 if ($i > 0) {
                     ?>
@@ -265,16 +239,18 @@ if (!$load_Elements) {
                     <?php
                 }
             }
+            $i++;
 
             echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php",[
                     'sRootPath'     => $sRootPath,
                     'sRootDocument' => $sRootDocument,
                     'CSPNonce'      => $CSPNonce,
                     'PluginId'      => $plugin->getId()
-            ]);        
+            ]);  
+                  
         }
     ?>
-    </row><!-- /.row -->
+    </div><!-- /.row -->
     <!-- /.widgets -->
 
     <!-- we start the plugin parts : center plugins -->
