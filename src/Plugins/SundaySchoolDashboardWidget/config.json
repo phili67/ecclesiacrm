@@ -1,0 +1,13 @@
+{
+    "Name": "SundaySchoolDashboardWidget",
+    "copyrights": "Philippe Logel © EcclesiaCRM Team",
+    "version": "1.0",
+    "Description": "Widget to view sunday school informations",
+    "infos": "iMathGeo & Softwares",
+    "url_infos": "https://www.ecclesiacrm.com",
+    "url_docs": "https://www.ecclesiacrm.com",
+    "Settings_url": "SundaySchoolDashboardWidget/settings",
+    "Details": "https://url;iframe=true&amp;width=772&amp;height=549",
+    "UUID": "b8ea7c87-a64b-40f0-9dd6-48f78d1a2f25",
+    "licence": "NO"
+}
