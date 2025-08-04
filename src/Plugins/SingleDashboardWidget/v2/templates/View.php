@@ -23,7 +23,7 @@ $dashboardCounts = $dshiS->getAllItems();
                 <?= $dashboardCounts['singleCount'] ?>
             </h3>
             <p>
-                <?= dgettext("messages-SingleDashboardWidget",'Single Persons') ?>
+                <?= dgettext("messages-SingleDashboardWidget", 'Single Persons') ?>
             </p>
         </div>
         <div class="icon">
@@ -31,7 +31,7 @@ $dashboardCounts = $dshiS->getAllItems();
         </div>
         <div class="small-box-footer">
             <a href="<?= $sRootPath ?>/v2/people/list/singles" style="color:#ffffff">
-                <?= dgettext("messages-SingleDashboardWidget",'View') ?> <?= dgettext("messages-SingleDashboardWidget","Singles") ?> <i class="fas fa-arrow-circle-right"></i>
+                <?= dgettext("messages-SingleDashboardWidget", 'View') ?> <?= dgettext("messages-SingleDashboardWidget", "Singles") ?> <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
     </div>
