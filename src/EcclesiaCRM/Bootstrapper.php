@@ -14,6 +14,7 @@ namespace EcclesiaCRM
   use EcclesiaCRM\Utils\RedirectUtils;
   use EcclesiaCRM\Service\UpgradeService;
   use EcclesiaCRM\PluginQuery;
+  use Propel\Runtime\ServiceContainer\StandardServiceContainer;
 
   class Bootstrapper
   {
@@ -26,22 +27,20 @@ namespace EcclesiaCRM
       private static $databasePassword;
       private static $databaseName;
       private static $rootPath;
-      private static $lockURL;
-      private static $allowableURLs;
       private static $DavServer;
       private static $localeInfo;
-      private static $sAppName;
+      private static $sSoftwareName;
 
       /**
        *
        * @var Logger
        */
       private static $bootStrapLogger;
-      private static $serviceContainer;
-      private static $serviceContainer2;
+      private static StandardServiceContainer $serviceContainer;
+      private static StandardServiceContainer $serviceContainer2;
 
       public static function init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, 
-            $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false,$sAppName)
+            $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false,$sSoftwareName)
       {
           global $debugBootstrapper;
           self::$databaseServerName = $sSERVERNAME;
@@ -49,12 +48,10 @@ namespace EcclesiaCRM
           self::$databasePassword = $sPASSWORD;
           self::$databasePort = $dbPort;
           self::$databaseName = $sDATABASE;
-          self::$rootPath = $sRootPath;
-          self::$lockURL = $bLockURL;
-          self::$allowableURLs = $URL;
+          self::$rootPath = $sRootPath;                    
           self::$DavServer = $davserver;
           self::$localeInfo = NULL;
-          self::$sAppName = $sAppName;
+          self::$sSoftwareName = $sSoftwareName;
 
           try {
               SystemURLs::init($sRootPath, $URL, dirname(dirname(__FILE__)));
@@ -118,9 +115,9 @@ namespace EcclesiaCRM
           return self::$localeInfo;
       }
 
-      public static function getAppName(): string
+      public static function getSoftwareName(): string
       {
-        return self::$sAppName;
+        return self::$sSoftwareName;
       }
 
       public static function getRealLocalInfo()
@@ -306,7 +303,7 @@ namespace EcclesiaCRM
       private static function initSession()
       {
           // Initialize the session
-          $sessionName = 'CRM-'.md5(SystemURLs::getRootPath());
+          $sessionName = 'CRM-'.md5(self::$rootPath);
           session_cache_limiter('private_no_expire:');
           session_name($sessionName);
           session_start();
@@ -418,7 +415,7 @@ namespace EcclesiaCRM
           }
           require 'Include/HeaderNotLoggedIn.php'; ?>
           <div class='container'>
-              <h3><?= self::getAppName() ?> – <?= _($header) ?></h3>
+              <h3><?= self::$sSoftwareName ?> – <?= _($header) ?></h3>
               <div class='alert alert-danger text-center' style='margin-top: 20px;'>
                   <?= _($message) ?>
               </div>

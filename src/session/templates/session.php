@@ -204,7 +204,7 @@ if (empty($person)) {
     <!-- /.login-logo -->
     <div class="card login-box-body card card-outline card-primary">
         <div class="card-header login-logo">
-            <?= Bootstrapper::getAppName() ?> <?= SystemService::getDBMainVersion() ?>
+            <?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?>
         </div>
         <div class="card-body login-card-body">
 
@@ -297,7 +297,7 @@ if (empty($person)) {
 <!-- lockscreen-wrapper -->
 <div class="lockscreen-wrapper" id="Lock"  <?= ($_SESSION['iLoginType'] == "Lock") ? "" : 'style="display: none;"' ?>>
     <div class="login-logo">
-        <?= Bootstrapper::getAppName() ?> <?= SystemService::getDBMainVersion() ?>
+        <?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?>
     </div>
 
     <p class="login-box-msg">

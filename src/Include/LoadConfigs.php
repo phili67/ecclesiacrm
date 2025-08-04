@@ -28,9 +28,9 @@ use EcclesiaCRM\Bootstrapper;
 // enable this line to debug the bootstrapper process (database connections, etc).
 // this makes a lot of log noise, so don't leave it on for normal production use.
 
-if (!isset($sAppName)) {
-    $sAppName = "Ecclesia<b>CRM</b>";
+if (!isset($sSoftwareName)) {
+    $sSoftwareName = "Ecclesia<b>CRM</b>";
 }
 
 
-Bootstrapper::init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, $sDATABASE, $sRootPath, $bLockURL, $URL, defined("davserver"), $sAppName);
+Bootstrapper::init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, $sDATABASE, $sRootPath, $bLockURL, $URL, defined("davserver"), $sSoftwareName);

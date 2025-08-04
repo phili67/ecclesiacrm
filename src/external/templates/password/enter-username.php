@@ -13,7 +13,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
         <div class="card card-outline card-primary">
             <div class="card-header login-logo">
                 <?php
-                $headerHTML = Bootstrapper::getAppName();
+                $headerHTML = Bootstrapper::getSoftwareName();
                 $sHeader = SystemConfig::getValue("sHeader");
                 $sChurchName = SystemConfig::getValue("sChurchName");
                 if (!empty($sHeader)) {
