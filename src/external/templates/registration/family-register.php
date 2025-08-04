@@ -1,10 +1,9 @@
 <?php
-
-use EcclesiaCRM\data\Countries;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
+use EcclesiaCRM\Bootstrapper;
 
 // Set the page title and include HTML header
 $sPageTitle = _("Family Registration");
@@ -15,7 +14,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
         <div class="card card-outline card-success register-box-body">
             <div class="card-header register-logo">
                 <?php
-                $headerHTML = '<b>Ecclesia</b>CRM';
+                $headerHTML = Bootstrapper::getSoftwareName();
                 $sHeader = SystemConfig::getValue("sHeader");
                 $sChurchName = SystemConfig::getValue("sChurchName");
                 if (!empty($sHeader)) {

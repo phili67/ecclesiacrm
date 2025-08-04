@@ -1,5 +1,6 @@
 <?php
 
+use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\SystemURLs;
 
 // Set the page title and include HTML header
@@ -10,7 +11,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
     <form action="<?= SystemURLs::getRootPath() ?>/external/register/done" method="post">
         <div class="register-box register-box-custom">
             <div class="register-logo">
-                <a href="<?= SystemURLs::getRootPath() ?>/"><b>Ecclesia</b>CRM</a>
+                <a href="<?= SystemURLs::getRootPath() ?>/"><?= Bootstrapper::getSoftwareName() ?></a>
             </div>
 
             <div class="register-box-body">

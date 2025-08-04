@@ -1,11 +1,12 @@
 <?php
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Bootstrapper;
 
 $sPageTitle = gettext("Page not fond");
 require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 ?>
   <div class="register-logo" style=" margin: 72px auto 0;">
-    <a href="<?= SystemURLs::getRootPath() ?>/"><b>Ecclesia</b>CRM</a>
+    <a href="<?= SystemURLs::getRootPath() ?>/"><?= Bootstrapper::getSoftwareName() ?></a>
   </div>
 
   <div class="error-page">

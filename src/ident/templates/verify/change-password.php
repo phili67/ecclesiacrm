@@ -1,6 +1,7 @@
 <?php
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Bootstrapper;
 
 // Set the page title and include HTML header
 $sPageTitle = "CRM - Family Verification";
@@ -9,7 +10,7 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 
     <div class="register-box">
         <div class="register-logo">
-            <a href="<?= SystemURLs::getRootPath() ?>/"><b>Ecclesia</b>CRM</a><br/>
+            <a href="<?= SystemURLs::getRootPath() ?>/"><?= Bootstrapper::getSoftwareName() ?><br/>
             <span><?= SystemConfig::getValue("sChurchName") ?></span>
         </div>
 

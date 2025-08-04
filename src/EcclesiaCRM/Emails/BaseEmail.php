@@ -105,7 +105,7 @@ abstract class BaseEmail
             "confirmSigner" => SystemConfig::getValue('sConfirmSigner'),
             "unsubscribeStart" => SystemConfig::getValue('sUnsubscribeStart'),
             "unsubscribeEnd" => SystemConfig::getValue('sUnsubscribeEnd'),
-            "churAppaName" => Bootstrapper::getSoftwareName(),
+            "SoftwareName" => Bootstrapper::getSoftwareName(),
             "currentYear" => date("Y")
         ];
     }

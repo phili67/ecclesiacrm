@@ -32,7 +32,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
     </div>
     <strong><?= _('Copyright') ?> &copy; 2017-<?= SystemService::getCopyrightDate() ?> <a
             href="https://www.ecclesiacrm.com"
-            target="_blank"><b>Ecclesia</b>CRM<?= SystemService::getDBMainVersion() ?>
+            target="_blank"><?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?>
         </a>.</strong> <?= _('All rights reserved') ?>.
 </footer>
 

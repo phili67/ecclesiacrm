@@ -29,7 +29,7 @@ use EcclesiaCRM\Bootstrapper;
 // this makes a lot of log noise, so don't leave it on for normal production use.
 
 if (!isset($sSoftwareName)) {
-    $sSoftwareName = "Ecclesia<b>CRM</b>";
+    $sSoftwareName = "EcclesiaCRM";
 }
 
 
