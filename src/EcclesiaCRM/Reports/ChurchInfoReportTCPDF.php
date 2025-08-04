@@ -188,14 +188,14 @@ class ChurchInfoReportTCPDF extends TCPDF
             $dateY = 25;
             $this->WriteAt($dateX, $dateY, date(SystemConfig::getValue("sDateFormatLong")));
             $curY = 20;
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchName'));
+            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityName'));
             $curY += SystemConfig::getValue('incrementY');
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchAddress'));
+            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityAddress'));
             $curY += SystemConfig::getValue('incrementY');
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchCity').', '.SystemConfig::getValue('sChurchState').'  '.SystemConfig::getValue('sChurchZip'));
+            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityCity').', '.SystemConfig::getValue('sEntityState').'  '.SystemConfig::getValue('sEntityZip'));
             $curY += SystemConfig::getValue('incrementY');
             $curY += SystemConfig::getValue('incrementY'); // Skip another line before the phone/email
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchPhone').'  '.SystemConfig::getValue('sChurchEmail'));
+            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityPhone').'  '.SystemConfig::getValue('sEntityEmail'));
             $curY += 25; // mm to move to the second window
         }
 

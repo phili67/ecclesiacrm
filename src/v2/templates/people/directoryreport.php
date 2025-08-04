@@ -268,36 +268,36 @@ require $sRootDocument . '/Include/Header.php';
                         </tr>
                         <tr>
                             <td><?= _('Church Name') ?>
-                            <td><input type="text" Name="sChurchName"
-                                       value="<?= SystemConfig::getValue('sChurchName') ?>"
+                            <td><input type="text" Name="sEntityName"
+                                       value="<?= SystemConfig::getValue('sEntityName') ?>"
                                        class= "form-control form-control-sm">
                         </tr>
                         <tr>
                             <td><?= _('Address') ?>
-                            <td><input type="text" Name="sChurchAddress"
-                                       value="<?= SystemConfig::getValue('sChurchAddress') ?>" class= "form-control form-control-sm">
+                            <td><input type="text" Name="sEntityAddress"
+                                       value="<?= SystemConfig::getValue('sEntityAddress') ?>" class= "form-control form-control-sm">
                         </tr>
                         <tr>
                             <td><?= _('City') ?>
-                            <td><input type="text" Name="sChurchCity"
-                                       value="<?= SystemConfig::getValue('sChurchCity') ?>"
+                            <td><input type="text" Name="sEntityCity"
+                                       value="<?= SystemConfig::getValue('sEntityCity') ?>"
                                        class= "form-control form-control-sm">
                         </tr>
                         <tr>
                             <td><?= _('State') ?>
-                            <td><input type="text" Name="sChurchState"
-                                       value="<?= SystemConfig::getValue('sChurchState') ?>"
+                            <td><input type="text" Name="sEntityState"
+                                       value="<?= SystemConfig::getValue('sEntityState') ?>"
                                        class= "form-control form-control-sm">
                         </tr>
                         <tr>
                             <td><?= _('Zip') ?>
-                            <td><input type="text" Name="sChurchZip" value="<?= SystemConfig::getValue('sChurchZip') ?>"
+                            <td><input type="text" Name="sEntityZip" value="<?= SystemConfig::getValue('sEntityZip') ?>"
                                        class= "form-control form-control-sm">
                         </tr>
                         <tr>
                             <td><?= _('Phone') ?>
-                            <td><input type="text" Name="sChurchPhone"
-                                       value="<?= SystemConfig::getValue('sChurchPhone') ?>"
+                            <td><input type="text" Name="sEntityPhone"
+                                       value="<?= SystemConfig::getValue('sEntityPhone') ?>"
                                        class= "form-control form-control-sm"><br>
                         </tr>
                         <tr>

@@ -253,7 +253,7 @@ if ($output == 'pdf') {
             $curY = 20;
             $curX = 60;
             $this->SetFont('Times', 'B', 14);
-            $this->WriteAt($curX, $curY, SystemConfig::getValue('sChurchName').' : '._('Deposit Report'));
+            $this->WriteAt($curX, $curY, SystemConfig::getValue('sEntityName').' : '._('Deposit Report'));
             $curY += 2 * SystemConfig::getValue('incrementY');
             $this->SetFont('Times', 'B', 10);
             $curX = SystemConfig::getValue('leftX');

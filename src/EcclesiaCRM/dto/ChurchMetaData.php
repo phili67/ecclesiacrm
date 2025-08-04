@@ -7,7 +7,7 @@ class ChurchMetaData
 {
     public static function getChurchName()
     {
-        return SystemConfig::getValue('sChurchName');
+        return SystemConfig::getValue('sEntityName');
     }
 
     public static function getChurchFullAddress()
@@ -37,52 +37,52 @@ class ChurchMetaData
 
     public static function getChurchAddress()
     {
-        return SystemConfig::getValue('sChurchAddress');
+        return SystemConfig::getValue('sEntityAddress');
     }
 
     public static function getChurchCity()
     {
-        return SystemConfig::getValue('sChurchCity');
+        return SystemConfig::getValue('sEntityCity');
     }
 
     public static function getChurchState()
     {
-        return SystemConfig::getValue('sChurchState');
+        return SystemConfig::getValue('sEntityState');
     }
 
     public static function getChurchZip()
     {
-        return SystemConfig::getValue('sChurchZip');
+        return SystemConfig::getValue('sEntityZip');
     }
 
     public static function getChurchCountry()
     {
-        return SystemConfig::getValue('sChurchCountry');
+        return SystemConfig::getValue('sEntityCountry');
     }
 
     public static function getChurchEmail()
     {
-        return SystemConfig::getValue('sChurchEmail');
+        return SystemConfig::getValue('sEntityEmail');
     }
 
     public static function getChurchPhone()
     {
-        return SystemConfig::getValue('sChurchPhone');
+        return SystemConfig::getValue('sEntityPhone');
     }
 
     public static function getChurchWebSite()
     {
-        return SystemConfig::getValue('sChurchWebSite');
+        return SystemConfig::getValue('sEntityWebSite');
     }
     
     public static function getChurchLatitude()
     {
       if (!empty(self::getChurchFullAddress())) {
-        if (empty(SystemConfig::getValue('iChurchLatitude')) 
-           || substr_count(SystemConfig::getValue('iChurchLatitude'),',') > 0) {
+        if (empty(SystemConfig::getValue('iEntityLatitude')) 
+           || substr_count(SystemConfig::getValue('iEntityLatitude'),',') > 0) {
             self::updateLatLng();
         }
-        return SystemConfig::getValue('iChurchLatitude');
+        return SystemConfig::getValue('iEntityLatitude');
       }
       
       return 0;
@@ -91,11 +91,11 @@ class ChurchMetaData
     public static function getChurchLongitude()
     {
       if (!empty(self::getChurchFullAddress())) {
-        if (empty(SystemConfig::getValue('iChurchLatitude')) 
-        || substr_count(SystemConfig::getValue('iChurchLatitude'),',') > 0) {
+        if (empty(SystemConfig::getValue('iEntityLatitude')) 
+        || substr_count(SystemConfig::getValue('iEntityLatitude'),',') > 0) {
             self::updateLatLng();
         }
-        return SystemConfig::getValue('iChurchLongitude');
+        return SystemConfig::getValue('iEntityLongitude');
       }
       
       return 0;
@@ -106,8 +106,8 @@ class ChurchMetaData
         if (!empty(self::getChurchFullAddress())) {
             $latLng = GeoUtils::getLatLong(self::getChurchFullAddress());
             if (!empty($latLng['Latitude']) && !empty($latLng['Longitude'])) {
-                SystemConfig::setValue('iChurchLatitude', $latLng['Latitude']);
-                SystemConfig::setValue('iChurchLongitude', $latLng['Longitude']);
+                SystemConfig::setValue('iEntityLatitude', $latLng['Latitude']);
+                SystemConfig::setValue('iEntityLongitude', $latLng['Longitude']);
             }
         }
     }

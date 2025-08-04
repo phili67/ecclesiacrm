@@ -360,3 +360,20 @@ CREATE TABLE collectionsinstances (
              REFERENCES collections(id)
              ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- update config strings 2025-08-03
+update config_cfg set cfg_name = 'iEntityLatitude' where cfg_name = 'iChurchLatitude';
+update config_cfg set cfg_name = 'iEntityLongitude' where cfg_name = 'iChurchLongitude';
+update config_cfg set cfg_name = 'sEntityName' where cfg_name = 'sChurchName';
+update config_cfg set cfg_name = 'sEntityAddress' where cfg_name = 'sChurchAddress';
+update config_cfg set cfg_name = 'sEntityCity' where cfg_name = 'sChurchCity';
+update config_cfg set cfg_name = 'sEntityState' where cfg_name = 'sChurchState';
+update config_cfg set cfg_name = 'sEntityZip' where cfg_name = 'sChurchZip';
+update config_cfg set cfg_name = 'sEntityPhone' where cfg_name = 'sChurchPhone';
+update config_cfg set cfg_name = 'sEntityEmail' where cfg_name = 'sChurchEmail';
+update config_cfg set cfg_name = 'sEntityChkAcctNum' where cfg_name = 'sChurchChkAcctNum';
+update config_cfg set cfg_name = 'sEntityCountry' where cfg_name = 'sChurchCountry';
+update config_cfg set cfg_name = 'sEntityWebSite' where cfg_name = 'sChurchWebSite';
+update config_cfg set cfg_name = 'sEntityFB' where cfg_name = 'sChurchFB';
+update config_cfg set cfg_name = 'sEntityTwitter' where cfg_name = 'sChurchTwitter';

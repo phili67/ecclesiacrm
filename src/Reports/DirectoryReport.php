@@ -76,13 +76,13 @@ $bDirPersonalEmail = isset($_POST['bDirPersonalEmail']);
 $bDirPersonalWorkEmail = isset($_POST['bDirPersonalWorkEmail']);
 $bDirPhoto = isset($_POST['bDirPhoto']);
 
-$sChurchName = InputUtils::LegacyFilterInput($_POST['sChurchName']);
+$sEntityName = InputUtils::LegacyFilterInput($_POST['sEntityName']);
 $sDirectoryDisclaimer = InputUtils::LegacyFilterInput($_POST['sDirectoryDisclaimer']);
-$sChurchAddress = InputUtils::LegacyFilterInput($_POST['sChurchAddress']);
-$sChurchCity = InputUtils::LegacyFilterInput($_POST['sChurchCity']);
-$sChurchState = InputUtils::LegacyFilterInput($_POST['sChurchState']);
-$sChurchZip = InputUtils::LegacyFilterInput($_POST['sChurchZip']);
-$sChurchPhone = InputUtils::LegacyFilterInput($_POST['sChurchPhone']);
+$sEntityAddress = InputUtils::LegacyFilterInput($_POST['sEntityAddress']);
+$sEntityCity = InputUtils::LegacyFilterInput($_POST['sEntityCity']);
+$sEntityState = InputUtils::LegacyFilterInput($_POST['sEntityState']);
+$sEntityZip = InputUtils::LegacyFilterInput($_POST['sEntityZip']);
+$sEntityPhone = InputUtils::LegacyFilterInput($_POST['sEntityPhone']);
 
 $bDirUseTitlePage = isset($_POST['bDirUseTitlePage']);
 

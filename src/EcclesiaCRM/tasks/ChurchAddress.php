@@ -8,7 +8,7 @@ use EcclesiaCRM\SessionUser;
 class ChurchAddress implements iTask
 {
   public function isActive(){
-    return SessionUser::getUser()->isAdmin() && empty(SystemConfig::getValue('sChurchAddress'));
+    return SessionUser::getUser()->isAdmin() && empty(SystemConfig::getValue('sEntityAddress'));
   }
   public function isAdmin(){
     return true;

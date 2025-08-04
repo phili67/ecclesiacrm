@@ -11,7 +11,7 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
     <div class="register-box">
         <div class="register-logo">
             <a href="<?= SystemURLs::getRootPath() ?>/"><?= Bootstrapper::getSoftwareName() ?><br/>
-            <span><?= SystemConfig::getValue("sChurchName") ?></span>
+            <span><?= SystemConfig::getValue("sEntityName") ?></span>
         </div>
 
         <div class="alert alert-info alert-dismissible">

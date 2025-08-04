@@ -190,7 +190,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
           popupAnchor:  [0, -37] // point from which the popup should open relative to the iconAnchor
       });
 
-      addMarkerWithInfowindow(map,churchloc,icon,"titre","<?= SystemConfig::getValue('sChurchName') ?>");
+      addMarkerWithInfowindow(map,churchloc,icon,"titre","<?= SystemConfig::getValue('sEntityName') ?>");
 
 
     <?php

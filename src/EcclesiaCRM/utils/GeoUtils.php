@@ -57,7 +57,7 @@ class GeoUtils
                     $provider = new BingMaps($adapter, SystemConfig::getValue("sBingMapKey"));
                     break;
                 case "OpenStreetMap":
-                    $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"), SystemConfig::getValue("sChurchEmail") );
+                    $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"), SystemConfig::getValue("sEntityEmail") );
                     break;
             }
             $logger->debug("Using: Geo Provider -  ". $provider->getName());
@@ -65,7 +65,7 @@ class GeoUtils
             $result = $geoCoder->geocodeQuery(GeocodeQuery::create($address));
         } catch (\Exception $exception) {
             $logger->debug("issue creating geoCoder " . $exception->getMessage());
-            $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"), SystemConfig::getValue("sChurchEmail") );
+            $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"), SystemConfig::getValue("sEntityEmail") );
             $geoCoder = new StatefulGeocoder($provider, Bootstrapper::GetCurrentLocale()->getShortLocale());
             $result = $geoCoder->geocodeQuery(GeocodeQuery::create($address));
         }

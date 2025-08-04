@@ -133,6 +133,6 @@
             popupAnchor:  [0, -37] // point from which the popup should open relative to the iconAnchor
         });
 
-        addMarkerWithInfowindow(window.CRM.map,window.CRM.churchloc,icon,"titre",window.CRM.sChurchName);
+        addMarkerWithInfowindow(window.CRM.map,window.CRM.churchloc,icon,"titre",window.CRM.sEntityName);
       }
   }

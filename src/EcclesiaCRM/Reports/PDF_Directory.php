@@ -63,7 +63,7 @@ class PDF_Directory extends ChurchInfoReportTCPDF
             //Move to the right
             $this->SetX($this->_Margin_Left);
             //Framed title
-            $this->Cell($this->w - ($this->_Margin_Left * 2), 10, SystemConfig::getValue('sChurchName') . ' - ' . _('Directory'), 0, 0, 'C');
+            $this->Cell($this->w - ($this->_Margin_Left * 2), 10, SystemConfig::getValue('sEntityName') . ' - ' . _('Directory'), 0, 0, 'C');
             $this->SetY(25);
         }
     }
@@ -99,15 +99,15 @@ class PDF_Directory extends ChurchInfoReportTCPDF
         //Line break
         $this->Ln(5);
         //Move to the right
-        $this->MultiCell(197, 10, "\n\n\n" . SystemConfig::getValue('sChurchName') . "\n\n" . _('Directory') . "\n\n", 0, 'C');
+        $this->MultiCell(197, 10, "\n\n\n" . SystemConfig::getValue('sEntityName') . "\n\n" . _('Directory') . "\n\n", 0, 'C');
         $this->Ln(5);
         $today = date(SystemConfig::getValue("sDateFormatLong"));
         $this->MultiCell(197, 10, $today . "\n\n", 0, 'C');
 
-        $sContact = sprintf("%s\n%s, %s  %s\n\n%s\n\n", SystemConfig::getValue('sChurchAddress'),
-            SystemConfig::getValue('sChurchCity'),
-            SystemConfig::getValue('sChurchState'), SystemConfig::getValue('sChurchZip'),
-            SystemConfig::getValue('sChurchPhone'));
+        $sContact = sprintf("%s\n%s, %s  %s\n\n%s\n\n", SystemConfig::getValue('sEntityAddress'),
+            SystemConfig::getValue('sEntityCity'),
+            SystemConfig::getValue('sEntityState'), SystemConfig::getValue('sEntityZip'),
+            SystemConfig::getValue('sEntityPhone'));
         $this->MultiCell(197, 10, $sContact, 0, 'C');
         $this->Cell(10);
         $this->MultiCell(197, 10, $sDirectoryDisclaimer, 0, 'C');

@@ -39,13 +39,13 @@ class PublicRegisterController
         $headers[] = 'Content-type: application/json';
 
         $registrationData = new \stdClass();
-        $registrationData->sName = SystemConfig::getValue('sChurchName');
-        $registrationData->sAddress = SystemConfig::getValue('sChurchAddress');
-        $registrationData->sCity = SystemConfig::getValue('sChurchCity');
-        $registrationData->sState = SystemConfig::getValue('sChurchState');
-        $registrationData->sZip = SystemConfig::getValue('sChurchZip');
-        $registrationData->sCountry = SystemConfig::getValue('sChurchCountry');
-        $registrationData->sEmail = SystemConfig::getValue('sChurchEmail');
+        $registrationData->sName = SystemConfig::getValue('sEntityName');
+        $registrationData->sAddress = SystemConfig::getValue('sEntityAddress');
+        $registrationData->sCity = SystemConfig::getValue('sEntityCity');
+        $registrationData->sState = SystemConfig::getValue('sEntityState');
+        $registrationData->sZip = SystemConfig::getValue('sEntityZip');
+        $registrationData->sCountry = SystemConfig::getValue('sEntityCountry');
+        $registrationData->sEmail = SystemConfig::getValue('sEntityEmail');
         $registrationData->EcclesiaCRMURL = $input->EcclesiaCRMURL;
         $registrationData->Version = SystemService::getInstalledVersion();
 
@@ -90,14 +90,14 @@ class PublicRegisterController
         $sEmailMessage = gettext("Write a message Here !");
 
         return $response->withJson(
-            ['ChurchName' => SystemConfig::getValue('sChurchName'),
+            ['ChurchName' => SystemConfig::getValue('sEntityName'),
             'InstalledVersion' => SystemService::getInstalledVersion(),
-            'ChurchAddress' => SystemConfig::getValue('sChurchAddress'),
-            'ChurchCity' => SystemConfig::getValue('sChurchCity'),
-            'ChurchState' => SystemConfig::getValue('sChurchState'),
-            'ChurchZip' => SystemConfig::getValue('sChurchZip'),
-            'ChurchCountry' => SystemConfig::getValue('sChurchCountry'),
-            'ChurchEmail' => SystemConfig::getValue('sChurchEmail'),
+            'ChurchAddress' => SystemConfig::getValue('sEntityAddress'),
+            'ChurchCity' => SystemConfig::getValue('sEntityCity'),
+            'ChurchState' => SystemConfig::getValue('sEntityState'),
+            'ChurchZip' => SystemConfig::getValue('sEntityZip'),
+            'ChurchCountry' => SystemConfig::getValue('sEntityCountry'),
+            'ChurchEmail' => SystemConfig::getValue('sEntityEmail'),
             'EcclesiaCRMURL' => $EcclesiaCRMURL,
             'EmailMessage' => htmlspecialchars($sEmailMessage)
             ]);

@@ -92,9 +92,9 @@ require $sRootDocument . '/Include/Header.php';
 
                             <?php
                             if ($family->getLatitude() && $family->getLongitude()) {
-                                if (SystemConfig::getValue("iChurchLatitude") && SystemConfig::getValue("iChurchLongitude")) {
-                                    $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
-                                    $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
+                                if (SystemConfig::getValue("iEntityLatitude") && SystemConfig::getValue("iEntityLongitude")) {
+                                    $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iEntityLatitude"), SystemConfig::getValue("iEntityLongitude"), $family->getLatitude(), $family->getLongitude());
+                                    $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iEntityLatitude"), SystemConfig::getValue("iEntityLongitude"), $family->getLatitude(), $family->getLongitude());
                                     echo OutputUtils::number_localized($sDistance) . " " . _(strtolower(SystemConfig::getValue("sDistanceUnit"))) . " " . _($sDirection) . " " . _(" of church<br>");
                                 }
                             } else {

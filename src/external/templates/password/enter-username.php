@@ -15,11 +15,11 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                 <?php
                 $headerHTML = Bootstrapper::getSoftwareName();
                 $sHeader = SystemConfig::getValue("sHeader");
-                $sChurchName = SystemConfig::getValue("sChurchName");
+                $sEntityName = SystemConfig::getValue("sEntityName");
                 if (!empty($sHeader)) {
                     $headerHTML = html_entity_decode($sHeader, ENT_QUOTES);
-                } else if (!empty($sChurchName)) {
-                    $headerHTML = $sChurchName;
+                } else if (!empty($sEntityName)) {
+                    $headerHTML = $sEntityName;
                 }
                 ?>
                 <a href="<?= SystemURLs::getRootPath() ?>/"><?= $headerHTML ?></a>

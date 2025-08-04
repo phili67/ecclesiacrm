@@ -71,13 +71,13 @@ function CanvassProgressReport()
     $curY += 10;
 
     $pdf->SetFont('Times', '', 12);
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchName'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityName'));
     $curY += SystemConfig::getValue('incrementY');
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchAddress'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityAddress'));
     $curY += SystemConfig::getValue('incrementY');
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchCity').', '.SystemConfig::getValue('sChurchState').'  '.SystemConfig::getValue('sChurchZip'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityCity').', '.SystemConfig::getValue('sEntityState').'  '.SystemConfig::getValue('sEntityZip'));
     $curY += SystemConfig::getValue('incrementY');
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchPhone').'  '.SystemConfig::getValue('sChurchEmail'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityPhone').'  '.SystemConfig::getValue('sEntityEmail'));
     $curY += 10;
     $pdf->SetFont('Times', '', 14);
 
@@ -372,13 +372,13 @@ function CanvassSummaryReport($iFYID)
     $curY += 10;
 
     $pdf->SetFont('Times', '', 12);
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchName'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityName'));
     $curY += SystemConfig::getValue('incrementY');
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchAddress'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityAddress'));
     $curY += SystemConfig::getValue('incrementY');
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchCity').', '.SystemConfig::getValue('sChurchState').'  '.SystemConfig::getValue('sChurchZip'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityCity').', '.SystemConfig::getValue('sEntityState').'  '.SystemConfig::getValue('sEntityZip'));
     $curY += SystemConfig::getValue('incrementY');
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchPhone').'  '.SystemConfig::getValue('sChurchEmail'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityPhone').'  '.SystemConfig::getValue('sEntityEmail'));
     $curY += 10;
     $pdf->SetFont('Times', '', 14);
 
@@ -446,13 +446,13 @@ function CanvassNotInterestedReport($iFYID)
     $curY += 10;
 
     $pdf->SetFont('Times', '', 12);
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchName'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityName'));
     $curY += SystemConfig::getValue('incrementY');
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchAddress'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityAddress'));
     $curY += SystemConfig::getValue('incrementY');
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchCity').', '.SystemConfig::getValue('sChurchState').'  '.SystemConfig::getValue('sChurchZip'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityCity').', '.SystemConfig::getValue('sEntityState').'  '.SystemConfig::getValue('sEntityZip'));
     $curY += SystemConfig::getValue('incrementY');
-    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sChurchPhone').'  '.SystemConfig::getValue('sChurchEmail'));
+    $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sEntityPhone').'  '.SystemConfig::getValue('sEntityEmail'));
     $curY += 10;
     $pdf->SetFont('Times', '', 14);
 

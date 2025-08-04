@@ -122,7 +122,7 @@
           icon: window.CRM.root + "/skin/icons/church.png",
         };
 
-        marker = addMarkerWithInfowindow(window.CRM.map,window.CRM.churchloc,icon,"titre",window.CRM.sChurchName);
+        marker = addMarkerWithInfowindow(window.CRM.map,window.CRM.churchloc,icon,"titre",window.CRM.sEntityName);
       }
   }
   
