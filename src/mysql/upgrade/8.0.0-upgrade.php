@@ -231,6 +231,8 @@ unlink(SystemURLs::getDocumentRoot() . "/session/dependencies.php");
 
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/debug/");
 
+$logger->info("End of delete :  all unusefull files");
+
 // we get the PDO for the Sabre connection from the Propel connection
 // now we update the CardDav 
 // every person in group should have a view on the addrebooks of the group
@@ -296,6 +298,3 @@ foreach ($groups as $group) {
     $carddavBackend->createCard($addressbookId, 'UUID-' . \Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
   }
 }
-
-
-$logger->info("End of delete :  all unusefull files");
