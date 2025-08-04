@@ -90,10 +90,20 @@ class PeopleGroupController
         if ( !(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroups()) ) {
             $ids = SessionUser::getUser()->getGroupManagerIds();
 
-            return $response->write(GroupQuery::create()->groupByName()->findById($ids)->toJSON());
+            if (SystemConfig::getBooleanValue('bEnabledSundaySchool')) {
+                return $response->write(GroupQuery::create()->groupByName()->findById($ids)->toJSON());
+            } else {
+                return $response->write(GroupQuery::create()->filterByType(4, Criteria::NOT_EQUAL)->groupByName()->findById($ids)->toJSON());
+            }
+        } else {
+            if (SystemConfig::getBooleanValue('bEnabledSundaySchool')) {
+                return $response->write(GroupQuery::create()->groupByName()->find()->toJSON());            
+            } else {
+                return $response->write(GroupQuery::create()->filterByType(4, Criteria::NOT_EQUAL)->groupByName()->find()->toJSON());                
+            }
         }
 
-        return $response->write(GroupQuery::create()->groupByName()->find()->toJSON());
+        
     }
 
     public function defaultGroup (ServerRequest $request, Response $response, array $args): Response {
