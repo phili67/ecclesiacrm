@@ -345,11 +345,13 @@ require_once $sRootDocument . '/Include/Header.php';
                 </label>
             </div>
             <div class="card-body">
+                <label><?= _("Widgets") ?></label>
                 <?php
                 $allRights = SessionUser::getUser()->allSecuritiesBits();
 
                 $plugins = PluginQuery::create()
                     ->filterByCategory('Dashboard', Criteria::EQUAL)
+                    ->filterByDashboardDefaultOrientation('widget')
                     ->orderByName()
                     ->find();
 
@@ -380,9 +382,63 @@ require_once $sRootDocument . '/Include/Header.php';
                                 <option value="1" <?= ($visible == true)?'SELECTED':'' ?>><?= _('Yes') ?>
                             </select>
                         </div>
-                        <div class="col-md-3">
-                            <select class="form-control form-control-sm"
+                        <div class="<?= $place=='widget'?'d-lg-none':'col-md-3' ?>">
+                            <select class="form-control form-control-sm "
                                     name="new_plugin_place[<?= $plugin->getId() ?>]">
+                                <option value="widget" <?= ($place == 'widget')?'SELECTED':'' ?> hidden><?= _('widget') ?>
+                                <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
+                                <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
+                                <option value="center" <?= ($place == 'center')?'SELECTED':'' ?>><?= _('Center') ?>
+                                <option value="right" <?= ($place == 'right')?'SELECTED':'' ?>><?= _('Right') ?>
+                            </select>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+
+                <hr/>
+
+                <label><?= _("Dashboard Plugins") ?></label>
+
+                <?php
+                $plugins = PluginQuery::create()
+                    ->filterByCategory('Dashboard', Criteria::EQUAL)
+                    ->filterByDashboardDefaultOrientation('widget', Criteria::NOT_EQUAL)
+                    ->orderByName()
+                    ->find();
+
+                foreach ($plugins as $plugin) {
+                    $role = PluginUserRoleQuery::create()
+                        ->filterByUserId($iPersonID)
+                        ->findOneByPluginId($plugin->getId());
+
+                    $securities = $plugin->getSecurities();
+
+                    if (($securities & $allRights) == 0) continue;
+
+                    $visible = 0;
+                    $place = 'top';
+                    if ( !is_null($role) ) {
+                        $visible = $role->getDashboardVisible();
+                        $place = $role->getDashboardOrientation();
+                    }
+                    ?>
+                    <div class="row">
+                        <div class="col-md-7">&bullet;
+                            <?= $plugin->getName() ?>:
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-control form-control-sm"
+                                    name="new_plugin[<?= $plugin->getId() ?>]">
+                                <option value="0" <?= ($visible == false)?'SELECTED':'' ?>><?= _('No') ?>
+                                <option value="1" <?= ($visible == true)?'SELECTED':'' ?>><?= _('Yes') ?>
+                            </select>
+                        </div>
+                        <div class="<?= $place=='widget'?'d-lg-none':'col-md-3' ?>">
+                            <select class="form-control form-control-sm "
+                                    name="new_plugin_place[<?= $plugin->getId() ?>]">
+                                <option value="widget" <?= ($place == 'widget')?'SELECTED':'' ?> hidden><?= _('widget') ?>
                                 <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
                                 <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
                                 <option value="center" <?= ($place == 'center')?'SELECTED':'' ?>><?= _('Center') ?>

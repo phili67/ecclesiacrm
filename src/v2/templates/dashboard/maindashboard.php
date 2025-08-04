@@ -17,6 +17,7 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\PluginUserRoleQuery;
 use EcclesiaCRM\PluginUserRole;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 // we place this part to avoid a problem during the upgrade process
 // Set the page title
@@ -30,9 +31,40 @@ $securityBits = SessionUser::getUser()->allSecuritiesBits();
 $plugins = PluginQuery::create()
     ->filterByActiv(1)
     ->filterByCategory('Dashboard')
+    ->filterByDashboardDefaultOrientation('widget', Criteria::NOT_EQUAL)
     ->find();
 
 foreach ($plugins as $plugin) {
+    $plgnRole = PluginUserRoleQuery::create()
+        ->filterByPluginId($plugin->getId())
+        ->findOneByUserId(SessionUser::getId());
+
+    if (is_null($plgnRole)) {
+        $plgnRole = new PluginUserRole();
+
+        $plgnRole->setPluginId($plugin->getId());
+
+        $plgnRole->setUserId(SessionUser::getId());
+        $plgnRole->setDashboardColor($plugin->getDashboardDefaultColor());
+        $plgnRole->setDashboardOrientation($plugin->getDashboardDefaultOrientation());
+
+        $plgnRole->save();
+    }
+}
+
+// we first force every dashboard plugin to have a user settings in function of the default values
+$pluginWidgets = PluginQuery::create()
+    ->filterByActiv(1)
+    ->filterByCategory('Dashboard')
+    ->usePluginUserRoleQuery()
+        ->filterByDashboardOrientation('widget')
+        ->filterByUserId(SessionUser::getId())
+        ->filterByDashboardVisible(true)
+    ->endUse()
+    ->filterByDashboardDefaultOrientation('widget', Criteria::EQUAL)
+    ->find();
+
+foreach ($pluginWidgets as $plugin) {
     $plgnRole = PluginUserRoleQuery::create()
         ->filterByPluginId($plugin->getId())
         ->findOneByUserId(SessionUser::getId());
@@ -127,28 +159,7 @@ if (!$load_Elements) {
 
     <?php if ( SessionUser::getUser()->isMainDashboardEnabled() ) { ?>
     <!-- Small boxes (Stat box) -->
-    <div class="row">
-        <div class="col-lg-2 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-gradient-green">
-                <div class="inner">
-                    <h3 id="singleCNT">
-                        <?= $dashboardCounts['singleCount'] ?>
-                    </h3>
-                    <p>
-                        <?= _('Single Persons') ?>
-                    </p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-male"></i>
-                </div>
-                <div class="small-box-footer">
-                    <a href="<?= $sRootPath ?>/v2/people/list/singles" style="color:#ffffff">
-                        <?= _('View') ?> <?= _("Singles") ?> <i class="fas fa-arrow-circle-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div><!-- ./col -->
+    <div class="row">        
         <div class="col-lg-2 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-gradient-blue">
@@ -235,7 +246,36 @@ if (!$load_Elements) {
             </div>
         </div><!-- ./col -->
     </div><!-- /.row -->
+
+    
     <?php } ?>
+
+    <!-- widgets -->
+    <row>
+    <?php 
+        $widgetCount = $pluginWidgets->count();
+
+        $i=0;
+        foreach ($pluginWidgets as $pluginWidget) {
+            if ($i%6 == 0) {
+                if ($i > 0) {
+                    ?>
+                        </row>
+                        <row>
+                    <?php
+                }
+            }
+
+            echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php",[
+                    'sRootPath'     => $sRootPath,
+                    'sRootDocument' => $sRootDocument,
+                    'CSPNonce'      => $CSPNonce,
+                    'PluginId'      => $plugin->getId()
+            ]);        
+        }
+    ?>
+    </row><!-- /.row -->
+    <!-- /.widgets -->
 
     <!-- we start the plugin parts : center plugins -->
     <div class="float-right">

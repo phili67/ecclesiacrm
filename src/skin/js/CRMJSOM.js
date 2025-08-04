@@ -1399,7 +1399,7 @@ renderers: {
       var dashBoardFamReal = document.getElementById('realFamilyCNT');
       var dashBoardSingleP = document.getElementById('singleCNT');
 
-      if (dashBoardFamReal != undefined && dashBoardSingleP != undefined) { // we have to test if we are on the dashboard or not
+      if (dashBoardFamReal != undefined || dashBoardSingleP != undefined) { // we have to test if we are on the dashboard or not
           dashBoardFamReal.innerText = data.familyCount[1];
           dashBoardSingleP.innerText = data.familyCount[2];
 

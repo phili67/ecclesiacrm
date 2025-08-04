@@ -63,17 +63,8 @@ class VIEWDashboardController {
 
         // MenuEventCounts
         $peopleWithBirthDays = MenuEventsCount::getBirthDates();
-        $Anniversaries = MenuEventsCount::getAnniversaries();
-        $peopleWithBirthDaysCount = MenuEventsCount::getNumberBirthDates();
-        $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
-
-        // Dashboard People and so on event count
-        $dshiS = new DashboardItemService();
-
-        $dashboardCounts = $dshiS->getAllItems();
 
         // end of Dashboard people count
-
         $families = null;
         $persons = null;
 
@@ -116,13 +107,10 @@ class VIEWDashboardController {
 
         $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle'  => $sPageTitle = _('Welcome to') . ' ' . ChurchMetaData::getChurchName(),
-            'dashboardCounts' => $dashboardCounts,
-            'peopleWithBirthDays' => $peopleWithBirthDays,
+            'sPageTitle'  => $sPageTitle = _('Welcome to') . ' ' . ChurchMetaData::getChurchName(),                     
             'numFamilies' => $numFamilies,
             'numPersons' => $numPersons,
-            'CSPNonce' => $sCSPNonce,
-
+            'CSPNonce' => $sCSPNonce
         ];
 
         return $paramsArguments;
