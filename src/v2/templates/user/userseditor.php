@@ -288,7 +288,7 @@ require $sRootDocument . '/Include/Header.php';
                                                             &nbsp;
                                                         </div>
                                                     </div>
-                                                    <div class="row">
+                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledEdrive')?'row':'d-none' ?>">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('EDrive') ?>:
                                                         </div>
@@ -737,7 +737,7 @@ require $sRootDocument . '/Include/Header.php';
                                         $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
 
                                         $visible = 0;
-                                        $place = 'top';
+                                        $place = $plugin->getDashboardDefaultOrientation();
                                         if (!is_null($role)) {
                                             $visible = $role->getDashboardVisible();
                                             $place = $role->getDashboardOrientation();
@@ -805,7 +805,7 @@ require $sRootDocument . '/Include/Header.php';
                                         $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
 
                                         $visible = 0;
-                                        $place = 'top';
+                                        $place = $plugin->getDashboardDefaultOrientation();
                                         if (!is_null($role)) {
                                             $visible = $role->getDashboardVisible();
                                             $place = $role->getDashboardOrientation();

@@ -365,7 +365,7 @@ require_once $sRootDocument . '/Include/Header.php';
                     if (($securities & $allRights) == 0) continue;
 
                     $visible = 0;
-                    $place = 'top';
+                    $place = $plugin->getDashboardDefaultOrientation();
                     if ( !is_null($role) ) {
                         $visible = $role->getDashboardVisible();
                         $place = $role->getDashboardOrientation();
@@ -414,7 +414,7 @@ require_once $sRootDocument . '/Include/Header.php';
                     if (($securities & $allRights) == 0) continue;
 
                     $visible = 0;
-                    $place = 'top';
+                    $place = $plugin->getDashboardDefaultOrientation();
                     if ( !is_null($role) ) {
                         $visible = $role->getDashboardVisible();
                         $place = $role->getDashboardOrientation();
