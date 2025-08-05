@@ -2,12 +2,14 @@
 
 namespace EcclesiaCRM\Service;
 
-use EcclesiaCRM\dto\SystemConfig;
+
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PersonQuery;
 
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\CacheProvider;
 use EcclesiaCRM\Synchronize\DropDownEmailsClass;
 use EcclesiaCRM\Synchronize\EmailRoleClass;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -17,8 +19,11 @@ use Propel\Runtime\Propel;
 
 class DashboardItemService
 {
-    protected static function getDetails ($classStats)
+    protected static function getDetails ($classStats) : array
     {
+        if (CacheProvider::timeRemaining('DashboardItemService-getDetails') > 0)
+            return CacheProvider::get('DashboardItemService-getDetails');
+
         $sundaySchoolService = new SundaySchoolService();
 
         $TeachersEmails = [];
@@ -120,9 +125,16 @@ class DashboardItemService
         $dropDown->allNormal    = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:');
         $dropDown->allNormalBCC = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=');
 
-        return ["emailLink" => $emailLink, "dropDown" => $dropDown, "cart" => ["parentIds" => $ParentsIds, "KidIds" => $KidsIds, "TeacherIds" => $TeachersIds]];
+        $res = ["emailLink" => $emailLink, "dropDown" => $dropDown, "cart" => ["parentIds" => $ParentsIds, "KidIds" => $KidsIds, "TeacherIds" => $TeachersIds]];
+
+        CacheProvider::add('DashboardItemService-getDetails', $res, SystemConfig::getValue('iDashboardPageServiceIntervalTime'));
+
+        return $res;
     }
-    public function getAllItems() {
+    public function getAllItems():array {
+        if (CacheProvider::timeRemaining('DashboardItemService-getAllItems') > 0)
+            return CacheProvider::get('DashboardItemService-getAllItems');
+
         $personCount = PersonQuery::Create('per')
             ->filterByDateDeactivated(null)
             ->useFamilyQuery('fam','left join')
@@ -216,7 +228,7 @@ class DashboardItemService
             'cart' => $details['cart']
         ];
 
-        return [
+        $res = [
             'personCount' => $personCount,
             'familyCount' => $allRealFamilyleCNT,
             'singleCount' => $allSingleCNT,
@@ -224,5 +236,9 @@ class DashboardItemService
             'SundaySchoolCount' => $SundaySchoolCount,
             'sundaySchoolCountStats' => $data
         ];
+
+        CacheProvider::add('DashboardItemService-getAllItems', $res, SystemConfig::getValue('iDashboardPageServiceIntervalTime'));
+
+        return $res;
     }
 }

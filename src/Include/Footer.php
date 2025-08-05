@@ -439,6 +439,10 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
         ->findByActiv(true);
 
     foreach ($plugins as $plugin) {
+        $security = $plugin->getSecurities();
+
+        if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
+            continue;
         ?>
             <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
         <?php
@@ -451,10 +455,13 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
         ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
         ->filterByName(SessionUser::getPluginName())
         ->findOneByActiv(true);
+    $security = $plugin->getSecurities();
 
-    ?>
-        <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
-    <?php
+    if (SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)) {
+        ?>
+            <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
+        <?php
+    }
 }
 ?>
 

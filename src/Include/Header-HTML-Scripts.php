@@ -27,9 +27,18 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
     // only dashboard plugins are loaded on the maindashboard page
     $plugins = PluginQuery::create()
         ->filterByCategory('Dashboard', Criteria::EQUAL )
+        ->usePluginUserRoleQuery()
+            ->filterByUserId(SessionUser::getId())
+            ->filterByDashboardVisible(true)
+        ->endUse()
         ->findByActiv(true);
 
     foreach ($plugins as $plugin) {
+        $security = $plugin->getSecurities();
+
+        if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
+            continue;
+
         if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/")) {
             $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/");
     
