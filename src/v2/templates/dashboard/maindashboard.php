@@ -15,72 +15,10 @@
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\PluginQuery;
-use EcclesiaCRM\PluginUserRoleQuery;
-use EcclesiaCRM\PluginUserRole;
-use Propel\Runtime\ActiveQuery\Criteria;
 
 // we place this part to avoid a problem during the upgrade process
 // Set the page title
 require $sRootDocument . '/Include/Header.php';
-
-// we first force every dashboard plugin to have a user settings in function of the default values
-$plugins = PluginQuery::create()
-    ->filterByActiv(1)
-    ->filterByCategory('Dashboard')
-    ->filterByDashboardDefaultOrientation('widget', Criteria::NOT_EQUAL)
-    ->usePluginUserRoleQuery()
-        ->filterByUserId(SessionUser::getId())
-        ->filterByDashboardVisible(true)
-    ->endUse()
-    ->find();
-
-foreach ($plugins as $plugin) {
-    $plgnRole = PluginUserRoleQuery::create()
-        ->filterByPluginId($plugin->getId())
-        ->findOneByUserId(SessionUser::getId());
-
-    if (is_null($plgnRole)) {
-        $plgnRole = new PluginUserRole();
-
-        $plgnRole->setPluginId($plugin->getId());
-
-        $plgnRole->setUserId(SessionUser::getId());
-        $plgnRole->setDashboardColor($plugin->getDashboardDefaultColor());
-        $plgnRole->setDashboardOrientation($plugin->getDashboardDefaultOrientation());
-
-        $plgnRole->save();
-    }
-}
-
-// we first force every dashboard plugin to have a user settings in function of the default values
-$pluginWidgets = PluginQuery::create()
-    ->filterByActiv(1)
-    ->filterByCategory('Dashboard')
-    ->filterByDashboardDefaultOrientation('widget', Criteria::EQUAL)
-    ->usePluginUserRoleQuery()
-        ->filterByUserId(SessionUser::getId())
-        ->filterByDashboardVisible(true)
-    ->endUse()        
-    ->find();
-
-foreach ($pluginWidgets as $plugin) {
-    $plgnRole = PluginUserRoleQuery::create()
-        ->filterByPluginId($plugin->getId())
-        ->findOneByUserId(SessionUser::getId());
-
-    if (is_null($plgnRole)) {
-        $plgnRole = new PluginUserRole();
-
-        $plgnRole->setPluginId($plugin->getId());
-        $plgnRole->setUserId(SessionUser::getId());
-        $plgnRole->setDashboardColor($plugin->getDashboardDefaultColor());
-        $plgnRole->setDashboardOrientation($plugin->getDashboardDefaultOrientation());
-        $plgnRole->setDashboardVisible(true);
-
-        $plgnRole->save();
-    }
-}
 ?>
 
 <!-- GDPR -->
@@ -153,13 +91,34 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 }
 ?>
 
+<!-- we start the plugin parts : center plugins -->
+<div class="float-right">
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color: red">
+            <i class="fas fa-wrench"></i> <?= _("Plugins managements") ?></button>
+        <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
+            <!--
+                TODO : plugins remote manage
+                <a href="#" class="dropdown-item">Ajouter un nouveau plugin</a>
+                <a class="dropdown-divider" style="color: #0c0c0c"></a>
+                -->
+            <a href="<?= $sRootPath ?>/v2/users/settings" class="dropdown-item" id="add-plugin"><?= _("Settings") ?></a>
+        </div>
+    </div>
+</div>
+
+<hr/>
+
+<br>
+<br>
+
 <!-- widgets -->
 <div class="row">
     <?php
-    $widgetCount = $pluginWidgets->count();
+    $widgetCount = $widgetPlugins->count();
 
     $i = 0;
-    foreach ($pluginWidgets as $plugin) {
+    foreach ($widgetPlugins as $plugin) {
         $security = $plugin->getSecurities();
 
         if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
@@ -184,21 +143,6 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 </div><!-- /.row -->
 <!-- /.widgets -->
 
-<!-- we start the plugin parts : center plugins -->
-<div class="float-right">
-    <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color: red">
-            <i class="fas fa-wrench"></i> <?= _("Plugins managements") ?></button>
-        <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
-            <!--
-                TODO : plugins remote manage
-                <a href="#" class="dropdown-item">Ajouter un nouveau plugin</a>
-                <a class="dropdown-divider" style="color: #0c0c0c"></a>
-                -->
-            <a href="<?= $sRootPath ?>/v2/users/settings" class="dropdown-item" id="add-plugin"><?= _("Settings") ?></a>
-        </div>
-    </div>
-</div>
 <div class="row">
     <div class="col-md-12"><br></div>
 </div>
@@ -206,30 +150,13 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 <div class="row">
     <section class="col-lg-12 connectedSortable ui-sortable top-plugins" data-name="center">
         <?php
-        $plugins = PluginQuery::create()
-            ->filterByActiv(1)
-            ->filterByCategory('Dashboard')
-            ->usePluginUserRoleQuery()
-            ->filterByDashboardOrientation('top')
-            ->filterByUserId(SessionUser::getId())
-            ->filterByDashboardVisible(true)
-            ->endUse()
-            ->leftJoinPluginUserRole()
-            ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
-            ->orderBy('place')
-            ->find();
-
-        foreach ($plugins as $plugin) {
+        foreach ($topPlugins as $plugin) {
             $security = $plugin->getSecurities();
 
             if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
                 continue;
 
-            $userPluginStatus = PluginUserRoleQuery::create()
-                ->filterByUserId(SessionUser::getId())
-                ->findOneByPluginId($plugin->getId());
-
-            $is_collapsed = $userPluginStatus->isCollapsed();
+            $is_collapsed = $plugin->getCollapsed();
 
             echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php", [
                 'sRootPath'     => $sRootPath,
@@ -247,33 +174,15 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 
 <!-- we add the left right plugins -->
 <div class="row">
-
     <section class="col-lg-4 connectedSortable ui-sortable left-plugins" data-name="left">
         <?php
-        $plugins = PluginQuery::create()
-            ->filterByActiv(1)
-            ->filterByCategory('Dashboard')
-            ->usePluginUserRoleQuery()
-            ->filterByDashboardOrientation('left')
-            ->filterByDashboardVisible(true)
-            ->filterByUserId(SessionUser::getId())
-            ->endUse()
-            ->leftJoinPluginUserRole()
-            ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
-            ->orderBy('place')
-            ->find();
-
-        foreach ($plugins as $plugin) {
+        foreach ($leftPlugins as $plugin) {
             $security = $plugin->getSecurities();
 
             if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
                 continue;
-
-            $userPluginStatus = PluginUserRoleQuery::create()
-                ->filterByUserId(SessionUser::getId())
-                ->findOneByPluginId($plugin->getId());
-
-            $is_collapsed = $userPluginStatus->isCollapsed();
+    
+            $is_collapsed = $plugin->getCollapsed();
 
             echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php", [
                 'sRootPath'     => $sRootPath,
@@ -290,32 +199,14 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 
     <!-- the center dashboard plugins -->
     <section class="col-lg-4 connectedSortable ui-sortable center-plugins" data-name="right">
-
-        <?php
-        $plugins = PluginQuery::create()
-            ->filterByActiv(1)
-            ->filterByCategory('Dashboard')
-            ->usePluginUserRoleQuery()
-            ->filterByDashboardOrientation('center')
-            ->filterByUserId(SessionUser::getId())
-            ->filterByDashboardVisible(true)
-            ->endUse()
-            ->leftJoinPluginUserRole()
-            ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
-            ->orderBy('place')
-            ->find();
-
-        foreach ($plugins as $plugin) {
+        <?php        
+        foreach ($centerPlugins as $plugin) {
             $security = $plugin->getSecurities();
 
             if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
                 continue;
-
-            $userPluginStatus = PluginUserRoleQuery::create()
-                ->filterByUserId(SessionUser::getId())
-                ->findOneByPluginId($plugin->getId());
-
-            $is_collapsed = $userPluginStatus->isCollapsed();
+            
+            $is_collapsed = $plugin->getCollapsed();
 
             echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php", [
                 'sRootPath'     => $sRootPath,
@@ -336,30 +227,13 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
     <section class="col-lg-4 connectedSortable ui-sortable right-plugins" data-name="right">
 
         <?php
-        $plugins = PluginQuery::create()
-            ->filterByActiv(1)
-            ->filterByCategory('Dashboard')
-            ->usePluginUserRoleQuery()
-            ->filterByDashboardOrientation('right')
-            ->filterByUserId(SessionUser::getId())
-            ->filterByDashboardVisible(true)
-            ->endUse()
-            ->leftJoinPluginUserRole()
-            ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
-            ->orderBy('place')
-            ->find();
-
-        foreach ($plugins as $plugin) {
+        foreach ($rightPlugins as $plugin) {
             $security = $plugin->getSecurities();
 
             if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
                 continue;
 
-            $userPluginStatus = PluginUserRoleQuery::create()
-                ->filterByUserId(SessionUser::getId())
-                ->findOneByPluginId($plugin->getId());
-
-            $is_collapsed = $userPluginStatus->isCollapsed();
+            $is_collapsed = $plugin->getCollapsed();
 
             echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php", [
                 'sRootPath'     => $sRootPath,

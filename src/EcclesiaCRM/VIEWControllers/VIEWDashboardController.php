@@ -21,14 +21,14 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\PluginQuery;
+use EcclesiaCRM\PluginUserRoleQuery;
+use EcclesiaCRM\PluginUserRole;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\dto\MenuEventsCount;
-use EcclesiaCRM\Service\PastoralCareService;
-use EcclesiaCRM\Service\DashboardItemService;
 
 use Slim\Views\PhpRenderer;
 
@@ -45,10 +45,10 @@ class VIEWDashboardController {
     {
         $renderer = new PhpRenderer('templates/dashboard/');
 
-        return $renderer->render($response, 'maindashboard.php', $this->argumentsFashboardArray());
+        return $renderer->render($response, 'maindashboard.php', $this->argumentsDashboardArray());
     }
 
-    public function argumentsFashboardArray ()
+    public function argumentsDashboardArray ()
     {
         $depositData = false;  //Determine whether or not we should display the deposit line graph
         $deposits = Null;
@@ -101,7 +101,86 @@ class VIEWDashboardController {
                 ->find();
 
             $numPersons = $persons->count();
-        }
+        }        
+
+        // we first force every dashboard plugin to have a user settings in function of the default values
+        $dashBoardPlugins = PluginQuery::create()
+            ->filterByActiv(1)
+            ->filterByCategory('Dashboard')
+            ->filterByDashboardDefaultOrientation('widget', Criteria::NOT_EQUAL)
+            ->usePluginUserRoleQuery()
+                ->filterByUserId(SessionUser::getId())
+                ->filterByDashboardVisible(true)
+            ->endUse()
+            ->find();        
+
+        // we first force every dashboard plugin to have a user settings in function of the default values
+        $widgetPlugins = PluginQuery::create()
+            ->filterByActiv(1)
+            ->filterByCategory('Dashboard')
+            ->filterByDashboardDefaultOrientation('widget', Criteria::EQUAL)
+            ->usePluginUserRoleQuery()
+                ->filterByUserId(SessionUser::getId())
+                ->filterByDashboardVisible(true)
+            ->endUse()        
+            ->find();        
+
+        $topPlugins = PluginQuery::create()
+                    ->filterByActiv(1)
+                    ->filterByCategory('Dashboard')
+                    ->usePluginUserRoleQuery()
+                        ->filterByDashboardOrientation('top')
+                        ->filterByUserId(SessionUser::getId())
+                        ->filterByDashboardVisible(true)
+                    ->endUse()
+                    ->leftJoinPluginUserRole()
+                    ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
+                    ->addAsColumn('collapsed', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_COLLAPSED)
+                    ->orderBy('place')
+                    ->find();
+
+        $leftPlugins = PluginQuery::create()
+                    ->filterByActiv(1)
+                    ->filterByCategory('Dashboard')
+                    ->usePluginUserRoleQuery()
+                        ->filterByDashboardOrientation('left')
+                        ->filterByDashboardVisible(true)
+                        ->filterByUserId(SessionUser::getId())
+                    ->endUse()
+                    ->leftJoinPluginUserRole()
+                    ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
+                    ->addAsColumn('collapsed', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_COLLAPSED)
+                    ->orderBy('place')
+                    ->find();
+
+        
+        $rightPlugins = PluginQuery::create()
+                    ->filterByActiv(1)
+                    ->filterByCategory('Dashboard')
+                    ->usePluginUserRoleQuery()
+                        ->filterByDashboardOrientation('right')
+                        ->filterByUserId(SessionUser::getId())
+                        ->filterByDashboardVisible(true)
+                    ->endUse()
+                    ->leftJoinPluginUserRole()
+                    ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
+                    ->addAsColumn('collapsed', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_COLLAPSED)
+                    ->orderBy('place')
+                    ->find();
+
+        $centerPlugins = PluginQuery::create()
+                    ->filterByActiv(1)
+                    ->filterByCategory('Dashboard')
+                    ->usePluginUserRoleQuery()
+                        ->filterByDashboardOrientation('center')
+                        ->filterByUserId(SessionUser::getId())
+                        ->filterByDashboardVisible(true)
+                    ->endUse()
+                    ->leftJoinPluginUserRole()
+                    ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
+                    ->addAsColumn('collapsed', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_COLLAPSED)
+                    ->orderBy('place')
+                    ->find();
 
         $sCSPNonce       = SystemURLs::getCSPNonce();
 
@@ -110,7 +189,13 @@ class VIEWDashboardController {
             'sPageTitle'  => $sPageTitle = _('Welcome to') . ' ' . ChurchMetaData::getChurchName(),                     
             'numFamilies' => $numFamilies,
             'numPersons' => $numPersons,
-            'CSPNonce' => $sCSPNonce
+            'CSPNonce' => $sCSPNonce,
+            'widgetPlugins' => $widgetPlugins,
+            'dashBoardPlugins' => $dashBoardPlugins,
+            'topPlugins' => $topPlugins,
+            'leftPlugins' => $leftPlugins,
+            'rightPlugins' => $rightPlugins,
+            'centerPlugins' => $centerPlugins            
         ];
 
         return $paramsArguments;

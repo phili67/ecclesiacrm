@@ -1186,6 +1186,30 @@ class User extends BaseUser
         $_SESSION['isUpdateRequired'] = NotificationService::isUpdateRequired();
 
         $_SESSION['isSoftwareUpdateTestPassed'] = false;
+
+        // We check whether each active plugin has a role for the currently logged-in user.
+        $dashPlugins = PluginQuery::create()
+            ->filterByActiv(1)
+            ->filterByCategory('Dashboard')
+            ->find();
+
+        foreach ($dashPlugins as $plugin) {
+            $plgnRole = PluginUserRoleQuery::create()
+                ->filterByPluginId($plugin->getId())
+                ->findOneByUserId(SessionUser::getId());
+
+            if (is_null($plgnRole)) {
+                $plgnRole = new PluginUserRole();
+
+                $plgnRole->setPluginId($plugin->getId());
+                $plgnRole->setUserId(SessionUser::getId());
+                $plgnRole->setDashboardColor($plugin->getDashboardDefaultColor());
+                $plgnRole->setDashboardOrientation($plugin->getDashboardDefaultOrientation());
+                $plgnRole->setDashboardVisible(true);
+
+                $plgnRole->save();
+            }
+        }
     }
 
     public function isEnableForPlugin($name)

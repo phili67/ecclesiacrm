@@ -38,7 +38,6 @@ use EcclesiaCRM\Emails\UpdateAccountEmail;
 use EcclesiaCRM\Emails\PasswordChangeEmail;
 
 use Propel\Runtime\ActiveQuery\Criteria;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class VIEWUserController
 {
@@ -191,6 +190,7 @@ class VIEWUserController
                 $plugin = $role->getPlugin();
         
                 $role->setDashboardVisible(($sel_role)?true:false);
+                $role->setDashboardColor($plugin->getDashboardDefaultColor());                               
                 $role->setDashboardOrientation($position);
                 $role->save();
             }
@@ -789,6 +789,7 @@ class VIEWUserController
                     $new_plugin_place = $_POST['new_plugin_place'];
                     $position = $new_plugin_place[$plugin->getId()];
                     $role->setDashboardVisible($sel_role);
+                    $role->setDashboardColor($plugin->getDashboardDefaultColor());
                     $role->setDashboardOrientation($position);
 
                     if ( $plugin->getUserRoleDashboardAvailability() ) {

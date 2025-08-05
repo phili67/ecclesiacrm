@@ -104,11 +104,9 @@ if (isset($_POST['User'])) {
                     $twofa = true;
                     $sErrorText = _('Invalid 2FA code');
                 }
-            } else {
-                $validate2FA = true;
             }
 
-            if ($validate2FA) {
+            if ($validate2FA or !isset($_POST['twofafield'])) {
                 $currentUser->LoginPhaseActivations();
 
                 if (isset($_SESSION['lastPage'])) {
