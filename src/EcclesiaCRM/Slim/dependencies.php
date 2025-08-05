@@ -51,7 +51,7 @@ class dependencies
 
             $container->set('FinancialService', function () {
                 if (!isset($_SESSION['FinancialService'])) {
-                    $_SESSION['FinancialService'] = new GroupService();
+                    $_SESSION['FinancialService'] = new FinancialService();
                 }
                 return $_SESSION['FinancialService'];                   
             });

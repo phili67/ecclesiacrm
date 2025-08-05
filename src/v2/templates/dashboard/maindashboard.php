@@ -107,7 +107,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
     </div>
 </div>
 
-<hr/>
+<hr />
 
 <br>
 <br>
@@ -121,13 +121,13 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
     foreach ($widgetPlugins as $plugin) {
         $security = $plugin->getSecurities();
 
-        if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
+        if (!(SessionUser::getUser() != null and SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
             continue;
 
         if ($i % 6 == 0 and $i > 0) {
-        ?>
-                </row>
-                <row>
+    ?>
+            </row>
+            <row>
         <?php
         }
         $i++;
@@ -181,7 +181,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 
             if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
                 continue;
-    
+
             $is_collapsed = $plugin->getCollapsed();
 
             echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php", [
@@ -199,13 +199,13 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 
     <!-- the center dashboard plugins -->
     <section class="col-lg-4 connectedSortable ui-sortable center-plugins" data-name="right">
-        <?php        
+        <?php
         foreach ($centerPlugins as $plugin) {
             $security = $plugin->getSecurities();
 
             if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
                 continue;
-            
+
             $is_collapsed = $plugin->getCollapsed();
 
             echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php", [
