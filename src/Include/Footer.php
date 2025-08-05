@@ -450,18 +450,14 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
             $directories = MiscUtils::expandDirectories(SystemURLs::getDocumentRoot() . "/Plugins/" . $plugin->getName() . "/skin/js", $plugin->getName());        
         }        
     }        
-} elseif (!is_null(SessionUser::getPluginName()) and SessionUser::getPluginName() != "") {
+} elseif (!is_null(SessionUser::getPluginName()) and !empty(SessionUser::getPluginName())) {
     $plugin = PluginQuery::create()
         ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
         ->filterByName(SessionUser::getPluginName())
         ->findOneByActiv(true);
-    $security = $plugin->getSecurities();
-
-    if (SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)) {
-        ?>
-            <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
-        <?php
-    }
+    ?>
+        <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
+    <?php    
 }
 ?>
 
