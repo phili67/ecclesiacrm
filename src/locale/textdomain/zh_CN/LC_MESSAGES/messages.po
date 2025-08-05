@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-04 16:12+0000\n"
+"POT-Creation-Date: 2025-08-05 06:59+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -909,7 +909,6 @@ msgstr "人数"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:171
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:88
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:22
@@ -928,9 +927,7 @@ msgstr "家庭"
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
-#: v2/templates/calendar/calendar.php:207
-#: v2/templates/dashboard/maindashboard.php:237
-#: v2/templates/group/grouplist.php:53
+#: v2/templates/calendar/calendar.php:207 v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:143
 #: v2/templates/people/peopledashboard.php:176
 #: v2/templates/people/peoplelist.php:44 v2/templates/people/personview.php:122
@@ -1038,8 +1035,8 @@ msgstr "添加到组"
 #: v2/templates/people/personPrint.php:586
 #: v2/templates/people/personlist.php:51
 #: v2/templates/system/eventAttendance.php:196
-#: v2/templates/user/userlist.php:51 v2/templates/user/userseditor.php:713
-#: queryparameteroptions_qpo.php:4
+#: v2/templates/user/userlist.php:51 v2/templates/user/userseditor.php:715
+#: v2/templates/user/userseditor.php:783 queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "命名"
 
@@ -1052,8 +1049,9 @@ msgstr "命名"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
-#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
-#: v2/templates/user/usersettings.php:435
+#: v2/templates/user/userseditor.php:763 v2/templates/user/userseditor.php:831
+#: v2/templates/user/usersettings.php:382
+#: v2/templates/user/usersettings.php:431
 msgid "Yes"
 msgstr "是"
 
@@ -1069,9 +1067,10 @@ msgstr "是"
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:299
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
-#: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:690
-#: v2/templates/user/userseditor.php:759 v2/templates/user/usersettings.php:381
-#: v2/templates/user/usersettings.php:434
+#: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
+#: v2/templates/user/userseditor.php:762 v2/templates/user/userseditor.php:830
+#: v2/templates/user/usersettings.php:381
+#: v2/templates/user/usersettings.php:430
 msgid "No"
 msgstr "没有"
 
@@ -1202,7 +1201,7 @@ msgstr "集团类型"
 #: v2/templates/people/personview.php:772
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
-#: v2/templates/user/userseditor.php:725
+#: v2/templates/user/userseditor.php:727 v2/templates/user/userseditor.php:795
 msgid "Role"
 msgstr "角色"
 
@@ -1693,7 +1692,7 @@ msgstr "您的 CRM 账户已更新"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
 #: v2/templates/plugins/plugins.php:83 v2/templates/user/userlist.php:62
-#: v2/templates/user/userseditor.php:719
+#: v2/templates/user/userseditor.php:721 v2/templates/user/userseditor.php:789
 msgid "Status"
 msgstr "状况"
 
@@ -1758,7 +1757,7 @@ msgstr "文件"
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
 #: EcclesiaCRM/dto/SystemConfig.php:303
-#: v2/templates/dashboard/maindashboard.php:97
+#: v2/templates/dashboard/maindashboard.php:93
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -1813,9 +1812,7 @@ msgstr "列出事件类型"
 msgid "Call the Register"
 msgstr "呼叫登记处"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:177
-#: v2/templates/dashboard/maindashboard.php:193
-#: v2/templates/people/familylist.php:46
+#: EcclesiaCRM/MenuBar/MenuBar.php:177 v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "人"
@@ -5486,51 +5483,51 @@ msgstr "岁"
 msgid "yr old"
 msgstr "岁"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:806
 msgid "system user created"
 msgstr "创建的系统用户"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:803
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:809
 msgid "system user updated"
 msgstr "系统用户更新"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:812
 msgid "system user deleted"
 msgstr "系统用户删除"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:809
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:815
 msgid "system user password reset"
 msgstr "系统用户密码重置"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:812
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
 msgid "system user changed password"
 msgstr "系统用户改变了密码"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:815
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:821
 msgid "system user password changed by admin"
 msgstr "系统用户密码被管理员修改"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
 msgid "system user login reset"
 msgstr "系统用户登录重置"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
 msgid "Dav create file"
 msgstr "Dav创建文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
 msgid "Dav create directory"
 msgstr "Dav创建目录"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:842
 msgid "Dav update file"
 msgstr "Dav更新文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:849
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:855
 msgid "Dav move copy file"
 msgstr "Dav移动复制文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:856
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:862
 msgid "Dav delete file"
 msgstr "Dav删除文件"
 
@@ -7083,9 +7080,9 @@ msgstr "我们在提交您的验证数据时遇到了一个错误"
 #: v2/templates/people/reminderreport.php:42
 #: v2/templates/sundayschool/sundayschooldashboard.php:327
 #: v2/templates/sundayschool/sundayschoolreports.php:152
-#: v2/templates/user/userseditor.php:813 v2/templates/user/usersettings.php:61
+#: v2/templates/user/userseditor.php:885 v2/templates/user/usersettings.php:61
 #: v2/templates/user/usersettings.php:324
-#: v2/templates/user/usersettings.php:457
+#: v2/templates/user/usersettings.php:452
 msgid "Cancel"
 msgstr "取消"
 
@@ -7945,15 +7942,13 @@ msgstr "图像位置"
 #: v2/templates/people/familyCustomFieldEditor.php:508
 #: v2/templates/people/personCustomEditor.php:419
 #: v2/templates/people/personCustomEditor.php:504
-#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:390
-#: v2/templates/user/usersettings.php:443
+#: v2/templates/user/userseditor.php:838 v2/templates/user/usersettings.php:438
 msgid "Left"
 msgstr "左边"
 
 #: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
 #: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
-#: v2/templates/user/usersettings.php:391
-#: v2/templates/user/usersettings.php:444
+#: v2/templates/user/userseditor.php:839 v2/templates/user/usersettings.php:439
 msgid "Center"
 msgstr "中心"
 
@@ -7963,8 +7958,7 @@ msgstr "中心"
 #: v2/templates/people/familyCustomFieldEditor.php:509
 #: v2/templates/people/personCustomEditor.php:420
 #: v2/templates/people/personCustomEditor.php:505
-#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:392
-#: v2/templates/user/usersettings.php:445
+#: v2/templates/user/userseditor.php:840 v2/templates/user/usersettings.php:440
 msgid "Right"
 msgstr "对"
 
@@ -8065,85 +8059,57 @@ msgstr "您的购物车包含"
 msgid "persons from"
 msgstr "的人来自"
 
-#: v2/templates/dashboard/maindashboard.php:97
+#: v2/templates/dashboard/maindashboard.php:93
 msgid "message for the DPO"
 msgstr "给DPO的信息"
 
-#: v2/templates/dashboard/maindashboard.php:108
+#: v2/templates/dashboard/maindashboard.php:104
 msgid "person must be deleted from the CRM."
 msgstr "必须从CRM中删除该人。"
 
-#: v2/templates/dashboard/maindashboard.php:110
+#: v2/templates/dashboard/maindashboard.php:106
 msgid "persons must be deleted from the CRM."
 msgstr "必须从CRM中删除这些人。"
 
-#: v2/templates/dashboard/maindashboard.php:115
-#: v2/templates/dashboard/maindashboard.php:140
+#: v2/templates/dashboard/maindashboard.php:111
+#: v2/templates/dashboard/maindashboard.php:136
 msgid "Click the"
 msgstr "点击"
 
-#: v2/templates/dashboard/maindashboard.php:116
-#: v2/templates/dashboard/maindashboard.php:141
+#: v2/templates/dashboard/maindashboard.php:112
+#: v2/templates/dashboard/maindashboard.php:137
 msgid "link"
 msgstr "链接"
 
-#: v2/templates/dashboard/maindashboard.php:116
-#: v2/templates/dashboard/maindashboard.php:141
+#: v2/templates/dashboard/maindashboard.php:112
+#: v2/templates/dashboard/maindashboard.php:137
 #: v2/templates/map/MapUsingBing.php:49 v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "to solve the problem."
 msgstr "来解决这个问题。"
 
-#: v2/templates/dashboard/maindashboard.php:121
+#: v2/templates/dashboard/maindashboard.php:117
 msgid "No Person to remove in the CRM."
 msgstr "在CRM中没有人可以删除。"
 
-#: v2/templates/dashboard/maindashboard.php:133
+#: v2/templates/dashboard/maindashboard.php:129
 msgid "family must be deleted from the CRM."
 msgstr "家庭必须从CRM中删除。"
 
-#: v2/templates/dashboard/maindashboard.php:135
+#: v2/templates/dashboard/maindashboard.php:131
 msgid "families must be deleted from the CRM."
 msgstr "家庭必须从CRM中删除。"
 
-#: v2/templates/dashboard/maindashboard.php:146
+#: v2/templates/dashboard/maindashboard.php:142
 msgid "No Family to remove in the CRM."
 msgstr "在客户关系管理中没有家庭可供删除。"
 
-#: v2/templates/dashboard/maindashboard.php:180
-#: v2/templates/people/peopledashboard.php:96
-#: v2/templates/people/peopledashboard.php:118
-msgid "View"
-msgstr "查看"
-
-#: v2/templates/dashboard/maindashboard.php:180
-#: v2/templates/people/peopledashboard.php:118
-msgid "Familles"
-msgstr "家庭"
-
-#: v2/templates/dashboard/maindashboard.php:200
-#: v2/templates/people/peopledashboard.php:139
-msgid "See All People"
-msgstr "查看所有人员"
-
-#: v2/templates/dashboard/maindashboard.php:215
-#: v2/templates/sundayschool/sundayschooldashboard.php:197
-msgid "Sunday School Classes"
-msgstr "主日学课程"
-
-#: v2/templates/dashboard/maindashboard.php:222
-#: v2/templates/dashboard/maindashboard.php:244
-#: v2/templates/people/peopledashboard.php:161
-#: v2/templates/people/peopledashboard.php:183
-msgid "More info"
-msgstr "更多信息"
-
-#: v2/templates/dashboard/maindashboard.php:284
+#: v2/templates/dashboard/maindashboard.php:191
 #: v2/templates/plugins/plugins.php:32
 msgid "Plugins managements"
 msgstr "插件管理"
 
-#: v2/templates/dashboard/maindashboard.php:291
+#: v2/templates/dashboard/maindashboard.php:198
 #: v2/templates/gdpr/dashboard.php:45
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:52
 #: v2/templates/plugins/plugins.php:102
@@ -10785,9 +10751,27 @@ msgstr "家庭地图"
 msgid "Update All Family Coordinates"
 msgstr "更新所有家庭坐标"
 
+#: v2/templates/people/peopledashboard.php:96
+#: v2/templates/people/peopledashboard.php:118
+msgid "View"
+msgstr "查看"
+
+#: v2/templates/people/peopledashboard.php:118
+msgid "Familles"
+msgstr "家庭"
+
+#: v2/templates/people/peopledashboard.php:139
+msgid "See All People"
+msgstr "查看所有人员"
+
 #: v2/templates/people/peopledashboard.php:154
 msgid "Sunday School Kids"
 msgstr "主日学儿童"
+
+#: v2/templates/people/peopledashboard.php:161
+#: v2/templates/people/peopledashboard.php:183
+msgid "More info"
+msgstr "更多信息"
 
 #: v2/templates/people/peopledashboard.php:194
 #: v2/templates/people/peopledashboard.php:234
@@ -11531,9 +11515,9 @@ msgid "Edit JSON Settings"
 msgstr "编辑JSON设置"
 
 #: v2/templates/sidebar/systemsettings.php:76
-#: v2/templates/user/userseditor.php:810 v2/templates/user/usersettings.php:62
+#: v2/templates/user/userseditor.php:882 v2/templates/user/usersettings.php:62
 #: v2/templates/user/usersettings.php:325
-#: v2/templates/user/usersettings.php:460
+#: v2/templates/user/usersettings.php:455
 msgid "Save Settings"
 msgstr "保存设置"
 
@@ -11635,6 +11619,10 @@ msgstr "从购物车中删除教师"
 #: v2/templates/sundayschool/sundayschoolview.php:138
 msgid "Add Teachers to Cart"
 msgstr "添加教师到购物车"
+
+#: v2/templates/sundayschool/sundayschooldashboard.php:197
+msgid "Sunday School Classes"
+msgstr "主日学课程"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:210
 #: queryparameters_qrp.php:12
@@ -12312,17 +12300,17 @@ msgstr "做出用户的人"
 msgid "Note: Changes will not take effect until next logon."
 msgstr "请注意：在下次登录之前，更改不会生效。"
 
-#: v2/templates/user/userseditor.php:125 v2/templates/user/userseditor.php:691
-#: v2/templates/user/userseditor.php:774
+#: v2/templates/user/userseditor.php:125 v2/templates/user/userseditor.php:692
+#: v2/templates/user/userseditor.php:846
 msgid "User"
 msgstr "用户"
 
-#: v2/templates/user/userseditor.php:168 v2/templates/user/userseditor.php:790
+#: v2/templates/user/userseditor.php:168 v2/templates/user/userseditor.php:862
 msgid "Global Permissions"
 msgstr "全局权限"
 
-#: v2/templates/user/userseditor.php:184 v2/templates/user/userseditor.php:692
-#: v2/templates/user/userseditor.php:775
+#: v2/templates/user/userseditor.php:184 v2/templates/user/userseditor.php:693
+#: v2/templates/user/userseditor.php:847
 msgid "Admin"
 msgstr "管理员"
 
@@ -12466,7 +12454,7 @@ msgstr "GRPD数据保护官"
 msgid "General Data Protection Regulation in UE"
 msgstr "欧洲通用数据保护条例"
 
-#: v2/templates/user/userseditor.php:510 v2/templates/user/userseditor.php:791
+#: v2/templates/user/userseditor.php:510 v2/templates/user/userseditor.php:863
 msgid "Modifiable Permissions"
 msgstr "可修改的权限"
 
@@ -12490,24 +12478,35 @@ msgstr "当前价值"
 msgid "Notes"
 msgstr "笔记"
 
-#: v2/templates/user/userseditor.php:667 v2/templates/user/userseditor.php:792
+#: v2/templates/user/userseditor.php:667 v2/templates/user/userseditor.php:864
 msgid "Plugin permissions"
 msgstr "插件权限"
 
-#: v2/templates/user/userseditor.php:707 v2/templates/user/usersettings.php:344
+#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
 msgstr "仪表板插件的可视性"
 
-#: v2/templates/user/userseditor.php:716
+#: v2/templates/user/userseditor.php:712 v2/templates/user/usersettings.php:348
+msgid "Widgets"
+msgstr "小工具"
+
+#: v2/templates/user/userseditor.php:718 v2/templates/user/userseditor.php:786
 msgid "Security"
 msgstr "安全问题"
 
-#: v2/templates/user/userseditor.php:722
+#: v2/templates/user/userseditor.php:724 v2/templates/user/userseditor.php:792
 msgid "Position"
 msgstr "职务"
 
-#: v2/templates/user/userseditor.php:766 v2/templates/user/usersettings.php:389
-#: v2/templates/user/usersettings.php:442
+#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:388
+msgid "widget"
+msgstr "小装饰"
+
+#: v2/templates/user/userseditor.php:780 v2/templates/user/usersettings.php:398
+msgid "Dashboard Plugins"
+msgstr "仪表板插件"
+
+#: v2/templates/user/userseditor.php:837 v2/templates/user/usersettings.php:437
 msgid "Top"
 msgstr "返回顶部"
 
@@ -12523,24 +12522,11 @@ msgstr "皮肤"
 msgid "Specific settings"
 msgstr "具体设置"
 
-#: v2/templates/user/usersettings.php:348
-msgid "Widgets"
-msgstr "小工具"
-
-#: v2/templates/user/usersettings.php:388
-#: v2/templates/user/usersettings.php:441
-msgid "widget"
-msgstr "小装饰"
-
-#: v2/templates/user/usersettings.php:402
-msgid "Dashboard Plugins"
-msgstr "仪表板插件"
-
-#: v2/templates/user/usersettings.php:473
+#: v2/templates/user/usersettings.php:468
 msgid "Two-factor authentication (2fa)"
 msgstr "双因素认证（2fa）"
 
-#: v2/templates/user/usersettings.php:476
+#: v2/templates/user/usersettings.php:471
 msgid ""
 "Enrolling your CRM user account in Two Factor Authentication provides an CRM "
 "layer of defense against bad actors trying to access your account"
@@ -12548,70 +12534,70 @@ msgstr ""
 "将您的 CRM 用户账户加入双因素身份验证，可为 CRM 提供一层防御，防止坏人试图访"
 "问您的账户"
 
-#: v2/templates/user/usersettings.php:477
+#: v2/templates/user/usersettings.php:472
 msgid "CRM Two factor supports any TOTP authenticator app"
 msgstr "CRM 双因素支持任何 TOTP 验证器应用程序"
 
-#: v2/templates/user/usersettings.php:482
+#: v2/templates/user/usersettings.php:477
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
 msgstr "当你登录到EcclesiaCRM时，你仍然会像平常一样输入你的用户名和密码"
 
-#: v2/templates/user/usersettings.php:485
+#: v2/templates/user/usersettings.php:480
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
 msgstr "然而，你还需要从你的认证器设备上提供一个一次性代码来完成你的登录。"
 
-#: v2/templates/user/usersettings.php:488
+#: v2/templates/user/usersettings.php:483
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
 msgstr "在成功输入你的凭证和一次性代码后，你将会像往常一样登录。"
 
-#: v2/templates/user/usersettings.php:491
+#: v2/templates/user/usersettings.php:486
 msgid ""
 "To prevent being locked out of your CRM account, please ensure you're ready "
 "to complete two factor enrollment before clicking begin"
 msgstr ""
 "为防止被锁定在 CRM 帐户之外，请在点击开始之前确保您已准备好完成双因素注册"
 
-#: v2/templates/user/usersettings.php:494
+#: v2/templates/user/usersettings.php:489
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
 msgstr "开始注册将使以前注册的任何2因素设备和恢复代码无效。"
 
-#: v2/templates/user/usersettings.php:496
+#: v2/templates/user/usersettings.php:491
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
 msgstr "当你点击下一步时，你会被提示扫描一个二维码来注册你的认证器应用程序。"
 
-#: v2/templates/user/usersettings.php:498
+#: v2/templates/user/usersettings.php:493
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
 msgstr "为了确认注册，你需要输入由你的认证器应用程序生成的代码"
 
-#: v2/templates/user/usersettings.php:500
+#: v2/templates/user/usersettings.php:495
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
 msgstr "在确认应用程序的注册后，将生成并显示一次性恢复代码。"
 
-#: v2/templates/user/usersettings.php:502
+#: v2/templates/user/usersettings.php:497
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
 msgstr "可以使用恢复代码，而不是从你的认证器应用程序生成的代码。"
 
-#: v2/templates/user/usersettings.php:504
+#: v2/templates/user/usersettings.php:499
 msgid "Store these in a secure location"
 msgstr "将这些东西存放在一个安全的地方"
 
-#: v2/templates/user/usersettings.php:511
+#: v2/templates/user/usersettings.php:506
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "开始双因素认证的注册工作"
 

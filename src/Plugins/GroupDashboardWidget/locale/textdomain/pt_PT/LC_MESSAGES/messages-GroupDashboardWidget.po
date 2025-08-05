@@ -1,0 +1,7 @@
+#: ../src/Plugins/GroupDashboardWidget/v2/templates/View.php:26
+msgid "Groups"
+msgstr ""
+
+#: ../src/Plugins/GroupDashboardWidget/v2/templates/View.php:33
+msgid "More info"
+msgstr ""

@@ -1,0 +1,1 @@
+try {window.CRM.GroupDashboardWidget_i18keys = {};} catch(e) {};

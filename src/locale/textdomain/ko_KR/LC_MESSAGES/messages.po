@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-04 16:12+0000\n"
+"POT-Creation-Date: 2025-08-05 06:59+0000\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -924,7 +924,6 @@ msgstr "사람"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:171
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:88
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:22
@@ -943,9 +942,7 @@ msgstr "가족"
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
-#: v2/templates/calendar/calendar.php:207
-#: v2/templates/dashboard/maindashboard.php:237
-#: v2/templates/group/grouplist.php:53
+#: v2/templates/calendar/calendar.php:207 v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:143
 #: v2/templates/people/peopledashboard.php:176
 #: v2/templates/people/peoplelist.php:44 v2/templates/people/personview.php:122
@@ -1053,8 +1050,8 @@ msgstr "그룹에 추가됨"
 #: v2/templates/people/personPrint.php:586
 #: v2/templates/people/personlist.php:51
 #: v2/templates/system/eventAttendance.php:196
-#: v2/templates/user/userlist.php:51 v2/templates/user/userseditor.php:713
-#: queryparameteroptions_qpo.php:4
+#: v2/templates/user/userlist.php:51 v2/templates/user/userseditor.php:715
+#: v2/templates/user/userseditor.php:783 queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "이름"
 
@@ -1067,8 +1064,9 @@ msgstr "이름"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
-#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
-#: v2/templates/user/usersettings.php:435
+#: v2/templates/user/userseditor.php:763 v2/templates/user/userseditor.php:831
+#: v2/templates/user/usersettings.php:382
+#: v2/templates/user/usersettings.php:431
 msgid "Yes"
 msgstr "예"
 
@@ -1084,9 +1082,10 @@ msgstr "예"
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:299
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
-#: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:690
-#: v2/templates/user/userseditor.php:759 v2/templates/user/usersettings.php:381
-#: v2/templates/user/usersettings.php:434
+#: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
+#: v2/templates/user/userseditor.php:762 v2/templates/user/userseditor.php:830
+#: v2/templates/user/usersettings.php:381
+#: v2/templates/user/usersettings.php:430
 msgid "No"
 msgstr "아니요"
 
@@ -1217,7 +1216,7 @@ msgstr "그룹 유형"
 #: v2/templates/people/personview.php:772
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
-#: v2/templates/user/userseditor.php:725
+#: v2/templates/user/userseditor.php:727 v2/templates/user/userseditor.php:795
 msgid "Role"
 msgstr "역할"
 
@@ -1708,7 +1707,7 @@ msgstr "CRM 계정이 업데이트되었습니다."
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
 #: v2/templates/plugins/plugins.php:83 v2/templates/user/userlist.php:62
-#: v2/templates/user/userseditor.php:719
+#: v2/templates/user/userseditor.php:721 v2/templates/user/userseditor.php:789
 msgid "Status"
 msgstr "상태"
 
@@ -1773,7 +1772,7 @@ msgstr "문서"
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
 #: EcclesiaCRM/dto/SystemConfig.php:303
-#: v2/templates/dashboard/maindashboard.php:97
+#: v2/templates/dashboard/maindashboard.php:93
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -1828,9 +1827,7 @@ msgstr "이벤트 유형 나열"
 msgid "Call the Register"
 msgstr "등록 센터에 전화"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:177
-#: v2/templates/dashboard/maindashboard.php:193
-#: v2/templates/people/familylist.php:46
+#: EcclesiaCRM/MenuBar/MenuBar.php:177 v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "사람"
@@ -5525,51 +5522,51 @@ msgstr "세"
 msgid "yr old"
 msgstr "yr old"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:806
 msgid "system user created"
 msgstr "시스템 사용자 생성"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:803
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:809
 msgid "system user updated"
 msgstr "시스템 사용자 업데이트"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:812
 msgid "system user deleted"
 msgstr "시스템 사용자 삭제됨"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:809
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:815
 msgid "system user password reset"
 msgstr "시스템 사용자 비밀번호 재설정"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:812
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
 msgid "system user changed password"
 msgstr "시스템 사용자 비밀번호 변경"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:815
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:821
 msgid "system user password changed by admin"
 msgstr "관리자가 시스템 사용자 비밀번호 변경"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
 msgid "system user login reset"
 msgstr "시스템 사용자 로그인 재설정"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
 msgid "Dav create file"
 msgstr "Dav 파일 생성"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
 msgid "Dav create directory"
 msgstr "Dav 디렉터리 만들기"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:842
 msgid "Dav update file"
 msgstr "Dav 업데이트 파일"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:849
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:855
 msgid "Dav move copy file"
 msgstr "Dav 이동 복사 파일"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:856
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:862
 msgid "Dav delete file"
 msgstr "Dav 파일 삭제"
 
@@ -7130,9 +7127,9 @@ msgstr "인증 데이터를 제출하는 동안 오류가 발생했습니다."
 #: v2/templates/people/reminderreport.php:42
 #: v2/templates/sundayschool/sundayschooldashboard.php:327
 #: v2/templates/sundayschool/sundayschoolreports.php:152
-#: v2/templates/user/userseditor.php:813 v2/templates/user/usersettings.php:61
+#: v2/templates/user/userseditor.php:885 v2/templates/user/usersettings.php:61
 #: v2/templates/user/usersettings.php:324
-#: v2/templates/user/usersettings.php:457
+#: v2/templates/user/usersettings.php:452
 msgid "Cancel"
 msgstr "취소"
 
@@ -7996,15 +7993,13 @@ msgstr "이미지 위치"
 #: v2/templates/people/familyCustomFieldEditor.php:508
 #: v2/templates/people/personCustomEditor.php:419
 #: v2/templates/people/personCustomEditor.php:504
-#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:390
-#: v2/templates/user/usersettings.php:443
+#: v2/templates/user/userseditor.php:838 v2/templates/user/usersettings.php:438
 msgid "Left"
 msgstr "왼쪽"
 
 #: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
 #: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
-#: v2/templates/user/usersettings.php:391
-#: v2/templates/user/usersettings.php:444
+#: v2/templates/user/userseditor.php:839 v2/templates/user/usersettings.php:439
 msgid "Center"
 msgstr "센터"
 
@@ -8014,8 +8009,7 @@ msgstr "센터"
 #: v2/templates/people/familyCustomFieldEditor.php:509
 #: v2/templates/people/personCustomEditor.php:420
 #: v2/templates/people/personCustomEditor.php:505
-#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:392
-#: v2/templates/user/usersettings.php:445
+#: v2/templates/user/userseditor.php:840 v2/templates/user/usersettings.php:440
 msgid "Right"
 msgstr "오른쪽"
 
@@ -8116,85 +8110,57 @@ msgstr "장바구니에 다음이 포함되어 있습니다."
 msgid "persons from"
 msgstr "다음에서 온 사람"
 
-#: v2/templates/dashboard/maindashboard.php:97
+#: v2/templates/dashboard/maindashboard.php:93
 msgid "message for the DPO"
 msgstr "DPO에 대한 메시지"
 
-#: v2/templates/dashboard/maindashboard.php:108
+#: v2/templates/dashboard/maindashboard.php:104
 msgid "person must be deleted from the CRM."
 msgstr "를 삭제해야 합니다."
 
-#: v2/templates/dashboard/maindashboard.php:110
+#: v2/templates/dashboard/maindashboard.php:106
 msgid "persons must be deleted from the CRM."
 msgstr "인원은 CRM에서 삭제해야 합니다."
 
-#: v2/templates/dashboard/maindashboard.php:115
-#: v2/templates/dashboard/maindashboard.php:140
+#: v2/templates/dashboard/maindashboard.php:111
+#: v2/templates/dashboard/maindashboard.php:136
 msgid "Click the"
 msgstr "를 클릭하고"
 
-#: v2/templates/dashboard/maindashboard.php:116
-#: v2/templates/dashboard/maindashboard.php:141
+#: v2/templates/dashboard/maindashboard.php:112
+#: v2/templates/dashboard/maindashboard.php:137
 msgid "link"
 msgstr "링크"
 
-#: v2/templates/dashboard/maindashboard.php:116
-#: v2/templates/dashboard/maindashboard.php:141
+#: v2/templates/dashboard/maindashboard.php:112
+#: v2/templates/dashboard/maindashboard.php:137
 #: v2/templates/map/MapUsingBing.php:49 v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "to solve the problem."
 msgstr "를 클릭해 문제를 해결하세요."
 
-#: v2/templates/dashboard/maindashboard.php:121
+#: v2/templates/dashboard/maindashboard.php:117
 msgid "No Person to remove in the CRM."
 msgstr "CRM에서 제거할 사람 없음."
 
-#: v2/templates/dashboard/maindashboard.php:133
+#: v2/templates/dashboard/maindashboard.php:129
 msgid "family must be deleted from the CRM."
 msgstr "제품군을 CRM에서 삭제해야 합니다."
 
-#: v2/templates/dashboard/maindashboard.php:135
+#: v2/templates/dashboard/maindashboard.php:131
 msgid "families must be deleted from the CRM."
 msgstr "패밀리는 CRM에서 삭제해야 합니다."
 
-#: v2/templates/dashboard/maindashboard.php:146
+#: v2/templates/dashboard/maindashboard.php:142
 msgid "No Family to remove in the CRM."
 msgstr "CRM에서 제거할 패밀리가 없습니다."
 
-#: v2/templates/dashboard/maindashboard.php:180
-#: v2/templates/people/peopledashboard.php:96
-#: v2/templates/people/peopledashboard.php:118
-msgid "View"
-msgstr "보기"
-
-#: v2/templates/dashboard/maindashboard.php:180
-#: v2/templates/people/peopledashboard.php:118
-msgid "Familles"
-msgstr "가족"
-
-#: v2/templates/dashboard/maindashboard.php:200
-#: v2/templates/people/peopledashboard.php:139
-msgid "See All People"
-msgstr "모든 사람 보기"
-
-#: v2/templates/dashboard/maindashboard.php:215
-#: v2/templates/sundayschool/sundayschooldashboard.php:197
-msgid "Sunday School Classes"
-msgstr "주일학교 수업"
-
-#: v2/templates/dashboard/maindashboard.php:222
-#: v2/templates/dashboard/maindashboard.php:244
-#: v2/templates/people/peopledashboard.php:161
-#: v2/templates/people/peopledashboard.php:183
-msgid "More info"
-msgstr "자세한 정보"
-
-#: v2/templates/dashboard/maindashboard.php:284
+#: v2/templates/dashboard/maindashboard.php:191
 #: v2/templates/plugins/plugins.php:32
 msgid "Plugins managements"
 msgstr "플러그인 관리"
 
-#: v2/templates/dashboard/maindashboard.php:291
+#: v2/templates/dashboard/maindashboard.php:198
 #: v2/templates/gdpr/dashboard.php:45
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:52
 #: v2/templates/plugins/plugins.php:102
@@ -10864,9 +10830,27 @@ msgstr "가족 지도"
 msgid "Update All Family Coordinates"
 msgstr "모든 가족 좌표 업데이트"
 
+#: v2/templates/people/peopledashboard.php:96
+#: v2/templates/people/peopledashboard.php:118
+msgid "View"
+msgstr "보기"
+
+#: v2/templates/people/peopledashboard.php:118
+msgid "Familles"
+msgstr "가족"
+
+#: v2/templates/people/peopledashboard.php:139
+msgid "See All People"
+msgstr "모든 사람 보기"
+
 #: v2/templates/people/peopledashboard.php:154
 msgid "Sunday School Kids"
 msgstr "주일학교 어린이"
+
+#: v2/templates/people/peopledashboard.php:161
+#: v2/templates/people/peopledashboard.php:183
+msgid "More info"
+msgstr "자세한 정보"
 
 #: v2/templates/people/peopledashboard.php:194
 #: v2/templates/people/peopledashboard.php:234
@@ -11618,9 +11602,9 @@ msgid "Edit JSON Settings"
 msgstr "JSON 설정 편집"
 
 #: v2/templates/sidebar/systemsettings.php:76
-#: v2/templates/user/userseditor.php:810 v2/templates/user/usersettings.php:62
+#: v2/templates/user/userseditor.php:882 v2/templates/user/usersettings.php:62
 #: v2/templates/user/usersettings.php:325
-#: v2/templates/user/usersettings.php:460
+#: v2/templates/user/usersettings.php:455
 msgid "Save Settings"
 msgstr "설정 저장"
 
@@ -11724,6 +11708,10 @@ msgstr "장바구니에서 교사 제거"
 #: v2/templates/sundayschool/sundayschoolview.php:138
 msgid "Add Teachers to Cart"
 msgstr "장바구니에 교사 추가"
+
+#: v2/templates/sundayschool/sundayschooldashboard.php:197
+msgid "Sunday School Classes"
+msgstr "주일학교 수업"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:210
 #: queryparameters_qrp.php:12
@@ -12418,17 +12406,17 @@ msgstr "사용자를 만들 사람"
 msgid "Note: Changes will not take effect until next logon."
 msgstr "참고: 변경 사항은 다음에 로그온할 때까지 적용되지 않습니다."
 
-#: v2/templates/user/userseditor.php:125 v2/templates/user/userseditor.php:691
-#: v2/templates/user/userseditor.php:774
+#: v2/templates/user/userseditor.php:125 v2/templates/user/userseditor.php:692
+#: v2/templates/user/userseditor.php:846
 msgid "User"
 msgstr "사용자"
 
-#: v2/templates/user/userseditor.php:168 v2/templates/user/userseditor.php:790
+#: v2/templates/user/userseditor.php:168 v2/templates/user/userseditor.php:862
 msgid "Global Permissions"
 msgstr "글로벌 권한"
 
-#: v2/templates/user/userseditor.php:184 v2/templates/user/userseditor.php:692
-#: v2/templates/user/userseditor.php:775
+#: v2/templates/user/userseditor.php:184 v2/templates/user/userseditor.php:693
+#: v2/templates/user/userseditor.php:847
 msgid "Admin"
 msgstr "관리자"
 
@@ -12573,7 +12561,7 @@ msgstr "GRPD 데이터 보호 책임자"
 msgid "General Data Protection Regulation in UE"
 msgstr "UE의 일반 데이터 보호 규정"
 
-#: v2/templates/user/userseditor.php:510 v2/templates/user/userseditor.php:791
+#: v2/templates/user/userseditor.php:510 v2/templates/user/userseditor.php:863
 msgid "Modifiable Permissions"
 msgstr "수정 가능한 권한"
 
@@ -12599,24 +12587,35 @@ msgstr "현재 값"
 msgid "Notes"
 msgstr "참고"
 
-#: v2/templates/user/userseditor.php:667 v2/templates/user/userseditor.php:792
+#: v2/templates/user/userseditor.php:667 v2/templates/user/userseditor.php:864
 msgid "Plugin permissions"
 msgstr "플러그인 권한"
 
-#: v2/templates/user/userseditor.php:707 v2/templates/user/usersettings.php:344
+#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
 msgstr "대시보드 플러그인의 가시성"
 
-#: v2/templates/user/userseditor.php:716
+#: v2/templates/user/userseditor.php:712 v2/templates/user/usersettings.php:348
+msgid "Widgets"
+msgstr "위젯"
+
+#: v2/templates/user/userseditor.php:718 v2/templates/user/userseditor.php:786
 msgid "Security"
 msgstr "보안"
 
-#: v2/templates/user/userseditor.php:722
+#: v2/templates/user/userseditor.php:724 v2/templates/user/userseditor.php:792
 msgid "Position"
 msgstr "위치"
 
-#: v2/templates/user/userseditor.php:766 v2/templates/user/usersettings.php:389
-#: v2/templates/user/usersettings.php:442
+#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:388
+msgid "widget"
+msgstr "위젯"
+
+#: v2/templates/user/userseditor.php:780 v2/templates/user/usersettings.php:398
+msgid "Dashboard Plugins"
+msgstr "대시보드 플러그인"
+
+#: v2/templates/user/userseditor.php:837 v2/templates/user/usersettings.php:437
 msgid "Top"
 msgstr "Top"
 
@@ -12632,24 +12631,11 @@ msgstr "피부"
 msgid "Specific settings"
 msgstr "특정 설정"
 
-#: v2/templates/user/usersettings.php:348
-msgid "Widgets"
-msgstr "위젯"
-
-#: v2/templates/user/usersettings.php:388
-#: v2/templates/user/usersettings.php:441
-msgid "widget"
-msgstr "위젯"
-
-#: v2/templates/user/usersettings.php:402
-msgid "Dashboard Plugins"
-msgstr "대시보드 플러그인"
-
-#: v2/templates/user/usersettings.php:473
+#: v2/templates/user/usersettings.php:468
 msgid "Two-factor authentication (2fa)"
 msgstr "2단계 인증(2FA)"
 
-#: v2/templates/user/usersettings.php:476
+#: v2/templates/user/usersettings.php:471
 msgid ""
 "Enrolling your CRM user account in Two Factor Authentication provides an CRM "
 "layer of defense against bad actors trying to access your account"
@@ -12657,32 +12643,32 @@ msgstr ""
 "2단계 인증에 CRM 사용자 계정을 등록하면 계정에 액세스하려는 악의적인 공격자"
 "에 대한 CRM 방어 계층이 제공됩니다."
 
-#: v2/templates/user/usersettings.php:477
+#: v2/templates/user/usersettings.php:472
 msgid "CRM Two factor supports any TOTP authenticator app"
 msgstr "CRM 투팩터는 모든 TOTP 인증 앱 지원"
 
-#: v2/templates/user/usersettings.php:482
+#: v2/templates/user/usersettings.php:477
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
 msgstr ""
 "에클레시아CRM에 로그인할 때 평소처럼 사용자 이름과 비밀번호를 입력합니다."
 
-#: v2/templates/user/usersettings.php:485
+#: v2/templates/user/usersettings.php:480
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
 msgstr ""
 "하지만 로그인을 완료하려면 인증 장치에서 일회용 코드를 제공해야 합니다."
 
-#: v2/templates/user/usersettings.php:488
+#: v2/templates/user/usersettings.php:483
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
 msgstr ""
 "자격 증명과 일회용 코드를 모두 성공적으로 입력하면 정상적으로 로그인됩니다."
 
-#: v2/templates/user/usersettings.php:491
+#: v2/templates/user/usersettings.php:486
 msgid ""
 "To prevent being locked out of your CRM account, please ensure you're ready "
 "to complete two factor enrollment before clicking begin"
@@ -12690,7 +12676,7 @@ msgstr ""
 "CRM 계정이 잠기는 것을 방지하려면 시작을 클릭하기 전에 2단계 등록을 완료할 준"
 "비가 되었는지 확인하세요."
 
-#: v2/templates/user/usersettings.php:494
+#: v2/templates/user/usersettings.php:489
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
@@ -12698,7 +12684,7 @@ msgstr ""
 "등록을 시작하면 이전에 등록한 모든 2단계 인증 장치 및 복구 코드가 무효화됩니"
 "다."
 
-#: v2/templates/user/usersettings.php:496
+#: v2/templates/user/usersettings.php:491
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
@@ -12706,29 +12692,29 @@ msgstr ""
 "다음을 클릭하면 인증 앱을 등록하기 위해 QR 코드를 스캔하라는 메시지가 표시됩"
 "니다."
 
-#: v2/templates/user/usersettings.php:498
+#: v2/templates/user/usersettings.php:493
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
 msgstr "등록을 확인하려면 인증 앱에서 생성한 코드를 입력해야 합니다."
 
-#: v2/templates/user/usersettings.php:500
+#: v2/templates/user/usersettings.php:495
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
 msgstr "앱 등록을 확인하면 일회용 복구 코드가 생성되어 표시됩니다."
 
-#: v2/templates/user/usersettings.php:502
+#: v2/templates/user/usersettings.php:497
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
 msgstr "인증 앱에서 생성된 코드 대신 복구 코드를 사용할 수 있습니다."
 
-#: v2/templates/user/usersettings.php:504
+#: v2/templates/user/usersettings.php:499
 msgid "Store these in a secure location"
 msgstr "안전한 장소에 보관하세요."
 
-#: v2/templates/user/usersettings.php:511
+#: v2/templates/user/usersettings.php:506
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "2단계 인증 등록 시작하기"
 
