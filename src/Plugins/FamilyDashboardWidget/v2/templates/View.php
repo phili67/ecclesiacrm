@@ -32,7 +32,7 @@ $dashboardCounts = $dshiS->getAllItems();
         </div>
         <div class="small-box-footer">
             <a href="<?= $sRootPath ?>/v2/people/list/family" style="color:#ffffff">
-                <?= dgettext("messages-FamilyDashboardWidget",'View') ?> <?= dgettext("messages-SingleDashboardWidget","Familles") ?> <i class="fas fa-arrow-circle-right"></i>
+                <?= dgettext("messages-FamilyDashboardWidget","View Families") ?> <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
     </div>

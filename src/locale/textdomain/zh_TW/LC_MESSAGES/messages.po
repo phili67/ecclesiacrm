@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-05 06:59+0000\n"
+"POT-Creation-Date: 2025-08-05 13:24+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1602,7 +1602,7 @@ msgid "Your CRM Account was Deleted."
 msgstr "您的 CRM 帐户已删除。"
 
 #: EcclesiaCRM/Emails/users/BaseUserEmail.php:30
-#: session/templates/session.php:234
+#: session/templates/session.php:232
 msgid "Email/Username"
 msgstr "电子邮件/用户名"
 
@@ -1705,14 +1705,14 @@ msgstr "请核实你的家庭信息"
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
 #: external/templates/password/enter-username.php:47
 #: external/templates/password/password-check-email.php:31
-#: ident/templates/verify/login-info.php:46 session/templates/session.php:266
+#: ident/templates/verify/login-info.php:46 session/templates/session.php:264
 msgid "Login"
 msgstr "登录"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:40 session/templates/session.php:247
-#: session/templates/session.php:347 v2/templates/backup/backup.php:85
+#: ident/templates/verify/login-info.php:40 session/templates/session.php:245
+#: session/templates/session.php:345 v2/templates/backup/backup.php:85
 #: v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "密码"
@@ -1757,7 +1757,7 @@ msgstr "文件"
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
 #: EcclesiaCRM/dto/SystemConfig.php:303
-#: v2/templates/dashboard/maindashboard.php:93
+#: v2/templates/dashboard/maindashboard.php:31
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -2939,7 +2939,7 @@ msgstr "购物车到徽章"
 msgid "Add Cart to Family"
 msgstr "添加购物车到家庭"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:110
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:189
 msgid "Welcome to"
 msgstr "欢迎来到"
 
@@ -3178,7 +3178,7 @@ msgstr "CSV导出"
 msgid "Debug Email Connection"
 msgstr "调试电子邮件连接"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:84
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
 msgid "System Users Listing"
 msgstr "系统用户列表"
@@ -3201,48 +3201,48 @@ msgstr "登录名已被使用，请选择其他登录名!"
 msgid "The same as before"
 msgstr "和以前一样"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:896
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:897
 msgid "User Editor"
 msgstr "用户编辑"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1033
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1034
 msgid "You must enter a password in both boxes"
 msgstr "你必须在两个框中输入密码"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1039
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1102
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1040
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1103
 msgid "You must enter the same password in both boxes"
 msgstr "你必须在两个框中输入相同的密码"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1090
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1091
 msgid "Invalid password"
 msgstr "无效密码"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1096
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1097
 msgid "You must enter your new password in both boxes"
 msgstr "你必须在两个框中输入你的新密码"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1108
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1109
 msgid "Your password choice is too obvious. Please choose something else."
 msgstr "你的密码选择太明显了。请选择其他东西。"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1115
 msgid "Your new password must be at least"
 msgstr "你的新密码必须至少是"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1115
 msgid "characters"
 msgstr "人物"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1120
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1121
 msgid "You need to actually change your password (nice try, though!)"
 msgstr "你需要真正改变你的密码（不过，很好的尝试！）。"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1123
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1124
 msgid "Your new password is too similar to your old one.  Be more creative!"
 msgstr "你的新密码与你的旧密码过于相似。  要更有创意!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1164
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1165
 msgid "User Password Change"
 msgstr "更改用户密码"
 
@@ -7012,8 +7012,8 @@ msgstr "确认新密码"
 msgid "Save"
 msgstr "拯救"
 
-#: ident/templates/verify/login-info.php:23 session/templates/session.php:213
-#: session/templates/session.php:305
+#: ident/templates/verify/login-info.php:23 session/templates/session.php:211
+#: session/templates/session.php:303
 msgid "Please Login"
 msgstr "请登录"
 
@@ -7161,27 +7161,27 @@ msgstr "该账户已被管理员停用。"
 msgid "Invalid 2FA code"
 msgstr "无效的2FA代码"
 
-#: session/templates/session.php:218 session/templates/session.php:312
+#: session/templates/session.php:216 session/templates/session.php:310
 msgid "Your previous session timed out.  Please login again."
 msgstr "您的上一次会话已超时。  请重新登录。"
 
-#: session/templates/session.php:258 session/templates/session.php:358
+#: session/templates/session.php:256 session/templates/session.php:356
 msgid "2FA : OTP key"
 msgstr "2FA : OTP密钥"
 
-#: session/templates/session.php:273
+#: session/templates/session.php:271
 msgid "I forgot my password"
 msgstr "我忘记了我的密码"
 
-#: session/templates/session.php:285
+#: session/templates/session.php:283
 msgid "Register a new Family"
 msgstr "注册一个新的家庭"
 
-#: session/templates/session.php:365
+#: session/templates/session.php:363
 msgid "Enter your password to retrieve your session"
 msgstr "输入你的密码以检索你的会话"
 
-#: session/templates/session.php:368
+#: session/templates/session.php:366
 msgid "Or sign in as a different user"
 msgstr "或以不同的用户身份登录"
 
@@ -8059,57 +8059,57 @@ msgstr "您的购物车包含"
 msgid "persons from"
 msgstr "的人来自"
 
-#: v2/templates/dashboard/maindashboard.php:93
+#: v2/templates/dashboard/maindashboard.php:31
 msgid "message for the DPO"
 msgstr "给DPO的信息"
 
-#: v2/templates/dashboard/maindashboard.php:104
+#: v2/templates/dashboard/maindashboard.php:42
 msgid "person must be deleted from the CRM."
 msgstr "必须从CRM中删除该人。"
 
-#: v2/templates/dashboard/maindashboard.php:106
+#: v2/templates/dashboard/maindashboard.php:44
 msgid "persons must be deleted from the CRM."
 msgstr "必须从CRM中删除这些人。"
 
-#: v2/templates/dashboard/maindashboard.php:111
-#: v2/templates/dashboard/maindashboard.php:136
+#: v2/templates/dashboard/maindashboard.php:49
+#: v2/templates/dashboard/maindashboard.php:74
 msgid "Click the"
 msgstr "点击"
 
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/dashboard/maindashboard.php:137
+#: v2/templates/dashboard/maindashboard.php:50
+#: v2/templates/dashboard/maindashboard.php:75
 msgid "link"
 msgstr "链接"
 
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/dashboard/maindashboard.php:137
+#: v2/templates/dashboard/maindashboard.php:50
+#: v2/templates/dashboard/maindashboard.php:75
 #: v2/templates/map/MapUsingBing.php:49 v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "to solve the problem."
 msgstr "来解决这个问题。"
 
-#: v2/templates/dashboard/maindashboard.php:117
+#: v2/templates/dashboard/maindashboard.php:55
 msgid "No Person to remove in the CRM."
 msgstr "在CRM中没有人可以删除。"
 
-#: v2/templates/dashboard/maindashboard.php:129
+#: v2/templates/dashboard/maindashboard.php:67
 msgid "family must be deleted from the CRM."
 msgstr "家庭必须从CRM中删除。"
 
-#: v2/templates/dashboard/maindashboard.php:131
+#: v2/templates/dashboard/maindashboard.php:69
 msgid "families must be deleted from the CRM."
 msgstr "家庭必须从CRM中删除。"
 
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:80
 msgid "No Family to remove in the CRM."
 msgstr "在客户关系管理中没有家庭可供删除。"
 
-#: v2/templates/dashboard/maindashboard.php:191
+#: v2/templates/dashboard/maindashboard.php:98
 #: v2/templates/plugins/plugins.php:32
 msgid "Plugins managements"
 msgstr "插件管理"
 
-#: v2/templates/dashboard/maindashboard.php:198
+#: v2/templates/dashboard/maindashboard.php:105
 #: v2/templates/gdpr/dashboard.php:45
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:52
 #: v2/templates/plugins/plugins.php:102

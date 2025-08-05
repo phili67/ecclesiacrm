@@ -1,25 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-05 14:57+0000\n"
+"Language: ar_EG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 #: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:23
 msgid "Latest Families"
-msgstr ""
+msgstr "أحدث العائلات"
 
 #: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:32
 msgid "Updated Families"
-msgstr ""
+msgstr "العائلات المحدّثة"
 
 #: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:54
 #: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:70
 msgid "Family Name"
-msgstr ""
+msgstr "اسم العائلة"
 
 #: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:55
 #: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:71
 msgid "Address"
-msgstr ""
+msgstr "العنوان"
 
 #: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:56
 msgid "Created"
-msgstr ""
+msgstr "تم إنشاؤها"
 
 #: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:72
 msgid "Updated"
-msgstr ""
+msgstr "محدثة"

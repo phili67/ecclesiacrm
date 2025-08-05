@@ -1,19 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-05 14:57+0000\n"
+"Language: ar_EG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 #: ../src/Plugins/NewsDashboard/v2/templates/View.php:49
 msgid "News"
-msgstr ""
+msgstr "الأخبار"
 
 #: ../src/Plugins/NewsDashboard/v2/templates/View.php:62
 msgid "No news at this time"
-msgstr ""
+msgstr "لا توجد أخبار في الوقت الحالي"
 
 #: ../src/Plugins/NewsDashboard/v2/templates/View.php:81
 msgid "Remove"
-msgstr ""
+msgstr "إزالة"
 
 #: ../src/Plugins/NewsDashboard/v2/templates/View.php:82
 msgid "Edit"
-msgstr ""
+msgstr "تحرير"
 
 #: ../src/Plugins/NewsDashboard/v2/templates/View.php:98
 msgid "Add News"
-msgstr ""
+msgstr "إضافة أخبار"

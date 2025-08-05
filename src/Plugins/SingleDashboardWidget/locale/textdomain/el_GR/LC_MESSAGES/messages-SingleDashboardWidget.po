@@ -1,11 +1,18 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-05 13:40+0000\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 #: ../src/Plugins/SingleDashboardWidget/v2/templates/View.php:26
 msgid "Single Persons"
-msgstr ""
+msgstr "Άτομα που είναι μόνοι τους"
 
 #: ../src/Plugins/SingleDashboardWidget/v2/templates/View.php:34
-msgid "View"
-msgstr ""
-
-#: ../src/Plugins/SingleDashboardWidget/v2/templates/View.php:34
-msgid "Singles"
-msgstr ""
+msgid "View Singles"
+msgstr "Προβολή Singles"

@@ -1,11 +1,26 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-05 13:41+0000\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 #: ../src/Plugins/FamilyDashboardWidget/v2/templates/View.php:26
 msgid "Families"
-msgstr ""
+msgstr "가족"
 
 #: ../src/Plugins/FamilyDashboardWidget/v2/templates/View.php:35
-msgid "View"
-msgstr ""
+msgid "View Families"
+msgstr "패밀리 보기"
 
-#: ../src/Plugins/FamilyDashboardWidget/v2/templates/View.php:35
-msgid "Familles"
-msgstr ""
+#~ msgid "Register your software to CRM team."
+#~ msgstr "CRM 팀에 소프트웨어를 등록하세요."
+
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr "이 정보를 확인하고 보내기 버튼을 눌러 CRM 사본을 등록하세요."

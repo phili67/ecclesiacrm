@@ -1,32 +1,43 @@
-msgid "List name"
+msgid ""
 msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-05T14:57:51.437Z\n"
+"Language: ar_EG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "List name"
+msgstr "اسم القائمة"
 
 msgid "Create a list"
-msgstr ""
+msgstr "إنشاء قائمة"
 
 msgid "Edit list"
-msgstr ""
+msgstr "تحرير القائمة"
 
 msgid "You're about to delete your list?"
-msgstr ""
+msgstr "هل أنت على وشك حذف قائمتك؟"
 
 msgid "This can't be undone."
-msgstr ""
+msgstr "لا يمكن التراجع عن ذلك."
 
 msgid "Item name"
-msgstr ""
+msgstr "اسم العنصر"
 
 msgid "Date"
-msgstr ""
+msgstr "التاريخ"
 
 msgid "Create a list item"
-msgstr ""
+msgstr "إنشاء عنصر قائمة"
 
 msgid "Edit list item"
-msgstr ""
+msgstr "تحرير عنصر القائمة"
 
 msgid "Delete item?"
-msgstr ""
+msgstr "حذف العنصر؟"
 
 msgid "You're about to delete an item."
-msgstr ""
+msgstr "أنت على وشك حذف عنصر."
