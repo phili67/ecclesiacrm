@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-04 16:12+0000\n"
+"POT-Creation-Date: 2025-08-05 06:59+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -910,7 +910,6 @@ msgstr "สุขภาพ"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:171
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:88
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:22
@@ -929,9 +928,7 @@ msgstr "ครอบครัว"
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
-#: v2/templates/calendar/calendar.php:207
-#: v2/templates/dashboard/maindashboard.php:237
-#: v2/templates/group/grouplist.php:53
+#: v2/templates/calendar/calendar.php:207 v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:143
 #: v2/templates/people/peopledashboard.php:176
 #: v2/templates/people/peoplelist.php:44 v2/templates/people/personview.php:122
@@ -1040,8 +1037,8 @@ msgstr "รวมเข้ากับกลุ่ม"
 #: v2/templates/people/personPrint.php:586
 #: v2/templates/people/personlist.php:51
 #: v2/templates/system/eventAttendance.php:196
-#: v2/templates/user/userlist.php:51 v2/templates/user/userseditor.php:713
-#: queryparameteroptions_qpo.php:4
+#: v2/templates/user/userlist.php:51 v2/templates/user/userseditor.php:715
+#: v2/templates/user/userseditor.php:783 queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "ชื่อ"
 
@@ -1054,8 +1051,9 @@ msgstr "ชื่อ"
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:409
-#: v2/templates/user/userseditor.php:760 v2/templates/user/usersettings.php:382
-#: v2/templates/user/usersettings.php:435
+#: v2/templates/user/userseditor.php:763 v2/templates/user/userseditor.php:831
+#: v2/templates/user/usersettings.php:382
+#: v2/templates/user/usersettings.php:431
 msgid "Yes"
 msgstr "ใช่"
 
@@ -1071,9 +1069,10 @@ msgstr "ใช่"
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:299
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:410
-#: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:690
-#: v2/templates/user/userseditor.php:759 v2/templates/user/usersettings.php:381
-#: v2/templates/user/usersettings.php:434
+#: v2/templates/user/userlist.php:184 v2/templates/user/userseditor.php:691
+#: v2/templates/user/userseditor.php:762 v2/templates/user/userseditor.php:830
+#: v2/templates/user/usersettings.php:381
+#: v2/templates/user/usersettings.php:430
 msgid "No"
 msgstr "ไม่"
 
@@ -1204,7 +1203,7 @@ msgstr "กลุ่มประเภท"
 #: v2/templates/people/personview.php:772
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
-#: v2/templates/user/userseditor.php:725
+#: v2/templates/user/userseditor.php:727 v2/templates/user/userseditor.php:795
 msgid "Role"
 msgstr "Role"
 
@@ -1702,7 +1701,7 @@ msgstr "Ecclesiaแอคเค้าท์คุณถูกปรับเด�
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
 #: v2/templates/plugins/plugins.php:83 v2/templates/user/userlist.php:62
-#: v2/templates/user/userseditor.php:719
+#: v2/templates/user/userseditor.php:721 v2/templates/user/userseditor.php:789
 msgid "Status"
 msgstr "สถานะ"
 
@@ -1769,7 +1768,7 @@ msgstr "เอกสารนี้"
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
 #: EcclesiaCRM/dto/SystemConfig.php:303
-#: v2/templates/dashboard/maindashboard.php:97
+#: v2/templates/dashboard/maindashboard.php:93
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -1824,9 +1823,7 @@ msgstr "พิมพ์รายชื่อ"
 msgid "Call the Register"
 msgstr "โทรหาเรจิสเตอร์"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:177
-#: v2/templates/dashboard/maindashboard.php:193
-#: v2/templates/people/familylist.php:46
+#: EcclesiaCRM/MenuBar/MenuBar.php:177 v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "ผู้คน"
@@ -5532,51 +5529,51 @@ msgstr "แก่"
 msgid "yr old"
 msgstr "แก่"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:806
 msgid "system user created"
 msgstr "ผู้ใช้ระบบสร้าง"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:803
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:809
 msgid "system user updated"
 msgstr "ผู้ใช้ระบบอัพเดทขึ้น"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:812
 msgid "system user deleted"
 msgstr "ผู้ใช้ระบบลบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:809
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:815
 msgid "system user password reset"
 msgstr "รหัสผ่านระบบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:812
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
 msgid "system user changed password"
 msgstr "ผู้ใช้ระบบเปลี่ยนรหัสผ่าน"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:815
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:821
 msgid "system user password changed by admin"
 msgstr "รหัสผ่านระบบ เปลี่ยนโดยเอพิษ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
 msgid "system user login reset"
 msgstr "ระบบรีเซ็ตผู้ใช้ระบบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
 msgid "Dav create file"
 msgstr "เดฟสร้างแฟ้มข้อมูล"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
 msgid "Dav create directory"
 msgstr "เดฟสร้างไดเรกทอรี่"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:842
 msgid "Dav update file"
 msgstr "แฟ้มข้อมูลดาว"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:849
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:855
 msgid "Dav move copy file"
 msgstr "เดฟย้ายประวัติ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:856
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:862
 msgid "Dav delete file"
 msgstr "เดฟลบไฟล์"
 
@@ -7149,9 +7146,9 @@ msgstr "เราได้พบข้อผิดพลาด ที่ส่�
 #: v2/templates/people/reminderreport.php:42
 #: v2/templates/sundayschool/sundayschooldashboard.php:327
 #: v2/templates/sundayschool/sundayschoolreports.php:152
-#: v2/templates/user/userseditor.php:813 v2/templates/user/usersettings.php:61
+#: v2/templates/user/userseditor.php:885 v2/templates/user/usersettings.php:61
 #: v2/templates/user/usersettings.php:324
-#: v2/templates/user/usersettings.php:457
+#: v2/templates/user/usersettings.php:452
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -8023,15 +8020,13 @@ msgstr "ภาพถ่าย"
 #: v2/templates/people/familyCustomFieldEditor.php:508
 #: v2/templates/people/personCustomEditor.php:419
 #: v2/templates/people/personCustomEditor.php:504
-#: v2/templates/user/userseditor.php:767 v2/templates/user/usersettings.php:390
-#: v2/templates/user/usersettings.php:443
+#: v2/templates/user/userseditor.php:838 v2/templates/user/usersettings.php:438
 msgid "Left"
 msgstr "ซ้าย"
 
 #: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
 #: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
-#: v2/templates/user/usersettings.php:391
-#: v2/templates/user/usersettings.php:444
+#: v2/templates/user/userseditor.php:839 v2/templates/user/usersettings.php:439
 msgid "Center"
 msgstr "ศูนย์"
 
@@ -8041,8 +8036,7 @@ msgstr "ศูนย์"
 #: v2/templates/people/familyCustomFieldEditor.php:509
 #: v2/templates/people/personCustomEditor.php:420
 #: v2/templates/people/personCustomEditor.php:505
-#: v2/templates/user/userseditor.php:768 v2/templates/user/usersettings.php:392
-#: v2/templates/user/usersettings.php:445
+#: v2/templates/user/userseditor.php:840 v2/templates/user/usersettings.php:440
 msgid "Right"
 msgstr "ใช่"
 
@@ -8143,86 +8137,58 @@ msgstr "รถเข็นของคุณมี"
 msgid "persons from"
 msgstr "จากบุคคล"
 
-#: v2/templates/dashboard/maindashboard.php:97
+#: v2/templates/dashboard/maindashboard.php:93
 msgid "message for the DPO"
 msgstr "ข้อความสำหรับดีพีโอ"
 
-#: v2/templates/dashboard/maindashboard.php:108
+#: v2/templates/dashboard/maindashboard.php:104
 msgid "person must be deleted from the CRM."
 msgstr "ต้องลบทิ้งจาก CRM"
 
-#: v2/templates/dashboard/maindashboard.php:110
+#: v2/templates/dashboard/maindashboard.php:106
 msgid "persons must be deleted from the CRM."
 msgstr "ต้องลบทิ้งจาก CRM"
 
-#: v2/templates/dashboard/maindashboard.php:115
-#: v2/templates/dashboard/maindashboard.php:140
+#: v2/templates/dashboard/maindashboard.php:111
+#: v2/templates/dashboard/maindashboard.php:136
 msgid "Click the"
 msgstr "คลิกที่"
 
-#: v2/templates/dashboard/maindashboard.php:116
-#: v2/templates/dashboard/maindashboard.php:141
+#: v2/templates/dashboard/maindashboard.php:112
+#: v2/templates/dashboard/maindashboard.php:137
 msgid "link"
 msgstr "เชื่อมต่อ"
 
-#: v2/templates/dashboard/maindashboard.php:116
-#: v2/templates/dashboard/maindashboard.php:141
+#: v2/templates/dashboard/maindashboard.php:112
+#: v2/templates/dashboard/maindashboard.php:137
 #: v2/templates/map/MapUsingBing.php:49 v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "to solve the problem."
 msgstr "เพื่อแก้ปัญหา"
 
-#: v2/templates/dashboard/maindashboard.php:121
+#: v2/templates/dashboard/maindashboard.php:117
 msgid "No Person to remove in the CRM."
 msgstr "ไม่มีคนใดที่จะเอา CRM ออกไปได้"
 
-#: v2/templates/dashboard/maindashboard.php:133
+#: v2/templates/dashboard/maindashboard.php:129
 msgid "family must be deleted from the CRM."
 msgstr "ครอบครัวต้องถูกลบออกจากฝ่าย CRM"
 
-#: v2/templates/dashboard/maindashboard.php:135
+#: v2/templates/dashboard/maindashboard.php:131
 msgid "families must be deleted from the CRM."
 msgstr "ครอบครัวต้องถูกลบออกจากฝ่าย CRM"
 
-#: v2/templates/dashboard/maindashboard.php:146
+#: v2/templates/dashboard/maindashboard.php:142
 msgid "No Family to remove in the CRM."
 msgstr "ไม่มีครอบครัวที่จะเอา CRM ออกไปได้"
 
-#: v2/templates/dashboard/maindashboard.php:180
-#: v2/templates/people/peopledashboard.php:96
-#: v2/templates/people/peopledashboard.php:118
-msgid "View"
-msgstr "วิว"
-
-#: v2/templates/dashboard/maindashboard.php:180
-#: v2/templates/people/peopledashboard.php:118
-msgid "Familles"
-msgstr "ครอบครัว"
-
-#: v2/templates/dashboard/maindashboard.php:200
-#: v2/templates/people/peopledashboard.php:139
-msgid "See All People"
-msgstr "เห็นทุกคนแล้ว"
-
-#: v2/templates/dashboard/maindashboard.php:215
-#: v2/templates/sundayschool/sundayschooldashboard.php:197
-msgid "Sunday School Classes"
-msgstr "โรงเรียนวันอาทิตย์"
-
-#: v2/templates/dashboard/maindashboard.php:222
-#: v2/templates/dashboard/maindashboard.php:244
-#: v2/templates/people/peopledashboard.php:161
-#: v2/templates/people/peopledashboard.php:183
-msgid "More info"
-msgstr "ข้อมูลอีก"
-
-#: v2/templates/dashboard/maindashboard.php:284
+#: v2/templates/dashboard/maindashboard.php:191
 #: v2/templates/plugins/plugins.php:32
 #, fuzzy
 msgid "Plugins managements"
 msgstr "การจัดการวงกลม"
 
-#: v2/templates/dashboard/maindashboard.php:291
+#: v2/templates/dashboard/maindashboard.php:198
 #: v2/templates/gdpr/dashboard.php:45
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:52
 #: v2/templates/plugins/plugins.php:102
@@ -10886,9 +10852,27 @@ msgstr "แผนที่ครอบครัว"
 msgid "Update All Family Coordinates"
 msgstr "อัพเดทพิกัดครอบครัวทุกคน"
 
+#: v2/templates/people/peopledashboard.php:96
+#: v2/templates/people/peopledashboard.php:118
+msgid "View"
+msgstr "วิว"
+
+#: v2/templates/people/peopledashboard.php:118
+msgid "Familles"
+msgstr "ครอบครัว"
+
+#: v2/templates/people/peopledashboard.php:139
+msgid "See All People"
+msgstr "เห็นทุกคนแล้ว"
+
 #: v2/templates/people/peopledashboard.php:154
 msgid "Sunday School Kids"
 msgstr "เด็ก ๆ วันอาทิตย์"
+
+#: v2/templates/people/peopledashboard.php:161
+#: v2/templates/people/peopledashboard.php:183
+msgid "More info"
+msgstr "ข้อมูลอีก"
 
 #: v2/templates/people/peopledashboard.php:194
 #: v2/templates/people/peopledashboard.php:234
@@ -11649,9 +11633,9 @@ msgid "Edit JSON Settings"
 msgstr "แก้ไขการตั้งค่าของเจสัน"
 
 #: v2/templates/sidebar/systemsettings.php:76
-#: v2/templates/user/userseditor.php:810 v2/templates/user/usersettings.php:62
+#: v2/templates/user/userseditor.php:882 v2/templates/user/usersettings.php:62
 #: v2/templates/user/usersettings.php:325
-#: v2/templates/user/usersettings.php:460
+#: v2/templates/user/usersettings.php:455
 msgid "Save Settings"
 msgstr "ช่วยชีวิต"
 
@@ -11754,6 +11738,10 @@ msgstr "เอาครูจากรถเข็น"
 #: v2/templates/sundayschool/sundayschoolview.php:138
 msgid "Add Teachers to Cart"
 msgstr "เพิ่มครูเข้ารหัส"
+
+#: v2/templates/sundayschool/sundayschooldashboard.php:197
+msgid "Sunday School Classes"
+msgstr "โรงเรียนวันอาทิตย์"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:210
 #: queryparameters_qrp.php:12
@@ -12451,18 +12439,18 @@ msgstr "คนทำให้ผู้ใช้ชีวิต"
 msgid "Note: Changes will not take effect until next logon."
 msgstr "คำตอบ: การเปลี่ยนแปลงจะไม่มีผลจนกว่า โลกอนต่อไป"
 
-#: v2/templates/user/userseditor.php:125 v2/templates/user/userseditor.php:691
-#: v2/templates/user/userseditor.php:774
+#: v2/templates/user/userseditor.php:125 v2/templates/user/userseditor.php:692
+#: v2/templates/user/userseditor.php:846
 msgid "User"
 msgstr "ผู้ใช้"
 
-#: v2/templates/user/userseditor.php:168 v2/templates/user/userseditor.php:790
+#: v2/templates/user/userseditor.php:168 v2/templates/user/userseditor.php:862
 #, fuzzy
 msgid "Global Permissions"
 msgstr "อนุญาติ"
 
-#: v2/templates/user/userseditor.php:184 v2/templates/user/userseditor.php:692
-#: v2/templates/user/userseditor.php:775
+#: v2/templates/user/userseditor.php:184 v2/templates/user/userseditor.php:693
+#: v2/templates/user/userseditor.php:847
 msgid "Admin"
 msgstr "แอดมิน"
 
@@ -12610,7 +12598,7 @@ msgstr "เจ้าหน้าที่คุ้มครองข้อมู
 msgid "General Data Protection Regulation in UE"
 msgstr "เขตปกครองการคุ้มครองนายพลดาต้าในยูอี"
 
-#: v2/templates/user/userseditor.php:510 v2/templates/user/userseditor.php:791
+#: v2/templates/user/userseditor.php:510 v2/templates/user/userseditor.php:863
 #, fuzzy
 msgid "Modifiable Permissions"
 msgstr "อนุญาติ"
@@ -12635,27 +12623,39 @@ msgstr "วาวินาทีปัจจุบัน"
 msgid "Notes"
 msgstr "โน้ต"
 
-#: v2/templates/user/userseditor.php:667 v2/templates/user/userseditor.php:792
+#: v2/templates/user/userseditor.php:667 v2/templates/user/userseditor.php:864
 #, fuzzy
 msgid "Plugin permissions"
 msgstr "อนุญาติ"
 
-#: v2/templates/user/userseditor.php:707 v2/templates/user/usersettings.php:344
+#: v2/templates/user/userseditor.php:708 v2/templates/user/usersettings.php:344
 msgid "Visibilities of the dashboard plugins"
 msgstr ""
 
-#: v2/templates/user/userseditor.php:716
+#: v2/templates/user/userseditor.php:712 v2/templates/user/usersettings.php:348
+msgid "Widgets"
+msgstr ""
+
+#: v2/templates/user/userseditor.php:718 v2/templates/user/userseditor.php:786
 #, fuzzy
 msgid "Security"
 msgstr "กลุ่มความปลอดภัย"
 
-#: v2/templates/user/userseditor.php:722
+#: v2/templates/user/userseditor.php:724 v2/templates/user/userseditor.php:792
 #, fuzzy
 msgid "Position"
 msgstr "แน่นอน"
 
-#: v2/templates/user/userseditor.php:766 v2/templates/user/usersettings.php:389
-#: v2/templates/user/usersettings.php:442
+#: v2/templates/user/userseditor.php:769 v2/templates/user/usersettings.php:388
+msgid "widget"
+msgstr ""
+
+#: v2/templates/user/userseditor.php:780 v2/templates/user/usersettings.php:398
+#, fuzzy
+msgid "Dashboard Plugins"
+msgstr "กระดาน"
+
+#: v2/templates/user/userseditor.php:837 v2/templates/user/usersettings.php:437
 #, fuzzy
 msgid "Top"
 msgstr "เพื่อ"
@@ -12673,25 +12673,11 @@ msgstr "ผิว"
 msgid "Specific settings"
 msgstr "ช่วยชีวิต"
 
-#: v2/templates/user/usersettings.php:348
-msgid "Widgets"
-msgstr ""
-
-#: v2/templates/user/usersettings.php:388
-#: v2/templates/user/usersettings.php:441
-msgid "widget"
-msgstr ""
-
-#: v2/templates/user/usersettings.php:402
-#, fuzzy
-msgid "Dashboard Plugins"
-msgstr "กระดาน"
-
-#: v2/templates/user/usersettings.php:473
+#: v2/templates/user/usersettings.php:468
 msgid "Two-factor authentication (2fa)"
 msgstr "สองตัวประกอบ (2ฟา)"
 
-#: v2/templates/user/usersettings.php:476
+#: v2/templates/user/usersettings.php:471
 #, fuzzy
 msgid ""
 "Enrolling your CRM user account in Two Factor Authentication provides an CRM "
@@ -12700,31 +12686,31 @@ msgstr ""
 "เข้าบัญชีผู้ใช้บริษัท Ecclesiaของคุณ ในฐานข้อมูลของผู้ตรวจสอบแฟคเตอร์ 2 ชั้น ให้กับชั้น "
 "Ecclesiaซีไอเอ็ม"
 
-#: v2/templates/user/usersettings.php:477
+#: v2/templates/user/usersettings.php:472
 #, fuzzy
 msgid "CRM Two factor supports any TOTP authenticator app"
 msgstr "Ecclesiaตัวประกอบ CRM 2 สนับสนุน แอพแอพตรวจตรวจดู"
 
-#: v2/templates/user/usersettings.php:482
+#: v2/templates/user/usersettings.php:477
 msgid ""
 "When you sign in to EcclesiaCRM, you'll still enter your username and "
 "password like normal"
 msgstr "เมื่อคุณเซ็นต์ที่ EcclesiaCRM คุณก็ยังคงเข้าสู่ผู้ใช้และพาสเวิร์ดของคุณ เหมือนคนปกติ"
 
-#: v2/templates/user/usersettings.php:485
+#: v2/templates/user/usersettings.php:480
 msgid ""
 "However, you'll also need to supply a one-time code from your authenticator "
 "device to complete your login"
 msgstr ""
 "แต่คุณต้องการส่งรหัสเพียงครั้งเดียว จากอุปกรณ์เชิงตัวแท้ของคุณ เพื่อให้สมบูรณ์ของตระกูลของคุณ"
 
-#: v2/templates/user/usersettings.php:488
+#: v2/templates/user/usersettings.php:483
 msgid ""
 "After successfully entering both your credentials, and the one-time code, "
 "you'll be logged in as normal"
 msgstr "หลังจากเข้าไปทั้งสองใบเสร็จ และรหัสครั้งเดียว คุณจะถูกล็อกไว้เหมือนคนปกติ"
 
-#: v2/templates/user/usersettings.php:491
+#: v2/templates/user/usersettings.php:486
 #, fuzzy
 msgid ""
 "To prevent being locked out of your CRM account, please ensure you're ready "
@@ -12733,41 +12719,41 @@ msgstr ""
 "เพื่อป้องกันการป้องกัน บัญชีของ CR098 ของคุณ กรุณามั่นใจว่าคุณพร้อมที่จะสมบูรณ์แบบสองปัจจัย "
 "ก่อนที่จะถึงจะเริ่มต้น"
 
-#: v2/templates/user/usersettings.php:494
+#: v2/templates/user/usersettings.php:489
 msgid ""
 "Beginning enrollment will invalidate any previously enrolled 2 factor "
 "devices and recovery codes."
 msgstr "การเริ่มต้นการลงทะเบียนที่จะบังคับให้เข้าใจก่อนหน้านี้ ทุกอย่างที่เข้าเรียนได้ก่อนหน้านี้"
 
-#: v2/templates/user/usersettings.php:496
+#: v2/templates/user/usersettings.php:491
 msgid ""
 "When you click next, you'll be prompted to scan a QR code to enroll your "
 "authenticator app."
 msgstr "เมื่อคุณคลิกต่อไป คุณจะได้รับการส่งเสริม ในการสแกนรหัสQR เพื่อเข้าสู่แอพติดตัวแท้"
 
-#: v2/templates/user/usersettings.php:498
+#: v2/templates/user/usersettings.php:493
 msgid ""
 "To confirm enrollment, you'll need to enter the code generated by your "
 "authenticator app"
 msgstr "เพื่อยืนยันการลงทะเบียน คุณต้องเข้ารหัส โดยแอพติดตัวแท้"
 
-#: v2/templates/user/usersettings.php:500
+#: v2/templates/user/usersettings.php:495
 msgid ""
 "After confirming app enrollment, single-use recovery codes will be generated "
 "and displayed."
 msgstr "หลังจากยืนยันการลงทะเบียนแอพแล้ว รหัสการฟื้นฟูขึ้นเดียว จะถูกสร้างและแสดง"
 
-#: v2/templates/user/usersettings.php:502
+#: v2/templates/user/usersettings.php:497
 msgid ""
 "Recovery codes can be used instead of a code generated from your "
 "authenticator app."
 msgstr "รหัสคืนสู่สภาพสามารถใช้ได้ แทนที่จะเป็นรหัสจากแอพตรวจ"
 
-#: v2/templates/user/usersettings.php:504
+#: v2/templates/user/usersettings.php:499
 msgid "Store these in a secure location"
 msgstr "ร้านขายพวกนี้ไว้ในที่ปลอดภัย"
 
-#: v2/templates/user/usersettings.php:511
+#: v2/templates/user/usersettings.php:506
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "เริ่มเข้ารหัสผ่านการพิสูจน์"
 
