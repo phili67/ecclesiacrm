@@ -1,76 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-05 14:00+0000\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:67
 msgid "Pastoral Care"
-msgstr ""
+msgstr "Perawatan Pastoral"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:84
 msgid "Latest"
-msgstr ""
+msgstr "Terbaru"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:84
 msgid "Individual Pastoral Care"
-msgstr ""
+msgstr "Perawatan Pastoral Individu"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:130
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:186
 msgid "None"
-msgstr ""
+msgstr "Tidak ada"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:140
 msgid "Last"
-msgstr ""
+msgstr "Terakhir"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:140
 msgid "Family Pastoral Care"
-msgstr ""
+msgstr "Perawatan Pastoral Keluarga"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:160
 msgid "Family"
-msgstr ""
+msgstr "Keluarga"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:193
 msgid "Statistics"
-msgstr ""
+msgstr "Statistik"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:194
 msgid "Period  from"
-msgstr ""
+msgstr "Periode dari"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:194
 msgid "to"
-msgstr ""
+msgstr "untuk"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:196
 msgid "Members"
-msgstr ""
+msgstr "Anggota"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:199
 msgid "Persons not reached"
-msgstr ""
+msgstr "Orang yang tidak terjangkau"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:203
 msgid "Families not reached"
-msgstr ""
+msgstr "Keluarga yang tidak terjangkau"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:207
 msgid "Single Persons not reached"
-msgstr ""
+msgstr "Orang lajang tidak terjangkau"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:211
 msgid "Retired Persons not reached"
-msgstr ""
+msgstr "Pensiunan yang tidak terjangkau"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:215
 msgid "Young People"
-msgstr ""
+msgstr "Kaum Muda"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:218
 msgid "Young People not reached"
-msgstr ""
+msgstr "Kaum Muda yang tidak terjangkau"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:224
 msgid "Visit/Call your church members"
-msgstr ""
+msgstr "Mengunjungi/Menghubungi anggota gereja Anda"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:225
 msgid "Manage Pastoral Care"
-msgstr ""
+msgstr "Mengelola Perawatan Pastoral"

@@ -1,7 +1,18 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-05 14:57+0000\n"
+"Language: ar_EG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 #: ../src/Plugins/NoteDashboard/v2/templates/View.php:39
 msgid "Note"
-msgstr ""
+msgstr "ملاحظة"
 
 #: ../src/Plugins/NoteDashboard/v2/templates/View.php:53
 msgid "Save"
-msgstr ""
+msgstr "الحفظ"

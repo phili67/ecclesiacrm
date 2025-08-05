@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-05 06:59+0000\n"
+"POT-Creation-Date: 2025-08-05 13:24+0000\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1631,7 +1631,7 @@ msgid "Your CRM Account was Deleted."
 msgstr "A CRM-fiókját törölték."
 
 #: EcclesiaCRM/Emails/users/BaseUserEmail.php:30
-#: session/templates/session.php:234
+#: session/templates/session.php:232
 msgid "Email/Username"
 msgstr "Email/felhasználónév"
 
@@ -1734,14 +1734,14 @@ msgstr "Kérjük, ellenőrizze családja adatait"
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
 #: external/templates/password/enter-username.php:47
 #: external/templates/password/password-check-email.php:31
-#: ident/templates/verify/login-info.php:46 session/templates/session.php:266
+#: ident/templates/verify/login-info.php:46 session/templates/session.php:264
 msgid "Login"
 msgstr "Bejelentkezés"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:40 session/templates/session.php:247
-#: session/templates/session.php:347 v2/templates/backup/backup.php:85
+#: ident/templates/verify/login-info.php:40 session/templates/session.php:245
+#: session/templates/session.php:345 v2/templates/backup/backup.php:85
 #: v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "Jelszó"
@@ -1786,7 +1786,7 @@ msgstr "Dokumentumok"
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
 #: EcclesiaCRM/dto/SystemConfig.php:303
-#: v2/templates/dashboard/maindashboard.php:93
+#: v2/templates/dashboard/maindashboard.php:31
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -2968,7 +2968,7 @@ msgstr "Kosár a jelvényekhez"
 msgid "Add Cart to Family"
 msgstr "Kosár hozzáadása a családhoz"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:110
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:189
 msgid "Welcome to"
 msgstr "Üdvözöljük a"
 
@@ -3209,7 +3209,7 @@ msgstr "CSV exportálás"
 msgid "Debug Email Connection"
 msgstr "Email kapcsolat hibakeresés"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:84
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
 msgid "System Users Listing"
 msgstr "Rendszerfelhasználók listája"
@@ -3234,48 +3234,48 @@ msgstr ""
 msgid "The same as before"
 msgstr "Ugyanaz, mint korábban"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:896
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:897
 msgid "User Editor"
 msgstr "Felhasználói szerkesztő"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1033
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1034
 msgid "You must enter a password in both boxes"
 msgstr "Mindkét mezőbe jelszót kell megadnia"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1039
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1102
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1040
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1103
 msgid "You must enter the same password in both boxes"
 msgstr "Mindkét mezőbe ugyanazt a jelszót kell beírnia"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1090
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1091
 msgid "Invalid password"
 msgstr "Érvénytelen jelszó"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1096
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1097
 msgid "You must enter your new password in both boxes"
 msgstr "Az új jelszót mindkét mezőbe be kell írnia"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1108
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1109
 msgid "Your password choice is too obvious. Please choose something else."
 msgstr "A jelszóválasztásod túl nyilvánvaló. Kérjük, válasszon valami mást."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1115
 msgid "Your new password must be at least"
 msgstr "Az új jelszónak legalább a következőnek kell lennie"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1115
 msgid "characters"
 msgstr "karakterek"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1120
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1121
 msgid "You need to actually change your password (nice try, though!)"
 msgstr "Tényleg meg kell változtatnia a jelszavát (szép próbálkozás volt!)"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1123
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1124
 msgid "Your new password is too similar to your old one.  Be more creative!"
 msgstr "Az új jelszava túlságosan hasonlít a régihez.  Legyen kreatívabb!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1164
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1165
 msgid "User Password Change"
 msgstr "Felhasználói jelszó módosítása"
 
@@ -7148,8 +7148,8 @@ msgstr "Új jelszó megerősítése"
 msgid "Save"
 msgstr "Mentés"
 
-#: ident/templates/verify/login-info.php:23 session/templates/session.php:213
-#: session/templates/session.php:305
+#: ident/templates/verify/login-info.php:23 session/templates/session.php:211
+#: session/templates/session.php:303
 msgid "Please Login"
 msgstr "Kérjük, jelentkezzen be"
 
@@ -7301,27 +7301,27 @@ msgstr "Ezt a fiókot a rendszergazda deaktiválta."
 msgid "Invalid 2FA code"
 msgstr "Érvénytelen 2FA kód"
 
-#: session/templates/session.php:218 session/templates/session.php:312
+#: session/templates/session.php:216 session/templates/session.php:310
 msgid "Your previous session timed out.  Please login again."
 msgstr "Az előző munkamenet lejárt.  Kérjük, jelentkezzen be újra."
 
-#: session/templates/session.php:258 session/templates/session.php:358
+#: session/templates/session.php:256 session/templates/session.php:356
 msgid "2FA : OTP key"
 msgstr "2FA : OTP kulcs"
 
-#: session/templates/session.php:273
+#: session/templates/session.php:271
 msgid "I forgot my password"
 msgstr "Elfelejtettem a jelszavam"
 
-#: session/templates/session.php:285
+#: session/templates/session.php:283
 msgid "Register a new Family"
 msgstr "Új család regisztrálása"
 
-#: session/templates/session.php:365
+#: session/templates/session.php:363
 msgid "Enter your password to retrieve your session"
 msgstr "Adja meg jelszavát a munkamenet lekérdezéséhez"
 
-#: session/templates/session.php:368
+#: session/templates/session.php:366
 msgid "Or sign in as a different user"
 msgstr "Vagy jelentkezzen be más felhasználóként"
 
@@ -8216,57 +8216,57 @@ msgstr "Az Ön kosara a következőket tartalmazza"
 msgid "persons from"
 msgstr "személyek a"
 
-#: v2/templates/dashboard/maindashboard.php:93
+#: v2/templates/dashboard/maindashboard.php:31
 msgid "message for the DPO"
 msgstr "üzenet az adatvédelmi tisztviselőnek"
 
-#: v2/templates/dashboard/maindashboard.php:104
+#: v2/templates/dashboard/maindashboard.php:42
 msgid "person must be deleted from the CRM."
 msgstr "személyt törölni kell a CRM-ből."
 
-#: v2/templates/dashboard/maindashboard.php:106
+#: v2/templates/dashboard/maindashboard.php:44
 msgid "persons must be deleted from the CRM."
 msgstr "a személyeket törölni kell a CRM-ből."
 
-#: v2/templates/dashboard/maindashboard.php:111
-#: v2/templates/dashboard/maindashboard.php:136
+#: v2/templates/dashboard/maindashboard.php:49
+#: v2/templates/dashboard/maindashboard.php:74
 msgid "Click the"
 msgstr "Kattintson a"
 
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/dashboard/maindashboard.php:137
+#: v2/templates/dashboard/maindashboard.php:50
+#: v2/templates/dashboard/maindashboard.php:75
 msgid "link"
 msgstr "link"
 
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/dashboard/maindashboard.php:137
+#: v2/templates/dashboard/maindashboard.php:50
+#: v2/templates/dashboard/maindashboard.php:75
 #: v2/templates/map/MapUsingBing.php:49 v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "to solve the problem."
 msgstr "a probléma megoldására."
 
-#: v2/templates/dashboard/maindashboard.php:117
+#: v2/templates/dashboard/maindashboard.php:55
 msgid "No Person to remove in the CRM."
 msgstr "Nincs eltávolítandó személy a CRM-ben."
 
-#: v2/templates/dashboard/maindashboard.php:129
+#: v2/templates/dashboard/maindashboard.php:67
 msgid "family must be deleted from the CRM."
 msgstr "családot törölni kell a CRM-ből."
 
-#: v2/templates/dashboard/maindashboard.php:131
+#: v2/templates/dashboard/maindashboard.php:69
 msgid "families must be deleted from the CRM."
 msgstr "a családokat törölni kell a CRM-ből."
 
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:80
 msgid "No Family to remove in the CRM."
 msgstr "Nem kell eltávolítani a családot a CRM-ben."
 
-#: v2/templates/dashboard/maindashboard.php:191
+#: v2/templates/dashboard/maindashboard.php:98
 #: v2/templates/plugins/plugins.php:32
 msgid "Plugins managements"
 msgstr "Pluginok kezelése"
 
-#: v2/templates/dashboard/maindashboard.php:198
+#: v2/templates/dashboard/maindashboard.php:105
 #: v2/templates/gdpr/dashboard.php:45
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:52
 #: v2/templates/plugins/plugins.php:102

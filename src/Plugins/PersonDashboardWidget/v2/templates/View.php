@@ -23,14 +23,14 @@ $dashboardCounts = $dshiS->getAllItems();
                 <?= $dashboardCounts['personCount'] ?>
             </h3>
             <p>
-                <?= dgettext("messages-PersonInfosDashboard",'People') ?>
+                <?= dgettext("messages-PersonDashboardWidget",'People') ?>
             </p>
         </div>
         <div class="icon">
             <i class="fas fa-user"></i>
         </div>
         <a href="<?= $sRootPath ?>/v2/people/list/person" class="small-box-footer">
-            <?= dgettext("messages-PersonInfosDashboard",'See All People') ?> <i class="fas fa-arrow-circle-right"></i>
+            <?= dgettext("messages-PersonDashboardWidget",'See All People') ?> <i class="fas fa-arrow-circle-right"></i>
         </a>
     </div>
 </div>

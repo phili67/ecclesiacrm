@@ -3,9 +3,5 @@ msgid "Families"
 msgstr ""
 
 #: ../src/Plugins/FamilyDashboardWidget/v2/templates/View.php:35
-msgid "View"
-msgstr ""
-
-#: ../src/Plugins/FamilyDashboardWidget/v2/templates/View.php:35
-msgid "Familles"
+msgid "View Families"
 msgstr ""

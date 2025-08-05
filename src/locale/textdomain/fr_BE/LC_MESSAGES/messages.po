@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-05 06:59+0000\n"
+"POT-Creation-Date: 2025-08-05 13:24+0000\n"
 "Language: fr_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1636,7 +1636,7 @@ msgid "Your CRM Account was Deleted."
 msgstr "Votre compte CRM a été supprimé."
 
 #: EcclesiaCRM/Emails/users/BaseUserEmail.php:30
-#: session/templates/session.php:234
+#: session/templates/session.php:232
 msgid "Email/Username"
 msgstr "Email/Identifiant"
 
@@ -1740,14 +1740,14 @@ msgstr "Veuillez vérifier vos informations familiales"
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
 #: external/templates/password/enter-username.php:47
 #: external/templates/password/password-check-email.php:31
-#: ident/templates/verify/login-info.php:46 session/templates/session.php:266
+#: ident/templates/verify/login-info.php:46 session/templates/session.php:264
 msgid "Login"
 msgstr "Connexion"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:40 session/templates/session.php:247
-#: session/templates/session.php:347 v2/templates/backup/backup.php:85
+#: ident/templates/verify/login-info.php:40 session/templates/session.php:245
+#: session/templates/session.php:345 v2/templates/backup/backup.php:85
 #: v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "Mot de Passe"
@@ -1792,7 +1792,7 @@ msgstr "Documents"
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
 #: EcclesiaCRM/dto/SystemConfig.php:303
-#: v2/templates/dashboard/maindashboard.php:93
+#: v2/templates/dashboard/maindashboard.php:31
 msgid "GDPR"
 msgstr "RGPD"
 
@@ -2976,7 +2976,7 @@ msgstr "Panier en Badges"
 msgid "Add Cart to Family"
 msgstr "Ajouter le panier à la famille"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:110
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:189
 msgid "Welcome to"
 msgstr "Bienvenue dans"
 
@@ -3217,7 +3217,7 @@ msgstr "Exporter au format CSV"
 msgid "Debug Email Connection"
 msgstr "Déboguer La connexion Email"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:84
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
 msgid "System Users Listing"
 msgstr "Listing Utilisateurs Système"
@@ -3240,50 +3240,50 @@ msgstr "Le login est déjà utilisé, veuillez en choisir un autre !"
 msgid "The same as before"
 msgstr "Le même que précédemment"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:896
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:897
 msgid "User Editor"
 msgstr "Gestionnaire d'utilisateur"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1033
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1034
 msgid "You must enter a password in both boxes"
 msgstr "Vous devez entrer un mot de passe dans les deux champs"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1039
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1102
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1040
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1103
 msgid "You must enter the same password in both boxes"
 msgstr "Vous devez entrer le même mot de passe dans des les deux champs"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1090
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1091
 msgid "Invalid password"
 msgstr "Mot de passe invalide"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1096
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1097
 msgid "You must enter your new password in both boxes"
 msgstr "Vous devez entrer votre nouveau mot de passe dans les deux champs"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1108
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1109
 msgid "Your password choice is too obvious. Please choose something else."
 msgstr "Votre mot de passe est trop évident.  Veuillez en choisir un autre."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1115
 msgid "Your new password must be at least"
 msgstr "Votre nouveau mot de passe doit au moins avoir"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1115
 msgid "characters"
 msgstr "caractères"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1120
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1121
 msgid "You need to actually change your password (nice try, though!)"
 msgstr ""
 "Vous devez réellement changer votre mot de passe (bien tenté quand même!)"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1123
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1124
 msgid "Your new password is too similar to your old one.  Be more creative!"
 msgstr ""
 "Votre nouveau mot de passe est trop similaire à l'ancien. Soyez plus créatif!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1164
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1165
 msgid "User Password Change"
 msgstr "Changement du Mot de Passe Utilisateur"
 
@@ -7163,8 +7163,8 @@ msgstr "Confirmer le Nouveau Mot de Passe"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: ident/templates/verify/login-info.php:23 session/templates/session.php:213
-#: session/templates/session.php:305
+#: ident/templates/verify/login-info.php:23 session/templates/session.php:211
+#: session/templates/session.php:303
 msgid "Please Login"
 msgstr "Veuillez vous identifier"
 
@@ -7314,27 +7314,27 @@ msgstr "Ce compte a été désactivé par un administrateur."
 msgid "Invalid 2FA code"
 msgstr "Code 2FA invalide"
 
-#: session/templates/session.php:218 session/templates/session.php:312
+#: session/templates/session.php:216 session/templates/session.php:310
 msgid "Your previous session timed out.  Please login again."
 msgstr "Votre session a expiré. Veuillez vous reconnecter."
 
-#: session/templates/session.php:258 session/templates/session.php:358
+#: session/templates/session.php:256 session/templates/session.php:356
 msgid "2FA : OTP key"
 msgstr "2FA : Clé OTP"
 
-#: session/templates/session.php:273
+#: session/templates/session.php:271
 msgid "I forgot my password"
 msgstr "Mot de passe oublié"
 
-#: session/templates/session.php:285
+#: session/templates/session.php:283
 msgid "Register a new Family"
 msgstr "Inscrire une nouvelle famille"
 
-#: session/templates/session.php:365
+#: session/templates/session.php:363
 msgid "Enter your password to retrieve your session"
 msgstr "Saisir votre mot de passe pour revenir à votre session"
 
-#: session/templates/session.php:368
+#: session/templates/session.php:366
 msgid "Or sign in as a different user"
 msgstr "Ou choisir un autre utilisateur afin de vous connecter"
 
@@ -8232,57 +8232,57 @@ msgstr "Votre panier contient"
 msgid "persons from"
 msgstr "personnes de"
 
-#: v2/templates/dashboard/maindashboard.php:93
+#: v2/templates/dashboard/maindashboard.php:31
 msgid "message for the DPO"
 msgstr "message pour le DPO"
 
-#: v2/templates/dashboard/maindashboard.php:104
+#: v2/templates/dashboard/maindashboard.php:42
 msgid "person must be deleted from the CRM."
 msgstr "personne doit être supprimée du CRM."
 
-#: v2/templates/dashboard/maindashboard.php:106
+#: v2/templates/dashboard/maindashboard.php:44
 msgid "persons must be deleted from the CRM."
 msgstr "personnes doivent être supprimées du CRM."
 
-#: v2/templates/dashboard/maindashboard.php:111
-#: v2/templates/dashboard/maindashboard.php:136
+#: v2/templates/dashboard/maindashboard.php:49
+#: v2/templates/dashboard/maindashboard.php:74
 msgid "Click the"
 msgstr "Cliquer sur le"
 
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/dashboard/maindashboard.php:137
+#: v2/templates/dashboard/maindashboard.php:50
+#: v2/templates/dashboard/maindashboard.php:75
 msgid "link"
 msgstr "lien"
 
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/dashboard/maindashboard.php:137
+#: v2/templates/dashboard/maindashboard.php:50
+#: v2/templates/dashboard/maindashboard.php:75
 #: v2/templates/map/MapUsingBing.php:49 v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "to solve the problem."
 msgstr "pour résoudre le problème."
 
-#: v2/templates/dashboard/maindashboard.php:117
+#: v2/templates/dashboard/maindashboard.php:55
 msgid "No Person to remove in the CRM."
 msgstr "Aucune personne ne doit être supprimée du CRM."
 
-#: v2/templates/dashboard/maindashboard.php:129
+#: v2/templates/dashboard/maindashboard.php:67
 msgid "family must be deleted from the CRM."
 msgstr "famille doit être supprimée du CRM."
 
-#: v2/templates/dashboard/maindashboard.php:131
+#: v2/templates/dashboard/maindashboard.php:69
 msgid "families must be deleted from the CRM."
 msgstr "familles doivent être supprimées du CRM"
 
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:80
 msgid "No Family to remove in the CRM."
 msgstr "Aucune famille ne doit être supprimée du CRM."
 
-#: v2/templates/dashboard/maindashboard.php:191
+#: v2/templates/dashboard/maindashboard.php:98
 #: v2/templates/plugins/plugins.php:32
 msgid "Plugins managements"
 msgstr "Gestion des plugins"
 
-#: v2/templates/dashboard/maindashboard.php:198
+#: v2/templates/dashboard/maindashboard.php:105
 #: v2/templates/gdpr/dashboard.php:45
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:52
 #: v2/templates/plugins/plugins.php:102

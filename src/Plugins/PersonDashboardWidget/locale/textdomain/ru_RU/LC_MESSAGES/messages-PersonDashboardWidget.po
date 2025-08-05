@@ -1,7 +1,18 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-05 13:41+0000\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 #: ../src/Plugins/PersonDashboardWidget/v2/templates/View.php:26
 msgid "People"
-msgstr ""
+msgstr "Люди"
 
 #: ../src/Plugins/PersonDashboardWidget/v2/templates/View.php:33
 msgid "See All People"
-msgstr ""
+msgstr "Смотреть всех людей"

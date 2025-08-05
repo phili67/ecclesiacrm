@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-05 06:59+0000\n"
+"POT-Creation-Date: 2025-08-05 13:24+0000\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1641,7 +1641,7 @@ msgid "Your CRM Account was Deleted."
 msgstr "Akun CRM Anda Telah Dihapus."
 
 #: EcclesiaCRM/Emails/users/BaseUserEmail.php:30
-#: session/templates/session.php:234
+#: session/templates/session.php:232
 msgid "Email/Username"
 msgstr "E-mail/nama pengguna"
 
@@ -1745,14 +1745,14 @@ msgstr "Tolong pastikan informasi keluargamu"
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
 #: external/templates/password/enter-username.php:47
 #: external/templates/password/password-check-email.php:31
-#: ident/templates/verify/login-info.php:46 session/templates/session.php:266
+#: ident/templates/verify/login-info.php:46 session/templates/session.php:264
 msgid "Login"
 msgstr "Login"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:40 session/templates/session.php:247
-#: session/templates/session.php:347 v2/templates/backup/backup.php:85
+#: ident/templates/verify/login-info.php:40 session/templates/session.php:245
+#: session/templates/session.php:345 v2/templates/backup/backup.php:85
 #: v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "Kata sandi"
@@ -1798,7 +1798,7 @@ msgstr "Dokumen"
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
 #: EcclesiaCRM/dto/SystemConfig.php:303
-#: v2/templates/dashboard/maindashboard.php:93
+#: v2/templates/dashboard/maindashboard.php:31
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -2981,7 +2981,7 @@ msgstr "Kartu ke Badges"
 msgid "Add Cart to Family"
 msgstr "Tambahkan Cart ke Keluarga"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:110
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:189
 msgid "Welcome to"
 msgstr "Selamat datang"
 
@@ -3223,7 +3223,7 @@ msgstr "CSV Export"
 msgid "Debug Email Connection"
 msgstr "Koneksi Email Debug"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:85
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:84
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
 msgid "System Users Listing"
 msgstr "Sistem Pengguna Listing"
@@ -3246,48 +3246,48 @@ msgstr "Login sudah di gunakan, silahkan pilih login yang berbeda!"
 msgid "The same as before"
 msgstr "Sama seperti sebelumnya"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:896
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:897
 msgid "User Editor"
 msgstr "Pengguna Editor"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1033
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1034
 msgid "You must enter a password in both boxes"
 msgstr "Kau harus masukkan password di kedua kotak"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1039
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1102
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1040
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1103
 msgid "You must enter the same password in both boxes"
 msgstr "Kau harus masukkan password yang sama di kedua kotak"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1090
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1091
 msgid "Invalid password"
 msgstr "Password yang tidak valid"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1096
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1097
 msgid "You must enter your new password in both boxes"
 msgstr "Kau harus masukkan password barumu dalam kedua kotak"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1108
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1109
 msgid "Your password choice is too obvious. Please choose something else."
 msgstr "Pilihan sandimu terlalu jelas. Silakan pilih yang lain."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1115
 msgid "Your new password must be at least"
 msgstr "Password barumu setidaknya harus"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1114
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1115
 msgid "characters"
 msgstr "Karakter"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1120
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1121
 msgid "You need to actually change your password (nice try, though!)"
 msgstr "Kau harus mengubah kata sandimu (usaha yang bagus, meskipun!)"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1123
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1124
 msgid "Your new password is too similar to your old one.  Be more creative!"
 msgstr "Password barumu terlalu mirip dengan yang lama. Jadilah lebih kreatif!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1164
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1165
 msgid "User Password Change"
 msgstr "Perubahan kata sandi pecundang"
 
@@ -7137,8 +7137,8 @@ msgstr "Konfirmasi kata sandi baru"
 msgid "Save"
 msgstr "Selamatkan"
 
-#: ident/templates/verify/login-info.php:23 session/templates/session.php:213
-#: session/templates/session.php:305
+#: ident/templates/verify/login-info.php:23 session/templates/session.php:211
+#: session/templates/session.php:303
 msgid "Please Login"
 msgstr "Tolong Login"
 
@@ -7288,27 +7288,27 @@ msgstr "Rekening ini telah dinonaktifkan oleh seorang administrator."
 msgid "Invalid 2FA code"
 msgstr "Kode 2FA tidak valid"
 
-#: session/templates/session.php:218 session/templates/session.php:312
+#: session/templates/session.php:216 session/templates/session.php:310
 msgid "Your previous session timed out.  Please login again."
 msgstr "Sesi sebelumnya sudah selesai. Silakan masuk lagi."
 
-#: session/templates/session.php:258 session/templates/session.php:358
+#: session/templates/session.php:256 session/templates/session.php:356
 msgid "2FA : OTP key"
 msgstr "2FA: kunci OTP"
 
-#: session/templates/session.php:273
+#: session/templates/session.php:271
 msgid "I forgot my password"
 msgstr "Aku lupa passwordku"
 
-#: session/templates/session.php:285
+#: session/templates/session.php:283
 msgid "Register a new Family"
 msgstr "Daftarkan keluarga baru"
 
-#: session/templates/session.php:365
+#: session/templates/session.php:363
 msgid "Enter your password to retrieve your session"
 msgstr "Masukkan passwordmu untuk mengambil sesi mu"
 
-#: session/templates/session.php:368
+#: session/templates/session.php:366
 msgid "Or sign in as a different user"
 msgstr "Atau menandatangani sebagai pengguna yang berbeda"
 
@@ -8199,58 +8199,58 @@ msgstr "Keretamu berisi"
 msgid "persons from"
 msgstr "orang dari"
 
-#: v2/templates/dashboard/maindashboard.php:93
+#: v2/templates/dashboard/maindashboard.php:31
 msgid "message for the DPO"
 msgstr "pesan untuk DPO"
 
-#: v2/templates/dashboard/maindashboard.php:104
+#: v2/templates/dashboard/maindashboard.php:42
 msgid "person must be deleted from the CRM."
 msgstr "orang harus dihapus dari CRM."
 
-#: v2/templates/dashboard/maindashboard.php:106
+#: v2/templates/dashboard/maindashboard.php:44
 msgid "persons must be deleted from the CRM."
 msgstr "orang harus dihapus dari CRM."
 
-#: v2/templates/dashboard/maindashboard.php:111
-#: v2/templates/dashboard/maindashboard.php:136
+#: v2/templates/dashboard/maindashboard.php:49
+#: v2/templates/dashboard/maindashboard.php:74
 msgid "Click the"
 msgstr "Klik"
 
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/dashboard/maindashboard.php:137
+#: v2/templates/dashboard/maindashboard.php:50
+#: v2/templates/dashboard/maindashboard.php:75
 msgid "link"
 msgstr "Link"
 
-#: v2/templates/dashboard/maindashboard.php:112
-#: v2/templates/dashboard/maindashboard.php:137
+#: v2/templates/dashboard/maindashboard.php:50
+#: v2/templates/dashboard/maindashboard.php:75
 #: v2/templates/map/MapUsingBing.php:49 v2/templates/map/MapUsingGoogle.php:52
 #: v2/templates/map/MapUsingLeaflet.php:43
 msgid "to solve the problem."
 msgstr "untuk memecahkan masalah."
 
-#: v2/templates/dashboard/maindashboard.php:117
+#: v2/templates/dashboard/maindashboard.php:55
 msgid "No Person to remove in the CRM."
 msgstr "Tidak ada orang yang bisa dihapus di CRM."
 
-#: v2/templates/dashboard/maindashboard.php:129
+#: v2/templates/dashboard/maindashboard.php:67
 msgid "family must be deleted from the CRM."
 msgstr "keluarga harus dihapus dari CRM."
 
-#: v2/templates/dashboard/maindashboard.php:131
+#: v2/templates/dashboard/maindashboard.php:69
 msgid "families must be deleted from the CRM."
 msgstr "keluarga harus dihapus dari CRM."
 
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:80
 msgid "No Family to remove in the CRM."
 msgstr "Tidak ada keluarga yang bisa dihapus di CRM."
 
-#: v2/templates/dashboard/maindashboard.php:191
+#: v2/templates/dashboard/maindashboard.php:98
 #: v2/templates/plugins/plugins.php:32
 #, fuzzy
 msgid "Plugins managements"
 msgstr "Manajemen Role"
 
-#: v2/templates/dashboard/maindashboard.php:198
+#: v2/templates/dashboard/maindashboard.php:105
 #: v2/templates/gdpr/dashboard.php:45
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:52
 #: v2/templates/plugins/plugins.php:102
