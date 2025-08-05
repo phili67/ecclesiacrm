@@ -581,7 +581,7 @@ class MenuBar extends Menu
     private function createMenuBar()
     {
 
-        $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "menu", true);
+        $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/dashboard", true);
         $menuItem->addLink("v2/dashboard");
 
         $this->addMenu($menuItem);
