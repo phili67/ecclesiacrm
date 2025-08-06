@@ -360,9 +360,10 @@ require_once $sRootDocument . '/Include/Header.php';
                         ->filterByUserId($iPersonID)
                         ->findOneByPluginId($plugin->getId());
 
-                    $securities = $plugin->getSecurities();
+                    $security = $plugin->getSecurities();
 
-                    if (($securities & $allRights) == 0) continue;
+                    if (!(SessionUser::getUser() != null and SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
+                        continue;
 
                     $visible = 0;
                     $place = $plugin->getDashboardDefaultOrientation();
@@ -409,9 +410,10 @@ require_once $sRootDocument . '/Include/Header.php';
                         ->filterByUserId($iPersonID)
                         ->findOneByPluginId($plugin->getId());
 
-                    $securities = $plugin->getSecurities();
+                    $security = $plugin->getSecurities();
 
-                    if (($securities & $allRights) == 0) continue;
+                    if (!(SessionUser::getUser() != null and SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
+                        continue;
 
                     $visible = 0;
                     $place = $plugin->getDashboardDefaultOrientation();

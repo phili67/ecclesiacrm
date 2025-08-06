@@ -1311,7 +1311,7 @@ class User extends BaseUser
         if ($this->isShowMenuQueryEnabled()) { // bit 18
             $bits |= SecurityOptions::bShowMenuQuery;
         }
-        if ($this->isShowMenuQueryEnabled()) { // bit 19
+        if ($this->isShowSundaySchool()) { // bit 19
             $bits |= SecurityOptions::bSundaySchool;
         }
 
