@@ -19,35 +19,35 @@ document.addEventListener('DOMContentLoaded', function () {
             actualizeButton: {
                 text: i18next.t('Actualize'),
                 click: function() {
-                    window.CRM.calendar.refetchEvents();
+                    window.CRM.calendarEvents.reload();
                 }
             },
             todayButton: {
                 text: i18next.t('Today'),
                 click: function() {
                     window.CRM.calendar.changeView('today');
-                    window.CRM.calendar.refetchEvents();
+                    window.CRM.calendarEvents.reload();
                 }
             },
             listButton: {
                 text: i18next.t('List'),
                 click: function() {
                     window.CRM.calendar.changeView('list');
-                    window.CRM.calendar.refetchEvents();
+                    window.CRM.calendarEvents.reload();
                 }
             },
             listWeekButton: {
                 text: i18next.t('List Week'),
                 click: function() {
                     window.CRM.calendar.changeView('listWeek');
-                    window.CRM.calendar.refetchEvents();
+                    window.CRM.calendarEvents.reload();
                 }
             },
             listMonthButton: {
                 text: i18next.t('List Month'),
                 click: function() {
                     window.CRM.calendar.changeView('listMonth');
-                    window.CRM.calendar.refetchEvents();
+                    window.CRM.calendarEvents.reload();
                 }
             },
 
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                     if (data.status == "failed") {
                                                         window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                                     }
-                                                    window.CRM.calendar.refetchEvents();
+                                                    window.CRM.calendarEvents.reload();
                                                     window.CRM.calendar.unselect();
                                                 });
                                             }
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                             if (data.status == "failed") {
                                                                 window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                                             }
-                                                            window.CRM.calendar.refetchEvents();
+                                                            window.CRM.calendarEvents.reload();
                                                             window.CRM.calendar.unselect();
                                                         });
                                                     }
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                                 "eventID": event.extendedProps.eventID
                                                             })
                                                         },function (data) {
-                                                            window.CRM.calendar.refetchEvents();
+                                                            window.CRM.calendarEvents.reload();
                                                             window.CRM.calendar.unselect();
                                                         });
                                                     }
@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (event.extendedProps.writeable == false || event.extendedProps.realType == 'birthday' || event.extendedProps.realType == 'anniversary') {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
-                window.CRM.calendar.refetchEvents();
+                window.CRM.calendarEvents.reload();
                 return;
             }
 
@@ -444,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                 }
                                 // now we can refresh the calendar
-                                window.CRM.calendar.refetchEvents();
+                                window.CRM.calendarEvents.reload();
                                 window.CRM.calendar.unselect();
                             });
                         } else {
@@ -478,7 +478,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                     }
                                     // now we can refresh the calendar
-                                    window.CRM.calendar.refetchEvents();
+                                    window.CRM.calendarEvents.reload();
                                     window.CRM.calendar.unselect();
                                 });
                             }
@@ -496,7 +496,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                     }
                                     // now we can refresh the calendar
-                                    window.CRM.calendar.refetchEvents();
+                                    window.CRM.calendarEvents.reload();
                                     window.CRM.calendar.unselect();
                                 });
                             }
@@ -553,7 +553,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 if (data.status == "failed") {
                                     window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                 }
-                                window.CRM.calendar.refetchEvents();
+                                window.CRM.calendarEvents.reload();
                                 window.CRM.calendar.unselect();
                             });
                         } else {
@@ -601,7 +601,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         }
 
                                         // now we can refresh the calendar
-                                        window.CRM.calendar.refetchEvents();
+                                        window.CRM.calendarEvents.reload();
                                         window.CRM.calendar.unselect();
                                     });
                                 }
@@ -628,7 +628,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         }
 
                                         // now we can refresh the calendar
-                                        window.CRM.calendar.refetchEvents();
+                                        window.CRM.calendarEvents.reload();
                                         window.CRM.calendar.unselect();
                                     });
                                 }
@@ -667,7 +667,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     }
 
                                     // now we can refresh the calendar
-                                    window.CRM.calendar.refetchEvents();
+                                    window.CRM.calendarEvents.reload();
                                     window.CRM.calendar.unselect();
                                 });
                             } else {

@@ -7,7 +7,7 @@
 //
 
 var maxHeight = 230;
-$(window).resize(function () {
+$(window).on('resize', function () {
     //(document.body.clientHeight); n'a pas l'air top
     var hscreen = $(window).height(),
         height = hscreen > maxHeight ? maxHeight : hscreen;
@@ -25,7 +25,7 @@ $('body').on('click', '.check-calendar', function () {
         data: JSON.stringify({"calIDs": calIDs, "isChecked": isChecked})
     }, function (data) {
         // we reload all the events
-        window.CRM.calendar.refetchEvents();
+        window.CRM.calendarEvents.reload();
     });
 });
 
@@ -1127,7 +1127,7 @@ window.CRM.ElementListener('#check-uncheck-personal-calendar', 'click', function
             data: JSON.stringify({"allCalIDs": allCalendars, "isChecked": !isChecked})
         }, function (data) {
             // we reload all the events
-            window.CRM.calendar.refetchEvents();
+            window.CRM.calendarEvents.reload();
         });
 
         var globalCheckbox = document.getElementById("check-uncheck-personal-calendar");
@@ -1164,7 +1164,7 @@ window.CRM.ElementListener('#check-uncheck-all-group-calendar', 'click', functio
             data: JSON.stringify({"allCalIDs": allCalendars, "isChecked": !isChecked})
         }, function (data) {
             // we reload all the events
-            window.CRM.calendar.refetchEvents();
+            window.CRM.calendarEvents.reload();
         });
 
         var globalCheckbox = document.getElementById("check-uncheck-all-group-calendar");
@@ -1201,7 +1201,7 @@ window.CRM.ElementListener('#check-uncheck-all-reservation-calendar', 'click', f
             data: JSON.stringify({"allCalIDs": allCalendars, "isChecked": !isChecked})
         }, function (data) {
             // we reload all the events
-            window.CRM.calendar.refetchEvents();
+            window.CRM.calendarEvents.reload();
         });
 
         var globalCheckbox = document.getElementById("check-uncheck-all-reservation-calendar");
@@ -1238,7 +1238,7 @@ window.CRM.ElementListener('#check-uncheck-all-shared-calendar', 'click', functi
             data: JSON.stringify({"allCalIDs": allCalendars, "isChecked": !isChecked})
         }, function (data) {
             // we reload all the events
-            window.CRM.calendar.refetchEvents();
+            window.CRM.calendarEvents.reload();
         });
 
         var globalCheckbox = document.getElementById("check-uncheck-all-shared-calendar");

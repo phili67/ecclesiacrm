@@ -54,7 +54,7 @@ $("#isBirthdateActive").on('change', function () {
     } else {
         birthday = false;
     }
-    window.CRM.calendar.refetchEvents();
+    window.CRM.calendarEvents.reload();
 
     localStorage.setItem("birthday", _val);
 });
@@ -67,7 +67,7 @@ $("#isAnniversaryActive").on('change', function () {
         anniversary = false;
     }
 
-    window.CRM.calendar.refetchEvents();
+    window.CRM.calendarEvents.reload();
 
     localStorage.setItem("anniversary", _val);
 });
@@ -98,7 +98,7 @@ $("#EventCalendarFilter").on('change', function () {
     var e = document.getElementById("EventCalendarFilter");
     window.calendarFilterID = e.options[e.selectedIndex].value;
 
-    window.CRM.calendar.refetchEvents();
+    window.CRM.calendarEvents.reload();
 
     if (window.calendarFilterID == 0)
         $("#ATTENDENCES").parents("tr").hide();
@@ -111,7 +111,7 @@ $("#EventTypeFilter").on('change', function () {
     var e = document.getElementById("EventTypeFilter");
     window.CRM.EventTypeFilterID = e.options[e.selectedIndex].value;
 
-    window.CRM.calendar.refetchEvents();
+    window.CRM.calendarEvents.reload();
 
     localStorage.setItem("EventTypeFilterID", window.calendarFilterID);
 });
@@ -928,7 +928,7 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                                 window.location.href = window.CRM.root + '/v2/calendar/events/checkin';
                             } else if (page.includes("/v2/calendar")) {
                                 // we reload all the events
-                                window.CRM.calendar.refetchEvents();
+                                window.CRM.calendarEvents.reload();
                             } else {
                                 window.location.href = window.CRM.root + '/' + page;
                             }

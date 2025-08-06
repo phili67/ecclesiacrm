@@ -198,6 +198,17 @@ try {
 }
 }
 
+window.CRM.calendarEvents = {
+  'reload' : (callback) => {
+    window.CRM.calendar.refetchEvents();
+    window.CRM.synchronize.refresh();
+
+    if (callback) {
+      callback();
+    }
+  }
+}
+
 window.CRM.cart={
 'empty' : function (callback)
 {
@@ -1396,306 +1407,303 @@ renderers: {
         }
     },
   FamilyCount: function (data) {
-      var dashBoardFamReal = document.getElementById('realFamilyCNT');
-      var dashBoardSingleP = document.getElementById('singleCNT');
+      let dashBoardFamReal = document.getElementById('realFamilyCNT');
+      let dashBoardSingleP = document.getElementById('singleCNT');
 
-      if (dashBoardFamReal != undefined || dashBoardSingleP != undefined) { // we have to test if we are on the dashboard or not
-          dashBoardFamReal.innerText = data.familyCount[1];
-          dashBoardSingleP.innerText = data.familyCount[2];
+      if (dashBoardFamReal !== null) dashBoardFamReal.innerText = data.familyCount[1];
+      if (dashBoardSingleP !== null) dashBoardSingleP.innerText = data.familyCount[2];
 
-          var latestFamiliesTable = document.getElementById('latestFamiliesDashboardItem');
-          if (latestFamiliesTable != undefined) {
-              latestFamiliesTable = $('#latestFamiliesDashboardItem').DataTable({
-                  retrieve: true,
-                  responsive: true,
-                  paging: false,
-                  ordering: false,
-                  searching: false,
-                  scrollX: false,
-                  info: false,
-                  'columns': [
-                      {
-                          data: 'Name',
-                          render: function (data, type, row, meta) {
-                            return row.img + ' <a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';                                    
-                          }
-                      },
-                      {
-                          data: 'Address1',
-                          render: function (data, type, row, meta) {
-                              return data.replace(/\\(.)/mg, "$1");// we strip the slashes
-                          }
-                      },
-                      {
-                          data: 'DateEntered',
-                          render: function (data, type, row, meta) {
-                              if (window.CRM.timeEnglish == true) {
-                                  return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
-                              } else {
-                                  return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
-                              }
+      let latestFamiliesTable = document.getElementById('latestFamiliesDashboardItem');
+      if (latestFamiliesTable != null) {
+          latestFamiliesTable = $('#latestFamiliesDashboardItem').DataTable({
+              retrieve: true,
+              responsive: true,
+              paging: false,
+              ordering: false,
+              searching: false,
+              scrollX: false,
+              info: false,
+              'columns': [
+                  {
+                      data: 'Name',
+                      render: function (data, type, row, meta) {
+                        return row.img + ' <a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';                                    
+                      }
+                  },
+                  {
+                      data: 'Address1',
+                      render: function (data, type, row, meta) {
+                          return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                      }
+                  },
+                  {
+                      data: 'DateEntered',
+                      render: function (data, type, row, meta) {
+                          if (window.CRM.timeEnglish == true) {
+                              return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
+                          } else {
+                              return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
                           }
                       }
-                  ]
-              });
-              latestFamiliesTable.clear();
-              latestFamiliesTable.rows.add(data.LatestFamilies);
-              latestFamiliesTable.draw(true);
-          }
+                  }
+              ]
+          });
+          latestFamiliesTable.clear();
+          latestFamiliesTable.rows.add(data.LatestFamilies);
+          latestFamiliesTable.draw(true);
+      }
 
-          var updatedFamiliesTable = document.getElementById('updatedFamiliesDashboardItem');
-          if (updatedFamiliesTable != undefined) {
-              updatedFamiliesTable = $('#updatedFamiliesDashboardItem').DataTable({
-                  retrieve: true,
-                  responsive: true,
-                  paging: false,
-                  ordering: false,
-                  searching: false,
-                  scrollX: false,
-                  info: false,
-                  'columns': [
-                      {
-                          data: 'Name',
-                          render: function (data, type, row, meta) {
-                              return row.img + ' <a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';                                    
-                          }
-                      },
-                      {
-                          data: 'Address1',
-                          render: function (data, type, row, meta) {
-                              return data.replace(/\\(.)/mg, "$1");// we strip the slashes
-                          }
-                      },
-                      {
-                          data: 'DateLastEdited',
-                          render: function (data, type, row, meta) {
-                              if (window.CRM.timeEnglish == true) {
-                                  return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
-                              } else {
-                                  return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
-                              }
+      let updatedFamiliesTable = document.getElementById('updatedFamiliesDashboardItem');
+      if (updatedFamiliesTable != null) {
+          updatedFamiliesTable = $('#updatedFamiliesDashboardItem').DataTable({
+              retrieve: true,
+              responsive: true,
+              paging: false,
+              ordering: false,
+              searching: false,
+              scrollX: false,
+              info: false,
+              'columns': [
+                  {
+                      data: 'Name',
+                      render: function (data, type, row, meta) {
+                          return row.img + ' <a href=' + window.CRM.root + '/v2/people/family/view/' + row.Id + '>' + data + '</a>';                                    
+                      }
+                  },
+                  {
+                      data: 'Address1',
+                      render: function (data, type, row, meta) {
+                          return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                      }
+                  },
+                  {
+                      data: 'DateLastEdited',
+                      render: function (data, type, row, meta) {
+                          if (window.CRM.timeEnglish == true) {
+                              return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
+                          } else {
+                              return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
                           }
                       }
-                  ]
-              });
-              updatedFamiliesTable.clear();
-              updatedFamiliesTable.rows.add(data.UpdatedFamilies);
-              updatedFamiliesTable.draw(true);
-          }
-    }
+                  }
+              ]
+          });
+          updatedFamiliesTable.clear();
+          updatedFamiliesTable.rows.add(data.UpdatedFamilies);
+          updatedFamiliesTable.draw(true);
+      }
+    
   },
   PersonCount: function (data) {
-    var dashBoardPeopleStats = document.getElementById('peopleStatsDashboard');
-    if (dashBoardPeopleStats != undefined) {
-        dashBoardPeopleStats.innerText = data.personCount;
+    let dashBoardPeopleStats = document.getElementById('peopleStatsDashboard');
+    if (dashBoardPeopleStats != undefined) dashBoardPeopleStats.innerText = data.personCount;
 
-        var latestPersonsTable = document.getElementById('latestPersonsDashboardItem');
-        if (latestPersonsTable != undefined) {
-            latestPersonsTable = $('#latestPersonsDashboardItem').DataTable({
-                retrieve: true,
-                responsive: true,
-                paging: false,
-                ordering: false,
-                searching: false,
-                scrollX: false,
-                info: false,
-                'columns': [
-                    {
-                        data: 'LastName',
-                        render: function (data, type, row, meta) {                                  
-                              return row.img + ' <a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+    let latestPersonsTable = document.getElementById('latestPersonsDashboardItem');
+    if (latestPersonsTable != undefined) {
+        latestPersonsTable = $('#latestPersonsDashboardItem').DataTable({
+            retrieve: true,
+            responsive: true,
+            paging: false,
+            ordering: false,
+            searching: false,
+            scrollX: false,
+            info: false,
+            'columns': [
+                {
+                    data: 'LastName',
+                    render: function (data, type, row, meta) {                                  
+                          return row.img + ' <a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                    }
+                },
+                {
+                    data: 'Address1',
+                    render: function (data, type, row, meta) {
+                        if (data === null) {
+                            return '';
                         }
-                    },
-                    {
-                        data: 'Address1',
-                        render: function (data, type, row, meta) {
-                            if (data === null) {
-                                return '';
-                            }
-                            return data.replace(/\\(.)/mg, "$1");// we strip the slashes
-                        }
-                    },
-                    {
-                        data: 'DateEntered',
-                        render: function (data, type, row, meta) {
-                            if (window.CRM.timeEnglish == true) {
-                                return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
-                            } else {
-                                return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
-                            }
+                        return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                    }
+                },
+                {
+                    data: 'DateEntered',
+                    render: function (data, type, row, meta) {
+                        if (window.CRM.timeEnglish == true) {
+                            return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
+                        } else {
+                            return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
                         }
                     }
-                ]
-            });
-            latestPersonsTable.clear();
-            latestPersonsTable.rows.add(data.LatestPersons);
-            latestPersonsTable.draw(true);
-        }
-
-        var updatedPersonsTable = document.getElementById('updatedPersonsDashboardItem');
-        if (updatedPersonsTable != undefined) {
-            updatedPersonsTable = $('#updatedPersonsDashboardItem').DataTable({
-                retrieve: true,
-                responsive: true,
-                paging: false,
-                ordering: false,
-                searching: false,
-                scrollX: false,
-                info: false,
-                'columns': [
-                    {
-                        data: 'LastName',
-                        render: function (data, type, row, meta) {
-                            return row.img + ' <a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
-                        }
-                    },
-                    {
-                        data: 'Address1',
-                        render: function (data, type, row, meta) {
-                            if (data === null) {
-                                return '';
-                            }
-                            return data.replace(/\\(.)/mg, "$1");// we strip the slashes
-                        }
-                    },
-                    {
-                        data: 'DateLastEdited',
-                        render: function (data, type, row, meta) {
-                            if (data === null) {
-                                data = row.DateEntered;
-                            }
-                            if (window.CRM.timeEnglish == true) {
-                                return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
-                            } else {
-                                return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
-                            }
-                        }
-                    }
-                ]
-            });
-            updatedPersonsTable.clear();
-            updatedPersonsTable.rows.add(data.UpdatedPerson);
-            updatedPersonsTable.draw(true);
-        }
+                }
+            ]
+        });
+        latestPersonsTable.clear();
+        latestPersonsTable.rows.add(data.LatestPersons);
+        latestPersonsTable.draw(true);
     }
+
+    let updatedPersonsTable = document.getElementById('updatedPersonsDashboardItem');
+    if (updatedPersonsTable != undefined) {
+        updatedPersonsTable = $('#updatedPersonsDashboardItem').DataTable({
+            retrieve: true,
+            responsive: true,
+            paging: false,
+            ordering: false,
+            searching: false,
+            scrollX: false,
+            info: false,
+            'columns': [
+                {
+                    data: 'LastName',
+                    render: function (data, type, row, meta) {
+                        return row.img + ' <a href=' + window.CRM.root + '/v2/people/person/view/' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                    }
+                },
+                {
+                    data: 'Address1',
+                    render: function (data, type, row, meta) {
+                        if (data === null) {
+                            return '';
+                        }
+                        return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                    }
+                },
+                {
+                    data: 'DateLastEdited',
+                    render: function (data, type, row, meta) {
+                        if (data === null) {
+                            data = row.DateEntered;
+                        }
+                        if (window.CRM.timeEnglish == true) {
+                            return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
+                        } else {
+                            return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
+                        }
+                    }
+                }
+            ]
+        });
+        updatedPersonsTable.clear();
+        updatedPersonsTable.rows.add(data.UpdatedPerson);
+        updatedPersonsTable.draw(true);
+    }    
   },
   CalendarDisplay: function (data) {
-        var calendarView = document.getElementById('calendar');
+    let calendarView = document.getElementById('calendar');
 
-        if (calendarView && window.CRM.calendar != null) {
-            if (window.CRM.calendarSignature != data) {
-                window.CRM.calendarSignature = data;
-                window.CRM.addAllCalendars();
-            }
-
-            window.CRM.calendar.refetchEvents()
+    if (calendarView && window.CRM.calendar != null) {
+        if (window.CRM.calendarSignature != data) {
+            window.CRM.calendarSignature = data;
+            window.CRM.addAllCalendars();
         }
+
+        window.CRM.calendar.refetchEvents();
+    }
   },
   EDriveDisplay: function(data) {
-      var edriveView = document.getElementById('edrive-table');
+    let edriveView = document.getElementById('edrive-table');
 
-      if (edriveView) {
-          window.CRM.reloadEDriveTable();
-      }
+    if (edriveView) {
+        window.CRM.reloadEDriveTable();
+    }
   },
   GroupsDisplay: function (data) {
-    var dashBoardStatsSundaySchool = document.getElementById('groupStatsSundaySchool');
+    let dashBoardStatsSundaySchool = document.getElementById('groupStatsSundaySchool');
     if (dashBoardStatsSundaySchool) {// We have to check if we are on the dashboard menu
       dashBoardStatsSundaySchool.innerText = data.sundaySchoolClasses;
     }
 
-    var dashBoardStatsSundaySchoolKids = document.getElementById('groupStatsSundaySchoolKids');
+    let dashBoardStatsSundaySchoolKids = document.getElementById('groupStatsSundaySchoolKids');
     if (dashBoardStatsSundaySchoolKids) {// We have to check if we are on the dashboard menu
         dashBoardStatsSundaySchoolKids.innerText = data.sundaySchoolkids;
     }
 
-    var dashBoardGroupsCountDashboard = document.getElementById('groupsCountDashboard');
+    let dashBoardGroupsCountDashboard = document.getElementById('groupsCountDashboard');
 
     if (dashBoardGroupsCountDashboard) {// We have to check if we are on the dashboard menu
       dashBoardGroupsCountDashboard.innerText = data.groups;
     }
   },
   SundaySchoolDisplay  :function(data) {
-      var sundaySchoolClassesDasBoard = document.getElementById('sundaySchoolClassesDasBoard');
+    let sundaySchoolClassesDasBoard = document.getElementById('sundaySchoolClassesDasBoard');
 
-      if (sundaySchoolClassesDasBoard) {
-          sundaySchoolClassesDasBoard.innerText = data.sundaySchoolClasses;
-      }
+    if (sundaySchoolClassesDasBoard) {
+        sundaySchoolClassesDasBoard.innerText = data.sundaySchoolClasses;
+    }
 
-      var sundaySchoolTeachersCNTDasBoard = document.getElementById('sundaySchoolTeachersCNTDasBoard');
+    let sundaySchoolTeachersCNTDasBoard = document.getElementById('sundaySchoolTeachersCNTDasBoard');
 
-      if (sundaySchoolTeachersCNTDasBoard) {
-          sundaySchoolTeachersCNTDasBoard.innerText = data.teachersCNT;
-      }
+    if (sundaySchoolTeachersCNTDasBoard) {
+        sundaySchoolTeachersCNTDasBoard.innerText = data.teachersCNT;
+    }
 
-      var sundaySchoolKidsCNTDasBoard = document.getElementById('sundaySchoolKidsCNTDasBoard');
+    let sundaySchoolKidsCNTDasBoard = document.getElementById('sundaySchoolKidsCNTDasBoard');
 
-      if (sundaySchoolKidsCNTDasBoard) {
-          sundaySchoolKidsCNTDasBoard.innerText = data.kidsCNT;
-      }
+    if (sundaySchoolKidsCNTDasBoard) {
+        sundaySchoolKidsCNTDasBoard.innerText = data.kidsCNT;
+    }
 
-      var sundaySchoolFamiliesCNTDasBoard = document.getElementById('sundaySchoolFamiliesCNTDasBoard');
+    let sundaySchoolFamiliesCNTDasBoard = document.getElementById('sundaySchoolFamiliesCNTDasBoard');
 
-      if (sundaySchoolFamiliesCNTDasBoard) {
-          sundaySchoolFamiliesCNTDasBoard.innerText = data.SundaySchoolFamiliesCNT;
-      }
+    if (sundaySchoolFamiliesCNTDasBoard) {
+        sundaySchoolFamiliesCNTDasBoard.innerText = data.SundaySchoolFamiliesCNT;
+    }
 
-      var sundaySchoolMaleKidsCNTDasBoard = document.getElementById('sundaySchoolMaleKidsCNTDasBoard');
+    let sundaySchoolMaleKidsCNTDasBoard = document.getElementById('sundaySchoolMaleKidsCNTDasBoard');
 
-      if (sundaySchoolMaleKidsCNTDasBoard) {
-          sundaySchoolMaleKidsCNTDasBoard.innerText = data.maleKidsCNT;
-      }
+    if (sundaySchoolMaleKidsCNTDasBoard) {
+        sundaySchoolMaleKidsCNTDasBoard.innerText = data.maleKidsCNT;
+    }
 
-      var sundaySchoolFemaleKidsCNTDasBoard = document.getElementById('sundaySchoolFemaleKidsCNTDasBoard');
+    let sundaySchoolFemaleKidsCNTDasBoard = document.getElementById('sundaySchoolFemaleKidsCNTDasBoard');
 
-      if (sundaySchoolFemaleKidsCNTDasBoard) {
-          sundaySchoolFemaleKidsCNTDasBoard.innerText = data.femaleKidsCNT;
-      }
+    if (sundaySchoolFemaleKidsCNTDasBoard) {
+        sundaySchoolFemaleKidsCNTDasBoard.innerText = data.femaleKidsCNT;
+    }
 
-      var sundaySchoolEmailLinkDasBoard = document.getElementById('sEmailLink');
+    let sundaySchoolEmailLinkDasBoard = document.getElementById('sEmailLink');
 
-      if (sundaySchoolEmailLinkDasBoard) {
-          $('#sEmailLink').attr('href', 'mailto:' + data.emailLink);
-      }
+    if (sundaySchoolEmailLinkDasBoard) {
+        $('#sEmailLink').attr('href', 'mailto:' + data.emailLink);
+    }
 
-      var sundaySchoolEmailLinkBCCDasBoard = document.getElementById('sEmailLinkBCC');
+    let sundaySchoolEmailLinkBCCDasBoard = document.getElementById('sEmailLinkBCC');
 
-      if (sundaySchoolEmailLinkBCCDasBoard) {
-          $('#sEmailLinkBCC').attr('href', 'mailto:?bcc=' + data.emailLink);
-      }
+    if (sundaySchoolEmailLinkBCCDasBoard) {
+        $('#sEmailLinkBCC').attr('href', 'mailto:?bcc=' + data.emailLink);
+    }
 
-      var sundaySchoolDropDownMailDasBoard = document.getElementById('dropDownMail');
+    let sundaySchoolDropDownMailDasBoard = document.getElementById('dropDownMail');
 
-      if (sundaySchoolDropDownMailDasBoard) {
-          $('#dropDownMail').html(data.dropDown.allNormal);
-      }
+    if (sundaySchoolDropDownMailDasBoard) {
+        $('#dropDownMail').html(data.dropDown.allNormal);
+    }
 
-      var sundaySchoolDropDownBCCMailDasBoard = document.getElementById('dropDownMailBCC');
+    let sundaySchoolDropDownBCCMailDasBoard = document.getElementById('dropDownMailBCC');
 
-      if (sundaySchoolDropDownBCCMailDasBoard) {
-          $('#dropDownMailBCC').html(data.dropDown.allNormalBCC);
-      }
+    if (sundaySchoolDropDownBCCMailDasBoard) {
+        $('#dropDownMailBCC').html(data.dropDown.allNormalBCC);
+    }
   },
   MailchimpDisplay:function (data) {
-      if (data.isActive) {
-          var len = data.MailChimpLists.length;
+    if (data.isActive) {
+        var len = data.MailChimpLists.length;
 
-          // now we empty the menubar lists
-          $(".lists_class_menu").removeClass("hidden");
-          var real_listMenu = $(".lists_class_menu").find (".nav-treeview");
+        // now we empty the menubar lists
+        $(".lists_class_menu").removeClass("hidden");
+        var real_listMenu = $(".lists_class_menu").find (".nav-treeview");
 
-          real_listMenu.html("");
-          var listItems = "";
+        real_listMenu.html("");
+        var listItems = "";
 
-          for (i = 0; i < len; i++) {
-              var list = data.MailChimpLists[i];
+        for (i = 0; i < len; i++) {
+            var list = data.MailChimpLists[i];
 
-              listItems +=  '<li class="nav-item listName' + list.id + '"><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" class="nav-link "> <i class="far fa-circle"></i> <p>'+ list.name + '</p></a>'
-                  + '</li>';
-          }
+            listItems +=  '<li class="nav-item listName' + list.id + '"><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" class="nav-link "> <i class="far fa-circle"></i> <p>'+ list.name + '</p></a>'
+                + '</li>';
+        }
 
-          real_listMenu.html(listItems);
-      }
+        real_listMenu.html(listItems);
+    }
   },
   EventAttendeesDisplay: function (data) {
       if (window.CRM.attendeesPresences == false) {
