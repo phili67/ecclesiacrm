@@ -35,7 +35,7 @@ abstract class SecurityOptions
     const bPastoralCare = 2; // bit 1
     const bMailChimp = 4; // bit 2
     const bGdrpDpo = 8; // bit 3
-    const bMainDashboard = 16; // bit 4
+    const bMainDashboard = 16; // bit 4 is now deprecated
     const bSeePrivacyData = 32; // bit 5
     const bAddRecords = 64; // bit 6
     const bEditRecords = 128; // bit 7
@@ -664,7 +664,7 @@ class User extends BaseUser
         return ($this->isAdmin() || $this->isGdrpDpo()) and SystemConfig::getBooleanValue('bGDPR');
     }
 
-    public function isMainDashboardEnabled()
+    public function isMainDashboardEnabled() // is now deprecated
     {
         return $this->isAdmin() || $this->isMainDashboard();
     }
@@ -1093,7 +1093,7 @@ class User extends BaseUser
         $_SESSION['bPastoralCare'] = $this->isPastoralCareEnabled();        //ok
         $_SESSION['bMailChimp'] = $this->isMailChimpEnabled();              //ok
         $_SESSION['bGdrpDpo'] = $this->isGdrpDpoEnabled();                  //ok
-        $_SESSION['bMainDashboard'] = $this->isMainDashboardEnabled();      //ok
+        $_SESSION['bMainDashboard'] = $this->isMainDashboardEnabled();      //ok is now deprecated
         $_SESSION['bSeePrivacyData'] = $this->isSeePrivacyDataEnabled();    //ok
         $_SESSION['bAddRecords'] = $this->isAddRecordsEnabled();            //ok
         $_SESSION['bEditRecords'] = $this->isEditRecordsEnabled();          //ok
@@ -1266,7 +1266,7 @@ class User extends BaseUser
         if ($this->isGdrpDpoEnabled()) { // bit 3
             $bits |= SecurityOptions::bGdrpDpo;
         }
-        if ($this->isMainDashboardEnabled()) { // bit 4
+        if ($this->isMainDashboardEnabled()) { // bit 4 is now deprecated
             $bits |= SecurityOptions::bMainDashboard;
         }
         if ($this->isSeePrivacyDataEnabled()) { // bit 5
@@ -1335,7 +1335,7 @@ class User extends BaseUser
                 case 8: // bit 3
                     return $this->isGdrpDpoEnabled();
                 case 16: // bit 4
-                    return $this->isMainDashboardEnabled();
+                    return $this->isMainDashboardEnabled(); // is now deprecated
                 case 32: // bit 5
                     return $this->isSeePrivacyData();
                 case 64: // bit 6
