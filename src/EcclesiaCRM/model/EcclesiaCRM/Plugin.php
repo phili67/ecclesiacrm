@@ -32,7 +32,7 @@ class Plugin extends BasePlugin
         if ( $this->getSecurities() & SecurityOptions::bGdrpDpo ) {
             $res .= " bGdrpDpo";
         }
-        if ( $this->getSecurities() & SecurityOptions::bMainDashboard ) {
+        if ( $this->getSecurities() & SecurityOptions::bMainDashboard ) { // is now deprecated
             $res .= " bMainDashboard";
         }
         if ( $this->getSecurities() & SecurityOptions::bSeePrivacyData ) {
