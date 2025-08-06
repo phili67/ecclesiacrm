@@ -27,6 +27,6 @@ class EDrivePageItem implements DashboardItemInterface {
     }
 
     public static function shouldInclude($PageName) {
-        return $PageName=="/v2/people/person/view/".SessionUser::getUser()->getPersonId() or $PageName == "/browser/browse.php?type=privateDocuments"; // this ID would be found on all pages.
+        return $PageName=="/v2/edrive/dashboard" or $PageName == "/browser/browse.php?type=privateDocuments"; // this ID would be found on all pages.
     }
 }

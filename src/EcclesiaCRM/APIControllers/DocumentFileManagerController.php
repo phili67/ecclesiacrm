@@ -332,7 +332,12 @@ class DocumentFileManagerController
 
                     $_SESSION['user'] = $user;
 
-                    return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($user->getCurrentpath()), "numberOfFiles" => $this->numberOfFiles($params->personID)]);
+                    return $response->withJson([
+                        'success' => true, 
+                        "currentPath" => MiscUtils::pathToPathWithIcons($user->getCurrentpath()), 
+                        "realCurrentPath" => $user->getCurrentpath(),
+                        "numberOfFiles" => $this->numberOfFiles($params->personID)
+                    ]);
                 }
             }
         }
@@ -376,7 +381,13 @@ class DocumentFileManagerController
 
                     $_SESSION['user'] = $user;
 
-                    return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($currentPath), "isHomeFolder" => ($currentPath == "/") ? true : false, "numberOfFiles" => $this->numberOfFiles($params->personID)]);
+                    return $response->withJson([
+                        'success' => true, 
+                        "currentPath" => MiscUtils::pathToPathWithIcons($currentPath), 
+                        "realCurrentPath" => $currentPath, 
+                        "isHomeFolder" => ($currentPath == "/") ? true : false, 
+                        "numberOfFiles" => $this->numberOfFiles($params->personID)
+                    ]);
                 }
             }
         }

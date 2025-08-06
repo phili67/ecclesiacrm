@@ -142,13 +142,13 @@ $(function () {
             if ($.inArray(data.DT_RowId, selected) !== -1) {
                 $(row).addClass('selected');
             }
-        },
+        }/*,
         "initComplete": function (settings, json) {
             installDragAndDrop();
             if (window.CRM.currentpath !== "/") {
                 $(".flex-wrap").addClass('shift-flex-wrapper-right');
             }
-        }
+        }*/
     };
 
 
@@ -651,6 +651,7 @@ $(function () {
                     $(".folder-back-drop").show();
                     $(".flex-wrap").addClass('shift-flex-wrapper-right');
                     $("#currentPath").html(data.currentPath);
+                    window.CRM.currentpath = data.realCurrentPath;
                     selected.length = 0;// no more selected files
                 });
             }
@@ -687,8 +688,10 @@ $(function () {
             path: 'filemanager/folderBack',
             data: JSON.stringify({"personID": personID})
         },function (data) {
-            if (data && data.success) {
+            if (data && data.success) {                
                 window.CRM.reloadEDriveTable(function () {
+                    window.CRM.currentpath = data.realCurrentPath;
+
                     if (data.isHomeFolder) {
                         $(".flex-wrap").removeClass('shift-flex-wrapper-right');
                         $(".folder-back-drop").hide();
@@ -1145,6 +1148,9 @@ $(function () {
 
     $('#edrive-table').on('draw.dt', function () {
         installDragAndDrop();
+        if (window.CRM.currentpath !== "/") {
+            $(".flex-wrap").addClass('shift-flex-wrapper-right');
+        }
     });
 
     uploadEvent();
