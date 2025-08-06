@@ -265,7 +265,7 @@ require $sRootDocument . '/Include/Header.php';
                                                     <h3 class="card-title"><?= _("User Account Permissions") ?></h3>
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="row">
+                                                    <div class="d-none">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('Main Dashboard') ?>:<br/>
                                                             <span
