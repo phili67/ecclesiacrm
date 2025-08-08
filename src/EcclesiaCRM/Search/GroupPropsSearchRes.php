@@ -27,6 +27,11 @@ class GroupPropsSearchRes extends BaseSearchRes
         parent::__construct($global, 'Groups Properties');
     }
 
+    public function allowed (): bool
+    {
+        return SessionUser::getUser()->isManageGroupsEnabled();
+    }
+
     public function buildSearch(string $qry)
     {
         if (SystemConfig::getBooleanValue("bSearchIncludeGroups")) {

@@ -25,6 +25,11 @@ class PersonCustomSearchRes extends BaseSearchRes
         parent::__construct($global, "Person Custom Field");
     }
 
+    public function allowed (): bool
+    {
+        return SessionUser::getUser()->isSeePrivacyDataEnabled();
+    }
+
     public function buildSearch(string $qry)
     {
         if (SystemConfig::getBooleanValue("bSearchIncludePersons")) {

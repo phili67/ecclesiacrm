@@ -24,6 +24,11 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
         parent::__construct($global,"Individual Pastoral Cares");
     }
 
+    public function allowed (): bool
+    {
+        return SessionUser::getUser()->isPastoralCareEnabled();
+    }
+
     public function buildSearch(string $qry)
     {
         if (SessionUser::getUser()->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {

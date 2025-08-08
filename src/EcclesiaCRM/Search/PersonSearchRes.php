@@ -43,6 +43,11 @@ class PersonSearchRes extends BaseSearchRes
         parent::__construct($global, "Persons");
     }
 
+    public function allowed (): bool
+    {
+        return true;
+    }
+
     public function buildSearch(string $qry)
     {
         //Person Search
@@ -52,7 +57,7 @@ class PersonSearchRes extends BaseSearchRes
                 $people = PersonQuery::create();
                 $people->setDistinct(PersonTableMap::COL_PER_ID);
 
-
+                $isSeePrivacyDataEnabled = SessionUser::getUser()->isSeePrivacyDataEnabled();
 
                 $iTenThousand = 10000;
 
@@ -101,20 +106,25 @@ class PersonSearchRes extends BaseSearchRes
                             $people->_or();
                         }*/
 
-                        $people->_or()->filterByFirstName($searchLikeString, $criteria)
-                            ->_or()->filterByLastName($searchLikeString, $criteria)
-                            ->_or()->filterByEmail($searchLikeString, $criteria)
-                            ->_or()->filterByWorkEmail($searchLikeString, $criteria)
-                            ->_or()->filterByHomePhone($searchLikeString, $criteria)
-                            ->_or()->filterByCellPhone($searchLikeString, $criteria)
-                            ->_or()->filterByWorkPhone($searchLikeString, $criteria);
+                        if ($isSeePrivacyDataEnabled) {
+                            $people->_or()->filterByFirstName($searchLikeString, $criteria)
+                                ->_or()->filterByLastName($searchLikeString, $criteria)
+                                ->_or()->filterByEmail($searchLikeString, $criteria)
+                                ->_or()->filterByWorkEmail($searchLikeString, $criteria)
+                                ->_or()->filterByHomePhone($searchLikeString, $criteria)
+                                ->_or()->filterByCellPhone($searchLikeString, $criteria)
+                                ->_or()->filterByWorkPhone($searchLikeString, $criteria);
+                        } else {
+                            $people->_or()->filterByFirstName($searchLikeString, $criteria)
+                                ->_or()->filterByLastName($searchLikeString, $criteria);
+                        }
                     }
 
                     if (!is_null($this->query_elements)) {
                         if (array_key_exists('Gender',$this->query_elements)) {
                             $people->_and()->filterByGender($this->query_elements['Gender']);
                         }
-                        if (array_key_exists('Classification',$this->query_elements)) {
+                        if (array_key_exists('Classification',$this->query_elements) and SessionUser::getUser()->isSeePrivacyData() ) {
                             if ($this->query_elements['Classification'] < 0) {
                                 $criteria = Criteria::NOT_EQUAL;
                                 $this->query_elements['Classification'] += $iTenThousand;
@@ -123,7 +133,7 @@ class PersonSearchRes extends BaseSearchRes
                                 $people->_and()->filterByClsId($this->query_elements['Classification']);
                             }
                         }
-                        if (array_key_exists('FamilyRole',$this->query_elements)) {
+                        if (array_key_exists('FamilyRole',$this->query_elements) and SessionUser::getUser()->isSeePrivacyData()) {
                             if ($this->query_elements['FamilyRole'] < 0) {
                                 $criteria = Criteria::NOT_EQUAL;
                                 $this->query_elements['FamilyRole'] += $iTenThousand;
@@ -133,7 +143,7 @@ class PersonSearchRes extends BaseSearchRes
                             }
                         }
 
-                        if (array_key_exists('GroupType',$this->query_elements)) {
+                        if ( array_key_exists('GroupType',$this->query_elements) and SessionUser::getUser()->isSeePrivacyData() ) {
 
                             if ($this->query_elements['GroupType'] < 0) {
                                 /*$sGroupWhereExt = ' AND per_ID NOT IN (SELECT p2g2r_per_ID '.
@@ -204,7 +214,7 @@ class PersonSearchRes extends BaseSearchRes
                         }
 
 
-                        if (array_key_exists('PersonProperty', $this->query_elements)) {
+                        if (array_key_exists('PersonProperty', $this->query_elements) and SessionUser::getUser()->isSeePrivacyData()) {
                             if ($this->query_elements['PersonProperty'] < 0) {
                                 $this->query_elements['PersonProperty'] += $iTenThousand;
 
@@ -232,28 +242,35 @@ class PersonSearchRes extends BaseSearchRes
                         $res_buffer = [];
 
                         foreach ($people as $person) {
-                            $ormAssignedProperties = Record2propertyR2pQuery::Create()
-                                ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID, PropertyTableMap::COL_PRO_ID, Criteria::LEFT_JOIN)
-                                ->addJoin(PropertyTableMap::COL_PRO_PRT_ID, PropertyTypeTableMap::COL_PRT_ID, Criteria::LEFT_JOIN)
-                                ->addAsColumn('ProName', PropertyTableMap::COL_PRO_NAME)
-                                ->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
-                                ->where(PropertyTableMap::COL_PRO_CLASS . "='p'")
-                                ->addAscendingOrderByColumn('ProName')
-                                ->addAscendingOrderByColumn('ProTypeName')
-                                ->findByR2pRecordId($person->getId());
-
                             $properties = "";
-                            foreach ($ormAssignedProperties as $property) {
-                                $properties = $properties . $property->getProName() . ", ";
+                            if ( $isSeePrivacyDataEnabled ) {
+                                $ormAssignedProperties = Record2propertyR2pQuery::Create()
+                                    ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID, PropertyTableMap::COL_PRO_ID, Criteria::LEFT_JOIN)
+                                    ->addJoin(PropertyTableMap::COL_PRO_PRT_ID, PropertyTypeTableMap::COL_PRT_ID, Criteria::LEFT_JOIN)
+                                    ->addAsColumn('ProName', PropertyTableMap::COL_PRO_NAME)
+                                    ->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
+                                    ->where(PropertyTableMap::COL_PRO_CLASS . "='p'")
+                                    ->addAscendingOrderByColumn('ProName')
+                                    ->addAscendingOrderByColumn('ProTypeName')
+                                    ->findByR2pRecordId($person->getId());
+                                foreach ($ormAssignedProperties as $property) {
+                                    $properties = $properties . $property->getProName() . ", ";
+                                }
                             }
 
                             $fam = $person->getFamily();
 
                             $address = "";
-                            if (!is_null($fam)) {
-                                $address = '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $fam->getID() . '">' .
-                                    $fam->getName() . MiscUtils::FormatAddressLine($person->getFamily()->getAddress1(), $person->getFamily()->getCity(), $person->getFamily()->getState()) .
-                                    "</a>";
+                            if ( !is_null($fam) ) {
+                                if ( $isSeePrivacyDataEnabled ) {
+                                    $address = '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $fam->getID() . '">' .
+                                        $fam->getName() . MiscUtils::FormatAddressLine($person->getFamily()->getAddress1(), $person->getFamily()->getCity(), $person->getFamily()->getState()) .
+                                        "</a>";
+                                } else {
+                                    $address = '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $fam->getID() . '">' .
+                                        $fam->getName() .
+                                        "</a>";
+                                }
                             }
 
                             $inCart = Cart::PersonInCart($person->getId());
@@ -310,10 +327,14 @@ class PersonSearchRes extends BaseSearchRes
                             }
 
                             if ( $isStringSearch ) {
-                                $tableOfRes = [$person->getFirstName(), $person->getLastName(), $person->getEmail(), $person->getWorkEmail(),
-                                    $person->getHomePhone(), $person->getCellPhone(), $person->getWorkPhone() ];
+                                if ( SessionUser::getUser()->isSeePrivacyData() ) {
+                                    $tableOfRes = [$person->getFirstName(), $person->getLastName(), $person->getEmail(), $person->getWorkEmail(),
+                                        $person->getHomePhone(), $person->getCellPhone(), $person->getWorkPhone() ];
+                                } else {
+                                    $tableOfRes = [$person->getFirstName(), $person->getLastName() ];
+                                }
 
-                                if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                                if ( $isSeePrivacyDataEnabled ) {
                                     array_merge($tableOfRes, [_($person->getClassName()), $properties, $person->getFamilyRoleName()]);
                                 }
 
@@ -331,13 +352,13 @@ class PersonSearchRes extends BaseSearchRes
                                     'id' => $person->getId(),
                                     "img" => $person->getJPGPhotoDatas(),
                                     'searchresult' => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $person->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3) . '</a>',
-                                    'address' => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $address,
+                                    'address' => (!$isSeePrivacyDataEnabled) ? _('Private Data') : $address,
                                     'type' => _($this->getGlobalSearchType()),
                                     'realType' => $this->getGlobalSearchType(),
                                     'Gender' => ($person->getGender() == 1) ? _('Male') : _('Female'),
-                                    'Classification' => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : _($person->getClassName()),
-                                    'ProNames' => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $properties,
-                                    'FamilyRole' => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $person->getFamilyRoleName(),
+                                    'Classification' => (!$isSeePrivacyDataEnabled) ? _('Private Data') : _($person->getClassName()),
+                                    'ProNames' => (!$isSeePrivacyDataEnabled) ? _('Private Data') : $properties,
+                                    'FamilyRole' => (!$isSeePrivacyDataEnabled) ? _('Private Data') : $person->getFamilyRoleName(),
                                     "members" => "",
                                     'actions' => $res
                                 ];
@@ -348,15 +369,22 @@ class PersonSearchRes extends BaseSearchRes
                         $this->results = array_unique($this->results,SORT_ASC);
                     }
                 } else {// not global search
-                    $people->filterByFirstName($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByLastName($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByEmail($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByWorkEmail($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)
-                        ->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))
-                        ->find();
+                    if ($isSeePrivacyDataEnabled) {
+                        $people->filterByFirstName($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByLastName($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByEmail($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByWorkEmail($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)
+                            ->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))
+                            ->find();
+                    } else {
+                        $people->filterByFirstName($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByLastName($searchLikeString, Criteria::LIKE)                            
+                            ->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))
+                            ->find();
+                    }
 
                     if (!is_null($people)) {
                         $id = 1;

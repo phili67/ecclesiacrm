@@ -21,6 +21,11 @@ class PaymentSearchRes extends BaseSearchRes
         parent::__construct($global, 'Payments');
     }
 
+    public function allowed (): bool
+    {
+        return SessionUser::getUser()->isFinanceEnabled();
+    }
+
     public function buildSearch(string $qry)
     {
         if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') )

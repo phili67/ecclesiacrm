@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\VolunteerOpportunityQuery;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
@@ -59,6 +60,7 @@ class SearchController
                     'text' => "*",
                     'uri' => ""];
         } else {
+            // when the query start with 
             if ( str_starts_with(mb_strtolower(_("Families")), mb_strtolower($query)) ) {
                 $resultsArray[] =
                     ['id' => 'search-id-1',
@@ -90,7 +92,8 @@ class SearchController
                     ['id' => 'search-id-1',
                         'text' => _("Groups"),
                         'uri' => ""];
-            } elseif ( str_starts_with(mb_strtolower(_("Sunday Groups")), mb_strtolower($query)) ) {
+            } elseif ( str_starts_with(mb_strtolower(_("Sunday Groups")), mb_strtolower($query)) 
+                and SystemConfig::getBooleanValue('bEnabledSundaySchool')) {
                 $resultsArray[] =
                     ['id' => 'search-id-1',
                         'text' => _("Sunday Groups"),
@@ -115,6 +118,8 @@ class SearchController
         }
 
         foreach ($resMethods as $resMethod) {
+            if ( !$resMethod->allowed() ) continue;
+
             $res = $resMethod->getRes($query);
 
             if (count($res) && $res[0] == null)
@@ -174,6 +179,7 @@ class SearchController
         }
 
         foreach ($resMethods as $resMethod) {
+            if ( !$resMethod->allowed() ) continue;
             $resultsArray = array_merge($resultsArray,$resMethod->getRes($query));
         }
 
@@ -206,6 +212,7 @@ class SearchController
         ];
 
         foreach ($resMethods as $resMethod) {
+            if ( !$resMethod->allowed() ) continue;
             $resultsArray[] = $resMethod->getRes($query);
         }
 
