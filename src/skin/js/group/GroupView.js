@@ -267,38 +267,6 @@ $(function() {
         });
     });
 
-    $("#deleteSelectedRows").on('click', function () {
-        var deletedRows = window.CRM.DataTableGroupView.rows('.selected').data()
-        bootbox.confirm({
-            message: i18next.t("Are you sure you want to remove the selected group members?") + " (" + deletedRows.length + ") ",
-            buttons: {
-                confirm: {
-                    label: i18next.t('No'),
-                    className: 'btn-primary'
-                },
-                cancel: {
-                    label: i18next.t('Yes'),
-                    className: 'btn-danger'
-                }
-            },
-            callback: function (result) {
-                if (result == false) {
-                    $.each(deletedRows, function (index, value) {
-                        window.CRM.groups.removePerson(window.CRM.currentGroup, value.PersonId, function () {
-                                window.CRM.DataTableGroupView.row(function (idx, data, node) {
-                                    if (data.PersonId == value.PersonId) {
-                                        return true;
-                                    }
-                                }).remove();
-                                window.CRM.DataTableGroupView.rows().invalidate().draw(true);
-                            });
-                    });
-                }
-            }
-        });
-
-    });
-
     $("#addSelectedToCart").on('click', function () {
         if (window.CRM.DataTableGroupView.rows('.selected').length > 0) {
             var selectedPersons = {
@@ -513,13 +481,33 @@ function initDataTable() {
                     },
                     callback: function (result) {
                         if (result) {
+                            var selectedPersons = {
+                                "Persons": $.map(window.CRM.DataTableGroupView.rows('.selected').data(), function (val, i) {
+                                    return val.PersonId;
+                                })
+                            };
+                            
                             window.CRM.APIRequest({
-                                method: 'POST',
-                                path: 'groups/emptygroup',
-                                data: JSON.stringify({"groupID": groupID})
+                                method: 'DELETE',
+                                path: 'groups/removeselectedpersons',
+                                data: JSON.stringify({
+                                    "groupID": window.CRM.currentGroup,
+                                    "Persons": selectedPersons
+                                })
                             },function (data) {
-                                window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
-                            });
+                                window.CRM.DataTableGroupView.ajax.reload( () => {
+                                    let selectedRows = window.CRM.DataTableGroupView.rows('.selected').data().length;
+                                    if (selectedRows) {
+                                        $("#deleteSelectedRows").removeClass('disabled');
+                                        $("#addSelectedToGroup").removeClass('disabled');
+                                    } else {
+                                        $("#deleteSelectedRows").addClass('disabled');
+                                        $("#addSelectedToGroup").addClass('disabled');
+                                    }
+                                    $("#deleteSelectedRows").html('<i class="fas fa-trash-alt"></i> ' + i18next.t("Remove") + " (" + selectedRows + ") " + i18next.t("Members"));
+                                    $("#addSelectedToGroup").html('<i class="fas fa-cart-plus"></i> ' + i18next.t("Add") + "  (" + selectedRows + ") " + i18next.t("Members to cart"));
+                                });                              
+                            });                           
                         }
                     }
                 });

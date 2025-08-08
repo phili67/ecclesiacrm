@@ -494,8 +494,8 @@ class PeopleGroupController
 
     public function removePersonFromGroup (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
-        $userID = $args['userID'];
-        $person = PersonQuery::create()->findPk($userID);
+        $personID = $args['personID'];
+        $person = PersonQuery::create()->findPk($personID);
         $group = GroupQuery::create()->findPk($groupID);
         $groupRoleMemberships = $group->getPerson2group2roleP2g2rs();
 
@@ -516,10 +516,49 @@ class PeopleGroupController
         return $response->withJson(['success' => 'true']);
     }
 
+    public function removeSelectedPersons (ServerRequest $request, Response $response, array $args): Response {
+
+        $values = (object)$request->getParsedBody();
+        
+
+        if ( isset ($values->groupID) && isset ($values->Persons) ) {
+
+            $groupID = $values->groupID;
+            $Persons = $values->Persons;
+            
+            foreach ($Persons['Persons'] as $personID) {
+                $person = PersonQuery::create()->findPk($personID);
+                $group = GroupQuery::create()->findPk($groupID);
+                $groupRoleMemberships = $group->getPerson2group2roleP2g2rs();
+
+                $groupService = $this->container->get("GroupService");
+
+                foreach ($groupRoleMemberships as $groupRoleMembership) {
+                    if ($groupRoleMembership->getPersonId() == $person->getId()) {
+                        $groupService->removeUserFromGroup($groupID, $person->getId());
+                        //$groupRoleMembership->delete();
+                        $note = new Note();
+                        $note->setText(_("Deleted from group"). ": " . $group->getName());
+                        $note->setType("group");
+                        $note->setEntered(SessionUser::getUser()->getPersonId());
+                        $note->setPerId($person->getId());
+                        $note->save();
+                    }
+                }
+            }
+
+            return $response->withJson(['success' => true]);
+        } 
+
+        return $response->withJson(['success' => false]);
+    }
+
+    
+
     public function addPersonToGroup (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
-        $userID = $args['userID'];
-        $person = PersonQuery::create()->findPk($userID);
+        $personID = $args['personID'];
+        $person = PersonQuery::create()->findPk($personID);
         $input = (object) $request->getParsedBody();
         $group = GroupQuery::create()->findPk($groupID);
 
@@ -530,7 +569,7 @@ class PeopleGroupController
 
         $p2g2r = Person2group2roleP2g2rQuery::create()
             ->filterByGroupId($groupID)
-            ->filterByPersonId($userID)
+            ->filterByPersonId($personID)
             ->findOneOrCreate();
         if($input->RoleID)
         {
@@ -559,13 +598,13 @@ class PeopleGroupController
 
     public function addTeacherToGroup (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
-        $userID = $args['userID'];
-        $person = PersonQuery::create()->findPk($userID);
+        $personID = $args['personID'];
+        $person = PersonQuery::create()->findPk($personID);
         $input = (object) $request->getParsedBody();
         $group = GroupQuery::create()->findPk($groupID);
         $p2g2r = Person2group2roleP2g2rQuery::create()
             ->filterByGroupId($groupID)
-            ->filterByPersonId($userID)
+            ->filterByPersonId($personID)
             ->findOneOrCreate();
         if($input->RoleID)
         {
@@ -592,11 +631,11 @@ class PeopleGroupController
         return  $response->write($members->toJSON());
     }
 
-    public function userRoleByUserId (ServerRequest $request, Response $response, array $args): Response {
+    public function userRoleByPersonId (ServerRequest $request, Response $response, array $args): Response {
         $groupID = $args['groupID'];
-        $userID = $args['userID'];
+        $personID = $args['personID'];
         $roleID = $request->getParsedBody()['roleID'];
-        $membership = Person2group2roleP2g2rQuery::create()->filterByGroupId($groupID)->filterByPersonId($userID)->findOne();
+        $membership = Person2group2roleP2g2rQuery::create()->filterByGroupId($groupID)->filterByPersonId($personID)->findOne();
         $membership->setRoleId($roleID);
         $membership->save();
 
