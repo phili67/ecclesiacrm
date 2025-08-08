@@ -65,57 +65,115 @@ $app->group('/groups', function (RouteCollectorProxy $group) {
 
     /*
      * @! create a new group
-     * param: id->int :: isSundaySchool
-     * param: id->string :: groupName
+     * #! param: id->int :: isSundaySchool
+     * #! param: id->string :: groupName
      */
     $group->post('/', PeopleGroupController::class . ":newGroup" );
     /*
      * @! create a new group
-     * param: id->int :: groupID
-     * param: id->int :: isSundaySchool
-     * param: id->int :: groupType
-     * param: id->string :: description
+     * #! param: id->int :: groupID
+     * #! param: id->int :: isSundaySchool
+     * #! param: id->int :: groupType
+     * #! param: id->string :: description
      */
     $group->post('/{groupID:[0-9]+}', PeopleGroupController::class . ":updateGroup" );
     /*
      * @! group info
-     * param: id->int :: groupID
+     * #! param: id->int :: groupID
      */
     $group->get('/{groupID:[0-9]+}', PeopleGroupController::class . ":groupInfo" );
     /*
      * @! get group cart status
-     * param: id->int :: groupID
+     * #! param: id->int :: groupID
      */
     $group->get('/{groupID:[0-9]+}/cartStatus', PeopleGroupController::class . ":groupCartStatus" );
     /*
      * @! delete a group
-     * param: id->int :: groupID
+     * #! param: id->int :: groupID
      */
     $group->delete('/{groupID:[0-9]+}', PeopleGroupController::class . ":deleteGroup" );
     /*
      * @! get all group members
-     * param: id->int :: groupID
+     * #! param: id->int :: groupID
      */
     $group->get('/{groupID:[0-9]+}/members', PeopleGroupController::class . ":groupMembers" );
 
     /*
      * @! get all group members
-     * param: id->int :: groupID
+     * #! param: id->int :: groupID
      */
     $group->get('/{groupID:[0-9]+}/events', PeopleGroupController::class . ":groupEvents" );
 
-    $group->delete('/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}', PeopleGroupController::class . ":removePersonFromGroup" );
-    $group->post('/{groupID:[0-9]+}/addperson/{userID:[0-9]+}', PeopleGroupController::class . ":addPersonToGroup" );
-    $group->post('/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}', PeopleGroupController::class . ":addTeacherToGroup" );
 
-    $group->post('/{groupID:[0-9]+}/userRole/{userID:[0-9]+}', PeopleGroupController::class . ":userRoleByUserId" );
+    /*
+     * @! remove one person from the group
+     * #! param: id->int :: groupID
+     * #! param: ref->int :: personID
+     */
+    $group->delete('/{groupID:[0-9]+}/removeperson/{personID:[0-9]+}', PeopleGroupController::class . ":removePersonFromGroup" );
+
+    /*
+     * @! remove all selected members of the group
+     * #! param: id->int :: groupID
+     * #! param: ref->array :: Persons id in array ref (possible value)
+     */
+    $group->delete('/removeselectedpersons', PeopleGroupController::class . ":removeSelectedPersons" );
+
+    /*
+     * @! add a member of the group
+     * #! param: id->int :: groupID
+     * #! param: ref->int :: person id 
+     */
+    $group->post('/{groupID:[0-9]+}/addperson/{personID:[0-9]+}', PeopleGroupController::class . ":addPersonToGroup" );
+    
+    /*
+     * @! add a add teacher of the group
+     * #! param: id->int :: groupID
+     * #! param: ref->int :: person id 
+     */
+    $group->post('/{groupID:[0-9]+}/addteacher/{personID:[0-9]+}', PeopleGroupController::class . ":addTeacherToGroup" );
+
+
+
+    /*
+     * @! set person role in the group
+     * #! param: id->int :: groupID
+     * #! param: ref->int :: person id 
+     */
+    $group->post('/{groupID:[0-9]+}/userRole/{personID:[0-9]+}', PeopleGroupController::class . ":userRoleByPersonId" );
+
+     /*
+     * @! set role id in the group
+     * #! param: id->int :: groupID
+     * #! param: ref->int :: role id 
+     */
     $group->post('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', PeopleGroupController::class . ":rolesByRoleId" );
+    
+    /*
+     * @! get all role the group
+     * #! param: id->int :: groupID
+     */
     $group->get('/{groupID:[0-9]+}/roles', PeopleGroupController::class . ":allRoles" );
 
-
+    /*
+     * @! get default role in the group
+     * #! param: id->int :: groupID
+     */
     $group->post('/{groupID:[0-9]+}/defaultRole', PeopleGroupController::class . ":defaultRoleForGroup" );
 
+
+     /*
+     * @! delete role id in the group
+     * #! param: id->int :: groupID
+     * #! param: ref->int :: role id 
+     */
     $group->delete('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', PeopleGroupController::class . ":deleteRole" );
+
+    /*
+     * @! add group role name
+     * #! param: id->int :: groupID
+     * #! param: ref->string :: roleName
+     */
     $group->post('/{groupID:[0-9]+}/roles', PeopleGroupController::class . ":roles" );
     $group->post('/{groupID:[0-9]+}/setGroupSpecificPropertyStatus', PeopleGroupController::class . ":setGroupSepecificPropertyStatus" );
     $group->post('/{groupID:[0-9]+}/settings/active/{value}', PeopleGroupController::class . ":settingsActiveValue" );
@@ -149,7 +207,7 @@ $app->group('/groups', function (RouteCollectorProxy $group) {
      */
     $group->get('/{groupID:[0-9]+}/sundayschool', PeopleGroupController::class . ":groupSundaySchool" );
 
-    $group->post( '/emptygroup',PeopleGroupController::class . ":emptygroup" );
+    $group->post( '/emptygroup', PeopleGroupController::class . ":emptygroup" );
 
     /*
      * @! get all sundayschool teachers
@@ -168,5 +226,5 @@ $app->group('/groups', function (RouteCollectorProxy $group) {
      * #! param: id->string  :: imageName as int
      * #! param: id->string  :: imagePosition as (Right | Left | Center)
      */
-    $group->post( '/render/sundayschool/badge',PeopleGroupController::class . ":renderBadge" );
+    $group->post( '/render/sundayschool/badge', PeopleGroupController::class . ":renderBadge" );
 });
