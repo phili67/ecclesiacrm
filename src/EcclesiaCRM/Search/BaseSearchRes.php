@@ -49,6 +49,8 @@ abstract class BaseSearchRes {
 
     public abstract function buildSearch (string $qry);
 
+    public abstract function allowed (): bool;
+
     public function getRes (string $qry) {
         $this->buildSearch($qry);
         if (!empty($this->results)) {

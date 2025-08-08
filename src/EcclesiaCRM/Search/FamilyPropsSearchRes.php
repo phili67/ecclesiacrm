@@ -26,6 +26,11 @@ class FamilyPropsSearchRes extends BaseSearchRes
         parent::__construct($global, 'Families Properties');
     }
 
+    public function allowed (): bool
+    {
+        return SessionUser::getUser()->isSeePrivacyDataEnabled();
+    }
+
     public function buildSearch(string $qry)
     {
         if (SystemConfig::getBooleanValue("bSearchIncludeFamilies")) {

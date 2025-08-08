@@ -22,11 +22,18 @@ class FamilySearchRes extends BaseSearchRes
         parent::__construct($global, 'Families');
     }
 
+    public function allowed (): bool
+    {        
+        return true;
+    }
+
     public function buildSearch(string $qry)
     {
         if (SystemConfig::getBooleanValue("bSearchIncludeFamilies")) {
             try {
                 $searchLikeString = '%'.$qry.'%';
+
+                $isSeePrivacyDataEnabled = SessionUser::getUser()->isSeePrivacyDataEnabled();
 
                 $subQuery = FamilyQuery::create()
                     ->withColumn('Family.Id','FamId')
@@ -43,11 +50,15 @@ class FamilySearchRes extends BaseSearchRes
 
                 if ( !( mb_strtolower($qry) == mb_strtolower(_('families')) || mb_strtolower($qry) == mb_strtolower(_('family'))
                         || mb_strtolower($qry) == mb_strtolower(_('single')) || mb_strtolower($qry) == mb_strtolower(_('singles')) ) ) {
-                    $families->filterByName("%$qry%", Criteria::LIKE)
-                        ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByEmail($searchLikeString, Criteria::LIKE);
+                    if ($isSeePrivacyDataEnabled) {
+                        $families->filterByName("%$qry%", Criteria::LIKE)
+                            ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByEmail($searchLikeString, Criteria::LIKE);
+                    } else {
+                        $families->filterByName("%$qry%", Criteria::LIKE);
+                    }
                 }
 
                 $compareOp = ">";
@@ -143,13 +154,15 @@ class FamilySearchRes extends BaseSearchRes
                             }
 
                             if ( $isStringSearch ) {
-                                $tableOfRes = [$family->getName(), $family->getEmail(),
-                                    $family->getHomePhone(), $family->getCellPhone(), $family->getWorkPhone(), $family->getState()];
+                                if ($isSeePrivacyDataEnabled) {
+                                    $tableOfRes = [$family->getName(), $family->getEmail(),
+                                        $family->getHomePhone(), $family->getCellPhone(), $family->getWorkPhone(), $family->getState(), _($family->getFamilyString())];
 
-                                if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
-                                    array_merge($tableOfRes, [_($family->getFamilyString())]);
+                                } else {
+                                    $tableOfRes = [$family->getName()];
+
                                 }
-
+                                
                                 foreach ($tableOfRes as $item) {
                                     if (mb_strpos(mb_strtolower($item), mb_strtolower($qry)) !== false and !in_array($item, $res_buffer)) {
                                         $elt = ['id' => 'searchname-family-id-' . ($id++),
@@ -164,7 +177,7 @@ class FamilySearchRes extends BaseSearchRes
                                     "id" => $family->getId(),
                                     "img" => $family->getJPGPhotoDatas(),
                                     "searchresult" => _("Family") . ' : <a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
-                                    "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                                    "address" => (!$isSeePrivacyDataEnabled) ? _('Private Data') : $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                                     "type" => (mb_strtolower($qry) == mb_strtolower(_('single')) || mb_strtolower($qry) == mb_strtolower(_('singles'))) ? _("Singles") : _($this->getGlobalSearchType()),
                                     "realType" => $this->getGlobalSearchType(),
                                     "Gender" => "",

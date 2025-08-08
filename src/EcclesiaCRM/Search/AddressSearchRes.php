@@ -20,6 +20,11 @@ class AddressSearchRes extends BaseSearchRes
         parent::__construct($global, "Addresses");
     }
 
+    public function allowed (): bool
+    {
+        return SessionUser::getUser()->isSeePrivacyDataEnabled();
+    }
+
     public function buildSearch(string $qry)
     {
         if (SystemConfig::getBooleanValue("bSearchIncludeAddresses")) {

@@ -25,6 +25,11 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
         parent::__construct($global, "Group Manager");
     }
 
+    public function allowed (): bool
+    {
+        return SessionUser::getUser()->isManageGroupsEnabled();
+    }
+
     public function buildSearch(string $qry)
     {
         if (SystemConfig::getBooleanValue("bSearchIncludePersons")) {

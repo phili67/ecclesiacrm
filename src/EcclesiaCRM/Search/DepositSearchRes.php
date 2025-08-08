@@ -9,7 +9,6 @@ use EcclesiaCRM\Search\BaseSearchRes;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
-use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
@@ -22,6 +21,11 @@ class DepositSearchRes extends BaseSearchRes
     {
         $this->name = _('Deposits');
         parent::__construct($global, 'Deposits');
+    }
+
+    public function allowed (): bool
+    {
+        return SessionUser::getUser()->isFinanceEnabled();
     }
 
     public function buildSearch(string $qry)
