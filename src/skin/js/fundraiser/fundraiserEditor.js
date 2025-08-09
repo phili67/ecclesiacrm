@@ -60,6 +60,9 @@ $(function() {
                 title: i18next.t('Preview'),
                 data: 'di_picture',
                 render: function (data, type, full, meta) {
+                    let l = data.length;
+                    if (data[l-1] == "'") data = data.substring(0, l-1);                        
+                    if (data[0] == "'") data = data.substring(1);                    
                     if (data.length > 4)
                         return '<img src="' + data +'" width="80">';
                     else

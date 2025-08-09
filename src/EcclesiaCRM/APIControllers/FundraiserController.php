@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Base\MultibuyQuery;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
@@ -26,7 +27,7 @@ use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Map\DonatedItemTableMap;
 use EcclesiaCRM\Map\PaddleNumTableMap;
-
+use EcclesiaCRM\Multibuy;
 use EcclesiaCRM\TokenQuery;
 use EcclesiaCRM\Token;
 
@@ -47,7 +48,7 @@ class FundraiserController
     {
         $input = (object)$request->getParsedBody();
 
-        if (SessionUser::getUser()->isFinanceEnabled() and isset($input->DonatedItemID)) {
+        if (SessionUser::getUser()->isDonationFundEnabled() and isset($input->DonatedItemID)) {
             if ($input->DonatedItemID == -1) {
                 $token = TokenQuery::create()->filterByReferenceId(-2)->findOne();
                 if (!is_null($token)) {
@@ -71,7 +72,7 @@ class FundraiserController
     {
         $input = (object)$request->getParsedBody();
 
-        if (SessionUser::getUser()->isFinanceEnabled() and isset($input->DonatedItemID) and isset($input->pathFile)) {
+        if (SessionUser::getUser()->isDonationFundEnabled() and isset($input->DonatedItemID) and isset($input->pathFile)) {
             if ($input->DonatedItemID > 0) {
                 $donItem = DonatedItemQuery::create()
                     ->findOneById($input->DonatedItemID);
@@ -97,7 +98,7 @@ class FundraiserController
     {
         $input = (object)$request->getParsedBody();
 
-        if (SessionUser::getUser()->isFinanceEnabled() and isset($input->PerID) and isset($input->Num) and isset ($input->fundraiserID)) {
+        if (SessionUser::getUser()->isDonationFundEnabled() and isset($input->PerID) and isset($input->Num) and isset ($input->fundraiserID)) {
             $ormPaddleNum = PaddleNumQuery::create()
                 ->filterByFrId($input->fundraiserID)
                 ->filterByNum($input->Num)
@@ -113,7 +114,7 @@ class FundraiserController
     {
         $input = (object)$request->getParsedBody();
 
-        if (SessionUser::getUser()->isFinanceEnabled() and isset($input->PerID) and isset ($input->PaddleNumID) and isset($input->Num) and isset ($input->fundraiserID)) {
+        if (SessionUser::getUser()->isDonationFundEnabled() and isset($input->PerID) and isset ($input->PaddleNumID) and isset($input->Num) and isset ($input->fundraiserID)) {
             if ($input->PaddleNumID > 0) {
                 $ormPaddleNum = PaddleNumQuery::create()
                     ->findOneById($input->PaddleNumID);
@@ -191,7 +192,7 @@ class FundraiserController
 
     function getAllPersonsNum(ServerRequest $request, Response $response, array $args): Response
     {
-        if ( !(SessionUser::getUser()->isFinanceEnabled() and array_key_exists('fundRaiserID', $args) ) ) {
+        if ( !(SessionUser::getUser()->isDonationFundEnabled() and array_key_exists('fundRaiserID', $args) ) ) {
             return $response->withStatus(401);
         }
 
@@ -218,7 +219,7 @@ class FundraiserController
 
     function findFundRaiser(ServerRequest $request, Response $response, array $args): Response
     {
-        if ( !(SessionUser::getUser()->isFinanceEnabled() and array_key_exists('fundRaiserID', $args)
+        if ( !(SessionUser::getUser()->isDonationFundEnabled() and array_key_exists('fundRaiserID', $args)
             and array_key_exists('startDate', $args) and array_key_exists('endDate', $args)) ) {
             return $response->withStatus(401);
         }
@@ -250,7 +251,7 @@ class FundraiserController
 
     function getAllFundraiserForID(ServerRequest $request, Response $response, array $args): Response
     {
-        if ( !(SessionUser::getUser()->isFinanceEnabled() and array_key_exists('FundRaiserID', $args) ) ) {
+        if ( !(SessionUser::getUser()->isDonationFundEnabled() and array_key_exists('FundRaiserID', $args) ) ) {
             return $response->withStatus(401);
         }
 
@@ -275,7 +276,7 @@ class FundraiserController
     {
         $input = (object)$request->getParsedBody();
 
-        if (SessionUser::getUser()->isFinanceEnabled() and isset ($input->DonatedItemID) and isset($input->count)) {
+        if (SessionUser::getUser()->isDonationFundEnabled() and isset ($input->DonatedItemID) and isset($input->count)) {
 
             $iDonatedItemID = $input->DonatedItemID;
             $iCount = $input->count;
@@ -330,7 +331,7 @@ class FundraiserController
     {
         $input = (object)$request->getParsedBody();
 
-        if (SessionUser::getUser()->isFinanceEnabled() and isset ($input->FundRaiserID) and isset($input->DonatedItemID)) {
+        if (SessionUser::getUser()->isDonationFundEnabled() and isset ($input->FundRaiserID) and isset($input->DonatedItemID)) {
 
             $di = DonatedItemQuery::create()
                 ->filterByFrId($input->FundRaiserID)
@@ -350,7 +351,7 @@ class FundraiserController
     {
         $input = (object)$request->getParsedBody();
 
-        if (SessionUser::getUser()->isFinanceEnabled() and isset ($input->currentFundraiser) and isset($input->currentDonatedItemID)
+        if (SessionUser::getUser()->isDonationFundEnabled() and isset ($input->currentFundraiser) and isset($input->currentDonatedItemID)
             && isset ($input->Item) && isset($input->Multibuy)
             && isset ($input->Donor) && isset($input->Title)
             && isset ($input->EstPrice) && isset($input->MaterialValue)
@@ -427,7 +428,7 @@ class FundraiserController
     {
         $input = (object)$request->getParsedBody();
 
-        if (SessionUser::getUser()->isFinanceEnabled() and isset($input->fundraiserID) and isset ($input->pnID)) {
+        if (SessionUser::getUser()->isDonationFundEnabled() and isset($input->fundraiserID) and isset ($input->pnID)) {
             $pn = PaddleNumQuery::create()
                 ->filterById($input->pnID)
                 ->findOneByFrId($input->fundraiserID);
@@ -462,7 +463,7 @@ class FundraiserController
     {
         $input = (object)$request->getParsedBody();
 
-        if (SessionUser::getUser()->isFinanceEnabled() and isset ($input->fundraiserID)) {
+        if (SessionUser::getUser()->isDonationFundEnabled() and isset ($input->fundraiserID)) {
             $iFundRaiserID = $input->fundraiserID;
 
             // Get the current fund raiser record

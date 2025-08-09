@@ -823,7 +823,7 @@ class MenuBar extends Menu
     {
         $menu = new Menu (_("Deposit") . "&nbsp;&nbsp;&nbsp;", "fa fa-cash-register", "#", SessionUser::getUser()->isFinanceEnabled());
 
-        if (SystemConfig::getBooleanValue("bEnabledFinance") && SessionUser::getUser()->isFinanceEnabled()) {
+        if (SessionUser::getUser()->isFinanceEnabled()) {
             // add the badges
             $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
             $deposits = DepositQuery::Create()->find();
@@ -869,11 +869,11 @@ class MenuBar extends Menu
 
     private function addFundraiserMenu()
     {
-        if (SystemConfig::getBooleanValue("bEnabledFundraiser") and SessionUser::getUser()->isFinanceEnabled()) {
-            $menu = new Menu (_("Fundraiser"), "fas fa-money-check-alt", "#", SessionUser::getUser()->isFinanceEnabled());
+        if (SessionUser::getUser()->isDonationFundEnabled()) {
+            $menu = new Menu (_("Fundraiser"), "fas fa-money-check-alt", "#", SessionUser::getUser()->isFinance());
 
-            $menuItem = new Menu (_("Create New Fundraiser"), "fas fa-box", "v2/fundraiser/editor", SessionUser::getUser()->isFinanceEnabled(), $menu);
-            $menuItem = new Menu (_("View All Fundraisers"), "fas fa-eye", "v2/fundraiser/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
+            $menuItem = new Menu (_("Create New Fundraiser"), "fas fa-box", "v2/fundraiser/editor", SessionUser::getUser()->isFinance(), $menu);
+            $menuItem = new Menu (_("View All Fundraisers"), "fas fa-eye", "v2/fundraiser/find", SessionUser::getUser()->isFinance(), $menu);
             if (isset($_SESSION['iCurrentFundraiser'])) {
                 $menuItem = new Menu (_("Edit Last Fundraiser") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentFundraiser'] . '</small>', "far fa-circle", "v2/fundraiser/editor/" . $_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
             }

@@ -30,7 +30,7 @@ class FinanceDonationFundController
 
     public function getAllDonationFunds(ServerRequest $request, Response $response, array $args): Response
     {
-        if ( SessionUser::getUser()->isFinanceEnabled() ) {
+        if ( SessionUser::getUser()->isDonationFundEnabled() ) {
             return $response->write(DonationFundQuery::Create()->find()->toJSON());
         }
 
@@ -41,7 +41,7 @@ class FinanceDonationFundController
     {
         $donation = (object)$request->getParsedBody();
 
-        if ( SessionUser::getUser()->isFinanceEnabled() and isset($donation->fundId) ) {
+        if ( SessionUser::getUser()->isDonationFundEnabled() and isset($donation->fundId) ) {
             return $response->write(DonationFundQuery::Create()->findOneById($donation->fundId)->toJSON());
         }
 
@@ -52,7 +52,7 @@ class FinanceDonationFundController
     {
         $fund = (object)$request->getParsedBody();
 
-        if ( SessionUser::getUser()->isFinanceEnabled() and isset($fund->fundId) and isset($fund->Name) and isset($fund->Description)) {
+        if ( SessionUser::getUser()->isDonationFundEnabled() and isset($fund->fundId) and isset($fund->Name) and isset($fund->Description)) {
 
             $donation = DonationFundQuery::Create()->findOneById($fund->fundId);
 
@@ -72,7 +72,7 @@ class FinanceDonationFundController
     {
         $fund = (object)$request->getParsedBody();
 
-        if ( SessionUser::getUser()->isFinanceEnabled() and isset($fund->fundId) ) {
+        if ( SessionUser::getUser()->isDonationFundEnabled() and isset($fund->fundId) ) {
             $donation = DonationFundQuery::Create()->findOneById($fund->fundId);
             $donation->delete();
 
@@ -86,7 +86,7 @@ class FinanceDonationFundController
     {
         $fund = (object)$request->getParsedBody();
 
-        if ( SessionUser::getUser()->isFinanceEnabled() and isset($fund->Name) and isset($fund->Description) ) {
+        if ( SessionUser::getUser()->isDonationFundEnabled() and isset($fund->Name) and isset($fund->Description) ) {
             $donation = new DonationFund();
 
             $donation->setName($fund->Name);

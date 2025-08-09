@@ -51,7 +51,9 @@ abstract class SecurityOptions
     const bEDrive = 131072; // bit 17
     const bShowMenuQuery = 262144; // bit 18
     const bSundaySchool = 524288; // bit 19
-    const bDashBoardUser = 1073741824; // bit 30
+    const bDonationFund = 1048576; // bit 20
+
+    const bDashBoardUser = 1073741824; // bit 30, ils sont tous allumés
 }
 
 
@@ -628,6 +630,12 @@ class User extends BaseUser
         return ($this->isAdmin() || $this->isFinance()) and SystemConfig::getBooleanValue('bEnabledFinance');
     }
 
+    public function isDonationFundEnabled()
+    {
+        return ($this->isAdmin() || $this->isFinance()) and SystemConfig::getBooleanValue('bEnabledFundraiser');
+    }
+
+
     public function isNotesEnabled()
     {
         return $this->isAdmin() || $this->isNotes();
@@ -1108,6 +1116,7 @@ class User extends BaseUser
         $_SESSION['bShowMap'] = $this->isShowMapEnabled();                  //ok
         $_SESSION['bEDrive'] = $this->isEDriveEnabled();                    //ok
         $_SESSION['bShowMenuQuery'] = $this->isShowMenuQueryEnabled();      //ok
+        $_SESSION['bDonationFund'] = $this->isDonationFundEnabled();        //ok
 
         // for https : usefull in apis
         $_SESSION['isSecure'] = MiscUtils::isSecure();
@@ -1313,6 +1322,9 @@ class User extends BaseUser
         }
         if ($this->isShowSundaySchool()) { // bit 19
             $bits |= SecurityOptions::bSundaySchool;
+        }
+        if ($this->isDonationFundEnabled()) { // bit 19
+            $bits |= SecurityOptions::bDonationFund;
         }
 
         $bits |= SecurityOptions::bDashBoardUser;
