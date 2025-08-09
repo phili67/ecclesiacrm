@@ -62,7 +62,8 @@ class PeopleController
 
             foreach ($users as $user) {
                 // user account is activated
-                if ($user->isDeactivated())
+                if ($user->isDeactivated()) continue;
+                
                 $person = $user->getPerson();
 
                 $elt = ['id' => $id++,
