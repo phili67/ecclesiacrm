@@ -464,7 +464,7 @@ if ($sPhoneLink) {
             </div>
             <div class="card-body">
                 <?php
-                if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) {
+                if (SessionUser::getUser()->isManageGroups() || $is_group_manager == true) {
                 ?>
 
                     <div class="row">
