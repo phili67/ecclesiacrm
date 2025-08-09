@@ -467,14 +467,22 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getallperson` | POST | DocumentShareController::class . ':getAllShareForPerson' | get all shared persons for a noteID
+`/getallperson` | POST | DocumentShareController::class . ':getAllShareForPerson' | get all shared persons for a noteID (unusefull)
 
 * `{ref}`->`int` :: noteId
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addperson` | POST | DocumentShareController::class . ':addPersonToShare' | share a note to a personID from currentPersonID
+`/getallpersonsabre` | POST | DocumentShareController::class . ':getAllShareForPersonSabre' | get all shared persons for all the selected rows (sabre)
+
+* `{ref}`->`int` :: currentPersonID
+* `{ref}`->`array` :: rows
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addperson` | POST | DocumentShareController::class . ':addPersonToShare' | share a note to a personID from currentPersonID 
 
 * `{ref}`->`int` :: personID
 * `{ref}`->`int` :: noteId
@@ -484,7 +492,16 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addfamily` | POST | DocumentShareController::class . ':addFamilyToShare' | share a note to a familyID from currentPersonID
+`/addpersonsabre` | POST | DocumentShareController::class . ':addPersonSabreToShare' | share a note to a personID from currentPersonID for sabre
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: currentPersonID
+* `{ref}`->`array` :: all the rows
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addfamily` | POST | DocumentShareController::class . ':addFamilyToShare' | share a note to a familyID from currentPersonID 
 
 * `{ref}`->`int` :: familyID
 * `{ref}`->`int` :: noteId
@@ -494,7 +511,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addgroup` | POST | DocumentShareController::class . ':addGroupToShare' | share a note to a groupID from currentPersonID
+`/addgroup` | POST | DocumentShareController::class . ':addGroupToShare' | share a note to a groupID from currentPersonID 
 
 * `{ref}`->`int` :: groupID
 * `{ref}`->`int` :: noteId
@@ -504,15 +521,24 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteperson` | POST | DocumentShareController::class . ':deletePersonFromShare' | remove a personID from a share note
+`/deleteperson` | POST | DocumentShareController::class . ':deletePersonFromShare' | remove a personID from a share note 
 
 * `{ref}`->`int` :: personID
-* `{ref}`->`int` :: noteId
+* `{ref}`->`array` :: rows
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setrights` | POST | DocumentShareController::class . ':setRightsForPerson' | set right access to a note
+`/deletepersonsabre` | POST | DocumentShareController::class . ':deletePersonSabreFromShare' | remove a personID from a share note 
+
+* `{ref}`->`string` :: personPrincipal
+* `{ref}`->`array` :: rows
+* `{ref}`->`int` :: currentPersonID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/setrights` | POST | DocumentShareController::class . ':setRightsForPerson' | set right access to a note 
 
 * `{ref}`->`int` :: personID
 * `{ref}`->`int` :: noteId
@@ -521,9 +547,36 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/setrightssabre` | POST | DocumentShareController::class . ':setRightsSabreForPerson' | set right access to a note (sabre)
+
+* `{ref}`->`string` :: currentPersonID : principal/admin
+* `{ref}`->`int` :: personID
+* `{ref}`->`array` :: rows (the lines)
+* `{ref}`->`int` :: rightAccess
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/cleardocument` | POST | DocumentShareController::class . ':clearDocument' | delete a note
 
 * `{ref}`->`int` :: noteId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/cleardocumentsabre` | POST | DocumentShareController::class . ':cleardocumentsabre' | cleardocument
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`int` :: noteId
+* `{ref}`->`int` :: rightAccess
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getShareInfosSabre` | POST | DocumentShareController::class . ':getShareInfosSabre' | get all shared persons for all the selected rows (sabre)
+
+* `{ref}`->`int` :: currentPersonID
+* `{ref}`->`array` :: rows
 
 ---
 ## API "deposits"
@@ -850,6 +903,13 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/checkoutValidate` | POST | PeopleAttendeesController::class . ':checkoutValidateAttendees' | validate with checkout the event to close it definitely
+
+* `{ref}`->`int` :: eventID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/addFreeAttendees` | POST | PeopleAttendeesController::class . ':addFreeAttendees' | add free attendees to the event
 
 * `{ref}`->`int` :: eventID
@@ -1027,6 +1087,15 @@ Route | Method | function | Description
 * `{id}`->`int` :: field as id
 
 ---
+Route | Method | function | Description
+------|--------|----------|------------
+`/reset/{state}` | POST | PeopleFamilyController::class . ":resetConfirmDatas" | Move down the family custom field
+
+* `{id}`->`int` :: orderID as id
+* `{id}`->`int` :: field as id
+* `{id}`->`string` :: state (pending | done)
+
+---
 ## API "groups"
 
    in route : "/api/routes/people/people-groups.php"
@@ -1097,80 +1166,131 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/` | POST | PeopleGroupController::class . ":newGroup" | create a new group
 
+* `{id}`->`int` :: isSundaySchool
+* `{id}`->`string` :: groupName
+
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/{groupID:[0-9]+}` | POST | PeopleGroupController::class . ":updateGroup" | create a new group
+
+* `{id}`->`int` :: groupID
+* `{id}`->`int` :: isSundaySchool
+* `{id}`->`int` :: groupType
+* `{id}`->`string` :: description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/{groupID:[0-9]+}` | GET | PeopleGroupController::class . ":groupInfo" | group info
 
+* `{id}`->`int` :: groupID
+
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/{groupID:[0-9]+}/cartStatus` | GET | PeopleGroupController::class . ":groupCartStatus" | get group cart status
+
+* `{id}`->`int` :: groupID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/{groupID:[0-9]+}` | DELETE | PeopleGroupController::class . ":deleteGroup" | delete a group
 
+* `{id}`->`int` :: groupID
+
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/{groupID:[0-9]+}/members` | GET | PeopleGroupController::class . ":groupMembers" | get all group members
+
+* `{id}`->`int` :: groupID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/{groupID:[0-9]+}/events` | GET | PeopleGroupController::class . ":groupEvents" | get all group members
 
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}` | DELETE | PeopleGroupController::class . ":removePersonFromGroup" | No description
+* `{id}`->`int` :: groupID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/addperson/{userID:[0-9]+}` | POST | PeopleGroupController::class . ":addPersonToGroup" | No description
+`/{groupID:[0-9]+}/removeperson/{personID:[0-9]+}` | DELETE | PeopleGroupController::class . ":removePersonFromGroup" | remove one person from the group
+
+* `{id}`->`int` :: groupID
+* `{ref}`->`int` :: personID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}` | POST | PeopleGroupController::class . ":addTeacherToGroup" | No description
+`/removeselectedpersons` | DELETE | PeopleGroupController::class . ":removeSelectedPersons" | remove all selected members of the group
+
+* `{id}`->`int` :: groupID
+* `{ref}`->`array` :: Persons id in array ref (possible value)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/userRole/{userID:[0-9]+}` | POST | PeopleGroupController::class . ":userRoleByUserId" | No description
+`/{groupID:[0-9]+}/addperson/{personID:[0-9]+}` | POST | PeopleGroupController::class . ":addPersonToGroup" | add a member of the group
+
+* `{id}`->`int` :: groupID
+* `{ref}`->`int` :: person id 
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/roles/{roleID:[0-9]+}` | POST | PeopleGroupController::class . ":rolesByRoleId" | No description
+`/{groupID:[0-9]+}/addteacher/{personID:[0-9]+}` | POST | PeopleGroupController::class . ":addTeacherToGroup" | add a add teacher of the group
+
+* `{id}`->`int` :: groupID
+* `{ref}`->`int` :: person id 
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/roles` | GET | PeopleGroupController::class . ":allRoles" | No description
+`/{groupID:[0-9]+}/userRole/{personID:[0-9]+}` | POST | PeopleGroupController::class . ":userRoleByPersonId" | set person role in the group
+
+* `{id}`->`int` :: groupID
+* `{ref}`->`int` :: person id 
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/defaultRole` | POST | PeopleGroupController::class . ":defaultRoleForGroup" | No description
+`/{groupID:[0-9]+}/roles/{roleID:[0-9]+}` | POST | PeopleGroupController::class . ":rolesByRoleId" | set role id in the group
+
+* `{id}`->`int` :: groupID
+* `{ref}`->`int` :: role id 
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/roles/{roleID:[0-9]+}` | DELETE | PeopleGroupController::class . ":deleteRole" | No description
+`/{groupID:[0-9]+}/roles` | GET | PeopleGroupController::class . ":allRoles" | get all role the group
+
+* `{id}`->`int` :: groupID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/roles` | POST | PeopleGroupController::class . ":roles" | No description
+`/{groupID:[0-9]+}/defaultRole` | POST | PeopleGroupController::class . ":defaultRoleForGroup" | get default role in the group
+
+* `{id}`->`int` :: groupID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{groupID:[0-9]+}/roles/{roleID:[0-9]+}` | DELETE | PeopleGroupController::class . ":deleteRole" | delete role id in the group
+
+* `{id}`->`int` :: groupID
+* `{ref}`->`int` :: role id 
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{groupID:[0-9]+}/roles` | POST | PeopleGroupController::class . ":roles" | add group role name
+
+* `{id}`->`int` :: groupID
+* `{ref}`->`string` :: roleName
 
 ---
 Route | Method | function | Description
@@ -1235,9 +1355,28 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/searchonlyuser/{query}` | GET | PeopleController::class . ':searchonlyuser' | Returns a list of the person who's first name or last name matches the :query parameter
+
+* `{ref}`->`string` :: query string ref
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/searchonlyuserwithedrive/{query}` | GET | PeopleController::class . ':searchonlyuserwithedrive' | Returns a list of the person who's first name or last name matches the :query parameter
+
+* `{ref}`->`string` :: query string ref
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/search/{query}` | GET | PeopleController::class . ':searchpeople' | Returns a list of the members/families/groups who's first name or last name matches the :query parameter
 
 * `{ref}`->`string` :: query string ref
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/search/{query}/{type}` | GET | PeopleController::class . ':searchpeople' | No description
 
 ---
 Route | Method | function | Description
@@ -1263,7 +1402,40 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/sundayschool/search/{query}` | GET | PeoplePersonController::class . ":searchSundaySchoolPerson" | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/cart/view` | GET | PeoplePersonController::class . ":personCartView" | Returns a list of the persons who are in the cart
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{personId:[0-9]+}/verify` | POST | PeoplePersonController::class . ":verifyPerson" | Verify the person for the personId
+
+* `{id}`->`int` :: personId as id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{personId:[0-9]+}/verifyPDF` | POST | PeoplePersonController::class . ":verifyPersonPDF" | Verify the person for the personId
+
+* `{id}`->`int` :: personId as id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/verify/{personId:[0-9]+}/now` | POST | PeoplePersonController::class . ":verifyPersonNow" | Verify the person for the personId now
+
+* `{id}`->`int` :: personId as id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/verify/url` | POST | PeoplePersonController::class . ':verifyPersonURL' | Verify the family for the familyId now
+
+* `{id}`->`int` :: family
 
 ---
 Route | Method | function | Description
@@ -1400,6 +1572,14 @@ Route | Method | function | Description
 
 * `{id}`->`int` :: personId
 * `{id}`->`int` :: noteId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/reset/{state}` | POST | PeoplePersonController::class . ":resetConfirmDatas" | Export vCard for the current user
+
+* `{id}`->`int` :: personId
+* `{id}`->`string` :: state (pending | done)
 
 ---
 ## PUBLIC API
@@ -1954,6 +2134,13 @@ Route | Method | function | Description
 * `{ref}`->`string` :: filename
 
 ---
+Route | Method | function | Description
+------|--------|----------|------------
+`/backup/result` | GET | SystemBackupRestoreController::class . ':getBackupResult' | Clear all people from the database (admin)
+
+* `{ref}`->`string` :: filename
+
+---
 ## API "gdrp"
 
    in route : "/api/routes/system/system-gdrp.php"
@@ -2054,6 +2241,11 @@ Route | Method | function | Description
 
 * `{ref}`->`string` :: name
 * `{ref}`->`string` :: path
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/testEmailConnection` | POST | SystemController::class . ':testEmailConnectionMVC' | Test if email connection is available
 
 ---
 ## API "systemupgrade"
@@ -2200,6 +2392,11 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/add` | POST | PluginsController::class . ':add' | Add a plugin (admin role), post $_FILES['pluginFile']
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/upgrade` | POST | PluginsController::class . ':upgrade' | update/upgrade a plugin (admin role), post $_FILES['pluginFile']
 
 ---
 Route | Method | function | Description
@@ -2779,10 +2976,5 @@ Route | Method | function | Description
 
 * `{ref}`->`int` :: list_id
 * `{ref}`->`int` :: fgroupID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/testConnection` | POST | MailchimpController::class . ':testEmailConnectionMVC' | Test if connection is available
 
 ---
