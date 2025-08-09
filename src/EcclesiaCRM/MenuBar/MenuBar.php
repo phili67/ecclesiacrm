@@ -14,6 +14,8 @@
 
 namespace EcclesiaCRM\MenuBar;
 
+use EcclesiaCRM\Base\GroupManagerPersonQuery;
+use EcclesiaCRM\Base\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\DepositQuery;
@@ -22,6 +24,9 @@ use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\PluginMenuBarQuery;
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Map\GroupTableMap;
+use EcclesiaCRM\Map\ListOptionTableMap;
+use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
 use EcclesiaCRM\Service\MailChimpService;
 
 use EcclesiaCRM\SessionUser;
@@ -41,7 +46,7 @@ class MenuBar extends Menu
         $this->createMenuBar();
     }
 
-    private function addPluginMenus($type, $main_menu=null, $category_position = 'after_category_menu') {
+    private function addPluginMenus($type, $main_menu=null, $category_position = 'after_category_menu', $callBack = null ) {
         $plugins = PluginQuery::create()
             ->filterByCategory($type)
             ->filterByCategoryPosition($category_position)
@@ -227,119 +232,32 @@ class MenuBar extends Menu
         $this->addPluginMenus('PEOPLE', $menu, 'after_category_menu');
     }
 
-    private function addGroups()
+    private function addHeadGroupMenus (bool $mainDashboard = true) : Menu
     {
         // the assigned Groups
         $menu = new Menu (_("Groups"), "fas fa-users", "#", true);
 
-        $menuItem = new Menu (_("List Groups"), "fas fa-tachometer-alt", "v2/group/list", SessionUser::getUser()->isAddRecordsEnabled(), $menu);
-        $menuItem->addLink("v2/system/option/manager/grptypes");
-        $menuItem->addLink("v2/system/option/manager/grptypes/3");
-        $menuItem->addLink("v2/system/option/manager/grptypes/3#");
-
-
-        $listOptions = ListOptionQuery::Create()
-            ->filterById(3) // the group category
-            ->filterByOptionType('normal')
-            ->orderByOptionSequence()
-            ->find();
-
-        foreach ($listOptions as $listOption) {
-            $groups = GroupQuery::Create()
-                ->useGroupTypeQuery()
-                ->filterByListOptionId($listOption->getOptionId())
-                ->endUse()
-                ->filterByType(3)// normal groups
-                ->filterByActive(1)
-                ->orderByName()
-                ->find();
-
-            if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
-
-                $menuItem = new Menu ($listOption->getOptionName(), "far fa-user", "#", true, $menu);
-
-                foreach ($groups as $group) {
-                    $str = $group->getName();
-                    if (mb_strlen($str) > $this->_maxStr) {
-                        $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
-                    }
-
-                    $menuItemItem = new Menu ($str, "far fa-circle", "v2/group/" . $group->getID() . "/view", true, $menuItem);
-                    $menuItemItem->addLink("v2/group/editor/" . $group->getID());
-                    $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
-                    $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/normal");
-                    $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/0/normal");
-
-                    if (SessionUser::getUser()->isShowMapEnabled()) {
-                        $menuItemItem->addLink("v2/map/" . $group->getID());
-                    }
-                }
-            }
+        if ($mainDashboard) {
+            $menuItem = new Menu (_("List Groups"), "fas fa-tachometer-alt", "v2/group/list", SessionUser::getUser()->isAddRecordsEnabled(), $menu);
+            $menuItem->addLink("v2/system/option/manager/grptypes");
+            $menuItem->addLink("v2/system/option/manager/grptypes/3");
+            $menuItem->addLink("v2/system/option/manager/grptypes/3#");
+        } else {
+            $menu->addLink("v2/system/option/manager/grptypes");
+            $menu->addLink("v2/system/option/manager/grptypes/3");
+            $menu->addLink("v2/system/option/manager/grptypes/3#");
         }
 
-        // now we're searching the unclassified groups
-        if (SessionUser::getUser()->isManageGroupsEnabled()) {
-            $groups = GroupQuery::Create()
-                ->useGroupTypeQuery()
-                    ->filterByListOptionId(0)
-                ->endUse()
-                ->filterByType(3) // normal groups
-                ->filterByActive(1)
-                ->orderByName()
-                ->find();
-
-            if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
-                $menuItem = new Menu (_("Unassigned"), "far fa-user", "#", true, $menu);
-
-                foreach ($groups as $group) {
-                    $menuItemItem = new Menu ($group->getName(), "fas fa-angle-double-right", "v2/group/" . $group->getID() . "/view", true, $menuItem);
-                    $menuItemItem->addLink("v2/group/editor/" . $group->getID());
-                    $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
-                }
-            }
-        }
-
-        // now we're searching the unactive groups
-        if (SessionUser::getUser()->isManageGroupsEnabled()) {
-            $groups = GroupQuery::Create()
-                ->filterByType(3) // normal groups
-                ->filterByActive(0)
-                ->orderByName()
-                ->find();
-
-            if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
-                $menuItem = new Menu (_("Disabled"), "far fa-user", "#", true, $menu);
-
-                foreach ($groups as $group) {
-                    $menuItemItem = new Menu ($group->getName(), "fas fa-angle-double-right", "v2/group/" . $group->getID() . "/view", true, $menuItem);
-                    $menuItemItem->addLink("v2/group/editor/" . $group->getID());
-                    $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
-                }
-            }
-    
-            $menuItem = new Menu (_("Group Assignment Helper"), "far fa-circle", "v2/people/list/groupassign", true, $menu);
-        }
-
-        $this->addPluginMenus('GROUP', $menu, 'inside_category_menu');
-        $this->addMenu($menu);       
-        $this->addPluginMenus('GROUP', $menu, 'after_category_menu');         
+        return $menu;
     }
-
-    private function addSundaySchoolGroups()
-    {
-        $menu = new Menu (_("Sunday School"), "fas fa-child", "#", true);
-
-        if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
-            $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/sundayschool/dashboard", true, $menu);
-            $menuItem->addLink("v2/sundayschool/reports");
-            $menuItem->addLink("v2/system/option/manager/grptypesSundSchool");
-            $menuItem->addLink("v2/system/option/manager/grptypesSundSchool/3");
-            $menuItem->addLink("v2/system/option/manager/grptypesSundSchool/3#");
-
+    private function addGroups()
+    {        
+        if ( SessionUser::getUser()->isSeePrivacyData() or SessionUser::getUser()->isManageGroups() ) {
+            $menu = $this->addHeadGroupMenus();
 
             $listOptions = ListOptionQuery::Create()
                 ->filterById(3) // the group category
-                ->filterByOptionType('sunday_school')
+                ->filterByOptionType('normal')
                 ->orderByOptionSequence()
                 ->find();
 
@@ -348,13 +266,14 @@ class MenuBar extends Menu
                     ->useGroupTypeQuery()
                     ->filterByListOptionId($listOption->getOptionId())
                     ->endUse()
-                    ->filterByType(4)// sunday groups
+                    ->filterByType(3)// normal groups
+                    ->filterByActive(1)
                     ->orderByName()
                     ->find();
 
                 if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
 
-                    $menuItem = new Menu ($listOption->getOptionName(), "fas fa-user", "#", true, $menu);
+                    $menuItem = new Menu ($listOption->getOptionName(), "far fa-user", "#", true, $menu);
 
                     foreach ($groups as $group) {
                         $str = $group->getName();
@@ -362,11 +281,11 @@ class MenuBar extends Menu
                             $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
                         }
 
-                        $menuItemItem = new Menu ($str, "far fa-circle", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
+                        $menuItemItem = new Menu ($str, "far fa-circle", "v2/group/" . $group->getID() . "/view", true, $menuItem);
                         $menuItemItem->addLink("v2/group/editor/" . $group->getID());
                         $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
-                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/sundayschool");
-                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/0/sundayschool");
+                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/normal");
+                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/0/normal");
 
                         if (SessionUser::getUser()->isShowMapEnabled()) {
                             $menuItemItem->addLink("v2/map/" . $group->getID());
@@ -376,51 +295,450 @@ class MenuBar extends Menu
             }
 
             // now we're searching the unclassified groups
-            $groups = GroupQuery::Create()
-                ->useGroupTypeQuery()
-                ->filterByListOptionId(0)
-                ->endUse()
-                ->filterByType(4) // sunday group groups
-                ->orderByName()
-                ->find();
+            if (SessionUser::getUser()->isManageGroupsEnabled()) {
+                $groups = GroupQuery::Create()
+                    ->useGroupTypeQuery()
+                        ->filterByListOptionId(0)
+                    ->endUse()
+                    ->filterByType(3) // normal groups
+                    ->filterByActive(1)
+                    ->orderByName()
+                    ->find();
 
-            if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
-                $menuItem = new Menu (_("Unassigned"), "far fa-user", "#", true, $menu);
+                if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+                    $menuItem = new Menu (_("Unassigned"), "far fa-user", "#", true, $menu);
 
-                foreach ($groups as $group) {
-                    $str = _($group->getName());
-                    if (mb_strlen($str) > $this->_maxStr) {
-                        $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
+                    foreach ($groups as $group) {
+                        $menuItemItem = new Menu ($group->getName(), "fas fa-angle-double-right", "v2/group/" . $group->getID() . "/view", true, $menuItem);
+                        $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                        $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
                     }
-
-                    $menuItemItem = new Menu ($str, "fas fa-angle-double-right", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
-                    $menuItemItem->addLink("v2/group/editor/" . $group->getID());
-                    $menuItemItem->addLink("v2/group/" . $group->getID() . "/view");
                 }
             }
 
-            $this->addPluginMenus('SundaySchool', $menu, 'inside_category_menu');
+            // now we're searching the unactive groups
+            if (SessionUser::getUser()->isManageGroupsEnabled()) {
+                $groups = GroupQuery::Create()
+                    ->filterByType(3) // normal groups
+                    ->filterByActive(0)
+                    ->orderByName()
+                    ->find();
+
+                if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+                    $menuItem = new Menu (_("Disabled"), "far fa-user", "#", true, $menu);
+
+                    foreach ($groups as $group) {
+                        $menuItemItem = new Menu ($group->getName(), "fas fa-angle-double-right", "v2/group/" . $group->getID() . "/view", true, $menuItem);
+                        $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                        $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
+                    }
+                }
+        
+                $menuItem = new Menu (_("Group Assignment Helper"), "far fa-circle", "v2/people/list/groupassign", true, $menu);
+            }
+        } else {
+            // groupe managers
+            $persons = GroupManagerPersonQuery::create()
+                        ->usePersonQuery()
+                        ->filterById(SessionUser::getUser()->getPersonId())
+                        ->endUse()
+                        ->find();
+
+            $groupIds = [];
+            foreach ($persons as $person) {
+                $groupIds[] = $person->getGroupId();
+            }
+
+            $groups = GroupQuery::Create()
+                ->filterById($groupIds)
+                ->filterByType(3) // normal groups
+                ->orderByName()
+                ->find();
+
+            $listOptions = ListOptionQuery::Create()
+                ->filterById(3) // the group category
+                ->filterByOptionType('normal')
+                ->orderByOptionSequence()
+                ->find();
+
+            $menu = null;       
+            
+            $first_Time = true;
+
+            foreach ($listOptions as $listOption) {
+                $groups = GroupQuery::Create()
+                    ->useGroupTypeQuery()
+                        ->filterByListOptionId($listOption->getOptionId())
+                    ->endUse()
+                    ->filterById($groupIds)
+                    ->filterByType(3)// normal groups
+                    ->filterByActive(1)
+                    ->orderByName()
+                    ->find();
+
+                if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+                    if ( $first_Time ) {
+                        $menu = $this->addHeadGroupMenus();
+                        $subMenu = new Menu (_("Group manager"), "fas fa-folder", "#", true, $menu);  
+                        $first_Time = false;
+                    }
+            
+
+                    $menuItem = new Menu ($listOption->getOptionName(), "far fa-user", "#", true, $subMenu);
+
+                    foreach ($groups as $group) {
+                        $str = $group->getName();
+                        if (mb_strlen($str) > $this->_maxStr) {
+                            $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
+                        }
+
+                        $menuItemItem = new Menu ($str, "far fa-circle", "v2/group/" . $group->getID() . "/view", true, $menuItem);
+                        $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                        $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
+                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/normal");
+                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/0/normal");
+
+                        if (SessionUser::getUser()->isShowMapEnabled()) {
+                            $menuItemItem->addLink("v2/map/" . $group->getID());
+                        }
+                    }
+                }
+            }
+            
+
+            // belonger               
+            $assignedGroups = Person2group2roleP2g2rQuery::Create()
+                ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
+                ->addMultipleJoin(
+                    array(
+                        array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID, ListOptionTableMap::COL_LST_OPTIONID),
+                        array(GroupTableMap::COL_GRP_ROLELISTID, ListOptionTableMap::COL_LST_ID)),
+                    Criteria::LEFT_JOIN)
+                ->add(ListOptionTableMap::COL_LST_OPTIONNAME, null, Criteria::ISNOTNULL)
+                ->Where(Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID . ' = ' . SessionUser::getUser()->getPersonId() . ' ORDER BY grp_Name')
+                ->addAsColumn('roleName', ListOptionTableMap::COL_LST_OPTIONNAME)
+                ->addAsColumn('groupName', GroupTableMap::COL_GRP_NAME)                
+                ->addAsColumn('groupId', GroupTableMap::COL_GRP_NAME)
+                ->addAsColumn('hasSpecialProps', GroupTableMap::COL_GRP_HASSPECIALPROPS)
+                ->find();
+
+            $groupIds = [];
+            foreach ($assignedGroups as $group) {
+                $groupIds[] = $group->getGroupId();
+            }
+
+            $first_Time = true;
+            
+            foreach ($listOptions as $listOption) {
+                $groups = GroupQuery::Create()
+                    ->useGroupTypeQuery()
+                        ->filterByListOptionId($listOption->getOptionId())
+                    ->endUse()
+                    ->filterById($groupIds)
+                    ->filterByType(3)// normal groups
+                    ->filterByActive(1)
+                    ->orderByName()
+                    ->find();
+
+                if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+                    if ($first_Time) {
+                        if ( is_null($menu) ) {
+                            $menu = $this->addHeadGroupMenus();
+                        }
+                        $subMenu = new Menu (_("Personal groups"), "fas fa-folder", "#", true, $menu);   
+                        $first_Time = false;
+                    }
+
+                    $menuItem = new Menu ($listOption->getOptionName(), "far fa-user", "#", true, $subMenu);
+
+                    foreach ($groups as $group) {
+                        $str = $group->getName();
+                        if (mb_strlen($str) > $this->_maxStr) {
+                            $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
+                        }
+
+                        $menuItemItem = new Menu ($str, "far fa-circle", "v2/group/" . $group->getID() . "/view", true, $menuItem);
+                        $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                        $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
+                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/normal");
+                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/0/normal");
+
+                        if (SessionUser::getUser()->isShowMapEnabled()) {
+                            $menuItemItem->addLink("v2/map/" . $group->getID());
+                        }
+                    }
+                }
+            }
+        }
+
+        $no_menu = false;
+        if ( is_null($menu) ) {
+            $no_menu = true;
+            $menu = $this->addHeadGroupMenus();
+        }
+        $ret1 = $this->addPluginMenus('GROUP', $menu, 'inside_category_menu');
+        $this->addMenu($menu);       
+        $ret2 = $this->addPluginMenus('GROUP', $menu, 'after_category_menu');    
+        if ($no_menu == true and $ret1 == false and $ret2 == false) {
+            // we have to purge the menu
+            //$this->removeMenu($menu);
+            $this->deleteLastMenu();
+        }        
+    }
+
+    private function addSundayGroupHeadMenus(bool $mainDashboard = true): Menu
+    {
+        $menu = new Menu (_("Sunday School"), "fas fa-child", "#", true);
+
+        if ($mainDashboard) {
+            $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/sundayschool/dashboard", true, $menu);
+            $menuItem->addLink("v2/sundayschool/reports");
+            $menuItem->addLink("v2/system/option/manager/grptypesSundSchool");
+            $menuItem->addLink("v2/system/option/manager/grptypesSundSchool/3");
+            $menuItem->addLink("v2/system/option/manager/grptypesSundSchool/3#");            
+        } else {
+            $menu->addLink("v2/system/option/manager/grptypesSundSchool");
+            $menu->addLink("v2/system/option/manager/grptypesSundSchool/3");
+            $menu->addLink("v2/system/option/manager/grptypesSundSchool/3#");
+        }        
+
+        return $menu;
+    }
+
+    private function addSundaySchoolGroups()
+    {
+        if ( SystemConfig::getBooleanValue("bEnabledSundaySchool")  ) {
+            if ( SessionUser::getUser()->isSeePrivacyData() or SessionUser::getUser()->isManageGroups() ) {
+                $menu = $this->addSundayGroupHeadMenus();
+
+                $listOptions = ListOptionQuery::Create()
+                    ->filterById(3) // the group category
+                    ->filterByOptionType('sunday_school')
+                    ->orderByOptionSequence()
+                    ->find();
+
+                foreach ($listOptions as $listOption) {
+                    $groups = GroupQuery::Create()
+                        ->useGroupTypeQuery()
+                        ->filterByListOptionId($listOption->getOptionId())
+                        ->endUse()
+                        ->filterByType(4)// sunday groups
+                        ->orderByName()
+                        ->find();
+
+                    if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+
+                        $menuItem = new Menu ($listOption->getOptionName(), "fas fa-user", "#", true, $menu);
+
+                        foreach ($groups as $group) {
+                            $str = $group->getName();
+                            if (mb_strlen($str) > $this->_maxStr) {
+                                $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
+                            }
+
+                            $menuItemItem = new Menu ($str, "far fa-circle", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
+                            $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                            $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
+                            $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/sundayschool");
+                            $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/0/sundayschool");
+
+                            if (SessionUser::getUser()->isShowMapEnabled()) {
+                                $menuItemItem->addLink("v2/map/" . $group->getID());
+                            }
+                        }
+                    }
+                }
+
+                // now we're searching the unclassified groups
+                $groups = GroupQuery::Create()
+                    ->useGroupTypeQuery()
+                    ->filterByListOptionId(0)
+                    ->endUse()
+                    ->filterByType(4) // sunday group groups
+                    ->orderByName()
+                    ->find();
+
+                if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+                    $menuItem = new Menu (_("Unassigned"), "far fa-user", "#", true, $menu);
+
+                    foreach ($groups as $group) {
+                        $str = _($group->getName());
+                        if (mb_strlen($str) > $this->_maxStr) {
+                            $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
+                        }
+
+                        $menuItemItem = new Menu ($str, "fas fa-angle-double-right", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
+                        $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                        $menuItemItem->addLink("v2/group/" . $group->getID() . "/view");
+                    }
+                }                
+            } else {
+                // groupe managers
+                $persons = GroupManagerPersonQuery::create()
+                            ->usePersonQuery()
+                                ->filterById(SessionUser::getUser()->getPersonId())
+                            ->endUse()
+                            ->find();
+
+                $groupIds = [];
+                foreach ($persons as $person) {
+                    $groupIds[] = $person->getGroupId();
+                }
+
+                $groups = GroupQuery::Create()
+                    ->filterById($groupIds)
+                    ->orderByName()
+                    ->find();
+
+                $listOptions = ListOptionQuery::Create()
+                    ->filterById(3) // the group category
+                    ->filterByOptionType('sunday_school')
+                    ->orderByOptionSequence()
+                    ->find();
+
+                $menu = null;       
+                
+                $first_Time = true;
+
+                foreach ($listOptions as $listOption) {
+                    $groups = GroupQuery::Create()
+                        ->useGroupTypeQuery()
+                            ->filterByListOptionId($listOption->getOptionId())
+                        ->endUse()
+                        ->filterById($groupIds)
+                        ->filterByType(4)// sunday group
+                        ->filterByActive(1)
+                        ->orderByName()
+                        ->find();
+
+                    if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+                        if ( $first_Time ) {
+                            $menu = $this->addSundayGroupHeadMenus(false);
+                            $subMenu = new Menu (_("Group manager"), "fas fa-folder", "#", true, $menu);  
+                            $first_Time = false;
+                        }
+                
+
+                        $menuItem = new Menu ($listOption->getOptionName(), "far fa-user", "#", true, $subMenu);
+
+                        foreach ($groups as $group) {
+                            $str = $group->getName();
+                            if (mb_strlen($str) > $this->_maxStr) {
+                                $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
+                            }
+
+                            $menuItemItem = new Menu ($str, "fas fa-angle-double-right", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
+                            $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                            $menuItemItem->addLink("v2/group/" . $group->getID() . "/view");
+
+                            if (SessionUser::getUser()->isShowMapEnabled()) {
+                                $menuItemItem->addLink("v2/map/" . $group->getID());
+                            }
+                        }
+                    }
+                }
+                
+
+                // belonger               
+                $assignedGroups = Person2group2roleP2g2rQuery::Create()
+                    ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
+                    ->addMultipleJoin(
+                        array(
+                            array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID, ListOptionTableMap::COL_LST_OPTIONID),
+                            array(GroupTableMap::COL_GRP_ROLELISTID, ListOptionTableMap::COL_LST_ID)),
+                        Criteria::LEFT_JOIN)
+                    ->add(ListOptionTableMap::COL_LST_OPTIONNAME, null, Criteria::ISNOTNULL)
+                    ->Where(Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID . ' = ' . SessionUser::getUser()->getPersonId() . ' ORDER BY grp_Name')
+                    ->addAsColumn('roleName', ListOptionTableMap::COL_LST_OPTIONNAME)
+                    ->addAsColumn('groupName', GroupTableMap::COL_GRP_NAME)                
+                    ->addAsColumn('groupId', GroupTableMap::COL_GRP_NAME)
+                    ->addAsColumn('hasSpecialProps', GroupTableMap::COL_GRP_HASSPECIALPROPS)
+                    ->find();
+
+                $groupIds = [];
+                foreach ($assignedGroups as $group) {
+                    $groupIds[] = $group->getGroupId();
+                }
+
+                $first_Time = true;
+                
+                foreach ($listOptions as $listOption) {
+                    $groups = GroupQuery::Create()
+                        ->useGroupTypeQuery()
+                            ->filterByListOptionId($listOption->getOptionId())
+                        ->endUse()
+                        ->filterById($groupIds)
+                        ->filterByType(4)// // sunday group
+                        ->filterByActive(1)
+                        ->orderByName()
+                        ->find();
+
+                    if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
+                        if ($first_Time) {
+                            if ( is_null($menu) ) {
+                                $menu = $this->addSundayGroupHeadMenus(false);
+                            }
+                            $subMenu = new Menu (_("Personal groups"), "fas fa-folder", "#", true, $menu);   
+                            $first_Time = false;
+                        }
+
+                        $menuItem = new Menu ($listOption->getOptionName(), "far fa-user", "#", true, $subMenu);
+
+                        foreach ($groups as $group) {
+                            $str = $group->getName();
+                            if (mb_strlen($str) > $this->_maxStr) {
+                                $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
+                            }
+
+                            $menuItemItem = new Menu ($str, "fas fa-angle-double-right", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
+                            $menuItemItem->addLink("v2/group/editor/" . $group->getID());
+                            $menuItemItem->addLink("v2/group/" . $group->getID() . "/view");
+
+                            if (SessionUser::getUser()->isShowMapEnabled()) {
+                                $menuItemItem->addLink("v2/map/" . $group->getID());
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            $no_menu = false;
+            if ( is_null($menu) ) {
+                $no_menu = true;
+                $menu = $this->addHeadGroupMenus();
+            }
+            
+            $ret1 = $this->addPluginMenus('SundaySchool', $menu, 'inside_category_menu');
             $this->addMenu($menu);       
-            $this->addPluginMenus('SundaySchool', $menu, 'after_category_menu');  
+            $ret2 = $this->addPluginMenus('SundaySchool', $menu, 'after_category_menu');  
+
+            if ($no_menu == true and $ret1 == false and $ret2 == false) {
+                // we have to purge the menu
+                //$this->removeMenu($menu);
+                $this->deleteLastMenu();
+            }   
         }                           
     }
 
     private function addGlobalMenuLinks()
     {
-        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(null);
+        if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
+            $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(null);
 
-        if ($menuLinks->count()) {
-            $menu = new Menu (_("Global Custom Menus"), "fas fa-link", "", true, null, "global_custom_menu");
-            $menu->addLink("v2/menulinklist");
+            if ($menuLinks->count()) {
+                $menu = new Menu (_("Global Custom Menus"), "fas fa-link", "", true, null, "global_custom_menu");
+                $menu->addLink("v2/menulinklist");
 
-            foreach ($menuLinks as $menuLink) {
-                $menuItem = new Menu ($menuLink->getName(), "far fa-circle", $menuLink->getUri(), true, $menu);
+                foreach ($menuLinks as $menuLink) {
+                    $menuItem = new Menu ($menuLink->getName(), "far fa-circle", $menuLink->getUri(), true, $menu);
+                }
+            } else {
+                $menu = new Menu (_("Global Custom Menus"), "fas fa-link", "v2/menulinklist", true, null, "global_custom_menu");
             }
-        } else {
-            $menu = new Menu (_("Global Custom Menus"), "fas fa-link", "v2/menulinklist", true, null, "global_custom_menu");
-        }
 
-        $this->addMenu($menu);
+            $this->addMenu($menu);
+        }   
     }
 
     private function addPersonMenuLinks($mainmenu)
@@ -437,15 +755,12 @@ class MenuBar extends Menu
 
     private function addPastoralCare()
     {
-        if ( SystemConfig::getBooleanValue("bEnabledPastoralCare") ) {       
-            $menu = new Menu (_("Pastoral Care"), "fas fa-heartbeat", "#", true, null, "pastoralcare_menu");
-
-            if (SessionUser::getUser()->isPastoralCareEnabled()) {
-                $menuItem1 = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/pastoralcare/dashboard", true, $menu);
-                $menuItem1 = new Menu (_("By Classifications"), "fas fa-sort-amount-up-alt", "v2/pastoralcare/membersList", true, $menu);
-
-                $this->addMenu($menu);
-            }
+        if ( SystemConfig::getBooleanValue("bEnabledPastoralCare") and SessionUser::getUser()->isPastoralCareEnabled() ) {    
+            
+            $menu = new Menu (_("Pastoral Care"), "fas fa-heartbeat", "#", true);
+            
+            $menuItem1 = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/pastoralcare/dashboard", true, $menu);
+            $menuItem1 = new Menu (_("By Classifications"), "fas fa-sort-amount-up-alt", "v2/pastoralcare/membersList", true, $menu);
 
             $this->addPluginMenus('PastoralCare', $menu, 'inside_category_menu');
             $this->addMenu($menu);       
@@ -460,7 +775,7 @@ class MenuBar extends Menu
 
     private function addMailMenu()
     {
-        if ( SystemConfig::getBooleanValue("bEnabledFinance") ) {        
+        if ( SystemConfig::getBooleanValue("bEnabledEmail") and SessionUser::getUser()->isEmailEnabled() ) {        
             // the Email
             $menu = new Menu (_("Email"), "fas fa-envelope", "#", true);
 
@@ -541,7 +856,7 @@ class MenuBar extends Menu
 
     private function addEdrive()
     {
-        if (SessionUser::getUser()->isEDriveEnabled()) {
+        if (SystemConfig::getBooleanValue("bEnabledEdrive") and SessionUser::getUser()->isEDriveEnabled()) {
             $menu = new Menu (_("EDrive"), "fa fa-cloud", "#", SessionUser::getUser()->isFinanceEnabled());
 
             $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/edrive/dashboard", true, $menu);
@@ -554,9 +869,8 @@ class MenuBar extends Menu
 
     private function addFundraiserMenu()
     {
-        $menu = new Menu (_("Fundraiser"), "fas fa-money-check-alt", "#", SessionUser::getUser()->isFinanceEnabled());
-
         if (SystemConfig::getBooleanValue("bEnabledFundraiser") and SessionUser::getUser()->isFinanceEnabled()) {
+            $menu = new Menu (_("Fundraiser"), "fas fa-money-check-alt", "#", SessionUser::getUser()->isFinanceEnabled());
 
             $menuItem = new Menu (_("Create New Fundraiser"), "fas fa-box", "v2/fundraiser/editor", SessionUser::getUser()->isFinanceEnabled(), $menu);
             $menuItem = new Menu (_("View All Fundraisers"), "fas fa-eye", "v2/fundraiser/find", SessionUser::getUser()->isFinanceEnabled(), $menu);

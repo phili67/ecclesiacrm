@@ -15,6 +15,7 @@
 namespace EcclesiaCRM\MenuBar;
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\MiscUtils;
 
 class Menu {
     private $_title;                // "event"
@@ -28,6 +29,7 @@ class Menu {
     private $_menus  = [];
     private $_subMenus = [];        // all the subMenus
     private $_class = null;
+    private $_uuid = 0;
     private $_maxStr = 27;// maximum numbers of char in the menu items
 
 
@@ -44,6 +46,7 @@ class Menu {
       $this->addLink($uri);
       $this->_sec_grp = $sec_grp;
       $this->_class   = $class;
+      $this->_uuid = MiscUtils::gen_uuid();
 
       // We have to add the new menu to the parent menu
       if ($parent != null && $sec_grp) {// we add all only if sec_grp is set to true
@@ -54,6 +57,45 @@ class Menu {
     public function addMenu ($menu)
     {
         array_push($this->_menus, $menu);
+    }
+
+    private function removeSubMenu (Menu $menu)
+    {
+        if (count($menu->_subMenus) == 0) {// we are at the end
+          array_splice($menu->_badges, 0, count($menu->_badges));
+          array_splice($menu->_links, 0, count($menu->_links)); 
+          $menu->_class = null;
+          $menu->_parent = null;
+          $menu->_uri = '';
+          $menu->_title   = '';
+          $menu->_icon    = null;
+          $menu->_sec_grp = null;        
+          $menu->_uuid = -1;
+        } else {
+          foreach ($menu->_subMenus as $m) {
+            $this->removeSubMenu ($m);
+          }
+        }
+    }
+
+    public function removeMenu (Menu $menu_to_delete) 
+    {
+        $place = 0;
+        foreach ($this->_menus as $menu) {
+          if ($menu->_uuid == $menu_to_delete->_uuid) {
+            $this->removeSubMenu($menu);                          
+            array_splice($this->_menus, $place, $place);
+            break;
+          }
+          $place ++;
+        }
+    }
+
+    public function deleteLastMenu () 
+    {       
+      $place = count($this->_menus) - 1;
+      $this->removeSubMenu($this->_menus[$place]);
+      array_splice($this->_menus, $place, $place);
     }
 
     public function addSubMenu($menu)
