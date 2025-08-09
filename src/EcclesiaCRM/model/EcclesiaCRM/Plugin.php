@@ -80,6 +80,10 @@ class Plugin extends BasePlugin
         if ( $this->getSecurities() & SecurityOptions::bSundaySchool ) {
             $res .= " bSundaySchool";
         }
+        if ( $this->getSecurities() & SecurityOptions::bDonationFund ) {
+            $res .= " bDonationFund";
+        }
+        
         if ( $this->getSecurities() & SecurityOptions::bDashBoardUser ) {
             $res .= " bDashboardUser";
         }
