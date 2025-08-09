@@ -60,11 +60,13 @@ if (SessionUser::getUser()->isAddRecords()) {
         }
         ?>
         <!-- <a class="btn btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fas fa-pencil-alt"></i> Compose Message</a>  This doesn't really work right now...-->
-        <a class="btn btn-app bg-yellow" href="<?= $sRootPath ?>/v2/group/<?= $iGroupId ?>/view"><i
-                class="fas fa-info-circle"></i><?= _('Show More Props') ?> </a>
         <?php
-        if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabledForId($iGroupId)) {
-            ?>
+        if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)
+            or SessionUser::getUser()->isGroupManagerEnabledForId($iGroupId)
+            or SessionUser::getUser()->isManageGroups()) {
+                    ?>
+            <a class="btn btn-app bg-yellow" href="<?= $sRootPath ?>/v2/group/<?= $iGroupId ?>/view"><i
+                class="fas fa-info-circle"></i><?= _('Show More Props') ?> </a>                
             <a class="btn btn-app" href="<?= $sRootPath ?>/v2/group/editor/<?= $iGroupId ?>"><i
                     class="fas fa-pencil-alt"></i><?= _("Edit this Class") ?></a>
             <button class="btn btn-app bg-maroon" id="deleteClassButton"><i
@@ -73,8 +75,8 @@ if (SessionUser::getUser()->isAddRecords()) {
         }
         ?>
         <?php
-        if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
-            || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) {
+        if (SessionUser::getUser()->isDeleteRecordsEnabled() or SessionUser::getUser()->isAddRecordsEnabled()
+            or SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) or SessionUser::getUser()->isMenuOptionsEnabled()) {
             ?>
             <a class="btn btn-app bg-orange callRegister disabled" id="callRegister"
                data-callregistergroupid="<?= $iGroupId ?>" data-callregistergroupname="<?= $iGroupName ?>"
@@ -85,7 +87,7 @@ if (SessionUser::getUser()->isAddRecords()) {
         }
         ?>
         <?php
-        if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled()) {
+        if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) or SessionUser::getUser()->isExportSundaySchoolPDFEnabled() or SessionUser::getUser()->isCSVExportEnabled()) {
             ?>
             <div class="btn-group show">
                     <a class="btn btn-app exportCheckOutPDF" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Export") ?>"><i class="fas fa-file-pdf fas-red"></i> <?= _("Export") ?></a>
@@ -94,11 +96,11 @@ if (SessionUser::getUser()->isAddRecords()) {
                     <span class="sr-only">Menu déroulant</span>
                 </button>
                 <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(193px, 60px, 0px);">
-                    <?php  if ( SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isCSVExportEnabled() ) {
+                    <?php  if ( SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) or SessionUser::getUser()->isCSVExportEnabled() ) {
                     ?>
                         <a class="dropdown-item exportCheckOutCSV" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Export Attendance") ?>"><i class="fas fa-file-excel fas-green"></i> <?= _("Export Attendance") ?></a>
                     <?php } ?>
-                    <?php  if ( SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isCSVExportEnabled() ) { ?>
+                    <?php  if ( SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) or SessionUser::getUser()->isCSVExportEnabled() ) { ?>
                         <a class="dropdown-item exportCheckOutPDF" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Export Attendance") ?>"><i class="fas fa-file-pdf fas-red"></i> <?= _("Export Attendance") ?></a>
                         <a class="dropdown-item studentbadge" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("Student Badges") ?>"><i class="fas fa-id-badge fas-purple"></i> <?= _("Student Badges") ?></a>
                         <a class="dropdown-item PhotoBook" data-groupid="<?= $iGroupId ?>" data-typedesc="<?= _("PhotoBook") ?>"><i class="fas fa-file-pdf fas-red"></i>  <?= _("PhotoBook") ?></a>
@@ -110,7 +112,7 @@ if (SessionUser::getUser()->isAddRecords()) {
         }
         ?>
         <?php
-        if (Cart::StudentInCart($iGroupId) && SessionUser::getUser()->isShowCartEnabled()) {
+        if (Cart::StudentInCart($iGroupId) and SessionUser::getUser()->isShowCartEnabled()) {
             ?>
             <a class="btn btn-app RemoveStudentsFromGroupCart" id="AddStudentsToGroupCart"
                data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fas fa-times"></i> <span
@@ -125,7 +127,7 @@ if (SessionUser::getUser()->isAddRecords()) {
         }
         ?>
         <?php
-        if (Cart::TeacherInCart($iGroupId) && SessionUser::getUser()->isShowCartEnabled()) {
+        if (Cart::TeacherInCart($iGroupId) and SessionUser::getUser()->isShowCartEnabled()) {
             ?>
             <a class="btn btn-app RemoveFromTeacherGroupCart" id="AddToTeacherGroupCart"
                data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fas fa-times"></i> <span
@@ -171,7 +173,7 @@ if (SessionUser::getUser()->isAddRecords()) {
         <div class="card-footer">
             <div class="row">
                 <div class="col-md-12">
-                    <label><?php echo _("Add Teachers to the Team"); ?>:</label>
+                    <label><?= _("Add Teachers to the Team"); ?>:</label>
                 </div>
             </div>
             <div class="row">
@@ -249,7 +251,9 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
     <div class="card-header border-1">
         <h4 class="card-title"><?= _('Students') ?></h4>
         <div style="float:right;margin-left: 20px">
-        <?php if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabledForId($iGroupId)) { ?>
+        <?php if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)
+                or SessionUser::getUser()->isGroupManagerEnabledForId($iGroupId)
+                or SessionUser::getUser()->isManageGroups()) { ?>
             <button class="btn btn-danger" id="remove_all_members"><i class="fas fa-trash-alt"></i> <?= _("Remove members") ?></button>
         <?php } ?>
         </div>
@@ -283,10 +287,13 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
 
 
 <?php
-if (SessionUser::getUser()->isAddRecords()) {
+if (SessionUser::getUser()->isAddRecords() 
+    or SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)
+    or SessionUser::getUser()->isGroupManagerEnabledForId($iGroupId)
+    or SessionUser::getUser()->isManageGroups() ) {
     ?>
         <div class="card-footer">
-            <label><?php echo _("Add Members to Sunday Group"); ?>:</label>
+            <label><?= _("Add Members to Sunday Group"); ?>:</label>
             <div class="row">
                 <div class="col-md-1">
                     <?= _("Add") ?>
@@ -318,7 +325,7 @@ if (SessionUser::getUser()->isAddRecords()) {
     var genderColumnText = '<?= _("Gender") ?>';
     var sundayGroupId = <?= $iGroupId ?>;
     var iFYID = <?= MiscUtils::CurrentFY() ?>;
-    var canSeePrivacyData = <?= (SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) ? 1 : 0 ?>;
+    var canSeePrivacyData = <?= (SessionUser::getUser()->isSeePrivacyDataEnabled() or SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) ? 1 : 0 ?>;
     var canDeleteMembers = <?= SessionUser::getUser()->isDeleteRecordsEnabled() ? 1 : 0 ?>;
     var sundayGroupName = "<?= $iGroupName ?>";
 

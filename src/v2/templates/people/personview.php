@@ -80,7 +80,9 @@ require $sRootDocument . '/Include/Header.php';
                         </h3>
 
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isEditRecordsEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
+                            or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() 
+                            or SessionUser::getUser()->isEditRecordsEnabled()) {
                             ?>
                             <p class="text-muted text-center">
                                 <?= empty($PersonInfos['person']->getFamilyRoleName()) ? _('Undefined') : _($PersonInfos['person']->getFamilyRoleName()); ?>
@@ -93,7 +95,12 @@ require $sRootDocument . '/Include/Header.php';
                             </p>
                             <?php
                         }
-                        if ($PersonInfos['person']->getMembershipDate()) {
+                        if ($PersonInfos['person']->getMembershipDate() 
+                            and (
+                                SessionUser::getUser()->isSeePrivacyDataEnabled()
+                                or $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
+                                or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()
+                            )) {
                             ?>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
@@ -120,31 +127,37 @@ require $sRootDocument . '/Include/Header.php';
                         }
                         ?>
                         <h5><?= _("Groups") ?></h5>
-                        <ul class="list-group list-group-unbordered mb-3">
-                            <?php
-                            foreach ($ormAssignedGroups
+                        <?php if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled() ) { ?>
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <?php
+                                foreach ($ormAssignedGroups
 
-                            as $groupAssigment) {
-                            ?>
-                            <li class="list-group-item">
-                                <b>
-                                    <i class="fas fa-users"></i> <a href="<?= $sRootPath ?>/v2/group/<?= $groupAssigment->getGroupId()?>/view"><?= $groupAssigment->getGroupName() ?>
-                                </b>
+                                as $groupAssigment) {
+                                ?>
+                                <li class="list-group-item">
+                                    <b>
+                                        <i class="fas fa-users"></i> <a href="<?= $sRootPath ?>/v2/group/<?= $groupAssigment->getGroupId()?>/view"><?= $groupAssigment->getGroupName() ?>
+                                    </b>
 
-                                <div class="float-right">
-                                    <?= _($groupAssigment->getRoleName()) ?>
+                                    <div class="float-right">
+                                        <?= _($groupAssigment->getRoleName()) ?>
 
-                                    <a class="changeRole btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
-                                           data-groupid="<?= $groupAssigment->getGroupId() ?>">
-                                            <i class="fas fa-edit"></i>
-                                    </a>
-                                </div>
-                            </li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
+                                        <a class="changeRole btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
+                                            data-groupid="<?= $groupAssigment->getGroupId() ?>">
+                                                <i class="fas fa-edit"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                                <?php
+                                }
+                                ?>
+                            </ul>                        
                         <?php
+                        } else {
+                        ?>
+                        <?=  _("Private Data") ?>
+                        <?php    
+                        }
                         if ($bOkToEdit) {
                             ?>
                             <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $PersonInfos['person']->getId() ?>"
@@ -157,7 +170,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
                 <!-- About card -->
                 <?php
-                $can_see_privatedata = ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
+                $can_see_privatedata = ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled() or SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
                 ?>
                 <div class="card">
                     <div class="card-header border-1">
@@ -179,7 +192,7 @@ require $sRootDocument . '/Include/Header.php';
                                             class="fas fa-child"></i> <?php echo _('Family:'); ?></strong>
                                     <span>
             <?php
-            if (!is_null($PersonInfos['person']->getFamily()) && $PersonInfos['person']->getFamily()->getId() != '') {
+            if (!is_null($PersonInfos['person']->getFamily()) and $PersonInfos['person']->getFamily()->getId() != '') {
                 ?>
                 <a href="<?= $sRootPath ?>/v2/people/family/view/<?= $PersonInfos['person']->getFamily()->getId() ?>"><?= $PersonInfos['person']->getFamily()->getName() ?> </a>
                 <a href="<?= $sRootPath ?>/v2/people/family/editor/<?= $PersonInfos['person']->getFamily()->getId() ?>"
@@ -239,7 +252,7 @@ require $sRootDocument . '/Include/Header.php';
                                 </li>
                                 <?php
                             }
-                            if (!SystemConfig::getValue('bHideFriendDate') && $PersonInfos['person']->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */
+                            if (!SystemConfig::getValue('bHideFriendDate') and $PersonInfos['person']->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */
                                 ?>
                                 <li><strong><i class="fa-li fas fa-tasks"></i><?= _('Friend Date') ?>:</strong>
                                     <span><?= OutputUtils::FormatDate($PersonInfos['person']->getFriendDate()->format('Y-m-d'), false) ?></span>
@@ -386,7 +399,7 @@ require $sRootDocument . '/Include/Header.php';
                     <?php
                     $buttons = 0;
 
-                    if (Cart::PersonInCart($PersonInfos['iPersonID']) && SessionUser::getUser()->isShowCartEnabled()) {
+                    if (Cart::PersonInCart($PersonInfos['iPersonID']) and SessionUser::getUser()->isShowCartEnabled()) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart"
@@ -415,7 +428,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                     }
 
-                    if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                    if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                         if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()) {
 
                             $buttons++;
@@ -451,7 +464,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                     }
 
-                    if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
+                    if (SessionUser::getUser()->isNotesEnabled() or (SessionUser::getUser()->isEditSelfEnabled() and $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-gradient-green" href="#" id="createDocument" data-toggle="tooltip"
@@ -460,7 +473,7 @@ require $sRootDocument . '/Include/Header.php';
                                 class="fas fa-file"></i><?= _("Create a document") ?></a>
                         <?php
                     }
-                    if (SessionUser::getUser()->isManageGroupsEnabled() or SessionUser::getUser()->isGroupManagerEnabled() ) {
+                    if ( SessionUser::getUser()->isManageGroups() ) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app addGroup" data-personid="<?= $PersonInfos['iPersonID'] ?>"
@@ -473,7 +486,7 @@ require $sRootDocument . '/Include/Header.php';
                     if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                          $buttons++;
                         ?>
-                        <a class="btn btn-app bg-yellow-gradient <?= (mb_strlen($PersonInfos['person']->getAddress1()) == 0 || !is_null($PersonInfos['person']->getFamily()) && mb_strlen($PersonInfos['person']->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
+                        <a class="btn btn-app bg-yellow-gradient <?= (mb_strlen($PersonInfos['person']->getAddress1()) == 0 or !is_null($PersonInfos['person']->getFamily()) and mb_strlen($PersonInfos['person']->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
                            href="<?= $sRootPath ?>/api/persons/addressbook/extract/<?= $PersonInfos['iPersonID'] ?>"><i
                                 class="far fa-id-card">
@@ -500,7 +513,7 @@ require $sRootDocument . '/Include/Header.php';
                         }
                     }
 
-                    if ($bOkToEdit && SessionUser::getUser()->isDeleteRecordsEnabled() && $PersonInfos['iPersonID'] != 1) {// the super user can't be deactivated
+                    if ($bOkToEdit and SessionUser::getUser()->isDeleteRecordsEnabled() and $PersonInfos['iPersonID'] != 1) {// the super user can't be deactivated
                         $buttons++;
                         ?>
                         <button class="btn btn-app bg-gradient-orange" id="activateDeactivate">
@@ -509,10 +522,10 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                     }
 
-                    if (SessionUser::getUser()->isDeleteRecordsEnabled() && $PersonInfos['iPersonID'] != 1) {// the super user can't be deleted
+                    if (SessionUser::getUser()->isDeleteRecordsEnabled() and $PersonInfos['iPersonID'] != 1) {// the super user can't be deleted
                         $buttons++;
 
-                        if (count($PersonInfos['person']->getOtherFamilyMembers()) > 0 || is_null($PersonInfos['person']->getFamily())) {
+                        if (count($PersonInfos['person']->getOtherFamilyMembers()) > 0 or is_null($PersonInfos['person']->getFamily())) {
                             ?>
                             <a class="btn btn-app bg-gradient-maroon delete-person"
                                data-person_name="<?= $PersonInfos['person']->getFullName() ?>"
@@ -533,7 +546,11 @@ require $sRootDocument . '/Include/Header.php';
             </div>
 
             <?php
-            if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled())) {
+            if (SessionUser::getUser()->isManageGroupsEnabled()                 
+                or (SessionUser::getUser()->isEditSelfEnabled() 
+                    and $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
+                    or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() 
+                    or SessionUser::getUser()->isSeePrivacyDataEnabled())) {
             ?>
             <div class="card">
                 <div class="card-header  border-1 card-header-custom">
@@ -542,19 +559,19 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         $activeTab = "";
                         if (($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()
-                            || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()
-                            || SessionUser::getUser()->isSeePrivacyDataEnabled())) {
+                            or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()
+                            or SessionUser::getUser()->isSeePrivacyDataEnabled())) {
                             $activeTab = "timeline";
                             ?>
                             <li class="nav-item">
-                                <a class="nav-link <?= (!$bDocuments && !$bGroup) ? "active" : "" ?>"
+                                <a class="nav-link <?= (!$bDocuments and !$bGroup) ? "active" : "" ?>"
                                    href=" #timeline" aria-controls="timeline" role="tab"
                                    data-toggle="tab"><i class="fas fa-clock"></i> <?= _('Timeline') ?></a></li>
                             <?php
                         }
                         ?>
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || count($PersonInfos['person']->getOtherFamilyMembers()) > 0 && SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or count($PersonInfos['person']->getOtherFamilyMembers()) > 0 and SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
@@ -570,7 +587,9 @@ require $sRootDocument . '/Include/Header.php';
                         }
                         ?>
                         <?php
-                        if (SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isGroupManagerEnabled() || $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()) {
+                        if (SessionUser::getUser()->isManageGroupsEnabled() 
+                            or $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
+                            or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= ($bGroup) ? 'active' : '' ?>"
@@ -587,7 +606,7 @@ require $sRootDocument . '/Include/Header.php';
                         ?>
 
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                         ?>
                         <li class="nav-item">
                             <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
@@ -601,7 +620,7 @@ require $sRootDocument . '/Include/Header.php';
                         ?>
 
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isCanvasserEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isCanvasserEnabled()) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link"
@@ -616,7 +635,7 @@ require $sRootDocument . '/Include/Header.php';
                         }
                         ?>
                         <?php
-                        if (count($PersonInfos['person']->getOtherFamilyMembers()) == 0 && SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
+                        if (count($PersonInfos['person']->getOtherFamilyMembers()) == 0 and SessionUser::getUser()->isFinanceEnabled() and SystemConfig::getBooleanValue('bEnabledFinance')) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
@@ -642,7 +661,7 @@ require $sRootDocument . '/Include/Header.php';
                         }
                         ?>
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isNotesEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isNotesEnabled()) {
                             if ($bDocuments) $activeTab = 'notes';
                             ?>
                             <li class="nav-item">
@@ -662,7 +681,7 @@ require $sRootDocument . '/Include/Header.php';
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() || $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                             ?>
                             <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'timeline') ? "active" : "" ?>"
                                  id="timeline">
@@ -721,7 +740,7 @@ require $sRootDocument . '/Include/Header.php';
 
                                                 <h3 class="timeline-header">
                                                     <?php
-                                                    if (array_key_exists('headerlink', $item) && $item['type'] != 'file') {
+                                                    if (array_key_exists('headerlink', $item) and $item['type'] != 'file') {
                                                         ?>
                                                         <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
                                                         <?php
@@ -867,9 +886,9 @@ require $sRootDocument . '/Include/Header.php';
                                         $ids = SessionUser::getUser()->getGroupManagerIds();
 
                                         foreach ($ormAssignedGroups as $ormAssignedGroup) {
-                                            if ( !SessionUser::getUser()->isManageGroups() && !in_array($ormAssignedGroup->getGroupID(),$ids) ) continue;
+                                            if ( !SessionUser::getUser()->isManageGroups() and !in_array($ormAssignedGroup->getGroupID(),$ids) ) continue;
 
-                                            if ($i % 3 == 0 || $i == 1) {
+                                            if ($i % 3 == 0 or $i == 1) {
                                                 $i=1;
                                                 ?>
                                                 <div class="row">
@@ -933,7 +952,7 @@ require $sRootDocument . '/Include/Header.php';
                                                     </div>
                                                     <div class="card-body">
                                                         <?php
-                                                        if ( SessionUser::getUser()->isManageGroupsEnabled() or SessionUser::getUser()->isGroupManagerEnabled() ) {
+                                                        if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
                                                             ?>
                                                             <div class="text-center"></div>
                                                             <?php
@@ -1072,7 +1091,7 @@ require $sRootDocument . '/Include/Header.php';
                                            width="100%"></table>
                                 </div>
 
-                                <?php if (SessionUser::getUser()->isEditRecordsEnabled() && $bOkToEdit && $ormProperties->count() != 0): ?>
+                                <?php if (SessionUser::getUser()->isEditRecordsEnabled() and $bOkToEdit and $ormProperties->count() != 0): ?>
                                     <div class="alert alert-secondary">
                                         <div>
                                             <h4><strong><?= _('Assign a New Property') ?>:</strong></h4>
@@ -1140,7 +1159,7 @@ require $sRootDocument . '/Include/Header.php';
                                 </div>
 
                                 <?php
-                                if (SessionUser::getUser()->isEditRecordsEnabled() && $ormVolunteerOpps->count()) {
+                                if (SessionUser::getUser()->isEditRecordsEnabled() and $ormVolunteerOpps->count()) {
                                     ?>
                                     <div class="alert alert-secondary">
                                         <div>
@@ -1216,7 +1235,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <?php
                                     $tog = 0;
 
-                                    if (($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) && !is_null($PersonInfos['person']->getFamily())) {
+                                    if (($_SESSION['sshowPledges'] or $_SESSION['sshowPayments']) and !is_null($PersonInfos['person']->getFamily())) {
                                         ?>
                                         <input type="checkbox" name="ShowPledges" id="ShowPledges"
                                                value="1" <?= ($_SESSION['sshowPledges']) ? " checked" : "" ?>><?= _("Show Pledges") ?>
@@ -1262,7 +1281,7 @@ require $sRootDocument . '/Include/Header.php';
 
 
                                     <?php
-                                    if (SessionUser::getUser()->isCanvasserEnabled() && !is_null($PersonInfos['person']->getFamily())) {
+                                    if (SessionUser::getUser()->isCanvasserEnabled() and !is_null($PersonInfos['person']->getFamily())) {
                                         ?>
                                         <p class="text-center">
                                             <a class="btn btn-default"
@@ -1314,7 +1333,7 @@ require $sRootDocument . '/Include/Header.php';
                             $note_content = "";// this assume only the last note is visible
 
                             foreach ($timelineNotesServiceItems as $item) {
-                                if ($note_content != $item['text'] && $item['type'] != 'file') {// this assume only the last note is visible
+                                if ($note_content != $item['text'] and $item['type'] != 'file') {// this assume only the last note is visible
 
                                     $note_content = $item['text']; // this assume only the last note is visible
                                     ?>
@@ -1328,8 +1347,8 @@ require $sRootDocument . '/Include/Header.php';
                                                 &nbsp;
                                                 <div class="btn-group">
                                                     <?php
-                                                    if ($item['slim'] && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
-                                                        if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2)) {
+                                                    if ($item['slim'] and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['person']->getFullName())) {
+                                                        if ($item['editLink'] != '' or (isset($item['sharePersonID']) and $item['shareRights'] == 2)) {
                                                             ?>                            
                                                             <!--<a href="<?= $item['editLink'] ?>">-->
                                                             <?= $item['editLink'] ?>
@@ -1337,14 +1356,14 @@ require $sRootDocument . '/Include/Header.php';
                                                             </a>
                                                             <?php
                                                         }
-                                                        if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
+                                                        if ($item['deleteLink'] != '' and !isset($item['sharePersonID']) and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['person']->getFullName())) {
                                                             ?>
                                                             <?= $item['deleteLink'] ?>
                                                                 <i class="fas fa-trash-alt"></i>
                                                             </a>
                                                             <?php
                                                         }
-                                                        if (!isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $PersonInfos['person']->getFullName())) {
+                                                        if (!isset($item['sharePersonID']) and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['person']->getFullName())) {
                                                             ?>
                                                             <a href="#" data-id="<?= $item['id'] ?>"
                                                                 data-shared="<?= $item['isShared'] ?>" 
@@ -1354,7 +1373,7 @@ require $sRootDocument . '/Include/Header.php';
                                                             </a>                            
                                                             <?php
                                                         }
-                                                        if ($item['type'] == 'note' && $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()) {
+                                                        if ($item['type'] == 'note' and $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()) {
                                                             ?>
                                                             <a href="#" data-id="<?= $item['id'] ?>"
                                                                 data-toggle="tooltip" data-placement="bottom" title="<?= _("Export this document to word Format") ?>"
@@ -1377,7 +1396,7 @@ require $sRootDocument . '/Include/Header.php';
                                             <h3 class="timeline-header">
 
                                                 <?php
-                                                if (array_key_exists('headerlink', $item) && !isset($item['sharePersonID'])) {
+                                                if (array_key_exists('headerlink', $item) and !isset($item['sharePersonID'])) {
                                                     ?>
                                                     <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
                                                     <?php
@@ -1410,7 +1429,7 @@ require $sRootDocument . '/Include/Header.php';
                                             </div>
 
                                             <?php
-                                            if ((SessionUser::getUser()->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
+                                            if ((SessionUser::getUser()->isNotesEnabled()) and ($item['editLink'] != '' or $item['deleteLink'] != '')) {
                                                 ?>
                                                 <div class="timeline-footer">
                                                     <div class="btn-group">
@@ -1528,7 +1547,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="modal-footer text-center">
                 <?php
-                if (count($familyInfos['sFamilyEmails']) > 0 && !empty(SystemConfig::getValue('sSMTPHost'))) {
+                if (count($familyInfos['sFamilyEmails']) > 0 and !empty(SystemConfig::getValue('sSMTPHost'))) {
                     ?>
                     <button type="button" id="onlineVerify" class="btn btn-warning warning">
                         <i class="far fa-envelope"></i>
