@@ -6,6 +6,8 @@
         ],
         "scripts": [
         ],
+        "postcripts": [
+        ],
         "dbVersion": "1.0.0"
     }
 }

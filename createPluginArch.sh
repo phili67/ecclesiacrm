@@ -63,6 +63,8 @@
                    ],
                    "scripts": [
                    ],
+                   "postcripts": [
+                   ],
                    "dbVersion": "1.0.0"
                }
            }' > "src/Plugins/${pluginName}/mysql/upgrade.json"

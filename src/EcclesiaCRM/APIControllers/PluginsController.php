@@ -181,35 +181,44 @@ class PluginsController
 
                         $connection = Propel::getConnection();
 
-                        // first : we apply the pre-scripts
                         foreach ($dbUpdates as $dbUpdate) {
+                            // we can copy the code to the new place
+                        
+                            // first : we apply the pre-scripts
                             foreach ($dbUpdate['prescripts'] as $dbScript) {
                                 $scriptName = $backupDir . '/' . $PluginName . '/mysql/' . $dbScript;
-                                $logger->info("Upgrade DB - " . $scriptName);
+                                $logger->info("Pre Upgrade DB-file - " . $scriptName);
                                 if (pathinfo($scriptName, PATHINFO_EXTENSION) == "sql") {
                                     SQLUtils::sqlImport($scriptName, $connection);
-                                } else {
+                                } elseif (pathinfo($scriptName, PATHINFO_EXTENSION) == "php") {
                                     require_once($scriptName);
                                 }
                             }
-                        }
 
-                        // we can copy the code to the new place
-                        FileSystemUtils::recursiveCopyDirectory($backupDir . $PluginName . "/", SystemURLs::getDocumentRoot() . '/Plugins/' . $PluginName);
-
-                        // second the post scripts
-                        $dbUpdates = json_decode($dbUpdatesFile, true);
-                        foreach ($dbUpdates as $dbUpdate) {
+                            // second the scripts
                             foreach ($dbUpdate['scripts'] as $dbScript) {
                                 $scriptName = $backupDir . '/' . $PluginName . '/mysql/' . $dbScript;
-                                $logger->info("Upgrade DB - " . $scriptName);
+                                $logger->info("Upgrade DB-file - " . $scriptName);
                                 if (pathinfo($scriptName, PATHINFO_EXTENSION) == "sql") {
                                     SQLUtils::sqlImport($scriptName, $connection);
-                                } else {
+                                } elseif (pathinfo($scriptName, PATHINFO_EXTENSION) == "php") {
+                                    require_once($scriptName);
+                                }
+                            }
+
+                            // last the post scripts
+                            foreach ($dbUpdate['postscripts'] as $dbScript) {
+                                $scriptName = $backupDir . '/' . $PluginName . '/mysql/' . $dbScript;
+                                $logger->info("Post Upgrade DB-file - " . $scriptName);
+                                if (pathinfo($scriptName, PATHINFO_EXTENSION) == "sql") {
+                                    SQLUtils::sqlImport($scriptName, $connection);
+                                } elseif (pathinfo($scriptName, PATHINFO_EXTENSION) == "php") {
                                     require_once($scriptName);
                                 }
                             }
                         }
+                        
+                        FileSystemUtils::recursiveCopyDirectory($backupDir . $PluginName . "/", SystemURLs::getDocumentRoot() . '/Plugins/' . $PluginName);                    
 
                         // now we set the new version
                         $plugin->setVersion($new_version);

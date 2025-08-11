@@ -1,2 +1,2 @@
 INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`)
-VALUES ('CurrentUsersDashboard', 'Plugin to show the current connected users', 'Dashboard', NULL, '', '1', '1.0', 'cud_', 'inside_category_menu', 'right', 'bg-gradient-green text-black', 1073741824);
+VALUES ('CurrentUsersDashboard', 'Plugin to show the current connected users', 'Dashboard', NULL, '', '1', '1.0', 'cud_', 'inside_category_menu', 'right', 'bg-gradient-green text-white', 1073741824);
