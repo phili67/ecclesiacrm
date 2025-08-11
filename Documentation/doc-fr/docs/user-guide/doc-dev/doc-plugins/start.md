@@ -239,6 +239,9 @@ abstract class SecurityOptions
     const bShowMap = 65536;// bit 16
     const bEDrive = 131072;// bit 17
     const bShowMenuQuery = 262144; // bit 18
+    const bSundaySchool = 524288; // bit 19
+    const bDonationFund = 1048576; // bit 20
+
     const bDashBoardUser = 1073741824; // bit 30
 }
 ```
