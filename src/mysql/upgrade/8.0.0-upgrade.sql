@@ -361,19 +361,49 @@ CREATE TABLE collectionsinstances (
              ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
 -- update config strings 2025-08-03
-update config_cfg set cfg_name = 'iEntityLatitude' where cfg_name = 'iChurchLatitude';
-update config_cfg set cfg_name = 'iEntityLongitude' where cfg_name = 'iChurchLongitude';
-update config_cfg set cfg_name = 'sEntityName' where cfg_name = 'sChurchName';
-update config_cfg set cfg_name = 'sEntityAddress' where cfg_name = 'sChurchAddress';
-update config_cfg set cfg_name = 'sEntityCity' where cfg_name = 'sChurchCity';
-update config_cfg set cfg_name = 'sEntityState' where cfg_name = 'sChurchState';
-update config_cfg set cfg_name = 'sEntityZip' where cfg_name = 'sChurchZip';
-update config_cfg set cfg_name = 'sEntityPhone' where cfg_name = 'sChurchPhone';
-update config_cfg set cfg_name = 'sEntityEmail' where cfg_name = 'sChurchEmail';
-update config_cfg set cfg_name = 'sEntityChkAcctNum' where cfg_name = 'sChurchChkAcctNum';
-update config_cfg set cfg_name = 'sEntityCountry' where cfg_name = 'sChurchCountry';
-update config_cfg set cfg_name = 'sEntityWebSite' where cfg_name = 'sChurchWebSite';
-update config_cfg set cfg_name = 'sEntityFB' where cfg_name = 'sChurchFB';
-update config_cfg set cfg_name = 'sEntityTwitter' where cfg_name = 'sChurchTwitter';
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2103, 'sEntityName', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=1003));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2104, 'sEntityAddress', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=1004));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2105, 'sEntityCity', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=1005));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2106, 'sEntityState', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=1006));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2107, 'sEntityZip', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=1007));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2108, 'sEntityPhone', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=1008));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2109, 'sEntityEmail', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=1009));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2110, 'sEntityChkAcctNum', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=1034));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2111, 'sEntityCountry', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=1047));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2112, 'sEntityWebSite', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=2013));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2113, 'sEntityFB', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=2014));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2114, 'sEntityTwitter', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=2015));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2115, 'iEntityLatitude', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=45));
+
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
+(2116, 'iEntityLongitude', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=46));
+
+
+
+
