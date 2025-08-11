@@ -6,7 +6,8 @@ use EcclesiaCRM\SessionUser;
 if (file_exists('Include/Config.php')) {
     require_once 'Include/Config.php';
 } else {
-    header('Location: setup');
+    $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+    header('Location: '. $protocol . "://" . $_SERVER['HTTP_HOST'] .'/setup');
     exit();
 }
 

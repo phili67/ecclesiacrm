@@ -37,7 +37,7 @@ function select_Timezone($selected = '') {
 
 $URL = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
-$sPageTitle = 'CRM – Setup';
+$sPageTitle = ' CRM – Setup';
 require '../Include/HeaderNotLoggedIn.php';
 ?>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
@@ -62,7 +62,7 @@ require '../Include/HeaderNotLoggedIn.php';
 
 </style>
 
-<h1 class="text-center">Welcome to App<b>CRM</b><?=SystemService::getPackageMainVersion() ?> setup wizard</h1>
+<h1 class="text-center">Welcome to <b>CRM</b><?=SystemService::getPackageMainVersion() ?> setup wizard</h1>
 <p/><br/>
 <form id="setup-form">
     <div id="wizard">
