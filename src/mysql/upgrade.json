@@ -773,15 +773,24 @@
         ],
         "dbVersion": "7.6.0"
     },
-    "current": {
+    "7.6.1": {
         "versions": [
             "7.6.0"
         ],
-        "prescripts": [
-            "/mysql/upgrade/8.0.0-upgrade.php"
-        ],
         "scripts": [
+        ],
+        "dbVersion": "7.6.1"
+    },
+    "current": {
+        "versions": [
+            "7.6.0",
+            "7.6.1"
+        ],
+        "prescripts": [
             "/mysql/upgrade/8.0.0-upgrade.sql",
+            "/mysql/upgrade/8.0.0-pre-upgrade.php"
+        ],
+        "scripts": [            
             "/Plugins/BirthdayAnniversaryDashboard/mysql/Install.sql",
             "/Plugins/CurrentUsersDashboard/mysql/Install.sql",
             "/Plugins/FamilyInfosDashboard/mysql/Install.sql",
@@ -791,7 +800,16 @@
             "/Plugins/NoteDashboard/mysql/Install.sql",
             "/Plugins/PastoralCareDashboard/mysql/Install.sql",
             "/Plugins/PersonInfosDashboard/mysql/Install.sql",
-            "/Plugins/ToDoListDashboard/mysql/Install.sql"
+            "/Plugins/SingleDashboardWidget/mysql/Install.sql",
+            "/Plugins/FamilyDashboardWidget/mysql/Install.sql",
+            "/Plugins/PersonDashboardWidget/mysql/Install.sql",
+            "/Plugins/GroupDashboardWidget/mysql/Install.sql",
+            "/Plugins/SundaySchoolDashboardWidget/mysql/Install.sql",
+            "/mysql/upgrade/8.0.0-upgrade.php"
+
+        ],
+        "postscripts": [
+            "/mysql/upgrade/8.0.0-post-upgrade.php"
         ],
         "dbVersion": "8.0.0"
     }
