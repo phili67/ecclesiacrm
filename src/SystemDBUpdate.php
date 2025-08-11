@@ -19,8 +19,8 @@ if (Bootstrapper::isDBCurrent()) {
 
 if (InputUtils::FilterString($_GET['upgrade']) == "true") {
     try {
-        UpgradeService::upgradeDatabaseVersion();
-        RedirectUtils::Redirect('v2/dashboard');
+        UpgradeService::upgradeDatabaseVersion();        
+        RedirectUtils::Redirect('session/logout');
         exit;
     } catch (\Exception $ex) {
         $errorMessage = $ex->getMessage();
