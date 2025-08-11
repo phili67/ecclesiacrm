@@ -72,11 +72,6 @@ namespace EcclesiaCRM
 
           self::initMySQLI();
 
-          if (!self::isDBCurrent()) {
-              // in this case we can clean before some files in the model folder : map base
-              UpgradeService::preUpgradePHPScriptFrom(self::getDBVersion());
-          }
-
           self::initPropel();
 
           if (self::$DavServer == false) {
@@ -115,7 +110,7 @@ namespace EcclesiaCRM
           return self::$localeInfo;
       }
 
-      public static function getSoftwareName(): string
+      public static function getSoftwareName(): ?string
       {
         return self::$sSoftwareName;
       }

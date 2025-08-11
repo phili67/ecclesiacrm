@@ -2,6 +2,7 @@
 
 namespace EcclesiaCRM\dto;
 
+use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Config;
 use EcclesiaCRM\data\Countries;
 use EcclesiaCRM\ListOptionQuery;
@@ -118,8 +119,6 @@ class SystemConfig
             "sBingMapKey" => new ConfigItem(10000, "sBingMapKey", "text", "", _("Bing map API requires a unique key"), "https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"),
             "iMapZoom" => new ConfigItem(10001, "iMapZoom", "number", "12", _("Google/OpenStreetMap/BingMaps Maps Zoom")),
             "iLittleMapZoom" => new ConfigItem(10002, "iLittleMapZoom", "number", "15", _("Google/OpenStreetMap/BingMaps Litle Maps Zoom")),
-            "iEntityLatitude" => new ConfigItem(45, "iEntityLatitude", "number", "", _("Latitude of the entity, used to center the Google map")),
-            "iEntityLongitude" => new ConfigItem(46, "iEntityLongitude", "number", "", _("Longitude of the entity, used to center the Google map")),
             "bHidePersonAddress" => new ConfigItem(47, "bHidePersonAddress", "boolean", "1", _("Set true to disable entering addresses in Person Editor.  Set false to enable entering addresses in Person Editor.")),
             "bHideFriendDate" => new ConfigItem(48, "bHideFriendDate", "boolean", "0", _("Set true to disable entering Friend Date in Person Editor.  Set false to enable entering Friend Date in Person Editor.")),
             "bHideFamilyNewsletter" => new ConfigItem(49, "bHideFamilyNewsletter", "boolean", "0", _("Set true to disable management of newsletter subscriptions in the Family Editor.")),
@@ -153,14 +152,7 @@ class SystemConfig
             "sDatePickerFormat" => new ConfigItem(110, "sDatePickerFormat", "choice", "Y-m-d", _("For defining the date in Date-Picker, per default : Y-m-d, In French : d/m/Y for example."), '', '{"Choices":["Y-m-d","d/m/Y","m-d-Y","m/d/Y"]}'),
             "bRegistered" => new ConfigItem(999, "bRegistered", "boolean", "0", _("CRM has been registered.  The CRM team uses registration information to track usage.  This information is kept confidential and never released or sold.  If this field is true the registration option in the admin menu changes to update registration.")),
             "leftX" => new ConfigItem(1001, "leftX", "number", "20", _("Left Margin (1 = 1/100th inch)")),
-            "incrementY" => new ConfigItem(1002, "incrementY", "number", "4", _("Line Thickness (1 = 1/100th inch")),
-            "sEntityName" => new ConfigItem(1003, "sEntityName", "text", "", _("Entity Name")),
-            "sEntityAddress" => new ConfigItem(1004, "sEntityAddress", "text", "", _("Entity Address")),
-            "sEntityCity" => new ConfigItem(1005, "sEntityCity", "text", "", _("Entity City")),
-            "sEntityState" => new ConfigItem(1006, "sEntityState", "text", "", _("Entity State")),
-            "sEntityZip" => new ConfigItem(1007, "sEntityZip", "text", "", _("Entity Zip")),
-            "sEntityPhone" => new ConfigItem(1008, "sEntityPhone", "text", "", _("Entity Phone")),
-            "sEntityEmail" => new ConfigItem(1009, "sEntityEmail", "text", "", _("Entity Email")),
+            "incrementY" => new ConfigItem(1002, "incrementY", "number", "4", _("Line Thickness (1 = 1/100th inch")),            
             "sHomeAreaCode" => new ConfigItem(1010, "sHomeAreaCode", "text", "", _("Home area code of the Entity")),
             "sTaxReport1" => new ConfigItem(1011, "sTaxReport1", "text", "This letter shows our record of your payments for", _("Verbage for top line of tax report. Dates will be appended to the end of this line.")),
             "sTaxReport2" => new ConfigItem(1012, "sTaxReport2", "text", "Thank you for your help in making a difference. We greatly appreciate your gift!", _("Verbage for bottom line of tax report.")),
@@ -185,7 +177,6 @@ class SystemConfig
             "sZeroGivers" => new ConfigItem(1031, "sZeroGivers", "text", "This letter shows our record of your payments for", _("Verbage for top line of tax report. Dates will be appended to the end of this line.")),
             "sZeroGivers2" => new ConfigItem(1032, "sZeroGivers2", "text", "Thank you for your help in making a difference. We greatly appreciate your gift!", _("Verbage for bottom line of tax report.")),
             "sZeroGivers3" => new ConfigItem(1033, "sZeroGivers3", "text", "If you have any questions or corrections to make to this report, please contact the entity at the above number during business hours, 9am to 4pm, M-F.", _("Verbage for bottom line of tax report.")),
-            "sEntityChkAcctNum" => new ConfigItem(1034, "sEntityChkAcctNum", "text", "", _("Entity Checking Account Number")),
             "bEnableGravatarPhotos" => new ConfigItem(1035, "bEnableGravatarPhotos", "boolean", "0", _("lookup user images on Gravatar when no local image is present")),
             "bEnableExternalBackupTarget" => new ConfigItem(1036, "bEnableExternalBackupTarget", "boolean", "0", _("Enable Remote Backups to Cloud Services")),
             "sExternalBackupType" => new ConfigItem(1037, "sExternalBackupType", "choice", "", _("Cloud Service Type (Supported values: WebDAV, Local)"), "", '{"Choices":["' . _("WebDAV") . '","' . _("Local") . '"]}'),
@@ -198,7 +189,6 @@ class SystemConfig
             "bEnableIntegrityCheck" => new ConfigItem(1044, "bEnableIntegrityCheck", "boolean", "1", _("Enable Integrity Check")),
             "iIntegrityCheckInterval" => new ConfigItem(1045, "iIntegrityCheckInterval", "number", "168", _("Interval in Hours for Integrity Check")),
             "sLastIntegrityCheckTimeStamp" => new ConfigItem(1046, "sLastIntegrityCheckTimeStamp", "text", "", _("Last Integrity Check Timestamp")),
-            "sEntityCountry" => new ConfigItem(1047, "sEntityCountry", "choice", "", "", "", json_encode(["Choices" => Countries::getNames()])),
             "sConfirmSincerely" => new ConfigItem(1048, "sConfirmSincerely", "text", "Sincerely", _("Used to end a letter before Signer")),
             "sDear" => new ConfigItem(1049, "sDear", "text", "Dear", _("Text before name in emails/reports")),
             "sGoogleTrackingID" => new ConfigItem(1050, "sGoogleTrackingID", "text", "", _("Google Analytics Tracking Code")),
@@ -216,9 +206,6 @@ class SystemConfig
             "sOLPPassword" => new ConfigItem(2009, "sOLPPassword", "password", "", _("OpenLP Password")),
             "sKioskVisibilityTimestamp" => new ConfigItem(2011, "sKioskVisibilityTimestamp", "text", "", _("KioskVisibilityTimestamp")),
             "bEnableLostPassword" => new ConfigItem(2004, "bEnableLostPassword", "boolean", "1", _("Show/Hide Lost Password Link on the login screen")),
-            "sEntityWebSite" => new ConfigItem(2013, "sEntityWebSite", "text", "", _("Your Entity's Website")),
-            "sEntityFB" => new ConfigItem(2014, "sEntityFB", "text", "", _("Your Entity's Facebook Page")),
-            "sEntityTwitter" => new ConfigItem(2015, "sEntityTwitter", "text", "", _("Your Entity's Twitter Page")),
             "bEnableGooglePhotos" => new ConfigItem(2016, "bEnableGooglePhotos", "boolean", "1", _("lookup user images on Google when no local image is present")),
             "sNewPersonNotificationRecipientIDs" => new ConfigItem(2018, "sNewPersonNotificationRecipientIDs", "text", "", _("Comma Separated list of PersonIDs of people to notify when a new family or person is added")),
             "bEnableExternalCalendarAPI" => new ConfigItem(2017, "bEnableExternalCalendarAPI", "boolean", "0", _("Allow unauthenticated reads of events from the external calendar API")),
@@ -282,7 +269,21 @@ class SystemConfig
             "sMailChimpContentsExternalCssFont" => new ConfigItem(2091, "sMailChimpContentsExternalCssFont", "textarea", "", _("Link to a style sheet for a particular font. This is useful for the font menu of ckeditor : https://fonts.googleapis.com/css?family=Abril+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i")),
             "sMailChimpExtraFont" => new ConfigItem(2092, "sMailChimpExtraFont", "textarea", "", _("Here we put the font in the form fontnametodisplay/yourfontname. It is useful for the font menu of ckeditor, for example : Abril/Abril Fatface")),
             "bEnabledPastoralCare" => new ConfigItem(2100, "bEnabledPastoralCare", "boolean", "1", _("Use Pastoralcare.")),
-            "bEnabledEdrive" => new ConfigItem(2101, "bEnabledEdrive", "boolean", "1", _("Use Edrive."))
+            "bEnabledEdrive" => new ConfigItem(2101, "bEnabledEdrive", "boolean", "1", _("Use Edrive.")),
+            "sEntityName" => new ConfigItem(2103, "sEntityName", "text", "", _("Entity Name")),
+            "sEntityAddress" => new ConfigItem(2104, "sEntityAddress", "text", "", _("Entity Address")),
+            "sEntityCity" => new ConfigItem(2105, "sEntityCity", "text", "", _("Entity City")),
+            "sEntityState" => new ConfigItem(2106, "sEntityState", "text", "", _("Entity State")),
+            "sEntityZip" => new ConfigItem(2107, "sEntityZip", "text", "", _("Entity Zip")),
+            "sEntityPhone" => new ConfigItem(2108, "sEntityPhone", "text", "", _("Entity Phone")),
+            "sEntityEmail" => new ConfigItem(2109, "sEntityEmail", "text", "", _("Entity Email")),
+            "sEntityChkAcctNum" => new ConfigItem(2110, "sEntityChkAcctNum", "text", "", _("Entity Checking Account Number")),
+            "sEntityCountry" => new ConfigItem(2111, "sEntityCountry", "choice", "", "", "", json_encode(["Choices" => Countries::getNames()])),
+            "sEntityWebSite" => new ConfigItem(2112, "sEntityWebSite", "text", "", _("Your Entity's Website")),
+            "sEntityFB" => new ConfigItem(2113, "sEntityFB", "text", "", _("Your Entity's Facebook Page")),
+            "sEntityTwitter" => new ConfigItem(2114, "sEntityTwitter", "text", "", _("Your Entity's Twitter Page")),
+            "iEntityLatitude" => new ConfigItem(2115, "iEntityLatitude", "number", "", _("Latitude of the entity, used to center the Google map")),
+            "iEntityLongitude" => new ConfigItem(2116, "iEntityLongitude", "number", "", _("Longitude of the entity, used to center the Google map"))
         );
     }
 
@@ -334,6 +335,9 @@ class SystemConfig
 
     private static function scrapeDBConfigs($configs)
     {
+        // in case of an upgrade, there is nothing to initialize
+        if (!Bootstrapper::isDBCurrent()) return;
+
         foreach ($configs as $config) {
             if (isset(self::$configs[$config->getName()])) {
                 //if the current config set defined by code contains the current config retreived from the db, then cache it
