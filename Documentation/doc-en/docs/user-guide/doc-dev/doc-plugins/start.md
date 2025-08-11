@@ -213,10 +213,10 @@ In the database Put the plugin, we must set
 - ``plgn_Category`` to ``Dashboard``.
 - ``plgn_default_orientation`` to ``widget`` if you want to have a widget (the little square in the top main dashboard)
 - a description ``plgn_Description`` to ``Plugin to show the current connected users
-- a version ```plgn_version`` `` to '1.0' for example
+- a version ```plgn_version``` to '1.0' for example
 - the prefix type for the `plgn_prefix` entries to `cud_`.
 - the position at ``plgn_default_orientation`` at ``top`, ``left``, ``center``, ``right``
-- the color of the card's bar ````plgn_default_color`` ```bg-gradient-blue text-white'', ``bg-gradient-indigo text-white'', .... (see for this the database)
+- the color of the card's bar ```plgn_default_color``` ```bg-gradient-blue text-white```, ``bg-gradient-indigo text-white'', .... (see for this the database)
 - the security part is very important ``plgn_securities`` to those possible values which are in `src\EcclesiaCRM\model\User.php`
 ```
 abstract class SecurityOptions
@@ -241,28 +241,30 @@ abstract class SecurityOptions
     const bShowMap = 65536;// bit 16
     const bEDrive = 131072;// bit 17
     const bShowMenuQuery = 262144; // bit 18
+    const bSundaySchool = 524288; // bit 19
+    const bDonationFund = 1048576; // bit 20
+
     const bDashBoardUser = 1073741824; // bit 30
 }
 ```
-- Optional side: ````plgn_UserRole_Dashboard_Availability``` which can be set to 1 (this will allow user to be administrator: in the case of the News dashboard only few people can enter the news, the others will be simply readers).
+- Optional side: `plgn_UserRole_Dashboard_Availability` which can be set to 1 (this will allow user to be `administrator` in the case of the News dashboard only few people can enter the news, the others will be simply readers).
 
 
-Screenshot](../../../img/plugins/plugins_dashboard_admin.png)
+![Screenshot](../../../img/plugins/plugins_dashboard_admin.png)
 
 Here is an example
 ```
 INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`)
-VALUES ('CurrentUsersDashboard', 'Plugin to show the current connected users', 'Dashboard', NULL, '', '1', '1.0', 'cud_', 'inside_category_menu', 'right', 'bg-gradient-green text-black', 1073741824);
+VALUES ('CurrentUsersDashboard', 'Plugin to show the current connected users', 'Dashboard', NULL, '', '1', '1.0', 'cud_', 'inside_category_menu', 'right', 'bg-gradient-green text-white', 1073741824);
 ```
 
 2\. about the code
 
-- There is only one view in : v2/template/View.php
+- There is only one view in : `v2/template/View.php`
 - set correctly the card .....
-  In the code of the View.php
+  In the code of the `View.php`
 
 ```
-
 <?php
 use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\PluginUserRoleQuery;
