@@ -222,6 +222,9 @@ MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/debug/");
 // 2025-08-12
 unlink(SystemURLs::getDocumentRoot() . "/SystemDBUpdate.php");
 unlink(SystemURLs::getDocumentRoot() . "/UpgradeCRM.php");
-
+unlink(SystemURLs::getDocumentRoot() . "/CatchCreatePayment.php");
+unlink(SystemURLs::getDocumentRoot() . "/ConvertOnePaymentXML.php"); 
+unlink(SystemURLs::getDocumentRoot() . "/Include/VancoConfig.php");
+unlink(SystemURLs::getDocumentRoot() . "/bin/vancowebservices.php");
 
 $logger->info("End of delete :  all unusefull files");

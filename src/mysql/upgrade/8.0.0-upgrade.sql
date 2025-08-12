@@ -405,5 +405,8 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (2116, 'iEntityLongitude', ( SELECT t1.`cfg_value` FROM `config_cfg` t1 WHERE `cfg_id`=46));
 
 
+ALTER TABLE `autopayment_aut`
+DROP COLUMN `aut_CreditCardVanco`,
+DROP COLUMN `aut_AccountVanco`;
 
 

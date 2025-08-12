@@ -592,8 +592,6 @@
         <column name="aut_DateLastEdited" phpName="DateLastEdited" type="TIMESTAMP"/>
         <column name="aut_EditedBy" phpName="Editedby" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
         <column name="aut_Serial" phpName="Serial" type="SMALLINT" size="9" required="true" defaultValue="1"/>
-        <column name="aut_CreditCardVanco" phpName="Creditcardvanco" type="VARCHAR" size="50"/>
-        <column name="aut_AccountVanco" phpName="AccountVanco" type="VARCHAR" size="50"/>
         <foreign-key foreignTable="person_per" name="fk_aut_EditedBy" onDelete="SET NULL">
           <reference local="aut_EditedBy" foreign="per_ID"/>
         </foreign-key>

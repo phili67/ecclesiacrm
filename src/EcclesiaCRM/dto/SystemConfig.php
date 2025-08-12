@@ -135,7 +135,7 @@ class SystemConfig
             "sTimeZone" => new ConfigItem(65, "sTimeZone", "choice", "America/New_York", _("Time zone") . " : " . _("CalDAV protocol to work with php date_default_timezone_set function default settings : america/new_york"), "http://php.net/manual/en/timezones.php", json_encode(["Choices" => timezone_identifiers_list()])),
             "bForceUppercaseZip" => new ConfigItem(67, "bForceUppercaseZip", "boolean", "0", _("Make user-entered zip/postcodes UPPERCASE when saving to the database.")),
             "bEnableNonDeductible" => new ConfigItem(72, "bEnableNonDeductible", "boolean", "0", _("Enable non-deductible payments")),
-            "sElectronicTransactionProcessor" => new ConfigItem(73, "sElectronicTransactionProcessor", "choice", "Vanco", _("Electronic Transaction Processor"), '', '{"Choices":["' . _("Vanco") . '","' . _("Authorize.NET") . '"]}'),
+            "sElectronicTransactionProcessor" => new ConfigItem(73, "sElectronicTransactionProcessor", "choice", "Authorize.NET", _("Electronic Transaction Processor"), '', '{"Choices":["Authorize.NET"]}'),
             "bEnableSelfRegistration" => new ConfigItem(80, "bEnableSelfRegistration", "boolean", "0", _("Set true to enable family self registration.")),
             "sPhoneFormat" => new ConfigItem(100, "sPhoneFormat", "text", "(999) 999-9999"),
             "sPhoneFormatWithExt" => new ConfigItem(101, "sPhoneFormatWithExt", "text", "(999) 999-9999 x99999"),

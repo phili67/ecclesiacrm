@@ -394,16 +394,16 @@ class VIEWDepositController {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
-        $iVancoAutID = -1;
+        $iAutID = -1;
 
         if (isset ($args['customerid'])) {
-            $iVancoAutID = InputUtils::LegacyFilterInput($args['customerid'], 'int');
+            $iAutID = InputUtils::LegacyFilterInput($args['customerid'], 'int');
         }
 
-        return $renderer->render($response, 'autoPaymentClearAccount.php', $this->argumentsAutoPaymentClearAccountArray($iVancoAutID));
+        return $renderer->render($response, 'autoPaymentClearAccount.php', $this->argumentsAutoPaymentClearAccountArray($iAutID));
     }
 
-    public function argumentsAutoPaymentClearAccountArray ($iVancoAutID)
+    public function argumentsAutoPaymentClearAccountArray ($iAutID)
     {
         // Set the page title and include HTML header
         $sPageTitle = "";
@@ -415,7 +415,7 @@ class VIEWDepositController {
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
             'sPageTitle'                => $sPageTitle,
-            'iVancoAutID'                => $iVancoAutID
+            'iAutID'                    => $iAutID
         ];
 
         return $paramsArguments;
