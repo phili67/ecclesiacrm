@@ -12,7 +12,6 @@ namespace EcclesiaCRM
   use Propel\Runtime\Propel;
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\Utils\RedirectUtils;
-  use EcclesiaCRM\Service\UpgradeService;
   use EcclesiaCRM\PluginQuery;
   use Propel\Runtime\ServiceContainer\StandardServiceContainer;
 
