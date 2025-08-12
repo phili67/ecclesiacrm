@@ -926,7 +926,7 @@ window.CRM.cart={
      path:"systemupgrade/isUpdateRequired"
     },function(data) {
       if (data.Upgrade) {
-         window.CRM.notify('fa  fa-info-circle',i18next.t("New Release")+".",i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",60000,'_blank');
+         window.CRM.notify('fa  fa-info-circle',i18next.t("New Release")+".",i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/v2/system/upgrade/crm',"info","bottom",60000,'_blank');
       }
     });
 
