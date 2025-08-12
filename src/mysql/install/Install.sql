@@ -1833,8 +1833,6 @@ CREATE TABLE `autopayment_aut` (
   `aut_DateLastEdited` datetime default NULL,
   `aut_EditedBy` mediumint(9) unsigned NULL,
   `aut_Serial` mediumint(9) NOT NULL default '1',
-  `aut_CreditCardVanco` varchar(50) default NULL,
-  `aut_AccountVanco` varchar(50) default NULL,
   PRIMARY KEY  (`aut_ID`),
   UNIQUE KEY `aut_ID` (`aut_ID`),
   CONSTRAINT fk_aut_FamID
