@@ -23,6 +23,8 @@ src/Images/Person
 
 src/Images/tmp
 
+src/Upgrade/*
+
 # public dir
 src/public/userdir/*
 src/private/userdir/*
