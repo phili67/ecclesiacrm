@@ -10,7 +10,7 @@ use EcclesiaCRM\Bootstrapper;
 
   <script src="<?= SystemURLs::getRootPath() ?>/skin/external/select2/select2.min.js"></script>
 
-  <!-- Bootstrap 3.3.5 -->
+  <!-- Bootstrap 4.6.2 -->
   <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/bootstrap.min.js"></script>
 
   <!-- AdminLTE App -->

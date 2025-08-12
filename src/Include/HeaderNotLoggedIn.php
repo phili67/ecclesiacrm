@@ -28,7 +28,7 @@ if (isset($container)) {
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <!-- Bootstrap 3.3.5 -->
+    <!-- Bootstrap 4.6.2 -->
     <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/bootstrap.min.css">
     <!-- Custom EcclesiaCRM styles -->
     <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/ecclesiacrm.min.css">
