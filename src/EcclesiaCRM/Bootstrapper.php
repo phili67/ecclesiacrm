@@ -86,9 +86,9 @@ namespace EcclesiaCRM
           self::configureUserEnvironment();
           self::ConfigureLocale();
           if (!self::isDBCurrent()) {
-              if (!strpos($_SERVER['SCRIPT_NAME'], "SystemDBUpdate")) {
+              if (strpos($_SERVER['REQUEST_URI'], "/v2/system/database/update") === false) {
                   self::$bootStrapLogger->info("Database is not current, redirecting to SystemDBUpdate");
-                  RedirectUtils::Redirect('SystemDBUpdate.php');
+                  RedirectUtils::Redirect('v2/system/database/update');
               } else {
                   self::$bootStrapLogger->debug("Database is not current, not redirecting to SystemDBUpdate since we're already on it");
               }
