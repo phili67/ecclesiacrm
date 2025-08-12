@@ -118,64 +118,6 @@ require $sRootDocument . '/Include/Header.php';
         }
     }
   }
-
-  <?php
-    if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
-  ?>
-  function CreatePaymentMethodsForChecked()
-  {
-    var checkboxes = document.getElementsByName("SelectForAction");
-    for(var i=0, n=checkboxes.length;i<n;i++) {
-        if (checkboxes[i].checked) {
-          var id = checkboxes[i].id.split("Select")[1];
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.uniqueid = id;
-          xmlhttp.open("GET","<?= RedirectUtils::RedirectURL('ConvertOnePaymentXML.php') ?>?autid="+id,true);
-          xmlhttp.onreadystatechange=function() {
-          if (this.readyState==4 && this.status==200) {
-                  var jsonresp=JSON.parse(this.response);
-                  var index;
-
-                  var Success = false;
-                  var ErrStr = "";
-                  var AutID = 0;
-                  var PaymentMethod = 0;
-                  var PaymentType = "";
-
-                  for (index = 0; index < jsonresp.length; ++index) {
-                      var oneResp = jsonresp[index];
-                      if (oneResp.hasOwnProperty("Error"))
-                        ErrStr += oneResp.Error;
-                      if (oneResp.hasOwnProperty("AutID"))
-                        AutID = oneResp.AutID;
-                      if (oneResp.hasOwnProperty("PaymentMethod"))
-                        PaymentMethod = oneResp.PaymentMethod[0];
-                      if (oneResp.hasOwnProperty("Success"))
-                        Success = oneResp.Success;
-                      if (oneResp.hasOwnProperty("PaymentType"))
-                        PaymentType = oneResp.PaymentType;
-                  }
-
-                  // Update fields on the page to show status of this action
-                  if (Success && PaymentType=="CC")
-                    document.getElementById("CreditCardVanco"+AutID).innerHTML = PaymentMethod;
-                  if (Success && PaymentType=="C")
-                    document.getElementById("AccountVanco"+AutID).innerHTML = PaymentMethod;
-
-                  if (!Success && PaymentType=="CC")
-                    document.getElementById("CreditCardVanco"+AutID).innerHTML = ErrStr;
-                  if (!Success && PaymentType=="C")
-                    document.getElementById("AccountVanco"+AutID).innerHTML = ErrStr;
-
-                  document.getElementById("Select"+AutID).checked = false;
-                }
-          };
-          xmlhttp.send();
-        }
-    }
-  }
-  <?php
-  } ?>
 </script>
 
 <script nonce="<?= $CSPNonce ?>" >
@@ -206,20 +148,10 @@ require $sRootDocument . '/Include/Header.php';
       <th><b><?= _('Fund') ?></b></th>
       <th><b><?= _('Bank') ?></b></th>
       <th><b><?= _('Routing') ?></b></th>
-      <th><b><?= _('Account') ?></b></th>
-      <?php if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
-          ?>
-      <th><b><?= _('Vanco ACH') ?></b></th>
-      <?php
-      }?>
+      <th><b><?= _('Account') ?></b></th>     
       <th><b><?= _('Credit Card') ?></b></th>
       <th><b><?= _('Month') ?></b></th>
-      <th><b><?= _('Year') ?></b></th>
-      <?php if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
-          ?>
-      <th><b><?= _('Vanco CC') ?></b></th>
-      <?php
-      }?>
+      <th><b><?= _('Year') ?></b></th>      
     </tr>
   </thead>
   <tbody>
@@ -265,24 +197,11 @@ foreach ($ormAutopayments as $payment) {
     <td id="Account<?= $payment->getId() ?>">
       <?= (strlen($payment->getAccount()) > 4)?'*****'.mb_substr($payment->getAccount(), strlen($payment->getAccount()) - 4, 4):'' ?>
     </td>
-  <?php
-      if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
-  ?>
-    <td id="AccountVanco<?= $payment->getId() ?>"><?= $payment->getAccountVanco() ?></td>
-  <?php
-    }
-  ?>
     <td id="CreditCard<?= $payment->getId() ?>">
       <?= (strlen($payment->getCreditCard()) == 16)?'*************'.mb_substr($payment->getCreditCard(), 12, 4):'' ?>
     </td>
     <td><?= $payment->getExpMonth() ?></td>
     <td><?= $payment->getExpYear() ?></td>
-    <?php if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
-                ?>
-    <td id="CreditCardVanco<?= $payment->getId() ?>"><?= $payment->getCreditCardVanco() ?></td>
-    <?php
-      }
-    ?>
   </tr>
   <?php
 }
@@ -293,11 +212,6 @@ foreach ($ormAutopayments as $payment) {
 <div>
 
 <b><?= _("With checked") ?>:</b><br>
-<?php if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
-    ?>
-<input type="button" class="btn btn-default" id="CreatePaymentMethodsForChecked" value="<?= _("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethodsForChecked();" />
-<?php
-} ?>
 <input type="button" class="btn btn-warning" id="DeleteChecked" value="<?= _("Delete") ?>" onclick="DeleteChecked();" />
 <input type="button" class="btn btn-default" id="DeleteChecked" value="<?= _("Clear Account Numbers") ?>" onclick="ClearAccountsChecked();" />
     </div>
