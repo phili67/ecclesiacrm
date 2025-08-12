@@ -32,7 +32,7 @@ use EcclesiaCRM\Bootstrapper;
 use RobThree\Auth\TwoFactorAuth;
 
 if (!Bootstrapper::isDBCurrent()) {
-    RedirectUtils::Redirect('SystemDBUpdate.php');
+    RedirectUtils::Redirect('v2/system/database/update');
     exit;
 }
 

@@ -30,7 +30,7 @@ class LatestReleaseTask implements iTask
   public function getLink()
   {
     if (SessionUser::getUser()->isAdmin()) {
-      return SystemURLs::getRootPath() . '/UpgradeCRM.php';
+      return SystemURLs::getRootPath() . '/v2/system/upgrade/crm';
     } else {
       return 'https://github.com/phili67/ecclesiacrm/releases/latest';
     }
