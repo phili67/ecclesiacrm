@@ -11,7 +11,7 @@ use Slim\Factory\AppFactory;
 use Slim\HttpCache\Cache;
 use Slim\Middleware\ContentLengthMiddleware;
 use DI\Container;
-
+use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
 
 use EcclesiaCRM\PluginQuery;
@@ -47,11 +47,11 @@ $app->add(new VersionMiddleware());
 $handlers = new handlers($app);
 $handlers->installHandlers();
 
-if (SessionUser::getUser()->getNeedPasswordChange()) {// only one route is staying
+if (Bootstrapper::isDBCurrent() and SessionUser::getUser()->getNeedPasswordChange()) {// only one route is staying
     $app->get('/users/change/password', VIEWUserController::class . ':renderChangePassword' );
     $app->get('/users/change/password/{PersonID:[0-9]+}', VIEWUserController::class . ':renderChangePassword' );
     $app->post('/users/change/password/{PersonID:[0-9]+}', VIEWUserController::class . ':renderChangePassword' );
-} else {// else the password is now changed
+} elseif ( Bootstrapper::isDBCurrent() ) {// else the password is now changed
     // the main dashboard
     require_once __DIR__ . '/routes/dashboard.php';
 
@@ -136,6 +136,10 @@ if (SessionUser::getUser()->getNeedPasswordChange()) {// only one route is stayi
             require_once $path;
         }
     }
+} else {
+    // system in the case of Bootstrapper::isDBCurrent() == false
+    // only the system route is available
+    require_once __DIR__ . '/routes/system/system.php';
 }
 
 $app->run();

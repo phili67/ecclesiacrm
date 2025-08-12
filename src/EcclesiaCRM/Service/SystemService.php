@@ -270,10 +270,14 @@ class SystemService
                 // security to check if the update is really required !!!
                 if ($this->isUpdateRequired()) {
                     $this->moveDir(SystemURLs::getDocumentRoot() . '/Upgrade/ecclesiacrm', SystemURLs::getDocumentRoot());
+                } else {
+                    MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/Upgrade/ecclesiacrm/");
                 }
             }
 
             unlink($zipFilename);
+            unlink(SystemURLs::getDocumentRoot().'/tmp_attach/backup_result.json');
+            
             SystemConfig::setValue('sLastIntegrityCheckTimeStamp', null);
 
             return 'success';

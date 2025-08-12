@@ -45,7 +45,7 @@ $(function () {
     const backupDoneFunction = (Backup_Result_Datas) => {
         window.CRM.closeDialogLoadingFunction();
 
-        var downloadButton = '<button class="btn btn-primary" id="downloadbutton" role="button" onclick="javascript:downloadbutton(\'' + Backup_Result_Datas.filename + '\')"><i class="fas fa-download"></i>  ' + Backup_Result_Datas.filename + "</button>";
+        var downloadButton = '<button class="btn btn-primary" id="downloadbutton" role="button" data-file="' + Backup_Result_Datas.filename + '"><i class="fas fa-download"></i>  ' + Backup_Result_Datas.filename + "</button>";
 
         $("#backupstatus").css("color", "green");
         $("#status-text").html(i18next.t("Backup Complete, Ready for Download."));
@@ -60,14 +60,7 @@ $(function () {
         if (window.CRM.bakupTimer !== null) {
             clearInterval(window.CRM.bakupTimer);
         }
-    }
-
-    const downloadbutton = (filename) => {
-        window.location = window.CRM.root + "/api/database/download/" + filename;
-        $("#backupstatus").css("color", "green");
-        $("#backupstatus").html(i18next.t('Backup Downloaded, Copy on server removed'));
-        $("#downloadbutton").attr("disabled", "true");
-    }
+    }    
 
     if (window.CRM.isInProgress) {
         startProgressWindow();
@@ -76,6 +69,15 @@ $(function () {
     if (window.CRM.BackupDone) {
         backupDoneFunction(window.CRM.BackupDatas);
     }
+
+    $("#downloadbutton").on('click', function () {
+        let filename = $(this).data('file');
+        
+        window.location = window.CRM.root + "/api/database/download/" + filename;
+        $("#backupstatus").css("color", "green");
+        $("#backupstatus").html(i18next.t('Backup Downloaded, Copy on server removed'));
+        $("#downloadbutton").attr("disabled", "true");
+    });
 
     $("#doBackup").on('click', function () {
         startProgressWindow();

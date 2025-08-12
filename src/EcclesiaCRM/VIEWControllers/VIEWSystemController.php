@@ -5,7 +5,7 @@
 //  copyright   : 2022 Philippe Logel all right reserved not MIT licence
 //                This code can't be included in another software
 //
-//  Updated : 2023/05/19
+//  Updated : 2025/08/12
 //
 
 namespace EcclesiaCRM\VIEWControllers;
@@ -22,9 +22,8 @@ use EcclesiaCRM\Utils\InputUtils;
 
 use Slim\Views\PhpRenderer;
 
-use EcclesiaCRM\Service\MailChimpService;
-
-class VIEWSystemController {
+class VIEWSystemController
+{
 
     private $container;
 
@@ -33,7 +32,7 @@ class VIEWSystemController {
         $this->container = $container;
     }
 
-    public function integritycheck (ServerRequest $request, Response $response, array $args): Response
+    public function integritycheck(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -45,7 +44,7 @@ class VIEWSystemController {
         return $renderer->render($response, 'integritycheck.php', $this->argumentsIntegrityCheckArray());
     }
 
-    public function infos (ServerRequest $request, Response $response, array $args): Response
+    public function infos(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -57,16 +56,17 @@ class VIEWSystemController {
         return $renderer->render($response, 'infos.php', $this->argumentsIntegrityCheckArray());
     }
 
-    public function argumentsIntegrityCheckArray ()
+    public function argumentsIntegrityCheckArray()
     {
         //Set the page title
         $sPageTitle    = _('System Infos');
-        
+
 
         $sRootDocument  = SystemURLs::getDocumentRoot();
         $CSPNonce       = SystemURLs::getCSPNonce();
 
-        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+        $paramsArguments = [
+            'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
             'sPageTitle'                => $sPageTitle
@@ -76,23 +76,23 @@ class VIEWSystemController {
     }
 
 
-    public function reportList (ServerRequest $request, Response $response, array $args): Response
+    public function reportList(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
         //Set the page title
-        if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool') ) ) {
+        if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool'))) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
         return $renderer->render($response, 'reportlist.php', $this->argumentsReportListArray());
     }
 
-    public function argumentsReportListArray ()
+    public function argumentsReportListArray()
     {
         //Set the page title
         $sPageTitle    = _('Report Menu');
-        
+
         $sRootDocument  = SystemURLs::getDocumentRoot();
         $CSPNonce       = SystemURLs::getCSPNonce();
 
@@ -100,7 +100,8 @@ class VIEWSystemController {
         $year = $today['year'];
 
 
-        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+        $paramsArguments = [
+            'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
             'sPageTitle'                => $sPageTitle,
@@ -111,7 +112,7 @@ class VIEWSystemController {
         return $paramsArguments;
     }
 
-    public function optionManager (ServerRequest $request, Response $response, array $args): Response
+    public function optionManager(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -124,19 +125,20 @@ class VIEWSystemController {
         if (isset($args['ListID'])) {
             $listID = InputUtils::LegacyFilterInput($args['ListID'], 'int');;
         }
-        
+
         return $renderer->render($response, 'optionManager.php', $this->argumentsOptionManagerArray($mode, $listID));
     }
 
-    public function argumentsOptionManagerArray ($mode, $listID)
+    public function argumentsOptionManagerArray($mode, $listID)
     {
         //Set the page title
         $sPageTitle    = _('System');
-        
+
         $sRootDocument  = SystemURLs::getDocumentRoot();
         $CSPNonce       = SystemURLs::getCSPNonce();
 
-        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+        $paramsArguments = [
+            'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
             'sPageTitle'                => $sPageTitle,
@@ -147,7 +149,7 @@ class VIEWSystemController {
         return $paramsArguments;
     }
 
-    public function convertIndividualToAddress (ServerRequest $request, Response $response, array $args): Response
+    public function convertIndividualToAddress(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -159,20 +161,21 @@ class VIEWSystemController {
         if (isset($args['all'])) {
             $all = InputUtils::LegacyFilterInput($args['all']);
         }
-        
-        
+
+
         return $renderer->render($response, 'convertIndividualToAddress.php', $this->argumentsIndividualToAddressArray($all));
     }
 
-    public function argumentsIndividualToAddressArray ($all)
+    public function argumentsIndividualToAddressArray($all)
     {
         //Set the page title
         $sPageTitle    = _('Convert Individuals to Addresses');
-        
+
         $sRootDocument  = SystemURLs::getDocumentRoot();
         $CSPNonce       = SystemURLs::getCSPNonce();
 
-        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+        $paramsArguments = [
+            'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
             'sPageTitle'                => $sPageTitle,
@@ -182,7 +185,7 @@ class VIEWSystemController {
         return $paramsArguments;
     }
 
-    public function csvExport (ServerRequest $request, Response $response, array $args): Response
+    public function csvExport(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -194,16 +197,17 @@ class VIEWSystemController {
         if (isset($args['Source'])) {
             $Source = InputUtils::LegacyFilterInput($args['Source']);
         }
-        
+
         return $renderer->render($response, 'csvExport.php', $this->argumentsCSVExportArray($Source));
     }
 
-    public function argumentsCSVExportArray ($Source)
+    public function argumentsCSVExportArray($Source)
     {
         //Set the page title
         $sPageTitle    = _('CSV Export');
-        
-        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+
+        $paramsArguments = [
+            'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
             'sPageTitle'                => $sPageTitle,
@@ -213,7 +217,7 @@ class VIEWSystemController {
         return $paramsArguments;
     }
 
-    public function eventAttendance (ServerRequest $request, Response $response, array $args): Response
+    public function eventAttendance(ServerRequest $request, Response $response, array $args): Response
     {
         $renderer = new PhpRenderer('templates/system/');
 
@@ -239,17 +243,18 @@ class VIEWSystemController {
         $Choice = '';
         if (isset($args['Choice'])) {
             $Choice = InputUtils::LegacyFilterInput($args['Choice']);
-        }      
+        }
 
         return $renderer->render($response, 'eventAttendance.php', $this->argumentsEventAttendanceArray($Action, $Event, $Type, $Choice));
     }
 
-    public function argumentsEventAttendanceArray ($Action, $Event, $Type, $Choice)
+    public function argumentsEventAttendanceArray($Action, $Event, $Type, $Choice)
     {
         //Set the page title
         $sPageTitle    = _('CSV Export');
-        
-        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+
+        $paramsArguments = [
+            'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
             'sPageTitle'                => $sPageTitle,
@@ -260,23 +265,14 @@ class VIEWSystemController {
         ];
 
         return $paramsArguments;
-    } 
-    
-    public function renderEMailDebug (ServerRequest $request, Response $response, array $args): Response {
-        $renderer = new PhpRenderer('templates/system/');
-
-        if ( !( SessionUser::getUser()->isAdmin())) {
-            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
-        }
-
-        return $renderer->render($response, 'emaildebug.php', $this->emailDebugArgumentsArray());
     }
 
-    public function emailDebugArgumentsArray ()
+    public function emailDebugArgumentsArray()
     {
         $sPageTitle = _("Debug Email Connection");
 
-        $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
+        $paramsArguments = [
+            'sRootPath'       => SystemURLs::getRootPath(),
             'sRootDocument'   => SystemURLs::getDocumentRoot(),
             'sPageTitle'      => $sPageTitle,
             'isMenuOption'    => SessionUser::getUser()->isMenuOptionsEnabled()
@@ -285,4 +281,74 @@ class VIEWSystemController {
         return $paramsArguments;
     }
 
+    public function databaseUpdate(ServerRequest $request, Response $response, array $args): Response
+    {
+        $renderer = new PhpRenderer('templates/system/upgrade/');
+
+        if (!(SessionUser::getUser()->isAdmin())) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $upgrade = false;
+        if (isset($args['start'])) {
+            $upgrade = InputUtils::FilterInt($args['start']);
+        }
+
+        return $renderer->render($response, 'SystemDBUpdate.php', $this->databaseUpdateArgumentsArray($upgrade));
+    }
+
+    public function databaseUpdateArgumentsArray($upgrade = false)
+    {
+        $sPageTitle = _('System Upgrade');
+
+        $paramsArguments = [
+            'sRootPath'       => SystemURLs::getRootPath(),
+            'sRootDocument'   => SystemURLs::getDocumentRoot(),
+            'sPageTitle'      => $sPageTitle,
+            'upgrade'         => $upgrade
+        ];        
+
+        return $paramsArguments;
+    }
+
+    public function upgradeCrm(ServerRequest $request, Response $response, array $args): Response
+    {
+        $renderer = new PhpRenderer('templates/system/upgrade/');
+
+        if ( !(SessionUser::getUser()->isAdmin()) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }       
+
+        return $renderer->render($response, 'UpgradeCRM.php', $this->upgradeCrmArgumentsArray());
+    }
+
+    public function upgradeCrmArgumentsArray()
+    {
+        $sPageTitle = gettext('Upgrade EcclesiaCRM');
+
+        $inprogress_file = SystemURLs::getDocumentRoot() . '/tmp_attach/backup_in_progress.txt';
+        $backup_result_url = SystemURLs::getDocumentRoot() . '/tmp_attach/backup_result.json';
+
+        if (file_exists($inprogress_file)) {
+            $Backup_In_Progress = true;
+        }
+
+        if (file_exists(SystemURLs::getDocumentRoot() . '/tmp_attach/backup_result.json')) {
+            $BackupDone = true;
+            $content = file_get_contents($backup_result_url);
+            $Backup_Result_Datas =  json_decode($content, true);
+        }
+
+        $paramsArguments = [
+            'sRootPath'             => SystemURLs::getRootPath(),
+            'sRootDocument'         => SystemURLs::getDocumentRoot(),
+            'sPageTitle'            => $sPageTitle,
+            'Backup_In_Progress'    => $Backup_In_Progress,
+            'BackupDone'            => $BackupDone,
+            'Backup_Result_Datas'   => $Backup_Result_Datas
+
+        ];
+
+        return $paramsArguments;
+    }
 }

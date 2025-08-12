@@ -1,43 +1,14 @@
 <?php
 // Include the function library
-require 'Include/Config.php';
-
 $bSuppressSessionTests = true;
-
-require 'Include/Functions.php';
-require_once 'Include/Header-function.php';
 
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SystemService;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
 
-// Set the page title and include HTML header
-$sPageTitle = gettext('Upgrade EcclesiaCRM');
-
-if (!SessionUser::getUser()->isAdmin()) {
-  RedirectUtils::Redirect('index.php');
-  exit;
-}
-
-require 'Include/HeaderNotLoggedIn.php';
+require $sRootDocument . '/Include/HeaderNotLoggedIn.php';
 Header_modals();
 Header_body_scripts();
-
-$inprogress_file = SystemURLs::getDocumentRoot().'/tmp_attach/backup_in_progress.txt';
-$backup_result_url = SystemURLs::getDocumentRoot().'/tmp_attach/backup_result.json';
-
-if (file_exists($inprogress_file)) {
-  $Backup_In_Progress = true;
-}
-
-if (file_exists(SystemURLs::getDocumentRoot().'/tmp_attach/backup_result.json')) {
-  $BackupDone = true;
-  $content = file_get_contents($backup_result_url);
-  $Backup_Result_Datas =  json_decode($content,true); 
-}
-
 ?>
 <div class="col-lg-8 col-lg-offset-2" style="margin-top: 10px">
   <div class="timeline">
@@ -92,8 +63,8 @@ if (file_exists(SystemURLs::getDocumentRoot().'/tmp_attach/backup_result.json'))
       <div class="timeline-item">
         <h3 class="timeline-header"><?= gettext('Step 4: Login') ?></h3>
         <div class="timeline-body" id="finalPhase" style="display: none">
-          <p><?= gettext("Vous devez supprimer le cache de votre navigateur pour que le logiciel fonctionne correctement (nouveau code javascript, les polices de caractères), et surtout le fonctionnement interne !!!") ?></p>
-          <a href="<?= SystemURLs::getRootPath() ?>/session/logout" class="btn btn-primary"><?= gettext('Login to Upgraded System') ?> </a>
+          <p><b><?= gettext("IMPORTANT : You must clear your browser cache for the software to work properly (new JavaScript code, fonts, etc), and especially for the internal functioning!!!") ?><b></p>
+          <a href="<?= SystemURLs::getRootPath() ?>/v2/system/database/update" class="btn btn-primary"><?= gettext('Start Database Update') ?> </a>
         </div>
       </div>
     </div>
@@ -110,7 +81,7 @@ if (file_exists(SystemURLs::getDocumentRoot().'/tmp_attach/backup_result.json'))
 
 <?php
 // Add the page footer
-require 'Include/FooterNotLoggedIn.php';
+require $sRootDocument . '/Include/FooterNotLoggedIn.php';
 
 // Turn OFF output buffering
 ob_end_flush();

@@ -216,7 +216,12 @@ unlink(SystemURLs::getDocumentRoot() . "/api/dependencies.php");
 unlink(SystemURLs::getDocumentRoot() . "/external/dependencies.php");
 unlink(SystemURLs::getDocumentRoot() . "/ident/dependencies.php");
 unlink(SystemURLs::getDocumentRoot() . "/session/dependencies.php");
-
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/debug/");
+
+
+// 2025-08-12
+unlink(SystemURLs::getDocumentRoot() . "/SystemDBUpdate.php");
+unlink(SystemURLs::getDocumentRoot() . "/UpgradeCRM.php");
+
 
 $logger->info("End of delete :  all unusefull files");

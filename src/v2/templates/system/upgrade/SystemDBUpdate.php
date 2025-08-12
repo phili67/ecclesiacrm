@@ -2,28 +2,13 @@
 
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\Service\UpgradeService;
-use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\Bootstrapper;
-use EcclesiaCRM\SessionUser;
 
 
 // Include the function library
-require 'Include/Config.php';
 $bSuppressSessionTests = true; // DO NOT MOVE
-require 'Include/Functions.php';
 
-if (!SessionUser::getUser()->isAdmin()) {
-  RedirectUtils::Redirect('index.php');
-  exit;
-}
-
-if (Bootstrapper::isDBCurrent()) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}
-
-if (InputUtils::FilterString($_GET['upgrade']) == "true") {
+if ($upgrade == true) {
     try {
         UpgradeService::upgradeDatabaseVersion();        
         RedirectUtils::Redirect('session/logout');
@@ -34,8 +19,7 @@ if (InputUtils::FilterString($_GET['upgrade']) == "true") {
 }
 
 // Set the page title and include HTML header
-$sPageTitle = _('System Upgrade');
-require 'Include/HeaderNotLoggedIn.php'; ?>
+require $sRootDocument . '/Include/HeaderNotLoggedIn.php'; ?>
 
 <p></br></p>
 
@@ -60,7 +44,7 @@ require 'Include/HeaderNotLoggedIn.php'; ?>
         <div class="row">
             <div class="col-12">
                 <p></br></p>
-                <form>
+                <form action="<?= $sRootPath ?>/v2/system/database/update/1" method="post">
                     <input type="hidden" name="upgrade" value="true"/>
                     <button type="submit" class="btn btn-primary btn-block"><i
                             class="fas fa-database"></i> <?= _('Upgrade database') ?></button>
@@ -80,4 +64,4 @@ require 'Include/HeaderNotLoggedIn.php'; ?>
 </div>
 
 
-<?php require 'Include/FooterNotLoggedIn.php'; ?>
+<?php require $sRootDocument . '/Include/FooterNotLoggedIn.php'; ?>

@@ -20,7 +20,7 @@ use EcclesiaCRM\Theme;
 
 
 if (!Bootstrapper::isDBCurrent()) {  //either the DB is good, or the upgrade was successful.
-    RedirectUtils::Redirect('SystemDBUpdate.php');
+    RedirectUtils::Redirect('v2/system/database/update');
     exit;
 }
 
