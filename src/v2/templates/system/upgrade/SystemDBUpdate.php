@@ -1,22 +1,6 @@
 <?php
-
-use EcclesiaCRM\Service\SystemService;
-use EcclesiaCRM\Service\UpgradeService;
-use EcclesiaCRM\utils\RedirectUtils;
-
-
 // Include the function library
 $bSuppressSessionTests = true; // DO NOT MOVE
-
-if ($upgrade == true) {
-    try {
-        UpgradeService::upgradeDatabaseVersion();        
-        RedirectUtils::Redirect('session/logout');
-        exit;
-    } catch (\Exception $ex) {
-        $errorMessage = $ex->getMessage();
-    }
-}
 
 // Set the page title and include HTML header
 require $sRootDocument . '/Include/HeaderNotLoggedIn.php'; ?>
@@ -25,15 +9,16 @@ require $sRootDocument . '/Include/HeaderNotLoggedIn.php'; ?>
 
 <div class="error-page">
     <div class="row">
-        <div class="col-3"><h1 class="headline text-yellow" style="font-size:60px">426</h1></div>
+        <div class="col-3"><h1 class="headline text-green" style="font-size:60px">426</h1></div>
         <div class="col-6">
             <div class="error-content">
                 <div class="row">
-                    <h3><i class="fas fa-exclamation-triangle text-yellow"></i> <?= _('Upgrade Required') ?></h3>
+                    <h3><i class="fas fa-exclamation-triangle text-green"></i> <?= _('Upgrade Required') ?></h3>
                     <p>
-                        <?= _("Current DB Version" . ": " . SystemService::getDBVersion()) ?> <br/>
-                        <?= _("Current Software Version" . ": " . SystemService::getInstalledVersion()) ?> <br/>
+                        <?= _("Current DB Version") . ": " . $dbVersion ?> <br/>
+                        <?= _("Current Software Version") . ": " . $InstalledVersion ?> <br/>
                     </p>
+                    <h5><?= _("Update and clean up the database and files") ?></h5>
                 </div>
             </div>
         </div>
@@ -43,11 +28,13 @@ require $sRootDocument . '/Include/HeaderNotLoggedIn.php'; ?>
     ?>
         <div class="row">
             <div class="col-12">
-                <p></br></p>
+                <p></br></p>                
                 <form action="<?= $sRootPath ?>/v2/system/database/update/1" method="post">
                     <input type="hidden" name="upgrade" value="true"/>
-                    <button type="submit" class="btn btn-primary btn-block"><i
-                            class="fas fa-database"></i> <?= _('Upgrade database') ?></button>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">
+                        <i class="fas fa-database"></i> <i class="fas fa-file"></i> <i class="fas fa-folder"></i> 
+                        <?= _("Complete the update") ?>
+                    </button>
                 </form>
             </div>
         </div>

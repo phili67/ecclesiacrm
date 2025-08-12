@@ -51,6 +51,7 @@ $(function () {
         $("#status-text").html(i18next.t("Backup Complete, Ready for Download."));
         $("#resultFiles").html(downloadButton);
         $("#status1").html('<i class="fas fa-check" style="color:orange"></i>');
+        $("#doBackup").attr("disabled", "true");  
         $("#downloadbutton").on('click', function () {
             $("#fetchPhase").show("slow");
             $("#backupPhase").slideUp();
@@ -77,6 +78,7 @@ $(function () {
         $("#backupstatus").css("color", "green");
         $("#backupstatus").html(i18next.t('Backup Downloaded, Copy on server removed'));
         $("#downloadbutton").attr("disabled", "true");
+        $("#doBackup").attr("disabled", "true");        
     });
 
     $("#doBackup").on('click', function () {
