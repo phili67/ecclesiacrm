@@ -3,7 +3,7 @@
 /*******************************************************************************
  *
  *  filename    : route : system.php
- *  last change : 2019-06-21
+ *  last change : 2025-08-12
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker
  *                          2019 Philippe Logel
@@ -41,16 +41,21 @@ $app->group('/system', function (RouteCollectorProxy $group) {
 
 
     /*
-    * @! CSVExport
-    * #! param: ref->string :: Source -> cart
+    * @! eventAttendance
     */
     $group->get('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );
-    $group->post('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );   
+    $group->post('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' ); 
     
     /*
-    * @! email debug
+    * @! databaseUpdate
     */
-    $group->get('/email/debug', VIEWSystemController::class . ':renderEMailDebug');    
+    $group->get('/database/update', VIEWSystemController::class . ':databaseUpdate' );
+    $group->post('/database/update[/{start}]', VIEWSystemController::class . ':databaseUpdate' );
+
+    /*
+    * @! upgradeCrm
+    */
+    $group->get('/upgrade/crm', VIEWSystemController::class . ':upgradeCrm' );     
 });
 
 

@@ -1,0 +1,67 @@
+<?php
+
+use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\Service\UpgradeService;
+use EcclesiaCRM\utils\RedirectUtils;
+
+
+// Include the function library
+$bSuppressSessionTests = true; // DO NOT MOVE
+
+if ($upgrade == true) {
+    try {
+        UpgradeService::upgradeDatabaseVersion();        
+        RedirectUtils::Redirect('session/logout');
+        exit;
+    } catch (\Exception $ex) {
+        $errorMessage = $ex->getMessage();
+    }
+}
+
+// Set the page title and include HTML header
+require $sRootDocument . '/Include/HeaderNotLoggedIn.php'; ?>
+
+<p></br></p>
+
+<div class="error-page">
+    <div class="row">
+        <div class="col-3"><h1 class="headline text-yellow" style="font-size:60px">426</h1></div>
+        <div class="col-6">
+            <div class="error-content">
+                <div class="row">
+                    <h3><i class="fas fa-exclamation-triangle text-yellow"></i> <?= _('Upgrade Required') ?></h3>
+                    <p>
+                        <?= _("Current DB Version" . ": " . SystemService::getDBVersion()) ?> <br/>
+                        <?= _("Current Software Version" . ": " . SystemService::getInstalledVersion()) ?> <br/>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <?php if (empty($errorMessage)) {
+    ?>
+        <div class="row">
+            <div class="col-12">
+                <p></br></p>
+                <form action="<?= $sRootPath ?>/v2/system/database/update/1" method="post">
+                    <input type="hidden" name="upgrade" value="true"/>
+                    <button type="submit" class="btn btn-primary btn-block"><i
+                            class="fas fa-database"></i> <?= _('Upgrade database') ?></button>
+                </form>
+            </div>
+        </div>
+    <?php
+} else {
+        ?>
+        <div class="main-box-body clearfix" id="globalMessage">
+            <div class="alert alert-danger" id="globalMessageAlert">
+                <i class="fas fa-exclamation-triangle  fa-lg"></i> <?= $errorMessage ?>
+            </div>
+        </div>
+    <?php
+    } ?>
+</div>
+
+
+<?php require $sRootDocument . '/Include/FooterNotLoggedIn.php'; ?>
