@@ -9,8 +9,6 @@
  *
  ******************************************************************************/
 
-require $sRootDocument . '/Include/VancoConfig.php';
-
 use Propel\Runtime\Propel;
 
 $connection = Propel::getConnection();
@@ -18,7 +16,7 @@ $connection = Propel::getConnection();
 $sSQL = 'UPDATE autopayment_aut SET ';
 $sSQL .= 'aut_CreditCard=CONCAT("************",SUBSTR(aut_CreditCard,LENGTH(aut_CreditCard)-3,4))';
 $sSQL .= ', aut_Account=CONCAT("*****",SUBSTR(aut_Account,LENGTH(aut_Account)-3, 4))';
-$sSQL .= " WHERE aut_ID=$iVancoAutID";
+$sSQL .= " WHERE aut_ID=$iAutID";
 
 $raOpps = $connection->prepare($sSQL);
 
