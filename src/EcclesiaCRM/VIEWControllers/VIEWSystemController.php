@@ -10,21 +10,25 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
+use EcclesiaCRM\Bootstrapper;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
 
+use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\Service\UpgradeService;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 
+use Slim\Exception\HttpInternalServerErrorException;
+
 use Slim\Views\PhpRenderer;
 
 class VIEWSystemController
 {
-
     private $container;
 
     public function __construct(ContainerInterface $container)
@@ -291,8 +295,19 @@ class VIEWSystemController
 
         $upgrade = false;
         if (isset($args['start'])) {
-            $upgrade = InputUtils::FilterInt($args['start']);
+            try {
+                UpgradeService::upgradeDatabaseVersion();        
+                return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/session/logout');
+            } catch (\Exception $ex) {
+                $errorMessage = $ex->getMessage();
+                throw new HttpInternalServerErrorException($request, $errorMessage);
+            }
         }
+
+        if ($upgrade == true) {
+            
+        }
+
 
         return $renderer->render($response, 'SystemDBUpdate.php', $this->databaseUpdateArgumentsArray($upgrade));
     }
@@ -302,10 +317,13 @@ class VIEWSystemController
         $sPageTitle = _('System Upgrade');
 
         $paramsArguments = [
-            'sRootPath'       => SystemURLs::getRootPath(),
-            'sRootDocument'   => SystemURLs::getDocumentRoot(),
-            'sPageTitle'      => $sPageTitle,
-            'upgrade'         => $upgrade
+            'sRootPath'        => SystemURLs::getRootPath(),
+            'sRootDocument'    => SystemURLs::getDocumentRoot(),
+            'sPageTitle'       => $sPageTitle,
+            'upgrade'          => $upgrade,
+            'dbVersion'        => SystemService::getDBVersion(),
+            'InstalledVersion' => SystemService::getInstalledVersion()
+
         ];        
 
         return $paramsArguments;
@@ -324,7 +342,7 @@ class VIEWSystemController
 
     public function upgradeCrmArgumentsArray()
     {
-        $sPageTitle = gettext('Upgrade EcclesiaCRM');
+        $sPageTitle = gettext('Upgrade') . " " . Bootstrapper::getSoftwareName() . " " . SystemService::getDBMainVersion();
 
         $inprogress_file = SystemURLs::getDocumentRoot() . '/tmp_attach/backup_in_progress.txt';
         $backup_result_url = SystemURLs::getDocumentRoot() . '/tmp_attach/backup_result.json';

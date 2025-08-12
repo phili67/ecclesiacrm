@@ -1,11 +1,6 @@
 <?php
 // Include the function library
 $bSuppressSessionTests = true;
-
-use EcclesiaCRM\Bootstrapper;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Service\SystemService;
-
 require $sRootDocument . '/Include/HeaderNotLoggedIn.php';
 Header_modals();
 Header_body_scripts();
@@ -14,13 +9,13 @@ Header_body_scripts();
   <div class="timeline">
     <div class="time-label">
       <span class="bg-red">
-        <?= gettext('Upgrade') . " " . Bootstrapper::getSoftwareName() . " " . SystemService::getDBMainVersion() ?>
+        <?= $sPageTitle ?>
       </span>
     </div>
     <div>
       <i class="fas fa-database bg-blue"></i>
       <div class="timeline-item">
-        <h3 class="timeline-header"><?= gettext('Step 1: Backup Database') ?> <span id="status1"></span></h3>
+        <h3 class="timeline-header"><?= gettext('Step 1: Backup Database and files') ?> <span id="status1"></span></h3>
         <div class="timeline-body" id="backupPhase">
           <p id="status-text"><?= gettext('Please create a database backup before beginning the upgrade process.') ?></p>
           <input type="button" class="btn btn-primary" id="doBackup" <?= 'value="' . gettext('Generate Database Backup') . '"' ?>>
@@ -59,25 +54,26 @@ Header_body_scripts();
       </div>
     </div>
     <div>
-      <i class="fas fa-sign-in-alt bg-blue"></i>
+      <i class="fas fa-circle-play bg-blue"></i>
       <div class="timeline-item">
-        <h3 class="timeline-header"><?= gettext('Step 4: Login') ?></h3>
-        <div class="timeline-body" id="finalPhase" style="display: none">
-          <p><b><?= gettext("IMPORTANT : You must clear your browser cache for the software to work properly (new JavaScript code, fonts, etc), and especially for the internal functioning!!!") ?><b></p>
-          <a href="<?= SystemURLs::getRootPath() ?>/v2/system/database/update" class="btn btn-primary"><?= gettext('Start Database Update') ?> </a>
+        <h3 class="timeline-header"><?= gettext("Step 4: Complete the update") ?></h3>
+        <div class="timeline-body" id="finalPhase" style="display: none">   
+          <p><?= _("update and clean up the database and files") ?></p>
+          <p style="color:red"><b><?= gettext("IMPORTANT : Before continuing, clear your browser cache without reloading this page so that the software works properly (for the new JavaScript code, fonts, and especially for internal functioning)!!!") ?></b></p>                  
+          <a href="<?= $sRootPath ?>/v2/system/database/update" class="btn btn-primary"><?= gettext('Start Files/Dadatase Upgrade') ?> </a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= $sCSPNonce ?>">
   window.CRM.isInProgress  = <?= $Backup_In_Progress?"true":"false" ?>;
   window.CRM.BackupDone  = <?= $BackupDone?"true":"false" ?>;
   window.CRM.BackupDatas  = <?= json_encode($Backup_Result_Datas) ?>;
 </script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/upgrade/UpgradeCRM.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/upgrade/UpgradeCRM.js"></script>
 
 <?php
 // Add the page footer
