@@ -160,6 +160,13 @@ class SystemService
         return $result;
     }
 
+    public function isUpdateRequired () {
+        $compare = version_compare($_SESSION['sSoftwareInstalledVersion'], $_SESSION['latestVersion']['name']);
+        $isUpdateRequired = $_SESSION['latestVersion'] != null && $compare != 1;
+
+        return $isUpdateRequired;
+    }
+
     public function runTimerJobs()
     {
         if (NotificationService::isUpdateRequired())
@@ -249,7 +256,7 @@ class SystemService
 
     public function doUpgrade($zipFilename, $sha1)
     {
-        ini_set('max_execution_time', 60);
+        ini_set('max_execution_time', 360);
         if ($sha1 == sha1_file($zipFilename)) {
             $zip = new \ZipArchive();
             if ($zip->open($zipFilename) == true) {
@@ -260,7 +267,10 @@ class SystemService
                  */
                 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/Upgrade/ecclesiacrm/Plugins/");
 
-                $this->moveDir(SystemURLs::getDocumentRoot() . '/Upgrade/ecclesiacrm', SystemURLs::getDocumentRoot());
+                // security to check if the update is really required !!!
+                if ($this->isUpdateRequired()) {
+                    $this->moveDir(SystemURLs::getDocumentRoot() . '/Upgrade/ecclesiacrm', SystemURLs::getDocumentRoot());
+                }
             }
 
             unlink($zipFilename);

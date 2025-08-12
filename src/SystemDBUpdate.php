@@ -5,12 +5,18 @@ use EcclesiaCRM\Service\UpgradeService;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\SessionUser;
 
 
 // Include the function library
 require 'Include/Config.php';
 $bSuppressSessionTests = true; // DO NOT MOVE
 require 'Include/Functions.php';
+
+if (!SessionUser::getUser()->isAdmin()) {
+  RedirectUtils::Redirect('index.php');
+  exit;
+}
 
 if (Bootstrapper::isDBCurrent()) {
     RedirectUtils::Redirect('v2/dashboard');
