@@ -1,6 +1,8 @@
 /* copyright 2025 Philippe Logel */
 
 $(function () {
+    window.CRM.dblclick = false;
+
     // Helper function to get parameters from the query string.
     // use to search the ckeditor function to put the right param in the ckeditor image tool
     const getUrlParam = (paramName) => {
@@ -302,6 +304,11 @@ $(function () {
         });
     });    
 
+    $('#edrive-table tbody').on('dblclick', 'tr', function(event) {
+        window.CRM.dblclick = true;
+    });
+
+
     // click in the table
     $('#edrive-table tbody').on('click', 'tr', function(event) {
         let column = window.CRM.dataEDriveTable.column( this ).index();//unusefull at this moment
@@ -323,8 +330,6 @@ $(function () {
             clickedRowIsSelected = false;
         }
 
-
-
         if ((ctrlKey || optionKey)) {
             if (clickedRowIsSelected == true) {
                 selectedRows--;
@@ -345,8 +350,7 @@ $(function () {
             }
         }
 
-        $(this).toggleClass('selected');
-        
+        $(this).toggleClass('selected');        
         
         if (window.CRM.browserImage == true) {
             if (selectedRows) {
@@ -362,9 +366,9 @@ $(function () {
             $("#trash-drop").addClass('disabled');            
         }
 
-        if (selectedRows != 1) {
+        if (selectedRows != 1 || window.CRM.dblclick || id == '/public') {
             $('.filmanager-right').hide();
-        } else {   
+        } else if (!window.CRM.dblclick){   
 
             $('.filmanager-right').show();
 
@@ -403,6 +407,8 @@ $(function () {
                 }
             });        
         }
+
+        window.CRM.dblclick = false;
     });
 
 
@@ -681,6 +687,8 @@ $(function () {
     });
 
     $(".folder-back-drop").on('click', function () {
+        $('.filmanager-right').hide();
+
         var personID = $(this).data("personid");
 
         window.CRM.APIRequest({
