@@ -34,7 +34,6 @@
         "slim/http": "^1.4.0",
         "sabre/dav": "4.*",
         "monolog/monolog": "^1.17",
-        "authorizenet/authorizenet": "1.9.4",
         "phpmailer/phpmailer":  "v6.5.0",
         "verot/class.upload.php": "dev-master",
         "ifsnop/mysqldump-php": "2.*",

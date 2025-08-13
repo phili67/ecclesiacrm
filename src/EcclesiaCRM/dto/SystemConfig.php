@@ -135,7 +135,6 @@ class SystemConfig
             "sTimeZone" => new ConfigItem(65, "sTimeZone", "choice", "America/New_York", _("Time zone") . " : " . _("CalDAV protocol to work with php date_default_timezone_set function default settings : america/new_york"), "http://php.net/manual/en/timezones.php", json_encode(["Choices" => timezone_identifiers_list()])),
             "bForceUppercaseZip" => new ConfigItem(67, "bForceUppercaseZip", "boolean", "0", _("Make user-entered zip/postcodes UPPERCASE when saving to the database.")),
             "bEnableNonDeductible" => new ConfigItem(72, "bEnableNonDeductible", "boolean", "0", _("Enable non-deductible payments")),
-            "sElectronicTransactionProcessor" => new ConfigItem(73, "sElectronicTransactionProcessor", "choice", "Authorize.NET", _("Electronic Transaction Processor"), '', '{"Choices":["Authorize.NET"]}'),
             "bEnableSelfRegistration" => new ConfigItem(80, "bEnableSelfRegistration", "boolean", "0", _("Set true to enable family self registration.")),
             "sPhoneFormat" => new ConfigItem(100, "sPhoneFormat", "text", "(999) 999-9999"),
             "sPhoneFormatWithExt" => new ConfigItem(101, "sPhoneFormatWithExt", "text", "(999) 999-9999 x99999"),
@@ -304,7 +303,7 @@ class SystemConfig
             _('GDPR') => ["bGDPR", "sGdprDpoSigner", "sGdprDpoSignerEmail", "iGdprExpirationDate", "bSearchFinancesGDPR"],
             _('Quick Search') => ["bSearchIncludePersons", "iSearchIncludePersonsMax", "bSearchIncludeAddresses", "iSearchIncludeAddressesMax", "bSearchIncludeFamilies", "iSearchIncludeFamiliesMax", "bSearchIncludeFamilyHOH", "iSearchIncludeFamilyHOHMax", "bSearchIncludeGroups", "iSearchIncludeGroupsMax", "bSearchIncludeDeposits", "iSearchIncludeDepositsMax", "bSearchIncludePledges", "iSearchIncludePledgesMax", "bSearchIncludePayments", "iSearchIncludePaymentsMax", "bSearchIncludePastoralCare", "iSearchIncludePastoralCareMax"],
             _('Report Settings') => ["sQBDTSettings", "sTaxSigner", "sReminderSigner", "leftX", "incrementY", "sTaxReport1", "sTaxReport2", "sTaxReport3", "sReminder1", "sReminderNoPledge", "sReminderNoPayments", "sConfirm1", "sConfirm2", "sConfirm3", "sConfirm4", "sConfirm5", "sConfirm6", "sDear", "sConfirmSincerely", "sConfirmSigner", "sUnsubscribeStart", "sUnsubscribeEnd", "sPledgeSummary1", "sPledgeSummary2", "sDirectoryDisclaimer1", "sDirectoryDisclaimer2", "bDirLetterHead", "sZeroGivers", "sZeroGivers2", "sZeroGivers3", "iPDFOutputType"],
-            _('Financial Settings') => ["sCurrency", "sDepositSlipType", "iChecksPerDepositForm", "bDisplayBillCounts", "bUseScannedChecks", "sElectronicTransactionProcessor", "bEnableNonDeductible", "iFYMonth", "bUseDonationEnvelopes", "aFinanceQueries"],
+            _('Financial Settings') => ["sCurrency", "sDepositSlipType", "iChecksPerDepositForm", "bDisplayBillCounts", "bUseScannedChecks", "bEnableNonDeductible", "iFYMonth", "bUseDonationEnvelopes", "aFinanceQueries"],
             _('Backup') => ["sLastBackupTimeStamp", "bEnableExternalBackupTarget", "bGZIP", "bZIP", "sPGP", "sExternalBackupType", "sExternalBackupAutoInterval", "sExternalBackupEndpoint", "sExternalBackupUsername", "sExternalBackupPassword"],
             _('Users Specific Schedule Tasks') => ["bEventsOnDashboardPresence", "iEventsOnDashboardPresenceTimeOut", "iDashboardPageServiceIntervalTime"]
         );
