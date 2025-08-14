@@ -369,4 +369,29 @@ class VIEWSystemController
 
         return $paramsArguments;
     }
+
+    public function csvImport (ServerRequest $request, Response $response, array $args): Response {
+        $renderer = new PhpRenderer('templates/system/');
+
+        if ( !( SessionUser::getUser()->isAdmin() ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'csvImport.php', $this->argumentsImportCSVArray());
+    }
+
+    public function argumentsImportCSVArray ()
+    {
+        $sPageTitle = _('CSV Import');
+
+        $paramsArguments = [ 
+            'sRootPath'   => SystemURLs::getRootPath(),
+            'sRootDocument' => SystemURLs::getDocumentRoot(),
+            'sPageTitle'  => $sPageTitle,
+            'sCSPNonce'    => SystemURLs::getCSPNonce(),
+            'encryptionMethod' => SystemConfig::getValue('sPGP')
+        ];
+
+        return $paramsArguments;
+    }
 }

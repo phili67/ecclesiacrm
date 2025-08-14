@@ -41,6 +41,13 @@ $app->group('/system', function (RouteCollectorProxy $group) {
 
 
     /*
+    * @! CSVImport
+    */
+    $group->get('/csv/import', VIEWSystemController::class . ':csvImport' );
+    $group->post('/csv/import', VIEWSystemController::class . ':csvImport' );
+
+
+    /*
     * @! eventAttendance
     */
     $group->get('/event/attendance/{Action}/{Event:[0-9]+}/{Type}[/{Choice}]', VIEWSystemController::class . ':eventAttendance' );

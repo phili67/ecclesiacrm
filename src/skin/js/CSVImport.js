@@ -2,6 +2,10 @@ $(function() {
 
   window.CRM.selectedCol = -1;
 
+  $(function() {
+    $(".columns").select2();
+  });
+
   $('#clear-people').on('click',function (event) {
       event.preventDefault();
       var thisLink = $(this);

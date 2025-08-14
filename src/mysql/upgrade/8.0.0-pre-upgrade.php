@@ -232,4 +232,7 @@ MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/v2/routes/backup/")
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/VIEWControllers/Backup/");
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/v2/templates/backup/");
 
+// 2025-08-14
+unlink(SystemURLs::getDocumentRoot() . "/CSVImport.php");
+
 $logger->info("End of delete :  all unusefull files");
