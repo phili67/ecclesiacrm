@@ -1,6 +1,6 @@
 <?php
 
-namespace EcclesiaCRM;
+namespace EcclesiaCRM\Utils;
 
 class CacheProvider {
     /*
