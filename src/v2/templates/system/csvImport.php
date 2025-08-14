@@ -12,18 +12,31 @@
  ******************************************************************************/
 
 // Include the function library
-use EcclesiaCRM\dto\SystemConfig;
+
+use EcclesiaCRM\FamilyCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomQuery;
+use EcclesiaCRM\FamilyCustom;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Family;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\PersonCustom;
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\ListOptionQuery;
 
 use EcclesiaCRM\Note;
 
+
+use EcclesiaCRM\Utils\CSVImport\FamilyImportUtils;
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+
 
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\SessionUser;
-
-use EcclesiaCRM\CSVImport\FamilyImportUtils;
+use Propel\Runtime\Propel;
 
 // Set the page title and include HTML header
 
@@ -40,6 +53,8 @@ require $sRootDocument . '/Include/Header.php';
 
 $iStage = 1;
 $csvError = '';
+
+$connection = Propel::getConnection();
 
 if (isset($_POST['iSelectedValues'])) {
   $iSelectedValues = $_POST['iSelectedValues'];
@@ -111,28 +126,29 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
 
         fclose($pFile);
 
-        $sSQL = 'SELECT * FROM person_custom_master ORDER BY custom_Order';
-        $rsCustomFields = MiscUtils::RunQuery($sSQL);
+        $ormPersonCustomMasterFields = PersonCustomMasterQuery::create()
+          ->orderByCustomOrder()
+          ->find();
 
         $sPerCustomFieldList = '';
-        while ($aRow = mysqli_fetch_array($rsCustomFields)) {
-            extract($aRow);
-            // No easy way to import person-from-group or custom-list types
-            if ($type_ID != 9 && $type_ID != 12) {
-                $sPerCustomFieldList .= '<option value="'.$custom_Field.'">'.$custom_Name."</option>\n";
-            }
+        foreach ($ormPersonCustomMasterFields as $customField) {
+          if ($customField->getTypeId() != 9 and $customField->getTypeId() != 12) {
+              $sPerCustomFieldList .= '<option value="'.$customField->getCustomField().'">'.$customField->getCustomName()."</option>\n";
+          }
         }
 
-        $sSQL = 'SELECT * FROM family_custom_master ORDER BY fam_custom_Order';
-        $rsfamCustomFields = MiscUtils::RunQuery($sSQL);
+        $ormFamilyCustomMasterFields = FamilyCustomMasterQuery::create()
+          ->orderByCustomOrder()
+          ->find();
 
         $sFamCustomFieldList = '';
-        while ($aRow = mysqli_fetch_array($rsfamCustomFields)) {
-            extract($aRow);
-            if ($type_ID != 9 && $type_ID != 12) {
-                $sFamCustomFieldList .= '<option value="f'.$fam_custom_Field.'">'.$fam_custom_Name."</option>\n";
-            }
+        foreach ($ormFamilyCustomMasterFields as $customField) {
+          if ($customField->getTypeId() != 9 and $customField->getTypeId() != 12) {
+              $sPerCustomFieldList .= '<option value="'.$customField->getCustomField().'">'.$customField->getCustomName()."</option>\n";
+          }
         }
+
+
 
         // add select boxes for import destination mapping
         for ($col = 0; $col < $numCol; $col++) {
@@ -186,18 +202,26 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
             <span style="color:red;float:left">• <?= _("<b>IMPORTANT !</b> Associate the <b>gender</b> to a column.") ?></span>
           </div>
         </div>
+        
+        <hr/>
         <div class="row">
           <div class="col-lg-10">
-            <h3  class="card-title"><?= _("Important Options") ?></h3>
+            <label><?= _("Important Options") ?></label>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-10" style="color:green">
+            <input type="checkbox" value="1" name="IgnoreFirstRow" checked> &nbsp;&nbsp;&nbsp;&nbsp; <?= _('Ignore first CSV row (to exclude a header)') ?>
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-10" style="color:green">
-            <input type="checkbox" value="1" name="IgnoreFirstRow"> &nbsp;&nbsp;&nbsp;&nbsp; <?= _('Ignore first CSV row (to exclude a header)') ?>
+          <div class="col-lg-10">
+            <input type="checkbox" value="1" name="PutInCart" checked> &nbsp;&nbsp;&nbsp;&nbsp; <?= _('Put all the persons in the cart, to import them in a group, sundayschool group, etc....') ?>
           </div>
         </div>
 
-        <BR>
+        <hr>
 
         <div class="row">
           <div class="col-lg-1" style="width:10px">
@@ -229,21 +253,14 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
                   <option value="9">DD MM YYYY</option>
               </select>
           </div>
-          <div class="col-lg-5">
+          <div class="col-lg-8">
             <span style="color:red"><b><?= _("Date Format") ?></b></span>&nbsp;&nbsp;&nbsp;&nbsp;(<?= _('NOTE: Separators (dashes, etc.) or lack thereof do not matter') ?>)
           </div>
         </div>
 
-        <br>
-
         <input type="hidden" name="selectedValues" value="0">
 
-        <div class="row">
-          <div class="col-lg-10" style="color:green">
-            <input type="checkbox" value="1" name="PutInCart" checked> &nbsp;&nbsp;&nbsp;&nbsp; <?= _('Put all the persons in the cart, to import them in a group, sundayschool group, etc....') ?>
-          </div>
-        </div>
-
+        <hr/>
 
         <div class="row">
           <div class="col-lg-10">
@@ -282,11 +299,12 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         </div>
 
       <?php
-        $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-        $rsClassifications = MiscUtils::RunQuery($sSQL);
+        $ormClassifications = ListOptionQuery::create()
+          ->filterById(1)
+          ->orderByOptionSequence()
+          ->find();
       ?>
         <BR>
-
         <div class="row">
           <div class="col-lg-1" style="width:10px">
           </div>
@@ -296,11 +314,10 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
                <option value="0">-----------------------</option>
 
             <?php
-              while ($aRow = mysqli_fetch_array($rsClassifications)) {
-                extract($aRow);
-            ?>
-                <option value="<?= $lst_OptionID ?>"><?= $lst_OptionName ?>&nbsp;
-            <?php
+              foreach ($ormClassifications as $classification) {
+              ?>
+                <option value="<?= $classification->getOptionId() ?>"><?= $classification->getOptionName() ?></option>
+              <?php
               }
             ?>
             </select>
@@ -351,6 +368,10 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
         $iDateMode = InputUtils::LegacyFilterInput($_POST['DateMode'], 'int');
         $iPutInCart = InputUtils::LegacyFilterInput($_POST['PutInCart'], 'int');
 
+        if ($iPutInCart) {
+          Cart::CleanCart();
+        }
+
         // Get the number of CSV columns for future reference
         $aData = fgetcsv($pFile, 2048, $generalCSVSeparator);
         $numCol = count($aData);
@@ -376,21 +397,19 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             $aColumnID[$col] = $_POST['col'.$col];
         }
 
-        if ($bHasCustom) {
-            $sSQL = 'SELECT * FROM person_custom_master';
-            $rsCustomFields = MiscUtils::RunQuery($sSQL);
+        if ($bHasCustom) {            
+            $ormPersonCustomMasterFields = PersonCustomMasterQuery::create()
+                ->find();
+            
+            foreach ($ormPersonCustomMasterFields as $customField) {
+                $aCustomTypes[$customField->getCustomField()] = $customField->getTypeId();
+            }            
 
-            while ($aRow = mysqli_fetch_array($rsCustomFields)) {
-                extract($aRow);
-                $aCustomTypes[$custom_Field] = $type_ID;
-            }
-
-            $sSQL = 'SELECT * FROM family_custom_master';
-            $rsfamCustomFields = MiscUtils::RunQuery($sSQL);
-
-            while ($aRow = mysqli_fetch_array($rsfamCustomFields)) {
-                extract($aRow);
-                $afamCustomTypes[$fam_custom_Field] = $type_ID;
+            $ormFamilyCustomMasterFields = FamilyCustomMasterQuery::create()
+                ->find();
+            
+            foreach ($ormFamilyCustomMasterFields as $customField) {
+                $afamCustomTypes[$customField->getCustomField()] = $customField->getTypeId();
             }
         }
 
@@ -497,14 +516,13 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                             $iEnv = InputUtils::LegacyFilterInput($aData[$col], 'int');
                             if ($iEnv == '') {
                                 $iEnvelope = 0;
-                            } else {
-                                $sSQL = "SELECT '' FROM person_per WHERE per_Envelope = ".$iEnv;
-                                $rsTemp = MiscUtils::RunQuery($sSQL);
-                                if (mysqli_num_rows($rsTemp) == 0) {
-                                    $iEnvelope = $iEnv;
+                            } else {                                
+                                $persons = PersonQuery::create()->filterByEnvelope($iEnv)->find();
+                                if ($persons->count() == 0) {
+                                  $iEnvelope = $iEnv;
                                 } else {
                                     $iEnvelope = 0;
-                                }
+                                }                                
                             }
                             break;
 
@@ -592,24 +610,27 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
 
             $sSQLpersonFields .= 'per_cls_ID, per_Country, per_DateEntered, per_EnteredBy';
             $sSQLpersonFields .= ')';
-            $sSQLperson = $sSQLpersonFields.$sSQLpersonData;
+            $sSQLperson = $sSQLpersonFields.$sSQLpersonData;            
 
-            MiscUtils::RunQuery($sSQLperson);
+            $statement = $connection->prepare($sSQLperson);
+            $statement->execute();
 
             // Make a one-person family if requested
             if (isset($_POST['MakeFamilyRecords'])) {
-                $sSQL = 'SELECT MAX(per_ID) AS iPersonID FROM person_per';
-                $rsPersonID = MiscUtils::RunQuery($sSQL);
-                extract(mysqli_fetch_array($rsPersonID));
-                $sSQL = 'SELECT * FROM person_per WHERE per_ID = '.$iPersonID;
-                $rsNewPerson = MiscUtils::RunQuery($sSQL);
-                extract(mysqli_fetch_array($rsNewPerson));
+                $personMax = PersonQuery::Create()
+                        ->addAsColumn('MaxPersonID', 'MAX(' . PersonTableMap::COL_PER_ID . ')')
+                        ->findOne();
 
+                $iPersonID = $personMax->getMaxPersonID();
+                
+                $person = PersonQuery::create()
+                  ->findOneById($iPersonID);
+              
                 // see if there is a family...
                 if (!isset($_POST['MakeFamilyRecordsMode']) || $_POST['MakeFamilyRecordsMode'] == '0') {
                     // ...with same last name and address
                     $sSQL = "SELECT fam_ID
-                             FROM family_fam where fam_Name = '".addslashes($per_LastName)."'
+                             FROM family_fam where fam_Name = '".addslashes($person->getLastName())."'
                              AND fam_Address1 = '".$sAddress1."'"; // slashes added already
                 } else {
                     // ...with the same custom field values
@@ -624,87 +645,84 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                     $sSQL = 'SELECT f.fam_ID FROM family_fam f, family_custom c
                              WHERE f.fam_ID = c.fam_ID AND c.'.addslashes(mb_substr($field, 1))." = '".addslashes($field_value)."'";
                 }
-                $rsExistingFamily = MiscUtils::RunQuery($sSQL);
+
+                $statement = $connection->prepare($sSQL);
+                $statement->execute();
+
+                $pdoExistingFamily = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                /*
+                tester le code ici
+                */
                 $famid = 0;
-                if (mysqli_num_rows($rsExistingFamily) > 0) {
-                    extract(mysqli_fetch_array($rsExistingFamily));
-                    $famid = $fam_ID;
+                if (count($pdoExistingFamily) > 0) {
+                    $row0 = $pdoExistingFamily[0];
+                    $famid = $row0['fam_ID'];
                     if (array_key_exists($famid, $Families)) {
-                        $Families[$famid]->AddMember($per_ID,
-                                                     $iGender,
-                                                     GetAge($iBirthMonth, $iBirthDay, $iBirthYear),
-                                                     $dWedding,
-                                                     $per_HomePhone,
-                                                     $iEnvelope);
+                        $Families[$famid]->AddMember($person->getId(),
+                            $iGender,
+                            GetAge($iBirthMonth, $iBirthDay, $iBirthYear),
+                            $dWedding,
+                            $person->getHomePhone(),
+                            $iEnvelope);
                     }
                 } else {
-                    $sSQL = 'INSERT INTO family_fam (fam_ID,
-                                                     fam_Name,
-                                                     fam_Address1,
-                                                     fam_Address2,
-                                                     fam_City,
-                                                     fam_State,
-                                                     fam_Zip,
-                                                     fam_Country,
-                                                     fam_HomePhone,
-                                                     fam_WorkPhone,
-                                                     fam_CellPhone,
-                                                     fam_Email,
-                                                     fam_DateEntered,
-                                                     fam_EnteredBy,
-                                                     fam_Latitude,
-                                                     fam_Longitude)
-                             VALUES (NULL, '.
-                                     '"'.$per_LastName.'", '.
-                                     '"'.$sAddress1.'", '.
-                                     '"'.$sAddress2.'", '.
-                                     '"'.$sCity.'", '.
-                                     '"'.$sState.'", '.
-                                     '"'.$sZip.'", '.
-                                     '"'.$per_Country.'", '.
-                                     '"'.$per_HomePhone.'", '.
-                                     '"'.$per_WorkPhone.'", '.
-                                     '"'.$per_CellPhone.'", '.
-                                     '"'.$per_Email.'",'.
-                                     '"'.date('YmdHis').'",'.
-                                     '"'.SessionUser::getUser()->getPersonId().'", '.
-                                     '"0", '.
-                                     '"0");';
-                    MiscUtils::RunQuery($sSQL);
+                    $family = new Family();
 
-                    $sSQL = 'SELECT LAST_INSERT_ID()';
-                    $rsFid = MiscUtils::RunQuery($sSQL);
-                    $aFid = mysqli_fetch_array($rsFid);
-                    $famid = $aFid[0];
+                    $family->setName($person->getLastName());
+                    $family->setAddress1($sAddress1);
+                    $family->setAddress2($sAddress2);
+                    $family->setCity($sCity);
+                    $family->setState($sState);
+                    $family->setZip($sZip);
+                    $family->setCountry($person->getCountry());
+                    $family->setHomePhone($person->getHomePhone());
+                    $family->setWorkPhone($person->getHomePhone());
+                    $family->setCellPhone($person->getCellPhone());
+                    $family->setEmail($person->getEmail());
+                    $family->setDateEntered(date('YmdHis'));
+                    $family->setEnteredBy(SessionUser::getUser()->getPersonId());
+                    $family->getLongitude(0);
+                    $family->setLatitude(0);
+
+                    $family->save();
+
+                    $famid = $family->getId(); 
+
                     $note = new Note();
                     $note->setFamId($famid);
                     $note->setText(_('Imported'));
                     $note->setType('create');
                     $note->setEntered(SessionUser::getUser()->getPersonId());
                     $note->save();
-                    $sSQL = "INSERT INTO `family_custom` (`fam_ID`) VALUES ('".$famid."')";
-                    MiscUtils::RunQuery($sSQL);
 
-                    $fFamily = new FamilyImportUtils(InputUtils::LegacyFilterInput($_POST['FamilyMode'], 'int'));
-                    $fFamily->AddMember($per_ID,
-                                        $iGender,
-                                        GetAge($iBirthMonth, $iBirthDay, $iBirthYear),
-                                        $dWedding,
-                                        $per_HomePhone,
-                                        $iEnvelope);
+                    $famCustom = new FamilyCustom();
+                    $famCustom->setFamId($famid);
+                    $famCustom->save();
+                
+                    $fFamily = new FamilyImportUtils(InputUtils::FilterInt($_POST['FamilyMode']));
+                    $fFamily->AddMember($person->getId(),
+                        $iGender,
+                        GetAge($iBirthMonth, $iBirthDay, $iBirthYear),
+                        $dWedding,
+                        $per_HomePhone,
+                        $iEnvelope);
                     $Families[$famid] = $fFamily;
                 }
-                $sSQL = 'UPDATE person_per SET per_fam_ID = '.$famid.' WHERE per_ID = '.$per_ID;
-                MiscUtils::RunQuery($sSQL);
+
+                $person->setFamId($famid);
+                $person->save();
 
                 if ($bHasFamCustom) {
-                    // Check if family_custom record exists
-                    $sSQL = "SELECT fam_id FROM family_custom WHERE fam_id = $famid";
-                    $rsFamCustomID = MiscUtils::RunQuery($sSQL);
-                    if (mysqli_num_rows($rsFamCustomID) == 0) {
-                        $sSQL = "INSERT INTO `family_custom` (`fam_ID`) VALUES ('".$famid."')";
-                        MiscUtils::RunQuery($sSQL);
-                    }
+                    // Check if family_custom record exists    
+                    $famCustom = FamilyCustomQuery::create()
+                            ->findOneByFamId($famid);
+
+                    if (is_null($famCustom)) {
+                      $famCustom = new FamilyCustom();
+                      $famCustom->setFamId($famid);
+                      $famCustom->save();
+                    }                  
 
                     // Build the family_custom SQL
                     $sSQLFamCustom = 'UPDATE family_custom SET ';
@@ -741,16 +759,23 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                     // Finalize and run the update for the person_custom table.
                     $sSQLFamCustom = mb_substr($sSQLFamCustom, 0, -2);
                     $sSQLFamCustom .= ' WHERE fam_ID = '.$famid;
-                    MiscUtils::RunQuery($sSQLFamCustom);
+                    
+                    $statement = $connection->prepare($sSQLFamCustom);
+                    $statement->execute();
                 }
             }
 
             // Get the last inserted person ID and insert a dummy row in the person_custom table
-            $sSQL = 'SELECT MAX(per_ID) AS iPersonID FROM person_per';
-            $rsPersonID = MiscUtils::RunQuery($sSQL);
-            extract(mysqli_fetch_array($rsPersonID));
+            $personMax = PersonQuery::Create()
+                    ->addAsColumn('MaxPersonID', 'MAX(' . PersonTableMap::COL_PER_ID . ')')
+                    ->findOne();
 
-            if ($iPutInCart == 1) {
+            $iPersonID = $personMax->getMaxPersonID();
+            
+            $person = PersonQuery::create()
+              ->findOneById($iPersonID);
+
+            if ($iPutInCart == 1) {              
               Cart::AddPerson($iPersonID);
             }
 
@@ -760,9 +785,11 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             $note->setType('create');
             $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->save();
+
             if ($bHasCustom) {
-                $sSQL = "INSERT INTO `person_custom` (`per_ID`) VALUES ('".$iPersonID."')";
-                MiscUtils::RunQuery($sSQL);
+                $personCustom = new PersonCustom();
+                $personCustom->setPerId($iPersonID);
+                $personCustom->save();
 
                 // Build the person_custom SQL
                 for ($col = 0; $col < $numCol; $col++) {
@@ -797,7 +824,9 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                 // Finalize and run the update for the person_custom table.
                 $sSQLcustom = mb_substr($sSQLcustom, 0, -2);
                 $sSQLcustom .= ' WHERE per_ID = '.$iPersonID;
-                MiscUtils::RunQuery($sSQLcustom);
+                
+                $statement = $connection->prepare($sSQLcustom);
+                $statement->execute();
             }
 
             $importCount++;
@@ -830,22 +859,32 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                     default:
                         $iRole = 0;
                 }
-                $sSQL = 'UPDATE person_per SET per_fmr_ID = '.$iRole.' WHERE per_ID = '.$member['personid'];
-                MiscUtils::RunQuery($sSQL);
+
+                $per = PersonQuery::create()
+                  ->findOneById($member['personid']);
+
+                if (!is_null($per)) {
+                  $per->setFmrId($iRole);
+                  $per->save();
+                }
             }
 
-            $sSQL = 'UPDATE family_fam SET fam_WeddingDate = '."'".$family->WeddingDate."'";
+            $fam = FamilyQuery::create()->findOneById($fid);
 
-            if ($family->Phone != '') {
-                $sSQL .= ', fam_HomePhone ='."'".$family->Phone."'";
-            }
+            if ( !is_null($fam) ) {
+              if ($family->WeddingDate != '') {
+                $fam->setWeddingdate($family->WeddingDate);
+              }
+              if ($family->Phone != '') {
+                $fam->setHomePhone($family->Phone);
+              }
+              
+              if ($family->Envelope != '') {
+                $fam->setEnvelope($family->Envelope);
+              }
 
-            if ($family->Envelope != 0) {
-                $sSQL .= ', fam_Envelope  = '.$family->Envelope;
-            }
-
-            $sSQL .= ' WHERE fam_ID = '.$fid;
-            MiscUtils::RunQuery($sSQL);
+              $fam->save();
+            }            
         }
 
         $iStage = 3;
@@ -886,7 +925,7 @@ if ($iStage == 1) {
         <div class="row">
           <div class="col-lg-12">
             <h3><?= _("The next step should be, if not select the other CSV seperator") ?></h3>
-            <img src="<?= $sRootPath ?>/Images/csvimport.png" width=100%>
+            <img src="<?= $sRootPath ?>/Images/csvimport.png" class="image-max-width" width=100%>
           </div>
         </div>
         <div class="row">
@@ -927,7 +966,7 @@ if ($iStage == 1) {
             <input class="icTinyButton btn" type="file" name="CSVfile"><br/>
           </div>
           <div class="col-lg-3">
-            <input type="submit" class="btn btn-primary" value=" <?= _('Upload CSV File') ?> " name="UploadCSV">
+            <input type="submit" class="btn btn-primary" value="<?= _('Upload CSV File') ?> " name="UploadCSV">
           </div>
         </div>
       </form>
@@ -938,7 +977,7 @@ if ($iStage == 1) {
     <h3 class="card-title"><?= _('Clear Data')?></h3>
   </div>
   <div class="card-body">
-    <button type="button" class="btn btn-danger" id="clear-people"><i class="fas fa-trash"></i> <?= _('Clear Persons and Families') ?></button>
+    <button type="button" class="btn btn-danger" id="clear-people"><i class="fa fa-trash-can"></i> <?= _('Clear Persons and Families') ?></button>
     <label id="import-success" style="color:green"></label>
 <?php
 }
