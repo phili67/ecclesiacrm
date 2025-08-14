@@ -111,6 +111,10 @@
     width: 300px;
 }
 
+.image-max-width {
+    width:1067px;
+}
+
 @media (max-width: 767px) {
     .navbar-nav > .user-menu .user-image {
         float: none;
@@ -118,6 +122,10 @@
         margin-top: -6px;
         margin-bottom: -2px;
         line-height: 10px
+    }
+
+    .image-max-width {
+        width:100%;
     }
 }
 
