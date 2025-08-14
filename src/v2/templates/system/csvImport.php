@@ -78,7 +78,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         rewind($pFile);
 
         // create the form?>
-        <form method="post" action="CSVImport.php">
+        <form method="post" action="<?= $sRootPath ?>/v2/system/csv/import">
           <input type="hidden" name="sSeperator" value="<?= $generalCSVSeparator ?>">
           <input type="hidden" name="iSelectedValues" value="0" id="selectedValues">
 
@@ -858,7 +858,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
 
 if ($iStage == 1) {
     // Display the select file form?>
-      <form method="post" action="CSVImport.php" enctype="multipart/form-data">
+      <form method="post" action="<?= $sRootPath ?>/v2/system/csv/import" enctype="multipart/form-data">
         <div class="row">
           <div class="col-lg-12">
             <h2><?= _("Steps to import users") ?></h2>
@@ -866,8 +866,8 @@ if ($iStage == 1) {
               <li>
                  <?= _("Your CSV file must have a header row, as follows") ?> : <br>
                  - <?= _("avec le séparateur csv \" ; \"") ?> 
-                    <b><?= _("Title;Name;First Name;Gender;Suffix;Middle Name;Address 1;Address 2;City;State") ?> ....</b> <br>
-                 - <?= _("avec le séparateur csv \" , \"") ?>  : <b><?= _("Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,State") ?> ....</b><br>                 
+                    <b><?= _("Title;Name;First Name;Gender;Suffix;Middle Name;Address 1;Address 2;City;zip code;State;Country;phone;cell phone;work phone;email;work email") ?> ....</b> <br>
+                 - <?= _("avec le séparateur csv \" , \"") ?>  : <b><?= _("Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,zip code,State,phone,cell phone,work phone,email,work email") ?> ....</b><br>                 
               </li>
               <li>
                 <?= _("Don't forget the <b>gender</b> and the <b>title</b>") ?> : <br>
@@ -938,7 +938,7 @@ if ($iStage == 1) {
     <h3 class="card-title"><?= _('Clear Data')?></h3>
   </div>
   <div class="card-body">
-    <button type="button" class="btn btn-danger" id="clear-people"><?= _('Clear Persons and Families') ?></button>
+    <button type="button" class="btn btn-danger" id="clear-people"><i class="fas fa-trash"></i> <?= _('Clear Persons and Families') ?></button>
     <label id="import-success" style="color:green"></label>
 <?php
 }
@@ -1058,12 +1058,6 @@ function GetAge($Month, $Day, $Year)
 ?>
   </div>
 </div>
-
-<script nonce="<?= $sCSPNonce ?>">
-  $(function() {
-    $(".columns").select2();
-  });
-</script>
 
 <script src="<?= $sRootPath ?>/skin/js/CSVImport.js" ></script>
 
