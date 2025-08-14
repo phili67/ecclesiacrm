@@ -9,7 +9,7 @@ use EcclesiaCRM\PersonQuery;
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\CacheProvider;
+use EcclesiaCRM\Utils\CacheProvider;
 use EcclesiaCRM\Synchronize\DropDownEmailsClass;
 use EcclesiaCRM\Synchronize\EmailRoleClass;
 use EcclesiaCRM\Utils\MiscUtils;
