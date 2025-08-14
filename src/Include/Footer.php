@@ -275,7 +275,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 <hr/>
 
                 <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/CSVImport.php">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/system/csv/import">
                         <i class="menu-icon fas fa-upload bg-yellow-gradient"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('CSV Import') ?></h4>
