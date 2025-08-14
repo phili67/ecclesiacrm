@@ -9,7 +9,7 @@
 //
 
 
-namespace EcclesiaCRM\VIEWControllers;
+namespace EcclesiaCRM\VIEWControllers\BackupRestore;
 
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
@@ -32,7 +32,7 @@ class VIEWRestoreController {
     }
 
     public function renderRestore (ServerRequest $request, Response $response, array $args): Response {
-        $renderer = new PhpRenderer('templates/backup/');
+        $renderer = new PhpRenderer('templates/BackupRestore/');
 
         if ( !( SessionUser::getUser()->isAdmin() ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');

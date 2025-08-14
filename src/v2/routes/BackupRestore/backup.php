@@ -2,9 +2,9 @@
 
 /*******************************************************************************
  *
- *  filename    : routes/restore.php
+ *  filename    : route/backup.php
  *  last change : 2019-11-21
- *  description : manage the restore
+ *  description : manage the backup
  *
  *  http://www.ecclesiacrm.com/
  *
@@ -16,9 +16,9 @@
 
 use Slim\Routing\RouteCollectorProxy;
 
-use EcclesiaCRM\VIEWControllers\VIEWRestoreController;
+use EcclesiaCRM\VIEWControllers\BackupRestore\VIEWBackupController;
 
-$app->group('/restore', function (RouteCollectorProxy $group) {
-    $group->get('', VIEWRestoreController::class . ':renderRestore');
-    $group->get('/', VIEWRestoreController::class . ':renderRestore');
+$app->group('/backup', function (RouteCollectorProxy $group) {
+    $group->get('', VIEWBackupController::class . ':renderBackup');
+    $group->get('/', VIEWBackupController::class . ':renderBackup');
 });

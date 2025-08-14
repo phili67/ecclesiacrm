@@ -227,4 +227,9 @@ unlink(SystemURLs::getDocumentRoot() . "/ConvertOnePaymentXML.php");
 unlink(SystemURLs::getDocumentRoot() . "/Include/VancoConfig.php");
 unlink(SystemURLs::getDocumentRoot() . "/bin/vancowebservices.php");
 
+// 2025-08-13
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/v2/routes/backup/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/VIEWControllers/Backup/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/v2/templates/backup/");
+
 $logger->info("End of delete :  all unusefull files");
