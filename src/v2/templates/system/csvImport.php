@@ -864,10 +864,10 @@ if ($iStage == 1) {
             <h2><?= _("Steps to import users") ?></h2>
             <ul>
               <li>
-                 <?= _("Your CSV file should be prepared like") ?> : <br>
-                 - <b>Title;Name;First Name;Gender;Suffix;Middle Name;Address 1;Address 2;City;State ....</b><br>
-                 - or : <b>Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,State ....</b><br>
-                 <?= _("So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in the second one.") ?><br>
+                 <?= _("Your CSV file must have a header row, as follows") ?> : <br>
+                 - <?= _("avec le séparateur csv \" ; \"") ?> 
+                    <b><?= _("Title;Name;First Name;Gender;Suffix;Middle Name;Address 1;Address 2;City;State") ?> ....</b> <br>
+                 - <?= _("avec le séparateur csv \" , \"") ?>  : <b><?= _("Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,State") ?> ....</b><br>                 
               </li>
               <li>
                 <?= _("Don't forget the <b>gender</b> and the <b>title</b>") ?> : <br>
@@ -898,8 +898,8 @@ if ($iStage == 1) {
         <div class="row">
           <div class="col-lg-12">
             <div class="alert alert-info"><?= _("<b>DON'T FORGET</b>
-              <br>• your CSV file must have a <b>Title</b> header name column (with M. Mr. Mlle. etc ...),
-              <br>• and a <b>gender</b> header name column (with 1 for a men, 2 for a women)") ?>
+              <br>• Your csv table must contain a <b>header</b> row with columns named (For example, for the label title: Mr., Mrs., Miss, etc ...),
+              <br>• and the <b>gender</b> column must be in the form (with 1 for male gender, 2 for female gender)") ?>
               <div class="row">
                 <div class="col-lg-3">
                   • <?= _("Select <b>NOW</b> your <b>CSV separator</b>") ?>
