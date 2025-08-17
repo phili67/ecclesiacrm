@@ -122,7 +122,7 @@ require $sRootDocument . '/Include/Header.php';
                     ?>
                     <div class="col-md-3">
                     <input type=button class="btn btn-default" value="<?= _('Import eGive') ?>" name=ImporteGive
-                           onclick="javascript:document.location='<?= $sRootPath ?>/eGive.php?DepositSlipID=<?= $iDepositSlipID ?>&linkBack=<?= $sRootPath ?>/v2/deposit/slipeditor/<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&CurrentDeposit=<?= $iDepositSlipID ?>';">
+                           onclick="javascript:document.location='<?= $sRootPath ?>/v2/deposit/egive/<?= $iDepositSlipID ?>';">
                     </div>
                     <?php
                 } else {

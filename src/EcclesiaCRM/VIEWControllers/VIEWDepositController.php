@@ -19,6 +19,7 @@ use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\Pledge;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\DonationFundQuery;
+use EcclesiaCRM\EgiveQuery;
 
 use EcclesiaCRM\Map\PledgeTableMap;
 
@@ -29,6 +30,8 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\MICRReader;
+use EcclesiaCRM\Utils\eGiveClass;
 
 
 use Slim\Views\PhpRenderer;
@@ -1015,6 +1018,106 @@ class VIEWDepositController {
             'sAmountError'              => $sAmountError,
             'nNonDeductible'            => $nNonDeductible,
             'checkHash'                 => $checkHash
+        ];
+
+        return $paramsArguments;
+    }
+
+    public function renderEGive (ServerRequest $request, Response $response, array $args): Response
+    {
+        $renderer = new PhpRenderer('templates/deposit/');
+
+        // Security: User must have finance permission or be the one who created this deposit
+        if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance'))) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $iDepositSlipID = 0;
+
+        if (isset ($args['DepositSlipID'])) {
+            $iDepositSlipID = InputUtils::FilterInt($args['DepositSlipID']);
+        }                
+
+        return $renderer->render($response, 'eGive.php', $this->argumentsEgiveArray($iDepositSlipID));
+    }
+    
+    public function argumentsEgiveArray ($iDepositSlipID)
+    {
+        $now = time();
+        $dDate = date('Y-m-d', $now);
+        $lwDate = date('Y-m-d', $now - (6 * 24 * 60 * 60));
+
+        $iFYID = MiscUtils::CurrentFY();        
+
+        $familySelectHtml = MiscUtils::buildFamilySelect(0, 0, 0);
+
+        // if a family is deleted, and donations are found, the egive_egv table 
+        // is updated at the same time that donations are transferred.  But if 
+        // there aren't donations at the time, and there's still and egive ID, we 
+        // need to get that changed.  So, we'll build an array of all the family 
+        // IDs here, and then NOT cache the egiveID to familyID association in the 
+        // loop below.  There's probably a nicer way to do this with an SQL join,  
+        // but this seems more explicit.
+        $ormFamilies = FamilyQuery::create()->find();
+
+        $famIDs = [];
+        foreach ($ormFamilies as $fam) {
+            $famIDs[] = $fam->getId();
+        }
+
+        // get array of all existing payments into a 'cache' so we don't have to keep querying the DB
+        $ormEgives = EgiveQuery::create()->find();
+
+        $egiveID2FamID = [];
+
+        foreach ($ormEgives as $eGive) {
+            if (in_array($eGive->getFamId(), $famIDs)) { // make sure the family still exists
+                $egiveID2FamID[$eGive->getEgiveId()] = $eGive->getFamId();
+            }
+        }
+
+        // get array of all existing donation/fund ids to names so we don't have to keep querying the DB
+        $ormDonationFunds = DonationFundQuery::create()->find();
+
+        $fundID2Name = [];
+        $fundID2Desc = [];
+        $defaultFundId = 0;
+        foreach ($ormDonationFunds as $donationFund) {
+            $fundID2Name[$donationFund->getId()] = $donationFund->getName();
+            $fundID2Desc[$donationFund->getId()] = $donationFund->getDescription();
+            if (!$defaultFundId) {
+                $defaultFundId = $donationFund->getId();
+            }
+        }
+
+        $ormPlgIDs = PledgeQuery::create()
+            ->filterByMethod('EGIVE')
+            ->filterByPledgeorpayment('Payment')
+            ->find();
+
+        foreach ($ormPlgIDs as $plg) {
+            $key = eGiveClass::eGiveExistingKey($plg->getCheckno(), $plg->getFamId(), $plg->getDate(), $plg->getFundid(), $plg->getComment());
+            $eGiveExisting[$key] = $plg->getAmount();
+        }
+        $sRootDocument  = SystemURLs::getDocumentRoot();
+        $CSPNonce       = SystemURLs::getCSPNonce();
+        $sPageTitle = _('eGive Import');
+
+        $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+            'sRootDocument'             => $sRootDocument,
+            'CSPNonce'                  => $CSPNonce,
+            'sPageTitle'                => $sPageTitle,
+            'iDepositSlipID'            => $iDepositSlipID,
+            'dDate'                     => $dDate,
+            'lwDate'                    => $lwDate,
+            'iFYID'                     => $iFYID,
+            'familySelectHtml'          => $familySelectHtml,
+            'famIDs'                    => $famIDs,
+            'egiveID2FamID'             => $egiveID2FamID,
+            'fundID2Name'               => $fundID2Name,
+            'fundID2Desc'               => $fundID2Desc,
+            'defaultFundId'             => $defaultFundId,
+            'eGiveExisting'             => $eGiveExisting
         ];
 
         return $paramsArguments;

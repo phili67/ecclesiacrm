@@ -235,4 +235,7 @@ MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/v2/templates/backup
 // 2025-08-14
 unlink(SystemURLs::getDocumentRoot() . "/CSVImport.php");
 
+// 2025-08-17
+unlink(SystemURLs::getDocumentRoot() . "/eGive.php");
+
 $logger->info("End of delete :  all unusefull files");
