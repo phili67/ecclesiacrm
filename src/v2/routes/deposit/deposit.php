@@ -72,4 +72,7 @@ $app->group('/deposit', function (RouteCollectorProxy $group) {
     $group->get('/pledge/editor/GroupKey/{GroupKey}[/{linkBack}]', VIEWDepositController::class . ':renderPledgeEditor');
     $group->post('/pledge/editor/GroupKey/{GroupKey}[/{linkBack}]', VIEWDepositController::class . ':renderPledgeEditor');
 
+    $group->get('/egive/{DepositSlipID}', VIEWDepositController::class . ':renderEGive');
+    $group->post('/egive/{DepositSlipID}', VIEWDepositController::class . ':renderEGive');
+
 });
