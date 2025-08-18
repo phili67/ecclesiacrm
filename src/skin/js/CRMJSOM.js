@@ -1770,7 +1770,7 @@ window.CRM.addClass = function(element, c = "btn-default") {
     el = document.getElementById(element.substring(1));
     el.classList.add(c);
   } else {
-    document.querySelectorAll(element.substring(1)).forEach(el=>{
+    document.querySelectorAll(element).forEach(el=>{
         el.classList.add(c);
     });
   }
