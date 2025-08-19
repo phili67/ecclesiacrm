@@ -238,8 +238,9 @@ class VIEWSundaySchoolController {
                 }
                 RedirectUtils::Redirect($toStr);
             } elseif ($bAtLeastOneGroup && isset($_POST['SubmitRealClassAttendance']) && $aGrpID != 0) {
-                $toStr = 'Reports/ClassRealAttendance.php?';
-                //        $toStr .= "GroupID=" . $iGroupID;
+                $year = $_SESSION['idefaultFY'];
+
+                $toStr = 'Reports/ClassRealAttendance.php?';                
                 $toStr .= 'groupID='.$aGrpID;
                 $toStr .= '&idefaultFY='.$iFYID;
                 $toStr .= '&start='.$year."-01-01";
