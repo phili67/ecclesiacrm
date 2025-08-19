@@ -834,11 +834,14 @@ class MenuBar extends Menu
                 $numberDeposit = $deposits->count();
             }
 
-            //echo '<small class="badge pull-right bg-green count-deposit">'.$numberDeposit. "</small>".((!empty($deposit))?('<small class="badge pull-right bg-blue current-deposit" data-id="'.$_SESSION['iCurrentDeposit'].'">'._("Current")." : ".$_SESSION['iCurrentDeposit'] . "</small>"):"")."\n";
             if (!empty($deposit)) {
                 $menu->addBadge('badge badge-primary current-deposit', '', _("Current") . " : " . $_SESSION['iCurrentDeposit'], $_SESSION['iCurrentDeposit']);
             }
             $menu->addBadge('badge badge-success  count-deposit', '', $numberDeposit);
+
+            //https://dev.ecclesiacrm.com/v2/deposit/egive/
+
+
 
 
             $menuItem = new Menu (_("Envelope Manager"), "fas fa-envelope", "v2/deposit/manage/envelopes", SessionUser::getUser()->isFinanceEnabled(), $menu);
@@ -847,6 +850,8 @@ class MenuBar extends Menu
             $menuItem = new Menu (_("Deposit Reports"), "fas fa-file-pdf", "v2/deposit/financial/reports", SessionUser::getUser()->isFinanceEnabled(), $menu);
             $menuItem = new Menu (_("Giving Report (Tax Statements)"), "fas fa-file-pdf", "v2/deposit/tax/report", SessionUser::getUser()->isFinanceEnabled(), $menu);
             $menuItem = new Menu (_("Edit Deposit Slip") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentDeposit'] . '</small>', "fas fa-file-invoice-dollar", "v2/deposit/slipeditor/" . $_SESSION['iCurrentDeposit'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
+
+            $menuItem->addLink("v2/deposit/egive/" . $_SESSION['iCurrentDeposit']);
 
             $this->addPluginMenus('Deposit', $menu, 'inside_category_menu');
             $this->addMenu($menu);       
