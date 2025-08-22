@@ -786,7 +786,6 @@ class MenuBar extends Menu
 
                 $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
                 $menuItem->addLink("v2/mailchimp/duplicateemails");
-                $menuItem->addLink("v2/system/email/debug");
                 $menuItem->addLink("v2/mailchimp/notinmailchimpemailspersons");
                 $menuItem->addLink("v2/mailchimp/notinmailchimpemailsfamilies");
 
@@ -812,10 +811,12 @@ class MenuBar extends Menu
                     $menuItemItemItem = new Menu ("false item", "far fa-circle", "#", true, $menuItemItem, "#");
                 }
 
-                $this->addPluginMenus('Mail', $menu, 'inside_category_menu');
-                $this->addMenu($menu);       
-                $this->addPluginMenus('Mail', $menu, 'after_category_menu');
-            }            
+                
+            }   
+            
+            $this->addPluginMenus('Mail', $menu, 'inside_category_menu');
+            $this->addMenu($menu);       
+            $this->addPluginMenus('Mail', $menu, 'after_category_menu');
         }
     }
 

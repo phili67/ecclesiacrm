@@ -2,6 +2,7 @@
 
 namespace EcclesiaCRM\Utils;
 
+use Dom\Node;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemURLs;
@@ -1989,4 +1990,38 @@ class MiscUtils
         }
         return $directories;
     }
+
+    // DOMDocument : lack of getElementsByClass
+    public static function getElementsByClass(&$doc, $className) {
+        $result = [];
+
+        $finder = new \DomXPath($doc);
+        
+        $nodes = $finder->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' $className ')]");
+
+        foreach ($nodes as $node) {
+            $result[] = $node->nodeValue;
+        }
+
+
+        return $result;
+    }
+
+    // DOMDocument : lack of getElementsByClass
+    public static function getElementsByClassReturnNodes(&$doc, $className): ?array {
+        $result = [];
+
+        $finder = new \DomXPath($doc);
+        
+        $nodes = $finder->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' $className ')]");
+
+        foreach ($nodes as $node) {
+            $result[] = $node;
+        }
+
+
+        return $result;
+    }
+
+
 }
