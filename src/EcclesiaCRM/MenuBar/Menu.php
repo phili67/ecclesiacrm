@@ -169,8 +169,12 @@ class Menu {
 
     public function getIcon()
     {
-        if ($this->_icon == "fas fa-families") {
-            return '<i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i>';
+        if ( is_array($this->_icon) ) {
+          $icons = "";
+          foreach ($this->_icon as $icon) {
+            $icons .= '<i class="'. $icon .'"></i>';
+          }
+          return $icons;
         }
         return   ' <i class="'.$this->_icon.'"></i>';
     }
@@ -256,8 +260,9 @@ class Menu {
         return "";
     }
 
-    private function buildSubMenu($menus)
+    private function buildSubMenu($menus): string
     {
+        $ret = '';
         foreach ($menus as $menu) {
             $url = $menu->getUri();
             $real_link = true;
@@ -267,60 +272,65 @@ class Menu {
                 $url = SystemURLs::getRootPath() . (($url != "#")?"/":"") . $url;
             }
 
-            echo '<li class="nav-item'.(($menu->getClass() != null)?" ".$menu->getClass():"").'">';
-            echo '<a href="'.$url."\" ".(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'">'.$menu->getIcon()." <p>"._($menu->getTitle())."</p>";
+            $ret .= '<li class="nav-item'.(($menu->getClass() != null)?" ".$menu->getClass():"").'">';
+            $ret .= '<a href="'.$url.'" '.(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'">'.$menu->getIcon()." <p>"._($menu->getTitle())."</p>";
             if (count($menu->subMenu()) > 0) {
-                echo '<i class="fas fa-angle-left right"></i>';
+                $ret .= '<i class="fas fa-angle-left right"></i>';
             }
 
-            echo "</a>\n";
+            $ret .= "</a>\n";
 
             if (count($menu->subMenu()) > 0) {
-                echo "<ul ".$this->is_treeview_menu_open($menu->getLinks()).">\n";
-                $this->buildSubMenu($menu->subMenu());
-                echo "</ul>\n";
+                $ret .= "<ul ".$this->is_treeview_menu_open($menu->getLinks()).">\n";
+                $ret .= $this->buildSubMenu($menu->subMenu());
+                $ret .= "</ul>\n";
             }
 
-            echo "</li>\n";
+            $ret .= "</li>\n";
         }
+
+        return $ret;
     }
 
-    public function renderMenu()
+    public function renderMenu(): string
     {
         // render all the menus submenus etc …
         //echo '<nav class="mt-2"></nav><ul class="nav nav-pills nav-sidebar flex-column" data-widget="tree" role="menu" data-accordion="false">';
+        $ret = '';
         foreach ($this->_menus as $menu) {
             if (count($menu->subMenu()) == 0) {
-                echo '<li class="nav-item">';
-                echo '<a href="'.SystemURLs::getRootPath() . '/' . $menu->getUri().'" class="nav-link'.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';
-                echo $menu->getIcon()." <p>"._($menu->getTitle())."</p>\n";
-                echo "</a>\n";
-                echo "</li>\n";
+                $ret .= '<li class="nav-item">';
+                $ret .= '<a href="'.SystemURLs::getRootPath() . '/' . $menu->getUri().'" class="nav-link'.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';
+                $ret .= $menu->getIcon()." <p>"._($menu->getTitle())."</p>\n";
+                $ret .= "</a>\n";
+                $ret .= "</li>\n";
             } else {// we are in the case of a treeview
-                echo "<li class=\"nav-item has-treeview ".$this->is_treeview_Opened($menu->getLinks()).(($menu->getClass() != null)?" ".$menu->getClass():"")."\">";
-                echo '<a href="#" class="nav-link '.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';// the menu keep his link #
-                echo " ".$menu->getIcon()."\n";
-                echo " <p>"._($menu->getTitle());
-                echo ' <i class="fas fa-angle-left right"></i>'."\n";
+                $ret .= '<li class="nav-item has-treeview '.$this->is_treeview_Opened($menu->getLinks()).(($menu->getClass() != null)?" ".$menu->getClass():"").'">';
+                $ret .= '<a href="#" class="nav-link '.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';// the menu keep his link #
+                $ret .= " ".$menu->getIcon()."\n";
+                $ret .= " <p>"._($menu->getTitle());
+                $ret .= ' <i class="fas fa-angle-left right"></i>'."\n";
                 if (count($menu->getBadges()) > 0) {
                     foreach ($menu->getBadges() as $badge) {
                         if ($badge['id'] != ''){
-                            echo "<span class=\"".$badge['class']."\" id=\"".$badge['id']."\">".$badge['value']."</span>\n";
+                            $ret .= '<span class="'.$badge['class'].'" id="'.$badge['id'].'">'.$badge['value'].'</span> ';
                         } else if ($badge['data-id'] != ''){
-                            echo "<span class=\"".$badge['class']."\" data-id=\"".$badge['data-id']."\">".$badge['value']."</span>\n";
+                            $ret .= '<span class="'.$badge['class'].'" data-id="'.$badge['data-id'].'">'.$badge['value'].'</span> ';
                         } else {
-                            echo "<span class=\"".$badge['class']."\">".$badge['value']."</span>\n";
+                            $ret .= '<span class="'.$badge['class'].'">'.$badge['value'].'</span> ';
                         }
                     }
                 }
-                echo "</p>\n";
-                echo "</a>\n";
-                echo "<ul ".$this->is_treeview_menu_open($menu->getLinks()).">\n";
-                $this->buildSubMenu($menu->subMenu());
-                echo "</ul>\n";
-                echo "</li>\n";
+                $ret .= "</p>\n";
+                $ret .= "</a>\n";
+                $ret .= "<ul ".$this->is_treeview_menu_open($menu->getLinks()).">\n";
+                $ret .= $this->buildSubMenu($menu->subMenu());
+                $ret .= "</ul>\n";
+                $ret .= "</li>\n";
             }
         }
+
+        return $ret;
         //echo "</ul></nav>\n";
     }
 

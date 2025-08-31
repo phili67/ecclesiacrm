@@ -3,13 +3,12 @@
 namespace EcclesiaCRM\view;
 
 use EcclesiaCRM\MenuBar\MenuBar;
-use EcclesiaCRM\MenuBar\Menu;
 
 class MenuRenderer
 {
-  public static function RenderMenu()
+  public static function RenderMenu(): string
   {
     $menubar = new MenuBar("MainMenuBar");
-    $menubar->renderMenu();
+    return $menubar->renderMenu();
   }
 }
