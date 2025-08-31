@@ -2599,12 +2599,12 @@ signatures.json
 <p>In the database Put the plugin, we must set</p>
 <ul>
 <li><code>plgn_Category</code> will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
-  <code>'Personal', 'GDPR', 'Events', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu', 'EDRive'</code>
+  <code>'Personal', 'GDPR', 'Events', 'MEDIAS', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu', 'EDRive'</code>
 -</li>
 <li>a <code>plgn_Description</code> description, e.g.: 'Plugin to show the current connected users</li>
-<li>a version <code>`plgn_version</code> `` to e.g. '1.0</li>
-<li>the prefix type for the entries <code>`plgn_prefix</code> to 'jm_'</li>
-<li><code>plgn_position``</code>can take the values <code>'inside_category_menu'', ``after_category_menu''</code> (very clear).</li>
+<li>a version <code>plgn_version</code> to e.g. '1.0'</li>
+<li>the prefix type for the entries <code>plgn_prefix</code> to 'jm_'</li>
+<li><code>plgn_position</code> <code>can take the values</code> <code>'inside_category_menu'</code>, <code>'after_category_menu'</code> (very clear).</li>
 </ul>
 <p>Here is a complete example in the <code>MeetingJitsi</code> plugin</p>
 <div class="codehilite"><pre><span></span><code>INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`)
@@ -2614,10 +2614,10 @@ VALUES (&#39;MeetingJitsi&#39;, &#39;Plugin for jitsi Meeting&#39;, &#39;Meeting
 <p>To create additional menu bar entries in the <code>plugin_menu_bar</code> table, we must</p>
 <ul>
 <li>set the name of the plugin in <code>plgn_mb_plugin_name</code> for example to <code>MeetingJitsi</code>.</li>
-<li>The name of the menu item: <code>`plgn_mb_plugin_Display_name</code> to ``Settings'' for example</li>
-<li>the url <code>`plgn_mb_url</code> ``to for example 'v2/meeting/dashboard</li>
-<li>the icon <code>`plgn_bm_icon</code> at 'fas fa-cogs</li>
-<li>Then a security option <code>`plgn_bm_grp_sec``</code>to the possible values of roles defined in the crm, for example 'usr_admin'</li>
+<li>The name of the menu item: <code>plgn_mb_plugin_Display_name</code> to ``Settings'' for example</li>
+<li>the url <code>plgn_mb_url</code> <code>to for example</code> <code>v2/meeting/dashboard</code></li>
+<li>the icon <code>plgn_bm_icon</code> at <code>fas fa-cogs</code></li>
+<li>Then a security option <code>plgn_bm_grp_sec</code> to the possible values of roles defined in the crm, for example <code>usr_admin</code></li>
 </ul>
 <div class="codehilite"><pre><span></span><code>usr_AddRecords,
 usr_EditRecords,
@@ -2659,13 +2659,13 @@ INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_na
 <p>2. Attention, it must follow the following recommendations</p>
 <ul>
 <li>You can set the place and in the menu or after the menu (type seen above)</li>
-<li>put the css in : skin/css</li>
-<li>put the js in : skin/js</li>
+<li>put the css in : <code>skin/css</code></li>
+<li>put the js in : <code>skin/js</code></li>
 <li>for the api in api/plgnapi.php (you have to put it in, it secures the CRM)</li>
-<li>for the php code of the views, it is better to put it in v2/templates/</li>
-<li>If you want to use the MVC design pattern for the views, v2route.php is ready in v2/routes/</li>
-<li>for your personal classes you can go in core/</li>
-<li>for propel classes and models everything is in core/model</li>
+<li>for the php code of the views, it is better to put it in <code>v2/templates/</code></li>
+<li>If you want to use the MVC design pattern for the views, <code>v2route.php</code> is ready in <code>v2/routes/</code></li>
+<li>for your personal classes you can go in <code>core/</code></li>
+<li>for propel classes and models everything is in <code>core/model</code></li>
 <li>etc ...</li>
 </ul>
 <p>3. Be careful with the autoload for propel or personal classes:</p>
@@ -2708,10 +2708,10 @@ spl_autoload_register(function ($className) {
 <li><code>plgn_Category</code> to <code>Dashboard</code>.</li>
 <li><code>plgn_default_orientation</code> to <code>widget</code> if you want to have a widget (the little square in the top main dashboard)</li>
 <li>a description <code>plgn_Description</code> to ``Plugin to show the current connected users</li>
-<li>a version <code>`plgn_version</code> `` to '1.0' for example</li>
+<li>a version <code>plgn_version</code> to '1.0' for example</li>
 <li>the prefix type for the <code>plgn_prefix</code> entries to <code>cud_</code>.</li>
-<li>the position at <code>plgn_default_orientation</code> at <code>top`,</code>left<code>,</code>center<code>,</code>right``</li>
-<li>the color of the card's bar <code>`plgn_default_color``</code>bg-gradient-blue text-white'', ``bg-gradient-indigo text-white'', .... (see for this the database)</li>
+<li>the position at <code>plgn_default_orientation</code> at <code>top</code>, <code>left</code>, <code>center</code>, <code>right</code></li>
+<li>the color of the card's bar <code>plgn_default_color</code> <code>bg-gradient-blue text-white</code>, <code>bg-gradient-indigo text-white</code>, .... (see for this the database)</li>
 <li>the security part is very important <code>plgn_securities</code> to those possible values which are in <code>src\EcclesiaCRM\model\User.php</code></li>
 </ul>
 <div class="codehilite"><pre><span></span><code>abstract class SecurityOptions
@@ -2736,24 +2736,27 @@ spl_autoload_register(function ($className) {
     const bShowMap = 65536;// bit 16
     const bEDrive = 131072;// bit 17
     const bShowMenuQuery = 262144; // bit 18
+    const bSundaySchool = 524288; // bit 19
+    const bDonationFund = 1048576; // bit 20
+
     const bDashBoardUser = 1073741824; // bit 30
 }
 </code></pre></div>
 
 <ul>
-<li>Optional side: <code>`plgn_UserRole_Dashboard_Availability</code> which can be set to 1 (this will allow user to be administrator: in the case of the News dashboard only few people can enter the news, the others will be simply readers).</li>
+<li>Optional side: <code>plgn_UserRole_Dashboard_Availability</code> which can be set to 1 (this will allow user to be <code>administrator</code> in the case of the News dashboard only few people can enter the news, the others will be simply readers).</li>
 </ul>
-<p>Screenshot](../../../img/plugins/plugins_dashboard_admin.png)</p>
+<p><img alt="Screenshot" src="../../../../img/plugins/plugins_dashboard_admin.png" /></p>
 <p>Here is an example</p>
 <div class="codehilite"><pre><span></span><code>INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`, `plgn_default_orientation`, `plgn_default_color`, `plgn_securities`)
-VALUES (&#39;CurrentUsersDashboard&#39;, &#39;Plugin to show the current connected users&#39;, &#39;Dashboard&#39;, NULL, &#39;&#39;, &#39;1&#39;, &#39;1.0&#39;, &#39;cud_&#39;, &#39;inside_category_menu&#39;, &#39;right&#39;, &#39;bg-gradient-green text-black&#39;, 1073741824);
+VALUES (&#39;CurrentUsersDashboard&#39;, &#39;Plugin to show the current connected users&#39;, &#39;Dashboard&#39;, NULL, &#39;&#39;, &#39;1&#39;, &#39;1.0&#39;, &#39;cud_&#39;, &#39;inside_category_menu&#39;, &#39;right&#39;, &#39;bg-gradient-green text-white&#39;, 1073741824);
 </code></pre></div>
 
 <p>2. about the code</p>
 <ul>
-<li>There is only one view in : v2/template/View.php</li>
+<li>There is only one view in : <code>v2/template/View.php</code></li>
 <li>set correctly the card .....
-  In the code of the View.php</li>
+  In the code of the <code>View.php</code></li>
 </ul>
 <div class="codehilite"><pre><span></span><code>&lt;?php
 use EcclesiaCRM\PluginQuery;
@@ -2834,13 +2837,13 @@ $plugin = PluginQuery::create()
 <p>Translated with DeepL.com (free version)</p>
 <p>1. For translations</p>
 <ul>
-<li>For the PHP code: We don't use <code>gettext</code> but with dgettext and an associated domain <code>dgettext("messages-NewsDashboard", "News")</code> and we work with separate po code for each plugin to avoid conflicts.</li>
-<li>For the JS code: We use <code>i18next.t('News Title', {ns: 'NewsDashboard'})</code> with <code>namespace</code> also.</li>
+<li>For the PHP code: We don't use <code>gettext</code> but with <code>dgettext</code> and an associated domain <code>dgettext("messages-NewsDashboard", "News")</code> and we work with separate po code for each plugin to avoid conflicts.</li>
+<li>For the JS code: We use <code>i18next.t('News Title', {ns: 'NewsDashboard'})</code> with the same <code>namespace</code> also.</li>
 </ul>
 <p>2. For specialized propel code or classes, the autoload must be done manually</p>
 <p>Tip :</p>
 <ul>
-<li>never use <code>composer dump-autoload</code> it will not work when loading the plugin via the plugin manager</li>
+<li>for plugins, you never have to use <code>composer dump-autoload</code> it will not work when installing the plugin via the plugin manager inside EcclesiaCRM.</li>
 <li>So you have to work around the problem like this:</li>
 </ul>
 <div class="codehilite"><pre><span></span><code>// we&#39;ve to load the model make the plugin to work
@@ -2851,7 +2854,7 @@ spl_autoload_register(function ($className) {
 </code></pre></div>
 
 <p>3. The signatures</p>
-<p>The signature of a plugin is created via the tool provided by the CRM : <strong>grunt genPluginsSignatures</strong> at the root path of your dev env.</p>
+<p>The signature of a plugin is created via the tool provided by the CRM : <code>grunt genPluginsSignatures</code> at the root path of your dev env.</p>
 <p>Good development of plugins.</p>
 
 
