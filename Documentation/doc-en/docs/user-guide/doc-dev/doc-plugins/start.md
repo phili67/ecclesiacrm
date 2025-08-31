@@ -92,7 +92,7 @@ The signature is created via the tool provided by the CRM : **grunt genPluginsSi
 In the database Put the plugin, we must set
 
 - ``plgn_Category`` will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
-  ``'Personal', 'GDPR', 'Events', 'MEDIAS', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu', 'EDRive'``
+  ``'Personal', 'GDPR', 'Events', 'MEDIAS', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Communication', 'Deposit', 'Funds', 'FreeMenu', 'EDRive'``
 -
 - a ``plgn_Description`` description, e.g.: 'Plugin to show the current connected users
 - a version ``plgn_version`` to e.g. '1.0'
