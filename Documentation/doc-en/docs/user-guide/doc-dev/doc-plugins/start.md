@@ -91,13 +91,13 @@ The signature is created via the tool provided by the CRM : **grunt genPluginsSi
 
 In the database Put the plugin, we must set
 
-- ```plgn_Category``` will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
-  ```'Personal', 'GDPR', 'Events', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu', 'EDRive'```
+- ``plgn_Category`` will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
+  ``'Personal', 'GDPR', 'Events', 'MEDIAS', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu', 'EDRive'``
 -
 - a ``plgn_Description`` description, e.g.: 'Plugin to show the current connected users
-- a version ```plgn_version`` `` to e.g. '1.0
-- the prefix type for the entries ```plgn_prefix`` to 'jm_'
-- ```plgn_position`` ```can take the values ```'inside_category_menu'', ``after_category_menu'' ``` (very clear).
+- a version ``plgn_version`` to e.g. '1.0'
+- the prefix type for the entries ``plgn_prefix`` to 'jm_'
+- ``plgn_position`` ``can take the values`` ``'inside_category_menu'``, ``'after_category_menu'`` (very clear).
 
 Here is a complete example in the `MeetingJitsi` plugin
 
@@ -109,10 +109,10 @@ VALUES ('MeetingJitsi', 'Plugin for jitsi Meeting', 'Meeting', NULL, '', '0', '1
 To create additional menu bar entries in the `plugin_menu_bar` table, we must
 
 - set the name of the plugin in ``plgn_mb_plugin_name`` for example to ``MeetingJitsi``.
-- The name of the menu item: ```plgn_mb_plugin_Display_name`` to ``Settings'' for example
-- the url ```plgn_mb_url`` ``to for example 'v2/meeting/dashboard
-- the icon ```plgn_bm_icon`` at 'fas fa-cogs
-- Then a security option ````plgn_bm_grp_sec`` ```to the possible values of roles defined in the crm, for example 'usr_admin'
+- The name of the menu item: ``plgn_mb_plugin_Display_name`` to ``Settings'' for example
+- the url ``plgn_mb_url`` ``to for example`` ``v2/meeting/dashboard``
+- the icon ``plgn_bm_icon`` at ``fas fa-cogs``
+- Then a security option ``plgn_bm_grp_sec`` to the possible values of roles defined in the crm, for example ``usr_admin``
 
 
 ```
@@ -158,13 +158,13 @@ INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_na
 2\. Attention, it must follow the following recommendations
 
 - You can set the place and in the menu or after the menu (type seen above)
-- put the css in : skin/css
-- put the js in : skin/js
+- put the css in : ``skin/css``
+- put the js in : ``skin/js``
 - for the api in api/plgnapi.php (you have to put it in, it secures the CRM)
-- for the php code of the views, it is better to put it in v2/templates/
-- If you want to use the MVC design pattern for the views, v2route.php is ready in v2/routes/
-- for your personal classes you can go in core/
-- for propel classes and models everything is in core/model
+- for the php code of the views, it is better to put it in ``v2/templates/``
+- If you want to use the MVC design pattern for the views, ``v2route.php`` is ready in ``v2/routes/``
+- for your personal classes you can go in ``core/``
+- for propel classes and models everything is in ``core/model``
 - etc ...
 
 3\. Be careful with the autoload for propel or personal classes:
@@ -213,11 +213,12 @@ In the database Put the plugin, we must set
 - ``plgn_Category`` to ``Dashboard``.
 - ``plgn_default_orientation`` to ``widget`` if you want to have a widget (the little square in the top main dashboard)
 - a description ``plgn_Description`` to ``Plugin to show the current connected users
-- a version ```plgn_version``` to '1.0' for example
-- the prefix type for the `plgn_prefix` entries to `cud_`.
-- the position at ``plgn_default_orientation`` at ``top`, ``left``, ``center``, ``right``
-- the color of the card's bar ```plgn_default_color``` ```bg-gradient-blue text-white```, ``bg-gradient-indigo text-white'', .... (see for this the database)
+- a version ``plgn_version`` to '1.0' for example
+- the prefix type for the ``plgn_prefix`` entries to ``cud_``.
+- the position at ``plgn_default_orientation`` at ``top``, ``left``, ``center``, ``right``
+- the color of the card's bar ``plgn_default_color`` ``bg-gradient-blue text-white``, ``bg-gradient-indigo text-white``, .... (see for this the database)
 - the security part is very important ``plgn_securities`` to those possible values which are in `src\EcclesiaCRM\model\User.php`
+
 ```
 abstract class SecurityOptions
 {
@@ -247,6 +248,7 @@ abstract class SecurityOptions
     const bDashBoardUser = 1073741824; // bit 30
 }
 ```
+
 - Optional side: `plgn_UserRole_Dashboard_Availability` which can be set to 1 (this will allow user to be `administrator` in the case of the News dashboard only few people can enter the news, the others will be simply readers).
 
 
@@ -349,14 +351,14 @@ Translated with DeepL.com (free version)
 
 1\. For translations
 
-- For the PHP code: We don't use `gettext` but with dgettext and an associated domain `dgettext("messages-NewsDashboard", "News")` and we work with separate po code for each plugin to avoid conflicts.
-- For the JS code: We use `i18next.t('News Title', {ns: 'NewsDashboard'})` with `namespace` also.
+- For the PHP code: We don't use `gettext` but with `dgettext` and an associated domain `dgettext("messages-NewsDashboard", "News")` and we work with separate po code for each plugin to avoid conflicts.
+- For the JS code: We use `i18next.t('News Title', {ns: 'NewsDashboard'})` with the same `namespace` also.
 
 2\. For specialized propel code or classes, the autoload must be done manually
 
 Tip :
 
-- never use `composer dump-autoload` it will not work when loading the plugin via the plugin manager
+- for plugins, you never have to use `composer dump-autoload` it will not work when installing the plugin via the plugin manager inside EcclesiaCRM.
 - So you have to work around the problem like this:
 
 ```
@@ -369,7 +371,7 @@ spl_autoload_register(function ($className) {
 
 3\. The signatures
 
-The signature of a plugin is created via the tool provided by the CRM : **grunt genPluginsSignatures** at the root path of your dev env.
+The signature of a plugin is created via the tool provided by the CRM : ``grunt genPluginsSignatures`` at the root path of your dev env.
 
 Good development of plugins.
 

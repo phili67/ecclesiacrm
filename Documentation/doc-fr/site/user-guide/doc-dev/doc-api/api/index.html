@@ -4512,12 +4512,35 @@
 <td><code>/getallperson</code></td>
 <td>POST</td>
 <td>DocumentShareController::class . ':getAllShareForPerson'</td>
-<td>get all shared persons for a noteID</td>
+<td>get all shared persons for a noteID (unusefull)</td>
 </tr>
 </tbody>
 </table>
 <ul>
 <li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getallpersonsabre</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':getAllShareForPersonSabre'</td>
+<td>get all shared persons for all the selected rows (sabre)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPersonID</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: rows</li>
 </ul>
 <hr />
 <table>
@@ -4543,6 +4566,30 @@
 <li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
 <li><code>{ref}</code>-&gt;<code>int</code> :: currentPersonID</li>
 <li><code>{ref}</code>-&gt;<code>bool</code> :: notification</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addpersonsabre</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':addPersonSabreToShare'</td>
+<td>share a note to a personID from currentPersonID for sabre</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPersonID</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: all the rows</li>
 </ul>
 <hr />
 <table>
@@ -4615,7 +4662,31 @@
 </table>
 <ul>
 <li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
-<li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: rows</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletepersonsabre</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':deletePersonSabreFromShare'</td>
+<td>remove a personID from a share note</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: personPrincipal</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: rows</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPersonID</li>
 </ul>
 <hr />
 <table>
@@ -4653,6 +4724,31 @@
 </thead>
 <tbody>
 <tr>
+<td><code>/setrightssabre</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':setRightsSabreForPerson'</td>
+<td>set right access to a note (sabre)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: currentPersonID : principal/admin</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: rows (the lines)</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: rightAccess</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>/cleardocument</code></td>
 <td>POST</td>
 <td>DocumentShareController::class . ':clearDocument'</td>
@@ -4662,6 +4758,53 @@
 </table>
 <ul>
 <li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/cleardocumentsabre</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':cleardocumentsabre'</td>
+<td>cleardocument</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: noteId</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: rightAccess</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getShareInfosSabre</code></td>
+<td>POST</td>
+<td>DocumentShareController::class . ':getShareInfosSabre'</td>
+<td>get all shared persons for all the selected rows (sabre)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: currentPersonID</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: rows</li>
 </ul>
 <hr />
 <h2 id="api-deposits">API "deposits"<a class="headerlink" href="#api-deposits" title="Permanent link">&para;</a></h2>
@@ -5584,6 +5727,28 @@
 </thead>
 <tbody>
 <tr>
+<td><code>/checkoutValidate</code></td>
+<td>POST</td>
+<td>PeopleAttendeesController::class . ':checkoutValidateAttendees'</td>
+<td>validate with checkout the event to close it definitely</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: eventID</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>/addFreeAttendees</code></td>
 <td>POST</td>
 <td>PeopleAttendeesController::class . ':addFreeAttendees'</td>
@@ -6121,6 +6286,30 @@
 <li><code>{id}</code>-&gt;<code>int</code> :: field as id</li>
 </ul>
 <hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/reset/{state}</code></td>
+<td>POST</td>
+<td>PeopleFamilyController::class . ":resetConfirmDatas"</td>
+<td>Move down the family custom field</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: orderID as id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: field as id</li>
+<li><code>{id}</code>-&gt;<code>string</code> :: state (pending | done)</li>
+</ul>
+<hr />
 <h2 id="api-groups">API "groups"<a class="headerlink" href="#api-groups" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/people/people-groups.php"</p>
 <table>
@@ -6336,6 +6525,10 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: isSundaySchool</li>
+<li><code>{id}</code>-&gt;<code>string</code> :: groupName</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6355,6 +6548,12 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: isSundaySchool</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupType</li>
+<li><code>{id}</code>-&gt;<code>string</code> :: description</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6374,6 +6573,9 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6393,6 +6595,9 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6412,6 +6617,9 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6431,6 +6639,9 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6450,6 +6661,9 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6462,13 +6676,17 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}</code></td>
+<td><code>/{groupID:[0-9]+}/removeperson/{personID:[0-9]+}</code></td>
 <td>DELETE</td>
 <td>PeopleGroupController::class . ":removePersonFromGroup"</td>
-<td>No description</td>
+<td>remove one person from the group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: personID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6481,13 +6699,40 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/{groupID:[0-9]+}/addperson/{userID:[0-9]+}</code></td>
+<td><code>/removeselectedpersons</code></td>
+<td>DELETE</td>
+<td>PeopleGroupController::class . ":removeSelectedPersons"</td>
+<td>remove all selected members of the group</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>array</code> :: Persons id in array ref (possible value)</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{groupID:[0-9]+}/addperson/{personID:[0-9]+}</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":addPersonToGroup"</td>
-<td>No description</td>
+<td>add a member of the group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: person id </li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6500,13 +6745,17 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}</code></td>
+<td><code>/{groupID:[0-9]+}/addteacher/{personID:[0-9]+}</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":addTeacherToGroup"</td>
-<td>No description</td>
+<td>add a add teacher of the group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: person id </li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6519,13 +6768,17 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/{groupID:[0-9]+}/userRole/{userID:[0-9]+}</code></td>
+<td><code>/{groupID:[0-9]+}/userRole/{personID:[0-9]+}</code></td>
 <td>POST</td>
-<td>PeopleGroupController::class . ":userRoleByUserId"</td>
-<td>No description</td>
+<td>PeopleGroupController::class . ":userRoleByPersonId"</td>
+<td>set person role in the group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: person id </li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6541,10 +6794,14 @@
 <td><code>/{groupID:[0-9]+}/roles/{roleID:[0-9]+}</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":rolesByRoleId"</td>
-<td>No description</td>
+<td>set role id in the group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: role id </li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6560,10 +6817,13 @@
 <td><code>/{groupID:[0-9]+}/roles</code></td>
 <td>GET</td>
 <td>PeopleGroupController::class . ":allRoles"</td>
-<td>No description</td>
+<td>get all role the group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6579,10 +6839,13 @@
 <td><code>/{groupID:[0-9]+}/defaultRole</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":defaultRoleForGroup"</td>
-<td>No description</td>
+<td>get default role in the group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6598,10 +6861,14 @@
 <td><code>/{groupID:[0-9]+}/roles/{roleID:[0-9]+}</code></td>
 <td>DELETE</td>
 <td>PeopleGroupController::class . ":deleteRole"</td>
-<td>No description</td>
+<td>delete role id in the group</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>int</code> :: role id </li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6617,10 +6884,14 @@
 <td><code>/{groupID:[0-9]+}/roles</code></td>
 <td>POST</td>
 <td>PeopleGroupController::class . ":roles"</td>
-<td>No description</td>
+<td>add group role name</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: groupID</li>
+<li><code>{ref}</code>-&gt;<code>string</code> :: roleName</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -6808,6 +7079,50 @@
 </thead>
 <tbody>
 <tr>
+<td><code>/searchonlyuser/{query}</code></td>
+<td>GET</td>
+<td>PeopleController::class . ':searchonlyuser'</td>
+<td>Returns a list of the person who's first name or last name matches the :query parameter</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: query string ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/searchonlyuserwithedrive/{query}</code></td>
+<td>GET</td>
+<td>PeopleController::class . ':searchonlyuserwithedrive'</td>
+<td>Returns a list of the person who's first name or last name matches the :query parameter</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: query string ref</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>/search/{query}</code></td>
 <td>GET</td>
 <td>PeopleController::class . ':searchpeople'</td>
@@ -6818,6 +7133,25 @@
 <ul>
 <li><code>{ref}</code>-&gt;<code>string</code> :: query string ref</li>
 </ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/search/{query}/{type}</code></td>
+<td>GET</td>
+<td>PeopleController::class . ':searchpeople'</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <table>
 <thead>
@@ -6892,6 +7226,25 @@
 </thead>
 <tbody>
 <tr>
+<td><code>/sundayschool/search/{query}</code></td>
+<td>GET</td>
+<td>PeoplePersonController::class . ":searchSundaySchoolPerson"</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>/cart/view</code></td>
 <td>GET</td>
 <td>PeoplePersonController::class . ":personCartView"</td>
@@ -6899,6 +7252,94 @@
 </tr>
 </tbody>
 </table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personId:[0-9]+}/verify</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":verifyPerson"</td>
+<td>Verify the person for the personId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{personId:[0-9]+}/verifyPDF</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":verifyPersonPDF"</td>
+<td>Verify the person for the personId</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/verify/{personId:[0-9]+}/now</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":verifyPersonNow"</td>
+<td>Verify the person for the personId now</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/verify/url</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ':verifyPersonURL'</td>
+<td>Verify the family for the familyId now</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: family</li>
+</ul>
 <hr />
 <table>
 <thead>
@@ -7316,6 +7757,29 @@
 <ul>
 <li><code>{id}</code>-&gt;<code>int</code> :: personId</li>
 <li><code>{id}</code>-&gt;<code>int</code> :: noteId</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/reset/{state}</code></td>
+<td>POST</td>
+<td>PeoplePersonController::class . ":resetConfirmDatas"</td>
+<td>Export vCard for the current user</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: personId</li>
+<li><code>{id}</code>-&gt;<code>string</code> :: state (pending | done)</li>
 </ul>
 <hr />
 <h2 id="public-api">PUBLIC API<a class="headerlink" href="#public-api" title="Permanent link">&para;</a></h2>
@@ -8821,6 +9285,28 @@
 <li><code>{ref}</code>-&gt;<code>string</code> :: filename</li>
 </ul>
 <hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/backup/result</code></td>
+<td>GET</td>
+<td>SystemBackupRestoreController::class . ':getBackupResult'</td>
+<td>Clear all people from the database (admin)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: filename</li>
+</ul>
+<hr />
 <h2 id="api-gdrp">API "gdrp"<a class="headerlink" href="#api-gdrp" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/system/system-gdrp.php"</p>
 <table>
@@ -9101,6 +9587,25 @@
 <li><code>{ref}</code>-&gt;<code>string</code> :: name</li>
 <li><code>{ref}</code>-&gt;<code>string</code> :: path</li>
 </ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/testEmailConnection</code></td>
+<td>POST</td>
+<td>SystemController::class . ':testEmailConnectionMVC'</td>
+<td>Test if email connection is available</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="api-systemupgrade">API "systemupgrade"<a class="headerlink" href="#api-systemupgrade" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/system/system-system-upgrade.php"</p>
@@ -9560,6 +10065,25 @@
 <td>POST</td>
 <td>PluginsController::class . ':add'</td>
 <td>Add a plugin (admin role), post $_FILES['pluginFile']</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/upgrade</code></td>
+<td>POST</td>
+<td>PluginsController::class . ':upgrade'</td>
+<td>update/upgrade a plugin (admin role), post $_FILES['pluginFile']</td>
 </tr>
 </tbody>
 </table>
@@ -11241,25 +11765,6 @@
 <li><code>{ref}</code>-&gt;<code>int</code> :: list_id</li>
 <li><code>{ref}</code>-&gt;<code>int</code> :: fgroupID</li>
 </ul>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/testConnection</code></td>
-<td>POST</td>
-<td>MailchimpController::class . ':testEmailConnectionMVC'</td>
-<td>Test if connection is available</td>
-</tr>
-</tbody>
-</table>
 <hr />
 
 
