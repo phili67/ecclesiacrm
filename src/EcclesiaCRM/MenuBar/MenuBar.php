@@ -176,10 +176,25 @@ class MenuBar extends Menu
         }         
     }
 
-    private function addPeopleMenu()
+    private function addMediasMenu() : void {
+        // the People menu
+        $menu = new Menu (_("Medias"), ["fa-solid fa-photo-film","fas fa-music", "fa-solid fa-person-chalkboard"], "#", true);
+
+        $ret1 = $this->addPluginMenus('MEDIAS', $menu, 'inside_category_menu');
+        $this->addMenu($menu);       
+        $ret2 = $this->addPluginMenus('MEDIAS', $menu, 'after_category_menu');    
+        if ($ret1 == false and $ret2 == false) {
+            // we have to purge the menu            
+            $this->deleteLastMenu();
+        }       
+
+        return;
+    }
+
+    private function addPeopleMenu() : void
     {
         // the People menu
-        $menu = new Menu (_("People") . " & " . _("Families"), "fas fa-families", "#", true);
+        $menu = new Menu (_("People") . " & " . _("Families"), ["fas fa-male", "fas fa-female", "fas fa-child"], "#", true);
 
         $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/people/dashboard", SessionUser::getUser()->isAddRecordsEnabled(), $menu);
 
@@ -481,7 +496,6 @@ class MenuBar extends Menu
         $ret2 = $this->addPluginMenus('GROUP', $menu, 'after_category_menu');    
         if ($no_menu == true and $ret1 == false and $ret2 == false) {
             // we have to purge the menu
-            //$this->removeMenu($menu);
             $this->deleteLastMenu();
         }        
     }
@@ -714,8 +728,7 @@ class MenuBar extends Menu
             $ret2 = $this->addPluginMenus('SundaySchool', $menu, 'after_category_menu');  
 
             if ($no_menu == true and $ret1 == false and $ret2 == false) {
-                // we have to purge the menu
-                //$this->removeMenu($menu);
+                // we have to purge the menu            
                 $this->deleteLastMenu();
             }   
         }                           
@@ -773,11 +786,11 @@ class MenuBar extends Menu
         $isPluginEnabledForCurrentUser = $this->addPluginMenus('Meeting');
     }
 
-    private function addMailMenu()
+    private function addCommunicationMenu()
     {
         if ( SystemConfig::getBooleanValue("bEnabledEmail") and SessionUser::getUser()->isEmailEnabled() ) {        
             // the Email
-            $menu = new Menu (_("Email"), "fas fa-envelope", "#", true);
+            $menu = new Menu (_("Communication"), "fas fa-envelope", "#", true);
 
             if (SessionUser::getUser()->isMailChimpEnabled()) {
                 $mailchimp = new MailChimpService();
@@ -814,9 +827,9 @@ class MenuBar extends Menu
                 
             }   
             
-            $this->addPluginMenus('Mail', $menu, 'inside_category_menu');
+            $this->addPluginMenus('Communication', $menu, 'inside_category_menu');
             $this->addMenu($menu);       
-            $this->addPluginMenus('Mail', $menu, 'after_category_menu');
+            $this->addPluginMenus('Communication', $menu, 'after_category_menu');
         }
     }
 
@@ -910,12 +923,13 @@ class MenuBar extends Menu
         $this->addEdrive();     
         $this->addGDPRMenu();        
         $this->addEventMenu();
+        $this->addMediasMenu();
         $this->addPeopleMenu();        
         $this->addGroups();
         $this->addSundaySchoolGroups();
         $this->addMeeting();        
         $this->addPastoralCare();
-        $this->addMailMenu();
+        $this->addCommunicationMenu();
         $this->addDepositMenu();
         
         $this->addFundraiserMenu();

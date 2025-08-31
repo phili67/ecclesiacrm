@@ -59,7 +59,7 @@ CREATE TABLE `plugin` (
   `plgn_ID` mediumint(8) unsigned NOT NULL auto_increment,
   `plgn_Name` varchar(255) DEFAULT '',
   `plgn_Description` text,
-  `plgn_Category` enum('Dashboard', 'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu', 'EDrive') NOT NULL default 'Personal' COMMENT 'For the left side menu bar',
+  `plgn_Category` enum('Dashboard', 'Personal', 'GDPR', 'Events','MEDIAS','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Communication', 'Deposit', 'Funds', 'FreeMenu', 'EDrive') NOT NULL default 'Personal' COMMENT 'For the left side menu bar',
   `plgn_UserRole_Dashboard_Availability` BOOLEAN NOT NULL default 0 COMMENT 'role choice (0 = only user/ 1 = useror admin) available for dashboard plugins only ',
   `plgn_position` enum('inside_category_menu', 'after_category_menu') NOT NULL default 'after_category_menu' COMMENT 'Inside category menu or after',
   `plgn_securities` INT(40) DEFAULT 0 COMMENT 'See for this point EcclesiaCRM/User.php model class in : SecurityOptions 0 mean not dashboard',
@@ -410,3 +410,5 @@ DROP COLUMN `aut_CreditCardVanco`,
 DROP COLUMN `aut_AccountVanco`;
 
 
+-- 2025-08-31
+ALTER TABLE `plugin` CHANGE `plgn_Category` `plgn_Category` ENUM('Dashboard','Personal','GDPR','Events','MEDIAS','PEOPLE','GROUP','SundaySchool','Meeting','PastoralCare','Communication','Deposit','Funds','FreeMenu','EDrive') CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'Personal' COMMENT 'For the left side menu bar';

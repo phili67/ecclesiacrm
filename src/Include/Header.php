@@ -239,7 +239,7 @@ Header_system_notifications();
                             </p>
                         </a>
                     </li>
-                    <?php MenuRenderer::RenderMenu() ?>
+                    <?= MenuRenderer::RenderMenu() ?>
                 </ul>
             </nav>
         </section>
