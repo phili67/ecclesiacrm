@@ -2,7 +2,7 @@
 
 /*******************************************************************************
  *
- *  filename    : integritycheck.php
+ *  filename    : optionManager.php
  *  last change : 2023-05-19
  *  website     : http://www.ecclesiacrm.com
  *                          © 2023 Philippe Logel
