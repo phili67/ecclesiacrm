@@ -24,13 +24,11 @@ CKEDITOR.editorConfig = function (config) {
     var clipboard = ['-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'];
 
     config.toolbar = [
-        {name: 'tools', items: ['Maximize', 'ShowBlocks']},
         {name: 'document', items: documentTools.concat(templates,clipboard)},
         {name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll']},
         '/',
         {name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize']},
         {name: 'colors', items: ['TextColor', 'BGColor']},
-        //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
         '/',
         {
             name: 'basicstyles',
@@ -44,12 +42,13 @@ CKEDITOR.editorConfig = function (config) {
         {name: 'links', items: ['Link', 'Unlink', 'Anchor']},
         {
             name: 'insert',
-            items: ['Image', 'Html5video', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', '-', 'mathjax']
+            items: ['Image', 'Html5video', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']
         },
-        {name: 'about', items: ['About']}
+        {
+            name: 'tools',
+            items: ['Maximize']
+        }
     ];
-
-    config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
 
     config.plugins =
         'about,' +
@@ -94,6 +93,5 @@ CKEDITOR.editorConfig = function (config) {
         'tabletools,' +
         'undo,' +
         'wysiwygarea,' +
-        'mathjax,' +
         'html5video';
 };

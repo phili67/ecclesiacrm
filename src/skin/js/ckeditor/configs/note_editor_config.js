@@ -59,11 +59,9 @@ CKEDITOR.editorConfig = function (config) {
     config.toolbar = [
         {name: 'document', items: documentTools.concat(templates,clipboard)},
         {name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll']},
-        //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
         '/',
         {name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize']},
         {name: 'colors', items: ['TextColor', 'BGColor']},
-        {name: 'tools', items: ['Maximize', 'ShowBlocks']},
         '/',
         {
             name: 'basicstyles',
@@ -78,20 +76,23 @@ CKEDITOR.editorConfig = function (config) {
             name: 'textmanagement',
             items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language']
         },
-        {name: 'links', items: ['Link', 'Unlink', 'Anchor']},
+        {
+            name: 'links',
+            items: ['Link', 'Unlink', 'Anchor']
+        },
         {
             name: 'insert',
-            items: ['Image', 'Table', 'Html5video','HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', '-', 'mathjax']
+            items: ['Image', 'Table', 'Html5video','HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']
         },
-        {name: 'about', items: ['About']}
+        {
+            name: 'tools',
+            items: ['Maximize']
+        }
     ];
-
-    config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
 
     config.plugins =
         'about,' +
         'sourcearea,' +
-        //'forms,' +
         'blockquote,' +
         'clipboard,' +
         'colorbutton,' +
@@ -132,7 +133,6 @@ CKEDITOR.editorConfig = function (config) {
         'tabletools,' +
         'undo,' +
         'wysiwygarea,' +
-        'mathjax,' +
         'dropdownmenumanager,' +
         'html5video';
 };
