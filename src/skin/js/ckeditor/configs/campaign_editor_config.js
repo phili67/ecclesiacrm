@@ -125,11 +125,9 @@ CKEDITOR.editorConfig = function (config) {
     config.toolbar = [
         {name: 'document', items: documentTools.concat(templates,clipboard)},
         {name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll']},
-        //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
         '/',
         {name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize']},
         {name: 'colors', items: ['TextColor', 'BGColor']},
-        {name: 'tools', items: ['Maximize', 'ShowBlocks']},
         '/',
         {
             name: 'basicstyles',
@@ -143,9 +141,12 @@ CKEDITOR.editorConfig = function (config) {
         '/',
         {
             name: 'insert',
-            items: ['Image', 'Html5video', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', '-', 'mathjax']
+            items: ['Image', 'Html5video', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']
         },
-        {name: 'about', items: ['About']}
+        {
+            name: 'tools',
+            items: ['Maximize']
+        }
     ];
 
     config.plugins =
