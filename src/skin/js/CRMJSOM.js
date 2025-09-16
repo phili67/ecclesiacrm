@@ -1750,10 +1750,12 @@ refresh: function () {
 window.CRM.ElementListener = function(element, type, callback) {
   if (element[0] == '#') {
     el = document.getElementById(element.substring(1));
-    el.addEventListener(type, (event) => {
+    if (el !== null) {
+      el.addEventListener(type, (event) => {
           event.stopImmediatePropagation();
           callback(event);
       });
+    }
   } else {
     document.querySelectorAll(element).forEach(el=>{
       el.addEventListener(type, (event) => {
@@ -1767,8 +1769,10 @@ window.CRM.ElementListener = function(element, type, callback) {
 
 window.CRM.addClass = function(element, c = "btn-default") {
   if (element[0] == '#') {
-    el = document.getElementById(element.substring(1));
-    el.classList.add(c);
+    if (el !== null) {
+      el = document.getElementById(element.substring(1));
+      el.classList.add(c);
+    }
   } else {
     document.querySelectorAll(element).forEach(el=>{
         el.classList.add(c);
@@ -1778,8 +1782,10 @@ window.CRM.addClass = function(element, c = "btn-default") {
 
 window.CRM.removeClass = function(element, c = "btn-default") {
   if (element[0] == '#') {
-    el = document.getElementById(element.substring(1));
-    el.classList.remove(c);
+    if (el !== null) {
+      el = document.getElementById(element.substring(1));
+      el.classList.remove(c);
+    }
   } else {
     document.querySelectorAll(element).forEach(el=>{
         el.classList.remove(c);
@@ -1801,7 +1807,9 @@ window.CRM.class = function(element, c = "btn-default") {
 window.CRM.css = function(element, c = "color:redd") {
   if (element[0] == '#') {
     el = document.getElementById(element.substring(1));
-    el.setAttribute('style', c);
+    if (el !== null) {
+      el.setAttribute('style', c);
+    }
   } else {
     document.querySelectorAll(element).forEach(el=>{
         el.setAttribute('style', c);
@@ -1812,7 +1820,9 @@ window.CRM.css = function(element, c = "color:redd") {
 window.CRM.html = function(element, t = "test") {
   if (element[0] == '#') {
     el = document.getElementById(element.substring(1));
-    el.innerText =  t;
+    if (el !== null) {
+      el.innerText =  t;
+    }
   } else {
     document.querySelectorAll(element).forEach(el=>{
       el.innerText =  t;
@@ -1823,7 +1833,9 @@ window.CRM.html = function(element, t = "test") {
 window.CRM.disabled = function (element, p=false) {
   if (element[0] == '#') {
     el = document.getElementById(element.substring(1));
-    el.disabled =  p;
+    if (el !== null) {
+      el.disabled =  p;
+    }
   } else {
     document.querySelectorAll(element).forEach(el=>{
       el.disabled =  p;
