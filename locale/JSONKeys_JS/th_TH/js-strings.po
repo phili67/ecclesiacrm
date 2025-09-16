@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-08-04T14:30:42.584Z\n"
+"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1280,9 +1280,6 @@ msgstr "คุณแน่ใจนะว่าคุณต้องการเ
 msgid "A kid should have a family in a sunday school group !"
 msgstr ""
 
-msgid "Are you sure you want to remove the selected group members?"
-msgstr "คุณแน่ใจนะว่าคุณต้องการ เอาสมาชิกกลุ่มที่ถูกเลือก"
-
 #, fuzzy
 msgid "401 : Private Datas"
 msgstr "ข้อมูลพลทหาร"
@@ -2486,6 +2483,9 @@ msgstr "ผู้ซื้อหมายเลข"
 
 msgid "Select"
 msgstr "เลือก"
+
+#~ msgid "Are you sure you want to remove the selected group members?"
+#~ msgstr "คุณแน่ใจนะว่าคุณต้องการ เอาสมาชิกกลุ่มที่ถูกเลือก"
 
 #~ msgid "Backup Complete, Ready for Download."
 #~ msgstr "เสร็จสมบูรณ์ พร้อมสำหรับดาวน์โหลด"

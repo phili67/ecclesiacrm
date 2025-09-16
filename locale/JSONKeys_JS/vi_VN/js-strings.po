@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-08-04T14:30:42.584Z\n"
+"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1307,9 +1307,6 @@ msgstr "Anh có chắc là muốn thay đổi tài sản này không?"
 msgid "A kid should have a family in a sunday school group !"
 msgstr ""
 
-msgid "Are you sure you want to remove the selected group members?"
-msgstr "Anh có chắc là muốn loại bỏ các thành viên được chọn không?"
-
 #, fuzzy
 msgid "401 : Private Datas"
 msgstr "Data tư nhân"
@@ -2545,6 +2542,9 @@ msgstr "Biên tập viên số khách hàng"
 
 msgid "Select"
 msgstr "Chọn đi"
+
+#~ msgid "Are you sure you want to remove the selected group members?"
+#~ msgstr "Anh có chắc là muốn loại bỏ các thành viên được chọn không?"
 
 #~ msgid "Backup Complete, Ready for Download."
 #~ msgstr "Hỗ trợ hoàn toàn, sẵn sàng tải xuống."

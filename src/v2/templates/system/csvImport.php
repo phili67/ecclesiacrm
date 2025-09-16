@@ -904,9 +904,9 @@ if ($iStage == 1) {
             <ul>
               <li>
                  <?= _("Your CSV file must have a header row, as follows") ?> : <br>
-                 - <?= _("avec le séparateur csv \" ; \"") ?> 
+                 - <?= _("with the CSV delemiter \" ; \"") ?> 
                     <b><?= _("Title;Name;First Name;Gender;Suffix;Middle Name;Address 1;Address 2;City;zip code;State;Country;phone;cell phone;work phone;email;work email") ?> ....</b> <br>
-                 - <?= _("avec le séparateur csv \" , \"") ?>  : <b><?= _("Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,zip code,State,phone,cell phone,work phone,email,work email") ?> ....</b><br>                 
+                 - <?= _("with the CSV delemiter \" , \"") ?>  : <b><?= _("Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,zip code,State,phone,cell phone,work phone,email,work email") ?> ....</b><br>                 
               </li>
               <li>
                 <?= _("Don't forget the <b>gender</b> and the <b>title</b>") ?> : <br>

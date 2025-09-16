@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-08-04T14:30:42.584Z\n"
+"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1281,9 +1281,6 @@ msgstr "이 속성을 변경하시겠습니까?"
 msgid "A kid should have a family in a sunday school group !"
 msgstr "어린이는 일요일 학교 그룹에 가족이 있어야 합니다!"
 
-msgid "Are you sure you want to remove the selected group members?"
-msgstr "선택한 그룹 멤버를 제거하시겠습니까?"
-
 msgid "401 : Private Datas"
 msgstr "401 : 개인 데이터"
 
@@ -2492,6 +2489,9 @@ msgstr "구매자 번호 편집기"
 
 msgid "Select"
 msgstr "선택"
+
+#~ msgid "Are you sure you want to remove the selected group members?"
+#~ msgstr "선택한 그룹 멤버를 제거하시겠습니까?"
 
 #~ msgid "Songs"
 #~ msgstr "노래"

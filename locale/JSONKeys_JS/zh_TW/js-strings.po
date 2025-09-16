@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-08-04T14:30:42.584Z\n"
+"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1261,9 +1261,6 @@ msgstr "你确定你要改变这个属性吗？"
 msgid "A kid should have a family in a sunday school group !"
 msgstr "孩子应该在主日学小组中拥有一个家庭 !"
 
-msgid "Are you sure you want to remove the selected group members?"
-msgstr "你确定要删除所选组的成员吗？"
-
 msgid "401 : Private Datas"
 msgstr "401 : Private Datas"
 
@@ -2448,6 +2445,9 @@ msgstr "买方编号编辑"
 
 msgid "Select"
 msgstr "选择"
+
+#~ msgid "Are you sure you want to remove the selected group members?"
+#~ msgstr "你确定要删除所选组的成员吗？"
 
 #~ msgid "Songs"
 #~ msgstr "歌曲"

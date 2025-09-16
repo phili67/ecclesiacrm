@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-08-04T14:30:42.584Z\n"
+"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -1296,9 +1296,6 @@ msgstr "Ви впевнені, що хочете змінити цю власт�
 msgid "A kid should have a family in a sunday school group !"
 msgstr "Дитина повинна мати сім'ю в групі недільної школи!"
 
-msgid "Are you sure you want to remove the selected group members?"
-msgstr "Ви впевнені, що хочете видалити вибраних учасників групи?"
-
 msgid "401 : Private Datas"
 msgstr "401 : Особисті дані"
 
@@ -2516,6 +2513,9 @@ msgstr "Редактор номерів покупців"
 
 msgid "Select"
 msgstr "Виберіть"
+
+#~ msgid "Are you sure you want to remove the selected group members?"
+#~ msgstr "Ви впевнені, що хочете видалити вибраних учасників групи?"
 
 #~ msgid "Songs"
 #~ msgstr "Пісні"

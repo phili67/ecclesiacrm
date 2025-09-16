@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-08-04T14:30:42.584Z\n"
+"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1308,10 +1308,6 @@ msgid "A kid should have a family in a sunday school group !"
 msgstr ""
 "Ένα παιδί πρέπει να έχει οικογένεια σε μια ομάδα κατηχητικού σχολείου !"
 
-msgid "Are you sure you want to remove the selected group members?"
-msgstr ""
-"Είστε σίγουροι ότι θέλετε να καταργήσετε τα επιλεγμένα μέλη της ομάδας;"
-
 msgid "401 : Private Datas"
 msgstr "401 : Ιδιωτικές ημερομηνίες"
 
@@ -2563,6 +2559,10 @@ msgstr "Αριθμός αγοραστή Εκδότης"
 
 msgid "Select"
 msgstr "Επιλέξτε"
+
+#~ msgid "Are you sure you want to remove the selected group members?"
+#~ msgstr ""
+#~ "Είστε σίγουροι ότι θέλετε να καταργήσετε τα επιλεγμένα μέλη της ομάδας;"
 
 #~ msgid "Songs"
 #~ msgstr "Τραγούδια"
