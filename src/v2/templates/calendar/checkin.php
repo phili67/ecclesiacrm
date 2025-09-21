@@ -38,41 +38,34 @@ require $sRootDocument . '/Include/Header.php';
         }
         ?>
     </div>
-    <?php
-    if (!is_null($searchEventInActivEvent)) {
-        ?>
-        <div class="col-md-1">
-            <label class="control-label"><?= _('Select Event'); ?></label>
-        </div>
-        <div class="col-md-4">
-            <form name="selectEvent" action="<?= $sRootPath ?>/v2/calendar/events/checkin" method="POST">
-                <div class="form-group">
-                    <div class="inputGroupContainer">
-                        <div class="input-group">
-                            <div class="input-group-prepend"><span class="input-group-text"><i
-                                        class="fas fa-calendar-check"></i></span></div>
-                            <select name="EventID" class= "form-control form-control-sm" onchange="this.form.submit()">
-                                <option value="<?= $EventID; ?>"
-                                        disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
-                                <?php foreach ($activeEvents as $event) {
-                                    $dateStart = $event->getStart()->format(SystemConfig::getValue('sDatePickerFormat'));
-                                    ?>
-                                    <option
-                                        value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " Selected='selected'" : "" ?> >
-                                        <?= $dateStart . " : " . $event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
-                                    <?php
-                                }
+    <div class="col-md-1">
+        <label class="control-label"><?= _('Select Event'); ?></label>
+    </div>
+    <div class="col-md-4">
+        <form name="selectEvent" action="<?= $sRootPath ?>/v2/calendar/events/checkin" method="POST">
+            <div class="form-group">
+                <div class="inputGroupContainer">
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i
+                                    class="fas fa-calendar-check"></i></span></div>
+                        <select name="EventID" class= "form-control form-control-sm" onchange="this.form.submit()">
+                            <option value="<?= $EventID; ?>"
+                                    disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
+                            <?php foreach ($activeEvents as $event) {
+                                $dateStart = $event->getStart()->format(SystemConfig::getValue('sDatePickerFormat'));
                                 ?>
-                            </select>
-                        </div>
+                                <option
+                                    value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " Selected='selected'" : "" ?> >
+                                    <?= $dateStart . " : " . $event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
                     </div>
                 </div>
-            </form>
-        </div>
-
-        <?php
-    }
-    ?>
+            </div>
+        </form>
+    </div>
 </div>
 
 <br>
