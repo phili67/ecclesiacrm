@@ -260,7 +260,7 @@ class VIEWCalendarController {
         //
 
 
-        //Start off by first picking the event to check people in for
+        // Start off by first picking the event to check people in for
         // We filter only the events in the current month
         $activeEvents = EventQuery::Create()
             ->filterByInActive(1, Criteria::NOT_EQUAL)
@@ -269,13 +269,27 @@ class VIEWCalendarController {
             ->orderByStart('desc')
             ->find();
 
-        $date = date('Y-m-d');
+        /*$day = date('d');
+        $month = date('m');
+        $Year = date('Y');
+
+        $searchEventInActivEvent = EventQuery::Create()
+            ->filterByInActive(1, Criteria::NOT_EQUAL)
+            ->Where("(DAY(event_start) = " . $day . " OR DAY(event_end)=". $day. ")
+                    AND (MONTH(event_start) = " . $month . " OR MONTH(event_end)=". $month. ")
+                    AND (YEAR(event_start) = " . $Year . " OR YEAR(event_end)=". $Year. ")")// We filter only the events from the current month
+            ->filterById($EventID)
+            ->findOne();*/
+
+
+        $date = date('Y-m-d H:i:s');
 
         $searchEventInActivEvent = EventQuery::Create()
             ->filterByInActive(1, Criteria::NOT_EQUAL)
             ->Where("event_start <= '" . $date . "' AND '". $date . "' <= event_end")// We filter only the events from the current month
             ->filterById($EventID)
             ->findOne();
+        
             
 
         //get Event Details
@@ -371,6 +385,4 @@ class VIEWCalendarController {
 
         return $paramsArguments;
     }
-
-
 }
