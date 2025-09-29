@@ -9,7 +9,7 @@ CREATE TABLE `news_nw` (
     `news_nw_id` mediumint(9) NOT NULL auto_increment,
     `news_nw_user_id` mediumint(9) unsigned NOT NULL default '0' COMMENT 'user id ',
     `news_nw_title` varchar(255) NOT NULL default '' COMMENT 'Note Title',
-    `news_nw_Text` text COMMENT 'Note',
+    `news_nw_Text` longtext COMMENT 'Note',
     `news_nw_type` enum('infos','to_plan','to_note','important','very_important') NOT NULL default 'infos',
     `news_nw_DateEntered` datetime NOT NULL,
     `news_nw_DateLastEdited` datetime default NULL,

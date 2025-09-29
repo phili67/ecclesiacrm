@@ -54,28 +54,14 @@ $(function() {
                 theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
             }
 
-            if (window.CRM.editor == null) {
-                if (window.CRM.bEDrive) {
-                    window.CRM.editor = CKEDITOR.replace('NoteText', {
-                        customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-                        language: window.CRM.lang,
-                        width: '100%',
-                        extraPlugins: 'uploadfile,uploadimage,filebrowser',
-                        uploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                        imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateImages',
-                        filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                        filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=privateDocuments',
-                        skin: theme
-                    });
-                } else {
-                    window.CRM.editor = CKEDITOR.replace('NoteText', {
-                        customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-                        language: window.CRM.lang,
-                        width: '100%',
-                        skin: theme
-                    });
-                }
-
+            if (window.CRM.editor == null) {               
+                window.CRM.editor = CKEDITOR.replace('NoteText', {
+                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                    language: window.CRM.lang,
+                    width: '100%',
+                    skin: theme
+                });
+                
                 add_ckeditor_buttons(window.CRM.editor);
             }
 
@@ -131,27 +117,13 @@ $(function() {
             theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
         }
 
-        if (window.CRM.editor == null) {
-            if (window.CRM.bEDrive) {
-                window.CRM.editor = CKEDITOR.replace('NoteText', {
-                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-                    language: window.CRM.lang,
-                    width: '100%',
-                    extraPlugins: 'uploadfile,uploadimage,filebrowser,html5video',
-                    uploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                    imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateImages',
-                    filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                    filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=privateDocuments',
-                    skin: theme
-                });
-            } else {
-                window.CRM.editor = CKEDITOR.replace('NoteText', {
-                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-                    language: window.CRM.lang,
-                    width: '100%',
-                    skin: theme
-                });
-            }
+        if (window.CRM.editor == null) {            
+            window.CRM.editor = CKEDITOR.replace('NoteText', {
+                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                language: window.CRM.lang,
+                width: '100%',
+                skin: theme
+            });
 
             add_ckeditor_buttons(window.CRM.editor);
         }

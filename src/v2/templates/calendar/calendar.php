@@ -323,8 +323,6 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
-<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
-
 <?php
 if ($sMapProvider == 'OpenStreetMap') {
     ?>

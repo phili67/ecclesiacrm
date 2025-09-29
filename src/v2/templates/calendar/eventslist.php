@@ -134,7 +134,6 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/EventEditor.js" ></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/publicfolder.js"></script>
 
 <?php
 if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {

@@ -18,6 +18,7 @@ $csp = array(
     "style-src 'self' 'unsafe-inline' fonts.googleapis.com www.bing.com r.bing.com",
     "img-src 'self' 'nonce-".SystemURLs::getCSPNonce()."' www.google.com maps.gstatic.com maps.googleapis.com r.bing.com a.tile.openstreetmap.org b.tile.openstreetmap.org c.tile.openstreetmap.org www.bing.com t.ssl.ak.dynamic.tiles.virtualearth.net data:",
     "media-src 'self'",
+    "script-src-elem 'self' 'unsafe-inline' ",
     "frame-src 'self' www.youtube.com 8x8.vc",
     "font-src 'self' fonts.gstatic.com",
     "connect-src 'self' www.bing.com  nominatim.openstreetmap.org cke4.ckeditor.com maps.googleapis.com",
