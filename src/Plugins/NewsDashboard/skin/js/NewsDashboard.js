@@ -1,8 +1,8 @@
 $(function() {
     window.CRM.ElementListener('#add-dashboard-news-note', 'click', function(event) {
-        if (window.CRM.editor) {
-            CKEDITOR.remove(window.CRM.editor);
-            window.CRM.editor = null;
+        if (window.CRM.NewsDashboardEditor) {
+            CKEDITOR.remove(window.CRM.NewsDashboardEditor);
+            window.CRM.NewsDashboardEditor = null;
         }
 
         var modal = NewsEditorWindow('create', 0);
@@ -13,31 +13,15 @@ $(function() {
         }
 
         // this will create the toolbar for the textarea
-        if (window.CRM.editor == null) {
-            if (window.CRM.bEDrive) {
-                window.CRM.editor = CKEDITOR.replace('NewsText', {
-                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
-                    language: window.CRM.lang,
-                    width: '100%',
-                    extraPlugins: 'uploadfile,uploadimage,filebrowser',
-                    uploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                    imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateImages',
-                    filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                    filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=privateDocuments',
-                    skin: theme
-                });
-            } else {
-                window.CRM.editor = CKEDITOR.replace('NewsText', {
-                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
-                    language: window.CRM.lang,
-                    skin: theme,
-                    width: '100%'
-                });
-            }
+        if (window.CRM.NewsDashboardEditor == null) {            
+            window.CRM.NewsDashboardEditor = CKEDITOR.replace('NewsDashboardText', {
+                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_min.js',
+                language: window.CRM.lang,
+                skin: theme,
+                width: '100%'
+            });            
 
-
-            add_ckeditor_buttons(window.CRM.editor);
-            add_ckeditor_buttons_merge_tag_mailchimp(window.CRM.editor);
+            add_ckeditor_buttons(window.CRM.NewsDashboardEditor);            
         }
 
         modal.modal("show");
@@ -100,7 +84,7 @@ $(function() {
             + '</div>'
             + '<div class="row  eventNotes">'
             + '<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
-            + '<textarea name="NewsText" cols="80" class="form-control form-control-sm" id="NewsText"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
+            + '<textarea name="NewsDashboardText" cols="80" class="form-control form-control-sm" id="NewsDashboardText"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
             + '</div>'
             + '</div>';
 
@@ -130,8 +114,9 @@ $(function() {
                         var userID = window.CRM.userID;
 
                         if (NewsTitle != "") {
-                            var htmlBody = CKEDITOR.instances['NewsText'].getData();
-                            var Type = $("#NewsType").val();
+                            window.CRM.NewsDashboardEditor.updateElement();
+                            var htmlBody = window.CRM.NewsDashboardEditor.getData();                            
+                            var Type = $("#NewsType").val();                            
 
                             if (mode == 'create') {
                                 window.CRM.APIRequest({
@@ -211,9 +196,9 @@ $(function() {
                 })
             }, function (data) {
                 if (data.status == "success") {
-                    if (window.CRM.editor) {
-                        CKEDITOR.remove(window.CRM.editor);
-                        window.CRM.editor = null;
+                    if (window.CRM.NewsDashboardEditor) {
+                        CKEDITOR.remove(window.CRM.NewsDashboardEditor);
+                        window.CRM.NewsDashboardEditor = null;
                     }
 
                     var modal = NewsEditorWindow('edit', newsID);
@@ -224,37 +209,22 @@ $(function() {
                     }
 
                     // this will create the toolbar for the textarea
-                    if (window.CRM.editor == null) {
-                        if (window.CRM.bEDrive) {
-                            window.CRM.editor = CKEDITOR.replace('NewsText', {
-                                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
-                                language: window.CRM.lang,
-                                width: '100%',
-                                extraPlugins: 'uploadfile,uploadimage,filebrowser,html5video',
-                                uploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                                imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateImages',
-                                filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                                filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=privateDocuments',
-                                skin: theme
-                            });
-                        } else {
-                            window.CRM.editor = CKEDITOR.replace('NewsText', {
-                                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
-                                language: window.CRM.lang,
-                                width: '100%',
-                                skin: theme
-                            });
-                        }
+                    if (window.CRM.NewsDashboardEditor == null) {                        
+                        window.CRM.NewsDashboardEditor = CKEDITOR.replace('NewsDashboardText', {
+                            customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_min.js',
+                            language: window.CRM.lang,
+                            width: '100%',
+                            skin: theme
+                        });                        
 
-                        add_ckeditor_buttons(window.CRM.editor);
-                        add_ckeditor_buttons_merge_tag_mailchimp(window.CRM.editor);
+                        add_ckeditor_buttons(window.CRM.NewsDashboardEditor);                        
                     }
 
                     modal.modal("show");
 
                     $('#NewsTitle').val(data.note.Title);
                     $("#NewsType").val(data.note.Type);
-                    CKEDITOR.instances['NewsText'].setData(data.note.Text);
+                    CKEDITOR.instances['NewsDashboardText'].setData(data.note.Text);
                 } else {
                     window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t(data.message));
                 }

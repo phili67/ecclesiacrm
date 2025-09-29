@@ -41,7 +41,7 @@ $user = SessionUser::getUser();
         <h3 class="card-title"><?= _('Edrive : File manager') ?></h3>       
 
         <div style="float:right">
-            <button type="button" class="filemanager-download btn btn-warning btn-sm" data-personid="$user->getPersonId()" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= _("Download") ?>" style="display: none;">
+            <button type="button" class="filemanager-download btn btn-warning btn-sm" data-personid="<?= $user->getPersonId() ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= _("Download") ?>" style="display: none;">
                 &nbsp;&nbsp;<i class="fas fa-cloud-download-alt"></i> <?= _("Insert") ?>
             </button>     
         </div>        

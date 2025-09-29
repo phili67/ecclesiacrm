@@ -413,7 +413,6 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
 
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/event/EventNames.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
 
 <?php
 if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {

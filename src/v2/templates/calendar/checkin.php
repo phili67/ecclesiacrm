@@ -397,7 +397,6 @@ require $sRootDocument . '/Include/Header.php';
         type="text/javascript"></script>
 
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
 
 <script src="<?= $sRootPath ?>/skin/external/jsqr/jsQR.js"></script>
 
