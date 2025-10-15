@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-05 11:58+0000\n"
+"POT-Creation-Date: 2025-10-15 19:30+0000\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13378,135 +13378,135 @@ msgstr "Alegeți câmpul persoană client"
 msgid "Match custom field to this value"
 msgstr "Potrivește câmpul personalizat cu această valoare"
 
-#: settings-locales.php:2
+#: settings-locales.php:2 settings-locales.php:37
 msgid "Albanian"
 msgstr "Albaneză"
 
-#: settings-locales.php:3
+#: settings-locales.php:3 settings-locales.php:38
 msgid "Arabic - Egypt"
 msgstr "Arabă - Egipt"
 
-#: settings-locales.php:4
+#: settings-locales.php:4 settings-locales.php:39
 msgid "Chinese - China"
 msgstr "Chineză - China"
 
-#: settings-locales.php:5
+#: settings-locales.php:5 settings-locales.php:40
 msgid "Chinese - Taiwan"
 msgstr "Chineză - Taiwan"
 
-#: settings-locales.php:6
+#: settings-locales.php:6 settings-locales.php:41
 msgid "Danish - Denmark"
 msgstr "Daneză - Danemarca"
 
-#: settings-locales.php:7
+#: settings-locales.php:7 settings-locales.php:42
 msgid "Dutch - Netherlands"
 msgstr "Olandeză - Olanda"
 
-#: settings-locales.php:8
+#: settings-locales.php:8 settings-locales.php:43
 msgid "English - Australia"
 msgstr "Engleză - Australia"
 
-#: settings-locales.php:9
+#: settings-locales.php:9 settings-locales.php:44
 msgid "English - Canada"
 msgstr "Engleză - Canada"
 
-#: settings-locales.php:10
+#: settings-locales.php:10 settings-locales.php:45
 msgid "English - Great Britain"
 msgstr "Engleză - Marea Britanie"
 
-#: settings-locales.php:11
+#: settings-locales.php:11 settings-locales.php:46
 msgid "English - United States"
 msgstr "Engleză - Statele Unite ale Americii"
 
-#: settings-locales.php:12
+#: settings-locales.php:12 settings-locales.php:47
 msgid "Finnish - Finland"
 msgstr "Finlandeză - Finlanda"
 
-#: settings-locales.php:13
+#: settings-locales.php:13 settings-locales.php:48
 msgid "French - Belgium"
 msgstr "Franceză - Belgia"
 
-#: settings-locales.php:14
+#: settings-locales.php:14 settings-locales.php:49
 msgid "French - Canada"
 msgstr "Franceză - Canada"
 
-#: settings-locales.php:15
+#: settings-locales.php:15 settings-locales.php:50
 msgid "French - France"
 msgstr "Franceză - Franța"
 
-#: settings-locales.php:16
+#: settings-locales.php:16 settings-locales.php:51
 msgid "French - Swiss"
 msgstr "Franceză - Elvețiană"
 
-#: settings-locales.php:17
+#: settings-locales.php:17 settings-locales.php:52
 msgid "Greek"
 msgstr "Greacă"
 
-#: settings-locales.php:18
+#: settings-locales.php:18 settings-locales.php:53
 msgid "German - Germany"
 msgstr "Germană - Germania"
 
-#: settings-locales.php:19
+#: settings-locales.php:19 settings-locales.php:54
 msgid "Hungarian"
 msgstr "Maghiară"
 
-#: settings-locales.php:20
+#: settings-locales.php:20 settings-locales.php:55
 msgid "Indonesian - Indonesia"
 msgstr "Indoneziană - Indonezia"
 
-#: settings-locales.php:21
+#: settings-locales.php:21 settings-locales.php:56
 msgid "Italian - Italy"
 msgstr "Italiană - Italia"
 
-#: settings-locales.php:22
+#: settings-locales.php:22 settings-locales.php:57
 msgid "Japan"
 msgstr "Japonia"
 
-#: settings-locales.php:23
+#: settings-locales.php:23 settings-locales.php:58
 msgid "Norwegian - Norvege"
 msgstr "Norvegiană - Norvege"
 
-#: settings-locales.php:24
+#: settings-locales.php:24 settings-locales.php:59
 msgid "Polish - Poland"
 msgstr "Poloneză - Polonia"
 
-#: settings-locales.php:25
+#: settings-locales.php:25 settings-locales.php:60
 msgid "Portuguese - Brazil"
 msgstr "Portugheză - Brazilia"
 
-#: settings-locales.php:26
+#: settings-locales.php:26 settings-locales.php:61
 msgid "Portuguese - Portugal"
 msgstr "Portugheză - Portugalia"
 
-#: settings-locales.php:27
+#: settings-locales.php:27 settings-locales.php:62
 msgid "Romanian - Romania"
 msgstr "Română - România"
 
-#: settings-locales.php:28
+#: settings-locales.php:28 settings-locales.php:63
 msgid "Russian"
 msgstr "Rusă"
 
-#: settings-locales.php:29
+#: settings-locales.php:29 settings-locales.php:64
 msgid "Spanish - Spain"
 msgstr "Spaniolă - Spania"
 
-#: settings-locales.php:30
+#: settings-locales.php:30 settings-locales.php:65
 msgid "Sami (Northern) (Sweden)"
 msgstr "Sami (Nord) (Suedia)"
 
-#: settings-locales.php:31
+#: settings-locales.php:31 settings-locales.php:66
 msgid "Thai"
 msgstr "Thai"
 
-#: settings-locales.php:32
+#: settings-locales.php:32 settings-locales.php:67
 msgid "Vietnamese"
 msgstr "Vietnameză"
 
-#: settings-locales.php:33
+#: settings-locales.php:33 settings-locales.php:68
 msgid "Korean"
 msgstr "Coreeană"
 
-#: settings-locales.php:34
+#: settings-locales.php:34 settings-locales.php:69
 msgid "Ukraine"
 msgstr "Ucraina"
 
