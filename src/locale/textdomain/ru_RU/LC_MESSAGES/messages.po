@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 19:34+0000\n"
+"POT-Creation-Date: 2025-10-05 11:58+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -181,7 +181,7 @@ msgstr "Ваша корзина была успешно опустошена"
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:174
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:890
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:699
-#: uploader/upload.php:82
+#: uploader/upload.php:93
 msgid "Create file"
 msgstr "Создать файл"
 
@@ -1352,13 +1352,13 @@ msgid "List Church Events"
 msgstr "Список церковных мероприятий"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:169
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:338
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:352
 msgid "List Event Types"
 msgstr "Список типов событий"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:171
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:300
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:302
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:314
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:316
 msgid "Call the Register"
 msgstr "Позвоните в Регистр"
 
@@ -2722,7 +2722,7 @@ msgstr "Список всех церковных мероприятий"
 msgid "Event Attendees"
 msgstr "Участники мероприятия"
 
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:363
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:377
 msgid "Edit Event Types"
 msgstr "Редактирование типов событий"
 
@@ -6854,7 +6854,7 @@ msgstr "Мы столкнулись с ошибкой при отправке в
 
 #: ident/templates/verify/verify-family-info.php:109
 #: ident/templates/verify/verify-person-info.php:102
-#: v2/templates/calendar/checkin.php:317
+#: v2/templates/calendar/checkin.php:310
 #: v2/templates/calendar/eventnames.php:270
 #: v2/templates/deposit/autaPaymentEditor.php:530
 #: v2/templates/deposit/financialReports.php:64
@@ -7246,91 +7246,91 @@ msgstr "Вызов QR-кода"
 msgid "Edit Attendees"
 msgstr "Редактирование участников"
 
-#: v2/templates/calendar/checkin.php:45
+#: v2/templates/calendar/checkin.php:42
 msgid "Select Event"
 msgstr "Выберите событие"
 
-#: v2/templates/calendar/checkin.php:56
+#: v2/templates/calendar/checkin.php:53
 msgid "Select event"
 msgstr "Выберите событие"
 
-#: v2/templates/calendar/checkin.php:91
+#: v2/templates/calendar/checkin.php:84
 msgid "Listing"
 msgstr "Листинг"
 
-#: v2/templates/calendar/checkin.php:97
+#: v2/templates/calendar/checkin.php:90
 msgid "Checkin"
 msgstr "Регистрация"
 
-#: v2/templates/calendar/checkin.php:103 v2/templates/calendar/checkin.php:118
+#: v2/templates/calendar/checkin.php:96 v2/templates/calendar/checkin.php:111
 msgid "Check all"
 msgstr "Проверить все"
 
-#: v2/templates/calendar/checkin.php:107 v2/templates/calendar/checkin.php:123
+#: v2/templates/calendar/checkin.php:100 v2/templates/calendar/checkin.php:116
 msgid "Uncheck all"
 msgstr "Снимите все флажки"
 
-#: v2/templates/calendar/checkin.php:112
+#: v2/templates/calendar/checkin.php:105
 msgid "Checkout"
 msgstr "Касса"
 
-#: v2/templates/calendar/checkin.php:128
+#: v2/templates/calendar/checkin.php:121
 msgid "Number of rows"
 msgstr "Количество строк"
 
-#: v2/templates/calendar/checkin.php:160
+#: v2/templates/calendar/checkin.php:153
 msgid "Set your free attendees"
 msgstr "Установите количество бесплатных посетителей"
 
-#: v2/templates/calendar/checkin.php:173
+#: v2/templates/calendar/checkin.php:166
 msgid "Set your attendees Event"
 msgstr "Установите событие для своих посетителей"
 
-#: v2/templates/calendar/checkin.php:212
+#: v2/templates/calendar/checkin.php:205
 msgid "Your description"
 msgstr "Ваше описание"
 
-#: v2/templates/calendar/checkin.php:224
+#: v2/templates/calendar/checkin.php:217
 msgid "Add Free Attendees Count"
 msgstr "Добавить количество бесплатных посетителей"
 
-#: v2/templates/calendar/checkin.php:252
+#: v2/templates/calendar/checkin.php:245
 msgid "Add single child/parents Attendees"
 msgstr "Добавить одного ребенка/родителей Присутствующие"
 
-#: v2/templates/calendar/checkin.php:265
+#: v2/templates/calendar/checkin.php:258
 msgid "Add Attendees for Event"
 msgstr "Добавление участников мероприятия"
 
-#: v2/templates/calendar/checkin.php:272 v2/templates/calendar/checkin.php:281
+#: v2/templates/calendar/checkin.php:265 v2/templates/calendar/checkin.php:274
 msgid "Person's Name"
 msgstr "Имя человека"
 
-#: v2/templates/calendar/checkin.php:293
+#: v2/templates/calendar/checkin.php:286
 msgid "Adult Name(Optional)"
 msgstr "Имя взрослого (необязательно)"
 
-#: v2/templates/calendar/checkin.php:301
+#: v2/templates/calendar/checkin.php:294
 msgid "Checked in By(Optional)"
 msgstr "Зарегистрирован по (необязательно)"
 
-#: v2/templates/calendar/checkin.php:311
+#: v2/templates/calendar/checkin.php:304
 msgid "Add and Checkin"
 msgstr "Добавление и регистрация"
 
-#: v2/templates/calendar/checkin.php:323
+#: v2/templates/calendar/checkin.php:316
 msgid "Add Visitor"
 msgstr "Добавить посетителя"
 
-#: v2/templates/calendar/checkin.php:340
+#: v2/templates/calendar/checkin.php:333
 msgid "Add some notes"
 msgstr "Добавьте несколько заметок"
 
-#: v2/templates/calendar/checkin.php:355
+#: v2/templates/calendar/checkin.php:348
 msgid "Validate Attendance"
 msgstr "Проверка посещаемости"
 
-#: v2/templates/calendar/checkin.php:369
+#: v2/templates/calendar/checkin.php:362
 #: v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "Вернуться к событиям"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 19:34+0000\n"
+"POT-Creation-Date: 2025-10-05 11:58+0000\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -179,7 +179,7 @@ msgstr "장바구니가 성공적으로 비워졌습니다."
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:174
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:890
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:699
-#: uploader/upload.php:82
+#: uploader/upload.php:93
 msgid "Create file"
 msgstr "파일 만들기"
 
@@ -1345,13 +1345,13 @@ msgid "List Church Events"
 msgstr "교회 이벤트 나열"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:169
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:338
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:352
 msgid "List Event Types"
 msgstr "이벤트 유형 나열"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:171
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:300
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:302
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:314
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:316
 msgid "Call the Register"
 msgstr "등록 센터에 전화"
 
@@ -2715,7 +2715,7 @@ msgstr "모든 교회 행사 목록"
 msgid "Event Attendees"
 msgstr "이벤트 참석자"
 
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:363
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:377
 msgid "Edit Event Types"
 msgstr "이벤트 유형 편집"
 
@@ -6784,7 +6784,7 @@ msgstr "인증 데이터를 제출하는 동안 오류가 발생했습니다."
 
 #: ident/templates/verify/verify-family-info.php:109
 #: ident/templates/verify/verify-person-info.php:102
-#: v2/templates/calendar/checkin.php:317
+#: v2/templates/calendar/checkin.php:310
 #: v2/templates/calendar/eventnames.php:270
 #: v2/templates/deposit/autaPaymentEditor.php:530
 #: v2/templates/deposit/financialReports.php:64
@@ -7167,91 +7167,91 @@ msgstr "QR코드 통화"
 msgid "Edit Attendees"
 msgstr "참석자 편집"
 
-#: v2/templates/calendar/checkin.php:45
+#: v2/templates/calendar/checkin.php:42
 msgid "Select Event"
 msgstr "이벤트 선택"
 
-#: v2/templates/calendar/checkin.php:56
+#: v2/templates/calendar/checkin.php:53
 msgid "Select event"
 msgstr "이벤트 선택"
 
-#: v2/templates/calendar/checkin.php:91
+#: v2/templates/calendar/checkin.php:84
 msgid "Listing"
 msgstr "리스팅"
 
-#: v2/templates/calendar/checkin.php:97
+#: v2/templates/calendar/checkin.php:90
 msgid "Checkin"
 msgstr "체크인"
 
-#: v2/templates/calendar/checkin.php:103 v2/templates/calendar/checkin.php:118
+#: v2/templates/calendar/checkin.php:96 v2/templates/calendar/checkin.php:111
 msgid "Check all"
 msgstr "모두 확인"
 
-#: v2/templates/calendar/checkin.php:107 v2/templates/calendar/checkin.php:123
+#: v2/templates/calendar/checkin.php:100 v2/templates/calendar/checkin.php:116
 msgid "Uncheck all"
 msgstr "모두 선택 취소"
 
-#: v2/templates/calendar/checkin.php:112
+#: v2/templates/calendar/checkin.php:105
 msgid "Checkout"
 msgstr "결제"
 
-#: v2/templates/calendar/checkin.php:128
+#: v2/templates/calendar/checkin.php:121
 msgid "Number of rows"
 msgstr "행 수"
 
-#: v2/templates/calendar/checkin.php:160
+#: v2/templates/calendar/checkin.php:153
 msgid "Set your free attendees"
 msgstr "무료 참석자 설정"
 
-#: v2/templates/calendar/checkin.php:173
+#: v2/templates/calendar/checkin.php:166
 msgid "Set your attendees Event"
 msgstr "참석자 이벤트 설정"
 
-#: v2/templates/calendar/checkin.php:212
+#: v2/templates/calendar/checkin.php:205
 msgid "Your description"
 msgstr "설명"
 
-#: v2/templates/calendar/checkin.php:224
+#: v2/templates/calendar/checkin.php:217
 msgid "Add Free Attendees Count"
 msgstr "무료 참석자 수 추가"
 
-#: v2/templates/calendar/checkin.php:252
+#: v2/templates/calendar/checkin.php:245
 msgid "Add single child/parents Attendees"
 msgstr "미혼 자녀/부모 참석자 추가"
 
-#: v2/templates/calendar/checkin.php:265
+#: v2/templates/calendar/checkin.php:258
 msgid "Add Attendees for Event"
 msgstr "이벤트에 참석자 추가"
 
-#: v2/templates/calendar/checkin.php:272 v2/templates/calendar/checkin.php:281
+#: v2/templates/calendar/checkin.php:265 v2/templates/calendar/checkin.php:274
 msgid "Person's Name"
 msgstr "사람 이름"
 
-#: v2/templates/calendar/checkin.php:293
+#: v2/templates/calendar/checkin.php:286
 msgid "Adult Name(Optional)"
 msgstr "성인 이름(선택 사항)"
 
-#: v2/templates/calendar/checkin.php:301
+#: v2/templates/calendar/checkin.php:294
 msgid "Checked in By(Optional)"
 msgstr "체크인 기준(선택 사항)"
 
-#: v2/templates/calendar/checkin.php:311
+#: v2/templates/calendar/checkin.php:304
 msgid "Add and Checkin"
 msgstr "추가 및 체크인"
 
-#: v2/templates/calendar/checkin.php:323
+#: v2/templates/calendar/checkin.php:316
 msgid "Add Visitor"
 msgstr "방문자 추가"
 
-#: v2/templates/calendar/checkin.php:340
+#: v2/templates/calendar/checkin.php:333
 msgid "Add some notes"
 msgstr "몇 가지 메모 추가"
 
-#: v2/templates/calendar/checkin.php:355
+#: v2/templates/calendar/checkin.php:348
 msgid "Validate Attendance"
 msgstr "출석 확인"
 
-#: v2/templates/calendar/checkin.php:369
+#: v2/templates/calendar/checkin.php:362
 #: v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "이벤트로 돌아가기"

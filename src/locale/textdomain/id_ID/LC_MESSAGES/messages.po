@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 19:34+0000\n"
+"POT-Creation-Date: 2025-10-05 11:58+0000\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -179,7 +179,7 @@ msgstr "Keretamu telah berhasil dikosongkan"
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:174
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:890
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:699
-#: uploader/upload.php:82
+#: uploader/upload.php:93
 msgid "Create file"
 msgstr "Buat file"
 
@@ -1350,13 +1350,13 @@ msgid "List Church Events"
 msgstr "Peristiwa Gereja List"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:169
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:338
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:352
 msgid "List Event Types"
 msgstr "Tipe Event List"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:171
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:300
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:302
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:314
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:316
 msgid "Call the Register"
 msgstr "Panggil si Pembuat Umum"
 
@@ -2721,7 +2721,7 @@ msgstr "Menerima Peristing Semua Peristiwa Gereja"
 msgid "Event Attendees"
 msgstr "Event Attendees"
 
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:363
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:377
 msgid "Edit Event Types"
 msgstr "Edit Event Type"
 
@@ -6841,7 +6841,7 @@ msgstr "Kami menemukan kesalahan yang mengajukan data verifikasi Anda"
 
 #: ident/templates/verify/verify-family-info.php:109
 #: ident/templates/verify/verify-person-info.php:102
-#: v2/templates/calendar/checkin.php:317
+#: v2/templates/calendar/checkin.php:310
 #: v2/templates/calendar/eventnames.php:270
 #: v2/templates/deposit/autaPaymentEditor.php:530
 #: v2/templates/deposit/financialReports.php:64
@@ -7231,91 +7231,91 @@ msgstr "QR Code Call"
 msgid "Edit Attendees"
 msgstr "Edit Attendees"
 
-#: v2/templates/calendar/checkin.php:45
+#: v2/templates/calendar/checkin.php:42
 msgid "Select Event"
 msgstr "Peringatan"
 
-#: v2/templates/calendar/checkin.php:56
+#: v2/templates/calendar/checkin.php:53
 msgid "Select event"
 msgstr "Peristiwa Select"
 
-#: v2/templates/calendar/checkin.php:91
+#: v2/templates/calendar/checkin.php:84
 msgid "Listing"
 msgstr "Listing"
 
-#: v2/templates/calendar/checkin.php:97
+#: v2/templates/calendar/checkin.php:90
 msgid "Checkin"
 msgstr "Periksa"
 
-#: v2/templates/calendar/checkin.php:103 v2/templates/calendar/checkin.php:118
+#: v2/templates/calendar/checkin.php:96 v2/templates/calendar/checkin.php:111
 msgid "Check all"
 msgstr "Periksa semua"
 
-#: v2/templates/calendar/checkin.php:107 v2/templates/calendar/checkin.php:123
+#: v2/templates/calendar/checkin.php:100 v2/templates/calendar/checkin.php:116
 msgid "Uncheck all"
 msgstr "Buka semua"
 
-#: v2/templates/calendar/checkin.php:112
+#: v2/templates/calendar/checkin.php:105
 msgid "Checkout"
 msgstr "Checkout"
 
-#: v2/templates/calendar/checkin.php:128
+#: v2/templates/calendar/checkin.php:121
 msgid "Number of rows"
 msgstr "Nomor baris"
 
-#: v2/templates/calendar/checkin.php:160
+#: v2/templates/calendar/checkin.php:153
 msgid "Set your free attendees"
 msgstr "Atur perawatan gratis Anda"
 
-#: v2/templates/calendar/checkin.php:173
+#: v2/templates/calendar/checkin.php:166
 msgid "Set your attendees Event"
 msgstr "Atur peristiwa Anda"
 
-#: v2/templates/calendar/checkin.php:212
+#: v2/templates/calendar/checkin.php:205
 msgid "Your description"
 msgstr "Deskripsimu"
 
-#: v2/templates/calendar/checkin.php:224
+#: v2/templates/calendar/checkin.php:217
 msgid "Add Free Attendees Count"
 msgstr "Tambahkan Free Attendees Count"
 
-#: v2/templates/calendar/checkin.php:252
+#: v2/templates/calendar/checkin.php:245
 msgid "Add single child/parents Attendees"
 msgstr "Tambahkan anak-anak/orang tua Attendees"
 
-#: v2/templates/calendar/checkin.php:265
+#: v2/templates/calendar/checkin.php:258
 msgid "Add Attendees for Event"
 msgstr "Tambahkan perawatan untuk Event"
 
-#: v2/templates/calendar/checkin.php:272 v2/templates/calendar/checkin.php:281
+#: v2/templates/calendar/checkin.php:265 v2/templates/calendar/checkin.php:274
 msgid "Person's Name"
 msgstr "Nama orang"
 
-#: v2/templates/calendar/checkin.php:293
+#: v2/templates/calendar/checkin.php:286
 msgid "Adult Name(Optional)"
 msgstr "Nama dewasa (Opsional)"
 
-#: v2/templates/calendar/checkin.php:301
+#: v2/templates/calendar/checkin.php:294
 msgid "Checked in By(Optional)"
 msgstr "Dicek oleh [Opsional]"
 
-#: v2/templates/calendar/checkin.php:311
+#: v2/templates/calendar/checkin.php:304
 msgid "Add and Checkin"
 msgstr "Tambahkan dan periksa"
 
-#: v2/templates/calendar/checkin.php:323
+#: v2/templates/calendar/checkin.php:316
 msgid "Add Visitor"
 msgstr "Tambahkan Pengunjung"
 
-#: v2/templates/calendar/checkin.php:340
+#: v2/templates/calendar/checkin.php:333
 msgid "Add some notes"
 msgstr "Tambahkan beberapa catatan"
 
-#: v2/templates/calendar/checkin.php:355
+#: v2/templates/calendar/checkin.php:348
 msgid "Validate Attendance"
 msgstr "Pengintaian Validace"
 
-#: v2/templates/calendar/checkin.php:369
+#: v2/templates/calendar/checkin.php:362
 #: v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "Kembali ke Events"

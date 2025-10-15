@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 19:34+0000\n"
+"POT-Creation-Date: 2025-10-05 11:58+0000\n"
 "Language: da-DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -178,7 +178,7 @@ msgstr "Din indkøbskurv er blevet tømt med succes"
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:174
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:890
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:699
-#: uploader/upload.php:82
+#: uploader/upload.php:93
 msgid "Create file"
 msgstr "Opret fil"
 
@@ -1346,13 +1346,13 @@ msgid "List Church Events"
 msgstr "Liste over kirkens begivenheder"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:169
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:338
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:352
 msgid "List Event Types"
 msgstr "Liste over hændelsestyper"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:171
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:300
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:302
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:314
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:316
 msgid "Call the Register"
 msgstr "Ring til registret"
 
@@ -2718,7 +2718,7 @@ msgstr "Liste over alle kirkens begivenheder"
 msgid "Event Attendees"
 msgstr "Deltagere i arrangementet"
 
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:363
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:377
 msgid "Edit Event Types"
 msgstr "Rediger hændelsestyper"
 
@@ -6828,7 +6828,7 @@ msgstr "Vi er stødt på en fejl ved indsendelse af dine verifikationsdata"
 
 #: ident/templates/verify/verify-family-info.php:109
 #: ident/templates/verify/verify-person-info.php:102
-#: v2/templates/calendar/checkin.php:317
+#: v2/templates/calendar/checkin.php:310
 #: v2/templates/calendar/eventnames.php:270
 #: v2/templates/deposit/autaPaymentEditor.php:530
 #: v2/templates/deposit/financialReports.php:64
@@ -7219,91 +7219,91 @@ msgstr "QR-kode opkald"
 msgid "Edit Attendees"
 msgstr "Rediger deltagere"
 
-#: v2/templates/calendar/checkin.php:45
+#: v2/templates/calendar/checkin.php:42
 msgid "Select Event"
 msgstr "Vælg begivenhed"
 
-#: v2/templates/calendar/checkin.php:56
+#: v2/templates/calendar/checkin.php:53
 msgid "Select event"
 msgstr "Vælg begivenhed"
 
-#: v2/templates/calendar/checkin.php:91
+#: v2/templates/calendar/checkin.php:84
 msgid "Listing"
 msgstr "Liste"
 
-#: v2/templates/calendar/checkin.php:97
+#: v2/templates/calendar/checkin.php:90
 msgid "Checkin"
 msgstr "Checkin"
 
-#: v2/templates/calendar/checkin.php:103 v2/templates/calendar/checkin.php:118
+#: v2/templates/calendar/checkin.php:96 v2/templates/calendar/checkin.php:111
 msgid "Check all"
 msgstr "Tjek alle"
 
-#: v2/templates/calendar/checkin.php:107 v2/templates/calendar/checkin.php:123
+#: v2/templates/calendar/checkin.php:100 v2/templates/calendar/checkin.php:116
 msgid "Uncheck all"
 msgstr "Fjern markeringen af alle"
 
-#: v2/templates/calendar/checkin.php:112
+#: v2/templates/calendar/checkin.php:105
 msgid "Checkout"
 msgstr "Checkout"
 
-#: v2/templates/calendar/checkin.php:128
+#: v2/templates/calendar/checkin.php:121
 msgid "Number of rows"
 msgstr "Antal rækker"
 
-#: v2/templates/calendar/checkin.php:160
+#: v2/templates/calendar/checkin.php:153
 msgid "Set your free attendees"
 msgstr "Indstil dine gratis deltagere"
 
-#: v2/templates/calendar/checkin.php:173
+#: v2/templates/calendar/checkin.php:166
 msgid "Set your attendees Event"
 msgstr "Indstil dine deltagere Begivenhed"
 
-#: v2/templates/calendar/checkin.php:212
+#: v2/templates/calendar/checkin.php:205
 msgid "Your description"
 msgstr "Din beskrivelse"
 
-#: v2/templates/calendar/checkin.php:224
+#: v2/templates/calendar/checkin.php:217
 msgid "Add Free Attendees Count"
 msgstr "Tilføj gratis antal deltagere"
 
-#: v2/templates/calendar/checkin.php:252
+#: v2/templates/calendar/checkin.php:245
 msgid "Add single child/parents Attendees"
 msgstr "Tilføj enkelt barn/forældre Deltagere"
 
-#: v2/templates/calendar/checkin.php:265
+#: v2/templates/calendar/checkin.php:258
 msgid "Add Attendees for Event"
 msgstr "Tilføj deltagere til begivenhed"
 
-#: v2/templates/calendar/checkin.php:272 v2/templates/calendar/checkin.php:281
+#: v2/templates/calendar/checkin.php:265 v2/templates/calendar/checkin.php:274
 msgid "Person's Name"
 msgstr "Personens navn"
 
-#: v2/templates/calendar/checkin.php:293
+#: v2/templates/calendar/checkin.php:286
 msgid "Adult Name(Optional)"
 msgstr "Navn på voksen (valgfrit)"
 
-#: v2/templates/calendar/checkin.php:301
+#: v2/templates/calendar/checkin.php:294
 msgid "Checked in By(Optional)"
 msgstr "Indtjekket af(Valgfrit)"
 
-#: v2/templates/calendar/checkin.php:311
+#: v2/templates/calendar/checkin.php:304
 msgid "Add and Checkin"
 msgstr "Tilføj og check ind"
 
-#: v2/templates/calendar/checkin.php:323
+#: v2/templates/calendar/checkin.php:316
 msgid "Add Visitor"
 msgstr "Tilføj besøgende"
 
-#: v2/templates/calendar/checkin.php:340
+#: v2/templates/calendar/checkin.php:333
 msgid "Add some notes"
 msgstr "Tilføj nogle noter"
 
-#: v2/templates/calendar/checkin.php:355
+#: v2/templates/calendar/checkin.php:348
 msgid "Validate Attendance"
 msgstr "Validering af fremmøde"
 
-#: v2/templates/calendar/checkin.php:369
+#: v2/templates/calendar/checkin.php:362
 #: v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "Tilbage til Begivenheder"
