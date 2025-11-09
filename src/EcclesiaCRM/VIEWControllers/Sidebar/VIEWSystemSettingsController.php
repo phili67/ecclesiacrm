@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
+use EcclesiaCRM\Base\ConfigQuery;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
@@ -47,61 +48,6 @@ class VIEWSystemSettingsController {
     {
         $saved = false;
 
-        // Save Settings
-        if (isset($_POST['save'])) {
-            $new_value = $_POST['new_value'];
-            $Mode = '';
-            if ($_POST['Mode']) {
-                $Mode=$_POST['Mode'];
-            }
-            $type = $_POST['type'];
-            ksort($type);
-            reset($type);
-
-            $iHTMLHeaderRow = SystemConfig::getConfigItem('sHeader')->getId();
-
-            while ($current_type = current($type)) {
-                $id = key($type);
-                // Filter Input
-                if ($id == $iHTMLHeaderRow) {  // Special handling of header value so HTML doesn't get removed
-                    $value = InputUtils::FilterHTML($new_value[$id]);
-                } elseif ($current_type == 'text' || $current_type == 'textarea' || $current_type == 'password') {
-                    $value = InputUtils::FilterString($new_value[$id]);
-                } elseif ($current_type == 'number') {
-                    $value = InputUtils::FilterFloat($new_value[$id]);
-                } elseif ($current_type == 'date') {
-                    $value = InputUtils::FilterDate($new_value[$id]);
-                } elseif ($current_type == 'json') {
-                    $value = $new_value[$id];
-                } elseif ($current_type == 'choice') {
-                    $value = InputUtils::FilterString($new_value[$id]);
-                } elseif ($current_type == 'ajax') {
-                    $value = InputUtils::FilterString($new_value[$id]);
-                } elseif ($current_type == 'boolean') {
-                    if ($new_value[$id] != '1') {
-                        $value = '';
-                    } else {
-                        $value = '1';
-                    }
-                }
-
-                // If changing the locale, translate the menu options
-                if ($id == 39 && $value != Bootstrapper::GetCurrentLocale()->getLocale()) {
-                    $localeInfo = new LocaleInfo($value);
-                    setlocale(LC_ALL, $localeInfo->getLocale());
-                    $aLocaleInfo = $localeInfo->getLocaleInfo();
-                }
-
-                if ($id == 65 && !(in_array($value, timezone_identifiers_list()))) {
-                    $value = date_default_timezone_get();
-                }
-
-                SystemConfig::setValueById($id, $value);
-                next($type);
-            }
-            $saved = true;
-        }
-
         //Set the page title
         $sPageTitle = _("General Settings");
 
@@ -111,7 +57,8 @@ class VIEWSystemSettingsController {
             'sRootDocument' => $sRootDocument,
             'sPageTitle'    => $sPageTitle,
             'saved'         => $saved,
-            'Mode'          => $Mode
+            'Mode'          => '',
+            'categories'    => SystemConfig::getCategories()
         ];
         return $paramsArguments;
     }
@@ -140,7 +87,8 @@ class VIEWSystemSettingsController {
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
             'sPageTitle'    => $sPageTitle,
-            'Mode'         => $sMode
+            'Mode'          => $sMode,
+            'categories'    => SystemConfig::getCategories()
         ];
         
         return $paramsArguments;

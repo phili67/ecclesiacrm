@@ -69,6 +69,7 @@ alert(title + "\n\n" + message);
 }
 
 window.CRM.showGlobalMessage = function (message, alertClass) {
+  $("#globalMessage").hide();
   if (alertClass == '') {
     alertClass = 'success';
   }
