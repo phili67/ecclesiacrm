@@ -21,7 +21,7 @@ if ($saved) {
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<form method=post action="<?= $sRootPath ?>/v2/systemsettings">
+<form id="form-save">
     <input type="hidden" id="modeID" name="Mode" value="<?= $Mode ?>" />
 
     <div class="card">
@@ -49,8 +49,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="row">
                 <div class="col-5 col-sm-3">
                     <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
-                        <?php
-                        $categories = SystemConfig::getCategories();
+                        <?php                        
                         $categories_modes = [];
                         foreach (array_keys($categories) as $key) {
                             if ($key == 'Entity Information') {
@@ -71,9 +70,12 @@ require $sRootDocument . '/Include/Header.php';
                             </a>
                         <?php
                         } ?>
-                        <hr>
-                        <input type="submit" class="btn btn-primary" name="save" id="save"
-                            value="<?= gettext("Save Settings") ?>" style="margin:20px">
+
+                        <hr/>
+
+                        <input class="btn btn-primary" name="save" id="save"
+                                value="<?= gettext("Save Settings") ?>" style="margin-right:20px">
+                        
                     </div>
                 </div>
                 <div class="col-7 col-sm-9">
@@ -224,7 +226,6 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
     </div>
-
 </form>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     $(function() {

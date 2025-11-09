@@ -1,4 +1,4 @@
-function getRender(key, value, depth) {
+const getRender = (key, value, depth) => {
   var sr = $("<div>").addClass("JSONObjectDiv").data("nodeName", key).css("margin-left", (depth * 15) + "px");
   if (value instanceof Object) {
     $("<label>").text(key).appendTo(sr);
@@ -12,6 +12,7 @@ function getRender(key, value, depth) {
   }
   return sr;
 }
+
 var cfgid = 0;
 $(".jsonSettingsEdit").on("click", function (event) {
   event.preventDefault();
@@ -30,11 +31,10 @@ $(".jsonSettingsEdit").on("click", function (event) {
 $('.nav-link').on('click', function () {
   let mode = $(this).data('mode');
   $("#modeID").val(mode);
-})
+});
 
 
-
-function getFormValue(object) {
+const getFormValue = (object) => {
   var tmp = {}
   if ($(object).children(".JSONObjectDiv").length > 0) {
     $(object).children(".JSONObjectDiv").each(function () {
@@ -45,10 +45,9 @@ function getFormValue(object) {
   else if ($(object).children("input").length > 0) {
     return $("input", object).val();
   }
-
 }
 
-function updateDropDrownFromAjax(selectObj) {
+const updateDropDrownFromAjax = (selectObj) => {
   window.CRM.APIRequest({
     method: 'GET',
     path: selectObj.data("url") // url : shoud be /system/....
@@ -62,9 +61,55 @@ function updateDropDrownFromAjax(selectObj) {
 }
 
 
-$(".jsonSettingsClose").on("click", function (event) {
+window.CRM.ElementListener('.jsonSettingsClose', 'click', function (event){
   var settings = getFormValue($("#JSONSettingsDiv"));
   $("input[name='new_value[" + cfgid + "]']").val(JSON.stringify(settings));
   $("#JSONSettingsModal").modal("hide");
   $("input[name=save]").on('click');
 });
+
+window.CRM.ElementListener('#save', 'click', function (event){
+  const form = document.getElementById('form-save');
+
+  const elements = form.elements;
+
+  let new_value = [];
+  let type = [];
+
+  Array.from(elements).forEach(item => {
+    let name = item.name;
+
+    const match = name.match(/^([^\[\]]+)\[(.+)\]$/);
+
+    if (match) {
+      const key = match[1];
+      const value = match[2];
+
+      if (key == 'new_value') {
+        new_value[value] = item.value;
+      } else if (key == 'type') {
+        type[value] = item.value;
+      }
+    }
+  });
+
+  window.CRM.APIRequest({
+    method: 'POST',
+    path: 'systemsettings/saveSettings',
+    data: JSON.stringify({ "new_value": new_value, "type": type })
+  }, function (data) {
+    window.CRM.showGlobalMessage("", "")
+    window.CRM.showGlobalMessage(i18next.t("Setting saved"), "success")
+    var mode = $("#modeID").val();
+
+    if (mode === 'enabledfeatures' || mode === 'gdpr') {
+      setTimeout(() => {
+        if (mode !== '') {
+          location.href = window.CRM.root + '/v2/systemsettings/' + mode;
+        } else {
+          location.href = window.CRM.root + '/v2/systemsettings';
+        }
+      }, 3000); // 2000 ms = 2 secondes
+    }
+  });
+})
