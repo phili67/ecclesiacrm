@@ -98,7 +98,6 @@ window.CRM.ElementListener('#save', 'click', function (event){
     path: 'systemsettings/saveSettings',
     data: JSON.stringify({ "new_value": new_value, "type": type })
   }, function (data) {
-    window.CRM.showGlobalMessage("", "")
     window.CRM.showGlobalMessage(i18next.t("Setting saved"), "success")
     var mode = $("#modeID").val();
 
