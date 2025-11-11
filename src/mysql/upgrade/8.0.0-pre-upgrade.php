@@ -238,4 +238,19 @@ unlink(SystemURLs::getDocumentRoot() . "/CSVImport.php");
 // 2025-08-17
 unlink(SystemURLs::getDocumentRoot() . "/eGive.php");
 
+// 2024-11-11
+unlink(SystemURLs::getDocumentRoot() . "/v2/routes/sidebar/volunteeropportunityeditor.php");
+unlink(SystemURLs::getDocumentRoot() . "/v2/routes/sidebar/volunteeropportunityeditor.php");
+unlink(SystemURLs::getDocumentRoot() . "/v2/templates/sidebar/volunteeropportunityeditor.php");
+unlink(SystemURLs::getDocumentRoot() . "/skin/js/sidebar/VolunteerOpportunity.js");
+
+// js dead code 
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/bootstrap-daterangepicker/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/bootstrap-notify/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/bootstrap-show-password/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/bootstrap-timepicker/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/font-awesome/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/fonts/");
+
+
 $logger->info("End of delete :  all unusefull files");
