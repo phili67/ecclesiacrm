@@ -911,6 +911,18 @@ class MenuBar extends Menu
         }
     }
 
+    private function addVolunteerMenu () {
+        if (SystemConfig::getBooleanValue("bEnabledVolunteers")) {
+            $menu = new Menu (_("Volunteers"), "fa-brands fa-servicestack", "#", SessionUser::getUser()->isFinanceEnabled());
+
+            $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/volunteeropportunityeditor", true, $menu);
+
+            $this->addPluginMenus('Volunteer', $menu, 'inside_category_menu');
+            $this->addMenu($menu);       
+            $this->addPluginMenus('Volunteer', $menu, 'after_category_menu');            
+        }
+    }
+
     private function createMenuBar()
     {
 
@@ -924,7 +936,8 @@ class MenuBar extends Menu
         $this->addGDPRMenu();        
         $this->addEventMenu();
         $this->addMediasMenu();
-        $this->addPeopleMenu();        
+        $this->addPeopleMenu();   
+        $this->addVolunteerMenu(); 
         $this->addGroups();
         $this->addSundaySchoolGroups();
         $this->addMeeting();        
