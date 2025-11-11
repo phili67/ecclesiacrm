@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [ ! -f "./BuildConfig.json" ]; then
+  npm update
   cp BuildConfig.json.example BuildConfig.json
   npm install -g github:phili67/i18next-extract-gettext
   npm install i18next-conv -g
@@ -11,7 +12,7 @@ fi
 #npm rebuild node-sass
 
 #  it's time to install all the node js files
-npm install --unsafe-perm --legacy-peer-deps --save .
+#npm install --unsafe-perm --legacy-peer-deps --save .
 
 # to run the installation
 npm run install
