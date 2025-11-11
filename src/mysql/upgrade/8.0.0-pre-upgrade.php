@@ -243,6 +243,7 @@ unlink(SystemURLs::getDocumentRoot() . "/v2/routes/sidebar/volunteeropportunitye
 unlink(SystemURLs::getDocumentRoot() . "/v2/routes/sidebar/volunteeropportunityeditor.php");
 unlink(SystemURLs::getDocumentRoot() . "/v2/templates/sidebar/volunteeropportunityeditor.php");
 unlink(SystemURLs::getDocumentRoot() . "/skin/js/sidebar/VolunteerOpportunity.js");
+unlink(SystemURLs::getDocumentRoot() . "/api/routes/sidebar/sidebar-volunteeropportunity.php");
 
 // js dead code 
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/bootstrap-daterangepicker/");
