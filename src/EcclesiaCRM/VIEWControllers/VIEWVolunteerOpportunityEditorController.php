@@ -29,7 +29,7 @@ class VIEWVolunteerOpportunityEditorController {
     }
 
     public function renderVolunteerOpportunityEditor (ServerRequest $request, Response $response, array $args): Response {
-        $renderer = new PhpRenderer('templates/sidebar/');
+        $renderer = new PhpRenderer('templates/volunteer/');
 
         if ( !( SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled() ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');

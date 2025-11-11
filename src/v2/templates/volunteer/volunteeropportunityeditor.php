@@ -24,7 +24,7 @@ require $sRootDocument . '/Include/Header.php';
   <table class="table table-striped table-bordered" id="VolunteerOpportunityTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
-<script type="module" src="<?= $sRootPath ?>/skin/js/sidebar/VolunteerOpportunity.js" ></script>
+<script type="module" src="<?= $sRootPath ?>/skin/js/volunteer/VolunteerOpportunity.js" ></script>
 
 
 <?php require $sRootDocument . '/Include/Footer.php';?>
