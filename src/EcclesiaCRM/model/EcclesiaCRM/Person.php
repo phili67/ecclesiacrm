@@ -214,10 +214,13 @@ class Person extends BasePerson implements iPhoto
 
       $family = $this->getFamily();
 
-      $members = $family->getActivatedPeople();
+      if (!is_null($family)) {
 
-      if (count($members) == 0) {
-        $family->setDateDeactivated ($v);
+          $members = $family->getActivatedPeople();
+    
+          if (count($members) == 0) {
+            $family->setDateDeactivated ($v);
+          }
       }
 
       return $this;

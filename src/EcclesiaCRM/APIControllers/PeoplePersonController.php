@@ -650,9 +650,10 @@ class PeoplePersonController
             $person->save();
 
             // a one person family is deactivated too
-            if ($person->getFamily()->getPeople()->count() == 1) {
-                $person->getFamily()->setDateDeactivated(($newStatus == "false")?date('YmdHis'):Null);
-                $person->getFamily()->save();
+            $family = $person->getFamily();
+            if (!is_null($family) and $family->getPeople()->count() == 1) {
+                $family->setDateDeactivated(($newStatus == "false")?date('YmdHis'):Null);
+                $family->save();
             }
 
             //Create a note to record the status change
