@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : volunteeropportunityeditor.php
+ *  filename    : volunteeropportunity.php
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2019/2/6 Philippe Logel
  *
@@ -24,7 +24,7 @@ require $sRootDocument . '/Include/Header.php';
   <table class="table table-striped table-bordered" id="VolunteerOpportunityTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
-<script type="module" src="<?= $sRootPath ?>/skin/js/volunteer/VolunteerOpportunity.js" ></script>
+<script type="module" src="<?= $sRootPath ?>/skin/js/volunteer/VolunteerOpportunityView.js" ></script>
 
 
 <?php require $sRootDocument . '/Include/Footer.php';?>

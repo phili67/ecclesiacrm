@@ -245,6 +245,11 @@ unlink(SystemURLs::getDocumentRoot() . "/v2/templates/sidebar/volunteeropportuni
 unlink(SystemURLs::getDocumentRoot() . "/skin/js/sidebar/VolunteerOpportunity.js");
 unlink(SystemURLs::getDocumentRoot() . "/api/routes/sidebar/sidebar-volunteeropportunity.php");
 
+unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php");
+unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityEditorController.php");
+unlink(SystemURLs::getDocumentRoot() . "/v2/routes/volunteer/volunteeropportunityeditor.php");
+unlink(SystemURLs::getDocumentRoot() . "/v2/templates/volunteer/volunteeropportunityeditor.php");
+
 // js dead code 
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/bootstrap-daterangepicker/");
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/bootstrap-notify/");

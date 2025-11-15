@@ -915,7 +915,7 @@ class MenuBar extends Menu
         if (SystemConfig::getBooleanValue("bEnabledVolunteers")) {
             $menu = new Menu (_("Volunteers"), "fa-brands fa-servicestack", "#", SessionUser::getUser()->isFinanceEnabled());
 
-            $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/volunteeropportunityeditor", true, $menu);
+            $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/volunteeropportunity", true, $menu);
 
             $this->addPluginMenus('Volunteer', $menu, 'inside_category_menu');
             $this->addMenu($menu);       

@@ -79,7 +79,7 @@ if (Bootstrapper::isDBCurrent() and SessionUser::getUser()->getNeedPasswordChang
     require_once __DIR__ . '/routes/people/personlist.php';
 
     // volunteers
-    require_once __DIR__ . '/routes/volunteer/volunteeropportunityeditor.php';
+    require_once __DIR__ . '/routes/volunteer/volunteeropportunity.php';
 
     // pastoralcare
     require_once __DIR__ . '/routes/pastoralcare/pastoralcare.php';

@@ -22,7 +22,7 @@ use EcclesiaCRM\SessionUser;
 use Propel\Runtime\Propel;
 use PDO;
 
-class SidebarVolunteerOpportunityController
+class VolunteerOpportunityController
 {
     private $container;
 
@@ -246,5 +246,23 @@ class SidebarVolunteerOpportunityController
         return $response->withJson(['success' => false]);
     }
 
+    public function getPersons(ServerRequest $request, Response $response, array $args): Response
+    {
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->voldId) && isset($input->colId) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()) {
+            $vo = VolunteerOpportunityQuery::Create()->findOneById($input->voldId);
+
+            $vo->setColor($input->colId);
+
+            $vo->save();
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    
 
 }
