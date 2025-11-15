@@ -140,16 +140,6 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 </div>
 
                 <?php
-                if (SessionUser::getUser()->isCanvasserEnabled()) {
-                    ?>
-                    <div class="mb-1">
-                        <a href="<?= SystemURLs::getRootPath() ?>/v2/volunteeropportunityeditor">
-                            <i class="fas fa-cog"></i> <?= _('Volunteer Opportunities') ?>
-                        </a>
-                    </div>
-                    <?php
-                }
-
                 if (SessionUser::getUser()->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
                     ?>
                     <div class="mb-1">

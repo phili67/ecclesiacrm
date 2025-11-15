@@ -269,6 +269,7 @@ class SystemConfig
             "sMailChimpExtraFont" => new ConfigItem(2092, "sMailChimpExtraFont", "textarea", "", _("Here we put the font in the form fontnametodisplay/yourfontname. It is useful for the font menu of ckeditor, for example : Abril/Abril Fatface")),
             "bEnabledPastoralCare" => new ConfigItem(2100, "bEnabledPastoralCare", "boolean", "1", _("Use Pastoralcare.")),
             "bEnabledEdrive" => new ConfigItem(2101, "bEnabledEdrive", "boolean", "1", _("Use Edrive.")),
+            "bEnabledVolunteers" => new ConfigItem(2102, "bEnabledVolunteers", "boolean", "1", _("Enable volunteer opportunities")),
             "sEntityName" => new ConfigItem(2103, "sEntityName", "text", "", _("Entity Name")),
             "sEntityAddress" => new ConfigItem(2104, "sEntityAddress", "text", "", _("Entity Address")),
             "sEntityCity" => new ConfigItem(2105, "sEntityCity", "text", "", _("Entity City")),
@@ -282,7 +283,7 @@ class SystemConfig
             "sEntityFB" => new ConfigItem(2113, "sEntityFB", "text", "", _("Your Entity's Facebook Page")),
             "sEntityTwitter" => new ConfigItem(2114, "sEntityTwitter", "text", "", _("Your Entity's Twitter Page")),
             "iEntityLatitude" => new ConfigItem(2115, "iEntityLatitude", "number", "", _("Latitude of the entity, used to center the Google map")),
-            "iEntityLongitude" => new ConfigItem(2116, "iEntityLongitude", "number", "", _("Longitude of the entity, used to center the Google map"))
+            "iEntityLongitude" => new ConfigItem(2116, "iEntityLongitude", "number", "", _("Longitude of the entity, used to center the Google map"))            
         );
     }
 
@@ -290,7 +291,7 @@ class SystemConfig
     {
         return array(
             _('Entity Information') => ["sEntityName", "sEntityAddress", "sEntityCity", "sEntityState", "sEntityZip", "sEntityCountry", "sEntityPhone", "sEntityEmail", "sHomeAreaCode", "sTimeZone", "iEntityLatitude", "iEntityLongitude", "sEntityWebSite", "sEntityFB", "sEntityTwitter"],
-            _('Enabled Features') => ["bEnabledEvents", "bEnabledSundaySchool", "bEnabledEmail", "bEnabledFinance", "bEnabledFundraiser", "bEnabledMenuLinks", "bEnabledPastoralCare", "bEnabledEdrive", "bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
+            _('Enabled Features') => ["bEnabledEvents", "bEnabledSundaySchool", "bEnabledVolunteers", "bEnabledEmail", "bEnabledFinance", "bEnabledFundraiser", "bEnabledMenuLinks", "bEnabledPastoralCare", "bEnabledEdrive", "bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
             _('System Settings') => ["sLogLevel", "bRegistered", "bCSVAdminOnly", "sHeader", "bEnableIntegrityCheck", "iIntegrityCheckInterval", "sLastIntegrityCheckTimeStamp", "iPhotoClientCacheDuration", "bHSTSEnable", "iDocumentTimeLeft", "bThumbnailIconPresence"],
             _('Localization') => ["sLanguage", "bStateUnusefull", "sDistanceUnit", "sPhoneFormat", "sPhoneFormatWithExt", "sPhoneFormatCell", "sPhoneCountryCallingCode", "bTimeEnglish", "sDateFormatLong", "sTimeFormat", "sDateFormatNoYear", "sDateFormatShort", "sDateTimeFormat", "sDateFilenameFormat", "sDatePickerFormat", "sDatePickerPlaceHolder"],
             _('User setup') => ["iMinPasswordLength", "iMinPasswordChange", "iMaxFailedLogins", "iSessionTimeout", "aDisallowedPasswords", "bEnableLostPassword"],

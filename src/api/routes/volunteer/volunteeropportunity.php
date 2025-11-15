@@ -1,9 +1,9 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : PastoralCare.php
+ *  filename    : volunteeropportunity.php
  *  last change : 2018-07-11
- *  description : manage the Pastoral Care
+ *  description : volunteer opportunities
  *
  *  http://www.ecclesiacrm.com/
  *  This code is under copyright not under MIT Licence
@@ -15,26 +15,26 @@
 
 use Slim\Routing\RouteCollectorProxy;
 
-use EcclesiaCRM\APIControllers\SidebarVolunteerOpportunityController;
+use EcclesiaCRM\APIControllers\VolunteerOpportunityController;
 
 $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
 
     /*
      * @! get all Volunteer Opportunities
      */
-    $group->post('/', SidebarVolunteerOpportunityController::class . ':getAllVolunteerOpportunities');
+    $group->post('/', VolunteerOpportunityController::class . ':getAllVolunteerOpportunities');
     /*
      * @! delete volunteer opportunities by id
      * #! param: ref->int :: id
      */
-    $group->post('/delete', SidebarVolunteerOpportunityController::class . ':deleteVolunteerOpportunity');
+    $group->post('/delete', VolunteerOpportunityController::class . ':deleteVolunteerOpportunity');
     /*
      * @! create volunteer oppportunities
      * #! param: ref->string :: Name
      * #! param: ref->string :: desc
      * #! param: ref->bool :: state
      */
-    $group->post('/create', SidebarVolunteerOpportunityController::class . ':createVolunteerOpportunity');
+    $group->post('/create', VolunteerOpportunityController::class . ':createVolunteerOpportunity');
     /*
      * @! set volunteer oppportunity by id
      * #! param: ref->int :: id
@@ -42,29 +42,35 @@ $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
      * #! param: ref->string :: desc
      * #! param: ref->bool :: state
      */
-    $group->post('/set', SidebarVolunteerOpportunityController::class . ':setVolunteerOpportunity');
+    $group->post('/set', VolunteerOpportunityController::class . ':setVolunteerOpportunity');
     /*
      * @! get volunteer oppportunity by id and return json
      * #! param: ref->int :: id
      */
-    $group->post('/edit', SidebarVolunteerOpportunityController::class . ':editVolunteerOpportunity');
+    $group->post('/edit', VolunteerOpportunityController::class . ':editVolunteerOpportunity');
     /*
      * @! change parent's volunteer oppportunity
      * #! param: ref->int :: voldId
      * #! param: ref->int :: parentId
      */
-    $group->post('/changeParent', SidebarVolunteerOpportunityController::class . ':changeParentVolunteerOpportunity');
+    $group->post('/changeParent', VolunteerOpportunityController::class . ':changeParentVolunteerOpportunity');
     /*
      * @! change color of volunteer oppportunity
      * #! param: ref->int :: voldId
      * #! param: ref->int :: colId
      */
-    $group->post('/changeColor', SidebarVolunteerOpportunityController::class . ':changeColorVolunteerOpportunity');
+    $group->post('/changeColor', VolunteerOpportunityController::class . ':changeColorVolunteerOpportunity');
     /*
      * @! change icon of volunteer oppportunity
      * #! param: ref->int :: voldId
      * #! param: ref->int :: iconId
      */
-    $group->post('/changeIcon', SidebarVolunteerOpportunityController::class . ':changeIconVolunteerOpportunity');
+    $group->post('/changeIcon', VolunteerOpportunityController::class . ':changeIconVolunteerOpportunity');
 
+
+    /*
+     * @! get all persons in the volunteeroportunity volId
+     * #! param: ref->int :: volId     
+     */
+    $group->get('/persons', VolunteerOpportunityController::class . ':getPersons');
 });
