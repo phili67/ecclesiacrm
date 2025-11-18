@@ -731,6 +731,36 @@ window.CRM.cart={
           }
       });
 },
+'addVolunteers' : function (VolID, callback)
+{
+   window.CRM.APIRequest({
+    method: 'POST',
+    path: 'cart/addVolunteers',
+    data: JSON.stringify({"VolID": VolID})
+  },function(data) {
+      window.CRM.cart.refresh();
+      if(callback)
+      {
+        callback(data);
+      }
+
+  });
+},
+'removeVolunteers' : function (VolID, callback)
+{
+   window.CRM.APIRequest({
+    method: 'POST',
+    path: 'cart/removeVolunteers',
+    data: JSON.stringify({"VolID":VolID})
+  },function(data) {
+      window.CRM.cart.refresh();
+      if(callback)
+      {
+        callback(data);
+      }
+
+  });
+},
 'addGroup' : function (GroupID, callback)
 {
    window.CRM.APIRequest({

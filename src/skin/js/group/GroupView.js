@@ -661,7 +661,7 @@ function initDataTable() {
     });
 
     $(document).on("click", ".AddToGroupCart", function () {
-        clickedButton = $(this);
+        var clickedButton = $(this);
         window.CRM.cart.addGroup(clickedButton.data("cartgroupid"), function () {
             $(clickedButton).addClass("RemoveFromGroupCart");
             $(clickedButton).removeClass("AddToGroupCart");
@@ -675,13 +675,13 @@ function initDataTable() {
     });
 
     $(document).on("click", ".RemoveFromGroupCart", function () {
-        clickedButton = $(this);
+        var clickedButton = $(this);
         window.CRM.cart.removeGroup(clickedButton.data("cartgroupid"), function () {
             $(clickedButton).addClass("AddToGroupCart");
             $(clickedButton).removeClass("RemoveFromGroupCart");
             $('i', clickedButton).removeClass("fa-times");
             $('i', clickedButton).addClass("fa-cart-plus");
-            text = $(clickedButton).find("span.cartActionDescription");
+            var text = $(clickedButton).find("span.cartActionDescription");
             if (text) {
                 $(text).text(i18next.t("Add to Cart"));
             }
@@ -699,7 +699,7 @@ function initDataTable() {
             $("#AddToGroupCart").removeClass("RemoveFromGroupCart");
             $('i', "#AddToGroupCart").removeClass("fa-times");
             $('i', "#AddToGroupCart").addClass("fa-cart-plus");
-            text = $("#AddToGroupCart").find("span.cartActionDescription")
+            var text = $("#AddToGroupCart").find("span.cartActionDescription")
             if (text) {
                 $(text).text(i18next.t("Add to Cart"));
             }

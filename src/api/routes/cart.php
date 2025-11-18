@@ -97,6 +97,16 @@ $app->group('/cart', function (RouteCollectorProxy $group) {
      * @! Remove all People in the Cart
      */
     $group->delete('/', CartController::class . ':removePersonCart' );
+    /*
+     * @! add all Volunteers members Ids from the cart
+     * #! param: ref->int :: VolID (Id)
+     */
+    $group->post('/addVolunteers', CartController::class . ':addVolunteers' );
+    /*
+     * @! Remove all volunteers members Ids from the cart
+     * #! param: ref->int :: VolID (Id)
+     */
+    $group->post('/removeVolunteers', CartController::class . ':removeVolunteers' );
 
 });
 

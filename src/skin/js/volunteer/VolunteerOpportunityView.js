@@ -135,7 +135,7 @@ $(function () {
                     callback: function (result) {
                         if (result) {
                             var selectedPersons = {
-                                "Persons": $.map(window.CRM.DataTableGroupView.rows('.selected').data(), function (val, i) {
+                                "Persons": $.map(window.CRM.DataTableVolunteersView.rows('.selected').data(), function (val, i) {
                                     return val.PersonId;
                                 })
                             };
@@ -148,8 +148,8 @@ $(function () {
                                     "Persons": selectedPersons
                                 })
                             }, function (data) {
-                                window.CRM.DataTableGroupView.ajax.reload(() => {
-                                    let selectedRows = window.CRM.DataTableGroupView.rows('.selected').data().length;
+                                window.CRM.DataTableVolunteersView.ajax.reload(() => {
+                                    let selectedRows = window.CRM.DataTableVolunteersView.rows('.selected').data().length;
                                     if (selectedRows) {
                                         $("#deleteSelectedRows").removeClass('disabled');
                                         $("#addSelectedToGroup").removeClass('disabled');
@@ -180,9 +180,9 @@ $(function () {
                 {
                     text: i18next.t("Add to Cart"),
                     action: function (e, dt, node, config) {
-                        if (window.CRM.DataTableGroupView.rows('.selected').length > 0) {
+                        if (window.CRM.DataTableVolunteersView.rows('.selected').length > 0) {
                             var selectedPersons = {
-                                "Persons": $.map(window.CRM.DataTableGroupView.rows('.selected').data(), function (val, i) {
+                                "Persons": $.map(window.CRM.DataTableVolunteersView.rows('.selected').data(), function (val, i) {
                                     return val.PersonId;
                                 })
                             };
@@ -194,7 +194,7 @@ $(function () {
                     text: i18next.t("Add to Group"),
                     action: function (e, dt, node, config) {
                         window.CRM.groups.promptSelection({ Type: window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role }, function (data) {
-                            selectedRows = window.CRM.DataTableGroupView.rows('.selected').data()
+                            selectedRows = window.CRM.DataTableVolunteersView.rows('.selected').data()
                             $.each(selectedRows, function (index, value) {
                                 window.CRM.groups.addPerson(data.GroupID, value.PersonId, data.RoleID);
                             });
@@ -205,17 +205,17 @@ $(function () {
                     text: i18next.t("Move to Group"),
                     action: function (e, dt, node, config) {
                         window.CRM.groups.promptSelection({ Type: window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role }, function (data) {
-                            selectedRows = window.CRM.DataTableGroupView.rows('.selected').data()
+                            selectedRows = window.CRM.DataTableVolunteersView.rows('.selected').data()
                             $.each(selectedRows, function (index, value) {
                                 console.log(data);
                                 window.CRM.groups.addPerson(data.GroupID, value.PersonId, data.RoleID);
                                 window.CRM.groups.removePerson(window.CRM.currentGroup, value.PersonId, function () {
-                                    window.CRM.DataTableGroupView.row(function (idx, data, node) {
+                                    window.CRM.DataTableVolunteersView.row(function (idx, data, node) {
                                         if (data.PersonId == value.PersonId) {
                                             return true;
                                         }
                                     }).remove();
-                                    window.CRM.DataTableGroupView.rows().invalidate().draw(true);
+                                    window.CRM.DataTableVolunteersView.rows().invalidate().draw(true);
                                 });
                             });
                         });
@@ -249,7 +249,7 @@ $(function () {
                                 path: 'groups/emptygroup',
                                 data: JSON.stringify({ "groupID": groupID })
                             }, function (data) {
-                                window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+                                window.CRM.DataTableVolunteersView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
                             });
                         }
                     }
@@ -260,7 +260,7 @@ $(function () {
 
         $.extend(DataTableOpts, window.CRM.plugin.dataTable);
 
-        window.CRM.DataTableGroupView = new DataTable("#VolunteerOpportunityTableMembers", DataTableOpts);
+        window.CRM.DataTableVolunteersView = new DataTable("#VolunteerOpportunityTableMembers", DataTableOpts);
 
         $('#isGroupActive').on('change', function () {
             window.CRM.APIRequest({
@@ -297,7 +297,7 @@ $(function () {
         });
 
         $(document).on('click', '.groupRow', function () {
-            var selectedRows = window.CRM.DataTableGroupView.rows('.selected').data().length;
+            var selectedRows = window.CRM.DataTableVolunteersView.rows('.selected').data().length;
             if (selectedRows) {
                 $("#deleteSelectedRows").removeClass('disabled');
                 $("#addSelectedToGroup").removeClass('disabled');
@@ -318,7 +318,7 @@ $(function () {
             $(clickedButton).removeClass("AddToGroupCart");
             $('i', clickedButton).addClass("fa-times");
             $('i', clickedButton).removeClass("fa-cart-plus");
-            text = $(clickedButton).find("span.cartActionDescription");
+            var text = $(clickedButton).find("span.cartActionDescription");
             if (text) {
                 $(text).text(i18next.t("Remove from Cart"));
             }
@@ -329,7 +329,7 @@ $(function () {
             $(clickedButton).removeClass("RemoveFromGroupCart");
             $('i', clickedButton).removeClass("fa-times");
             $('i', clickedButton).addClass("fa-cart-plus");
-            text = $(clickedButton).find("span.cartActionDescription");
+            var text = $(clickedButton).find("span.cartActionDescription");
             if (text) {
                 $(text).text(i18next.t("Add to Cart"));
             }
@@ -337,14 +337,14 @@ $(function () {
 
         $(document).on("click", ".AddToGroupCart", function () {
             var clickedButton = $(this);
-            window.CRM.cart.addGroup(clickedButton.data("cartgroupid"), function () {
+            window.CRM.cart.addVolunteers(clickedButton.data("cartvolunterid"), function () {
                 addCartMemberAction(clickedButton);
             });
         });
 
         $(document).on("click", ".RemoveFromGroupCart", function () {
-            clickedButton = $(this);
-            window.CRM.cart.removeGroup(clickedButton.data("cartgroupid"), function () {
+            var clickedButton = $(this);
+            window.CRM.cart.removeVolunteers(clickedButton.data("cartvolunterid"), function () {
                 removeCartMemberAction(clickedButton);
             });
         });
@@ -582,7 +582,7 @@ $(function () {
 
         // newMessage event handler
         function updateLocaleSCPage(e) {
-            window.CRM.DataTableGroupView.ajax.reload();
+            window.CRM.DataTableVolunteersView.ajax.reload();
         }
 
         /* Badge creation */

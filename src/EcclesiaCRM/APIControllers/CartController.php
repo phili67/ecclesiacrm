@@ -491,4 +491,42 @@ class CartController
         $response->getBody()->write($output);
         return $response;
     }
+
+
+    public function addVolunteers (ServerRequest $request, Response $response, array $args): Response 
+    {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isShowCartEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $iCount = Cart::CountPeople();
+
+        $cartPayload = (object)$request->getParsedBody();
+        Cart::addVolunteers($cartPayload->VolID);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully deleted from the selected volunteers.')
+        ]); 
+        
+        return $response;
+    }
+    /*
+     * @! Remove all volunteers members Ids from the cart
+     * #! param: ref->int :: VolID (Id)
+     */
+
+    public function removeVolunteers (ServerRequest $request, Response $response, array $args): Response {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isShowCartEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $iCount = Cart::CountPeople();
+
+        $cartPayload = (object)$request->getParsedBody();
+        Cart::RemoveVolunteers($cartPayload->VolID);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully deleted from the selected volunteers.')
+        ]);        
+    }
 }
