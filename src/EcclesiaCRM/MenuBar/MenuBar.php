@@ -30,7 +30,7 @@ use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
 use EcclesiaCRM\Service\MailChimpService;
 
 use EcclesiaCRM\SessionUser;
-
+use EcclesiaCRM\VolunteerOpportunityQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 class MenuBar extends Menu
@@ -911,6 +911,20 @@ class MenuBar extends Menu
         }
     }
 
+    private function loopVolunteerMenuId($parentVolId, $menuItem) {
+
+        $volunteerOpportunities = VolunteerOpportunityQuery::Create()
+            ->filterByParentId($parentVolId)
+            ->filterByActive('true')
+            ->find();
+        
+        foreach ($volunteerOpportunities as $volunteerOpportunity) {
+            $menuItem->addLink("v2/volunteeropportunity/".$volunteerOpportunity->getId()."/view");
+            $this->loopVolunteerMenuId($volunteerOpportunity->getId(),$menuItem);
+        }
+
+    }
+
     private function addVolunteerMenu () {
         if (SystemConfig::getBooleanValue("bEnabledVolunteers")) {
             $menu = new Menu (_("Volunteers"), "fa-brands fa-servicestack", "#", SessionUser::getUser()->isFinanceEnabled());
@@ -919,7 +933,19 @@ class MenuBar extends Menu
 
             $this->addPluginMenus('Volunteer', $menu, 'inside_category_menu');
             $this->addMenu($menu);       
-            $this->addPluginMenus('Volunteer', $menu, 'after_category_menu');            
+            $this->addPluginMenus('Volunteer', $menu, 'after_category_menu');  
+            
+            
+            $volunteerOpportunities = VolunteerOpportunityQuery::Create()
+                ->filterByParentId(null)
+                ->filterByActive('true')
+                ->orderByName(Criteria::ASC)->find();
+
+            foreach ($volunteerOpportunities as $volunteerOpportunity) {
+                $menuItem = new Menu ($volunteerOpportunity->getName(), "far fa-circle", "v2/volunteeropportunity/".$volunteerOpportunity->getId()."/view", true, $menu);
+                $this->loopVolunteerMenuId($volunteerOpportunity->getId(),$menuItem);
+                //
+            }
         }
     }
 
