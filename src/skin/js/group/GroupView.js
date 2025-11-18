@@ -660,31 +660,39 @@ function initDataTable() {
         $("#moveSelectedToGroup").html(i18next.t("Move") + "  (" + selectedRows + ") " + i18next.t("Members to another group"));
     });
 
+    const addCartMemberAction = (clickedButton) => {
+        $(clickedButton).addClass("RemoveFromGroupCart");
+        $(clickedButton).removeClass("AddToGroupCart");
+        $('i', clickedButton).addClass("fa-times");
+        $('i', clickedButton).removeClass("fa-cart-plus");
+        text = $(clickedButton).find("span.cartActionDescription");
+        if (text) {
+            $(text).text(i18next.t("Remove from Cart"));
+        }
+    }
+
+    const removeCartMemberAction = (clickedButton) => {
+        $(clickedButton).addClass("AddToGroupCart");
+        $(clickedButton).removeClass("RemoveFromGroupCart");
+        $('i', clickedButton).removeClass("fa-times");
+        $('i', clickedButton).addClass("fa-cart-plus");
+        text = $(clickedButton).find("span.cartActionDescription");
+        if (text) {
+            $(text).text(i18next.t("Add to Cart"));
+        }
+    }
+
     $(document).on("click", ".AddToGroupCart", function () {
-        clickedButton = $(this);
+        var clickedButton = $(this);
         window.CRM.cart.addGroup(clickedButton.data("cartgroupid"), function () {
-            $(clickedButton).addClass("RemoveFromGroupCart");
-            $(clickedButton).removeClass("AddToGroupCart");
-            $('i', clickedButton).addClass("fa-times");
-            $('i', clickedButton).removeClass("fa-cart-plus");
-            text = $(clickedButton).find("span.cartActionDescription");
-            if (text) {
-                $(text).text(i18next.t("Remove from Cart"));
-            }
+            addCartMemberAction(clickedButton);
         });
     });
 
     $(document).on("click", ".RemoveFromGroupCart", function () {
         clickedButton = $(this);
         window.CRM.cart.removeGroup(clickedButton.data("cartgroupid"), function () {
-            $(clickedButton).addClass("AddToGroupCart");
-            $(clickedButton).removeClass("RemoveFromGroupCart");
-            $('i', clickedButton).removeClass("fa-times");
-            $('i', clickedButton).addClass("fa-cart-plus");
-            text = $(clickedButton).find("span.cartActionDescription");
-            if (text) {
-                $(text).text(i18next.t("Add to Cart"));
-            }
+           removeCartMemberAction (clickedButton);
         });
     });
 
@@ -694,15 +702,12 @@ function initDataTable() {
 
     // newMessage event handler
     function updateButtons(e) {
+        var clickedButton = $("#AddToGroupCart");
         if (e.people.length == 0) {
-            $("#AddToGroupCart").addClass("AddToGroupCart");
-            $("#AddToGroupCart").removeClass("RemoveFromGroupCart");
-            $('i', "#AddToGroupCart").removeClass("fa-times");
-            $('i', "#AddToGroupCart").addClass("fa-cart-plus");
-            text = $("#AddToGroupCart").find("span.cartActionDescription")
-            if (text) {
-                $(text).text(i18next.t("Add to Cart"));
-            }
+            removeCartMemberAction (clickedButton);
+            
+        } else {
+            addCartMemberAction (clickedButton);
         }
     }
 
