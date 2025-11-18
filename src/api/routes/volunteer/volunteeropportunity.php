@@ -72,5 +72,5 @@ $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
      * @! get all persons in the volunteeroportunity volId
      * #! param: ref->int :: volId     
      */
-    $group->get('/persons', VolunteerOpportunityController::class . ':getPersons');
+    $group->get('/{volunteerID:[0-9]+}/members', VolunteerOpportunityController::class . ':getMembers');
 });
