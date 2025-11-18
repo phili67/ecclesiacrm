@@ -236,7 +236,7 @@ window.CRM.VolunteerOpportunityTable = new DataTable("#VolunteerOpportunityTable
             title: i18next.t('Name'),
             data: 'Name',
             render: function (data, type, full, meta) {
-                return data;
+                return '<a href="' + window.CRM.root + '/v2/volunteeropportunity/' + full.Id+ '/view">' + data + '</a>';
             }
         },
         {

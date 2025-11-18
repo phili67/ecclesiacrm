@@ -68,7 +68,6 @@ if (Bootstrapper::isDBCurrent() and SessionUser::getUser()->getNeedPasswordChang
     require_once __DIR__ . '/routes/sidebar/menulinklist.php';
     require_once __DIR__ . '/routes/sidebar/pastoralcarelist.php';
     require_once __DIR__ . '/routes/sidebar/fundlist.php';
-    require_once __DIR__ . '/routes/sidebar/volunteeropportunityeditor.php';
     require_once __DIR__ . '/routes/sidebar/propertylist.php';
     require_once __DIR__ . '/routes/sidebar/propertytypelist.php';
     require_once __DIR__ . '/routes/sidebar/kioskmanager.php';
@@ -78,6 +77,9 @@ if (Bootstrapper::isDBCurrent() and SessionUser::getUser()->getNeedPasswordChang
     require_once __DIR__ . '/routes/people/people.php';
     require_once __DIR__ . '/routes/people/familylist.php';
     require_once __DIR__ . '/routes/people/personlist.php';
+
+    // volunteers
+    require_once __DIR__ . '/routes/volunteer/volunteeropportunity.php';
 
     // pastoralcare
     require_once __DIR__ . '/routes/pastoralcare/pastoralcare.php';
