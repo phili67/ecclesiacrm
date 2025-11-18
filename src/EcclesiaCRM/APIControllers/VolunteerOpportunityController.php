@@ -10,6 +10,10 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\PersonVolunteerOpportunityQuery;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
@@ -245,24 +249,61 @@ class VolunteerOpportunityController
 
         return $response->withJson(['success' => false]);
     }
-
-    public function getPersons(ServerRequest $request, Response $response, array $args): Response
+    
+    public function getMembers(ServerRequest $request, Response $response, array $args): Response
     {
-        $input = (object)$request->getParsedBody();
+        $volID = $args['volunteerID'];
 
-        if (isset ($input->voldId) && isset($input->colId) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()) {
-            $vo = VolunteerOpportunityQuery::Create()->findOneById($input->voldId);
+        $persons = PersonVolunteerOpportunityQuery::create()
+            ->usePersonQuery()
+            ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
+            ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
+            ->addAsColumn('PersonId', PersonTableMap::COL_PER_ID)            
+            ->endUse()
+            ->addAscendingOrderByColumn('person_per.per_LastName')
+            ->addAscendingOrderByColumn('person_per.per_FirstName')
+            ->findByVolunteerOpportunityId($volID);
 
-            $vo->setColor($input->colId);
+        $res = [];
+        
+        foreach ($persons->toArray() as $member)
+        {
+            $fam = FamilyQuery::create()->findOneById($member['PersonId']);
+            $per = PersonQuery::create()->findOneById($member['PersonId']);
 
-            $vo->save();
+            // Philippe Logel : this is usefull when a person don't have a family : ie not an address
+            if (!is_null($fam)
+                && !is_null($fam->getAddress1())
+                && !is_null($fam->getAddress2())
+                && !is_null($fam->getCity())
+                && !is_null($fam->getState())
+                && !is_null($fam->getZip())
+            ) {
+                $member['Person']['Address1']= $fam->getAddress1();
+                $member['Person']['Address2']= $fam->getAddress2();
+                $member['Person']['City']= $fam->getCity();
+                $member['Person']['State']= $fam->getState();
+                $member['Person']['Zip']= $fam->getZip();
+                $member['Person']['CellPhone']= $fam->getCellPhone();
+                $member['Person']['Email']= $fam->getEmail();
+                
+            } else {
+                $member['Person']['Address1']= $per->getAddress1();
+                $member['Person']['Address2']= $per->getAddress2();
+                $member['Person']['City']= $per->getCity();
+                $member['Person']['State']= $per->getState();
+                $member['Person']['Zip']= $per->getZip();
+                $member['Person']['CellPhone']= $per->getCellPhone();
+                $member['Person']['Email']= $per->getEmail();
+                
+            }
 
-            return $response->withJson(['success' => true]);
+            $member['Person']['img']= $per->getJPGPhotoDatas();
+
+            $res[] = $member;
         }
 
-        return $response->withJson(['success' => false]);
+        return $response->withJson(['PersonVolunteers' => $res]);
     }
-
-    
 
 }
