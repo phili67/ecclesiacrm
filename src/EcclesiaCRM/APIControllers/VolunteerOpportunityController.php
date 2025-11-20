@@ -13,6 +13,7 @@ namespace EcclesiaCRM\APIControllers;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\PersonVolunteerOpportunity;
 use EcclesiaCRM\PersonVolunteerOpportunityQuery;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
@@ -303,7 +304,127 @@ class VolunteerOpportunityController
             $res[] = $member;
         }
 
-        return $response->withJson(['PersonVolunteers' => $res]);
+        return $response->withJson(['PersonVolunteers' => $res, 'count' => $persons->count()]);
     }
 
+    public function addPerson(ServerRequest $request, Response $response, array $args): Response
+    {
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->volID) && isset($input->PersonID) ) {
+
+            $vol = PersonVolunteerOpportunityQuery::create()
+                ->filterByVolunteerOpportunityId($input->volID)
+                ->findOneByPersonId($input->PersonID);
+
+            if (is_null($vol)) {
+                $vol = new PersonVolunteerOpportunity();
+
+                $vol->setPersonId($input->PersonID);
+                $vol->setVolunteerOpportunityId($input->volID);
+
+                $vol->save();
+            }
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    public function removeperson(ServerRequest $request, Response $response, array $args): Response
+    {
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->volID) && isset($input->PersonID) ) {
+
+            $vol = PersonVolunteerOpportunityQuery::create()
+                ->filterByVolunteerOpportunityId($input->volID)
+                ->findOneByPersonId($input->PersonID);
+
+            if (!is_null($vol)) {
+                $vol->delete();
+            }
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    public function removePersons(ServerRequest $request, Response $response, array $args): Response
+    {
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->volID) && isset($input->Persons) ) {
+
+            foreach ($input->Persons as $PersonID) {
+                $vol = PersonVolunteerOpportunityQuery::create()
+                    ->filterByVolunteerOpportunityId($input->volID)
+                    ->findOneByPersonId($PersonID);
+
+                if (!is_null($vol)) {
+                    $vol->delete();
+                }
+            }
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    public function removeAllMembers(ServerRequest $request, Response $response, array $args): Response
+    {
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->volId) ) {
+
+            $vols = PersonVolunteerOpportunityQuery::create()
+                    ->filterByVolunteerOpportunityId($input->volId)
+                    ->find();
+
+            foreach ($vols as $vol) {
+                if (!is_null($vol)) {
+                    $vol->delete();
+                }
+            }
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    
+
+    
+       
+    public function defaultOpportunity(ServerRequest $request, Response $response, array $args): Response
+    {
+        $input = (object)$request->getParsedBody();
+
+        $vol = VolunteerOpportunityQuery::create()
+            ->orderByName(Criteria::ASC)
+            ->findOne();
+
+            
+        if (is_null ($vol)) {
+            return $response->withJson(['success' => false]);
+        }
+
+        return $response->withJson(['success' => true, 'id' => $vol->getId()]);
+    }
+
+    public function getAll(ServerRequest $request, Response $response, array $args): Response
+    {
+        $input = (object)$request->getParsedBody();
+
+        $vol = VolunteerOpportunityQuery::create()
+            ->orderByName(Criteria::ASC)
+            ->find();
+
+            
+        return $response->withJson(['success' => true, 'Opportunities' => $vol->toArray()]);
+    }
 }

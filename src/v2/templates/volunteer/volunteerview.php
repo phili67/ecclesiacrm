@@ -1,4 +1,5 @@
 <?php
+
 /*******************************************************************************
  *
  *  filename    : volunteeropportunity.php
@@ -64,28 +65,73 @@ if (
 </div>
 
 
-<?php if ( $isVolunteerOpportunityEnabled ) {// only an admin can modify the options
+<?php if ($isVolunteerOpportunityEnabled) { // only an admin can modify the options
 ?>
     <p align="center"><button class="btn btn-primary" id="add-new-volunteer-opportunity"><?= _("Add Volunteer Opportunity") ?></button></p>
 <?php
 } else {
 ?>
-    <div class="alert alert-warning"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>   <?= _('Only an admin can modify or delete this records.') ?></div>
+    <div class="alert alert-warning"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> <?= _('Only an admin can modify or delete this records.') ?></div>
 <?php
 }
 
 
 ?>
-<div class="card card-body">
-  <table class="table table-striped table-bordered" id="VolunteerOpportunityTableMembers" cellpadding="5" cellspacing="0"  width="100%"></table>
+
+<div class="col" ?>
+    <div class="card">
+        <div class="card-header border-1">
+            <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Manage Group Members") ?>:</h3>
+            <div class="card-tools pull-right">
+                <button class="btn btn-success" type="button">
+                    <?= _('Type of Group') ?> <span class="badge bg-white"> <?= $sGroupType ?> </span>
+                </button>
+                <button class="btn btn-info" type="button">
+                    <?php
+                    if (!empty($defaultRole)) {
+                    ?>
+                        <?= _('Default Role') ?> <span class="badge  bg-white"><?= _($defaultRole->getOptionName()) ?></span>
+                    <?php
+                    }
+                    ?>
+                </button>
+                <button class="btn btn-primary" type="button">
+                    <?= _('Total Members') ?> <span class="badge  bg-white" id="iTotalMembers"></span>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <?php
+            if (SessionUser::getUser()->isManageGroups() || $is_group_manager == true) {
+            ?>
+
+                <div class="row">
+                    <div class="col-md-1">
+                        <?= _("Add") ?>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control personSearch  select2" name="addGroupMember" style="width:100%"></select>
+                    </div>
+                </div>
+                <br>
+            <?php
+            }
+            ?>
+            <!-- START GROUP MEMBERS LISTING  -->
+            <table class="table table-striped table-bordered" id="VolunteerOpportunityTableMembers" cellpadding="5" cellspacing="0" width="100%"></table>
+            <!-- END GROUP MEMBERS LISTING -->
+        </div>
+    </div>
+
+
 </div>
+
 
 <script nonce="<?= $CSPNonce ?>">
     window.CRM.volID = <?= $volID ?>;
     var isShowable = true;
 </script>
 
-<script type="module" src="<?= $sRootPath ?>/skin/js/volunteer/VolunteerOpportunityView.js" ></script>
+<script type="module" src="<?= $sRootPath ?>/skin/js/volunteer/VolunteerOpportunityView.js"></script>
 
-
-<?php require $sRootDocument . '/Include/Footer.php';?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>

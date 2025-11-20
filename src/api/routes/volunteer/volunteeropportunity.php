@@ -73,4 +73,45 @@ $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
      * #! param: ref->int :: volId     
      */
     $group->get('/{volunteerID:[0-9]+}/members', VolunteerOpportunityController::class . ':getMembers');
+
+    /*
+     * @! addperson : add a person to the Volunteer opportunity
+     * #! param: ref->int :: volID  
+     * #! param: ref->int :: PersonID
+     */
+    $group->post('/addperson', VolunteerOpportunityController::class . ':addPerson');
+
+    /*
+     * @! removeperson : remove a person to the Volunteer opportunity
+     * #! param: ref->int :: volID  
+     * #! param: ref->int :: PersonID
+     */
+    $group->delete('/removeperson', VolunteerOpportunityController::class . ':removeperson');
+
+    /*
+     * @! removeperson : remove a person to the Volunteer opportunity
+     * #! param: ref->int :: volID  
+     * #! param: ref->array :: selectedPersons
+     */
+    $group->delete('/removePersons', VolunteerOpportunityController::class . ':removePersons');
+
+    /*
+     * @! removeperson : remove a person to the Volunteer opportunity
+     * #! param: ref->int :: volID  
+     * #! param: ref->array :: selectedPersons
+     */
+    $group->post('/removeAllMembers', VolunteerOpportunityController::class . ':removeAllMembers');
+
+    /*
+     * @! defaultVolunteerOpportunity : remove a person to the Volunteer opportunity
+     * #! param: ref->int :: volID  
+     * #! param: ref->int :: PersonID
+     */
+    $group->get('/default', VolunteerOpportunityController::class . ':defaultOpportunity');
+
+    /*
+     * @! get : get all the opportunities
+     */
+    $group->get('/get', VolunteerOpportunityController::class . ':getAll');
+
 });
