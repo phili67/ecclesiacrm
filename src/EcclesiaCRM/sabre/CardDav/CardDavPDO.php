@@ -89,6 +89,19 @@ class CardDavPDO extends SabreCardDavBase\PDO {
 
     }
 
+    function getAddressBookForVolunteers($volId) {
+
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->addressBooksTableName . ' WHERE volId = ?');
+        $stmt->execute([$volId]);
+
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$result) return false;
+
+        return $result;
+
+    }
+
     /**
      * Returns the list of addressbooks for a specific user and the share too
      *
@@ -147,7 +160,7 @@ WHERE addressbookshare.principaluri = ?');
      * @param array $properties
      * @return int Last insert id
      */
-    function createAddressBook($principalUri, $uri, array $properties, $group=-1) {
+    function createAddressBook($principalUri, $uri, array $properties, $group=-1, $volId=-1) {
 
         $values = [
             'displayname'  => null,
@@ -155,6 +168,7 @@ WHERE addressbookshare.principaluri = ?');
             'principaluri' => $principalUri,
             'uri'          => $uri,
             'groupId'      => $group,
+            'volId'        => $volId
         ];
 
         foreach ($properties as $property => $newValue) {
@@ -172,7 +186,7 @@ WHERE addressbookshare.principaluri = ?');
 
         }
 
-        $query = 'INSERT INTO ' . $this->addressBooksTableName . ' (uri, displayname, description, principaluri, synctoken, groupId) VALUES (:uri, :displayname, :description, :principaluri, 1, :groupId)';
+        $query = 'INSERT INTO ' . $this->addressBooksTableName . ' (uri, displayname, description, principaluri, synctoken, groupId, volId) VALUES (:uri, :displayname, :description, :principaluri, 1, :groupId, :volId)';
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($values);
         return $this->pdo->lastInsertId(
