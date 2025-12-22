@@ -44,7 +44,7 @@ class VIEWVolunteerOpportunityController {
     function argumentsVolunteerOpportunityArray ()
     {
         //Set the page title
-        $sPageTitle = _("Volunteer Opportunities");
+        $sPageTitle = _("Volunteers");
 
         $sRootDocument  = SystemURLs::getDocumentRoot();
 
@@ -72,7 +72,7 @@ class VIEWVolunteerOpportunityController {
     public function renderVolunteerViewArray ($volID): array
     {
         //Get the data on this group
-        $vo = VolunteerOpportunityQuery::Create()->findOneById($volID);
+        $thisVolOpp = VolunteerOpportunityQuery::Create()->findOneById($volID);
 
         $persons = PersonVolunteerOpportunityQuery::create()
             ->usePersonQuery()
@@ -82,7 +82,7 @@ class VIEWVolunteerOpportunityController {
             ->endUse()
             ->addAscendingOrderByColumn('person_per.per_LastName')
             ->addAscendingOrderByColumn('person_per.per_FirstName')
-            ->findByVolunteerOpportunityId($volID);
+            ->findByVolunteerOpportunityId($volID);        
 
         
                 /*
@@ -121,7 +121,7 @@ class VIEWVolunteerOpportunityController {
         }
     */
         //Set the page title
-        $sPageTitle = _('Group').' : '.$vo->getName();
+        $sPageTitle = _('Volunteers').' : '.$thisVolOpp->getName();
 
 
         $sRootDocument  = SystemURLs::getDocumentRoot();
@@ -133,6 +133,7 @@ class VIEWVolunteerOpportunityController {
             'CSPNonce'         => $CSPNonce,
             'volID'            => $volID,
             'persons'          => $persons,
+            'thisVolOpp'       => $thisVolOpp,
             /*'calendarID'       => $calendarID,
             'thisGroup'        => $thisGroup,
             'defaultRole'      => $defaultRole,
