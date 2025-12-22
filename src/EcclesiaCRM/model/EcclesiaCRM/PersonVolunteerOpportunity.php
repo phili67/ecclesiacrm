@@ -24,7 +24,7 @@ class PersonVolunteerOpportunity extends BasePersonVolunteerOpportunity
         // We set the BackEnd for sabre Backends
         $carddavBackend = new CardDavPDO();
 
-        $addressbookId = $carddavBackend->getAddressBookForGroup ($this->getVolunteerOpportunityId())['id'];
+        $addressbookId = $carddavBackend->getAddressBookForVolunteers ($this->getVolunteerOpportunityId())['id'];
 
         $carddavBackend->deleteCardForPerson($addressbookId,$this->getPersonId());
         
