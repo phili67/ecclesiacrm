@@ -12,6 +12,7 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\MyPDO\CardDavPDO;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PersonVolunteerOpportunity;
 use EcclesiaCRM\PersonVolunteerOpportunityQuery;
@@ -26,6 +27,7 @@ use EcclesiaCRM\SessionUser;
 
 use Propel\Runtime\Propel;
 use PDO;
+use Slim\Exception\HttpInternalServerErrorException;
 
 class VolunteerOpportunityController
 {
@@ -34,6 +36,74 @@ class VolunteerOpportunityController
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+    }
+
+    public function settingsActiveValue (ServerRequest $request, Response $response, array $args): Response {
+        $volID = $args['volID'];
+        $flag = $args['value'];
+        if ($flag == "true" || $flag == "false") {
+            $vol = VolunteerOpportunityQuery::create()->findOneById($volID);
+            if (!is_null($vol)) {
+                $vol->setActive($flag);
+                $vol->save();
+            } else {
+                throw new HttpInternalServerErrorException($request, 'invalid group id');                
+            }            
+        } else {
+            throw new HttpInternalServerErrorException($request, 'invalid status value');            
+        }
+        return $response->withJson(['status' => "success"]);
+    }
+
+    public function addressBook (ServerRequest $request, Response $response, array $args): Response
+    {
+        if ( !(SessionUser::getUser()->isSeePrivacyDataEnabled() and array_key_exists('volID', $args)) ) {
+            return $response->withStatus(401);
+        }
+
+        // we get the group
+        $vol = VolunteerOpportunityQuery::create()->findOneById ($args['volID']);
+
+        // We set the BackEnd for sabre Backends
+        $carddavBackend = new CardDavPDO();
+
+        $addressbook = $carddavBackend->getAddressBookForVolunteers ($args['volID']);
+
+        $filename = $vol->getName().".vcf";
+
+        $output = $carddavBackend->generateVCFForAddressBook($addressbook['id']);
+        $size = strlen($output);
+
+        $response = $response
+            ->withHeader('Content-Type', 'application/octet-stream')
+            ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"')
+            ->withHeader('Pragma', 'no-cache')
+            ->withHeader('Content-Length',$size)
+            ->withHeader('Content-Transfer-Encoding', 'binary')
+            ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+            ->withHeader('Expires', '0');
+
+
+        $response->getBody()->write($output);
+
+        return $response;
+    }
+
+    public function settingsEmailExportVvalue(ServerRequest $request, Response $response, array $args): Response {
+        $volID = $args['volID'];
+        $flag = $args['value'];
+        if ($flag == "true" || $flag == "false") {
+            $vol = VolunteerOpportunityQuery::create()->findOneById($volID);
+            if (!is_null($vol)) {
+                $vol->setIncludeInEmailExport($flag);
+                $vol->save();
+            } else {
+                throw new HttpInternalServerErrorException($request, 'invalid group id');                
+            }
+            return $response->withJson(['status' => "success"]);
+        } else {
+            throw new HttpInternalServerErrorException($request, 'invalid export value');
+        }
     }
 
     private function selectMenuParents($menus, $volID, $parentId = NULL)
@@ -51,7 +121,7 @@ class VolunteerOpportunityController
         return $res;
     }
 
-    private function selectMenuIcons($volID, $icon)
+    private function selectMenuIconsOld($volID, $icon)
     {
         $connection = Propel::getConnection();
 
@@ -72,26 +142,59 @@ class VolunteerOpportunityController
         return $res;
     }
 
-    private function selectMenuColors($volID, $icon)
+    private function selectMenuIcons($volID, $icon)
     {
         $connection = Propel::getConnection();
 
-        $result = $connection->query("SHOW COLUMNS FROM `volunteeropportunity_vol` LIKE 'vol_color'");
+        $result = $connection->query("SHOW COLUMNS FROM `volunteeropportunity_vol` LIKE 'vol_icon'");
 
-        $res = '<select class="form-control form-control-sm selectColor" data-id="'.$volID.'">\n';
+        $res = '<div class="btn-group custom-dropdown">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="'.$icon.'"></i> '.$icon.'
+  </button>
+  <div class="dropdown-menu">';
 
         if ($result) {
             $arr = $result->fetch(PDO::FETCH_ASSOC)['Type'];
             $option_array = explode("','", preg_replace("/(enum|set)\('(.+?)'\)/", "\\2", $arr));
 
             foreach ($option_array as $item) {
-                $res .= '<option value="' . $item . '" '.($icon == $item?'selected':''). '>' . $item . '</option>';
+                $res .= '<a class="dropdown-item selectIcon" data-id="' . $item . '" data-vold-id="'.$volID.'"><i class="' . $item . '"></i> ' .$item.  ($icon == $item?'&check;':''). '</a>';
             }
         }
-        $res .= '</select>';
+        $res .= '  </div>';
+        $res .= '</div>';
+
 
         return $res;
     }
+
+    private function selectMenuColors($volID, $icon)
+    {
+        $connection = Propel::getConnection();
+
+        $result = $connection->query("SHOW COLUMNS FROM `volunteeropportunity_vol` LIKE 'vol_color'");
+
+        $res = '<div class="btn-group custom-dropdown">
+  <button type="button" class="btn btn-secondary dropdown-toggle '.$icon.'" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    '.$icon.'
+  </button>
+  <div class="dropdown-menu">';
+
+        if ($result) {
+            $arr = $result->fetch(PDO::FETCH_ASSOC)['Type'];
+            $option_array = explode("','", preg_replace("/(enum|set)\('(.+?)'\)/", "\\2", $arr));
+
+            foreach ($option_array as $item) {
+                $res .= '<a class="dropdown-item custom-dropdown-item selectColor '.$item.'" data-id="' . $item . '" data-vold-id="'.$volID.'">' . $item . ' ' . ($icon == $item?'&check;':''). '</a>';
+            }
+        }
+        $res .= '  </div>';
+        $res .= '</div>';
+
+        return $res;
+    }
+
 
     public function getAllVolunteerOpportunities(ServerRequest $request, Response $response, array $args): Response
     {
@@ -313,18 +416,16 @@ class VolunteerOpportunityController
 
         if (isset ($input->volID) && isset($input->PersonID) ) {
 
-            $vol = PersonVolunteerOpportunityQuery::create()
+            $person = PersonVolunteerOpportunityQuery::create()
                 ->filterByVolunteerOpportunityId($input->volID)
-                ->findOneByPersonId($input->PersonID);
+                ->filterByPersonId($input->PersonID)
+                ->findOneOrCreate();         
+                
+            $vol = VolunteerOpportunityQuery::create()
+                ->findOneById($input->volID);
 
-            if (is_null($vol)) {
-                $vol = new PersonVolunteerOpportunity();
-
-                $vol->setPersonId($input->PersonID);
-                $vol->setVolunteerOpportunityId($input->volID);
-
-                $vol->save();
-            }
+            $vol->addPersonVolunteerOpportunity($person);
+            $vol->save();            
 
             return $response->withJson(['success' => true]);
         }
