@@ -263,7 +263,7 @@ $(function () {
 
         window.CRM.DataTableVolunteersView = new DataTable("#VolunteerOpportunityTableMembers", DataTableOpts);
 
-        $('#isGroupActive').on('change', function () {
+        $('#isVolunteersActive').on('change', function () {
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'volunteeropportunity/' + window.CRM.volID + '/settings/active/' + $(this).prop('checked')
@@ -272,7 +272,7 @@ $(function () {
             });
         });
 
-        $('#isGroupEmailExport').on('change', function () {
+        $('#isVolunteersEmailExport').on('change', function () {
             if ($(this).prop('checked')) {
                 $(".sms-button").removeClass('disabled');
                 $(".email-button").removeClass('disabled');
@@ -363,220 +363,7 @@ $(function () {
             } else {
                 addCartMemberAction(clickedButton);
             }
-        }
-
-
-        // start manager
-        $("#add-manager").on('click', function () {
-            createManagerWindow(window.CRM.volID);
-        });
-
-        $('body').on('click', '.delete-person-manager', function () {
-            var personID = $(this).data('personid');
-            var volID = $(this).data('volID');
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'volunteeropportunity/deleteManager',
-                data: JSON.stringify({ "volID": volID, "personID": personID })
-            }, function (data) {
-                if (data.status == undefined) {
-                    var len = data.length;
-
-                    var optionValues = '';
-
-                    for (i = 0; i < len; ++i) {
-                        optionValues += '<button class="delete-person-manager btn btn-danger btn-xs" data-personid="' + data[i].personID + '" data-volID="' + volID + '"> <i sclass="icon far fa-trash-alt"></i> </button> ' + data[i].name + '<br/> ';
-                    }
-
-                    if (optionValues != '') {
-                        $("#Manager-list").html(optionValues);
-                    } else {
-                        $("#Manager-list").html(i18next.t("No assigned Manager") + ".");
-                    }
-                } else {
-                    $("#Manager-list").html(i18next.t("No assigned Manager") + ".");
-                }
-            });
-        });
-
-
-        function BootboxContentManager() {
-            var frm_str = '<div>'
-                + '<div class="row">'
-                + '<div class="col-md-4">'
-                + '<span style="color: red">*</span>' + i18next.t("With") + ":"
-                + '</div>'
-                + '<div class="col-md-8">'
-                + '<select size="6" class="form-control GroupViewBootboxContentManager" id="select-manager-persons" multiple>'
-                + '</select>'
-                + '</div>'
-                + '</div>'
-                + '<div class="row">'
-                + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add users") + ":</div>"
-                + '<div class="col-md-8">'
-                + '<select name="person-manager-Id" id="person-manager-Id" class="form-control select2"'
-                + 'style="width:100%">'
-                + '</select>'
-                + '</div>'
-                + '</div>'
-                + '</div>';
-
-            var object = $('<div/>').html(frm_str).contents();
-
-            return object
-        }
-
-        // the add people to calendar
-
-        function addManagersFromGroup(volID) {
-            $('#select-manager-persons').find('option').remove();
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'volunteeropportunity/getmanagers',
-                data: JSON.stringify({ "volID": volID })
-            }, function (data) {
-                var elt = document.getElementById("select-manager-persons");
-                var len = data.length;
-
-                var optionValues = '';
-
-                for (i = 0; i < len; ++i) {
-                    var option = document.createElement("option");
-
-                    option.text = data[i].name;
-                    option.value = data[i].personID;
-
-                    optionValues += '<button class="delete-person-manager btn btn-danger btn-xs" data-personid="' + data[i].personID + '" data-volID="' + volID + '"> <i class="icon far fa-trash-alt"></i> </button> ' + data[i].name + '<br/> ';
-
-                    elt.appendChild(option);
-                }
-
-                if (optionValues != '') {
-                    $("#Manager-list").html(optionValues);
-                } else {
-                    $("#Manager-list").html(i18next.t("No assigned Manager") + ".");
-                }
-            });
-        }
-
-        function createManagerWindow(volID) {
-            var modal = bootbox.dialog({
-                title: i18next.t("Manage Group Managers"),
-                message: BootboxContentManager(),
-                buttons: [
-                    {
-                        label: i18next.t("Delete"),
-                        className: "btn btn-warning",
-                        callback: function () {
-                            bootbox.confirm(i18next.t("Are you sure, you want to delete this Manager ?"), function (result) {
-                                if (result) {
-                                    $('#select-manager-persons :selected').each(function (i, sel) {
-                                        var personID = $(sel).val();
-
-                                        window.CRM.APIRequest({
-                                            method: 'POST',
-                                            path: 'volunteeropportunity/deleteManager',
-                                            data: JSON.stringify({ "groupID": groupID, "personID": personID })
-                                        }, function (data) {
-                                            $("#select-manager-persons option[value='" + personID + "']").remove();
-
-                                            var opts = $('#select-manager-persons > option').map(function () {
-                                                return '<button class="delete-person-manager btn btn-danger btn-xs" data-personid"' + this.value + '" data-groupid"' + groupID + '"> <i class="icon far fa-trash-alt"></i> </button> ' + this.text;
-                                            }).get();
-
-                                            if (opts.length) {
-                                                $("#Manager-list").html(opts.join(", "));
-                                            } else {
-                                                $("#Manager-list").html(i18next.t("No assigned Manager") + ".");
-                                            }
-                                        });
-                                    });
-                                }
-                            });
-                            return false;
-                        }
-                    },
-                    {
-                        label: i18next.t("Delete Managers"),
-                        className: "btn btn-danger",
-                        callback: function () {
-                            bootbox.confirm(i18next.t("Are you sure, you want to delete all the managers ?"), function (result) {
-                                if (result) {
-                                    window.CRM.APIRequest({
-                                        method: 'POST',
-                                        path: 'volunteeropportunity/deleteAllManagers',
-                                        data: JSON.stringify({ "groupID": groupID })
-                                    }, function (data) {
-                                        addManagersFromGroup(groupID);
-                                        modal.modal("hide");
-                                    });
-                                }
-                            });
-                            return false;
-                        }
-                    },
-                    {
-                        label: i18next.t("Ok"),
-                        className: "btn btn-primary",
-                        callback: function () {
-                            modal.modal("hide");
-                            return true;
-                        }
-                    },
-                ],
-                show: false,
-                onEscape: function () {
-                    modal.modal("hide");
-                }
-            });
-
-            $("#person-manager-Id").select2({
-                language: window.CRM.shortLocale,
-                minimumInputLength: 2,
-                placeholder: " -- " + i18next.t("User") + " -- ",
-                allowClear: true, // This is for clear get the clear button if wanted
-                ajax: {
-                    url: function (params) {
-                        return window.CRM.root + "/api/people/searchonlyuser/" + params.term;
-                    },
-                    dataType: 'json',
-                    delay: 250,
-                    data: "",
-                    headers: {
-                        "Authorization": "Bearer " + window.CRM.jwtToken
-                    },
-                    processResults: function (data, params) {
-                        return { results: data };
-                    },
-                    cache: true
-                }
-            });
-
-            $("#person-manager-Id").on("select2:select", function (e) {
-                if (e.params.data.personID !== undefined) {
-                    window.CRM.APIRequest({
-                        method: 'POST',
-                        path: 'volunteeropportunity/addManager',
-                        data: JSON.stringify({ "groupID": window.CRM.volID, "personID": e.params.data.personID })
-                    }, function (data) {
-                        addManagersFromGroup(groupID);
-                    });
-                }
-            });
-
-            addManagersFromGroup(groupID);
-            modal.modal('show');
-
-            // this will ensure that image and table can be focused
-            $(document).on('focusin', function (e) {
-                e.stopImmediatePropagation();
-            });
-        }
-
-        // end manager
-
+        }        
 
         // listener : when the delete member is invocated
         $(document).on("updateLocalePageMessage", updateLocaleSCPage);
@@ -614,6 +401,8 @@ $(function () {
 
     initDataTable();
 
+    $('#isVolunteersActive').prop('checked', window.CRM.isActive).on('change');
+    $('#isVolunteersEmailExport').prop('checked', window.CRM.isIncludeInEmailExport).on('change');
 
     $(".personSearch").select2({
         minimumInputLength: 2,
