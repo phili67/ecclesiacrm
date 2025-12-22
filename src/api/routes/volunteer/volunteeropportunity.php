@@ -23,6 +23,8 @@ $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
      * @! get all Volunteer Opportunities
      */
     $group->post('/', VolunteerOpportunityController::class . ':getAllVolunteerOpportunities');
+    $group->post('/{volID:[0-9]+}/settings/active/{value}', VolunteerOpportunityController::class . ":settingsActiveValue" );
+    $group->post('/{volID:[0-9]+}/settings/email/export/{value}', VolunteerOpportunityController::class . ":settingsEmailExportVvalue" );
     /*
      * @! delete volunteer opportunities by id
      * #! param: ref->int :: id
@@ -114,4 +116,9 @@ $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
      */
     $group->get('/get', VolunteerOpportunityController::class . ':getAll');
 
+    /*
+      * @! get addressbook from a volID through the url
+      * #! param: id->int :: volID
+      */
+    $group->get('/addressbook/extract/{volID:[0-9]+}', VolunteerOpportunityController::class . ":addressBook" );
 });

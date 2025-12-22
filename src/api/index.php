@@ -57,6 +57,7 @@ $app->add(new JwtAuthentication([
         SystemURLs::getRootPath(). "/api/database",
         SystemURLs::getRootPath(). "/api/plugins",
         SystemURLs::getRootPath(). "/api/groups/addressbook/extract/",
+        SystemURLs::getRootPath(). "/api/volunteeropportunity/addressbook/extract/",
         SystemURLs::getRootPath(). "/api/cart/addressbook/extract",
         SystemURLs::getRootPath(). "/api/filemanager/getPreview",
         SystemURLs::getRootPath(). "/api/deposits"
