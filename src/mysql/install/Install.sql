@@ -9,6 +9,7 @@ CREATE TABLE addressbooks (
     description TEXT,
     synctoken INT(11) UNSIGNED NOT NULL DEFAULT '1',
     groupId mediumint(8) NOT NULL default -1 COMMENT '-1 personal addressbook, >1 for a group in the CRM',
+    volId mediumint(8) NOT NULL default -1 COMMENT '>1 for a volunteers in the CRM',
     UNIQUE(principaluri(100), uri(100))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1414,6 +1415,7 @@ CREATE TABLE `volunteeropportunity_vol` (
   `vol_Active` enum('true','false') NOT NULL default 'true',
   `vol_Name` varchar(30) default NULL,
   `vol_Description` varchar(100) default NULL,
+  `vol_include_email_export` BOOLEAN NOT NULL default 1,
   `vol_parent_ID` mediumint(8) unsigned DEFAULT NULL COMMENT 'parent volunteeropportunity_vol id',
   `vol_color` enum('bg-blue text-white', 'bg-indigo text-white', 'bg-navy text-white', 'bg-maroon text-white', 'bg-purple text-white', 'bg-pink text-white', 'bg-red text-white', 'bg-orange text-black', 'bg-yellow text-white', 'bg-lime text-white', 'bg-green text-white', 'bg-teal text-white', 'bg-cyan text-white', 'bg-gray text-black') NOT NULL default 'bg-blue text-white' COMMENT 'Color for a volunteer opportunity',
   `vol_icon` enum('fas fa-layer-group','fas fa-users','fas fa-desktop','fas fa-file','fas fa-comment','fas fa-music','fas fa-photo-video','fas fa-envelope','fas fa-headset', 'fas fa-book-reader' ) NOT NULL default 'fas fa-file' COMMENT 'icon of the volunteer opportunity',

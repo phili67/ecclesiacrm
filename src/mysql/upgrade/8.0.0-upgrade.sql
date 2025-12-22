@@ -409,10 +409,12 @@ ALTER TABLE `autopayment_aut`
 DROP COLUMN `aut_CreditCardVanco`,
 DROP COLUMN `aut_AccountVanco`;
 
-
 -- 2025-08-31
 ALTER TABLE `plugin` CHANGE `plgn_Category` `plgn_Category` ENUM('Dashboard','Personal','GDPR','Events','MEDIAS','PEOPLE','GROUP','SundaySchool','Meeting','PastoralCare','Communication','Deposit','Funds','FreeMenu','EDrive') CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'Personal' COMMENT 'For the left side menu bar';
 
 -- 2025-09-29
 ALTER TABLE `note_nte` CHANGE `nte_Text` `nte_Text` LONGTEXT CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL;
 ALTER TABLE `events_event` CHANGE `event_text` `event_text` LONGTEXT CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL;
+
+-- 2025-09-29
+ALTER TABLE `addressbooks` ADD `volId` mediumint(8) NOT NULL default -1 COMMENT '>1 for a volunteers in the CRM';

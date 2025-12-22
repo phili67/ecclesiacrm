@@ -9,6 +9,7 @@
     <column name="description" phpName="Description" type="LONGVARCHAR"/>
     <column name="synctoken" phpName="Synctoken" type="INTEGER" sqlType="int(11) unsigned" required="true" defaultValue="1"/>
     <column name="groupId" phpName="Groupid" type="SMALLINT" size="8" required="true" defaultValue="-1"/>
+    <column name="volId" phpName="Volid" type="SMALLINT" size="8" description="&gt;1 for a volunteers in the CRM" required="true" defaultValue="-1"/>
     <unique name="principaluri">
       <unique-column name="principaluri" size="100"/>
       <unique-column name="uri" size="100"/>
@@ -1058,6 +1059,7 @@
         <column name="vol_ID" phpName="Id" type="SMALLINT" sqlType="mediumint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="vol_Active" phpName="Active" type="CHAR" sqlType="enum('true','false')" required="true" defaultValue="true"/>
         <column name="vol_Name" phpName="Name" type="VARCHAR" size="30"/>
+        <column name="vol_include_email_export" phpName="IncludeInEmailExport" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
         <column name="vol_Description" phpName="Description" type="VARCHAR" size="100"/>
         <column name="vol_parent_ID" phpName="ParentId" type="SMALLINT" sqlType="mediumint unsigned" description="parent volunteeropportunity_vol id"/>
         <column name="vol_color" phpName="Color" type="CHAR" sqlType="enum('bg-blue text-white','bg-indigo text-white','bg-navy text-white','bg-maroon text-white','bg-brown text-white','bg-purple text-white','bg-pink text-white','bg-magenta text-white','bg-red text-white','bg-orange text-white','bg-yellow text-white','bg-lime text-white','bg-green text-white','bg-teal text-white','bg-cyan text-white','bg-black text-white','bg-gray text-white','bg-white text-dark','bg-transparent text-dark')" description="Color for a volunteer opportunity" required="true" defaultValue="bg-blue text-white"/>
