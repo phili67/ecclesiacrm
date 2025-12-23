@@ -89,6 +89,19 @@ class CardDavPDO extends SabreCardDavBase\PDO {
 
     }
 
+    function getAddressBookForVolunteers($volId) {
+
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->addressBooksTableName . ' WHERE volId = ?');
+        $stmt->execute([$volId]);
+
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$result) return false;
+
+        return $result;
+
+    }
+
     /**
      * Returns the list of addressbooks for a specific user and the share too
      *
@@ -98,17 +111,26 @@ class CardDavPDO extends SabreCardDavBase\PDO {
     function getAddressBooksForUser($principalUri) 
     {
 
-        $stmt = $this->pdo->prepare('SELECT id, uri, displayname, principaluri, description, synctoken FROM '.$this->addressBooksTableName.' WHERE principaluri = ?');
+        $stmt = $this->pdo->prepare('SELECT id, uri, displayname, principaluri, description, synctoken, groupId, volId FROM '.$this->addressBooksTableName.' WHERE principaluri = ?');
         $stmt->execute([$principalUri]);
 
         $addressBooks = [];
 
         foreach ($stmt->fetchAll() as $row) {
+            $type = '(' . _("Personal") . ')';
+
+            if ((int)$row['groupId'] != -1) {
+                $type = '(' . _("Group") . ')';
+            }
+            if ((int)$row['volId'] != -1) {
+                $type = '(' . _("Volunteers") . ')';
+            }
+
             $addressBooks[] = [
                 'id' => $row['id'],
                 'uri' => $row['uri'],
                 'principaluri' => $row['principaluri'],
-                '{DAV:}displayname' => $row['displayname'],
+                '{DAV:}displayname' => $row['displayname'] . ' ' . $type,
                 '{'.CardDAV\Plugin::NS_CARDDAV.'}addressbook-description' => $row['description'],
                 '{http://calendarserver.org/ns/}getctag' => $row['synctoken'],
                 '{http://sabredav.org/ns}sync-token' => $row['synctoken'] ? $row['synctoken'] : '0',
@@ -147,7 +169,7 @@ WHERE addressbookshare.principaluri = ?');
      * @param array $properties
      * @return int Last insert id
      */
-    function createAddressBook($principalUri, $uri, array $properties, $group=-1) {
+    function createAddressBook($principalUri, $uri, array $properties, $group=-1, $volId=-1) {
 
         $values = [
             'displayname'  => null,
@@ -155,6 +177,7 @@ WHERE addressbookshare.principaluri = ?');
             'principaluri' => $principalUri,
             'uri'          => $uri,
             'groupId'      => $group,
+            'volId'        => $volId
         ];
 
         foreach ($properties as $property => $newValue) {
@@ -172,7 +195,7 @@ WHERE addressbookshare.principaluri = ?');
 
         }
 
-        $query = 'INSERT INTO ' . $this->addressBooksTableName . ' (uri, displayname, description, principaluri, synctoken, groupId) VALUES (:uri, :displayname, :description, :principaluri, 1, :groupId)';
+        $query = 'INSERT INTO ' . $this->addressBooksTableName . ' (uri, displayname, description, principaluri, synctoken, groupId, volId) VALUES (:uri, :displayname, :description, :principaluri, 1, :groupId, :volId)';
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($values);
         return $this->pdo->lastInsertId(

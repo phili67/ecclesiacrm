@@ -57,6 +57,7 @@ $app->add(new JwtAuthentication([
         SystemURLs::getRootPath(). "/api/database",
         SystemURLs::getRootPath(). "/api/plugins",
         SystemURLs::getRootPath(). "/api/groups/addressbook/extract/",
+        SystemURLs::getRootPath(). "/api/volunteeropportunity/addressbook/extract/",
         SystemURLs::getRootPath(). "/api/cart/addressbook/extract",
         SystemURLs::getRootPath(). "/api/filemanager/getPreview",
         SystemURLs::getRootPath(). "/api/deposits"
@@ -110,8 +111,11 @@ require_once __DIR__.'/routes/sidebar/sidebar-menulinks.php';
 require_once __DIR__.'/routes/sidebar/sidebar-properties.php';
 require_once __DIR__.'/routes/sidebar/sidebar-roles.php';
 require_once __DIR__.'/routes/sidebar/sidebar-general-roles.php';
-require_once __DIR__.'/routes/sidebar/sidebar-volunteeropportunity.php';
 require_once __DIR__.'/routes/sidebar/sidebar-systemsettings.php';
+
+// volunteer
+require_once __DIR__.'/routes/volunteer/volunteeropportunity.php';
+
 
 // pastoral care
 require_once __DIR__.'/routes/pastoralcare/pastoralcare.php';

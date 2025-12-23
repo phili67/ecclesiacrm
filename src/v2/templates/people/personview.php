@@ -620,7 +620,9 @@ require $sRootDocument . '/Include/Header.php';
                         ?>
 
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isCanvasserEnabled()) {
+                        if (SystemConfig::getBooleanValue("bEnabledVolunteers") && 
+                            ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
+                            or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isCanvasserEnabled())) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link"

@@ -13,6 +13,7 @@ use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
 use EcclesiaCRM\Note;
+use EcclesiaCRM\PersonVolunteerOpportunityQuery;
 
 class Cart
 {
@@ -381,6 +382,47 @@ class Cart
             Cart::RemovePerson($GroupMember->getPersonId());
         }
     }
+
+    public static function AddVolunteers($volID)
+    {
+        if (!is_numeric($volID)) {
+            throw new \Exception (_("volID for Cart must be numeric"), 400);
+        }
+        $members = PersonVolunteerOpportunityQuery::create()
+            ->usePersonQuery()
+            ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
+            ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
+            ->addAsColumn('PersonId', PersonTableMap::COL_PER_ID)            
+            ->endUse()
+            ->addAscendingOrderByColumn('person_per.per_LastName')
+            ->addAscendingOrderByColumn('person_per.per_FirstName')
+            ->findByVolunteerOpportunityId($volID);
+
+        foreach ($members as $member) {
+            Cart::AddPerson($member->getPersonId());
+        }
+    }
+
+    public static function RemoveVolunteers($volID)
+    {
+        if (!is_numeric($volID)) {
+            throw new \Exception (_("volID for Cart must be numeric"), 400);
+        }
+        $members = PersonVolunteerOpportunityQuery::create()
+            ->usePersonQuery()
+            ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
+            ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
+            ->addAsColumn('PersonId', PersonTableMap::COL_PER_ID)            
+            ->endUse()
+            ->addAscendingOrderByColumn('person_per.per_LastName')
+            ->addAscendingOrderByColumn('person_per.per_FirstName')
+            ->findByVolunteerOpportunityId($volID);
+
+        foreach ($members as $member) {
+            Cart::RemovePerson($member->getPersonId());
+        }
+    }
+    
 
     public static function HasPeople()
     {

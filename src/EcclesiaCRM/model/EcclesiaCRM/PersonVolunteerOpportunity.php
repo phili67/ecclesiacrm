@@ -3,6 +3,8 @@
 namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\PersonVolunteerOpportunity as BasePersonVolunteerOpportunity;
+use EcclesiaCRM\MyPDO\CardDavPDO;
+use Propel\Runtime\Connection\ConnectionInterface;
 
 /**
  * Skeleton subclass for representing a row from the 'person2volunteeropp_p2vo' table.
@@ -16,5 +18,16 @@ use EcclesiaCRM\Base\PersonVolunteerOpportunity as BasePersonVolunteerOpportunit
  */
 class PersonVolunteerOpportunity extends BasePersonVolunteerOpportunity
 {
+    public function preDelete(?ConnectionInterface $con = null): bool
+    {
+        // we'll connect to sabre to create the group
+        // We set the BackEnd for sabre Backends
+        $carddavBackend = new CardDavPDO();
 
+        $addressbookId = $carddavBackend->getAddressBookForVolunteers ($this->getVolunteerOpportunityId())['id'];
+
+        $carddavBackend->deleteCardForPerson($addressbookId,$this->getPersonId());
+        
+        return true;
+    }
 }
