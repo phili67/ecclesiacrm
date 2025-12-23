@@ -41,7 +41,7 @@ require $sRootDocument . '/Include/Header.php';
         </div>        
         <?php if ( SessionUser::getUser()->isAdmin() ) { ?>
                 <div class="col-sm-1 pull-right" style="vertical-align: middle;">
-                    <a class="btn btn-app" href="<?= $sRootPath ?>/v2/systemsettings/GDPR" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("GDPR Settings") ?>"><i
+                    <a class="btn btn-app" href="<?= $sRootPath ?>/v2/systemsettings/gdpr" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("GDPR Settings") ?>"><i
                         class="fas fa-gear"></i><?= _("Settings") ?></a>
                 </div>            
             <?php } ?>
