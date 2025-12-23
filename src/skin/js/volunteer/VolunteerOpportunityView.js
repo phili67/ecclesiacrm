@@ -272,6 +272,43 @@ $(function () {
             });
         });
 
+        $('#isManagersActive').on('change', function () {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'volunteeropportunity/' + window.CRM.volID + '/settings/managers/' + $(this).prop('checked')
+            }, function (selection) {
+                //location.reload();
+            });
+        });
+
+
+        
+
+        $(document).on('click', '#deleteVolunteerOpportunityButton', function () {            
+            bootbox.confirm({
+                title: i18next.t("Confirm Delete This Opportunity"),
+                message: '<p style="color: red">' +
+                    i18next.t("Please confirm deletion of this record") + ' : ' + window.CRM.volName + "</p>" +
+                    "<p>" +
+                    "</p><p>" +
+                    i18next.t("All membership will be destroyed.  The members themselves will not be altered.") + "</p>",
+                callback: function (result) {
+                    if (result) {
+                        window.CRM.APIRequest({
+                            method: "post",
+                            path: "volunteeropportunity/delete",
+                            data: JSON.stringify({ "id": window.CRM.volID })
+                        }, function (data) {
+                            if (data.status == "success")
+                                window.location.href = window.CRM.root + "/v2/group/list";
+                        });
+                    }
+                }
+            });
+        });
+
+        
+
         $('#isVolunteersEmailExport').on('change', function () {
             if ($(this).prop('checked')) {
                 $(".sms-button").removeClass('disabled');

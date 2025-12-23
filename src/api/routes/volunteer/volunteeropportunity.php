@@ -24,6 +24,7 @@ $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
      */
     $group->post('/', VolunteerOpportunityController::class . ':getAllVolunteerOpportunities');
     $group->post('/{volID:[0-9]+}/settings/active/{value}', VolunteerOpportunityController::class . ":settingsActiveValue" );
+    $group->post('/{volID:[0-9]+}/settings/managers/{value}', VolunteerOpportunityController::class . ":settingsManagersValue" );    
     $group->post('/{volID:[0-9]+}/settings/email/export/{value}', VolunteerOpportunityController::class . ":settingsEmailExportVvalue" );
     /*
      * @! delete volunteer opportunities by id

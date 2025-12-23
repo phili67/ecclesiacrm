@@ -55,6 +55,23 @@ class VolunteerOpportunityController
         return $response->withJson(['status' => "success"]);
     }
 
+    public function settingsManagersValue (ServerRequest $request, Response $response, array $args): Response {
+        $volID = $args['volID'];
+        $flag = $args['value'];
+        if ($flag == "true" || $flag == "false") {
+            $vol = VolunteerOpportunityQuery::create()->findOneById($volID);
+            if (!is_null($vol)) {
+                $vol->setManagers($flag);
+                $vol->save();
+            } else {
+                throw new HttpInternalServerErrorException($request, 'invalid group id');                
+            }            
+        } else {
+            throw new HttpInternalServerErrorException($request, 'invalid status value');            
+        }
+        return $response->withJson(['status' => "success"]);
+    }
+
     public function addressBook (ServerRequest $request, Response $response, array $args): Response
     {
         if ( !(SessionUser::getUser()->isSeePrivacyDataEnabled() and array_key_exists('volID', $args)) ) {
@@ -119,28 +136,7 @@ class VolunteerOpportunityController
         $res .= '</select>';
 
         return $res;
-    }
-
-    private function selectMenuIconsOld($volID, $icon)
-    {
-        $connection = Propel::getConnection();
-
-        $result = $connection->query("SHOW COLUMNS FROM `volunteeropportunity_vol` LIKE 'vol_icon'");
-
-        $res = '<select class="form-control form-control-sm selectIcon" data-id="'.$volID.'">\n';
-
-        if ($result) {
-            $arr = $result->fetch(PDO::FETCH_ASSOC)['Type'];
-            $option_array = explode("','", preg_replace("/(enum|set)\('(.+?)'\)/", "\\2", $arr));
-
-            foreach ($option_array as $item) {
-                $res .= '<option value="' . $item . '" '.($icon == $item?'selected':''). '>' . $item . '</option>';
-            }
-        }
-        $res .= '</select>';
-
-        return $res;
-    }
+    }    
 
     private function selectMenuIcons($volID, $icon)
     {
@@ -362,7 +358,8 @@ class VolunteerOpportunityController
             ->usePersonQuery()
             ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
             ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
-            ->addAsColumn('PersonId', PersonTableMap::COL_PER_ID)            
+            ->addAsColumn('PersonId', PersonTableMap::COL_PER_ID)          
+            ->addAsColumn('FamId', PersonTableMap::COL_PER_FAM_ID)            
             ->endUse()
             ->addAscendingOrderByColumn('person_per.per_LastName')
             ->addAscendingOrderByColumn('person_per.per_FirstName')
@@ -372,7 +369,7 @@ class VolunteerOpportunityController
         
         foreach ($persons->toArray() as $member)
         {
-            $fam = FamilyQuery::create()->findOneById($member['PersonId']);
+            $fam = FamilyQuery::create()->findOneById($member['FamId']);
             $per = PersonQuery::create()->findOneById($member['PersonId']);
 
             // Philippe Logel : this is usefull when a person don't have a family : ie not an address
