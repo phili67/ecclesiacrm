@@ -1,5 +1,5 @@
 <?php
-// pour le debug on se met au bon endroit : https://192.168.151.205/mysql/upgrade/8.0.0-post-upgrade.php
+// pour le debug on se met au bon endroit : https://192.168.151.205/mysql/upgrade/8.0.0-upgrade.php
 // et il faut décommenter
 /*define("webdav", "1");
 require '../../Include/Config.php';*/
@@ -95,8 +95,8 @@ foreach ($vols as $vol) {
       'principals/' . strtolower($userAdmin->getUserName()),
       $uuid,
       [
-          '{DAV:}displayname' => $this->getName(),
-          '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' => $this->getDescription()
+          '{DAV:}displayname' => $vol->getName(),
+          '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' => $vol->getDescription()
       ],
       -1,
       $vol->getId() // it's a volunteer addressbook
@@ -115,8 +115,8 @@ foreach ($vols as $vol) {
           'principals/'.$user->getUserName(),
           [
               'addressbookid'=> $addresbookid, // require
-              '{DAV:}displayname'  => $this->getName(),
-              '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description'  => $this->getDescription(),
+              '{DAV:}displayname'  => $vol->getName(),
+              '{' . \Sabre\CardDAV\Plugin::NS_CARDDAV . '}addressbook-description'  => $vol->getDescription(),
               'href'         => 0,
               'user_id'      => $user->getId(), // require
               'access'       => 3 // '1 = owner, 2 = read, 3 = readwrite',                    
@@ -136,7 +136,7 @@ foreach ($vols as $vol) {
 
     $card = $vcard->serialize();
 
-    $carddavBackend->createCard($addressbookId, 'UUID-' . \Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
+    $carddavBackend->createCard($addresbookid, 'UUID-' . \Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
   }
 }
 
