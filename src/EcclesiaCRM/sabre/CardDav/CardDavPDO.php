@@ -111,17 +111,26 @@ class CardDavPDO extends SabreCardDavBase\PDO {
     function getAddressBooksForUser($principalUri) 
     {
 
-        $stmt = $this->pdo->prepare('SELECT id, uri, displayname, principaluri, description, synctoken FROM '.$this->addressBooksTableName.' WHERE principaluri = ?');
+        $stmt = $this->pdo->prepare('SELECT id, uri, displayname, principaluri, description, synctoken, groupId, volId FROM '.$this->addressBooksTableName.' WHERE principaluri = ?');
         $stmt->execute([$principalUri]);
 
         $addressBooks = [];
 
         foreach ($stmt->fetchAll() as $row) {
+            $type = '(' . _("Personal") . ')';
+
+            if ((int)$row['groupId'] != -1) {
+                $type = '(' . _("Group") . ')';
+            }
+            if ((int)$row['volId'] != -1) {
+                $type = '(' . _("Volunteers") . ')';
+            }
+
             $addressBooks[] = [
                 'id' => $row['id'],
                 'uri' => $row['uri'],
                 'principaluri' => $row['principaluri'],
-                '{DAV:}displayname' => $row['displayname'],
+                '{DAV:}displayname' => $row['displayname'] . ' ' . $type,
                 '{'.CardDAV\Plugin::NS_CARDDAV.'}addressbook-description' => $row['description'],
                 '{http://calendarserver.org/ns/}getctag' => $row['synctoken'],
                 '{http://sabredav.org/ns}sync-token' => $row['synctoken'] ? $row['synctoken'] : '0',
