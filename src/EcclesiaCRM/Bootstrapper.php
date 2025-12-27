@@ -39,7 +39,7 @@ namespace EcclesiaCRM
       private static StandardServiceContainer $serviceContainer2;
 
       public static function init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, 
-            $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false,$sSoftwareName)
+            $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false,$sSoftwareName="EcclesiaCRM")
       {
           global $debugBootstrapper;
           self::$databaseServerName = $sSERVERNAME;
