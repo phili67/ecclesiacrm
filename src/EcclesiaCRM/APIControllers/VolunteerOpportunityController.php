@@ -55,6 +55,23 @@ class VolunteerOpportunityController
         return $response->withJson(['status' => "success"]);
     }
 
+    public function settingsManagersValue (ServerRequest $request, Response $response, array $args): Response {
+        $volID = $args['volID'];
+        $flag = $args['value'];
+        if ($flag == "true" || $flag == "false") {
+            $vol = VolunteerOpportunityQuery::create()->findOneById($volID);
+            if (!is_null($vol)) {
+                $vol->setManagers($flag);
+                $vol->save();
+            } else {
+                throw new HttpInternalServerErrorException($request, 'invalid group id');                
+            }            
+        } else {
+            throw new HttpInternalServerErrorException($request, 'invalid status value');            
+        }
+        return $response->withJson(['status' => "success"]);
+    }
+
     public function addressBook (ServerRequest $request, Response $response, array $args): Response
     {
         if ( !(SessionUser::getUser()->isSeePrivacyDataEnabled() and array_key_exists('volID', $args)) ) {
@@ -119,28 +136,7 @@ class VolunteerOpportunityController
         $res .= '</select>';
 
         return $res;
-    }
-
-    private function selectMenuIconsOld($volID, $icon)
-    {
-        $connection = Propel::getConnection();
-
-        $result = $connection->query("SHOW COLUMNS FROM `volunteeropportunity_vol` LIKE 'vol_icon'");
-
-        $res = '<select class="form-control form-control-sm selectIcon" data-id="'.$volID.'">\n';
-
-        if ($result) {
-            $arr = $result->fetch(PDO::FETCH_ASSOC)['Type'];
-            $option_array = explode("','", preg_replace("/(enum|set)\('(.+?)'\)/", "\\2", $arr));
-
-            foreach ($option_array as $item) {
-                $res .= '<option value="' . $item . '" '.($icon == $item?'selected':''). '>' . $item . '</option>';
-            }
-        }
-        $res .= '</select>';
-
-        return $res;
-    }
+    }    
 
     private function selectMenuIcons($volID, $icon)
     {
@@ -362,7 +358,8 @@ class VolunteerOpportunityController
             ->usePersonQuery()
             ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
             ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
-            ->addAsColumn('PersonId', PersonTableMap::COL_PER_ID)            
+            ->addAsColumn('PersonId', PersonTableMap::COL_PER_ID)          
+            ->addAsColumn('FamId', PersonTableMap::COL_PER_FAM_ID)            
             ->endUse()
             ->addAscendingOrderByColumn('person_per.per_LastName')
             ->addAscendingOrderByColumn('person_per.per_FirstName')
@@ -372,7 +369,7 @@ class VolunteerOpportunityController
         
         foreach ($persons->toArray() as $member)
         {
-            $fam = FamilyQuery::create()->findOneById($member['PersonId']);
+            $fam = FamilyQuery::create()->findOneById($member['FamId']);
             $per = PersonQuery::create()->findOneById($member['PersonId']);
 
             // Philippe Logel : this is usefull when a person don't have a family : ie not an address
@@ -383,22 +380,22 @@ class VolunteerOpportunityController
                 && !is_null($fam->getState())
                 && !is_null($fam->getZip())
             ) {
-                $member['Person']['Address1']= $fam->getAddress1();
-                $member['Person']['Address2']= $fam->getAddress2();
-                $member['Person']['City']= $fam->getCity();
-                $member['Person']['State']= $fam->getState();
-                $member['Person']['Zip']= $fam->getZip();
-                $member['Person']['CellPhone']= $fam->getCellPhone();
-                $member['Person']['Email']= $fam->getEmail();
+                $member['Person']['Address1']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getAddress1();
+                $member['Person']['Address2']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getAddress2();
+                $member['Person']['City']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getCity();
+                $member['Person']['State']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getState();
+                $member['Person']['Zip']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getZip();
+                $member['Person']['CellPhone']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getCellPhone();
+                $member['Person']['Email']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getEmail();
                 
             } else {
-                $member['Person']['Address1']= $per->getAddress1();
-                $member['Person']['Address2']= $per->getAddress2();
-                $member['Person']['City']= $per->getCity();
-                $member['Person']['State']= $per->getState();
-                $member['Person']['Zip']= $per->getZip();
-                $member['Person']['CellPhone']= $per->getCellPhone();
-                $member['Person']['Email']= $per->getEmail();
+                $member['Person']['Address1']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getAddress1();
+                $member['Person']['Address2']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getAddress2();
+                $member['Person']['City']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getCity();
+                $member['Person']['State']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getState();
+                $member['Person']['Zip']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getZip();
+                $member['Person']['CellPhone']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getCellPhone();
+                $member['Person']['Email']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getEmail();
                 
             }
 

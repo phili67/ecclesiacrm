@@ -25,6 +25,7 @@ use EcclesiaCRM\dto\SystemURLs;
 
 use DateTime;
 use DateTimeZone;
+use EcclesiaCRM\Service\VolunteerService;
 
 // to define new plugin add the securities to : 2+4=6 for example to have pastoral + mailchimp security options
 
@@ -618,6 +619,18 @@ class User extends BaseUser
         }
 
         return false;
+    }
+
+    public function isManageVolunteersEnabled($volId = -1) : Bool {
+        if ($this->isAdmin()) {
+            return True;
+        }
+
+        if (!$this->isAdmin() and $volId == -1) {
+            return False;
+        }
+
+        return VolunteerService::getHirearchicalManager($this->getPersonId(), $volId, $volId);
     }
 
     public function isManageGroupsEnabled()

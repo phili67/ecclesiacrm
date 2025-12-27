@@ -418,3 +418,7 @@ ALTER TABLE `events_event` CHANGE `event_text` `event_text` LONGTEXT CHARACTER S
 
 -- 2025-09-29
 ALTER TABLE `addressbooks` ADD `volId` mediumint(8) NOT NULL default -1 COMMENT '>1 for a volunteers in the CRM';
+
+
+-- 2025-12-23
+ALTER TABLE `volunteeropportunity_vol` ADD `vol_managers`  BOOLEAN NOT NULL default 0;
