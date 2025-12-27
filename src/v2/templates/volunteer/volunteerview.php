@@ -28,13 +28,18 @@ if (SessionUser::getUser()->isShowCartEnabled()) {
     <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartVolunterId="<?= $volID ?>"> <i class="fas fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
 <?php
 }
+
+if (SessionUser::getUser()->isManageVolunteersEnabled($volID)) {
 ?>
 
-<a class="btn btn-app" id="modify-name" data-cartVolunterId="<?= $volID ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("To modify the name fo the volunteer opportunity") ?>"><i class="fas fa-pencil-alt"></i><?= _("Modify Name") ?></a>
+    <a class="btn btn-app" id="modify-name" data-cartVolunterId="<?= $volID ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("To modify the name fo the volunteer opportunity") ?>"><i class="fas fa-pencil-alt"></i><?= _("Modify Name") ?></a>
 
-<button class="btn btn-app bg-maroon" id="deleteVolunteerOpportunityButton"><i class="fas fa-trash-alt"></i><?= _("Remove Volunteer Opportunities") ?></button>
+    <?php if (SessionUser::getUser()->isAdmin()) { ?>
+        <button class="btn btn-app bg-maroon" id="deleteVolunteerOpportunityButton"><i class="fas fa-trash-alt"></i><?= _("Remove Volunteer Opportunities") ?></button>
+    <?php
+    }
+}
 
-<?php
 if (
     SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
     || SessionUser::getUser()->isMenuOptionsEnabled()
@@ -43,12 +48,14 @@ if (
     <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
 <?php
 }
-?>
 
+if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
+    ?>
 <a class="btn btn-app bg-yellow-gradient  export-vcard-button <?= $thisVolOpp->isIncludeInEmailExport() ? '' : 'disabled' ?> " data-toggle="tooltip" data-placement="bottom" title="" href="/api/volunteeropportunity/addressbook/extract/<?= $volID ?>" data-original-title="Cliquer pour créer un carnet d'adresse du groupe"><i class="far fa-id-card">
     </i><?= _("Contacts") ?></a>
 
 <?php
+}
 
 $persons = PersonVolunteerOpportunityQuery::create()
     ->usePersonQuery()
@@ -184,37 +191,41 @@ if ($sPhoneLink) {
                                         <input data-width="100" class="btn btn-primary btn-sm" id="isVolunteersActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Active') ?>" data-off="<?= _('Disabled') ?>" <?= ($thisVolOpp->getActive() == "true") ? 'checked' : '' ?>>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-7"><label><?= _("The emails are") ?></label> : </div>
-                                    <div class="col-md-5">
-                                        <input data-width="100" class="btn btn-primary btn-sm" id="isVolunteersEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= _('Include') ?>" data-off="<?= _('Exclude') ?>" <?= $thisVolOpp->isIncludeInEmailExport() ? 'checked' : '' ?>>
+                                <?php if (SessionUser::getUser()->isEmailEnabled()) { ?>
+                                    <div class="row">
+                                        <div class="col-md-7"><label><?= _("The emails are") ?></label> : </div>
+                                        <div class="col-md-5">
+                                            <input data-width="100" class="btn btn-primary btn-sm" id="isVolunteersEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= _('Include') ?>" data-off="<?= _('Exclude') ?>" <?= $thisVolOpp->isIncludeInEmailExport() ? 'checked' : '' ?>>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php if (SessionUser::getUser()->isAdmin()) { ?>
+                        <div class="card group_accordion">
+                            <div class="card-header border-1 group_header_accordion" id="headingGroupManager">
+                                <h3 class="card-title">
+                                    <i class="fas fa-users"></i> <button class="btn btn-link" data-toggle="collapse" data-target="#collapseGroupManager" aria-expanded="true" aria-controls="collapseGroupManager">
+                                        <?= _("Volunteers Managers") ?>
+                                    </button>
+                                </h3>
+                                <div class="card-tools pull-right">
+                                    <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseGroupManager" aria-expanded="true" aria-controls="collapseGroupManager"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <div id="collapseGroupManager" class="collapse" aria-labelledby="headingGroupManager" data-parent="#accordion" style="">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                            <input data-width="100" class="btn btn-primary btn-sm" id="isManagersActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Yes') ?>" data-off="<?= _('No') ?>" <?= ($thisVolOpp->isManagers() == "true") ? 'checked' : '' ?>>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card group_accordion">
-                        <div class="card-header border-1 group_header_accordion" id="headingGroupManager">
-                            <h3 class="card-title">
-                                <i class="fas fa-users"></i> <button class="btn btn-link" data-toggle="collapse" data-target="#collapseGroupManager" aria-expanded="true" aria-controls="collapseGroupManager">
-                                    <?= _("Volunteers Managers") ?>
-                                </button>
-                            </h3>
-                            <div class="card-tools pull-right">
-                                <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseGroupManager" aria-expanded="true" aria-controls="collapseGroupManager"><i class="fas fa-plus"></i></button>
-                            </div>
-                        </div>
-                        <div id="collapseGroupManager" class="collapse" aria-labelledby="headingGroupManager" data-parent="#accordion" style="">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">
-                                        <input data-width="100" class="btn btn-primary btn-sm" id="isManagersActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Yes') ?>" data-off="<?= _('No') ?>" <?= ($thisVolOpp->isManagers() == "true") ? 'checked' : '' ?>>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 <?php
                 }
                 ?>

@@ -380,22 +380,22 @@ class VolunteerOpportunityController
                 && !is_null($fam->getState())
                 && !is_null($fam->getZip())
             ) {
-                $member['Person']['Address1']= $fam->getAddress1();
-                $member['Person']['Address2']= $fam->getAddress2();
-                $member['Person']['City']= $fam->getCity();
-                $member['Person']['State']= $fam->getState();
-                $member['Person']['Zip']= $fam->getZip();
-                $member['Person']['CellPhone']= $fam->getCellPhone();
-                $member['Person']['Email']= $fam->getEmail();
+                $member['Person']['Address1']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getAddress1();
+                $member['Person']['Address2']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getAddress2();
+                $member['Person']['City']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getCity();
+                $member['Person']['State']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getState();
+                $member['Person']['Zip']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getZip();
+                $member['Person']['CellPhone']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getCellPhone();
+                $member['Person']['Email']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $fam->getEmail();
                 
             } else {
-                $member['Person']['Address1']= $per->getAddress1();
-                $member['Person']['Address2']= $per->getAddress2();
-                $member['Person']['City']= $per->getCity();
-                $member['Person']['State']= $per->getState();
-                $member['Person']['Zip']= $per->getZip();
-                $member['Person']['CellPhone']= $per->getCellPhone();
-                $member['Person']['Email']= $per->getEmail();
+                $member['Person']['Address1']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getAddress1();
+                $member['Person']['Address2']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getAddress2();
+                $member['Person']['City']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getCity();
+                $member['Person']['State']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getState();
+                $member['Person']['Zip']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getZip();
+                $member['Person']['CellPhone']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getCellPhone();
+                $member['Person']['Email']= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $per->getEmail();
                 
             }
 
