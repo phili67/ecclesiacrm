@@ -24,6 +24,8 @@ require $sRootDocument . '/Include/Header.php';
   <table class="table table-striped table-bordered" id="VolunteerOpportunityTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
+<script src="<?= $sRootPath ?>/skin/js/volunteer/VolunteerOpportunityCommon.js"></script>
+
 <script type="module" src="<?= $sRootPath ?>/skin/js/volunteer/VolunteerOpportunity.js" ></script>
 
 

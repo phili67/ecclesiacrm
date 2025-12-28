@@ -32,7 +32,7 @@ if (SessionUser::getUser()->isShowCartEnabled()) {
 if (SessionUser::getUser()->isManageVolunteersEnabled($volID)) {
 ?>
 
-    <a class="btn btn-app" id="modify-name" data-cartVolunterId="<?= $volID ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("To modify the name fo the volunteer opportunity") ?>"><i class="fas fa-pencil-alt"></i><?= _("Modify Name") ?></a>
+    <a class="btn btn-app" id="modify-name" data-id="<?= $volID ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("To modify the name fo the volunteer opportunity") ?>"><i class="fas fa-pencil-alt"></i><?= _("Modify Name") ?></a>
 
     <?php if (SessionUser::getUser()->isAdmin()) { ?>
         <button class="btn btn-app bg-maroon" id="deleteVolunteerOpportunityButton"><i class="fas fa-trash-alt"></i><?= _("Remove Volunteer Opportunities") ?></button>
@@ -296,6 +296,8 @@ if ($sPhoneLink) {
     window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom") ?>;
     window.CRM.address = '';
 </script>
+
+<script src="<?= $sRootPath ?>/skin/js/volunteer/VolunteerOpportunityCommon.js"></script>
 
 <script type="module" src="<?= $sRootPath ?>/skin/js/volunteer/VolunteerOpportunityView.js"></script>
 

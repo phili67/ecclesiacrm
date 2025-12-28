@@ -281,10 +281,7 @@ $(function () {
             });
         });
 
-
-        
-
-        $(document).on('click', '#deleteVolunteerOpportunityButton', function () {            
+        window.CRM.ElementListener('#deleteVolunteerOpportunityButton', 'click', function () {            
             bootbox.confirm({
                 title: i18next.t("Confirm Delete This Opportunity"),
                 message: '<p style="color: red">' +
@@ -298,12 +295,66 @@ $(function () {
                             method: "post",
                             path: "volunteeropportunity/delete",
                             data: JSON.stringify({ "id": window.CRM.volID })
-                        }, function (data) {
-                            if (data.status == "success")
-                                window.location.href = window.CRM.root + "/v2/group/list";
+                        }, function (data) {                            
+                            window.location.href = window.CRM.root + "/v2/group/list";
                         });
                     }
                 }
+            });
+        });
+
+        window.CRM.ElementListener('#modify-name', 'click', function (event) {
+            let id = event.currentTarget.dataset.id;
+        
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'volunteeropportunity/edit',
+                data: JSON.stringify({ "id": id })
+            }, function (data) {
+                var modal = bootbox.dialog({
+                    message: BootboxContentVolunteerOpportunity,
+                    title: i18next.t("Custom Menu Link Editor"),
+                    size: "large",
+                    buttons: [
+                        {
+                            label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
+                            className: "btn btn-default pull-left",
+                            callback: function () {
+                                console.log("just do something on close");
+                            }
+                        },
+                        {
+                            label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
+                            className: "btn btn-primary pull-left",
+                            callback: function () {
+                                let Name = document.getElementById('Name').value;
+                                let desc = document.getElementById('desc').value;
+                                let state = document.getElementById('activ').checked;
+                            
+                                window.CRM.APIRequest({
+                                    method: 'POST',
+                                    path: 'volunteeropportunity/set',
+                                    data: JSON.stringify({ "id": id, "Name": Name, "desc": desc, "state": state })
+                                }, function (data) {                                    
+                                    location.reload();                                    
+                                });
+                            }
+                        }
+                    ],
+                    show: false,
+                    onEscape: function () {
+                        modal.modal("hide");
+                    }
+                });
+        
+                document.getElementById('Name').value = data.Name;
+                document.getElementById('desc').value = data.Description;
+                if (data.Active == "true")
+                    document.getElementById('activ').checked = true;
+                else
+                    document.getElementById('activ').checked = false
+        
+                modal.modal("show");
             });
         });
 

@@ -41,39 +41,6 @@ window.CRM.ElementListener('#add-new-volunteer-opportunity', 'click', function (
     modal.modal("show");
 });
 
-/* IMPORTANT : be careful
-     This will work in cartToGroup code */
-const BootboxContentVolunteerOpportunity = () => {
-    var frm_str = '<div class="card-body">'
-        + '<div class="row">'
-        + '  <div class="col-lg-2">'
-        + '    <label>' + i18next.t("Name") + '</label>'
-        + '  </div>'
-        + '  <div class="col-lg-10">'
-        + '    <input class="form-control form-control-sm" name="Name" id="Name" style="width:100%">'
-        + '  </div>'
-        + '</div>'
-        + '<div class="row">'
-        + '  <div class="col-lg-2">'
-        + '    <label>' + i18next.t("Description") + '</label>'
-        + '  </div>'
-        + '  <div class="col-lg-10">'
-        + '    <input class="form-control form-control-sm" name="desc" id="desc" style="width:100%">'
-        + '  </div>'
-        + '</div>'
-        + '<div class="row">'
-        + '  <div class="col-lg-2">'
-        + '<input type="checkbox"  id="activ" class="ibtn">'
-        + '  </div>'
-        + '  <div class="col-lg-10">'
-        + '    <label for="depositComment">' + i18next.t("Activ") + '</label>'
-        + '  </div>'
-        + '</div>'
-        + '</div>';
-
-    return frm_str
-}
-
 const loadTableEvents = () => {
 
     window.CRM.ElementListener('.delete-volunteer-opportunity', 'click', function (event) {
@@ -154,12 +121,12 @@ const loadTableEvents = () => {
     
             modal.modal("show");
         });
-    });
+    });        
+
+    const selectHierarchy = (btn) => {
+        let parentId = btn.value;
+        let voldId = btn.dataset.id;
     
-    window.CRM.ElementListener('.selectHierarchy', 'change', function (event) {
-        let parentId = event.currentTarget.value;
-        let voldId = event.currentTarget.dataset.id
-        
         window.CRM.APIRequest({
             method: 'POST',
             path: 'volunteeropportunity/changeParent',
@@ -169,9 +136,7 @@ const loadTableEvents = () => {
                 loadTableEvents();
             });
         });
-    });
-    
-      
+    }    
 
     const selectColor = (btn) => {
         let colId = btn.dataset.id;
@@ -203,6 +168,14 @@ const loadTableEvents = () => {
         });
     }
 
+
+    document.querySelector('#VolunteerOpportunityTable').addEventListener('change', function (e) {
+        const btn = e.target.closest('.selectHierarchy');
+        if (btn !== null) {
+            selectHierarchy(btn);
+        }
+    });
+
     document.querySelector('#VolunteerOpportunityTable').addEventListener('click', function (e) {
         const btn = e.target.closest('.selectColor');
         if (btn !== null) {
@@ -233,7 +206,7 @@ window.CRM.VolunteerOpportunityTable = new DataTable("#VolunteerOpportunityTable
     "language": {
         "url": window.CRM.plugin.dataTable.language.url
     },
-    drawCallback: function (settings) {
+    initComplete: function (settings, json) {
         loadTableEvents();
     },
     columns: [
