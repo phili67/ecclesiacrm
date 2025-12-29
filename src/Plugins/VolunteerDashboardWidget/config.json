@@ -1,0 +1,13 @@
+{
+    "Name": "VolunteerDashboardWidget",
+    "copyrights": "Philippe Logel © EcclesiaCRM Team",
+    "version": "1.0",
+    "Description": "Widget to view volunteers informations",
+    "infos": "iMathGeo & Softwares",
+    "url_infos": "https://www.ecclesiacrm.com",
+    "url_docs": "https://www.ecclesiacrm.com",
+    "Settings_url": "VolunteerDashboardWidget/settings",
+    "Details": "https://url;iframe=true&amp;width=772&amp;height=549",
+    "UUID": "f05f0a2c-137c-44d6-84f8-74ab588b4cf2",
+    "licence": "NO"
+}
