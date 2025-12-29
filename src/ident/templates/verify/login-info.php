@@ -11,7 +11,7 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 ?>
     <div class="login-box" id="Login" <?= ($_SESSION['iLoginType'] != "Lock") ? "" : 'style="display: none;"' ?>>
         <!-- /.login-logo -->
-        <div class="card login-box-body card card-outline card-success">
+        <div class="card login-box-body card card-outline card-success blur">
             <div class="card-header login-logo">
                 <?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?><br>
                 <b><?= _('Members') ?></b>

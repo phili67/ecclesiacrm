@@ -200,7 +200,7 @@ if (empty($person)) {
 <!-- login-box -->
 <div class="login-box" id="Login" <?= ($_SESSION['iLoginType'] != "Lock") ? "" : 'style="display: none;"' ?>>
     <!-- /.login-logo -->
-    <div class="card login-box-body card card-outline card-primary">
+    <div class="card login-box-body card-outline card-primary blur">
         <div class="card-header login-logo">
             <?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?>
         </div>

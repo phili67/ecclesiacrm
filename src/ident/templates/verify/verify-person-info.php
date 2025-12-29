@@ -40,7 +40,7 @@ $famCountry = $person->getFamily()->getCountry();
             <i class="fas fa-check fa-5x"></i></button>
     </div>
 </div>
-<div class="card card-info" id="verifyBox" style="margin-top:40px">
+<div class="card card-info blur" id="verifyBox" style="margin-top:40px">
     <div class="card-body">
         <div class="row">
             <div class="person-container-<?= $person->getId() ?> col-md-5">

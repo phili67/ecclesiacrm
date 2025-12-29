@@ -9,12 +9,12 @@ $sPageTitle = _("Family Registration");
 require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 ?>
 <form action="<?= SystemURLs::getRootPath() ?>/external/register/confirm" method="post">
-    <div class="register-box register-box-custom">
+    <div class="register-box register-box-custom blur">
         <div class="register-logo">
             <a href="<?= SystemURLs::getRootPath() ?>/"><?= Bootstrapper::getSoftwareName() ?>
 
         <div class="register-box-body">
-            <div class="card card-primary">
+            <div class="card card-primary blur">
                 <div class="card-header border-1">
                     <h3 class="card-title"><?= _('Register') . ' <b>"' . $family->getName() . '"</b> ' . $familyCount . ' ' . _('Family Members') ?></h3>
                     <input id="famId" name="famId" type="hidden" value="<?= $family->getId() ?>">
@@ -28,7 +28,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                $x <= $familyCount;
                                $x++) {
                         ?>
-                        <div class="card card-secondary">
+                        <div class="card card-secondary blur">
                             <div class="card-header border-1">
                                 <h4 class="card-title">
                                     <?= _("Family Member") . " #" . $x ?>

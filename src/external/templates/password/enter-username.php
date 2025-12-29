@@ -10,19 +10,9 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 ?>
 
     <div class="login-box">
-        <div class="card card-outline card-primary">
-            <div class="card-header login-logo">
-                <?php
-                $headerHTML = Bootstrapper::getSoftwareName();
-                $sHeader = SystemConfig::getValue("sHeader");
-                $sEntityName = SystemConfig::getValue("sEntityName");
-                if (!empty($sHeader)) {
-                    $headerHTML = html_entity_decode($sHeader, ENT_QUOTES);
-                } else if (!empty($sEntityName)) {
-                    $headerHTML = $sEntityName;
-                }
-                ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/"><?= $headerHTML ?></a>
+        <div class="card login-box-body card card-outline card-primary blur">
+            <div class="card-header login-logo">                
+                <?= SystemConfig::getValue("sEntityName") ?>
             </div>
 
             <div class="card-body login-card-body">

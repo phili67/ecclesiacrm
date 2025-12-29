@@ -14,7 +14,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                 <a href="<?= SystemURLs::getRootPath() ?>/"><?= Bootstrapper::getSoftwareName() ?></a>
             </div>
 
-            <div class="register-box-body">
+            <div class="register-box-body blur">
                 <div class="text-center">
                     <h4><?= _('Registration Complete') ?></h4>
                 </div>

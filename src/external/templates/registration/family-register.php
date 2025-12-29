@@ -11,7 +11,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 ?>
 
     <div class="login-box register-box register-box-custom">
-        <div class="card card-outline card-success register-box-body">
+        <div class="card card-outline card-success register-box-body blur">
             <div class="card-header register-logo">
                 <?php
                 $headerHTML = Bootstrapper::getSoftwareName();
