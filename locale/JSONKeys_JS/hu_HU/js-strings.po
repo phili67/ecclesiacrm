@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -266,6 +266,12 @@ msgstr "A szoftver mostantól regisztrálva van. Köszönjük !"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Select Volunteer Opportunity"
+msgstr "Önkéntes lehetőség kiválasztása"
+
+msgid "Please select target volunteers for members"
+msgstr "Kérjük, válassza ki a tagok önkénteseit"
 
 msgid "Please select target group for members"
 msgstr "Kérjük, válassza ki a tagok célcsoportját"
@@ -1767,17 +1773,8 @@ msgstr "azt, és elveszíti a megfelelő tulajdonság hozzárendeléseket."
 msgid "Add a New Property Type"
 msgstr "Új ingatlantípus hozzáadása"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "Új önkéntes lehetőség hozzáadása"
-
-msgid "Activ"
-msgstr "Activ"
-
-msgid "Parent (hierarchy)"
-msgstr "Szülő (hierarchia)"
-
-msgid "Color"
-msgstr "Színes"
+msgid "Setting saved"
+msgstr "Mentett beállítás"
 
 msgid "Send Message"
 msgstr "Üzenet küldése"
@@ -2539,14 +2536,20 @@ msgstr "Vevőszám szerkesztő"
 msgid "Select"
 msgstr "Válassza ki a  címet."
 
+#~ msgid "Activ"
+#~ msgstr "Activ"
+
+#~ msgid "Parent (hierarchy)"
+#~ msgstr "Szülő (hierarchia)"
+
+#~ msgid "Color"
+#~ msgstr "Színes"
+
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Biztos, hogy el akarja távolítani a kiválasztott csoporttagokat?"
 
 #~ msgid "Songs"
 #~ msgstr "Dalok"
-
-#~ msgid "Settings"
-#~ msgstr "Beállítások"
 
 #~ msgid "Backup Complete, Ready for Download."
 #~ msgstr "Biztonsági mentés kész, letöltésre kész."

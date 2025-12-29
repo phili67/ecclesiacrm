@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -263,6 +263,12 @@ msgstr "Votre logiciel est maintenant enregistré. Merci !"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Select Volunteer Opportunity"
+msgstr "Sélectionner l'opportunité de volontariat"
+
+msgid "Please select target volunteers for members"
+msgstr "Veuillez sélectionner les volontaires ciblés pour les membres"
 
 msgid "Please select target group for members"
 msgstr "Veuillez sélectionner le groupe cible pour les membres"
@@ -1781,17 +1787,8 @@ msgstr "l'utiliseront et tous les propriétés associées."
 msgid "Add a New Property Type"
 msgstr "Ajouter une nouveau Type de propriété"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "Ajouter une nouvelle opportunité de bénévolat"
-
-msgid "Activ"
-msgstr "Actif"
-
-msgid "Parent (hierarchy)"
-msgstr "Parent (hiérarchie)"
-
-msgid "Color"
-msgstr "Couleur"
+msgid "Setting saved"
+msgstr "Réglage sauvegardé"
 
 msgid "Send Message"
 msgstr "Envoyer Message"
@@ -2557,15 +2554,21 @@ msgstr "Editeur Numéro Acheteur"
 msgid "Select"
 msgstr "Sélectionner"
 
+#~ msgid "Activ"
+#~ msgstr "Actif"
+
+#~ msgid "Parent (hierarchy)"
+#~ msgstr "Parent (hiérarchie)"
+
+#~ msgid "Color"
+#~ msgstr "Couleur"
+
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr ""
 #~ "Êtes vous sûr de vouloir effacer tous les membres du groupe sélectionné ?"
 
 #~ msgid "Songs"
 #~ msgstr "Chansons"
-
-#~ msgid "Settings"
-#~ msgstr "Paramètres"
 
 #~ msgid "Backup Complete, Ready for Download."
 #~ msgstr "Backup terminé et prêt pour le téléchargement."

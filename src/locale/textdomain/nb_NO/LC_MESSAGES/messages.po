@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-15 20:24+0000\n"
+"POT-Creation-Date: 2025-12-28 17:31+0000\n"
 "Language: nb-no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +48,7 @@ msgid "Video"
 msgstr "Video"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:216
-#: EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php:37
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:129
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:239
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:240
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:241
@@ -75,7 +75,7 @@ msgstr "Video"
 #: v2/templates/people/personPrint.php:403
 #: v2/templates/people/personPrint.php:659
 #: v2/templates/people/personPrint.php:718
-#: v2/templates/people/personview.php:991
+#: v2/templates/people/personview.php:993
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
 msgstr "Ingen"
@@ -174,10 +174,15 @@ msgstr "Handlevognen din og CRM har blitt deaktivert."
 msgid "Your cart has been successfully emptied"
 msgstr "Handlekurven din har blitt tømt"
 
+#: EcclesiaCRM/APIControllers/CartController.php:508
+#: EcclesiaCRM/APIControllers/CartController.php:529
+msgid "records(s) successfully deleted from the selected volunteers."
+msgstr "poster som er slettet fra de valgte frivillige."
+
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:174
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:890
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:699
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:700
 #: uploader/upload.php:93
 msgid "Create file"
 msgstr "Opprett fil"
@@ -547,7 +552,7 @@ msgstr "Fornavn"
 #: v2/templates/people/personPrint.php:318
 #: v2/templates/people/personPrint.php:323
 #: v2/templates/people/selectDelete.php:205
-#: v2/templates/sidebar/systemsettings.php:179
+#: v2/templates/sidebar/systemsettings.php:181
 #: v2/templates/system/csvImport.php:313
 msgid "Unassigned"
 msgstr "Ikke tildelt"
@@ -564,6 +569,7 @@ msgstr "Ikke tildelt"
 #: v2/templates/user/userseditor.php:763 v2/templates/user/userseditor.php:831
 #: v2/templates/user/usersettings.php:383
 #: v2/templates/user/usersettings.php:433
+#: v2/templates/volunteer/volunteerview.php:222
 msgid "Yes"
 msgstr "Ja"
 
@@ -583,6 +589,7 @@ msgstr "Ja"
 #: v2/templates/user/userseditor.php:762 v2/templates/user/userseditor.php:830
 #: v2/templates/user/usersettings.php:382
 #: v2/templates/user/usersettings.php:432
+#: v2/templates/volunteer/volunteerview.php:222
 msgid "No"
 msgstr "Nei"
 
@@ -590,16 +597,16 @@ msgstr "Nei"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:607
 #: EcclesiaCRM/APIControllers/UserUsersController.php:136
 #: EcclesiaCRM/APIControllers/UserUsersController.php:142
-#: EcclesiaCRM/dto/Cart.php:342 EcclesiaCRM/dto/Cart.php:348
+#: EcclesiaCRM/dto/Cart.php:343 EcclesiaCRM/dto/Cart.php:349
 #: ident/routes/verify.php:229
 msgid "Account Deactivated"
 msgstr "Konto Deaktivert"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:661
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:662
 msgid "Person Deactivated"
 msgstr "Person Deaktivert"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:661
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:662
 msgid "Person Activated"
 msgstr "Person Aktivert"
 
@@ -628,6 +635,10 @@ msgstr "Singler"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:74
 #: EcclesiaCRM/APIControllers/SearchController.php:77
+#: EcclesiaCRM/MenuBar/MenuBar.php:930
+#: EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityController.php:47
+#: EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityController.php:124
+#: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:126
 #: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:69
 msgid "Volunteers"
 msgstr "Frivillige"
@@ -699,7 +710,7 @@ msgstr "Kjønn"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
 #: v2/templates/people/familyEditor.php:1089
 #: v2/templates/people/familyview.php:339
-#: v2/templates/people/peopledashboard.php:308
+#: v2/templates/people/peopledashboard.php:330
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:376
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
@@ -741,7 +752,7 @@ msgstr "Gruppetype"
 #: v2/templates/people/familyview.php:338
 #: v2/templates/people/personPrint.php:426
 #: v2/templates/people/personPrint.php:491
-#: v2/templates/people/personview.php:791
+#: v2/templates/people/personview.php:793
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:727 v2/templates/user/userseditor.php:795
@@ -749,7 +760,7 @@ msgid "Role"
 msgstr "Rolle"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
-#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:261
+#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:283
 #: v2/templates/system/optionManager.php:92
 msgid "Family Roles"
 msgstr "Familiens roller"
@@ -825,7 +836,8 @@ msgstr "Redaktør for gruppetyper"
 #: EcclesiaCRM/Service/CalendarService.php:1562
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:122
-#: Include/Footer.php:102 v2/templates/calendar/calendar.php:49
+#: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:123 Include/Footer.php:102
+#: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:44
 #: v2/templates/system/optionManager.php:122
 msgid "Group"
@@ -1063,6 +1075,62 @@ msgstr "Brukerrollen din er endret"
 msgid "Account Activated"
 msgstr "Konto aktivert"
 
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:383
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:384
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:385
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:386
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:387
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:388
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:389
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:392
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:393
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:394
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:395
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:396
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:397
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:398
+#: EcclesiaCRM/Search/AddressSearchRes.php:150
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:131
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:143
+#: EcclesiaCRM/Search/FamilySearchRes.php:180
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:143
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:125
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:145
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:136
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:151
+#: EcclesiaCRM/Search/PersonSearchRes.php:355
+#: EcclesiaCRM/Search/PersonSearchRes.php:359
+#: EcclesiaCRM/Search/PersonSearchRes.php:360
+#: EcclesiaCRM/Search/PersonSearchRes.php:361
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:130
+#: EcclesiaCRM/Service/MailChimpService.php:236
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:611
+#: v2/templates/pastoralcare/pastoralcarefamily.php:220
+#: v2/templates/pastoralcare/pastoralcareperson.php:353
+#: v2/templates/pastoralcare/pastoralcareperson.php:421
+#: v2/templates/people/familylist.php:106
+#: v2/templates/people/familylist.php:107
+#: v2/templates/people/familylist.php:108
+#: v2/templates/people/familylist.php:109
+#: v2/templates/people/familylist.php:110
+#: v2/templates/people/familylist.php:111
+#: v2/templates/people/familyview.php:180
+#: v2/templates/people/familyview.php:857 v2/templates/people/personlist.php:98
+#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
+#: v2/templates/people/personlist.php:101
+#: v2/templates/people/personlist.php:102
+#: v2/templates/people/personlist.php:103
+#: v2/templates/people/personview.php:158
+#: v2/templates/people/personview.php:357
+#: v2/templates/people/personview.php:1500
+#: v2/templates/sundayschool/sundayschooldashboard.php:292
+#: v2/templates/sundayschool/sundayschooldashboard.php:293
+#: v2/templates/sundayschool/sundayschooldashboard.php:294
+#: v2/templates/sundayschool/sundayschoolview.php:163
+msgid "Private Data"
+msgstr "Private data"
+
 #: EcclesiaCRM/BackupManager.php:162
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr ""
@@ -1294,14 +1362,14 @@ msgstr "Endre innstillinger"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:123 v2/templates/people/familyview.php:470
 #: v2/templates/people/personPrint.php:612
-#: v2/templates/people/personview.php:673
+#: v2/templates/people/personview.php:675
 msgid "Documents"
 msgstr "Dokumenter"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:137
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
-#: EcclesiaCRM/dto/SystemConfig.php:303
+#: EcclesiaCRM/dto/SystemConfig.php:304
 #: v2/templates/dashboard/maindashboard.php:31
 msgid "GDPR"
 msgstr "GDPR"
@@ -1309,7 +1377,8 @@ msgstr "GDPR"
 #: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:199
 #: EcclesiaCRM/MenuBar/MenuBar.php:508 EcclesiaCRM/MenuBar/MenuBar.php:762
 #: EcclesiaCRM/MenuBar/MenuBar.php:775 EcclesiaCRM/MenuBar/MenuBar.php:800
-#: EcclesiaCRM/MenuBar/MenuBar.php:881 EcclesiaCRM/MenuBar/MenuBar.php:917
+#: EcclesiaCRM/MenuBar/MenuBar.php:881 EcclesiaCRM/MenuBar/MenuBar.php:932
+#: EcclesiaCRM/MenuBar/MenuBar.php:955
 msgid "Dashboard"
 msgstr "Dashbord"
 
@@ -1410,6 +1479,7 @@ msgstr "Liste over grupper"
 #: EcclesiaCRM/MenuBar/MenuBar.php:343
 #: v2/templates/deposit/electronicPaymentList.php:186
 #: v2/templates/group/groupedit.php:134 v2/templates/group/groupview.php:235
+#: v2/templates/volunteer/volunteerview.php:191
 msgid "Disabled"
 msgstr "Funksjonshemmede"
 
@@ -1432,7 +1502,7 @@ msgid "Sunday School"
 msgstr "Søndagsskole"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:743 EcclesiaCRM/MenuBar/MenuBar.php:750
-#: Include/Footer.php:177
+#: Include/Footer.php:167
 msgid "Global Custom Menus"
 msgstr "Globale egendefinerte menyer"
 
@@ -1440,7 +1510,7 @@ msgstr "Globale egendefinerte menyer"
 msgid "Custom Menus"
 msgstr "Egendefinerte menyer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/dto/SystemConfig.php:300
+#: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/dto/SystemConfig.php:301
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
@@ -1530,15 +1600,15 @@ msgstr "Se alle innsamlingsaksjoner"
 msgid "Edit Last Fundraiser"
 msgstr "Rediger siste innsamling"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:939
+#: EcclesiaCRM/MenuBar/MenuBar.php:978
 msgid "Data/Reports"
 msgstr "Data/rapporter"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:941
+#: EcclesiaCRM/MenuBar/MenuBar.php:980
 msgid "Reports Menu"
 msgstr "Rapporter Meny"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:944 v2/templates/user/userseditor.php:458
+#: EcclesiaCRM/MenuBar/MenuBar.php:983 v2/templates/user/userseditor.php:458
 msgid "Query Menu"
 msgstr "Forespørsel Meny"
 
@@ -1752,7 +1822,7 @@ msgstr "Voksen/barn"
 #: v2/templates/people/personPrint.php:361
 #: v2/templates/people/personview.php:296
 #: v2/templates/people/personview.php:424
-#: v2/templates/people/personview.php:793
+#: v2/templates/people/personview.php:795
 #: v2/templates/sundayschool/sundayschooldashboard.php:108
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:135 v2/templates/system/csvImport.php:175
@@ -1769,7 +1839,7 @@ msgstr "E-post"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:185
 #: v2/templates/people/familyview.php:340
-#: v2/templates/people/personview.php:792
+#: v2/templates/people/personview.php:794
 msgid "Birthday"
 msgstr "Fødselsdag"
 
@@ -1981,48 +2051,6 @@ msgstr "Adresse"
 msgid "Members"
 msgstr "Medlemmer"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:150
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:125
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:131
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:143
-#: EcclesiaCRM/Search/FamilySearchRes.php:180
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:143
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:125
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:145
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:136
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:151
-#: EcclesiaCRM/Search/PersonSearchRes.php:355
-#: EcclesiaCRM/Search/PersonSearchRes.php:359
-#: EcclesiaCRM/Search/PersonSearchRes.php:360
-#: EcclesiaCRM/Search/PersonSearchRes.php:361
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:130
-#: EcclesiaCRM/Service/MailChimpService.php:236
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:611
-#: v2/templates/pastoralcare/pastoralcarefamily.php:220
-#: v2/templates/pastoralcare/pastoralcareperson.php:353
-#: v2/templates/pastoralcare/pastoralcareperson.php:421
-#: v2/templates/people/familylist.php:106
-#: v2/templates/people/familylist.php:107
-#: v2/templates/people/familylist.php:108
-#: v2/templates/people/familylist.php:109
-#: v2/templates/people/familylist.php:110
-#: v2/templates/people/familylist.php:111
-#: v2/templates/people/familyview.php:180
-#: v2/templates/people/familyview.php:857 v2/templates/people/personlist.php:98
-#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
-#: v2/templates/people/personlist.php:101
-#: v2/templates/people/personlist.php:102
-#: v2/templates/people/personlist.php:103
-#: v2/templates/people/personview.php:158
-#: v2/templates/people/personview.php:357
-#: v2/templates/people/personview.php:1498
-#: v2/templates/sundayschool/sundayschooldashboard.php:292
-#: v2/templates/sundayschool/sundayschooldashboard.php:293
-#: v2/templates/sundayschool/sundayschooldashboard.php:294
-#: v2/templates/sundayschool/sundayschoolview.php:163
-msgid "Private Data"
-msgstr "Private data"
-
 #: EcclesiaCRM/Search/DepositSearchRes.php:22
 msgid "Deposits"
 msgstr "Innskudd"
@@ -2137,7 +2165,8 @@ msgid "Person Properties"
 msgstr "Person Egenskaper"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:147 v2/templates/people/personview.php:628
+#: v2/templates/people/peopledashboard.php:197
+#: v2/templates/people/personview.php:630
 msgid "Volunteer Opportunities"
 msgstr "Muligheter for frivillig arbeid"
 
@@ -2205,7 +2234,7 @@ msgstr "Jubileum"
 #: v2/templates/pastoralcare/pastoralcareperson.php:431
 #: v2/templates/pastoralcare/pastoralcareperson.php:438
 #: v2/templates/people/familyview.php:885
-#: v2/templates/people/personview.php:1527 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/personview.php:1529 v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "Slett"
 
@@ -2469,7 +2498,7 @@ msgstr "(Ingen tildelt familie)"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:801
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1165
@@ -2537,12 +2566,12 @@ msgid "Child"
 msgstr "Barn"
 
 #: EcclesiaCRM/VIEWControllers/BackupRestore/VIEWBackupController.php:73
-#: Include/Footer.php:262
+#: Include/Footer.php:252
 msgid "Backup Database"
 msgstr "Backup-database"
 
 #: EcclesiaCRM/VIEWControllers/BackupRestore/VIEWRestoreController.php:48
-#: Include/Footer.php:270
+#: Include/Footer.php:260
 msgid "Restore Database"
 msgstr "Gjenopprette databasen"
 
@@ -2615,12 +2644,12 @@ msgid "Family Geographic Utilities"
 msgstr "Familiens geografiske verktøy"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1272
-#: v2/templates/people/peopledashboard.php:225
+#: v2/templates/people/peopledashboard.php:247
 msgid "Letters and mailing labels for data confirmations"
 msgstr "Brev og postetiketter for databekreftelser"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1295
-#: v2/templates/people/peopledashboard.php:219
+#: v2/templates/people/peopledashboard.php:241
 msgid "Pledge Reminder Report"
 msgstr "Påminnelsesrapport om løfter"
 
@@ -2668,7 +2697,7 @@ msgid "Donation Fund Editor"
 msgstr "Redaktør for donasjonsfond"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:301 v2/templates/calendar/checkin.php:30
+#: Include/Footer.php:291 v2/templates/calendar/checkin.php:30
 msgid "Kiosk Manager"
 msgstr "Kioskansvarlig"
 
@@ -2695,14 +2724,10 @@ msgstr "Liste over eiendommer"
 msgid "Property Type List"
 msgstr "Liste over eiendomstyper"
 
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:106
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:136
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:52
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:83
 msgid "General Settings"
 msgstr "Generelle innstillinger"
-
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWVolunteerOpportunityEditorController.php:44
-msgid "Volunteer Opportunity Editor"
-msgstr "Mulighet for frivillig arbeid Redaktør"
 
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:70
 msgid "Church Calendar"
@@ -2886,7 +2911,7 @@ msgid "Meeting Dashboard"
 msgstr "Dashbord for møter"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
-#: Include/Footer.php:234
+#: Include/Footer.php:224
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -2949,7 +2974,7 @@ msgid "Sunday School Reports"
 msgstr "Søndagsskole-rapporter"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:66
-#: Include/Footer.php:246 v2/templates/system/infos.php:193
+#: Include/Footer.php:236 v2/templates/system/infos.php:193
 msgid "System Infos"
 msgstr "Systeminfo"
 
@@ -2985,7 +3010,7 @@ msgid "Upgrade"
 msgstr "Oppgradering"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:385
-#: Include/Footer.php:281
+#: Include/Footer.php:271
 msgid "CSV Import"
 msgstr "CSV-import"
 
@@ -4101,17 +4126,21 @@ msgstr "Oppsøkere tildelt tilfeldig til %d familier."
 msgid "Canvassers assigned at random to %d non-pledging families."
 msgstr "Innsamlere tildelt tilfeldig til %d ikke-pantsettende familier."
 
-#: EcclesiaCRM/dto/Cart.php:175 EcclesiaCRM/dto/Cart.php:232
+#: EcclesiaCRM/dto/Cart.php:176 EcclesiaCRM/dto/Cart.php:233
 msgid "PersonID for Cart must be numeric"
 msgstr "PersonID for handlekurven må være numerisk"
 
-#: EcclesiaCRM/dto/Cart.php:193 EcclesiaCRM/dto/Cart.php:375
+#: EcclesiaCRM/dto/Cart.php:194 EcclesiaCRM/dto/Cart.php:376
 msgid "GroupID for Cart must be numeric"
 msgstr "GroupID for handlekurven må være numerisk"
 
-#: EcclesiaCRM/dto/Cart.php:209 EcclesiaCRM/dto/Cart.php:288
+#: EcclesiaCRM/dto/Cart.php:210 EcclesiaCRM/dto/Cart.php:289
 msgid "FamilyID for Cart must be numeric"
 msgstr "FamilyID for handlekurven må være numerisk"
+
+#: EcclesiaCRM/dto/Cart.php:389 EcclesiaCRM/dto/Cart.php:409
+msgid "volID for Cart must be numeric"
+msgstr "volID for handlekurven må være numerisk"
 
 #: EcclesiaCRM/dto/EnvelopeUtilities.php:46
 msgid "Assigned envelope numbers to all families with at least one member."
@@ -5025,123 +5054,127 @@ msgid "Use Edrive."
 msgstr "Bruk Edrive."
 
 #: EcclesiaCRM/dto/SystemConfig.php:272
+msgid "Enable volunteer opportunities"
+msgstr "Muliggjøre muligheter for frivillig arbeid"
+
+#: EcclesiaCRM/dto/SystemConfig.php:273
 msgid "Entity Name"
 msgstr "Enhetens navn"
 
-#: EcclesiaCRM/dto/SystemConfig.php:273
+#: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Entity Address"
 msgstr "Enhetens adresse"
 
-#: EcclesiaCRM/dto/SystemConfig.php:274
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Entity City"
 msgstr "Enhet By"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Entity State"
 msgstr "Enhetens tilstand"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid "Entity Zip"
 msgstr "Enhetens postnummer"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Entity Phone"
 msgstr "Enhetens telefon"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "Entity Email"
 msgstr "Enhetens e-post"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "Entity Checking Account Number"
 msgstr "Enhetens sjekkkontonummer"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Your Entity's Website"
 msgstr "Enhetens nettsted"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:283
 msgid "Your Entity's Facebook Page"
 msgstr "Enhetens Facebook-side"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Your Entity's Twitter Page"
 msgstr "Enhetens Twitter-side"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Latitude of the entity, used to center the Google map"
 msgstr "Enhetens breddegrad, brukes til å sentrere Google-kartet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285
+#: EcclesiaCRM/dto/SystemConfig.php:286
 msgid "Longitude of the entity, used to center the Google map"
 msgstr "Enhetens lengdegrad, brukes til å sentrere Google-kartet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:293
 msgid "Entity Information"
 msgstr "Enhetsinformasjon"
 
-#: EcclesiaCRM/dto/SystemConfig.php:293
+#: EcclesiaCRM/dto/SystemConfig.php:294
 msgid "Enabled Features"
 msgstr "Aktiverte funksjoner"
 
-#: EcclesiaCRM/dto/SystemConfig.php:294 Include/Footer.php:201
+#: EcclesiaCRM/dto/SystemConfig.php:295 Include/Footer.php:191
 msgid "System Settings"
 msgstr "Systeminnstillinger"
 
-#: EcclesiaCRM/dto/SystemConfig.php:295
+#: EcclesiaCRM/dto/SystemConfig.php:296
 msgid "Localization"
 msgstr "Lokalisering"
 
-#: EcclesiaCRM/dto/SystemConfig.php:296
+#: EcclesiaCRM/dto/SystemConfig.php:297
 msgid "User setup"
 msgstr "Brukeroppsett"
 
-#: EcclesiaCRM/dto/SystemConfig.php:297
+#: EcclesiaCRM/dto/SystemConfig.php:298
 msgid "People Setup"
 msgstr "Personoppsett"
 
-#: EcclesiaCRM/dto/SystemConfig.php:298
+#: EcclesiaCRM/dto/SystemConfig.php:299
 msgid "Email Setup"
 msgstr "Oppsett av e-post"
 
-#: EcclesiaCRM/dto/SystemConfig.php:299
+#: EcclesiaCRM/dto/SystemConfig.php:300
 msgid "Map Settings"
 msgstr "Kartinnstillinger"
 
-#: EcclesiaCRM/dto/SystemConfig.php:301
+#: EcclesiaCRM/dto/SystemConfig.php:302
 msgid "Sundayschool Attendance"
 msgstr "Deltakelse i søndagsskolen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:302
+#: EcclesiaCRM/dto/SystemConfig.php:303
 msgid "Integration"
 msgstr "Integrering"
 
-#: EcclesiaCRM/dto/SystemConfig.php:304
+#: EcclesiaCRM/dto/SystemConfig.php:305
 msgid "Quick Search"
 msgstr "Hurtigsøk"
 
-#: EcclesiaCRM/dto/SystemConfig.php:305
+#: EcclesiaCRM/dto/SystemConfig.php:306
 msgid "Report Settings"
 msgstr "Rapportinnstillinger"
 
-#: EcclesiaCRM/dto/SystemConfig.php:306
+#: EcclesiaCRM/dto/SystemConfig.php:307
 msgid "Financial Settings"
 msgstr "Finansielle innstillinger"
 
-#: EcclesiaCRM/dto/SystemConfig.php:307
+#: EcclesiaCRM/dto/SystemConfig.php:308
 msgid "Backup"
 msgstr "Sikkerhetskopiering"
 
-#: EcclesiaCRM/dto/SystemConfig.php:308
+#: EcclesiaCRM/dto/SystemConfig.php:309
 msgid "Users Specific Schedule Tasks"
 msgstr "Brukerspesifikke tidsplanoppgaver"
 
-#: EcclesiaCRM/dto/SystemConfig.php:362 EcclesiaCRM/dto/SystemConfig.php:371
-#: EcclesiaCRM/dto/SystemConfig.php:381
+#: EcclesiaCRM/dto/SystemConfig.php:363 EcclesiaCRM/dto/SystemConfig.php:372
+#: EcclesiaCRM/dto/SystemConfig.php:382
 msgid "An invalid configuration name has been requested"
 msgstr "Det er bedt om et ugyldig konfigurasjonsnavn"
 
-#: EcclesiaCRM/dto/SystemConfig.php:396
+#: EcclesiaCRM/dto/SystemConfig.php:397
 msgid "An invalid configuration id has been requested"
 msgstr "Det er bedt om en ugyldig konfigurasjons-ID"
 
@@ -5242,13 +5275,13 @@ msgid "Witness"
 msgstr "Vitne"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:238
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:408
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:411
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "Opprettet"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:243
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:413
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:416
 msgid "Updated"
 msgstr "Oppdatert"
 
@@ -5265,17 +5298,17 @@ msgid "Family Data Verification reset"
 msgstr "Tilbakestilling av verifisering av familiedata"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:260
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:430
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:433
 msgid "Verification email sent"
 msgstr "Bekreftelses-e-post sendt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:358
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:615
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:618
 msgid "Profile Image Deleted"
 msgstr "Profilbilde slettet"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:374
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:642
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:645
 msgid "Profile Image uploaded"
 msgstr "Profilbilde lastet opp"
 
@@ -5293,86 +5326,91 @@ msgstr "Rediger dette dokumentet"
 msgid "Delete this document"
 msgstr "Slett dette dokumentet"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:418
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:421
 msgid "Person Data Verified"
 msgstr "Personopplysninger verifisert"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:422
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:425
 msgid "Person Data Verified by url"
 msgstr "Personopplysninger verifisert av url"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:426
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:429
 msgid "Person Data Verification reset"
 msgstr "Tilbakestilling av verifisering av persondata"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:811
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "mos gammel"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:810
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:813
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "mo gammel"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:814
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:817
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "år gammel"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:816
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:819
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "år gammel"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:814
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:827
 msgid "system user created"
 msgstr "systembruker opprettet"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:817
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
 msgid "system user updated"
 msgstr "systembruker oppdatert"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:820
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:833
 msgid "system user deleted"
 msgstr "systembruker slettet"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:823
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
 msgid "system user password reset"
 msgstr "tilbakestilling av passord for systembruker"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:826
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:839
 msgid "system user changed password"
 msgstr "systembruker endret passord"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:829
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:842
 msgid "system user password changed by admin"
 msgstr "systembrukerpassord endret av administrator"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:832
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:845
 msgid "system user login reset"
 msgstr "tilbakestilling av systembrukerinnlogging"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:838
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:851
 msgid "Dav create file"
 msgstr "Dav opprette fil"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:844
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:857
 msgid "Dav create directory"
 msgstr "Dav opprette katalog"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:850
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:863
 msgid "Dav update file"
 msgstr "Dav oppdateringsfil"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:863
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:876
 msgid "Dav move copy file"
 msgstr "Dav flytte kopifil"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:870
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:883
 msgid "Dav delete file"
 msgstr "Dav slette fil"
+
+#: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:120
+#: v2/templates/calendar/calendar.php:48
+msgid "Personal"
+msgstr "Personlig"
 
 #: EcclesiaCRM/tasks/CheckUploadSizeTask.php:35
 msgid "PHP Max File size too small"
@@ -5457,7 +5495,7 @@ msgstr "Manglende rolledata for noen personer"
 msgid "Unmet Application Prerequisites"
 msgstr "Uoppfylte søknadsforutsetninger"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:334
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:324
 msgid "Register Software"
 msgstr "Registrere programvare"
 
@@ -5787,39 +5825,39 @@ msgstr "Gruppens eiendommer"
 msgid "Property Types"
 msgstr "Eiendomstyper"
 
-#: Include/Footer.php:157
+#: Include/Footer.php:147
 msgid "Edit Donation Funds"
 msgstr "Rediger donasjonsfond"
 
-#: Include/Footer.php:167
+#: Include/Footer.php:157
 msgid "Pastoral Care Type"
 msgstr "Type pastoral omsorg"
 
-#: Include/Footer.php:192 Include/Footer.php:311
+#: Include/Footer.php:182 Include/Footer.php:301
 msgid "Please contact your admin to change the system settings."
 msgstr "Ta kontakt med administratoren din for å endre systeminnstillingene."
 
-#: Include/Footer.php:210 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:200 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Rediger generelle innstillinger"
 
-#: Include/Footer.php:222
+#: Include/Footer.php:212
 msgid "System Users"
 msgstr "Brukere av systemet"
 
-#: Include/Footer.php:290
+#: Include/Footer.php:280
 msgid "CSV Export Records"
 msgstr "CSV-eksportregistreringer"
 
-#: Include/Footer.php:322
+#: Include/Footer.php:312
 msgid "Open Tasks"
 msgstr "Åpne oppgaver"
 
-#: Include/Footer.php:323
+#: Include/Footer.php:313
 msgid "You have"
 msgstr "Du har"
 
-#: Include/Footer.php:324
+#: Include/Footer.php:314
 msgid "task(s)"
 msgstr "oppgave(r)"
 
@@ -6260,7 +6298,7 @@ msgstr ""
 #: v2/templates/people/familyview.php:854
 #: v2/templates/people/personPrint.php:239
 #: v2/templates/people/personview.php:178
-#: v2/templates/people/personview.php:1495
+#: v2/templates/people/personview.php:1497
 msgid "Informations"
 msgstr "Informasjon"
 
@@ -6561,7 +6599,7 @@ msgstr ""
 "få tilgang."
 
 #: browser/browse.php:166 v2/templates/edrive/dashboard.php:144
-#: v2/templates/sidebar/systemsettings.php:200
+#: v2/templates/sidebar/systemsettings.php:202
 msgid "Definition"
 msgstr "Definisjon"
 
@@ -6647,7 +6685,7 @@ msgstr "Registrere"
 #: v2/templates/people/familyEditor.php:1058
 #: v2/templates/people/familyview.php:327
 #: v2/templates/people/personPrint.php:421
-#: v2/templates/people/personview.php:790
+#: v2/templates/people/personview.php:792
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "Familiemedlemmer"
@@ -6830,7 +6868,7 @@ msgstr "Det oppstod en feil ved innsending av verifiseringsdataene dine."
 #: v2/templates/people/familyview.php:884
 #: v2/templates/people/lettersandlabels.php:269
 #: v2/templates/people/personEditor.php:1740
-#: v2/templates/people/personview.php:1526
+#: v2/templates/people/personview.php:1528
 #: v2/templates/people/reminderreport.php:42
 #: v2/templates/sundayschool/sundayschooldashboard.php:327
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -6885,7 +6923,7 @@ msgid "return to member dashboard"
 msgstr "gå tilbake til medlemsoversikten"
 
 #: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:251
+#: v2/templates/people/peopledashboard.php:273
 msgid "Pending Self Verify"
 msgstr "I påvente av egenkontroll"
 
@@ -7136,10 +7174,6 @@ msgstr "Etter typer"
 msgid "All"
 msgstr "Alle"
 
-#: v2/templates/calendar/calendar.php:48
-msgid "Personal"
-msgstr "Personlig"
-
 #: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:157
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/calendar/calendar.php:243
@@ -7311,7 +7345,7 @@ msgstr "Beskrivelse"
 #: v2/templates/calendar/eventnames.php:306
 #: v2/templates/deposit/depositslipeditor.php:163
 #: v2/templates/deposit/electronicPaymentList.php:141
-#: v2/templates/people/personview.php:914
+#: v2/templates/people/personview.php:916
 msgid "Action"
 msgstr "Tiltak"
 
@@ -7800,6 +7834,7 @@ msgstr "Handlekurv for e-post"
 #: v2/templates/people/personview.php:427
 #: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
+#: v2/templates/volunteer/volunteerview.php:112
 msgid "Email (BCC)"
 msgstr "E-post (BCC)"
 
@@ -8396,7 +8431,7 @@ msgstr "Generer innskuddsbevis for valgte rader (PDF)"
 
 #: v2/templates/deposit/finddepositslip.php:93
 #: v2/templates/people/familyview.php:875
-#: v2/templates/people/personview.php:1515
+#: v2/templates/people/personview.php:1517
 msgid "Confirm Delete"
 msgstr "Bekreft Slett"
 
@@ -8755,6 +8790,7 @@ msgstr ""
 #: v2/templates/sundayschool/sundayschooldashboard.php:329
 #: v2/templates/sundayschool/sundayschoolview.php:181
 #: v2/templates/sundayschool/sundayschoolview.php:299
+#: v2/templates/volunteer/volunteerview.php:256
 msgid "Add"
 msgstr "Legg til"
 
@@ -9280,6 +9316,7 @@ msgstr "Fjern fra handlekurven"
 
 #: v2/templates/group/groupview.php:44 v2/templates/people/familyview.php:235
 #: v2/templates/people/personview.php:415 v2/templates/query/queryview.php:153
+#: v2/templates/volunteer/volunteerview.php:28
 msgid "Add to Cart"
 msgstr "Legg i handlekurven"
 
@@ -9304,6 +9341,7 @@ msgstr "Slett denne gruppen"
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:70
 #: v2/templates/pastoralcare/pastoralcareperson.php:70
+#: v2/templates/volunteer/volunteerview.php:48
 msgid "Appointment"
 msgstr "Utnevnelse"
 
@@ -9329,18 +9367,22 @@ msgid "Address Book"
 msgstr "Adressebok"
 
 #: v2/templates/group/groupview.php:136
+#: v2/templates/volunteer/volunteerview.php:108
 msgid "Email Group"
 msgstr "E-postgruppe"
 
 #: v2/templates/group/groupview.php:195
+#: v2/templates/volunteer/volunteerview.php:124
 msgid "Text Group"
 msgstr "Tekstgruppe"
 
 #: v2/templates/group/groupview.php:198
+#: v2/templates/volunteer/volunteerview.php:127
 msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr "Trykk CTRL + C for å kopiere alle gruppemedlemmenes telefonnumre."
 
 #: v2/templates/group/groupview.php:223
+#: v2/templates/volunteer/volunteerview.php:179
 msgid "Quick Settings"
 msgstr "Hurtiginnstillinger"
 
@@ -9350,18 +9392,22 @@ msgstr "Gruppen er"
 
 #: v2/templates/group/groupview.php:235
 #: v2/templates/sidebar/kioskmanager.php:29
+#: v2/templates/volunteer/volunteerview.php:191
 msgid "Active"
 msgstr "Aktiv"
 
 #: v2/templates/group/groupview.php:239
+#: v2/templates/volunteer/volunteerview.php:196
 msgid "The emails are"
 msgstr "E-postene er"
 
 #: v2/templates/group/groupview.php:241
+#: v2/templates/volunteer/volunteerview.php:198
 msgid "Include"
 msgstr "Inkluderer"
 
 #: v2/templates/group/groupview.php:241
+#: v2/templates/volunteer/volunteerview.php:198
 msgid "Exclude"
 msgstr "Utelukke"
 
@@ -9394,19 +9440,19 @@ msgid "Assigned Properties"
 msgstr "Tildelte egenskaper"
 
 #: v2/templates/group/groupview.php:328 v2/templates/people/familyview.php:604
-#: v2/templates/people/personview.php:1097
+#: v2/templates/people/personview.php:1099
 msgid "Assign a New Property"
 msgstr "Tilordne en ny eiendom"
 
 #: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:614
-#: v2/templates/people/personview.php:1105 v2/templates/query/queryview.php:393
+#: v2/templates/people/personview.php:1107 v2/templates/query/queryview.php:393
 #: v2/templates/query/queryview.php:410
 msgid "select an option"
 msgstr "velg et alternativ"
 
 #: v2/templates/group/groupview.php:349 v2/templates/people/familyview.php:635
-#: v2/templates/people/personview.php:1126
-#: v2/templates/people/personview.php:1189
+#: v2/templates/people/personview.php:1128
+#: v2/templates/people/personview.php:1191
 msgid "Assign"
 msgstr "Tilordne"
 
@@ -9427,6 +9473,7 @@ msgstr ""
 "gjøre dette, trykk på knappen over: \"Rediger denne gruppen\"."
 
 #: v2/templates/group/groupview.php:446
+#: v2/templates/volunteer/volunteerview.php:242
 msgid "Manage Group Members"
 msgstr "Administrere gruppemedlemmer"
 
@@ -9439,6 +9486,7 @@ msgid "Default Role"
 msgstr "Standard rolle"
 
 #: v2/templates/group/groupview.php:461
+#: v2/templates/volunteer/volunteerview.php:245
 msgid "Total Members"
 msgstr "Medlemmer totalt"
 
@@ -9528,7 +9576,7 @@ msgstr "Tildelte grupper"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
 #: v2/templates/people/personPrint.php:484
-#: v2/templates/people/personview.php:879
+#: v2/templates/people/personview.php:881
 msgid "No group assignments."
 msgstr "Ingen gruppeoppgaver."
 
@@ -9543,13 +9591,13 @@ msgstr "Eiendom"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:569
 #: v2/templates/people/personPrint.php:531
 #: v2/templates/people/personPrint.php:587
-#: v2/templates/sidebar/systemsettings.php:91
+#: v2/templates/sidebar/systemsettings.php:93
 msgid "Value"
 msgstr "Verdi"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
 #: v2/templates/people/personPrint.php:580
-#: v2/templates/people/personview.php:1081
+#: v2/templates/people/personview.php:1083
 msgid "No property assignments."
 msgstr "Ingen eiendomsoverdragelser."
 
@@ -9603,8 +9651,8 @@ msgid "to contact"
 msgstr "for å kontakte"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:71
-#: v2/templates/people/peopledashboard.php:273
-#: v2/templates/people/peopledashboard.php:310
+#: v2/templates/people/peopledashboard.php:295
+#: v2/templates/people/peopledashboard.php:332
 msgid "Count"
 msgstr "Count"
 
@@ -10286,76 +10334,76 @@ msgid "Timeline"
 msgstr "Tidslinje"
 
 #: v2/templates/people/familyview.php:455
-#: v2/templates/people/personview.php:646
+#: v2/templates/people/personview.php:648
 msgid "Automatic Payments"
 msgstr "Automatiske betalinger"
 
 #: v2/templates/people/familyview.php:461
-#: v2/templates/people/personview.php:653
+#: v2/templates/people/personview.php:655
 msgid "Pledges and Payments"
 msgstr "Tilsagn og utbetalinger"
 
 #: v2/templates/people/familyview.php:611
-#: v2/templates/people/personview.php:1103
-#: v2/templates/people/personview.php:1174
-#: v2/templates/people/personview.php:1312
+#: v2/templates/people/personview.php:1105
+#: v2/templates/people/personview.php:1176
+#: v2/templates/people/personview.php:1314
 msgid "Select"
 msgstr "Velg"
 
 #: v2/templates/people/familyview.php:663
-#: v2/templates/people/personview.php:1220
+#: v2/templates/people/personview.php:1222
 msgid "Add a new automatic payment"
 msgstr "Legg til en ny automatisk betaling"
 
 #: v2/templates/people/familyview.php:672
-#: v2/templates/people/personview.php:1241
+#: v2/templates/people/personview.php:1243
 msgid "Show Pledges"
 msgstr "Vis løfter"
 
 #: v2/templates/people/familyview.php:676
-#: v2/templates/people/personview.php:1245
+#: v2/templates/people/personview.php:1247
 msgid "Show Payments"
 msgstr "Vis betalinger"
 
 #: v2/templates/people/familyview.php:679
-#: v2/templates/people/personview.php:1248
+#: v2/templates/people/personview.php:1250
 msgid "From"
 msgstr "Fra"
 
 #: v2/templates/people/familyview.php:688
-#: v2/templates/people/personview.php:1257
+#: v2/templates/people/personview.php:1259
 msgid "To"
 msgstr "Til"
 
 #: v2/templates/people/familyview.php:711
-#: v2/templates/people/personview.php:1270
+#: v2/templates/people/personview.php:1272
 msgid "Add a new pledge"
 msgstr "Legg til et nytt løfte"
 
 #: v2/templates/people/familyview.php:713
-#: v2/templates/people/personview.php:1272
+#: v2/templates/people/personview.php:1274
 msgid "Add a new payment"
 msgstr "Legg til en ny betaling"
 
 #: v2/templates/people/familyview.php:721
-#: v2/templates/people/personview.php:1288
+#: v2/templates/people/personview.php:1290
 msgid " Canvass Entry"
 msgstr " Oppføring av valgkamp"
 
 #: v2/templates/people/familyview.php:880
-#: v2/templates/people/personview.php:1520
+#: v2/templates/people/personview.php:1522
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 "Du er i ferd med å slette profilbildet, denne prosedyren er irreversibel."
 
 #: v2/templates/people/familyview.php:881
-#: v2/templates/people/personview.php:1522
+#: v2/templates/people/personview.php:1524
 msgid "Do you want to proceed?"
 msgstr "Ønsker du å fortsette?"
 
 #: v2/templates/people/familyview.php:896
-#: v2/templates/people/personview.php:1540
+#: v2/templates/people/personview.php:1542
 msgid "Request Family Info Verification"
 msgstr "Be om verifisering av familieinformasjon"
 
@@ -10373,18 +10421,18 @@ msgstr ""
 
 #: v2/templates/people/familyview.php:928
 #: v2/templates/people/familyview.php:932
-#: v2/templates/people/personview.php:1554
-#: v2/templates/people/personview.php:1558
+#: v2/templates/people/personview.php:1556
+#: v2/templates/people/personview.php:1560
 msgid "Online Verification"
 msgstr "Verifisering på nettet"
 
 #: v2/templates/people/familyview.php:939
-#: v2/templates/people/personview.php:1565
+#: v2/templates/people/personview.php:1567
 msgid "PDF Report"
 msgstr "PDF-rapport"
 
 #: v2/templates/people/familyview.php:943
-#: v2/templates/people/personview.php:1569
+#: v2/templates/people/personview.php:1571
 msgid "Verified In Person"
 msgstr "Verifisert personlig"
 
@@ -10622,110 +10670,111 @@ msgstr "Søndagsskolebarn"
 
 #: v2/templates/people/peopledashboard.php:161
 #: v2/templates/people/peopledashboard.php:183
+#: v2/templates/people/peopledashboard.php:204
 msgid "More info"
 msgstr "Mer informasjon"
 
-#: v2/templates/people/peopledashboard.php:194
-#: v2/templates/people/peopledashboard.php:234
-#: v2/templates/people/peopledashboard.php:241
+#: v2/templates/people/peopledashboard.php:216
+#: v2/templates/people/peopledashboard.php:256
+#: v2/templates/people/peopledashboard.php:263
 #: v2/templates/sundayschool/sundayschooldashboard.php:151
 msgid "Reports"
 msgstr "Rapporter"
 
-#: v2/templates/people/peopledashboard.php:202
+#: v2/templates/people/peopledashboard.php:224
 msgid "Reports on groups and roles"
 msgstr "Rapporter om grupper og roller"
 
-#: v2/templates/people/peopledashboard.php:204
+#: v2/templates/people/peopledashboard.php:226
 msgid "Report on group and roles selected (it may be a multi-page PDF)."
 msgstr ""
 "Rapport om valgt gruppe og roller (det kan være en PDF-fil på flere sider)."
 
-#: v2/templates/people/peopledashboard.php:210
+#: v2/templates/people/peopledashboard.php:232
 msgid "People Directory"
 msgstr "Personkatalog"
 
-#: v2/templates/people/peopledashboard.php:210
+#: v2/templates/people/peopledashboard.php:232
 msgid "Printable directory of all people, grouped by family where assigned"
 msgstr ""
 "Utskrivbar katalog over alle personer, gruppert etter familie der det er "
 "tildelt"
 
-#: v2/templates/people/peopledashboard.php:219
+#: v2/templates/people/peopledashboard.php:241
 msgid ""
 "Printable Pledge Reminder of all people, grouped by family where assigned"
 msgstr ""
 "Utskriftbar påminnelse om løftet for alle personer, gruppert etter familie "
 "der det er tildelt."
 
-#: v2/templates/people/peopledashboard.php:226
+#: v2/templates/people/peopledashboard.php:248
 msgid "Generate letters and mailing labels for data confirmations."
 msgstr "Generere brev og postetiketter for databekreftelser."
 
-#: v2/templates/people/peopledashboard.php:234
+#: v2/templates/people/peopledashboard.php:256
 msgid "Self Update"
 msgstr "Selvoppdatering"
 
-#: v2/templates/people/peopledashboard.php:241
+#: v2/templates/people/peopledashboard.php:263
 msgid "Self Register"
 msgstr "Registrer deg selv"
 
-#: v2/templates/people/peopledashboard.php:243
+#: v2/templates/people/peopledashboard.php:265
 msgid "List families that were created via self registration."
 msgstr "Liste over familier som ble opprettet via selvregistrering."
 
-#: v2/templates/people/peopledashboard.php:247
+#: v2/templates/people/peopledashboard.php:269
 msgid "Self Verify Updates"
 msgstr "Selvverifiserende oppdateringer"
 
-#: v2/templates/people/peopledashboard.php:247
+#: v2/templates/people/peopledashboard.php:269
 msgid "Families who commented via self verify links"
 msgstr "Familier som kommenterte via selvverifiserende lenker"
 
-#: v2/templates/people/peopledashboard.php:251
+#: v2/templates/people/peopledashboard.php:273
 msgid "Families with valid self verify links"
 msgstr "Familier med gyldige selvverifiseringskoblinger"
 
-#: v2/templates/people/peopledashboard.php:271
+#: v2/templates/people/peopledashboard.php:293
 msgid "Role / Gender"
 msgstr "Rolle / kjønn"
 
-#: v2/templates/people/peopledashboard.php:272
-#: v2/templates/people/peopledashboard.php:309
+#: v2/templates/people/peopledashboard.php:294
+#: v2/templates/people/peopledashboard.php:331
 msgid "of People"
 msgstr "av mennesker"
 
-#: v2/templates/people/peopledashboard.php:298
+#: v2/templates/people/peopledashboard.php:320
 msgid "People Classification"
 msgstr "Klassifisering av personer"
 
-#: v2/templates/people/peopledashboard.php:336
+#: v2/templates/people/peopledashboard.php:358
 msgid "Gender Demographics"
 msgstr "Kjønnsdemografi"
 
-#: v2/templates/people/peopledashboard.php:351
+#: v2/templates/people/peopledashboard.php:373
 msgid "# Age Histogram"
 msgstr "# Aldershistogram"
 
-#: v2/templates/people/peopledashboard.php:380
+#: v2/templates/people/peopledashboard.php:402
 msgid "Men"
 msgstr "Menn"
 
-#: v2/templates/people/peopledashboard.php:385
+#: v2/templates/people/peopledashboard.php:407
 msgid "Women"
 msgstr "Kvinner"
 
-#: v2/templates/people/peopledashboard.php:394
+#: v2/templates/people/peopledashboard.php:416
 #: v2/templates/sundayschool/sundayschooldashboard.php:74
 msgid "Boys"
 msgstr "Gutter"
 
-#: v2/templates/people/peopledashboard.php:399
+#: v2/templates/people/peopledashboard.php:421
 #: v2/templates/sundayschool/sundayschooldashboard.php:86
 msgid "Girls"
 msgstr "Jenter"
 
-#: v2/templates/people/peopledashboard.php:465
+#: v2/templates/people/peopledashboard.php:487
 msgid "# number of people"
 msgstr "# antall personer"
 
@@ -10960,72 +11009,72 @@ msgstr " denne personen"
 msgid "Delete this Record"
 msgstr "Slett denne posten"
 
-#: v2/templates/people/personview.php:766
+#: v2/templates/people/personview.php:768
 msgid "click to download"
 msgstr "klikk for å laste ned"
 
-#: v2/templates/people/personview.php:924
+#: v2/templates/people/personview.php:926
 msgid "Change Role"
 msgstr "Endre rolle"
 
-#: v2/templates/people/personview.php:931
+#: v2/templates/people/personview.php:933
 msgid "Update Properties"
 msgstr "Oppdater egenskaper"
 
-#: v2/templates/people/personview.php:969
+#: v2/templates/people/personview.php:971
 msgid "Group Informations"
 msgstr "Gruppeinformasjon"
 
-#: v2/templates/people/personview.php:1010
+#: v2/templates/people/personview.php:1012
 msgid "Person Informations"
 msgstr "Personinformasjon"
 
-#: v2/templates/people/personview.php:1032
+#: v2/templates/people/personview.php:1034
 msgid "Modify Specific Properties"
 msgstr "Endre spesifikke egenskaper"
 
-#: v2/templates/people/personview.php:1043
+#: v2/templates/people/personview.php:1045
 msgid "No specific group properties defined !"
 msgstr "Ingen spesifikke gruppeegenskaper definert!"
 
-#: v2/templates/people/personview.php:1151
+#: v2/templates/people/personview.php:1153
 msgid "No volunteer opportunity assignments."
 msgstr "Ingen frivillige oppdrag."
 
-#: v2/templates/people/personview.php:1166
+#: v2/templates/people/personview.php:1168
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Tilordne en ny frivillighetsmulighet"
 
-#: v2/templates/people/personview.php:1225
-#: v2/templates/people/personview.php:1277
+#: v2/templates/people/personview.php:1227
+#: v2/templates/people/personview.php:1279
 msgid "You must set an address for this person"
 msgstr "Du må angi en adresse for denne personen"
 
-#: v2/templates/people/personview.php:1313
+#: v2/templates/people/personview.php:1315
 msgid "Filter your documents by : "
 msgstr "Filtrer dokumentene dine etter :"
 
-#: v2/templates/people/personview.php:1314
+#: v2/templates/people/personview.php:1316
 msgid "All type"
 msgstr "Alle typer"
 
-#: v2/templates/people/personview.php:1319
+#: v2/templates/people/personview.php:1321
 msgid "Shared documents"
 msgstr "Delte dokumenter"
 
-#: v2/templates/people/personview.php:1370
+#: v2/templates/people/personview.php:1372
 msgid "Share this document to another user"
 msgstr "Del dette dokumentet med en annen bruker"
 
-#: v2/templates/people/personview.php:1379
+#: v2/templates/people/personview.php:1381
 msgid "Export this document to word Format"
 msgstr "Eksporter dette dokumentet til word Format"
 
-#: v2/templates/people/personview.php:1423
+#: v2/templates/people/personview.php:1425
 msgid "Last modification by"
 msgstr "Siste endring av"
 
-#: v2/templates/people/personview.php:1545
+#: v2/templates/people/personview.php:1547
 msgid "Select how do you want to request the person information to be verified"
 msgstr "Velg hvordan du vil be om at personopplysningene skal verifiseres."
 
@@ -11349,7 +11398,8 @@ msgstr "Legg til egendefinert menylenke"
 #: v2/templates/sidebar/menulinklist.php:22
 #: v2/templates/sidebar/pastoralcarelist.php:27
 #: v2/templates/sidebar/propertytypelist.php:21
-#: v2/templates/sidebar/volunteeropportunityeditor.php:19
+#: v2/templates/volunteer/volunteeropportunity.php:19
+#: v2/templates/volunteer/volunteerview.php:141
 msgid "Only an admin can modify or delete this records."
 msgstr "Bare en administrator kan endre eller slette disse postene."
 
@@ -11389,46 +11439,42 @@ msgstr "Innstilling lagret"
 msgid "Edit JSON Settings"
 msgstr "Rediger JSON-innstillinger"
 
-#: v2/templates/sidebar/systemsettings.php:76
+#: v2/templates/sidebar/systemsettings.php:77
 #: v2/templates/user/userseditor.php:882 v2/templates/user/usersettings.php:62
 #: v2/templates/user/usersettings.php:325
 #: v2/templates/user/usersettings.php:457
 msgid "Save Settings"
 msgstr "Lagre innstillinger"
 
-#: v2/templates/sidebar/systemsettings.php:90
+#: v2/templates/sidebar/systemsettings.php:92
 #: v2/templates/user/userseditor.php:523 v2/templates/user/usersettings.php:35
 #: v2/templates/user/usersettings.php:86
 msgid "Variable name"
 msgstr "Variabelnavn"
 
-#: v2/templates/sidebar/systemsettings.php:92
+#: v2/templates/sidebar/systemsettings.php:94
 msgid "Default Value"
 msgstr "Standardverdi"
 
-#: v2/templates/sidebar/systemsettings.php:159
+#: v2/templates/sidebar/systemsettings.php:161
 #: v2/templates/user/userseditor.php:560 v2/templates/user/userseditor.php:613
 #: v2/templates/user/usersettings.php:276
 msgid "False"
 msgstr "Falsk"
 
-#: v2/templates/sidebar/systemsettings.php:160
+#: v2/templates/sidebar/systemsettings.php:162
 #: v2/templates/user/userseditor.php:561 v2/templates/user/userseditor.php:614
 #: v2/templates/user/usersettings.php:277
 msgid "True"
 msgstr "Sant"
 
-#: v2/templates/sidebar/systemsettings.php:169
+#: v2/templates/sidebar/systemsettings.php:171
 msgid "Edit Settings"
 msgstr "Rediger innstillinger"
 
-#: v2/templates/sidebar/systemsettings.php:183
+#: v2/templates/sidebar/systemsettings.php:185
 msgid "Unknown Type"
 msgstr "Ukjent type"
-
-#: v2/templates/sidebar/volunteeropportunityeditor.php:15
-msgid "Add Volunteer Opportunity"
-msgstr "Legg til mulighet for frivillig arbeid"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:27
 msgid "Classes"
@@ -12841,6 +12887,39 @@ msgstr "Oppbevar disse på et sikkert sted"
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Begynn registrering for tofaktorautentisering"
 
+#: v2/templates/volunteer/volunteeropportunity.php:15
+#: v2/templates/volunteer/volunteerview.php:137
+msgid "Add Volunteer Opportunity"
+msgstr "Legg til mulighet for frivillig arbeid"
+
+#: v2/templates/volunteer/volunteerview.php:35
+msgid "To modify the name fo the volunteer opportunity"
+msgstr "Slik endrer du navnet på den frivillige muligheten"
+
+#: v2/templates/volunteer/volunteerview.php:35
+msgid "Modify Name"
+msgstr "Endre navn"
+
+#: v2/templates/volunteer/volunteerview.php:38
+msgid "Remove Volunteer Opportunities"
+msgstr "Fjern muligheter for frivillig arbeid"
+
+#: v2/templates/volunteer/volunteerview.php:55
+msgid "Contacts"
+msgstr "Kontaktpersoner"
+
+#: v2/templates/volunteer/volunteerview.php:155
+msgid "Hierarchy"
+msgstr "Hierarki"
+
+#: v2/templates/volunteer/volunteerview.php:189
+msgid "Volunteers opportunity is"
+msgstr "Frivilliges mulighet er"
+
+#: v2/templates/volunteer/volunteerview.php:210
+msgid "Volunteers Managers"
+msgstr "Frivillige ledere"
+
 #: query_qry.php:2 query_qry.php:57
 msgid "Family With Work Phone"
 msgstr "Familie med arbeidstelefon"
@@ -13650,6 +13729,9 @@ msgstr "Flere dager"
 
 msgid "Giving Report"
 msgstr "Rapport om gaver"
+
+#~ msgid "Volunteer Opportunity Editor"
+#~ msgstr "Mulighet for frivillig arbeid Redaktør"
 
 #~ msgid "avec le séparateur csv \" ; \""
 #~ msgstr "avec le séparateur csv \" ; \""

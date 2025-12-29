@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -264,6 +264,12 @@ msgstr "Software-ul dvs. este acum înregistrat. Vă mulțumim !"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Select Volunteer Opportunity"
+msgstr "Selectați oportunitatea de voluntariat"
+
+msgid "Please select target volunteers for members"
+msgstr "Vă rugăm să selectați voluntarii țintă pentru membri"
 
 msgid "Please select target group for members"
 msgstr "Vă rugăm să selectați grupul țintă pentru membri"
@@ -1772,17 +1778,8 @@ msgstr "aceasta și pierde orice atribuire de proprietate corespunzătoare."
 msgid "Add a New Property Type"
 msgstr "Adăugați un nou tip de proprietate"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "Adăugați o nouă oportunitate de voluntariat"
-
-msgid "Activ"
-msgstr "Activ"
-
-msgid "Parent (hierarchy)"
-msgstr "Părinte (ierarhie)"
-
-msgid "Color"
-msgstr "Culoare"
+msgid "Setting saved"
+msgstr "Setare salvată"
 
 msgid "Send Message"
 msgstr "Trimiteți un mesaj"
@@ -2552,14 +2549,20 @@ msgstr "Numărul cumpărătorului Editor"
 msgid "Select"
 msgstr "Selectați"
 
+#~ msgid "Activ"
+#~ msgstr "Activ"
+
+#~ msgid "Parent (hierarchy)"
+#~ msgstr "Părinte (ierarhie)"
+
+#~ msgid "Color"
+#~ msgstr "Culoare"
+
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Sunteți sigur că doriți să eliminați membrii grupului selectat?"
 
 #~ msgid "Songs"
 #~ msgstr "Cântece"
-
-#~ msgid "Settings"
-#~ msgstr "Setări"
 
 #~ msgid "Backup Complete, Ready for Download."
 #~ msgstr "Copie de rezervă completă, gata de descărcare."

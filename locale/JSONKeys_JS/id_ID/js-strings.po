@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -261,6 +261,12 @@ msgstr "Perangkat lunakmu sekarang terdaftar. Terima kasih!"
 
 msgid "OK"
 msgstr "Oke."
+
+msgid "Select Volunteer Opportunity"
+msgstr "Pilih Peluang Relawan"
+
+msgid "Please select target volunteers for members"
+msgstr "Silakan pilih target relawan untuk anggota"
 
 msgid "Please select target group for members"
 msgstr "Silakan pilih kelompok target untuk anggota"
@@ -1765,17 +1771,8 @@ msgstr "ini dan kehilangan setiap sesuai tugas properti."
 msgid "Add a New Property Type"
 msgstr "Tambahkan tipe Properti baru"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "Tambahkan peluang Volunteer baru"
-
-msgid "Activ"
-msgstr "Activ"
-
-msgid "Parent (hierarchy)"
-msgstr ""
-
-msgid "Color"
-msgstr ""
+msgid "Setting saved"
+msgstr "Pengaturan disimpan"
 
 msgid "Send Message"
 msgstr "Kirim pesan"
@@ -2533,14 +2530,14 @@ msgstr "Pembeli Editor"
 msgid "Select"
 msgstr "Pilih"
 
+#~ msgid "Activ"
+#~ msgstr "Activ"
+
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Kau yakin ingin menghapus anggota kelompok yang terpilih?"
 
 #~ msgid "Songs"
 #~ msgstr "Lagu"
-
-#~ msgid "Settings"
-#~ msgstr "Pengaturan"
 
 #~ msgid "Backup Complete, Ready for Download."
 #~ msgstr "Backup Complete, Ready for Download."

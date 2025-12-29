@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,6 +265,14 @@ msgstr "Softueri juaj është regjistruar tani. faleminderit!"
 
 msgid "OK"
 msgstr "në rregull."
+
+#, fuzzy
+msgid "Select Volunteer Opportunity"
+msgstr "shto mundësinë e re të vullnetit"
+
+#, fuzzy
+msgid "Please select target volunteers for members"
+msgstr "Ju lutem zgjidhni objektivin Rolin për anëtarët"
 
 msgid "Please select target group for members"
 msgstr "ju lutemi zgjedhni objektivin për anëtarët"
@@ -1778,16 +1786,7 @@ msgstr "ai dhe humb çdo detyre korresponduese të pronës."
 msgid "Add a New Property Type"
 msgstr "Shto një tipi të pasurisë së re"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "shto mundësinë e re të vullnetit"
-
-msgid "Activ"
-msgstr "Aktiv."
-
-msgid "Parent (hierarchy)"
-msgstr ""
-
-msgid "Color"
+msgid "Setting saved"
 msgstr ""
 
 msgid "Send Message"
@@ -2546,6 +2545,9 @@ msgstr "Blerësit numërësor"
 
 msgid "Select"
 msgstr "Zgjedh."
+
+#~ msgid "Activ"
+#~ msgstr "Aktiv."
 
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Je i sigurt që do t'i heqësh anëtarët e zgjedhur të grupit?"
