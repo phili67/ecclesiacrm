@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,6 +265,14 @@ msgstr "Phần mềm của anh đã được đăng ký. Cảm ơn!"
 
 msgid "OK"
 msgstr "Được rồi."
+
+#, fuzzy
+msgid "Select Volunteer Opportunity"
+msgstr "Thêm vào cơ hội tình nguyện mới"
+
+#, fuzzy
+msgid "Please select target volunteers for members"
+msgstr "Xin hãy chọn Role cho các thành viên"
 
 msgid "Please select target group for members"
 msgstr "Hãy chọn nhóm mục tiêu cho các thành viên"
@@ -1780,16 +1788,7 @@ msgstr "nó và mất bất cứ bài tập nào liên quan đến tài sản."
 msgid "Add a New Property Type"
 msgstr "Thêm một loại \"Bất động sản\" mới"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "Thêm vào cơ hội tình nguyện mới"
-
-msgid "Activ"
-msgstr "Tiến hành!"
-
-msgid "Parent (hierarchy)"
-msgstr ""
-
-msgid "Color"
+msgid "Setting saved"
 msgstr ""
 
 msgid "Send Message"
@@ -2542,6 +2541,9 @@ msgstr "Biên tập viên số khách hàng"
 
 msgid "Select"
 msgstr "Chọn đi"
+
+#~ msgid "Activ"
+#~ msgstr "Tiến hành!"
 
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Anh có chắc là muốn loại bỏ các thành viên được chọn không?"

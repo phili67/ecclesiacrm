@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -265,6 +265,12 @@ msgstr "Ваше програмне забезпечення зареєстро�
 
 msgid "OK"
 msgstr "ГАРАЗД."
+
+msgid "Select Volunteer Opportunity"
+msgstr "Виберіть можливість для волонтерства"
+
+msgid "Please select target volunteers for members"
+msgstr "Будь ласка, оберіть цільових волонтерів для членів"
 
 msgid "Please select target group for members"
 msgstr "Будь ласка, оберіть цільову групу для учасників"
@@ -1748,17 +1754,8 @@ msgstr "і втрачає всі відповідні права власнос�
 msgid "Add a New Property Type"
 msgstr "Додати новий тип нерухомості"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "Додати нову можливість для волонтерів"
-
-msgid "Activ"
-msgstr "Activ"
-
-msgid "Parent (hierarchy)"
-msgstr "Батько (ієрархія)"
-
-msgid "Color"
-msgstr "Колір"
+msgid "Setting saved"
+msgstr "Налаштування збережено"
 
 msgid "Send Message"
 msgstr "Надіслати повідомлення"
@@ -2514,14 +2511,20 @@ msgstr "Редактор номерів покупців"
 msgid "Select"
 msgstr "Виберіть"
 
+#~ msgid "Activ"
+#~ msgstr "Activ"
+
+#~ msgid "Parent (hierarchy)"
+#~ msgstr "Батько (ієрархія)"
+
+#~ msgid "Color"
+#~ msgstr "Колір"
+
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Ви впевнені, що хочете видалити вибраних учасників групи?"
 
 #~ msgid "Songs"
 #~ msgstr "Пісні"
-
-#~ msgid "Settings"
-#~ msgstr "Налаштування"
 
 #~ msgid "Backup Complete, Ready for Download."
 #~ msgstr "Резервна копія завершена, готова до завантаження."

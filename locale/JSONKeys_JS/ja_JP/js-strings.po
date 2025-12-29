@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -256,6 +256,12 @@ msgstr "お使いのソフトウェアが登録されました。ありがとう
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Select Volunteer Opportunity"
+msgstr "ボランティアの機会を選択"
+
+msgid "Please select target volunteers for members"
+msgstr "会員ボランティアの対象者を選択してください"
 
 msgid "Please select target group for members"
 msgstr "メンバーのターゲットグループを選択してください"
@@ -1744,17 +1750,8 @@ msgstr "そして、それに対応するプロパティの割り当てを失い
 msgid "Add a New Property Type"
 msgstr "新しいプロパティタイプの追加"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "新しいボランティアの機会を追加する"
-
-msgid "Activ"
-msgstr "アクティヴ"
-
-msgid "Parent (hierarchy)"
-msgstr "親（階層）"
-
-msgid "Color"
-msgstr "カラー"
+msgid "Setting saved"
+msgstr "設定保存"
 
 msgid "Send Message"
 msgstr "メッセージの送信"
@@ -2503,14 +2500,20 @@ msgstr "バイヤーナンバー編集部"
 msgid "Select"
 msgstr "セレクト"
 
+#~ msgid "Activ"
+#~ msgstr "アクティヴ"
+
+#~ msgid "Parent (hierarchy)"
+#~ msgstr "親（階層）"
+
+#~ msgid "Color"
+#~ msgstr "カラー"
+
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "選択したグループメンバーを削除してよろしいですか？"
 
 #~ msgid "Songs"
 #~ msgstr "曲目"
-
-#~ msgid "Settings"
-#~ msgstr "設定"
 
 #~ msgid "Backup Complete, Ready for Download."
 #~ msgstr "バックアップが完了し、ダウンロードできるようになりました。"

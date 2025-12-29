@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-15 20:24+0000\n"
+"POT-Creation-Date: 2025-12-28 17:31+0000\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +48,7 @@ msgid "Video"
 msgstr "Video"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:216
-#: EcclesiaCRM/APIControllers/SidebarVolunteerOpportunityController.php:37
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:129
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:239
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:240
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:241
@@ -75,7 +75,7 @@ msgstr "Video"
 #: v2/templates/people/personPrint.php:403
 #: v2/templates/people/personPrint.php:659
 #: v2/templates/people/personPrint.php:718
-#: v2/templates/people/personview.php:991
+#: v2/templates/people/personview.php:993
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
 msgstr "Ei ole"
@@ -178,10 +178,15 @@ msgstr "Ostoskorisi ja CRM on onnistuneesti poistettu käytöstä."
 msgid "Your cart has been successfully emptied"
 msgstr "Ostoskorisi on onnistuneesti tyhjennetty"
 
+#: EcclesiaCRM/APIControllers/CartController.php:508
+#: EcclesiaCRM/APIControllers/CartController.php:529
+msgid "records(s) successfully deleted from the selected volunteers."
+msgstr "tietueet, jotka on onnistuneesti poistettu valituista vapaaehtoisista."
+
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:174
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:890
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:699
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:700
 #: uploader/upload.php:93
 msgid "Create file"
 msgstr "Luo tiedosto"
@@ -553,7 +558,7 @@ msgstr "Etunimi"
 #: v2/templates/people/personPrint.php:318
 #: v2/templates/people/personPrint.php:323
 #: v2/templates/people/selectDelete.php:205
-#: v2/templates/sidebar/systemsettings.php:179
+#: v2/templates/sidebar/systemsettings.php:181
 #: v2/templates/system/csvImport.php:313
 msgid "Unassigned"
 msgstr "Käyttämätön"
@@ -570,6 +575,7 @@ msgstr "Käyttämätön"
 #: v2/templates/user/userseditor.php:763 v2/templates/user/userseditor.php:831
 #: v2/templates/user/usersettings.php:383
 #: v2/templates/user/usersettings.php:433
+#: v2/templates/volunteer/volunteerview.php:222
 msgid "Yes"
 msgstr "Kyllä"
 
@@ -589,6 +595,7 @@ msgstr "Kyllä"
 #: v2/templates/user/userseditor.php:762 v2/templates/user/userseditor.php:830
 #: v2/templates/user/usersettings.php:382
 #: v2/templates/user/usersettings.php:432
+#: v2/templates/volunteer/volunteerview.php:222
 msgid "No"
 msgstr "Ei"
 
@@ -596,16 +603,16 @@ msgstr "Ei"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:607
 #: EcclesiaCRM/APIControllers/UserUsersController.php:136
 #: EcclesiaCRM/APIControllers/UserUsersController.php:142
-#: EcclesiaCRM/dto/Cart.php:342 EcclesiaCRM/dto/Cart.php:348
+#: EcclesiaCRM/dto/Cart.php:343 EcclesiaCRM/dto/Cart.php:349
 #: ident/routes/verify.php:229
 msgid "Account Deactivated"
 msgstr "Tili poistettu käytöstä"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:661
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:662
 msgid "Person Deactivated"
 msgstr "Henkilö Deaktivoitu"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:661
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:662
 msgid "Person Activated"
 msgstr "Henkilö aktivoitu"
 
@@ -634,6 +641,10 @@ msgstr "Yksinäiset henkilöt"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:74
 #: EcclesiaCRM/APIControllers/SearchController.php:77
+#: EcclesiaCRM/MenuBar/MenuBar.php:930
+#: EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityController.php:47
+#: EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityController.php:124
+#: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:126
 #: v2/templates/people/peoplelist.php:44 query_qry.php:14 query_qry.php:69
 msgid "Volunteers"
 msgstr "Vapaaehtoiset"
@@ -705,7 +716,7 @@ msgstr "Sukupuoli"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
 #: v2/templates/people/familyEditor.php:1089
 #: v2/templates/people/familyview.php:339
-#: v2/templates/people/peopledashboard.php:308
+#: v2/templates/people/peopledashboard.php:330
 #: v2/templates/people/personEditor.php:1570
 #: v2/templates/people/personPrint.php:376
 #: v2/templates/system/csvExport.php:162 v2/templates/system/csvExport.php:285
@@ -747,7 +758,7 @@ msgstr "Ryhmän tyyppi"
 #: v2/templates/people/familyview.php:338
 #: v2/templates/people/personPrint.php:426
 #: v2/templates/people/personPrint.php:491
-#: v2/templates/people/personview.php:791
+#: v2/templates/people/personview.php:793
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:727 v2/templates/user/userseditor.php:795
@@ -755,7 +766,7 @@ msgid "Role"
 msgstr "Rooli"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
-#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:261
+#: Include/Footer.php:71 v2/templates/people/peopledashboard.php:283
 #: v2/templates/system/optionManager.php:92
 msgid "Family Roles"
 msgstr "Perheen roolit"
@@ -831,7 +842,8 @@ msgstr "Ryhmätyypit-editori"
 #: EcclesiaCRM/Service/CalendarService.php:1562
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:122
-#: Include/Footer.php:102 v2/templates/calendar/calendar.php:49
+#: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:123 Include/Footer.php:102
+#: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:44
 #: v2/templates/system/optionManager.php:122
 msgid "Group"
@@ -1070,6 +1082,62 @@ msgstr "Käyttäjäroolisi on muuttunut"
 msgid "Account Activated"
 msgstr "Tili aktivoitu"
 
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:383
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:384
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:385
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:386
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:387
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:388
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:389
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:392
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:393
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:394
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:395
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:396
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:397
+#: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:398
+#: EcclesiaCRM/Search/AddressSearchRes.php:150
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:131
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:143
+#: EcclesiaCRM/Search/FamilySearchRes.php:180
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:143
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:125
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:145
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:136
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:151
+#: EcclesiaCRM/Search/PersonSearchRes.php:355
+#: EcclesiaCRM/Search/PersonSearchRes.php:359
+#: EcclesiaCRM/Search/PersonSearchRes.php:360
+#: EcclesiaCRM/Search/PersonSearchRes.php:361
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:130
+#: EcclesiaCRM/Service/MailChimpService.php:236
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:611
+#: v2/templates/pastoralcare/pastoralcarefamily.php:220
+#: v2/templates/pastoralcare/pastoralcareperson.php:353
+#: v2/templates/pastoralcare/pastoralcareperson.php:421
+#: v2/templates/people/familylist.php:106
+#: v2/templates/people/familylist.php:107
+#: v2/templates/people/familylist.php:108
+#: v2/templates/people/familylist.php:109
+#: v2/templates/people/familylist.php:110
+#: v2/templates/people/familylist.php:111
+#: v2/templates/people/familyview.php:180
+#: v2/templates/people/familyview.php:857 v2/templates/people/personlist.php:98
+#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
+#: v2/templates/people/personlist.php:101
+#: v2/templates/people/personlist.php:102
+#: v2/templates/people/personlist.php:103
+#: v2/templates/people/personview.php:158
+#: v2/templates/people/personview.php:357
+#: v2/templates/people/personview.php:1500
+#: v2/templates/sundayschool/sundayschooldashboard.php:292
+#: v2/templates/sundayschool/sundayschooldashboard.php:293
+#: v2/templates/sundayschool/sundayschooldashboard.php:294
+#: v2/templates/sundayschool/sundayschoolview.php:163
+msgid "Private Data"
+msgstr "Yksityiset tiedot"
+
 #: EcclesiaCRM/BackupManager.php:162
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "Valittu tiedosto ylittää tämän palvelimen maksimilatauskoon, joka on"
@@ -1299,14 +1367,14 @@ msgstr "Muuta asetuksia"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:123 v2/templates/people/familyview.php:470
 #: v2/templates/people/personPrint.php:612
-#: v2/templates/people/personview.php:673
+#: v2/templates/people/personview.php:675
 msgid "Documents"
 msgstr "Asiakirjat"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:137
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:128
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:129
-#: EcclesiaCRM/dto/SystemConfig.php:303
+#: EcclesiaCRM/dto/SystemConfig.php:304
 #: v2/templates/dashboard/maindashboard.php:31
 msgid "GDPR"
 msgstr "GDPR"
@@ -1314,7 +1382,8 @@ msgstr "GDPR"
 #: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:199
 #: EcclesiaCRM/MenuBar/MenuBar.php:508 EcclesiaCRM/MenuBar/MenuBar.php:762
 #: EcclesiaCRM/MenuBar/MenuBar.php:775 EcclesiaCRM/MenuBar/MenuBar.php:800
-#: EcclesiaCRM/MenuBar/MenuBar.php:881 EcclesiaCRM/MenuBar/MenuBar.php:917
+#: EcclesiaCRM/MenuBar/MenuBar.php:881 EcclesiaCRM/MenuBar/MenuBar.php:932
+#: EcclesiaCRM/MenuBar/MenuBar.php:955
 msgid "Dashboard"
 msgstr "Kojelauta"
 
@@ -1415,6 +1484,7 @@ msgstr "Luettelo Ryhmät"
 #: EcclesiaCRM/MenuBar/MenuBar.php:343
 #: v2/templates/deposit/electronicPaymentList.php:186
 #: v2/templates/group/groupedit.php:134 v2/templates/group/groupview.php:235
+#: v2/templates/volunteer/volunteerview.php:191
 msgid "Disabled"
 msgstr "Vammaiset"
 
@@ -1437,7 +1507,7 @@ msgid "Sunday School"
 msgstr "Sunnuntaikoulu"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:743 EcclesiaCRM/MenuBar/MenuBar.php:750
-#: Include/Footer.php:177
+#: Include/Footer.php:167
 msgid "Global Custom Menus"
 msgstr "Globaalit mukautetut valikot"
 
@@ -1445,7 +1515,7 @@ msgstr "Globaalit mukautetut valikot"
 msgid "Custom Menus"
 msgstr "Mukautetut valikot"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/dto/SystemConfig.php:300
+#: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/dto/SystemConfig.php:301
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
@@ -1535,15 +1605,15 @@ msgstr "Näytä kaikki rahankeräykset"
 msgid "Edit Last Fundraiser"
 msgstr "Muokkaa Viimeisin varainkerääjä"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:939
+#: EcclesiaCRM/MenuBar/MenuBar.php:978
 msgid "Data/Reports"
 msgstr "Tiedot/raportit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:941
+#: EcclesiaCRM/MenuBar/MenuBar.php:980
 msgid "Reports Menu"
 msgstr "Raportit-valikko"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:944 v2/templates/user/userseditor.php:458
+#: EcclesiaCRM/MenuBar/MenuBar.php:983 v2/templates/user/userseditor.php:458
 msgid "Query Menu"
 msgstr "Kyselyvalikko"
 
@@ -1757,7 +1827,7 @@ msgstr "Aikuinen/Lapsi"
 #: v2/templates/people/personPrint.php:361
 #: v2/templates/people/personview.php:296
 #: v2/templates/people/personview.php:424
-#: v2/templates/people/personview.php:793
+#: v2/templates/people/personview.php:795
 #: v2/templates/sundayschool/sundayschooldashboard.php:108
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:135 v2/templates/system/csvImport.php:175
@@ -1774,7 +1844,7 @@ msgstr "Sähköposti"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:185
 #: v2/templates/people/familyview.php:340
-#: v2/templates/people/personview.php:792
+#: v2/templates/people/personview.php:794
 msgid "Birthday"
 msgstr "Syntymäpäivä"
 
@@ -1986,48 +2056,6 @@ msgstr "Addresse"
 msgid "Members"
 msgstr "Jäsenet"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:150
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:125
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:131
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:143
-#: EcclesiaCRM/Search/FamilySearchRes.php:180
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:143
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:125
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:145
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:136
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:151
-#: EcclesiaCRM/Search/PersonSearchRes.php:355
-#: EcclesiaCRM/Search/PersonSearchRes.php:359
-#: EcclesiaCRM/Search/PersonSearchRes.php:360
-#: EcclesiaCRM/Search/PersonSearchRes.php:361
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:130
-#: EcclesiaCRM/Service/MailChimpService.php:236
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:611
-#: v2/templates/pastoralcare/pastoralcarefamily.php:220
-#: v2/templates/pastoralcare/pastoralcareperson.php:353
-#: v2/templates/pastoralcare/pastoralcareperson.php:421
-#: v2/templates/people/familylist.php:106
-#: v2/templates/people/familylist.php:107
-#: v2/templates/people/familylist.php:108
-#: v2/templates/people/familylist.php:109
-#: v2/templates/people/familylist.php:110
-#: v2/templates/people/familylist.php:111
-#: v2/templates/people/familyview.php:180
-#: v2/templates/people/familyview.php:857 v2/templates/people/personlist.php:98
-#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
-#: v2/templates/people/personlist.php:101
-#: v2/templates/people/personlist.php:102
-#: v2/templates/people/personlist.php:103
-#: v2/templates/people/personview.php:158
-#: v2/templates/people/personview.php:357
-#: v2/templates/people/personview.php:1498
-#: v2/templates/sundayschool/sundayschooldashboard.php:292
-#: v2/templates/sundayschool/sundayschooldashboard.php:293
-#: v2/templates/sundayschool/sundayschooldashboard.php:294
-#: v2/templates/sundayschool/sundayschoolview.php:163
-msgid "Private Data"
-msgstr "Yksityiset tiedot"
-
 #: EcclesiaCRM/Search/DepositSearchRes.php:22
 msgid "Deposits"
 msgstr "Talletukset"
@@ -2142,7 +2170,8 @@ msgid "Person Properties"
 msgstr "Henkilön ominaisuudet"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:147 v2/templates/people/personview.php:628
+#: v2/templates/people/peopledashboard.php:197
+#: v2/templates/people/personview.php:630
 msgid "Volunteer Opportunities"
 msgstr "Vapaaehtoistoiminnan mahdollisuudet"
 
@@ -2210,7 +2239,7 @@ msgstr "Vuosipäivä"
 #: v2/templates/pastoralcare/pastoralcareperson.php:431
 #: v2/templates/pastoralcare/pastoralcareperson.php:438
 #: v2/templates/people/familyview.php:885
-#: v2/templates/people/personview.php:1527 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/personview.php:1529 v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "Poista"
 
@@ -2474,7 +2503,7 @@ msgstr "(Ei määriteltyä perhettä)"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:801
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1165
@@ -2542,12 +2571,12 @@ msgid "Child"
 msgstr "Lapsi"
 
 #: EcclesiaCRM/VIEWControllers/BackupRestore/VIEWBackupController.php:73
-#: Include/Footer.php:262
+#: Include/Footer.php:252
 msgid "Backup Database"
 msgstr "Tietokannan varmuuskopiointi"
 
 #: EcclesiaCRM/VIEWControllers/BackupRestore/VIEWRestoreController.php:48
-#: Include/Footer.php:270
+#: Include/Footer.php:260
 msgid "Restore Database"
 msgstr "Palauta tietokanta"
 
@@ -2620,12 +2649,12 @@ msgid "Family Geographic Utilities"
 msgstr "Perheen maantieteelliset apuohjelmat"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1272
-#: v2/templates/people/peopledashboard.php:225
+#: v2/templates/people/peopledashboard.php:247
 msgid "Letters and mailing labels for data confirmations"
 msgstr "Kirjeet ja postitustarrat tietojen vahvistamista varten"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1295
-#: v2/templates/people/peopledashboard.php:219
+#: v2/templates/people/peopledashboard.php:241
 msgid "Pledge Reminder Report"
 msgstr "Lupauksen muistutusraportti"
 
@@ -2673,7 +2702,7 @@ msgid "Donation Fund Editor"
 msgstr "Lahjoitusrahasto Editor"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:301 v2/templates/calendar/checkin.php:30
+#: Include/Footer.php:291 v2/templates/calendar/checkin.php:30
 msgid "Kiosk Manager"
 msgstr "Kioskin johtaja"
 
@@ -2700,14 +2729,10 @@ msgstr "Omaisuusluettelo"
 msgid "Property Type List"
 msgstr "Kiinteistön tyyppi Luettelo"
 
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:106
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:136
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:52
+#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWSystemSettingsController.php:83
 msgid "General Settings"
 msgstr "Yleiset asetukset"
-
-#: EcclesiaCRM/VIEWControllers/Sidebar/VIEWVolunteerOpportunityEditorController.php:44
-msgid "Volunteer Opportunity Editor"
-msgstr "Vapaaehtoistyömahdollisuus Editor"
 
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:70
 msgid "Church Calendar"
@@ -2891,7 +2916,7 @@ msgid "Meeting Dashboard"
 msgstr "Kokous Dashboard"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
-#: Include/Footer.php:234
+#: Include/Footer.php:224
 msgid "Plugins"
 msgstr "Liitännäiset"
 
@@ -2956,7 +2981,7 @@ msgid "Sunday School Reports"
 msgstr "Sunnuntaikoulun raportit"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:66
-#: Include/Footer.php:246 v2/templates/system/infos.php:193
+#: Include/Footer.php:236 v2/templates/system/infos.php:193
 msgid "System Infos"
 msgstr "Järjestelmätiedot"
 
@@ -2992,7 +3017,7 @@ msgid "Upgrade"
 msgstr "Päivitys"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:385
-#: Include/Footer.php:281
+#: Include/Footer.php:271
 msgid "CSV Import"
 msgstr "CSV-tuonti"
 
@@ -4109,17 +4134,21 @@ msgstr ""
 "Kyselytoimija, jotka on osoitettu satunnaisesti % d:lle perheista, jotka "
 "eivät ole pantanneet."
 
-#: EcclesiaCRM/dto/Cart.php:175 EcclesiaCRM/dto/Cart.php:232
+#: EcclesiaCRM/dto/Cart.php:176 EcclesiaCRM/dto/Cart.php:233
 msgid "PersonID for Cart must be numeric"
 msgstr "Ostoskorin PersonID:n on oltava numeerinen"
 
-#: EcclesiaCRM/dto/Cart.php:193 EcclesiaCRM/dto/Cart.php:375
+#: EcclesiaCRM/dto/Cart.php:194 EcclesiaCRM/dto/Cart.php:376
 msgid "GroupID for Cart must be numeric"
 msgstr "Ostoskorin GroupID:n on oltava numeerinen"
 
-#: EcclesiaCRM/dto/Cart.php:209 EcclesiaCRM/dto/Cart.php:288
+#: EcclesiaCRM/dto/Cart.php:210 EcclesiaCRM/dto/Cart.php:289
 msgid "FamilyID for Cart must be numeric"
 msgstr "Ostoskorin FamilyID:n on oltava numeerinen"
+
+#: EcclesiaCRM/dto/Cart.php:389 EcclesiaCRM/dto/Cart.php:409
+msgid "volID for Cart must be numeric"
+msgstr "Ostoskorin volID:n on oltava numeerinen"
 
 #: EcclesiaCRM/dto/EnvelopeUtilities.php:46
 msgid "Assigned envelope numbers to all families with at least one member."
@@ -5051,123 +5080,127 @@ msgid "Use Edrive."
 msgstr "Käytä Edrivea."
 
 #: EcclesiaCRM/dto/SystemConfig.php:272
+msgid "Enable volunteer opportunities"
+msgstr "Vapaaehtoistoimintamahdollisuuksien mahdollistaminen"
+
+#: EcclesiaCRM/dto/SystemConfig.php:273
 msgid "Entity Name"
 msgstr "Yksikön nimi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:273
+#: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Entity Address"
 msgstr "Yksikön osoite"
 
-#: EcclesiaCRM/dto/SystemConfig.php:274
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Entity City"
 msgstr "Yksikkö Kaupunki"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Entity State"
 msgstr "Entiteetin tila"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid "Entity Zip"
 msgstr "Yksikön postinumero"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Entity Phone"
 msgstr "Yksikkö Puhelin"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "Entity Email"
 msgstr "Yksikön sähköpostiosoite"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "Entity Checking Account Number"
 msgstr "Yksikön sekkitilin numero"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Your Entity's Website"
 msgstr "Yhteisösi verkkosivusto"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:283
 msgid "Your Entity's Facebook Page"
 msgstr "Yhteisösi Facebook-sivu"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Your Entity's Twitter Page"
 msgstr "Yhteisösi Twitter-sivu"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Latitude of the entity, used to center the Google map"
 msgstr "Entiteetin leveysaste, jota käytetään Googlen kartan keskittämiseen."
 
-#: EcclesiaCRM/dto/SystemConfig.php:285
+#: EcclesiaCRM/dto/SystemConfig.php:286
 msgid "Longitude of the entity, used to center the Google map"
 msgstr "Entiteetin pituusaste, jota käytetään Googlen kartan keskittämiseen."
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:293
 msgid "Entity Information"
 msgstr "Yksikköä koskevat tiedot"
 
-#: EcclesiaCRM/dto/SystemConfig.php:293
+#: EcclesiaCRM/dto/SystemConfig.php:294
 msgid "Enabled Features"
 msgstr "Käytössä olevat ominaisuudet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:294 Include/Footer.php:201
+#: EcclesiaCRM/dto/SystemConfig.php:295 Include/Footer.php:191
 msgid "System Settings"
 msgstr "Järjestelmäasetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:295
+#: EcclesiaCRM/dto/SystemConfig.php:296
 msgid "Localization"
 msgstr "Lokalisointi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:296
+#: EcclesiaCRM/dto/SystemConfig.php:297
 msgid "User setup"
 msgstr "Käyttäjän asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:297
+#: EcclesiaCRM/dto/SystemConfig.php:298
 msgid "People Setup"
 msgstr "Ihmiset Asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:298
+#: EcclesiaCRM/dto/SystemConfig.php:299
 msgid "Email Setup"
 msgstr "Sähköpostiasetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:299
+#: EcclesiaCRM/dto/SystemConfig.php:300
 msgid "Map Settings"
 msgstr "Kartta-asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:301
+#: EcclesiaCRM/dto/SystemConfig.php:302
 msgid "Sundayschool Attendance"
 msgstr "Sunnuntaikouluun osallistuminen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:302
+#: EcclesiaCRM/dto/SystemConfig.php:303
 msgid "Integration"
 msgstr "Integrointi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:304
+#: EcclesiaCRM/dto/SystemConfig.php:305
 msgid "Quick Search"
 msgstr "Pikahaku"
 
-#: EcclesiaCRM/dto/SystemConfig.php:305
+#: EcclesiaCRM/dto/SystemConfig.php:306
 msgid "Report Settings"
 msgstr "Raportin asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:306
+#: EcclesiaCRM/dto/SystemConfig.php:307
 msgid "Financial Settings"
 msgstr "Taloudelliset asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:307
+#: EcclesiaCRM/dto/SystemConfig.php:308
 msgid "Backup"
 msgstr "Varmuuskopiointi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:308
+#: EcclesiaCRM/dto/SystemConfig.php:309
 msgid "Users Specific Schedule Tasks"
 msgstr "Käyttäjäkohtaiset aikataulutehtävät"
 
-#: EcclesiaCRM/dto/SystemConfig.php:362 EcclesiaCRM/dto/SystemConfig.php:371
-#: EcclesiaCRM/dto/SystemConfig.php:381
+#: EcclesiaCRM/dto/SystemConfig.php:363 EcclesiaCRM/dto/SystemConfig.php:372
+#: EcclesiaCRM/dto/SystemConfig.php:382
 msgid "An invalid configuration name has been requested"
 msgstr "Virheellinen konfiguraation nimi on pyydetty"
 
-#: EcclesiaCRM/dto/SystemConfig.php:396
+#: EcclesiaCRM/dto/SystemConfig.php:397
 msgid "An invalid configuration id has been requested"
 msgstr "Virheellinen konfiguraatiotunnus on pyydetty"
 
@@ -5268,13 +5301,13 @@ msgid "Witness"
 msgstr "Todistaja"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:238
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:408
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:411
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "Luotu"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:243
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:413
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:416
 msgid "Updated"
 msgstr "Päivitetty"
 
@@ -5291,17 +5324,17 @@ msgid "Family Data Verification reset"
 msgstr "Perhetietojen tarkistuksen nollaus"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:260
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:430
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:433
 msgid "Verification email sent"
 msgstr "Vahvistussähköposti lähetetty"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:358
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:615
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:618
 msgid "Profile Image Deleted"
 msgstr "Profiilikuva poistettu"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:374
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:642
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:645
 msgid "Profile Image uploaded"
 msgstr "Profiilikuva ladattu"
 
@@ -5319,86 +5352,91 @@ msgstr "Muokkaa tätä asiakirjaa"
 msgid "Delete this document"
 msgstr "Poistaa tämän asiakirjan"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:418
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:421
 msgid "Person Data Verified"
 msgstr "Henkilötiedot tarkistettu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:422
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:425
 msgid "Person Data Verified by url"
 msgstr "Henkilötiedot vahvistettu url"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:426
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:429
 msgid "Person Data Verification reset"
 msgstr "Henkilötietojen tarkistuksen nollaus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:811
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "mos vanha"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:810
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:813
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "mo vanha"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:814
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:817
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "vuotta vanha"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:816
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:819
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "vuotias"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:814
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:827
 msgid "system user created"
 msgstr "järjestelmän käyttäjä luotu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:817
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
 msgid "system user updated"
 msgstr "järjestelmän käyttäjä päivitetty"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:820
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:833
 msgid "system user deleted"
 msgstr "järjestelmän käyttäjä poistettu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:823
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
 msgid "system user password reset"
 msgstr "järjestelmän käyttäjän salasanan palautus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:826
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:839
 msgid "system user changed password"
 msgstr "järjestelmän käyttäjä vaihtoi salasanaa"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:829
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:842
 msgid "system user password changed by admin"
 msgstr "järjestelmän käyttäjän salasanan on muuttanut admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:832
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:845
 msgid "system user login reset"
 msgstr "järjestelmän käyttäjän kirjautumisen palautus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:838
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:851
 msgid "Dav create file"
 msgstr "Dav luo tiedoston"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:844
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:857
 msgid "Dav create directory"
 msgstr "Dav luo hakemiston"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:850
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:863
 msgid "Dav update file"
 msgstr "Dav päivitystiedosto"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:863
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:876
 msgid "Dav move copy file"
 msgstr "Dav siirrä kopioi tiedosto"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:870
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:883
 msgid "Dav delete file"
 msgstr "Dav poista tiedosto"
+
+#: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:120
+#: v2/templates/calendar/calendar.php:48
+msgid "Personal"
+msgstr "Henkilökohtainen"
 
 #: EcclesiaCRM/tasks/CheckUploadSizeTask.php:35
 msgid "PHP Max File size too small"
@@ -5484,7 +5522,7 @@ msgstr "Joidenkin henkilöiden puuttuvat roolitiedot"
 msgid "Unmet Application Prerequisites"
 msgstr "Täyttämättömät sovelluksen edellytykset"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:334
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:324
 msgid "Register Software"
 msgstr "Rekisteröi ohjelmisto"
 
@@ -5814,40 +5852,40 @@ msgstr "Ryhmän ominaisuudet"
 msgid "Property Types"
 msgstr "Kiinteistötyypit"
 
-#: Include/Footer.php:157
+#: Include/Footer.php:147
 msgid "Edit Donation Funds"
 msgstr "Muokkaa lahjoitusrahastoja"
 
-#: Include/Footer.php:167
+#: Include/Footer.php:157
 msgid "Pastoral Care Type"
 msgstr "Sielunhoidon tyyppi"
 
-#: Include/Footer.php:192 Include/Footer.php:311
+#: Include/Footer.php:182 Include/Footer.php:301
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Ota yhteyttä järjestelmänvalvojaan järjestelmän asetusten muuttamiseksi."
 
-#: Include/Footer.php:210 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:200 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Muokkaa yleisiä asetuksia"
 
-#: Include/Footer.php:222
+#: Include/Footer.php:212
 msgid "System Users"
 msgstr "Järjestelmän käyttäjät"
 
-#: Include/Footer.php:290
+#: Include/Footer.php:280
 msgid "CSV Export Records"
 msgstr "CSV-vienti tietueet"
 
-#: Include/Footer.php:322
+#: Include/Footer.php:312
 msgid "Open Tasks"
 msgstr "Avoimet tehtävät"
 
-#: Include/Footer.php:323
+#: Include/Footer.php:313
 msgid "You have"
 msgstr "Sinulla on"
 
-#: Include/Footer.php:324
+#: Include/Footer.php:314
 msgid "task(s)"
 msgstr "tehtävä(t)"
 
@@ -6287,7 +6325,7 @@ msgstr ""
 #: v2/templates/people/familyview.php:854
 #: v2/templates/people/personPrint.php:239
 #: v2/templates/people/personview.php:178
-#: v2/templates/people/personview.php:1495
+#: v2/templates/people/personview.php:1497
 msgid "Informations"
 msgstr "Tietoja"
 
@@ -6590,7 +6628,7 @@ msgstr ""
 "helpottamiseksi."
 
 #: browser/browse.php:166 v2/templates/edrive/dashboard.php:144
-#: v2/templates/sidebar/systemsettings.php:200
+#: v2/templates/sidebar/systemsettings.php:202
 msgid "Definition"
 msgstr "Määritelmä"
 
@@ -6676,7 +6714,7 @@ msgstr "Rekisteröi"
 #: v2/templates/people/familyEditor.php:1058
 #: v2/templates/people/familyview.php:327
 #: v2/templates/people/personPrint.php:421
-#: v2/templates/people/personview.php:790
+#: v2/templates/people/personview.php:792
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "Perheenjäsenet"
@@ -6859,7 +6897,7 @@ msgstr "Kohtaamme virheen, joka liittyy vahvistustietojesi lähettämiseen."
 #: v2/templates/people/familyview.php:884
 #: v2/templates/people/lettersandlabels.php:269
 #: v2/templates/people/personEditor.php:1740
-#: v2/templates/people/personview.php:1526
+#: v2/templates/people/personview.php:1528
 #: v2/templates/people/reminderreport.php:42
 #: v2/templates/sundayschool/sundayschooldashboard.php:327
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -6914,7 +6952,7 @@ msgid "return to member dashboard"
 msgstr "palaa jäsenen kojelautaan"
 
 #: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:251
+#: v2/templates/people/peopledashboard.php:273
 msgid "Pending Self Verify"
 msgstr "Vireillä Self Verify"
 
@@ -7165,10 +7203,6 @@ msgstr "Tyypeittäin"
 msgid "All"
 msgstr "Kaikki"
 
-#: v2/templates/calendar/calendar.php:48
-msgid "Personal"
-msgstr "Henkilökohtainen"
-
 #: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:157
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/calendar/calendar.php:243
@@ -7340,7 +7374,7 @@ msgstr "Kuvaus"
 #: v2/templates/calendar/eventnames.php:306
 #: v2/templates/deposit/depositslipeditor.php:163
 #: v2/templates/deposit/electronicPaymentList.php:141
-#: v2/templates/people/personview.php:914
+#: v2/templates/people/personview.php:916
 msgid "Action"
 msgstr "Toiminta"
 
@@ -7831,6 +7865,7 @@ msgstr "Sähköpostikoriin"
 #: v2/templates/people/personview.php:427
 #: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
+#: v2/templates/volunteer/volunteerview.php:112
 msgid "Email (BCC)"
 msgstr "Sähköposti (BCC)"
 
@@ -8427,7 +8462,7 @@ msgstr "Luo talletuskuitti valituille riveille (PDF)"
 
 #: v2/templates/deposit/finddepositslip.php:93
 #: v2/templates/people/familyview.php:875
-#: v2/templates/people/personview.php:1515
+#: v2/templates/people/personview.php:1517
 msgid "Confirm Delete"
 msgstr "Vahvista Poista"
 
@@ -8789,6 +8824,7 @@ msgstr ""
 #: v2/templates/sundayschool/sundayschooldashboard.php:329
 #: v2/templates/sundayschool/sundayschoolview.php:181
 #: v2/templates/sundayschool/sundayschoolview.php:299
+#: v2/templates/volunteer/volunteerview.php:256
 msgid "Add"
 msgstr "Lisää"
 
@@ -9315,6 +9351,7 @@ msgstr "Poista korista"
 
 #: v2/templates/group/groupview.php:44 v2/templates/people/familyview.php:235
 #: v2/templates/people/personview.php:415 v2/templates/query/queryview.php:153
+#: v2/templates/volunteer/volunteerview.php:28
 msgid "Add to Cart"
 msgstr "Lisää ostoskoriin"
 
@@ -9339,6 +9376,7 @@ msgstr "Poista tämä ryhmä"
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:70
 #: v2/templates/pastoralcare/pastoralcareperson.php:70
+#: v2/templates/volunteer/volunteerview.php:48
 msgid "Appointment"
 msgstr "Nimitys"
 
@@ -9365,19 +9403,23 @@ msgid "Address Book"
 msgstr "Osoitekirja"
 
 #: v2/templates/group/groupview.php:136
+#: v2/templates/volunteer/volunteerview.php:108
 msgid "Email Group"
 msgstr "Sähköpostiryhmä"
 
 #: v2/templates/group/groupview.php:195
+#: v2/templates/volunteer/volunteerview.php:124
 msgid "Text Group"
 msgstr "Tekstiryhmä"
 
 #: v2/templates/group/groupview.php:198
+#: v2/templates/volunteer/volunteerview.php:127
 msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr ""
 "Paina CTRL + C kopioidaksesi kaikkien ryhmän jäsenten puhelinnumerot\\."
 
 #: v2/templates/group/groupview.php:223
+#: v2/templates/volunteer/volunteerview.php:179
 msgid "Quick Settings"
 msgstr "Pika-asetukset"
 
@@ -9387,18 +9429,22 @@ msgstr "Ryhmä on"
 
 #: v2/templates/group/groupview.php:235
 #: v2/templates/sidebar/kioskmanager.php:29
+#: v2/templates/volunteer/volunteerview.php:191
 msgid "Active"
 msgstr "Aktiivinen"
 
 #: v2/templates/group/groupview.php:239
+#: v2/templates/volunteer/volunteerview.php:196
 msgid "The emails are"
 msgstr "Sähköpostit ovat"
 
 #: v2/templates/group/groupview.php:241
+#: v2/templates/volunteer/volunteerview.php:198
 msgid "Include"
 msgstr "Sisällytä"
 
 #: v2/templates/group/groupview.php:241
+#: v2/templates/volunteer/volunteerview.php:198
 msgid "Exclude"
 msgstr "Lukuun ottamatta"
 
@@ -9431,19 +9477,19 @@ msgid "Assigned Properties"
 msgstr "Myönnetyt ominaisuudet"
 
 #: v2/templates/group/groupview.php:328 v2/templates/people/familyview.php:604
-#: v2/templates/people/personview.php:1097
+#: v2/templates/people/personview.php:1099
 msgid "Assign a New Property"
 msgstr "Uuden ominaisuuden määrittäminen"
 
 #: v2/templates/group/groupview.php:333 v2/templates/people/familyview.php:614
-#: v2/templates/people/personview.php:1105 v2/templates/query/queryview.php:393
+#: v2/templates/people/personview.php:1107 v2/templates/query/queryview.php:393
 #: v2/templates/query/queryview.php:410
 msgid "select an option"
 msgstr "valitse vaihtoehto"
 
 #: v2/templates/group/groupview.php:349 v2/templates/people/familyview.php:635
-#: v2/templates/people/personview.php:1126
-#: v2/templates/people/personview.php:1189
+#: v2/templates/people/personview.php:1128
+#: v2/templates/people/personview.php:1191
 msgid "Assign"
 msgstr "Määritä"
 
@@ -9464,6 +9510,7 @@ msgstr ""
 "Tee tämä painamalla yläpuolella olevaa painiketta: \"Muokkaa tätä ryhmää\"."
 
 #: v2/templates/group/groupview.php:446
+#: v2/templates/volunteer/volunteerview.php:242
 msgid "Manage Group Members"
 msgstr "Hallitse ryhmän jäseniä"
 
@@ -9476,6 +9523,7 @@ msgid "Default Role"
 msgstr "Oletusrooli"
 
 #: v2/templates/group/groupview.php:461
+#: v2/templates/volunteer/volunteerview.php:245
 msgid "Total Members"
 msgstr "Jäsenet yhteensä"
 
@@ -9565,7 +9613,7 @@ msgstr "Määritetyt ryhmät"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
 #: v2/templates/people/personPrint.php:484
-#: v2/templates/people/personview.php:879
+#: v2/templates/people/personview.php:881
 msgid "No group assignments."
 msgstr "Ei ryhmätehtäviä."
 
@@ -9580,13 +9628,13 @@ msgstr "Kiinteistö"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:569
 #: v2/templates/people/personPrint.php:531
 #: v2/templates/people/personPrint.php:587
-#: v2/templates/sidebar/systemsettings.php:91
+#: v2/templates/sidebar/systemsettings.php:93
 msgid "Value"
 msgstr "Arvo"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
 #: v2/templates/people/personPrint.php:580
-#: v2/templates/people/personview.php:1081
+#: v2/templates/people/personview.php:1083
 msgid "No property assignments."
 msgstr "Ei omaisuuden luovutuksia."
 
@@ -9642,8 +9690,8 @@ msgid "to contact"
 msgstr "ottaa yhteyttä"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:71
-#: v2/templates/people/peopledashboard.php:273
-#: v2/templates/people/peopledashboard.php:310
+#: v2/templates/people/peopledashboard.php:295
+#: v2/templates/people/peopledashboard.php:332
 msgid "Count"
 msgstr "Count"
 
@@ -10325,75 +10373,75 @@ msgid "Timeline"
 msgstr "Aikajana"
 
 #: v2/templates/people/familyview.php:455
-#: v2/templates/people/personview.php:646
+#: v2/templates/people/personview.php:648
 msgid "Automatic Payments"
 msgstr "Automaattiset maksut"
 
 #: v2/templates/people/familyview.php:461
-#: v2/templates/people/personview.php:653
+#: v2/templates/people/personview.php:655
 msgid "Pledges and Payments"
 msgstr "Lupaukset ja maksut"
 
 #: v2/templates/people/familyview.php:611
-#: v2/templates/people/personview.php:1103
-#: v2/templates/people/personview.php:1174
-#: v2/templates/people/personview.php:1312
+#: v2/templates/people/personview.php:1105
+#: v2/templates/people/personview.php:1176
+#: v2/templates/people/personview.php:1314
 msgid "Select"
 msgstr "Valitse"
 
 #: v2/templates/people/familyview.php:663
-#: v2/templates/people/personview.php:1220
+#: v2/templates/people/personview.php:1222
 msgid "Add a new automatic payment"
 msgstr "Lisää uusi automaattinen maksu"
 
 #: v2/templates/people/familyview.php:672
-#: v2/templates/people/personview.php:1241
+#: v2/templates/people/personview.php:1243
 msgid "Show Pledges"
 msgstr "Näytä lupaukset"
 
 #: v2/templates/people/familyview.php:676
-#: v2/templates/people/personview.php:1245
+#: v2/templates/people/personview.php:1247
 msgid "Show Payments"
 msgstr "Näytä maksut"
 
 #: v2/templates/people/familyview.php:679
-#: v2/templates/people/personview.php:1248
+#: v2/templates/people/personview.php:1250
 msgid "From"
 msgstr "Osoitteesta"
 
 #: v2/templates/people/familyview.php:688
-#: v2/templates/people/personview.php:1257
+#: v2/templates/people/personview.php:1259
 msgid "To"
 msgstr "Osoitteeseen"
 
 #: v2/templates/people/familyview.php:711
-#: v2/templates/people/personview.php:1270
+#: v2/templates/people/personview.php:1272
 msgid "Add a new pledge"
 msgstr "Lisää uusi lupaus"
 
 #: v2/templates/people/familyview.php:713
-#: v2/templates/people/personview.php:1272
+#: v2/templates/people/personview.php:1274
 msgid "Add a new payment"
 msgstr "Lisää uusi maksu"
 
 #: v2/templates/people/familyview.php:721
-#: v2/templates/people/personview.php:1288
+#: v2/templates/people/personview.php:1290
 msgid " Canvass Entry"
 msgstr " Canvass Entry"
 
 #: v2/templates/people/familyview.php:880
-#: v2/templates/people/personview.php:1520
+#: v2/templates/people/personview.php:1522
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "Olet poistamassa profiilikuvaa, tämä toimenpide on peruuttamaton."
 
 #: v2/templates/people/familyview.php:881
-#: v2/templates/people/personview.php:1522
+#: v2/templates/people/personview.php:1524
 msgid "Do you want to proceed?"
 msgstr "Haluatteko jatkaa?"
 
 #: v2/templates/people/familyview.php:896
-#: v2/templates/people/personview.php:1540
+#: v2/templates/people/personview.php:1542
 msgid "Request Family Info Verification"
 msgstr "Pyydä perheen tietojen vahvistusta"
 
@@ -10411,18 +10459,18 @@ msgstr ""
 
 #: v2/templates/people/familyview.php:928
 #: v2/templates/people/familyview.php:932
-#: v2/templates/people/personview.php:1554
-#: v2/templates/people/personview.php:1558
+#: v2/templates/people/personview.php:1556
+#: v2/templates/people/personview.php:1560
 msgid "Online Verification"
 msgstr "Verkkovarmennus"
 
 #: v2/templates/people/familyview.php:939
-#: v2/templates/people/personview.php:1565
+#: v2/templates/people/personview.php:1567
 msgid "PDF Report"
 msgstr "PDF-raportti"
 
 #: v2/templates/people/familyview.php:943
-#: v2/templates/people/personview.php:1569
+#: v2/templates/people/personview.php:1571
 msgid "Verified In Person"
 msgstr "Vahvistettu henkilökohtaisesti"
 
@@ -10661,111 +10709,112 @@ msgstr "Sunnuntaikoulun lapset"
 
 #: v2/templates/people/peopledashboard.php:161
 #: v2/templates/people/peopledashboard.php:183
+#: v2/templates/people/peopledashboard.php:204
 msgid "More info"
 msgstr "Lisätietoja"
 
-#: v2/templates/people/peopledashboard.php:194
-#: v2/templates/people/peopledashboard.php:234
-#: v2/templates/people/peopledashboard.php:241
+#: v2/templates/people/peopledashboard.php:216
+#: v2/templates/people/peopledashboard.php:256
+#: v2/templates/people/peopledashboard.php:263
 #: v2/templates/sundayschool/sundayschooldashboard.php:151
 msgid "Reports"
 msgstr "Raportit"
 
-#: v2/templates/people/peopledashboard.php:202
+#: v2/templates/people/peopledashboard.php:224
 msgid "Reports on groups and roles"
 msgstr "Ryhmiä ja rooleja koskevat raportit"
 
-#: v2/templates/people/peopledashboard.php:204
+#: v2/templates/people/peopledashboard.php:226
 msgid "Report on group and roles selected (it may be a multi-page PDF)."
 msgstr ""
 "Raportti valitusta ryhmästä ja rooleista (se voi olla monisivuinen PDF-"
 "tiedosto)."
 
-#: v2/templates/people/peopledashboard.php:210
+#: v2/templates/people/peopledashboard.php:232
 msgid "People Directory"
 msgstr "Henkilöhakemisto"
 
-#: v2/templates/people/peopledashboard.php:210
+#: v2/templates/people/peopledashboard.php:232
 msgid "Printable directory of all people, grouped by family where assigned"
 msgstr ""
 "Tulostettava hakemisto kaikista henkilöistä, jotka on ryhmitelty perheen "
 "mukaan, jos ne on osoitettu."
 
-#: v2/templates/people/peopledashboard.php:219
+#: v2/templates/people/peopledashboard.php:241
 msgid ""
 "Printable Pledge Reminder of all people, grouped by family where assigned"
 msgstr ""
 "Tulostettava lupaus Muistutus kaikista ihmisistä, ryhmiteltynä perheen "
 "mukaan, jossa heidät on osoitettu."
 
-#: v2/templates/people/peopledashboard.php:226
+#: v2/templates/people/peopledashboard.php:248
 msgid "Generate letters and mailing labels for data confirmations."
 msgstr "Luo kirjeet ja postituskortit tietojen vahvistamista varten."
 
-#: v2/templates/people/peopledashboard.php:234
+#: v2/templates/people/peopledashboard.php:256
 msgid "Self Update"
 msgstr "Itsepäivitys"
 
-#: v2/templates/people/peopledashboard.php:241
+#: v2/templates/people/peopledashboard.php:263
 msgid "Self Register"
 msgstr "Itserekisteröinti"
 
-#: v2/templates/people/peopledashboard.php:243
+#: v2/templates/people/peopledashboard.php:265
 msgid "List families that were created via self registration."
 msgstr "Luettelo perheistä, jotka on luotu itserekisteröitymisen kautta."
 
-#: v2/templates/people/peopledashboard.php:247
+#: v2/templates/people/peopledashboard.php:269
 msgid "Self Verify Updates"
 msgstr "Self Verify päivitykset"
 
-#: v2/templates/people/peopledashboard.php:247
+#: v2/templates/people/peopledashboard.php:269
 msgid "Families who commented via self verify links"
 msgstr "Perheet, jotka kommentoivat itse vahvistettujen linkkien kautta"
 
-#: v2/templates/people/peopledashboard.php:251
+#: v2/templates/people/peopledashboard.php:273
 msgid "Families with valid self verify links"
 msgstr "Perheet, joilla on voimassaolevat linkit"
 
-#: v2/templates/people/peopledashboard.php:271
+#: v2/templates/people/peopledashboard.php:293
 msgid "Role / Gender"
 msgstr "Rooli / sukupuoli"
 
-#: v2/templates/people/peopledashboard.php:272
-#: v2/templates/people/peopledashboard.php:309
+#: v2/templates/people/peopledashboard.php:294
+#: v2/templates/people/peopledashboard.php:331
 msgid "of People"
 msgstr "of People"
 
-#: v2/templates/people/peopledashboard.php:298
+#: v2/templates/people/peopledashboard.php:320
 msgid "People Classification"
 msgstr "Ihmiset Luokittelu"
 
-#: v2/templates/people/peopledashboard.php:336
+#: v2/templates/people/peopledashboard.php:358
 msgid "Gender Demographics"
 msgstr "Sukupuolen demografiset tiedot"
 
-#: v2/templates/people/peopledashboard.php:351
+#: v2/templates/people/peopledashboard.php:373
 msgid "# Age Histogram"
 msgstr "# Ikä Histogrammi"
 
-#: v2/templates/people/peopledashboard.php:380
+#: v2/templates/people/peopledashboard.php:402
 msgid "Men"
 msgstr "Miehet"
 
-#: v2/templates/people/peopledashboard.php:385
+#: v2/templates/people/peopledashboard.php:407
 msgid "Women"
 msgstr "Naiset"
 
-#: v2/templates/people/peopledashboard.php:394
+#: v2/templates/people/peopledashboard.php:416
 #: v2/templates/sundayschool/sundayschooldashboard.php:74
 msgid "Boys"
 msgstr "Pojat"
 
-#: v2/templates/people/peopledashboard.php:399
+#: v2/templates/people/peopledashboard.php:421
 #: v2/templates/sundayschool/sundayschooldashboard.php:86
 msgid "Girls"
 msgstr "Tytöt"
 
-#: v2/templates/people/peopledashboard.php:465
+#: v2/templates/people/peopledashboard.php:487
 msgid "# number of people"
 msgstr "# ihmisten määrä"
 
@@ -11002,72 +11051,72 @@ msgstr " tämä henkilö"
 msgid "Delete this Record"
 msgstr "Poista tämä tietue"
 
-#: v2/templates/people/personview.php:766
+#: v2/templates/people/personview.php:768
 msgid "click to download"
 msgstr "klikkaa ladataksesi"
 
-#: v2/templates/people/personview.php:924
+#: v2/templates/people/personview.php:926
 msgid "Change Role"
 msgstr "Vaihda rooli"
 
-#: v2/templates/people/personview.php:931
+#: v2/templates/people/personview.php:933
 msgid "Update Properties"
 msgstr "Päivitä ominaisuudet"
 
-#: v2/templates/people/personview.php:969
+#: v2/templates/people/personview.php:971
 msgid "Group Informations"
 msgstr "Ryhmän tiedot"
 
-#: v2/templates/people/personview.php:1010
+#: v2/templates/people/personview.php:1012
 msgid "Person Informations"
 msgstr "Henkilötiedot"
 
-#: v2/templates/people/personview.php:1032
+#: v2/templates/people/personview.php:1034
 msgid "Modify Specific Properties"
 msgstr "Muokkaa tiettyjä ominaisuuksia"
 
-#: v2/templates/people/personview.php:1043
+#: v2/templates/people/personview.php:1045
 msgid "No specific group properties defined !"
 msgstr "Erityisiä ryhmän ominaisuuksia ei ole määritelty !"
 
-#: v2/templates/people/personview.php:1151
+#: v2/templates/people/personview.php:1153
 msgid "No volunteer opportunity assignments."
 msgstr "Ei vapaaehtoistehtäviä."
 
-#: v2/templates/people/personview.php:1166
+#: v2/templates/people/personview.php:1168
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Määritä uusi vapaaehtoistoimintamahdollisuus"
 
-#: v2/templates/people/personview.php:1225
-#: v2/templates/people/personview.php:1277
+#: v2/templates/people/personview.php:1227
+#: v2/templates/people/personview.php:1279
 msgid "You must set an address for this person"
 msgstr "Sinun on määritettävä tälle henkilölle osoite"
 
-#: v2/templates/people/personview.php:1313
+#: v2/templates/people/personview.php:1315
 msgid "Filter your documents by : "
 msgstr "Suodata asiakirjoja :"
 
-#: v2/templates/people/personview.php:1314
+#: v2/templates/people/personview.php:1316
 msgid "All type"
 msgstr "Kaikki tyypit"
 
-#: v2/templates/people/personview.php:1319
+#: v2/templates/people/personview.php:1321
 msgid "Shared documents"
 msgstr "Jaetut asiakirjat"
 
-#: v2/templates/people/personview.php:1370
+#: v2/templates/people/personview.php:1372
 msgid "Share this document to another user"
 msgstr "Jaa tämä asiakirja toiselle käyttäjälle"
 
-#: v2/templates/people/personview.php:1379
+#: v2/templates/people/personview.php:1381
 msgid "Export this document to word Format"
 msgstr "Vie tämä asiakirja word-muotoon"
 
-#: v2/templates/people/personview.php:1423
+#: v2/templates/people/personview.php:1425
 msgid "Last modification by"
 msgstr "Viimeisin muutos"
 
-#: v2/templates/people/personview.php:1545
+#: v2/templates/people/personview.php:1547
 msgid "Select how do you want to request the person information to be verified"
 msgstr "Valitse, miten haluat pyytää henkilön tietoja tarkistettavaksi."
 
@@ -11393,7 +11442,8 @@ msgstr "Lisää mukautettu valikkolinkki"
 #: v2/templates/sidebar/menulinklist.php:22
 #: v2/templates/sidebar/pastoralcarelist.php:27
 #: v2/templates/sidebar/propertytypelist.php:21
-#: v2/templates/sidebar/volunteeropportunityeditor.php:19
+#: v2/templates/volunteer/volunteeropportunity.php:19
+#: v2/templates/volunteer/volunteerview.php:141
 msgid "Only an admin can modify or delete this records."
 msgstr "Vain ylläpitäjä voi muuttaa tai poistaa näitä tietueita."
 
@@ -11433,46 +11483,42 @@ msgstr "Asetus tallennettu"
 msgid "Edit JSON Settings"
 msgstr "Muokkaa JSON-asetuksia"
 
-#: v2/templates/sidebar/systemsettings.php:76
+#: v2/templates/sidebar/systemsettings.php:77
 #: v2/templates/user/userseditor.php:882 v2/templates/user/usersettings.php:62
 #: v2/templates/user/usersettings.php:325
 #: v2/templates/user/usersettings.php:457
 msgid "Save Settings"
 msgstr "Tallenna asetukset"
 
-#: v2/templates/sidebar/systemsettings.php:90
+#: v2/templates/sidebar/systemsettings.php:92
 #: v2/templates/user/userseditor.php:523 v2/templates/user/usersettings.php:35
 #: v2/templates/user/usersettings.php:86
 msgid "Variable name"
 msgstr "Muuttujan nimi"
 
-#: v2/templates/sidebar/systemsettings.php:92
+#: v2/templates/sidebar/systemsettings.php:94
 msgid "Default Value"
 msgstr "Oletusarvo"
 
-#: v2/templates/sidebar/systemsettings.php:159
+#: v2/templates/sidebar/systemsettings.php:161
 #: v2/templates/user/userseditor.php:560 v2/templates/user/userseditor.php:613
 #: v2/templates/user/usersettings.php:276
 msgid "False"
 msgstr "False"
 
-#: v2/templates/sidebar/systemsettings.php:160
+#: v2/templates/sidebar/systemsettings.php:162
 #: v2/templates/user/userseditor.php:561 v2/templates/user/userseditor.php:614
 #: v2/templates/user/usersettings.php:277
 msgid "True"
 msgstr "Totta"
 
-#: v2/templates/sidebar/systemsettings.php:169
+#: v2/templates/sidebar/systemsettings.php:171
 msgid "Edit Settings"
 msgstr "Muokkaa asetuksia"
 
-#: v2/templates/sidebar/systemsettings.php:183
+#: v2/templates/sidebar/systemsettings.php:185
 msgid "Unknown Type"
 msgstr "Tuntematon tyyppi"
-
-#: v2/templates/sidebar/volunteeropportunityeditor.php:15
-msgid "Add Volunteer Opportunity"
-msgstr "Lisää vapaaehtoistyömahdollisuus"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:27
 msgid "Classes"
@@ -12889,6 +12935,39 @@ msgstr "Säilytä nämä turvallisessa paikassa"
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Aloita kaksitekijätodennuksen rekisteröinti"
 
+#: v2/templates/volunteer/volunteeropportunity.php:15
+#: v2/templates/volunteer/volunteerview.php:137
+msgid "Add Volunteer Opportunity"
+msgstr "Lisää vapaaehtoistyömahdollisuus"
+
+#: v2/templates/volunteer/volunteerview.php:35
+msgid "To modify the name fo the volunteer opportunity"
+msgstr "Vapaaehtoistoimintamahdollisuuden nimen muuttaminen"
+
+#: v2/templates/volunteer/volunteerview.php:35
+msgid "Modify Name"
+msgstr "Muokkaa nimeä"
+
+#: v2/templates/volunteer/volunteerview.php:38
+msgid "Remove Volunteer Opportunities"
+msgstr "Poista vapaaehtoistyömahdollisuudet"
+
+#: v2/templates/volunteer/volunteerview.php:55
+msgid "Contacts"
+msgstr "Yhteystiedot"
+
+#: v2/templates/volunteer/volunteerview.php:155
+msgid "Hierarchy"
+msgstr "Hierarkia"
+
+#: v2/templates/volunteer/volunteerview.php:189
+msgid "Volunteers opportunity is"
+msgstr "Vapaaehtoisten mahdollisuus on"
+
+#: v2/templates/volunteer/volunteerview.php:210
+msgid "Volunteers Managers"
+msgstr "Vapaaehtoiset johtajat"
+
 #: query_qry.php:2 query_qry.php:57
 msgid "Family With Work Phone"
 msgstr "Perhe, jolla on työpuhelin"
@@ -13701,6 +13780,9 @@ msgstr "Useita päiviä"
 
 msgid "Giving Report"
 msgstr "Antaminen Raportti"
+
+#~ msgid "Volunteer Opportunity Editor"
+#~ msgstr "Vapaaehtoistyömahdollisuus Editor"
 
 #~ msgid "avec le séparateur csv \" ; \""
 #~ msgstr "avec le séparateur csv \" ; \""

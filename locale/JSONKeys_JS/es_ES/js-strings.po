@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -263,6 +263,12 @@ msgstr "Su software ya está registrado. Gracias."
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Select Volunteer Opportunity"
+msgstr "Seleccionar oportunidad de voluntariado"
+
+msgid "Please select target volunteers for members"
+msgstr "Por favor, seleccione voluntarios para los miembros"
 
 msgid "Please select target group for members"
 msgstr "Por favor, seleccione el grupo objetivo para los miembros"
@@ -1768,17 +1774,8 @@ msgstr "y perder las asignaciones de propiedad correspondientes."
 msgid "Add a New Property Type"
 msgstr "Añadir un nuevo tipo de propiedad"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "Añadir nueva oportunidad de voluntariado"
-
-msgid "Activ"
-msgstr "Activar"
-
-msgid "Parent (hierarchy)"
-msgstr "Padre (jerarquía)"
-
-msgid "Color"
-msgstr "Color"
+msgid "Setting saved"
+msgstr "Ajuste guardado"
 
 msgid "Send Message"
 msgstr "Enviar mensaje"
@@ -2546,15 +2543,21 @@ msgstr "Editor del número de comprador"
 msgid "Select"
 msgstr "Seleccione"
 
+#~ msgid "Activ"
+#~ msgstr "Activar"
+
+#~ msgid "Parent (hierarchy)"
+#~ msgstr "Padre (jerarquía)"
+
+#~ msgid "Color"
+#~ msgstr "Color"
+
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr ""
 #~ "¿Está seguro de que quiere eliminar los miembros del grupo seleccionados?"
 
 #~ msgid "Songs"
 #~ msgstr "Canciones"
-
-#~ msgid "Settings"
-#~ msgstr "Ajustes"
 
 #~ msgid "Backup Complete, Ready for Download."
 #~ msgstr "Copia de seguridad completa, lista para descargar."

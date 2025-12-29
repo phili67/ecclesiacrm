@@ -2526,6 +2526,15 @@ msgid ""
 "pressing the Send button."
 msgstr "请核对这些信息并按发送按钮注册您的 CRM 版本。"
 
+msgid "Select Volunteer Opportunity"
+msgstr "选择志愿者机会"
+
+msgid "Please select target volunteers for members"
+msgstr "请为成员选择目标志愿者"
+
+msgid "Setting saved"
+msgstr "已保存的设置"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 

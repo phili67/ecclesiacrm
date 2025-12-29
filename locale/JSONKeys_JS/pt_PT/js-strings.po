@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,6 +265,14 @@ msgstr "O seu software está agora registado. Obrigado !"
 
 msgid "OK"
 msgstr "OK"
+
+#, fuzzy
+msgid "Select Volunteer Opportunity"
+msgstr "Adicionar Nova Oportunidade de Voluntariado"
+
+#, fuzzy
+msgid "Please select target volunteers for members"
+msgstr "Por favor, selecione o papel alvo para os membros"
 
 msgid "Please select target group for members"
 msgstr "Por favor, selecione o grupo alvo para membros"
@@ -1770,17 +1778,8 @@ msgstr "e perder qualquer atribuição de propriedade correspondente."
 msgid "Add a New Property Type"
 msgstr "Adicionar um Novo Tipo de Propriedade"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "Adicionar Nova Oportunidade de Voluntariado"
-
-msgid "Activ"
-msgstr "Activ"
-
-msgid "Parent (hierarchy)"
-msgstr "Pai (hierarquia)"
-
-msgid "Color"
-msgstr "Cor"
+msgid "Setting saved"
+msgstr ""
 
 msgid "Send Message"
 msgstr "Enviar Mensagem"
@@ -2544,6 +2543,15 @@ msgstr "Comprador Número Editor"
 
 msgid "Select"
 msgstr "Selecione"
+
+#~ msgid "Activ"
+#~ msgstr "Activ"
+
+#~ msgid "Parent (hierarchy)"
+#~ msgstr "Pai (hierarquia)"
+
+#~ msgid "Color"
+#~ msgstr "Cor"
 
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr ""

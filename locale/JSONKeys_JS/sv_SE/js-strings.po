@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-16T18:22:50.512Z\n"
+"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -261,6 +261,12 @@ msgstr "Din programvara är nu registrerad. Tack!"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Select Volunteer Opportunity"
+msgstr "Välj volontärmöjlighet"
+
+msgid "Please select target volunteers for members"
+msgstr "Vänligen välj målgrupp för volontärer för medlemmar"
 
 msgid "Please select target group for members"
 msgstr "Välj målgrupp för medlemmarna"
@@ -1751,17 +1757,8 @@ msgstr "och förlorar alla motsvarande fastighetstilldelningar."
 msgid "Add a New Property Type"
 msgstr "Lägg till en ny egenskapstyp"
 
-msgid "Add New Volunteer Opportunity"
-msgstr "Lägg till ett nytt volontärtillfälle"
-
-msgid "Activ"
-msgstr "Aktivera"
-
-msgid "Parent (hierarchy)"
-msgstr "Förälder (hierarki)"
-
-msgid "Color"
-msgstr "Färg"
+msgid "Setting saved"
+msgstr "Inställning sparad"
 
 msgid "Send Message"
 msgstr "Skicka meddelande"
@@ -2522,14 +2519,20 @@ msgstr "Köpare Nummer Redaktör"
 msgid "Select"
 msgstr "Välj"
 
+#~ msgid "Activ"
+#~ msgstr "Aktivera"
+
+#~ msgid "Parent (hierarchy)"
+#~ msgstr "Förälder (hierarki)"
+
+#~ msgid "Color"
+#~ msgstr "Färg"
+
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Är du säker på att du vill ta bort de valda gruppmedlemmarna?"
 
 #~ msgid "Songs"
 #~ msgstr "Sånger"
-
-#~ msgid "Settings"
-#~ msgstr "Inställningar"
 
 #~ msgid "Backup Complete, Ready for Download."
 #~ msgstr "Säkerhetskopiering klar, redo för nedladdning."
