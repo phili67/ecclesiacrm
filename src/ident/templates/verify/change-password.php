@@ -8,7 +8,7 @@ $sPageTitle = "CRM - Family Verification";
 require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 ?>
 
-    <div class="register-box">
+    <div class="register-box blur">
         <div class="register-logo">
             <a href="<?= SystemURLs::getRootPath() ?>/"><?= Bootstrapper::getSoftwareName() ?><br/>
             <span><?= SystemConfig::getValue("sEntityName") ?></span>

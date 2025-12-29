@@ -26,7 +26,7 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
             <i class="fas fa-check fa-5x"></i></button>
     </div>
 </div>
-<div class="card card-info" id="verifyBox">
+<div class="card card-info blur" id="verifyBox">
     <div class="card-body">
         <img class="img-circle center-block pull-right img-responsive initials-image" width="200" height="200"
              src="data:image/png;base64,<?= base64_encode($family->getPhoto()->getThumbnailBytes()) ?>">
