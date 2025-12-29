@@ -422,3 +422,4 @@ ALTER TABLE `addressbooks` ADD `volId` mediumint(8) NOT NULL default -1 COMMENT 
 
 -- 2025-12-23
 ALTER TABLE `volunteeropportunity_vol` ADD `vol_managers`  BOOLEAN NOT NULL default 0;
+ALTER TABLE `volunteeropportunity_vol` ADD `vol_include_email_export` BOOLEAN NOT NULL default 1;
