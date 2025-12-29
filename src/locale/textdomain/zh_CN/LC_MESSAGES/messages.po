@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-28 17:31+0000\n"
+"POT-Creation-Date: 2025-12-29 14:03+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1311,7 +1311,7 @@ msgstr "请核实你的家庭信息"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:42
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:46
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
-#: external/templates/password/enter-username.php:47
+#: external/templates/password/enter-username.php:37
 #: external/templates/password/password-check-email.php:31
 #: ident/templates/verify/login-info.php:46 session/templates/session.php:264
 msgid "Login"
@@ -5862,7 +5862,7 @@ msgid "View Issue on GitHub"
 msgstr "在GitHub上查看问题"
 
 #: Include/Header-function.php:131
-#: external/templates/password/enter-username.php:42
+#: external/templates/password/enter-username.php:32
 msgid "OK"
 msgstr "认可"
 
@@ -6578,24 +6578,24 @@ msgstr "哎呀!没有找到页面。"
 msgid "Family Registration"
 msgstr "家庭注册"
 
-#: external/templates/password/enter-username.php:29
+#: external/templates/password/enter-username.php:19
 msgid "Reset your password"
 msgstr "重置您的密码"
 
-#: external/templates/password/enter-username.php:33
+#: external/templates/password/enter-username.php:23
 #: v2/templates/user/userseditor.php:89 v2/templates/user/userseditor.php:148
 msgid "Login Name"
 msgstr "登录名称"
 
-#: external/templates/password/enter-username.php:62
+#: external/templates/password/enter-username.php:52
 msgid "Check your email for a password reset link"
 msgstr "检查你的电子邮件以获取密码重置链接"
 
-#: external/templates/password/enter-username.php:70
+#: external/templates/password/enter-username.php:60
 msgid "Sorry, we are unable to process your request at this point in time."
 msgstr "对不起，我们现在无法处理您的请求。"
 
-#: external/templates/password/enter-username.php:74
+#: external/templates/password/enter-username.php:64
 msgid "Login Name is Required"
 msgstr "登录名是必需的"
 
