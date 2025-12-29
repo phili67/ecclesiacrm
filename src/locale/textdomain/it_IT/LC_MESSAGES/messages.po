@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-28 17:31+0000\n"
+"POT-Creation-Date: 2025-12-29 14:03+0000\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1323,7 +1323,7 @@ msgstr "Verifica le informazioni della tua famiglia"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:42
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:46
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
-#: external/templates/password/enter-username.php:47
+#: external/templates/password/enter-username.php:37
 #: external/templates/password/password-check-email.php:31
 #: ident/templates/verify/login-info.php:46 session/templates/session.php:264
 msgid "Login"
@@ -5956,7 +5956,7 @@ msgid "View Issue on GitHub"
 msgstr "Visualizza il problema su GitHub"
 
 #: Include/Header-function.php:131
-#: external/templates/password/enter-username.php:42
+#: external/templates/password/enter-username.php:32
 msgid "OK"
 msgstr "OK"
 
@@ -6676,26 +6676,26 @@ msgstr "Ops! Pagina non trovata."
 msgid "Family Registration"
 msgstr "Registrazione della famiglia"
 
-#: external/templates/password/enter-username.php:29
+#: external/templates/password/enter-username.php:19
 msgid "Reset your password"
 msgstr "Ripristina la tua password"
 
-#: external/templates/password/enter-username.php:33
+#: external/templates/password/enter-username.php:23
 #: v2/templates/user/userseditor.php:89 v2/templates/user/userseditor.php:148
 msgid "Login Name"
 msgstr "Nome di accesso"
 
-#: external/templates/password/enter-username.php:62
+#: external/templates/password/enter-username.php:52
 msgid "Check your email for a password reset link"
 msgstr "Controlla la tua email per un link di reset della password"
 
-#: external/templates/password/enter-username.php:70
+#: external/templates/password/enter-username.php:60
 msgid "Sorry, we are unable to process your request at this point in time."
 msgstr ""
 "Siamo spiacenti, non siamo in grado di elaborare la sua richiesta in questo "
 "momento."
 
-#: external/templates/password/enter-username.php:74
+#: external/templates/password/enter-username.php:64
 msgid "Login Name is Required"
 msgstr "Il nome di accesso è richiesto"
 

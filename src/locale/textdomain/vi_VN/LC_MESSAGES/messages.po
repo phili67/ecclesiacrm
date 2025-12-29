@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-28 17:20+0000\n"
+"POT-Creation-Date: 2025-12-29 14:03+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1330,7 +1330,7 @@ msgstr "Xin hãy xác minh thông tin của gia đình"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:42
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:46
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
-#: external/templates/password/enter-username.php:47
+#: external/templates/password/enter-username.php:37
 #: external/templates/password/password-check-email.php:31
 #: ident/templates/verify/login-info.php:46 session/templates/session.php:264
 msgid "Login"
@@ -5971,7 +5971,7 @@ msgid "View Issue on GitHub"
 msgstr "Phát hiện trên GitHub"
 
 #: Include/Header-function.php:131
-#: external/templates/password/enter-username.php:42
+#: external/templates/password/enter-username.php:32
 msgid "OK"
 msgstr "Được rồi."
 
@@ -6696,24 +6696,24 @@ msgstr "Oops! Trang không tìm thấy."
 msgid "Family Registration"
 msgstr "Đăng ký gia đình"
 
-#: external/templates/password/enter-username.php:29
+#: external/templates/password/enter-username.php:19
 msgid "Reset your password"
 msgstr "Hãy cài mật khẩu đi"
 
-#: external/templates/password/enter-username.php:33
+#: external/templates/password/enter-username.php:23
 #: v2/templates/user/userseditor.php:89 v2/templates/user/userseditor.php:148
 msgid "Login Name"
 msgstr "Tên gốc"
 
-#: external/templates/password/enter-username.php:62
+#: external/templates/password/enter-username.php:52
 msgid "Check your email for a password reset link"
 msgstr "Kiểm tra email xem có liên kết lại mật khẩu không"
 
-#: external/templates/password/enter-username.php:70
+#: external/templates/password/enter-username.php:60
 msgid "Sorry, we are unable to process your request at this point in time."
 msgstr "Xin lỗi, chúng tôi không thể xử lý yêu cầu của anh vào thời điểm này."
 
-#: external/templates/password/enter-username.php:74
+#: external/templates/password/enter-username.php:64
 msgid "Login Name is Required"
 msgstr "Tên Login là yêu cầu"
 
