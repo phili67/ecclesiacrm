@@ -13,6 +13,7 @@ use EcclesiaCRM\Utils\CacheProvider;
 use EcclesiaCRM\Synchronize\DropDownEmailsClass;
 use EcclesiaCRM\Synchronize\EmailRoleClass;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\VolunteerOpportunityQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Propel;
 
@@ -131,6 +132,7 @@ class DashboardItemService
 
         return $res;
     }
+
     public function getAllItems():array {
         if (CacheProvider::timeRemaining('DashboardItemService-getAllItems') > 0)
             return CacheProvider::get('DashboardItemService-getAllItems');
@@ -214,6 +216,8 @@ class DashboardItemService
 
         $details = self::getDetails($classStats);
 
+        $volunteerOpportunities = VolunteerOpportunityQuery::create()->filterByActive('true')->find();
+
         $data = ['sundaySchoolClasses' => intval($groupsAndSundaySchoolStats['SundaySchoolClasses']),
             'sundaySchoolkids' => intval($groupsAndSundaySchoolStats['SundaySchoolKidsCount']),
             'SundaySchoolFamiliesCNT' => intval($groupsAndSundaySchoolStats['SundaySchoolFamiliesCount']),
@@ -225,7 +229,7 @@ class DashboardItemService
             'femaleKidsCNT' => $femaleKidsCNT,
             'emailLink' => $details['emailLink'],
             'dropDown' => $details['dropDown'],
-            'cart' => $details['cart']
+            'cart' => $details['cart']            
         ];
 
         $res = [
@@ -234,6 +238,7 @@ class DashboardItemService
             'singleCount' => $allSingleCNT,
             'groupsCount' => $groupsCount,
             'SundaySchoolCount' => $SundaySchoolCount,
+            'VolunteerOpportunitiesCount' => $volunteerOpportunities->count(),
             'sundaySchoolCountStats' => $data
         ];
 
