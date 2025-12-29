@@ -1671,6 +1671,13 @@ window.CRM.synchronize = {
         dashBoardGroupsCountDashboard.innerText = data.groups;
       }
     },
+    VolunteersDisplay: function (data) {
+      let dashBoardVolunteersCountDashboard = document.getElementById('volunteerOpportunitiesCountDashboard');
+
+      if (dashBoardVolunteersCountDashboard) {// We have to check if we are on the dashboard menu
+        dashBoardVolunteersCountDashboard.innerText = data.volunteers;
+      }
+    },
     SundaySchoolDisplay: function (data) {
       let sundaySchoolClassesDasBoard = document.getElementById('sundaySchoolClassesDasBoard');
 

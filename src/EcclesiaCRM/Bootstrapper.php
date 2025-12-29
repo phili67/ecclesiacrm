@@ -279,15 +279,21 @@ namespace EcclesiaCRM
 
           // we install all the needed plugins
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/BirthdayAnniversaryDashboard/mysql/Install.sql', $connection);
-          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/FamilyInfosDashboard/mysql/CurrentUsersDashboard.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/CurrentUsersDashboard/mysql/Install.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/FamilyDashboardWidget/mysql/Install.sql', $connection);
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/FamilyInfosDashboard/mysql/Install.sql', $connection);
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/FinanceDashboard/mysql/Install.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/GroupDashboardWidget/mysql/Install.sql', $connection);  
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/mysql/Install.sql', $connection);
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/NewsDashboard/mysql/Install.sql', $connection);
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/NoteDashboard/mysql/Install.sql', $connection);
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/PastoralCareDashboard/mysql/Install.sql', $connection);
-          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/PersonInfosDashboard/mysql/Install.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/PersonDashboardWidget/mysql/Install.sql', $connection);  
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/PersonInfosDashboard/mysql/Install.sql', $connection); 
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/SingleDashboardWidget/mysql/Install.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/SundaySchoolDashboardWidget/mysql/Install.sql', $connection);
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/ToDoListDashboard/mysql/Install.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/VolunteerDashboardWidget/mysql/Install.sql', $connection);
 
           $version->setUpdateEnd(new \DateTime());
           $version->save();

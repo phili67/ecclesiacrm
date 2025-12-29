@@ -185,6 +185,28 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
         </div>
     </div>
     <!-- ./col -->
+    <div class="col-lg-2 col-md-6 col-sm-6">
+        <!-- small box -->
+        <div class="small-box bg-white">
+            <div class="inner">
+                <h3 id="volunteerOpportunitiesCountDashboard">
+                    <?= $PeopleAndSundaySchoolCountStats['VolunteerOpportunitiesCount'] ?>
+                </h3>
+
+                <p>
+                    <?= _('Volunteer Opportunities') ?>
+                </p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <a href="<?= $sRootPath ?>/v2/volunteeropportunity" class="small-box-footer">
+                <?= _('More info') ?> <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <!-- ./col -->
+
 
 </div><!-- /.row -->
 <div class="row">
