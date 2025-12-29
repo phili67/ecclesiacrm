@@ -1,7 +1,3 @@
-.login-page, .register-page {
-    background : #f3f2f7 !important;
-}
-
 .wizard > .content {
     background: #fff;
 }
@@ -31,4 +27,30 @@
 .alert-warning-text {
     color: orange;
     margin: -10 0 0 0;
+}
+
+.login-card-body, .register-card-body {
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: #000 !important;
+    /*box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);*/
+}
+
+.blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    color: black !important;
+}
+
+.login-page, .register-page, .lockscreen {
+    background : #f3f2f7 !important;
+    background-image: url(../Images/Session/background.jpg) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
+.lockscreen-wrapper {
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+color: #000 !important;
 }
