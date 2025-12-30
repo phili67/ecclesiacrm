@@ -185,13 +185,12 @@ unlink(SystemURLs::getDocumentRoot() . "/skin/js/initial.js");
 unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/sabre/CalDavPDO.php");
 unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/sabre/CardDavPDO.php");
 unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/sabre/VCalendarExtension.php");
+unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/sabre/HomeCollection.php");
 unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/sabre/VObjectExtract.php");
 
 // 2025-06-01
 mkdir(SystemURLs::getDocumentRoot()."/Images/tmp", 0755);
 
-// vonage nexmo is now unusefull
-MiscUtils::delTree(SystemURLs::getDocumentRoot() . "/vendor/vonage");
 
 // 2025-07-23
 unlink(SystemURLs::getDocumentRoot() . "/skin/js/email/MailChimp/Debug.js");
@@ -240,7 +239,6 @@ unlink(SystemURLs::getDocumentRoot() . "/eGive.php");
 
 // 2024-11-11
 unlink(SystemURLs::getDocumentRoot() . "/v2/routes/sidebar/volunteeropportunityeditor.php");
-unlink(SystemURLs::getDocumentRoot() . "/v2/routes/sidebar/volunteeropportunityeditor.php");
 unlink(SystemURLs::getDocumentRoot() . "/v2/templates/sidebar/volunteeropportunityeditor.php");
 unlink(SystemURLs::getDocumentRoot() . "/skin/js/sidebar/VolunteerOpportunity.js");
 unlink(SystemURLs::getDocumentRoot() . "/api/routes/sidebar/sidebar-volunteeropportunity.php");
@@ -258,5 +256,53 @@ MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/boots
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/font-awesome/");
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/fonts/");
 
+// we cleanup the vendor folder
+$baseDir = SystemURLs::getDocumentRoot() . '/vendor';
+
+// Liste des dossiers à garder
+$allowedFolders = ['clue', 'defuse', 'endroid', 'geocoder-php', 'ifsnop', 'laminas', 'markbaker', 'mustache', 'pclzip', 'phpmailer',  
+    'psr', 'sabberworm', 'symfony', 'verot', 'bacon', 'composer', 'dompdf', 'fig', 'guzzlehttp', 'jimtools', 'laravel', 'masterminds', 
+    'nikic', 'php-di', 'phpoffice', 'ralouphie', 'sabre', 'tecnickcom', 'willdurand', 'bin', 'dasprid', 'drewm', 'firebase', 'http-interop', 
+    'knplabs', 'maennchen', 'monolog', 'paragonie', 'php-http', 'propel', 'robthree', 'slim', 'tuupola'];
+
+// Scanner le dossier parent
+$folders = scandir($baseDir);
+
+foreach ($folders as $folder) {
+    if ($folder === '.' || $folder === '..') {
+        continue;
+    }
+
+    $fullPath = $baseDir . '/' . $folder;
+
+    // Vérifie si c’est un dossier et qu’il n’est pas autorisé
+    if (is_dir($fullPath) && !in_array($folder, $allowedFolders)) {
+        MiscUtils::delTree(SystemURLs::getDocumentRoot() . "/vendor/". $folder);
+    }
+}
+
+// we cleanup the skin/external folder
+$baseDir = SystemURLs::getDocumentRoot() . '/skin/external';
+
+// Liste des dossiers à garder
+$allowedFolders = ['adminlte', 'bootstrap-colorpicker', 'bootstrap-toggle', 'ckeditor', 'flot', 'i18next', 'jquery', 'jquery-ui-touch-punch', 'jsqr', 'pace', 
+    'bootbox', 'bootstrap-datepicker', 'bootstrap-validator', 'datatables', 'font-awesome-new', 'iCheck', 'jquery-photo-uploader', 'jquery-validation', 'leaflet', 'popper', 
+    'bootstrap', 'bootstrap-datetimepicker', 'chartjs', 'fastclick', 'fullcalendar', 'inputmask', 'jquery-ui', 'jquery.steps', 'moment', 'select2'];
+
+// Scanner le dossier parent
+$folders = scandir($baseDir);
+
+foreach ($folders as $folder) {
+    if ($folder === '.' || $folder === '..') {
+        continue;
+    }
+
+    $fullPath = $baseDir . '/' . $folder;
+
+    // Vérifie si c’est un dossier et qu’il n’est pas autorisé
+    if (is_dir($fullPath) && !in_array($folder, $allowedFolders)) {
+        MiscUtils::delTree(SystemURLs::getDocumentRoot() . "/skin/external/". $folder);
+    }
+}
 
 $logger->info("End of delete :  all unusefull files");

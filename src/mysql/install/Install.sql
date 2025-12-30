@@ -1916,7 +1916,7 @@ CREATE TABLE `plugin` (
   `plgn_ID` mediumint(8) unsigned NOT NULL auto_increment,
   `plgn_Name` varchar(255) DEFAULT '',
   `plgn_Description` text,
-  `plgn_Category` enum('Dashboard', 'Personal', 'GDPR', 'Events','MEDIAS','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Communication', 'Deposit', 'Funds', 'FreeMenu', 'EDrive') NOT NULL default 'Personal' COMMENT 'For the left side menu bar',
+  `plgn_Category` enum('Dashboard', 'Personal', 'GDPR', 'Events','MEDIAS','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Communication', 'Deposit', 'Funds', 'FreeMenu', 'EDrive', 'Volunteer') NOT NULL default 'Personal' COMMENT 'For the left side menu bar',
   `plgn_UserRole_Dashboard_Availability` BOOLEAN NOT NULL default 0 COMMENT 'role choice (0 = only user/ 1 = useror admin) available for dashboard plugins only ',
   `plgn_position` enum('inside_category_menu', 'after_category_menu') NOT NULL default 'after_category_menu' COMMENT 'Inside category menu or after',
   `plgn_securities` INT(40) DEFAULT 0 COMMENT 'See for this point EcclesiaCRM/User.php model class in : SecurityOptions 0 mean not dashboard',
@@ -1927,7 +1927,7 @@ CREATE TABLE `plugin` (
   `plgn_activ` BOOLEAN NOT NULL default 0 COMMENT 'activation status',
   `plgn_version` varchar(50) NOT NULL default '',
   `plgn_prefix` varchar(50) NOT NULL default '' COMMENT 'prefix of the database tables, to avoid conflicts',
-  `plgn_mailer` BOOLEAN NOT NULL default 0,
+  `plgn_mailer` BOOLEAN NOT NULL default 0 COMMENT 'is a plugin mailer',
   PRIMARY KEY  (`plgn_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -1967,7 +1967,7 @@ CREATE TABLE `plugin_user_role` (
     `plgn_usr_rl_visible` BOOLEAN NOT NULL default 1 COMMENT 'visible on dashboard (only for dashboard plugins)',
     `plgn_usr_rl_orientation` enum('widget', 'top', 'left', 'center', 'right') NOT NULL default 'left' COMMENT 'only for dashboard plugins',
     `plgn_usr_rl_place` mediumint(9) unsigned NOT NULL default '0' COMMENT 'position on the dashboard',
-    `plgn_usr_rl_color` enum('bg-gradient-blue text-white', 'bg-gradient-indigo text-white', 'bg-gradient-navy text-white', 'bg-gradient-maroon text-white', 'bg-gradient-purple text-white', 'bg-gradient-pink text-white', 'bg-gradient-red text-white', 'bg-gradient-orange text-black', 'bg-gradient-yellow text-black', 'bg-gradient-lime text-black', 'bg-gradient-green text-white', 'bg-gradient-teal text-black', 'bg-gradient-cyan text-black', 'bg-gradient-gray text-white') NOT NULL default 'bg-gradient-blue text-white' COMMENT 'Background dashboard color',
+    `plgn_usr_rl_color` enum('bg-gradient-blue text-white', 'bg-gradient-indigo text-white', 'bg-gradient-navy text-white', 'bg-gradient-maroon text-white', 'bg-gradient-purple text-white', 'bg-gradient-pink text-white', 'bg-gradient-red text-white', 'bg-gradient-orange text-black', 'bg-gradient-yellow text-black', 'bg-gradient-lime text-black', 'bg-gradient-green text-white', 'bg-gradient-teal text-black', 'bg-gradient-cyan text-black', 'bg-gradient-gray text-white', 'bg-white text-black') NOT NULL default 'bg-gradient-blue text-white' COMMENT 'Background dashboard color',
     `plgn_collapsed` BOOLEAN NOT NULL default 0 COMMENT 'the plugin is collapse on the dashboard by the default no',
     PRIMARY KEY  (`plgn_usr_rl_ID`),
     CONSTRAINT fk_plgn_usr_rl_user_id FOREIGN KEY (plgn_usr_rl_user_id) REFERENCES user_usr(usr_per_ID) ON DELETE CASCADE,
