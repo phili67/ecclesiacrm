@@ -878,7 +878,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-body">
             <div class="form-group">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <label><?= _('Gender') ?>:</label>
                         <select name="Gender" class="form-control form-control-sm">
                             <option value="0"><?= _('Select Gender') ?></option>
@@ -887,26 +887,22 @@ require $sRootDocument . '/Include/Header.php';
                             <option value="2" <?= ($iGender == 2) ? 'selected' : '' ?>><?= _('Female') ?></option>
                         </select>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-1">
                         <label for="Title"><?= _('Title') ?>:</label>
                         <input type="text" name="Title" id="Title"
                                value="<?= htmlentities(stripslashes($sTitle), ENT_NOQUOTES, 'UTF-8') ?>"
                                class= "form-control form-control-sm" placeholder="<?= _('Mr., Mrs., Dr., Rev.') ?>">
                     </div>
-                </div>
-                <p/>
-                <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <label for="FirstName"><?= _('First Name') ?>:</label>
                         <input type="text" name="FirstName" id="FirstName"
                                value="<?= htmlentities(stripslashes($sFirstName), ENT_NOQUOTES, 'UTF-8') ?>"
                                class= "form-control form-control-sm">
                         <?php if ($sFirstNameError) {
                             ?><br><font
-                                color="red"><?= $sFirstNameError ?></font><?php
+                                color="red"><?= $sFirstNameError ?></span><?php
                         } ?>
                     </div>
-
                     <div class="col-md-2">
                         <label for="MiddleName"><?= _('Middle Name') ?>:</label>
                         <input type="text" name="MiddleName" id="MiddleName"
@@ -914,39 +910,34 @@ require $sRootDocument . '/Include/Header.php';
                                class= "form-control form-control-sm">
                         <?php if ($sMiddleNameError) {
                             ?><br><font
-                                color="red"><?= $sMiddleNameError ?></font><?php
+                                color="red"><?= $sMiddleNameError ?></span><?php
                         } ?>
                     </div>
-
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <label for="LastName"><?= _('Last Name') ?>:</label>
                         <input type="text" name="LastName" id="LastName"
                                value="<?= htmlentities(stripslashes($sLastName), ENT_NOQUOTES, 'UTF-8') ?>"
                                class= "form-control form-control-sm">
                         <?php if ($sLastNameError) {
                             ?><br><font
-                                color="red"><?= $sLastNameError ?></font><?php
+                                color="red"><?= $sLastNameError ?></span><?php
                         } ?>
                     </div>
-
                     <div class="col-md-1">
                         <label for="Suffix"><?= _('Suffix') ?>:</label>
                         <input type="text" name="Suffix" id="Suffix"
                                value="<?= htmlentities(stripslashes($sSuffix), ENT_NOQUOTES, 'UTF-8') ?>"
                                placeholder="<?= _('Jr., Sr., III') ?>" class= "form-control form-control-sm">
-                    </div>
-                </div>
-                <p/>
-                <div class="row">
+                    </div>                    
                     <div class="col-md-2">
                         <label><?= _('Birthday Date') ?>:</label>
                         <input type="text" name="BirthDayDate" class=" form-control  form-control-sm date-picker" value="<?= OutputUtils::change_date_for_place_holder($sBirthDayDate) ?>" maxlength="10" id="sel2" size="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <label><?= _('Hide Age') ?></label><br/>
                         <input type="checkbox" name="HideAge" value="1" <?= ($bHideAge) ? ' checked' : '' ?>/>
                     </div>
-                </div>
+                </div>                
             </div>
         </div>
     </div>
@@ -958,42 +949,43 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
-            <div class="form-group col-md-3">
-                <label><?= _("Person or Family Role") ?>:</label>
-                <select name="FamilyRole" class="form-control form-control-sm">
-                    <option value="0"><?= _("Unassigned") ?></option>
-                    <option value="0" disabled>-----------------------</option>
-                    <?php
-                    foreach ($ormFamilyRoles
-
-                    as $ormFamilyRole) {
-                    ?>
-                    <option value="<?= $ormFamilyRole->getOptionId() ?>"
-                        <?= ($iFamilyRole == $ormFamilyRole->getOptionId()) ? ' selected' : '' ?>><?= $ormFamilyRole->getOptionName() ?>
-                        &nbsp;
+            <div class="row">
+                <div class="col-md-3">
+                    <label><?= _("Person or Family Role") ?>:</label>
+                    <select name="FamilyRole" class="form-control form-control-sm">
+                        <option value="0"><?= _("Unassigned") ?></option>
+                        <option value="0" disabled>-----------------------</option>
                         <?php
-                        }
-                        ?>
-                </select>
-            </div>
+                        foreach ($ormFamilyRoles
 
-            <div class="form-group col-md-9"
-                <?= (!SessionUser::getUser()->isEditRecordsEnabled()) ? 'style="display: none;"' : '' ?>>
-                <label><?= _('Person or Family address'); ?>:</label>
-                <select name="Family" size="8" class= "form-control form-control-sm" id="optionFamily">
-                    <option value="0" selected><?= _('Unassigned') ?></option>
-                    <option value="-1"><?= _("Create a new Address or A new family (using last name)") ?></option>
-                    <option value="0" disabled>-----------------------</option>
-                    <?php
-                    foreach ($ormFamilies as $ormFamily) {
-                    ?>
-                    <option value="<?= $ormFamily->getId() ?>"
-                        <?= ($iFamily == $ormFamily->getId() || $iFamilyID != -1 && $iFamilyID == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?> (ID<?= $ormFamily->getId() ?>)
-                        &nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
-                        <?php
-                        }
+                        as $ormFamilyRole) {
                         ?>
-                </select>
+                        <option value="<?= $ormFamilyRole->getOptionId() ?>"
+                            <?= ($iFamilyRole == $ormFamilyRole->getOptionId()) ? ' selected' : '' ?>><?= $ormFamilyRole->getOptionName() ?>
+                            &nbsp;
+                            <?php
+                            }
+                            ?>
+                    </select>
+                </div>
+
+                <div class="col-md-9" <?= (!SessionUser::getUser()->isEditRecordsEnabled()) ? 'style="display: none;"' : '' ?>>
+                    <label><?= _('Person or Family address'); ?>:</label>
+                    <select name="Family" size="8" class= "form-control form-control-sm" id="optionFamily">
+                        <option value="0" selected><?= _('Unassigned') ?></option>
+                        <option value="-1"><?= _("Create a new Address or A new family (using last name)") ?></option>
+                        <option value="0" disabled>-----------------------</option>
+                        <?php
+                        foreach ($ormFamilies as $ormFamily) {
+                        ?>
+                        <option value="<?= $ormFamily->getId() ?>"
+                            <?= ($iFamily == $ormFamily->getId() || $iFamilyID != -1 && $iFamilyID == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?> (ID<?= $ormFamily->getId() ?>)
+                            &nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
+                            <?php
+                            }
+                            ?>
+                    </select>
+                </div>
             </div>
 
             <!-- start of the new code PL -->
@@ -1426,6 +1418,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
                 <div class="form-group col-md-3">
                     <div class="row">
+                        <br>
                         <div class="form-group col-md-6">
                             <label><?= _('Send Newsletter') ?>:</label>
                         </div>
@@ -1462,7 +1455,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         if ($sEmailError) {
                             ?>
-                            <font color="red"><?= $sEmailError ?></font>
+                            <span class="text-red"><?= $sEmailError ?></span>
                             <?php
                         }
                         ?>
@@ -1480,7 +1473,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         if ($sWorkEmailError) {
                             ?>
-                            <font color="red"><?= $sWorkEmailError ?></font>
+                            <span class="text-red"><?= $sWorkEmailError ?></span>
                             <?php
                         }
                         ?>
@@ -1512,7 +1505,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         if ($sFacebookError) {
                             ?>
-                            <font color="red"><?= $sFacebookError ?></font>
+                            <span class="text-red"><?= $sFacebookError ?></span>
                             <?php
                         }
                         ?>
@@ -1530,7 +1523,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         if ($sTwitterError) {
                             ?>
-                            <font color="red"><?= $sTwitterError ?></font>
+                            <span class="text-red"><?= $sTwitterError ?></span>
                             <?php
                         }
                         ?>
@@ -1548,7 +1541,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         if ($sLinkedInError) {
                             ?>
-                            <font color="red"><?= $sLinkedInError ?></font>
+                            <span class="text-red"><?= $sLinkedInError ?></span>
                             <?php
                         }
                         ?>
@@ -1599,7 +1592,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         if ($sMembershipDateError) {
                             ?>
-                            <font color="red"><?= $sMembershipDateError ?></font>
+                            <span class="text-red"><?= $sMembershipDateError ?></span>
                             <?php
                         }
                         ?>
@@ -1622,7 +1615,7 @@ require $sRootDocument . '/Include/Header.php';
                             <?php
                             if ($sFriendDateError) {
                                 ?>
-                                <font color="red"><?= $sFriendDateError ?></font>
+                                <span class="text-red"><?= $sFriendDateError ?></span>
                                 <?php
                             }
                             ?>
