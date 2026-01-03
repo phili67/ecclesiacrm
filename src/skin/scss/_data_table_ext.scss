@@ -1,0 +1,39 @@
+.dt-button-green{
+  color:green;
+}
+
+.dt-button-red{
+  color:red;
+}
+
+.dt-button-orange {
+  color:rgb(255, 119, 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  table.dataTable tr.dtrg-group th {
+    background-color: rgb(45, 45, 45) !important;
+    text-align: left;
+  }
+
+  div.dt-button-collection {
+    width: 200px;
+    background-color: gray;
+  }
+
+  a.dt-button {
+    background-color: gray !important;
+  }
+
+  .dt-button-green{
+    color:rgb(6, 183, 6);
+  }
+
+  .dt-button-red{
+    color:rgb(233, 86, 86);
+  }
+
+  .dt-button-orange {
+    color:rgb(210, 145, 88);
+  }
+}

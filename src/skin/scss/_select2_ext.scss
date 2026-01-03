@@ -1,0 +1,24 @@
+.select2-selection__choice {
+    background-color: rgb(255, 254, 254) !important;
+    color: black !important;
+}
+
+.select2-selection__choice__remove {
+    color:rgb(255, 254, 254) !important;
+}
+
+.select2-selection__choice__remove:hover {
+    color:red !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .select2-selection__choice {
+        background-color: #007bff !important;
+        border-color: #006fe6 !important;
+        color: #fff !important;        
+    }
+
+    .select2-selection__choice__remove {
+        color:#007bff !important;
+    }
+}
