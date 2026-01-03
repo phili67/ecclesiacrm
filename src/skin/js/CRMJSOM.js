@@ -225,7 +225,7 @@ window.CRM.cart = {
     });
   },
   'emptyCart': function () {
-    window.CRM.cart.empty(function (data) {
+      window.CRM.cart.empty(function (data) {
       window.CRM.cart.refresh();
 
       if (window.CRM.dataTableList) {
@@ -234,7 +234,7 @@ window.CRM.cart = {
       } else if (data.cartPeople) {// this part should be written like this, the code will crash at this point without this test and crash the js code
         console.log(data.cartPeople);
 
-        if (data.cartPeople.length > 0) {
+        if (data.cartPeople.length > 0 && data.currentPageName !== 'v2/cart/view') {
           $(data.cartPeople).each(function (index, data) {
             personButton = $("a[data-cartpersonid='" + data + "']");
             $(personButton).addClass("AddToPeopleCart");
