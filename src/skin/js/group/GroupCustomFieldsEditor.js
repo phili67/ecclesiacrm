@@ -1,4 +1,6 @@
 $(function() {
+    $("[data-mask]").inputmask();
+    
     $(document).on("click", ".delete-field", function () {
         var GroupID = $(this).data("groupid");
         var PropID = $(this).data("propid");
@@ -50,5 +52,17 @@ $(function() {
             //window.CRM.dataFundTable.ajax.reload();
             window.location = window.location.href;
         });
+    });
+
+    $("#custom-fields-table").DataTable({
+        responsive: true,
+        paging: false,
+        searching: false,
+        ordering: false,
+        info: false,
+        //dom: window.CRM.plugin.dataTable.dom,
+        fnDrawCallback: function (settings) {
+            $("#selector thead").remove();
+        }
     });
 });
