@@ -441,11 +441,14 @@ class CartController
 
                 $sPhoneLink = mb_substr($sPhoneLink, 0, -2);
             }
+
+            $returnedCart = $_SESSION['aPeopleCart'];
         }
         else
         {
             $sMessage = _('Your cart is empty');
             if(sizeof($_SESSION['aPeopleCart'])>0) {
+                $returnedCart = $_SESSION['aPeopleCart'];
                 $_SESSION['aPeopleCart'] = [];
                 $sMessage = _('Your cart has been successfully emptied');
             }
@@ -457,10 +460,11 @@ class CartController
             'sEmailLink' => $sEmailLink,
             'sPhoneLink' => $sPhoneLink,
             'sPhoneLinkSMS' =>$sPhoneLinkSMS,
-            'cartPeople' => $_SESSION['aPeopleCart'],
+            'cartPeople' => $returnedCart,
             'PeopleCart' => Cart::PeopleInCart(),
             'FamiliesCart' => Cart::FamiliesInCart(),
-            'GroupsCart' => Cart::GroupsInCart()
+            'GroupsCart' => Cart::GroupsInCart(),
+            'currentPageName' => SessionUser::getCurrentPageName()
         ]);
     }
 
