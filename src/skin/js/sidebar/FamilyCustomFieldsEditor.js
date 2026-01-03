@@ -49,4 +49,16 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location = window.location.href;
     });
   });
+
+  $("#custom-fields-table").DataTable({
+        responsive: true,
+        paging: false,
+        searching: false,
+        ordering: false,
+        info: false,
+        //dom: window.CRM.plugin.dataTable.dom,
+        fnDrawCallback: function (settings) {
+            $("#selector thead").remove();
+        }
+    });
 });
