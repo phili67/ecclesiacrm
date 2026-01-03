@@ -707,54 +707,39 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-body">
             <div class="form-group">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                         <label><?= _('Family Name') ?>:</label>
                         <input type="text" Name="Name" id="FamilyName"
                                value="<?= htmlentities(stripslashes($sName), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="48"
                                class="form-control form-control-sm">
                         <?php if ($sNameError) {
-                            ?><font color="red"><?= $sNameError ?></font><?php
+                            ?><span class="text-red"><?= $sNameError ?></span><?php
                         } ?>
                     </div>
-                </div>
-                <p/>
-                <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                         <label><?= _('Address') ?> 1:</label>
                         <input type="text" Name="Address1"
                                value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>" size="50"
                                maxlength="250" class="form-control form-control-sm">
                     </div>
-                    <div class="col-md-6">
-                        <label><?= _('Address') ?> 2:</label>
-                        <input type="text" Name="Address2"
-                               value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50"
-                               maxlength="250" class="form-control form-control-sm">
-                    </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                         <label><?= _('City') ?>:</label>
                         <input type="text" Name="City"
                                value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"
                                class="form-control form-control-sm">
                     </div>
-                </div>
-                <p/>
-                <div class="row">
-                    <div <?= (SystemConfig::getValue('bStateUnusefull')) ? "style=\"display: none;\"" : "class=\"form-group col-md-3\" " ?>>
+                    <div <?= (SystemConfig::getValue('bStateUnusefull')) ? "style=\"display: none;\"" : "class=\"form-group col-md-2\" " ?>>
                         <label for="StatleTextBox"><?= _("State") ?>: </label>
                         <?php
                         $statesDD = new StateDropDown();
                         echo $statesDD->getDropDown($sState);
                         ?>
+                    </div>                    
+                    <div class="form-group col-md-2">
+                        <label> <?= _('Country') ?>:</label>
+                        <?= CountryDropDown::getDropDown($sCountry) ?>
                     </div>
-                    <div <?= (SystemConfig::getValue('bStateUnusefull')) ? "style=\"display: none;\"" : "class=\"form-group col-md-3\" " ?>>
-                        <label><?= _('None US/CND State') ?>:</label>
-                        <input type="text" class="form-control form-control-sm" name="StateTextbox"
-                               value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
-                                   echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
-                               } ?>" size="20" maxlength="30">
-                    </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-1">
                         <label><?= _('Zip') ?>:</label>
                         <input type="text" Name="Zip" class="form-control form-control-sm" <?php
                         // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
@@ -763,10 +748,20 @@ require $sRootDocument . '/Include/Header.php';
                         }
                         echo 'value="' . htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8') . '" '; ?>
                                maxlength="10" size="8">
+                    </div>                    
+
+                    <div class="col-md-2">
+                        <label><?= _('Address') ?> 2:</label>
+                        <input type="text" Name="Address2"
+                               value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50"
+                               maxlength="250" class="form-control form-control-sm">
                     </div>
-                    <div class="form-group col-md-3">
-                        <label> <?= _('Country') ?>:</label>
-                        <?= CountryDropDown::getDropDown($sCountry) ?>
+                    <div <?= (SystemConfig::getValue('bStateUnusefull')) ? "style=\"display: none;\"" : "class=\"form-group col-md-3\" " ?>>
+                        <label><?= _('None US/CND State') ?>:</label>
+                        <input type="text" class="form-control form-control-sm" name="StateTextbox"
+                               value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
+                                   echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
+                               } ?>" size="20" maxlength="30">
                     </div>
                 </div>
                 <?php if (!SystemConfig::getValue('bHideLatLon')) { /* Lat/Lon can be hidden - General Settings */
@@ -859,6 +854,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
                 <?php if (!SystemConfig::getValue('bHideFamilyNewsletter')) { /* Newsletter can be hidden - General Settings */ ?>
                     <div class="form-group col-md-4">
+                        <br>
                         <label><?= _('Send Newsletter') ?>:</label>
                         <input type="checkbox" Name="SendNewsLetter"
                                value="1" <?= ($bSendNewsLetter) ? ' checked' : '' ?>>
