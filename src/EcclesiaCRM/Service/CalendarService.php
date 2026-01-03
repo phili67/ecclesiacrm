@@ -164,8 +164,13 @@ class CalendarService
         $realEndDate = new \DateTime($end);
 
         // we search events from one year before to current year
-        $startCalendar = (string)((int)$realStartDate->format('Y')-1)."-01-01";
-        $endCalendar = (string)((int)$realStartDate->format('Y'))."-12-31";
+        if ($for_events_list == true) {
+            $startCalendar = (string)((int)$realStartDate->format('Y')-1)."-01-01";
+            $endCalendar = (string)((int)$realStartDate->format('Y'))."-12-31";
+        } else {
+            $startCalendar = (string)((int)$realStartDate->format('Y'))."-01-01";
+            $endCalendar = (string)((int)$realStartDate->format('Y')+1)."-12-31";
+        }
 
         // for the globas stats : v2/calendar/events/list
         // only in case of monthly view
