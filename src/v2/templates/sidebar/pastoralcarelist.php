@@ -1,4 +1,5 @@
 <?php
+
 /*******************************************************************************
  *
  *  filename    : PastoralCareList.php
@@ -10,30 +11,26 @@
 
 require $sRootDocument . '/Include/Header.php';
 
-if ( $isPastoralCareEnabled ) {
+if ($isPastoralCareEnabled) {
 ?>
-    <div class="alert alert-danger"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-      <?= _('Be carefull ! By deleting pastoral care type, the recorded datas for each persons will be lost.') ?>
-    </div>
+  <div class="alert alert-danger"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+    <?= _('Be carefull ! By deleting pastoral care type, the recorded datas for each persons will be lost.') ?>
+  </div>
 
-    <p align="center">
-      <button class="btn btn-primary" id="add-new-pastoral-care"><?= _("Add a New Pastoral Care Type") ?></button>
-    </p>
-<?php
-}else {
-?>
-    <div class="alert alert-warning">
-      <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-      <?= _('Only an admin can modify or delete this records.') ?>
-    </div>
+
 <?php
 }
 ?>
 
 <div class="card card-body">
-  <table class="table table-striped table-bordered" id="pastoral-careTable" cellpadding="5" cellspacing="0"  width="100%"></table>
+<?php if ($isPastoralCareEnabled) { ?>
+  <p align="center">    
+    <button class="btn btn-primary" id="add-new-pastoral-care"><i class="fas fa-add"></i> <?= _("Add a New Pastoral Care Type") ?></button>
+  </p>
+<?php } ?>
+<table class="table table-hover dt-responsive dataTable no-footer dtr-inline" id="pastoral-careTable" cellpadding="5" cellspacing="0" width="100%"></table>
 </div>
 
-<script type="module" src="<?=  $sRootPath ?>/skin/js/sidebar/PastoralCareList.js" ></script>
+<script type="module" src="<?= $sRootPath ?>/skin/js/sidebar/PastoralCareList.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
