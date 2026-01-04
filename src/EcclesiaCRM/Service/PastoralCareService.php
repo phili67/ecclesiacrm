@@ -462,49 +462,69 @@ WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
         }
 
 
-// old alert style : alert-pastoral-care
-        $retiredColor = 'success';
-        if ((100.0 - $percentRetiredViewPersons) < 10.0) {
-            $retiredColor = 'danger';
-        } else if ((100.0 - $percentRetiredViewPersons) < 30.0) {
-            $retiredColor = 'warning';
-        } else if ((100.0 - $percentRetiredViewPersons) < 60.0) {
-            $retiredColor = 'primary';
+// old alert style : alert-pastoral-care   
+        $personColor = 'success';
+        $personGradientColor = 'green';
+        if ((100.0 - $percentViewPersons) < 10.0) {
+            $personGradientColor = 'red';
+            $personColor = 'danger';
+        } else if ((100.0 - $percentViewPersons) < 30.0) {
+            $personGradientColor = 'yellow';
+            $personColor = 'warning';
+        } else if ((100.0 - $percentViewPersons) < 60.0) {
+            $personGradientColor = 'blue';
+            $personColor = 'primary';
         }
 
         $familyColor = 'success';
+        $familyGradientColor = 'green';
         if ((100.0 - $percentViewFamilies) < 10.0) {
+            $familyGradientColor = 'red';
             $familyColor = 'danger';
         } else if ((100.0 - $percentViewFamilies) < 30.0) {
+            $familyGradientColor = 'yellow';
             $familyColor = 'warning';
         } else if ((100.0 - $percentViewFamilies) < 60.0) {
+            $familyGradientColor = 'blue';
             $familyColor = 'primary';
         }
 
         $singleColor = 'success';
+        $singleGradientColor = 'green';
         if ((100.0 - $percentSinglePersons) < 10.0) {
+            $singleGradientColor = 'red';
             $singleColor = 'danger';
         } else if ((100.0 - $percentSinglePersons) < 30.0) {
+            $singleGradientColor = 'yellow';
             $singleColor = 'warning';
         } else if ((100.0 - $percentSinglePersons) < 60.0) {
+            $singleGradientColor = 'blue';
             $singleColor = 'primary';
-        }
+        }        
 
-        $personColor = 'success';
-        if ((100.0 - $percentViewPersons) < 10.0) {
-            $personColor = 'danger';
-        } else if ((100.0 - $percentViewPersons) < 30.0) {
-            $personColor = 'warning';
-        } else if ((100.0 - $percentViewPersons) < 60.0) {
-            $personColor = 'primary';
+        $retiredColor = 'success';
+        $retiredGradientColor = 'green';
+        if ((100.0 - $percentRetiredViewPersons) < 10.0) {
+            $retiredGradientColor = 'red';
+            $retiredColor = 'danger';
+        } else if ((100.0 - $percentRetiredViewPersons) < 30.0) {
+            $retiredGradientColor = 'yellow';
+            $retiredColor = 'warning';
+        } else if ((100.0 - $percentRetiredViewPersons) < 60.0) {
+            $retiredGradientColor = 'blue';
+            $retiredColor = 'primary';
         }
 
         $youngColor = 'success';
+        $youngGradientColor = 'gren';
         if ((100.0 - $percentYoungViewPersons) < 10.0) {
+            $youngGradientColor = 'red';
             $youngColor = 'danger';
         } else if ((100.0 - $percentYoungViewPersons) < 30.0) {
+            $youngGradientColor = 'yellow';
             $youngColor = 'warning';
         } else if ((100.0 - $percentYoungViewPersons) < 60.0) {
+            $youngGradientColor = 'blue';
             $youngColor = 'primary';
         }
 
@@ -514,15 +534,18 @@ WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
         $pastoralcareAlertTypeButton = "success";
         $pastoralcareAlertTypeHR = "#019501";
 
-        if ((100.0 - $percentRetiredViewPersons) < 10.0 || (100.0 - $percentViewFamilies) < 10.0 || (100.0 - $percentViewPersons) < 10.0) {
+        if (((100.0 - $percentViewPersons) + (100.0 - $percentViewFamilies) + (100.0 - $percentSinglePersons)
+            + (100.0 - $percentRetiredViewPersons) + (100.0 - $percentYoungViewPersons))/5.0 < 10.0) {
             $pastoralcareAlertType = "bg-gradient-red";
             $pastoralcareAlertTypeButton = "danger";
             $pastoralcareAlertTypeHR = "#ad0000";
-        } else if ((100.0 - $percentRetiredViewPersons) < 30.0 || (100.0 - $percentViewFamilies) < 30.0 || (100.0 - $percentViewFamilies) < 30.0) {
+        } else if (((100.0 - $percentViewPersons) + (100.0 - $percentViewFamilies) + (100.0 - $percentSinglePersons)
+            + (100.0 - $percentRetiredViewPersons) + (100.0 - $percentYoungViewPersons))/5.0 < 30.0) {
             $pastoralcareAlertType = "bg-gradient-yellow";
             $pastoralcareAlertTypeButton = "warning";
             $pastoralcareAlertTypeHR = "#cca500";
-        } else if ((100.0 - $percentRetiredViewPersons) < 60.0 || (100.0 - $percentViewFamilies) < 30.0 || (100.0 - $percentViewFamilies) < 60.0) {
+        } else if (((100.0 - $percentViewPersons) + (100.0 - $percentViewFamilies) + (100.0 - $percentSinglePersons)
+            + (100.0 - $percentRetiredViewPersons) + (100.0 - $percentYoungViewPersons))/5.0 < 60.0) {
             $pastoralcareAlertType = "bg-gradient-blue";
             $pastoralcareAlertTypeHR = "#4557dd";
             $pastoralcareAlertTypeButton = "primary";
@@ -530,21 +553,31 @@ WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
 
         return ['startPeriod' => $range['startPeriod'],
             'endPeriod' => $range['endPeriod'],
+            'CountAllPersons' => $allPersons->count(),
             'CountNotViewPersons' => $personsWithoutPastoralCare->count(),
             'PercentNotViewPersons' => round($percentViewPersons,2),
             'personColor' => $personColor,
+            'personGradientColor' => $personGradientColor,
+            'CountAllFamilies' => $allFamilies->count(),
             'CountNotViewFamilies' => $familiesWithoutPastoralCare->count(),
             'PercentViewFamilies' => round($percentViewFamilies,2),
             'familyColor' => $familyColor,
+            'familyGradientColor' => $familyGradientColor,
+            'CountAllPersonSingle' => $allSingle->count(),
             'CountPersonSingle' => $singleWithoutPastoralCare->count(),
             'PercentPersonSingle' => round($percentSinglePersons,2),
             'singleColor' => $singleColor,
+            'singleGradientColor' => $singleGradientColor,
+            'CountAllRetired' => $allRetiredPersons->count(),
             'CountNotViewRetired' => $retiredPersonsWithoutPastoralCare->count(),
             'PercentRetiredViewPersons' => round($percentRetiredViewPersons,2),
             'retiredColor' => $retiredColor,
+            'retiredGradientColor' => $retiredGradientColor,
+            'CountAllYoung' => $allYoungPersons->count(),
             'CountNotViewYoung' => $youngPersonsWithoutPastoralCare->count(),
             'PercentViewYoung' => round($percentYoungViewPersons,2),
             'youngColor' => $youngColor,
+            'youngGradientColor' => $youngGradientColor,
             'PastoralcareAlertType' => $pastoralcareAlertType,
             'PastoralcareAlertTypeButton' => $pastoralcareAlertTypeButton,
             'PastoralcareAlertTypeHR' => $pastoralcareAlertTypeHR];
