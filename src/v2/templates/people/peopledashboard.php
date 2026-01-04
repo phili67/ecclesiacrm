@@ -211,7 +211,7 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
 </div><!-- /.row -->
 <div class="row">
     <div class="col-lg-6">
-        <div class="card">
+        <div class="card card-primary">
             <div class="card-header border-1">
                 <h3 class="card-title"><?= _('Reports') ?></h3>
                 <div class="card-tools pull-right">
@@ -251,7 +251,7 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="card">
+        <div class="card card-primary">
             <div class="card-header border-1">
                 <h3 class="card-title"><?= _('Self Update') ?> <?= _('Reports') ?></h3>
                 <div class="card-tools pull-right">
@@ -278,7 +278,7 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
 </div>
 <div class="row">
     <div class="col-lg-6">
-        <div class="card card-default">
+        <div class="card card-secondary">
             <div class="card-header border-1">
                 <h3 class="card-title"> <i class="fas fa-chart-pie"></i> <?= _('Family Roles') ?></h3>
                 <div class="card-tools pull-right">
@@ -315,7 +315,7 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="card card-default">
+        <div class="card card-secondary">
             <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-chart-bar"></i> <?= _('People Classification') ?></h3>
 
@@ -353,7 +353,7 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
 </div>
 <div class="row">
     <div class="col-lg-6">
-        <div class="card card-default">
+        <div class="card card-info">
             <div class="card-header border-1">
                 <h3 class="card-title"><i class="far fa-address-card"></i> <?= _('Gender Demographics') ?></h3>
 
@@ -368,7 +368,7 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="card card-default">
+        <div class="card card-info">
             <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-birthday-cake"></i> <?= _('# Age Histogram')?></h3>
 

@@ -1,5 +1,5 @@
 .no-background-theme {
-    background-color:rgba(0.0, 0.0, 0.0, 0.0)
+    background-color: rgba(0.0, 0.0, 0.0, 0.0)
 }
 
 /* special alert */
@@ -10,7 +10,7 @@
 }
 
 .hide {
-    display:none;
+    display: none;
 }
 
 .alert-birthday a {
@@ -47,7 +47,8 @@
 }
 
 
-.label-danger, .modal-danger .modal-body {
+.label-danger,
+.modal-danger .modal-body {
     background-color: #dd4b39 !important;
 }
 
@@ -74,7 +75,11 @@
     background-color: #d2d6de !important;
 }
 
-.bg-green, .callout.callout-success, .alert-success, .label-success, .modal-success .modal-body {
+.bg-green,
+.callout.callout-success,
+.alert-success,
+.label-success,
+.modal-success .modal-body {
     background-color: #00a65a !important;
 }
 
@@ -107,16 +112,16 @@
     margin-bottom: 0.5rem;
 }
 
-.user-menu > ul {
+.user-menu>ul {
     width: 300px;
 }
 
 .image-max-width {
-    width:1067px;
+    width: 1067px;
 }
 
 @media (max-width: 767px) {
-    .navbar-nav > .user-menu .user-image {
+    .navbar-nav>.user-menu .user-image {
         float: none;
         margin-right: 0;
         margin-top: -6px;
@@ -125,12 +130,13 @@
     }
 
     .image-max-width {
-        width:100%;
+        width: 100%;
     }
 }
 
 /* map */
-.leaflet-top, .leaflet-bottom {
+.leaflet-top,
+.leaflet-bottom {
     z-index: 800 !important;
     pointer-events: none;
 }
@@ -154,7 +160,8 @@
     border-top: 1px solid rgba(255, 255, 255, 0.69);
 }*/
 
-.table td, .table th {
+.table td,
+.table th {
     padding: .75rem;
     vertical-align: top;
     border-top: 0px solid #dee2e6;
@@ -170,7 +177,7 @@
         display: none !important;
     }
 
-/*
+    /*
 scrollable bootbox body
  */
 
@@ -209,15 +216,15 @@ scrollable bootbox body
     color: gray !important;
     border-width: 0px !important;
     font-size: 18px !important;
-    font-weight:400;
+    font-weight: 400;
     text-transform: capitalize !important;
-    border-top:0 !important;
+    border-top: 0 !important;
 }
 
 .fc-widget-header {
-    border-top:0 !important;
+    border-top: 0 !important;
     background-color: white !important;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 /* .fc-button {
@@ -252,7 +259,7 @@ scrollable bootbox body
     /*box-shadow: 1px 1px 12px #AAA;*/
     border: none !important;
     line-height: 1.8 !important;
-    padding-left:12px;
+    padding-left: 12px;
     color: #fff !important;
 }
 
@@ -277,15 +284,15 @@ scrollable bootbox body
 /* label color */
 
 .label-warning {
-    color:red;
+    color: red;
 }
 
 .label-default {
-    color:gray;
+    color: gray;
 }
 
 .label-info {
-    color:cyan;
+    color: cyan;
 }
 
 /* the add button to cart */
@@ -333,12 +340,23 @@ scrollable bootbox body
     font-weight: 400;
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 400;
 }
 
 .text-sm .btn {
-    font-size: .75rem!important;
+    font-size: .75rem !important;
 }
 
 a {
@@ -353,7 +371,7 @@ a {
        which tends to work better than using !important
        (future you will thank you later)*/
 
-    box-shadow: 0 0 0px rgba(0,0,0,0),0 0px 0px rgba(0,0,0, 0) !important;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0), 0 0px 0px rgba(0, 0, 0, 0) !important;
 
     background-color: rgba(255, 255, 255, 0);
     opacity: 1;
@@ -387,7 +405,7 @@ a {
 }
 
 .left-search-field-menu-bar {
-    width:173px !important;
+    width: 173px !important;
 }
 
 .img-circle-20 {
@@ -400,23 +418,23 @@ a {
 }
 
 .fas-blue {
-    color:blue;
+    color: blue;
 }
 
 .fas-gray {
-    color:gray;
+    color: gray;
 }
 
 .fas-red {
-    color:red;
+    color: red;
 }
 
 .fas-green {
-    color:green;
+    color: green;
 }
 
 .fas-purple {
-    color:rgb(105, 4, 173);
+    color: rgb(105, 4, 173);
 }
 
 .tab-pane {
@@ -436,28 +454,78 @@ a {
     padding: 0.35rem .35rem 0.1rem;
 }
 
+.nav-link-bottom {
+    margin-top: 0px !important;
+}
+
+/* bg color */
+
+.bg-white {
+    color: #1f2d3d!important;
+    background: linear-gradient(to top right, rgb(255, 255, 255), rgb(228, 228, 228)) repeat-x rgb(0, 123, 255) !important;
+}
+
+.bg-gradient-blue {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to top right, rgb(38, 143, 255), rgb(74, 106, 140)) repeat-x rgb(0, 123, 255) !important;
+}
+
+.bg-gradient-maroon {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to right top, rgb(222, 61, 120), rgb(170, 77, 111)) repeat-x rgb(216, 27, 96) !important;
+}
+
+.bg-gradient-yellow {
+    color: rgb(31, 45, 61);
+    background: linear-gradient(49deg, rgb(255, 202, 44), rgb(216, 177, 60)) repeat-x rgb(255, 193, 7) !important;
+}
+
+.bg-gradient-purple {
+    color: white;
+    background: linear-gradient(to top right, #855eca, #423559) repeat-x #6f42c1 !important;
+}
+
+.bg-gradient-blue {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to top right, rgb(38, 143, 255), rgb(74, 106, 140)) repeat-x rgb(0, 123, 255) !important;
+}
+
+.bg-gradient-green {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to right top, rgb(72, 180, 97), rgb(46, 103, 59)) repeat-x rgb(40, 167, 69) !important;
+}
+
+.bg-gradient-red {
+    background: #dc3545 linear-gradient(to top right, #e15361, #b7414c) repeat-x!important;
+    color: #fff;
+}
+
+.info-box:hover, .small-box:hover
+{
+    transform: scale(1.02);
+    margin-right: 0.2%; /* fallback for ancient browsers that don't support calc() */
+    margin-right: calc(0.2% + 2px);
+    margin-left: 0.2%;
+}
+
 @media (prefers-color-scheme: dark) {
     .fas-blue {
-        color:#8da9ff !important;
+        color: #8da9ff !important;
     }
 
     .fas-gray {
-       color:rgb(181, 180, 180) !important;
+        color: rgb(181, 180, 180) !important;
     }
 
     .fas-red {
-        color:rgb(255, 110, 110) !important;
+        color: rgb(255, 110, 110) !important;
     }
 
     .fas-green {
-        color:rgb(107, 180, 107) !important;
-    }    
+        color: rgb(107, 180, 107) !important;
+    }
 
     .card-header {
         border-bottom: 1px solid rgba(227, 227, 227, 0.125);
     }
-}
-
-.nav-link-bottom {
-    margin-top: 0px !important;
 }

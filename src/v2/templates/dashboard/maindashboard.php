@@ -95,7 +95,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 <div class="float-right">
     <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color: red">
-            <i class="fas fa-wrench"></i> <?= _("Plugins managements") ?></button>
+            <i class="fas fa-wrench"></i> <?= _("Customize Page") ?></button>
         <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
             <!--
                 TODO : plugins remote manage

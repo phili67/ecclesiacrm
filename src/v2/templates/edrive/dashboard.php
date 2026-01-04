@@ -27,7 +27,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="card-body">
         <?php if ($user->isEDriveEnabled()) { ?>
             <form action="#" method="post" id="formId" enctype="multipart/form-data">
-                <div class="card">
+                <div class="card card-primary">
                     <div class="card-header">
                         <a data-toggle="collapse" href="#collapse-example" aria-expanded="true" aria-controls="collapse-example" id="heading-example" class="d-block">
                             <i class="fa fa-chevron-down pull-right"></i>
