@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2418,21 +2418,18 @@ msgstr "Inloggen op herstelde Database"
 msgid "Restore Error."
 msgstr "Herstel fout."
 
+msgid "All Groups"
+msgstr "Alle groepen"
+
+msgid "All Roles"
+msgstr "Alle rollen"
+
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
 "Zoektermen zoals : naam, voornaam, telefoonnummer, eigendom, groepsnaam, "
 "enz ..."
-
-msgid "Done !"
-msgstr "Klaar !"
-
-msgid "All Groups"
-msgstr "Alle groepen"
-
-msgid "All Roles"
-msgstr "Alle rollen"
 
 msgid "id"
 msgstr "id"
@@ -2446,20 +2443,29 @@ msgstr "Zoekresultaat"
 msgid "Property Name"
 msgstr "Eigendom Naam"
 
+msgid "Cart Operations"
+msgstr "Karren"
+
+msgid "Add This Page"
+msgstr "Deze pagina toevoegen"
+
 msgid "Loading people in cart...."
 msgstr "Mensen laden in cart...."
+
+msgid "Add All results"
+msgstr "Alle resultaten toevoegen"
+
+msgid "Remove this page"
+msgstr "Deze pagina verwijderen"
 
 msgid "Removing people in cart...."
 msgstr "Mensen verwijderen in cart...."
 
-msgid "Removing finished...."
-msgstr "Verwijderen van finished...."
+msgid "Remove All results"
+msgstr "Alle resultaten verwijderen"
 
-msgid "Remove People"
-msgstr "Mensen verwijderen"
-
-msgid "Nothing to remove."
-msgstr "Niets te verwijderen."
+msgid "Intersect result with cart"
+msgstr "Intersect resultaat met kar"
 
 msgid "Visits/calls"
 msgstr "Bezoeken/oproepen"
@@ -2541,6 +2547,15 @@ msgstr "Redacteur kopersnummer"
 
 msgid "Select"
 msgstr "Selecteer"
+
+#~ msgid "Done !"
+#~ msgstr "Klaar !"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Verwijderen van finished...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Niets te verwijderen."
 
 #~ msgid "Activ"
 #~ msgstr "Activ"

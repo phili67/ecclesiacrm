@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2365,19 +2365,16 @@ msgstr "복원된 데이터베이스에 로그인"
 msgid "Restore Error."
 msgstr "복원 오류."
 
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr "검색어 : 이름, 이름, 전화번호, 속성, 그룹명 등..."
-
-msgid "Done !"
-msgstr "완료!"
-
 msgid "All Groups"
 msgstr "모든 그룹"
 
 msgid "All Roles"
 msgstr "모든 역할"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr "검색어 : 이름, 이름, 전화번호, 속성, 그룹명 등..."
 
 msgid "id"
 msgstr "id"
@@ -2391,20 +2388,29 @@ msgstr "검색 결과"
 msgid "Property Name"
 msgstr "속성 이름"
 
+msgid "Cart Operations"
+msgstr "카트 운영"
+
+msgid "Add This Page"
+msgstr "이 페이지 추가"
+
 msgid "Loading people in cart...."
 msgstr "장바구니에 사람 적재하기...."
+
+msgid "Add All results"
+msgstr "모든 결과 추가"
+
+msgid "Remove this page"
+msgstr "이 페이지 제거"
 
 msgid "Removing people in cart...."
 msgstr "장바구니에 있는 사람 제거하기...."
 
-msgid "Removing finished...."
-msgstr "제거 완료...."
+msgid "Remove All results"
+msgstr "모든 결과 제거"
 
-msgid "Remove People"
-msgstr "사람 제거"
-
-msgid "Nothing to remove."
-msgstr "제거할 항목이 없습니다."
+msgid "Intersect result with cart"
+msgstr "결과와 카트 교차"
 
 msgid "Visits/calls"
 msgstr "방문/전화"
@@ -2486,6 +2492,15 @@ msgstr "구매자 번호 편집기"
 
 msgid "Select"
 msgstr "선택"
+
+#~ msgid "Done !"
+#~ msgstr "완료!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "제거 완료...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "제거할 항목이 없습니다."
 
 #~ msgid "Activ"
 #~ msgstr "Activ"

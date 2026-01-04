@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2424,19 +2424,16 @@ msgstr "Po kërkojmë për ta rivendosur Databazën"
 msgid "Restore Error."
 msgstr "Rivendose gabim."
 
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr ""
-
-msgid "Done !"
-msgstr "U bë !"
-
 msgid "All Groups"
 msgstr "Të gjithë grupin"
 
 msgid "All Roles"
 msgstr "rolles"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "id"
 msgstr "- Po."
@@ -2450,20 +2447,32 @@ msgstr "rezultat i kërkimit"
 msgid "Property Name"
 msgstr "Emri i pronës"
 
+#, fuzzy
+msgid "Cart Operations"
+msgstr "Mundësitë e tempullit"
+
+msgid "Add This Page"
+msgstr ""
+
 msgid "Loading people in cart...."
 msgstr "Duke mbushur njerëz në karrocë...."
+
+msgid "Add All results"
+msgstr ""
+
+#, fuzzy
+msgid "Remove this page"
+msgstr "largoni njerëzit"
 
 msgid "Removing people in cart...."
 msgstr "heqja e njerëzve në karrocë..."
 
-msgid "Removing finished...."
-msgstr "heqja e përfunduar ...."
+#, fuzzy
+msgid "Remove All results"
+msgstr "Largoni të gjitha"
 
-msgid "Remove People"
-msgstr "largoni njerëzit"
-
-msgid "Nothing to remove."
-msgstr "asgjë për të hequr."
+msgid "Intersect result with cart"
+msgstr ""
 
 msgid "Visits/calls"
 msgstr "Vizitet dhe telefonatat"
@@ -2545,6 +2554,15 @@ msgstr "Blerësit numërësor"
 
 msgid "Select"
 msgstr "Zgjedh."
+
+#~ msgid "Done !"
+#~ msgstr "U bë !"
+
+#~ msgid "Removing finished...."
+#~ msgstr "heqja e përfunduar ...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "asgjë për të hequr."
 
 #~ msgid "Activ"
 #~ msgstr "Aktiv."

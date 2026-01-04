@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2427,21 +2427,18 @@ msgstr "Login para a base de dados restaurada"
 msgid "Restore Error."
 msgstr "Restaurar erro."
 
+msgid "All Groups"
+msgstr "Todos os Grupos"
+
+msgid "All Roles"
+msgstr "Todos os papéis"
+
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
 "Termos de pesquisa como : nome, nome próprio, número de telefone, "
 "propriedade, nome do grupo, etc ..."
-
-msgid "Done !"
-msgstr "Feito!"
-
-msgid "All Groups"
-msgstr "Todos os Grupos"
-
-msgid "All Roles"
-msgstr "Todos os papéis"
 
 msgid "id"
 msgstr "id"
@@ -2455,20 +2452,32 @@ msgstr "Resultado da pesquisa"
 msgid "Property Name"
 msgstr "Nome do Imóvel"
 
+#, fuzzy
+msgid "Cart Operations"
+msgstr "Opções do modelo"
+
+msgid "Add This Page"
+msgstr ""
+
 msgid "Loading people in cart...."
 msgstr "Carregando pessoas no carrinho...."
+
+msgid "Add All results"
+msgstr ""
+
+#, fuzzy
+msgid "Remove this page"
+msgstr "Remover Pessoas"
 
 msgid "Removing people in cart...."
 msgstr "Removendo pessoas no carrinho...."
 
-msgid "Removing finished...."
-msgstr "Remoção de produtos acabados...."
+#, fuzzy
+msgid "Remove All results"
+msgstr "Remover tudo"
 
-msgid "Remove People"
-msgstr "Remover Pessoas"
-
-msgid "Nothing to remove."
-msgstr "Nada para remover."
+msgid "Intersect result with cart"
+msgstr ""
 
 msgid "Visits/calls"
 msgstr "Visitas/chamadas"
@@ -2550,6 +2559,15 @@ msgstr "Comprador Número Editor"
 
 msgid "Select"
 msgstr "Selecione"
+
+#~ msgid "Done !"
+#~ msgstr "Feito!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Remoção de produtos acabados...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Nada para remover."
 
 #~ msgid "Activ"
 #~ msgstr "Activ"

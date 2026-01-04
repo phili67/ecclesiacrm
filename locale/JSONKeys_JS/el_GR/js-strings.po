@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2433,21 +2433,18 @@ msgstr "Σύνδεση στην αποκατεστημένη βάση δεδομ
 msgid "Restore Error."
 msgstr "Σφάλμα επαναφοράς."
 
+msgid "All Groups"
+msgstr "Όλες οι ομάδες"
+
+msgid "All Roles"
+msgstr "Όλοι οι ρόλοι"
+
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
 "Όροι αναζήτησης όπως : όνομα, μικρό όνομα, αριθμός τηλεφώνου, ιδιοκτησία, "
 "όνομα ομάδας, κ.λπ. ..."
-
-msgid "Done !"
-msgstr "Έγινε!"
-
-msgid "All Groups"
-msgstr "Όλες οι ομάδες"
-
-msgid "All Roles"
-msgstr "Όλοι οι ρόλοι"
 
 msgid "id"
 msgstr "id"
@@ -2461,20 +2458,29 @@ msgstr "Αποτελέσματα αναζήτησης"
 msgid "Property Name"
 msgstr "Όνομα ακινήτου"
 
+msgid "Cart Operations"
+msgstr "Λειτουργίες καλαθιού"
+
+msgid "Add This Page"
+msgstr "Προσθήκη αυτής της σελίδας"
+
 msgid "Loading people in cart...."
 msgstr "Φόρτωση ανθρώπων σε cart...."
+
+msgid "Add All results"
+msgstr "Προσθήκη όλων των αποτελεσμάτων"
+
+msgid "Remove this page"
+msgstr "Αφαίρεση αυτής της σελίδας"
 
 msgid "Removing people in cart...."
 msgstr "Απομάκρυνση ατόμων στο cart...."
 
-msgid "Removing finished...."
-msgstr "Αφαίρεση τελικού...."
+msgid "Remove All results"
+msgstr "Αφαίρεση όλων των αποτελεσμάτων"
 
-msgid "Remove People"
-msgstr "Αφαίρεση ατόμων"
-
-msgid "Nothing to remove."
-msgstr "Δεν υπάρχει τίποτα να αφαιρεθεί."
+msgid "Intersect result with cart"
+msgstr "Τομή του αποτελέσματος με το καλάθι"
 
 msgid "Visits/calls"
 msgstr "Επισκέψεις/κλήσεις"
@@ -2556,6 +2562,15 @@ msgstr "Αριθμός αγοραστή Εκδότης"
 
 msgid "Select"
 msgstr "Επιλέξτε"
+
+#~ msgid "Done !"
+#~ msgstr "Έγινε!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Αφαίρεση τελικού...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Δεν υπάρχει τίποτα να αφαιρεθεί."
 
 #~ msgid "Activ"
 #~ msgstr "Activ"
