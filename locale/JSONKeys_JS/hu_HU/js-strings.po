@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2412,21 +2412,18 @@ msgstr "Bejelentkezés a helyreállított adatbázisba"
 msgid "Restore Error."
 msgstr "Visszaállítási hiba."
 
+msgid "All Groups"
+msgstr "Minden csoport"
+
+msgid "All Roles"
+msgstr "Minden szerepkör"
+
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
 "Keresési kifejezések, mint például : név, keresztnév, telefonszám, ingatlan, "
 "csoportnév, stb ..."
-
-msgid "Done !"
-msgstr "Kész!"
-
-msgid "All Groups"
-msgstr "Minden csoport"
-
-msgid "All Roles"
-msgstr "Minden szerepkör"
 
 msgid "id"
 msgstr "id"
@@ -2440,20 +2437,29 @@ msgstr "Keresés eredménye"
 msgid "Property Name"
 msgstr "Ingatlan neve"
 
+msgid "Cart Operations"
+msgstr "Kocsik üzemeltetése"
+
+msgid "Add This Page"
+msgstr "Hozzáadni ezt az oldalt"
+
 msgid "Loading people in cart...."
 msgstr "Emberek rakodása a kocsiban...."
+
+msgid "Add All results"
+msgstr "Minden eredmény hozzáadása"
+
+msgid "Remove this page"
+msgstr "Az oldal eltávolítása"
 
 msgid "Removing people in cart...."
 msgstr "Emberek eltávolítása a cart...."
 
-msgid "Removing finished...."
-msgstr "Kész.... eltávolítása"
+msgid "Remove All results"
+msgstr "Minden eredmény eltávolítása"
 
-msgid "Remove People"
-msgstr "Emberek eltávolítása"
-
-msgid "Nothing to remove."
-msgstr "Nincs mit eltávolítani."
+msgid "Intersect result with cart"
+msgstr "Az eredmény metszése a kosárral"
 
 msgid "Visits/calls"
 msgstr "Látogatások/hívások"
@@ -2535,6 +2541,15 @@ msgstr "Vevőszám szerkesztő"
 
 msgid "Select"
 msgstr "Válassza ki a  címet."
+
+#~ msgid "Done !"
+#~ msgstr "Kész!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Kész.... eltávolítása"
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Nincs mit eltávolítani."
 
 #~ msgid "Activ"
 #~ msgstr "Activ"

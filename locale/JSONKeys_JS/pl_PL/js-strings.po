@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2394,21 +2394,18 @@ msgstr "Logowanie do przywróconej bazy danych"
 msgid "Restore Error."
 msgstr "Błąd przywracania."
 
+msgid "All Groups"
+msgstr "Wszystkie grupy"
+
+msgid "All Roles"
+msgstr "Wszystkie role"
+
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
 "Wyszukiwane hasła takie jak: nazwisko, imię, numer telefonu, nieruchomość, "
 "nazwa grupy, itp ..."
-
-msgid "Done !"
-msgstr "Gotowe!"
-
-msgid "All Groups"
-msgstr "Wszystkie grupy"
-
-msgid "All Roles"
-msgstr "Wszystkie role"
 
 msgid "id"
 msgstr "id"
@@ -2422,20 +2419,29 @@ msgstr "Wynik wyszukiwania"
 msgid "Property Name"
 msgstr "Nazwa nieruchomości"
 
+msgid "Cart Operations"
+msgstr "Obsługa wózka"
+
+msgid "Add This Page"
+msgstr "Dodaj tę stronę"
+
 msgid "Loading people in cart...."
 msgstr "Załadunek osób na wózek...."
+
+msgid "Add All results"
+msgstr "Dodaj wszystkie wyniki"
+
+msgid "Remove this page"
+msgstr "Usuń tę stronę"
 
 msgid "Removing people in cart...."
 msgstr "Usuwanie osób z kart...."
 
-msgid "Removing finished...."
-msgstr "Usuwanie gotowych...."
+msgid "Remove All results"
+msgstr "Usuń wszystkie wyniki"
 
-msgid "Remove People"
-msgstr "Usunąć ludzi"
-
-msgid "Nothing to remove."
-msgstr "Nie ma nic do usunięcia."
+msgid "Intersect result with cart"
+msgstr "Wynik przecięcia z koszykiem"
 
 msgid "Visits/calls"
 msgstr "Wizyty/wezwania"
@@ -2517,6 +2523,15 @@ msgstr "Numer nabywcy Edytor"
 
 msgid "Select"
 msgstr "Wybierz"
+
+#~ msgid "Done !"
+#~ msgstr "Gotowe!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Usuwanie gotowych...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Nie ma nic do usunięcia."
 
 #~ msgid "Activ"
 #~ msgstr "Activ"

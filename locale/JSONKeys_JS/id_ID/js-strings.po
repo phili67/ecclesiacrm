@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2408,19 +2408,16 @@ msgstr "Login untuk mengembalikan Database"
 msgid "Restore Error."
 msgstr "Kembalikan kesalahan."
 
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr ""
-
-msgid "Done !"
-msgstr "Selesai!"
-
 msgid "All Groups"
 msgstr "Semua kelompok"
 
 msgid "All Roles"
 msgstr "Semua Roles"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "id"
 msgstr "ID"
@@ -2434,20 +2431,29 @@ msgstr "Hasil pencarian"
 msgid "Property Name"
 msgstr "Nama properti"
 
+msgid "Cart Operations"
+msgstr "Pengoperasian Gerobak"
+
+msgid "Add This Page"
+msgstr "Tambahkan Halaman Ini"
+
 msgid "Loading people in cart...."
 msgstr "Memiliki orang di kereta ..."
+
+msgid "Add All results"
+msgstr "Tambahkan Semua hasil"
+
+msgid "Remove this page"
+msgstr "Hapus halaman ini"
 
 msgid "Removing people in cart...."
 msgstr "Menghapus orang-orang di kereta ...."
 
-msgid "Removing finished...."
-msgstr "Menghapus selesai ...."
+msgid "Remove All results"
+msgstr "Hapus Semua hasil"
 
-msgid "Remove People"
-msgstr "Lepaskan orang"
-
-msgid "Nothing to remove."
-msgstr "Tidak ada yang perlu dihapus."
+msgid "Intersect result with cart"
+msgstr "Hasil perpotongan dengan keranjang"
 
 msgid "Visits/calls"
 msgstr "Pengunjung/panggilan"
@@ -2529,6 +2535,15 @@ msgstr "Pembeli Editor"
 
 msgid "Select"
 msgstr "Pilih"
+
+#~ msgid "Done !"
+#~ msgstr "Selesai!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Menghapus selesai ...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Tidak ada yang perlu dihapus."
 
 #~ msgid "Activ"
 #~ msgstr "Activ"

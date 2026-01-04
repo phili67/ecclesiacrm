@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2329,19 +2329,16 @@ msgstr "登录恢复的数据库"
 msgid "Restore Error."
 msgstr "复原错误。"
 
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr "搜索条件如：姓名、电话号码、属性、组名等..."
-
-msgid "Done !"
-msgstr "完成了!"
-
 msgid "All Groups"
 msgstr "所有团体"
 
 msgid "All Roles"
 msgstr "所有角色"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr "搜索条件如：姓名、电话号码、属性、组名等..."
 
 msgid "id"
 msgstr "身份证"
@@ -2355,20 +2352,32 @@ msgstr "搜索结果"
 msgid "Property Name"
 msgstr "财产名称"
 
+#, fuzzy
+msgid "Cart Operations"
+msgstr "模板选项"
+
+msgid "Add This Page"
+msgstr ""
+
 msgid "Loading people in cart...."
 msgstr "在cart....，装载人员"
+
+msgid "Add All results"
+msgstr ""
+
+#, fuzzy
+msgid "Remove this page"
+msgstr "移除人员"
 
 msgid "Removing people in cart...."
 msgstr "在cart.... 删除人"
 
-msgid "Removing finished...."
-msgstr "移除成品...."
+#, fuzzy
+msgid "Remove All results"
+msgstr "删除所有成员"
 
-msgid "Remove People"
-msgstr "移除人员"
-
-msgid "Nothing to remove."
-msgstr "没有什么需要移除的。"
+msgid "Intersect result with cart"
+msgstr ""
 
 msgid "Visits/calls"
 msgstr "访问/通话"
@@ -2450,6 +2459,15 @@ msgstr "买方编号编辑"
 
 msgid "Select"
 msgstr "选择"
+
+#~ msgid "Done !"
+#~ msgstr "完成了!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "移除成品...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "没有什么需要移除的。"
 
 #~ msgid "Activ"
 #~ msgstr "激活"

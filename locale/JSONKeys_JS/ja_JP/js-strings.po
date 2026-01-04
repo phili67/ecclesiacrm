@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2378,19 +2378,16 @@ msgstr "リストアされたデータベースへのログイン"
 msgid "Restore Error."
 msgstr "リストアエラー。"
 
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr "検索条件：名前、名、電話番号、物件、グループ名など"
-
-msgid "Done !"
-msgstr "Done!"
-
 msgid "All Groups"
 msgstr "全グループ"
 
 msgid "All Roles"
 msgstr "すべての役割"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr "検索条件：名前、名、電話番号、物件、グループ名など"
 
 msgid "id"
 msgstr "ID"
@@ -2404,20 +2401,29 @@ msgstr "検索結果"
 msgid "Property Name"
 msgstr "物件名"
 
+msgid "Cart Operations"
+msgstr "カート操作"
+
+msgid "Add This Page"
+msgstr "このページを追加する"
+
 msgid "Loading people in cart...."
 msgstr "cart.... での人の読み込み"
+
+msgid "Add All results"
+msgstr "すべての結果を追加"
+
+msgid "Remove this page"
+msgstr "このページを削除する"
 
 msgid "Removing people in cart...."
 msgstr "cart.... の人を削除する。"
 
-msgid "Removing finished...."
-msgstr "完成品の取り外し...."
+msgid "Remove All results"
+msgstr "すべての結果を削除"
 
-msgid "Remove People"
-msgstr "人の削除"
-
-msgid "Nothing to remove."
-msgstr "除去するものはありません。"
+msgid "Intersect result with cart"
+msgstr "結果をカートと交差させる"
 
 msgid "Visits/calls"
 msgstr "訪問/コール"
@@ -2499,6 +2505,15 @@ msgstr "バイヤーナンバー編集部"
 
 msgid "Select"
 msgstr "セレクト"
+
+#~ msgid "Done !"
+#~ msgstr "Done!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "完成品の取り外し...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "除去するものはありません。"
 
 #~ msgid "Activ"
 #~ msgstr "アクティヴ"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2392,19 +2392,16 @@ msgstr "Logg inn på gjenopprettet database"
 msgid "Restore Error."
 msgstr "Gjenopprett feil."
 
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr "Søkeord som: navn, fornavn, telefonnummer, eiendom, gruppenavn osv ..."
-
-msgid "Done !"
-msgstr "Ferdig!"
-
 msgid "All Groups"
 msgstr "Alle grupper"
 
 msgid "All Roles"
 msgstr "Alle roller"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr "Søkeord som: navn, fornavn, telefonnummer, eiendom, gruppenavn osv ..."
 
 msgid "id"
 msgstr "id"
@@ -2418,20 +2415,29 @@ msgstr "Søkeresultat"
 msgid "Property Name"
 msgstr "Eiendomsnavn"
 
+msgid "Cart Operations"
+msgstr "Vognoperasjoner"
+
+msgid "Add This Page"
+msgstr "Legg til denne siden"
+
 msgid "Loading people in cart...."
 msgstr "Laster folk i handlekurven...."
+
+msgid "Add All results"
+msgstr "Legg til alle resultater"
+
+msgid "Remove this page"
+msgstr "Fjern denne siden"
 
 msgid "Removing people in cart...."
 msgstr "Fjerne personer i handlekurven...."
 
-msgid "Removing finished...."
-msgstr "Fjerne ferdig...."
+msgid "Remove All results"
+msgstr "Fjern alle resultater"
 
-msgid "Remove People"
-msgstr "Fjern personer"
-
-msgid "Nothing to remove."
-msgstr "Ingenting å fjerne."
+msgid "Intersect result with cart"
+msgstr "Kryss resultatet med handlekurven"
 
 msgid "Visits/calls"
 msgstr "Besøk/samtaler"
@@ -2513,6 +2519,15 @@ msgstr "Innkjøpernummer Redaktør"
 
 msgid "Select"
 msgstr "Velg"
+
+#~ msgid "Done !"
+#~ msgstr "Ferdig!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Fjerne ferdig...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Ingenting å fjerne."
 
 #~ msgid "Activ"
 #~ msgstr "Aktiv"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2361,19 +2361,16 @@ msgstr "ล็อกเพื่อให้ฐานข้อมูลฟื้
 msgid "Restore Error."
 msgstr "ฟื้นฟูความบกพร่อง"
 
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr ""
-
-msgid "Done !"
-msgstr "เสร็จแล้ว!"
-
 msgid "All Groups"
 msgstr "ทุกกลุ่ม"
 
 msgid "All Roles"
 msgstr "ทุก ๆ บทบาท"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "id"
 msgstr "บัตรประจำตัว"
@@ -2387,20 +2384,32 @@ msgstr "ค้นหา"
 msgid "Property Name"
 msgstr "นามสกุลทรัพย์สิน"
 
+#, fuzzy
+msgid "Cart Operations"
+msgstr "เทมพลา ตัดสินใจ"
+
+msgid "Add This Page"
+msgstr ""
+
 msgid "Loading people in cart...."
 msgstr "เอาคนขับรถเข็น..."
+
+msgid "Add All results"
+msgstr ""
+
+#, fuzzy
+msgid "Remove this page"
+msgstr "เอาผู้คน"
 
 msgid "Removing people in cart...."
 msgstr "เอารถเข็นออกไป"
 
-msgid "Removing finished...."
-msgstr "ถอนตัว..."
+#, fuzzy
+msgid "Remove All results"
+msgstr "ลบทั้งหมด"
 
-msgid "Remove People"
-msgstr "เอาผู้คน"
-
-msgid "Nothing to remove."
-msgstr "ไม่มีอะไรต้องเอาออก"
+msgid "Intersect result with cart"
+msgstr ""
 
 msgid "Visits/calls"
 msgstr "เยี่ยม/สาย"
@@ -2482,6 +2491,15 @@ msgstr "ผู้ซื้อหมายเลข"
 
 msgid "Select"
 msgstr "เลือก"
+
+#~ msgid "Done !"
+#~ msgstr "เสร็จแล้ว!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "ถอนตัว..."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "ไม่มีอะไรต้องเอาออก"
 
 #~ msgid "Activ"
 #~ msgstr "Activ"

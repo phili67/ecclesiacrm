@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2396,20 +2396,17 @@ msgstr "Logga in på den återställda databasen"
 msgid "Restore Error."
 msgstr "Återställningsfel."
 
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr ""
-"Söktermer som: namn, förnamn, telefonnummer, fastighet, gruppnamn, etc ..."
-
-msgid "Done !"
-msgstr "Klart!"
-
 msgid "All Groups"
 msgstr "Alla grupper"
 
 msgid "All Roles"
 msgstr "Alla roller"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
+"Söktermer som: namn, förnamn, telefonnummer, fastighet, gruppnamn, etc ..."
 
 msgid "id"
 msgstr "id"
@@ -2423,20 +2420,29 @@ msgstr "Sökresultat"
 msgid "Property Name"
 msgstr "Fastighetsnamn"
 
+msgid "Cart Operations"
+msgstr "Drift av vagnar"
+
+msgid "Add This Page"
+msgstr "Lägg till denna sida"
+
 msgid "Loading people in cart...."
 msgstr "Lastning av personer i kartong...."
+
+msgid "Add All results"
+msgstr "Lägg till alla resultat"
+
+msgid "Remove this page"
+msgstr "Ta bort denna sida"
 
 msgid "Removing people in cart...."
 msgstr "Ta bort personer i kart...."
 
-msgid "Removing finished...."
-msgstr "Ta bort färdig...."
+msgid "Remove All results"
+msgstr "Ta bort alla resultat"
 
-msgid "Remove People"
-msgstr "Ta bort människor"
-
-msgid "Nothing to remove."
-msgstr "Inget att ta bort."
+msgid "Intersect result with cart"
+msgstr "Intersektera resultatet med vagnen"
 
 msgid "Visits/calls"
 msgstr "Besök/samtal"
@@ -2518,6 +2524,15 @@ msgstr "Köpare Nummer Redaktör"
 
 msgid "Select"
 msgstr "Välj"
+
+#~ msgid "Done !"
+#~ msgstr "Klart!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Ta bort färdig...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Inget att ta bort."
 
 #~ msgid "Activ"
 #~ msgstr "Aktivera"

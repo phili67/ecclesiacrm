@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2411,21 +2411,18 @@ msgstr "Accesso al database ripristinato"
 msgid "Restore Error."
 msgstr "Errore di ripristino."
 
+msgid "All Groups"
+msgstr "Tutti i gruppi"
+
+msgid "All Roles"
+msgstr "Tutti i ruoli"
+
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
 "Termini di ricerca come: cognome, nome, numero di telefono, proprietà, nome "
 "del gruppo, ecc..."
-
-msgid "Done !"
-msgstr "Fatto!"
-
-msgid "All Groups"
-msgstr "Tutti i gruppi"
-
-msgid "All Roles"
-msgstr "Tutti i ruoli"
 
 msgid "id"
 msgstr "id"
@@ -2439,20 +2436,29 @@ msgstr "Risultato della ricerca"
 msgid "Property Name"
 msgstr "Nome della proprietà"
 
+msgid "Cart Operations"
+msgstr "Operazioni con il carrello"
+
+msgid "Add This Page"
+msgstr "Aggiungi questa pagina"
+
 msgid "Loading people in cart...."
 msgstr "Caricamento delle persone in cart...."
+
+msgid "Add All results"
+msgstr "Aggiungi tutti i risultati"
+
+msgid "Remove this page"
+msgstr "Rimuovi questa pagina"
 
 msgid "Removing people in cart...."
 msgstr "Rimozione di persone in cart...."
 
-msgid "Removing finished...."
-msgstr "Rimozione di finished...."
+msgid "Remove All results"
+msgstr "Rimuovi tutti i risultati"
 
-msgid "Remove People"
-msgstr "Rimuovi persone"
-
-msgid "Nothing to remove."
-msgstr "Niente da rimuovere."
+msgid "Intersect result with cart"
+msgstr "Intersecare il risultato con il carrello"
 
 msgid "Visits/calls"
 msgstr "Visite/chiamate"
@@ -2534,6 +2540,15 @@ msgstr "Editore del numero dell'acquirente"
 
 msgid "Select"
 msgstr "Seleziona"
+
+#~ msgid "Done !"
+#~ msgstr "Fatto!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Rimozione di finished...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Niente da rimuovere."
 
 #~ msgid "Activ"
 #~ msgstr "Attivare"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2375,21 +2375,18 @@ msgstr "نبقى على قاعدة البيانات"
 msgid "Restore Error."
 msgstr "استعادة الخطأ"
 
+msgid "All Groups"
+msgstr "جميع المجموعات"
+
+msgid "All Roles"
+msgstr "كل الأدوار"
+
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
 "Des termes de recherche comme : nom, prénom, numéro de téléphone, propriété, "
 "nom de groupe, etc ..."
-
-msgid "Done !"
-msgstr "تم"
-
-msgid "All Groups"
-msgstr "جميع المجموعات"
-
-msgid "All Roles"
-msgstr "كل الأدوار"
 
 msgid "id"
 msgstr "المرجع نفسه"
@@ -2403,20 +2400,29 @@ msgstr "نتيجة بحث"
 msgid "Property Name"
 msgstr "اسم الملكية"
 
+msgid "Cart Operations"
+msgstr "عمليات العربة"
+
+msgid "Add This Page"
+msgstr "إضافة هذه الصفحة"
+
 msgid "Loading people in cart...."
 msgstr "تحميل الناس في عربة..."
+
+msgid "Add All results"
+msgstr "إضافة جميع النتائج"
+
+msgid "Remove this page"
+msgstr "إزالة هذه الصفحة"
 
 msgid "Removing people in cart...."
 msgstr "إزالة الناس في عربة..."
 
-msgid "Removing finished...."
-msgstr "إزالة الانتقال"
+msgid "Remove All results"
+msgstr "إزالة جميع النتائج"
 
-msgid "Remove People"
-msgstr "أزل الناس"
-
-msgid "Nothing to remove."
-msgstr "لا شيء لإزالته"
+msgid "Intersect result with cart"
+msgstr "نتيجة التقاطع مع عربة التسوق"
 
 msgid "Visits/calls"
 msgstr "زيارات/مكالمات"
@@ -2498,6 +2504,15 @@ msgstr "المشتري محرر التحرير"
 
 msgid "Select"
 msgstr "اختيار"
+
+#~ msgid "Done !"
+#~ msgstr "تم"
+
+#~ msgid "Removing finished...."
+#~ msgstr "إزالة الانتقال"
+
+#~ msgid "Nothing to remove."
+#~ msgstr "لا شيء لإزالته"
 
 #~ msgid "Activ"
 #~ msgstr "Activ"

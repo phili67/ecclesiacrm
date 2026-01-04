@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2425,21 +2425,18 @@ msgstr "Autentificare la baza de date restaurată"
 msgid "Restore Error."
 msgstr "Eroare de restaurare."
 
+msgid "All Groups"
+msgstr "Toate grupurile"
+
+msgid "All Roles"
+msgstr "Toate rolurile"
+
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
 "Termeni de căutare precum: nume, prenume, număr de telefon, proprietate, "
 "nume de grup, etc ..."
-
-msgid "Done !"
-msgstr "Gata!"
-
-msgid "All Groups"
-msgstr "Toate grupurile"
-
-msgid "All Roles"
-msgstr "Toate rolurile"
 
 msgid "id"
 msgstr "id"
@@ -2453,20 +2450,29 @@ msgstr "Rezultatul căutării"
 msgid "Property Name"
 msgstr "Numele proprietății"
 
+msgid "Cart Operations"
+msgstr "Operațiuni cu căruciorul"
+
+msgid "Add This Page"
+msgstr "Adaugă această pagină"
+
 msgid "Loading people in cart...."
 msgstr "Încărcare persoane în cart...."
+
+msgid "Add All results"
+msgstr "Adaugă toate rezultatele"
+
+msgid "Remove this page"
+msgstr "Eliminați această pagină"
 
 msgid "Removing people in cart...."
 msgstr "Îndepărtarea persoanelor din cart...."
 
-msgid "Removing finished...."
-msgstr "Îndepărtarea terminat...."
+msgid "Remove All results"
+msgstr "Eliminați toate rezultatele"
 
-msgid "Remove People"
-msgstr "Îndepărtați oameni"
-
-msgid "Nothing to remove."
-msgstr "Nu este nimic de îndepărtat."
+msgid "Intersect result with cart"
+msgstr "Intersectați rezultatul cu coșul"
 
 msgid "Visits/calls"
 msgstr "Vizite/apeluri"
@@ -2548,6 +2554,15 @@ msgstr "Numărul cumpărătorului Editor"
 
 msgid "Select"
 msgstr "Selectați"
+
+#~ msgid "Done !"
+#~ msgstr "Gata!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Îndepărtarea terminat...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Nu este nimic de îndepărtat."
 
 #~ msgid "Activ"
 #~ msgstr "Activ"

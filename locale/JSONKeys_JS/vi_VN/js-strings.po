@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2420,19 +2420,16 @@ msgstr "Đã xác định được căn cứ"
 msgid "Restore Error."
 msgstr "Phục hồi lỗi sai."
 
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr ""
-
-msgid "Done !"
-msgstr "Xong!"
-
 msgid "All Groups"
 msgstr "Tất cả các nhóm"
 
 msgid "All Roles"
 msgstr "Tất cả Roles"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "id"
 msgstr "ID"
@@ -2446,20 +2443,32 @@ msgstr "Kết quả tìm kiếm"
 msgid "Property Name"
 msgstr "Tên tài sản"
 
+#, fuzzy
+msgid "Cart Operations"
+msgstr "Đền lựa chọn"
+
+msgid "Add This Page"
+msgstr ""
+
 msgid "Loading people in cart...."
 msgstr "Giao người trên xe đẩy..."
+
+msgid "Add All results"
+msgstr ""
+
+#, fuzzy
+msgid "Remove this page"
+msgstr "Giải tán mọi người"
 
 msgid "Removing people in cart...."
 msgstr "Loại bỏ những người trong xe đẩy..."
 
-msgid "Removing finished...."
-msgstr "Giải tán xong rồi..."
+#, fuzzy
+msgid "Remove All results"
+msgstr "Loại bỏ tất cả"
 
-msgid "Remove People"
-msgstr "Giải tán mọi người"
-
-msgid "Nothing to remove."
-msgstr "Không có gì để gỡ bỏ."
+msgid "Intersect result with cart"
+msgstr ""
 
 msgid "Visits/calls"
 msgstr "Đến thăm"
@@ -2541,6 +2550,15 @@ msgstr "Biên tập viên số khách hàng"
 
 msgid "Select"
 msgstr "Chọn đi"
+
+#~ msgid "Done !"
+#~ msgstr "Xong!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Giải tán xong rồi..."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Không có gì để gỡ bỏ."
 
 #~ msgid "Activ"
 #~ msgstr "Tiến hành!"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-12-28T17:20:34.227Z\n"
+"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -2387,21 +2387,18 @@ msgstr "Вхід до відновленої бази даних"
 msgid "Restore Error."
 msgstr "Відновити помилку."
 
+msgid "All Groups"
+msgstr "Всі групи"
+
+msgid "All Roles"
+msgstr "Всі ролі"
+
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
 "Пошукові терміни, такі як: ім'я, прізвище, номер телефону, власність, назва "
 "групи тощо..."
-
-msgid "Done !"
-msgstr "Готово!"
-
-msgid "All Groups"
-msgstr "Всі групи"
-
-msgid "All Roles"
-msgstr "Всі ролі"
 
 msgid "id"
 msgstr "ідентифікатор"
@@ -2415,20 +2412,29 @@ msgstr "Результат пошуку"
 msgid "Property Name"
 msgstr "Назва об'єкта нерухомості"
 
+msgid "Cart Operations"
+msgstr "Операції з візками"
+
+msgid "Add This Page"
+msgstr "Додати цю сторінку"
+
 msgid "Loading people in cart...."
 msgstr "Завантаження людей у кошик...."
+
+msgid "Add All results"
+msgstr "Додати всі результати"
+
+msgid "Remove this page"
+msgstr "Видаліть цю сторінку"
 
 msgid "Removing people in cart...."
 msgstr "Видалення людей у кошику...."
 
-msgid "Removing finished...."
-msgstr "Видалення завершено...."
+msgid "Remove All results"
+msgstr "Видалити всі результати"
 
-msgid "Remove People"
-msgstr "Видалення людей"
-
-msgid "Nothing to remove."
-msgstr "Видаляти нічого."
+msgid "Intersect result with cart"
+msgstr "Перетинаємо результат з кошиком"
 
 msgid "Visits/calls"
 msgstr "Візити/дзвінки"
@@ -2510,6 +2516,15 @@ msgstr "Редактор номерів покупців"
 
 msgid "Select"
 msgstr "Виберіть"
+
+#~ msgid "Done !"
+#~ msgstr "Готово!"
+
+#~ msgid "Removing finished...."
+#~ msgstr "Видалення завершено...."
+
+#~ msgid "Nothing to remove."
+#~ msgstr "Видаляти нічого."
 
 #~ msgid "Activ"
 #~ msgstr "Activ"

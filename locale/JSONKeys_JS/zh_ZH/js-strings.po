@@ -2535,6 +2535,24 @@ msgstr "请为成员选择目标志愿者"
 msgid "Setting saved"
 msgstr "已保存的设置"
 
+msgid "Cart Operations"
+msgstr "推车操作"
+
+msgid "Add This Page"
+msgstr "添加此页"
+
+msgid "Add All results"
+msgstr "添加所有结果"
+
+msgid "Intersect result with cart"
+msgstr "将结果与购物车相交"
+
+msgid "Remove this page"
+msgstr "删除此页"
+
+msgid "Remove All results"
+msgstr "删除所有结果"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 
