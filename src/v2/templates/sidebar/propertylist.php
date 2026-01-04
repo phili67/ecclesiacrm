@@ -20,13 +20,13 @@ require $sRootDocument . '/Include/Header.php'; ?>
    if ($isMenuOption) {
     //Display the new property link
 ?>
-    <p align="center"><a class='btn btn-primary' href="#" id="add-new-prop"><?= _('Add a New') ?> <?= $sTypeName?> <?= _('Property') ?></a></p>
+    <p align="center"><a class='btn btn-primary' href="#" id="add-new-prop"><i class="fas fa-add"></i> <?= _('Add a New') ?> <?= $sTypeName?> <?= _('Property') ?></a></p>
 <?php
 }
 
 //Start the table
 ?>
-<table class='table table-striped table-bordered' id="property-listing-table-v2" width="100%"></table>
+<table class='table table-hover dt-responsive dataTable no-footer dtr-inline' id="property-listing-table-v2" width="100%"></table>
 </div>
 
 
