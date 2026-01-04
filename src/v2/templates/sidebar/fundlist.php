@@ -19,13 +19,13 @@ require $sRootDocument . '/Include/Header.php';
 
 <?php if ( $isMenuOption ) {
 ?>
-    <p align="center"><button class="btn btn-primary delete-payment" id="add-new-fund"><?= _('Add a New Fund') ?></button></p>
+    <p align="center"><button class="btn btn-primary delete-payment" id="add-new-fund"><i class="fas fa-add"></i>  <?= _('Add a New Fund') ?></button></p>
 <?php
 }
 
 ?>
 
-<table class="table table-striped table-bordered" id="fundTable" cellpadding="5" cellspacing="0"  width="100%"></table>
+<table class="table table-hover dt-responsive dataTable no-footer dtr-inline" id="fundTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 
 </div>
 
