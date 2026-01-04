@@ -441,7 +441,7 @@ if ($sPhoneLink) {
     ?>
 
     <div class="col" ?>
-        <div class="card">
+        <div class="card card-warning">
             <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Manage Group Members") ?>:</h3>
                 <div class="card-tools pull-right">
