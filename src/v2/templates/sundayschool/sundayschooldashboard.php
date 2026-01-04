@@ -19,9 +19,9 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="row">
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-yellow-gradient"><i class="fab fa-gg"></i></span>
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-yellow-gradient">
+            <span class="info-box-icon"><i class="fab fa-gg"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Classes') ?></span>
@@ -31,9 +31,9 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-gradient-olive"><i class="fas fa-users"></i></span>
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-gradient-olive">
+            <span class="info-box-icon"><i class="fas fa-users"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Teachers') ?></span>
@@ -43,9 +43,9 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-gradient-orange"><i class="fas fa-child"></i></span>
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-gradient-orange">
+            <span class="info-box-icon"><i class="fas fa-child"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Students') ?></span>
                 <span class="info-box-number" id="sundaySchoolKidsCNTDasBoard"> <?= $sundaySchoolCountStats['kidsCNT'] ?> </span>
@@ -54,9 +54,9 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-gradient-lime"><small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small></span>
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-gradient-lime">
+            <span class="info-box-icon"><small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Families') ?></span>
@@ -66,9 +66,9 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-gradient-blue"><i class="fas fa-male"></i></span>
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-gradient-blue">
+            <span class="info-box-icone"><i class="fas fa-male"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Boys') ?></span>
@@ -78,9 +78,9 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-gradient-fuchsia"><i class="fas fa-female"></i></span>
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-gradient-fuchsia">
+            <span class="info-box-icon"><i class="fas fa-female"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Girls') ?></span>
@@ -91,108 +91,102 @@ require $sRootDocument . '/Include/Header.php';
         <!-- /.info-box -->
     </div>
 </div><!-- /.row -->
+<br>
 <!-- Small boxes (Stat box) -->
-<div class="card">
-    <div class="card-header border-1">
-        <h3 class="card-title"><?= _('Functions') ?></h3>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-12">
-                <?php
+<div class="row">
+    <div class="col-md-12">
+        <?php
 
-                if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
-                    // Display link
-                ?>
-                    <div class="btn-group">
-                        <a class="btn btn-app" id="sEmailLink" href=""><i class="far fa-paper-plane"></i><?= _('Email') ?></a>
-                        <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span>
-                            <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
-                        </button>
-                        <div class="dropdown-menu" id="dropDownMail" role="menu"></div>
-                    </div>
-
-                    <div class="btn-group">
-                        <a class="btn btn-app" id="sEmailLinkBCC" href=""><i class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
-                        <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span>
-                            <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
-                        </button>
-                        <div class="dropdown-menu" id="dropDownMailBCC" role="menu"></div>
-                    </div>
-                <?php
-                }
-
-                if (SessionUser::getUser()->isManageGroupsEnabled()) {
-                ?>
-                    <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
-                            class="fas fa-plus-square"></i><?= _('Add New Class') ?></button>
-                <?php
-                }
-
-                if (
-                    SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
-                    || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()
-                ) {
-                ?>
-                    <a class="btn btn-app bg-orange callRegister" id="callRegister"
-                        data-callRegistergroupid="<?= $iGroupId ?>" data-callRegistergroupname="<?= $iGroupName ?>"
-                        data-toggle="tooltip" data-placement="bottom" title="<?= _("Be Careful! You are about to create or recreate all the events of all the Sunday school classes to call the register.") ?>"> <i
-                            class="fas fa-calendar-check"></i> <span
-                            class="cartActionDescription"><?= _('Create Events & Call the register') ?></span></a>
-                <?php
-                }
-
-                if (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isAdmin()) {
-                ?>
-                    <a href="<?= $sRootPath ?>/v2/sundayschool/reports" class="btn btn-app bg-red"
-                        title="<?= _('Generate class lists and attendance sheets'); ?>" data-toggle="tooltip" data-placement="bottom" title="<?= _("To export your attendance, Photobooks, Attendance sheet, and Class list") ?>"><i
-                            class="fas fa-file-pdf"></i><?= _('Reports'); ?></a>
-                <?php
-                }
-
-                if (SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled()) {
-                ?>
-                    <a href="<?= $sRootPath ?>/sundayschool/SundaySchoolClassListExport.php" class="btn btn-app bg-green"
-                        title="<?= _('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
-                            class="fas fa-file-excel"></i><?= _('Export to CSV') ?></a>
-                <?php
-                }
-                ?>
-                <?php
-                if (Cart::GeneralStudentInCart() && SessionUser::getUser()->isShowCartEnabled()) {
-                ?>
-                    <a class="btn btn-app RemoveAllStudentsFromCart" id="AddAllStudentsToCart"> <i class="fas fa-times"></i> <span
-                            class="cartActionDescription"><?= _("Remove Students from Cart") ?></span></a>
-                <?php
-                } else if (SessionUser::getUser()->isShowCartEnabled()) {
-                ?>
-                    <a class="btn btn-app AddAllStudentsToCart" id="AddAllStudentsToCart"><i class="fas fa-cart-plus"></i> <span
-                            class="cartActionDescription"><?= _("Add Students to Cart") ?></span></a>
-                <?php
-                }
-                ?>
-                <?php
-                if (Cart::GeneralTeacherInCart() && SessionUser::getUser()->isShowCartEnabled()) {
-                ?>
-                    <a class="btn btn-app RemoveAllTeachersFromCart" id="AddAllTeachersToCart"><i class="fas fa-times"></i> <span
-                            class="cartActionDescription"><?= _("Remove Teachers from Cart") ?></span></a>
-                <?php
-                } else if (SessionUser::getUser()->isShowCartEnabled()) {
-                ?>
-                    <a class="btn btn-app AddAllTeachersToCart" id="AddAllTeachersToCart"><i class="fas fa-cart-plus"></i> <span
-                            class="cartActionDescription"><?= _("Add Teachers to Cart") ?></span></a>
-                <?php
-                }
-
-                ?>
+        if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
+            // Display link
+        ?>
+            <div class="btn-group">
+                <a class="btn btn-app" id="sEmailLink" href=""><i class="far fa-paper-plane"></i><?= _('Email') ?></a>
+                <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
+                </button>
+                <div class="dropdown-menu" id="dropDownMail" role="menu"></div>
             </div>
-        </div>
+
+            <div class="btn-group">
+                <a class="btn btn-app" id="sEmailLinkBCC" href=""><i class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
+                <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
+                </button>
+                <div class="dropdown-menu" id="dropDownMailBCC" role="menu"></div>
+            </div>
+        <?php
+        }
+
+        if (SessionUser::getUser()->isManageGroupsEnabled()) {
+        ?>
+            <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
+                    class="fas fa-plus-square"></i><?= _('Add New Class') ?></button>
+        <?php
+        }
+
+        if (
+            SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
+            || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()
+        ) {
+        ?>
+            <a class="btn btn-app bg-orange callRegister" id="callRegister"
+                data-callRegistergroupid="<?= $iGroupId ?>" data-callRegistergroupname="<?= $iGroupName ?>"
+                data-toggle="tooltip" data-placement="bottom" title="<?= _("Be Careful! You are about to create or recreate all the events of all the Sunday school classes to call the register.") ?>"> <i
+                    class="fas fa-calendar-check"></i> <span
+                    class="cartActionDescription"><?= _('Create Events & Call the register') ?></span></a>
+        <?php
+        }
+
+        if (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isAdmin()) {
+        ?>
+            <a href="<?= $sRootPath ?>/v2/sundayschool/reports" class="btn btn-app bg-red"
+                title="<?= _('Generate class lists and attendance sheets'); ?>" data-toggle="tooltip" data-placement="bottom" title="<?= _("To export your attendance, Photobooks, Attendance sheet, and Class list") ?>"><i
+                    class="fas fa-file-pdf"></i><?= _('Reports'); ?></a>
+        <?php
+        }
+
+        if (SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled()) {
+        ?>
+            <a href="<?= $sRootPath ?>/sundayschool/SundaySchoolClassListExport.php" class="btn btn-app bg-green"
+                title="<?= _('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
+                    class="fas fa-file-excel"></i><?= _('Export to CSV') ?></a>
+        <?php
+        }
+        ?>
+        <?php
+        if (Cart::GeneralStudentInCart() && SessionUser::getUser()->isShowCartEnabled()) {
+        ?>
+            <a class="btn btn-app RemoveAllStudentsFromCart" id="AddAllStudentsToCart"> <i class="fas fa-times"></i> <span
+                    class="cartActionDescription"><?= _("Remove Students from Cart") ?></span></a>
+        <?php
+        } else if (SessionUser::getUser()->isShowCartEnabled()) {
+        ?>
+            <a class="btn btn-app AddAllStudentsToCart" id="AddAllStudentsToCart"><i class="fas fa-cart-plus"></i> <span
+                    class="cartActionDescription"><?= _("Add Students to Cart") ?></span></a>
+        <?php
+        }
+        ?>
+        <?php
+        if (Cart::GeneralTeacherInCart() && SessionUser::getUser()->isShowCartEnabled()) {
+        ?>
+            <a class="btn btn-app RemoveAllTeachersFromCart" id="AddAllTeachersToCart"><i class="fas fa-times"></i> <span
+                    class="cartActionDescription"><?= _("Remove Teachers from Cart") ?></span></a>
+        <?php
+        } else if (SessionUser::getUser()->isShowCartEnabled()) {
+        ?>
+            <a class="btn btn-app AddAllTeachersToCart" id="AddAllTeachersToCart"><i class="fas fa-cart-plus"></i> <span
+                    class="cartActionDescription"><?= _("Add Teachers to Cart") ?></span></a>
+        <?php
+        }
+
+        ?>
     </div>
 </div>
 <!-- on continue -->
-<div class="card card-info">
+<div class="card card-info card-outline">
     <div class="card-header border-1">
         <h3 class="card-title"><?= _('Sunday School Classes') ?></h3>
         <div class="card-tools pull-right">
@@ -238,7 +232,7 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 
-<div class="card card-danger">
+<div class="card card-danger card-outline">
     <div class="card-header with-border">
         <h3 class="card-title"><?= _('Students not in a Sunday School Class') ?></h3>
         <div class="card-tools pull-right">

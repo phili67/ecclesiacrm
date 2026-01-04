@@ -30,11 +30,7 @@ if (SessionUser::getUser()->isAddRecords()) {
 }
 ?>
 
-<div class="card">
-    <div class="card-header border-1">
-        <h3 class="card-title"><?= _('Sunday School Class Functions') ?></h3>
-    </div>
-    <div class="card-body">
+
         <?php
         if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
             // Display link
@@ -142,8 +138,6 @@ if (SessionUser::getUser()->isAddRecords()) {
         }
 
         ?>
-    </div>
-</div>
 
 <div class="card card-primary teachers">
     <div class="card-header border-1">
@@ -171,11 +165,6 @@ if (SessionUser::getUser()->isAddRecords()) {
     if (SessionUser::getUser()->isAddRecords()) {
         ?>
         <div class="card-footer">
-            <div class="row">
-                <div class="col-md-12">
-                    <label><?= _("Add Teachers to the Team"); ?>:</label>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-md-1">
                     <?= _("Add") ?>
@@ -293,10 +282,9 @@ if (SessionUser::getUser()->isAddRecords()
     or SessionUser::getUser()->isManageGroups() ) {
     ?>
         <div class="card-footer">
-            <label><?= _("Add Members to Sunday Group"); ?>:</label>
             <div class="row">
                 <div class="col-md-1">
-                    <?= _("Add") ?>
+                    <?= _("Add Student") ?>
                 </div>
                 <div class="col-md-3">
                     <select class="form-control personSearch  select2" name="addGroupMember" id="personSearch"

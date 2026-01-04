@@ -48,10 +48,10 @@ $(function() {
             var cnt = 0;
 
             for (i = 0; i < len_teachers; i++) {
-                if (cnt % 4 == 0 && cnt != 0) {
+                if (cnt % 6 == 0 && cnt != 0) {
                     res += '</div><div class="row">';
                 }
-                res += '<div class="col-md-3">' +
+                res += '<div class="col-md-2">' +
                     '        <!-- Begin user profile -->' +
                     '        <div class="card text-center user-profile-2">' +
                     '            <div class="card-header border-1">' +
