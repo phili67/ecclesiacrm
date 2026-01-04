@@ -27,7 +27,7 @@ $dashboardCounts = $dshiS->getAllItems();
             </p>
         </div>
         <div class="icon">
-            <i class="fas fa-child"></i>
+            <i class="fa-brands fa-servicestack"></i>
         </div>
         <a href="<?= $sRootPath ?>/v2/volunteeropportunity" class="small-box-footer">
             <?= dgettext("messages-VolunteerDashboardWidget",'More info') ?> <i class="fas fa-arrow-circle-right"></i>
