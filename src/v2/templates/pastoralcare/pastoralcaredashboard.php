@@ -10,57 +10,114 @@
  ******************************************************************************/
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\SessionUser;
 
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card card-primary card-body">
-    <div class="margin">
-        <label><?= _("Visit/Call randomly") ?></label>
-        <div class="btn-group">
-            <a class="btn btn-app newPastorCare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care with a familly. You can validated all the persons together.") ?>"><i
-                    class="fas fa-sticky-note"></i><?= _("Family") ?></a>
-            <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-                <span class="sr-only">Menu déroulant</span>
-            </button>
-            <div class="dropdown-menu" role="menu">
-                <a class="dropdown-item newPastorCare" data-typeid="1"><?= _("Person") ?></a>
-                <a class="dropdown-item newPastorCare" data-typeid="2"><?= _("Family") ?></a>
-                <a class="dropdown-item newPastorCare" data-typeid="3"><?= _("Retired") ?></a>
-                <a class="dropdown-item newPastorCare" data-typeid="4"><?= _("Young") ?></a>
-                <a class="dropdown-item newPastorCare" data-typeid="5"><?= _("Single") ?></a>
+<div class="row">
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-gradient-<?= $Stats['personGradientColor'] ?>">
+            <span class="info-box-icon"><i class="fas fa-user"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text"><?= _("Not visited Persons") ?></span>
+                <span class="info-box-number" id="sundaySchoolClassesDasBoard"><?= $Stats['CountNotViewPersons'] ?> / <?= $Stats['CountAllPersons'] ?></span>
             </div>
-            &nbsp;
-            &nbsp;
-            <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
-            &nbsp;
-            &nbsp;
-            <?php if ( !(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) && SessionUser::getId() == $currentPastorId) { ?>
-                <a href="<?= $sRootPath ?>/v2/pastoralcare/listforuser/<?= $currentPastorId ?>"
-                   class="btn btn-app bg-success"
-                   data-toggle="tooltip" data-placement="bottom"
-                   title="<?= _("Pastoral care list of members for")." ".SessionUser::getUser()->getPerson()->getFullName() ?>"><i class="fas fa-list"></i><?= _("Lists") ?></a>
-            <?php } ?>
+            <!-- /.info-box-content -->
         </div>
-        <?php if ( SessionUser::getUser()->isAdmin() ) { ?>
-            <div class="btn-group pull-right">
-                <a class="btn btn-app" href="<?= $sRootPath ?>/v2/systemsettings/pastoralcare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care Settings.") ?>"><i
-                    class="fas fa-gear"></i><?= _("Settings") ?></a>
-            </div>            
-            <?php } ?>
+        <!-- /.info-box -->
     </div>
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-gradient-<?= $Stats['familyGradientColor'] ?>">
+            <span class="info-box-icon"><small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text"><?= _("Not visited Families") ?></span>
+                <span class="info-box-number" id="sundaySchoolTeachersCNTDasBoard"><?= $Stats['CountNotViewFamilies'] ?> / <?= $Stats['CountAllFamilies'] ?></span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-gradient-<?= $Stats['singleGradientColor'] ?>">
+            <span class="info-box-icon"><i class="fas fa-user"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text"><?= _("Not visited Single Persons") ?></span>
+                <span class="info-box-number" id="sundaySchoolFamiliesCNTDasBoard"><?= $Stats['CountPersonSingle'] ?> / <?= $Stats['CountAllPersonSingle'] ?></span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-gradient-<?= $Stats['retiredGradientColor'] ?>">
+            <span class="info-box-icon"><i class="fas fa-user"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text"><?= _("Not visited Retired Persons") ?></span>
+                <span class="info-box-number" id="sundaySchoolKidsCNTDasBoard"><?= $Stats['CountNotViewRetired'] ?> / <?= $Stats['CountAllRetired'] ?></span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <div class="info-box bg-gradient-<?= $Stats['youngGradientColor'] ?>">
+            <span class="info-box-icon"><i class="fas fa-child"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text"><?= _("Not visited Youngs") ?></span>
+                <span class="info-box-number" id="sundaySchoolMaleKidsCNTDasBoard"><?= $Stats['CountNotViewYoung'] ?> / <?= $Stats['CountAllYoung'] ?></span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+</div>
+
+<div class="margin">
+    <label><?= _("Visit/Call randomly") ?></label>
+    <div class="btn-group">
+        <a class="btn btn-app newPastorCare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care with a familly. You can validated all the persons together.") ?>"><i
+                class="fas fa-sticky-note"></i><?= _("Family") ?></a>
+        <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Menu déroulant</span>
+        </button>
+        <div class="dropdown-menu" role="menu">
+            <a class="dropdown-item newPastorCare" data-typeid="1"><?= _("Person") ?></a>
+            <a class="dropdown-item newPastorCare" data-typeid="2"><?= _("Family") ?></a>
+            <a class="dropdown-item newPastorCare" data-typeid="3"><?= _("Retired") ?></a>
+            <a class="dropdown-item newPastorCare" data-typeid="4"><?= _("Young") ?></a>
+            <a class="dropdown-item newPastorCare" data-typeid="5"><?= _("Single") ?></a>
+        </div>
+        &nbsp;
+        &nbsp;
+        <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
+        &nbsp;
+        &nbsp;
+        <?php if ( !(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) && SessionUser::getId() == $currentPastorId) { ?>
+            <a href="<?= $sRootPath ?>/v2/pastoralcare/listforuser/<?= $currentPastorId ?>"
+                class="btn btn-app bg-success"
+                data-toggle="tooltip" data-placement="bottom"
+                title="<?= _("Pastoral care list of members for")." ".SessionUser::getUser()->getPerson()->getFullName() ?>"><i class="fas fa-list"></i><?= _("Lists") ?></a>
+        <?php } ?>
+    </div>
+    <?php if ( SessionUser::getUser()->isAdmin() ) { ?>
+        <div class="btn-group pull-right">
+            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/systemsettings/pastoralcare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care Settings.") ?>"><i
+                class="fas fa-gear"></i><?= _("Settings") ?></a>
+        </div>            
+        <?php } ?>
 </div>
 
 <div class="row">
     <div class="col-md-6">
-        <div class="card">
+        <div class="card card-primary">
             <div class="card-header  border-1">
-                <div
-                    class="card-title"><?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?></div>
+                <div class="card-title"><i class="fa-solid fa-clock"></i> <?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?></div>
             </div>
             <div class="card-body">
                 <div class="alert alert-default-info"><?= _("• Statistics about persons, families ... who remain to be contacted.") ?></div>
@@ -72,7 +129,7 @@ require $sRootDocument . '/Include/Header.php';
                     </tr>
                     <tr>
                         <td>
-                            <?= _("Persons") ?>
+                            <i class="fas fa-user"></i> <?= _("Persons") ?>
                         </td>
                         <td>
                             <div class="progress">
@@ -85,7 +142,7 @@ require $sRootDocument . '/Include/Header.php';
                     </tr>
                     <tr>
                         <td>
-                            <?= _("Families") ?>
+                            <small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small> <?= _("Families") ?>
                         </td>
                         <td>
                             <div class="progress">
@@ -98,7 +155,7 @@ require $sRootDocument . '/Include/Header.php';
                     </tr>
                     <tr>
                         <td>
-                            <?= _("Singles") ?>
+                            <i class="fas fa-user"></i> <?= _("Singles") ?>
                         </td>
                         <td>
                             <div class="progress">
@@ -111,7 +168,7 @@ require $sRootDocument . '/Include/Header.php';
                     </tr>
                     <tr>
                         <td>
-                            <?= _("Retired") ?>
+                            <i class="fas fa-user"></i> <?= _("Retired") ?>
                         </td>
                         <td>
                             <div class="progress">
@@ -124,7 +181,7 @@ require $sRootDocument . '/Include/Header.php';
                     </tr>
                     <tr>
                         <td>
-                            <?= _("Young People") ?>
+                            <i class="fas fa-child"></i> <?= _("Young People") ?>
                         </td>
                         <td>
                             <div class="progress">
@@ -140,10 +197,10 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <?php if (SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) { ?>
         <div class="col-md-6">
-            <div class="card">
+            <div class="card card-primary">
                 <div class="card-header  border-1">
                     <div class="card-title">
-                        <?= _("Pastoral Care Members") ?>
+                        <i class="fa-solid fa-people-group"></i> <?= _("Pastoral Care Members") ?>
                         <?php if (SystemConfig::getBooleanValue("bPastoralcareStats")) { ?>
                             (<?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?>)
                         <?php } ?>
@@ -162,10 +219,10 @@ require $sRootDocument . '/Include/Header.php';
 
     <div class="row">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card card-warning">
                 <div class="card-header  border-1">
                     <div class="card-title">
-                        <?= _("Persons not reached") ?>
+                        <i class="fas fa-user"></i> <?= _("Persons not reached") ?>
                     </div>
                 </div>
                 <div class="card-body">
@@ -175,10 +232,10 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card">
+            <div class="card card-warning">
                 <div class="card-header  border-1">
                     <div class="card-title">
-                        <?= _("Families not reached") ?>
+                        <small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small> <?= _("Families not reached") ?>
                     </div>
                 </div>
                 <div class="card-body">
@@ -190,10 +247,10 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card card-warning">
                 <div class="card-header  border-1">
                     <div class="card-title">
-                        <?= _("Single Persons not reached") ?>
+                        <i class="fas fa-user"></i> <?= _("Single Persons not reached") ?>
                     </div>
                 </div>
                 <div class="card-body">
@@ -203,10 +260,10 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card">
+            <div class="card card-warning">
                 <div class="card-header  border-1">
                     <div class="card-title">
-                        <?= _("Retired not reached") ?>
+                        <i class="fas fa-user"></i> <?= _("Retired not reached") ?>
                     </div>
                 </div>
                 <div class="card-body">
@@ -222,7 +279,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="card">
                 <div class="card-header  border-1">
                     <div class="card-title">
-                        <?= _("Young People not reached") ?>
+                        <i class="fas fa-child"></i> <?= _("Young People not reached") ?>
                     </div>
                 </div>
                 <div class="card-body">
