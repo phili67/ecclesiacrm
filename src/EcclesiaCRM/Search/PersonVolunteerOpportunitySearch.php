@@ -131,7 +131,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                                 "type" => " "._($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
-                                "Classification" => "",
+                                "Classification" => $per->getOpportunityName(),
                                 "ProNames" => "",
                                 "FamilyRole" => "",
                                 "members" => "",
