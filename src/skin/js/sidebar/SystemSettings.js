@@ -101,7 +101,7 @@ window.CRM.ElementListener('#save', 'click', function (event){
     window.CRM.showGlobalMessage(i18next.t("Setting saved"), "success")
     var mode = $("#modeID").val();
 
-    if (mode === 'enabledfeatures' || mode === 'gdpr') {
+    if (mode === 'enabledfeatures' || mode === 'gdpr' || mode === 'localization') {
       setTimeout(() => {
         if (mode !== '') {
           location.href = window.CRM.root + '/v2/systemsettings/' + mode;
