@@ -2456,7 +2456,7 @@ msgid "Property Name"
 msgstr "Nom de Propriété"
 
 msgid "Cart Operations"
-msgstr "Fonctionnement des chariots"
+msgstr "Fonctionnement du panier"
 
 msgid "Add This Page"
 msgstr "Ajouter cette page"
@@ -2477,7 +2477,7 @@ msgid "Remove All results"
 msgstr "Supprimer tous les résultats"
 
 msgid "Intersect result with cart"
-msgstr "Intersection du résultat avec le chariot"
+msgstr "Intersection du résultat avec le panier"
 
 msgid "Visits/calls"
 msgstr "Visites/appels"
