@@ -1,459 +1,57 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
+"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Varmuuskopio ladattu, kopio palvelimella poistettu"
+
+msgid "You must enter a password"
+msgstr "Sinun on annettava salasana"
+
+msgid "Passwords must match"
+msgstr "Salasanojen on vastattava"
+
+msgid "Backup Running, Please wait."
+msgstr "Varmuuskopiointi käynnissä, odota."
+
+msgid "Backup in progress, don't close the window !"
+msgstr "Varmuuskopiointi käynnissä, älä sulje ikkunaa !"
+
+msgid "Background backup in progress to remote server"
+msgstr "Taustakopiointi käynnissä etäpalvelimelle"
+
+msgid "Background backup in progress"
+msgstr "Taustan varmuuskopiointi käynnissä"
+
+msgid "Backup Error."
+msgstr "Varmuuskopiointivirhe."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "Valittu tiedosto ylittää tämän palvelimen maksimilatauskoon, joka on"
+
+msgid "Restore Running, Please wait."
+msgstr "Palautus käynnissä, odota."
+
+msgid "Restore backup, don't close the window !"
+msgstr "Palauta varmuuskopio, älä sulje ikkunaa !"
+
+msgid "Restore Complete"
+msgstr "Palautus valmis"
+
+msgid "Login to restored Database"
+msgstr "Kirjaudu sisään palautettuun tietokantaan"
+
+msgid "Restore Error."
+msgstr "Palauta virhe."
+
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Oletko varma, että haluat poistaa tämän kuvan?"
-
-msgid "Press CTRL + C to copy all group members' phone numbers"
-msgstr "Paina CTRL + C kopioidaksesi kaikkien ryhmän jäsenten puhelinnumerot."
-
-msgid "You have no more items in your cart."
-msgstr "Sinulla ei ole enää tuotteita ostoskorissasi."
-
-msgid "Name"
-msgstr "Nimi"
-
-msgid "Address"
-msgstr "Osoite"
-
-msgid "Email"
-msgstr "Sähköposti"
-
-msgid "Remove"
-msgstr "Poista"
-
-msgid "Classification"
-msgstr "Luokitus"
-
-msgid "Family Role"
-msgstr "Perheen rooli"
-
-msgid "Subject:"
-msgstr "Aihe:"
-
-msgid "Compose New Message"
-msgstr "Uuden viestin laatiminen"
-
-msgid "Close"
-msgstr "Sulje"
-
-msgid "Send"
-msgstr "Lähetä"
-
-msgid "Error making API Call to"
-msgstr "Virhe API-kutsun tekemisessä osoitteeseen"
-
-msgid "Error text"
-msgstr "Virheteksti"
-
-msgid "Stack Trace"
-msgstr "Stack Trace"
-
-msgid "ERROR"
-msgstr "VIRHE"
-
-msgid "In progress"
-msgstr "Käynnissä"
-
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"Kaikki listat on nyt ladattu CRM:ään. 1235  4568 Jos haluat hallita niitä, "
-"napsauta tätä ilmoitusta ! 7899 ."
-
-msgid "There was a problem retrieving the requested object"
-msgstr "Pyydetyn objektin hakemisessa oli ongelma."
-
-msgid "None"
-msgstr "Ei ole"
-
-msgid "Select the method to add to a group"
-msgstr "Valitse ryhmään lisättävä menetelmä"
-
-msgid "Select an existing Group"
-msgstr "Valitse olemassa oleva ryhmä"
-
-msgid "or Create a new Group from the Cart"
-msgstr "tai Luo uusi ryhmä ostoskorista"
-
-msgid "Select the group to which you would like to add your cart"
-msgstr "Valitse ryhmä, johon haluat lisätä ostoskorisi."
-
-msgid "Select Group"
-msgstr "Valitse ryhmä"
-
-msgid "Select Role"
-msgstr "Valitse rooli"
-
-msgid "Group Name"
-msgstr "Ryhmän nimi"
-
-msgid "Default Name Group"
-msgstr "Oletusnimi Ryhmä"
-
-msgid "Add Cart to Group"
-msgstr "Lisää ostoskori ryhmään"
-
-msgid "Save"
-msgstr "Tallenna"
-
-msgid "Error"
-msgstr "Virhe"
-
-msgid "You have to select one group and a group role if you want"
-msgstr "Sinun on valittava yksi ryhmä ja ryhmärooli, jos haluat, että"
-
-msgid "You have to set a Group Name"
-msgstr "Sinun on määritettävä ryhmän nimi"
-
-msgid "Do you really want to deactivate the persons?"
-msgstr "Haluatko todella poistaa henkilöt käytöstä?"
-
-msgid "This action can be undone !!!!"
-msgstr "Tämän toimenpiteen voi peruuttaa !!!!"
-
-msgid "No"
-msgstr "Ei"
-
-msgid "Yes : if you're sure"
-msgstr "Kyllä : jos olet varma"
-
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Haluatko todella poistaa henkilöt CRM:stä?"
-
-msgid "This action cannot be undone !!!!"
-msgstr "Tätä toimenpidettä ei voi peruuttaa !!!!"
-
-msgid "Select the event to which you would like to add your cart"
-msgstr "Valitse tapahtuma, johon haluat lisätä ostoskorisi."
-
-msgid "Create First A New Event"
-msgstr "Luo ensin uusi tapahtuma"
-
-msgid "Cancel"
-msgstr "Peruuta"
-
-msgid "Add to Event"
-msgstr "Lisää tapahtumaan"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Voit lisätä ostoskorin sisällön valittuun tapahtumaan alla<br> - TAI - "
-"<br>Luo ensin tapahtuma ja lisää ne sen jälkeen."
-
-msgid "Register"
-msgstr "Rekisteröi"
-
-msgid "Register your software to CRM team."
-msgstr "Rekisteröi ohjelmistosi CRM-tiimille."
-
-msgid "Simply click this"
-msgstr "Klikkaa tätä"
-
-msgid "to register your software"
-msgstr "rekisteröidä ohjelmistosi"
-
-msgid "New Release"
-msgstr "Uusi julkaisu"
-
-msgid "Installed version"
-msgstr "Asennettu versio"
-
-msgid "New One"
-msgstr "Uusi"
-
-msgid "To upgrade simply click this Notification"
-msgstr "Päivittääksesi yksinkertaisesti klikkaa tätä Ilmoitus"
-
-msgid "View Cart"
-msgstr "Näytä ostoskori"
-
-msgid "Empty Cart"
-msgstr "Tyhjä kori"
-
-msgid "Empty Cart to Group"
-msgstr "Tyhjä kori ryhmään"
-
-msgid "Empty Cart to Family"
-msgstr "Tyhjä kori perheelle"
-
-msgid "Empty Cart to Event"
-msgstr "Tyhjä kori tapahtumaan"
-
-msgid "Map Cart"
-msgstr "Karttakori"
-
-msgid "Deactivate Persons From Cart"
-msgstr "Deaktivoi henkilöt ostoskorista"
-
-msgid "Delete Persons From the CRM"
-msgstr "Henkilöiden poistaminen CRM:stä"
-
-msgid "View all"
-msgstr "Näytä kaikki"
-
-msgid "Your Cart is Empty"
-msgstr "Ostoskori on tyhjä"
-
-msgid "If you need to make changes to registration data, go to "
-msgstr ""
-"Jos sinun on tehtävä muutoksia rekisteröintitietoihin, siirry osoitteeseen"
-
-msgid "Admin->Edit General Settings"
-msgstr "Ylläpito->Muokkaa yleisiä asetuksia"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Rekisteröi CRM-kappaleesi tarkistamalla nämä tiedot ja painamalla Lähetä-"
-"painiketta."
-
-msgid "This information is used only to track the usage of this software."
-msgstr "Näitä tietoja käytetään vain tämän ohjelmiston käytön seurantaan."
-
-msgid "Church Name"
-msgstr "Kirkon nimi"
-
-msgid "Version"
-msgstr "Versio"
-
-msgid "City"
-msgstr "Kaupunki"
-
-msgid "State"
-msgstr "Valtio"
-
-msgid "Zip"
-msgstr "Vetoketju"
-
-msgid "Country"
-msgstr "Maa"
-
-msgid "Church Email"
-msgstr "Kirkon sähköpostiosoite"
-
-msgid "Base URL"
-msgstr "Perus URL-osoite"
-
-msgid "Message"
-msgstr "Viesti"
-
-msgid "Software Registration"
-msgstr "Ohjelmiston rekisteröinti"
-
-msgid "Your software is now registered. Thank you !"
-msgstr "Ohjelmistosi on nyt rekisteröity. Kiitos !"
-
-msgid "OK"
-msgstr "OK"
-
-msgid "Select Volunteer Opportunity"
-msgstr "Valitse vapaaehtoistyömahdollisuus"
-
-msgid "Please select target volunteers for members"
-msgstr "Valitse vapaaehtoisten kohderyhmä jäsenille"
-
-msgid "Please select target group for members"
-msgstr "Valitse jäsenten kohderyhmä"
-
-msgid "Please select target Role for members"
-msgstr "Valitse jäsenille tarkoitettu rooli"
-
-msgid "GroupID required for role selection prompt"
-msgstr "GroupID vaaditaan roolin valintakehotusta varten"
-
-msgid "Select Group and Role"
-msgstr "Valitse ryhmä ja rooli"
-
-msgid "Add A Group Name"
-msgstr "Lisää ryhmän nimi"
-
-msgid "Yes"
-msgstr "Kyllä"
-
-msgid "Calendar Event"
-msgstr "Kalenteritapahtuma"
-
-msgid "Attendees Checked In"
-msgstr "Ilmoittautuneet osallistujat"
-
-msgid "More info"
-msgstr "Lisätietoja"
-
-msgid ""
-"Warning! Do not select this option if you plan to add to an existing "
-"database.<br/>"
-msgstr ""
-"Varoitus! Älä valitse tätä vaihtoehtoa, jos aiot lisätä olemassa olevaan "
-"tietokantaan.<br/>"
-
-msgid ""
-"Use only if unsatisfied with initial import. All person and member data will "
-"be destroyed!"
-msgstr ""
-"Käytä vain, jos olet tyytymätön alkuperäiseen tuontiin. Kaikki henkilö- ja "
-"jäsentiedot tuhotaan!"
-
-msgid "I Understand"
-msgstr "Ymmärrän"
-
-msgid "Clear Persons and Families"
-msgstr "Selvät henkilöt ja perheet"
-
-msgid "Data Cleared Successfully!"
-msgstr "Tiedot tyhjennetty onnistuneesti!"
-
-msgid "success"
-msgstr "menestys"
-
-msgid "Duplicate values"
-msgstr "Kaksinkertaiset arvot"
-
-msgid "You've selected two times the same name"
-msgstr "Olet valinnut kaksi kertaa saman nimen"
-
-msgid "for this field. Chose another one."
-msgstr "tätä kenttää varten. Valitse toinen."
-
-msgid "Remove Plugin"
-msgstr "Poista liitännäinen"
-
-msgid "You're about to remove the plugin from yout dashboard !!!"
-msgstr "Olet poistamassa laajennusta kojelaudalta !!!!"
-
-msgid "Confirm"
-msgstr "Vahvista"
-
-msgid "Dashboard Item"
-msgstr "Kojelaudan kohde"
-
-msgid "Removed from your dashboard !"
-msgstr "Poistettu kojelaudalta !"
-
-msgid "Please confirm deletion of this document"
-msgstr "Vahvistakaa tämän asiakirjan poistaminen"
-
-msgid "Document Delete Confirmation"
-msgstr "Asiakirjan poiston vahvistus"
-
-msgid "Document Title"
-msgstr "Asiakirjan otsikko"
-
-msgid "Set your Document title"
-msgstr "Aseta asiakirjan otsikko"
-
-msgid "Choose your Document Type"
-msgstr "Valitse asiakirjatyyppi"
-
-msgid "document"
-msgstr "asiakirja"
-
-msgid "video"
-msgstr "video"
-
-msgid "audio"
-msgstr "audio"
-
-msgid "Private"
-msgstr "Yksityinen"
-
-msgid "Document Editor"
-msgstr "Asiakirjan editori"
-
-msgid "You have to set a Title for your document"
-msgstr "Asiakirjalle on määritettävä otsikko"
-
-msgid "Icon"
-msgstr "Kuvake"
-
-msgid "Actions"
-msgstr "Toimet"
-
-msgid "Modification Date"
-msgstr "Muutospäivämäärä"
-
-msgid "Type"
-msgstr "Tyyppi"
-
-msgid "Size"
-msgstr "Koko"
-
-msgid "Delete"
-msgstr "Poista"
-
-msgid "You are about to delete several items together"
-msgstr "Olet poistamassa useita kohteita yhdessä"
-
-msgid "You're about to remove an item"
-msgstr "Olet poistamassa kohdetta"
-
-msgid "This can't be undone !!!!"
-msgstr "Tätä ei voi perua !!!!"
-
-msgid "You've to select at least one line !!!"
-msgstr "Sinun on valittava vähintään yksi rivi !!!!"
-
-msgid "Create a Folder"
-msgstr "Luo kansio"
-
-msgid "Set your Folder name"
-msgstr "Aseta kansion nimi"
-
-msgid "Actualize files"
-msgstr "Aktivoi tiedostot"
-
-msgid "preview currently being created"
-msgstr "esikatselu parhaillaan luodaan"
-
-msgid "Set a File/Folder name"
-msgstr "Tiedoston/kansioiden nimen asettaminen"
-
-msgid "Download Error"
-msgstr "Lataa Virhe"
-
-msgid "User"
-msgstr "Käyttäjä"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "Are you sure you want to stop sharing for selected users?"
-msgstr "Oletko varma, että haluat lopettaa jakamisen valituille käyttäjille?"
-
-msgid "Are you sure, you want to stop all sharing ?"
-msgstr "Oletko varma, että haluat lopettaa kaiken jakamisen?"
-
-msgid "Tracking"
-msgstr "Seuranta"
-
-msgid "Attention"
-msgstr "Huomio"
-
-msgid "The current images folder is now the public folder !!!"
-msgstr "Nykyinen kuvakansio on nyt julkinen kansio !!!!"
-
-msgid "Add People"
-msgstr "Lisää ihmisiä"
-
-msgid "This page is still in the cart."
-msgstr "Tämä sivu on edelleen ostoskorissa."
 
 msgid "Wrong address format."
 msgstr "Väärä osoitemuoto."
@@ -461,8 +59,17 @@ msgstr "Väärä osoitemuoto."
 msgid "Set Calendar Name"
 msgstr "Aseta kalenterin nimi"
 
+msgid "Cancel"
+msgstr "Peruuta"
+
+msgid "Confirm"
+msgstr "Vahvista"
+
 msgid "Set Resource Name"
 msgstr "Resurssin nimen asettaminen"
+
+msgid "Name"
+msgstr "Nimi"
 
 msgid "Select a resource type"
 msgstr "Valitse resurssityyppi"
@@ -478,6 +85,9 @@ msgstr "Video"
 
 msgid "Description"
 msgstr "Kuvaus"
+
+msgid "OK"
+msgstr "OK"
 
 msgid "Calendars"
 msgstr "Kalenterit"
@@ -499,6 +109,12 @@ msgstr "Kalenterien sisällyttäminen/poissulkeminen sivupalkista"
 
 msgid "Ok"
 msgstr "Ok"
+
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
 
 msgid "With"
 msgstr "Osoitteessa"
@@ -526,6 +142,9 @@ msgstr "Lisää henkilöitä/perheitä/ryhmiä"
 
 msgid "Share your Calendar"
 msgstr "Jaa kalenterisi"
+
+msgid "Delete"
+msgstr "Poista"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Oletko varma, että haluat poistaa tämän Jako ?"
@@ -569,6 +188,9 @@ msgstr "Muokkaa osakkeen nimeä"
 
 msgid "Resource Info for"
 msgstr "Resurssitietoa"
+
+msgid "Error"
+msgstr "Virhe"
 
 msgid "Only administrators have the right to change the Resource description"
 msgstr "Ainoastaan ylläpitäjillä on oikeus muuttaa resurssin kuvausta."
@@ -616,6 +238,9 @@ msgid ""
 msgstr ""
 "Olet poistamassa kaikkia tähän tapahtumaan liittyviä toistuvia tapahtumia. "
 "Oletko varma? Tätä ei voi perua."
+
+msgid "No"
+msgstr "Ei"
 
 msgid "Only this event"
 msgstr "Vain tämä tapahtuma"
@@ -688,6 +313,9 @@ msgstr "osoitteeseen"
 
 msgid "Attendance Notes: "
 msgstr "Läsnäolomerkinnät:"
+
+msgid "None"
+msgstr "Ei ole"
 
 msgid "Title"
 msgstr "Otsikko"
@@ -809,6 +437,12 @@ msgstr "inaktiivinen"
 msgid "Event Creation"
 msgstr "Tapahtuman luominen"
 
+msgid "Close"
+msgstr "Sulje"
+
+msgid "Save"
+msgstr "Tallenna"
+
 msgid "You've to chose a calendar."
 msgstr "Sinun on valittava kalenteri."
 
@@ -829,6 +463,9 @@ msgstr "Lataus valmis...."
 
 msgid "Month"
 msgstr "Kuukausi"
+
+msgid "Actions"
+msgstr "Toimet"
 
 msgid "Attendance Counts with real Attendees"
 msgstr "Osallistujamäärät lasketaan todellisten osallistujien kanssa."
@@ -868,6 +505,27 @@ msgstr "Muokkaa/Validoi kassa"
 
 msgid "Check-out done"
 msgstr "Uloskirjautuminen tehty"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr "Paina CTRL + C kopioidaksesi kaikkien ryhmän jäsenten puhelinnumerot."
+
+msgid "You have no more items in your cart."
+msgstr "Sinulla ei ole enää tuotteita ostoskorissasi."
+
+msgid "Address"
+msgstr "Osoite"
+
+msgid "Email"
+msgstr "Sähköposti"
+
+msgid "Remove"
+msgstr "Poista"
+
+msgid "Classification"
+msgstr "Luokitus"
+
+msgid "Family Role"
+msgstr "Perheen rooli"
 
 msgid "CKEditor Template Creation"
 msgstr "CKEditor-mallin luominen"
@@ -963,6 +621,613 @@ msgstr "Kieli"
 msgid "Merge Tags"
 msgstr "Yhdistä tunnisteet"
 
+msgid "Subject:"
+msgstr "Aihe:"
+
+msgid "Compose New Message"
+msgstr "Uuden viestin laatiminen"
+
+msgid "Send"
+msgstr "Lähetä"
+
+msgid "Error making API Call to"
+msgstr "Virhe API-kutsun tekemisessä osoitteeseen"
+
+msgid "Error text"
+msgstr "Virheteksti"
+
+msgid "Stack Trace"
+msgstr "Stack Trace"
+
+msgid "ERROR"
+msgstr "VIRHE"
+
+msgid "In progress"
+msgstr "Käynnissä"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid ""
+"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
+"click this notification !</b>"
+msgstr ""
+"Kaikki listat on nyt ladattu CRM:ään. 1235  4568 Jos haluat hallita niitä, "
+"napsauta tätä ilmoitusta ! 7899 ."
+
+msgid "There was a problem retrieving the requested object"
+msgstr "Pyydetyn objektin hakemisessa oli ongelma."
+
+msgid "Select the method to add to a group"
+msgstr "Valitse ryhmään lisättävä menetelmä"
+
+msgid "Select an existing Group"
+msgstr "Valitse olemassa oleva ryhmä"
+
+msgid "or Create a new Group from the Cart"
+msgstr "tai Luo uusi ryhmä ostoskorista"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Valitse ryhmä, johon haluat lisätä ostoskorisi."
+
+msgid "Select Group"
+msgstr "Valitse ryhmä"
+
+msgid "Select Role"
+msgstr "Valitse rooli"
+
+msgid "Group Name"
+msgstr "Ryhmän nimi"
+
+msgid "Default Name Group"
+msgstr "Oletusnimi Ryhmä"
+
+msgid "Add Cart to Group"
+msgstr "Lisää ostoskori ryhmään"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "Sinun on valittava yksi ryhmä ja ryhmärooli, jos haluat, että"
+
+msgid "You have to set a Group Name"
+msgstr "Sinun on määritettävä ryhmän nimi"
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "Haluatko todella poistaa henkilöt käytöstä?"
+
+msgid "This action can be undone !!!!"
+msgstr "Tämän toimenpiteen voi peruuttaa !!!!"
+
+msgid "Yes : if you're sure"
+msgstr "Kyllä : jos olet varma"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "Haluatko todella poistaa henkilöt CRM:stä?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Tätä toimenpidettä ei voi peruuttaa !!!!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "Valitse tapahtuma, johon haluat lisätä ostoskorisi."
+
+msgid "Create First A New Event"
+msgstr "Luo ensin uusi tapahtuma"
+
+msgid "Add to Event"
+msgstr "Lisää tapahtumaan"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"Voit lisätä ostoskorin sisällön valittuun tapahtumaan alla<br> - TAI - "
+"<br>Luo ensin tapahtuma ja lisää ne sen jälkeen."
+
+msgid "Register"
+msgstr "Rekisteröi"
+
+msgid "Register your software to CRM team."
+msgstr "Rekisteröi ohjelmistosi CRM-tiimille."
+
+msgid "Simply click this"
+msgstr "Klikkaa tätä"
+
+msgid "to register your software"
+msgstr "rekisteröidä ohjelmistosi"
+
+msgid "New Release"
+msgstr "Uusi julkaisu"
+
+msgid "Installed version"
+msgstr "Asennettu versio"
+
+msgid "New One"
+msgstr "Uusi"
+
+msgid "To upgrade simply click this Notification"
+msgstr "Päivittääksesi yksinkertaisesti klikkaa tätä Ilmoitus"
+
+msgid "View Cart"
+msgstr "Näytä ostoskori"
+
+msgid "Empty Cart"
+msgstr "Tyhjä kori"
+
+msgid "Empty Cart to Group"
+msgstr "Tyhjä kori ryhmään"
+
+msgid "Empty Cart to Family"
+msgstr "Tyhjä kori perheelle"
+
+msgid "Empty Cart to Event"
+msgstr "Tyhjä kori tapahtumaan"
+
+msgid "Map Cart"
+msgstr "Karttakori"
+
+msgid "Deactivate Persons From Cart"
+msgstr "Deaktivoi henkilöt ostoskorista"
+
+msgid "Delete Persons From the CRM"
+msgstr "Henkilöiden poistaminen CRM:stä"
+
+msgid "View all"
+msgstr "Näytä kaikki"
+
+msgid "Your Cart is Empty"
+msgstr "Ostoskori on tyhjä"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr ""
+"Jos sinun on tehtävä muutoksia rekisteröintitietoihin, siirry osoitteeseen"
+
+msgid "Admin->Edit General Settings"
+msgstr "Ylläpito->Muokkaa yleisiä asetuksia"
+
+msgid ""
+"Please register your copy of CRM by checking over this information and "
+"pressing the Send button."
+msgstr ""
+"Rekisteröi CRM-kappaleesi tarkistamalla nämä tiedot ja painamalla Lähetä-"
+"painiketta."
+
+msgid "This information is used only to track the usage of this software."
+msgstr "Näitä tietoja käytetään vain tämän ohjelmiston käytön seurantaan."
+
+msgid "Church Name"
+msgstr "Kirkon nimi"
+
+msgid "Version"
+msgstr "Versio"
+
+msgid "City"
+msgstr "Kaupunki"
+
+msgid "State"
+msgstr "Valtio"
+
+msgid "Zip"
+msgstr "Vetoketju"
+
+msgid "Country"
+msgstr "Maa"
+
+msgid "Church Email"
+msgstr "Kirkon sähköpostiosoite"
+
+msgid "Base URL"
+msgstr "Perus URL-osoite"
+
+msgid "Message"
+msgstr "Viesti"
+
+msgid "Software Registration"
+msgstr "Ohjelmiston rekisteröinti"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "Ohjelmistosi on nyt rekisteröity. Kiitos !"
+
+msgid "Select Volunteer Opportunity"
+msgstr "Valitse vapaaehtoistyömahdollisuus"
+
+msgid "Please select target volunteers for members"
+msgstr "Valitse vapaaehtoisten kohderyhmä jäsenille"
+
+msgid "Please select target group for members"
+msgstr "Valitse jäsenten kohderyhmä"
+
+msgid "Please select target Role for members"
+msgstr "Valitse jäsenille tarkoitettu rooli"
+
+msgid "GroupID required for role selection prompt"
+msgstr "GroupID vaaditaan roolin valintakehotusta varten"
+
+msgid "Select Group and Role"
+msgstr "Valitse ryhmä ja rooli"
+
+msgid "Add A Group Name"
+msgstr "Lisää ryhmän nimi"
+
+msgid "Yes"
+msgstr "Kyllä"
+
+msgid "Calendar Event"
+msgstr "Kalenteritapahtuma"
+
+msgid "Attendees Checked In"
+msgstr "Ilmoittautuneet osallistujat"
+
+msgid "More info"
+msgstr "Lisätietoja"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"Varoitus! Älä valitse tätä vaihtoehtoa, jos aiot lisätä olemassa olevaan "
+"tietokantaan.<br/>"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will "
+"be destroyed!"
+msgstr ""
+"Käytä vain, jos olet tyytymätön alkuperäiseen tuontiin. Kaikki henkilö- ja "
+"jäsentiedot tuhotaan!"
+
+msgid "I Understand"
+msgstr "Ymmärrän"
+
+msgid "Clear Persons and Families"
+msgstr "Selvät henkilöt ja perheet"
+
+msgid "Data Cleared Successfully!"
+msgstr "Tiedot tyhjennetty onnistuneesti!"
+
+msgid "success"
+msgstr "menestys"
+
+msgid "Duplicate values"
+msgstr "Kaksinkertaiset arvot"
+
+msgid "You've selected two times the same name"
+msgstr "Olet valinnut kaksi kertaa saman nimen"
+
+msgid "for this field. Chose another one."
+msgstr "tätä kenttää varten. Valitse toinen."
+
+msgid "Remove Plugin"
+msgstr "Poista liitännäinen"
+
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Olet poistamassa laajennusta kojelaudalta !!!!"
+
+msgid "Dashboard Item"
+msgstr "Kojelaudan kohde"
+
+msgid "Removed from your dashboard !"
+msgstr "Poistettu kojelaudalta !"
+
+msgid "Please confirm deletion of this document"
+msgstr "Vahvistakaa tämän asiakirjan poistaminen"
+
+msgid "Document Delete Confirmation"
+msgstr "Asiakirjan poiston vahvistus"
+
+msgid "Document Title"
+msgstr "Asiakirjan otsikko"
+
+msgid "Set your Document title"
+msgstr "Aseta asiakirjan otsikko"
+
+msgid "Choose your Document Type"
+msgstr "Valitse asiakirjatyyppi"
+
+msgid "document"
+msgstr "asiakirja"
+
+msgid "video"
+msgstr "video"
+
+msgid "audio"
+msgstr "audio"
+
+msgid "Private"
+msgstr "Yksityinen"
+
+msgid "Document Editor"
+msgstr "Asiakirjan editori"
+
+msgid "You have to set a Title for your document"
+msgstr "Asiakirjalle on määritettävä otsikko"
+
+msgid "Saving Campaign ..."
+msgstr "Säästökampanja ..."
+
+msgid "Campaign"
+msgstr "Kampanja"
+
+msgid "saved successfully"
+msgstr "tallennettu onnistuneesti"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "Olet lähettämässä kampanjaasi! Oletko varma?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "Olet poistamassa kampanjaasi! Oletko varma?"
+
+msgid "Loading datas ..."
+msgstr "Tietojen lataaminen ..."
+
+msgid "No list are created with this account ...."
+msgstr "Tällä tilillä ei luoda listaa ...."
+
+msgid "Email List"
+msgstr "Sähköpostilista"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Details"
+msgstr "Yksityiskohdat"
+
+msgid "Subject"
+msgstr "Aihe"
+
+msgid "Members:"
+msgstr "Jäsenet:"
+
+msgid "Campaigns:"
+msgstr "Kampanjat:"
+
+msgid "Unsubscribed count:"
+msgstr "Tilaamattomien määrä:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Tilaamattomien määrä viimeisimmän lähetyksen jälkeen:"
+
+msgid "Cleaned count:"
+msgstr "Puhdistettu määrä:"
+
+msgid "Cleaned count since last send:"
+msgstr "Puhdistettu luku viimeisimmän lähetyksen jälkeen:"
+
+msgid "Campaigns"
+msgstr "Kampanjat"
+
+msgid "Tags"
+msgstr "Tunnisteet"
+
+msgid "is not configured"
+msgstr "ei ole määritetty"
+
+msgid "Please update the"
+msgstr "Päivitä"
+
+msgid "API key in Setting->"
+msgstr "API-avain kohdassa Setting->"
+
+msgid "Edit General Settings"
+msgstr "Muokkaa yleisiä asetuksia"
+
+msgid "then update"
+msgstr "päivitä sitten"
+
+msgid "For more info see our "
+msgstr "Lisätietoja löydät osoitteesta"
+
+msgid "support docs."
+msgstr "tukidokumentit."
+
+msgid "List Title"
+msgstr "Luettelon otsikko"
+
+msgid "Your List Title"
+msgstr "Luettelosi otsikko"
+
+msgid "Your Subject"
+msgstr "Aiheesi"
+
+msgid "Permission Reminder"
+msgstr "Lupamuistutus"
+
+msgid "Archive Bars"
+msgstr "Arkistopalkit"
+
+msgid "Public"
+msgstr "Julkinen"
+
+msgid "List Creation"
+msgstr "Luettelon luominen"
+
+msgid "People"
+msgstr "Ihmiset"
+
+msgid "Families"
+msgstr "Perheet"
+
+msgid "Add a new tag"
+msgstr "Lisää uusi tagi"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Poista tunniste tilaajalta (tilaajilta)"
+
+msgid "Delete tag"
+msgstr "Poista tagi"
+
+msgid "Loading resources ..."
+msgstr "Resurssien lataaminen ..."
+
+msgid "Check all boxes"
+msgstr "Rastita kaikki ruudut"
+
+msgid "Subscribed"
+msgstr "Tilattu"
+
+msgid "Unsubscribed"
+msgstr "Tilaukset poistettu"
+
+msgid "Email Marketing"
+msgstr "Sähköpostimarkkinointi"
+
+msgid "Add your tag name"
+msgstr "Lisää tagin nimi"
+
+msgid "Adding tag..."
+msgstr "Tagin lisääminen..."
+
+msgid "Name is empty !!"
+msgstr "Nimi on tyhjä !!"
+
+msgid "Add tag?"
+msgstr "Lisää tagi?"
+
+msgid "This will add the tag"
+msgstr "Tämä lisää tunnisteen"
+
+msgid "to all the current selected members in the list."
+msgstr "kaikille luettelon nykyisille valituille jäsenille."
+
+msgid "Select One"
+msgstr "Valitse yksi"
+
+msgid "All Tags"
+msgstr "Kaikki tunnisteet"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Valitse tagi, jonka haluat poistaa :"
+
+msgid "Removing tags..."
+msgstr "Tunnisteiden poistaminen..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Kaikkien valittujen jäsenten tunnisteiden poistaminen luettelosta..."
+
+msgid "You're about to delete a tag!"
+msgstr "Olet poistamassa tunnisteen!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr "Tämä poistaa myös kaikkien listan jäsenten tunnisteen. Oletko varma?"
+
+msgid "Deleting tag"
+msgstr "Tagin poistaminen"
+
+msgid "A person name or Family or Group"
+msgstr "Henkilön nimi tai perhe tai ryhmä"
+
+msgid "Loading subscriber"
+msgstr "Tilaajan lataaminen"
+
+msgid "Loading subscribers from Group"
+msgstr "Tilaajien lataaminen ryhmästä"
+
+msgid "Loading subscribers from family"
+msgstr "Tilaajien lataaminen perheestä"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"Kaikkien henkilöiden lataaminen EcclesiaCRM:stä<br>Tämä voi kestää jonkin "
+"aikaa !"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Itse asiassa sinun on parempi lopettaa CRM, odottaa 5 minuuttia ja tehdä "
+"kampanjasi sen jälkeen.<br>MailChimp API on hidas, kun haluat tuoda valtavia "
+"datamääriä."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Kaikkien uutiskirjeen tilaajien lataaminen EcclesiaCRM:stä<br>Tämä voi "
+"kestää jonkin aikaa !"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Kaikkien perheiden ensimmäisten headpeople-tilaajien lataaminen EcclesiaCRM:"
+"stä<br>Tämä voi kestää jonkin aikaa !"
+
+msgid "Select status for : "
+msgstr "Valitse tila :"
+
+msgid "Changing status ..."
+msgstr "Muuttuva tila ..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Olet poistamassa tilaajan! Oletko varma?"
+
+msgid "Deleting Subscriber..."
+msgstr "Tilaajan poistaminen..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Haluatko todella poistaa tämän postituslistan?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Haluatko varmasti poistaa kaikki tilaajat?"
+
+msgid "Deleting all subscribers..."
+msgstr "Kaikkien tilaajien poistaminen..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Itse asiassa sinun on parempi jättää CRM ja avata se neljänneksen kuluttua "
+"uudelleen listan hallintaa varten.<br>MailChimpin API on hidas, kun haluat "
+"poistaa valtavia tietomääriä."
+
+msgid "Campaign Title"
+msgstr "Kampanjan nimi"
+
+msgid "Your Campaign Title"
+msgstr "Kampanjan nimi"
+
+msgid "For Tag"
+msgstr "Merkille"
+
+msgid "Mail Subject"
+msgstr "Mail Aihe"
+
+msgid "Your Mail Subject"
+msgstr "Sähköpostin aihe"
+
+msgid "All list members"
+msgstr "Kaikki luettelon jäsenet"
+
+msgid "Email Campaign Creation"
+msgstr "Sähköpostikampanjan luominen"
+
+msgid "Adding Campaign ..."
+msgstr "Kampanjan lisääminen ..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Haluaisitko hallita suoraan tätä uutta kampanjaa ?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Sinun täytyy asettaa kampanjan otsikko eMail-kampanjallesi."
+
+msgid "List Name"
+msgstr "Luettelon nimi"
+
+msgid "Changing subscribers state..."
+msgstr "Tilaajien tilan muuttaminen..."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Olet poistamassa tilaajia! Oletko varma?"
+
+msgid "Deleting Subscribers..."
+msgstr "Tilaajien poistaminen..."
+
+msgid "Family"
+msgstr "Perhe"
+
+msgid "Person"
+msgstr "Henkilö"
+
 msgid "Free Event Attendees"
 msgstr "Ilmaiset tapahtuman osallistujat"
 
@@ -1038,11 +1303,17 @@ msgstr "Luo yksi."
 msgid "Group"
 msgstr "Ryhmä"
 
+msgid "User"
+msgstr "Käyttäjä"
+
 msgid "No event now."
 msgstr "Ei tapahtumaa nyt."
 
 msgid "Success"
 msgstr "Menestys"
+
+msgid "Attention"
+msgstr "Huomio"
 
 msgid "Are you sure you want to DELETE all persons from Event ID:"
 msgstr "Oletko varma, että haluat poistaa kaikki henkilöt tapahtuman ID:stä:"
@@ -1055,6 +1326,54 @@ msgstr "Poista tapahtumatyyppi"
 
 msgid "This action can never be undone !!!!"
 msgstr "Tätä toimenpidettä ei voi koskaan perua !!!!"
+
+msgid "Icon"
+msgstr "Kuvake"
+
+msgid "Modification Date"
+msgstr "Muutospäivämäärä"
+
+msgid "Type"
+msgstr "Tyyppi"
+
+msgid "Size"
+msgstr "Koko"
+
+msgid "You are about to delete several items together"
+msgstr "Olet poistamassa useita kohteita yhdessä"
+
+msgid "You're about to remove an item"
+msgstr "Olet poistamassa kohdetta"
+
+msgid "This can't be undone !!!!"
+msgstr "Tätä ei voi perua !!!!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Sinun on valittava vähintään yksi rivi !!!!"
+
+msgid "Create a Folder"
+msgstr "Luo kansio"
+
+msgid "Set your Folder name"
+msgstr "Aseta kansion nimi"
+
+msgid "Actualize files"
+msgstr "Aktivoi tiedostot"
+
+msgid "preview currently being created"
+msgstr "esikatselu parhaillaan luodaan"
+
+msgid "Set a File/Folder name"
+msgstr "Tiedoston/kansioiden nimen asettaminen"
+
+msgid "Download Error"
+msgstr "Lataa Virhe"
+
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "Oletko varma, että haluat lopettaa jakamisen valituille käyttäjille?"
+
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "Oletko varma, että haluat lopettaa kaiken jakamisen?"
 
 msgid "Confirm Delete"
 msgstr "Vahvista Poista"
@@ -1114,12 +1433,6 @@ msgstr "Sähköisen tapahtuman tiedot"
 msgid "TOTAL"
 msgstr "YHTEENSÄ"
 
-msgid "Family"
-msgstr "Perhe"
-
-msgid "Person"
-msgstr "Henkilö"
-
 msgid "Anonymous"
 msgstr "Anonyymi"
 
@@ -1134,9 +1447,6 @@ msgstr "Menetelmä"
 
 msgid "Check Number"
 msgstr "Tarkistusnumero"
-
-msgid "Details"
-msgstr "Yksityiskohdat"
 
 msgid "Deposit ID"
 msgstr "Talletuksen tunnus"
@@ -1164,6 +1474,54 @@ msgstr "Luo talletuskuitti valitulle"
 
 msgid "Rows"
 msgstr "Rivit"
+
+msgid "Number"
+msgstr "Numero"
+
+msgid "Item"
+msgstr "Kohde"
+
+msgid "Preview"
+msgstr "Esikatselu"
+
+msgid "Multiple"
+msgstr "Useita"
+
+msgid "Donor"
+msgstr "Lahjoittaja"
+
+msgid "Buyer"
+msgstr "Ostaja"
+
+msgid "Sale Price"
+msgstr "Myyntihinta"
+
+msgid "Estimated value"
+msgstr "Arvioitu arvo"
+
+msgid "Material Value"
+msgstr "Aineellinen arvo"
+
+msgid "Minimum Price"
+msgstr "Vähimmäishinta"
+
+msgid "Add buyer"
+msgstr "Lisää ostaja"
+
+msgid "Buyer Number"
+msgstr "Ostajan numero"
+
+msgid "Save and Add"
+msgstr "Tallenna ja lisää"
+
+msgid "Generate Statement"
+msgstr "Luo lausunto"
+
+msgid "Buyer Number Editor"
+msgstr "Ostaja Numero Editor"
+
+msgid "Select"
+msgstr "Valitse"
 
 msgid "Your operation completed successfully."
 msgstr "Operaatio suoritettiin onnistuneesti."
@@ -1367,6 +1725,42 @@ msgstr "Oletko varma, että haluat poistaa kaikki managerit?"
 
 msgid "Appointment"
 msgstr "Nimitys"
+
+msgid "Tracking"
+msgstr "Seuranta"
+
+msgid "Visits/calls"
+msgstr "Vierailut/puhelut"
+
+msgid "Last visit/call"
+msgstr "Viimeisin käynti/puhelu"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Poista sielunhoidon tyyppi"
+
+msgid "For every administrator"
+msgstr "Jokaisen järjestelmänvalvojan osalta"
+
+msgid "Show"
+msgstr "Näytä"
+
+msgid "Hide"
+msgstr "Piilota"
+
+msgid "Include all the family members"
+msgstr "Ota mukaan kaikki perheenjäsenet"
+
+msgid "Include"
+msgstr "Sisällytä"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Sielunhoito Muistion luominen"
+
+msgid "Last Name (Family Name)"
+msgstr "Sukunimi (sukunimi)"
+
+msgid "Family Name"
+msgstr "Sukunimi"
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "Haluatko varmasti poistaa tämän perheen CRM:stä?"
@@ -1607,6 +2001,81 @@ msgstr "Vahvista Poista vapaaehtoistyömahdollisuus"
 
 msgid "Comments"
 msgstr "Kommentit"
+
+msgid "Confirmation of plugin removal"
+msgstr "Vahvistus pluginin poistamisesta"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Olet poistamassa valittuja laajennuksia. Tätä toimenpidettä ei voi peruuttaa!"
+
+msgid "Select your zipped plugin file"
+msgstr "Valitse pakattu lisäosatiedosto"
+
+msgid "Download the zipped file of the plugin"
+msgstr "Lataa laajennuksen pakattu tiedosto"
+
+msgid "Plugin download manager"
+msgstr "Plugin download manager"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "Nykyinen kuvakansio on nyt julkinen kansio !!!!"
+
+msgid "All Groups"
+msgstr "Kaikki ryhmät"
+
+msgid "All Roles"
+msgstr "Kaikki roolit"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
+"Hakusanat kuten : nimi, etunimi, puhelinnumero, kiinteistö, ryhmän nimi, "
+"jne ...."
+
+msgid "id"
+msgstr "id"
+
+msgid "Photos"
+msgstr "Kuvat"
+
+msgid "Search result"
+msgstr "Hakutulos"
+
+msgid "Property Name"
+msgstr "Kiinteistön nimi"
+
+msgid "Cart Operations"
+msgstr "Kärryjen käyttö"
+
+msgid "Add This Page"
+msgstr "Lisää tämä sivu"
+
+msgid "Loading people in cart...."
+msgstr "Ihmisten lataaminen kärryyn...."
+
+msgid "Add All results"
+msgstr "Lisää kaikki tulokset"
+
+msgid "Remove this page"
+msgstr "Poista tämä sivu"
+
+msgid "Removing people in cart...."
+msgstr "Ihmisten poistaminen kärryiltä...."
+
+msgid "Remove All results"
+msgstr "Poista kaikki tulokset"
+
+msgid "Intersect result with cart"
+msgstr "Leikkaa tulos kärryn kanssa"
+
+msgid "Add People"
+msgstr "Lisää ihmisiä"
+
+msgid "This page is still in the cart."
+msgstr "Tämä sivu on edelleen ostoskorissa."
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all family data "
@@ -1958,6 +2427,9 @@ msgstr ""
 "Säilytä nämä varmuuskopiosalasanat turvallisessa paikassa, jos kadotat OTP-"
 "tunnukset."
 
+msgid "Backup Complete, Ready for Download."
+msgstr "Varmuuskopiointi valmis, valmis ladattavaksi."
+
 msgid "The user must have an email address."
 msgstr "Käyttäjällä on oltava sähköpostiosoite."
 
@@ -2054,474 +2526,42 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr "Käyttäjällä on 60 sekuntia aikaa käyttää palautuskoodejaan."
 
-msgid "Saving Campaign ..."
-msgstr "Säästökampanja ..."
+#, fuzzy
+msgid "Add New Volunteer Opportunity"
+msgstr "Valitse vapaaehtoistyömahdollisuus"
 
-msgid "Campaign"
-msgstr "Kampanja"
+msgid "Activ"
+msgstr "Activ"
 
-msgid "saved successfully"
-msgstr "tallennettu onnistuneesti"
+msgid "Parent (hierarchy)"
+msgstr "Vanhempi (hierarkia)"
 
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "Olet lähettämässä kampanjaasi! Oletko varma?"
+msgid "Color"
+msgstr "Väri"
 
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Olet poistamassa kampanjaasi! Oletko varma?"
+#, fuzzy
+msgid "Add to volunteer opportunities"
+msgstr "Valitse vapaaehtoistyömahdollisuus"
 
-msgid "Loading datas ..."
-msgstr "Tietojen lataaminen ..."
+#, fuzzy
+msgid "Move to volunteer opportunities"
+msgstr "Valitse vapaaehtoistyömahdollisuus"
 
-msgid "No list are created with this account ...."
-msgstr "Tällä tilillä ei luoda listaa ...."
+#, fuzzy
+msgid "Confirm Delete This Opportunity"
+msgstr "Vahvista Poista vapaaehtoistyömahdollisuus"
 
-msgid "Email List"
-msgstr "Sähköpostilista"
+#, fuzzy
+msgid "Please confirm deletion of this record"
+msgstr "Vahvista tämän ryhmätietueen poistaminen"
 
-msgid "GDPR"
-msgstr "GDPR"
-
-msgid "Subject"
-msgstr "Aihe"
-
-msgid "Members:"
-msgstr "Jäsenet:"
-
-msgid "Campaigns:"
-msgstr "Kampanjat:"
-
-msgid "Unsubscribed count:"
-msgstr "Tilaamattomien määrä:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "Tilaamattomien määrä viimeisimmän lähetyksen jälkeen:"
-
-msgid "Cleaned count:"
-msgstr "Puhdistettu määrä:"
-
-msgid "Cleaned count since last send:"
-msgstr "Puhdistettu luku viimeisimmän lähetyksen jälkeen:"
-
-msgid "Campaigns"
-msgstr "Kampanjat"
-
-msgid "Tags"
-msgstr "Tunnisteet"
-
-msgid "is not configured"
-msgstr "ei ole määritetty"
-
-msgid "Please update the"
-msgstr "Päivitä"
-
-msgid "API key in Setting->"
-msgstr "API-avain kohdassa Setting->"
-
-msgid "Edit General Settings"
-msgstr "Muokkaa yleisiä asetuksia"
-
-msgid "then update"
-msgstr "päivitä sitten"
-
-msgid "For more info see our "
-msgstr "Lisätietoja löydät osoitteesta"
-
-msgid "support docs."
-msgstr "tukidokumentit."
-
-msgid "List Title"
-msgstr "Luettelon otsikko"
-
-msgid "Your List Title"
-msgstr "Luettelosi otsikko"
-
-msgid "Your Subject"
-msgstr "Aiheesi"
-
-msgid "Permission Reminder"
-msgstr "Lupamuistutus"
-
-msgid "Archive Bars"
-msgstr "Arkistopalkit"
-
-msgid "Public"
-msgstr "Julkinen"
-
-msgid "List Creation"
-msgstr "Luettelon luominen"
-
-msgid "People"
-msgstr "Ihmiset"
-
-msgid "Families"
-msgstr "Perheet"
-
-msgid "Add a new tag"
-msgstr "Lisää uusi tagi"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "Poista tunniste tilaajalta (tilaajilta)"
-
-msgid "Delete tag"
-msgstr "Poista tagi"
-
-msgid "Loading resources ..."
-msgstr "Resurssien lataaminen ..."
-
-msgid "Check all boxes"
-msgstr "Rastita kaikki ruudut"
-
-msgid "Subscribed"
-msgstr "Tilattu"
-
-msgid "Unsubscribed"
-msgstr "Tilaukset poistettu"
-
-msgid "Email Marketing"
-msgstr "Sähköpostimarkkinointi"
-
-msgid "Add your tag name"
-msgstr "Lisää tagin nimi"
-
-msgid "Adding tag..."
-msgstr "Tagin lisääminen..."
-
-msgid "Name is empty !!"
-msgstr "Nimi on tyhjä !!"
-
-msgid "Add tag?"
-msgstr "Lisää tagi?"
-
-msgid "This will add the tag"
-msgstr "Tämä lisää tunnisteen"
-
-msgid "to all the current selected members in the list."
-msgstr "kaikille luettelon nykyisille valituille jäsenille."
-
-msgid "Select One"
-msgstr "Valitse yksi"
-
-msgid "All Tags"
-msgstr "Kaikki tunnisteet"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Valitse tagi, jonka haluat poistaa :"
-
-msgid "Removing tags..."
-msgstr "Tunnisteiden poistaminen..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Kaikkien valittujen jäsenten tunnisteiden poistaminen luettelosta..."
-
-msgid "You're about to delete a tag!"
-msgstr "Olet poistamassa tunnisteen!"
-
+#, fuzzy
 msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr "Tämä poistaa myös kaikkien listan jäsenten tunnisteen. Oletko varma?"
-
-msgid "Deleting tag"
-msgstr "Tagin poistaminen"
-
-msgid "A person name or Family or Group"
-msgstr "Henkilön nimi tai perhe tai ryhmä"
-
-msgid "Loading subscriber"
-msgstr "Tilaajan lataaminen"
-
-msgid "Loading subscribers from Group"
-msgstr "Tilaajien lataaminen ryhmästä"
-
-msgid "Loading subscribers from family"
-msgstr "Tilaajien lataaminen perheestä"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+"All membership will be destroyed.  The members themselves will not be "
+"altered."
 msgstr ""
-"Kaikkien henkilöiden lataaminen EcclesiaCRM:stä<br>Tämä voi kestää jonkin "
-"aikaa !"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"Itse asiassa sinun on parempi lopettaa CRM, odottaa 5 minuuttia ja tehdä "
-"kampanjasi sen jälkeen.<br>MailChimp API on hidas, kun haluat tuoda valtavia "
-"datamääriä."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Kaikkien uutiskirjeen tilaajien lataaminen EcclesiaCRM:stä<br>Tämä voi "
-"kestää jonkin aikaa !"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Kaikkien perheiden ensimmäisten headpeople-tilaajien lataaminen EcclesiaCRM:"
-"stä<br>Tämä voi kestää jonkin aikaa !"
-
-msgid "Select status for : "
-msgstr "Valitse tila :"
-
-msgid "Changing status ..."
-msgstr "Muuttuva tila ..."
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Olet poistamassa tilaajan! Oletko varma?"
-
-msgid "Deleting Subscriber..."
-msgstr "Tilaajan poistaminen..."
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "Haluatko todella poistaa tämän postituslistan?"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Haluatko varmasti poistaa kaikki tilaajat?"
-
-msgid "Deleting all subscribers..."
-msgstr "Kaikkien tilaajien poistaminen..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"Itse asiassa sinun on parempi jättää CRM ja avata se neljänneksen kuluttua "
-"uudelleen listan hallintaa varten.<br>MailChimpin API on hidas, kun haluat "
-"poistaa valtavia tietomääriä."
-
-msgid "Campaign Title"
-msgstr "Kampanjan nimi"
-
-msgid "Your Campaign Title"
-msgstr "Kampanjan nimi"
-
-msgid "For Tag"
-msgstr "Merkille"
-
-msgid "Mail Subject"
-msgstr "Mail Aihe"
-
-msgid "Your Mail Subject"
-msgstr "Sähköpostin aihe"
-
-msgid "All list members"
-msgstr "Kaikki luettelon jäsenet"
-
-msgid "Email Campaign Creation"
-msgstr "Sähköpostikampanjan luominen"
-
-msgid "Adding Campaign ..."
-msgstr "Kampanjan lisääminen ..."
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "Haluaisitko hallita suoraan tätä uutta kampanjaa ?"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "Sinun täytyy asettaa kampanjan otsikko eMail-kampanjallesi."
-
-msgid "List Name"
-msgstr "Luettelon nimi"
-
-msgid "Changing subscribers state..."
-msgstr "Tilaajien tilan muuttaminen..."
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Olet poistamassa tilaajia! Oletko varma?"
-
-msgid "Deleting Subscribers..."
-msgstr "Tilaajien poistaminen..."
-
-msgid "Confirmation of plugin removal"
-msgstr "Vahvistus pluginin poistamisesta"
-
-msgid ""
-"You are about to delete the selected plugins. This action cannot be undone!"
-msgstr ""
-"Olet poistamassa valittuja laajennuksia. Tätä toimenpidettä ei voi peruuttaa!"
-
-msgid "Select your zipped plugin file"
-msgstr "Valitse pakattu lisäosatiedosto"
-
-msgid "Download the zipped file of the plugin"
-msgstr "Lataa laajennuksen pakattu tiedosto"
-
-msgid "Plugin download manager"
-msgstr "Plugin download manager"
-
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "Varmuuskopio ladattu, kopio palvelimella poistettu"
-
-msgid "You must enter a password"
-msgstr "Sinun on annettava salasana"
-
-msgid "Passwords must match"
-msgstr "Salasanojen on vastattava"
-
-msgid "Backup Running, Please wait."
-msgstr "Varmuuskopiointi käynnissä, odota."
-
-msgid "Backup in progress, don't close the window !"
-msgstr "Varmuuskopiointi käynnissä, älä sulje ikkunaa !"
-
-msgid "Background backup in progress to remote server"
-msgstr "Taustakopiointi käynnissä etäpalvelimelle"
-
-msgid "Background backup in progress"
-msgstr "Taustan varmuuskopiointi käynnissä"
-
-msgid "Backup Error."
-msgstr "Varmuuskopiointivirhe."
-
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr "Valittu tiedosto ylittää tämän palvelimen maksimilatauskoon, joka on"
-
-msgid "Restore Running, Please wait."
-msgstr "Palautus käynnissä, odota."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Palauta varmuuskopio, älä sulje ikkunaa !"
-
-msgid "Restore Complete"
-msgstr "Palautus valmis"
-
-msgid "Login to restored Database"
-msgstr "Kirjaudu sisään palautettuun tietokantaan"
-
-msgid "Restore Error."
-msgstr "Palauta virhe."
-
-msgid "All Groups"
-msgstr "Kaikki ryhmät"
-
-msgid "All Roles"
-msgstr "Kaikki roolit"
-
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr ""
-"Hakusanat kuten : nimi, etunimi, puhelinnumero, kiinteistö, ryhmän nimi, "
-"jne ...."
-
-msgid "id"
-msgstr "id"
-
-msgid "Photos"
-msgstr "Kuvat"
-
-msgid "Search result"
-msgstr "Hakutulos"
-
-msgid "Property Name"
-msgstr "Kiinteistön nimi"
-
-msgid "Cart Operations"
-msgstr "Kärryjen käyttö"
-
-msgid "Add This Page"
-msgstr "Lisää tämä sivu"
-
-msgid "Loading people in cart...."
-msgstr "Ihmisten lataaminen kärryyn...."
-
-msgid "Add All results"
-msgstr "Lisää kaikki tulokset"
-
-msgid "Remove this page"
-msgstr "Poista tämä sivu"
-
-msgid "Removing people in cart...."
-msgstr "Ihmisten poistaminen kärryiltä...."
-
-msgid "Remove All results"
-msgstr "Poista kaikki tulokset"
-
-msgid "Intersect result with cart"
-msgstr "Leikkaa tulos kärryn kanssa"
-
-msgid "Visits/calls"
-msgstr "Vierailut/puhelut"
-
-msgid "Last visit/call"
-msgstr "Viimeisin käynti/puhelu"
-
-msgid "Delete Pastoral Care Type"
-msgstr "Poista sielunhoidon tyyppi"
-
-msgid "For every administrator"
-msgstr "Jokaisen järjestelmänvalvojan osalta"
-
-msgid "Show"
-msgstr "Näytä"
-
-msgid "Hide"
-msgstr "Piilota"
-
-msgid "Include all the family members"
-msgstr "Ota mukaan kaikki perheenjäsenet"
-
-msgid "Include"
-msgstr "Sisällytä"
-
-msgid "Pastoral Care Note Creation"
-msgstr "Sielunhoito Muistion luominen"
-
-msgid "Last Name (Family Name)"
-msgstr "Sukunimi (sukunimi)"
-
-msgid "Family Name"
-msgstr "Sukunimi"
-
-msgid "Number"
-msgstr "Numero"
-
-msgid "Item"
-msgstr "Kohde"
-
-msgid "Preview"
-msgstr "Esikatselu"
-
-msgid "Multiple"
-msgstr "Useita"
-
-msgid "Donor"
-msgstr "Lahjoittaja"
-
-msgid "Buyer"
-msgstr "Ostaja"
-
-msgid "Sale Price"
-msgstr "Myyntihinta"
-
-msgid "Estimated value"
-msgstr "Arvioitu arvo"
-
-msgid "Material Value"
-msgstr "Aineellinen arvo"
-
-msgid "Minimum Price"
-msgstr "Vähimmäishinta"
-
-msgid "Add buyer"
-msgstr "Lisää ostaja"
-
-msgid "Buyer Number"
-msgstr "Ostajan numero"
-
-msgid "Save and Add"
-msgstr "Tallenna ja lisää"
-
-msgid "Generate Statement"
-msgstr "Luo lausunto"
-
-msgid "Buyer Number Editor"
-msgstr "Ostaja Numero Editor"
-
-msgid "Select"
-msgstr "Valitse"
+"Kaikki ryhmän jäsenyys ja ominaisuudet tuhoutuvat.  Ryhmän jäseniä ei "
+"muuteta."
 
 #~ msgid "Done !"
 #~ msgstr "Valmis!"
@@ -2532,23 +2572,11 @@ msgstr "Valitse"
 #~ msgid "Nothing to remove."
 #~ msgstr "Ei mitään poistettavaa."
 
-#~ msgid "Activ"
-#~ msgstr "Activ"
-
-#~ msgid "Parent (hierarchy)"
-#~ msgstr "Vanhempi (hierarkia)"
-
-#~ msgid "Color"
-#~ msgstr "Väri"
-
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Haluatko varmasti poistaa valitut ryhmän jäsenet?"
 
 #~ msgid "Songs"
 #~ msgstr "Laulut"
-
-#~ msgid "Backup Complete, Ready for Download."
-#~ msgstr "Varmuuskopiointi valmis, valmis ladattavaksi."
 
 #~ msgid "Remove all"
 #~ msgstr "Poista kaikki"

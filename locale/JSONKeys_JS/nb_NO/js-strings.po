@@ -1,459 +1,59 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
+"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Sikkerhetskopi nedlastet, kopi på server fjernet"
+
+msgid "You must enter a password"
+msgstr "Du må oppgi et passord"
+
+msgid "Passwords must match"
+msgstr "Passordene må stemme overens"
+
+msgid "Backup Running, Please wait."
+msgstr "Backup kjører, vennligst vent."
+
+msgid "Backup in progress, don't close the window !"
+msgstr "Sikkerhetskopiering pågår, ikke lukk vinduet!"
+
+msgid "Background backup in progress to remote server"
+msgstr "Sikkerhetskopiering i bakgrunnen pågår til ekstern server"
+
+msgid "Background backup in progress"
+msgstr "Sikkerhetskopiering i bakgrunnen pågår"
+
+msgid "Backup Error."
+msgstr "Sikkerhetskopieringsfeil."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"Den valgte filen overskrider denne serverens maksimale opplastingsstørrelse "
+"på"
+
+msgid "Restore Running, Please wait."
+msgstr "Gjenopprett kjører, vennligst vent."
+
+msgid "Restore backup, don't close the window !"
+msgstr "Gjenopprett sikkerhetskopien, ikke lukk vinduet!"
+
+msgid "Restore Complete"
+msgstr "Gjenopprett fullført"
+
+msgid "Login to restored Database"
+msgstr "Logg inn på gjenopprettet database"
+
+msgid "Restore Error."
+msgstr "Gjenopprett feil."
+
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Er du sikker på at du vil slette dette bildet?"
-
-msgid "Press CTRL + C to copy all group members' phone numbers"
-msgstr "Trykk CTRL + C for å kopiere alle gruppemedlemmenes telefonnumre."
-
-msgid "You have no more items in your cart."
-msgstr "Du har ikke flere varer i handlekurven din."
-
-msgid "Name"
-msgstr "Navn"
-
-msgid "Address"
-msgstr "Adresse"
-
-msgid "Email"
-msgstr "E-post"
-
-msgid "Remove"
-msgstr "Fjern"
-
-msgid "Classification"
-msgstr "Klassifisering"
-
-msgid "Family Role"
-msgstr "Familiens rolle"
-
-msgid "Subject:"
-msgstr "Emne:"
-
-msgid "Compose New Message"
-msgstr "Skriv ny melding"
-
-msgid "Close"
-msgstr "Lukk"
-
-msgid "Send"
-msgstr "Send"
-
-msgid "Error making API Call to"
-msgstr "Feil ved API-kall til"
-
-msgid "Error text"
-msgstr "Feiltekst"
-
-msgid "Stack Trace"
-msgstr "Stack Trace"
-
-msgid "ERROR"
-msgstr "FEIL"
-
-msgid "In progress"
-msgstr "Pågående"
-
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"Alle listene er nå lastet inn i CRM-systemet.  1235  4568 Hvis du vil "
-"administrere dem, klikker du på dette varselet!"
-
-msgid "There was a problem retrieving the requested object"
-msgstr "Det oppstod et problem med å hente det forespurte objektet."
-
-msgid "None"
-msgstr "Ingen"
-
-msgid "Select the method to add to a group"
-msgstr "Velg metoden for å legge til en gruppe"
-
-msgid "Select an existing Group"
-msgstr "Velg en eksisterende gruppe"
-
-msgid "or Create a new Group from the Cart"
-msgstr "eller Opprett en ny gruppe fra handlekurven"
-
-msgid "Select the group to which you would like to add your cart"
-msgstr "Velg gruppen du ønsker å legge til i handlekurven."
-
-msgid "Select Group"
-msgstr "Velg gruppe"
-
-msgid "Select Role"
-msgstr "Velg rolle"
-
-msgid "Group Name"
-msgstr "Gruppens navn"
-
-msgid "Default Name Group"
-msgstr "Standard navn Gruppe"
-
-msgid "Add Cart to Group"
-msgstr "Legg til kurv i gruppe"
-
-msgid "Save"
-msgstr "Lagre"
-
-msgid "Error"
-msgstr "Feil"
-
-msgid "You have to select one group and a group role if you want"
-msgstr "Du må velge en gruppe og en grupperolle hvis du ønsker å"
-
-msgid "You have to set a Group Name"
-msgstr "Du må angi et gruppenavn"
-
-msgid "Do you really want to deactivate the persons?"
-msgstr "Vil du virkelig deaktivere personene?"
-
-msgid "This action can be undone !!!!"
-msgstr "Denne handlingen kan angres !!!!"
-
-msgid "No"
-msgstr "Nei"
-
-msgid "Yes : if you're sure"
-msgstr "Ja : hvis du er sikker"
-
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Vil du virkelig slette personene fra CRM?"
-
-msgid "This action cannot be undone !!!!"
-msgstr "Denne handlingen kan ikke omgjøres !!!!"
-
-msgid "Select the event to which you would like to add your cart"
-msgstr "Velg hendelsen du vil legge til i handlekurven din"
-
-msgid "Create First A New Event"
-msgstr "Opprett først en ny hendelse"
-
-msgid "Cancel"
-msgstr "Avbryt"
-
-msgid "Add to Event"
-msgstr "Legg til i arrangement"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Du kan legge innholdet i handlekurven til den valgte hendelsen nedenfor<br> "
-"- ELLER - <br>Opprett først en hendelse og legg dem til etterpå."
-
-msgid "Register"
-msgstr "Registrere"
-
-msgid "Register your software to CRM team."
-msgstr "Registrer programvaren din til CRM-teamet."
-
-msgid "Simply click this"
-msgstr "Bare klikk her"
-
-msgid "to register your software"
-msgstr "for å registrere programvaren din"
-
-msgid "New Release"
-msgstr "Ny utgivelse"
-
-msgid "Installed version"
-msgstr "Installert versjon"
-
-msgid "New One"
-msgstr "Ny"
-
-msgid "To upgrade simply click this Notification"
-msgstr "For å oppgradere klikker du bare på dette varselet"
-
-msgid "View Cart"
-msgstr "Vis handlekurv"
-
-msgid "Empty Cart"
-msgstr "Tøm handlekurven"
-
-msgid "Empty Cart to Group"
-msgstr "Tøm handlekurven til gruppen"
-
-msgid "Empty Cart to Family"
-msgstr "Tøm handlekurven til familien"
-
-msgid "Empty Cart to Event"
-msgstr "Tøm handlekurven til arrangementet"
-
-msgid "Map Cart"
-msgstr "Kartvogn"
-
-msgid "Deactivate Persons From Cart"
-msgstr "Deaktivere personer fra handlekurven"
-
-msgid "Delete Persons From the CRM"
-msgstr "Slett personer fra CRM"
-
-msgid "View all"
-msgstr "Se alle"
-
-msgid "Your Cart is Empty"
-msgstr "Handlekurven din er tom"
-
-msgid "If you need to make changes to registration data, go to "
-msgstr "Hvis du må gjøre endringer i registreringsdataene, går du til"
-
-msgid "Admin->Edit General Settings"
-msgstr "Admin->Rediger generelle innstillinger"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Vennligst registrer ditt eksemplar av CRM ved å krysse av for denne "
-"informasjonen og trykke på Send-knappen."
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-"Denne informasjonen brukes kun til å spore bruken av denne programvaren."
-
-msgid "Church Name"
-msgstr "Kirkens navn"
-
-msgid "Version"
-msgstr "Versjon"
-
-msgid "City"
-msgstr "By"
-
-msgid "State"
-msgstr "Stat"
-
-msgid "Zip"
-msgstr "Zip"
-
-msgid "Country"
-msgstr "Land"
-
-msgid "Church Email"
-msgstr "E-post til kirken"
-
-msgid "Base URL"
-msgstr "Basis-URL"
-
-msgid "Message"
-msgstr "Melding"
-
-msgid "Software Registration"
-msgstr "Registrering av programvare"
-
-msgid "Your software is now registered. Thank you !"
-msgstr "Programvaren din er nå registrert. Takk skal du ha!"
-
-msgid "OK"
-msgstr "OK"
-
-msgid "Select Volunteer Opportunity"
-msgstr "Velg frivillighetsmulighet"
-
-msgid "Please select target volunteers for members"
-msgstr "Vennligst velg målgruppe for frivillige medlemmer"
-
-msgid "Please select target group for members"
-msgstr "Vennligst velg målgruppe for medlemmer"
-
-msgid "Please select target Role for members"
-msgstr "Vennligst velg målrolle for medlemmer"
-
-msgid "GroupID required for role selection prompt"
-msgstr "GruppeID kreves for å velge rolle"
-
-msgid "Select Group and Role"
-msgstr "Velg gruppe og rolle"
-
-msgid "Add A Group Name"
-msgstr "Legg til et gruppenavn"
-
-msgid "Yes"
-msgstr "Ja"
-
-msgid "Calendar Event"
-msgstr "Kalenderbegivenhet"
-
-msgid "Attendees Checked In"
-msgstr "Deltakere sjekket inn"
-
-msgid "More info"
-msgstr "Mer informasjon"
-
-msgid ""
-"Warning! Do not select this option if you plan to add to an existing "
-"database.<br/>"
-msgstr ""
-"Advarsel! Ikke velg dette alternativet hvis du planlegger å legge til en "
-"eksisterende database.<br/>."
-
-msgid ""
-"Use only if unsatisfied with initial import. All person and member data will "
-"be destroyed!"
-msgstr ""
-"Bruk bare hvis du ikke er fornøyd med den første importen. Alle person- og "
-"medlemsdata vil bli destruert!"
-
-msgid "I Understand"
-msgstr "Jeg forstår"
-
-msgid "Clear Persons and Families"
-msgstr "Klare personer og familier"
-
-msgid "Data Cleared Successfully!"
-msgstr "Data ryddet med suksess!"
-
-msgid "success"
-msgstr "suksess"
-
-msgid "Duplicate values"
-msgstr "Dupliserte verdier"
-
-msgid "You've selected two times the same name"
-msgstr "Du har valgt det samme navnet to ganger"
-
-msgid "for this field. Chose another one."
-msgstr "for dette feltet. Velg en annen."
-
-msgid "Remove Plugin"
-msgstr "Fjern Plugin"
-
-msgid "You're about to remove the plugin from yout dashboard !!!"
-msgstr "Du er i ferd med å fjerne pluginet fra dashbordet ditt !!!!"
-
-msgid "Confirm"
-msgstr "Bekreft"
-
-msgid "Dashboard Item"
-msgstr "Element på dashbordet"
-
-msgid "Removed from your dashboard !"
-msgstr "Fjernet fra dashbordet!"
-
-msgid "Please confirm deletion of this document"
-msgstr "Vennligst bekreft sletting av dette dokumentet"
-
-msgid "Document Delete Confirmation"
-msgstr "Bekreftelse på sletting av dokument"
-
-msgid "Document Title"
-msgstr "Dokumentets tittel"
-
-msgid "Set your Document title"
-msgstr "Angi dokumentets tittel"
-
-msgid "Choose your Document Type"
-msgstr "Velg dokumenttype"
-
-msgid "document"
-msgstr "dokument"
-
-msgid "video"
-msgstr "video"
-
-msgid "audio"
-msgstr "lyd"
-
-msgid "Private"
-msgstr "Privat"
-
-msgid "Document Editor"
-msgstr "Dokumentredigering"
-
-msgid "You have to set a Title for your document"
-msgstr "Du må angi en tittel for dokumentet ditt"
-
-msgid "Icon"
-msgstr "Ikon"
-
-msgid "Actions"
-msgstr "Tiltak"
-
-msgid "Modification Date"
-msgstr "Endringsdato"
-
-msgid "Type"
-msgstr "Type"
-
-msgid "Size"
-msgstr "Størrelse"
-
-msgid "Delete"
-msgstr "Slett"
-
-msgid "You are about to delete several items together"
-msgstr "Du er i ferd med å slette flere elementer sammen"
-
-msgid "You're about to remove an item"
-msgstr "Du er i ferd med å fjerne et element"
-
-msgid "This can't be undone !!!!"
-msgstr "Dette kan ikke gjøres om !!!!"
-
-msgid "You've to select at least one line !!!"
-msgstr "Du må velge minst én linje !!!!"
-
-msgid "Create a Folder"
-msgstr "Opprett en mappe"
-
-msgid "Set your Folder name"
-msgstr "Angi mappenavn"
-
-msgid "Actualize files"
-msgstr "Aktualiser filer"
-
-msgid "preview currently being created"
-msgstr "forhåndsvisning som er under opprettelse"
-
-msgid "Set a File/Folder name"
-msgstr "Angi et fil-/mappenavn"
-
-msgid "Download Error"
-msgstr "Last ned feil"
-
-msgid "User"
-msgstr "Bruker"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "Are you sure you want to stop sharing for selected users?"
-msgstr "Er du sikker på at du vil stoppe deling for utvalgte brukere?"
-
-msgid "Are you sure, you want to stop all sharing ?"
-msgstr "Er du sikker på at du vil stoppe all deling?"
-
-msgid "Tracking"
-msgstr "Sporing"
-
-msgid "Attention"
-msgstr "Oppmerksomhet"
-
-msgid "The current images folder is now the public folder !!!"
-msgstr "Den gjeldende bildemappen er nå den offentlige mappen !!!!"
-
-msgid "Add People"
-msgstr "Legg til personer"
-
-msgid "This page is still in the cart."
-msgstr "Denne siden ligger fortsatt i handlekurven."
 
 msgid "Wrong address format."
 msgstr "Feil adresseformat."
@@ -461,8 +61,17 @@ msgstr "Feil adresseformat."
 msgid "Set Calendar Name"
 msgstr "Angi kalendernavn"
 
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Confirm"
+msgstr "Bekreft"
+
 msgid "Set Resource Name"
 msgstr "Angi ressursnavn"
+
+msgid "Name"
+msgstr "Navn"
 
 msgid "Select a resource type"
 msgstr "Velg en ressurstype"
@@ -478,6 +87,9 @@ msgstr "Video"
 
 msgid "Description"
 msgstr "Beskrivelse"
+
+msgid "OK"
+msgstr "OK"
 
 msgid "Calendars"
 msgstr "Kalendere"
@@ -499,6 +111,12 @@ msgstr "Inkluder/ekskluder kalenderne dine i sidefeltet"
 
 msgid "Ok"
 msgstr "Ok"
+
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
 
 msgid "With"
 msgstr "Med"
@@ -526,6 +144,9 @@ msgstr "Legg til personer/familie/grupper"
 
 msgid "Share your Calendar"
 msgstr "Del kalenderen din"
+
+msgid "Delete"
+msgstr "Slett"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Er du sikker på at du vil slette denne delingen?"
@@ -569,6 +190,9 @@ msgstr "Endre aksjenavn"
 
 msgid "Resource Info for"
 msgstr "Ressursinformasjon for"
+
+msgid "Error"
+msgstr "Feil"
 
 msgid "Only administrators have the right to change the Resource description"
 msgstr "Bare administratorer har rett til å endre ressursbeskrivelsen."
@@ -616,6 +240,9 @@ msgid ""
 msgstr ""
 "Du er i ferd med å slette alle gjentatte hendelser knyttet til denne "
 "hendelsen. Er du sikker? Dette kan ikke angres."
+
+msgid "No"
+msgstr "Nei"
 
 msgid "Only this event"
 msgstr "Bare denne hendelsen"
@@ -686,6 +313,9 @@ msgstr "til"
 
 msgid "Attendance Notes: "
 msgstr "Notater om oppmøte:"
+
+msgid "None"
+msgstr "Ingen"
 
 msgid "Title"
 msgstr "Tittel"
@@ -807,6 +437,12 @@ msgstr "inaktiv"
 msgid "Event Creation"
 msgstr "Opprettelse av arrangementer"
 
+msgid "Close"
+msgstr "Lukk"
+
+msgid "Save"
+msgstr "Lagre"
+
 msgid "You've to chose a calendar."
 msgstr "Du må velge en kalender."
 
@@ -827,6 +463,9 @@ msgstr "Laster ferdig...."
 
 msgid "Month"
 msgstr "Måned"
+
+msgid "Actions"
+msgstr "Tiltak"
 
 msgid "Attendance Counts with real Attendees"
 msgstr "Deltakerantall med reelle deltakere"
@@ -867,6 +506,27 @@ msgstr "Rediger/valider kassa"
 
 msgid "Check-out done"
 msgstr "Sjekk ut ferdig"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr "Trykk CTRL + C for å kopiere alle gruppemedlemmenes telefonnumre."
+
+msgid "You have no more items in your cart."
+msgstr "Du har ikke flere varer i handlekurven din."
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Email"
+msgstr "E-post"
+
+msgid "Remove"
+msgstr "Fjern"
+
+msgid "Classification"
+msgstr "Klassifisering"
+
+msgid "Family Role"
+msgstr "Familiens rolle"
 
 msgid "CKEditor Template Creation"
 msgstr "Opprettelse av CKEditor-mal"
@@ -962,6 +622,612 @@ msgstr "Språk"
 msgid "Merge Tags"
 msgstr "Slå sammen tagger"
 
+msgid "Subject:"
+msgstr "Emne:"
+
+msgid "Compose New Message"
+msgstr "Skriv ny melding"
+
+msgid "Send"
+msgstr "Send"
+
+msgid "Error making API Call to"
+msgstr "Feil ved API-kall til"
+
+msgid "Error text"
+msgstr "Feiltekst"
+
+msgid "Stack Trace"
+msgstr "Stack Trace"
+
+msgid "ERROR"
+msgstr "FEIL"
+
+msgid "In progress"
+msgstr "Pågående"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid ""
+"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
+"click this notification !</b>"
+msgstr ""
+"Alle listene er nå lastet inn i CRM-systemet.  1235  4568 Hvis du vil "
+"administrere dem, klikker du på dette varselet!"
+
+msgid "There was a problem retrieving the requested object"
+msgstr "Det oppstod et problem med å hente det forespurte objektet."
+
+msgid "Select the method to add to a group"
+msgstr "Velg metoden for å legge til en gruppe"
+
+msgid "Select an existing Group"
+msgstr "Velg en eksisterende gruppe"
+
+msgid "or Create a new Group from the Cart"
+msgstr "eller Opprett en ny gruppe fra handlekurven"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Velg gruppen du ønsker å legge til i handlekurven."
+
+msgid "Select Group"
+msgstr "Velg gruppe"
+
+msgid "Select Role"
+msgstr "Velg rolle"
+
+msgid "Group Name"
+msgstr "Gruppens navn"
+
+msgid "Default Name Group"
+msgstr "Standard navn Gruppe"
+
+msgid "Add Cart to Group"
+msgstr "Legg til kurv i gruppe"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "Du må velge en gruppe og en grupperolle hvis du ønsker å"
+
+msgid "You have to set a Group Name"
+msgstr "Du må angi et gruppenavn"
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "Vil du virkelig deaktivere personene?"
+
+msgid "This action can be undone !!!!"
+msgstr "Denne handlingen kan angres !!!!"
+
+msgid "Yes : if you're sure"
+msgstr "Ja : hvis du er sikker"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "Vil du virkelig slette personene fra CRM?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Denne handlingen kan ikke omgjøres !!!!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "Velg hendelsen du vil legge til i handlekurven din"
+
+msgid "Create First A New Event"
+msgstr "Opprett først en ny hendelse"
+
+msgid "Add to Event"
+msgstr "Legg til i arrangement"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"Du kan legge innholdet i handlekurven til den valgte hendelsen nedenfor<br> "
+"- ELLER - <br>Opprett først en hendelse og legg dem til etterpå."
+
+msgid "Register"
+msgstr "Registrere"
+
+msgid "Register your software to CRM team."
+msgstr "Registrer programvaren din til CRM-teamet."
+
+msgid "Simply click this"
+msgstr "Bare klikk her"
+
+msgid "to register your software"
+msgstr "for å registrere programvaren din"
+
+msgid "New Release"
+msgstr "Ny utgivelse"
+
+msgid "Installed version"
+msgstr "Installert versjon"
+
+msgid "New One"
+msgstr "Ny"
+
+msgid "To upgrade simply click this Notification"
+msgstr "For å oppgradere klikker du bare på dette varselet"
+
+msgid "View Cart"
+msgstr "Vis handlekurv"
+
+msgid "Empty Cart"
+msgstr "Tøm handlekurven"
+
+msgid "Empty Cart to Group"
+msgstr "Tøm handlekurven til gruppen"
+
+msgid "Empty Cart to Family"
+msgstr "Tøm handlekurven til familien"
+
+msgid "Empty Cart to Event"
+msgstr "Tøm handlekurven til arrangementet"
+
+msgid "Map Cart"
+msgstr "Kartvogn"
+
+msgid "Deactivate Persons From Cart"
+msgstr "Deaktivere personer fra handlekurven"
+
+msgid "Delete Persons From the CRM"
+msgstr "Slett personer fra CRM"
+
+msgid "View all"
+msgstr "Se alle"
+
+msgid "Your Cart is Empty"
+msgstr "Handlekurven din er tom"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr "Hvis du må gjøre endringer i registreringsdataene, går du til"
+
+msgid "Admin->Edit General Settings"
+msgstr "Admin->Rediger generelle innstillinger"
+
+msgid ""
+"Please register your copy of CRM by checking over this information and "
+"pressing the Send button."
+msgstr ""
+"Vennligst registrer ditt eksemplar av CRM ved å krysse av for denne "
+"informasjonen og trykke på Send-knappen."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"Denne informasjonen brukes kun til å spore bruken av denne programvaren."
+
+msgid "Church Name"
+msgstr "Kirkens navn"
+
+msgid "Version"
+msgstr "Versjon"
+
+msgid "City"
+msgstr "By"
+
+msgid "State"
+msgstr "Stat"
+
+msgid "Zip"
+msgstr "Zip"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Church Email"
+msgstr "E-post til kirken"
+
+msgid "Base URL"
+msgstr "Basis-URL"
+
+msgid "Message"
+msgstr "Melding"
+
+msgid "Software Registration"
+msgstr "Registrering av programvare"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "Programvaren din er nå registrert. Takk skal du ha!"
+
+msgid "Select Volunteer Opportunity"
+msgstr "Velg frivillighetsmulighet"
+
+msgid "Please select target volunteers for members"
+msgstr "Vennligst velg målgruppe for frivillige medlemmer"
+
+msgid "Please select target group for members"
+msgstr "Vennligst velg målgruppe for medlemmer"
+
+msgid "Please select target Role for members"
+msgstr "Vennligst velg målrolle for medlemmer"
+
+msgid "GroupID required for role selection prompt"
+msgstr "GruppeID kreves for å velge rolle"
+
+msgid "Select Group and Role"
+msgstr "Velg gruppe og rolle"
+
+msgid "Add A Group Name"
+msgstr "Legg til et gruppenavn"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Calendar Event"
+msgstr "Kalenderbegivenhet"
+
+msgid "Attendees Checked In"
+msgstr "Deltakere sjekket inn"
+
+msgid "More info"
+msgstr "Mer informasjon"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"Advarsel! Ikke velg dette alternativet hvis du planlegger å legge til en "
+"eksisterende database.<br/>."
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will "
+"be destroyed!"
+msgstr ""
+"Bruk bare hvis du ikke er fornøyd med den første importen. Alle person- og "
+"medlemsdata vil bli destruert!"
+
+msgid "I Understand"
+msgstr "Jeg forstår"
+
+msgid "Clear Persons and Families"
+msgstr "Klare personer og familier"
+
+msgid "Data Cleared Successfully!"
+msgstr "Data ryddet med suksess!"
+
+msgid "success"
+msgstr "suksess"
+
+msgid "Duplicate values"
+msgstr "Dupliserte verdier"
+
+msgid "You've selected two times the same name"
+msgstr "Du har valgt det samme navnet to ganger"
+
+msgid "for this field. Chose another one."
+msgstr "for dette feltet. Velg en annen."
+
+msgid "Remove Plugin"
+msgstr "Fjern Plugin"
+
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Du er i ferd med å fjerne pluginet fra dashbordet ditt !!!!"
+
+msgid "Dashboard Item"
+msgstr "Element på dashbordet"
+
+msgid "Removed from your dashboard !"
+msgstr "Fjernet fra dashbordet!"
+
+msgid "Please confirm deletion of this document"
+msgstr "Vennligst bekreft sletting av dette dokumentet"
+
+msgid "Document Delete Confirmation"
+msgstr "Bekreftelse på sletting av dokument"
+
+msgid "Document Title"
+msgstr "Dokumentets tittel"
+
+msgid "Set your Document title"
+msgstr "Angi dokumentets tittel"
+
+msgid "Choose your Document Type"
+msgstr "Velg dokumenttype"
+
+msgid "document"
+msgstr "dokument"
+
+msgid "video"
+msgstr "video"
+
+msgid "audio"
+msgstr "lyd"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Document Editor"
+msgstr "Dokumentredigering"
+
+msgid "You have to set a Title for your document"
+msgstr "Du må angi en tittel for dokumentet ditt"
+
+msgid "Saving Campaign ..."
+msgstr "Sparekampanje ..."
+
+msgid "Campaign"
+msgstr "Kampanje"
+
+msgid "saved successfully"
+msgstr "lagret vellykket"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "Du er i ferd med å sende kampanjen din! Er du sikker?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "Du er i ferd med å slette kampanjen din! Er du sikker?"
+
+msgid "Loading datas ..."
+msgstr "Laster inn data ..."
+
+msgid "No list are created with this account ...."
+msgstr "Ingen lister opprettes med denne kontoen ...."
+
+msgid "Email List"
+msgstr "E-postliste"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Details"
+msgstr "Nærmere opplysninger"
+
+msgid "Subject"
+msgstr "Emne"
+
+msgid "Members:"
+msgstr "Medlemmer:"
+
+msgid "Campaigns:"
+msgstr "Kampanjer:"
+
+msgid "Unsubscribed count:"
+msgstr "Antall avmeldte:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Antall avmeldinger siden forrige sending:"
+
+msgid "Cleaned count:"
+msgstr "Renset antall:"
+
+msgid "Cleaned count since last send:"
+msgstr "Renset antall siden forrige sending:"
+
+msgid "Campaigns"
+msgstr "Kampanjer"
+
+msgid "Tags"
+msgstr "Tagger"
+
+msgid "is not configured"
+msgstr "er ikke konfigurert"
+
+msgid "Please update the"
+msgstr "Vennligst oppdater"
+
+msgid "API key in Setting->"
+msgstr "API-nøkkel i Innstillinger->"
+
+msgid "Edit General Settings"
+msgstr "Rediger generelle innstillinger"
+
+msgid "then update"
+msgstr "deretter oppdatere"
+
+msgid "For more info see our "
+msgstr "For mer informasjon, se vår"
+
+msgid "support docs."
+msgstr "støttedokumenter."
+
+msgid "List Title"
+msgstr "Liste Tittel"
+
+msgid "Your List Title"
+msgstr "Tittelen på listen din"
+
+msgid "Your Subject"
+msgstr "Ditt emne"
+
+msgid "Permission Reminder"
+msgstr "Påminnelse om tillatelse"
+
+msgid "Archive Bars"
+msgstr "Arkiv barer"
+
+msgid "Public"
+msgstr "Offentlig"
+
+msgid "List Creation"
+msgstr "Opprettelse av lister"
+
+msgid "People"
+msgstr "Mennesker"
+
+msgid "Families"
+msgstr "Familier"
+
+msgid "Add a new tag"
+msgstr "Legg til en ny tagg"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Slett tagg fra abonnent(er)"
+
+msgid "Delete tag"
+msgstr "Slett tagg"
+
+msgid "Loading resources ..."
+msgstr "Laster inn ressurser ..."
+
+msgid "Check all boxes"
+msgstr "Kryss av i alle boksene"
+
+msgid "Subscribed"
+msgstr "Abonnert"
+
+msgid "Unsubscribed"
+msgstr "Avmeldt"
+
+msgid "Email Marketing"
+msgstr "E-postmarkedsføring"
+
+msgid "Add your tag name"
+msgstr "Legg til navnet ditt på taggen"
+
+msgid "Adding tag..."
+msgstr "Legge til tag..."
+
+msgid "Name is empty !!"
+msgstr "Navnet er tomt !!"
+
+msgid "Add tag?"
+msgstr "Legg til tag?"
+
+msgid "This will add the tag"
+msgstr "Dette vil legge til taggen"
+
+msgid "to all the current selected members in the list."
+msgstr "til alle de nåværende valgte medlemmene i listen."
+
+msgid "Select One"
+msgstr "Velg en"
+
+msgid "All Tags"
+msgstr "Alle tagger"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Velg taggen du vil slette :"
+
+msgid "Removing tags..."
+msgstr "Fjerne tagger..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Slette alle tagger for de valgte medlemmene i listen..."
+
+msgid "You're about to delete a tag!"
+msgstr "Du er i ferd med å slette en tagg!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Dette vil også slette taggen for alle medlemmene i denne listen. Er du "
+"sikker?"
+
+msgid "Deleting tag"
+msgstr "Slette tagg"
+
+msgid "A person name or Family or Group"
+msgstr "Et personnavn eller en familie eller gruppe"
+
+msgid "Loading subscriber"
+msgstr "Laster inn abonnent"
+
+msgid "Loading subscribers from Group"
+msgstr "Innlasting av abonnenter fra Group"
+
+msgid "Loading subscribers from family"
+msgstr "Innlasting av abonnenter fra familie"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr "Laster inn alle personer fra EcclesiaCRM<br>Dette kan ta en stund!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Faktisk er det bedre å avslutte CRM, vente 5 minutter og lage kampanjene "
+"dine etter.<br> For å importere store data er MailChimp API treg."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Laster inn alle nyhetsbrevabonnenter fra EcclesiaCRM<br>Dette kan ta en "
+"stund!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Laster inn alle familiens første hovedpersoner abonnenter fra "
+"EcclesiaCRM<br>Dette kan ta en stund!"
+
+msgid "Select status for : "
+msgstr "Velg status for :"
+
+msgid "Changing status ..."
+msgstr "Endring av status ..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Du er i ferd med å slette en abonnent! Er du sikker?"
+
+msgid "Deleting Subscriber..."
+msgstr "Slette abonnent..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Vil du virkelig slette denne adresselisten?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Er du sikker på at du vil slette alle abonnentene?"
+
+msgid "Deleting all subscribers..."
+msgstr "Slette alle abonnenter..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Faktisk er det bedre å forlate CRM, og om en kvart time åpner du den igjen "
+"for å administrere listen din.<br> For å slette store data er MailChimp API "
+"treg."
+
+msgid "Campaign Title"
+msgstr "Tittel på kampanjen"
+
+msgid "Your Campaign Title"
+msgstr "Din kampanjetittel"
+
+msgid "For Tag"
+msgstr "For Tag"
+
+msgid "Mail Subject"
+msgstr "E-post Emne"
+
+msgid "Your Mail Subject"
+msgstr "E-postens emne"
+
+msgid "All list members"
+msgstr "Alle medlemmer av listen"
+
+msgid "Email Campaign Creation"
+msgstr "Opprettelse av e-postkampanje"
+
+msgid "Adding Campaign ..."
+msgstr "Legge til kampanje ..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Ønsker du å administrere denne nye kampanjen direkte?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Du må angi en kampanjetittel for e-postkampanjen din."
+
+msgid "List Name"
+msgstr "Liste Navn"
+
+msgid "Changing subscribers state..."
+msgstr "Endring av abonnentstatus..."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Du er i ferd med å slette abonnenter! Er du sikker?"
+
+msgid "Deleting Subscribers..."
+msgstr "Slette abonnenter..."
+
+msgid "Family"
+msgstr "Familie"
+
+msgid "Person"
+msgstr "Person"
+
 msgid "Free Event Attendees"
 msgstr "Deltakere på gratis arrangementer"
 
@@ -1038,11 +1304,17 @@ msgstr "Opprett en."
 msgid "Group"
 msgstr "Gruppe"
 
+msgid "User"
+msgstr "Bruker"
+
 msgid "No event now."
 msgstr "Ingen hendelse nå."
 
 msgid "Success"
 msgstr "Suksess"
+
+msgid "Attention"
+msgstr "Oppmerksomhet"
 
 msgid "Are you sure you want to DELETE all persons from Event ID:"
 msgstr "Er du sikker på at du vil SLETTE alle personer fra Event ID:"
@@ -1055,6 +1327,54 @@ msgstr "Slett hendelsestype"
 
 msgid "This action can never be undone !!!!"
 msgstr "Denne handlingen kan aldri omgjøres !!!!"
+
+msgid "Icon"
+msgstr "Ikon"
+
+msgid "Modification Date"
+msgstr "Endringsdato"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Size"
+msgstr "Størrelse"
+
+msgid "You are about to delete several items together"
+msgstr "Du er i ferd med å slette flere elementer sammen"
+
+msgid "You're about to remove an item"
+msgstr "Du er i ferd med å fjerne et element"
+
+msgid "This can't be undone !!!!"
+msgstr "Dette kan ikke gjøres om !!!!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Du må velge minst én linje !!!!"
+
+msgid "Create a Folder"
+msgstr "Opprett en mappe"
+
+msgid "Set your Folder name"
+msgstr "Angi mappenavn"
+
+msgid "Actualize files"
+msgstr "Aktualiser filer"
+
+msgid "preview currently being created"
+msgstr "forhåndsvisning som er under opprettelse"
+
+msgid "Set a File/Folder name"
+msgstr "Angi et fil-/mappenavn"
+
+msgid "Download Error"
+msgstr "Last ned feil"
+
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "Er du sikker på at du vil stoppe deling for utvalgte brukere?"
+
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "Er du sikker på at du vil stoppe all deling?"
 
 msgid "Confirm Delete"
 msgstr "Bekreft Slett"
@@ -1113,12 +1433,6 @@ msgstr "Elektroniske transaksjonsdetaljer"
 msgid "TOTAL"
 msgstr "TOTALT"
 
-msgid "Family"
-msgstr "Familie"
-
-msgid "Person"
-msgstr "Person"
-
 msgid "Anonymous"
 msgstr "Anonym"
 
@@ -1133,9 +1447,6 @@ msgstr "Metode"
 
 msgid "Check Number"
 msgstr "Kontrollnummer"
-
-msgid "Details"
-msgstr "Nærmere opplysninger"
 
 msgid "Deposit ID"
 msgstr "Innskudds-ID"
@@ -1163,6 +1474,54 @@ msgstr "Generer innskuddsbevis for valgt"
 
 msgid "Rows"
 msgstr "Rader"
+
+msgid "Number"
+msgstr "Antall"
+
+msgid "Item"
+msgstr "Gjenstand"
+
+msgid "Preview"
+msgstr "Forhåndsvisning"
+
+msgid "Multiple"
+msgstr "Flere"
+
+msgid "Donor"
+msgstr "Giver"
+
+msgid "Buyer"
+msgstr "Innkjøper"
+
+msgid "Sale Price"
+msgstr "Salgspris"
+
+msgid "Estimated value"
+msgstr "Anslått verdi"
+
+msgid "Material Value"
+msgstr "Materiell verdi"
+
+msgid "Minimum Price"
+msgstr "Minstepris"
+
+msgid "Add buyer"
+msgstr "Legg til kjøper"
+
+msgid "Buyer Number"
+msgstr "Kjøpernummer"
+
+msgid "Save and Add"
+msgstr "Lagre og legg til"
+
+msgid "Generate Statement"
+msgstr "Generere uttalelse"
+
+msgid "Buyer Number Editor"
+msgstr "Innkjøpernummer Redaktør"
+
+msgid "Select"
+msgstr "Velg"
 
 msgid "Your operation completed successfully."
 msgstr "Operasjonen din er fullført."
@@ -1366,6 +1725,42 @@ msgstr "Er du sikker på at du vil slette alle lederne?"
 
 msgid "Appointment"
 msgstr "Utnevnelse"
+
+msgid "Tracking"
+msgstr "Sporing"
+
+msgid "Visits/calls"
+msgstr "Besøk/samtaler"
+
+msgid "Last visit/call"
+msgstr "Siste besøk/anrop"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Slett Pastoral Care Type"
+
+msgid "For every administrator"
+msgstr "For alle administratorer"
+
+msgid "Show"
+msgstr "Vis"
+
+msgid "Hide"
+msgstr "Skjul"
+
+msgid "Include all the family members"
+msgstr "Ta med alle familiemedlemmene"
+
+msgid "Include"
+msgstr "Inkluderer"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Opprettelse av sjelesorgnotat"
+
+msgid "Last Name (Family Name)"
+msgstr "Etternavn (etternavn)"
+
+msgid "Family Name"
+msgstr "Etternavn"
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "Er du sikker på at du vil fjerne denne familien fra CRM?"
@@ -1609,6 +2004,80 @@ msgstr "Bekreft Slett frivillig mulighet"
 
 msgid "Comments"
 msgstr "Kommentarer"
+
+msgid "Confirmation of plugin removal"
+msgstr "Bekreftelse på fjerning av plugin"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Du er i ferd med å slette de valgte programtilleggene. Denne handlingen kan "
+"ikke angres!"
+
+msgid "Select your zipped plugin file"
+msgstr "Velg din zippede plugin-fil"
+
+msgid "Download the zipped file of the plugin"
+msgstr "Last ned den zippede filen til plugin-modulen"
+
+msgid "Plugin download manager"
+msgstr "Nedlastingsadministrator for plugin"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "Den gjeldende bildemappen er nå den offentlige mappen !!!!"
+
+msgid "All Groups"
+msgstr "Alle grupper"
+
+msgid "All Roles"
+msgstr "Alle roller"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr "Søkeord som: navn, fornavn, telefonnummer, eiendom, gruppenavn osv ..."
+
+msgid "id"
+msgstr "id"
+
+msgid "Photos"
+msgstr "Bilder"
+
+msgid "Search result"
+msgstr "Søkeresultat"
+
+msgid "Property Name"
+msgstr "Eiendomsnavn"
+
+msgid "Cart Operations"
+msgstr "Vognoperasjoner"
+
+msgid "Add This Page"
+msgstr "Legg til denne siden"
+
+msgid "Loading people in cart...."
+msgstr "Laster folk i handlekurven...."
+
+msgid "Add All results"
+msgstr "Legg til alle resultater"
+
+msgid "Remove this page"
+msgstr "Fjern denne siden"
+
+msgid "Removing people in cart...."
+msgstr "Fjerne personer i handlekurven...."
+
+msgid "Remove All results"
+msgstr "Fjern alle resultater"
+
+msgid "Intersect result with cart"
+msgstr "Kryss resultatet med handlekurven"
+
+msgid "Add People"
+msgstr "Legg til personer"
+
+msgid "This page is still in the cart."
+msgstr "Denne siden ligger fortsatt i handlekurven."
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all family data "
@@ -1956,6 +2425,9 @@ msgstr ""
 "Oppbevar disse reservepassordene på et trygt sted i tilfelle du mister OTP-"
 "legitimasjonen."
 
+msgid "Backup Complete, Ready for Download."
+msgstr "Sikkerhetskopiering fullført, klar for nedlasting."
+
 msgid "The user must have an email address."
 msgstr "Brukeren må ha en e-postadresse."
 
@@ -2051,474 +2523,42 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr "Brukeren har 60 sekunder på seg til å bruke sine gjenopprettingskoder."
 
-msgid "Saving Campaign ..."
-msgstr "Sparekampanje ..."
+#, fuzzy
+msgid "Add New Volunteer Opportunity"
+msgstr "Velg frivillighetsmulighet"
 
-msgid "Campaign"
-msgstr "Kampanje"
+msgid "Activ"
+msgstr "Aktiv"
 
-msgid "saved successfully"
-msgstr "lagret vellykket"
+msgid "Parent (hierarchy)"
+msgstr "Overordnet (hierarki)"
 
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "Du er i ferd med å sende kampanjen din! Er du sikker?"
+msgid "Color"
+msgstr "Farge"
 
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Du er i ferd med å slette kampanjen din! Er du sikker?"
+#, fuzzy
+msgid "Add to volunteer opportunities"
+msgstr "Velg frivillighetsmulighet"
 
-msgid "Loading datas ..."
-msgstr "Laster inn data ..."
+#, fuzzy
+msgid "Move to volunteer opportunities"
+msgstr "Velg frivillighetsmulighet"
 
-msgid "No list are created with this account ...."
-msgstr "Ingen lister opprettes med denne kontoen ...."
+#, fuzzy
+msgid "Confirm Delete This Opportunity"
+msgstr "Bekreft Slett frivillig mulighet"
 
-msgid "Email List"
-msgstr "E-postliste"
+#, fuzzy
+msgid "Please confirm deletion of this record"
+msgstr "Vennligst bekreft sletting av denne gruppeoppføringen"
 
-msgid "GDPR"
-msgstr "GDPR"
-
-msgid "Subject"
-msgstr "Emne"
-
-msgid "Members:"
-msgstr "Medlemmer:"
-
-msgid "Campaigns:"
-msgstr "Kampanjer:"
-
-msgid "Unsubscribed count:"
-msgstr "Antall avmeldte:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "Antall avmeldinger siden forrige sending:"
-
-msgid "Cleaned count:"
-msgstr "Renset antall:"
-
-msgid "Cleaned count since last send:"
-msgstr "Renset antall siden forrige sending:"
-
-msgid "Campaigns"
-msgstr "Kampanjer"
-
-msgid "Tags"
-msgstr "Tagger"
-
-msgid "is not configured"
-msgstr "er ikke konfigurert"
-
-msgid "Please update the"
-msgstr "Vennligst oppdater"
-
-msgid "API key in Setting->"
-msgstr "API-nøkkel i Innstillinger->"
-
-msgid "Edit General Settings"
-msgstr "Rediger generelle innstillinger"
-
-msgid "then update"
-msgstr "deretter oppdatere"
-
-msgid "For more info see our "
-msgstr "For mer informasjon, se vår"
-
-msgid "support docs."
-msgstr "støttedokumenter."
-
-msgid "List Title"
-msgstr "Liste Tittel"
-
-msgid "Your List Title"
-msgstr "Tittelen på listen din"
-
-msgid "Your Subject"
-msgstr "Ditt emne"
-
-msgid "Permission Reminder"
-msgstr "Påminnelse om tillatelse"
-
-msgid "Archive Bars"
-msgstr "Arkiv barer"
-
-msgid "Public"
-msgstr "Offentlig"
-
-msgid "List Creation"
-msgstr "Opprettelse av lister"
-
-msgid "People"
-msgstr "Mennesker"
-
-msgid "Families"
-msgstr "Familier"
-
-msgid "Add a new tag"
-msgstr "Legg til en ny tagg"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "Slett tagg fra abonnent(er)"
-
-msgid "Delete tag"
-msgstr "Slett tagg"
-
-msgid "Loading resources ..."
-msgstr "Laster inn ressurser ..."
-
-msgid "Check all boxes"
-msgstr "Kryss av i alle boksene"
-
-msgid "Subscribed"
-msgstr "Abonnert"
-
-msgid "Unsubscribed"
-msgstr "Avmeldt"
-
-msgid "Email Marketing"
-msgstr "E-postmarkedsføring"
-
-msgid "Add your tag name"
-msgstr "Legg til navnet ditt på taggen"
-
-msgid "Adding tag..."
-msgstr "Legge til tag..."
-
-msgid "Name is empty !!"
-msgstr "Navnet er tomt !!"
-
-msgid "Add tag?"
-msgstr "Legg til tag?"
-
-msgid "This will add the tag"
-msgstr "Dette vil legge til taggen"
-
-msgid "to all the current selected members in the list."
-msgstr "til alle de nåværende valgte medlemmene i listen."
-
-msgid "Select One"
-msgstr "Velg en"
-
-msgid "All Tags"
-msgstr "Alle tagger"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Velg taggen du vil slette :"
-
-msgid "Removing tags..."
-msgstr "Fjerne tagger..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Slette alle tagger for de valgte medlemmene i listen..."
-
-msgid "You're about to delete a tag!"
-msgstr "Du er i ferd med å slette en tagg!"
-
+#, fuzzy
 msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
+"All membership will be destroyed.  The members themselves will not be "
+"altered."
 msgstr ""
-"Dette vil også slette taggen for alle medlemmene i denne listen. Er du "
-"sikker?"
-
-msgid "Deleting tag"
-msgstr "Slette tagg"
-
-msgid "A person name or Family or Group"
-msgstr "Et personnavn eller en familie eller gruppe"
-
-msgid "Loading subscriber"
-msgstr "Laster inn abonnent"
-
-msgid "Loading subscribers from Group"
-msgstr "Innlasting av abonnenter fra Group"
-
-msgid "Loading subscribers from family"
-msgstr "Innlasting av abonnenter fra familie"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr "Laster inn alle personer fra EcclesiaCRM<br>Dette kan ta en stund!"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"Faktisk er det bedre å avslutte CRM, vente 5 minutter og lage kampanjene "
-"dine etter.<br> For å importere store data er MailChimp API treg."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Laster inn alle nyhetsbrevabonnenter fra EcclesiaCRM<br>Dette kan ta en "
-"stund!"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Laster inn alle familiens første hovedpersoner abonnenter fra "
-"EcclesiaCRM<br>Dette kan ta en stund!"
-
-msgid "Select status for : "
-msgstr "Velg status for :"
-
-msgid "Changing status ..."
-msgstr "Endring av status ..."
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Du er i ferd med å slette en abonnent! Er du sikker?"
-
-msgid "Deleting Subscriber..."
-msgstr "Slette abonnent..."
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "Vil du virkelig slette denne adresselisten?"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Er du sikker på at du vil slette alle abonnentene?"
-
-msgid "Deleting all subscribers..."
-msgstr "Slette alle abonnenter..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"Faktisk er det bedre å forlate CRM, og om en kvart time åpner du den igjen "
-"for å administrere listen din.<br> For å slette store data er MailChimp API "
-"treg."
-
-msgid "Campaign Title"
-msgstr "Tittel på kampanjen"
-
-msgid "Your Campaign Title"
-msgstr "Din kampanjetittel"
-
-msgid "For Tag"
-msgstr "For Tag"
-
-msgid "Mail Subject"
-msgstr "E-post Emne"
-
-msgid "Your Mail Subject"
-msgstr "E-postens emne"
-
-msgid "All list members"
-msgstr "Alle medlemmer av listen"
-
-msgid "Email Campaign Creation"
-msgstr "Opprettelse av e-postkampanje"
-
-msgid "Adding Campaign ..."
-msgstr "Legge til kampanje ..."
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "Ønsker du å administrere denne nye kampanjen direkte?"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "Du må angi en kampanjetittel for e-postkampanjen din."
-
-msgid "List Name"
-msgstr "Liste Navn"
-
-msgid "Changing subscribers state..."
-msgstr "Endring av abonnentstatus..."
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Du er i ferd med å slette abonnenter! Er du sikker?"
-
-msgid "Deleting Subscribers..."
-msgstr "Slette abonnenter..."
-
-msgid "Confirmation of plugin removal"
-msgstr "Bekreftelse på fjerning av plugin"
-
-msgid ""
-"You are about to delete the selected plugins. This action cannot be undone!"
-msgstr ""
-"Du er i ferd med å slette de valgte programtilleggene. Denne handlingen kan "
-"ikke angres!"
-
-msgid "Select your zipped plugin file"
-msgstr "Velg din zippede plugin-fil"
-
-msgid "Download the zipped file of the plugin"
-msgstr "Last ned den zippede filen til plugin-modulen"
-
-msgid "Plugin download manager"
-msgstr "Nedlastingsadministrator for plugin"
-
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "Sikkerhetskopi nedlastet, kopi på server fjernet"
-
-msgid "You must enter a password"
-msgstr "Du må oppgi et passord"
-
-msgid "Passwords must match"
-msgstr "Passordene må stemme overens"
-
-msgid "Backup Running, Please wait."
-msgstr "Backup kjører, vennligst vent."
-
-msgid "Backup in progress, don't close the window !"
-msgstr "Sikkerhetskopiering pågår, ikke lukk vinduet!"
-
-msgid "Background backup in progress to remote server"
-msgstr "Sikkerhetskopiering i bakgrunnen pågår til ekstern server"
-
-msgid "Background backup in progress"
-msgstr "Sikkerhetskopiering i bakgrunnen pågår"
-
-msgid "Backup Error."
-msgstr "Sikkerhetskopieringsfeil."
-
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr ""
-"Den valgte filen overskrider denne serverens maksimale opplastingsstørrelse "
-"på"
-
-msgid "Restore Running, Please wait."
-msgstr "Gjenopprett kjører, vennligst vent."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Gjenopprett sikkerhetskopien, ikke lukk vinduet!"
-
-msgid "Restore Complete"
-msgstr "Gjenopprett fullført"
-
-msgid "Login to restored Database"
-msgstr "Logg inn på gjenopprettet database"
-
-msgid "Restore Error."
-msgstr "Gjenopprett feil."
-
-msgid "All Groups"
-msgstr "Alle grupper"
-
-msgid "All Roles"
-msgstr "Alle roller"
-
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr "Søkeord som: navn, fornavn, telefonnummer, eiendom, gruppenavn osv ..."
-
-msgid "id"
-msgstr "id"
-
-msgid "Photos"
-msgstr "Bilder"
-
-msgid "Search result"
-msgstr "Søkeresultat"
-
-msgid "Property Name"
-msgstr "Eiendomsnavn"
-
-msgid "Cart Operations"
-msgstr "Vognoperasjoner"
-
-msgid "Add This Page"
-msgstr "Legg til denne siden"
-
-msgid "Loading people in cart...."
-msgstr "Laster folk i handlekurven...."
-
-msgid "Add All results"
-msgstr "Legg til alle resultater"
-
-msgid "Remove this page"
-msgstr "Fjern denne siden"
-
-msgid "Removing people in cart...."
-msgstr "Fjerne personer i handlekurven...."
-
-msgid "Remove All results"
-msgstr "Fjern alle resultater"
-
-msgid "Intersect result with cart"
-msgstr "Kryss resultatet med handlekurven"
-
-msgid "Visits/calls"
-msgstr "Besøk/samtaler"
-
-msgid "Last visit/call"
-msgstr "Siste besøk/anrop"
-
-msgid "Delete Pastoral Care Type"
-msgstr "Slett Pastoral Care Type"
-
-msgid "For every administrator"
-msgstr "For alle administratorer"
-
-msgid "Show"
-msgstr "Vis"
-
-msgid "Hide"
-msgstr "Skjul"
-
-msgid "Include all the family members"
-msgstr "Ta med alle familiemedlemmene"
-
-msgid "Include"
-msgstr "Inkluderer"
-
-msgid "Pastoral Care Note Creation"
-msgstr "Opprettelse av sjelesorgnotat"
-
-msgid "Last Name (Family Name)"
-msgstr "Etternavn (etternavn)"
-
-msgid "Family Name"
-msgstr "Etternavn"
-
-msgid "Number"
-msgstr "Antall"
-
-msgid "Item"
-msgstr "Gjenstand"
-
-msgid "Preview"
-msgstr "Forhåndsvisning"
-
-msgid "Multiple"
-msgstr "Flere"
-
-msgid "Donor"
-msgstr "Giver"
-
-msgid "Buyer"
-msgstr "Innkjøper"
-
-msgid "Sale Price"
-msgstr "Salgspris"
-
-msgid "Estimated value"
-msgstr "Anslått verdi"
-
-msgid "Material Value"
-msgstr "Materiell verdi"
-
-msgid "Minimum Price"
-msgstr "Minstepris"
-
-msgid "Add buyer"
-msgstr "Legg til kjøper"
-
-msgid "Buyer Number"
-msgstr "Kjøpernummer"
-
-msgid "Save and Add"
-msgstr "Lagre og legg til"
-
-msgid "Generate Statement"
-msgstr "Generere uttalelse"
-
-msgid "Buyer Number Editor"
-msgstr "Innkjøpernummer Redaktør"
-
-msgid "Select"
-msgstr "Velg"
+"Alle gruppemedlemskap og egenskaper vil bli ødelagt.  Gruppemedlemmene selv "
+"vil ikke bli endret."
 
 #~ msgid "Done !"
 #~ msgstr "Ferdig!"
@@ -2529,23 +2569,11 @@ msgstr "Velg"
 #~ msgid "Nothing to remove."
 #~ msgstr "Ingenting å fjerne."
 
-#~ msgid "Activ"
-#~ msgstr "Aktiv"
-
-#~ msgid "Parent (hierarchy)"
-#~ msgstr "Overordnet (hierarki)"
-
-#~ msgid "Color"
-#~ msgstr "Farge"
-
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Er du sikker på at du vil fjerne de valgte gruppemedlemmene?"
 
 #~ msgid "Songs"
 #~ msgstr "Sanger"
-
-#~ msgid "Backup Complete, Ready for Download."
-#~ msgstr "Sikkerhetskopiering fullført, klar for nedlasting."
 
 #~ msgid "Remove all"
 #~ msgstr "Fjern alle"

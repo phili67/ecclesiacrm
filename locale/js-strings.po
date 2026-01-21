@@ -7,611 +7,68 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:10.957Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:10.958Z\n"
+"POT-Creation-Date: 2026-01-21T17:22:57.163Z\n"
+"PO-Revision-Date: 2026-01-21T17:22:57.163Z\n"
 "#-#-#-#-#  js-strings2.pot (i18next-conv)  #-#-#-#-#\n"
 "Project-Id-Version: i18next-conv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:11.081Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:11.081Z\n"
+"POT-Creation-Date: 2026-01-21T17:22:57.274Z\n"
+"PO-Revision-Date: 2026-01-21T17:22:57.274Z\n"
 "#-#-#-#-#  js-strings3.pot (i18next-conv)  #-#-#-#-#\n"
 "Project-Id-Version: i18next-conv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:11.183Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:11.183Z\n"
-"#-#-#-#-#  js-strings33.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:11.293Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:11.293Z\n"
-"#-#-#-#-#  js-strings4.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:11.398Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:11.398Z\n"
-"#-#-#-#-#  js-strings5.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:11.508Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:11.508Z\n"
-"#-#-#-#-#  js-strings6.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:11.619Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:11.619Z\n"
-"#-#-#-#-#  js-strings7.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:11.727Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:11.727Z\n"
-"#-#-#-#-#  js-strings8.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:11.840Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:11.840Z\n"
-"#-#-#-#-#  js-strings9.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:11.954Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:11.954Z\n"
-"#-#-#-#-#  js-strings10.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:12.066Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:12.066Z\n"
-"#-#-#-#-#  js-strings11.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:12.179Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:12.179Z\n"
-"#-#-#-#-#  js-strings12.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:12.289Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:12.289Z\n"
-"#-#-#-#-#  js-strings13.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:12.400Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:12.400Z\n"
-"#-#-#-#-#  js-strings14.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:12.513Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:12.513Z\n"
-"#-#-#-#-#  js-strings15.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:12.618Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:12.618Z\n"
-"#-#-#-#-#  js-strings16.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:12.727Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:12.727Z\n"
-"#-#-#-#-#  js-strings17.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:12.828Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:12.828Z\n"
-"#-#-#-#-#  js-strings18.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:12.937Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:12.937Z\n"
-"#-#-#-#-#  js-strings19.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:13.049Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:13.049Z\n"
-"#-#-#-#-#  js-strings20.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:13.157Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:13.157Z\n"
-"#-#-#-#-#  js-strings21.pot (i18next-conv)  #-#-#-#-#\n"
-"Project-Id-Version: i18next-conv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-01-06T14:35:13.274Z\n"
-"PO-Revision-Date: 2026-01-06T14:35:13.274Z\n"
+"POT-Creation-Date: 2026-01-21T17:22:57.382Z\n"
+"PO-Revision-Date: 2026-01-21T17:22:57.382Z\n"
+
+msgid "Backup Downloaded, Copy on server removed"
+msgstr ""
+
+msgid "You must enter a password"
+msgstr ""
+
+msgid "Passwords must match"
+msgstr ""
+
+msgid "Backup Running, Please wait."
+msgstr ""
+
+msgid "Backup in progress, don't close the window !"
+msgstr ""
+
+msgid "Background backup in progress to remote server"
+msgstr ""
+
+msgid "Background backup in progress"
+msgstr ""
+
+msgid "Backup Error."
+msgstr ""
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+
+msgid "Restore Running, Please wait."
+msgstr ""
+
+msgid "Restore backup, don't close the window !"
+msgstr ""
+
+msgid "Restore Complete"
+msgstr ""
+
+msgid "Login to restored Database"
+msgstr ""
+
+msgid "Restore Error."
+msgstr ""
 
 msgid "Are you sure, you want to delete this image ?"
-msgstr ""
-
-msgid "Press CTRL + C to copy all group members' phone numbers"
-msgstr ""
-
-msgid "You have no more items in your cart."
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "Address"
-msgstr ""
-
-msgid "Email"
-msgstr ""
-
-msgid "Remove"
-msgstr ""
-
-msgid "Classification"
-msgstr ""
-
-msgid "Family Role"
-msgstr ""
-
-msgid "Subject:"
-msgstr ""
-
-msgid "Compose New Message"
-msgstr ""
-
-msgid "Close"
-msgstr ""
-
-msgid "Send"
-msgstr ""
-
-msgid "Error making API Call to"
-msgstr ""
-
-msgid "Error text"
-msgstr ""
-
-msgid "Stack Trace"
-msgstr ""
-
-msgid "ERROR"
-msgstr ""
-
-msgid "In progress"
-msgstr ""
-
-msgid "Mailchimp"
-msgstr ""
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-
-msgid "There was a problem retrieving the requested object"
-msgstr ""
-
-msgid "None"
-msgstr ""
-
-msgid "Select the method to add to a group"
-msgstr ""
-
-msgid "Select an existing Group"
-msgstr ""
-
-msgid "or Create a new Group from the Cart"
-msgstr ""
-
-msgid "Select the group to which you would like to add your cart"
-msgstr ""
-
-msgid "Select Group"
-msgstr ""
-
-msgid "Select Role"
-msgstr ""
-
-msgid "Group Name"
-msgstr ""
-
-msgid "Default Name Group"
-msgstr ""
-
-msgid "Add Cart to Group"
-msgstr ""
-
-msgid "Save"
-msgstr ""
-
-msgid "Error"
-msgstr ""
-
-msgid "You have to select one group and a group role if you want"
-msgstr ""
-
-msgid "You have to set a Group Name"
-msgstr ""
-
-msgid "Do you really want to deactivate the persons?"
-msgstr ""
-
-msgid "This action can be undone !!!!"
-msgstr ""
-
-msgid "No"
-msgstr ""
-
-msgid "Yes : if you're sure"
-msgstr ""
-
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr ""
-
-msgid "This action cannot be undone !!!!"
-msgstr ""
-
-msgid "Select the event to which you would like to add your cart"
-msgstr ""
-
-msgid "Create First A New Event"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
-msgid "Add to Event"
-msgstr ""
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-
-msgid "Register"
-msgstr ""
-
-msgid "Register your software to CRM team."
-msgstr ""
-
-msgid "Simply click this"
-msgstr ""
-
-msgid "to register your software"
-msgstr ""
-
-msgid "New Release"
-msgstr ""
-
-msgid "Installed version"
-msgstr ""
-
-msgid "New One"
-msgstr ""
-
-msgid "To upgrade simply click this Notification"
-msgstr ""
-
-msgid "View Cart"
-msgstr ""
-
-msgid "Empty Cart"
-msgstr ""
-
-msgid "Empty Cart to Group"
-msgstr ""
-
-msgid "Empty Cart to Family"
-msgstr ""
-
-msgid "Empty Cart to Event"
-msgstr ""
-
-msgid "Map Cart"
-msgstr ""
-
-msgid "Deactivate Persons From Cart"
-msgstr ""
-
-msgid "Delete Persons From the CRM"
-msgstr ""
-
-msgid "View all"
-msgstr ""
-
-msgid "Your Cart is Empty"
-msgstr ""
-
-msgid "If you need to make changes to registration data, go to "
-msgstr ""
-
-msgid "Admin->Edit General Settings"
-msgstr ""
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-
-msgid "Church Name"
-msgstr ""
-
-msgid "Version"
-msgstr ""
-
-msgid "City"
-msgstr ""
-
-msgid "State"
-msgstr ""
-
-msgid "Zip"
-msgstr ""
-
-msgid "Country"
-msgstr ""
-
-msgid "Church Email"
-msgstr ""
-
-msgid "Base URL"
-msgstr ""
-
-msgid "Message"
-msgstr ""
-
-msgid "Software Registration"
-msgstr ""
-
-msgid "Your software is now registered. Thank you !"
-msgstr ""
-
-msgid "OK"
-msgstr ""
-
-msgid "Select Volunteer Opportunity"
-msgstr ""
-
-msgid "Please select target volunteers for members"
-msgstr ""
-
-msgid "Please select target group for members"
-msgstr ""
-
-msgid "Please select target Role for members"
-msgstr ""
-
-msgid "GroupID required for role selection prompt"
-msgstr ""
-
-msgid "Select Group and Role"
-msgstr ""
-
-msgid "Add A Group Name"
-msgstr ""
-
-msgid "Yes"
-msgstr ""
-
-msgid "Calendar Event"
-msgstr ""
-
-msgid "Attendees Checked In"
-msgstr ""
-
-msgid "More info"
-msgstr ""
-
-msgid ""
-"Warning! Do not select this option if you plan to add to an existing "
-"database.<br/>"
-msgstr ""
-
-msgid ""
-"Use only if unsatisfied with initial import. All person and member data will "
-"be destroyed!"
-msgstr ""
-
-msgid "I Understand"
-msgstr ""
-
-msgid "Clear Persons and Families"
-msgstr ""
-
-msgid "Data Cleared Successfully!"
-msgstr ""
-
-msgid "success"
-msgstr ""
-
-msgid "Duplicate values"
-msgstr ""
-
-msgid "You've selected two times the same name"
-msgstr ""
-
-msgid "for this field. Chose another one."
-msgstr ""
-
-msgid "Remove Plugin"
-msgstr ""
-
-msgid "You're about to remove the plugin from yout dashboard !!!"
-msgstr ""
-
-msgid "Confirm"
-msgstr ""
-
-msgid "Dashboard Item"
-msgstr ""
-
-msgid "Removed from your dashboard !"
-msgstr ""
-
-msgid "Please confirm deletion of this document"
-msgstr ""
-
-msgid "Document Delete Confirmation"
-msgstr ""
-
-msgid "Document Title"
-msgstr ""
-
-msgid "Set your Document title"
-msgstr ""
-
-msgid "Choose your Document Type"
-msgstr ""
-
-msgid "document"
-msgstr ""
-
-msgid "video"
-msgstr ""
-
-msgid "audio"
-msgstr ""
-
-msgid "Private"
-msgstr ""
-
-msgid "Document Editor"
-msgstr ""
-
-msgid "You have to set a Title for your document"
-msgstr ""
-
-msgid "Icon"
-msgstr ""
-
-msgid "Actions"
-msgstr ""
-
-msgid "Modification Date"
-msgstr ""
-
-msgid "Type"
-msgstr ""
-
-msgid "Size"
-msgstr ""
-
-msgid "Delete"
-msgstr ""
-
-msgid "You are about to delete several items together"
-msgstr ""
-
-msgid "You're about to remove an item"
-msgstr ""
-
-msgid "This can't be undone !!!!"
-msgstr ""
-
-msgid "You've to select at least one line !!!"
-msgstr ""
-
-msgid "Create a Folder"
-msgstr ""
-
-msgid "Set your Folder name"
-msgstr ""
-
-msgid "Actualize files"
-msgstr ""
-
-msgid "preview currently being created"
-msgstr ""
-
-msgid "Set a File/Folder name"
-msgstr ""
-
-msgid "Download Error"
-msgstr ""
-
-msgid "User"
-msgstr ""
-
-msgid "[👀 ✐]"
-msgstr ""
-
-msgid "[👀  ]"
-msgstr ""
-
-msgid "Are you sure you want to stop sharing for selected users?"
-msgstr ""
-
-msgid "Are you sure, you want to stop all sharing ?"
-msgstr ""
-
-msgid "Tracking"
-msgstr ""
-
-msgid "Attention"
-msgstr ""
-
-msgid "The current images folder is now the public folder !!!"
-msgstr ""
-
-msgid "Add People"
-msgstr ""
-
-msgid "This page is still in the cart."
 msgstr ""
 
 msgid "Wrong address format."
@@ -620,7 +77,16 @@ msgstr ""
 msgid "Set Calendar Name"
 msgstr ""
 
+msgid "Cancel"
+msgstr ""
+
+msgid "Confirm"
+msgstr ""
+
 msgid "Set Resource Name"
+msgstr ""
+
+msgid "Name"
 msgstr ""
 
 msgid "Select a resource type"
@@ -636,6 +102,9 @@ msgid "Video"
 msgstr ""
 
 msgid "Description"
+msgstr ""
+
+msgid "OK"
 msgstr ""
 
 msgid "Calendars"
@@ -657,6 +126,12 @@ msgid "Include/Exclude your Calendars in the SideBar"
 msgstr ""
 
 msgid "Ok"
+msgstr ""
+
+msgid "[👀  ]"
+msgstr ""
+
+msgid "[👀 ✐]"
 msgstr ""
 
 msgid "With"
@@ -684,6 +159,9 @@ msgid "Add persons/Family/groups"
 msgstr ""
 
 msgid "Share your Calendar"
+msgstr ""
+
+msgid "Delete"
 msgstr ""
 
 msgid "Are you sure, you want to delete this Share ?"
@@ -727,6 +205,9 @@ msgstr ""
 msgid "Resource Info for"
 msgstr ""
 
+msgid "Error"
+msgstr ""
+
 msgid "Only administrators have the right to change the Resource description"
 msgstr ""
 
@@ -768,6 +249,9 @@ msgstr ""
 msgid ""
 "You are about to delete all the repeated Events linked to this event. Are "
 "you sure? This can't be undone."
+msgstr ""
+
+msgid "No"
 msgstr ""
 
 msgid "Only this event"
@@ -836,6 +320,9 @@ msgid "to"
 msgstr ""
 
 msgid "Attendance Notes: "
+msgstr ""
+
+msgid "None"
 msgstr ""
 
 msgid "Title"
@@ -958,6 +445,12 @@ msgstr ""
 msgid "Event Creation"
 msgstr ""
 
+msgid "Close"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
 msgid "You've to chose a calendar."
 msgstr ""
 
@@ -977,6 +470,9 @@ msgid "Loading finished...."
 msgstr ""
 
 msgid "Month"
+msgstr ""
+
+msgid "Actions"
 msgstr ""
 
 msgid "Attendance Counts with real Attendees"
@@ -1016,6 +512,27 @@ msgid "Edit/Validate Checkout"
 msgstr ""
 
 msgid "Check-out done"
+msgstr ""
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr ""
+
+msgid "You have no more items in your cart."
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Classification"
+msgstr ""
+
+msgid "Family Role"
 msgstr ""
 
 msgid "CKEditor Template Creation"
@@ -1110,6 +627,590 @@ msgstr ""
 msgid "Merge Tags"
 msgstr ""
 
+msgid "Subject:"
+msgstr ""
+
+msgid "Compose New Message"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Error making API Call to"
+msgstr ""
+
+msgid "Error text"
+msgstr ""
+
+msgid "Stack Trace"
+msgstr ""
+
+msgid "ERROR"
+msgstr ""
+
+msgid "In progress"
+msgstr ""
+
+msgid "Mailchimp"
+msgstr ""
+
+msgid ""
+"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
+"click this notification !</b>"
+msgstr ""
+
+msgid "There was a problem retrieving the requested object"
+msgstr ""
+
+msgid "Select the method to add to a group"
+msgstr ""
+
+msgid "Select an existing Group"
+msgstr ""
+
+msgid "or Create a new Group from the Cart"
+msgstr ""
+
+msgid "Select the group to which you would like to add your cart"
+msgstr ""
+
+msgid "Select Group"
+msgstr ""
+
+msgid "Select Role"
+msgstr ""
+
+msgid "Group Name"
+msgstr ""
+
+msgid "Default Name Group"
+msgstr ""
+
+msgid "Add Cart to Group"
+msgstr ""
+
+msgid "You have to select one group and a group role if you want"
+msgstr ""
+
+msgid "You have to set a Group Name"
+msgstr ""
+
+msgid "Do you really want to deactivate the persons?"
+msgstr ""
+
+msgid "This action can be undone !!!!"
+msgstr ""
+
+msgid "Yes : if you're sure"
+msgstr ""
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr ""
+
+msgid "This action cannot be undone !!!!"
+msgstr ""
+
+msgid "Select the event to which you would like to add your cart"
+msgstr ""
+
+msgid "Create First A New Event"
+msgstr ""
+
+msgid "Add to Event"
+msgstr ""
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+
+msgid "Register"
+msgstr ""
+
+msgid "Register your software to CRM team."
+msgstr ""
+
+msgid "Simply click this"
+msgstr ""
+
+msgid "to register your software"
+msgstr ""
+
+msgid "New Release"
+msgstr ""
+
+msgid "Installed version"
+msgstr ""
+
+msgid "New One"
+msgstr ""
+
+msgid "To upgrade simply click this Notification"
+msgstr ""
+
+msgid "View Cart"
+msgstr ""
+
+msgid "Empty Cart"
+msgstr ""
+
+msgid "Empty Cart to Group"
+msgstr ""
+
+msgid "Empty Cart to Family"
+msgstr ""
+
+msgid "Empty Cart to Event"
+msgstr ""
+
+msgid "Map Cart"
+msgstr ""
+
+msgid "Deactivate Persons From Cart"
+msgstr ""
+
+msgid "Delete Persons From the CRM"
+msgstr ""
+
+msgid "View all"
+msgstr ""
+
+msgid "Your Cart is Empty"
+msgstr ""
+
+msgid "If you need to make changes to registration data, go to "
+msgstr ""
+
+msgid "Admin->Edit General Settings"
+msgstr ""
+
+msgid ""
+"Please register your copy of CRM by checking over this information and "
+"pressing the Send button."
+msgstr ""
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+
+msgid "Church Name"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "City"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "Zip"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Church Email"
+msgstr ""
+
+msgid "Base URL"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Software Registration"
+msgstr ""
+
+msgid "Your software is now registered. Thank you !"
+msgstr ""
+
+msgid "Select Volunteer Opportunity"
+msgstr ""
+
+msgid "Please select target volunteers for members"
+msgstr ""
+
+msgid "Please select target group for members"
+msgstr ""
+
+msgid "Please select target Role for members"
+msgstr ""
+
+msgid "GroupID required for role selection prompt"
+msgstr ""
+
+msgid "Select Group and Role"
+msgstr ""
+
+msgid "Add A Group Name"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Calendar Event"
+msgstr ""
+
+msgid "Attendees Checked In"
+msgstr ""
+
+msgid "More info"
+msgstr ""
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will "
+"be destroyed!"
+msgstr ""
+
+msgid "I Understand"
+msgstr ""
+
+msgid "Clear Persons and Families"
+msgstr ""
+
+msgid "Data Cleared Successfully!"
+msgstr ""
+
+msgid "success"
+msgstr ""
+
+msgid "Duplicate values"
+msgstr ""
+
+msgid "You've selected two times the same name"
+msgstr ""
+
+msgid "for this field. Chose another one."
+msgstr ""
+
+msgid "Remove Plugin"
+msgstr ""
+
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr ""
+
+msgid "Dashboard Item"
+msgstr ""
+
+msgid "Removed from your dashboard !"
+msgstr ""
+
+msgid "Please confirm deletion of this document"
+msgstr ""
+
+msgid "Document Delete Confirmation"
+msgstr ""
+
+msgid "Document Title"
+msgstr ""
+
+msgid "Set your Document title"
+msgstr ""
+
+msgid "Choose your Document Type"
+msgstr ""
+
+msgid "document"
+msgstr ""
+
+msgid "video"
+msgstr ""
+
+msgid "audio"
+msgstr ""
+
+msgid "Private"
+msgstr ""
+
+msgid "Document Editor"
+msgstr ""
+
+msgid "You have to set a Title for your document"
+msgstr ""
+
+msgid "Saving Campaign ..."
+msgstr ""
+
+msgid "Campaign"
+msgstr ""
+
+msgid "saved successfully"
+msgstr ""
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr ""
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr ""
+
+msgid "Loading datas ..."
+msgstr ""
+
+msgid "No list are created with this account ...."
+msgstr ""
+
+msgid "Email List"
+msgstr ""
+
+msgid "GDPR"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Members:"
+msgstr ""
+
+msgid "Campaigns:"
+msgstr ""
+
+msgid "Unsubscribed count:"
+msgstr ""
+
+msgid "Unsubscribed count since last send:"
+msgstr ""
+
+msgid "Cleaned count:"
+msgstr ""
+
+msgid "Cleaned count since last send:"
+msgstr ""
+
+msgid "Campaigns"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "is not configured"
+msgstr ""
+
+msgid "Please update the"
+msgstr ""
+
+msgid "API key in Setting->"
+msgstr ""
+
+msgid "Edit General Settings"
+msgstr ""
+
+msgid "then update"
+msgstr ""
+
+msgid "For more info see our "
+msgstr ""
+
+msgid "support docs."
+msgstr ""
+
+msgid "List Title"
+msgstr ""
+
+msgid "Your List Title"
+msgstr ""
+
+msgid "Your Subject"
+msgstr ""
+
+msgid "Permission Reminder"
+msgstr ""
+
+msgid "Archive Bars"
+msgstr ""
+
+msgid "Public"
+msgstr ""
+
+msgid "List Creation"
+msgstr ""
+
+msgid "People"
+msgstr ""
+
+msgid "Families"
+msgstr ""
+
+msgid "Add a new tag"
+msgstr ""
+
+msgid "Delete tag from subscriber(s)"
+msgstr ""
+
+msgid "Delete tag"
+msgstr ""
+
+msgid "Loading resources ..."
+msgstr ""
+
+msgid "Check all boxes"
+msgstr ""
+
+msgid "Subscribed"
+msgstr ""
+
+msgid "Unsubscribed"
+msgstr ""
+
+msgid "Email Marketing"
+msgstr ""
+
+msgid "Add your tag name"
+msgstr ""
+
+msgid "Adding tag..."
+msgstr ""
+
+msgid "Name is empty !!"
+msgstr ""
+
+msgid "Add tag?"
+msgstr ""
+
+msgid "This will add the tag"
+msgstr ""
+
+msgid "to all the current selected members in the list."
+msgstr ""
+
+msgid "Select One"
+msgstr ""
+
+msgid "All Tags"
+msgstr ""
+
+msgid "Choose the tag you want to delete :"
+msgstr ""
+
+msgid "Removing tags..."
+msgstr ""
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr ""
+
+msgid "You're about to delete a tag!"
+msgstr ""
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+
+msgid "Deleting tag"
+msgstr ""
+
+msgid "A person name or Family or Group"
+msgstr ""
+
+msgid "Loading subscriber"
+msgstr ""
+
+msgid "Loading subscribers from Group"
+msgstr ""
+
+msgid "Loading subscribers from family"
+msgstr ""
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+
+msgid "Select status for : "
+msgstr ""
+
+msgid "Changing status ..."
+msgstr ""
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr ""
+
+msgid "Deleting Subscriber..."
+msgstr ""
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr ""
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr ""
+
+msgid "Deleting all subscribers..."
+msgstr ""
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+
+msgid "Campaign Title"
+msgstr ""
+
+msgid "Your Campaign Title"
+msgstr ""
+
+msgid "For Tag"
+msgstr ""
+
+msgid "Mail Subject"
+msgstr ""
+
+msgid "Your Mail Subject"
+msgstr ""
+
+msgid "All list members"
+msgstr ""
+
+msgid "Email Campaign Creation"
+msgstr ""
+
+msgid "Adding Campaign ..."
+msgstr ""
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr ""
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr ""
+
+msgid "List Name"
+msgstr ""
+
+msgid "Changing subscribers state..."
+msgstr ""
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr ""
+
+msgid "Deleting Subscribers..."
+msgstr ""
+
+msgid "Family"
+msgstr ""
+
+msgid "Person"
+msgstr ""
+
 msgid "Free Event Attendees"
 msgstr ""
 
@@ -1182,10 +1283,16 @@ msgstr ""
 msgid "Group"
 msgstr ""
 
+msgid "User"
+msgstr ""
+
 msgid "No event now."
 msgstr ""
 
 msgid "Success"
+msgstr ""
+
+msgid "Attention"
 msgstr ""
 
 msgid "Are you sure you want to DELETE all persons from Event ID:"
@@ -1198,6 +1305,54 @@ msgid "Delete Event Type"
 msgstr ""
 
 msgid "This action can never be undone !!!!"
+msgstr ""
+
+msgid "Icon"
+msgstr ""
+
+msgid "Modification Date"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "You are about to delete several items together"
+msgstr ""
+
+msgid "You're about to remove an item"
+msgstr ""
+
+msgid "This can't be undone !!!!"
+msgstr ""
+
+msgid "You've to select at least one line !!!"
+msgstr ""
+
+msgid "Create a Folder"
+msgstr ""
+
+msgid "Set your Folder name"
+msgstr ""
+
+msgid "Actualize files"
+msgstr ""
+
+msgid "preview currently being created"
+msgstr ""
+
+msgid "Set a File/Folder name"
+msgstr ""
+
+msgid "Download Error"
+msgstr ""
+
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr ""
+
+msgid "Are you sure, you want to stop all sharing ?"
 msgstr ""
 
 msgid "Confirm Delete"
@@ -1257,12 +1412,6 @@ msgstr ""
 msgid "TOTAL"
 msgstr ""
 
-msgid "Family"
-msgstr ""
-
-msgid "Person"
-msgstr ""
-
 msgid "Anonymous"
 msgstr ""
 
@@ -1276,9 +1425,6 @@ msgid "Method"
 msgstr ""
 
 msgid "Check Number"
-msgstr ""
-
-msgid "Details"
 msgstr ""
 
 msgid "Deposit ID"
@@ -1306,6 +1452,54 @@ msgid "Generate Deposit Slip for Selected"
 msgstr ""
 
 msgid "Rows"
+msgstr ""
+
+msgid "Number"
+msgstr ""
+
+msgid "Item"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Multiple"
+msgstr ""
+
+msgid "Donor"
+msgstr ""
+
+msgid "Buyer"
+msgstr ""
+
+msgid "Sale Price"
+msgstr ""
+
+msgid "Estimated value"
+msgstr ""
+
+msgid "Material Value"
+msgstr ""
+
+msgid "Minimum Price"
+msgstr ""
+
+msgid "Add buyer"
+msgstr ""
+
+msgid "Buyer Number"
+msgstr ""
+
+msgid "Save and Add"
+msgstr ""
+
+msgid "Generate Statement"
+msgstr ""
+
+msgid "Buyer Number Editor"
+msgstr ""
+
+msgid "Select"
 msgstr ""
 
 msgid "Your operation completed successfully."
@@ -1497,6 +1691,42 @@ msgid "Are you sure, you want to delete all the managers ?"
 msgstr ""
 
 msgid "Appointment"
+msgstr ""
+
+msgid "Tracking"
+msgstr ""
+
+msgid "Visits/calls"
+msgstr ""
+
+msgid "Last visit/call"
+msgstr ""
+
+msgid "Delete Pastoral Care Type"
+msgstr ""
+
+msgid "For every administrator"
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Include all the family members"
+msgstr ""
+
+msgid "Include"
+msgstr ""
+
+msgid "Pastoral Care Note Creation"
+msgstr ""
+
+msgid "Last Name (Family Name)"
+msgstr ""
+
+msgid "Family Name"
 msgstr ""
 
 msgid "Are you sure you want to remove this family from the CRM"
@@ -1720,6 +1950,78 @@ msgid "Confirm Delete volunteer Opportunity"
 msgstr ""
 
 msgid "Comments"
+msgstr ""
+
+msgid "Confirmation of plugin removal"
+msgstr ""
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+
+msgid "Select your zipped plugin file"
+msgstr ""
+
+msgid "Download the zipped file of the plugin"
+msgstr ""
+
+msgid "Plugin download manager"
+msgstr ""
+
+msgid "The current images folder is now the public folder !!!"
+msgstr ""
+
+msgid "All Groups"
+msgstr ""
+
+msgid "All Roles"
+msgstr ""
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
+
+msgid "id"
+msgstr ""
+
+msgid "Photos"
+msgstr ""
+
+msgid "Search result"
+msgstr ""
+
+msgid "Property Name"
+msgstr ""
+
+msgid "Cart Operations"
+msgstr ""
+
+msgid "Add This Page"
+msgstr ""
+
+msgid "Loading people in cart...."
+msgstr ""
+
+msgid "Add All results"
+msgstr ""
+
+msgid "Remove this page"
+msgstr ""
+
+msgid "Removing people in cart...."
+msgstr ""
+
+msgid "Remove All results"
+msgstr ""
+
+msgid "Intersect result with cart"
+msgstr ""
+
+msgid "Add People"
+msgstr ""
+
+msgid "This page is still in the cart."
 msgstr ""
 
 msgid ""
@@ -2045,6 +2347,9 @@ msgid ""
 "credentials."
 msgstr ""
 
+msgid "Backup Complete, Ready for Download."
+msgstr ""
+
 msgid "The user must have an email address."
 msgstr ""
 
@@ -2133,456 +2438,31 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr ""
 
-msgid "Saving Campaign ..."
+msgid "Add New Volunteer Opportunity"
 msgstr ""
 
-msgid "Campaign"
+msgid "Activ"
 msgstr ""
 
-msgid "saved successfully"
+msgid "Parent (hierarchy)"
 msgstr ""
 
-msgid "You're about to send your campaign! Are you sure ?"
+msgid "Color"
 msgstr ""
 
-msgid "You're about to delete your campaign! Are you sure ?"
+msgid "Add to volunteer opportunities"
 msgstr ""
 
-msgid "Loading datas ..."
+msgid "Move to volunteer opportunities"
 msgstr ""
 
-msgid "No list are created with this account ...."
+msgid "Confirm Delete This Opportunity"
 msgstr ""
 
-msgid "Email List"
-msgstr ""
-
-msgid "GDPR"
-msgstr ""
-
-msgid "Subject"
-msgstr ""
-
-msgid "Members:"
-msgstr ""
-
-msgid "Campaigns:"
-msgstr ""
-
-msgid "Unsubscribed count:"
-msgstr ""
-
-msgid "Unsubscribed count since last send:"
-msgstr ""
-
-msgid "Cleaned count:"
-msgstr ""
-
-msgid "Cleaned count since last send:"
-msgstr ""
-
-msgid "Campaigns"
-msgstr ""
-
-msgid "Tags"
-msgstr ""
-
-msgid "is not configured"
-msgstr ""
-
-msgid "Please update the"
-msgstr ""
-
-msgid "API key in Setting->"
-msgstr ""
-
-msgid "Edit General Settings"
-msgstr ""
-
-msgid "then update"
-msgstr ""
-
-msgid "For more info see our "
-msgstr ""
-
-msgid "support docs."
-msgstr ""
-
-msgid "List Title"
-msgstr ""
-
-msgid "Your List Title"
-msgstr ""
-
-msgid "Your Subject"
-msgstr ""
-
-msgid "Permission Reminder"
-msgstr ""
-
-msgid "Archive Bars"
-msgstr ""
-
-msgid "Public"
-msgstr ""
-
-msgid "List Creation"
-msgstr ""
-
-msgid "People"
-msgstr ""
-
-msgid "Families"
-msgstr ""
-
-msgid "Add a new tag"
-msgstr ""
-
-msgid "Delete tag from subscriber(s)"
-msgstr ""
-
-msgid "Delete tag"
-msgstr ""
-
-msgid "Loading resources ..."
-msgstr ""
-
-msgid "Check all boxes"
-msgstr ""
-
-msgid "Subscribed"
-msgstr ""
-
-msgid "Unsubscribed"
-msgstr ""
-
-msgid "Email Marketing"
-msgstr ""
-
-msgid "Add your tag name"
-msgstr ""
-
-msgid "Adding tag..."
-msgstr ""
-
-msgid "Name is empty !!"
-msgstr ""
-
-msgid "Add tag?"
-msgstr ""
-
-msgid "This will add the tag"
-msgstr ""
-
-msgid "to all the current selected members in the list."
-msgstr ""
-
-msgid "Select One"
-msgstr ""
-
-msgid "All Tags"
-msgstr ""
-
-msgid "Choose the tag you want to delete :"
-msgstr ""
-
-msgid "Removing tags..."
-msgstr ""
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr ""
-
-msgid "You're about to delete a tag!"
+msgid "Please confirm deletion of this record"
 msgstr ""
 
 msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-
-msgid "Deleting tag"
-msgstr ""
-
-msgid "A person name or Family or Group"
-msgstr ""
-
-msgid "Loading subscriber"
-msgstr ""
-
-msgid "Loading subscribers from Group"
-msgstr ""
-
-msgid "Loading subscribers from family"
-msgstr ""
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr ""
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-
-msgid "Select status for : "
-msgstr ""
-
-msgid "Changing status ..."
-msgstr ""
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr ""
-
-msgid "Deleting Subscriber..."
-msgstr ""
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr ""
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr ""
-
-msgid "Deleting all subscribers..."
-msgstr ""
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-
-msgid "Campaign Title"
-msgstr ""
-
-msgid "Your Campaign Title"
-msgstr ""
-
-msgid "For Tag"
-msgstr ""
-
-msgid "Mail Subject"
-msgstr ""
-
-msgid "Your Mail Subject"
-msgstr ""
-
-msgid "All list members"
-msgstr ""
-
-msgid "Email Campaign Creation"
-msgstr ""
-
-msgid "Adding Campaign ..."
-msgstr ""
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr ""
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr ""
-
-msgid "List Name"
-msgstr ""
-
-msgid "Changing subscribers state..."
-msgstr ""
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr ""
-
-msgid "Deleting Subscribers..."
-msgstr ""
-
-msgid "Confirmation of plugin removal"
-msgstr ""
-
-msgid ""
-"You are about to delete the selected plugins. This action cannot be undone!"
-msgstr ""
-
-msgid "Select your zipped plugin file"
-msgstr ""
-
-msgid "Download the zipped file of the plugin"
-msgstr ""
-
-msgid "Plugin download manager"
-msgstr ""
-
-msgid "Backup Downloaded, Copy on server removed"
-msgstr ""
-
-msgid "You must enter a password"
-msgstr ""
-
-msgid "Passwords must match"
-msgstr ""
-
-msgid "Backup Running, Please wait."
-msgstr ""
-
-msgid "Backup in progress, don't close the window !"
-msgstr ""
-
-msgid "Background backup in progress to remote server"
-msgstr ""
-
-msgid "Background backup in progress"
-msgstr ""
-
-msgid "Backup Error."
-msgstr ""
-
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr ""
-
-msgid "Restore Running, Please wait."
-msgstr ""
-
-msgid "Restore backup, don't close the window !"
-msgstr ""
-
-msgid "Restore Complete"
-msgstr ""
-
-msgid "Login to restored Database"
-msgstr ""
-
-msgid "Restore Error."
-msgstr ""
-
-msgid "All Groups"
-msgstr ""
-
-msgid "All Roles"
-msgstr ""
-
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr ""
-
-msgid "id"
-msgstr ""
-
-msgid "Photos"
-msgstr ""
-
-msgid "Search result"
-msgstr ""
-
-msgid "Property Name"
-msgstr ""
-
-msgid "Cart Operations"
-msgstr ""
-
-msgid "Add This Page"
-msgstr ""
-
-msgid "Loading people in cart...."
-msgstr ""
-
-msgid "Add All results"
-msgstr ""
-
-msgid "Remove this page"
-msgstr ""
-
-msgid "Removing people in cart...."
-msgstr ""
-
-msgid "Remove All results"
-msgstr ""
-
-msgid "Intersect result with cart"
-msgstr ""
-
-msgid "Visits/calls"
-msgstr ""
-
-msgid "Last visit/call"
-msgstr ""
-
-msgid "Delete Pastoral Care Type"
-msgstr ""
-
-msgid "For every administrator"
-msgstr ""
-
-msgid "Show"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-msgid "Include all the family members"
-msgstr ""
-
-msgid "Include"
-msgstr ""
-
-msgid "Pastoral Care Note Creation"
-msgstr ""
-
-msgid "Last Name (Family Name)"
-msgstr ""
-
-msgid "Family Name"
-msgstr ""
-
-msgid "Number"
-msgstr ""
-
-msgid "Item"
-msgstr ""
-
-msgid "Preview"
-msgstr ""
-
-msgid "Multiple"
-msgstr ""
-
-msgid "Donor"
-msgstr ""
-
-msgid "Buyer"
-msgstr ""
-
-msgid "Sale Price"
-msgstr ""
-
-msgid "Estimated value"
-msgstr ""
-
-msgid "Material Value"
-msgstr ""
-
-msgid "Minimum Price"
-msgstr ""
-
-msgid "Add buyer"
-msgstr ""
-
-msgid "Buyer Number"
-msgstr ""
-
-msgid "Save and Add"
-msgstr ""
-
-msgid "Generate Statement"
-msgstr ""
-
-msgid "Buyer Number Editor"
-msgstr ""
-
-msgid "Select"
+"All membership will be destroyed.  The members themselves will not be "
+"altered."
 msgstr ""

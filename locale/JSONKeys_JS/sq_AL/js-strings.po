@@ -1,474 +1,58 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
+"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Përforcohu, u shkarkova, e kuptova serverin"
+
+msgid "You must enter a password"
+msgstr "duhet të fusësh ndonjë fjalëkalim"
+
+msgid "Passwords must match"
+msgstr "Fjalëkalimi duhet të përputhen"
+
+msgid "Backup Running, Please wait."
+msgstr "arratisje, të lutem, prit."
+
+msgid "Backup in progress, don't close the window !"
+msgstr ""
+
+#, fuzzy
+msgid "Background backup in progress to remote server"
+msgstr "përforcime u gjenerua dhe u kopjuan në server"
+
+msgid "Background backup in progress"
+msgstr ""
+
+msgid "Backup Error."
+msgstr ""
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "dosja e zgjedhur e tejkalon këtë server masën e ngarkimit me maksimum"
+
+msgid "Restore Running, Please wait."
+msgstr "Ristatorja. Të lutem prit."
+
+msgid "Restore backup, don't close the window !"
+msgstr ""
+
+msgid "Restore Complete"
+msgstr "Rivendosja e kompletuar"
+
+msgid "Login to restored Database"
+msgstr "Po kërkojmë për ta rivendosur Databazën"
+
+msgid "Restore Error."
+msgstr "Rivendose gabim."
+
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Je i sigurt që dëshiron ta fshish këtë imazh?"
-
-msgid "Press CTRL + C to copy all group members' phone numbers"
-msgstr "Shtyp CTRL + C për të kopjuar të gjitha numrat e telefonit të grupit"
-
-msgid "You have no more items in your cart."
-msgstr "Nuk ke më sende në karrocë."
-
-msgid "Name"
-msgstr "Emri"
-
-msgid "Address"
-msgstr "adresa."
-
-msgid "Email"
-msgstr "email."
-
-msgid "Remove"
-msgstr "Largohu"
-
-msgid "Classification"
-msgstr "Klasifikimi"
-
-msgid "Family Role"
-msgstr "Familja Rol"
-
-#, fuzzy
-msgid "Subject:"
-msgstr "subjekti"
-
-msgid "Compose New Message"
-msgstr ""
-
-msgid "Close"
-msgstr "Afër."
-
-msgid "Send"
-msgstr "Dërgo."
-
-msgid "Error making API Call to"
-msgstr "Gabim po bën API-në telefonatë"
-
-msgid "Error text"
-msgstr "Gabim"
-
-msgid "Stack Trace"
-msgstr "Stek Trace"
-
-msgid "ERROR"
-msgstr "ERROR"
-
-#, fuzzy
-msgid "In progress"
-msgstr "në progres..."
-
-msgid "Mailchimp"
-msgstr "Mailkim."
-
-#, fuzzy
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"të gjitha listat janë të mbushura meEcclesia<b>crm</b>.<br><b>nëse doni t'i "
-"menaxhoni, shtypni këtë njoftim!</b>"
-
-msgid "There was a problem retrieving the requested object"
-msgstr "kishte një problem të ririfitonte objektin e kërkuar"
-
-msgid "None"
-msgstr "asnjë."
-
-msgid "Select the method to add to a group"
-msgstr "Zgjidh metodën për t'i shtuar një grupi"
-
-msgid "Select an existing Group"
-msgstr "Zgjedh një grup ekzistues"
-
-msgid "or Create a new Group from the Cart"
-msgstr "ose të krijosh një grup të ri nga karroca"
-
-msgid "Select the group to which you would like to add your cart"
-msgstr "Zgjidh një pjesë nga ajo që dëshiron të mbledhësh karrocën tënde!"
-
-msgid "Select Group"
-msgstr "Zgjidh Grupin"
-
-msgid "Select Role"
-msgstr "Zgjidh Rolin"
-
-msgid "Group Name"
-msgstr "Emri grupor"
-
-msgid "Default Name Group"
-msgstr "Grupi \"Falës\""
-
-msgid "Add Cart to Group"
-msgstr "shto karrocën në grup"
-
-msgid "Save"
-msgstr "Shpëto."
-
-msgid "Error"
-msgstr "Gabim"
-
-msgid "You have to select one group and a group role if you want"
-msgstr "Duhet të zgjedhësh një grup dhe rolin e grupit nëse do"
-
-msgid "You have to set a Group Name"
-msgstr "Duhet të vendosësh një emër grupi"
-
-msgid "Do you really want to deactivate the persons?"
-msgstr "A do vërtet të ç'aktivizosh personat?"
-
-msgid "This action can be undone !!!!"
-msgstr "Ky veprim mund të prishet! !!!!"
-
-msgid "No"
-msgstr "Jo."
-
-msgid "Yes : if you're sure"
-msgstr "Po : nëse je i sigurt"
-
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "me të vërtetë dëshiron të fshish personat nga crm?"
-
-msgid "This action cannot be undone !!!!"
-msgstr "Ky aksion nuk mund të prishet! !!!!"
-
-msgid "Select the event to which you would like to add your cart"
-msgstr "Zgjidh makinën"
-
-msgid "Create First A New Event"
-msgstr "do të krijoj event të ri"
-
-msgid "Cancel"
-msgstr "Anuloje."
-
-msgid "Add to Event"
-msgstr "shto edhe event"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Mund të shtosh përmbajtjen e karrocës në ngjarjen e zgjedhur nën<br>- OR -"
-"<br>, do të krijosh një ngjarje të parë dhe do t'i shtosh ato më pas."
-
-msgid "Register"
-msgstr "regjistrues."
-
-#, fuzzy
-msgid "Register your software to CRM team."
-msgstr "regjistro programin për programin Ecclesiacrm."
-
-msgid "Simply click this"
-msgstr "kliko thjeshtë"
-
-msgid "to register your software"
-msgstr "për të regjistruar programin tuaj"
-
-msgid "New Release"
-msgstr "Lirimi i ri"
-
-msgid "Installed version"
-msgstr "version i instaluar"
-
-msgid "New One"
-msgstr "i riu"
-
-msgid "To upgrade simply click this Notification"
-msgstr "për të përmirësuar thjesht klikim këtë notifikim"
-
-msgid "View Cart"
-msgstr "shiko karrocën"
-
-msgid "Empty Cart"
-msgstr "Kart i zbrazur"
-
-msgid "Empty Cart to Group"
-msgstr "Boshatisni karrocën në grupin"
-
-msgid "Empty Cart to Family"
-msgstr "Karroca e zbrazët e familjes"
-
-msgid "Empty Cart to Event"
-msgstr "karroca e zbrazët në event"
-
-msgid "Map Cart"
-msgstr "Karta e hartës"
-
-msgid "Deactivate Persons From Cart"
-msgstr "Deaktivizoni personat nga Cart"
-
-msgid "Delete Persons From the CRM"
-msgstr "fshij personat nga crm"
-
-msgid "View all"
-msgstr "shiko të gjitha"
-
-msgid "Your Cart is Empty"
-msgstr "karroca jote është bosh"
-
-msgid "If you need to make changes to registration data, go to "
-msgstr "Nëse do të bësh ndryshime në regjistrimin e të dhënave, shko"
-
-msgid "Admin->Edit General Settings"
-msgstr "Ademin-- Seksionet e Përgjithshme të Edit"
-
-#, fuzzy
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Ju lutem regjistroni kopjen e EcclesiaCRM duke kontrolluar informacionin dhe "
-"shtypjen e butonit."
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-"Ky informacion përdoret vetëm për të gjurmuar përdorimin e këtij programi."
-
-msgid "Church Name"
-msgstr "emri i kishës"
-
-msgid "Version"
-msgstr "Versioni"
-
-msgid "City"
-msgstr "Qytet"
-
-msgid "State"
-msgstr "Shteti."
-
-msgid "Zip"
-msgstr "Zip"
-
-msgid "Country"
-msgstr "Vend."
-
-msgid "Church Email"
-msgstr "kisha email"
-
-msgid "Base URL"
-msgstr "Baza Url"
-
-msgid "Message"
-msgstr "mesazh."
-
-msgid "Software Registration"
-msgstr "Rregjistrimi i programeve kompjuterike"
-
-msgid "Your software is now registered. Thank you !"
-msgstr "Softueri juaj është regjistruar tani. faleminderit!"
-
-msgid "OK"
-msgstr "në rregull."
-
-#, fuzzy
-msgid "Select Volunteer Opportunity"
-msgstr "shto mundësinë e re të vullnetit"
-
-#, fuzzy
-msgid "Please select target volunteers for members"
-msgstr "Ju lutem zgjidhni objektivin Rolin për anëtarët"
-
-msgid "Please select target group for members"
-msgstr "ju lutemi zgjedhni objektivin për anëtarët"
-
-msgid "Please select target Role for members"
-msgstr "Ju lutem zgjidhni objektivin Rolin për anëtarët"
-
-msgid "GroupID required for role selection prompt"
-msgstr "Gruopild kërkohet për përzgjedhje të shpejtë të rolit"
-
-msgid "Select Group and Role"
-msgstr "Zgjidh Grupin dhe Rolin"
-
-msgid "Add A Group Name"
-msgstr "shto një emër grupi"
-
-msgid "Yes"
-msgstr "po."
-
-msgid "Calendar Event"
-msgstr "kalendari event"
-
-msgid "Attendees Checked In"
-msgstr "të pranishmit u lidhën"
-
-msgid "More info"
-msgstr "Më shumë informacione"
-
-msgid ""
-"Warning! Do not select this option if you plan to add to an existing "
-"database.<br/>"
-msgstr ""
-"kujdes! mos e zgjedhni këtë opsion nëse planifikoni t'i shtoni një bazë të "
-"dhënash ekzistuese.<br>"
-
-msgid ""
-"Use only if unsatisfied with initial import. All person and member data will "
-"be destroyed!"
-msgstr ""
-"Përdorni vetëm nëse nuk kënaqeni me importin fillestar. Të gjithë personat "
-"dhe të dhënat anëtare do të shkatërrohen!"
-
-msgid "I Understand"
-msgstr "Kuptoj"
-
-msgid "Clear Persons and Families"
-msgstr "Personat e pastra dhe familjet"
-
-msgid "Data Cleared Successfully!"
-msgstr "të dhënat dolën me sukses!"
-
-msgid "success"
-msgstr "sukses."
-
-msgid "Duplicate values"
-msgstr "dyfishoni vlerat"
-
-msgid "You've selected two times the same name"
-msgstr "Ke zgjedhur dy herë të njëjtin emër"
-
-msgid "for this field. Chose another one."
-msgstr "për këtë fushë. Zgjidh një tjetër."
-
-#, fuzzy
-msgid "Remove Plugin"
-msgstr "Largoni të gjitha"
-
-#, fuzzy
-msgid "You're about to remove the plugin from yout dashboard !!!"
-msgstr "Do ta fshish fushatën tënde! A je i sigurt?"
-
-msgid "Confirm"
-msgstr "Konfirmo."
-
-#, fuzzy
-msgid "Dashboard Item"
-msgstr "Dorëzimi."
-
-#, fuzzy
-msgid "Removed from your dashboard !"
-msgstr "Largoje nga Karti"
-
-msgid "Please confirm deletion of this document"
-msgstr "Ju lutem konfirmoni fshirjen e këtij dokumenti"
-
-msgid "Document Delete Confirmation"
-msgstr "Dokumenti fshin konfirmimin"
-
-msgid "Document Title"
-msgstr "Titull i dokumenteve"
-
-msgid "Set your Document title"
-msgstr "vendosni titullin tuaj të dokumentit"
-
-msgid "Choose your Document Type"
-msgstr "Zgjidh tipin tënd të dokumenteve"
-
-msgid "document"
-msgstr "dokument"
-
-msgid "video"
-msgstr "video."
-
-msgid "audio"
-msgstr "audio"
-
-msgid "Private"
-msgstr "private"
-
-msgid "Document Editor"
-msgstr "redaktor i dokumenteve"
-
-msgid "You have to set a Title for your document"
-msgstr "Duhet të vendosësh Titullin për dokumentin tënd"
-
-msgid "Icon"
-msgstr "ikonë."
-
-msgid "Actions"
-msgstr "Veprime."
-
-msgid "Modification Date"
-msgstr "Takim për modifikim"
-
-msgid "Type"
-msgstr "Tip"
-
-msgid "Size"
-msgstr "përmasa"
-
-msgid "Delete"
-msgstr "Fshije."
-
-msgid "You are about to delete several items together"
-msgstr "Do të fshini disa sende së bashku"
-
-msgid "You're about to remove an item"
-msgstr "Do të heqësh një send"
-
-msgid "This can't be undone !!!!"
-msgstr "Kjo nuk mund të prishet! !!!!"
-
-msgid "You've to select at least one line !!!"
-msgstr "Duhet të zgjedhësh të paktën një vijë! !"
-
-#, fuzzy
-msgid "Create a Folder"
-msgstr "krijo një."
-
-msgid "Set your Folder name"
-msgstr "vendos emrin tënd folder"
-
-#, fuzzy
-msgid "Actualize files"
-msgstr "Aktualize"
-
-msgid "preview currently being created"
-msgstr ""
-
-msgid "Set a File/Folder name"
-msgstr "vendos emrin e filmit/folder"
-
-msgid "Download Error"
-msgstr ""
-
-msgid "User"
-msgstr "përdorues."
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
-msgid "[👀  ]"
-msgstr "[👀  ]"
-
-#, fuzzy
-msgid "Are you sure you want to stop sharing for selected users?"
-msgstr "A jeni i sigurt, ju doni të ndaluar ndarjen e dokumentit tuaj?"
-
-#, fuzzy
-msgid "Are you sure, you want to stop all sharing ?"
-msgstr "A jeni i sigurt, ju doni të ndaluar ndarjen e dokumentit tuaj?"
-
-msgid "Tracking"
-msgstr "gjurmimi."
-
-msgid "Attention"
-msgstr "vëmendje"
-
-msgid "The current images folder is now the public folder !!!"
-msgstr "tani fotografitë e tanishme të fotografive janë dosja publike! !"
-
-msgid "Add People"
-msgstr "shto njerëz"
-
-msgid "This page is still in the cart."
-msgstr "Kjo faqe është ende në karrocë."
 
 msgid "Wrong address format."
 msgstr "Forma e gabuar e adresës."
@@ -476,8 +60,17 @@ msgstr "Forma e gabuar e adresës."
 msgid "Set Calendar Name"
 msgstr "vendose emrin kalendar"
 
+msgid "Cancel"
+msgstr "Anuloje."
+
+msgid "Confirm"
+msgstr "Konfirmo."
+
 msgid "Set Resource Name"
 msgstr "vendosni emrin e resurseve"
+
+msgid "Name"
+msgstr "Emri"
 
 msgid "Select a resource type"
 msgstr "Zgjidh një lloj burimesh"
@@ -493,6 +86,9 @@ msgstr "video."
 
 msgid "Description"
 msgstr "Përshkrim"
+
+msgid "OK"
+msgstr "në rregull."
 
 msgid "Calendars"
 msgstr "kalendar."
@@ -514,6 +110,12 @@ msgstr "Përfshi dhe përjashto kalendarët në SideBar"
 
 msgid "Ok"
 msgstr "ok"
+
+msgid "[👀  ]"
+msgstr "[👀  ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
 
 msgid "With"
 msgstr "me"
@@ -541,6 +143,9 @@ msgstr "Add persona/Family/grupe"
 
 msgid "Share your Calendar"
 msgstr "Ndaje kalendarin tënd"
+
+msgid "Delete"
+msgstr "Fshije."
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "a je i sigurt që dëshiron ta fshish këtë karrocë?"
@@ -584,6 +189,9 @@ msgstr "Modifiko emrin e Sharëzimit"
 
 msgid "Resource Info for"
 msgstr "Burimi Info për të"
+
+msgid "Error"
+msgstr "Gabim"
 
 msgid "Only administrators have the right to change the Resource description"
 msgstr "vetëm administratorët kanë të drejtë të ndryshojnë burimin e burimit"
@@ -630,6 +238,9 @@ msgid ""
 msgstr ""
 "Do t'i fshish të gjitha ngjarjet e përsëritura që kanë lidhje me këtë "
 "ngjarje. Je i sigurt? kjo nuk mund të prishet."
+
+msgid "No"
+msgstr "Jo."
 
 msgid "Only this event"
 msgstr "Vetëm kjo ngjarje"
@@ -702,6 +313,9 @@ msgstr "për"
 
 msgid "Attendance Notes: "
 msgstr "Notes e pranimeve:"
+
+msgid "None"
+msgstr "asnjë."
 
 msgid "Title"
 msgstr "titulli"
@@ -824,6 +438,12 @@ msgstr "jo aktive"
 msgid "Event Creation"
 msgstr "Krijim i ngjarjes"
 
+msgid "Close"
+msgstr "Afër."
+
+msgid "Save"
+msgstr "Shpëto."
+
 msgid "You've to chose a calendar."
 msgstr "Duhet të zgjedhësh një kalendar."
 
@@ -844,6 +464,9 @@ msgstr "Mbushja e përfunduar...."
 
 msgid "Month"
 msgstr "Muaji"
+
+msgid "Actions"
+msgstr "Veprime."
 
 msgid "Attendance Counts with real Attendees"
 msgstr "Kontrat e pjesëmarrjes me të pranishmit të pranishëm"
@@ -886,6 +509,27 @@ msgstr ""
 #, fuzzy
 msgid "Check-out done"
 msgstr "shiko datën"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr "Shtyp CTRL + C për të kopjuar të gjitha numrat e telefonit të grupit"
+
+msgid "You have no more items in your cart."
+msgstr "Nuk ke më sende në karrocë."
+
+msgid "Address"
+msgstr "adresa."
+
+msgid "Email"
+msgstr "email."
+
+msgid "Remove"
+msgstr "Largohu"
+
+msgid "Classification"
+msgstr "Klasifikimi"
+
+msgid "Family Role"
+msgstr "Familja Rol"
 
 msgid "CKEditor Template Creation"
 msgstr "Krijimi i tempullit të KEditorit"
@@ -981,6 +625,626 @@ msgstr "Gjuhën."
 msgid "Merge Tags"
 msgstr "Merrni shenjat"
 
+#, fuzzy
+msgid "Subject:"
+msgstr "subjekti"
+
+msgid "Compose New Message"
+msgstr ""
+
+msgid "Send"
+msgstr "Dërgo."
+
+msgid "Error making API Call to"
+msgstr "Gabim po bën API-në telefonatë"
+
+msgid "Error text"
+msgstr "Gabim"
+
+msgid "Stack Trace"
+msgstr "Stek Trace"
+
+msgid "ERROR"
+msgstr "ERROR"
+
+#, fuzzy
+msgid "In progress"
+msgstr "në progres..."
+
+msgid "Mailchimp"
+msgstr "Mailkim."
+
+#, fuzzy
+msgid ""
+"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
+"click this notification !</b>"
+msgstr ""
+"të gjitha listat janë të mbushura meEcclesia<b>crm</b>.<br><b>nëse doni t'i "
+"menaxhoni, shtypni këtë njoftim!</b>"
+
+msgid "There was a problem retrieving the requested object"
+msgstr "kishte një problem të ririfitonte objektin e kërkuar"
+
+msgid "Select the method to add to a group"
+msgstr "Zgjidh metodën për t'i shtuar një grupi"
+
+msgid "Select an existing Group"
+msgstr "Zgjedh një grup ekzistues"
+
+msgid "or Create a new Group from the Cart"
+msgstr "ose të krijosh një grup të ri nga karroca"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Zgjidh një pjesë nga ajo që dëshiron të mbledhësh karrocën tënde!"
+
+msgid "Select Group"
+msgstr "Zgjidh Grupin"
+
+msgid "Select Role"
+msgstr "Zgjidh Rolin"
+
+msgid "Group Name"
+msgstr "Emri grupor"
+
+msgid "Default Name Group"
+msgstr "Grupi \"Falës\""
+
+msgid "Add Cart to Group"
+msgstr "shto karrocën në grup"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "Duhet të zgjedhësh një grup dhe rolin e grupit nëse do"
+
+msgid "You have to set a Group Name"
+msgstr "Duhet të vendosësh një emër grupi"
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "A do vërtet të ç'aktivizosh personat?"
+
+msgid "This action can be undone !!!!"
+msgstr "Ky veprim mund të prishet! !!!!"
+
+msgid "Yes : if you're sure"
+msgstr "Po : nëse je i sigurt"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "me të vërtetë dëshiron të fshish personat nga crm?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Ky aksion nuk mund të prishet! !!!!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "Zgjidh makinën"
+
+msgid "Create First A New Event"
+msgstr "do të krijoj event të ri"
+
+msgid "Add to Event"
+msgstr "shto edhe event"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"Mund të shtosh përmbajtjen e karrocës në ngjarjen e zgjedhur nën<br>- OR -"
+"<br>, do të krijosh një ngjarje të parë dhe do t'i shtosh ato më pas."
+
+msgid "Register"
+msgstr "regjistrues."
+
+#, fuzzy
+msgid "Register your software to CRM team."
+msgstr "regjistro programin për programin Ecclesiacrm."
+
+msgid "Simply click this"
+msgstr "kliko thjeshtë"
+
+msgid "to register your software"
+msgstr "për të regjistruar programin tuaj"
+
+msgid "New Release"
+msgstr "Lirimi i ri"
+
+msgid "Installed version"
+msgstr "version i instaluar"
+
+msgid "New One"
+msgstr "i riu"
+
+msgid "To upgrade simply click this Notification"
+msgstr "për të përmirësuar thjesht klikim këtë notifikim"
+
+msgid "View Cart"
+msgstr "shiko karrocën"
+
+msgid "Empty Cart"
+msgstr "Kart i zbrazur"
+
+msgid "Empty Cart to Group"
+msgstr "Boshatisni karrocën në grupin"
+
+msgid "Empty Cart to Family"
+msgstr "Karroca e zbrazët e familjes"
+
+msgid "Empty Cart to Event"
+msgstr "karroca e zbrazët në event"
+
+msgid "Map Cart"
+msgstr "Karta e hartës"
+
+msgid "Deactivate Persons From Cart"
+msgstr "Deaktivizoni personat nga Cart"
+
+msgid "Delete Persons From the CRM"
+msgstr "fshij personat nga crm"
+
+msgid "View all"
+msgstr "shiko të gjitha"
+
+msgid "Your Cart is Empty"
+msgstr "karroca jote është bosh"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr "Nëse do të bësh ndryshime në regjistrimin e të dhënave, shko"
+
+msgid "Admin->Edit General Settings"
+msgstr "Ademin-- Seksionet e Përgjithshme të Edit"
+
+#, fuzzy
+msgid ""
+"Please register your copy of CRM by checking over this information and "
+"pressing the Send button."
+msgstr ""
+"Ju lutem regjistroni kopjen e EcclesiaCRM duke kontrolluar informacionin dhe "
+"shtypjen e butonit."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"Ky informacion përdoret vetëm për të gjurmuar përdorimin e këtij programi."
+
+msgid "Church Name"
+msgstr "emri i kishës"
+
+msgid "Version"
+msgstr "Versioni"
+
+msgid "City"
+msgstr "Qytet"
+
+msgid "State"
+msgstr "Shteti."
+
+msgid "Zip"
+msgstr "Zip"
+
+msgid "Country"
+msgstr "Vend."
+
+msgid "Church Email"
+msgstr "kisha email"
+
+msgid "Base URL"
+msgstr "Baza Url"
+
+msgid "Message"
+msgstr "mesazh."
+
+msgid "Software Registration"
+msgstr "Rregjistrimi i programeve kompjuterike"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "Softueri juaj është regjistruar tani. faleminderit!"
+
+#, fuzzy
+msgid "Select Volunteer Opportunity"
+msgstr "shto mundësinë e re të vullnetit"
+
+#, fuzzy
+msgid "Please select target volunteers for members"
+msgstr "Ju lutem zgjidhni objektivin Rolin për anëtarët"
+
+msgid "Please select target group for members"
+msgstr "ju lutemi zgjedhni objektivin për anëtarët"
+
+msgid "Please select target Role for members"
+msgstr "Ju lutem zgjidhni objektivin Rolin për anëtarët"
+
+msgid "GroupID required for role selection prompt"
+msgstr "Gruopild kërkohet për përzgjedhje të shpejtë të rolit"
+
+msgid "Select Group and Role"
+msgstr "Zgjidh Grupin dhe Rolin"
+
+msgid "Add A Group Name"
+msgstr "shto një emër grupi"
+
+msgid "Yes"
+msgstr "po."
+
+msgid "Calendar Event"
+msgstr "kalendari event"
+
+msgid "Attendees Checked In"
+msgstr "të pranishmit u lidhën"
+
+msgid "More info"
+msgstr "Më shumë informacione"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"kujdes! mos e zgjedhni këtë opsion nëse planifikoni t'i shtoni një bazë të "
+"dhënash ekzistuese.<br>"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will "
+"be destroyed!"
+msgstr ""
+"Përdorni vetëm nëse nuk kënaqeni me importin fillestar. Të gjithë personat "
+"dhe të dhënat anëtare do të shkatërrohen!"
+
+msgid "I Understand"
+msgstr "Kuptoj"
+
+msgid "Clear Persons and Families"
+msgstr "Personat e pastra dhe familjet"
+
+msgid "Data Cleared Successfully!"
+msgstr "të dhënat dolën me sukses!"
+
+msgid "success"
+msgstr "sukses."
+
+msgid "Duplicate values"
+msgstr "dyfishoni vlerat"
+
+msgid "You've selected two times the same name"
+msgstr "Ke zgjedhur dy herë të njëjtin emër"
+
+msgid "for this field. Chose another one."
+msgstr "për këtë fushë. Zgjidh një tjetër."
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "Largoni të gjitha"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Do ta fshish fushatën tënde! A je i sigurt?"
+
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Dorëzimi."
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "Largoje nga Karti"
+
+msgid "Please confirm deletion of this document"
+msgstr "Ju lutem konfirmoni fshirjen e këtij dokumenti"
+
+msgid "Document Delete Confirmation"
+msgstr "Dokumenti fshin konfirmimin"
+
+msgid "Document Title"
+msgstr "Titull i dokumenteve"
+
+msgid "Set your Document title"
+msgstr "vendosni titullin tuaj të dokumentit"
+
+msgid "Choose your Document Type"
+msgstr "Zgjidh tipin tënd të dokumenteve"
+
+msgid "document"
+msgstr "dokument"
+
+msgid "video"
+msgstr "video."
+
+msgid "audio"
+msgstr "audio"
+
+msgid "Private"
+msgstr "private"
+
+msgid "Document Editor"
+msgstr "redaktor i dokumenteve"
+
+msgid "You have to set a Title for your document"
+msgstr "Duhet të vendosësh Titullin për dokumentin tënd"
+
+msgid "Saving Campaign ..."
+msgstr "fushata saving ..."
+
+msgid "Campaign"
+msgstr "fushata"
+
+msgid "saved successfully"
+msgstr "na shpëtoi me sukses"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "tani do dërgoni fushatën! A je i sigurt?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "Do ta fshish fushatën tënde! A je i sigurt?"
+
+msgid "Loading datas ..."
+msgstr "Duke mbushur datat..."
+
+msgid "No list are created with this account ...."
+msgstr "Nuk janë krijuar listë me këtë llogari..."
+
+msgid "Email List"
+msgstr "lista e email"
+
+msgid "GDPR"
+msgstr "gdp"
+
+msgid "Details"
+msgstr "Detajet"
+
+msgid "Subject"
+msgstr "subjekti"
+
+msgid "Members:"
+msgstr "Anëtarët:"
+
+msgid "Campaigns:"
+msgstr "Fushata:"
+
+msgid "Unsubscribed count:"
+msgstr "numërimi i papërshkrueshëm:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "numërimi i papërshkruar që nga dërgimi i fundit:"
+
+msgid "Cleaned count:"
+msgstr "numërimi i pastruar:"
+
+msgid "Cleaned count since last send:"
+msgstr "numërimi i pastruar që nga dërgimi i fundit:"
+
+msgid "Campaigns"
+msgstr "Fushata."
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "is not configured"
+msgstr "nuk është e konfiguruar"
+
+msgid "Please update the"
+msgstr "ju lutem, lajmëroni"
+
+msgid "API key in Setting->"
+msgstr "çelësi i api në setting -"
+
+msgid "Edit General Settings"
+msgstr "Seksionet e Gjeneralit Edit"
+
+msgid "then update"
+msgstr "pastaj të reja"
+
+msgid "For more info see our "
+msgstr "për më shumë informacione do të na shohin"
+
+msgid "support docs."
+msgstr "doktorët mbështetës."
+
+msgid "List Title"
+msgstr "list titëll"
+
+msgid "Your List Title"
+msgstr "lista jote \"titulli\""
+
+msgid "Your Subject"
+msgstr "subjekti juaj"
+
+msgid "Permission Reminder"
+msgstr "Leje kujtesën"
+
+msgid "Archive Bars"
+msgstr "Arkivo Baret"
+
+msgid "Public"
+msgstr "Publik"
+
+msgid "List Creation"
+msgstr "Krijimi i listës"
+
+msgid "People"
+msgstr "Njerëz."
+
+msgid "Families"
+msgstr "Familjet"
+
+msgid "Add a new tag"
+msgstr "Shto një etiketë të re"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "fshije etiketën nga abonentët(s)"
+
+msgid "Delete tag"
+msgstr "fshije etiketën"
+
+msgid "Loading resources ..."
+msgstr "Mbushja e burimeve ..."
+
+msgid "Check all boxes"
+msgstr "Kontrollo të gjitha kutitë"
+
+msgid "Subscribed"
+msgstr "është i shkruar në rresht."
+
+msgid "Unsubscribed"
+msgstr "E papërshkruara"
+
+msgid "Email Marketing"
+msgstr "marketing e-mail"
+
+msgid "Add your tag name"
+msgstr "shto emrin e etiketës"
+
+msgid "Adding tag..."
+msgstr "Shtimi i etiketave..."
+
+msgid "Name is empty !!"
+msgstr "emri është bosh!"
+
+msgid "Add tag?"
+msgstr "Shtoni etiketën?"
+
+msgid "This will add the tag"
+msgstr "Kjo do të shtojë etiketën"
+
+msgid "to all the current selected members in the list."
+msgstr "për të gjithë anëtarët e tanishëm të zgjedhur në listë."
+
+msgid "Select One"
+msgstr "Zgjedhja një"
+
+msgid "All Tags"
+msgstr "Të gjitha taket"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Zgjidh etiketën që do ta fshish :"
+
+msgid "Removing tags..."
+msgstr "Hiqja etiketat..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Po mbledh të gjitha etiketat për anëtarët e zgjedhur në listë..."
+
+msgid "You're about to delete a tag!"
+msgstr "Do ta fshish etiketën!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Kjo do ta fshijë gjithashtu etiketën për të gjithë anëtarët e listës. A je i "
+"sigurt?"
+
+msgid "Deleting tag"
+msgstr "Po kënaq"
+
+msgid "A person name or Family or Group"
+msgstr "Një emër ose familje ose grup"
+
+msgid "Loading subscriber"
+msgstr "Mbushi abonentët"
+
+msgid "Loading subscribers from Group"
+msgstr "Duke mbushur abonentët nga Grupi"
+
+msgid "Loading subscribers from family"
+msgstr "Duke mbushur abonentët nga familja"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"Duke mbushur të gjithë personat nga EcclesiaCRM<br>kjo mund të marrë një "
+"kohë!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Në fakt, duhet të largohesh nga CRM, të presësh 5 minuta dhe të bësh "
+"fushatat e tua më pas.<br>për të importuar të dhëna të mëdha, mailchimp api "
+"është i ngadalshëm."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Duke mbushur të gjithë abonentët e gazetave nga EcclesiaCRM<br>kjo mund të "
+"marrë një kohë!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Duke mbushur të gjitha familjet e para të rekrutëve të kokave nga "
+"EcclesiaCRM<br>kjo mund të marrë një kohë!"
+
+msgid "Select status for : "
+msgstr "Zgjidh statusin:"
+
+msgid "Changing status ..."
+msgstr "Ndrysho statusin..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Do ta fshish abonentët! A je i sigurt?"
+
+msgid "Deleting Subscriber..."
+msgstr "Po i mbledh këshillat..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "A dëshiron vërtet ta fshish këtë listë postare?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Je i sigurt që do t'i fshish të gjithë abonentët"
+
+msgid "Deleting all subscribers..."
+msgstr "Po fshij të gjithë abonentët..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Në fakt, më mirë të largohesh nga CRM, dhe në një orë e hap për të menaxhuar "
+"listën tënde.<br>për të fshirë datat e mëdha, mailchip api është i "
+"ngadalshëm."
+
+msgid "Campaign Title"
+msgstr "fushata titëll"
+
+msgid "Your Campaign Title"
+msgstr "Titulli yt i fushatës"
+
+msgid "For Tag"
+msgstr "Për Tagun"
+
+msgid "Mail Subject"
+msgstr "posta subjekt"
+
+msgid "Your Mail Subject"
+msgstr "Subjekti yt i postës"
+
+msgid "All list members"
+msgstr "të gjithë anëtarët e listës"
+
+msgid "Email Campaign Creation"
+msgstr "Krijimi i fushatës elektronike"
+
+msgid "Adding Campaign ..."
+msgstr "Shtimi i fushatës..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "A do të donim ta menaxhonim këtë fushatë të re?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Duhet të vendosësh një titull fushate për fushatën elektronike"
+
+msgid "List Name"
+msgstr "emri i listes"
+
+msgid "Changing subscribers state..."
+msgstr "Ndryshimi i abonentëve shtet..."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Do t'i fshish abonentët! A je i sigurt?"
+
+msgid "Deleting Subscribers..."
+msgstr "Po mbledh abreceta..."
+
+msgid "Family"
+msgstr "Familja."
+
+msgid "Person"
+msgstr "Person"
+
 msgid "Free Event Attendees"
 msgstr "të ndjekurit për të ndjekur lirinë"
 
@@ -1055,11 +1319,17 @@ msgstr "krijo një."
 msgid "Group"
 msgstr "Grup"
 
+msgid "User"
+msgstr "përdorues."
+
 msgid "No event now."
 msgstr "Nuk ka ngjarje tani."
 
 msgid "Success"
 msgstr "sukses."
+
+msgid "Attention"
+msgstr "vëmendje"
 
 msgid "Are you sure you want to DELETE all persons from Event ID:"
 msgstr "A jeni i sigurt se ju doni të gjithë personat nga ID:"
@@ -1072,6 +1342,58 @@ msgstr "Fshije Eventet Tip"
 
 msgid "This action can never be undone !!!!"
 msgstr "Ky aksion nuk mund të bëhet kurrë! !!!!"
+
+msgid "Icon"
+msgstr "ikonë."
+
+msgid "Modification Date"
+msgstr "Takim për modifikim"
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "Size"
+msgstr "përmasa"
+
+msgid "You are about to delete several items together"
+msgstr "Do të fshini disa sende së bashku"
+
+msgid "You're about to remove an item"
+msgstr "Do të heqësh një send"
+
+msgid "This can't be undone !!!!"
+msgstr "Kjo nuk mund të prishet! !!!!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Duhet të zgjedhësh të paktën një vijë! !"
+
+#, fuzzy
+msgid "Create a Folder"
+msgstr "krijo një."
+
+msgid "Set your Folder name"
+msgstr "vendos emrin tënd folder"
+
+#, fuzzy
+msgid "Actualize files"
+msgstr "Aktualize"
+
+msgid "preview currently being created"
+msgstr ""
+
+msgid "Set a File/Folder name"
+msgstr "vendos emrin e filmit/folder"
+
+msgid "Download Error"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr "A jeni i sigurt, ju doni të ndaluar ndarjen e dokumentit tuaj?"
+
+#, fuzzy
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "A jeni i sigurt, ju doni të ndaluar ndarjen e dokumentit tuaj?"
 
 msgid "Confirm Delete"
 msgstr "Konfirmo Fshijen"
@@ -1131,12 +1453,6 @@ msgstr "Detajet e Transaksionit elektronik"
 msgid "TOTAL"
 msgstr "TOTAL"
 
-msgid "Family"
-msgstr "Familja."
-
-msgid "Person"
-msgstr "Person"
-
 msgid "Anonymous"
 msgstr "Anonim"
 
@@ -1151,9 +1467,6 @@ msgstr "metoda"
 
 msgid "Check Number"
 msgstr "Kontrollo Numberin"
-
-msgid "Details"
-msgstr "Detajet"
 
 msgid "Deposit ID"
 msgstr "identifikimi i depozitimit"
@@ -1181,6 +1494,54 @@ msgstr "\"slipi i depozitave së gjeneralit për zgjidhjen\""
 
 msgid "Rows"
 msgstr "rreshta."
+
+msgid "Number"
+msgstr "Numri"
+
+msgid "Item"
+msgstr "Item"
+
+msgid "Preview"
+msgstr "Previetni"
+
+msgid "Multiple"
+msgstr "Shumë"
+
+msgid "Donor"
+msgstr "donor."
+
+msgid "Buyer"
+msgstr "Blerës"
+
+msgid "Sale Price"
+msgstr "Shitje Price"
+
+msgid "Estimated value"
+msgstr "Vlera e vlerësuar"
+
+msgid "Material Value"
+msgstr "Vlera materiale"
+
+msgid "Minimum Price"
+msgstr "minimum çmimi"
+
+msgid "Add buyer"
+msgstr "Shto blerësin"
+
+msgid "Buyer Number"
+msgstr "Blerësi numër"
+
+msgid "Save and Add"
+msgstr "Shpëto dhe Add"
+
+msgid "Generate Statement"
+msgstr "Deklarata e Gjeneratorit"
+
+msgid "Buyer Number Editor"
+msgstr "Blerësit numërësor"
+
+msgid "Select"
+msgstr "Zgjedh."
 
 msgid "Your operation completed successfully."
 msgstr "Operacioni juaj përfundoi me sukses."
@@ -1390,6 +1751,42 @@ msgstr "Je i sigurt që dëshiron t'i fshish menaxheret?"
 
 msgid "Appointment"
 msgstr "Takimi."
+
+msgid "Tracking"
+msgstr "gjurmimi."
+
+msgid "Visits/calls"
+msgstr "Vizitet dhe telefonatat"
+
+msgid "Last visit/call"
+msgstr "vizita e fundit"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Fshije Pastorin"
+
+msgid "For every administrator"
+msgstr "Për çdo administrator"
+
+msgid "Show"
+msgstr "Tregoje."
+
+msgid "Hide"
+msgstr "Fshihu!"
+
+msgid "Include all the family members"
+msgstr "Përfshirë të gjithë anëtarët e familjes"
+
+msgid "Include"
+msgstr "Përfshirë"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Pastoria \"Care\" Shëndimi"
+
+msgid "Last Name (Family Name)"
+msgstr "emri i fundit..."
+
+msgid "Family Name"
+msgstr "Emri i familjes"
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "je i sigurt që do ta largosh këtë familje nga cm"
@@ -1637,6 +2034,83 @@ msgstr "Konfirmo mundësinë vullnetare"
 
 msgid "Comments"
 msgstr "Komentet"
+
+msgid "Confirmation of plugin removal"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "Do ta fshish këtë person? Nuk mund të kthehet prapa."
+
+#, fuzzy
+msgid "Select your zipped plugin file"
+msgstr "Zgjidh Rolin"
+
+msgid "Download the zipped file of the plugin"
+msgstr ""
+
+msgid "Plugin download manager"
+msgstr ""
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "tani fotografitë e tanishme të fotografive janë dosja publike! !"
+
+msgid "All Groups"
+msgstr "Të gjithë grupin"
+
+msgid "All Roles"
+msgstr "rolles"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
+
+msgid "id"
+msgstr "- Po."
+
+msgid "Photos"
+msgstr "fotografitë"
+
+msgid "Search result"
+msgstr "rezultat i kërkimit"
+
+msgid "Property Name"
+msgstr "Emri i pronës"
+
+#, fuzzy
+msgid "Cart Operations"
+msgstr "Mundësitë e tempullit"
+
+msgid "Add This Page"
+msgstr ""
+
+msgid "Loading people in cart...."
+msgstr "Duke mbushur njerëz në karrocë...."
+
+msgid "Add All results"
+msgstr ""
+
+#, fuzzy
+msgid "Remove this page"
+msgstr "largoni njerëzit"
+
+msgid "Removing people in cart...."
+msgstr "heqja e njerëzve në karrocë..."
+
+#, fuzzy
+msgid "Remove All results"
+msgstr "Largoni të gjitha"
+
+msgid "Intersect result with cart"
+msgstr ""
+
+msgid "Add People"
+msgstr "shto njerëz"
+
+msgid "This page is still in the cart."
+msgstr "Kjo faqe është ende në karrocë."
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all family data "
@@ -1986,6 +2460,9 @@ msgstr ""
 "Mbaji këto fjalëkalime rezervë në një vend të sigurt, në rast se humbet "
 "kredencialet e OTP-së."
 
+msgid "Backup Complete, Ready for Download."
+msgstr "Përforcime e plotë, gati për shkarkim."
+
 msgid "The user must have an email address."
 msgstr "përdoruesi duhet të ketë një adresë elektronike."
 
@@ -2081,479 +2558,42 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr "përdoruesi ka 60 sekonda të përdorë kodet e rimëkëmbjes."
 
-msgid "Saving Campaign ..."
-msgstr "fushata saving ..."
+#, fuzzy
+msgid "Add New Volunteer Opportunity"
+msgstr "shto mundësinë e re të vullnetit"
 
-msgid "Campaign"
-msgstr "fushata"
+msgid "Activ"
+msgstr "Aktiv."
 
-msgid "saved successfully"
-msgstr "na shpëtoi me sukses"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "tani do dërgoni fushatën! A je i sigurt?"
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Do ta fshish fushatën tënde! A je i sigurt?"
-
-msgid "Loading datas ..."
-msgstr "Duke mbushur datat..."
-
-msgid "No list are created with this account ...."
-msgstr "Nuk janë krijuar listë me këtë llogari..."
-
-msgid "Email List"
-msgstr "lista e email"
-
-msgid "GDPR"
-msgstr "gdp"
-
-msgid "Subject"
-msgstr "subjekti"
-
-msgid "Members:"
-msgstr "Anëtarët:"
-
-msgid "Campaigns:"
-msgstr "Fushata:"
-
-msgid "Unsubscribed count:"
-msgstr "numërimi i papërshkrueshëm:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "numërimi i papërshkruar që nga dërgimi i fundit:"
-
-msgid "Cleaned count:"
-msgstr "numërimi i pastruar:"
-
-msgid "Cleaned count since last send:"
-msgstr "numërimi i pastruar që nga dërgimi i fundit:"
-
-msgid "Campaigns"
-msgstr "Fushata."
-
-msgid "Tags"
-msgstr "Tags"
-
-msgid "is not configured"
-msgstr "nuk është e konfiguruar"
-
-msgid "Please update the"
-msgstr "ju lutem, lajmëroni"
-
-msgid "API key in Setting->"
-msgstr "çelësi i api në setting -"
-
-msgid "Edit General Settings"
-msgstr "Seksionet e Gjeneralit Edit"
-
-msgid "then update"
-msgstr "pastaj të reja"
-
-msgid "For more info see our "
-msgstr "për më shumë informacione do të na shohin"
-
-msgid "support docs."
-msgstr "doktorët mbështetës."
-
-msgid "List Title"
-msgstr "list titëll"
-
-msgid "Your List Title"
-msgstr "lista jote \"titulli\""
-
-msgid "Your Subject"
-msgstr "subjekti juaj"
-
-msgid "Permission Reminder"
-msgstr "Leje kujtesën"
-
-msgid "Archive Bars"
-msgstr "Arkivo Baret"
-
-msgid "Public"
-msgstr "Publik"
-
-msgid "List Creation"
-msgstr "Krijimi i listës"
-
-msgid "People"
-msgstr "Njerëz."
-
-msgid "Families"
-msgstr "Familjet"
-
-msgid "Add a new tag"
-msgstr "Shto një etiketë të re"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "fshije etiketën nga abonentët(s)"
-
-msgid "Delete tag"
-msgstr "fshije etiketën"
-
-msgid "Loading resources ..."
-msgstr "Mbushja e burimeve ..."
-
-msgid "Check all boxes"
-msgstr "Kontrollo të gjitha kutitë"
-
-msgid "Subscribed"
-msgstr "është i shkruar në rresht."
-
-msgid "Unsubscribed"
-msgstr "E papërshkruara"
-
-msgid "Email Marketing"
-msgstr "marketing e-mail"
-
-msgid "Add your tag name"
-msgstr "shto emrin e etiketës"
-
-msgid "Adding tag..."
-msgstr "Shtimi i etiketave..."
-
-msgid "Name is empty !!"
-msgstr "emri është bosh!"
-
-msgid "Add tag?"
-msgstr "Shtoni etiketën?"
-
-msgid "This will add the tag"
-msgstr "Kjo do të shtojë etiketën"
-
-msgid "to all the current selected members in the list."
-msgstr "për të gjithë anëtarët e tanishëm të zgjedhur në listë."
-
-msgid "Select One"
-msgstr "Zgjedhja një"
-
-msgid "All Tags"
-msgstr "Të gjitha taket"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Zgjidh etiketën që do ta fshish :"
-
-msgid "Removing tags..."
-msgstr "Hiqja etiketat..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Po mbledh të gjitha etiketat për anëtarët e zgjedhur në listë..."
-
-msgid "You're about to delete a tag!"
-msgstr "Do ta fshish etiketën!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
+msgid "Parent (hierarchy)"
 msgstr ""
-"Kjo do ta fshijë gjithashtu etiketën për të gjithë anëtarët e listës. A je i "
-"sigurt?"
 
-msgid "Deleting tag"
-msgstr "Po kënaq"
-
-msgid "A person name or Family or Group"
-msgstr "Një emër ose familje ose grup"
-
-msgid "Loading subscriber"
-msgstr "Mbushi abonentët"
-
-msgid "Loading subscribers from Group"
-msgstr "Duke mbushur abonentët nga Grupi"
-
-msgid "Loading subscribers from family"
-msgstr "Duke mbushur abonentët nga familja"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr ""
-"Duke mbushur të gjithë personat nga EcclesiaCRM<br>kjo mund të marrë një "
-"kohë!"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"Në fakt, duhet të largohesh nga CRM, të presësh 5 minuta dhe të bësh "
-"fushatat e tua më pas.<br>për të importuar të dhëna të mëdha, mailchimp api "
-"është i ngadalshëm."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Duke mbushur të gjithë abonentët e gazetave nga EcclesiaCRM<br>kjo mund të "
-"marrë një kohë!"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Duke mbushur të gjitha familjet e para të rekrutëve të kokave nga "
-"EcclesiaCRM<br>kjo mund të marrë një kohë!"
-
-msgid "Select status for : "
-msgstr "Zgjidh statusin:"
-
-msgid "Changing status ..."
-msgstr "Ndrysho statusin..."
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Do ta fshish abonentët! A je i sigurt?"
-
-msgid "Deleting Subscriber..."
-msgstr "Po i mbledh këshillat..."
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "A dëshiron vërtet ta fshish këtë listë postare?"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Je i sigurt që do t'i fshish të gjithë abonentët"
-
-msgid "Deleting all subscribers..."
-msgstr "Po fshij të gjithë abonentët..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"Në fakt, më mirë të largohesh nga CRM, dhe në një orë e hap për të menaxhuar "
-"listën tënde.<br>për të fshirë datat e mëdha, mailchip api është i "
-"ngadalshëm."
-
-msgid "Campaign Title"
-msgstr "fushata titëll"
-
-msgid "Your Campaign Title"
-msgstr "Titulli yt i fushatës"
-
-msgid "For Tag"
-msgstr "Për Tagun"
-
-msgid "Mail Subject"
-msgstr "posta subjekt"
-
-msgid "Your Mail Subject"
-msgstr "Subjekti yt i postës"
-
-msgid "All list members"
-msgstr "të gjithë anëtarët e listës"
-
-msgid "Email Campaign Creation"
-msgstr "Krijimi i fushatës elektronike"
-
-msgid "Adding Campaign ..."
-msgstr "Shtimi i fushatës..."
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "A do të donim ta menaxhonim këtë fushatë të re?"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "Duhet të vendosësh një titull fushate për fushatën elektronike"
-
-msgid "List Name"
-msgstr "emri i listes"
-
-msgid "Changing subscribers state..."
-msgstr "Ndryshimi i abonentëve shtet..."
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Do t'i fshish abonentët! A je i sigurt?"
-
-msgid "Deleting Subscribers..."
-msgstr "Po mbledh abreceta..."
-
-msgid "Confirmation of plugin removal"
+msgid "Color"
 msgstr ""
 
 #, fuzzy
+msgid "Add to volunteer opportunities"
+msgstr "shto mundësinë e re të vullnetit"
+
+#, fuzzy
+msgid "Move to volunteer opportunities"
+msgstr "shto mundësinë e re të vullnetit"
+
+#, fuzzy
+msgid "Confirm Delete This Opportunity"
+msgstr "Konfirmo mundësinë vullnetare"
+
+#, fuzzy
+msgid "Please confirm deletion of this record"
+msgstr "Ju lutem konfirmoni fshirjen e këtij rekordi të grupit"
+
+#, fuzzy
 msgid ""
-"You are about to delete the selected plugins. This action cannot be undone!"
-msgstr "Do ta fshish këtë person? Nuk mund të kthehet prapa."
-
-#, fuzzy
-msgid "Select your zipped plugin file"
-msgstr "Zgjidh Rolin"
-
-msgid "Download the zipped file of the plugin"
+"All membership will be destroyed.  The members themselves will not be "
+"altered."
 msgstr ""
-
-msgid "Plugin download manager"
-msgstr ""
-
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "Përforcohu, u shkarkova, e kuptova serverin"
-
-msgid "You must enter a password"
-msgstr "duhet të fusësh ndonjë fjalëkalim"
-
-msgid "Passwords must match"
-msgstr "Fjalëkalimi duhet të përputhen"
-
-msgid "Backup Running, Please wait."
-msgstr "arratisje, të lutem, prit."
-
-msgid "Backup in progress, don't close the window !"
-msgstr ""
-
-#, fuzzy
-msgid "Background backup in progress to remote server"
-msgstr "përforcime u gjenerua dhe u kopjuan në server"
-
-msgid "Background backup in progress"
-msgstr ""
-
-msgid "Backup Error."
-msgstr ""
-
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr "dosja e zgjedhur e tejkalon këtë server masën e ngarkimit me maksimum"
-
-msgid "Restore Running, Please wait."
-msgstr "Ristatorja. Të lutem prit."
-
-msgid "Restore backup, don't close the window !"
-msgstr ""
-
-msgid "Restore Complete"
-msgstr "Rivendosja e kompletuar"
-
-msgid "Login to restored Database"
-msgstr "Po kërkojmë për ta rivendosur Databazën"
-
-msgid "Restore Error."
-msgstr "Rivendose gabim."
-
-msgid "All Groups"
-msgstr "Të gjithë grupin"
-
-msgid "All Roles"
-msgstr "rolles"
-
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr ""
-
-msgid "id"
-msgstr "- Po."
-
-msgid "Photos"
-msgstr "fotografitë"
-
-msgid "Search result"
-msgstr "rezultat i kërkimit"
-
-msgid "Property Name"
-msgstr "Emri i pronës"
-
-#, fuzzy
-msgid "Cart Operations"
-msgstr "Mundësitë e tempullit"
-
-msgid "Add This Page"
-msgstr ""
-
-msgid "Loading people in cart...."
-msgstr "Duke mbushur njerëz në karrocë...."
-
-msgid "Add All results"
-msgstr ""
-
-#, fuzzy
-msgid "Remove this page"
-msgstr "largoni njerëzit"
-
-msgid "Removing people in cart...."
-msgstr "heqja e njerëzve në karrocë..."
-
-#, fuzzy
-msgid "Remove All results"
-msgstr "Largoni të gjitha"
-
-msgid "Intersect result with cart"
-msgstr ""
-
-msgid "Visits/calls"
-msgstr "Vizitet dhe telefonatat"
-
-msgid "Last visit/call"
-msgstr "vizita e fundit"
-
-msgid "Delete Pastoral Care Type"
-msgstr "Fshije Pastorin"
-
-msgid "For every administrator"
-msgstr "Për çdo administrator"
-
-msgid "Show"
-msgstr "Tregoje."
-
-msgid "Hide"
-msgstr "Fshihu!"
-
-msgid "Include all the family members"
-msgstr "Përfshirë të gjithë anëtarët e familjes"
-
-msgid "Include"
-msgstr "Përfshirë"
-
-msgid "Pastoral Care Note Creation"
-msgstr "Pastoria \"Care\" Shëndimi"
-
-msgid "Last Name (Family Name)"
-msgstr "emri i fundit..."
-
-msgid "Family Name"
-msgstr "Emri i familjes"
-
-msgid "Number"
-msgstr "Numri"
-
-msgid "Item"
-msgstr "Item"
-
-msgid "Preview"
-msgstr "Previetni"
-
-msgid "Multiple"
-msgstr "Shumë"
-
-msgid "Donor"
-msgstr "donor."
-
-msgid "Buyer"
-msgstr "Blerës"
-
-msgid "Sale Price"
-msgstr "Shitje Price"
-
-msgid "Estimated value"
-msgstr "Vlera e vlerësuar"
-
-msgid "Material Value"
-msgstr "Vlera materiale"
-
-msgid "Minimum Price"
-msgstr "minimum çmimi"
-
-msgid "Add buyer"
-msgstr "Shto blerësin"
-
-msgid "Buyer Number"
-msgstr "Blerësi numër"
-
-msgid "Save and Add"
-msgstr "Shpëto dhe Add"
-
-msgid "Generate Statement"
-msgstr "Deklarata e Gjeneratorit"
-
-msgid "Buyer Number Editor"
-msgstr "Blerësit numërësor"
-
-msgid "Select"
-msgstr "Zgjedh."
+"Të gjitha anëtarësimi në grup dhe pronat do të shkatërrohen. vetë anëtarët e "
+"grupit nuk do të ndryshojnë."
 
 #~ msgid "Done !"
 #~ msgstr "U bë !"
@@ -2564,14 +2604,8 @@ msgstr "Zgjedh."
 #~ msgid "Nothing to remove."
 #~ msgstr "asgjë për të hequr."
 
-#~ msgid "Activ"
-#~ msgstr "Aktiv."
-
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Je i sigurt që do t'i heqësh anëtarët e zgjedhur të grupit?"
-
-#~ msgid "Backup Complete, Ready for Download."
-#~ msgstr "Përforcime e plotë, gati për shkarkim."
 
 #~ msgid "Remove all"
 #~ msgstr "Largoni të gjitha"
