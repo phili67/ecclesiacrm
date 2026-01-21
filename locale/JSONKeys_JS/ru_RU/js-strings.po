@@ -1,464 +1,57 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-04T20:51:27.920Z\n"
+"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Резервная копия загружена, копия на сервере удалена"
+
+msgid "You must enter a password"
+msgstr "Вы должны ввести пароль"
+
+msgid "Passwords must match"
+msgstr "Пароли должны совпадать"
+
+msgid "Backup Running, Please wait."
+msgstr "Резервное копирование запущено, пожалуйста, подождите."
+
+msgid "Backup in progress, don't close the window !"
+msgstr "Выполняется резервное копирование, не закрывайте окно!"
+
+msgid "Background backup in progress to remote server"
+msgstr "Выполняется фоновое резервное копирование на удаленный сервер"
+
+msgid "Background backup in progress"
+msgstr "Выполняется фоновое резервное копирование"
+
+msgid "Backup Error."
+msgstr "Ошибка резервного копирования."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "Выбранный файл превышает максимальный размер загрузки этого сервера"
+
+msgid "Restore Running, Please wait."
+msgstr "Восстановление запущено, пожалуйста, подождите."
+
+msgid "Restore backup, don't close the window !"
+msgstr "Восстановите резервную копию, не закрывайте окно!"
+
+msgid "Restore Complete"
+msgstr "Восстановление завершено"
+
+msgid "Login to restored Database"
+msgstr "Вход в восстановленную базу данных"
+
+msgid "Restore Error."
+msgstr "Ошибка восстановления."
+
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Вы уверены, что хотите удалить это изображение?"
-
-msgid "Press CTRL + C to copy all group members' phone numbers"
-msgstr ""
-"Нажмите CTRL + C, чтобы скопировать телефонные номера всех членов группы"
-
-msgid "You have no more items in your cart."
-msgstr "У вас больше нет товаров в корзине."
-
-msgid "Name"
-msgstr "Имя"
-
-msgid "Address"
-msgstr "Адрес"
-
-msgid "Email"
-msgstr "Электронная почта"
-
-msgid "Remove"
-msgstr "Удалить"
-
-msgid "Classification"
-msgstr "Классификация"
-
-msgid "Family Role"
-msgstr "Роль семьи"
-
-msgid "Subject:"
-msgstr "Тема:"
-
-msgid "Compose New Message"
-msgstr "Составить новое сообщение"
-
-msgid "Close"
-msgstr "Закрыть"
-
-msgid "Send"
-msgstr "Отправить"
-
-msgid "Error making API Call to"
-msgstr "Ошибка при выполнении вызова API для"
-
-msgid "Error text"
-msgstr "Текст ошибки"
-
-msgid "Stack Trace"
-msgstr "Трассировка стека"
-
-msgid "ERROR"
-msgstr "ОШИБКА"
-
-msgid "In progress"
-msgstr "В процессе"
-
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"Теперь все списки загружены в CRM. 1235  4568 Если вы хотите управлять ими, "
-"нажмите на это уведомление! 7899 "
-
-msgid "There was a problem retrieving the requested object"
-msgstr "Возникла проблема с получением запрошенного объекта"
-
-msgid "None"
-msgstr "Нет"
-
-msgid "Select the method to add to a group"
-msgstr "Выберите метод для добавления в группу"
-
-msgid "Select an existing Group"
-msgstr "Выберите существующую группу"
-
-msgid "or Create a new Group from the Cart"
-msgstr "или Создать новую группу из Корзины"
-
-msgid "Select the group to which you would like to add your cart"
-msgstr "Выберите группу, в которую вы хотите добавить свою корзину"
-
-msgid "Select Group"
-msgstr "Выберите группу"
-
-msgid "Select Role"
-msgstr "Выберите роль"
-
-msgid "Group Name"
-msgstr "Название группы"
-
-msgid "Default Name Group"
-msgstr "Имя по умолчанию Группа"
-
-msgid "Add Cart to Group"
-msgstr "Добавить корзину в группу"
-
-msgid "Save"
-msgstr "Сохранить"
-
-msgid "Error"
-msgstr "Ошибка"
-
-msgid "You have to select one group and a group role if you want"
-msgstr "Вы должны выбрать одну группу и роль группы, если вы хотите"
-
-msgid "You have to set a Group Name"
-msgstr "Вы должны задать имя группы"
-
-msgid "Do you really want to deactivate the persons?"
-msgstr "Вы действительно хотите деактивировать людей?"
-
-msgid "This action can be undone !!!!"
-msgstr "Это действие можно отменить !!!!"
-
-msgid "No"
-msgstr "Нет"
-
-msgid "Yes : if you're sure"
-msgstr "Да: если вы уверены."
-
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Вы действительно хотите удалить людей из CRM?"
-
-msgid "This action cannot be undone !!!!"
-msgstr "Это действие нельзя отменить !!!!"
-
-msgid "Select the event to which you would like to add your cart"
-msgstr "Выберите мероприятие, к которому вы хотите добавить корзину"
-
-msgid "Create First A New Event"
-msgstr "Сначала создайте новое событие"
-
-msgid "Cancel"
-msgstr "Отмена"
-
-msgid "Add to Event"
-msgstr "Добавить к событию"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Вы можете добавить содержимое корзины в выбранное событие ниже<br> - ИЛИ - "
-"<br>Создайте сначала событие и добавьте их после."
-
-msgid "Register"
-msgstr "Зарегистрироваться"
-
-msgid "Register your software to CRM team."
-msgstr "Зарегистрируйте свое программное обеспечение в команде CRM."
-
-msgid "Simply click this"
-msgstr "Просто нажмите здесь"
-
-msgid "to register your software"
-msgstr "для регистрации программного обеспечения"
-
-msgid "New Release"
-msgstr "Новый выпуск"
-
-msgid "Installed version"
-msgstr "Установленная версия"
-
-msgid "New One"
-msgstr "Новый"
-
-msgid "To upgrade simply click this Notification"
-msgstr "Для обновления просто нажмите на это Уведомление"
-
-msgid "View Cart"
-msgstr "Посмотреть корзину"
-
-msgid "Empty Cart"
-msgstr "Пустая корзина"
-
-msgid "Empty Cart to Group"
-msgstr "Пустая корзина в группу"
-
-msgid "Empty Cart to Family"
-msgstr "Пустая корзина для семьи"
-
-msgid "Empty Cart to Event"
-msgstr "Пустая корзина до события"
-
-msgid "Map Cart"
-msgstr "Карта Корзина"
-
-msgid "Deactivate Persons From Cart"
-msgstr "Деактивировать лиц из корзины"
-
-msgid "Delete Persons From the CRM"
-msgstr "Удаление лиц из CRM"
-
-msgid "View all"
-msgstr "Смотреть все"
-
-msgid "Your Cart is Empty"
-msgstr "Ваша корзина пуста"
-
-msgid "If you need to make changes to registration data, go to "
-msgstr ""
-"Если вам необходимо внести изменения в регистрационные данные, перейдите в "
-"раздел"
-
-msgid "Admin->Edit General Settings"
-msgstr "Администратор->Редактировать общие настройки"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Пожалуйста, зарегистрируйте свою копию CRM, проверив эту информацию и нажав "
-"кнопку \"Отправить\"."
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-"Эта информация используется только для отслеживания использования данного "
-"программного обеспечения."
-
-msgid "Church Name"
-msgstr "Название церкви"
-
-msgid "Version"
-msgstr "Версия"
-
-msgid "City"
-msgstr "Город"
-
-msgid "State"
-msgstr "Государство"
-
-msgid "Zip"
-msgstr "Zip"
-
-msgid "Country"
-msgstr "Страна"
-
-msgid "Church Email"
-msgstr "Церковная почта"
-
-msgid "Base URL"
-msgstr "Базовый URL"
-
-msgid "Message"
-msgstr "Сообщение"
-
-msgid "Software Registration"
-msgstr "Регистрация программного обеспечения"
-
-msgid "Your software is now registered. Thank you !"
-msgstr "Ваша программа теперь зарегистрирована. Спасибо!"
-
-msgid "OK"
-msgstr "OK"
-
-msgid "Select Volunteer Opportunity"
-msgstr "Выберите возможность для волонтера"
-
-msgid "Please select target volunteers for members"
-msgstr "Пожалуйста, выберите целевых волонтеров для членов клуба"
-
-msgid "Please select target group for members"
-msgstr "Пожалуйста, выберите целевую группу для членов"
-
-msgid "Please select target Role for members"
-msgstr "Пожалуйста, выберите целевую роль для членов"
-
-msgid "GroupID required for role selection prompt"
-msgstr "Идентификатор группы, необходимый для запроса выбора роли"
-
-msgid "Select Group and Role"
-msgstr "Выберите группу и роль"
-
-msgid "Add A Group Name"
-msgstr "Добавить имя группы"
-
-msgid "Yes"
-msgstr "Да"
-
-msgid "Calendar Event"
-msgstr "Календарное событие"
-
-msgid "Attendees Checked In"
-msgstr "Участники зарегистрировались"
-
-msgid "More info"
-msgstr "Дополнительная информация"
-
-msgid ""
-"Warning! Do not select this option if you plan to add to an existing "
-"database.<br/>"
-msgstr ""
-"Внимание! Не выбирайте эту опцию, если вы планируете добавить в существующую "
-"базу данных.<br/>"
-
-msgid ""
-"Use only if unsatisfied with initial import. All person and member data will "
-"be destroyed!"
-msgstr ""
-"Используйте только в том случае, если не удовлетворены первоначальным "
-"импортом. Все данные о человеке и участнике будут уничтожены!"
-
-msgid "I Understand"
-msgstr "Я понимаю"
-
-msgid "Clear Persons and Families"
-msgstr "Ясные люди и семьи"
-
-msgid "Data Cleared Successfully!"
-msgstr "Данные очищены успешно!"
-
-msgid "success"
-msgstr "успех"
-
-msgid "Duplicate values"
-msgstr "Дублирование значений"
-
-msgid "You've selected two times the same name"
-msgstr "Вы выбрали два раза одно и то же имя"
-
-msgid "for this field. Chose another one."
-msgstr "для этого поля. Выберите другую."
-
-msgid "Remove Plugin"
-msgstr "Удалить плагин"
-
-msgid "You're about to remove the plugin from yout dashboard !!!"
-msgstr "Вы собираетесь удалить плагин из своей приборной панели !!!"
-
-msgid "Confirm"
-msgstr "Подтвердить"
-
-msgid "Dashboard Item"
-msgstr "Элемент приборной панели"
-
-msgid "Removed from your dashboard !"
-msgstr "Удалено с приборной панели!"
-
-msgid "Please confirm deletion of this document"
-msgstr "Пожалуйста, подтвердите удаление этого документа"
-
-msgid "Document Delete Confirmation"
-msgstr "Подтверждение удаления документа"
-
-msgid "Document Title"
-msgstr "Название документа"
-
-msgid "Set your Document title"
-msgstr "Задайте название документа"
-
-msgid "Choose your Document Type"
-msgstr "Выберите тип документа"
-
-msgid "document"
-msgstr "документ"
-
-msgid "video"
-msgstr "видео"
-
-msgid "audio"
-msgstr "аудио"
-
-msgid "Private"
-msgstr "Частный"
-
-msgid "Document Editor"
-msgstr "Редактор документов"
-
-msgid "You have to set a Title for your document"
-msgstr "Вы должны задать заголовок для документа"
-
-msgid "Icon"
-msgstr "Икона"
-
-msgid "Actions"
-msgstr "Действия"
-
-msgid "Modification Date"
-msgstr "Дата модификации"
-
-msgid "Type"
-msgstr "Тип"
-
-msgid "Size"
-msgstr "Размер"
-
-msgid "Delete"
-msgstr "Удалить"
-
-msgid "You are about to delete several items together"
-msgstr "Вы собираетесь удалить несколько элементов вместе"
-
-msgid "You're about to remove an item"
-msgstr "Вы собираетесь удалить элемент"
-
-msgid "This can't be undone !!!!"
-msgstr "Этого не отменить !!!!"
-
-msgid "You've to select at least one line !!!"
-msgstr "Вы должны выбрать хотя бы одну линию!!!"
-
-msgid "Create a Folder"
-msgstr "Создать папку"
-
-msgid "Set your Folder name"
-msgstr "Задайте имя папки"
-
-msgid "Actualize files"
-msgstr "Актуализация файлов"
-
-msgid "preview currently being created"
-msgstr "предварительный просмотр находится в стадии создания"
-
-msgid "Set a File/Folder name"
-msgstr "Задайте имя файла/папки"
-
-msgid "Download Error"
-msgstr "Скачать ошибку"
-
-msgid "User"
-msgstr "Пользователь"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "Are you sure you want to stop sharing for selected users?"
-msgstr ""
-"Вы уверены, что хотите прекратить общий доступ для выбранных пользователей?"
-
-msgid "Are you sure, you want to stop all sharing ?"
-msgstr "Вы уверены, что хотите прекратить совместное использование?"
-
-msgid "Tracking"
-msgstr "Отслеживание"
-
-msgid "Attention"
-msgstr "Внимание"
-
-msgid "The current images folder is now the public folder !!!"
-msgstr "Текущая папка images теперь является общей папкой !!!"
-
-msgid "Add People"
-msgstr "Добавить людей"
-
-msgid "This page is still in the cart."
-msgstr "Эта страница все еще находится в корзине."
 
 msgid "Wrong address format."
 msgstr "Неправильный формат адреса."
@@ -466,8 +59,17 @@ msgstr "Неправильный формат адреса."
 msgid "Set Calendar Name"
 msgstr "Установить имя календаря"
 
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Confirm"
+msgstr "Подтвердить"
+
 msgid "Set Resource Name"
 msgstr "Установить имя ресурса"
+
+msgid "Name"
+msgstr "Имя"
 
 msgid "Select a resource type"
 msgstr "Выберите тип ресурса"
@@ -483,6 +85,9 @@ msgstr "Видео"
 
 msgid "Description"
 msgstr "Описание"
+
+msgid "OK"
+msgstr "OK"
 
 msgid "Calendars"
 msgstr "Календари"
@@ -504,6 +109,12 @@ msgstr "Включить/исключить календари в боковой
 
 msgid "Ok"
 msgstr "Хорошо"
+
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
 
 msgid "With"
 msgstr "С"
@@ -531,6 +142,9 @@ msgstr "Добавить людей/семью/группы"
 
 msgid "Share your Calendar"
 msgstr "Поделитесь своим календарем"
+
+msgid "Delete"
+msgstr "Удалить"
 
 msgid "Are you sure, you want to delete this Share ?"
 msgstr "Вы уверены, что хотите удалить этот ресурс?"
@@ -574,6 +188,9 @@ msgstr "Изменить имя доли"
 
 msgid "Resource Info for"
 msgstr "Информация о ресурсах для"
+
+msgid "Error"
+msgstr "Ошибка"
 
 msgid "Only administrators have the right to change the Resource description"
 msgstr "Только администраторы имеют право изменять описание ресурса"
@@ -621,6 +238,9 @@ msgid ""
 msgstr ""
 "Вы собираетесь удалить все повторные События, связанные с этим событием. Вы "
 "уверены? Это нельзя отменить."
+
+msgid "No"
+msgstr "Нет"
 
 msgid "Only this event"
 msgstr "Только это событие"
@@ -693,6 +313,9 @@ msgstr "на"
 
 msgid "Attendance Notes: "
 msgstr "Заметки о посещаемости:"
+
+msgid "None"
+msgstr "Нет"
 
 msgid "Title"
 msgstr "Название"
@@ -814,6 +437,12 @@ msgstr "неактивный"
 msgid "Event Creation"
 msgstr "Создание событий"
 
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Save"
+msgstr "Сохранить"
+
 msgid "You've to chose a calendar."
 msgstr "Вы должны выбрать календарь."
 
@@ -834,6 +463,9 @@ msgstr "Загрузка готовой...."
 
 msgid "Month"
 msgstr "Месяц"
+
+msgid "Actions"
+msgstr "Действия"
 
 msgid "Attendance Counts with real Attendees"
 msgstr "Подсчет посещаемости с реальными участниками"
@@ -873,6 +505,28 @@ msgstr "Редактировать/Валидировать кассу"
 
 msgid "Check-out done"
 msgstr "Выезд выполнен"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr ""
+"Нажмите CTRL + C, чтобы скопировать телефонные номера всех членов группы"
+
+msgid "You have no more items in your cart."
+msgstr "У вас больше нет товаров в корзине."
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Classification"
+msgstr "Классификация"
+
+msgid "Family Role"
+msgstr "Роль семьи"
 
 msgid "CKEditor Template Creation"
 msgstr "Создание шаблонов в CKEditor"
@@ -969,6 +623,616 @@ msgstr "Язык"
 msgid "Merge Tags"
 msgstr "Теги слияния"
 
+msgid "Subject:"
+msgstr "Тема:"
+
+msgid "Compose New Message"
+msgstr "Составить новое сообщение"
+
+msgid "Send"
+msgstr "Отправить"
+
+msgid "Error making API Call to"
+msgstr "Ошибка при выполнении вызова API для"
+
+msgid "Error text"
+msgstr "Текст ошибки"
+
+msgid "Stack Trace"
+msgstr "Трассировка стека"
+
+msgid "ERROR"
+msgstr "ОШИБКА"
+
+msgid "In progress"
+msgstr "В процессе"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid ""
+"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
+"click this notification !</b>"
+msgstr ""
+"Теперь все списки загружены в CRM. 1235  4568 Если вы хотите управлять ими, "
+"нажмите на это уведомление! 7899 "
+
+msgid "There was a problem retrieving the requested object"
+msgstr "Возникла проблема с получением запрошенного объекта"
+
+msgid "Select the method to add to a group"
+msgstr "Выберите метод для добавления в группу"
+
+msgid "Select an existing Group"
+msgstr "Выберите существующую группу"
+
+msgid "or Create a new Group from the Cart"
+msgstr "или Создать новую группу из Корзины"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Выберите группу, в которую вы хотите добавить свою корзину"
+
+msgid "Select Group"
+msgstr "Выберите группу"
+
+msgid "Select Role"
+msgstr "Выберите роль"
+
+msgid "Group Name"
+msgstr "Название группы"
+
+msgid "Default Name Group"
+msgstr "Имя по умолчанию Группа"
+
+msgid "Add Cart to Group"
+msgstr "Добавить корзину в группу"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "Вы должны выбрать одну группу и роль группы, если вы хотите"
+
+msgid "You have to set a Group Name"
+msgstr "Вы должны задать имя группы"
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "Вы действительно хотите деактивировать людей?"
+
+msgid "This action can be undone !!!!"
+msgstr "Это действие можно отменить !!!!"
+
+msgid "Yes : if you're sure"
+msgstr "Да: если вы уверены."
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "Вы действительно хотите удалить людей из CRM?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Это действие нельзя отменить !!!!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "Выберите мероприятие, к которому вы хотите добавить корзину"
+
+msgid "Create First A New Event"
+msgstr "Сначала создайте новое событие"
+
+msgid "Add to Event"
+msgstr "Добавить к событию"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"Вы можете добавить содержимое корзины в выбранное событие ниже<br> - ИЛИ - "
+"<br>Создайте сначала событие и добавьте их после."
+
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+msgid "Register your software to CRM team."
+msgstr "Зарегистрируйте свое программное обеспечение в команде CRM."
+
+msgid "Simply click this"
+msgstr "Просто нажмите здесь"
+
+msgid "to register your software"
+msgstr "для регистрации программного обеспечения"
+
+msgid "New Release"
+msgstr "Новый выпуск"
+
+msgid "Installed version"
+msgstr "Установленная версия"
+
+msgid "New One"
+msgstr "Новый"
+
+msgid "To upgrade simply click this Notification"
+msgstr "Для обновления просто нажмите на это Уведомление"
+
+msgid "View Cart"
+msgstr "Посмотреть корзину"
+
+msgid "Empty Cart"
+msgstr "Пустая корзина"
+
+msgid "Empty Cart to Group"
+msgstr "Пустая корзина в группу"
+
+msgid "Empty Cart to Family"
+msgstr "Пустая корзина для семьи"
+
+msgid "Empty Cart to Event"
+msgstr "Пустая корзина до события"
+
+msgid "Map Cart"
+msgstr "Карта Корзина"
+
+msgid "Deactivate Persons From Cart"
+msgstr "Деактивировать лиц из корзины"
+
+msgid "Delete Persons From the CRM"
+msgstr "Удаление лиц из CRM"
+
+msgid "View all"
+msgstr "Смотреть все"
+
+msgid "Your Cart is Empty"
+msgstr "Ваша корзина пуста"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr ""
+"Если вам необходимо внести изменения в регистрационные данные, перейдите в "
+"раздел"
+
+msgid "Admin->Edit General Settings"
+msgstr "Администратор->Редактировать общие настройки"
+
+msgid ""
+"Please register your copy of CRM by checking over this information and "
+"pressing the Send button."
+msgstr ""
+"Пожалуйста, зарегистрируйте свою копию CRM, проверив эту информацию и нажав "
+"кнопку \"Отправить\"."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"Эта информация используется только для отслеживания использования данного "
+"программного обеспечения."
+
+msgid "Church Name"
+msgstr "Название церкви"
+
+msgid "Version"
+msgstr "Версия"
+
+msgid "City"
+msgstr "Город"
+
+msgid "State"
+msgstr "Государство"
+
+msgid "Zip"
+msgstr "Zip"
+
+msgid "Country"
+msgstr "Страна"
+
+msgid "Church Email"
+msgstr "Церковная почта"
+
+msgid "Base URL"
+msgstr "Базовый URL"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Software Registration"
+msgstr "Регистрация программного обеспечения"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "Ваша программа теперь зарегистрирована. Спасибо!"
+
+msgid "Select Volunteer Opportunity"
+msgstr "Выберите возможность для волонтера"
+
+msgid "Please select target volunteers for members"
+msgstr "Пожалуйста, выберите целевых волонтеров для членов клуба"
+
+msgid "Please select target group for members"
+msgstr "Пожалуйста, выберите целевую группу для членов"
+
+msgid "Please select target Role for members"
+msgstr "Пожалуйста, выберите целевую роль для членов"
+
+msgid "GroupID required for role selection prompt"
+msgstr "Идентификатор группы, необходимый для запроса выбора роли"
+
+msgid "Select Group and Role"
+msgstr "Выберите группу и роль"
+
+msgid "Add A Group Name"
+msgstr "Добавить имя группы"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Calendar Event"
+msgstr "Календарное событие"
+
+msgid "Attendees Checked In"
+msgstr "Участники зарегистрировались"
+
+msgid "More info"
+msgstr "Дополнительная информация"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"Внимание! Не выбирайте эту опцию, если вы планируете добавить в существующую "
+"базу данных.<br/>"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will "
+"be destroyed!"
+msgstr ""
+"Используйте только в том случае, если не удовлетворены первоначальным "
+"импортом. Все данные о человеке и участнике будут уничтожены!"
+
+msgid "I Understand"
+msgstr "Я понимаю"
+
+msgid "Clear Persons and Families"
+msgstr "Ясные люди и семьи"
+
+msgid "Data Cleared Successfully!"
+msgstr "Данные очищены успешно!"
+
+msgid "success"
+msgstr "успех"
+
+msgid "Duplicate values"
+msgstr "Дублирование значений"
+
+msgid "You've selected two times the same name"
+msgstr "Вы выбрали два раза одно и то же имя"
+
+msgid "for this field. Chose another one."
+msgstr "для этого поля. Выберите другую."
+
+msgid "Remove Plugin"
+msgstr "Удалить плагин"
+
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Вы собираетесь удалить плагин из своей приборной панели !!!"
+
+msgid "Dashboard Item"
+msgstr "Элемент приборной панели"
+
+msgid "Removed from your dashboard !"
+msgstr "Удалено с приборной панели!"
+
+msgid "Please confirm deletion of this document"
+msgstr "Пожалуйста, подтвердите удаление этого документа"
+
+msgid "Document Delete Confirmation"
+msgstr "Подтверждение удаления документа"
+
+msgid "Document Title"
+msgstr "Название документа"
+
+msgid "Set your Document title"
+msgstr "Задайте название документа"
+
+msgid "Choose your Document Type"
+msgstr "Выберите тип документа"
+
+msgid "document"
+msgstr "документ"
+
+msgid "video"
+msgstr "видео"
+
+msgid "audio"
+msgstr "аудио"
+
+msgid "Private"
+msgstr "Частный"
+
+msgid "Document Editor"
+msgstr "Редактор документов"
+
+msgid "You have to set a Title for your document"
+msgstr "Вы должны задать заголовок для документа"
+
+msgid "Saving Campaign ..."
+msgstr "Спасительная кампания ..."
+
+msgid "Campaign"
+msgstr "Кампания"
+
+msgid "saved successfully"
+msgstr "успешно сохранена"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "Вы собираетесь отправить свою кампанию! Вы уверены?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "Вы собираетесь удалить свою кампанию! Вы уверены?"
+
+msgid "Loading datas ..."
+msgstr "Загрузка данных ..."
+
+msgid "No list are created with this account ...."
+msgstr "С этой учетной записью не создаются списки ...."
+
+msgid "Email List"
+msgstr "Список адресов электронной почты"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Details"
+msgstr "Подробности"
+
+msgid "Subject"
+msgstr "Тема"
+
+msgid "Members:"
+msgstr "Члены:"
+
+msgid "Campaigns:"
+msgstr "Кампании:"
+
+msgid "Unsubscribed count:"
+msgstr "Количество отписавшихся:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Количество отписавшихся с момента последней отправки:"
+
+msgid "Cleaned count:"
+msgstr "Очищенный граф:"
+
+msgid "Cleaned count since last send:"
+msgstr "Очищенный счетчик с момента последней отправки:"
+
+msgid "Campaigns"
+msgstr "Кампании"
+
+msgid "Tags"
+msgstr "Теги"
+
+msgid "is not configured"
+msgstr "не настроен"
+
+msgid "Please update the"
+msgstr "Пожалуйста, обновите"
+
+msgid "API key in Setting->"
+msgstr "Ключ API в разделе Настройка->"
+
+msgid "Edit General Settings"
+msgstr "Редактирование общих настроек"
+
+msgid "then update"
+msgstr "затем обновить"
+
+msgid "For more info see our "
+msgstr "Для получения дополнительной информации см."
+
+msgid "support docs."
+msgstr "вспомогательные документы."
+
+msgid "List Title"
+msgstr "Название списка"
+
+msgid "Your List Title"
+msgstr "Название вашего списка"
+
+msgid "Your Subject"
+msgstr "Ваш предмет"
+
+msgid "Permission Reminder"
+msgstr "Напоминание о разрешении"
+
+msgid "Archive Bars"
+msgstr "Архивные бары"
+
+msgid "Public"
+msgstr "Общественность"
+
+msgid "List Creation"
+msgstr "Создание списка"
+
+msgid "People"
+msgstr "Люди"
+
+msgid "Families"
+msgstr "Семьи"
+
+msgid "Add a new tag"
+msgstr "Добавить новый тег"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Удалить метку у абонента(ов)"
+
+msgid "Delete tag"
+msgstr "Удалить метку"
+
+msgid "Loading resources ..."
+msgstr "Загрузка ресурсов ..."
+
+msgid "Check all boxes"
+msgstr "Отметьте все поля"
+
+msgid "Subscribed"
+msgstr "Подписчики"
+
+msgid "Unsubscribed"
+msgstr "Без подписки"
+
+msgid "Email Marketing"
+msgstr "Email-маркетинг"
+
+msgid "Add your tag name"
+msgstr "Добавьте название своей метки"
+
+msgid "Adding tag..."
+msgstr "Добавление тега..."
+
+msgid "Name is empty !!"
+msgstr "Имя пустое!!!"
+
+msgid "Add tag?"
+msgstr "Добавить метку?"
+
+msgid "This will add the tag"
+msgstr "Это добавит тег"
+
+msgid "to all the current selected members in the list."
+msgstr "всем текущим выбранным членам списка."
+
+msgid "Select One"
+msgstr "Выберите один"
+
+msgid "All Tags"
+msgstr "Все теги"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Выберите тег, который нужно удалить :"
+
+msgid "Removing tags..."
+msgstr "Удаление меток..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Удаление всех тегов для выбранных членов в списке..."
+
+msgid "You're about to delete a tag!"
+msgstr "Вы собираетесь удалить метку!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Это также приведет к удалению тега для всех членов этого списка. Вы уверены?"
+
+msgid "Deleting tag"
+msgstr "Удаление тега"
+
+msgid "A person name or Family or Group"
+msgstr "Имя человека, семьи или группы"
+
+msgid "Loading subscriber"
+msgstr "Загрузка абонента"
+
+msgid "Loading subscribers from Group"
+msgstr "Загрузка подписчиков из группы"
+
+msgid "Loading subscribers from family"
+msgstr "Загрузка подписчиков из семьи"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr "Загрузка всех лиц из EcclesiaCRM<br>Это может занять некоторое время!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"На самом деле, вам лучше выйти из CRM, подождать 5 минут и сделать свои "
+"кампании после.<br> Для импорта огромных данных, API MailChimp работает "
+"медленно."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Загрузка всех подписчиков рассылки из EcclesiaCRM<br>Это может занять "
+"некоторое время!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Загрузка всех семейных подписчиков из EcclesiaCRM<br>Это может занять "
+"некоторое время!"
+
+msgid "Select status for : "
+msgstr "Выберите статус для :"
+
+msgid "Changing status ..."
+msgstr "Изменение статуса ..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Вы собираетесь удалить абонента! Вы уверены?"
+
+msgid "Deleting Subscriber..."
+msgstr "Удаление абонента..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Вы действительно хотите удалить этот список рассылки?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Вы уверены, что хотите удалить всех подписчиков?"
+
+msgid "Deleting all subscribers..."
+msgstr "Удаление всех абонентов..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Фактически, вам лучше выйти из CRM, а через четверть часа снова открыть ее "
+"для управления списком.<br> Для удаления огромных баз данных, MailChimp API "
+"работает медленно."
+
+msgid "Campaign Title"
+msgstr "Название кампании"
+
+msgid "Your Campaign Title"
+msgstr "Название вашей кампании"
+
+msgid "For Tag"
+msgstr "Для тега"
+
+msgid "Mail Subject"
+msgstr "Тема письма"
+
+msgid "Your Mail Subject"
+msgstr "Тема вашего письма"
+
+msgid "All list members"
+msgstr "Все члены списка"
+
+msgid "Email Campaign Creation"
+msgstr "Создание кампаний по электронной почте"
+
+msgid "Adding Campaign ..."
+msgstr "Добавление кампании ..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Хотели бы вы напрямую управлять этой новой кампанией?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr ""
+"Вы должны задать заголовок кампании для вашей кампании электронной почты"
+
+msgid "List Name"
+msgstr "Название списка"
+
+msgid "Changing subscribers state..."
+msgstr "Изменение состояния абонентов..."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Вы собираетесь удалить подписчиков! Вы уверены?"
+
+msgid "Deleting Subscribers..."
+msgstr "Удаление подписчиков..."
+
+msgid "Family"
+msgstr "Семья"
+
+msgid "Person"
+msgstr "Человек"
+
 msgid "Free Event Attendees"
 msgstr "Посетители бесплатных мероприятий"
 
@@ -1045,11 +1309,17 @@ msgstr "Создайте его."
 msgid "Group"
 msgstr "Группа"
 
+msgid "User"
+msgstr "Пользователь"
+
 msgid "No event now."
 msgstr "Сейчас никаких событий."
 
 msgid "Success"
 msgstr "Успех"
+
+msgid "Attention"
+msgstr "Внимание"
 
 msgid "Are you sure you want to DELETE all persons from Event ID:"
 msgstr "Вы уверены, что хотите УДАЛИТЬ всех людей из Event ID:"
@@ -1062,6 +1332,55 @@ msgstr "Удалить тип события"
 
 msgid "This action can never be undone !!!!"
 msgstr "Это действие никогда не может быть отменено !!!!"
+
+msgid "Icon"
+msgstr "Икона"
+
+msgid "Modification Date"
+msgstr "Дата модификации"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "You are about to delete several items together"
+msgstr "Вы собираетесь удалить несколько элементов вместе"
+
+msgid "You're about to remove an item"
+msgstr "Вы собираетесь удалить элемент"
+
+msgid "This can't be undone !!!!"
+msgstr "Этого не отменить !!!!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Вы должны выбрать хотя бы одну линию!!!"
+
+msgid "Create a Folder"
+msgstr "Создать папку"
+
+msgid "Set your Folder name"
+msgstr "Задайте имя папки"
+
+msgid "Actualize files"
+msgstr "Актуализация файлов"
+
+msgid "preview currently being created"
+msgstr "предварительный просмотр находится в стадии создания"
+
+msgid "Set a File/Folder name"
+msgstr "Задайте имя файла/папки"
+
+msgid "Download Error"
+msgstr "Скачать ошибку"
+
+msgid "Are you sure you want to stop sharing for selected users?"
+msgstr ""
+"Вы уверены, что хотите прекратить общий доступ для выбранных пользователей?"
+
+msgid "Are you sure, you want to stop all sharing ?"
+msgstr "Вы уверены, что хотите прекратить совместное использование?"
 
 msgid "Confirm Delete"
 msgstr "Подтверждение Удалить"
@@ -1121,12 +1440,6 @@ msgstr "Детали электронной транзакции"
 msgid "TOTAL"
 msgstr "ВСЕГО"
 
-msgid "Family"
-msgstr "Семья"
-
-msgid "Person"
-msgstr "Человек"
-
 msgid "Anonymous"
 msgstr "Аноним"
 
@@ -1141,9 +1454,6 @@ msgstr "Метод"
 
 msgid "Check Number"
 msgstr "Контрольный номер"
-
-msgid "Details"
-msgstr "Подробности"
 
 msgid "Deposit ID"
 msgstr "Идентификатор вклада"
@@ -1171,6 +1481,54 @@ msgstr "Генерировать квитанцию о внесении депо
 
 msgid "Rows"
 msgstr "Строки"
+
+msgid "Number"
+msgstr "Номер"
+
+msgid "Item"
+msgstr "Пункт"
+
+msgid "Preview"
+msgstr "Предварительный просмотр"
+
+msgid "Multiple"
+msgstr "Множество"
+
+msgid "Donor"
+msgstr "Донор"
+
+msgid "Buyer"
+msgstr "Покупатель"
+
+msgid "Sale Price"
+msgstr "Цена продажи"
+
+msgid "Estimated value"
+msgstr "Оценочная стоимость"
+
+msgid "Material Value"
+msgstr "Материальная ценность"
+
+msgid "Minimum Price"
+msgstr "Минимальная цена"
+
+msgid "Add buyer"
+msgstr "Добавить покупателя"
+
+msgid "Buyer Number"
+msgstr "Номер покупателя"
+
+msgid "Save and Add"
+msgstr "Сохранить и добавить"
+
+msgid "Generate Statement"
+msgstr "Сгенерировать заявление"
+
+msgid "Buyer Number Editor"
+msgstr "Редактор номеров покупателей"
+
+msgid "Select"
+msgstr "Выберите"
 
 msgid "Your operation completed successfully."
 msgstr "Ваша операция завершилась успешно."
@@ -1373,6 +1731,42 @@ msgstr "Вы уверены, что хотите удалить всех мен�
 
 msgid "Appointment"
 msgstr "Назначение"
+
+msgid "Tracking"
+msgstr "Отслеживание"
+
+msgid "Visits/calls"
+msgstr "Посещения/звонки"
+
+msgid "Last visit/call"
+msgstr "Последний визит/звонок"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Удалить тип пасторского ухода"
+
+msgid "For every administrator"
+msgstr "Для каждого администратора"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "Hide"
+msgstr "Скрыть"
+
+msgid "Include all the family members"
+msgstr "Включите всех членов семьи"
+
+msgid "Include"
+msgstr "Включить"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Пасторское попечение Примечание Создание"
+
+msgid "Last Name (Family Name)"
+msgstr "Фамилия (имя семьи)"
+
+msgid "Family Name"
+msgstr "Имя семьи"
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "Вы уверены, что хотите удалить эту семью из CRM"
@@ -1612,6 +2006,81 @@ msgstr "Подтвердить Удалить возможность добро�
 
 msgid "Comments"
 msgstr "Комментарии"
+
+msgid "Confirmation of plugin removal"
+msgstr "Подтверждение удаления плагина"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Вы собираетесь удалить выбранные плагины. Это действие нельзя отменить!"
+
+msgid "Select your zipped plugin file"
+msgstr "Выберите заархивированный файл плагина"
+
+msgid "Download the zipped file of the plugin"
+msgstr "Загрузите заархивированный файл плагина"
+
+msgid "Plugin download manager"
+msgstr "Менеджер загрузки плагинов"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "Текущая папка images теперь является общей папкой !!!"
+
+msgid "All Groups"
+msgstr "Все группы"
+
+msgid "All Roles"
+msgstr "Все роли"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
+"Такие условия поиска, как: имя, фамилия, номер телефона, собственность, "
+"название группы и т.д. ..."
+
+msgid "id"
+msgstr "id"
+
+msgid "Photos"
+msgstr "Фотографии"
+
+msgid "Search result"
+msgstr "Результат поиска"
+
+msgid "Property Name"
+msgstr "Имя собственности"
+
+msgid "Cart Operations"
+msgstr "Операции с тележкой"
+
+msgid "Add This Page"
+msgstr "Добавить эту страницу"
+
+msgid "Loading people in cart...."
+msgstr "Загрузка людей в cart...."
+
+msgid "Add All results"
+msgstr "Добавить все результаты"
+
+msgid "Remove this page"
+msgstr "Удалить эту страницу"
+
+msgid "Removing people in cart...."
+msgstr "Удаление людей в cart...."
+
+msgid "Remove All results"
+msgstr "Удалить все результаты"
+
+msgid "Intersect result with cart"
+msgstr "Результат пересечения с корзиной"
+
+msgid "Add People"
+msgstr "Добавить людей"
+
+msgid "This page is still in the cart."
+msgstr "Эта страница все еще находится в корзине."
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all family data "
@@ -1962,6 +2431,9 @@ msgstr ""
 "Храните эти резервные пароли в безопасном месте на случай, если вы потеряете "
 "учетные данные OTP."
 
+msgid "Backup Complete, Ready for Download."
+msgstr "Резервное копирование завершено, готово к загрузке."
+
 msgid "The user must have an email address."
 msgstr "Пользователь должен иметь адрес электронной почты."
 
@@ -2058,474 +2530,42 @@ msgid "The user has 60 seconds to use his recovery codes."
 msgstr ""
 "У пользователя есть 60 секунд, чтобы использовать свои коды восстановления."
 
-msgid "Saving Campaign ..."
-msgstr "Спасительная кампания ..."
+#, fuzzy
+msgid "Add New Volunteer Opportunity"
+msgstr "Выберите возможность для волонтера"
 
-msgid "Campaign"
-msgstr "Кампания"
+msgid "Activ"
+msgstr "Activ"
 
-msgid "saved successfully"
-msgstr "успешно сохранена"
+msgid "Parent (hierarchy)"
+msgstr "Родитель (иерархия)"
 
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "Вы собираетесь отправить свою кампанию! Вы уверены?"
+msgid "Color"
+msgstr "Цвет"
 
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Вы собираетесь удалить свою кампанию! Вы уверены?"
+#, fuzzy
+msgid "Add to volunteer opportunities"
+msgstr "Выберите возможность для волонтера"
 
-msgid "Loading datas ..."
-msgstr "Загрузка данных ..."
+#, fuzzy
+msgid "Move to volunteer opportunities"
+msgstr "Выберите возможность для волонтера"
 
-msgid "No list are created with this account ...."
-msgstr "С этой учетной записью не создаются списки ...."
+#, fuzzy
+msgid "Confirm Delete This Opportunity"
+msgstr "Подтвердить Удалить возможность добровольца"
 
-msgid "Email List"
-msgstr "Список адресов электронной почты"
+#, fuzzy
+msgid "Please confirm deletion of this record"
+msgstr "Пожалуйста, подтвердите удаление этой групповой записи"
 
-msgid "GDPR"
-msgstr "GDPR"
-
-msgid "Subject"
-msgstr "Тема"
-
-msgid "Members:"
-msgstr "Члены:"
-
-msgid "Campaigns:"
-msgstr "Кампании:"
-
-msgid "Unsubscribed count:"
-msgstr "Количество отписавшихся:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "Количество отписавшихся с момента последней отправки:"
-
-msgid "Cleaned count:"
-msgstr "Очищенный граф:"
-
-msgid "Cleaned count since last send:"
-msgstr "Очищенный счетчик с момента последней отправки:"
-
-msgid "Campaigns"
-msgstr "Кампании"
-
-msgid "Tags"
-msgstr "Теги"
-
-msgid "is not configured"
-msgstr "не настроен"
-
-msgid "Please update the"
-msgstr "Пожалуйста, обновите"
-
-msgid "API key in Setting->"
-msgstr "Ключ API в разделе Настройка->"
-
-msgid "Edit General Settings"
-msgstr "Редактирование общих настроек"
-
-msgid "then update"
-msgstr "затем обновить"
-
-msgid "For more info see our "
-msgstr "Для получения дополнительной информации см."
-
-msgid "support docs."
-msgstr "вспомогательные документы."
-
-msgid "List Title"
-msgstr "Название списка"
-
-msgid "Your List Title"
-msgstr "Название вашего списка"
-
-msgid "Your Subject"
-msgstr "Ваш предмет"
-
-msgid "Permission Reminder"
-msgstr "Напоминание о разрешении"
-
-msgid "Archive Bars"
-msgstr "Архивные бары"
-
-msgid "Public"
-msgstr "Общественность"
-
-msgid "List Creation"
-msgstr "Создание списка"
-
-msgid "People"
-msgstr "Люди"
-
-msgid "Families"
-msgstr "Семьи"
-
-msgid "Add a new tag"
-msgstr "Добавить новый тег"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "Удалить метку у абонента(ов)"
-
-msgid "Delete tag"
-msgstr "Удалить метку"
-
-msgid "Loading resources ..."
-msgstr "Загрузка ресурсов ..."
-
-msgid "Check all boxes"
-msgstr "Отметьте все поля"
-
-msgid "Subscribed"
-msgstr "Подписчики"
-
-msgid "Unsubscribed"
-msgstr "Без подписки"
-
-msgid "Email Marketing"
-msgstr "Email-маркетинг"
-
-msgid "Add your tag name"
-msgstr "Добавьте название своей метки"
-
-msgid "Adding tag..."
-msgstr "Добавление тега..."
-
-msgid "Name is empty !!"
-msgstr "Имя пустое!!!"
-
-msgid "Add tag?"
-msgstr "Добавить метку?"
-
-msgid "This will add the tag"
-msgstr "Это добавит тег"
-
-msgid "to all the current selected members in the list."
-msgstr "всем текущим выбранным членам списка."
-
-msgid "Select One"
-msgstr "Выберите один"
-
-msgid "All Tags"
-msgstr "Все теги"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Выберите тег, который нужно удалить :"
-
-msgid "Removing tags..."
-msgstr "Удаление меток..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Удаление всех тегов для выбранных членов в списке..."
-
-msgid "You're about to delete a tag!"
-msgstr "Вы собираетесь удалить метку!"
-
+#, fuzzy
 msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
+"All membership will be destroyed.  The members themselves will not be "
+"altered."
 msgstr ""
-"Это также приведет к удалению тега для всех членов этого списка. Вы уверены?"
-
-msgid "Deleting tag"
-msgstr "Удаление тега"
-
-msgid "A person name or Family or Group"
-msgstr "Имя человека, семьи или группы"
-
-msgid "Loading subscriber"
-msgstr "Загрузка абонента"
-
-msgid "Loading subscribers from Group"
-msgstr "Загрузка подписчиков из группы"
-
-msgid "Loading subscribers from family"
-msgstr "Загрузка подписчиков из семьи"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr "Загрузка всех лиц из EcclesiaCRM<br>Это может занять некоторое время!"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"На самом деле, вам лучше выйти из CRM, подождать 5 минут и сделать свои "
-"кампании после.<br> Для импорта огромных данных, API MailChimp работает "
-"медленно."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Загрузка всех подписчиков рассылки из EcclesiaCRM<br>Это может занять "
-"некоторое время!"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Загрузка всех семейных подписчиков из EcclesiaCRM<br>Это может занять "
-"некоторое время!"
-
-msgid "Select status for : "
-msgstr "Выберите статус для :"
-
-msgid "Changing status ..."
-msgstr "Изменение статуса ..."
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Вы собираетесь удалить абонента! Вы уверены?"
-
-msgid "Deleting Subscriber..."
-msgstr "Удаление абонента..."
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "Вы действительно хотите удалить этот список рассылки?"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Вы уверены, что хотите удалить всех подписчиков?"
-
-msgid "Deleting all subscribers..."
-msgstr "Удаление всех абонентов..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"Фактически, вам лучше выйти из CRM, а через четверть часа снова открыть ее "
-"для управления списком.<br> Для удаления огромных баз данных, MailChimp API "
-"работает медленно."
-
-msgid "Campaign Title"
-msgstr "Название кампании"
-
-msgid "Your Campaign Title"
-msgstr "Название вашей кампании"
-
-msgid "For Tag"
-msgstr "Для тега"
-
-msgid "Mail Subject"
-msgstr "Тема письма"
-
-msgid "Your Mail Subject"
-msgstr "Тема вашего письма"
-
-msgid "All list members"
-msgstr "Все члены списка"
-
-msgid "Email Campaign Creation"
-msgstr "Создание кампаний по электронной почте"
-
-msgid "Adding Campaign ..."
-msgstr "Добавление кампании ..."
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "Хотели бы вы напрямую управлять этой новой кампанией?"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr ""
-"Вы должны задать заголовок кампании для вашей кампании электронной почты"
-
-msgid "List Name"
-msgstr "Название списка"
-
-msgid "Changing subscribers state..."
-msgstr "Изменение состояния абонентов..."
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Вы собираетесь удалить подписчиков! Вы уверены?"
-
-msgid "Deleting Subscribers..."
-msgstr "Удаление подписчиков..."
-
-msgid "Confirmation of plugin removal"
-msgstr "Подтверждение удаления плагина"
-
-msgid ""
-"You are about to delete the selected plugins. This action cannot be undone!"
-msgstr ""
-"Вы собираетесь удалить выбранные плагины. Это действие нельзя отменить!"
-
-msgid "Select your zipped plugin file"
-msgstr "Выберите заархивированный файл плагина"
-
-msgid "Download the zipped file of the plugin"
-msgstr "Загрузите заархивированный файл плагина"
-
-msgid "Plugin download manager"
-msgstr "Менеджер загрузки плагинов"
-
-msgid "Backup Downloaded, Copy on server removed"
-msgstr "Резервная копия загружена, копия на сервере удалена"
-
-msgid "You must enter a password"
-msgstr "Вы должны ввести пароль"
-
-msgid "Passwords must match"
-msgstr "Пароли должны совпадать"
-
-msgid "Backup Running, Please wait."
-msgstr "Резервное копирование запущено, пожалуйста, подождите."
-
-msgid "Backup in progress, don't close the window !"
-msgstr "Выполняется резервное копирование, не закрывайте окно!"
-
-msgid "Background backup in progress to remote server"
-msgstr "Выполняется фоновое резервное копирование на удаленный сервер"
-
-msgid "Background backup in progress"
-msgstr "Выполняется фоновое резервное копирование"
-
-msgid "Backup Error."
-msgstr "Ошибка резервного копирования."
-
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr "Выбранный файл превышает максимальный размер загрузки этого сервера"
-
-msgid "Restore Running, Please wait."
-msgstr "Восстановление запущено, пожалуйста, подождите."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Восстановите резервную копию, не закрывайте окно!"
-
-msgid "Restore Complete"
-msgstr "Восстановление завершено"
-
-msgid "Login to restored Database"
-msgstr "Вход в восстановленную базу данных"
-
-msgid "Restore Error."
-msgstr "Ошибка восстановления."
-
-msgid "All Groups"
-msgstr "Все группы"
-
-msgid "All Roles"
-msgstr "Все роли"
-
-msgid ""
-"Search terms like : name, first name, phone number, property, group name, "
-"etc ..."
-msgstr ""
-"Такие условия поиска, как: имя, фамилия, номер телефона, собственность, "
-"название группы и т.д. ..."
-
-msgid "id"
-msgstr "id"
-
-msgid "Photos"
-msgstr "Фотографии"
-
-msgid "Search result"
-msgstr "Результат поиска"
-
-msgid "Property Name"
-msgstr "Имя собственности"
-
-msgid "Cart Operations"
-msgstr "Операции с тележкой"
-
-msgid "Add This Page"
-msgstr "Добавить эту страницу"
-
-msgid "Loading people in cart...."
-msgstr "Загрузка людей в cart...."
-
-msgid "Add All results"
-msgstr "Добавить все результаты"
-
-msgid "Remove this page"
-msgstr "Удалить эту страницу"
-
-msgid "Removing people in cart...."
-msgstr "Удаление людей в cart...."
-
-msgid "Remove All results"
-msgstr "Удалить все результаты"
-
-msgid "Intersect result with cart"
-msgstr "Результат пересечения с корзиной"
-
-msgid "Visits/calls"
-msgstr "Посещения/звонки"
-
-msgid "Last visit/call"
-msgstr "Последний визит/звонок"
-
-msgid "Delete Pastoral Care Type"
-msgstr "Удалить тип пасторского ухода"
-
-msgid "For every administrator"
-msgstr "Для каждого администратора"
-
-msgid "Show"
-msgstr "Показать"
-
-msgid "Hide"
-msgstr "Скрыть"
-
-msgid "Include all the family members"
-msgstr "Включите всех членов семьи"
-
-msgid "Include"
-msgstr "Включить"
-
-msgid "Pastoral Care Note Creation"
-msgstr "Пасторское попечение Примечание Создание"
-
-msgid "Last Name (Family Name)"
-msgstr "Фамилия (имя семьи)"
-
-msgid "Family Name"
-msgstr "Имя семьи"
-
-msgid "Number"
-msgstr "Номер"
-
-msgid "Item"
-msgstr "Пункт"
-
-msgid "Preview"
-msgstr "Предварительный просмотр"
-
-msgid "Multiple"
-msgstr "Множество"
-
-msgid "Donor"
-msgstr "Донор"
-
-msgid "Buyer"
-msgstr "Покупатель"
-
-msgid "Sale Price"
-msgstr "Цена продажи"
-
-msgid "Estimated value"
-msgstr "Оценочная стоимость"
-
-msgid "Material Value"
-msgstr "Материальная ценность"
-
-msgid "Minimum Price"
-msgstr "Минимальная цена"
-
-msgid "Add buyer"
-msgstr "Добавить покупателя"
-
-msgid "Buyer Number"
-msgstr "Номер покупателя"
-
-msgid "Save and Add"
-msgstr "Сохранить и добавить"
-
-msgid "Generate Statement"
-msgstr "Сгенерировать заявление"
-
-msgid "Buyer Number Editor"
-msgstr "Редактор номеров покупателей"
-
-msgid "Select"
-msgstr "Выберите"
+"Все члены группы и их свойства будут уничтожены.  Сами члены группы не будут "
+"изменены."
 
 #~ msgid "Done !"
 #~ msgstr "Готово!"
@@ -2536,23 +2576,11 @@ msgstr "Выберите"
 #~ msgid "Nothing to remove."
 #~ msgstr "Ничего не нужно удалять."
 
-#~ msgid "Activ"
-#~ msgstr "Activ"
-
-#~ msgid "Parent (hierarchy)"
-#~ msgstr "Родитель (иерархия)"
-
-#~ msgid "Color"
-#~ msgstr "Цвет"
-
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Вы уверены, что хотите удалить выбранных членов группы?"
 
 #~ msgid "Songs"
 #~ msgstr "Песни"
-
-#~ msgid "Backup Complete, Ready for Download."
-#~ msgstr "Резервное копирование завершено, готово к загрузке."
 
 #~ msgid "Remove all"
 #~ msgstr "Удалить все"
