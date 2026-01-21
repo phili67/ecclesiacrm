@@ -22,7 +22,7 @@
 
 .hr-filemanager {
     margin-left: -8px;
-    margin-right: -19px;
+    margin-right: -8px;
 }
 
 .fille-mamager-label-small{
@@ -34,9 +34,14 @@
     flex: 0 0 380px;
     border-left: 1px solid rgba(0, 0, 0, .125);
     top: -21px;
-    margin-top:6px;
-    margin-bottom: -40px;
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+    margin-top:17px;
+    margin-bottom: -30px;
+    margin-right:9px;
     padding-top: 10px;
+    box-shadow: 0 0 1px rgba(0,0,0,.125),0 1px 3px rgba(0,0,0,.2);
+    background-color: rgb(233, 233, 233);
+    border-bottom: 1Opx !important;
 } 
 
 .file-image-preview {
@@ -62,8 +67,14 @@
   font-size: 11px;
 }
 
+#dropdownMenuButtonRights {
+    margin-left:-10px;
+}
+
 .form-control-access-rights {
     margin-left:-3px;
+    margin-right:-10px;
+    width:95%;
 }
 
 .div-title-file-manager {
@@ -148,12 +159,27 @@
         margin-top: 0px;
         margin-left:0px;
     }
+
+    #dropdownMenuButtonRights {
+        margin-left:+20px;
+    }
+
+    .form-control-access-rights {
+        width:98%;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     .filmanager-right {
         border-left: solid 1px #a19d9d;
+        background-color: #454d55;
+        box-shadow: 0 0 1px rgba(0,0,0,.125),0 1px 3px rgba(0,0,0,.2);
+        border-left: solid 1px #5d5b5b;
     } 
+
+    .hr-filemanager {
+        border-top: 1px solid rgba(245, 245, 245, 0.1);
+    }
 
     .folder-back-button { 
         border-color: #93c5f9 !important;
