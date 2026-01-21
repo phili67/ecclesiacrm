@@ -7,36 +7,13 @@ cd src
 find . -iname '*.php' -not -path "./Plugins/*" | sort | grep -v ./vendor | xargs xgettext --from-code=UTF-8 -o ../locale/messages.pot -L PHP
 
 # Extract JS Terms
-i18next-extract-gettext --files=skin/js/*.js --output=../locale/js-strings1.pot
-i18next-extract-gettext --files=skin/js/calendar/*.js --output=../locale/js-strings2.pot
-i18next-extract-gettext --files=skin/js/ckeditor/*.js --output=../locale/js-strings3.pot
-i18next-extract-gettext --files=skin/js/ckeditor/configs/*.js --output=../locale/js-strings33.pot
-i18next-extract-gettext --files=skin/js/email/*.js --output=../locale/js-strings4.pot
-i18next-extract-gettext --files=skin/js/event/*.js --output=../locale/js-strings5.pot
-i18next-extract-gettext --files=skin/js/finance/*.js --output=../locale/js-strings6.pot
-i18next-extract-gettext --files=skin/js/gdpr/*.js --output=../locale/js-strings7.pot
-i18next-extract-gettext --files=skin/js/group/*.js --output=../locale/js-strings8.pot
-i18next-extract-gettext --files=skin/js/people/*.js --output=../locale/js-strings9.pot
-i18next-extract-gettext --files=skin/js/sidebar/*.js --output=../locale/js-strings10.pot
-i18next-extract-gettext --files=skin/js/sundayschool/*.js --output=../locale/js-strings11.pot
-i18next-extract-gettext --files=skin/js/system/*.js --output=../locale/js-strings12.pot
-i18next-extract-gettext --files=skin/js/user/*.js --output=../locale/js-strings13.pot
+i18next-extract-gettext --files=skin/js/**/**/*.js --output=../locale/js-strings1.pot
+i18next-extract-gettext --files=skin/external/jquery-photo-uploader/**/**/*.js --output=../locale/js-strings2.pot
+i18next-extract-gettext --files=skin/js/upgrade/**/**/*.js --output=../locale/js-strings3.pot
 
-i18next-extract-gettext --files=skin/js/email/MailChimp/*.js --output=../locale/js-strings14.pot
-i18next-extract-gettext --files=skin/js/plugins/*.js --output=../locale/js-strings15.pot
-i18next-extract-gettext --files=skin/js/backup/*.js --output=../locale/js-strings16.pot
-i18next-extract-gettext --files=skin/js/Search/*.js --output=../locale/js-strings17.pot
-i18next-extract-gettext --files=skin/js/pastoralcare/*.js --output=../locale/js-strings18.pot
-i18next-extract-gettext --files=skin/js/fundraiser/*.js --output=../locale/js-strings19.pot
-i18next-extract-gettext --files=skin/js/groupcommon/*.js --output=../locale/js-strings20.pot
+msgcat ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot  -o ../locale/js-strings.pot
 
-i18next-extract-gettext --files=skin/external/jquery-photo-uploader/*.js --output=../locale/js-strings21.pot
-
-i18next-extract-gettext --files=skin/js/upgrade/*.jss --output=../locale/js-strings22.pot
-
-msgcat ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot  ../locale/js-strings33.pot ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot ../locale/js-strings16.pot ../locale/js-strings17.pot ../locale/js-strings18.pot ../locale/js-strings19.pot ../locale/js-strings20.pot ../locale/js-strings21.pot -o ../locale/js-strings.pot
-
-rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot ../locale/js-strings33.pot  ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot ../locale/js-strings16.pot ../locale/js-strings17.pot ../locale/js-strings18.pot ../locale/js-strings19.pot ../locale/js-strings20.pot ../locale/js-strings21.pot
+rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot
 
 cd ../locale
 
@@ -139,9 +116,7 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
           rm "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po~"
        fi
 
-       # js files for plugin
-       i18next-extract-gettext --files="../src/Plugins/${pluginName}/skin/js/*.js" --output="../src/Plugins/${pluginName}/locale/js-strings-${pluginName}.pot" --ns="${pluginName}"
-
+       i18next-extract-gettext --files="../src/Plugins/${pluginName}/skin/js/**/**/*.js" --output="../src/Plugins/${pluginName}/locale/js-strings-${pluginName}.pot" --ns="${pluginName}"
        msgmerge -U "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po" "../src/Plugins/${pluginName}/locale/js-strings-${pluginName}.pot"
 
        if [ -f "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po~" ]; then
