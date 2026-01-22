@@ -27,42 +27,43 @@ require $sRootDocument . '/Include/Header.php';
     <div class="card-body">
         <?php if ($user->isEDriveEnabled()) { ?>
             <form action="#" method="post" id="formId" enctype="multipart/form-data">
-                <div class="card card-primary">
+                <div class="card card-primary collapsed-card">
                     <div class="card-header">
-                        <a data-toggle="collapse" href="#collapse-example" aria-expanded="true" aria-controls="collapse-example" id="heading-example" class="d-block">
-                            <i class="fa fa-chevron-down pull-right"></i>
-                            <?= _("Download files") ?>
-                        </a>
+                        <h3 class="card-title"><i class="fa-solid fa-download"></i> <?= _("Download files") ?></h3>
+
+                        <div class="card-tools pull-right">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                        </div>
                     </div>
-                    <div id="collapse-example" class="collapse" aria-labelledby="heading-example">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label for="noteInputFile"><?= _("Files input") ?></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="file" class="btn btn-primary" id="noteInputFile" name="noteInputFile[]" multiple>
-                                </div>
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="noteInputFile"><?= _("Files input") ?></label>
                             </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-2 download-zone" style="display: none"><label><?= _("Download status") ?></label></div>
-                                <div class="col-md-6 download-zone" style="display: none">
-                                    <progress id="progress-bar" value="0" max="100"></progress> <label id="progress-bar-label" for="progress-bar">0%</label>
-                                </div>
+                            <div class="col-md-6">
+                                <input type="file" class="btn btn-primary" id="noteInputFile" name="noteInputFile[]" multiple>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label><?= _('Upload your files') ?></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="submit" class="btn btn-success" name="Submit"><i class="fas fa-cloud-upload-alt"></i> <?= _("Upload") ?></button><br />
-                                </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2 download-zone" style="display: none"><label><?= _("Download status") ?></label></div>
+                            <div class="col-md-6 download-zone" style="display: none">
+                                <progress id="progress-bar" value="0" max="100"></progress> <label id="progress-bar-label" for="progress-bar">0%</label>
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label><?= _('Upload your files') ?></label>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-success" name="Submit"><i class="fas fa-cloud-upload-alt"></i> <?= _("Upload") ?></button><br />
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </form>
         <?php } ?>
@@ -138,7 +139,7 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                             <div class="row div-title">
                                 <div class="col-md-3">
-                                    <span style="color: red">*</span><?= ("Add user") ?>:
+                                    <span style="color: red">*</span><?= _("Add users") ?> :
                                 </div>
                                 <div class="col-md-9">
                                     <a data-toggle="popover" title="" data-content="<?= _("Use this method to share files with individuals or teams within your organization. If the recipient already has access to the share, but can't locate it, you can send them the internal link to facilitate access.") ?>" target="_blank" class="blue infoFiles" data-original-title="<?= _("Definition") ?>"><i class="far  fa-question-circle"></i></a>
