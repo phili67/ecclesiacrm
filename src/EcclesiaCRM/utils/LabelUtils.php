@@ -54,7 +54,7 @@ class LabelUtils {
         sort($fontnames);
     ?>
       <div class="row">
-        <div class="col-md-6"><label><?= gettext('Font') ?></label></div>
+        <div class="col-md-3"><label><?= gettext('Font') ?></label></div>
         <div class="col-md-6">
              <select name="<?= $fieldname ?>" class="form-control form-control-sm" id="<?= $fieldname ?>">
              <?php
@@ -81,7 +81,7 @@ class LabelUtils {
       ?>
         <div class="row">
           <?php if ($withTitle) { ?>
-          <div class="col-md-6"><label><?= gettext('Font Size').(!empty($message)?' '.$message:'') ?></label></div>
+          <div class="col-md-3"><label><?= gettext('Font Size').(!empty($message)?' '.$message:'') ?></label></div>
           <?php } ?>
           <div class="col-md-<?= $withTitle?6:12 ?>">
              <select name="<?= $fieldname ?>" class="form-control form-control-sm" id="<?= $fieldname ?>">
@@ -126,7 +126,7 @@ class LabelUtils {
     ?>
 
         <div class="row">
-          <div class="col-md-6"><label><?= $title ?></label></div>
+          <div class="col-md-3"><label><?= $title ?></label></div>
           <div class="col-md-6">
             <select name="<?= $fieldname ?>" class="form-control form-control-sm" id="<?= $fieldname ?>">
             <?php
@@ -151,7 +151,7 @@ class LabelUtils {
     {
     ?>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-3">
             <label><?= gettext('Label Grouping') ?></label>
           </div>
           <div class="col-md-6">
@@ -167,7 +167,7 @@ class LabelUtils {
     {
     ?>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-3">
             <label><?= gettext('To the parents of') ?></label></div>
           <div class="col-md-6">
             <input name="<?= $fieldname ?>" type="checkbox" id="ToParent" value="1" <?= (array_key_exists($fieldname, $_COOKIE) && $_COOKIE[$fieldname])?'checked':'' ?>>
@@ -181,14 +181,14 @@ class LabelUtils {
     {
     ?>
       <div class="row">
-        <div class="col-md-6"><label><?= gettext('Start Row') ?></label></div>
+        <div class="col-md-3"><label><?= gettext('Start Row') ?></label></div>
         <div class="col-md-6">
           <input type="text" name="startrow" id="startrow" maxlength="2" size="3" value="1" class= "form-control form-control-sm">
         </div>
       </div>
       <br>
       <div class="row">
-        <div class="col-md-6"><label><?= gettext('Start Column') ?></label></div>
+        <div class="col-md-3"><label><?= gettext('Start Column') ?></label></div>
         <div class="col-md-6">
           <input type="text" name="startcol" id="startcol" maxlength="2" size="3" value="1" class= "form-control form-control-sm">
         </div>
@@ -201,7 +201,7 @@ class LabelUtils {
     {
     ?>
       <div class="row">
-        <div class="col-md-6"><?= gettext('Ignore Incomplete<br>Addresses') ?>:</div>
+        <div class="col-md-3"><?= gettext('Ignore Incomplete<br>Addresses') ?>:</div>
         <div class="col-md-6">
           <input type="checkbox" name="onlyfull" id="onlyfull" value="1" checked>
         </div>
@@ -214,7 +214,7 @@ class LabelUtils {
     {
     ?>
       <div class="row">
-        <div class="col-md-6"><?= gettext('File Type') ?>:</div>
+        <div class="col-md-3"><?= gettext('File Type') ?>:</div>
         <div class="col-md-6">
           <select name="filetype" class="form-control form-control-sm">
             <option value="PDF">PDF</option>
