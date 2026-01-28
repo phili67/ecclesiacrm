@@ -32,6 +32,50 @@ window.CRM.APIRequest = function (options, callback) {
     });
 }
 
+window.CRM.APIDownloadRequest = function (options, callback) {
+  if (!options.method) {
+    options.method = "GET";
+  }
+
+  if (!options.extension) {
+    options.extension = 'txt';
+  }
+
+  if (!options.name) {
+    options.name = 'none';
+  }
+
+  if (!options.ContentType) {
+    options.ContentType = "application/json; charset=utf-8";
+  }
+
+  fetch(window.CRM.root + "/api/" + options.path, {
+    method: options.method,
+    headers: {
+      'Content-Type': options.ContentType,
+      'Authorization': 'Bearer ' + window.CRM.jwtToken,
+    },
+    body: options.data
+  })
+    .then(res => res.blob())
+    .then(blob => {
+      // enter you logic when the fetch is successful
+      if (callback) {
+        callback(blob, options.name, options.extension);
+      } else {
+        var fileURL = URL.createObjectURL(blob);
+        var fileLink = document.createElement('a');
+        fileLink.href = fileURL;
+        fileLink.download = options.name + '.' + options.extension;
+        fileLink.click();
+      }
+    })
+    .catch(error => {
+      // enter your logic for when there is an error (ex. error toast)
+      console.log(error)
+    });
+}
+
 window.CRM.DisplayErrorMessage = function (endpoint, error) {
   if (window.CRM.sLogLevel > 100)
     return;
