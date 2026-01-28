@@ -29,6 +29,7 @@ namespace EcclesiaCRM
       private static $DavServer;
       private static $localeInfo;
       private static $sSoftwareName;
+      private static $sSoftwareIcon;
 
       /**
        *
@@ -39,7 +40,8 @@ namespace EcclesiaCRM
       private static StandardServiceContainer $serviceContainer2;
 
       public static function init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, 
-            $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false,$sSoftwareName="EcclesiaCRM")
+            $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false,
+            $sSoftwareName="EcclesiaCRM", $sSoftwareIcon='icon-small.png')
       {
           global $debugBootstrapper;
           self::$databaseServerName = $sSERVERNAME;
@@ -51,6 +53,7 @@ namespace EcclesiaCRM
           self::$DavServer = $davserver;
           self::$localeInfo = NULL;
           self::$sSoftwareName = $sSoftwareName;
+          self::$sSoftwareIcon = $sSoftwareIcon;
 
           try {
               SystemURLs::init($sRootPath, $URL, dirname(dirname(__FILE__)));
@@ -112,6 +115,16 @@ namespace EcclesiaCRM
       public static function getSoftwareName(): ?string
       {
         return self::$sSoftwareName;
+      }
+
+      public static function getSofwareIcon() : ?string
+      {
+        return SystemURLs::getRootPath()."/".self::$sSoftwareIcon;        
+      }
+
+      public static function getSofwareIconDocumentRoot() : ?string
+      {
+        return SystemURLs::getDocumentRoot()."/".self::$sSoftwareIcon;        
       }
 
       public static function getRealLocalInfo()
