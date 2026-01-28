@@ -166,7 +166,11 @@ if (empty($urlPassword)) {
 
 if ( ((isset($_SESSION['iUserID']) and $_SESSION['iUserID'] == 0) or !isset($_SESSION['iUserID'])) and $type == 'Lock' and  isset($_SESSION['username']) ) {
     $currentUser = UserQuery::create()->findOneByUserName($_SESSION['username']);
-    $id = $currentUser->getId();
+    if (!is_null($currentUser)) {
+        $id = $currentUser->getId();
+    } else {
+        $id = 0;
+    }
 }
 
 // we destroy the session
