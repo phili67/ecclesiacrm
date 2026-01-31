@@ -24,7 +24,7 @@ $(function() {
             })
         }, function (data) {
             // we reload all the events
-            document.getElementById('myimage').src = data.imgData;
+            document.getElementById('previewImage').src = data.imgData;
             if (callback) {
                 callback(data);
             }

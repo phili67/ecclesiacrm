@@ -102,6 +102,19 @@
     border: 2px solid rgb(98, 190, 255);
 }
 
+.box-file {
+    border: 1px solid #548fc3;
+    border-radius: 5px;
+    padding: 2px 5px 2px 5px;
+    background-color: lightgray;
+    font-size: 12px;
+    margin:3px;
+}
+
+#previewImage {
+    border: 1px solid gray;
+}
+
 .edrive-table-browse {
     margin-top:10px;
 }
