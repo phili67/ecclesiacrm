@@ -14,9 +14,9 @@ use EcclesiaCRM\Base\GroupQuery as BaseGroupQuery;
  * long as it does not already exist in the output directory.
  */
 
-use \Propel\Runtime\Connection\ConnectionInterface;
 use \Propel\Runtime\ActiveQuery\Join;
 use \Propel\Runtime\ActiveQuery\Criteria;
+use \Propel\Runtime\Connection\ConnectionInterface;
 
 class GroupQuery extends BaseGroupQuery
 {

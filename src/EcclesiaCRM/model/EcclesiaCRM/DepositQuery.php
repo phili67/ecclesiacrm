@@ -3,6 +3,7 @@
 namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\DepositQuery as BaseDepositQuery;
+use Propel\Runtime\Connection\ConnectionInterface;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'deposit_dep' table.
@@ -15,7 +16,7 @@ use EcclesiaCRM\Base\DepositQuery as BaseDepositQuery;
  */
 class DepositQuery extends BaseDepositQuery
 {
-    public function preSelect(\Propel\Runtime\Connection\ConnectionInterface $con): void
+    public function preSelect(ConnectionInterface $con): void
     {
         $this->joinPledge();
         $this->groupBy('Deposit.Id');

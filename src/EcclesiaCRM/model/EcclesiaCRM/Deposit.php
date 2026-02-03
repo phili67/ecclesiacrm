@@ -17,6 +17,8 @@ use EcclesiaCRM\Utils\MiscUtils;
 use DateTime;
 use DateTimeZone;
 
+use Propel\Runtime\Connection\ConnectionInterface;
+
 /**
  * Skeleton subclass for representing a row from the 'deposit_dep' table.
  *
@@ -29,7 +31,7 @@ use DateTimeZone;
 class Deposit extends BaseDeposit
 {
 
-    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL): bool
+    public function preDelete(?ConnectionInterface $con = NULL): bool
     {
         if (parent::preDelete($con)) {
           $this->getPledges()->delete();
@@ -506,7 +508,7 @@ class Deposit extends BaseDeposit
         return $funds;
     }
 
-    public function getPledgesJoinAll(Criteria $criteria = null, \Propel\Runtime\Connection\ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPledgesJoinAll(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPledgeQuery::create(null, $criteria);
         $query->joinWith('Family', Criteria::RIGHT_JOIN);

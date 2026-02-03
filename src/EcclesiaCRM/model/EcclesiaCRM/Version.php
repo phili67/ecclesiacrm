@@ -3,6 +3,7 @@
 namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\Version as BaseVersion;
+use Propel\Runtime\Connection\ConnectionInterface;
 
 /**
  * Skeleton subclass for representing a row from the 'version_ver' table.
@@ -15,7 +16,7 @@ use EcclesiaCRM\Base\Version as BaseVersion;
  */
 class Version extends BaseVersion
 {
-    public function preSave(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+    public function preSave(?ConnectionInterface $con = null): bool
     {
         //before we try to save this version object to the database, ensure that
     //the database has the correct columns to accomedate the version data
