@@ -4,6 +4,7 @@ namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\Person2group2roleP2g2r as BasePerson2group2roleP2g2r;
 use EcclesiaCRM\Utils\MiscUtils;
+use Propel\Runtime\Connection\ConnectionInterface;
 
 /**
  * Skeleton subclass for representing a row from the 'person2group2role_p2g2r' table.
@@ -16,28 +17,28 @@ use EcclesiaCRM\Utils\MiscUtils;
  */
 class Person2group2roleP2g2r extends BasePerson2group2roleP2g2r
 {
-    public function preSave(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+    public function preSave(?ConnectionInterface $con = null): bool
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');        
 
         return parent::preSave($con);;
     }
 
-    public function preUpdate(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');        
 
         return parent::preUpdate($con);;
     }
 
-    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');        
 
         return parent::preDelete($con);;
     }
 
-    public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');        
 

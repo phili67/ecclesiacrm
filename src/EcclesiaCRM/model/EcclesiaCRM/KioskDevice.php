@@ -3,7 +3,7 @@
 namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\KioskDevice as BaseKioskDevice;
-
+use Propel\Runtime\Connection\ConnectionInterface;
 
 class KioskDevice extends BaseKioskDevice
 {
@@ -89,7 +89,7 @@ class KioskDevice extends BaseKioskDevice
     return true;
   }
 
-  public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+  public function preInsert(?ConnectionInterface $con = null): bool
   {
     if (!isset($this->Name))
     {

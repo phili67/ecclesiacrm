@@ -77,7 +77,7 @@ class User extends BaseUser
         return $this->getPersonId();
     }
 
-    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL): bool
+    public function preDelete(?ConnectionInterface $con = NULL): bool
     {
         if (parent::preDelete($con)) {
             $this->deleteHomeDir();

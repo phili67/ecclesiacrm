@@ -17,8 +17,7 @@ use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\CardDavPDO;
 
 use EcclesiaCRM\CardDav\VcardUtils;
-
-
+use Propel\Runtime\Connection\ConnectionInterface;
 
 /**
  * Skeleton subclass for representing a row from the 'group_grp' table.
@@ -64,21 +63,21 @@ class Group extends BaseGroup
         return parent::addPerson2group2roleP2g2r($l);
     }
 
-    public function preSave(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+    public function preSave(?ConnectionInterface $con = null): bool
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');        
 
         return parent::preSave($con);;
     }
 
-    public function preUpdate(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');        
 
         return parent::preUpdate($con);;
     }
 
-    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');
 
@@ -114,7 +113,7 @@ class Group extends BaseGroup
         return parent::preDelete($con);;
     }
 
-    public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null): bool
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');
         $defaultRole = 1;
@@ -140,7 +139,7 @@ class Group extends BaseGroup
         return parent::preInsert($con);;
     }
 
-    public function postInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null): void
+    public function postInsert(?ConnectionInterface $con = null): void
     {
         $optionList = [_('Member')];
         if ($this->isSundaySchool()) {
@@ -238,7 +237,7 @@ class Group extends BaseGroup
         }
     }
 
-    public function postSave(\Propel\Runtime\Connection\ConnectionInterface $con = null): void
+    public function postSave(?ConnectionInterface $con = null): void
     {
         if (is_callable('parent::postSave')) {
             parent::postSave($con);
