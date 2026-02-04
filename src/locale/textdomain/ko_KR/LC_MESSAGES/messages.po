@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-21 16:06+0000\n"
+"POT-Creation-Date: 2026-02-04 18:03+0000\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +63,7 @@ msgstr "비디오"
 #: v2/templates/calendar/eventtypesedit.php:156
 #: v2/templates/cart/carttobadge.php:117
 #: v2/templates/deposit/autaPaymentEditor.php:375
-#: v2/templates/group/groupbadge.php:148 v2/templates/group/groupreports.php:47
+#: v2/templates/group/groupbadge.php:173 v2/templates/group/groupreports.php:47
 #: v2/templates/group/groupreports.php:149
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
 #: v2/templates/pastoralcare/pastoralcarefamily.php:325
@@ -270,14 +270,14 @@ msgstr "파일 또는 폴더 이름이 이미 존재합니다!!!"
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: browser/browse.php:155 v2/templates/edrive/dashboard.php:133
+#: browser/browse.php:155 v2/templates/edrive/dashboard.php:134
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: browser/browse.php:156 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:135
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
@@ -302,7 +302,7 @@ msgstr "은행 계좌"
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:259
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:284
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:142
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:144
 #: v2/templates/deposit/financialReports.php:346
 #: v2/templates/deposit/pledgeEditor.php:125
 msgid "Cash"
@@ -310,7 +310,7 @@ msgstr "현금"
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:267
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:284
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:137
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:139
 msgid "Checks"
 msgstr "수표"
 
@@ -332,7 +332,7 @@ msgid "newsletter"
 msgstr "뉴스레터"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:77
-#: EcclesiaCRM/Search/FamilySearchRes.php:51 v2/templates/cart/cartview.php:195
+#: EcclesiaCRM/Search/FamilySearchRes.php:51 v2/templates/cart/cartview.php:186
 msgid "families"
 msgstr "가족"
 
@@ -480,7 +480,8 @@ msgstr "그룹에 추가됨"
 #: v2/templates/group/groupPropsEditor.php:222
 #: v2/templates/group/groupPropsFormEditor.php:297
 #: v2/templates/group/groupPropsFormEditor.php:371
-#: v2/templates/group/groupedit.php:50 v2/templates/group/groupview.php:392
+#: v2/templates/group/groupbadge.php:143 v2/templates/group/groupedit.php:50
+#: v2/templates/group/groupview.php:392
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:405
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:568
 #: v2/templates/people/familyCustomFieldEditor.php:320
@@ -1214,7 +1215,7 @@ msgid "Your CRM Account was Deleted."
 msgstr "CRM 계정이 삭제되었습니다."
 
 #: EcclesiaCRM/Emails/users/BaseUserEmail.php:30
-#: session/templates/session.php:232
+#: session/templates/session.php:236
 msgid "Email/Username"
 msgstr "이메일/사용자 이름"
 
@@ -1317,14 +1318,14 @@ msgstr "가족 정보를 확인해 주세요."
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
 #: external/templates/password/enter-username.php:37
 #: external/templates/password/password-check-email.php:31
-#: ident/templates/verify/login-info.php:46 session/templates/session.php:264
+#: ident/templates/verify/login-info.php:46 session/templates/session.php:268
 msgid "Login"
 msgstr "로그인"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:40 session/templates/session.php:245
-#: session/templates/session.php:345 v2/templates/BackupRestore/backup.php:85
+#: ident/templates/verify/login-info.php:40 session/templates/session.php:249
+#: session/templates/session.php:349 v2/templates/BackupRestore/backup.php:85
 #: v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "비밀번호"
@@ -1668,8 +1669,8 @@ msgstr "의"
 
 #: EcclesiaCRM/Reports/PDF_Attendance.php:218
 #: EcclesiaCRM/Reports/PDF_Attendance.php:626
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:104
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:120
 #: sundayschool/SundaySchoolAttendeesExport.php:184
 msgid "Totals"
 msgstr "합계"
@@ -1942,7 +1943,7 @@ msgid "Wedding"
 msgstr "웨딩"
 
 #: EcclesiaCRM/Reports/PDF_Directory.php:366
-#: v2/templates/cart/carttobadge.php:133 v2/templates/group/groupbadge.php:164
+#: v2/templates/cart/carttobadge.php:133 v2/templates/group/groupbadge.php:188
 msgid "and"
 msgstr "그리고"
 
@@ -2225,7 +2226,7 @@ msgstr "기념일"
 #: v2/templates/calendar/eventnames.php:347
 #: v2/templates/deposit/electronicPaymentList.php:215
 #: v2/templates/deposit/finddepositslip.php:103
-#: v2/templates/edrive/dashboard.php:107
+#: v2/templates/edrive/dashboard.php:108
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/pastoralcare/pastoralcarefamily.php:299
@@ -2992,7 +2993,7 @@ msgstr "개인을 주소로 변환"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:211
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:258
-#: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
+#: v2/templates/cart/cartview.php:65 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:379
 msgid "CSV Export"
 msgstr "CSV 내보내기"
@@ -5157,54 +5158,54 @@ msgstr "잘못된 구성 이름을 요청했습니다."
 msgid "An invalid configuration id has been requested"
 msgstr "잘못된 구성 ID를 요청했습니다."
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:100
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
 msgid "Coin"
 msgstr "코인"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:101
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:117
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:103
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:119
 msgid "Counts"
 msgstr "카운트"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:110
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:112
 msgid "Total Coin"
 msgstr "총 코인"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:116
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
 msgid "Bill"
 msgstr "Bill"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:126
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:128
 msgid "Total Cash"
 msgstr "총 현금"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:133
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:135
 msgid "Deposit totals by Currency Type"
 msgstr "통화 유형별 입금액 합계"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:150
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:152
 #: Reports/AdvancedDeposit.php:875
 msgid "Deposit totals by fund"
 msgstr "펀드별 예치금 총액"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:222
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:280
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:224
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282
 msgid "Deposit Summary"
 msgstr "입금 요약"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:244
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:365
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:246
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:367
 msgid "Deposit total"
 msgstr "총 입금액"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:290
 #: Reports/AdvancedDeposit.php:314 Reports/AdvancedDeposit.php:323
 #: Reports/AdvancedDeposit.php:332 Reports/ReminderReport.php:405
 #: Reports/TaxReport.php:390
 msgid "Chk No."
 msgstr "Chk No."
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:291
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:293
 #: Reports/AdvancedDeposit.php:315 Reports/AdvancedDeposit.php:334
 #: Reports/FamilyPledgeSummary.php:232 Reports/PledgeSummary.php:250
 #: Reports/ReminderReport.php:324 Reports/ReminderReport.php:407
@@ -5216,23 +5217,23 @@ msgstr "Chk No."
 msgid "Fund"
 msgstr "펀드"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294 Reports/ReminderReport.php:406
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:296 Reports/ReminderReport.php:406
 #: Reports/TaxReport.php:391
 msgid "PmtMethod"
 msgstr "PmtMethod"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:299
 msgid "Rcd From"
 msgstr "Rcd 출발지"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:300
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:302
 #: Reports/AdvancedDeposit.php:317 Reports/AdvancedDeposit.php:326
 #: Reports/AdvancedDeposit.php:335 Reports/ReminderReport.php:408
 #: Reports/TaxReport.php:393
 msgid "Memo"
 msgstr "메모"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:303
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:305
 #: Reports/AdvancedDeposit.php:318 Reports/AdvancedDeposit.php:327
 #: Reports/AdvancedDeposit.php:336 Reports/FundRaiserStatement.php:129
 #: Reports/FundRaiserStatement.php:173 Reports/ReminderReport.php:325
@@ -5243,13 +5244,13 @@ msgstr "메모"
 msgid "Amount"
 msgstr "금액"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:321
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:323
 msgid "Anonymous"
 msgstr "익명"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:394
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:399
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:404
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:396
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:401
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:406
 msgid "Witness"
 msgstr "증인"
 
@@ -5291,7 +5292,7 @@ msgstr "프로필 이미지 삭제됨"
 msgid "Profile Image uploaded"
 msgstr "프로필 이미지 업로드"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Group.php:145 Reports/CanvassReports.php:279
+#: EcclesiaCRM/model/EcclesiaCRM/Group.php:144 Reports/CanvassReports.php:279
 #: Reports/VotingMembers.php:102 v2/templates/people/selectDelete.php:339
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -5579,8 +5580,8 @@ msgstr "글꼴"
 
 #: EcclesiaCRM/utils/LabelUtils.php:80 Reports/PDFBadge.php:128
 #: Reports/PDFBadgeGroup.php:233 Reports/PDFLabel.php:793
-#: v2/templates/cart/carttobadge.php:152 v2/templates/group/groupbadge.php:84
-#: v2/templates/group/groupbadge.php:117 v2/templates/group/groupbadge.php:201
+#: v2/templates/cart/carttobadge.php:152 v2/templates/group/groupbadge.php:89
+#: v2/templates/group/groupbadge.php:128 v2/templates/group/groupbadge.php:234
 msgid "default"
 msgstr "기본값"
 
@@ -6265,7 +6266,7 @@ msgstr ""
 
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
-#: v2/templates/group/groupbadge.php:104 v2/templates/group/groupbadge.php:107
+#: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:118
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:223
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
 #: v2/templates/pastoralcare/pastoralcareperson.php:176
@@ -6492,76 +6493,76 @@ msgstr "다운로드"
 msgid "Insert"
 msgstr "삽입"
 
-#: browser/browse.php:56 v2/templates/edrive/dashboard.php:34
+#: browser/browse.php:56 v2/templates/edrive/dashboard.php:32
 msgid "Download files"
 msgstr "파일 다운로드"
 
-#: browser/browse.php:63 v2/templates/edrive/dashboard.php:41
+#: browser/browse.php:63 v2/templates/edrive/dashboard.php:42
 msgid "Files input"
 msgstr "파일 입력"
 
-#: browser/browse.php:71 v2/templates/edrive/dashboard.php:49
+#: browser/browse.php:71 v2/templates/edrive/dashboard.php:50
 msgid "Download status"
 msgstr "다운로드 상태"
 
-#: browser/browse.php:80 v2/templates/edrive/dashboard.php:58
+#: browser/browse.php:80 v2/templates/edrive/dashboard.php:59
 msgid "Upload your files"
 msgstr "파일 업로드"
 
 #: browser/browse.php:83 v2/templates/cart/carttobadge.php:127
-#: v2/templates/cart/carttobadge.php:133 v2/templates/edrive/dashboard.php:61
-#: v2/templates/group/groupbadge.php:158 v2/templates/group/groupbadge.php:164
+#: v2/templates/cart/carttobadge.php:133 v2/templates/edrive/dashboard.php:62
+#: v2/templates/group/groupbadge.php:182 v2/templates/group/groupbadge.php:188
 msgid "Upload"
 msgstr "업로드"
 
-#: browser/browse.php:95 v2/templates/edrive/dashboard.php:73
+#: browser/browse.php:95 v2/templates/edrive/dashboard.php:74
 msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr "한 단계 위로 이동하거나 파일을 드래그하여 한 단계 위로 이동합니다."
 
-#: browser/browse.php:120 v2/templates/edrive/dashboard.php:98
+#: browser/browse.php:120 v2/templates/edrive/dashboard.php:99
 msgid "Internal sharing"
 msgstr "내부 공유"
 
-#: browser/browse.php:128 v2/templates/edrive/dashboard.php:106
+#: browser/browse.php:128 v2/templates/edrive/dashboard.php:107
 msgid "Delete all shares"
 msgstr "모든 공유 삭제"
 
-#: browser/browse.php:132 v2/templates/edrive/dashboard.php:110
+#: browser/browse.php:132 v2/templates/edrive/dashboard.php:111
 msgid "Delete shares for the selected users"
 msgstr "선택한 사용자에 대한 공유 삭제"
 
-#: browser/browse.php:133 v2/templates/edrive/dashboard.php:111
+#: browser/browse.php:133 v2/templates/edrive/dashboard.php:112
 msgid "Stop sharing"
 msgstr "공유 중지"
 
-#: browser/browse.php:138 v2/templates/edrive/dashboard.php:116
+#: browser/browse.php:138 v2/templates/edrive/dashboard.php:117
 msgid "With"
 msgstr "함께"
 
-#: browser/browse.php:146 v2/templates/edrive/dashboard.php:124
+#: browser/browse.php:146 v2/templates/edrive/dashboard.php:125
 msgid "Set Rights"
 msgstr "권한 설정"
 
-#: browser/browse.php:152 v2/templates/edrive/dashboard.php:130
+#: browser/browse.php:152 v2/templates/edrive/dashboard.php:131
 msgid "Select your rights"
 msgstr "권한 선택"
 
 #: browser/browse.php:152 v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:130
+#: v2/templates/edrive/dashboard.php:131
 #: v2/templates/people/personEditor.php:1003
 msgid "or"
 msgstr "또는"
 
-#: browser/browse.php:155 v2/templates/edrive/dashboard.php:133
+#: browser/browse.php:155 v2/templates/edrive/dashboard.php:134
 msgid "[R ]"
 msgstr ""
 
-#: browser/browse.php:156 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:135
 msgid "[RW]"
 msgstr ""
 
-#: browser/browse.php:166 v2/templates/edrive/dashboard.php:144
+#: browser/browse.php:166 v2/templates/edrive/dashboard.php:145
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
@@ -6571,20 +6572,20 @@ msgstr ""
 "람이 이미 공유에 액세스할 수 있지만 파일을 찾을 수 없는 경우에는 내부 링크를 "
 "전송하여 쉽게 액세스할 수 있도록 할 수 있습니다."
 
-#: browser/browse.php:166 v2/templates/edrive/dashboard.php:144
+#: browser/browse.php:166 v2/templates/edrive/dashboard.php:145
 #: v2/templates/sidebar/systemsettings.php:202
 msgid "Definition"
 msgstr "정의"
 
-#: browser/browse.php:174 v2/templates/edrive/dashboard.php:152
+#: browser/browse.php:174 v2/templates/edrive/dashboard.php:153
 msgid "Send email notification"
 msgstr "이메일 알림 보내기"
 
-#: browser/browse.php:177 v2/templates/edrive/dashboard.php:155
+#: browser/browse.php:177 v2/templates/edrive/dashboard.php:156
 msgid "With Right"
 msgstr "오른쪽으로"
 
-#: browser/browse.php:190 v2/templates/edrive/dashboard.php:168
+#: browser/browse.php:190 v2/templates/edrive/dashboard.php:169
 msgid "Share By"
 msgstr "공유 대상"
 
@@ -6777,8 +6778,8 @@ msgstr "새 비밀번호 확인"
 msgid "Save"
 msgstr "저장"
 
-#: ident/templates/verify/login-info.php:23 session/templates/session.php:211
-#: session/templates/session.php:303
+#: ident/templates/verify/login-info.php:23 session/templates/session.php:215
+#: session/templates/session.php:307
 msgid "Please Login"
 msgstr "로그인하세요"
 
@@ -6926,27 +6927,27 @@ msgstr "이 계정은 관리자에 의해 비활성화되었습니다."
 msgid "Invalid 2FA code"
 msgstr "잘못된 2FA 코드"
 
-#: session/templates/session.php:216 session/templates/session.php:310
+#: session/templates/session.php:220 session/templates/session.php:314
 msgid "Your previous session timed out.  Please login again."
 msgstr "이전 세션이 시간 초과되었습니다.  다시 로그인해 주세요."
 
-#: session/templates/session.php:256 session/templates/session.php:356
+#: session/templates/session.php:260 session/templates/session.php:360
 msgid "2FA : OTP key"
 msgstr "2FA: OTP 키"
 
-#: session/templates/session.php:271
+#: session/templates/session.php:275
 msgid "I forgot my password"
 msgstr "비밀번호를 잊어버렸습니다."
 
-#: session/templates/session.php:283
+#: session/templates/session.php:287
 msgid "Register a new Family"
 msgstr "새 패밀리 등록하기"
 
-#: session/templates/session.php:363
+#: session/templates/session.php:367
 msgid "Enter your password to retrieve your session"
 msgstr "세션을 검색하려면 비밀번호를 입력하세요."
 
-#: session/templates/session.php:366
+#: session/templates/session.php:370
 msgid "Or sign in as a different user"
 msgstr "또는 다른 사용자로 로그인"
 
@@ -7671,7 +7672,7 @@ msgid "Only PNG and JPEG are managed actually !!"
 msgstr "실제로는 PNG와 JPEG만 관리됩니다 !!!"
 
 #: v2/templates/cart/carttobadge.php:36 v2/templates/cart/carttobadge.php:158
-#: v2/templates/group/groupbadge.php:55 v2/templates/group/groupbadge.php:219
+#: v2/templates/group/groupbadge.php:55 v2/templates/group/groupbadge.php:255
 msgid "Generate Badges"
 msgstr "배지 생성"
 
@@ -7688,33 +7689,33 @@ msgid "Title color"
 msgstr "제목 색상"
 
 #: v2/templates/cart/carttobadge.php:71 v2/templates/cart/carttobadge.php:85
-#: v2/templates/group/groupbadge.php:70 v2/templates/group/groupbadge.php:94
+#: v2/templates/group/groupbadge.php:75 v2/templates/group/groupbadge.php:99
 msgid "Chose your color"
 msgstr "색상 선택"
 
-#: v2/templates/cart/carttobadge.php:80 v2/templates/group/groupbadge.php:89
+#: v2/templates/cart/carttobadge.php:80 v2/templates/group/groupbadge.php:94
 msgid "BackGround color"
 msgstr "배경색"
 
-#: v2/templates/cart/carttobadge.php:94 v2/templates/group/groupbadge.php:124
+#: v2/templates/cart/carttobadge.php:94 v2/templates/group/groupbadge.php:137
 msgid "Image"
 msgstr "이미지"
 
-#: v2/templates/cart/carttobadge.php:100 v2/templates/group/groupbadge.php:104
-#: v2/templates/group/groupbadge.php:107
+#: v2/templates/cart/carttobadge.php:100 v2/templates/group/groupbadge.php:112
+#: v2/templates/group/groupbadge.php:118
 msgid "Sunday School Name"
 msgstr "주일학교 이름"
 
-#: v2/templates/cart/carttobadge.php:109 v2/templates/group/groupbadge.php:140
+#: v2/templates/cart/carttobadge.php:109 v2/templates/group/groupbadge.php:157
 msgid "Pictures in the Image folder: "
 msgstr "이미지 폴더의 사진:"
 
-#: v2/templates/cart/carttobadge.php:139 v2/templates/group/groupbadge.php:170
+#: v2/templates/cart/carttobadge.php:139 v2/templates/group/groupbadge.php:194
 msgid "Image Position"
 msgstr "이미지 위치"
 
-#: v2/templates/cart/carttobadge.php:143 v2/templates/group/groupbadge.php:78
-#: v2/templates/group/groupbadge.php:111 v2/templates/group/groupbadge.php:174
+#: v2/templates/cart/carttobadge.php:143 v2/templates/group/groupbadge.php:83
+#: v2/templates/group/groupbadge.php:122 v2/templates/group/groupbadge.php:198
 #: v2/templates/people/familyCustomFieldEditor.php:369
 #: v2/templates/people/familyCustomFieldEditor.php:496
 #: v2/templates/people/personCustomEditor.php:359
@@ -7723,14 +7724,14 @@ msgstr "이미지 위치"
 msgid "Left"
 msgstr "왼쪽"
 
-#: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
-#: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
+#: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:84
+#: v2/templates/group/groupbadge.php:123 v2/templates/group/groupbadge.php:199
 #: v2/templates/user/userseditor.php:839 v2/templates/user/usersettings.php:441
 msgid "Center"
 msgstr "센터"
 
-#: v2/templates/cart/carttobadge.php:145 v2/templates/group/groupbadge.php:80
-#: v2/templates/group/groupbadge.php:113 v2/templates/group/groupbadge.php:176
+#: v2/templates/cart/carttobadge.php:145 v2/templates/group/groupbadge.php:85
+#: v2/templates/group/groupbadge.php:124 v2/templates/group/groupbadge.php:200
 #: v2/templates/people/familyCustomFieldEditor.php:370
 #: v2/templates/people/familyCustomFieldEditor.php:497
 #: v2/templates/people/personCustomEditor.php:360
@@ -7739,56 +7740,52 @@ msgstr "센터"
 msgid "Right"
 msgstr "오른쪽"
 
-#: v2/templates/cart/carttobadge.php:150 v2/templates/group/groupbadge.php:199
+#: v2/templates/cart/carttobadge.php:150 v2/templates/group/groupbadge.php:232
 msgid "Badge Type"
 msgstr "배지 유형"
 
-#: v2/templates/cart/cartview.php:29
-msgid "Cart Functions"
-msgstr "카트 기능"
-
-#: v2/templates/cart/cartview.php:32
+#: v2/templates/cart/cartview.php:27
 msgid "Empty Cart"
 msgstr "빈 카트"
 
-#: v2/templates/cart/cartview.php:37
+#: v2/templates/cart/cartview.php:32
 msgid "Empty Cart to Group"
 msgstr "그룹으로 카트 비우기"
 
-#: v2/templates/cart/cartview.php:43
+#: v2/templates/cart/cartview.php:38
 msgid "Empty Cart to Family"
 msgstr "가족에게 빈 카트 보내기"
 
-#: v2/templates/cart/cartview.php:47
+#: v2/templates/cart/cartview.php:42
 msgid "Empty Cart to Event"
 msgstr "이벤트에 빈 장바구니"
 
-#: v2/templates/cart/cartview.php:53
+#: v2/templates/cart/cartview.php:48
 msgid "Map Cart"
 msgstr "지도 카트"
 
-#: v2/templates/cart/cartview.php:60 v2/templates/people/personview.php:490
+#: v2/templates/cart/cartview.php:55 v2/templates/people/personview.php:490
 msgid "Get the vCard of the person"
 msgstr "해당 사용자의 vCard 가져오기"
 
-#: v2/templates/cart/cartview.php:63 v2/templates/people/familyview.php:296
+#: v2/templates/cart/cartview.php:58 v2/templates/people/familyview.php:296
 #: v2/templates/people/personview.php:493
 msgid "vCard"
 msgstr "vCard"
 
-#: v2/templates/cart/cartview.php:75
+#: v2/templates/cart/cartview.php:70
 msgid "Name Tags"
 msgstr "이름 태그"
 
-#: v2/templates/cart/cartview.php:77
+#: v2/templates/cart/cartview.php:72
 msgid "Badges"
 msgstr "배지"
 
-#: v2/templates/cart/cartview.php:84
+#: v2/templates/cart/cartview.php:79
 msgid "Email Cart"
 msgstr "이메일 장바구니"
 
-#: v2/templates/cart/cartview.php:86 v2/templates/group/groupview.php:147
+#: v2/templates/cart/cartview.php:81 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:251
 #: v2/templates/people/personview.php:427
 #: v2/templates/sundayschool/sundayschooldashboard.php:113
@@ -7797,43 +7794,43 @@ msgstr "이메일 장바구니"
 msgid "Email (BCC)"
 msgstr "이메일(숨은 참조)"
 
-#: v2/templates/cart/cartview.php:96 v2/templates/cart/cartview.php:105
+#: v2/templates/cart/cartview.php:91 v2/templates/cart/cartview.php:100
 msgid "Text Cart"
 msgstr "텍스트 카트"
 
-#: v2/templates/cart/cartview.php:103
+#: v2/templates/cart/cartview.php:98
 msgid "Copy Paste the Texts"
 msgstr "텍스트 복사 붙여넣기"
 
-#: v2/templates/cart/cartview.php:113
+#: v2/templates/cart/cartview.php:108
 msgid "Create Directory From Cart"
 msgstr "카트에서 디렉토리 생성"
 
-#: v2/templates/cart/cartview.php:118
+#: v2/templates/cart/cartview.php:113
 msgid "Delete Persons From CRM"
 msgstr "CRM에서 사람 삭제"
 
-#: v2/templates/cart/cartview.php:121
+#: v2/templates/cart/cartview.php:116
 msgid "Deactivate Persons From Cart"
 msgstr "카트에서 사람 비활성화"
 
-#: v2/templates/cart/cartview.php:132 v2/templates/cart/cartview.php:176
+#: v2/templates/cart/cartview.php:125 v2/templates/cart/cartview.php:170
 msgid "Generate Labels"
 msgstr "레이블 생성"
 
-#: v2/templates/cart/cartview.php:141
+#: v2/templates/cart/cartview.php:137
 msgid "Bulk Mail Presort"
 msgstr "대량 메일 사전 정렬"
 
-#: v2/templates/cart/cartview.php:151
+#: v2/templates/cart/cartview.php:147
 msgid "Quiet Presort"
 msgstr "조용한 프리포트"
 
-#: v2/templates/cart/cartview.php:195
+#: v2/templates/cart/cartview.php:186
 msgid "Your cart contains"
 msgstr "장바구니에 다음이 포함되어 있습니다."
 
-#: v2/templates/cart/cartview.php:195
+#: v2/templates/cart/cartview.php:186
 msgid "persons from"
 msgstr "다음에서 온 사람"
 
@@ -8537,6 +8534,11 @@ msgstr "공제 불가 금액"
 msgid "Calendar Year"
 msgstr "달력 연도"
 
+#: v2/templates/edrive/dashboard.php:142
+#, fuzzy
+msgid "Add users"
+msgstr "구매자 추가"
+
 #: v2/templates/email/mailchimp/campaign.php:31
 msgid "Recipients"
 msgstr "수신자"
@@ -9119,15 +9121,25 @@ msgstr ""
 msgid "Only PNG and JPEG files are managed actually !!"
 msgstr "실제로는 PNG와 JPEG 파일만 관리됩니다 !!!"
 
-#: v2/templates/group/groupbadge.php:130
+#: v2/templates/group/groupbadge.php:65
+#, fuzzy
+msgid "Colors"
+msgstr "색상"
+
+#: v2/templates/group/groupbadge.php:149
 msgid "Image Name"
 msgstr "이미지 이름"
 
-#: v2/templates/group/groupbadge.php:187
+#: v2/templates/group/groupbadge.php:211
 msgid "With QR Code"
 msgstr "QR 코드 사용"
 
-#: v2/templates/group/groupbadge.php:207
+#: v2/templates/group/groupbadge.php:226
+#, fuzzy
+msgid "Others"
+msgstr "기타"
+
+#: v2/templates/group/groupbadge.php:243
 msgid "Preview"
 msgstr "미리보기"
 
@@ -13313,135 +13325,135 @@ msgstr "고객 개인 필드 선택"
 msgid "Match custom field to this value"
 msgstr "사용자 지정 필드를 이 값에 일치시킵니다."
 
-#: settings-locales.php:2
+#: settings-locales.php:2 settings-locales.php:37 settings-locales.php:72
 msgid "Albanian"
 msgstr "알바니아어"
 
-#: settings-locales.php:3
+#: settings-locales.php:3 settings-locales.php:38 settings-locales.php:73
 msgid "Arabic - Egypt"
 msgstr "아랍어 - 이집트"
 
-#: settings-locales.php:4
+#: settings-locales.php:4 settings-locales.php:39 settings-locales.php:74
 msgid "Chinese - China"
 msgstr "중국어 - 중국"
 
-#: settings-locales.php:5
+#: settings-locales.php:5 settings-locales.php:40 settings-locales.php:75
 msgid "Chinese - Taiwan"
 msgstr "중국어 - 대만"
 
-#: settings-locales.php:6
+#: settings-locales.php:6 settings-locales.php:41 settings-locales.php:76
 msgid "Danish - Denmark"
 msgstr "덴마크어 - 덴마크"
 
-#: settings-locales.php:7
+#: settings-locales.php:7 settings-locales.php:42 settings-locales.php:77
 msgid "Dutch - Netherlands"
 msgstr "네덜란드어 - 네덜란드"
 
-#: settings-locales.php:8
+#: settings-locales.php:8 settings-locales.php:43 settings-locales.php:78
 msgid "English - Australia"
 msgstr "영어 - 호주"
 
-#: settings-locales.php:9
+#: settings-locales.php:9 settings-locales.php:44 settings-locales.php:79
 msgid "English - Canada"
 msgstr "영어 - 캐나다"
 
-#: settings-locales.php:10
+#: settings-locales.php:10 settings-locales.php:45 settings-locales.php:80
 msgid "English - Great Britain"
 msgstr "영어 - 영국"
 
-#: settings-locales.php:11
+#: settings-locales.php:11 settings-locales.php:46 settings-locales.php:81
 msgid "English - United States"
 msgstr "한국어 - 미국"
 
-#: settings-locales.php:12
+#: settings-locales.php:12 settings-locales.php:47 settings-locales.php:82
 msgid "Finnish - Finland"
 msgstr "핀란드어 - 핀란드"
 
-#: settings-locales.php:13
+#: settings-locales.php:13 settings-locales.php:48 settings-locales.php:83
 msgid "French - Belgium"
 msgstr "프랑스어 - 벨기에"
 
-#: settings-locales.php:14
+#: settings-locales.php:14 settings-locales.php:49 settings-locales.php:84
 msgid "French - Canada"
 msgstr "프랑스어 - 캐나다"
 
-#: settings-locales.php:15
+#: settings-locales.php:15 settings-locales.php:50 settings-locales.php:85
 msgid "French - France"
 msgstr "프랑스어 - 프랑스"
 
-#: settings-locales.php:16
+#: settings-locales.php:16 settings-locales.php:51 settings-locales.php:86
 msgid "French - Swiss"
 msgstr "프랑스어 - 스위스"
 
-#: settings-locales.php:17
+#: settings-locales.php:17 settings-locales.php:52 settings-locales.php:87
 msgid "Greek"
 msgstr "Greek"
 
-#: settings-locales.php:18
+#: settings-locales.php:18 settings-locales.php:53 settings-locales.php:88
 msgid "German - Germany"
 msgstr "독일어 - 독일"
 
-#: settings-locales.php:19
+#: settings-locales.php:19 settings-locales.php:54 settings-locales.php:89
 msgid "Hungarian"
 msgstr "헝가리어"
 
-#: settings-locales.php:20
+#: settings-locales.php:20 settings-locales.php:55 settings-locales.php:90
 msgid "Indonesian - Indonesia"
 msgstr "인도네시아어 - 인도네시아"
 
-#: settings-locales.php:21
+#: settings-locales.php:21 settings-locales.php:56 settings-locales.php:91
 msgid "Italian - Italy"
 msgstr "이탈리아어 - 이탈리아"
 
-#: settings-locales.php:22
+#: settings-locales.php:22 settings-locales.php:57 settings-locales.php:92
 msgid "Japan"
 msgstr "일본"
 
-#: settings-locales.php:23
+#: settings-locales.php:23 settings-locales.php:58 settings-locales.php:93
 msgid "Norwegian - Norvege"
 msgstr "노르웨이어 - 노르베게"
 
-#: settings-locales.php:24
+#: settings-locales.php:24 settings-locales.php:59 settings-locales.php:94
 msgid "Polish - Poland"
 msgstr "폴란드어 - 폴란드"
 
-#: settings-locales.php:25
+#: settings-locales.php:25 settings-locales.php:60 settings-locales.php:95
 msgid "Portuguese - Brazil"
 msgstr "포르투갈어 - 브라질"
 
-#: settings-locales.php:26
+#: settings-locales.php:26 settings-locales.php:61 settings-locales.php:96
 msgid "Portuguese - Portugal"
 msgstr "포르투갈어 - 포르투갈"
 
-#: settings-locales.php:27
+#: settings-locales.php:27 settings-locales.php:62 settings-locales.php:97
 msgid "Romanian - Romania"
 msgstr "루마니아어 - 루마니아"
 
-#: settings-locales.php:28
+#: settings-locales.php:28 settings-locales.php:63 settings-locales.php:98
 msgid "Russian"
 msgstr "러시아어"
 
-#: settings-locales.php:29
+#: settings-locales.php:29 settings-locales.php:64 settings-locales.php:99
 msgid "Spanish - Spain"
 msgstr "스페인어 - 스페인"
 
-#: settings-locales.php:30
+#: settings-locales.php:30 settings-locales.php:65 settings-locales.php:100
 msgid "Sami (Northern) (Sweden)"
 msgstr "사미족(북부)(스웨덴)"
 
-#: settings-locales.php:31
+#: settings-locales.php:31 settings-locales.php:66 settings-locales.php:101
 msgid "Thai"
 msgstr "Thai"
 
-#: settings-locales.php:32
+#: settings-locales.php:32 settings-locales.php:67 settings-locales.php:102
 msgid "Vietnamese"
 msgstr "베트남어"
 
-#: settings-locales.php:33
+#: settings-locales.php:33 settings-locales.php:68 settings-locales.php:103
 msgid "Korean"
 msgstr "한국어"
 
-#: settings-locales.php:34
+#: settings-locales.php:34 settings-locales.php:69 settings-locales.php:104
 msgid "Ukraine"
 msgstr "우크라이나"
 
@@ -13710,6 +13722,9 @@ msgstr "며칠"
 
 msgid "Giving Report"
 msgstr "기부 보고서"
+
+#~ msgid "Cart Functions"
+#~ msgstr "카트 기능"
 
 #~ msgid "Show type of group:"
 #~ msgstr "그룹 유형 표시:"

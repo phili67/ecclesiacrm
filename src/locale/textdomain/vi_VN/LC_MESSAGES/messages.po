@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-21 16:06+0000\n"
+"POT-Creation-Date: 2026-02-04 18:03+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +63,7 @@ msgstr "Video"
 #: v2/templates/calendar/eventtypesedit.php:156
 #: v2/templates/cart/carttobadge.php:117
 #: v2/templates/deposit/autaPaymentEditor.php:375
-#: v2/templates/group/groupbadge.php:148 v2/templates/group/groupreports.php:47
+#: v2/templates/group/groupbadge.php:173 v2/templates/group/groupreports.php:47
 #: v2/templates/group/groupreports.php:149
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
 #: v2/templates/pastoralcare/pastoralcarefamily.php:325
@@ -273,14 +273,14 @@ msgstr "Tên thực địa đó đã tồn tại."
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: browser/browse.php:155 v2/templates/edrive/dashboard.php:133
+#: browser/browse.php:155 v2/templates/edrive/dashboard.php:134
 msgid "[👀  ]"
 msgstr "[👀  ]"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: browser/browse.php:156 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:135
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
@@ -307,7 +307,7 @@ msgstr "Tài khoản ngân hàng"
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:259
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:284
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:142
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:144
 #: v2/templates/deposit/financialReports.php:346
 #: v2/templates/deposit/pledgeEditor.php:125
 msgid "Cash"
@@ -315,7 +315,7 @@ msgstr "Tiền mặt."
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:267
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:284
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:137
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:139
 msgid "Checks"
 msgstr "Kiểm tra"
 
@@ -337,7 +337,7 @@ msgid "newsletter"
 msgstr "Tin tức"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:77
-#: EcclesiaCRM/Search/FamilySearchRes.php:51 v2/templates/cart/cartview.php:195
+#: EcclesiaCRM/Search/FamilySearchRes.php:51 v2/templates/cart/cartview.php:186
 msgid "families"
 msgstr "Gia đình"
 
@@ -486,7 +486,8 @@ msgstr "Thêm vào đó là nhóm"
 #: v2/templates/group/groupPropsEditor.php:222
 #: v2/templates/group/groupPropsFormEditor.php:297
 #: v2/templates/group/groupPropsFormEditor.php:371
-#: v2/templates/group/groupedit.php:50 v2/templates/group/groupview.php:392
+#: v2/templates/group/groupbadge.php:143 v2/templates/group/groupedit.php:50
+#: v2/templates/group/groupview.php:392
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:405
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:568
 #: v2/templates/people/familyCustomFieldEditor.php:320
@@ -1223,7 +1224,7 @@ msgid "Your CRM Account was Deleted."
 msgstr "Tài khoản của anh đã bị xóa"
 
 #: EcclesiaCRM/Emails/users/BaseUserEmail.php:30
-#: session/templates/session.php:232
+#: session/templates/session.php:236
 msgid "Email/Username"
 msgstr "Tên Email/Usename"
 
@@ -1333,14 +1334,14 @@ msgstr "Xin hãy xác minh thông tin của gia đình"
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
 #: external/templates/password/enter-username.php:37
 #: external/templates/password/password-check-email.php:31
-#: ident/templates/verify/login-info.php:46 session/templates/session.php:264
+#: ident/templates/verify/login-info.php:46 session/templates/session.php:268
 msgid "Login"
 msgstr "CÁI HÀNH"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:40 session/templates/session.php:245
-#: session/templates/session.php:345 v2/templates/BackupRestore/backup.php:85
+#: ident/templates/verify/login-info.php:40 session/templates/session.php:249
+#: session/templates/session.php:349 v2/templates/BackupRestore/backup.php:85
 #: v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "Mật khẩu"
@@ -1689,8 +1690,8 @@ msgstr "Của"
 
 #: EcclesiaCRM/Reports/PDF_Attendance.php:218
 #: EcclesiaCRM/Reports/PDF_Attendance.php:626
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:104
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:120
 #: sundayschool/SundaySchoolAttendeesExport.php:184
 msgid "Totals"
 msgstr "Totals"
@@ -1963,7 +1964,7 @@ msgid "Wedding"
 msgstr "Đám cưới"
 
 #: EcclesiaCRM/Reports/PDF_Directory.php:366
-#: v2/templates/cart/carttobadge.php:133 v2/templates/group/groupbadge.php:164
+#: v2/templates/cart/carttobadge.php:133 v2/templates/group/groupbadge.php:188
 msgid "and"
 msgstr "Và"
 
@@ -2247,7 +2248,7 @@ msgstr "Kỷ niệm"
 #: v2/templates/calendar/eventnames.php:347
 #: v2/templates/deposit/electronicPaymentList.php:215
 #: v2/templates/deposit/finddepositslip.php:103
-#: v2/templates/edrive/dashboard.php:107
+#: v2/templates/edrive/dashboard.php:108
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/pastoralcare/pastoralcarefamily.php:299
@@ -3020,7 +3021,7 @@ msgstr "Chuyển sang địa chỉ riêng"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:211
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:258
-#: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
+#: v2/templates/cart/cartview.php:65 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:379
 msgid "CSV Export"
 msgstr "Hộ chiếu CSV"
@@ -5226,54 +5227,54 @@ msgstr "Một cái tên tàn tật đã được yêu cầu"
 msgid "An invalid configuration id has been requested"
 msgstr "Một thiết bị vô hiệu nhận dạng đã được yêu cầu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:100
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
 msgid "Coin"
 msgstr "Đồng xu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:101
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:117
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:103
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:119
 msgid "Counts"
 msgstr "Đếm"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:110
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:112
 msgid "Total Coin"
 msgstr "Đồng xu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:116
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
 msgid "Bill"
 msgstr "Bill"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:126
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:128
 msgid "Total Cash"
 msgstr "Tiền mặt luôn"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:133
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:135
 msgid "Deposit totals by Currency Type"
 msgstr "Chuyển toàn bộ bằng Cơn Lốc Hiện tượng"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:150
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:152
 #: Reports/AdvancedDeposit.php:875
 msgid "Deposit totals by fund"
 msgstr "Chuyển toàn bộ qua quỹ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:222
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:280
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:224
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282
 msgid "Deposit Summary"
 msgstr "Gửi Summary"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:244
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:365
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:246
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:367
 msgid "Deposit total"
 msgstr "Tất cả"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:290
 #: Reports/AdvancedDeposit.php:314 Reports/AdvancedDeposit.php:323
 #: Reports/AdvancedDeposit.php:332 Reports/ReminderReport.php:405
 #: Reports/TaxReport.php:390
 msgid "Chk No."
 msgstr "Không."
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:291
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:293
 #: Reports/AdvancedDeposit.php:315 Reports/AdvancedDeposit.php:334
 #: Reports/FamilyPledgeSummary.php:232 Reports/PledgeSummary.php:250
 #: Reports/ReminderReport.php:324 Reports/ReminderReport.php:407
@@ -5285,23 +5286,23 @@ msgstr "Không."
 msgid "Fund"
 msgstr "Tiền"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294 Reports/ReminderReport.php:406
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:296 Reports/ReminderReport.php:406
 #: Reports/TaxReport.php:391
 msgid "PmtMethod"
 msgstr "PMTETHD"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:299
 msgid "Rcd From"
 msgstr "RCD từ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:300
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:302
 #: Reports/AdvancedDeposit.php:317 Reports/AdvancedDeposit.php:326
 #: Reports/AdvancedDeposit.php:335 Reports/ReminderReport.php:408
 #: Reports/TaxReport.php:393
 msgid "Memo"
 msgstr "Báo cáo"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:303
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:305
 #: Reports/AdvancedDeposit.php:318 Reports/AdvancedDeposit.php:327
 #: Reports/AdvancedDeposit.php:336 Reports/FundRaiserStatement.php:129
 #: Reports/FundRaiserStatement.php:173 Reports/ReminderReport.php:325
@@ -5312,13 +5313,13 @@ msgstr "Báo cáo"
 msgid "Amount"
 msgstr "Amount"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:321
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:323
 msgid "Anonymous"
 msgstr "Vô danh"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:394
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:399
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:404
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:396
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:401
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:406
 msgid "Witness"
 msgstr "Nhìn đây."
 
@@ -5362,7 +5363,7 @@ msgstr "Hình ảnh bị xóa"
 msgid "Profile Image uploaded"
 msgstr "Hình ảnh nhân tạo đã được tải lên"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Group.php:145 Reports/CanvassReports.php:279
+#: EcclesiaCRM/model/EcclesiaCRM/Group.php:144 Reports/CanvassReports.php:279
 #: Reports/VotingMembers.php:102 v2/templates/people/selectDelete.php:339
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -5655,8 +5656,8 @@ msgstr "Phú"
 
 #: EcclesiaCRM/utils/LabelUtils.php:80 Reports/PDFBadge.php:128
 #: Reports/PDFBadgeGroup.php:233 Reports/PDFLabel.php:793
-#: v2/templates/cart/carttobadge.php:152 v2/templates/group/groupbadge.php:84
-#: v2/templates/group/groupbadge.php:117 v2/templates/group/groupbadge.php:201
+#: v2/templates/cart/carttobadge.php:152 v2/templates/group/groupbadge.php:89
+#: v2/templates/group/groupbadge.php:128 v2/templates/group/groupbadge.php:234
 msgid "default"
 msgstr "去去去去去去去去去去去去去去\\21435"
 
@@ -6341,7 +6342,7 @@ msgstr "Chỉ là dấu hiệu thôi, em xin phép em, em xin phép em, em xin l
 
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
-#: v2/templates/group/groupbadge.php:104 v2/templates/group/groupbadge.php:107
+#: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:118
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:223
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
 #: v2/templates/pastoralcare/pastoralcareperson.php:176
@@ -6569,108 +6570,108 @@ msgstr "Nạp đạn"
 msgid "Insert"
 msgstr ""
 
-#: browser/browse.php:56 v2/templates/edrive/dashboard.php:34
+#: browser/browse.php:56 v2/templates/edrive/dashboard.php:32
 #, fuzzy
 msgid "Download files"
 msgstr "Nạp đạn"
 
-#: browser/browse.php:63 v2/templates/edrive/dashboard.php:41
+#: browser/browse.php:63 v2/templates/edrive/dashboard.php:42
 #, fuzzy
 msgid "Files input"
 msgstr "Đầu vào"
 
-#: browser/browse.php:71 v2/templates/edrive/dashboard.php:49
+#: browser/browse.php:71 v2/templates/edrive/dashboard.php:50
 #, fuzzy
 msgid "Download status"
 msgstr "Nạp đạn"
 
-#: browser/browse.php:80 v2/templates/edrive/dashboard.php:58
+#: browser/browse.php:80 v2/templates/edrive/dashboard.php:59
 #, fuzzy
 msgid "Upload your files"
 msgstr "Tải hồ sơ của cô lên"
 
 #: browser/browse.php:83 v2/templates/cart/carttobadge.php:127
-#: v2/templates/cart/carttobadge.php:133 v2/templates/edrive/dashboard.php:61
-#: v2/templates/group/groupbadge.php:158 v2/templates/group/groupbadge.php:164
+#: v2/templates/cart/carttobadge.php:133 v2/templates/edrive/dashboard.php:62
+#: v2/templates/group/groupbadge.php:182 v2/templates/group/groupbadge.php:188
 msgid "Upload"
 msgstr "Tải lên"
 
-#: browser/browse.php:95 v2/templates/edrive/dashboard.php:73
+#: browser/browse.php:95 v2/templates/edrive/dashboard.php:74
 msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr ""
 
-#: browser/browse.php:120 v2/templates/edrive/dashboard.php:98
+#: browser/browse.php:120 v2/templates/edrive/dashboard.php:99
 msgid "Internal sharing"
 msgstr ""
 
-#: browser/browse.php:128 v2/templates/edrive/dashboard.php:106
+#: browser/browse.php:128 v2/templates/edrive/dashboard.php:107
 #, fuzzy
 msgid "Delete all shares"
 msgstr "Xóa hết phòng đi"
 
-#: browser/browse.php:132 v2/templates/edrive/dashboard.php:110
+#: browser/browse.php:132 v2/templates/edrive/dashboard.php:111
 #, fuzzy
 msgid "Delete shares for the selected users"
 msgstr "Chuyển hiến tặng sang người được chọn"
 
-#: browser/browse.php:133 v2/templates/edrive/dashboard.php:111
+#: browser/browse.php:133 v2/templates/edrive/dashboard.php:112
 #, fuzzy
 msgid "Stop sharing"
 msgstr "Mùa xuân"
 
-#: browser/browse.php:138 v2/templates/edrive/dashboard.php:116
+#: browser/browse.php:138 v2/templates/edrive/dashboard.php:117
 msgid "With"
 msgstr ""
 
-#: browser/browse.php:146 v2/templates/edrive/dashboard.php:124
+#: browser/browse.php:146 v2/templates/edrive/dashboard.php:125
 #, fuzzy
 msgid "Set Rights"
 msgstr "Đúng vậy."
 
-#: browser/browse.php:152 v2/templates/edrive/dashboard.php:130
+#: browser/browse.php:152 v2/templates/edrive/dashboard.php:131
 #, fuzzy
 msgid "Select your rights"
 msgstr "Thiết lập các nguyên tố"
 
 #: browser/browse.php:152 v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:130
+#: v2/templates/edrive/dashboard.php:131
 #: v2/templates/people/personEditor.php:1003
 msgid "or"
 msgstr "Hoặc"
 
-#: browser/browse.php:155 v2/templates/edrive/dashboard.php:133
+#: browser/browse.php:155 v2/templates/edrive/dashboard.php:134
 msgid "[R ]"
 msgstr ""
 
-#: browser/browse.php:156 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:135
 msgid "[RW]"
 msgstr ""
 
-#: browser/browse.php:166 v2/templates/edrive/dashboard.php:144
+#: browser/browse.php:166 v2/templates/edrive/dashboard.php:145
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
 "locate it, you can send them the internal link to facilitate access."
 msgstr ""
 
-#: browser/browse.php:166 v2/templates/edrive/dashboard.php:144
+#: browser/browse.php:166 v2/templates/edrive/dashboard.php:145
 #: v2/templates/sidebar/systemsettings.php:202
 #, fuzzy
 msgid "Definition"
 msgstr "Mô tả"
 
-#: browser/browse.php:174 v2/templates/edrive/dashboard.php:152
+#: browser/browse.php:174 v2/templates/edrive/dashboard.php:153
 #, fuzzy
 msgid "Send email notification"
 msgstr "Thay đổi hồ sơ"
 
-#: browser/browse.php:177 v2/templates/edrive/dashboard.php:155
+#: browser/browse.php:177 v2/templates/edrive/dashboard.php:156
 #, fuzzy
 msgid "With Right"
 msgstr "Đúng vậy."
 
-#: browser/browse.php:190 v2/templates/edrive/dashboard.php:168
+#: browser/browse.php:190 v2/templates/edrive/dashboard.php:169
 #, fuzzy
 msgid "Share By"
 msgstr "Chia sẻ bởi"
@@ -6867,8 +6868,8 @@ msgstr "Xác nhận Mật khẩu mới"
 msgid "Save"
 msgstr "Cứu"
 
-#: ident/templates/verify/login-info.php:23 session/templates/session.php:211
-#: session/templates/session.php:303
+#: ident/templates/verify/login-info.php:23 session/templates/session.php:215
+#: session/templates/session.php:307
 msgid "Please Login"
 msgstr "Làm ơn đi Login"
 
@@ -7019,27 +7020,27 @@ msgstr "Tài khoản này đã bị một nhà quản lý vô hiệu hóa."
 msgid "Invalid 2FA code"
 msgstr "Năm bất hợp pháp"
 
-#: session/templates/session.php:216 session/templates/session.php:310
+#: session/templates/session.php:220 session/templates/session.php:314
 msgid "Your previous session timed out.  Please login again."
 msgstr "Buổi điều trị trước của anh đã hết. Xin vui lòng đăng nhập lại."
 
-#: session/templates/session.php:256 session/templates/session.php:356
+#: session/templates/session.php:260 session/templates/session.php:360
 msgid "2FA : OTP key"
 msgstr "2FA : Chìa khóa OTP"
 
-#: session/templates/session.php:271
+#: session/templates/session.php:275
 msgid "I forgot my password"
 msgstr "Tôi quên mật khẩu rồi"
 
-#: session/templates/session.php:283
+#: session/templates/session.php:287
 msgid "Register a new Family"
 msgstr "Đăng ký một gia đình mới"
 
-#: session/templates/session.php:363
+#: session/templates/session.php:367
 msgid "Enter your password to retrieve your session"
 msgstr "Nhập mật khẩu để lấy lại buổi điều trị"
 
-#: session/templates/session.php:366
+#: session/templates/session.php:370
 msgid "Or sign in as a different user"
 msgstr "Hoặc kí vào như một người dùng khác"
 
@@ -7780,7 +7781,7 @@ msgid "Only PNG and JPEG are managed actually !!"
 msgstr "Chỉ có PNGG và JPEG mới được quản lý thực sự !!"
 
 #: v2/templates/cart/carttobadge.php:36 v2/templates/cart/carttobadge.php:158
-#: v2/templates/group/groupbadge.php:55 v2/templates/group/groupbadge.php:219
+#: v2/templates/group/groupbadge.php:55 v2/templates/group/groupbadge.php:255
 msgid "Generate Badges"
 msgstr "Các Badges Generate Badges"
 
@@ -7797,33 +7798,33 @@ msgid "Title color"
 msgstr "Màu sắc tinh tế"
 
 #: v2/templates/cart/carttobadge.php:71 v2/templates/cart/carttobadge.php:85
-#: v2/templates/group/groupbadge.php:70 v2/templates/group/groupbadge.php:94
+#: v2/templates/group/groupbadge.php:75 v2/templates/group/groupbadge.php:99
 msgid "Chose your color"
 msgstr "Chọn màu đi"
 
-#: v2/templates/cart/carttobadge.php:80 v2/templates/group/groupbadge.php:89
+#: v2/templates/cart/carttobadge.php:80 v2/templates/group/groupbadge.php:94
 msgid "BackGround color"
 msgstr "Màu trái đất"
 
-#: v2/templates/cart/carttobadge.php:94 v2/templates/group/groupbadge.php:124
+#: v2/templates/cart/carttobadge.php:94 v2/templates/group/groupbadge.php:137
 msgid "Image"
 msgstr "Hình ảnh"
 
-#: v2/templates/cart/carttobadge.php:100 v2/templates/group/groupbadge.php:104
-#: v2/templates/group/groupbadge.php:107
+#: v2/templates/cart/carttobadge.php:100 v2/templates/group/groupbadge.php:112
+#: v2/templates/group/groupbadge.php:118
 msgid "Sunday School Name"
 msgstr "Trường học tên tuổi Chủ nhật"
 
-#: v2/templates/cart/carttobadge.php:109 v2/templates/group/groupbadge.php:140
+#: v2/templates/cart/carttobadge.php:109 v2/templates/group/groupbadge.php:157
 msgid "Pictures in the Image folder: "
 msgstr "Hình ảnh trong tập tài liệu hình ảnh:"
 
-#: v2/templates/cart/carttobadge.php:139 v2/templates/group/groupbadge.php:170
+#: v2/templates/cart/carttobadge.php:139 v2/templates/group/groupbadge.php:194
 msgid "Image Position"
 msgstr "Vị trí hình ảnh"
 
-#: v2/templates/cart/carttobadge.php:143 v2/templates/group/groupbadge.php:78
-#: v2/templates/group/groupbadge.php:111 v2/templates/group/groupbadge.php:174
+#: v2/templates/cart/carttobadge.php:143 v2/templates/group/groupbadge.php:83
+#: v2/templates/group/groupbadge.php:122 v2/templates/group/groupbadge.php:198
 #: v2/templates/people/familyCustomFieldEditor.php:369
 #: v2/templates/people/familyCustomFieldEditor.php:496
 #: v2/templates/people/personCustomEditor.php:359
@@ -7832,14 +7833,14 @@ msgstr "Vị trí hình ảnh"
 msgid "Left"
 msgstr "Trái"
 
-#: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
-#: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
+#: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:84
+#: v2/templates/group/groupbadge.php:123 v2/templates/group/groupbadge.php:199
 #: v2/templates/user/userseditor.php:839 v2/templates/user/usersettings.php:441
 msgid "Center"
 msgstr "Trung tâm"
 
-#: v2/templates/cart/carttobadge.php:145 v2/templates/group/groupbadge.php:80
-#: v2/templates/group/groupbadge.php:113 v2/templates/group/groupbadge.php:176
+#: v2/templates/cart/carttobadge.php:145 v2/templates/group/groupbadge.php:85
+#: v2/templates/group/groupbadge.php:124 v2/templates/group/groupbadge.php:200
 #: v2/templates/people/familyCustomFieldEditor.php:370
 #: v2/templates/people/familyCustomFieldEditor.php:497
 #: v2/templates/people/personCustomEditor.php:360
@@ -7848,56 +7849,52 @@ msgstr "Trung tâm"
 msgid "Right"
 msgstr "Đúng vậy."
 
-#: v2/templates/cart/carttobadge.php:150 v2/templates/group/groupbadge.php:199
+#: v2/templates/cart/carttobadge.php:150 v2/templates/group/groupbadge.php:232
 msgid "Badge Type"
 msgstr "Gậy hình bằng gỗ"
 
-#: v2/templates/cart/cartview.php:29
-msgid "Cart Functions"
-msgstr "Thưởng thức xe"
-
-#: v2/templates/cart/cartview.php:32
+#: v2/templates/cart/cartview.php:27
 msgid "Empty Cart"
 msgstr "Không có xe"
 
-#: v2/templates/cart/cartview.php:37
+#: v2/templates/cart/cartview.php:32
 msgid "Empty Cart to Group"
 msgstr "Ma túy rỗng với tập đoàn"
 
-#: v2/templates/cart/cartview.php:43
+#: v2/templates/cart/cartview.php:38
 msgid "Empty Cart to Family"
 msgstr "Không có xe với gia đình"
 
-#: v2/templates/cart/cartview.php:47
+#: v2/templates/cart/cartview.php:42
 msgid "Empty Cart to Event"
 msgstr "Chiếc xe trống rỗng gọi Event"
 
-#: v2/templates/cart/cartview.php:53
+#: v2/templates/cart/cartview.php:48
 msgid "Map Cart"
 msgstr "Map Cart"
 
-#: v2/templates/cart/cartview.php:60 v2/templates/people/personview.php:490
+#: v2/templates/cart/cartview.php:55 v2/templates/people/personview.php:490
 msgid "Get the vCard of the person"
 msgstr "Lấy vcard của người đó"
 
-#: v2/templates/cart/cartview.php:63 v2/templates/people/familyview.php:296
+#: v2/templates/cart/cartview.php:58 v2/templates/people/familyview.php:296
 #: v2/templates/people/personview.php:493
 msgid "vCard"
 msgstr "vCard"
 
-#: v2/templates/cart/cartview.php:75
+#: v2/templates/cart/cartview.php:70
 msgid "Name Tags"
 msgstr "Tên là Tags"
 
-#: v2/templates/cart/cartview.php:77
+#: v2/templates/cart/cartview.php:72
 msgid "Badges"
 msgstr "Gậy."
 
-#: v2/templates/cart/cartview.php:84
+#: v2/templates/cart/cartview.php:79
 msgid "Email Cart"
 msgstr "Email Cart"
 
-#: v2/templates/cart/cartview.php:86 v2/templates/group/groupview.php:147
+#: v2/templates/cart/cartview.php:81 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:251
 #: v2/templates/people/personview.php:427
 #: v2/templates/sundayschool/sundayschooldashboard.php:113
@@ -7906,43 +7903,43 @@ msgstr "Email Cart"
 msgid "Email (BCC)"
 msgstr "Email (BCC)"
 
-#: v2/templates/cart/cartview.php:96 v2/templates/cart/cartview.php:105
+#: v2/templates/cart/cartview.php:91 v2/templates/cart/cartview.php:100
 msgid "Text Cart"
 msgstr "Cart nhắn tin"
 
-#: v2/templates/cart/cartview.php:103
+#: v2/templates/cart/cartview.php:98
 msgid "Copy Paste the Texts"
 msgstr "Đã rõ ràng dán texts"
 
-#: v2/templates/cart/cartview.php:113
+#: v2/templates/cart/cartview.php:108
 msgid "Create Directory From Cart"
 msgstr "Tạo ra đạo diễn từ Cart"
 
-#: v2/templates/cart/cartview.php:118
+#: v2/templates/cart/cartview.php:113
 msgid "Delete Persons From CRM"
 msgstr "Xóa nhân sự khỏi CRM"
 
-#: v2/templates/cart/cartview.php:121
+#: v2/templates/cart/cartview.php:116
 msgid "Deactivate Persons From Cart"
 msgstr "Tắt nhân viên ở Cart"
 
-#: v2/templates/cart/cartview.php:132 v2/templates/cart/cartview.php:176
+#: v2/templates/cart/cartview.php:125 v2/templates/cart/cartview.php:170
 msgid "Generate Labels"
 msgstr "Generate Labels"
 
-#: v2/templates/cart/cartview.php:141
+#: v2/templates/cart/cartview.php:137
 msgid "Bulk Mail Presort"
 msgstr "Phong trào Bulk"
 
-#: v2/templates/cart/cartview.php:151
+#: v2/templates/cart/cartview.php:147
 msgid "Quiet Presort"
 msgstr "Im lặng"
 
-#: v2/templates/cart/cartview.php:195
+#: v2/templates/cart/cartview.php:186
 msgid "Your cart contains"
 msgstr "Xe của anh chứa đồ"
 
-#: v2/templates/cart/cartview.php:195
+#: v2/templates/cart/cartview.php:186
 msgid "persons from"
 msgstr "những người từ đó"
 
@@ -8654,6 +8651,11 @@ msgstr "Không có trừ khử được"
 msgid "Calendar Year"
 msgstr "Năm lịch"
 
+#: v2/templates/edrive/dashboard.php:142
+#, fuzzy
+msgid "Add users"
+msgstr "Thêm người mua"
+
 #: v2/templates/email/mailchimp/campaign.php:31
 #, fuzzy
 msgid "Recipients"
@@ -9247,16 +9249,26 @@ msgstr ""
 msgid "Only PNG and JPEG files are managed actually !!"
 msgstr "Chỉ có hồ sơ PNGG và JPEG được quản lý thực sự !!"
 
-#: v2/templates/group/groupbadge.php:130
+#: v2/templates/group/groupbadge.php:65
+#, fuzzy
+msgid "Colors"
+msgstr "Colombia"
+
+#: v2/templates/group/groupbadge.php:149
 #, fuzzy
 msgid "Image Name"
 msgstr "Cứu tên"
 
-#: v2/templates/group/groupbadge.php:187
+#: v2/templates/group/groupbadge.php:211
 msgid "With QR Code"
 msgstr "Với mã QR"
 
-#: v2/templates/group/groupbadge.php:207
+#: v2/templates/group/groupbadge.php:226
+#, fuzzy
+msgid "Others"
+msgstr "Người kia"
+
+#: v2/templates/group/groupbadge.php:243
 msgid "Preview"
 msgstr "Preview"
 
@@ -13577,135 +13589,135 @@ msgstr "Chọn trường cho khách hàng"
 msgid "Match custom field to this value"
 msgstr "Phù hợp với giá trị này"
 
-#: settings-locales.php:2
+#: settings-locales.php:2 settings-locales.php:37 settings-locales.php:72
 msgid "Albanian"
 msgstr "Albania"
 
-#: settings-locales.php:3
+#: settings-locales.php:3 settings-locales.php:38 settings-locales.php:73
 msgid "Arabic - Egypt"
 msgstr "Tiếng Ả Rập - Ai Cập"
 
-#: settings-locales.php:4
+#: settings-locales.php:4 settings-locales.php:39 settings-locales.php:74
 msgid "Chinese - China"
 msgstr "Trung Quốc - Trung Quốc"
 
-#: settings-locales.php:5
+#: settings-locales.php:5 settings-locales.php:40 settings-locales.php:75
 msgid "Chinese - Taiwan"
 msgstr "Đài Loan"
 
-#: settings-locales.php:6
+#: settings-locales.php:6 settings-locales.php:41 settings-locales.php:76
 msgid "Danish - Denmark"
 msgstr "Đan Mạch - Đan Mạch"
 
-#: settings-locales.php:7
+#: settings-locales.php:7 settings-locales.php:42 settings-locales.php:77
 msgid "Dutch - Netherlands"
 msgstr "Hà Lan - Hà Lan"
 
-#: settings-locales.php:8
+#: settings-locales.php:8 settings-locales.php:43 settings-locales.php:78
 msgid "English - Australia"
 msgstr "Tiếng Anh - Úc"
 
-#: settings-locales.php:9
+#: settings-locales.php:9 settings-locales.php:44 settings-locales.php:79
 msgid "English - Canada"
 msgstr "Tiếng Anh - Canada"
 
-#: settings-locales.php:10
+#: settings-locales.php:10 settings-locales.php:45 settings-locales.php:80
 msgid "English - Great Britain"
 msgstr "Tiếng Anh - Đại Anh"
 
-#: settings-locales.php:11
+#: settings-locales.php:11 settings-locales.php:46 settings-locales.php:81
 msgid "English - United States"
 msgstr "Tiếng Anh - Hoa Kỳ"
 
-#: settings-locales.php:12
+#: settings-locales.php:12 settings-locales.php:47 settings-locales.php:82
 msgid "Finnish - Finland"
 msgstr "Phần Lan - Phần Lan"
 
-#: settings-locales.php:13
+#: settings-locales.php:13 settings-locales.php:48 settings-locales.php:83
 msgid "French - Belgium"
 msgstr "Tiếng Pháp - Bỉ"
 
-#: settings-locales.php:14
+#: settings-locales.php:14 settings-locales.php:49 settings-locales.php:84
 msgid "French - Canada"
 msgstr "Tiếng Pháp - Canada"
 
-#: settings-locales.php:15
+#: settings-locales.php:15 settings-locales.php:50 settings-locales.php:85
 msgid "French - France"
 msgstr "Pháp - Pháp"
 
-#: settings-locales.php:16
+#: settings-locales.php:16 settings-locales.php:51 settings-locales.php:86
 msgid "French - Swiss"
 msgstr "Tiếng Pháp - Thụy Sĩ"
 
-#: settings-locales.php:17
+#: settings-locales.php:17 settings-locales.php:52 settings-locales.php:87
 msgid "Greek"
 msgstr "Hy Lạp."
 
-#: settings-locales.php:18
+#: settings-locales.php:18 settings-locales.php:53 settings-locales.php:88
 msgid "German - Germany"
 msgstr "Đức - Đức"
 
-#: settings-locales.php:19
+#: settings-locales.php:19 settings-locales.php:54 settings-locales.php:89
 msgid "Hungarian"
 msgstr "Hungarian."
 
-#: settings-locales.php:20
+#: settings-locales.php:20 settings-locales.php:55 settings-locales.php:90
 msgid "Indonesian - Indonesia"
 msgstr "Indonesia - Indonesia"
 
-#: settings-locales.php:21
+#: settings-locales.php:21 settings-locales.php:56 settings-locales.php:91
 msgid "Italian - Italy"
 msgstr "Ý - Ý"
 
-#: settings-locales.php:22
+#: settings-locales.php:22 settings-locales.php:57 settings-locales.php:92
 msgid "Japan"
 msgstr "Nhật Bản"
 
-#: settings-locales.php:23
+#: settings-locales.php:23 settings-locales.php:58 settings-locales.php:93
 msgid "Norwegian - Norvege"
 msgstr "Na Uy - Norvege"
 
-#: settings-locales.php:24
+#: settings-locales.php:24 settings-locales.php:59 settings-locales.php:94
 msgid "Polish - Poland"
 msgstr "Ba Lan - Ba Lan"
 
-#: settings-locales.php:25
+#: settings-locales.php:25 settings-locales.php:60 settings-locales.php:95
 msgid "Portuguese - Brazil"
 msgstr "Bồ Đào Nha - Brazil"
 
-#: settings-locales.php:26
+#: settings-locales.php:26 settings-locales.php:61 settings-locales.php:96
 msgid "Portuguese - Portugal"
 msgstr "Bồ Đào Nha - Bồ Đào Nha"
 
-#: settings-locales.php:27
+#: settings-locales.php:27 settings-locales.php:62 settings-locales.php:97
 msgid "Romanian - Romania"
 msgstr "Romania - Romania"
 
-#: settings-locales.php:28
+#: settings-locales.php:28 settings-locales.php:63 settings-locales.php:98
 msgid "Russian"
 msgstr "Người Nga"
 
-#: settings-locales.php:29
+#: settings-locales.php:29 settings-locales.php:64 settings-locales.php:99
 msgid "Spanish - Spain"
 msgstr "Tây Ban Nha, Tây Ban Nha"
 
-#: settings-locales.php:30
+#: settings-locales.php:30 settings-locales.php:65 settings-locales.php:100
 msgid "Sami (Northern) (Sweden)"
 msgstr "Sami (Bắc) (Thụy Điển)"
 
-#: settings-locales.php:31
+#: settings-locales.php:31 settings-locales.php:66 settings-locales.php:101
 msgid "Thai"
 msgstr "Thái"
 
-#: settings-locales.php:32
+#: settings-locales.php:32 settings-locales.php:67 settings-locales.php:102
 msgid "Vietnamese"
 msgstr "Người Việt Nam."
 
-#: settings-locales.php:33
+#: settings-locales.php:33 settings-locales.php:68 settings-locales.php:103
 msgid "Korean"
 msgstr ""
 
-#: settings-locales.php:34
+#: settings-locales.php:34 settings-locales.php:69 settings-locales.php:104
 msgid "Ukraine"
 msgstr ""
 
@@ -13978,6 +13990,9 @@ msgstr ""
 #, fuzzy
 msgid "Giving Report"
 msgstr "Báo cáo Generate"
+
+#~ msgid "Cart Functions"
+#~ msgstr "Thưởng thức xe"
 
 #~ msgid "Show type of group:"
 #~ msgstr "Cho thấy nhóm:"

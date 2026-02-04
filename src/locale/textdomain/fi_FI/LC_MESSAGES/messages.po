@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-21 16:06+0000\n"
+"POT-Creation-Date: 2026-02-04 18:03+0000\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +63,7 @@ msgstr "Video"
 #: v2/templates/calendar/eventtypesedit.php:156
 #: v2/templates/cart/carttobadge.php:117
 #: v2/templates/deposit/autaPaymentEditor.php:375
-#: v2/templates/group/groupbadge.php:148 v2/templates/group/groupreports.php:47
+#: v2/templates/group/groupbadge.php:173 v2/templates/group/groupreports.php:47
 #: v2/templates/group/groupreports.php:149
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
 #: v2/templates/pastoralcare/pastoralcarefamily.php:325
@@ -274,14 +274,14 @@ msgstr "Tiedoston tai kansion nimi on jo olemassa!!!!"
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: browser/browse.php:155 v2/templates/edrive/dashboard.php:133
+#: browser/browse.php:155 v2/templates/edrive/dashboard.php:134
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: browser/browse.php:156 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:135
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
@@ -307,7 +307,7 @@ msgstr "Pankkitili"
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:259
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:284
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:142
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:144
 #: v2/templates/deposit/financialReports.php:346
 #: v2/templates/deposit/pledgeEditor.php:125
 msgid "Cash"
@@ -315,7 +315,7 @@ msgstr "Käteinen"
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:267
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:284
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:137
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:139
 msgid "Checks"
 msgstr "Tarkastukset"
 
@@ -337,7 +337,7 @@ msgid "newsletter"
 msgstr "uutiskirje"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:77
-#: EcclesiaCRM/Search/FamilySearchRes.php:51 v2/templates/cart/cartview.php:195
+#: EcclesiaCRM/Search/FamilySearchRes.php:51 v2/templates/cart/cartview.php:186
 msgid "families"
 msgstr "perheet"
 
@@ -485,7 +485,8 @@ msgstr "Lisätty ryhmään"
 #: v2/templates/group/groupPropsEditor.php:222
 #: v2/templates/group/groupPropsFormEditor.php:297
 #: v2/templates/group/groupPropsFormEditor.php:371
-#: v2/templates/group/groupedit.php:50 v2/templates/group/groupview.php:392
+#: v2/templates/group/groupbadge.php:143 v2/templates/group/groupedit.php:50
+#: v2/templates/group/groupview.php:392
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:405
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:568
 #: v2/templates/people/familyCustomFieldEditor.php:320
@@ -1221,7 +1222,7 @@ msgid "Your CRM Account was Deleted."
 msgstr "CRM-tilisi poistettiin."
 
 #: EcclesiaCRM/Emails/users/BaseUserEmail.php:30
-#: session/templates/session.php:232
+#: session/templates/session.php:236
 msgid "Email/Username"
 msgstr "Sähköposti/käyttäjätunnus"
 
@@ -1324,14 +1325,14 @@ msgstr "Tarkista perheesi tiedot"
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
 #: external/templates/password/enter-username.php:37
 #: external/templates/password/password-check-email.php:31
-#: ident/templates/verify/login-info.php:46 session/templates/session.php:264
+#: ident/templates/verify/login-info.php:46 session/templates/session.php:268
 msgid "Login"
 msgstr "Kirjaudu sisään"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:40 session/templates/session.php:245
-#: session/templates/session.php:345 v2/templates/BackupRestore/backup.php:85
+#: ident/templates/verify/login-info.php:40 session/templates/session.php:249
+#: session/templates/session.php:349 v2/templates/BackupRestore/backup.php:85
 #: v2/templates/user/userlist.php:57
 msgid "Password"
 msgstr "Salasana"
@@ -1675,8 +1676,8 @@ msgstr "of"
 
 #: EcclesiaCRM/Reports/PDF_Attendance.php:218
 #: EcclesiaCRM/Reports/PDF_Attendance.php:626
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:104
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:120
 #: sundayschool/SundaySchoolAttendeesExport.php:184
 msgid "Totals"
 msgstr "Yhteensä"
@@ -1949,7 +1950,7 @@ msgid "Wedding"
 msgstr "Häät"
 
 #: EcclesiaCRM/Reports/PDF_Directory.php:366
-#: v2/templates/cart/carttobadge.php:133 v2/templates/group/groupbadge.php:164
+#: v2/templates/cart/carttobadge.php:133 v2/templates/group/groupbadge.php:188
 msgid "and"
 msgstr "ja"
 
@@ -2232,7 +2233,7 @@ msgstr "Vuosipäivä"
 #: v2/templates/calendar/eventnames.php:347
 #: v2/templates/deposit/electronicPaymentList.php:215
 #: v2/templates/deposit/finddepositslip.php:103
-#: v2/templates/edrive/dashboard.php:107
+#: v2/templates/edrive/dashboard.php:108
 #: v2/templates/email/mailchimp/campaign.php:133
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/pastoralcare/pastoralcarefamily.php:299
@@ -3000,7 +3001,7 @@ msgstr "Muunna henkilöt osoitteiksi"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:211
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:258
-#: v2/templates/cart/cartview.php:70 v2/templates/system/csvExport.php:42
+#: v2/templates/cart/cartview.php:65 v2/templates/system/csvExport.php:42
 #: v2/templates/user/userseditor.php:379
 msgid "CSV Export"
 msgstr "CSV-vienti"
@@ -5205,54 +5206,54 @@ msgstr "Virheellinen konfiguraation nimi on pyydetty"
 msgid "An invalid configuration id has been requested"
 msgstr "Virheellinen konfiguraatiotunnus on pyydetty"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:100
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
 msgid "Coin"
 msgstr "Kolikko"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:101
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:117
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:103
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:119
 msgid "Counts"
 msgstr "Laskee"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:110
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:112
 msgid "Total Coin"
 msgstr "Kolikko yhteensä"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:116
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
 msgid "Bill"
 msgstr "Bill"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:126
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:128
 msgid "Total Cash"
 msgstr "Käteisvarat yhteensä"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:133
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:135
 msgid "Deposit totals by Currency Type"
 msgstr "Talletusten kokonaismäärä valuuttatyypeittäin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:150
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:152
 #: Reports/AdvancedDeposit.php:875
 msgid "Deposit totals by fund"
 msgstr "Talletusten kokonaismäärä rahastoittain"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:222
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:280
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:224
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282
 msgid "Deposit Summary"
 msgstr "Talletuksen yhteenveto"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:244
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:365
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:246
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:367
 msgid "Deposit total"
 msgstr "Talletus yhteensä"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:290
 #: Reports/AdvancedDeposit.php:314 Reports/AdvancedDeposit.php:323
 #: Reports/AdvancedDeposit.php:332 Reports/ReminderReport.php:405
 #: Reports/TaxReport.php:390
 msgid "Chk No."
 msgstr "Chk nro."
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:291
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:293
 #: Reports/AdvancedDeposit.php:315 Reports/AdvancedDeposit.php:334
 #: Reports/FamilyPledgeSummary.php:232 Reports/PledgeSummary.php:250
 #: Reports/ReminderReport.php:324 Reports/ReminderReport.php:407
@@ -5264,23 +5265,23 @@ msgstr "Chk nro."
 msgid "Fund"
 msgstr "Rahasto"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294 Reports/ReminderReport.php:406
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:296 Reports/ReminderReport.php:406
 #: Reports/TaxReport.php:391
 msgid "PmtMethod"
 msgstr "PmtMethod"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:299
 msgid "Rcd From"
 msgstr "Rcd Alkaen"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:300
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:302
 #: Reports/AdvancedDeposit.php:317 Reports/AdvancedDeposit.php:326
 #: Reports/AdvancedDeposit.php:335 Reports/ReminderReport.php:408
 #: Reports/TaxReport.php:393
 msgid "Memo"
 msgstr "Muistio"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:303
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:305
 #: Reports/AdvancedDeposit.php:318 Reports/AdvancedDeposit.php:327
 #: Reports/AdvancedDeposit.php:336 Reports/FundRaiserStatement.php:129
 #: Reports/FundRaiserStatement.php:173 Reports/ReminderReport.php:325
@@ -5291,13 +5292,13 @@ msgstr "Muistio"
 msgid "Amount"
 msgstr "Määrä"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:321
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:323
 msgid "Anonymous"
 msgstr "Anonyymi"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:394
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:399
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:404
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:396
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:401
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:406
 msgid "Witness"
 msgstr "Todistaja"
 
@@ -5339,7 +5340,7 @@ msgstr "Profiilikuva poistettu"
 msgid "Profile Image uploaded"
 msgstr "Profiilikuva ladattu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Group.php:145 Reports/CanvassReports.php:279
+#: EcclesiaCRM/model/EcclesiaCRM/Group.php:144 Reports/CanvassReports.php:279
 #: Reports/VotingMembers.php:102 v2/templates/people/selectDelete.php:339
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -5629,8 +5630,8 @@ msgstr "Fontti"
 
 #: EcclesiaCRM/utils/LabelUtils.php:80 Reports/PDFBadge.php:128
 #: Reports/PDFBadgeGroup.php:233 Reports/PDFLabel.php:793
-#: v2/templates/cart/carttobadge.php:152 v2/templates/group/groupbadge.php:84
-#: v2/templates/group/groupbadge.php:117 v2/templates/group/groupbadge.php:201
+#: v2/templates/cart/carttobadge.php:152 v2/templates/group/groupbadge.php:89
+#: v2/templates/group/groupbadge.php:128 v2/templates/group/groupbadge.php:234
 msgid "default"
 msgstr "oletus"
 
@@ -6319,7 +6320,7 @@ msgstr ""
 
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
-#: v2/templates/group/groupbadge.php:104 v2/templates/group/groupbadge.php:107
+#: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:118
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:223
 #: v2/templates/pastoralcare/pastoralcarefamily.php:104
 #: v2/templates/pastoralcare/pastoralcareperson.php:176
@@ -6546,78 +6547,78 @@ msgstr "Lataa"
 msgid "Insert"
 msgstr "Lisää"
 
-#: browser/browse.php:56 v2/templates/edrive/dashboard.php:34
+#: browser/browse.php:56 v2/templates/edrive/dashboard.php:32
 msgid "Download files"
 msgstr "Lataa tiedostoja"
 
-#: browser/browse.php:63 v2/templates/edrive/dashboard.php:41
+#: browser/browse.php:63 v2/templates/edrive/dashboard.php:42
 msgid "Files input"
 msgstr "Tiedostojen syöttö"
 
-#: browser/browse.php:71 v2/templates/edrive/dashboard.php:49
+#: browser/browse.php:71 v2/templates/edrive/dashboard.php:50
 msgid "Download status"
 msgstr "Lataa tila"
 
-#: browser/browse.php:80 v2/templates/edrive/dashboard.php:58
+#: browser/browse.php:80 v2/templates/edrive/dashboard.php:59
 msgid "Upload your files"
 msgstr "Lataa tiedostosi"
 
 #: browser/browse.php:83 v2/templates/cart/carttobadge.php:127
-#: v2/templates/cart/carttobadge.php:133 v2/templates/edrive/dashboard.php:61
-#: v2/templates/group/groupbadge.php:158 v2/templates/group/groupbadge.php:164
+#: v2/templates/cart/carttobadge.php:133 v2/templates/edrive/dashboard.php:62
+#: v2/templates/group/groupbadge.php:182 v2/templates/group/groupbadge.php:188
 msgid "Upload"
 msgstr "Lataa"
 
-#: browser/browse.php:95 v2/templates/edrive/dashboard.php:73
+#: browser/browse.php:95 v2/templates/edrive/dashboard.php:74
 msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr ""
 "Siirry yhtä tasoa ylemmäs tai siirrä tiedosto(t) vetämällä niitä yhtä tasoa "
 "ylemmäs."
 
-#: browser/browse.php:120 v2/templates/edrive/dashboard.php:98
+#: browser/browse.php:120 v2/templates/edrive/dashboard.php:99
 msgid "Internal sharing"
 msgstr "Sisäinen jakaminen"
 
-#: browser/browse.php:128 v2/templates/edrive/dashboard.php:106
+#: browser/browse.php:128 v2/templates/edrive/dashboard.php:107
 msgid "Delete all shares"
 msgstr "Poista kaikki osakkeet"
 
-#: browser/browse.php:132 v2/templates/edrive/dashboard.php:110
+#: browser/browse.php:132 v2/templates/edrive/dashboard.php:111
 msgid "Delete shares for the selected users"
 msgstr "Poista valittujen käyttäjien osakkeet"
 
-#: browser/browse.php:133 v2/templates/edrive/dashboard.php:111
+#: browser/browse.php:133 v2/templates/edrive/dashboard.php:112
 msgid "Stop sharing"
 msgstr "Lopeta jakaminen"
 
-#: browser/browse.php:138 v2/templates/edrive/dashboard.php:116
+#: browser/browse.php:138 v2/templates/edrive/dashboard.php:117
 msgid "With"
 msgstr "Osoitteessa"
 
-#: browser/browse.php:146 v2/templates/edrive/dashboard.php:124
+#: browser/browse.php:146 v2/templates/edrive/dashboard.php:125
 msgid "Set Rights"
 msgstr "Aseta oikeudet"
 
-#: browser/browse.php:152 v2/templates/edrive/dashboard.php:130
+#: browser/browse.php:152 v2/templates/edrive/dashboard.php:131
 msgid "Select your rights"
 msgstr "Valitse oikeutesi"
 
 #: browser/browse.php:152 v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:130
+#: v2/templates/edrive/dashboard.php:131
 #: v2/templates/people/personEditor.php:1003
 msgid "or"
 msgstr "tai"
 
-#: browser/browse.php:155 v2/templates/edrive/dashboard.php:133
+#: browser/browse.php:155 v2/templates/edrive/dashboard.php:134
 msgid "[R ]"
 msgstr "[R ]"
 
-#: browser/browse.php:156 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:135
 msgid "[RW]"
 msgstr "[RW]"
 
-#: browser/browse.php:166 v2/templates/edrive/dashboard.php:144
+#: browser/browse.php:166 v2/templates/edrive/dashboard.php:145
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
@@ -6628,20 +6629,20 @@ msgstr ""
 "mutta hän ei löydä sitä, voit lähettää hänelle sisäisen linkin käytön "
 "helpottamiseksi."
 
-#: browser/browse.php:166 v2/templates/edrive/dashboard.php:144
+#: browser/browse.php:166 v2/templates/edrive/dashboard.php:145
 #: v2/templates/sidebar/systemsettings.php:202
 msgid "Definition"
 msgstr "Määritelmä"
 
-#: browser/browse.php:174 v2/templates/edrive/dashboard.php:152
+#: browser/browse.php:174 v2/templates/edrive/dashboard.php:153
 msgid "Send email notification"
 msgstr "Lähetä sähköposti-ilmoitus"
 
-#: browser/browse.php:177 v2/templates/edrive/dashboard.php:155
+#: browser/browse.php:177 v2/templates/edrive/dashboard.php:156
 msgid "With Right"
 msgstr "Oikealla"
 
-#: browser/browse.php:190 v2/templates/edrive/dashboard.php:168
+#: browser/browse.php:190 v2/templates/edrive/dashboard.php:169
 msgid "Share By"
 msgstr "Jaa"
 
@@ -6834,8 +6835,8 @@ msgstr "Vahvista uusi salasana"
 msgid "Save"
 msgstr "Tallenna"
 
-#: ident/templates/verify/login-info.php:23 session/templates/session.php:211
-#: session/templates/session.php:303
+#: ident/templates/verify/login-info.php:23 session/templates/session.php:215
+#: session/templates/session.php:307
 msgid "Please Login"
 msgstr "Kirjaudu sisään"
 
@@ -6984,27 +6985,27 @@ msgstr "Järjestelmänvalvoja on poistanut tämän tilin käytöstä."
 msgid "Invalid 2FA code"
 msgstr "Virheellinen 2FA-koodi"
 
-#: session/templates/session.php:216 session/templates/session.php:310
+#: session/templates/session.php:220 session/templates/session.php:314
 msgid "Your previous session timed out.  Please login again."
 msgstr "Edellinen istuntosi päättyi.  Kirjaudu uudelleen."
 
-#: session/templates/session.php:256 session/templates/session.php:356
+#: session/templates/session.php:260 session/templates/session.php:360
 msgid "2FA : OTP key"
 msgstr "2FA : OTP-avain"
 
-#: session/templates/session.php:271
+#: session/templates/session.php:275
 msgid "I forgot my password"
 msgstr "Unohdin salasanani"
 
-#: session/templates/session.php:283
+#: session/templates/session.php:287
 msgid "Register a new Family"
 msgstr "Rekisteröi uusi perhe"
 
-#: session/templates/session.php:363
+#: session/templates/session.php:367
 msgid "Enter your password to retrieve your session"
 msgstr "Anna salasanasi hakeaksesi istuntosi"
 
-#: session/templates/session.php:366
+#: session/templates/session.php:370
 msgid "Or sign in as a different user"
 msgstr "Tai kirjaudu sisään eri käyttäjänä"
 
@@ -7743,7 +7744,7 @@ msgid "Only PNG and JPEG are managed actually !!"
 msgstr "Ainoastaan PNG ja JPEG ovat hallittavissa itse asiassa !!!"
 
 #: v2/templates/cart/carttobadge.php:36 v2/templates/cart/carttobadge.php:158
-#: v2/templates/group/groupbadge.php:55 v2/templates/group/groupbadge.php:219
+#: v2/templates/group/groupbadge.php:55 v2/templates/group/groupbadge.php:255
 msgid "Generate Badges"
 msgstr "Luo merkkejä"
 
@@ -7760,33 +7761,33 @@ msgid "Title color"
 msgstr "Otsikko väri"
 
 #: v2/templates/cart/carttobadge.php:71 v2/templates/cart/carttobadge.php:85
-#: v2/templates/group/groupbadge.php:70 v2/templates/group/groupbadge.php:94
+#: v2/templates/group/groupbadge.php:75 v2/templates/group/groupbadge.php:99
 msgid "Chose your color"
 msgstr "Valitse värisi"
 
-#: v2/templates/cart/carttobadge.php:80 v2/templates/group/groupbadge.php:89
+#: v2/templates/cart/carttobadge.php:80 v2/templates/group/groupbadge.php:94
 msgid "BackGround color"
 msgstr "BackGround väri"
 
-#: v2/templates/cart/carttobadge.php:94 v2/templates/group/groupbadge.php:124
+#: v2/templates/cart/carttobadge.php:94 v2/templates/group/groupbadge.php:137
 msgid "Image"
 msgstr "Kuva"
 
-#: v2/templates/cart/carttobadge.php:100 v2/templates/group/groupbadge.php:104
-#: v2/templates/group/groupbadge.php:107
+#: v2/templates/cart/carttobadge.php:100 v2/templates/group/groupbadge.php:112
+#: v2/templates/group/groupbadge.php:118
 msgid "Sunday School Name"
 msgstr "Pyhäkoulun nimi"
 
-#: v2/templates/cart/carttobadge.php:109 v2/templates/group/groupbadge.php:140
+#: v2/templates/cart/carttobadge.php:109 v2/templates/group/groupbadge.php:157
 msgid "Pictures in the Image folder: "
 msgstr "Kuvat Image-kansiossa:"
 
-#: v2/templates/cart/carttobadge.php:139 v2/templates/group/groupbadge.php:170
+#: v2/templates/cart/carttobadge.php:139 v2/templates/group/groupbadge.php:194
 msgid "Image Position"
 msgstr "Kuvan sijainti"
 
-#: v2/templates/cart/carttobadge.php:143 v2/templates/group/groupbadge.php:78
-#: v2/templates/group/groupbadge.php:111 v2/templates/group/groupbadge.php:174
+#: v2/templates/cart/carttobadge.php:143 v2/templates/group/groupbadge.php:83
+#: v2/templates/group/groupbadge.php:122 v2/templates/group/groupbadge.php:198
 #: v2/templates/people/familyCustomFieldEditor.php:369
 #: v2/templates/people/familyCustomFieldEditor.php:496
 #: v2/templates/people/personCustomEditor.php:359
@@ -7795,14 +7796,14 @@ msgstr "Kuvan sijainti"
 msgid "Left"
 msgstr "Vasen"
 
-#: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:79
-#: v2/templates/group/groupbadge.php:112 v2/templates/group/groupbadge.php:175
+#: v2/templates/cart/carttobadge.php:144 v2/templates/group/groupbadge.php:84
+#: v2/templates/group/groupbadge.php:123 v2/templates/group/groupbadge.php:199
 #: v2/templates/user/userseditor.php:839 v2/templates/user/usersettings.php:441
 msgid "Center"
 msgstr "Keskusta"
 
-#: v2/templates/cart/carttobadge.php:145 v2/templates/group/groupbadge.php:80
-#: v2/templates/group/groupbadge.php:113 v2/templates/group/groupbadge.php:176
+#: v2/templates/cart/carttobadge.php:145 v2/templates/group/groupbadge.php:85
+#: v2/templates/group/groupbadge.php:124 v2/templates/group/groupbadge.php:200
 #: v2/templates/people/familyCustomFieldEditor.php:370
 #: v2/templates/people/familyCustomFieldEditor.php:497
 #: v2/templates/people/personCustomEditor.php:360
@@ -7811,56 +7812,52 @@ msgstr "Keskusta"
 msgid "Right"
 msgstr "Oikea"
 
-#: v2/templates/cart/carttobadge.php:150 v2/templates/group/groupbadge.php:199
+#: v2/templates/cart/carttobadge.php:150 v2/templates/group/groupbadge.php:232
 msgid "Badge Type"
 msgstr "Merkin tyyppi"
 
-#: v2/templates/cart/cartview.php:29
-msgid "Cart Functions"
-msgstr "Ostoskärryn toiminnot"
-
-#: v2/templates/cart/cartview.php:32
+#: v2/templates/cart/cartview.php:27
 msgid "Empty Cart"
 msgstr "Tyhjä kori"
 
-#: v2/templates/cart/cartview.php:37
+#: v2/templates/cart/cartview.php:32
 msgid "Empty Cart to Group"
 msgstr "Tyhjä kori ryhmään"
 
-#: v2/templates/cart/cartview.php:43
+#: v2/templates/cart/cartview.php:38
 msgid "Empty Cart to Family"
 msgstr "Tyhjä kori perheelle"
 
-#: v2/templates/cart/cartview.php:47
+#: v2/templates/cart/cartview.php:42
 msgid "Empty Cart to Event"
 msgstr "Tyhjä kori tapahtumaan"
 
-#: v2/templates/cart/cartview.php:53
+#: v2/templates/cart/cartview.php:48
 msgid "Map Cart"
 msgstr "Karttakori"
 
-#: v2/templates/cart/cartview.php:60 v2/templates/people/personview.php:490
+#: v2/templates/cart/cartview.php:55 v2/templates/people/personview.php:490
 msgid "Get the vCard of the person"
 msgstr "Hae henkilön vCard"
 
-#: v2/templates/cart/cartview.php:63 v2/templates/people/familyview.php:296
+#: v2/templates/cart/cartview.php:58 v2/templates/people/familyview.php:296
 #: v2/templates/people/personview.php:493
 msgid "vCard"
 msgstr "vCard"
 
-#: v2/templates/cart/cartview.php:75
+#: v2/templates/cart/cartview.php:70
 msgid "Name Tags"
 msgstr "Nimilaput"
 
-#: v2/templates/cart/cartview.php:77
+#: v2/templates/cart/cartview.php:72
 msgid "Badges"
 msgstr "Nimilaput"
 
-#: v2/templates/cart/cartview.php:84
+#: v2/templates/cart/cartview.php:79
 msgid "Email Cart"
 msgstr "Sähköpostikoriin"
 
-#: v2/templates/cart/cartview.php:86 v2/templates/group/groupview.php:147
+#: v2/templates/cart/cartview.php:81 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:251
 #: v2/templates/people/personview.php:427
 #: v2/templates/sundayschool/sundayschooldashboard.php:113
@@ -7869,43 +7866,43 @@ msgstr "Sähköpostikoriin"
 msgid "Email (BCC)"
 msgstr "Sähköposti (BCC)"
 
-#: v2/templates/cart/cartview.php:96 v2/templates/cart/cartview.php:105
+#: v2/templates/cart/cartview.php:91 v2/templates/cart/cartview.php:100
 msgid "Text Cart"
 msgstr "Teksti Ostoskori"
 
-#: v2/templates/cart/cartview.php:103
+#: v2/templates/cart/cartview.php:98
 msgid "Copy Paste the Texts"
 msgstr "Kopioi Liitä tekstit"
 
-#: v2/templates/cart/cartview.php:113
+#: v2/templates/cart/cartview.php:108
 msgid "Create Directory From Cart"
 msgstr "Luo hakemisto ostoskorista"
 
-#: v2/templates/cart/cartview.php:118
+#: v2/templates/cart/cartview.php:113
 msgid "Delete Persons From CRM"
 msgstr "Henkilöiden poistaminen CRM:stä"
 
-#: v2/templates/cart/cartview.php:121
+#: v2/templates/cart/cartview.php:116
 msgid "Deactivate Persons From Cart"
 msgstr "Deaktivoi henkilöt ostoskorista"
 
-#: v2/templates/cart/cartview.php:132 v2/templates/cart/cartview.php:176
+#: v2/templates/cart/cartview.php:125 v2/templates/cart/cartview.php:170
 msgid "Generate Labels"
 msgstr "Tarrojen luominen"
 
-#: v2/templates/cart/cartview.php:141
+#: v2/templates/cart/cartview.php:137
 msgid "Bulk Mail Presort"
 msgstr "Bulk Mail Presort"
 
-#: v2/templates/cart/cartview.php:151
+#: v2/templates/cart/cartview.php:147
 msgid "Quiet Presort"
 msgstr "Hiljainen esilajittelu"
 
-#: v2/templates/cart/cartview.php:195
+#: v2/templates/cart/cartview.php:186
 msgid "Your cart contains"
 msgstr "Ostoskorisi sisältää"
 
-#: v2/templates/cart/cartview.php:195
+#: v2/templates/cart/cartview.php:186
 msgid "persons from"
 msgstr "henkilöitä"
 
@@ -8614,6 +8611,11 @@ msgstr "Vähennyskelvoton määrä"
 msgid "Calendar Year"
 msgstr "Kalenterivuosi"
 
+#: v2/templates/edrive/dashboard.php:142
+#, fuzzy
+msgid "Add users"
+msgstr "Lisää ostaja"
+
 #: v2/templates/email/mailchimp/campaign.php:31
 msgid "Recipients"
 msgstr "Vastaanottajat"
@@ -9201,15 +9203,25 @@ msgstr ""
 msgid "Only PNG and JPEG files are managed actually !!"
 msgstr "Vain PNG- ja JPEG-tiedostoja hallitaan itse asiassa !!!"
 
-#: v2/templates/group/groupbadge.php:130
+#: v2/templates/group/groupbadge.php:65
+#, fuzzy
+msgid "Colors"
+msgstr "Väri"
+
+#: v2/templates/group/groupbadge.php:149
 msgid "Image Name"
 msgstr "Kuvan nimi"
 
-#: v2/templates/group/groupbadge.php:187
+#: v2/templates/group/groupbadge.php:211
 msgid "With QR Code"
 msgstr "QR-koodilla"
 
-#: v2/templates/group/groupbadge.php:207
+#: v2/templates/group/groupbadge.php:226
+#, fuzzy
+msgid "Others"
+msgstr "Muut"
+
+#: v2/templates/group/groupbadge.php:243
 msgid "Preview"
 msgstr "Esikatselu"
 
@@ -13469,135 +13481,135 @@ msgstr "Valitse asiakkaan henkilö kenttä"
 msgid "Match custom field to this value"
 msgstr "Sovita mukautettu kenttä tähän arvoon"
 
-#: settings-locales.php:2
+#: settings-locales.php:2 settings-locales.php:37 settings-locales.php:72
 msgid "Albanian"
 msgstr "Albanian"
 
-#: settings-locales.php:3
+#: settings-locales.php:3 settings-locales.php:38 settings-locales.php:73
 msgid "Arabic - Egypt"
 msgstr "Arabia - Egypti"
 
-#: settings-locales.php:4
+#: settings-locales.php:4 settings-locales.php:39 settings-locales.php:74
 msgid "Chinese - China"
 msgstr "Kiinalainen - Kiina"
 
-#: settings-locales.php:5
+#: settings-locales.php:5 settings-locales.php:40 settings-locales.php:75
 msgid "Chinese - Taiwan"
 msgstr "Kiina - Taiwan"
 
-#: settings-locales.php:6
+#: settings-locales.php:6 settings-locales.php:41 settings-locales.php:76
 msgid "Danish - Denmark"
 msgstr "Tanskan kieli - Tanska"
 
-#: settings-locales.php:7
+#: settings-locales.php:7 settings-locales.php:42 settings-locales.php:77
 msgid "Dutch - Netherlands"
 msgstr "Hollanti - Alankomaat"
 
-#: settings-locales.php:8
+#: settings-locales.php:8 settings-locales.php:43 settings-locales.php:78
 msgid "English - Australia"
 msgstr "englanti - Australia"
 
-#: settings-locales.php:9
+#: settings-locales.php:9 settings-locales.php:44 settings-locales.php:79
 msgid "English - Canada"
 msgstr "englanti - Kanada"
 
-#: settings-locales.php:10
+#: settings-locales.php:10 settings-locales.php:45 settings-locales.php:80
 msgid "English - Great Britain"
 msgstr "englanti - Iso-Britannia"
 
-#: settings-locales.php:11
+#: settings-locales.php:11 settings-locales.php:46 settings-locales.php:81
 msgid "English - United States"
 msgstr "englanti - Yhdysvallat"
 
-#: settings-locales.php:12
+#: settings-locales.php:12 settings-locales.php:47 settings-locales.php:82
 msgid "Finnish - Finland"
 msgstr "Suomi"
 
-#: settings-locales.php:13
+#: settings-locales.php:13 settings-locales.php:48 settings-locales.php:83
 msgid "French - Belgium"
 msgstr "Ranska - Belgia"
 
-#: settings-locales.php:14
+#: settings-locales.php:14 settings-locales.php:49 settings-locales.php:84
 msgid "French - Canada"
 msgstr "Ranska - Kanada"
 
-#: settings-locales.php:15
+#: settings-locales.php:15 settings-locales.php:50 settings-locales.php:85
 msgid "French - France"
 msgstr "Ranskan kieli - Ranska"
 
-#: settings-locales.php:16
+#: settings-locales.php:16 settings-locales.php:51 settings-locales.php:86
 msgid "French - Swiss"
 msgstr "Ranska - Sveitsi"
 
-#: settings-locales.php:17
+#: settings-locales.php:17 settings-locales.php:52 settings-locales.php:87
 msgid "Greek"
 msgstr "Kreikkalainen"
 
-#: settings-locales.php:18
+#: settings-locales.php:18 settings-locales.php:53 settings-locales.php:88
 msgid "German - Germany"
 msgstr "Saksa - Saksa"
 
-#: settings-locales.php:19
+#: settings-locales.php:19 settings-locales.php:54 settings-locales.php:89
 msgid "Hungarian"
 msgstr "Unkarilainen"
 
-#: settings-locales.php:20
+#: settings-locales.php:20 settings-locales.php:55 settings-locales.php:90
 msgid "Indonesian - Indonesia"
 msgstr "Indonesian kieli - Indonesia"
 
-#: settings-locales.php:21
+#: settings-locales.php:21 settings-locales.php:56 settings-locales.php:91
 msgid "Italian - Italy"
 msgstr "Italian kieli - Italia"
 
-#: settings-locales.php:22
+#: settings-locales.php:22 settings-locales.php:57 settings-locales.php:92
 msgid "Japan"
 msgstr "Japani"
 
-#: settings-locales.php:23
+#: settings-locales.php:23 settings-locales.php:58 settings-locales.php:93
 msgid "Norwegian - Norvege"
 msgstr "Norjan, Norvegen"
 
-#: settings-locales.php:24
+#: settings-locales.php:24 settings-locales.php:59 settings-locales.php:94
 msgid "Polish - Poland"
 msgstr "Puola"
 
-#: settings-locales.php:25
+#: settings-locales.php:25 settings-locales.php:60 settings-locales.php:95
 msgid "Portuguese - Brazil"
 msgstr "Portugali - Brasilia"
 
-#: settings-locales.php:26
+#: settings-locales.php:26 settings-locales.php:61 settings-locales.php:96
 msgid "Portuguese - Portugal"
 msgstr "Portugali - Portugali"
 
-#: settings-locales.php:27
+#: settings-locales.php:27 settings-locales.php:62 settings-locales.php:97
 msgid "Romanian - Romania"
 msgstr "Romanian - Romania"
 
-#: settings-locales.php:28
+#: settings-locales.php:28 settings-locales.php:63 settings-locales.php:98
 msgid "Russian"
 msgstr "Venäläinen"
 
-#: settings-locales.php:29
+#: settings-locales.php:29 settings-locales.php:64 settings-locales.php:99
 msgid "Spanish - Spain"
 msgstr "Espanja - Espanja"
 
-#: settings-locales.php:30
+#: settings-locales.php:30 settings-locales.php:65 settings-locales.php:100
 msgid "Sami (Northern) (Sweden)"
 msgstr "Saamelaiset (pohjoinen) (Ruotsi)"
 
-#: settings-locales.php:31
+#: settings-locales.php:31 settings-locales.php:66 settings-locales.php:101
 msgid "Thai"
 msgstr "Thai"
 
-#: settings-locales.php:32
+#: settings-locales.php:32 settings-locales.php:67 settings-locales.php:102
 msgid "Vietnamese"
 msgstr "Vietnamilainen"
 
-#: settings-locales.php:33
+#: settings-locales.php:33 settings-locales.php:68 settings-locales.php:103
 msgid "Korean"
 msgstr "Korean"
 
-#: settings-locales.php:34
+#: settings-locales.php:34 settings-locales.php:69 settings-locales.php:104
 msgid "Ukraine"
 msgstr "Ukraina"
 
@@ -13866,6 +13878,9 @@ msgstr "Useita päiviä"
 
 msgid "Giving Report"
 msgstr "Antaminen Raportti"
+
+#~ msgid "Cart Functions"
+#~ msgstr "Ostoskärryn toiminnot"
 
 #~ msgid "Show type of group:"
 #~ msgstr "Näytä ryhmän tyyppi:"
