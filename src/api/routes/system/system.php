@@ -37,6 +37,13 @@ $app->group('/system', function (RouteCollectorProxy $group) {
     */
     $group->post('/testEmailConnection', SystemController::class . ':testEmailConnectionMVC' );
 
+    /*
+    * @! request-uri
+    * @! force the $_SERVER['REQUEST_URI'] to have the right form
+    * #! param: ref->string ::uri 
+    */
+    $group->post('/currentPage', SystemController::class . ':currentPage' );
+
 });
 
 
