@@ -98,4 +98,22 @@ class SystemController
             return $response->withJson(['success' => false,"error" => $message]);
         }
     }
+
+    
+    public function currentPage (ServerRequest $request, Response $response, array $args): Response
+    {
+        if (!(SessionUser::getUser()->isAdmin())) {
+            return $response->withStatus(401);
+        }
+
+        $params = (object)$request->getParsedBody();
+        if ( !empty(isset ($params->uri)) ) {
+            $_SERVER['REQUEST_URI'] = $params->uri;
+            SessionUser::setCurrentPageName($_SERVER['REQUEST_URI']);            
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);        
+    }
 }
