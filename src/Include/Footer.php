@@ -430,9 +430,20 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
 
     foreach ($plugins as $plugin) {
         $security = $plugin->getSecurities();
+        
 
         if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
             continue;
+
+    
+        $dependencies = $plugin->getDependencies();
+        foreach ($dependencies as $dependency) {
+        ?>
+            <script src="<?= SystemURLs::getRootPath() ?>/<?= str_replace("**locale**", Bootstrapper::getCurrentLocale()->getLocale(),$dependency) ?>"></script>
+            
+        <?php
+        }
+        
         ?>
             <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
         <?php
@@ -445,6 +456,14 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
         ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
         ->filterByName(SessionUser::getPluginName())
         ->findOneByActiv(true);
+
+    $dependencies = $plugin->getDependencies();
+    foreach ($dependencies as $dependency) {
+        ?>
+            <script src="<?= SystemURLs::getRootPath() ?>/<?= str_replace("**locale**", Bootstrapper::getCurrentLocale()->getLocale(),$dependency) ?>"></script>
+            
+        <?php
+    }
     ?>
         <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
     <?php    

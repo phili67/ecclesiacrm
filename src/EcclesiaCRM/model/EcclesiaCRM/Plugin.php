@@ -3,7 +3,7 @@
 namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\Plugin as BasePlugin;
-
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SecurityOptions;
 
 /**
@@ -89,5 +89,16 @@ class Plugin extends BasePlugin
         }
 
         return $res;
+    }
+
+    public function getDependencies()
+    {
+        $string = file_get_contents(SystemURLs::getDocumentRoot() . '/Plugins/' . $this->getName() . '/config.json');
+        $json_a = json_decode($string, true);
+        if (array_key_exists("Dependencies", $json_a)) {
+            return explode(",", $json_a['Dependencies']);
+        }
+        
+        return null;
     }
 }
