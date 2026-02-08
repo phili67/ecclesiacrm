@@ -21,7 +21,7 @@ $csp = array(
     "script-src-elem 'self' 'unsafe-inline' ",
     "frame-src 'self' www.youtube.com 8x8.vc",
     "font-src 'self' fonts.gstatic.com",
-    "connect-src 'self' www.bing.com  nominatim.openstreetmap.org cke4.ckeditor.com maps.googleapis.com",
+    "connect-src 'self' ibibles.net www.bing.com  nominatim.openstreetmap.org cke4.ckeditor.com maps.googleapis.com",
     "report-uri ".$actual_link.SystemURLs::getRootPath()."/api/system/csp-report"
 );
 if (SystemConfig::getBooleanValue("bHSTSEnable")) {
