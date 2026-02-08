@@ -601,25 +601,25 @@ class VIEWPeopleController {
         $sPageTitle = _('Person Profile');
         $sPageTitleSpan = $sPageTitle . ' <span style="float:right"><div class="btn-group">';
         if ($previous_id > 0) {
-            $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-secondary mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $previous_id . '\'">
+            $sPageTitleSpan .= '<a title="' . _('Previous Person') . '" class="btn btn-round btn-secondary mat-raised-button"  href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $previous_id . '">
         <span class="mat-button-wrapper"><i class="far fa-hand-point-left"></i></span>
         <div class="mat-button-ripple mat-ripple" ></div>
         <div class="mat-button-focus-overlay"></div>
-        </button>';
+        </a>';
         }
 
-        $sPageTitleSpan .= '<button title="' . _('Person List') . '" class="btn btn-round btn-secondary mat-raised-button"  type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/personlist\'">
+        $sPageTitleSpan .= '<a title="' . _('Person List') . '" class="btn btn-round btn-secondary mat-raised-button"  href="' . SystemURLs::getRootPath() . '/v2/personlist">
         <span class="mat-button-wrapper"><i class="fas fa-list-ul"></i></span>
         <div class="mat-button-ripple mat-ripple" ></div>
         <div class="mat-button-focus-overlay"></div>
-        </button>';
+        </a>';
 
         if ($next_id > 0) {
-            $sPageTitleSpan .= '<button title="' . _('Next Person') . '" class="btn btn-round btn-secondary mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $next_id . '\'">
+            $sPageTitleSpan .= '<a title="' . _('Next Person') . '" class="btn btn-round btn-secondary mat-raised-button"  href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $next_id . '">
         <span class="mat-button-wrapper"><i class="far fa-hand-point-right"></i></span>
         <div class="mat-button-ripple mat-ripple"></div>
         <div class="mat-button-focus-overlay"></div>
-        </button>
+        </a>
         </div>';
         }
 
