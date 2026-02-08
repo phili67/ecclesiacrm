@@ -435,7 +435,7 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
             continue;
 
         // write the plgin dependencies js code
-        $dependencies = $plugin->getDependencies();                
+        $plugin->getDependencies();                
         ?>
             <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
         <?php
@@ -450,7 +450,7 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
         ->findOneByActiv(true);
 
     // write the plgin dependencies js code
-    $dependencies = $plugin->getDependencies();
+    $plugin->getDependencies();
     ?>
         <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
     <?php    
