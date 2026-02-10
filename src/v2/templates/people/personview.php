@@ -93,6 +93,21 @@ require $sRootDocument . '/Include/Header.php';
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </p>
+                            <p class="text-muted text-center">
+                                <b><img src="<?= $sRootPath . "/skin/icons/markers/" . $PersonInfos['person']->getClassIcon() ?>"
+                                            width="18" alt="">
+                                        <?= _($PersonInfos['person']->getClassName()) ?>
+                                    </b>
+
+                                    
+                                        <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
+                                           data-person_id="<?= $PersonInfos['person']->getId() ?>"
+                                           data-classification_id="<?= $PersonInfos['person']->getClassID() ?>"
+                                           data-classification_role="<?= $PersonInfos['person']->getClassName() ?>">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    
+                            </p>
                             <?php
                         }
                         if ($PersonInfos['person']->getMembershipDate() 
@@ -104,24 +119,13 @@ require $sRootDocument . '/Include/Header.php';
                             ?>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b><?= _('Member Since') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($PersonInfos['person']->getMembershipDate()->format('Y-m-d'), false) ?></a>
+                                    <b><?= _('Membership Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($PersonInfos['person']->getMembershipDate()->format('Y-m-d'), false) ?></a>
                                 </li>
+                                <?php if ($PersonInfos['person']->getFriendDate()->format('Y-m-d') != '1900-01-01'): ?>
                                 <li class="list-group-item">
-                                    <b><img
-                                            src="<?= $sRootPath . "/skin/icons/markers/" . $PersonInfos['person']->getClassIcon() ?>"
-                                            width="18" alt="">
-                                        <?= _($PersonInfos['person']->getClassName()) ?>
-                                    </b>
-
-                                    <div class="float-right">
-                                        <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
-                                           data-person_id="<?= $PersonInfos['person']->getId() ?>"
-                                           data-classification_id="<?= $PersonInfos['person']->getClassID() ?>"
-                                           data-classification_role="<?= $PersonInfos['person']->getClassName() ?>">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                    </div>
+                                    <b><?= _('Friend Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($PersonInfos['person']->getFriendDate()->format('Y-m-d'), false) ?></a>
                                 </li>
+                                <?php endif ?>                                
                             </ul>
                             <?php
                         }
