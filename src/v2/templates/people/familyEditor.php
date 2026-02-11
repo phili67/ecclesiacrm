@@ -249,8 +249,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     if ((strlen($dWeddingDate) > 0) && ($dWeddingDate != '')) {
         $dateString = InputUtils::parseAndValidateDate($dWeddingDate, Bootstrapper::getCurrentLocale()->getCountryCode(), $pasfut = 'past');
         if ($dateString === false) {
-            $sWeddingDateError = '<span style="color: red; ">'
-                . _('Not a valid Wedding Date') . '</span>';
+            $sWeddingDateError =  _('Not a valid Wedding Date');
             $bErrorFlag = true;
         } else {
             $dWeddingDate = "$dateString";
@@ -262,8 +261,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     // Validate Email
     if (strlen($sEmail) > 0) {
         if (MiscUtils::checkEmail($sEmail) == false) {
-            $sEmailError = '<span style="color: red; ">'
-                . _('Email is Not Valid') . '</span>';
+            $sEmailError =  _('Email is Not Valid');
             $bErrorFlag = true;
         } else {
             $sEmail = $sEmail;
@@ -701,7 +699,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-header border-1">
             <h3 class="card-title"><?= _('Family Info') ?></h3>
             <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
+                <input type="submit" class="btn btn-primary" value="&check;  <?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -728,7 +726,7 @@ require $sRootDocument . '/Include/Header.php';
                                value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"
                                class="form-control form-control-sm">
                     </div>
-                    <div <?= (SystemConfig::getValue('bStateUnusefull')) ? "style=\"display: none;\"" : "class=\"form-group col-md-2\" " ?>>
+                    <div <?= (SystemConfig::getValue('bStateUnusefull')) ? 'style="display: none;"' : 'class="form-group col-md-2"' ?>>
                         <label for="StatleTextBox"><?= _("State") ?>: </label>
                         <?php
                         $statesDD = new StateDropDown();
@@ -756,7 +754,7 @@ require $sRootDocument . '/Include/Header.php';
                                value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50"
                                maxlength="250" class="form-control form-control-sm">
                     </div>
-                    <div <?= (SystemConfig::getValue('bStateUnusefull')) ? "style=\"display: none;\"" : "class=\"form-group col-md-3\" " ?>>
+                    <div <?= (SystemConfig::getValue('bStateUnusefull')) ? 'style="display: none;"' : 'class="form-group col-md-3"' ?>>
                         <label><?= _('None US/CND State') ?>:</label>
                         <input type="text" class="form-control form-control-sm" name="StateTextbox"
                                value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
@@ -794,7 +792,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-header border-1">
             <h3 class="card-title"><?= _('Contact Info') ?></h3>
             <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
+                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -848,8 +846,8 @@ require $sRootDocument . '/Include/Header.php';
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         </div>
                         <input type="text" Name="Email" class="form-control form-control-sm"
-                               value="<?= htmlentities(stripslashes($sEmail)) ?>" size="30" maxlength="100"><font
-                            color="red"><?= '<BR>' . $sEmailError ?></font>
+                               value="<?= htmlentities(stripslashes($sEmail)) ?>" size="30" maxlength="100">
+                               <span class="text-red"><?=  $sEmailError ?></span>                            
                     </div>
                 </div>
                 <?php if (!SystemConfig::getValue('bHideFamilyNewsletter')) { /* Newsletter can be hidden - General Settings */ ?>
@@ -869,7 +867,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-header border-1">
             <h3 class="card-title"><?= _('Other Info') ?>:</h3>
             <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
+                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -889,7 +887,7 @@ require $sRootDocument . '/Include/Header.php';
                                    id="WeddingDate" size="15"
                                    placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                             <?php if ($sWeddingDateError) {
-                                ?> <span style="color: red"><br/><?php $sWeddingDateError ?></span> <?php
+                                ?> <span class="text-red"><br/><?php $sWeddingDateError ?></span> <?php
                             } ?>
                         </div>
                     </div>
@@ -957,7 +955,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="card-header border-1">
                 <h3><?= _('Envelope Info') ?></h3>
                 <div class="pull-right">
-                    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
+                    <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="FamilySubmit">
                 </div>
             </div><!-- /.box-header -->
             <div class="card-body">
@@ -979,7 +977,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="card-header border-1">
                 <h3 class="card-title"><?= _('Custom Fields') ?></h3>
                 <div class="pull-right">
-                    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
+                    <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="FamilySubmit">
                 </div>
             </div><!-- /.box-header -->
             <div class="card-body">
@@ -1007,9 +1005,9 @@ require $sRootDocument . '/Include/Header.php';
                                 }
 
                                 echo OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
-                                if (isset($aCustomErrors[$customField['TypeId']])) {
-                                    echo '<span style="color: red; ">' . $aCustomErrors[$customField['TypeId']] . '</span>';
-                                }
+                                if (isset($aCustomErrors[$customField['TypeId']])) { ?>
+                                    <span class="text-red"><?=  $aCustomErrors[$customField['TypeId']] ?></span>
+                                <?php }
                             }
                         }
                         echo '  </div>';
@@ -1034,9 +1032,9 @@ require $sRootDocument . '/Include/Header.php';
                                 }
 
                                 echo OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
-                                if (isset($aCustomErrors[$customField['TypeId']])) {
-                                    echo '<span style="color: red; ">' . $aCustomErrors[$customField['TypeId']] . '</span>';
-                                }
+                                if (isset($aCustomErrors[$customField['TypeId']])) {?>
+                                    <span class="text-red"><?= $aCustomErrors[$customField['TypeId']] ?></span>
+                                <?php }
                             }
                         }
                         echo '  </div>';
@@ -1053,7 +1051,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-header border-1">
             <h3 class="card-title"><?= _('Family Members') ?></h3>
             <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
+                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -1108,9 +1106,9 @@ require $sRootDocument . '/Include/Header.php';
                                     <td class="TextColumnFam">
                                         <input class="form-control form-control-sm" name="FirstName<?= $iCount ?>" type="text"
                                                value="<?= $aFirstNames[$iCount] ?>" size="10">
-                                        <div><font color="red"><?php if (array_key_exists($iCount, $aFirstNameError)) {
-                                                    echo $aFirstNameError[$iCount];
-                                                } ?></font></div>
+                                        <?php if (array_key_exists($iCount, $aFirstNameError)) {?>
+                                                <span class="text-red"><?= $aFirstNameError[$iCount] ?></span>
+                                            <?php } ?>
                                     </td>
                                     <td class="TextColumnFam">
                                         <input class="form-control form-control-sm" name="MiddleName<?= $iCount ?>" type="text"
@@ -1222,7 +1220,7 @@ require $sRootDocument . '/Include/Header.php';
                                             <?php
                                             if (array_key_exists($iCount, $aBirthDateError)) {
                                                 ?>
-                                                <div><font color="red"><?= $aBirthDateError[$iCount] ?></font></div>
+                                                <span class="text-red"><?= $aBirthDateError[$iCount] ?></span>
                                                 <?php
                                             }
                                             ?>
