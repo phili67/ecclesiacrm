@@ -872,7 +872,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-header border-1">
             <h3 class="card-title"><?= _('Personal Info') ?></h3>
             <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+                <input type="submit" class="btn btn-primary" value="&check;  <?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -899,8 +899,7 @@ require $sRootDocument . '/Include/Header.php';
                                value="<?= htmlentities(stripslashes($sFirstName), ENT_NOQUOTES, 'UTF-8') ?>"
                                class= "form-control form-control-sm">
                         <?php if ($sFirstNameError) {
-                            ?><br><font
-                                color="red"><?= $sFirstNameError ?></span><?php
+                            ?><span class="text-red"><?= $sFirstNameError ?></span><?php
                         } ?>
                     </div>
                     <div class="col-md-2">
@@ -909,8 +908,7 @@ require $sRootDocument . '/Include/Header.php';
                                value="<?= htmlentities(stripslashes($sMiddleName), ENT_NOQUOTES, 'UTF-8') ?>"
                                class= "form-control form-control-sm">
                         <?php if ($sMiddleNameError) {
-                            ?><br><font
-                                color="red"><?= $sMiddleNameError ?></span><?php
+                            ?><span class="text-red"><?= $sMiddleNameError ?></span><?php
                         } ?>
                     </div>
                     <div class="col-md-2">
@@ -919,8 +917,7 @@ require $sRootDocument . '/Include/Header.php';
                                value="<?= htmlentities(stripslashes($sLastName), ENT_NOQUOTES, 'UTF-8') ?>"
                                class= "form-control form-control-sm">
                         <?php if ($sLastNameError) {
-                            ?><br><font
-                                color="red"><?= $sLastNameError ?></span><?php
+                            ?><span class="text-red"><?= $sLastNameError ?></span><?php
                         } ?>
                     </div>
                     <div class="col-md-1">
@@ -931,7 +928,15 @@ require $sRootDocument . '/Include/Header.php';
                     </div>                    
                     <div class="col-md-2">
                         <label><?= _('Birthday Date') ?>:</label>
-                        <input type="text" name="BirthDayDate" class=" form-control  form-control-sm date-picker" value="<?= OutputUtils::change_date_for_place_holder($sBirthDayDate) ?>" maxlength="10" id="sel2" size="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                        <input type="text" name="BirthDayDate" class=" form-control  
+                            form-control-sm date-picker" value="<?= OutputUtils::change_date_for_place_holder($sBirthDayDate) ?>" maxlength="10" id="sel2" size="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+
+                        <?php
+                        if ($sBirthYearError) {
+                            ?><span class="text-red"><?= $sBirthYearError ?></span><?php
+                        }
+                        ?>
+                        
                     </div>
                     <div class="col-md-1">
                         <label><?= _('Hide Age') ?></label><br/>
@@ -945,7 +950,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-header with-border">
             <h3 class="card-title"><?= _("Person or Family Info") ?></h3>
             <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -1131,7 +1136,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-header with-border">
             <h3 class="card-title"><?= _('Contact Info') ?></h3>
             <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -1452,11 +1457,8 @@ require $sRootDocument . '/Include/Header.php';
                         <input type="text" name="Email"
                                value="<?= htmlentities(stripslashes($sEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="100" class= "form-control form-control-sm">
-                        <?php
-                        if ($sEmailError) {
-                            ?>
-                            <span class="text-red"><?= $sEmailError ?></span>
-                            <?php
+                        <?php if ($sEmailError) { ?>
+                            <span class="text-red"><?= $sEmailError ?></span><?php
                         }
                         ?>
                     </div>
@@ -1554,7 +1556,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-header with-border">
             <h3 class="card-title"><?= _('Membership Info') ?></h3>
             <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -1634,7 +1636,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="card-header with-border">
                 <h3 class="card-title"><?= _('Custom Fields') ?></h3>
                 <div class="pull-right">
-                    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+                    <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PersonSubmit">
                 </div>
             </div><!-- /.box-header -->
             <div class="card-body">
