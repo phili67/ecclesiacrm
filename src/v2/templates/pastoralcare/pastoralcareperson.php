@@ -120,9 +120,13 @@ $sFamilyEmails = [];
                     ?>
                     <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
-                            <b><?= _('Member Since') ?></b> <a
-                                class="float-right"><?= OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?></a>
+                            <b><?= _('Membership Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?></a>
                         </li>
+                        <?php if ($person->getFriendDate()->format('Y-m-d') != '1900-01-01'): ?>
+                        <li class="list-group-item">
+                            <b><?= _('Friend Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($person->getFriendDate()->format('Y-m-d'), false) ?></a>
+                        </li>
+                        <?php endif ?>  
                         <?php
                         if (!empty($person->getClassIcon())) {
                             ?>
