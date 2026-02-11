@@ -74,12 +74,14 @@ The signature is created via the tool provided by the CRM : **grunt genPluginsSi
        "url_infos": "https://www.ecclesiacrm.com",
        "url_docs": "https://",
        "Settings_url": "v2/eventworkflow/settings",
-       "Details": "https://url;iframe=true&amp;width=772&amp;height=549"
+       "Details": "https://url;iframe=true&amp;width=772&amp;height=549",
+       "Dependencies": "",
    }
 ```
 
 - This part is crucial for the update system (via the version number)
 - The version number must always be of the form **x.y**.
+- Dependencies is used when a plugin has to needs to use other js plugin code.
 
 3\. Special rights
 
@@ -91,13 +93,12 @@ The signature is created via the tool provided by the CRM : **grunt genPluginsSi
 
 In the database Put the plugin, we must set
 
-- ``plgn_Category`` will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
-  ``'Personal', 'GDPR', 'Events', 'MEDIAS', 'PEOPLE', 'GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Communication', 'Deposit', 'Funds', 'FreeMenu', 'EDRive'``
--
-- a ``plgn_Description`` description, e.g.: 'Plugin to show the current connected users
-- a version ``plgn_version`` to e.g. '1.0'
-- the prefix type for the entries ``plgn_prefix`` to 'jm_'
-- ``plgn_position`` ``can take the values`` ``'inside_category_menu'``, ``'after_category_menu'`` (very clear).
+- ``` `plgn_Category` ``` will allow to put the entry of the plugin in the menu on the left in the Personal, RGPD, Etc. .... the options are
+  `'Dashboard', 'Personal', 'GDPR', 'Events','MEDIAS','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Communication', 'Deposit', 'Funds', 'FreeMenu', 'EDrive', 'Volunteer'`
+- a ``` `plgn_Description` ``` description, e.g.: 'Plugin to show the current connected users
+- a version ``` `plgn_version` ``` to e.g. '1.0'
+- the prefix type for the entries ``` `plgn_prefix` ``` to 'jm_'
+- ``` `plgn_position` ``` can take the values ``` 'inside_category_menu' ```, ``` `'after_category_menu'` ``` (very clear).
 
 Here is a complete example in the `MeetingJitsi` plugin
 

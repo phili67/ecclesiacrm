@@ -320,8 +320,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#php-server-type" class="md-nav__link">
+    PHP server type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#memory" class="md-nav__link">
     Memory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opcache" class="md-nav__link">
+    opcache
   </a>
   
 </li>
@@ -2491,8 +2505,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#php-server-type" class="md-nav__link">
+    PHP server type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#memory" class="md-nav__link">
     Memory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opcache" class="md-nav__link">
+    opcache
   </a>
   
 </li>
@@ -2533,7 +2561,7 @@
 <li>A Linux server</li>
 <li>A server LAMP : Linux Apache Mysql or Php is required</li>
 <li>With NGinx one may have issue ( not tested yet)</li>
-<li>php 8.0 is required at the minimum</li>
+<li>php 8.1 is required at the minimum</li>
 <li>A Mysql 5.7 database</li>
 <li>MariaDB also works</li>
 </ul>
@@ -2567,12 +2595,33 @@
     &lt;/IfModule&gt;
 </code></pre></div>
 
-<h2 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h2>
+<h2 id="php-server-type">PHP server type<a class="headerlink" href="#php-server-type" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Max file upload size  32M</li>
-<li>Max POST size  32M</li>
-<li>PHP Memory Limit  128M</li>
+<li>You must install PHP-FPM</li>
+<li>and set <code>pm.max_children</code> to 100 (<code>/etc/php/8.x/fpm/pool.d/www.conf</code>). This setting is essential to prevent the CRM from hanging.</li>
 </ul>
+<h2 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h2>
+<p>To do this, open <code>/etc/php/8.x/fpm/php.ini</code></p>
+<ul>
+<li>Max file upload size  ≥ 512M : <code>upload_max_filesize=1000M</code></li>
+<li>Max POST size  ≥ 512M : <code>post_max_size=1000M</code></li>
+<li>PHP Memory Limit  ≥ 128M : <code>memory_limit=2048M</code></li>
+</ul>
+<h2 id="opcache">opcache<a class="headerlink" href="#opcache" title="Permanent link">&para;</a></h2>
+<p>To do this, open <code>/etc/php/8.x/fpm/php.ini</code></p>
+<div class="codehilite"><pre><span></span><code>[Implementation of opcache]
+opcache.enable=1
+opcache.enable_cli=1
+opcache.interned_strings_buffer=32
+opcache.max_accelerated_files=10000
+opcache.memory_consumption=2048
+opcache.save_comments=1
+opcache.revalidate_freq=60
+opcache.validate_timestamps = 0
+opcache.jit = 1255
+opcache.jit_buffer_size = 128M
+</code></pre></div>
+
 <h2 id="mode-evasive-and-security">Mode evasive and security<a class="headerlink" href="#mode-evasive-and-security" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Apache mod-evasive may make the CRM ineffective</li>
@@ -2581,9 +2630,9 @@
 <h2 id="optional-webdav">Optional : WebDAV<a class="headerlink" href="#optional-webdav" title="Permanent link">&para;</a></h2>
 <ul>
 <li>WebDAV/CalDav and CardDav are assets for the connection to work like NextCloud ...</li>
-<li>The file "data" has to be fix to 755</li>
-<li>The file "private" has to be fix to 755 as well as userid</li>
-<li>The file "public" has to be fix to 755 as well as userid</li>
+<li>The file "data" has to be fix to <code>755</code></li>
+<li>The file "private" has to be fix to <code>755</code> as well as userid</li>
+<li>The file "public" has to be fix to <code>755</code> as well as userid</li>
 </ul>
 <p>The last point is useless for the operation but a true asset for the app</p>
 

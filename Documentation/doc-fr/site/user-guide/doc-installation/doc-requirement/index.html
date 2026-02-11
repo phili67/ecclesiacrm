@@ -320,8 +320,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#type-de-serveur-php" class="md-nav__link">
+    type de serveur php
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#memoire" class="md-nav__link">
     Mémoire
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opcache" class="md-nav__link">
+    opcache
   </a>
   
 </li>
@@ -2491,8 +2505,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#type-de-serveur-php" class="md-nav__link">
+    type de serveur php
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#memoire" class="md-nav__link">
     Mémoire
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opcache" class="md-nav__link">
+    opcache
   </a>
   
 </li>
@@ -2533,7 +2561,7 @@
 <li>Un serveur sous Linux (Une Ubuntu 16.04LTS par exemple)</li>
 <li>Un serveur LAMP : Linux Apache Mysql et Php est requis.</li>
 <li>Sous NGinx vous pourriez rencontrer des difficultés (non testé).</li>
-<li>Un php 8.0 au minimum est requis</li>
+<li>Un php 8.1 au minimum est requis</li>
 <li>Une base de données sous Mysql 5.7 ou plus</li>
 <li>MariaDB fonctionne sans souci</li>
 </ul>
@@ -2567,12 +2595,33 @@
     &lt;/IfModule&gt;
 </code></pre></div>
 
-<h2 id="memoire">Mémoire<a class="headerlink" href="#memoire" title="Permanent link">&para;</a></h2>
+<h2 id="type-de-serveur-php">type de serveur php<a class="headerlink" href="#type-de-serveur-php" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Max file upload size  32M</li>
-<li>Max POST size  32M</li>
-<li>PHP Memory Limit  128M</li>
+<li>il faut installer php-fpm</li>
+<li>et régler <code>pm.max_children</code> à 100 (<code>/etc/php/8.x/fpm/pool.d/www.conf</code>), ce réglage est impératif, il permet de ne pas avoir un CRM qui a tendace à se bloquer.</li>
 </ul>
+<h2 id="memoire">Mémoire<a class="headerlink" href="#memoire" title="Permanent link">&para;</a></h2>
+<p>Pour cela il faut aller dans <code>/etc/php/8.x/fpm/php.ini</code></p>
+<ul>
+<li>Max file upload size  ≥ 512M : <code>upload_max_filesize=1000M</code></li>
+<li>Max POST size  ≥ 512M : <code>post_max_size=1000M</code></li>
+<li>PHP Memory Limit  ≥ 128M : <code>memory_limit=2048M</code></li>
+</ul>
+<h2 id="opcache">opcache<a class="headerlink" href="#opcache" title="Permanent link">&para;</a></h2>
+<p>Pour cela aller au bout de <code>/etc/php/8.x/fpm/php.ini</code></p>
+<div class="codehilite"><pre><span></span><code>[mise en place du opcache]
+opcache.enable=1
+opcache.enable_cli=1
+opcache.interned_strings_buffer=32
+opcache.max_accelerated_files=10000
+opcache.memory_consumption=2048
+opcache.save_comments=1
+opcache.revalidate_freq=60
+opcache.validate_timestamps = 0
+opcache.jit = 1255
+opcache.jit_buffer_size = 128M
+</code></pre></div>
+
 <h2 id="mode-evasive-and-security">Mode evasive and security<a class="headerlink" href="#mode-evasive-and-security" title="Permanent link">&para;</a></h2>
 <ul>
 <li>le module Apache mod-evasive peut restreindre fortement le CRM voir le rendre inopérant.</li>
