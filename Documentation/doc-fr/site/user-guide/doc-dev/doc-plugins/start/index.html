@@ -2582,13 +2582,15 @@ signatures.json
        &quot;url_infos&quot;: &quot;https://www.ecclesiacrm.com&quot;,
        &quot;url_docs&quot;: &quot;https://&quot;,
        &quot;Settings_url&quot;: &quot;v2/eventworkflow/settings&quot;,
-       &quot;Details&quot;: &quot;https://url;iframe=true&amp;amp;width=772&amp;amp;height=549&quot;
+       &quot;Details&quot;: &quot;https://url;iframe=true&amp;amp;width=772&amp;amp;height=549&quot;,
+       &quot;Dependencies&quot;: &quot;&quot;,
    }
 </code></pre></div>
 
 <ul>
 <li>Cette partie est capitale pour le système de mise à jour (via le numéro de version)</li>
 <li>Le numéro de version doit toujours être de la forme <strong>x.y</strong></li>
+<li><code>Dependencies</code> est uilisé quand un plugin doit utuliser du code js d'une autre plugin. </li>
 </ul>
 <p>3. Droits particuliers</p>
 <ul>
@@ -2599,12 +2601,12 @@ signatures.json
 <p>Dans la base de données Mettre le plugin, on doit fixer</p>
 <ul>
 <li><code>`plgn_Category`</code> permettra de mettre l'entrée du plugin dans le menu à gauche dans la partie Personnel, RGPD, Etc .... les options sont
-<code>'Personal', 'GDPR', 'Events','PEOPLE','MEDIAS','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Communication', 'Deposit', 'Funds', 'FreeMenu', 'EDrive'</code>
--</li>
+<code>'Dashboard', 'Personal', 'GDPR', 'Events','MEDIAS','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Communication', 'Deposit', 'Funds', 'FreeMenu', 'EDrive', 'Volunteer'</code></li>
 <li>une description <code>`plgn_Description`</code> à par exemple : 'Plugin to show the current connected users'</li>
 <li>une version <code>`plgn_version`</code> à '1.0' par exemple</li>
 <li>le type de prefixe pour les entrées <code>`plgn_prefix`</code> à 'jm_'</li>
 <li><code>`plgn_position`</code> peut prendre les valeurs <code>'inside_category_menu', 'after_category_menu'</code> (très clair).</li>
+<li>Dans le cas d'un plugin <code>dashboard, ```</code>plgn_default_orientation<code>``` peuvent réglé à :</code>'widget', 'top', 'left', 'center', 'right'`</li>
 </ul>
 <p>Voici un exemple complet dans le plugin <code>MeetingJitsi</code></p>
 <div class="codehilite"><pre><span></span><code>INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`)

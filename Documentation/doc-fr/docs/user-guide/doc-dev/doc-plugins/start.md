@@ -76,12 +76,14 @@ La signature est créée via l'outil fourni par le CRM : **grunt genPluginsSigna
        "url_infos": "https://www.ecclesiacrm.com",
        "url_docs": "https://",
        "Settings_url": "v2/eventworkflow/settings",
-       "Details": "https://url;iframe=true&amp;width=772&amp;height=549"
+       "Details": "https://url;iframe=true&amp;width=772&amp;height=549",
+       "Dependencies": "",
    }
 ```
 
 - Cette partie est capitale pour le système de mise à jour (via le numéro de version)
 - Le numéro de version doit toujours être de la forme **x.y**
+- `Dependencies` est uilisé quand un plugin doit utuliser du code js d'une autre plugin. 
 
 3\. Droits particuliers
 
@@ -94,12 +96,12 @@ La signature est créée via l'outil fourni par le CRM : **grunt genPluginsSigna
 Dans la base de données Mettre le plugin, on doit fixer
 
 - ``` `plgn_Category` ``` permettra de mettre l'entrée du plugin dans le menu à gauche dans la partie Personnel, RGPD, Etc .... les options sont
-```  'Personal', 'GDPR', 'Events','PEOPLE','MEDIAS','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Communication', 'Deposit', 'Funds', 'FreeMenu', 'EDrive' ```
--
+```  'Dashboard', 'Personal', 'GDPR', 'Events','MEDIAS','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Communication', 'Deposit', 'Funds', 'FreeMenu', 'EDrive', 'Volunteer' ```
 - une description ``` `plgn_Description` ``` à par exemple : 'Plugin to show the current connected users'
 - une version ``` `plgn_version` ``` à '1.0' par exemple
 - le type de prefixe pour les entrées ``` `plgn_prefix` ``` à 'jm_'
 - ``` `plgn_position`  ``` peut prendre les valeurs ``` 'inside_category_menu', 'after_category_menu' ``` (très clair).
+- Dans le cas d'un plugin `dashboard, ``` `plgn_default_orientation` ``` peuvent réglé à : `'widget', 'top', 'left', 'center', 'right'`
 
 Voici un exemple complet dans le plugin `MeetingJitsi`
 

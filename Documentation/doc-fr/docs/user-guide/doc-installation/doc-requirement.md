@@ -3,7 +3,7 @@
 * Un serveur sous Linux (Une Ubuntu 16.04LTS par exemple)
 * Un serveur LAMP : Linux Apache Mysql et Php est requis.
 * Sous NGinx vous pourriez rencontrer des difficultés (non testé).
-* Un php 8.0 au minimum est requis
+* Un php 8.1 au minimum est requis
 * Une base de données sous Mysql 5.7 ou plus
 * MariaDB fonctionne sans souci
 
@@ -39,15 +39,37 @@ sudo sed -i_bak 's/rights="none" pattern="PDF"/rights="read | write" pattern="PD
     </IfModule>
 ```
 
+## type de serveur php
+* il faut installer php-fpm
+* et régler `pm.max_children` à 100 (`/etc/php/8.x/fpm/pool.d/www.conf`), ce réglage est impératif, il permet de ne pas avoir un CRM qui a tendace à se bloquer.
+
 ## Mémoire
-* Max file upload size  32M
-* Max POST size  32M
-* PHP Memory Limit  128M
+
+Pour cela il faut aller dans `/etc/php/8.x/fpm/php.ini`
+
+* Max file upload size  ≥ 512M : `upload_max_filesize=1000M`
+* Max POST size  ≥ 512M : `post_max_size=1000M`
+* PHP Memory Limit  ≥ 128M : `memory_limit=2048M`
+
+## opcache
+Pour cela aller au bout de `/etc/php/8.x/fpm/php.ini`
+```
+[mise en place du opcache]
+opcache.enable=1
+opcache.enable_cli=1
+opcache.interned_strings_buffer=32
+opcache.max_accelerated_files=10000
+opcache.memory_consumption=2048
+opcache.save_comments=1
+opcache.revalidate_freq=60
+opcache.validate_timestamps = 0
+opcache.jit = 1255
+opcache.jit_buffer_size = 128M
+```
 
 ## Mode evasive and security
 * le module Apache mod-evasive peut restreindre fortement le CRM voir le rendre inopérant.
 * le module Apache mod-security doit être fixé le plus légèrement possible ou être désactivé.
-
 
 ## Optionnel : WebDAV
 * WebDAV/CalDav et CardDav sont des plus pour que la connexion puisse fonctionner comme NextCloud ...
