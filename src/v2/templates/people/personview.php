@@ -121,7 +121,7 @@ require $sRootDocument . '/Include/Header.php';
                                 <li class="list-group-item">
                                     <b><?= _('Membership Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($PersonInfos['person']->getMembershipDate()->format('Y-m-d'), false) ?></a>
                                 </li>
-                                <?php if ($PersonInfos['person']->getFriendDate()->format('Y-m-d') != '1900-01-01'): ?>
+                                <?php if (!is_null($PersonInfos['person']->getFriendDate()) and $PersonInfos['person']->getFriendDate()->format('Y-m-d') != '1900-01-01'): ?>
                                 <li class="list-group-item">
                                     <b><?= _('Friend Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($PersonInfos['person']->getFriendDate()->format('Y-m-d'), false) ?></a>
                                 </li>

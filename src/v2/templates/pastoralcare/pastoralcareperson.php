@@ -122,7 +122,7 @@ $sFamilyEmails = [];
                         <li class="list-group-item">
                             <b><?= _('Membership Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?></a>
                         </li>
-                        <?php if ($person->getFriendDate()->format('Y-m-d') != '1900-01-01'): ?>
+                        <?php if (!is_null($person->getFriendDate()) and $person->getFriendDate()->format('Y-m-d') != '1900-01-01'): ?>
                         <li class="list-group-item">
                             <b><?= _('Friend Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($person->getFriendDate()->format('Y-m-d'), false) ?></a>
                         </li>
