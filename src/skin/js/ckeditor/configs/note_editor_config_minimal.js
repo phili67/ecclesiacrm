@@ -4,41 +4,23 @@
  */
 
 CKEDITOR.editorConfig = function (config) {
-    config.height = '250px';
-    config.contentsCss = window.CRM.contentsExternalCssFont;
+    config.height = '400px';
+    
 
-    var documentTools = ['Preview', 'Print'];
-
-    //the next line add the new font to the combobox in CKEditor
-    config.font_names = "Arial/Arial, Helvetica, sans-serif;Comic Sans MS/Comic Sans MS, cursive;Courier New/Courier New, Courier, monospace;Georgia/Georgia, serif;Lucida Sans Unicode/Lucida Sans Unicode, Lucida Grande, sans-serif;Tahoma/Tahoma, Geneva, sans-serif;Times New Roman/Times New Roman, Times, serif;Trebuchet MS/Trebuchet MS, Helvetica, sans-serif;Verdana/Verdana, Geneva, sans-serif";
-
-    if (window.CRM.extraFont != "") {
-        config.font_names = window.CRM.extraFont + ';' + config.font_names;
-    }
-
-    var clipboard = ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'];
-
-    config.toolbar = [
-        {name: 'document', items: documentTools.concat(clipboard)},
-        {name: 'colors', items: ['TextColor', 'BGColor']},        
+    config.toolbar = [        
         {
             name: 'basicstyles',
             items: ['Bold', 'Italic', 'Underline']
-        },
-        {name: 'links', items: ['Link', 'Unlink', 'Anchor']},
+        },        
         {
-            name: 'insert',
-            items: ['Image', 'Html5video', 'Table', 'HorizontalRule']
-        },
-        {
-            name: 'tools',
-            items: ['Maximize']
+            name: 'textmanagement',
+            items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language', '-', 'TextColor', 'BGColor']
         }
     ];
 
     config.plugins =
         'about,' +
-        'sourcedialog,' +
+        'sourcearea,' +
         'blockquote,' +
         'clipboard,' +
         'colorbutton,' +
@@ -79,5 +61,6 @@ CKEDITOR.editorConfig = function (config) {
         'tabletools,' +
         'undo,' +
         'wysiwygarea,' +
+        'dropdownmenumanager,' +
         'html5video';
 };
