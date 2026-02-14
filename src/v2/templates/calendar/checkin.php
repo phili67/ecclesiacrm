@@ -338,8 +338,7 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="col-md-12">
                     <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;"
                             rows="40"><?= $sNoteText ?></textarea>
-                </div>
-                </div>
+                </div>                
                 <div class="row" style="margin:5px">
                     <div class="col-md-12" style="text-align:center">
                         <br>
@@ -354,14 +353,21 @@ require $sRootDocument . '/Include/Header.php';
             <?php
         }
         ?>
+    </div>
 </div>
 
-<div>
-    <a href="<?= $sRootPath ?>/v2/calendar/events/list" class='btn btn-default'>
-        <i class='fas fa-chevron-left'></i>
-        <?= _('Return to Events') ?>
-    </a>
+<br>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-11">
+        <a href="<?= $sRootPath ?>/v2/calendar/events/list" class='btn btn-default'>
+            <i class='fas fa-chevron-left'></i>
+            <?= _('Return to Events') ?>
+        </a>
+    </div>
 </div>
+
+<br>
 
 <script nonce="<?= $CSPNonce ?>">
     window.CRM.isModifiable = true;

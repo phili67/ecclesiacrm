@@ -362,7 +362,7 @@ $(function() {
 
        
         var editor = CKEDITOR.replace('NoteText', {
-            customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+            customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_minimal.js',
             language: window.CRM.lang,
             skin:theme
         });
