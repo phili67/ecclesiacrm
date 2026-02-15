@@ -50,10 +50,6 @@ if (isset($_GET['typeProblem'])) {
 ?>
 
 
-<div class="card card-secondary">
-    <div class="card-header border-1">
-        <h3 class="card-title"><?= _('Generate Badges') ?></h3>
-    </div>
     <form method="post" action="<?= $sRootPath ?>/Reports/PDFBadgeGroup.php" name="labelform" enctype="multipart/form-data">
         <input id="groupId" name="groupId" type="hidden" value="<?= $iGroupID ?>">
         <input id="useCart" name="useCart" type="hidden" value="<?= $useCart ?>">
@@ -61,8 +57,8 @@ if (isset($_GET['typeProblem'])) {
             <div class="row">
                 <div class="col-md-6">
                     <div class="card card-secondary">
-                        <div class="card-header">
-                            <h3 class="card-title"><?= _("Colors") ?></h3>
+                        <div class="card-header ">
+                            <h3 class="card-title"><i class="fas fa-palette"></i> <?= _("Colors") ?></h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -88,7 +84,7 @@ if (isset($_GET['typeProblem'])) {
                                 <div class="col-md-2">
                                     <?php LabelUtils::FontSizeSelect('Titlelabelfontsize', '(' . _("default") . ' 15)', false); ?>
                                 </div>
-                            </div><br>
+                            </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <label><?= _('BackGround color') ?></label>
@@ -107,34 +103,9 @@ if (isset($_GET['typeProblem'])) {
                     </div>                
 
                     <div class="card card-secondary">
-                        <div class="card-header">
+                        <div class="card-header ">
                             <h3 class="card-title">
-                                <?= ($isSundaySchool) ? _("Sunday School Name") : _("Informations") ?>
-                            </h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <input type="text" name="sundaySchoolName" id="sundaySchoolName" maxlength="255" size="3" value="<?= $_COOKIE['sundaySchoolNameSC'] ?>" class="form-control form-control-sm" placeholder="<?= ($isSundaySchool) ? _("Sunday School Name") : _("Informations") ?>">
-                                </div>
-                                <div class="col-md-2">
-                                    <select name="sundaySchoolNamePosition" class="form-control form-control-sm" id="sundaySchoolNamePosition">
-                                        <option value="Left" <?= ($_COOKIE["sundaySchoolNamePositionSC"] == 'Left') ? 'selected' : '' ?>><?= _('Left') ?></option>
-                                        <option value="Center" <?= ($_COOKIE["sundaySchoolNamePositionSC"] == 'Center') ? 'selected' : '' ?>><?= _('Center') ?></option>
-                                        <option value="Right" <?= ($_COOKIE["sundaySchoolNamePositionSC"] == 'Right') ? 'selected' : '' ?>><?= _('Right') ?></option>
-                                    </select>
-                                </div>
-                                <div class="col-md-2">
-                                    <?php LabelUtils::FontSizeSelect('sundaySchoolNameFontSize', '(' . _("default") . ' 8)', false); ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card card-secondary">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <?=  _("Image") ?>
+                                <i class="fa-solid fa-image"></i> <?=  _("Image") ?>
                             </h3>
                         </div>
                         <div class="card-body">
@@ -178,14 +149,14 @@ if (isset($_GET['typeProblem'])) {
                             </div><br>
 
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <label><?= _("Upload") ?></label>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <input type="file" id="stickerBadgeInputFile" class="btn btn-xs btn-default" name="stickerBadgeInputFile" style="margin-top:3px">
                                 </div>
                                 <div class="col-md-2">
-                                    <?= _("and") ?> &nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-xs btn-success" name="SubmitUpload" value="<?= _("Upload") ?>">
+                                    <input type="submit" class="btn btn-md btn-success" name="SubmitUpload" value="<?= _("Upload") ?>">
                                 </div>
                             </div><br>
 
@@ -221,7 +192,7 @@ if (isset($_GET['typeProblem'])) {
 
 
                     <div class="card card-secondary">
-                        <div class="card-header">
+                        <div class="card-header ">
                             <h3 class="card-title">
                                 <?=  _("Others") ?>
                             </h3>
@@ -238,10 +209,40 @@ if (isset($_GET['typeProblem'])) {
                     </div>
                 </div>
                 <div class="col-md-6">
+                    <div class="card card-secondary">
+                        <div class="card-header ">
+                            <h3 class="card-title">
+                                <i class="fa-solid fa-info"></i> <?= ($isSundaySchool) ? _("Sunday School Name") : _("Informations") ?>
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <input type="text" name="sundaySchoolName" id="sundaySchoolName" maxlength="255" size="3" value="<?= $_COOKIE['sundaySchoolNameSC'] ?>" class="form-control form-control-sm" placeholder="<?= ($isSundaySchool) ? _("Sunday School Name") : _("Informations") ?>">
+                                </div>
+                                <div class="col-md-2">
+                                    <select name="sundaySchoolNamePosition" class="form-control form-control-sm" id="sundaySchoolNamePosition">
+                                        <option value="Left" <?= ($_COOKIE["sundaySchoolNamePositionSC"] == 'Left') ? 'selected' : '' ?>><?= _('Left') ?></option>
+                                        <option value="Center" <?= ($_COOKIE["sundaySchoolNamePositionSC"] == 'Center') ? 'selected' : '' ?>><?= _('Center') ?></option>
+                                        <option value="Right" <?= ($_COOKIE["sundaySchoolNamePositionSC"] == 'Right') ? 'selected' : '' ?>><?= _('Right') ?></option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <?php LabelUtils::FontSizeSelect('sundaySchoolNameFontSize', '(' . _("default") . ' 8)', false); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div id="preview">
                         <div class="text-right">
-                            <h2><?= _("Preview") ?></h2><br>
-                            <img id='previewImage' />
+                            <div class="card card-secondary">
+                                <div class="card-header ">
+                                    <h2 class="card-title"><i class="fa-solid fa-display"></i> <?= _("Preview") ?></h2><br>
+                                </div>
+                                <div class="card-body">
+                                    <img id='previewImage' />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -258,7 +259,6 @@ if (isset($_GET['typeProblem'])) {
         </div>
     </form>
     <!-- /.card-body -->
-</div>
 
 
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
