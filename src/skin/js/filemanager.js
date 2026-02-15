@@ -88,19 +88,19 @@ $(function () {
                 render: function (data, type, full, meta) {
                     if (!full.dir && !full.link) {
                         var ret = '<div class="btn-group">' +
-                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-secondary btn-sm" data-personid="' + window.CRM.currentPersonID + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
-                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
+                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-secondary btn-xs" data-personid="' + window.CRM.currentPersonID + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
+                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-xs shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share"></i></button>' +
                             '</div>';
                         return ret;
                     } else if (!full.link) {
                         var ret = '<div class="btn-group">' +
-                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share-square"></i></button>' +
+                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-xs shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share"></i></button>' +
                             '</div>';
                         return ret;
                     } else if (full.link) {
                         var ret = '<div class="btn-group">' +
-                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-secondary btn-sm" data-personid="' + window.CRM.currentPersonID + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
-                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-sm shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-link"></i></button>' +
+                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-secondary btn-xs" data-personid="' + window.CRM.currentPersonID + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
+                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-xs shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-link"></i></button>' +
                             '</div>';
                         return ret;
                     }
@@ -168,7 +168,7 @@ $(function () {
         enabled: false,
         className: 'btn btn-danger btn-sm drag-elements trash-drop ui-droppable',
         action: function (e, dt, node, config) {
-            var selected = $.map(window.CRM.dataEDriveTable.rows('.selected').data(), function (item) {
+            var selected = $.map(window.CRM.dataEDriveTable.rows({ selected: true }).data(), function (item) {
                 return item['name']
             });
 
@@ -277,7 +277,7 @@ $(function () {
     window.CRM.dataEDriveTable = $("#edrive-table").DataTable(DataTableOpts);
 
     $("body").on('click', '.filemanager-download', function (e) {
-        var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data()
+        var selectedRows = window.CRM.dataEDriveTable.rows({ selected: true }).data()
         $.each(selectedRows, function (index, value) {
             window.CRM.APIRequest({
                 method: 'POST',
@@ -311,6 +311,12 @@ $(function () {
 
     // click in the table
     $('#edrive-table tbody').on('click', 'tr', function(event) {
+        if ($(event.target).closest('.fa-download').length 
+            || $(event.target).closest('.fileName').length
+            || $(event.target).closest('.change-folder').length) {
+            window.CRM.dblclick = false;
+            return;
+        }
         let column = window.CRM.dataEDriveTable.column( this ).index();//unusefull at this moment
         var data = window.CRM.dataEDriveTable.row(this).data();
         let id = data['name'];
@@ -320,7 +326,7 @@ $(function () {
         let shiftKey = event.shiftKey;
         let optionKey = event.metaKey;// on mac
 
-        var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
+        var selectedRows = window.CRM.dataEDriveTable.rows({ selected: true }).data().length;
 
         let clickedRowIsSelected = true;
 
@@ -379,7 +385,7 @@ $(function () {
             let h2 = document.createElement('h2');
 
             let icon = document.createElement('i');
-            icon.setAttribute('class','fas fa-spin fa-spinner');//fas fa-spin fa-spinner
+            icon.setAttribute('class','fas fa-spin fa-spinner text-center');//fas fa-spin fa-spinner
 
             h2.append(icon);
 
@@ -400,7 +406,6 @@ $(function () {
                     } else {
                         $('.share-part').show();             
                         $('.share-part-another-user').hide();       
-
                         addSharedPersonsSabre();
                     }
                     
@@ -485,6 +490,7 @@ $(function () {
 
     $("body").on('click', '.close-file-preview', function (e) {
         $('.filmanager-right').hide();
+        window.CRM.dblclick = false;
     });
 
 
@@ -542,7 +548,7 @@ $(function () {
             var name = $(ui.draggable).attr('id');
             var folderName = '/..';
 
-            var selected = $.map(window.CRM.dataEDriveTable.rows('.selected').data(), function (item) {
+            var selected = $.map(window.CRM.dataEDriveTable.rows({ selected: true }).data(), function (item) {
                 return item['name']
             });
 
@@ -600,7 +606,7 @@ $(function () {
                 var name = $(ui.draggable).attr('id');
                 var folderName = $(event.target).attr('id');
 
-                var selected = $.map(window.CRM.dataEDriveTable.rows('.selected').data(), function (item) {
+                var selected = $.map(window.CRM.dataEDriveTable.rows({ selected: true }).data(), function (item) {
                     return item['name']
                 });
 
@@ -659,6 +665,7 @@ $(function () {
                     $("#currentPath").html(data.currentPath);
                     window.CRM.currentpath = data.realCurrentPath;
                     selected.length = 0;// no more selected files
+                    window.CRM.dblclick = false;
                 });
             }
         });

@@ -100,6 +100,27 @@ require $sRootDocument . '/Include/Header.php';
                         <span class="shared" width="100%"></span>
                         <div>
                             <div class="row div-title">
+                                <div class="col-md-2">
+                                    <span class="text-red">*</span><?= _("Add users") ?> :
+                                </div>
+                                <div class="col-md-7">
+                                    <a data-toggle="popover" title="" data-content="<?= _("Use this method to share files with individuals or teams within your organization. If the recipient already has access to the share, but can't locate it, you can send them the internal link to facilitate access.") ?>" target="_blank" class="blue infoFiles" data-original-title="<?= _("Definition") ?>"><i class="far  fa-question-circle"></i></a>
+                                    <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:90%"></select>
+                                </div>
+                                 <div class="col-md-3">
+                                    <select name="person-group-Id" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
+                                        <option value="2">[👀 ] -- [R ]</option>
+                                        <option value="3">[👀 ✐] -- [RW]</option>
+                                    </select>
+                                </div>
+                            </div>                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="text-red">*</span>
+                                    <input id="sendEmail-sabre" type="checkbox" name="sendEmail-sabre"> <label for="sendEmail-sabre" class="fille-mamager-label-small"><?= _("Send email notification") ?></label>
+                                </div>                                
+                            </div>
+                            <div class="row div-title">
                                 <div class="col-md-4"></div>
                                 <div class="col-md-8 col-center">
                                     <button type="button" class="btn btn-sm btn-secondary btn-xs"
@@ -114,7 +135,7 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                             <div class="row div-title-file-manager">
                                 <div class="col-md-4">
-                                    <span style="color: red">*</span><?= _("With") ?>:
+                                    <span class="text-red">*</span><?= _("With") ?>:
                                 </div>
                                 <div class="col-md-8">
                                     <select size="6" id="select-share-persons-sabre" class="form-control form-control-access-rights" multiple>
@@ -122,7 +143,7 @@ require $sRootDocument . '/Include/Header.php';
                                 </div>
                             </div>
                             <div class="row div-title-file-manager">
-                                <div class="col-md-4"><span style="color: red">*</span><?= _("Set Rights") ?>:</div>
+                                <div class="col-md-4"><span class="text-red">*</span><?= _("Set Rights") ?>:</div>
                                 <div class="col-md-8">
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle btn-xs" type="button"
@@ -131,37 +152,12 @@ require $sRootDocument . '/Include/Header.php';
                                             <?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . "--" ?>
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" role="button" id="set-right-read" href="#"><?= _("[👀  ]") . ' -- ' . _("[R ]") ?></a>
-                                            <a class="dropdown-item" role="button" id="set-right-read-write" href="#"><?= _("[👀 ✐]") . ' -- ' . _("[RW]") ?></a>
+                                            <button class="dropdown-item" role="button" id="set-right-read"><?= _("[👀  ]") . ' -- ' . _("[R ]") ?></button>
+                                            <button class="dropdown-item" role="button" id="set-right-read-write"><?= _("[👀 ✐]") . ' -- ' . _("[RW]") ?></button>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row div-title">
-                                <div class="col-md-3">
-                                    <span style="color: red">*</span><?= _("Add users") ?> :
-                                </div>
-                                <div class="col-md-9">
-                                    <a data-toggle="popover" title="" data-content="<?= _("Use this method to share files with individuals or teams within your organization. If the recipient already has access to the share, but can't locate it, you can send them the internal link to facilitate access.") ?>" target="_blank" class="blue infoFiles" data-original-title="<?= _("Definition") ?>"><i class="far  fa-question-circle"></i></a>
-                                    <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:90%"></select>
-                                </div>
-                            </div>
-                            <br />
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <span style="color: red">*</span>
-                                    <input id="sendEmail-sabre" type="checkbox" name="sendEmail-sabre"> <label for="sendEmail-sabre" class="fille-mamager-label-small"><?= _("Send email notification") ?></label>
-                                </div>
-                                <div class="col-md-3">
-                                    <label class="fille-mamager-label-small"><?= _("With Right") ?> :</label>
-                                </div>
-                                <div class="col-md-3">
-                                    <select name="person-group-Id" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
-                                        <option value="2">[👀 ] -- [R ]</option>
-                                        <option value="3">[👀 ✐] -- [RW]</option>
-                                    </select>
-                                </div>
-                            </div>
+                            </div>                            
                             <br />
                         </div>
                     </div>

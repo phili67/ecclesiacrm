@@ -40,7 +40,7 @@
     margin-right:9px;
     padding-top: 10px;
     box-shadow: 0 0 1px rgba(0,0,0,.125),0 1px 3px rgba(0,0,0,.2);
-    background-color: rgb(233, 233, 233);
+    background-color: #f7f7f7;
     border-bottom: 1Opx !important;
 } 
 
@@ -113,6 +113,7 @@
 
 #previewImage {
     border: 1px solid gray;
+    width: 100%;
 }
 
 .edrive-table-browse {
@@ -134,11 +135,6 @@
     font-size: 12px;
     font-weight: 400;
     border: 2px solid rgb(98, 190, 255);
-}
-
-#person-group-rights {
-    margin-top: -5px;
-    margin-left:-18px;
 }
 
 @media (max-width: 890px) {
@@ -166,12 +162,7 @@
 
     .filmanager-right {
         border-left: solid 0px #8a2121;
-    } 
-
-    #person-group-rights {
-        margin-top: 0px;
-        margin-left:0px;
-    }
+    }     
 
     #dropdownMenuButtonRights {
         margin-left:+20px;
