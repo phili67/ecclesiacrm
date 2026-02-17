@@ -11,6 +11,7 @@ require '../Include/Header-Security.php';
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 
@@ -19,6 +20,22 @@ use EcclesiaCRM\Utils\InputUtils;
 if (!(SessionUser::isActive() && SessionUser::getUser()->isEDrive())) {
     RedirectUtils::Redirect('members/404.php?type=Upload');
     return;
+}
+
+$publicFolder = false;
+
+if ($_GET['type'] == "publicDocuments") {
+    $currentpath = SessionUser::getUser()->getCurrentpath();
+
+    if (strpos($currentpath, "/public/") === false) {
+        $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
+        $user->setCurrentpath("/public/");
+        $user->save();
+
+        $_SESSION['user'] = $user;
+    }
+
+    $publicFolder = true;
 }
 
 $donatedItemID = InputUtils::LegacyFilterInputArr($_GET, 'DonatedItemID');
@@ -203,6 +220,8 @@ $user = SessionUser::getUser();
     window.CRM.currentPersonID = <?= $user->getPersonId() ?>;
     window.CRM.browserImage = true;
     window.CRM.donatedItemID = <?= $donatedItemID ?>;
+    window.CRM.isPublicFolder = <?=  $publicFolder?'true':'false' ?>;
+    window.CRM.isCurrentPathPublicFolder = <?=  $publicFolder?'true':'false' ?>;
 </script>
 
 <?php require SystemURLs::getDocumentRoot() . '/Include/Footer-Short.php'; ?>

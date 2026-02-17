@@ -658,9 +658,17 @@ $(function () {
             data: JSON.stringify({ "personID": personID, "folder": folder })
         }, function (data) {
             if (data && data.success) {
+                window.CRM.isCurrentPathPublicFolder = data.isCurrentPathPublicFolder;
                 $('.filmanager-right').hide();
-                window.CRM.reloadEDriveTable(function () {
+
+                if (data.isCurrentPathPublicFolder && window.CRM.isPublicFolder) {
+                    $(".flex-wrap").removeClass('shift-flex-wrapper-right');
+                    $(".folder-back-drop").hide();
+                } else {
+                    $(".flex-wrap").addClass('shift-flex-wrapper-right');
                     $(".folder-back-drop").show();
+                }
+                window.CRM.reloadEDriveTable(function () {
                     $(".flex-wrap").addClass('shift-flex-wrapper-right');
                     $("#currentPath").html(data.currentPath);
                     window.CRM.currentpath = data.realCurrentPath;
@@ -707,7 +715,7 @@ $(function () {
                 window.CRM.reloadEDriveTable(function () {
                     window.CRM.currentpath = data.realCurrentPath;
 
-                    if (data.isHomeFolder) {
+                    if (data.isHomeFolder || data.isCurrentPathPublicFolder && window.CRM.isPublicFolder) {
                         $(".flex-wrap").removeClass('shift-flex-wrapper-right');
                         $(".folder-back-drop").hide();
                     } else {
@@ -715,9 +723,9 @@ $(function () {
                         $(".folder-back-drop").show();
                     }
 
-                    $("#currentPath").html(data.currentPath);
+                    $("#currentPath").html(data.currentPath);                    
                 });
-            }
+            }            
         });
     });
 
@@ -1169,4 +1177,9 @@ $(function () {
     });
 
     uploadEvent();
+
+    if (window.CRM.isPublicFolder) {
+        $(".flex-wrap").removeClass('shift-flex-wrapper-right');
+        $(".folder-back-drop").hide();
+    }
 });
