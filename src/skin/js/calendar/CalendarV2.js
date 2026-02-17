@@ -739,16 +739,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
 
                     // this will create the toolbar for the textarea
-                    if (window.CRM.editor == null) {                        
-                        window.CRM.editor = CKEDITOR.replace('eventNotes',{
-                            customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-                            language : window.CRM.lang,
-                            width : '100%',
-                            skin: theme
-                        });
-                        
-                        add_ckeditor_buttons(window.CRM.editor);
-                    }
+                    installAndfinishEventEditorWindow();
 
                     $(".ATTENDENCES").hide();
 

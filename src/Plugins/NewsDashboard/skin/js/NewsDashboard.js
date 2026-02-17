@@ -1,33 +1,5 @@
 $(function() {
-    window.CRM.ElementListener('#add-dashboard-news-note', 'click', function(event) {
-        if (window.CRM.NewsDashboardEditor) {
-            CKEDITOR.remove(window.CRM.NewsDashboardEditor);
-            window.CRM.NewsDashboardEditor = null;
-        }
-
-        var modal = NewsEditorWindow('create', 0);
-
-        var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
-        if (window.CRM.bDarkMode) {
-            theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
-        }
-
-        // this will create the toolbar for the textarea
-        if (window.CRM.NewsDashboardEditor == null) {            
-            window.CRM.NewsDashboardEditor = CKEDITOR.replace('NewsDashboardText', {
-                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_min.js',
-                language: window.CRM.lang,
-                skin: theme,
-                width: '100%'
-            });            
-
-            add_ckeditor_buttons(window.CRM.NewsDashboardEditor);            
-        }
-
-        modal.modal("show");
-    });
-
-    function addElementsToNewsDashboardList(data) {
+    const addElementsToNewsDashboardList = (data) => {
         if (data == undefined) return;
 
         let cnt = data.items.length;
@@ -61,17 +33,17 @@ $(function() {
         return res;
     }
 
-    function BootboxContent(sTitleText, sDocType, sText) {
+    const BootboxContentNewDashboard = (sTitleText, sDocType, sText) => {
 
         var frm_str = '<div>'
             + '<div class="row">'
-            + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('News Title', {ns: 'NewsDashboard'}) + ":</div>"
+            + '<div class="col-md-3"><span class="text-red">*</span>' + i18next.t('News Title', {ns: 'NewsDashboard'}) + ":</div>"
             + '<div class="col-md-9">'
             + '<input type="text" id="NewsTitle" placeholder="' + i18next.t("Set your News title", {ns: 'NewsDashboard'}) + '" size="30" maxlength="100" class="form-control form-control-sm"  width="100%" style="width: 100%" required>'
             + '</div>'
-            + '</div>'
+            + '</div><br>'
             + '<div class="row div-title">'
-            + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Choose your News Type', {ns: 'NewsDashboard'}) + ":</div>"
+            + '<div class="col-md-3"><span class="text-red">*</span>' + i18next.t('Choose your News Type', {ns: 'NewsDashboard'}) + ":</div>"
             + '<div class="col-md-9">'
             + '  <select name="NewsType" class="form-control form-control-sm" id="NewsType">'
             + '     <option value="infos">' + i18next.t("Infos", {ns: 'NewsDashboard'}) + '</option>'
@@ -93,11 +65,11 @@ $(function() {
         return object;
     }
 
-    function NewsEditorWindow(mode, newsID) {
+    const NewsEditorWindow = (mode, newsID) => {
 
         var modal = bootbox.dialog({
             title: i18next.t("News Editor", {ns: 'NewsDashboard'}),
-            message: BootboxContent(),            
+            message: BootboxContentNewDashboard(),            
             size: 'large',
             buttons: [
                 {
@@ -183,8 +155,7 @@ $(function() {
         return modal;
     }
 
-
-    function addNewsDashboarsListeners () {
+    const addNewsDashboarsListeners = () => {
         window.CRM.ElementListener('.edit-dashboard-news-note', 'click', function (event) {
             var newsID = event.currentTarget.dataset.id
 
@@ -211,13 +182,11 @@ $(function() {
                     // this will create the toolbar for the textarea
                     if (window.CRM.NewsDashboardEditor == null) {                        
                         window.CRM.NewsDashboardEditor = CKEDITOR.replace('NewsDashboardText', {
-                            customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_min.js',
+                            customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_minimal.js',
                             language: window.CRM.lang,
                             width: '100%',
                             skin: theme
-                        });                        
-
-                        add_ckeditor_buttons(window.CRM.NewsDashboardEditor);                        
+                        });                   
                     }
 
                     modal.modal("show");
@@ -253,6 +222,32 @@ $(function() {
             });
         });
     }
+    
+    window.CRM.ElementListener('#add-dashboard-news-note', 'click', function(event) {
+        if (window.CRM.NewsDashboardEditor) {
+            CKEDITOR.remove(window.CRM.NewsDashboardEditor);
+            window.CRM.NewsDashboardEditor = null;
+        }
+
+        var modal = NewsEditorWindow('create', 0);
+
+        var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+        if (window.CRM.bDarkMode) {
+            theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+        }
+
+        // this will create the toolbar for the textarea
+        if (window.CRM.NewsDashboardEditor == null) {            
+            window.CRM.NewsDashboardEditor = CKEDITOR.replace('NewsDashboardText', {
+                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_minimal.js',
+                language: window.CRM.lang,
+                skin: theme,
+                width: '100%'
+            });
+        }
+
+        modal.modal("show");
+    });    
 
     addNewsDashboarsListeners();
 });

@@ -301,9 +301,7 @@ $(function() {
                         width : '100%',
                         skin:theme
                     });
-                }
-
-                add_ckeditor_buttons(window.CRM.editor);
+                }                
             }
 
             $(".ATTENDENCES").hide();
@@ -454,11 +452,6 @@ $(function() {
 
     // the main add event button
     $('#add-event').on('click', function (e) {
-        var fmt = 'YYYY-MM-DD HH:mm:ss';
-
-        var dateStart = moment().format(fmt);
-        var dateEnd = moment().format(fmt);
-
         window.CRM.APIRequest({
             method: 'POST',
             path: 'calendar/numberofcalendars',
@@ -466,20 +459,48 @@ $(function() {
             if (data.CalendarNumber > 0) {
                 if (window.CRM.editor != null) {
                     CKEDITOR.remove(window.CRM.editor);
-                    window.CRM.editor = null;
+                    window.CRM.editor = null;                    
                 }
+
+                let fmt = 'YYYY-MM-DD HH:mm:ss';
+
+                let dateStart = moment().format(fmt);
+                let dateEnd = moment().format(fmt);            
 
                 modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'v2/calendar/events/list');
 
                 // we add the calendars and the types
                 addCalendars();
                 addCalendarEventTypes(-1, true);
-
-                // finish installing the window
-                installAndfinishEventEditorWindow();
-
+                
                 $("#typeEventrecurrence").prop("disabled", true);
                 $("#endDateEventrecurrence").prop("disabled", true);
+
+                let theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+                if (window.CRM.bDarkMode) {
+                    theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+                }
+
+                if (window.CRM.bEDrive) {
+                    window.CRM.editor = CKEDITOR.replace('eventNotes',{
+                        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                        language : window.CRM.lang,
+                        width : '100%',
+                        extraPlugins : 'uploadfile,uploadimage,filebrowser,html5video',
+                        uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+                        imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
+                        filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+                        filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments',
+                        skin:theme
+                    });
+                } else {
+                    window.CRM.editor = CKEDITOR.replace('eventNotes',{
+                        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                        language : window.CRM.lang,
+                        width : '100%',
+                        skin:theme
+                    });
+                }                
 
                 modal.modal("show");
 
