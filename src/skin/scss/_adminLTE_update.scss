@@ -508,6 +508,10 @@ a {
     margin-left: 0.2%;
 }
 
+.dropdown-item.active, .dropdown-item:active {
+    color: #474646;
+}
+
 @media (prefers-color-scheme: dark) {
     .fas-blue {
         color: #8da9ff !important;

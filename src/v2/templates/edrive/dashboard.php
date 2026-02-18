@@ -176,7 +176,9 @@ require $sRootDocument . '/Include/Header.php';
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.currentPersonID = <?= $personId ?>;
     window.CRM.browserImage = false,
-        window.CRM.currentpath = '<?= $user->getCurrentpath() ?>';
+    window.CRM.currentpath = '<?= $user->getCurrentpath() ?>';
+    window.CRM.isPublicFolder = false;
+    window.CRM.isCurrentPathPublicFolder = false;
 </script>
 
 <!-- Drag and drop -->

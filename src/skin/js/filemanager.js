@@ -144,13 +144,12 @@ $(function () {
             if ($.inArray(data.DT_RowId, selected) !== -1) {
                 $(row).addClass('selected');
             }
-        }/*,
-        "initComplete": function (settings, json) {
-            installDragAndDrop();
-            if (window.CRM.currentpath !== "/") {
-                $(".flex-wrap").addClass('shift-flex-wrapper-right');
+        },
+        "initComplete": function (settings, json) {            
+            if (window.CRM.isPublicFolder) {
+                $(".flex-wrap").removeClass('shift-flex-wrapper-right');
             }
-        }*/
+        }
     };
 
 

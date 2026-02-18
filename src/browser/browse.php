@@ -108,7 +108,7 @@ $user = SessionUser::getUser();
         <div class="row">
             <div class="col filmanager-left">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary btn-sm drag-elements folder-back-drop folder-back-button" data-personid="<?= $user->getPersonId() ?>"
+                    <button type="button" class="btn btn-primary btn-sm drag-elements folder-back-drop folder-back-button" style="margin-top: -3px !important;" data-personid="<?= $user->getPersonId() ?>"
                         data-toggle="tooltip" data-placement="top" title="<?= _("Move up one level, or drag the file(s) to move them up one level.") ?>"
                         <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
                         &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
