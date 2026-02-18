@@ -335,6 +335,7 @@ class DocumentFileManagerController
                     return $response->withJson([
                         'success' => true, 
                         "currentPath" => MiscUtils::pathToPathWithIcons($user->getCurrentpath()), 
+                        "isCurrentPathPublicFolder" => ($currentPath == "/public/") ? true : false,
                         "realCurrentPath" => $user->getCurrentpath(),
                         "numberOfFiles" => $this->numberOfFiles($params->personID)
                     ]);
@@ -385,6 +386,7 @@ class DocumentFileManagerController
                         'success' => true, 
                         "currentPath" => MiscUtils::pathToPathWithIcons($currentPath), 
                         "realCurrentPath" => $currentPath, 
+                        "isCurrentPathPublicFolder" => ($currentPath == "/public/") ? true : false,
                         "isHomeFolder" => ($currentPath == "/") ? true : false, 
                         "numberOfFiles" => $this->numberOfFiles($params->personID)
                     ]);

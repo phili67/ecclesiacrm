@@ -415,21 +415,36 @@ function installAndfinishEventEditorWindow() {
     $('.date-recurrence').hide();
     $(".eventNotes").hide();
 
-    var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+    let theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
     if (window.CRM.bDarkMode) {
         theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
     }
 
     // this will create the toolbar for the textarea
-    if (window.CRM.editor == null) {        
-        window.CRM.editor = CKEDITOR.replace('eventNotes', {
-            customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-            language: window.CRM.lang,
-            width: '100%',
-            skin: theme
-        });
+    if (window.CRM.editor != null) {
+        CKEDITOR.remove(window.CRM.editor);
+        window.CRM.editor = null;
+    }
 
-        add_ckeditor_buttons(window.CRM.editor);
+    if (window.CRM.bEDrive) {
+        window.CRM.editor = CKEDITOR.replace('eventNotes',{
+            customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+            language : window.CRM.lang,
+            width : '100%',
+            extraPlugins : 'uploadfile,uploadimage,filebrowser,html5video',
+            uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+            imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
+            filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+            filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments',
+            skin:theme
+        });
+    } else {
+        window.CRM.editor = CKEDITOR.replace('eventNotes',{
+            customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+            language : window.CRM.lang,
+            width : '100%',
+            skin:theme
+        });
     }
 
     $(".ATTENDENCES").hide();

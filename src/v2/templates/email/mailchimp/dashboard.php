@@ -100,7 +100,6 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     </script>
 
     <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Dashboard.js"></script>
-    <script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
 
     <?php
     }

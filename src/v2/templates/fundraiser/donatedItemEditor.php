@@ -192,6 +192,5 @@ require $sRootDocument . '/Include/Header.php';
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/fundraiser/donatedItemEditor.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>

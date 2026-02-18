@@ -7,6 +7,346 @@
 //
 
 var maxHeight = 230;
+var addAllCalendarsCountimes = 1;
+
+const addPersonalCalendars = () => {
+    $('#cal-list').empty();
+
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'calendar/getallforuser',
+        data: JSON.stringify({"type": "personal", "onlyvisible": false, "allCalendars": false})
+    }, function (res) {
+        var data = res.calendars;
+        var len = data.length;
+
+        var visibles = 0;
+
+        for (i = 0; i < len; ++i) {
+            if (data[i].visible) {
+                visibles += 1;
+            }
+
+            $('#cal-list').append('<li class="list-group-item" style="cursor: pointer;">' +
+                '<div class="row">' +
+                '   <div class="col-1">' +
+                '       <input id="personal-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
+                '   </div>' +
+                '   <div class="col-10">' +
+                '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
+                '           <div class="editCalendarName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' + data[i].icon + ' ' + data[i].calendarName.substring(0, 22) + '</div>' +
+                '           <div class="input-group-addon">' +
+                '               <i style="background-color:' + data[i].calendarColor + ';"></i>' +
+                '           </div>' +
+                '       </div>' +
+                '   </div>' +
+                '   <div class="col-1">' +
+                '           <div class="calendar-sidebar-info-button">' +
+                '              <i class="fas fa-info-circle" id="manage-cal-group" data-type="personal" data-id="' + data[i].calendarID + '"></i>' +
+                '           </div>' +
+                '   </div>' +
+                '</div>' +
+                '</li>');
+            $(".my-colorpicker1" + i).colorpicker({
+                color: data[i].calendarColor,
+                inline: false,
+                horizontal: true,
+                right: true
+            });
+
+            $(".my-colorpicker1" + i).on('changeColor', function (e) {
+                var calIDs = $(this).data("id");
+                var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
+
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'calendar/setcolor',
+                    data: JSON.stringify({"calIDs": calIDs, "color": color})
+                }, function (data) {
+                    // we reload all the events
+                    window.CRM.calendar.refetchEvents();
+                });
+            });
+        }
+
+        var elt = document.getElementById("check-uncheck-personal-calendar");
+        if (visibles == 0) {
+            elt.classList.add("fa-square");
+            elt.classList.remove("fa-check-square");
+        } else {
+            elt.classList.add("fa-check-square");
+            elt.classList.remove("fa-square");
+        }
+    });
+}
+
+const addReservationCalendars = () => {
+    $('#reservation-list').empty();
+
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'calendar/getallforuser',
+        data: JSON.stringify({"type": "reservation", "onlyvisible": false, "allCalendars": false})
+    }, function (res) {
+        var data = res.calendars;
+        var len = data.length;
+        var visibles = 0;
+
+        for (i = 0; i < len; ++i) {
+            var icon = '';
+
+            if (data[i].calType == 2) {
+                icon = '<i class="fas fa-building"></i>';
+            } else if (data[i].calType == 3) {
+                icon = '<i class="fab fa-windows"></i>';
+            } else if (data[i].calType == 4) {
+                icon = '<i class="fas fa-video"></i>';
+            }
+
+            if (data[i].visible) {
+                visibles += 1;
+            }
+
+            var infoLine = '<li class="list-group-item" style="cursor: pointer;">' +
+                '<div class="row row-calendar-resource">' +
+                '   <div class="col-1">' +
+                '       <input id="Reservation-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
+                '   </div>' +
+                '   <div class="col-9">' +
+                '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
+                '           <div class="editReservationName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
+                data[i].icon + icon + ' ' +
+                data[i].calendarName.substring(0, 22) +
+                '</div>' +
+                '           <div class="input-group-addon">' +
+                '               <i style="background-color:' + data[i].calendarColor + ';"></i>' +
+                '           </div>' +
+                '       </div>' +
+                '   </div>' +
+                '   <div class="col-2">' +
+                '           <div class="calendar-sidebar-info-button" style="width:40px">';
+
+            if (data[i].isAdmin) {
+                infoLine += '<i class="fas fa-cog calendar-sidebar-info-button" data-title="' + data[i].calendarName + '" data-caltype="' + data[i].calType + '" data-content="' + data[i].desc + '" style="font-size: 1em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="' + data[i].calendarID + '"></i>';
+            }
+
+            infoLine += '              <i class="fas fa-info-circle calendar-sidebar-info-button" id="manage-cal-group" data-type="reservation" data-id="' + data[i].calendarID + '"></i>' +
+                '           </div>' +
+                '   </div>' +
+                '</div>' +
+                '</li>';
+
+
+            $('#reservation-list').append(infoLine);
+
+            $(".my-colorpicker1" + i).colorpicker({
+                color: data[i].calendarColor,
+                inline: false,
+                horizontal: true,
+                right: true
+            });
+
+            $(".my-colorpicker1" + i).on('changeColor', function (e) {
+                var calIDs = $(this).data("id");
+                var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
+
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'calendar/setcolor',
+                    data: JSON.stringify({"calIDs": calIDs, "color": color})
+                }, function (data) {
+                    // we reload all the events
+                    window.CRM.calendar.refetchEvents();
+                });
+            });
+        }
+
+        var elt = document.getElementById("check-uncheck-all-reservation-calendar");
+        if (visibles == 0) {
+            elt.classList.add("fa-square");
+            elt.classList.remove("fa-check-square");
+        } else {
+            elt.classList.add("fa-check-square");
+            elt.classList.remove("fa-square");
+        }
+    });
+}
+
+const addShareCalendars = () => {
+    $('#share-list').empty();
+
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'calendar/getallforuser',
+        data: JSON.stringify({"type": "share", "onlyvisible": false, "allCalendars": false})
+    }, function (res) {
+        var data = res.calendars;
+        var len = data.length;
+
+        var visibles = 0;
+
+        for (i = 0; i < len; ++i) {
+            var icon = '';
+
+            if (data[i].calType == 2) {
+                icon = '&nbsp<i class="fas fa-building"></i>&nbsp';
+            } else if (data[i].calType == 3) {
+                icon = '&nbsp<i class="fab fa-windows"></i>&nbsp;';
+            } else if (data[i].calType == 4) {
+                icon = '&nbsp<i class="fas fa-video"></i>&nbsp;';
+            }
+
+            if (data[i].visible) {
+                visibles += 1;
+            }
+
+            $('#share-list').append('<li class="list-group-item" style="cursor: pointer;">' +
+                '<div class="row">' +
+                '   <div class="col-1">' +
+                '       <input id="Share-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
+                '   </div>' +
+                '   <div class="col-10">' +
+                '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
+                '           <div class="editShareName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
+                data[i].icon + icon + ' ' +
+                data[i].calendarName.substring(0, 22) +
+                '</div>' +
+                '           <div class="input-group-addon">' +
+                '               <i style="background-color:' + data[i].calendarColor + ';"></i>' +
+                '           </div>' +
+                '       </div>' +
+                '   </div>' +
+                '   <div class="col-1">' +
+                '           <div class="calendar-sidebar-info-button">' +
+                '              <i class="fas fa-info-circle" id="manage-cal-group" data-type="shared" data-id="' + data[i].calendarID + '"></i>' +
+                '           </div>' +
+                '   </div>' +
+                '</div>' +
+                '</li>');
+
+            $(".my-colorpicker1" + i).colorpicker({
+                color: data[i].calendarColor,
+                inline: false,
+                horizontal: true,
+                right: true
+            });
+
+            $(".my-colorpicker1" + i).on('changeColor', function (e) {
+                var calIDs = $(this).data("id");
+                var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
+
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'calendar/setcolor',
+                    data: JSON.stringify({"calIDs": calIDs, "color": color})
+                }, function (data) {
+                    // we reload all the events
+                    window.CRM.calendar.refetchEvents();
+                });
+            });
+        }
+
+        var elt = document.getElementById("check-uncheck-all-shared-calendar");
+        if (visibles == 0) {
+            elt.classList.add("fa-square");
+            elt.classList.remove("fa-check-square");
+        } else {
+            elt.classList.add("fa-check-square");
+            elt.classList.remove("fa-square");
+        }
+
+    });
+}
+
+const addGroupCalendars = () => {
+    $('#group-list').empty();
+
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'calendar/getallforuser',
+        data: JSON.stringify({"type": "group", "onlyvisible": false, "allCalendars": false})
+    }, function (res) {
+        var data = res.calendars;
+        var len = data.length;
+
+        var visibles = 0;
+
+        for (i = 0; i < len; ++i) {
+
+            if (data[i].visible) {
+                visibles += 1;
+            }
+
+            $('#group-list').append('<li class="list-group-item" style="cursor: pointer;">' +
+                '<div class="row">' +
+                '   <div class="col-1">' +
+                '       <input id="Group-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
+                '   </div>' +
+                '   <div class="col-10">' +
+                '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
+                '           <div class="editGroupName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
+                data[i].icon + '<i class="fas fa-users"></i> ' +
+                data[i].calendarName.substring(0, 22) +
+                '</div>' +
+                '           <div class="input-group-addon">' +
+                '               <i style="background-color:' + data[i].calendarColor + ';"></i>' +
+                '           </div>' +
+                '       </div>' +
+                '   </div>' +
+                '   <div class="col-1">' +
+                '           <div class="calendar-sidebar-info-button">' +
+                '              <i class="fas fa-info-circle" id="manage-cal-group" data-type="group" data-id="' + data[i].calendarID + '"></i>' +
+                '           </div>' +
+                '   </div>' +
+                '</div>' +
+                '</li>');
+
+            // '<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-info-circle"  style="font-size: 1em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> <span class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+
+            $(".my-colorpicker1" + i).colorpicker({
+                color: data[i].calendarColor,
+                inline: false,
+                horizontal: true,
+                right: true
+            });
+
+            $(".my-colorpicker1" + i).on('changeColor', function (e) {
+                var calIDs = $(this).data("id");
+                var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
+
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'calendar/setcolor',
+                    data: JSON.stringify({"calIDs": calIDs, "color": color})
+                }, function (data) {
+                    // we reload all the events
+                    window.CRM.calendar.refetchEvents();
+                });
+            });
+        }
+
+        var elt = document.getElementById("check-uncheck-all-group-calendar");
+        if (visibles == 0) {
+            elt.classList.add("fa-square");
+            elt.classList.remove("fa-check-square");
+        } else {
+            elt.classList.add("fa-check-square");
+            elt.classList.remove("fa-square");
+        }
+    });
+}
+
+window.CRM.addAllCalendars = function f() {
+    if (addAllCalendarsCountimes != 2) {
+        // Add all the calendars
+        addPersonalCalendars();
+        addGroupCalendars();
+        addReservationCalendars();
+        addShareCalendars();
+    }
+    addAllCalendarsCountimes++;
+}
+
 $(window).on('resize', function () {
     //(document.body.clientHeight); n'a pas l'air top
     var hscreen = $(window).height(),
@@ -118,8 +458,7 @@ $("#add-reservation-calendar").on('click', function (e) {
 });
 
 // to add PresenceShare
-
-function addShareCalendarPresence(type) {
+const addShareCalendarPresence = (type) => {
     $('#select-calendar-presence').find('option').remove();
 
     window.CRM.APIRequest({
@@ -154,7 +493,7 @@ function addShareCalendarPresence(type) {
     });
 }
 
-function BootboxContentCalendarPresence() {
+const BootboxContentCalendarPresence = () => {
     var frm_str ='<div>'
         + '  <div class="row">'
         + '      <div class="col-md-4">'
@@ -183,7 +522,7 @@ function BootboxContentCalendarPresence() {
     return object
 }
 
-function CreateCalendarPresenceWindow(type) {
+const CreateCalendarPresenceWindow = (type) => {
     var modal = bootbox.dialog({
         message: BootboxContentCalendarPresence(),
         title: i18next.t("Include/Exclude your Calendars in the SideBar"),
@@ -208,44 +547,35 @@ function CreateCalendarPresenceWindow(type) {
     return modal;
 }
 
-function createPresenceManager(type) {
+const createPresenceManager = (type) => {
     var modal = CreateCalendarPresenceWindow(type);
 
     $("#calendar-show-hide").on('change',function () {
         var isPresent = $(this).val();
-        var deferredsSH = [];
-        var i = 0;
-
+        
         $('#select-calendar-presence :selected').each(function (i, sel) {
             var calIDs = $(sel).val();
             var str = $(sel).text();
 
-            deferredsSH.push(
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'calendar/showhidecalendars',
-                    data: JSON.stringify({"calIDs": calIDs, "isPresent": (isPresent == 1) ? false : true})
-                }, function (data) {
-                    if (isPresent == 1) {
-                        res = str.replace('✅', '❌');
-                    } else {
-                        res = str.replace('❌', '✅');
-                    }
+            if (isPresent == 1) {
+                res = str.replace('✅', '❌');
+            } else {
+                res = str.replace('❌', '✅');                                    
+            }
 
-                    var elt = [calIDs, res];
-                    deferredsSH[i++] = elt;
-                })
-            );
-
-        });
-
-        $.when.apply($, deferredsSH).done(function (data) {
-            //addShareCalendarPresence(type);
-
-            deferredsSH.forEach(function (element) {
-                $('#select-calendar-presence option[value="' + element[0] + '"]').text(element[1]);
+            $(sel).text(res);
+            
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'calendar/showhidecalendars',
+                data: JSON.stringify({"calIDs": calIDs, "isPresent": (isPresent == 1) ? false : true})
+            }, function (data) {
+                var elt = [calIDs, res];
+                        
             });
-
+        });    
+        
+        setTimeout(() => {
             // we update the sidebar and the calendar too
             switch (type) {
                 case 'personal':
@@ -262,8 +592,8 @@ function createPresenceManager(type) {
                     break;
             }
             window.CRM.calendar.refetchEvents();
-            $("#calendar-show-hide option:first").attr('selected', 'selected');
-        });
+            $("#calendar-show-hide option:first").attr('selected', 'selected');     
+        }, 1000);
     });
 
     modal.modal("show");
@@ -285,10 +615,8 @@ $("#manage-all-shared").on('click', function (e) {
     createPresenceManager('share');
 });
 
-
 // the add people to calendar
-
-function addPersonsFromCalendar(calendarId) {
+const addPersonsFromCalendar = (calendarId) => {
     $('#select-share-persons').find('option').remove();
 
     window.CRM.APIRequest({
@@ -320,7 +648,7 @@ function addPersonsFromCalendar(calendarId) {
     });
 }
 
-function BootboxContentShare() {
+const BootboxContentShare = () => {
     var frm_str = '<div>'
         + '<div class="row">'
         + '<div class="col-md-4">'
@@ -365,7 +693,7 @@ function BootboxContentShare() {
     return object
 }
 
-function createShareWindow(calIDs) {
+const createShareWindow = (calIDs) => {
     var modal = bootbox.dialog({
         message: BootboxContentShare(),
         title: i18next.t("Share your Calendar"),
@@ -609,11 +937,7 @@ $('body').on('click', '#manage-cal-group', function () {
     });
 
 });
-
-//
 // end off add people to calendar
-//
-
 
 $('body').on('click', '.editCalendarName', function () {
     var calIDs = $(this).data("id");
@@ -764,346 +1088,6 @@ $('body').on('click', '#reservation-info', function () {
     });
 });
 
-function addPersonalCalendars() {
-    $('#cal-list').empty();
-
-    window.CRM.APIRequest({
-        method: 'POST',
-        path: 'calendar/getallforuser',
-        data: JSON.stringify({"type": "personal", "onlyvisible": false, "allCalendars": false})
-    }, function (res) {
-        var data = res.calendars;
-        var len = data.length;
-
-        var visibles = 0;
-
-        for (i = 0; i < len; ++i) {
-            if (data[i].visible) {
-                visibles += 1;
-            }
-
-            $('#cal-list').append('<li class="list-group-item" style="cursor: pointer;">' +
-                '<div class="row">' +
-                '   <div class="col-1">' +
-                '       <input id="personal-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
-                '   </div>' +
-                '   <div class="col-10">' +
-                '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
-                '           <div class="editCalendarName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' + data[i].icon + ' ' + data[i].calendarName.substring(0, 22) + '</div>' +
-                '           <div class="input-group-addon">' +
-                '               <i style="background-color:' + data[i].calendarColor + ';"></i>' +
-                '           </div>' +
-                '       </div>' +
-                '   </div>' +
-                '   <div class="col-1">' +
-                '           <div class="calendar-sidebar-info-button">' +
-                '              <i class="fas fa-info-circle" id="manage-cal-group" data-type="personal" data-id="' + data[i].calendarID + '"></i>' +
-                '           </div>' +
-                '   </div>' +
-                '</div>' +
-                '</li>');
-            $(".my-colorpicker1" + i).colorpicker({
-                color: data[i].calendarColor,
-                inline: false,
-                horizontal: true,
-                right: true
-            });
-
-            $(".my-colorpicker1" + i).on('changeColor', function (e) {
-                var calIDs = $(this).data("id");
-                var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
-
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'calendar/setcolor',
-                    data: JSON.stringify({"calIDs": calIDs, "color": color})
-                }, function (data) {
-                    // we reload all the events
-                    window.CRM.calendar.refetchEvents();
-                });
-            });
-        }
-
-        var elt = document.getElementById("check-uncheck-personal-calendar");
-        if (visibles == 0) {
-            elt.classList.add("fa-square");
-            elt.classList.remove("fa-check-square");
-        } else {
-            elt.classList.add("fa-check-square");
-            elt.classList.remove("fa-square");
-        }
-    });
-}
-
-function addGroupCalendars() {
-    $('#group-list').empty();
-
-    window.CRM.APIRequest({
-        method: 'POST',
-        path: 'calendar/getallforuser',
-        data: JSON.stringify({"type": "group", "onlyvisible": false, "allCalendars": false})
-    }, function (res) {
-        var data = res.calendars;
-        var len = data.length;
-
-        var visibles = 0;
-
-        for (i = 0; i < len; ++i) {
-
-            if (data[i].visible) {
-                visibles += 1;
-            }
-
-            $('#group-list').append('<li class="list-group-item" style="cursor: pointer;">' +
-                '<div class="row">' +
-                '   <div class="col-1">' +
-                '       <input id="Group-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
-                '   </div>' +
-                '   <div class="col-10">' +
-                '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
-                '           <div class="editGroupName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
-                data[i].icon + '<i class="fas fa-users"></i> ' +
-                data[i].calendarName.substring(0, 22) +
-                '</div>' +
-                '           <div class="input-group-addon">' +
-                '               <i style="background-color:' + data[i].calendarColor + ';"></i>' +
-                '           </div>' +
-                '       </div>' +
-                '   </div>' +
-                '   <div class="col-1">' +
-                '           <div class="calendar-sidebar-info-button">' +
-                '              <i class="fas fa-info-circle" id="manage-cal-group" data-type="group" data-id="' + data[i].calendarID + '"></i>' +
-                '           </div>' +
-                '   </div>' +
-                '</div>' +
-                '</li>');
-
-            // '<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-info-circle"  style="font-size: 1em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> <span class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
-
-            $(".my-colorpicker1" + i).colorpicker({
-                color: data[i].calendarColor,
-                inline: false,
-                horizontal: true,
-                right: true
-            });
-
-            $(".my-colorpicker1" + i).on('changeColor', function (e) {
-                var calIDs = $(this).data("id");
-                var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
-
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'calendar/setcolor',
-                    data: JSON.stringify({"calIDs": calIDs, "color": color})
-                }, function (data) {
-                    // we reload all the events
-                    window.CRM.calendar.refetchEvents();
-                });
-            });
-        }
-
-        var elt = document.getElementById("check-uncheck-all-group-calendar");
-        if (visibles == 0) {
-            elt.classList.add("fa-square");
-            elt.classList.remove("fa-check-square");
-        } else {
-            elt.classList.add("fa-check-square");
-            elt.classList.remove("fa-square");
-        }
-    });
-}
-
-function addReservationCalendars() {
-    $('#reservation-list').empty();
-
-    window.CRM.APIRequest({
-        method: 'POST',
-        path: 'calendar/getallforuser',
-        data: JSON.stringify({"type": "reservation", "onlyvisible": false, "allCalendars": false})
-    }, function (res) {
-        var data = res.calendars;
-        var len = data.length;
-        var visibles = 0;
-
-        for (i = 0; i < len; ++i) {
-            var icon = '';
-
-            if (data[i].calType == 2) {
-                icon = '<i class="fas fa-building"></i>';
-            } else if (data[i].calType == 3) {
-                icon = '<i class="fab fa-windows"></i>';
-            } else if (data[i].calType == 4) {
-                icon = '<i class="fas fa-video"></i>';
-            }
-
-            if (data[i].visible) {
-                visibles += 1;
-            }
-
-            var infoLine = '<li class="list-group-item" style="cursor: pointer;">' +
-                '<div class="row row-calendar-resource">' +
-                '   <div class="col-1">' +
-                '       <input id="Reservation-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
-                '   </div>' +
-                '   <div class="col-9">' +
-                '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
-                '           <div class="editReservationName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
-                data[i].icon + icon + ' ' +
-                data[i].calendarName.substring(0, 22) +
-                '</div>' +
-                '           <div class="input-group-addon">' +
-                '               <i style="background-color:' + data[i].calendarColor + ';"></i>' +
-                '           </div>' +
-                '       </div>' +
-                '   </div>' +
-                '   <div class="col-2">' +
-                '           <div class="calendar-sidebar-info-button" style="width:40px">';
-
-            if (data[i].isAdmin) {
-                infoLine += '<i class="fas fa-cog calendar-sidebar-info-button" data-title="' + data[i].calendarName + '" data-caltype="' + data[i].calType + '" data-content="' + data[i].desc + '" style="font-size: 1em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="' + data[i].calendarID + '"></i>';
-            }
-
-            infoLine += '              <i class="fas fa-info-circle calendar-sidebar-info-button" id="manage-cal-group" data-type="reservation" data-id="' + data[i].calendarID + '"></i>' +
-                '           </div>' +
-                '   </div>' +
-                '</div>' +
-                '</li>';
-
-
-            $('#reservation-list').append(infoLine);
-
-            $(".my-colorpicker1" + i).colorpicker({
-                color: data[i].calendarColor,
-                inline: false,
-                horizontal: true,
-                right: true
-            });
-
-            $(".my-colorpicker1" + i).on('changeColor', function (e) {
-                var calIDs = $(this).data("id");
-                var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
-
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'calendar/setcolor',
-                    data: JSON.stringify({"calIDs": calIDs, "color": color})
-                }, function (data) {
-                    // we reload all the events
-                    window.CRM.calendar.refetchEvents();
-                });
-            });
-        }
-
-        var elt = document.getElementById("check-uncheck-all-reservation-calendar");
-        if (visibles == 0) {
-            elt.classList.add("fa-square");
-            elt.classList.remove("fa-check-square");
-        } else {
-            elt.classList.add("fa-check-square");
-            elt.classList.remove("fa-square");
-        }
-    });
-}
-
-function addShareCalendars() {
-    $('#share-list').empty();
-
-    window.CRM.APIRequest({
-        method: 'POST',
-        path: 'calendar/getallforuser',
-        data: JSON.stringify({"type": "share", "onlyvisible": false, "allCalendars": false})
-    }, function (res) {
-        var data = res.calendars;
-        var len = data.length;
-
-        var visibles = 0;
-
-        for (i = 0; i < len; ++i) {
-            var icon = '';
-
-            if (data[i].calType == 2) {
-                icon = '&nbsp<i class="fas fa-building"></i>&nbsp';
-            } else if (data[i].calType == 3) {
-                icon = '&nbsp<i class="fab fa-windows"></i>&nbsp;';
-            } else if (data[i].calType == 4) {
-                icon = '&nbsp<i class="fas fa-video"></i>&nbsp;';
-            }
-
-            if (data[i].visible) {
-                visibles += 1;
-            }
-
-            $('#share-list').append('<li class="list-group-item" style="cursor: pointer;">' +
-                '<div class="row">' +
-                '   <div class="col-1">' +
-                '       <input id="Share-checkbox-'+ data[i].calendarID +'" type="checkbox" class="check-calendar calendar-sidebar-checkbox" data-id="' + data[i].calendarID + '"' + ((data[i].visible) ? "checked" : "") + '>' +
-                '   </div>' +
-                '   <div class="col-10">' +
-                '       <div class="input-group my-colorpicker-global my-colorpicker1' + i + ' colorpicker-element" data-id="' + data[i].calendarID + '">' +
-                '           <div class="editShareName text-center-calendar"  data-id="' + data[i].calendarID + '" data-name="' + data[i].calendarName + '">' +
-                data[i].icon + icon + ' ' +
-                data[i].calendarName.substring(0, 22) +
-                '</div>' +
-                '           <div class="input-group-addon">' +
-                '               <i style="background-color:' + data[i].calendarColor + ';"></i>' +
-                '           </div>' +
-                '       </div>' +
-                '   </div>' +
-                '   <div class="col-1">' +
-                '           <div class="calendar-sidebar-info-button">' +
-                '              <i class="fas fa-info-circle" id="manage-cal-group" data-type="shared" data-id="' + data[i].calendarID + '"></i>' +
-                '           </div>' +
-                '   </div>' +
-                '</div>' +
-                '</li>');
-
-            $(".my-colorpicker1" + i).colorpicker({
-                color: data[i].calendarColor,
-                inline: false,
-                horizontal: true,
-                right: true
-            });
-
-            $(".my-colorpicker1" + i).on('changeColor', function (e) {
-                var calIDs = $(this).data("id");
-                var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
-
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'calendar/setcolor',
-                    data: JSON.stringify({"calIDs": calIDs, "color": color})
-                }, function (data) {
-                    // we reload all the events
-                    window.CRM.calendar.refetchEvents();
-                });
-            });
-        }
-
-        var elt = document.getElementById("check-uncheck-all-shared-calendar");
-        if (visibles == 0) {
-            elt.classList.add("fa-square");
-            elt.classList.remove("fa-check-square");
-        } else {
-            elt.classList.add("fa-check-square");
-            elt.classList.remove("fa-square");
-        }
-
-    });
-}
-
-var addAllCalendarsCountimes = 1;
-
-window.CRM.addAllCalendars = function f() {
-    if (addAllCalendarsCountimes != 2) {
-        // Add all the calendars
-        addPersonalCalendars();
-        addGroupCalendars();
-        addReservationCalendars();
-        addShareCalendars();
-    }
-    addAllCalendarsCountimes++;
-}
-
 window.CRM.ElementListener('#check-uncheck-personal-calendar', 'click', function(event) {
     window.CRM.APIRequest({
         method: 'POST',
@@ -1253,5 +1237,3 @@ window.CRM.ElementListener('#check-uncheck-all-shared-calendar', 'click', functi
 });
 
 window.CRM.addAllCalendars();
-
-

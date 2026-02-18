@@ -6,7 +6,7 @@ $(function() {
     $("#donatedItemPicture").on('click', function () {
         var donatedItem = $(this).data('donateditemid');
 
-        window.open(window.CRM.root + '/browser/browse.php?DonatedItemID=' + donatedItem);
+        window.open(window.CRM.root + '/browser/browse.php?type=publicDocuments&DonatedItemID=' + donatedItem);
     });
 
     $("#PictureURL").on("change paste keyup",function () {
