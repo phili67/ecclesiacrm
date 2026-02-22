@@ -251,18 +251,19 @@ class Menu {
 
         foreach($links as $l) {
             if (!strcmp(SystemURLs::getRootPath() . "/" . $l,$link)) {
-                return " active";
+                return true;
             } else if ($is_menu) {
-                return "";
+                return false;
             }
         }
 
-        return "";
+        return false;
     }
 
-    private function buildSubMenu($menus): string
+    private function buildSubMenu($menus): array
     {
         $ret = '';
+        $is_active = false;
         foreach ($menus as $menu) {
             $url = $menu->getUri();
             $real_link = true;
@@ -272,24 +273,29 @@ class Menu {
                 $url = SystemURLs::getRootPath() . (($url != "#")?"/":"") . $url;
             }
 
+            // we search first the sub menu to see if some part is active
+            $res = $this->buildSubMenu($menu->subMenu());
+            $sub_menu = $res[0];
+            $is_active = $res[1] | $this->is_link_active($menu->getLinks(),(count($menu->subMenu()) === ''));
+
             $ret .= '<li class="nav-item'.(($menu->getClass() != null)?" ".$menu->getClass():"").'">';
-            $ret .= '<a href="'.$url.'" '.(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'">'.$menu->getIcon()." <p>"._($menu->getTitle())."</p>";
+            $ret .= '<a href="'.$url.'" '.(($real_link==true)?'target="_blank"':'').' class="nav-link' . ($is_active?' active':'') .'">'.$menu->getIcon()." <p>"._($menu->getTitle())."</p>";
             if (count($menu->subMenu()) > 0) {
-                $ret .= '<i class="fas fa-angle-left right"></i>';
+                $ret .= '<i class="fas fa-angle-' . ($is_active?'down':'left') . ' right"></i>';
             }
 
             $ret .= "</a>\n";
 
             if (count($menu->subMenu()) > 0) {
                 $ret .= "<ul ".$this->is_treeview_menu_open($menu->getLinks()).">\n";
-                $ret .= $this->buildSubMenu($menu->subMenu());
+                $ret .= $sub_menu;
                 $ret .= "</ul>\n";
             }
 
             $ret .= "</li>\n";
         }
 
-        return $ret;
+        return [$ret, $is_active];
     }
 
     public function renderMenu(): string
@@ -321,10 +327,13 @@ class Menu {
                         }
                     }
                 }
+
+                $res = $this->buildSubMenu($menu->subMenu());
+
                 $ret .= "</p>\n";
                 $ret .= "</a>\n";
                 $ret .= "<ul ".$this->is_treeview_menu_open($menu->getLinks()).">\n";
-                $ret .= $this->buildSubMenu($menu->subMenu());
+                $ret .= $res[0];
                 $ret .= "</ul>\n";
                 $ret .= "</li>\n";
             }
