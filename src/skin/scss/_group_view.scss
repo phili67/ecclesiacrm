@@ -16,10 +16,22 @@ div.dt-button-collection {
 }
 
 /* new left and right sidebar */
+
+.group_Side_bar_container {
+    display: flex;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+}
+
 .group_Side_bar {
-    min-width: 400px;
-    max-width: 300px;
+    margin:10px;
+    flex-shrink: 0; /* Empêche la colonne de rétrécir si le contenu est grand */
     width:300px;
+}
+
+.group_Side_bar_right {
+    margin:10px;
+    flex-grow: 1;
 }
 
 .GroupViewBootboxContentManager {
@@ -32,9 +44,11 @@ div.dt-button-collection {
         background-color: #97999a;
     }
 
+    .group_Side_bar_container {
+        flex-direction: column; /* On empile les colonnes verticalement */
+    }
+
     .group_Side_bar {
-        min-width: 400px;
-        max-width: 100%;
         width:100%;
     }
 }
