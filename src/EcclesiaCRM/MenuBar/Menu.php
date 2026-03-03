@@ -63,13 +63,13 @@ class Menu {
     {
         if (count($menu->_subMenus) == 0) {// we are at the end
           array_splice($menu->_badges, 0, count($menu->_badges));
-          array_splice($menu->_links, 0, count($menu->_links)); 
+          array_splice($menu->_links, 0, count($menu->_links));
           $menu->_class = null;
           $menu->_parent = null;
           $menu->_uri = '';
           $menu->_title   = '';
           $menu->_icon    = null;
-          $menu->_sec_grp = null;        
+          $menu->_sec_grp = null;
           $menu->_uuid = -1;
         } else {
           foreach ($menu->_subMenus as $m) {
@@ -78,12 +78,12 @@ class Menu {
         }
     }
 
-    public function removeMenu (Menu $menu_to_delete) 
+    public function removeMenu (Menu $menu_to_delete)
     {
         $place = 0;
         foreach ($this->_menus as $menu) {
           if ($menu->_uuid == $menu_to_delete->_uuid) {
-            $this->removeSubMenu($menu);                          
+            $this->removeSubMenu($menu);
             array_splice($this->_menus, $place, $place);
             break;
           }
@@ -91,8 +91,8 @@ class Menu {
         }
     }
 
-    public function deleteLastMenu () 
-    {       
+    public function deleteLastMenu ()
+    {
       $place = count($this->_menus) - 1;
       $this->removeSubMenu($this->_menus[$place]);
       array_splice($this->_menus, $place, $place);
@@ -304,15 +304,17 @@ class Menu {
         //echo '<nav class="mt-2"></nav><ul class="nav nav-pills nav-sidebar flex-column" data-widget="tree" role="menu" data-accordion="false">';
         $ret = '';
         foreach ($this->_menus as $menu) {
+            $is_active = $this->is_link_active($menu->getLinks(),false,$menu->getClass())?'active':'';
+
             if (count($menu->subMenu()) == 0) {
                 $ret .= '<li class="nav-item">';
-                $ret .= '<a href="'.SystemURLs::getRootPath() . '/' . $menu->getUri().'" class="nav-link'.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';
+                $ret .= '<a href="'.SystemURLs::getRootPath() . '/' . $menu->getUri().'" class="nav-link '.$is_active.'">';
                 $ret .= $menu->getIcon()." <p>"._($menu->getTitle())."</p>\n";
                 $ret .= "</a>\n";
                 $ret .= "</li>\n";
             } else {// we are in the case of a treeview
                 $ret .= '<li class="nav-item has-treeview '.$this->is_treeview_Opened($menu->getLinks()).(($menu->getClass() != null)?" ".$menu->getClass():"").'">';
-                $ret .= '<a href="#" class="nav-link '.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';// the menu keep his link #
+                $ret .= '<a href="#" class="nav-link '.$is_active.'">';// the menu keep his link #
                 $ret .= " ".$menu->getIcon()."\n";
                 $ret .= " <p>"._($menu->getTitle());
                 $ret .= ' <i class="fas fa-angle-left right"></i>'."\n";
