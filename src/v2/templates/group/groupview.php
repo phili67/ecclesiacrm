@@ -205,11 +205,11 @@ if ($sPhoneLink) {
 
 <br><br>
 
-<div class="row">
+<div class="group_Side_bar_container">
     <?php
     if ($_SESSION['bManageGroups'] or SessionUser::getUser()->isManageGroupsEnabled()) {
     ?>
-        <div class="col group_Side_bar">
+        <div class="group_Side_bar">
             <div class="sticky-top">
                 <div id="accordion">
                 <?php
@@ -440,7 +440,7 @@ if ($sPhoneLink) {
                 }
     ?>
 
-    <div class="col" ?>
+    <div class="group_Side_bar_right">
         <div class="card card-warning">
             <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Manage Group Members") ?>:</h3>

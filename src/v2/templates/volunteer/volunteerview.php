@@ -144,8 +144,8 @@ if ($sPhoneLink) {
 ?>
 
 
-<div class="row">
-    <div class="col group_Side_bar">
+<div class="group_Side_bar_container">
+    <div class="group_Side_bar">
         <div class="sticky-top">
             <div id="accordion">
                 <div class="card group_accordion">
@@ -236,7 +236,7 @@ if ($sPhoneLink) {
     </div>
 
 
-    <div class="col" ?>
+    <div class="group_Side_bar_right">
         <div class="card card-warning card-outline">
             <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Manage Group Members") ?>:</h3>
