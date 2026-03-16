@@ -257,7 +257,12 @@ if ($sFormat == 'addtocart') {
     if ($sFormat == 'rollup') {
         $headerString = '"'.InputUtils::translate_special_charset("Name").'"'.$delimiter;
     } else {
-        $headerString = '"'.InputUtils::translate_special_charset("Last Name").'"'.$delimiter;
+        $headerString = "";
+        
+        if (!empty($_POST['Id'])) {
+            $headerString .= '"'.InputUtils::translate_special_charset("Id").'"'.$delimiter;
+        }        
+        $headerString .= '"'.InputUtils::translate_special_charset("Last Name").'"'.$delimiter;        
         if (!empty($_POST['Title'])) {
             $headerString .= '"'.InputUtils::translate_special_charset("Title").'"'.$delimiter;
         }
@@ -457,7 +462,14 @@ if ($sFormat == 'addtocart') {
             if (!($bSkipNoEnvelope && (strlen($fam_Envelope) == 0))) {
                 // If we are doing family roll-up, we use a single, formatted name field
                 if ($sFormat == 'default') {
-                    $sString = '"'.$per_LastName;
+                    $sString = "";
+
+                    if (isset($_POST['Id'])) {
+                        $sString .= '"'.InputUtils::translate_special_charset($per_ID,$charset).'"'.$delimiter;
+                    }
+                    
+                    $sString .= '"'.$per_LastName;
+                    
                     if (isset($_POST['Title'])) {
                         $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($per_Title,$charset);
                     }

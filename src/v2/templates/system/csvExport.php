@@ -50,6 +50,12 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
+                    <label><?= _('Id') ?>:</label>
+                    <input type="checkbox" name="Id" value="1">
+                </div>
+            </div>        
+            <div class="row">
+                <div class="col-md-4">
                     <label><?= _('Last Name') ?>:</label>
                     <?= _('Required') ?>
                 </div>
@@ -161,18 +167,17 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="col-md-4">
                     <label><?= _('Classification') ?>:</label>
                     <input type="checkbox" name="PrintMembershipStatus" value="1">
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label><?= _('Family Role') ?>:</label>
-                        <input type="checkbox" name="PrintFamilyRole" value="1">
-                        <br><br>
-                        * <?= _('Depends whether using person or family output method') ?>
-                    </div>
-
-                </div>
+                </div>                
             </div>
 
+            <div class="row">
+                <div class="col-md-8">
+                    <label><?= _('Family Role') ?>:</label>
+                    <input type="checkbox" name="PrintFamilyRole" value="1">
+                    <br>                        
+                    <span class="text-red"> <?= _('Depends whether using person or family output method') ?></span>
+                </div>                    
+            </div>
         </div>
     </div>
     <?php
