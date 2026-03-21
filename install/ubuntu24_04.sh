@@ -2,6 +2,7 @@
 
 # Release version (use GitHub release tag without leading 'v')
 RELEASE="8.0.0-GM.3"
+RELEASEZIP="8.0.0"
 
 # Configuration variables (interactive prompts)
 read -p "Domaine (ex: example.com) [test.com]: " DOMAIN
@@ -156,8 +157,8 @@ sudo apt install unzip
 
 cd /var/www/
 
-sudo wget "https://github.com/phili67/ecclesiacrm/releases/download/v${RELEASE}/EcclesiaCRM-${RELEASE}.zip"
-sudo unzip "EcclesiaCRM-${RELEASE}.zip"
+sudo wget "https://github.com/phili67/ecclesiacrm/releases/download/v${RELEASE}/EcclesiaCRM-${RELEASEZIP}.zip"
+sudo unzip "EcclesiaCRM-${RELEASEZIP}.zip"
 
 sudo rm -rf html
 sudo mv ecclesiacrm html
