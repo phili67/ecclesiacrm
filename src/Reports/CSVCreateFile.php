@@ -255,12 +255,18 @@ if ($sFormat == 'addtocart') {
 
     //Produce Header Based on Selected Fields
     if ($sFormat == 'rollup') {
-        $headerString = '"'.InputUtils::translate_special_charset("Name").'"'.$delimiter;
+        $headerString = "";
+        
+        if (!empty($_POST['Id'])) {
+            $headerString .= '"'.InputUtils::translate_special_charset("Fam ID").'"'.$delimiter;
+        }  
+
+        $headerString .= '"'.InputUtils::translate_special_charset("Name").'"'.$delimiter;
     } else {
         $headerString = "";
         
         if (!empty($_POST['Id'])) {
-            $headerString .= '"'.InputUtils::translate_special_charset("Id").'"'.$delimiter;
+            $headerString .= '"'.InputUtils::translate_special_charset("Per ID").'"'.$delimiter;
         }        
         $headerString .= '"'.InputUtils::translate_special_charset("Last Name").'"'.$delimiter;        
         if (!empty($_POST['Title'])) {
@@ -483,10 +489,16 @@ if ($sFormat == 'addtocart') {
                         $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($per_MiddleName,$charset);
                     }
                 } elseif ($sFormat == 'rollup') {
+                    $sString = "";
+
+                    if (isset($_POST['Id'])) {
+                        $sString .= '"'.InputUtils::translate_special_charset($fam_ID,$charset).'"'.$delimiter;
+                    }
+
                     if ($memberCount > 1) {
-                        $sString = '"'.ReportUtilities::MakeSalutationUtilityFamily($fam_ID);
+                        $sString .= '"'.ReportUtilities::MakeSalutationUtilityFamily($fam_ID);
                     } else {
-                        $sString = '"'.$per_LastName.', '.$per_FirstName;
+                        $sString .= '"'.$per_LastName.', '.$per_FirstName;
                     }
                 }
 
