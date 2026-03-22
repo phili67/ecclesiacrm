@@ -133,31 +133,9 @@ $(function() {
     });
 
     $('.sStyleSideBar').on('change',function () {
-        var color = $('.sStyleSideBarColor').val();
-        mode = $(this).val();
-        var sidebar = $('.main-sidebar');
-        var sidebar_class = 'sidebar-' + mode + '-' + color;
-        sidebar_skins.map(function (skin) {
-            sidebar.removeClass(skin)
-        })
-
-        sidebar.addClass(sidebar_class)
-
-        if (mode == 'dark') {
-            $('.main-sidebar').css({
-                'background': 'repeating-linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(114, 114, 114, 0.95)),url(/Images/sidebar.jpg)',
-                'background-repeat': 'repeat-y'
-            });
-            $('.control-sidebar').removeClass('control-sidebar-light');
-            $('.control-sidebar').addClass('control-sidebar-dark');
-        } else {
-            $('.main-sidebar').css({
-                'background': 'repeating-linear-gradient(0deg,rgba(255,255,255,0.95),rgba(200,200,200,0.95)),url(/Images/sidebar.jpg)',
-                'background-repeat': 'repeat-y'
-            });
-            $('.control-sidebar').removeClass('control-sidebar-dark');
-            $('.control-sidebar').addClass('control-sidebar-light');
-        }
+        mode = $(this).val();   
+        
+        window.CRM.darkMode(mode);        
     });
 
     $('.sStyleFontSize').on('change',function () {
@@ -185,11 +163,21 @@ $(function() {
     });
 
     $(".sDarkMode").on('change',function () {
-        if ($(this).val() == "dark") {
+        var color = $('.sStyleSideBarColor').val();
+        mode = $(this).val() == "dark" ? 'dark' : 'light';
+        var sidebar = $('.main-sidebar');
+        var sidebar_class = 'sidebar-' + mode + '-' + color;
+        sidebar_skins.map(function (skin) {
+            sidebar.removeClass(skin)
+        })
+
+        sidebar.addClass(sidebar_class)
+
+        if (mode == "dark") {
             $('.sidebar-mini').addClass('dark-mode');
             $('.table-dropdown-menu').addClass('dark-mode');
 
-        } else if ($(this).val() == "light") {
+        } else if (mode == "light") {
             $('.sidebar-mini').removeClass('dark-mode');
             $('.table-dropdown-menu').removeClass('dark-mode');
         } else {

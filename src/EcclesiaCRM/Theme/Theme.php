@@ -67,31 +67,36 @@ class Theme
 
     static function getCurrentSideBarTypeColor()
     {
+        $mode = self::isDarkModeEnabled()?'dark':'light';
+
         $theme = UserConfigQuery::Create()->filterById(ThemeStyles::StyleSideBar)->findOneByPersonId(SessionUser::getUser()->getPersonId());
 
-        if (is_null($theme)) {
+        /*if (is_null($theme)) {
             Theme::first_load();
         }
 
         $theme = UserConfigQuery::Create()->filterById(ThemeStyles::StyleSideBar)->findOneByPersonId(SessionUser::getUser()->getPersonId());
 
-        $styleSideBar = $theme->getValue();
+        $styleSideBar = $theme->getValue();*/
+
         $sStyleSideBarColor = UserConfigQuery::Create()->filterById(ThemeStyles::StyleSideBarColor)->findOneByPersonId(SessionUser::getUser()->getPersonId())->getValue();
 
-        return "sidebar-" . $styleSideBar . "-" . $sStyleSideBarColor;
+        return "sidebar-" . $mode . "-" . $sStyleSideBarColor;
     }
 
     static function getCurrentRightSideBarTypeColor()
     {
-        $theme = UserConfigQuery::Create()->filterById(ThemeStyles::StyleSideBar)->findOneByPersonId(SessionUser::getUser()->getPersonId());
+        $mode = self::isDarkModeEnabled()?'dark':'light';
+        
+        /*$theme = UserConfigQuery::Create()->filterById(ThemeStyles::StyleSideBar)->findOneByPersonId(SessionUser::getUser()->getPersonId());
 
         if (is_null($theme)) {
             Theme::first_load();
         }
 
-        $styleSideBar = UserConfigQuery::Create()->filterById(ThemeStyles::StyleSideBar)->findOneByPersonId(SessionUser::getUser()->getPersonId())->getValue();
+        $styleSideBar = UserConfigQuery::Create()->filterById(ThemeStyles::StyleSideBar)->findOneByPersonId(SessionUser::getUser()->getPersonId())->getValue();*/
 
-        return "control-sidebar-".$styleSideBar;
+        return "control-sidebar-".$mode;
     }
 
     static function getCurrentSideBarMainColor()

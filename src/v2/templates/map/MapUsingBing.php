@@ -406,28 +406,17 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
       initialize();
   }
 
-  window.CRM.AutomaticDarkModeFunction = function (darkMode)
-  {
-      if (darkMode) {
+  window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {    
+      let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (matched) {
           $('.map-legend-view').removeClass('maplegend-bing');
           $('.map-legend-view').addClass('maplegend-bing-dark');
       } else {
           $('.map-legend-view').removeClass('maplegend-bing-dark');
           $('.map-legend-view').addClass('maplegend-bing');
       }
-  }
-
-  <!-- for the theme before jquery load is finished -->
-  if (window.CRM.sLightDarkMode == "automatic") {
-      let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-      if(matched) {// we're on dark mode
-          $('.map-legend-view').removeClass('maplegend-bing');
-          $('.map-legend-view').addClass('maplegend-bing-dark');
-      } else {// we're in light mode
-          $('.map-legend-view').removeClass('maplegend-bing-dark');
-          $('.map-legend-view').addClass('maplegend-bing');
-      }
-  }
+  }); 
+  
 
 </script>

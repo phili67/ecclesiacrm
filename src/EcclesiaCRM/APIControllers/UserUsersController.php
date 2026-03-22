@@ -26,6 +26,7 @@ use EcclesiaCRM\Emails\UpdateAccountEmail;
 use RobThree\Auth\TwoFactorAuth;
 
 use DateTime;
+use EcclesiaCRM\ThemeStyles;
 
 class UserUsersController
 {
@@ -317,6 +318,32 @@ class UserUsersController
             if ( !is_null($user) ) {
                 $user->LoginPhaseActivations(true);
             }
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    public function setDarkMode(ServerRequest $request, Response $response, array $args): Response
+    {
+        $params = (object)$request->getParsedBody();
+
+        if ( isset ($params->darkMode) ) {
+            $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
+
+            $userConfig = UserConfigQuery::create()->filterById(ThemeStyles::StyleDarkMode)->findOneByPersonId(SessionUser::getUser()->getPersonId());
+
+            if (is_null($userConfig)) {
+                $userConfig = new \EcclesiaCRM\UserConfig();
+                $userConfig->setPersonId(SessionUser::getUser()->getPersonId());
+                $userConfig->setId(ThemeStyles::StyleDarkMode);
+            }
+
+            $userConfig->setValue(($params->darkMode) ? 'dark' : 'light');
+            $userConfig->save();
+
+            $_SESSION['user'] = $user;
 
             return $response->withJson(['success' => true]);
         }

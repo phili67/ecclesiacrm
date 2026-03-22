@@ -1942,6 +1942,98 @@ window.CRM.disabled = function (element, p = false) {
   }
 }
 
+var sidebar_skins = [
+    'sidebar-dark-blue',
+    'sidebar-dark-secondary',
+    'sidebar-dark-green',
+    'sidebar-dark-cyan',
+    'sidebar-dark-yellow',
+    'sidebar-dark-red',
+    'sidebar-dark-fuchsia',
+    'sidebar-dark-blue',
+    'sidebar-dark-yellow',
+    'sidebar-dark-indigo',
+    'sidebar-dark-navy',
+    'sidebar-dark-purple',
+    'sidebar-dark-pink',
+    'sidebar-dark-maroon',
+    'sidebar-dark-orange',
+    'sidebar-dark-lime',
+    'sidebar-dark-teal',
+    'sidebar-dark-olive',
+    'sidebar-dark-black',
+    'sidebar-dark-gray-dark',
+    'sidebar-dark-gray',
+    'sidebar-dark-light',
+    'sidebar-light-blue',
+    'sidebar-light-secondary',
+    'sidebar-light-green',
+    'sidebar-light-cyan',
+    'sidebar-light-yellow',
+    'sidebar-light-red',
+    'sidebar-light-fuchsia',
+    'sidebar-light-blue',
+    'sidebar-light-yellow',
+    'sidebar-light-indigo',
+    'sidebar-light-navy',
+    'sidebar-light-purple',
+    'sidebar-light-pink',
+    'sidebar-light-maroon',
+    'sidebar-light-orange',
+    'sidebar-light-lime',
+    'sidebar-light-teal',
+    'sidebar-light-olive',
+    'sidebar-light-black',
+    'sidebar-light-gray-dark',
+    'sidebar-light-gray',
+    'sidebar-light-light'
+];
+
+window.CRM.darkMode = function (mode, save = false) {
+  let classes = $('.main-sidebar').attr('class').split(/\s+/);
+  const resultat = classes.find(classe => classe.startsWith("sidebar-"));
+  color = resultat.split('sidebar-dark-')[1];
+
+  if (color === undefined) {
+    color = resultat.split('sidebar-light-')[1];
+  }
+
+  if(mode == 'dark') {// we're on dark mode            
+      $('.control-sidebar').removeClass('control-sidebar-light');
+      $('.control-sidebar').addClass('control-sidebar-dark');
+      $('.sidebar-mini').addClass('dark-mode');
+      $('.table-dropdown-menu').addClass('dark-mode');
+      
+      window.CRM.bDarkMode = true;
+  } else {// we're in light mode
+      $('.control-sidebar').removeClass('control-sidebar-dark');
+      $('.control-sidebar').addClass('control-sidebar-light');
+      $('.sidebar-mini').removeClass('dark-mode');
+      $('.table-dropdown-menu').removeClass('dark-mode');
+            
+      window.CRM.bDarkMode = false;
+  }
+
+  let sidebar = $('.main-sidebar');
+  let sidebar_class = 'sidebar-' + mode + '-' + color;
+  sidebar_skins.map(function (skin) {
+      sidebar.removeClass(skin);
+  })
+
+  sidebar.addClass(sidebar_class);
+
+  if (save) {
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'users/setDarkMode',
+      data: JSON.stringify({"darkMode": window.CRM.bDarkMode})
+    }, function (data) {
+    });
+  }
+}
+
+
+
 
 $(document).ajaxError(function (evt, xhr, settings, errortext) {
   if (errortext !== "abort") {

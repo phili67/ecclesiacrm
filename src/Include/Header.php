@@ -62,22 +62,7 @@ Header_system_notifications();
     <?php
     Header_modals();
     Header_body_scripts();
-    ?>
-    <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-        /* for the theme before jquery load is finished */
-        if (window.CRM.sLightDarkMode == "automatic") {
-            let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            if(matched) {// we're on dark mode
-                $('.sidebar-mini').addClass('dark-mode');
-                window.CRM.bDarkMode = true;
-            } else {// we're in light mode
-                $('.sidebar-mini').removeClass('dark-mode');
-                window.CRM.bDarkMode = false;
-            }
-        }
-    </script>
-
+    ?>    
 
     <nav class="main-header navbar navbar-expand <?= Theme::getCurrentNavBarFontColor() ?> <?= Theme::getCurrentNavBarColor()?>">
         <ul class="navbar-nav">
@@ -135,7 +120,7 @@ Header_system_notifications();
                 </a>
                 <ul class="hidden-xxs dropdown-menu <?= Theme::getCurrentNavBarColor()?>" style="margin-top:8px;margin-left:0px;height:240px;width:293px">
                     <li class="user-header" id="yourElement" style="height:205px">
-                        <table border=0 class="table-dropdown-menu <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>" style="width:293px">
+                        <table border=0 class="table-dropdown-menu" style="width:293px">
                             <tr style="border-bottom: 1pt solid black;">
                                 <td valign="middle" style="width:110px;padding-left:10px">
                                     <img width="80"
@@ -216,7 +201,7 @@ Header_system_notifications();
 
 
     <!-- Left side column. contains the sidebar -->
-    <aside class="main-sidebar <?= Theme::getCurrentSideBarTypeColor() ?> <?= Theme::isSidebarExpandOnHoverEnabled() ?> elevation-2" <?= (Theme::getCurrentSideBarMainColor() == 'light')?'style="background:repeating-linear-gradient(0deg,rgba(255,255,255,0.95),rgba(200,200,200,0.95)),url(/Images/sidebar.jpg);background-repeat: repeat-y;"':'style="background: repeating-linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(114, 114, 114, 0.95)),url(/Images/sidebar.jpg);background-repeat: repeat-y;"' ?>>
+    <aside class="main-sidebar <?= Theme::getCurrentSideBarTypeColor() ?> <?= Theme::isSidebarExpandOnHoverEnabled() ?> elevation-2" >
         <!-- sidebar: style can be found in sidebar.less -->
         <a href="<?= SystemURLs::getRootPath() ?>/v2/dashboard" class="brand-link <?= Theme::getCurrentNavBrandLinkColor() ?>">
             <img src="<?=  Bootstrapper::getSofwareIcon() ?>" alt="CRM Logo"
