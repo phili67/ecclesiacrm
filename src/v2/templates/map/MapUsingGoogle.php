@@ -443,27 +443,16 @@ require $sRootDocument . '/Include/Footer.php';
     //initialize();
     initMap();
 
-    window.CRM.AutomaticDarkModeFunction = function (darkMode) {
-        if (darkMode) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {    
+        let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (matched) {
             $('.map-legend-view').removeClass('maplegend');
             $('.map-legend-view').addClass('maplegend-dark');
         } else {
             $('.map-legend-view').removeClass('maplegend-dark');
             $('.map-legend-view').addClass('maplegend');
         }
-    }
-
-    <!-- for the theme before jquery load is finished -->
-    if (window.CRM.sLightDarkMode == "automatic") {
-        let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if (matched) {// we're on dark mode
-            $('.map-legend-view').removeClass('maplegend');
-            $('.map-legend-view').addClass('maplegend-dark');
-        } else {// we're in light mode
-            $('.map-legend-view').removeClass('maplegend-dark');
-            $('.map-legend-view').addClass('maplegend');
-        }
-    }
+    }); 
 
 </script>
