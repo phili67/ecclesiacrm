@@ -8,17 +8,8 @@
 
 
 $(function() {
-    window.CRM.AutomaticDarkModeFunction = function (darkMode)
-    {
-        if (darkMode) {
-            $('.logo-mailchimp').attr('src',window.CRM.root + '/Images/Mailchimp_Logo-Horizontal_White.png');
-        } else {
-            $('.logo-mailchimp').attr('src',window.CRM.root + '/Images/Mailchimp_Logo-Horizontal_Black.png');
-        }
-    }
-
-    <!-- for the theme before jquery load is finished -->
-    if (window.CRM.sLightDarkMode == "automatic") {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {    
+        // for the theme before jquery load is finished
         let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
         if(matched) {// we're on dark mode
@@ -26,5 +17,5 @@ $(function() {
         } else {// we're in light mode
             $('.logo-mailchimp').attr('src',window.CRM.root + '/Images/Mailchimp_Logo-Horizontal_Black.png');
         }
-    }
+    });
 });
