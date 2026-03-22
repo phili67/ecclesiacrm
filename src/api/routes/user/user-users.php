@@ -67,5 +67,10 @@ $app->group('/users', function (RouteCollectorProxy $group) {
     * param: ref->int :: userID
     */
     $group->post('/2fa/pending', UserUsersController::class . ':userstwofapending' );
+    /*
+    * @! set dark mode (Admin)
+    * param: ref->bool :: darkMode
+    */
+    $group->post('/setDarkMode', UserUsersController::class . ':setDarkMode' );
 
 });
