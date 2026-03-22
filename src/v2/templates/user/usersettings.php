@@ -46,7 +46,7 @@ require_once $sRootDocument . '/Include/Header.php';
                         continue;
                     }
                     ?>
-                    <div class="row">
+                    <div class="row"  <?=  ($config->getName() == 'sStyleSideBar' or $config->getName() == 'sDarkMode')?'style="display:none"':'' ?>>
                         <?php
                         // Cancel, Save Buttons every 20 rows or the bsiderbar collapsed
                         if ($r == 20 || $config->getName() == "bSidebarCollapse") {
@@ -85,7 +85,7 @@ require_once $sRootDocument . '/Include/Header.php';
                         <div class="col-md-3"><label><?= _('Current Value') ?></label></div>
                         <div class="col-md-2"><label><?= _('Variable name') ?></label></div>
                     </div>
-                    <div class="row">
+                    <div class="row" <?=  ($config->getName() == 'sStyleSideBar' or $config->getName() == 'sDarkMode')?'style="display:none"':'' ?>>
                         <?php
                         $r = 1;
                         }
