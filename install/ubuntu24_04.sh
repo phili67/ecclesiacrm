@@ -105,6 +105,7 @@ sudo tee "$VHOST_Default_CONF" > /dev/null <<EOF
     </Directory>
 
     RewriteEngine on
+</VirtualHost>
 EOF
 
 
