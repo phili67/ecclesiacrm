@@ -67,7 +67,7 @@ sudo a2enmod rewrite
 
 
 # create Apache vhost for HTTP (always)
-VHOST_Default_CONF="/etc/apache2/sites-available/000-default.conf "
+VHOST_Default_CONF="/etc/apache2/sites-available/000-default.conf"
 sudo tee "$VHOST_Default_CONF" > /dev/null <<EOF    
 <VirtualHost *:80>
     # The ServerName directive sets the request scheme, hostname and port that
