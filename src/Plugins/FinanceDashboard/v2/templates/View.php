@@ -28,11 +28,10 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     ?>
 
 <div class="card <?= $plugin->getName() ?> <?= $Card_collapsed ?>" data-name="<?= $plugin->getName() ?>">
-    <div class="card-header  border-1">
-            <h3 class="card-title">
-                <i class="fas fa-money-bill"
-                                      style="font-size:26px"></i> <?= dgettext("messages-FinanceDashboard",'Deposit Tracking') ?>
-            </h3>
+    <div class="card-header  border-0 ui-sortable-handle">
+            <h5 class="card-title">
+                <i class="fas fa-money-bill"></i> <?= dgettext("messages-FinanceDashboard",'Deposit Tracking') ?>
+            </h5>
         <div class="card-tools">
             <button type="button" class="btn btn-default btn-sm" data-card-widget="remove">
                 <i class="fas fa-times"></i>
