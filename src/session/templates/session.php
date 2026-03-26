@@ -237,7 +237,7 @@ if (empty($person)) {
                         <input type="hidden" name="iLoginType" class="form-control form-control-sm" value="<?= $type ?>">
 
                         <div class="input-group-append" style="cursor: pointer;">
-                            <button tabindex="100" class="btn btn-outline-secondary" type="button" style="width: 39px;">
+                            <button tabindex="100" class="input-group-text" type="button" style="width: 39px;">
                                 <i class="icon-user fas fa-user"></i>
                             </button>
                         </div>
@@ -248,7 +248,7 @@ if (empty($person)) {
                         <input type="password" name="Password" id="inputPassword" class= "form-control form-control-sm"
                             placeholder="<?= _('Password') ?>" value="<?= $urlPassword ?>">
                         <div class="input-group-append" style="cursor: pointer;">
-                            <button tabindex="100" title="Click here to show/hide password" class="btn btn-outline-secondary" type="button">
+                            <button tabindex="100" title="Click here to show/hide password" class="input-group-text" type="button">
                                 <i id="visibilitySwitch" class="icon-eye-open fa fa-eye"></i>
                             </button>
                         </div>

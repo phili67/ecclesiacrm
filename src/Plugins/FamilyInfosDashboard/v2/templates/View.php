@@ -11,7 +11,7 @@ $plugin = PluginQuery::create()
 
 ?>
 
-<div class="card card-gray card-tabs <?= $plugin->getName() ?> <?= $Card_collapsed ?>" data-name="<?= $plugin->getName() ?>">
+<div class="card card-tabs <?= $plugin->getName() ?> <?= $Card_collapsed ?>" data-name="<?= $plugin->getName() ?>">
     <div class="card-header p-0 pt-1 border-bottom-0">
         <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
             <li class="nav-item">
@@ -46,7 +46,7 @@ $plugin = PluginQuery::create()
         <div class="tab-content" id="custom-tabs-two-tabContent">
             <div class="tab-pane fade  active show" id="custom-tabs-latest-families" role="tabpanel"
                  aria-labelledby="custom-tabs-latest-families-tab">
-                <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline"
+                <table class="table table-striped"
                        id="latestFamiliesDashboardItem"
                        style="width:100%;font-size: 11px;">
                     <thead>
@@ -62,7 +62,7 @@ $plugin = PluginQuery::create()
             </div>
             <div class="tab-pane fade" id="custom-tabs-updated-families" role="tabpanel"
                  aria-labelledby="custom-tabs-updated-families-tab">
-                <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline"
+                <table class=" table table-striped"
                        id="updatedFamiliesDashboardItem"
                        style="width:100%;font-size: 11px;">
                     <thead>
