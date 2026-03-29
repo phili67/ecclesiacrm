@@ -13,6 +13,7 @@
  use EcclesiaCRM\Utils\InputUtils;
  use EcclesiaCRM\Utils\MiscUtils;
  use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\SessionUser;
 
  //Loops through all the parameters and ensures validation rules have been followed
 function ValidateInput($rsParameters, $POST)
@@ -35,6 +36,8 @@ function ValidateInput($rsParameters, $POST)
             $aErrorText[$qrp_Alias] = _('This value is required.');
         } //Assuming there was no error above...
         else {
+            $ret = '';
+            
             //Validate differently depending on the contents of the qrp_Validation field
             switch ($qrp_Validation) {
                 //Numeric validation
@@ -56,7 +59,7 @@ function ValidateInput($rsParameters, $POST)
                         }
                     }
 
-                    $vPOST[$qrp_Alias] = InputUtils::LegacyFilterInput($POST[$qrp_Alias], 'int');
+                    $ret = InputUtils::LegacyFilterInput($POST[$qrp_Alias], 'int');
                     break;
 
                 //Alpha validation
@@ -72,12 +75,16 @@ function ValidateInput($rsParameters, $POST)
                         $aErrorText[$qrp_Alias] = _('This value cannot be less than ') . $qrp_AlphaMinLength . _(' characters long');
                     }
 
-                    $vPOST[$qrp_Alias] = InputUtils::LegacyFilterInput($POST[$qrp_Alias]);
+                    $ret = InputUtils::LegacyFilterInput($POST[$qrp_Alias]);
                     break;
 
                 default:
-                    $vPOST[$qrp_Alias] = $POST[$qrp_Alias];
+                    $ret = InputUtils::LegacyFilterInput($POST[$qrp_Alias]);
                     break;
+            }
+
+            if (!empty($ret) || $ret === '0') {
+                $vPOST[$qrp_Alias] = $ret;
             }
         }
     }
@@ -95,10 +102,16 @@ function ProcessSQL($vPOST, $qry_SQL, $rsParameters)
     while ($aRow = mysqli_fetch_array($rsParameters)) {
         extract($aRow);
 
+        if (!isset($vPOST[$qrp_Alias])) {
+            return "";
+        }
+
         //Debugging code
+        if (SessionUser::getUser()->isAdmin()) {
         ?>
         <?= "--" . $qry_SQL ?><br>-- ~<?= $qrp_Alias ?>~<br>--<?= $vPOST[$qrp_Alias] ?><p>
         <?php
+        }
         //Replace the placeholder with the parameter value
         $qry_SQL = str_replace('~' . $qrp_Alias . '~', $vPOST[$qrp_Alias], $qry_SQL);
     }
@@ -238,15 +251,23 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
         </div>
 
     </div>
+    </div>
 
+    <?php if (SessionUser::getUser()->isAdmin()) { ?>
     <div class="card card-info">
         <div class="card-header border-1">
             <div class="card-title">Query</div>
         </div>
         <div class="card-body">
-            <code><?= str_replace(chr(13), '<br>', htmlspecialchars($qry_SQL)); ?></code>
+            <code>
+            <?php 
+                    echo str_replace(chr(13), '<br>', htmlspecialchars($qry_SQL));                 
+            ?>
+            </code>
         </div>
     </div>
+    <?php }
+    ?>
 
     <script nonce="<?= $CSPNonce ?>">
         var aAddToCartIDs = <?= json_encode($aAddToCartIDs) ?>;
@@ -450,8 +471,9 @@ function DisplayParameterForm($rsParameters, $iQueryID, $sRootPath)
                         } ?>
 
                         <div class="form-group text-right">
-                            <input class="btn btn-primary" type="Submit" value="<?= _("Execute Query") ?>"
-                                   name="Submit">
+                            <button class="btn btn-success btn-lg shadow-sm font-weight-bold py-2 px-4" type="submit" name="Submit">
+                                <i class="fas fa-play mr-2"></i> <?= _("Execute Query") ?>
+                            </button>
                         </div>
                     </form>
 
@@ -488,7 +510,14 @@ if (isset($_POST['Submit']) || mysqli_num_rows($rsParameters) == 0) {
         //No errors; process the SQL, run the query, and display the results
         DisplayQueryInfo($qry_Name, $qry_Description);
         $qry_SQL = ProcessSQL($vPOST, $qry_SQL, $rsParameters);
-        DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryID, $qry_Name, $qry_Count, $CSPNonce, $sRootPath);
+        if (empty($qry_SQL)) {
+            echo '<div class="alert alert-danger">' . _('An error occurred while processing the SQL for this query. Please check your parameter values and try again.') . '</div>';
+            DisplayParameterForm($rsParameters, $iQueryID, $sRootPath);
+            require $sRootDocument . '/Include/Footer.php';
+            exit;
+        } else {
+            DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryID, $qry_Name, $qry_Count, $CSPNonce, $sRootPath);
+        }
     } else {
         //Yes, there were errors; re-display the parameter form (the DisplayParameterForm function will
         //pick up and display any error messages)
