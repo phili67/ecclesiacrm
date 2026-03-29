@@ -272,6 +272,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
         </div>
             </div>
         </div>
+        </div>
     <div class="card-footer d-flex justify-content-end">
         <a class="btn btn-<?= $pastoralServiceStats['PastoralcareAlertTypeButton'] ?>  btn-sm align-center" href="<?= $sRootPath ?>/v2/pastoralcare/dashboard"
             data-toggle="tooltip" data-placement="top" title="<?= dgettext("messages-PastoralCareDashboard", "Visit/Call your church members") ?>"
