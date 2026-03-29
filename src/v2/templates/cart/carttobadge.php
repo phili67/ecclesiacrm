@@ -109,8 +109,8 @@ if ($typeProblem) {
                     (<b><?= _("Pictures in the Image folder: ") ?></b>
                     <?php
                       foreach ($imgs as $img) {
-                        $name = str_replace("../Images/background/","",$img);
-                        echo  '<a href="#" class="add-file" data-name="'. $name .'">'.$name . '</a>  <a class="delete-file" data-name="'. $name .'"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>, ';
+                        $name = str_replace("../Images/background/","",$img);                        
+                        echo  '<a class="add-file" data-name="'. $name .'">' . $name . '</a>  <a class="delete-file" data-name="'. $name .'"><i class="fa fa-times"></i></a>, ';
                       }
     
                       if (count($imgs) == 0) {

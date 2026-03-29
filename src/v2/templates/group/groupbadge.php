@@ -132,9 +132,9 @@ if (isset($_GET['typeProblem'])) {
                                         ?>
 
                                         <span class="box-file">
-                                            <a href="#" class="add-file" data-name="<?= $name  ?>"><?=  $name ?></a>  
-                                            <a class="delete-file" data-name="<?=  $name ?> ">
-                                                <i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i>
+                                            <a class="add-file" data-name="<?= $name  ?>"><?=  $name ?></a>  
+                                            <a class="delete-file" data-name="<?=  $name ?>">
+                                                <i class="fa fa-times"></i>
                                             </a>
                                         </span>,
                                     <?php
