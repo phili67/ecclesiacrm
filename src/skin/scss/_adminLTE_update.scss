@@ -514,6 +514,15 @@ a {
     margin-left: 0.2%;
 }
 
+[class*="sidebar-light-"] {
+  background-color: rgb(246, 246, 246) !important;
+}
+
+.product-img img {
+    width: 35px !important;
+    height: 35px !important;
+}
+
 .dropdown-item.active, .dropdown-item:active {
     color: #474646;
 }
