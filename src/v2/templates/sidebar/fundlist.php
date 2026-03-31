@@ -13,20 +13,21 @@ require $sRootDocument . '/Include/Header.php';
 
 ?>
 
-<div class="alert alert-danger"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>   <?= _('Be carefull ! By deleting Fund type, the recorded datas for pledges or payments will be lost.') ?></div>
 
-<div class="card card-body">
+<div class="card">
+  <div class="card-header border-1 d-flex justify-content-between align-items-center">
+    <h3 class="card-title"><i class="fas fa-person mr-2" aria-hidden="true"></i> <?= _('Funds list') ?></h3>
+    <?php if ($isMenuOption) { ?>
+    <a href="#" class="btn btn-success btn-lg shadow-sm font-weight-bold py-2 px-4 ml-auto" id="add-new-fund">
+        <i class="fas fa-add"></i>  <?= _('Add a New Fund') ?>
+    </a>  
+    <?php } ?>
+  </div>
+  <div class="card-body">    
+    <div class="alert alert-danger"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>   <?= _('Be carefull ! By deleting Fund type, the recorded datas for pledges or payments will be lost.') ?></div>
 
-<?php if ( $isMenuOption ) {
-?>
-    <p align="center"><button class="btn btn-primary delete-payment" id="add-new-fund"><i class="fas fa-add"></i>  <?= _('Add a New Fund') ?></button></p>
-<?php
-}
-
-?>
-
-<table class="table table-hover dt-responsive dataTable no-footer dtr-inline" id="fundTable" cellpadding="5" cellspacing="0"  width="100%"></table>
-
+    <table class="table table-hover dt-responsive dataTable no-footer dtr-inline" id="fundTable" cellpadding="5" cellspacing="0"  width="100%"></table>
+  </div>
 </div>
 
 <script type="module" src="<?= $sRootPath ?>/skin/js/sidebar/FundList.js" ></script>
