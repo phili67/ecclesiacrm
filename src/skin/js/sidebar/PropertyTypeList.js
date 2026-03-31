@@ -68,36 +68,49 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  /* IMPORTANT : be careful
-       This will work in cartToGroup code */
   const BootboxContentPropertyTypeList = (type) => {
-    var frm_str = '<div class="card-body">'
-      + ' <div class="row">'
-      + '  <div class="col-lg-1">'
-      + '    <label class="pull-right" for="depositDate">' + i18next.t("Type") + '</label>'
-      + '  </div>'
-      + '  <div class="col-lg-2">'
-      + '    <select class= "form-control form-control-sm" id="Class" name="Class">'
-      + '        <option value="p" ' + ((type == 'p' || type == -1) ? 'selected=""' : '') + '>' + i18next.t("Person") + '</option>'
-      + '        <option value="f" ' + ((type == 'f') ? 'selected=""' : '') + '>' + i18next.t("Family") + '</option>'
-      + '        <option value="g" ' + ((type == 'g') ? 'selected=""' : '') + '>' + i18next.t("Group") + '</option>'
-      + '    </select>'
-      + '  </div>'
-      + '  <div class="col-lg-1">'
-      + '    <label class="pull-right"  for="depositDate">' + i18next.t("Name") + '</label>'
-      + '  </div>'
-      + '  <div class="col-lg-3">'
-      + '    <input class="form-control form-control-sm" name="Name" id="Name" style="width:100%">'
-      + '  </div>'
-      + '  <div class="col-lg-2">'
-      + '    <label class="pull-right"  for="depositDate">' + i18next.t("Description") + '</label>'
-      + '  </div>'
-      + '  <div class="col-lg-3">'
-      + '    <input class="form-control form-control-sm" name="description" id="Description" style="width:100%">'
-      + '  </div>'
-      + '</div>';
+    const isSelected = (value) => (value === type || (value === 'p' && type === -1)) ? 'selected' : '';
 
-    return frm_str;
+    return `
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col-lg-2">
+            <label class="pull-right" for="depositDate">
+              <i class="fas fa-tag"></i> ${i18next.t("Type")}
+            </label>
+          </div>
+          <div class="col-lg-10">
+            <select class="form-control form-control-sm" id="Class" name="Class">
+              <option value="p" ${isSelected('p')}>${i18next.t("Person")}</option>
+              <option value="f" ${isSelected('f')}>${i18next.t("Family")}</option>
+              <option value="g" ${isSelected('g')}>${i18next.t("Group")}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-lg-2">
+            <label class="pull-right" for="depositDate">
+              <i class="fas fa-signature"></i> ${i18next.t("Name")}
+            </label>
+          </div>
+          <div class="col-lg-10">
+            <input class="form-control form-control-sm" name="Name" id="Name" style="width:100%">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-lg-2">
+            <label class="pull-right" for="depositDate">
+              <i class="fas fa-info-circle"></i> ${i18next.t("Description")}
+            </label>
+          </div>
+          <div class="col-lg-10">
+            <input class="form-control form-control-sm" name="description" id="Description" style="width:100%">
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   const loadTableEvents = () => {
