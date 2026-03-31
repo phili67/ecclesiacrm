@@ -55,42 +55,42 @@ const  BootboxContentPropertyList = (propertyTypes) => {
     firstTime = false;
   }
 
-  let frm_str = '<div class="card-body">'
-    + '<div class="row">'
-    + '  <div class="col-lg-4">'
-    + '    <label for="depositDate">' + i18next.t("Type") + '</label>'
-    + '  </div>'
-    + '  <div class="col-lg-8">'
-    + '    <select class= "form-control form-control-sm" id="Class" name="Class">'
-    + options
-    + '    </select>'
-    + '  </div>'
-    + '</div>'
-    + '<div class="row">'
-    + '  <div class="col-lg-4">'
-    + '    <label for="depositDate">' + i18next.t("Name") + '</label>'
-    + '  </div>'
-    + '  <div class="col-lg-8">'
-    + '    <input class="form-control form-control-sm" name="Name" id="Name" style="width:100%">'
-    + '  </div>'
-    + '</div>'
-    + '<div class="row">'
-    + '  <div class="col-lg-4">'
-    + '    <label for="depositDate">' + window.CRM.propertyTypeName + ' : ' + i18next.t("with this property...") + '</label>'
-    + '  </div>'
-    + '  <div class="col-lg-8">'
-    + '    <input class="form-control form-control-sm" name="description" id="description" style="width:100%">'
-    + '  </div>'
-    + '</div>'
-    + '<div class="row">'
-    + '  <div class="col-lg-4">'
-    + '    <label for="depositDate">' + i18next.t("Prompt") + '</label>'
-    + '  </div>'
-    + '  <div class="col-lg-8">'
-    + '    <input class="form-control form-control-sm" name="prompt" id="prompt" style="width:100%">'
-    + '  </div>'
-    + '</div>'
-    + '</div>';
+  let frm_str = `<div class="card-body">
+    <div class="row mb-3">
+      <div class="col-lg-4">
+        <label for="depositDate"><i class="fas fa-sitemap mr-1"></i> ${i18next.t("Type")}</label>
+      </div>
+      <div class="col-lg-8">
+        <select class= "form-control form-control-sm" id="Class" name="Class">
+          ${options}
+        </select>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-lg-4">
+        <label for="depositDate"><i class="fas fa-tag mr-1"></i> ${i18next.t("Name")}</label>
+      </div>
+      <div class="col-lg-8">
+        <input class="form-control form-control-sm" name="Name" id="Name" style="width:100%">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-lg-4">
+        <label for="depositDate"><i class="fas fa-key mr-1"></i> ${window.CRM.propertyTypeName} : ${i18next.t("with this property...")}</label>
+      </div>
+      <div class="col-lg-8">
+        <input class="form-control form-control-sm" name="description" id="description" style="width:100%">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-lg-4">
+        <label for="depositDate"><i class="fas fa-comment-alt mr-1"></i> ${i18next.t("Prompt")}</label>
+      </div>
+      <div class="col-lg-8">
+        <input class="form-control form-control-sm" name="prompt" id="prompt" style="width:100%">
+      </div>
+    </div>
+    </div>`;
 
   return frm_str
 }

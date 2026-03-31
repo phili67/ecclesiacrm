@@ -10,23 +10,20 @@
  ******************************************************************************/
 
 //Include the function library
-use EcclesiaCRM\dto\SystemURLs;
-
 require $sRootDocument . '/Include/Header.php'; ?>
 
-<div class="card card-body">
-
-<?php
-   if ($isMenuOption) {
-    //Display the new property link
-?>
-    <p align="center"><a class='btn btn-primary' href="#" id="add-new-prop"><i class="fas fa-add"></i> <?= _('Add a New') ?> <?= $sTypeName?> <?= _('Property') ?></a></p>
-<?php
-}
-
-//Start the table
-?>
-<table class='table table-hover dt-responsive dataTable no-footer dtr-inline' id="property-listing-table-v2" width="100%"></table>
+<div class="card">
+  <div class="card-header border-1 d-flex justify-content-between align-items-center">
+    <h3 class="card-title"><i class="fas fa-person mr-2" aria-hidden="true"></i> <?= _('Properties') ?></h3>
+    <?php if ($isMenuOption) { ?>
+    <a href="#" class="btn btn-success btn-lg shadow-sm font-weight-bold py-2 px-4 ml-auto" id="add-new-prop">
+        <i class="fas fa-plus-circle mr-2"></i> <?= _('Add a New') ?> <?= $sTypeName?> <?= _('Property') ?>
+    </a>  
+    <?php } ?>
+  </div>
+  <div class="card-body">    
+    <table class='table table-hover dt-responsive dataTable no-footer dtr-inline' id="property-listing-table-v2" width="100%"></table>
+  </div>
 </div>
 
 
