@@ -3,32 +3,31 @@ document.addEventListener("DOMContentLoaded", function () {
   /* IMPORTANT : be careful
        This will work in cartToGroup code */
   const BootboxContentMenuLinkList = () => {
-    var frm_str = '<div class="card-body">'
-      + '<div class="row">'
-      + '  <div class="col-lg-2">'
-      + '    <label>' + i18next.t("Name") + '</label>'
-      + '  </div>'
-      + '  <div class="col-lg-10">'
-      + '    <input class="form-control form-control-sm" name="Name" id="Name" style="width:100%">'
-      + '  </div>'
-      + '</div>'
-      + '<div class="row">'
-      + '  <div class="col-lg-2">'
-      + '    <label>' + i18next.t("URI") + '</label>'
-      + '  </div>'
-      + '  <div class="col-lg-10">'
-      + '    <input class="form-control form-control-sm" name="URI" id="URI" style="width:100%">'
-      + '  </div>'
-      + '</div>'
-      + '<div class="row">'
-      + '  <div class="col-lg-2">'
-      + '  </div>'
-      + '  <div class="col-lg-10">'
-      + '    <br>'
-      + '    <label for="depositComment">' + i18next.t("This link should begin with : http://.... or https://....") + '</label>'
-      + '  </div>'
-      + '</div>'
-      + '</div>';
+    var frm_str = `<div class="card-body">
+      <div class="row mb-3">
+        <div class="col-lg-2">
+          <label><i class="fas fa-tag mr-1"></i>${i18next.t("Name")}</label>
+        </div>
+        <div class="col-lg-10">
+          <input class="form-control form-control-sm" name="Name" id="Name" style="width:100%" placeholder="${i18next.t('Enter menu link name')}">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-lg-2">
+          <label><i class="fas fa-link mr-1"></i>${i18next.t("URI")}</label>
+        </div>
+        <div class="col-lg-10">
+          <input class="form-control form-control-sm" name="URI" id="URI" style="width:100%" placeholder="${i18next.t('Enter URL starting with http:// or https://')}">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <small class="form-text text-muted">
+            <i class="fas fa-info-circle mr-1"></i>${i18next.t("This link should begin with : http://.... or https://....")}
+          </small>
+        </div>
+      </div>
+    </div>`;
 
     return frm_str
   }
