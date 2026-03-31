@@ -54,10 +54,10 @@ if ($user_state_change) {
     <div class="card-header border-0 ui-sortable-handle">
         <h5 class="card-title"><i class="fas fa-users"></i> <?= dgettext("messages-CurrentUsersDashboard","Connected Users") ?></h5>
         <div class="card-tools">
-            <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
+            <button type="button" class="btn btn-sm text-white" data-card-widget="remove">
                 <i class="fas fa-times"></i>
             </button>
-            <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse" title="Collapse">
+            <button type="button" class="btn btn-sm text-white" data-card-widget="collapse" title="Collapse">
                 <i class="fas <?= $Card_collapsed_button?>"></i>
             </button>
         </div>

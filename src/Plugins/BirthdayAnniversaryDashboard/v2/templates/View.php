@@ -25,195 +25,98 @@ $showBanner = SystemConfig::getBooleanValue("bEventsOnDashboardPresence");
 <?php
 
 if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) && SessionUser::getUser()->isSeePrivacyDataEnabled()) {
-    $new_unclassified_row = false;
-    $cout_unclassified_people = 0;
-    $unclassified = "";
 
-    $new_row = false;
-    $count_people = 0;
-    $classified = "";
+    $birthdays = [];
+    $unclassified = [];
 
-    $new_row = false;
-    $count_people = 0;
-
-    $global_body = '    <div class="card '. $plugin->getName() .' '.$Card_collapsed.'" id="Menu_Banner1" style="position: relative; left: 0px; top: 0px;" data-name="'. $plugin->getName() .'">
-        <div class="card-header border-0 ui-sortable-handle">
-';
-
-    foreach ($peopleWithBirthDays as $peopleWithBirthDay) {
-        if ($peopleWithBirthDay->getOnlyVisiblePersonView()) {
-            if ($new_unclassified_row == false) {
-                $unclassified .= '<div class="row">';
-                $new_unclassified_row = true;
-                $unclassified .= '<div class="col-sm-3">';
-                $unclassified .= '<label class="checkbox-inline">';
-
-                if ($peopleWithBirthDay->getUrlIcon() != '') {
-                    $unclassified .= '<img src="' . $sRootPath . "/skin/icons/markers/" . $peopleWithBirthDay->getUrlIcon() . '">';
-                }
-
-                if (SessionUser::getUser()->isPastoralCareEnabled()) {
-                    $unclassified .= '<a href="' . $sRootPath . '/v2/pastoralcare/person/' . $peopleWithBirthDay->getId() . '" class="btn btn-link-menu" style="text-decoration: none">' . $peopleWithBirthDay->getFullNameWithAge() . '</a>';
-                } else {
-                    $unclassified .= '<a href="' . $peopleWithBirthDay->getViewURI() . '" class="btn btn-link-menu" style="text-decoration: none">' . $peopleWithBirthDay->getFullNameWithAge() . '</a>';
-                }
-
-
-                $unclassified .= '</label>';
-                $unclassified .= '</div>';
-
-                $cout_unclassified_people += 1;
-                $cout_unclassified_people %= 4;
-                if ($cout_unclassified_people == 0) {
-                    $unclassified .= '</div>';
-                    $new_unclassified_row = false;
-                }
-            }
-
-            if ($new_unclassified_row == true) {
-                $unclassified .= '</div>';
-            }
-            continue;
-        }
-
-        // we now work with the classified date
-        if ($new_row == false) {
-            $classified .= '<div class="row">';
-            $new_row = true;
-        }
-
-        $classified .= '<div class="col-sm-3">';
-        $classified .= '<label class="checkbox-inline">';
-
-        if ($peopleWithBirthDay->getUrlIcon() != '') {
-            $classified .= '<img src="' . $sRootPath . '/skin/icons/markers/' . $peopleWithBirthDay->getUrlIcon() . '">';
-        }
-        if (SessionUser::getUser()->isPastoralCareEnabled()) {
-            $classified .= '<a href="' . $sRootPath . '/v2/pastoralcare/person/' . $peopleWithBirthDay->getId() . '" class="btn btn-link-menu" style="text-decoration: none">' . $peopleWithBirthDay->getFullNameWithAge() . '</a>';
+    foreach ($peopleWithBirthDays as $person) {
+        if ($person->getOnlyVisiblePersonView()) {
+            $unclassified[] = $person;
         } else {
-            $classified .= '<a href="' . $peopleWithBirthDay->getViewURI() . '" class="btn btn-link-menu" style="text-decoration: none">' . $peopleWithBirthDay->getFullNameWithAge() . '</a>';
-        }
-        $classified .= '</label>';
-        $classified .= '</div>';
-
-        $count_people += 1;
-        $count_people %= 4;
-        if ($count_people == 0) {
-            $classified .= '</div>';
-            $new_row = false;
+            $birthdays[] = $person;
         }
     }
 
-    if ($new_row == true) {
-        $classified .= '</div>';
+    $renderCardTools = function () use ($Card_collapsed_button) {
+        return '<div class="card-tools" style="display:flex; align-items:center; gap:0.3rem; margin-left:auto;">'
+            . '<button type="button" class="btn btn-sm text-white" data-card-widget="remove" title="'. dgettext("messages-BirthdayAnniversaryDashboard","Remove") . '"><i class="fa-solid fa-xmark"></i></button>'
+            . '<button type="button" class="btn btn-sm text-white" data-card-widget="collapse" title="'. dgettext("messages-BirthdayAnniversaryDashboard","Collapse") . '"><i class="fa-solid '. $Card_collapsed_button . '"></i></button>'
+            . '</div>';
+    };
+
+    $renderPersonCard = function($person) use ($sRootPath) {
+        $url = SessionUser::getUser()->isPastoralCareEnabled()
+            ? $sRootPath . '/v2/pastoralcare/person/' . $person->getId()
+            : $person->getViewURI();
+
+        $icon = '<i class="fa-solid fa-user text-primary me-1"></i>';
+        if ($person->getUrlIcon()) {
+            $icon = '<img src="'. $sRootPath . '/skin/icons/markers/' . $person->getUrlIcon() . '" alt="" width="18" height="18" >';
+        }
+
+        echo '<div class="card border-info h-100 shadow-sm">'
+            . '<div class="card-body py-2 px-2 bg-light">'
+            . '<a href="'. $url . '" class="d-flex align-items-center text-decoration-none text-truncate" title="'. $person->getFullNameWithAge() .'">'
+            . $icon . '<span class="text-dark">'. $person->getFullNameWithAge() .'</span>'
+            . '</a>'
+            . '</div>'
+            . '</div>';
+    };
+
+    echo '<div class="card border-primary shadow-sm '. $plugin->getName() .' '. $Card_collapsed .'" id="Menu_Banner1" data-name="'. $plugin->getName() .'">';
+
+    if (count($birthdays) > 0) {
+        echo '<div class="card-header d-flex justify-content-between '. $plugin->getPlgnColor() . '">';
+        echo '<h5 class="card-title mb-0"><i class="fa-solid fa-calendar-day"></i> '. dgettext("messages-BirthdayAnniversaryDashboard","Birthdates of the day") . '</h5>';
+        echo $renderCardTools();
+        echo '</div>';
+        echo '<div class="card-body" style="'. $Card_body .'">';
+        echo '<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-2">';
+        foreach ($birthdays as $item) {
+            echo '<div class="col">' . $renderPersonCard($item) . '</div>';
+        }
+        echo '</div>';
+        echo '</div>';
     }
 
-    if ( !empty($classified) ) {
-        $global_body .= '<h5 class="card-title"><i class="fas fa-birthday-cake"></i> '. dgettext("messages-BirthdayAnniversaryDashboard","Birthdates of the day") . '</h5>';
-        $global_body .= '<div class="card-tools">
-            <button type="button" class="btn btn-primary btn-sm" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-            <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
-                <i class="fas '. $Card_collapsed_button .'"></i>
-            </button>
-        </div>
-
-    </div>';
-        $global_body .= '<div class="card-body" style="'. $Card_body .'">';
-        $global_body .= $classified;
-    } ?>
-
-    <?php if ($AnniversariesCount > 0) {
-        if ($peopleWithBirthDaysCount > 0) {
-            $global_body .= '<hr style="background-color: green; height: 1px; border: 0;">';
-        }
-
-        $global_body .= '<h5 class="' .(($peopleWithBirthDaysCount > 0)?'alert-heading':'card-title') .'"><i class="fas fa-birthday-cake"></i> '. dgettext("messages-BirthdayAnniversaryDashboard","Anniversaries of the day") . '</h5>';
-
-        if ($peopleWithBirthDaysCount == 0) {
-            $global_body .= '<div class="card-tools">
-            <button type="button" class="btn bg-primary btn-sm" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-            <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
-                <i class="fas '.$Card_collapsed_button.'"></i>
-            </button>
-        </div>
-
-    </div>
-    <div class="card-body" style="' . $Card_body . '">';
-        }
-
-        $new_row = false;
-        $count_people = 0;
+    if ($AnniversariesCount > 0) {
+        echo '<div class="card-header d-flex justify-content-between border-top">';
+        echo '<h5 class="card-title mb-0"><i class="fa-solid fa-ring"></i> ' . dgettext("messages-BirthdayAnniversaryDashboard","Anniversaries of the day") . '</h5>';
+        echo '</div>';
+        echo '<div class="card-body" style="'. $Card_body .'">';
+        echo '<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-2">';
 
         foreach ($Anniversaries as $Anniversary) {
-            if ($new_row == false) {
-                $global_body .= '<div class="row">';
+            $url = SessionUser::getUser()->isPastoralCareEnabled()
+                ? $sRootPath . '/v2/pastoralcare/family/' . $Anniversary->getId()
+                : $Anniversary->getViewURI();
 
-                $new_row = true;
-            }
-            $global_body .= '<div class="col-md-3">
-                <label class="checkbox-inline">';
+            $label = htmlspecialchars($Anniversary->getFamilyString(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 
-            if (SessionUser::getUser()->isPastoralCareEnabled()) {
-                $global_body .= '
-                    <a href="' . $sRootPath .  '/v2/pastoralcare/family/' . $Anniversary->getId() . '" class="btn btn-link-menu"
-                       style="text-decoration: none">' . $Anniversary->getFamilyString() . '</a>';
-
-            } else {
-                $global_body .= '
-                    <a href="' . $Anniversary->getViewURI() . '" class="btn btn-link-menu"
-                       style="text-decoration: none">' . $Anniversary->getFamilyString() . '</a>';
-            }
-
-            $global_body .= '
-                </label>
-            </div>';
-
-            $count_people += 1;
-            $count_people %= 4;
-            if ($count_people == 0) {
-                $global_body .= '</div>';
-                $new_row = false;
-            }
+            echo '<div class="col">'
+                . '<div class="card border-secondary h-100"><div class="card-body bg-light py-2 px-2">'
+                . '<a href="'. $url .'" class="d-flex align-items-center text-decoration-none text-truncate" title="'. $label .'">'
+                . '<i class="fa-solid fa-heart text-danger me-1"></i>  '. $label
+                . '</a></div></div></div>';
         }
 
-        if ($new_row == true) {
-            $global_body .= '</div>';
-        }
+        echo '</div></div>';
     }
 
-    if ($unclassified) {
-        if ($peopleWithBirthDaysCount > 0) {
-            $global_body .= '<hr style="background-color: green; height: 1px; border: 0;">';
+    if (!empty($unclassified)) {
+        echo '<div class="card-header d-flex justify-content-between border-top">';
+        echo '<h5 class="card-title mb-0"><i class="fa-solid fa-circle-question"></i> ' . dgettext("messages-BirthdayAnniversaryDashboard","Unclassified birthdates") . '</h5>';
+        echo '</div>';
+        echo '<div class="card-body" style="'. $Card_body .'">';
+        echo '<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-2">';
+
+        foreach ($unclassified as $person) {
+            echo '<div class="col">'. $renderPersonCard($person) .'</div>';
         }
 
-        $global_body .= '<h5 class="' .(($peopleWithBirthDaysCount > 0)?'alert-heading':'card-title') .'"><?= dgettext("messages-BirthdayAnniversaryDashboard","Unclassified birthdates") ?></h5>';
-
-        if ($peopleWithBirthDaysCount == 0) {
-            $global_body .= '<div class="card-tools">
-            <button type="button" class="btn btn-primary btn-sm" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-            <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
-                <i class="fas '. $Card_collapsed_button .'"></i>
-            </button>
-        </div>
-
-    </div>
-    <div class="card-body" style="' . $Card_body . '">';
-        }
-
-        $global_body .= '<div class="row">';
-
-        $global_body .= $unclassified;
-
-        $global_body .= '</div>';
-
+        echo '</div></div>';
     }
-    $global_body .= '</div></div>';
 
-    echo $global_body;
+    echo '</div>';
 }
+

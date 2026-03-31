@@ -44,14 +44,14 @@ if ( $role == 'admin' or SessionUser::isAdmin() ) {
 }
 ?>
 
-<div class="card <?= $plugin->getName() ?> <?= $Card_collapsed ?>" style="position: relative; left: 0px; top: 0px;" data-name="<?= $plugin->getName() ?>">
-    <div class="card-header border-0 ui-sortable-handle">
-        <h5 class="card-title"><i class="fas fa-newspaper"></i> <?= dgettext("messages-NewsDashboard","News") ?></h5>
+<div class="card <?= $plugin->getName() ?> <?= $Card_collapsed ?> border-0 shadow-sm" style="position: relative; left: 0px; top: 0px; background-color: #f9fbfc;" data-name="<?= $plugin->getName() ?>">
+    <div class="card-header bg-white text-dark border-0 ui-sortable-handle" style="border-bottom: 1px solid #e6ebef;">
+        <h5 class="card-title mb-0"><i class="fas fa-newspaper me-2 text-info"></i> <?= dgettext("messages-NewsDashboard","News") ?></h5>
         <div class="card-tools">
-            <button type="button" class="btn btn-default btn-sm" data-card-widget="remove">
+            <button type="button" class="btn btn-sm text-muted" data-card-widget="remove" aria-label="Supprimer">
                 <i class="fas fa-times"></i>
             </button>
-            <button type="button" class="btn btn-default btn-sm" data-card-widget="collapse" title="Collapse">
+            <button type="button" class="btn btn-sm text-muted" data-card-widget="collapse" title="Collapse" aria-label="Réduire">
                 <i class="fas <?= $Card_collapsed_button?>"></i>
             </button>
         </div>
@@ -68,7 +68,7 @@ if ( $role == 'admin' or SessionUser::isAdmin() ) {
             foreach ( $notes as $note ) { ?>
                     <li class="item">
                         <div class="product-img">
-                            <img src="<?= $sRootPath ?>/Plugins/NewsDashboard/core/images/<?= NewsDashboardService::getImage($note->getType()) ?>" alt="Product Image" class="img-size-50">
+                            <img src="<?= $sRootPath ?>/Plugins/NewsDashboard/core/images/<?= NewsDashboardService::getImage($note->getType()) ?>" alt="Product Image" class="img-size-25">
                         </div>
                         <div class="product-info">
                             <a href="javascript:void(0)" class="product-title"><?=  $note->getTitle() ?>
