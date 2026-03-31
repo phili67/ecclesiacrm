@@ -22,11 +22,6 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
 ?>
 
 <!-- Default box -->
-<div class="card">
-    <div class="card-header border-1">
-        <h3 class="card-title"><?= _('People Functions') ?></h3>
-    </div>
-    <div class="card-body">
         <a href="<?= $sRootPath ?>/v2/people/list/person" class="btn btn-app"><i class="fas fa-user"></i><?= _('All People') ?></a>
         <?php
         if ($sEmailLink) {
@@ -62,7 +57,6 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
             }
         }
         ?>
-        <br/>
         <a href="<?= $sRootPath ?>/v2/people/list/family" class="btn btn-app"><i class="fas fa-users"></i><?= _('All Families') ?></a>
         <?php
         if (SessionUser::getUser()->isShowMapEnabled()) {
@@ -73,8 +67,8 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
             <?php
         }
         ?>
-    </div>
-</div>
+
+<br>
 <!-- Small boxes (Stat box) -->
 <div class="row">
     <div class="col-lg-2 col-xs-6">
