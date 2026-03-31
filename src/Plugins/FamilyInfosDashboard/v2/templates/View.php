@@ -19,8 +19,7 @@ $plugin = PluginQuery::create()
                    href="#custom-tabs-latest-families" role="tab"
                    aria-controls="custom-tabs-latest-families"
                    aria-selected="true">
-                    <i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i><i
-                        class="fas fa-plus"></i> <?= dgettext("messages-FamilyInfosDashboard",'Latest Families') ?>
+                    <i class="fas fa-users me-1"></i> <?= dgettext("messages-FamilyInfosDashboard", 'Latest Families') ?>
                 </a>
             </li>
             <li class="nav-item">
@@ -33,18 +32,18 @@ $plugin = PluginQuery::create()
                 </a>
             </li>
         </ul>
-        <div class="card-tools" style="margin-top:-33px">
-            <button type="button" class="btn btn-default btn-sm" data-card-widget="remove">
+        <div class="card-tools" style="margin-top: -33px;">
+            <button type="button" class="btn btn-sm" data-card-widget="remove" aria-label="Remove">
                 <i class="fas fa-times"></i>
             </button>
-            <button type="button" class="btn btn-default btn-sm" data-card-widget="collapse" title="Collapse">
-                <i class="fas <?= $Card_collapsed_button?>"></i>
+            <button type="button" class="btn btn-sm" data-card-widget="collapse" title="Collapse" aria-label="Collapse">
+                <i class="fas <?= $Card_collapsed_button ?>"></i>
             </button>
         </div>
     </div>
-    <div class="card-body" style="<?= $Card_body ?>; padding: 1.15px !important">
+    <div class="card-body" style="<?= $Card_body ?>">
         <div class="tab-content" id="custom-tabs-two-tabContent">
-            <div class="tab-pane fade  active show" id="custom-tabs-latest-families" role="tabpanel"
+            <div class="tab-pane fade active show" id="custom-tabs-latest-families" role="tabpanel"
                  aria-labelledby="custom-tabs-latest-families-tab">
                 <table class="table table-striped"
                        id="latestFamiliesDashboardItem"
@@ -78,5 +77,4 @@ $plugin = PluginQuery::create()
             </div>
         </div>
     </div>
-    <!-- /.card -->
 </div>

@@ -45,10 +45,10 @@ $defaultList = ToDoListDashboardQuery::create()
         </h3>
         <div class="card-tools">
             <div class="float-right" style="margin-left:10px;margin-top: -3px;margin-right:-18px">
-                <button type="button" class="btn btn-default btn-sm" data-card-widget="remove">
+                <button type="button" class="btn btn-sm" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                 </button>
-                <button type="button" class="btn btn-default btn-sm" data-card-widget="collapse" title="Collapse">
+                <button type="button" class="btn btn-sm" data-card-widget="collapse" title="Collapse">
                     <i class="fas <?= $Card_collapsed_button?>"></i>
                 </button>
             </div>

@@ -10,22 +10,40 @@ $(function() {
     });
 
     $("#addNewGroup").on('click',function (e) {
-        var groupName = $("#groupName").val(); // get the name of the group from the textbox
-        if (groupName) // ensure that the user entered a group name
-        {
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'groups/',
-                data: JSON.stringify({'groupName': groupName})
-            }, function (data) {
-                window.CRM.dataTableList.row.add(data);                                //add the group data to the existing window.CRM.dataTableListable
-                window.CRM.dataTableList.rows().invalidate().draw(true);               //redraw the window.CRM.dataTableListable
-                $("#groupName").val(null);
-                window.CRM.dataTableList.ajax.reload();// PL : We should reload the table after we add a group so the button add to group is disabled
-            });
-        } else {
+        bootbox.dialog({
+            title: i18next.t("Add New Group"),
+            message: `<div class="form-group">
+                        <label for="bootboxGroupName"><i class="fas fa-users"></i> ${i18next.t("Group Name")}</label>
+                        <input id="bootboxGroupName" type="text" class="form-control" placeholder="${i18next.t("Enter group name")}" />
+                      </div>`,
+            buttons: {
+                cancel: {
+                    label: i18next.t("Cancel"),
+                    className: 'btn-default'
+                },
+                confirm: {
+                    label: i18next.t("Save"),
+                    className: 'btn-primary',
+                    callback: function () {
+                        var groupName = document.getElementById('bootboxGroupName').value.trim();
+                        if (!groupName) {
+                            bootbox.alert(i18next.t('Please enter a group name.'));
+                            return false; // keep modal open
+                        }
 
-        }
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'groups/',
+                            data: JSON.stringify({'groupName': groupName})
+                        }, function (data) {
+                            window.CRM.dataTableList.row.add(data);
+                            window.CRM.dataTableList.rows().invalidate().draw(true);
+                            window.CRM.dataTableList.ajax.reload();
+                        });
+                    }
+                }
+            }
+        });
     });
 
     window.CRM.dataTableList = $("#groupsTable").DataTable({

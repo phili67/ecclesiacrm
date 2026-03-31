@@ -43,37 +43,42 @@ window.CRM.ElementListener('#add-new-pastoral-care', 'click', function (event) {
 /* IMPORTANT : be careful
       This will work in cartToGroup code */
 const BootboxContentPastoralCareTypeList = () => {
-  var frm_str = '<div class="card-body">'
-    + '<div class="row">'
-    + '  <div class="col-lg-2">'
-    + '    <label>' + i18next.t("Title") + '</label>'
-    + '  </div>'
-    + '  <div class="col-lg-10">'
-    + '    <input class="form-control form-control-sm" name="Title" id="Title" style="width:100%">'
-    + '  </div>'
-    + '</div>'
-    + '<br/>'
-    + '<div class="row">'
-    + '  <div class="col-lg-2">'
-    + '    <label>' + i18next.t("Description") + '</label>'
-    + '  </div>'
-    + '  <div class="col-lg-10">'
-    + '    <input class="form-control form-control-sm" name="description" id="description" style="width:100%">'
-    + '  </div>'
-    + '</div>'
-    + '<div class="row">'
-    + '  <div class="col-lg-2">'
-    + '  </div>'
-    + '  <div class="col-lg-10">'
-    + '    <br>'
-    + '    <input id="visibleCheckbox" type="checkbox" name="visible" id="visible" checked="checked">'
-    + '    <label for="depositComment">' + i18next.t("Visible for other authorized users") + '</label>'
-    + '  </div>'
-    + '</div>'
-    + '</div>';
+  return `
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-lg-2">
+          <label>
+            <i class="fas fa-heading"></i> ${i18next.t("Title")}
+          </label>
+        </div>
+        <div class="col-lg-10">
+          <input class="form-control form-control-sm" name="Title" id="Title" style="width:100%">
+        </div>
+      </div>
 
+      <div class="row mb-3">
+        <div class="col-lg-2">
+          <label>
+            <i class="fas fa-info-circle"></i> ${i18next.t("Description")}
+          </label>
+        </div>
+        <div class="col-lg-10">
+          <input class="form-control form-control-sm" name="description" id="description" style="width:100%">
+        </div>
+      </div>
 
-  return frm_str;
+      <div class="row mb-3">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-10">
+          <input id="visibleCheckbox" type="checkbox" name="visible" checked="checked">
+          <label for="visibleCheckbox">
+            <i class="fas fa-eye"></i> ${i18next.t("Visible for other authorized users")}
+          </label>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 const loadTableEvents = () => {

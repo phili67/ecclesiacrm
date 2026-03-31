@@ -29,10 +29,10 @@ $plugin = PluginQuery::create()
             </li>
         </ul>
         <div class="card-tools" style="margin-top:-33px">
-            <button type="button" class="btn btn-default btn-sm" data-card-widget="remove">
+            <button type="button" class="btn btn-sm" data-card-widget="remove">
                 <i class="fas fa-times"></i>
             </button>
-            <button type="button" class="btn btn-default btn-sm" data-card-widget="collapse" title="Collapse">
+            <button type="button" class="btn btn-sm" data-card-widget="collapse" title="Collapse">
                 <i class="fas <?= $Card_collapsed_button?>"></i>
             </button>
         </div>

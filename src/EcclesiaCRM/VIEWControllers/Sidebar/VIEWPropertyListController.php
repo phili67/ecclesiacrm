@@ -66,7 +66,7 @@ class VIEWPropertyListController {
     public function argumentsPropertyListArray ($sType,$sTypeName)
     {
         //Set the page title
-        $sPageTitle = _("Property List");
+        $sPageTitle = _("Property List") . " : " . $sTypeName;
 
         $sRootDocument  = SystemURLs::getDocumentRoot();
 

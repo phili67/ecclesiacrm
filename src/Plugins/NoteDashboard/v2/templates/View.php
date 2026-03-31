@@ -38,10 +38,10 @@ if ( is_null($note) ) {
     <div class="card-header border-0 ui-sortable-handle">
         <h5 class="card-title"><?=  dgettext("messages-NoteDashboard","Note") ?></h5>
         <div class="card-tools">
-            <button type="button" class="btn btn-warning btn-sm" data-card-widget="remove">
+            <button type="button" class="btn btn-sm" data-card-widget="remove">
                 <i class="fas fa-times"></i>
             </button>
-            <button type="button" class="btn btn-warning btn-sm" data-card-widget="collapse" title="Collapse">
+            <button type="button" class="btn btn-sm" data-card-widget="collapse" title="Collapse">
                 <i class="fas <?= $Card_collapsed_button?>"></i>
             </button>
         </div>

@@ -44,32 +44,37 @@ window.CRM.ElementListener('#add-new-fund', 'click', function (event) {
 /* IMPORTANT : be careful
   This will work in cartToGroup code */
 const BootboxContentFundList = () => {
-  var frm_str = '<div class="card-body">'
-    + '<div class="row">'
-    + '  <div class="col-lg-2">'
-    + '    <label for="depositComment">' + i18next.t("Active") + '</label>'
-    + '    <input id="activCheckbox" type="checkbox" name="activ" id="activ" checked="checked">'
-    + '  </div>'
-    + '  <div class="col-lg-1">'
-    + '    <label for="depositDate">' + i18next.t("Name") + '</label>'
-    + '  </div>'
-    + '  <div class="col-lg-9">'
-    + '    <input class="form-control form-control-sm" name="Name" id="Name" style="width:100%">'
-    + '  </div>'
-    + '</div>'
-    + '<br/>'
-    + '<div class="row">'
-    + '  <div class="col-lg-3">'
-    + '    <label for="depositDate">' + i18next.t("Description") + '</label>'
-    + '  </div>'
-    + '  <div class="col-lg-9">'
-    + '    <input class="form-control form-control-sm" name="description" id="description" style="width:100%">'
-    + '  </div>'
-    + '</div>'
-    + '</div>';
+  return `
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-lg-2">
+          <input id="activCheckbox" type="checkbox" name="activ" checked="checked">
+          <label for="activCheckbox">
+            ${i18next.t("Active")}
+          </label>
+        </div>
+        <div class="col-lg-2">
+          <label for="Name">
+            <i class="fas fa-signature"></i> ${i18next.t("Name")}
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <input class="form-control form-control-sm" name="Name" id="Name" style="width:100%">
+        </div>
+      </div>
 
-
-  return frm_str;
+      <div class="row mb-3">
+        <div class="col-lg-4 text-lg-right">
+          <label for="description">
+            <i class="fas fa-info-circle"></i> ${i18next.t("Description")}
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <input class="form-control form-control-sm" name="description" id="description" style="width:100%">
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 const loadTableEvents = () => {

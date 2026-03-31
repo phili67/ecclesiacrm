@@ -158,7 +158,9 @@ class VIEWGroupController {
             throw new HttpNotFoundException($request, "groupID: " . $groupId . " not found");
         }
 
-        if ( !( SessionUser::getUser()->isSundayShoolTeacherForGroup($groupId) || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) ) {
+        if ( !( SessionUser::getUser()->isSundayShoolTeacherForGroup($groupId) 
+            || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() 
+            || SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups']) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
