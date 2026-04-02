@@ -21,7 +21,7 @@ $(function() {
           window.CRM.APIRequest({
             method: 'POST',
             path: 'system/deletefile',
-            data: JSON.stringify({"name": name, "path" : '/Images/background/'})
+            data: JSON.stringify({"name": name})
           },function(data) {
             location.reload();
           });
