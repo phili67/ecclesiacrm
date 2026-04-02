@@ -47,8 +47,14 @@ class SystemController
     {
         $params = (object)$request->getParsedBody();
 
-        if ( isset ($params->name) && isset($params->path) ) {
-            if (unlink(SystemURLs::getDocumentRoot().$params->path.$params->name)) {
+        if ( !(SessionUser::getUser()->isExportSundaySchoolPDFEnabled() 
+            || SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups']
+            || SessionUser::getUser()->isShowCartEnabled() )) {
+            return $response->withStatus(401);
+            }
+
+        if ( isset ($params->name) ) {
+            if (unlink(SystemURLs::getDocumentRoot().'/Images/background/'.basename($params->name))) {
                 return $response->withJson(['status' => "success"]);
             }
         }
