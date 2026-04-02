@@ -117,7 +117,7 @@ class Person extends BasePerson implements iPhoto
 
             if (mb_strlen($sEmail) > 0) {
                 $lists = $mailchimp->getLists();
-                if (count($lists) == 1) {// now at this time only one list can be manage, you've to manage other the members manually
+                if (!is_null($lists) && count($lists) == 1) {// now at this time only one list can be manage, you've to manage other the members manually
                   #TODO : terminer le cas de plusieurs listes
                   if ( $v == "TRUE") {
                     $res = $mailchimp->postMember($lists[0]['id'],32,$this->getFirstName(),$this->getLastName(),$this->getEmailForNewsLetter(),$this->getAddressForMailChimp(), $this->getHomePhone(), 'subscribed');
@@ -830,7 +830,7 @@ class Person extends BasePerson implements iPhoto
     /* Philippe Logel 2017 */
     public function getFullNameWithAge()
     {
-       return $this->getFullName()." ".$this->getAge();
+       return htmlspecialchars($this->getFullName(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8').' <b>'.$this->getAge() . '</b>';
     }
 
     public function getVCard()

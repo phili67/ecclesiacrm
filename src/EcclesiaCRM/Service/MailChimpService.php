@@ -77,7 +77,7 @@ class MailChimpService
         if (!isset($_SESSION['MailChimpLists']) && !is_null($this->myMailchimp)) {// the second part can be used to force update
             LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
             $lists = $this->myMailchimp->get("lists")['lists'];
-            if (count($lists) == 1) {// now at this time only one list can be manage, you've to manage other the members manually
+            if (!is_null($lists) && count($lists) == 1) {// now at this time only one list can be manage, you've to manage other the members manually
                 #TODO : terminer le cas de plusieurs listes
                 foreach ($this->nlsAdds as $nlsAdd) {
                     $person = PersonQuery::create()
