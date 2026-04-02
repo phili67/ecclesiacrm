@@ -236,8 +236,13 @@ class UserUsersController
     {
         $params = (object)$request->getParsedBody();
 
-        if ( isset ($params->userID) ) {
+        // only the user can remove his 2FA, or an admin for another user
+        if (!(SessionUser::getUser()->getPersonId() == $params->userID
+            or SessionUser::getUser()->isAdmin())) {
+            return $response->withStatus(401);
+        }
 
+        if ( isset ($params->userID) ) {
             $user = UserQuery::create()->findOneByPersonId($params->userID);
 
             $secret = $user->getTwoFaSecret();
@@ -260,6 +265,11 @@ class UserUsersController
     public function userstwofapending(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
+
+        if (!(SessionUser::getUser()->getPersonId() == $params->userID
+            or SessionUser::getUser()->isAdmin())) {
+            return $response->withStatus(401);
+        }
 
         if ( isset ($params->userID) ) {
 
