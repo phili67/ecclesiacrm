@@ -51,6 +51,7 @@ use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
 use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
+use EcclesiaCRM\Utils\InputUtils;
 use Slim\Exception\HttpNotFoundException;
 
 class PeoplePersonController
@@ -417,7 +418,7 @@ class PeoplePersonController
 
             // this can't be propeled
             $connection = Propel::getConnection();
-            $sSQL = 'ALTER TABLE `person_custom` DROP `'.$values->field.'` ;';
+            $sSQL = 'ALTER TABLE `person_custom` DROP `'.InputUtils::LegacyFilterInput($values->field).'` ;';
             $connection->exec($sSQL);
 
             // now we can delete the FamilyCustomMaster

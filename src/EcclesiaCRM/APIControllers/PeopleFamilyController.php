@@ -41,6 +41,7 @@ use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\SessionUser;
 
 use EcclesiaCRM\Reports\EmailUsers;
+use EcclesiaCRM\Utils\InputUtils;
 use Family;
 use Slim\Exception\HttpNotFoundException;
 
@@ -319,7 +320,9 @@ class PeopleFamilyController
         $currentStatus = (empty($family->getDateDeactivated()) ? 'true' : 'false');
 
         //update only if the value is different
-        if ($currentStatus != $newStatus) {
+        if ( $currentStatus != $newStatus and 
+            ( SessionUser::getUser()->isEditRecordsEnabled() and $_SESSION['bEditRecords'] ) ) {
+                
             if ($newStatus == "false") {
                 $family->setDateDeactivated(date('YmdHis'));
             } elseif ($newStatus == "true") {
@@ -351,8 +354,8 @@ class PeopleFamilyController
             $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->save();
         }
-        return $response->withJson(['success' => true]);
 
+        return $response->withJson(['success' => true]);
     }
 
     public function familyGeolocation (ServerRequest $request, Response $response, array $args): Response {
@@ -391,7 +394,7 @@ class PeopleFamilyController
 
             // this can't be propeled
             $connection = Propel::getConnection();
-            $sSQL = 'ALTER TABLE `family_custom` DROP `'.$values->field.'` ;';
+            $sSQL = 'ALTER TABLE `family_custom` DROP `'.InputUtils::LegacyFilterInput($values->field).'` ;';
             $connection->exec($sSQL);
 
             // now we can delete the FamilyCustomMaster
