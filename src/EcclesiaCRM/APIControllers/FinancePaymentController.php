@@ -107,7 +107,7 @@ class FinancePaymentController
     {
         $autoPay = (object)$request->getParsedBody();
 
-        if (!( SessionUser::getUser()->isFinance() and isset($autoPay->famId) )) {
+        if (!( SessionUser::getUser()->isFinanceEnabled() and isset($autoPay->famId) )) {
             return $response->withStatus(401);
         }
 
@@ -141,7 +141,7 @@ class FinancePaymentController
     {
         $payments = (object)$request->getParsedBody();
 
-        if ( !(SessionUser::getUser()->isFinance() and isset($payments->famId) and isset($payments->paymentId) ) ) {
+        if ( !(SessionUser::getUser()->isFinanceEnabled() and isset($payments->famId) and isset($payments->paymentId) ) ) {
             return $response->withStatus(401);
         }
 
@@ -158,7 +158,7 @@ class FinancePaymentController
 
     public function deleteAutoPayment(ServerRequest $request, Response $response, array $args): Response
     {
-        if (!( SessionUser::getUser()->isFinance() and array_key_exists('authID', $args) )) {
+        if (!( SessionUser::getUser()->isFinanceEnabled() and array_key_exists('authID', $args) )) {
             return $response->withStatus(401);
         }
 
@@ -176,7 +176,7 @@ class FinancePaymentController
     {
         $payments = (object)$request->getParsedBody();
 
-        if (!(SessionUser::getUser()->isFinance() and isset($payment->Id) )) {
+        if (!(SessionUser::getUser()->isFinanceEnabled() and isset($payment->Id) )) {
             return $response->withStatus(401);
         }
 
@@ -195,7 +195,7 @@ class FinancePaymentController
     {
         $payments = (object)$request->getParsedBody();
 
-        if (!(SessionUser::getUser()->isFinance() and isset($payment->Id) )) {
+        if (!(SessionUser::getUser()->isFinanceEnabled() and isset($payment->Id) )) {
             return $response->withStatus(401);
         }
 
@@ -214,7 +214,7 @@ class FinancePaymentController
     {
         $params = (object)$request->getParsedBody();
 
-        if (!(SessionUser::getUser()->isFinance() and isset($params->depositSlipID) )) {
+        if (!(SessionUser::getUser()->isFinanceEnabled() and isset($params->depositSlipID) )) {
             return $response->withStatus(401);
         }
 
