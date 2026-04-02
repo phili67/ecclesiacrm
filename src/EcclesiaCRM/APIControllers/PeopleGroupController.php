@@ -42,6 +42,7 @@ use EcclesiaCRM\Reports\PDF_Badge;
 
 use EcclesiaCRM\MyPDO\CardDavPDO;
 use EcclesiaCRM\Service\GroupService;
+use EcclesiaCRM\Utils\InputUtils;
 use Propel\Runtime\Propel;
 use Slim\Exception\HttpInternalServerErrorException;
 
@@ -732,7 +733,7 @@ class PeopleGroupController
 
             // this can't be propeled
             $connection = Propel::getConnection();
-            $sSQL = 'ALTER TABLE `groupprop_'.$values->GroupID.'` DROP `'.$values->Field.'` ;';
+            $sSQL = 'ALTER TABLE `groupprop_'.InputUtils::LegacyFilterInput($values->GroupID, 'int').'` DROP `'. InputUtils::LegacyFilterInput($values->Field).'` ;';
             $connection->exec($sSQL);
 
             // now we can delete the GroupPropMasterQuery
@@ -940,11 +941,16 @@ class PeopleGroupController
 
     public function renderBadge (ServerRequest $request, Response $response, array $args): Response
     {
-        if ( !SessionUser::getUser()->isMenuOptionsEnabled() ) {
+        $values = (object)$request->getParsedBody();
+
+        if ( !(SessionUser::getUser()->isMenuOptionsEnabled() 
+            || isset($values->groupID) && SessionUser::getUser()->isSundayShoolTeacherForGroup($values->groupID) 
+            || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() 
+            || SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups']) ) {
             return $response->withStatus(404);
         }
 
-        $values = (object)$request->getParsedBody();
+        
 
         if ( isset ($values->title) && isset ($values->back)
             && isset ($values->labelfont) && isset ($values->labeltype) && isset ($values->labelfontsize) 

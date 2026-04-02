@@ -336,6 +336,10 @@ class PeopleController
     {
         $classifications = ListOptionQuery::create()->findById(1);
 
+        if (!SessionUser::getUser()->isEditRecordsEnabled() and !$_SESSION['bEditRecords']) {
+            return $response->withStatus(401);
+        }
+
         $input = (object)$request->getParsedBody();
 
         if (isset ($input->personId) && isset ($input->classId)) {
