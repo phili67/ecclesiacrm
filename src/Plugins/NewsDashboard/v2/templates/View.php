@@ -44,8 +44,8 @@ if ( $role == 'admin' or SessionUser::isAdmin() ) {
 }
 ?>
 
-<div class="card <?= $plugin->getName() ?> <?= $Card_collapsed ?> border-0 shadow-sm" style="position: relative; left: 0px; top: 0px; background-color: #f9fbfc;" data-name="<?= $plugin->getName() ?>">
-    <div class="card-header bg-white text-dark border-0 ui-sortable-handle" style="border-bottom: 1px solid #e6ebef;">
+<div class="card <?= $plugin->getName() ?> <?= $Card_collapsed ?> border-0 shadow-sm"  data-name="<?= $plugin->getName() ?>">
+    <div class="card-header border-0 ui-sortable-handle">
         <h5 class="card-title mb-0"><i class="fas fa-newspaper me-2 text-info"></i> <?= dgettext("messages-NewsDashboard","News") ?></h5>
         <div class="card-tools">
             <button type="button" class="btn btn-sm text-muted" data-card-widget="remove" aria-label="Supprimer">
