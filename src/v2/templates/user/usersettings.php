@@ -46,7 +46,7 @@ require_once $sRootDocument . '/Include/Header.php';
                         continue;
                     }
                     ?>
-                    <div class="row"  <?=  ($config->getName() == 'sStyleSideBar' or $config->getName() == 'sDarkMode')?'style="display:none"':'' ?>>
+                    <div class="row"  <?=  ($config->getName() == 'sStyleSideBar' or $config->getName() == 'sDarkMode' or $config->getName() == 'sStyleBrandLinkColor' or $config->getName() == 'sStyleNavBarColor')?'style="display:none;height:0px"':'' ?>>
                         <?php
                         // Cancel, Save Buttons every 20 rows or the bsiderbar collapsed
                         if ($r == 20 || $config->getName() == "bSidebarCollapse") {
@@ -85,7 +85,7 @@ require_once $sRootDocument . '/Include/Header.php';
                         <div class="col-md-3"><label><?= _('Current Value') ?></label></div>
                         <div class="col-md-2"><label><?= _('Variable name') ?></label></div>
                     </div>
-                    <div class="row" <?=  ($config->getName() == 'sStyleSideBar' or $config->getName() == 'sDarkMode')?'style="display:none"':'' ?>>
+                    <div class="row" <?=  ($config->getName() == 'sStyleSideBar' or $config->getName() == 'sDarkMode' or $config->getName() == 'sStyleBrandLinkColor' or $config->getName() == 'sStyleNavBarColor')?'style="display:none;height:0px"':'' ?>>
                         <?php
                         $r = 1;
                         }
@@ -306,7 +306,9 @@ require_once $sRootDocument . '/Include/Header.php';
                                     class="fa  fa-question-circle"></i></a>
                         </div>
                     </div>
+                    <?php if (!($config->getName() == 'sStyleSideBar' or $config->getName() == 'sDarkMode' or $config->getName() == 'sStyleBrandLinkColor' or $config->getName() == 'sStyleNavBarColor')): ?>
                     <br/>
+                    <?php endif ?>
                     <?php
                     if ($config->getName() == 'sDarkMode') {
                         $r = 20;
@@ -515,7 +517,7 @@ require_once $sRootDocument . '/Include/Header.php';
 </form>
 
 <script nonce="<?= $cSPNonce ?>">
-    var mode = "<?= Theme::getCurrentSideBarMainColor() ?>";
+    var mode = window.CRM.bDarkMode?'Dark':'Light';
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/system/SettingsIndividual.js"></script>

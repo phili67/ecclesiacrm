@@ -2004,12 +2004,23 @@ window.CRM.darkMode = function (mode, save = false) {
       $('.sidebar-mini').addClass('dark-mode');
       $('.table-dropdown-menu').addClass('dark-mode');
       
+      $('.main-header').removeClass('navbar-light');
+      $('.main-header').addClass('navbar-dark');
+      $('.brand-link').removeClass('navbar-light');
+      $('.brand-link').addClass('navbar-dark');
+      
       window.CRM.bDarkMode = true;
   } else {// we're in light mode
       $('.control-sidebar').removeClass('control-sidebar-dark');
       $('.control-sidebar').addClass('control-sidebar-light');
       $('.sidebar-mini').removeClass('dark-mode');
       $('.table-dropdown-menu').removeClass('dark-mode');
+      
+      $('.main-header').removeClass('navbar-dark');
+      $('.main-header').addClass('navbar-light');
+      $('.brand-link').removeClass('navbar-dark');
+      $('.brand-link').addClass('navbar-light');
+      
             
       window.CRM.bDarkMode = false;
   }

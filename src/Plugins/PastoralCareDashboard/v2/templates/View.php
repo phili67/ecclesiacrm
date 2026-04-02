@@ -70,7 +70,7 @@ function renderStatsTable($Stats) {
     ];
 
     echo '<table class="table table-borderless mb-0">
-            <thead class="table-light">
+            <thead>
                 <tr>
                     <th>' . _('Members') . '</th>
                     <th>' . _('Progress') . '</th>
@@ -99,8 +99,8 @@ function renderStatsTable($Stats) {
 
 <!-- Pastoral care -->
 <?php if (SessionUser::getUser()->isPastoralCareEnabled() && $pastoralServiceStats): ?>
-    <div class="card border-0 shadow-sm <?= $Card_collapsed ?>" style="position: relative; left: 0px; top: 0px; background-color: #ffffff;" data-name="<?= $plugin->getName() ?>">
-        <div class="card-header <?= $pastoralServiceStats['PastoralcareAlertType'] ?> border-0 ui-sortable-handle" style="border-bottom: 1px solid #e9ecef;">
+    <div class="card border-0 shadow-sm <?= $Card_collapsed ?>" style="position: relative; left: 0px; top: 0px;" data-name="<?= $plugin->getName() ?>">
+        <div class="card-header <?= $pastoralServiceStats['PastoralcareAlertType'] ?> border-0 ui-sortable-handle">
             <h5 class="card-title mb-0">
                 <i class="fas fa-heartbeat"></i> <?= dgettext("messages-PastoralCareDashboard", "Pastoral Care") ?>
                 (<?= dgettext("messages-PastoralCareDashboard", "Period from") ?> <?= $pastoralServiceStats['startPeriod'] ?> <?= dgettext("messages-PastoralCareDashboard", "to") ?> <?= $pastoralServiceStats['endPeriod'] ?>)

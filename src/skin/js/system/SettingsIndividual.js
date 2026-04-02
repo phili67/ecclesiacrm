@@ -164,7 +164,7 @@ $(function() {
 
     $(".sDarkMode").on('change',function () {
         var color = $('.sStyleSideBarColor').val();
-        mode = $(this).val() == "dark" ? 'dark' : 'light';
+        var mode = $(this).val() == "dark" ? 'dark' : 'light';
         var sidebar = $('.main-sidebar');
         var sidebar_class = 'sidebar-' + mode + '-' + color;
         sidebar_skins.map(function (skin) {
@@ -206,7 +206,8 @@ $(function() {
 
     $(".sStyleSideBarColor").on('change',function () {
         var color = $(this).val();
-        var sidebar_class = 'sidebar-' + ((mode == 'light') ? 'light' : 'dark') + '-' + color
+        var mode = window.CRM.bDarkMode?'dark':'light';
+        var sidebar_class = 'sidebar-' + mode + '-' + color
         var sidebar = $('.main-sidebar')
         sidebar_skins.map(function (skin) {
             sidebar.removeClass(skin)
