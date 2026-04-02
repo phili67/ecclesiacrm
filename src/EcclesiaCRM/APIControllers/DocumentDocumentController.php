@@ -158,9 +158,11 @@ class DocumentDocumentController
         if ( isset ($input->docID) ){
             $note = NoteQuery::Create()->findOneById ($input->docID);
 
-            $note->delete();
+            if ($note->getPerId() == SessionUser::getUser()->getPersonId() or SessionUser::getUser()->isAdmin() ) {
+                $note->delete();
 
-            return $response->withJson(['success']);
+                return $response->withJson(['success' => true]);
+            }
         }
 
         return $response->withJson(['success' => false]);
