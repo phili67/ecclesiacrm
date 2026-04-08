@@ -15,37 +15,32 @@ use EcclesiaCRM\dto\SystemConfig;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<?php
-  if ( $bNotGDRP ) {
-?>
-<div class="pull-right">
-  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/v2/people/person/editor">
-    <span class="fas fa-plus" aria-hidden="true"></span><?= _('Add New Person') ?>
-  </a>
+<div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+    <h2 class="h4 mb-2 mb-md-0"><i class="fas fa-user-friends mr-2 text-primary"></i><?= _('Persons') ?></h2>
+    <?php if ($bNotGDRP) { ?>
+        <a class="btn btn-primary btn-sm" role="button" href="<?= $sRootPath ?>/v2/people/person/editor">
+            <span class="fas fa-plus mr-1" aria-hidden="true"></span><?= _('Add New Person') ?>
+        </a>
+    <?php } ?>
 </div>
 
-<p><br/><br/></p>
-<?php
-  }
-?>
-
-<?php
-  if (strtolower($sMode) == 'gdrp') {
-?>
-<div class="alert alert-warning">
-    <strong> <?= _('WARNING: Some persons may have some records of donations and may NOT be deleted until these donations are associated with another person or Family.') ?> </strong><br>
-    <strong> <?= _('WARNING: This action can not be undone and may have legal implications!') ?> </strong>
+<?php if (strtolower($sMode) == 'gdrp') { ?>
+<div class="alert alert-warning d-flex align-items-start">
+    <i class="fas fa-exclamation-triangle mr-2 mt-1"></i>
+    <div>
+        <div><strong><?= _('WARNING: Some persons may have some records of donations and may NOT be deleted until these donations are associated with another person or Family.') ?></strong></div>
+        <div><strong><?= _('WARNING: This action can not be undone and may have legal implications!') ?></strong></div>
+    </div>
 </div>
-<?php
-  }
-?>
+<?php } ?>
 
-<div class="card">
-    <div class="card-header  border-1">
-        <h3 class="card-title"><i class="fas fa-user"></i> <?= _('Persons') ?></h3>
+<div class="card card-outline card-primary">
+    <div class="card-header">
+        <h3 class="card-title"><i class="fas fa-list mr-1"></i><?= _('Person Directory') ?></h3>
     </div>
     <div class="card-body">
-        <table id="personlist" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
+        <div class="table-responsive">
+        <table id="personlist" class="table table-sm table-hover table-bordered data-table mb-0" cellspacing="0" width="100%">
             <thead>
             <tr>
                 <th><?= _('Name') ?></th>
@@ -69,18 +64,18 @@ require $sRootDocument . '/Include/Header.php';
             foreach ($persons as $person) {
           ?>
             <tr>
-                <td><a href='<?= $sRootPath ?>/v2/people/person/view/<?= $person->getId() ?>'>
-                        <span class="fa-stack">
-                            <i class="fas fa-square fa-stack-2x"></i>
-                            <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>
-                        </span>
+              <td>
+                <div class="d-flex align-items-center justify-content-between">
+                  <span class="font-weight-bold"><?= $person->getLastName() ?></span>
+                  <span class="btn-group btn-group-sm ml-2" role="group">
+                    <a class="btn btn-outline-secondary" href='<?= $sRootPath ?>/v2/people/person/view/<?= $person->getId() ?>' title="<?= _('View') ?>">
+                      <i class="fas fa-search-plus"></i>
                     </a>
-                    <a href='<?= $sRootPath ?>/v2/people/person/editor/<?= $person->getId() ?>'>
-                        <span class="fa-stack">
-                            <i class="fas fa-square fa-stack-2x"></i>
-                            <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a><?= $person->getLastName() ?>
+                    <a class="btn btn-outline-primary" href='<?= $sRootPath ?>/v2/people/person/editor/<?= $person->getId() ?>' title="<?= _('Edit') ?>">
+                      <i class="fas fa-pencil-alt"></i>
+                    </a>
+                  </span>
+                </div>
                 </td>
                 <td> <?= $person->getFirstName() ?></td>
                 <?php
@@ -108,17 +103,22 @@ require $sRootDocument . '/Include/Header.php';
                 $pledges  = PledgeQuery::Create()->findByFamId($famID);
               ?>
                   <td> <?= (!is_null($person->getDateDeactivated())?date_format($person->getDateDeactivated(), SystemConfig::getValue('sDateFormatLong')):"") ?></td>
-                  <td><a class="btn btn-danger remove-property-btn <?= ($pledges->count() > 0)?"disabled":"" ?>" data-person_id="<?= $person->getId() ?>"><?= _("Remove") ?></a></td>
+                  <td><a class="btn btn-sm btn-outline-danger remove-property-btn <?= ($pledges->count() > 0)?"disabled":"" ?>" data-person_id="<?= $person->getId() ?>"><i class="fas fa-user-times mr-1"></i><?= _("Remove") ?></a></td>
               <?php
                 }
-           }
+              ?>
+              </tr>
+               <?php
+               }
         ?>
-            </tr>
             </tbody>
         </table>
+            </div>
 
         <?php if (strtolower($sMode) == 'gdrp') { ?>
-           <a class="btn btn-danger <?= ($persons->count() == 0)?"disabled":"" ?>" id="remove-all"><?= _("Remove All") ?></a>
+               <div class="mt-3 text-right">
+                 <a class="btn btn-sm btn-danger <?= ($persons->count() == 0)?"disabled":"" ?>" id="remove-all"><i class="fas fa-trash-alt mr-1"></i><?= _("Remove All") ?></a>
+               </div>
         <?php } ?>
     </div>
 </div>
