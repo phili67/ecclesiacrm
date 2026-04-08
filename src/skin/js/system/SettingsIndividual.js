@@ -242,46 +242,84 @@ $(function() {
         sidebar.addClass(sidebar_class)
     });
 
+    function renderEnrolledTwoFAState() {
+        var enrolledHtml = `<div class="row">
+                                <div class="col-md-12">
+                                    <div class="card card-outline card-success shadow-sm mb-0">
+                                        <div class="card-header border-0">
+                                            <h5 class="card-title mb-0">
+                                                <i class="fas fa-shield-check mr-2"></i>${i18next.t("Two factors authentications")}
+                                            </h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="text-muted mb-3">${i18next.t("2FA is already enabled on your account.")}</p>
+                                            <p class="text-muted mb-3">${i18next.t("If needed, you can remove it and enroll again.")}</p>
+                                            <button type="button" class="btn btn-sm btn-outline-danger remove-2fa">
+                                                <i class="fas fa-times mr-1"></i>${i18next.t("Remove 2 Factor Authentication Secret")}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+
+        $("#TwoFAEnrollmentSteps").html(enrolledHtml);
+    }
+
+    // At page load, directly display the enrolled state if 2FA is already active.
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'settingsindividual/get2FAStatus'
+    }, function (data) {
+        if (data.isEnrolled) {
+            renderEnrolledTwoFAState();
+        }
+    });
+
 
     $(".Twofa-activation").on("click",function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
         $("#TwoFAEnrollmentSteps").html("");
 
         window.CRM.APIRequest({
             method: 'POST',
             path: 'settingsindividual/get2FA'
         },function (data) {
-        var res = `<div class="row mb-3">
-                            <div class="col-md-12 d-flex align-items-center">
-                                <span class="badge badge-primary mr-2 px-2 py-1">1</span>
-                                <label class="mb-0 font-weight-bold">${i18next.t("2 Factor Authentication Secret")}</label>
-                            </div>
-                        </div>
-                        <div class="row text-center">
-                            <div class="col-md-12">
-                                <img src="${data.img}" class="img-thumbnail mb-3"><br>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <button class="btn btn-sm btn-outline-danger remove-2fa">
-                                    <i class="fas fa-times mr-1"></i>${i18next.t("Remove 2 Factor Authentication Secret")}
-                                </button>
-                            </div>
-                        </div>
-                <hr/>
-                <div class="row mb-3">
-                    <div class="col-md-12 d-flex align-items-center">
-                        <span class="badge badge-primary mr-2 px-2 py-1">2</span>
-                        <label class="mb-0 font-weight-bold">${i18next.t("Enter TOTP code to confirm enrollment")} :
-                        <input value="" id="inputCode" class="form-control form-control-sm d-inline-block ml-2" style="width:120px" placeholder="000000" />
-                        <span id="verifyCode" class="ml-2"></span></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label id="rescuepasswords"></label>
-                    </div>
-                </div>`;
+        var res = '';
 
-            $("#TwoFAEnrollmentSteps").html(res);
+        if (data.isEnrolled) {
+            renderEnrolledTwoFAState();
+            return;
+        } else {
+            res = `<div class="row mb-3">
+                        <div class="col-md-12 d-flex align-items-center">
+                            <span class="badge badge-primary mr-2 px-2 py-1">1</span>
+                            <label class="mb-0 font-weight-bold">${i18next.t("2 Factor Authentication Secret")}</label>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <img src="${data.img}" class="img-thumbnail mb-3"><br>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="row mb-3">
+                        <div class="col-md-12 d-flex align-items-center">
+                            <span class="badge badge-primary mr-2 px-2 py-1">2</span>
+                            <label class="mb-0 font-weight-bold">${i18next.t("Enter TOTP code to confirm enrollment")} :
+                            <input value="" id="inputCode" class="form-control form-control-sm d-inline-block ml-2" style="width:120px" placeholder="000000" />
+                            <span id="verifyCode" class="ml-2"></span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label id="rescuepasswords"></label>
+                        </div>
+                    </div>`;
+        }
+
+        $("#TwoFAEnrollmentSteps").html(res);
         });
     });
 
@@ -318,13 +356,41 @@ $(function() {
         });
     });
 
-    $(document).on("click",".remove-2fa",function(){
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'settingsindividual/remove2FA',
-        },function (data) {
-            if (data.status == 'yes') {
-                location.reload();
+    $(document).on("click",".remove-2fa",function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
+        var $btn = $(this);
+        bootbox.confirm({
+            title: i18next.t("Confirm"),
+            message: i18next.t("Are you sure?"),
+            buttons: {
+                cancel: {
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
+                },
+                confirm: {
+                    label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm"),
+                    className: 'btn-danger'
+                }
+            },
+            callback: function (result) {
+                if (!result) {
+                    return;
+                }
+
+                $btn.prop('disabled', true);
+
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'settingsindividual/remove2FA',
+                },function (data) {
+                    if (data.status == 'yes') {
+                        location.reload();
+                    } else {
+                        $btn.prop('disabled', false);
+                        window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("Unable to remove 2FA right now."));
+                    }
+                });
             }
         });
     });
