@@ -338,7 +338,7 @@ class Family extends BaseFamily implements iPhoto
     }
 
     // 'initials-image direct-chat-img'
-    public function getJPGPhotoDatas($width = '50', $heigth = '50', $class = 'user-image initials-image'): string
+    public function getJPGPhotoDatas($width = '25', $heigth = '25', $class = 'user-image initials-image'): string
     {
       if (isset($_SESSION['photos']['families'][$this->getId()])) {
         return $_SESSION['photos']['families'][$this->getId()];
