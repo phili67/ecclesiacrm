@@ -4,7 +4,6 @@ use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\Map\PluginUserRoleTableMap;
 
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 
@@ -61,7 +60,11 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 }  //END IF block for Finance permissions to include HTML for Deposit Chart
 ?>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= \EcclesiaCRM\dto\SystemURLs::getCSPNonce() ?>">
     window.CRM.bEnabledFinance = <?= (SystemConfig::getBooleanValue('bEnabledFinance')) ? 'true' : 'false' ?>;
     window.CRM.depositData = <?= ($depositData) ? $depositData : "false" ?>;
 </script>
+
+<?php if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { ?>
+    <script src="<?= $sRootPath ?>/skin/js/finance/DepositTrackingChart.js"></script>
+<?php } ?>
