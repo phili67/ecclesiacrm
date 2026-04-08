@@ -1,4 +1,16 @@
 $(function() {
+    function setCartButtonIcon(button, inCart) {
+        var $button = $(button);
+        var $icon = $button.find('i.fas').first();
+
+        if ($icon.length === 0) {
+            return;
+        }
+
+        $icon.removeClass('fa-cart-plus fa-times');
+        $icon.addClass(inCart ? 'fa-times' : 'fa-cart-plus');
+    }
+
     // useful for for the QueryView.php and PersonView.php
 
     // newMessage event subscribers : Listener CRJSOM.js
@@ -14,9 +26,7 @@ $(function() {
                 personPresent = true;
                 $(personButton).addClass("RemoveFromPeopleCart");
                 $(personButton).removeClass("AddToPeopleCart");
-                fa = $(personButton).find("i.fas.fa-inverse");
-                $(fa).addClass("fa-times");
-                $(fa).removeClass("fa-cart-plus");
+                setCartButtonIcon(personButton, true);
                 text = $(personButton).find("span.cartActionDescription")
                 if (text) {
                     $(text).text(i18next.t("Remove from Cart"));
@@ -24,10 +34,7 @@ $(function() {
             } else {
                 $(personButton).addClass("AddToPeopleCart");
                 $(personButton).removeClass("RemoveFromPeopleCart");
-                fa = $(personButton).find("i.fas.fa-inverse");
-
-                $(fa).removeClass("fa-times");
-                $(fa).addClass("fa-cart-plus");
+                setCartButtonIcon(personButton, false);
                 text = $(personButton).find("span.cartActionDescription")
                 if (text) {
                     $(text).text(i18next.t("Add to Cart"));
@@ -101,8 +108,7 @@ $(function() {
         window.CRM.cart.addPerson([clickedButton.data("cartpersonid")], function () {
             $(clickedButton).addClass("RemoveFromPeopleCart");
             $(clickedButton).removeClass("AddToPeopleCart");
-            $('span i:nth-child(2)', clickedButton).addClass("fa-times");
-            $('span i:nth-child(2)', clickedButton).removeClass("fa-cart-plus");
+            setCartButtonIcon(clickedButton, true);
         });
     });
 
@@ -111,8 +117,7 @@ $(function() {
         window.CRM.cart.removePerson([clickedButton.data("cartpersonid")], function () {
             $(clickedButton).addClass("AddToPeopleCart");
             $(clickedButton).removeClass("RemoveFromPeopleCart");
-            $('span i:nth-child(2)', clickedButton).removeClass("fa-times");
-            $('span i:nth-child(2)', clickedButton).addClass("fa-cart-plus");
+            setCartButtonIcon(clickedButton, false);
         });
     });
 
