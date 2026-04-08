@@ -23,7 +23,7 @@ use EcclesiaCRM\DonationFundQuery;
 use EcclesiaCRM\SessionUser;
 
 //Get Family name
-if ($iFamily) {
+if ($iFamily > 0) {
     $ormFamily = FamilyQuery::Create()->findOneById($iFamily);
     $fam_Name = $ormFamily->getName();
 } else {
@@ -271,21 +271,23 @@ $ormFamilies = FamilyQuery::Create()->orderByName()->find();
 $ormFunds = DonationFundQuery::Create()->findByActive('true');
 ?>
 
-<form method="post" style="padding:10px"
+<form method="post"
     action="<?= $sRootPath ?>/v2/deposit/autopayment/editor/<?= $iAutID ?>/<?= $iFamily ?>/<?= $origLinkBack ?>"
     name="AutoPaymentEditor">
-    <div class="card card-info">
-        <div class="card-header border-1">
-            <h3 class="card-title"><?= _("For the") . ' ' . (($onePersonFamily == true) ? _('Person') : _('Family')) ?> : <?= $fam_Name ?></h3>
+    <div class="card card-info card-outline shadow-sm">
+        <div class="card-header py-2">
+            <h3 class="card-title"><i class="fas fa-credit-card mr-2"></i><?= _("For the") . ' ' . (($onePersonFamily == true) ? _('Person') : _('Family')) ?> : <?= $fam_Name ?></h3>
         </div>
-        <div class="card-body">
+        <div class="card-body p-3">
             <div class="row">
                 <div class="col-md-3">
                     <label><?= _('Person') . ' ' . _('or') . ' ' . _('Family') ?>:</label>
                 </div>
                 <div class="col-md-4">
-                    <div class="alert alert-danger"><?= _("WARNING ! You've to select a person or a family to create an auto-payment.") ?></div>
-                    <select name="Family" id="optionFamily" style="width:100%">
+                    <?php if ($iFamily == 0) { ?>
+                        <div class="alert alert-warning py-2 small mb-2"><i class="fas fa-exclamation-triangle mr-1"></i><?= _("WARNING ! You've to select a person or a family to create an auto-payment.") ?></div>
+                    <?php } ?>
+                    <select name="Family" id="optionFamily" class="form-control form-control-sm" style="width:100%">
                         <option value="0" selected><?= _('Unassigned') ?></option>
                         <option value="0">-----------------------</option>
 
@@ -300,6 +302,10 @@ $ormFunds = DonationFundQuery::Create()->findByActive('true');
                     </select>
                 </div>
             </div>
+
+            <hr class="my-3">
+            <h6 class="text-muted mb-3"><i class="fas fa-cogs mr-1"></i><?= _('Payment Setup') ?></h6>
+
             <div class="row">
                 <div class="col-md-3">
                     <label><?= _('Automatic payment type') ?></label>
@@ -385,6 +391,10 @@ $ormFunds = DonationFundQuery::Create()->findByActive('true');
                     </select>
                 </div>
             </div>
+
+            <hr class="my-3">
+            <h6 class="text-muted mb-3"><i class="fas fa-user mr-1"></i><?= _('Billing Identity') ?></h6>
+
             <div class="row">
                 <div class="col-md-3">
                     <label><?= _('First Name') ?></label>
@@ -465,6 +475,10 @@ $ormFunds = DonationFundQuery::Create()->findByActive('true');
                     <input type="text" id="Email" name="Email" value="<?= $tEmail ?>" class="form-control form-control-sm">
                 </div>
             </div>
+
+            <hr class="my-3">
+            <h6 class="text-muted mb-3"><i class="fas fa-university mr-1"></i><?= _('Payment Credentials') ?></h6>
+
             <div class="row">
                 <div class="col-md-3">
                     <label><?= _('Credit Card') ?></label>
@@ -515,29 +529,20 @@ $ormFunds = DonationFundQuery::Create()->findByActive('true');
             </div>
         </div>
         <div class="card-footer">
-            <div class="row">
-                <div class="col-md-12">
-                    &nbsp;
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-4">
-                    <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="Submit">
-                </div>
-                <div class="col-md-4">
-                    <input type="button" class="btn btn-default" value="x <?= _('Cancel') ?>" name="Cancel"
-                        onclick="javascript:document.location='<?= !empty($linkBack) ? $sRootPath . "/" . $linkBack : "" ?>';">
-                </div>
-                <div class="col-md-4">
-                </div>
+            <div class="d-flex flex-wrap">
+                <button type="submit" class="btn btn-sm btn-success mr-2 mb-1" name="Submit">
+                    <i class="fas fa-check mr-1"></i><?= _('Save') ?>
+                </button>
+                <button type="button" class="btn btn-sm btn-secondary mb-1" name="Cancel"
+                    onclick="document.location='<?= !empty($linkBack) ? $sRootPath . "/" . $linkBack : "" ?>'">
+                    <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
+                </button>
             </div>
         </div>
     </div>
 </form>
 
-<script>
+<script nonce="<?= $CSPNonce ?>">
     var iFamily = <?= (empty($iFamily) ? 0 : $iFamily) ?>;
     var iAutID = <?= (empty($iAutID) ? 0 : $iAutID) ?>;
 
@@ -620,7 +625,10 @@ $ormFunds = DonationFundQuery::Create()->findByActive('true');
                 }
             }
         });
-        $("#optionFamily").select2();
+        $("#optionFamily").select2({
+            width: '100%',
+            placeholder: "<?= _('Unassigned') ?>"
+        });
     });
 </script>
 
