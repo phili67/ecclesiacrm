@@ -9,14 +9,14 @@ use EcclesiaCRM\Service\SystemService;
 //Set the page title
 include SystemURLs::getDocumentRoot() . '/Include/Header.php';
 ?>
-<div class="row">
+<div class="row infos-compact">
     <div class="col-lg-4">
-        <div class="card">
-            <div class="card-header">
-                <h4><?= _("CRM Installation Information") ?></h4>
+        <div class="card card-outline card-primary shadow-sm">
+            <div class="card-header border-0 py-2">
+                <h3 class="card-title mb-0"><i class="fas fa-cubes mr-2"></i><?= _("CRM Installation Information") ?></h3>
             </div>
-            <div class="card-body overflow-auto">
-                <table class="table table-striped">
+            <div class="card-body overflow-auto p-2">
+                <table class="table table-sm table-striped table-hover mb-0 text-sm">
                     <tr>
                         <td><?= Bootstrapper::getSoftwareName() ?> <?= _("Software Version") ?></td>
                         <td><?= SystemService::getInstalledVersion() ?></td>
@@ -42,12 +42,12 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
         </div>
     </div>
     <div class="col-lg-4">
-        <div class="card">
-            <div class="card-header">
-                <h4><?= _("System Information") ?></h4>
+        <div class="card card-outline card-info shadow-sm">
+            <div class="card-header border-0 py-2">
+                <h3 class="card-title mb-0"><i class="fas fa-server mr-2"></i><?= _("System Information") ?></h3>
             </div>
-            <div class="card-body overflow-auto">
-                <table class="table table-striped">
+            <div class="card-body overflow-auto p-2">
+                <table class="table table-sm table-striped table-hover mb-0 text-sm">
                     <tr>
                         <td>Server Hostname</td>
                         <td><?= gethostname() ?></td>
@@ -65,12 +65,12 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
         </div>
     </div>
     <div class="col-lg-4">
-        <div class="card">
-            <div class="card-header">
-                <h4>PHP</h4>
+        <div class="card card-outline card-secondary shadow-sm">
+            <div class="card-header border-0 py-2">
+                <h3 class="card-title mb-0"><i class="fab fa-php mr-2"></i>PHP</h3>
             </div>
-            <div class="card-body overflow-auto">
-                <table class="table table-striped">
+            <div class="card-body overflow-auto p-2">
+                <table class="table table-sm table-striped table-hover mb-0 text-sm">
                     <tr>
                         <td>PHP Version</td>
                         <td><?= PHP_VERSION ?></td>
@@ -100,12 +100,12 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
         </div>
     </div>
     <div class="col-lg-4">
-        <div class="card">
-            <div class="card-header">
-                <h4><?= _("Web Server") ?></h4>
+        <div class="card card-outline card-warning shadow-sm">
+            <div class="card-header border-0 py-2">
+                <h3 class="card-title mb-0"><i class="fas fa-globe mr-2"></i><?= _("Web Server") ?></h3>
             </div>
-            <div class="card-body overflow-auto">
-                <table class="table table-striped">
+            <div class="card-body overflow-auto p-2">
+                <table class="table table-sm table-striped table-hover mb-0 text-sm">
                     <tr>
                         <td><?= $_SERVER["SERVER_SOFTWARE"] ?></td>
                     </tr>
@@ -131,12 +131,12 @@ EOD;
         </div>        
     </div>
     <div class="col-lg-4">
-        <div class="card">
-            <div class="card-header">
-                <h4><?= _("Database") ?></h4>
+        <div class="card card-outline card-success shadow-sm">
+            <div class="card-header border-0 py-2">
+                <h3 class="card-title mb-0"><i class="fas fa-database mr-2"></i><?= _("Database") ?></h3>
             </div>
-            <div class="card-body overflow-auto">
-                <table class="table table-striped">
+            <div class="card-body overflow-auto p-2">
+                <table class="table table-sm table-striped table-hover mb-0 text-sm">
                     <tr>
                         <td><?= Bootstrapper::getSoftwareName() ?> <?= _("Database Version") ?></td>
                         <td><?= SystemService::getDBVersion() ?></td>
@@ -157,27 +157,27 @@ EOD;
         
     </div>
     <div class="col-lg-4">
-        <div class="card">
-            <div class="card-header">
-                <h4><?= _("Application Prerequisites") ?></h4>
+        <div class="card card-outline card-primary shadow-sm">
+            <div class="card-header border-0 py-2">
+                <h3 class="card-title mb-0"><i class="fas fa-clipboard-check mr-2"></i><?= _("Application Prerequisites") ?></h3>
             </div>
-            <div class="card-body overflow-auto">
-                <table class="table table-striped">
+            <div class="card-body overflow-auto p-2">
+                <table class="table table-sm table-striped table-hover mb-0 text-sm">
                     <?php foreach (AppIntegrityService::getApplicationPrerequisites() as $prerequisite) { ?>
                         <tr>
                           <td><a href='<?=$prerequisite->getLink()?>'><?= $prerequisite->getName()?></a></td>
-                          <td><?= ($prerequisite->getMessage())?'<span style="color:green"><i class="fa fa-check" aria-hidden="true"></i></span>':'<span style="color:red"><i class="fa fa-times" aria-hidden="true"></i></span>' ?></td>
+                          <td><?= ($prerequisite->getMessage())?'<span class="badge badge-success"><i class="fa fa-check" aria-hidden="true"></i></span>':'<span class="badge badge-danger"><i class="fa fa-times" aria-hidden="true"></i></span>' ?></td>
                         </tr>
                     <?php } ?>
                 </table>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <h4><?= _("Email Information") ?></h4>
+        <div class="card card-outline card-info shadow-sm">
+            <div class="card-header border-0 py-2">
+                <h3 class="card-title mb-0"><i class="fas fa-envelope mr-2"></i><?= _("Email Information") ?></h3>
             </div>
-            <div class="card-body overflow-auto">
-                <table class="table table-striped">
+            <div class="card-body overflow-auto p-2">
+                <table class="table table-sm table-striped table-hover mb-0 text-sm">
                     <tr>
                         <td>SMTP Host</td>
                         <td><?= SystemConfig::getValue("sSMTPHost") ?></td>
@@ -188,31 +188,33 @@ EOD;
                     </tr>
                 </table>
 
-                <hr/>
+                                <hr>
 
-                <label><?= _("System Infos") ?></label>
+                                <label class="text-muted small font-weight-bold text-uppercase mb-2"><?= _("System Infos") ?></label>
 
                 <p id="mailTest"><?= _("Testing connection .....") ?></p>
             </div>
         </div>
     </div>
     <div class="col-lg-8">
-        <div class="card">
-            <div class="card-header">
-              <h4><?= _("Application Integrity Check") . ": " . AppIntegrityService::getIntegrityCheckStatus()?></h4>
+                <div class="card card-outline card-danger shadow-sm">
+                        <div class="card-header border-0 py-2">
+                            <h3 class="card-title mb-0"><i class="fas fa-shield-alt mr-2"></i><?= _("Application Integrity Check") . ": " . AppIntegrityService::getIntegrityCheckStatus()?></h3>
             </div>
-            <div class="card-body">
-              <label><?= _('Details:')?> CRM (<?=  AppIntegrityService::getIntegrityCheckMessage() ?>)</label>
+            <div class="card-body p-2">
+                            <label class="text-muted small font-weight-bold text-uppercase mb-2"><?= _('Details:')?> CRM (<?=  AppIntegrityService::getIntegrityCheckMessage() ?>)</label>
                 <?php
                 $signatureFailures = AppIntegrityService::getFilesFailingIntegrityCheck();
                 if (array_key_exists('CRM', $signatureFailures) and count($signatureFailures['CRM']) > 0) {
                     ?>
                     <p><?= _('Files failing integrity check') ?>:
-                    <table class="display responsive no-wrap" width="100%" id="fileIntegrityCheckResultsTable">
+                                        <table class="table table-sm table-striped table-hover text-sm display responsive no-wrap" width="100%" id="fileIntegrityCheckResultsTable">
                       <thead>
-                      <td><?= _("FileName") ?></td>
-                      <td><?= _("Expected Hash") ?></td>
-                      <td><?= _("Actual Hash") ?></td>
+                                            <tr>
+                                            <th><?= _("FileName") ?></th>
+                                            <th><?= _("Expected Hash") ?></th>
+                                            <th><?= _("Actual Hash") ?></th>
+                                            </tr>
                     </thead>
                       <?php
                         foreach ($signatureFailures['CRM'] as $file) {
@@ -236,18 +238,20 @@ EOD;
                     <?php
                 }
                 ?>
-                <br/>
-                <label><?= _('Details:')?> PLUGINS (<?=  AppIntegrityService::getIntegrityCheckMessage() ?>)</label>
+                                <br>
+                                <label class="text-muted small font-weight-bold text-uppercase mb-2"><?= _('Details:')?> PLUGINS (<?=  AppIntegrityService::getIntegrityCheckMessage() ?>)</label>
                 <?php
                 if (array_key_exists('PLUGINS', $signatureFailures) and count($signatureFailures['PLUGINS']) > 0) {
                     ?>
                     <p><?= _('Files failing integrity check') ?>:
-                    <table class="display responsive no-wrap" width="100%" id="pluginfileIntegrityCheckResultsTable">
+                                        <table class="table table-sm table-striped table-hover text-sm display responsive no-wrap" width="100%" id="pluginfileIntegrityCheckResultsTable">
                       <thead>
-                      <td><?= _("Plugin") ?></td>
-                      <td><?= _("FileName") ?></td>
-                      <td><?= _("Expected Hash") ?></td>
-                      <td><?= _("Actual Hash") ?></td>
+                                            <tr>
+                                            <th><?= _("Plugin") ?></th>
+                                            <th><?= _("FileName") ?></th>
+                                            <th><?= _("Expected Hash") ?></th>
+                                            <th><?= _("Actual Hash") ?></th>
+                                            </tr>
                     </thead>
                       <?php
                         foreach ($signatureFailures['PLUGINS'] as $pluginName => $files) {
@@ -288,13 +292,19 @@ EOD;
         },
         responsive: true,
         paging:false,
-        searching: false
+                searching: false,
+                info: false,
+                lengthChange: false,
+                autoWidth: false
     });
 
     $("#pluginfileIntegrityCheckResultsTable").DataTable({
         responsive: true,
         paging:false,
-        searching: false
+        searching: false,
+        info: false,
+        lengthChange: false,
+        autoWidth: false
     });
   });
 
