@@ -695,11 +695,11 @@ require $sRootDocument . '/Include/Header.php';
 <form method="post" action="<?= $sRootPath ?>/v2/people/family/editor<?= ($iFamilyID != -1)?("/".$iFamilyID):"" ?>">
     <input type="hidden" Name="iFamilyID" value="<?= $iFamilyID ?>">
     <input type="hidden" name="FamCount" value="<?= $iFamilyMemberRows ?>">
-    <div class="card card-info clearfix">
-        <div class="card-header border-1">
+    <div class="card card-outline card-info shadow-sm clearfix">
+        <div class="card-header border-0">
             <h3 class="card-title"><?= _('Family Info') ?></h3>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="&check;  <?= _('Save') ?>" name="FamilySubmit">
+            <div class="card-tools">
+                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -711,7 +711,7 @@ require $sRootDocument . '/Include/Header.php';
                                value="<?= htmlentities(stripslashes($sName), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="48"
                                class="form-control form-control-sm">
                         <?php if ($sNameError) {
-                            ?><span class="text-red"><?= $sNameError ?></span><?php
+                            ?><span class="text-danger"><?= $sNameError ?></span><?php
                         } ?>
                     </div>
                     <div class="col-md-2">
@@ -788,11 +788,11 @@ require $sRootDocument . '/Include/Header.php';
             $("#state-input").select2();
         });
     </script>
-    <div class="card card-info clearfix">
-        <div class="card-header border-1">
+    <div class="card card-outline card-info shadow-sm clearfix">
+        <div class="card-header border-0">
             <h3 class="card-title"><?= _('Contact Info') ?></h3>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="FamilySubmit">
+            <div class="card-tools">
+                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -847,7 +847,7 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                         <input type="text" Name="Email" class="form-control form-control-sm"
                                value="<?= htmlentities(stripslashes($sEmail)) ?>" size="30" maxlength="100">
-                               <span class="text-red"><?=  $sEmailError ?></span>                            
+                               <span class="text-danger"><?=  $sEmailError ?></span>                            
                     </div>
                 </div>
                 <?php if (!SystemConfig::getValue('bHideFamilyNewsletter')) { /* Newsletter can be hidden - General Settings */ ?>
@@ -863,11 +863,11 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
     </div>
-    <div class="card card-info clearfix">
-        <div class="card-header border-1">
+    <div class="card card-outline card-info shadow-sm clearfix">
+        <div class="card-header border-0">
             <h3 class="card-title"><?= _('Other Info') ?>:</h3>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="FamilySubmit">
+            <div class="card-tools">
+                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -887,7 +887,7 @@ require $sRootDocument . '/Include/Header.php';
                                    id="WeddingDate" size="15"
                                    placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                             <?php if ($sWeddingDateError) {
-                                ?> <span class="text-red"><br/><?php $sWeddingDateError ?></span> <?php
+                                ?> <span class="text-danger"><br/><?php $sWeddingDateError ?></span> <?php
                             } ?>
                         </div>
                     </div>
@@ -951,18 +951,18 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <?php if (SystemConfig::getValue('bUseDonationEnvelopes')) { /* Donation envelopes can be hidden - General Settings */ ?>
-        <div class="card card-info clearfix">
-            <div class="card-header border-1">
+        <div class="card card-outline card-info shadow-sm clearfix">
+            <div class="card-header border-0">
                 <h3><?= _('Envelope Info') ?></h3>
-                <div class="pull-right">
-                    <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="FamilySubmit">
+                <div class="card-tools">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
                 </div>
             </div><!-- /.box-header -->
             <div class="card-body">
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label><?= _('Envelope Number') ?>:</label>
-                        <input type="text"
+                           <input type="text" class="form-control form-control-sm"
                                Name="Envelope" <?= ($fam_Envelope) ? ' value="' . $fam_Envelope . '"' : '' ?> size="30"
                                maxlength="50">
                     </div>
@@ -973,11 +973,11 @@ require $sRootDocument . '/Include/Header.php';
     }
     if ($numCustomFields > 0) {
         ?>
-        <div class="card card-info clearfix">
-            <div class="card-header border-1">
+        <div class="card card-outline card-info shadow-sm clearfix">
+            <div class="card-header border-0">
                 <h3 class="card-title"><?= _('Custom Fields') ?></h3>
-                <div class="pull-right">
-                    <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="FamilySubmit">
+                <div class="card-tools">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
                 </div>
             </div><!-- /.box-header -->
             <div class="card-body">
@@ -1006,7 +1006,7 @@ require $sRootDocument . '/Include/Header.php';
 
                                 echo OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
                                 if (isset($aCustomErrors[$customField['TypeId']])) { ?>
-                                    <span class="text-red"><?=  $aCustomErrors[$customField['TypeId']] ?></span>
+                                    <span class="text-danger"><?=  $aCustomErrors[$customField['TypeId']] ?></span>
                                 <?php }
                             }
                         }
@@ -1033,7 +1033,7 @@ require $sRootDocument . '/Include/Header.php';
 
                                 echo OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
                                 if (isset($aCustomErrors[$customField['TypeId']])) {?>
-                                    <span class="text-red"><?= $aCustomErrors[$customField['TypeId']] ?></span>
+                                    <span class="text-danger"><?= $aCustomErrors[$customField['TypeId']] ?></span>
                                 <?php }
                             }
                         }
@@ -1047,11 +1047,11 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <?php
     } ?>
-    <div class="card card-info clearfix">
-        <div class="card-header border-1">
+    <div class="card card-outline card-info shadow-sm clearfix">
+        <div class="card-header border-0">
             <h3 class="card-title"><?= _('Family Members') ?></h3>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="FamilySubmit">
+            <div class="card-tools">
+                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -1068,9 +1068,9 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                     <br><br>
                     <div class="table-responsive">
-                        <table cellpadding="3" cellspacing="0" width="100%">
+                        <table class="table table-sm table-hover" width="100%">
                             <thead>
-                            <tr class="TableHeader" >
+                            <tr class="thead-light" >
                                 <th><?= _('First Name') ?></th>
                                 <th><?= _('Middle Name') ?></th>
                                 <th><?= _('Last Name') ?></th>
@@ -1107,7 +1107,7 @@ require $sRootDocument . '/Include/Header.php';
                                         <input class="form-control form-control-sm" name="FirstName<?= $iCount ?>" type="text"
                                                value="<?= $aFirstNames[$iCount] ?>" size="10">
                                         <?php if (array_key_exists($iCount, $aFirstNameError)) {?>
-                                                <span class="text-red"><?= $aFirstNameError[$iCount] ?></span>
+                                                <span class="text-danger"><?= $aFirstNameError[$iCount] ?></span>
                                             <?php } ?>
                                     </td>
                                     <td class="TextColumnFam">
@@ -1220,7 +1220,7 @@ require $sRootDocument . '/Include/Header.php';
                                             <?php
                                             if (array_key_exists($iCount, $aBirthDateError)) {
                                                 ?>
-                                                <span class="text-red"><?= $aBirthDateError[$iCount] ?></span>
+                                                <span class="text-danger"><?= $aBirthDateError[$iCount] ?></span>
                                                 <?php
                                             }
                                             ?>
@@ -1267,22 +1267,33 @@ require $sRootDocument . '/Include/Header.php';
 }
 ?>
 
-    <td colspan="2" >
-        <input type="hidden" Name="UpdateBirthYear" value="<?= $UpdateBirthYear ?>">
-        <input type="submit" class="btn btn-success" value="&check; <?= _('Save') ?>" Name="FamilySubmit">
-        <?php
-        if (SessionUser::getUser()->isAddRecordsEnabled()) {
-            ?>
-            <input type="submit" class="btn btn-primary" value="+ <?= _('Save and Add Family') ?>" name="FamilySubmitAndAdd">
-            <input type="submit" class="btn btn-primary" value="+ <?= _('Save and Add Person To Family') ?>" name="FamilySubmitAndAddPerson">
-            <?php
-        }
-        ?>
-        <input type="button" class="btn btn-default" value="X <?= _('Cancel') ?>" Name="FamilyCancel"
-            <?= ($iFamilyID > 0)?" onclick=\"javascript:document.location='". $sRootPath ."/v2/people/family/view/$iFamilyID';\"":" onclick=\"javascript:document.location='". $sRootPath ."/v2/familylist';\"" ?>>
-    </td>
-    </tr></form></table>
-    <br/>
+    <input type="hidden" name="UpdateBirthYear" value="<?= $UpdateBirthYear ?>">
+
+    <div class="card card-outline card-secondary shadow-sm mt-3 mb-3">
+        <div class="card-body py-2 px-3">
+            <div class="d-flex flex-wrap justify-content-end align-items-center">
+                <button type="button" class="btn btn-sm btn-outline-secondary mr-2 mb-1" name="FamilyCancel"
+                    <?= ($iFamilyID > 0)?" onclick=\"javascript:document.location='". $sRootPath ."/v2/people/family/view/$iFamilyID';\"":" onclick=\"javascript:document.location='". $sRootPath ."/v2/familylist';\"" ?>>
+                    <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
+                </button>
+
+                <?php if (SessionUser::getUser()->isAddRecordsEnabled()) { ?>
+                    <button type="submit" class="btn btn-sm btn-primary mr-2 mb-1" name="FamilySubmitAndAdd">
+                        <i class="fas fa-home mr-1"></i><?= _('Save and Add Family') ?>
+                    </button>
+                    <button type="submit" class="btn btn-sm btn-primary mr-2 mb-1" name="FamilySubmitAndAddPerson">
+                        <i class="fas fa-user-plus mr-1"></i><?= _('Save and Add Person To Family') ?>
+                    </button>
+                <?php } ?>
+
+                <button type="submit" class="btn btn-sm btn-success mb-1" name="FamilySubmit">
+                    <i class="fas fa-save mr-1"></i><?= _('Save') ?>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+<br>
 
 <script nonce="<?= $CSPNonce ?>">
     $(function () {
