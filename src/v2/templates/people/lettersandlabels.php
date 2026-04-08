@@ -109,8 +109,15 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
 }
 ?>
 
-<div class="alert alert-info">
-    <i class="fa-solid fa-circle-info"></i>
+<div class="d-flex justify-content-end mb-2">
+    <a class="btn btn-sm btn-outline-secondary" href="#"
+       onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href='<?= $sRootPath ?>/v2/dashboard'; } return false;">
+        <i class="fas fa-arrow-left mr-1"></i><?= _('Back') ?>
+    </a>
+</div>
+
+<div class="alert alert-info d-flex align-items-start">
+    <i class="fa-solid fa-circle-info mt-1 mr-2"></i>
     <?=
         _("Here you can choose to run reports to confirm the data stored in CRM, for families or on an individual basis.<br>
         - in PDF format for printing<br>
@@ -124,22 +131,24 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
     <input id="realAction" name="realAction" type="hidden" value="" />
 
     <div class="row">
-        <div class="col-md-10">
-            <div class="card card-secondary">
-                <div class="card-header border-1">
-                    <h3 class="card-title"><?= gettext('People Reports') ?></h3>
+        <div class="col-lg-9">
+            <div class="card card-outline card-secondary">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-file-alt mr-1"></i><?= gettext('People Reports') ?></h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <h3><?= _("Mail Label") ?></h1>
-                                <hr />
+                            <div class="card card-light h-100 mb-3 mb-md-0">
+                            <div class="card-body py-2">
+                            <h5 class="mb-2"><?= _("Mail Label") ?></h5>
+                                <hr class="mt-1" />
                                 <?php
                                 LabelUtils::LabelSelect('labeltype');
                                 LabelUtils::FontSelect('labelfont');
                                 LabelUtils::FontSizeSelect('labelfontsize');
                                 ?>
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col-md-6"><label><?= _("Recipient Naming Method") ?></label></div>
                                     <div class="col-md-6">
                                         <select class="form-control form-control-sm" name="recipientnamingmethod">
@@ -148,16 +157,23 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                                         </select>
                                     </div>
                                 </div>
+                            </div>
+                            </div>
                         </div>
                         <div class="col-md-4">
-                            <h3><?= _("Person Custom Fields") ?></h1>
-                                <hr />
+                            <div class="card card-light h-100 mb-3 mb-md-0">
+                            <div class="card-body py-2">
+                            <h5 class="mb-2"><?= _("Person Custom Fields") ?></h5>
+                                <hr class="mt-1" />
                                 <?php
                                 if ($numPersonCustomFields > 0) {
                                     foreach ($ormPersonPersonCustomFields as $ormPersonPersonCustomField) {
                                         if (($aSecurityType[$ormPersonPersonCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormPersonPersonCustomField->getCustomFieldSec()]])) {
                                 ?>
-                                            <input type="checkbox" Name="bCustomPerson<?= $ormPersonPersonCustomField->getCustomOrder() ?>" value="<?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?>> <?= $ormPersonPersonCustomField->getCustomName() ?><br>
+                                            <div class="form-check mb-1">
+                                                <input class="form-check-input" type="checkbox" name="bCustomPerson<?= $ormPersonPersonCustomField->getCustomOrder() ?>" value="<?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?>>
+                                                <label class="form-check-label"><?= $ormPersonPersonCustomField->getCustomName() ?></label>
+                                            </div>
                                 <?php
                                         }
                                     }
@@ -166,22 +182,29 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
 
                                 <hr/>
 
-                                <h3><?= _("Family Custom Fields") ?></h1>
-                                <hr />
+                                <h5 class="mb-2"><?= _("Family Custom Fields") ?></h5>
+                                <hr class="mt-1" />
                                 <?php
                                 if ($numFamilyCustomFields > 0) {
                                     foreach ($ormFamilyPersonCustomFields as $ormFamilyPersonCustomField) {
                                         if (($aSecurityType[$ormFamilyPersonCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormFamilyPersonCustomField->getCustomFieldSec()]])) {
                                 ?>
-                                            <input type="checkbox" Name="bCustomFamily<?= $ormFamilyPersonCustomField->getCustomOrder() ?>" value="<?= $ormFamilyPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormFamilyPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?>> <?= $ormFamilyPersonCustomField->getCustomName() ?><br>
+                                            <div class="form-check mb-1">
+                                                <input class="form-check-input" type="checkbox" name="bCustomFamily<?= $ormFamilyPersonCustomField->getCustomOrder() ?>" value="<?= $ormFamilyPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormFamilyPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?>>
+                                                <label class="form-check-label"><?= $ormFamilyPersonCustomField->getCustomName() ?></label>
+                                            </div>
                                 <?php
                                         }
                                     }
                                 }
                                 ?>
+                            </div>
+                            </div>
                         </div>
                         <div class="col-md-4">
-                            <h3><?= _("Person Classifications") ?></h1>
+                            <div class="card card-light h-100">
+                            <div class="card-body py-2">
+                            <h5 class="mb-2"><?= _("Person Classifications") ?></h5>
                             <select name="classList[]" style="width:100%" multiple id="classList">
                                 <?php
                                     //Get Classifications for the drop-down
@@ -198,7 +221,7 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
 
                             <hr />
 
-                            <h3><?= _("by") ?></h1>
+                            <h6 class="text-muted text-uppercase mb-2"><?= _("Selection Scope") ?></h6>
 
                             <select class="form-control form-control-sm" name="letterandlabelsnamingmethod" id="letterandlabelsnamingmethod">
                                 <option value="family"><?= gettext("Addresses") ?></option>
@@ -209,28 +232,29 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
 
                             <div class="row">
                                 <div class="col-md-2">
-                                    <label for="check_all"><?= _("Test") ?></label>
+                                    <label><?= _("Search") ?></label>
                                 </div>
                                 <div class="col-md-10">
-                                    <select name="person-family-search" class="person-family-search"
-                                            class="form-control select2" style="width:100%"></select>
+                                    <select name="person-family-search" class="person-family-search form-control select2" style="width:100%"></select>
                                 </div>                                
                             </div>
-                            <div class="row">
+                            <div class="row mt-2">
                                 <div class="col-md-2">
-                                    <label for="check_all"><?= _("Selected Members") ?></label>
+                                    <label><?= _("Selected") ?></label>
                                 </div>
                                 <div class="col-md-9">
-                                    <div id="users"><?= _("None") ?></div>
+                                    <div id="users" class="small text-muted"><?= _("None") ?></div>
                                 </div>                                
                                 <div class="col-md-1">
-                                    <i class="fa fa-trash-can" id="remove-users"></i>                                                                
+                                    <button type="button" class="btn btn-outline-secondary btn-xs" id="remove-users" title="<?= _('Clear selected') ?>">
+                                        <i class="fa fa-trash-can"></i>
+                                    </button>
                                 </div>                                
                             </div>
 
                             <hr />
 
-                            <h3><?= _("by") ?></h1>
+                            <h6 class="text-muted text-uppercase mb-2"><?= _("Age Range") ?></h6>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group"><label><?= _("Minimum Age") ?></label>
@@ -249,10 +273,13 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer d-flex flex-wrap align-items-center">
+                    <div class="btn-group mr-2 mb-2" role="group" aria-label="PDF reports">
                     <button class="btn btn-success" type="submit" name="SubmitNewsLetter" value="SubmitNewsLetter">
                         <i class="fas fa-file-pdf"></i> <?= gettext('Newsletter labels') ?>
                     </button>
@@ -262,18 +289,19 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                     <button class="btn btn-primary" type="submit" name="SubmitConfirmLabels" value="SubmitConfirmLabels">
                         <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data labels') ?>
                     </button>
-                    <button class="btn btn-danger" type="submit" name="SubmitConfirmReportEmail" value="SubmitConfirmReportEmail">
+                    </div>
+                    <button class="btn btn-danger mr-2 mb-2" type="submit" name="SubmitConfirmReportEmail" value="SubmitConfirmReportEmail">
                         <i class="fas fa-paper-plane"></i> <?= gettext('Confirm data Email') ?>
                     </button>
 
-                    <input type="button" class="btn btn-default" name="Cancel" value="x <?= gettext('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/v2/dashboard';">
+                    <input type="button" class="btn btn-outline-secondary mb-2" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/v2/dashboard';">
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
-            <div class="card card-primary">
-            <div class="card-header border-1">
-                    <h3 class="card-title"><?= gettext('Email Confirmation') ?></h3>
+        <div class="col-lg-3">
+            <div class="card card-outline card-primary">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-envelope-open-text mr-1"></i><?= gettext('Email Confirmation') ?></h3>
                 </div>
                 <div class="card-body">
                     <?php
@@ -284,19 +312,76 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                         $familiesConfirmDone = FamilyQuery::create()
                                 ->findByConfirmReport('Done');
                         $familiesPending = FamilyQuery::create()
-                                ->findByConfirmReport('Pending');                        
+                                ->findByConfirmReport('Pending');
                     ?>
-                    <label><?= _("Pending Persons") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/35"><span id="pending-count-persons"><?= $personsConfirmPending->count() ?></span></a><br>
-                    <label><?= _("Confirmed persons") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/37"><span id="done-count-persons"><?= $personsConfirmDone->count() ?></span></a><br/>
-                    <button type="button" class="btn btn-danger btn-xs" id="delete-pending-persons"><i class="fa fa-trash-can"></i> <?= _("Delete Pending") ?></button>
-                    <button type="button" class="btn btn-danger btn-xs" id="delete-done-confirmation-persons"><i class="fa fa-trash-can"></i> <?= _("Delete Done Confirmation") ?></button>
+                    <h6 class="text-muted text-uppercase mb-2"><?= _("Persons") ?></h6>
+                    <div class="table-responsive mb-2">
+                        <table class="table table-sm table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <th class="pl-0 pr-2 font-weight-normal text-muted align-middle"><?= _("Pending Persons") ?></th>
+                                    <td class="text-right pr-0 align-middle">
+                                        <div class="row no-gutters justify-content-end align-items-center">
+                                            <div class="col-3 text-right pr-2">
+                                                <a href="<?= $sRootPath ?>/v2/query/view/35"><span id="pending-count-persons"><?= $personsConfirmPending->count() ?></span></a>
+                                            </div>
+                                            <div class="col-9">
+                                                <button type="button" class="btn btn-outline-danger btn-xs btn-block text-nowrap" id="delete-pending-persons"><i class="fa fa-trash-can"></i> <?= _("Delete Pending") ?></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="pl-0 pr-2 font-weight-normal text-muted align-middle"><?= _("Confirmed persons") ?></th>
+                                    <td class="text-right pr-0 align-middle">
+                                        <div class="row no-gutters justify-content-end align-items-center">
+                                            <div class="col-3 text-right pr-2">
+                                                <a href="<?= $sRootPath ?>/v2/query/view/37"><span id="done-count-persons"><?= $personsConfirmDone->count() ?></span></a>
+                                            </div>
+                                            <div class="col-9">
+                                                <button type="button" class="btn btn-outline-danger btn-xs btn-block text-nowrap" id="delete-done-confirmation-persons"><i class="fa fa-trash-can"></i> <?= _("Delete Done Confirmation") ?></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr class="my-3" />
 
-                    <hr/>
-
-                    <label><?= _("Pending Families") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/36"><span id="pending-count-families"><?= $familiesPending->count() ?></span></a><br>
-                    <label><?= _("Confirmed Families") ?></label> : <a href="<?= $sRootPath ?>/v2/query/view/38"><span id="done-count-families"><?= $familiesConfirmDone->count() ?></span></a><br>                
-                    <button type="button" class="btn btn-danger btn-xs" id="delete-pending-families"><i class="fa fa-trash-can"></i> <?= _("Delete Pending") ?></button>
-                    <button type="button" class="btn btn-danger btn-xs" id="delete-done-confirmation-families"><i class="fa fa-trash-can"></i> <?= _("Delete Done Confirmation") ?></button>
+                    <h6 class="text-muted text-uppercase mb-2"><?= _("Families") ?></h6>
+                    <div class="table-responsive mb-2">
+                        <table class="table table-sm table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <th class="pl-0 pr-2 font-weight-normal text-muted align-middle"><?= _("Pending Families") ?></th>
+                                    <td class="text-right pr-0 align-middle">
+                                        <div class="row no-gutters justify-content-end align-items-center">
+                                            <div class="col-3 text-right pr-2">
+                                                <a href="<?= $sRootPath ?>/v2/query/view/36"><span id="pending-count-families"><?= $familiesPending->count() ?></span></a>
+                                            </div>
+                                            <div class="col-9">
+                                                <button type="button" class="btn btn-outline-danger btn-xs btn-block text-nowrap" id="delete-pending-families"><i class="fa fa-trash-can"></i> <?= _("Delete Pending") ?></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="pl-0 pr-2 font-weight-normal text-muted align-middle"><?= _("Confirmed Families") ?></th>
+                                    <td class="text-right pr-0 align-middle">
+                                        <div class="row no-gutters justify-content-end align-items-center">
+                                            <div class="col-3 text-right pr-2">
+                                                <a href="<?= $sRootPath ?>/v2/query/view/38"><span id="done-count-families"><?= $familiesConfirmDone->count() ?></span></a>
+                                            </div>
+                                            <div class="col-9">
+                                                <button type="button" class="btn btn-outline-danger btn-xs btn-block text-nowrap" id="delete-done-confirmation-families"><i class="fa fa-trash-can"></i> <?= _("Delete Done Confirmation") ?></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
