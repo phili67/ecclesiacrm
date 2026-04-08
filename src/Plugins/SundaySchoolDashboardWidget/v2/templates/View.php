@@ -15,22 +15,21 @@ $dshiS = new DashboardItemService();
 $dashboardCounts = $dshiS->getAllItems();
 ?>
 
-<div class="col-lg-2 col-xs-6">
-    <!-- small box -->
-    <div class="small-box <?= $plugin->getPlgnColor() ?>">
-        <div class="inner">
-            <h3 id="groupStatsSundaySchool">
-                <?= $dashboardCounts['SundaySchoolCount'] ?>
-            </h3>
-            <p>
-                <?= dgettext("messages-SundaySchoolDashboardWidget",'Sunday School Classes') ?>
-            </p>
+<div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+    <div class="card border-0 shadow-sm h-100" style="border-top:3px solid #f6c23e!important;">
+        <div class="card-body p-3">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="text-uppercase text-muted" style="font-size:.7rem;font-weight:700;letter-spacing:.05em;"><?= dgettext("messages-SundaySchoolDashboardWidget",'Sunday School') ?></span>
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:36px;height:36px;background:rgba(246,194,62,.15);">
+                    <i class="fas fa-child" style="color:#f6c23e;font-size:16px;"></i>
+                </div>
+            </div>
+            <div class="h2 mb-0 font-weight-bold" id="groupStatsSundaySchool"><?= $dashboardCounts['SundaySchoolCount'] ?></div>
         </div>
-        <div class="icon">
-            <i class="fas fa-child"></i>
+        <div class="card-footer bg-transparent border-0 pt-0 pb-2 px-3">
+            <a href="<?= $sRootPath ?>/v2/sundayschool/dashboard" class="small font-weight-bold" style="color:#f6c23e;">
+                <?= dgettext("messages-SundaySchoolDashboardWidget",'More info') ?> <i class="fas fa-arrow-right ml-1"></i>
+            </a>
         </div>
-        <a href="<?= $sRootPath ?>/v2/sundayschool/dashboard" class="small-box-footer">
-            <?= dgettext("messages-SundaySchoolDashboardWidget",'More info') ?> <i class="fas fa-arrow-circle-right"></i>
-        </a>
     </div>
-</div><!-- ./col -->
+</div>
