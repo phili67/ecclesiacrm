@@ -22,34 +22,38 @@ use Propel\Runtime\ActiveQuery\Criteria;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card special-card">
-    <div class="card-header">
-        <h3 class="card-title"><?= _("Role management") ?></h3>
-    </div>
-    <div class="card-body">
-        <a href="#" id="addRole" class="btn btn-app"><i class="fa  fa-plus"></i><?= _("Add Role") ?></a>
-        <a href="#" id="manageRole" class="btn btn-app"><i class="fas fa-cog"></i><?= _("Manage Roles") ?></a>
-        <div class="btn-group">
-            <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i
-                    class="fas fa-arrow-circle-down"></i><?= _("Add Role to Current User") ?></a>
-            <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu" role="menu" id="AllRoles">
-                <?php
-                foreach ($userRoles as $userRole) {
-                    ?>
-                    <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i
-                            class="fas fa-arrow-circle-down"></i><?= $userRole->getName() ?></a>
-                    <?php
-                }
-                ?>
+<div class="card card-outline card-primary shadow-sm">
+    <div class="card-header border-0">
+        <div class="d-flex flex-wrap align-items-center justify-content-between" style="gap:.75rem;">
+            <h3 class="card-title mb-0"><i class="fas fa-user-shield mr-2"></i><?= _("Role management") ?></h3>
+            <div class="d-flex flex-wrap align-items-center" style="gap:.5rem;">
+                <a href="#" id="addRole" class="btn btn-sm btn-primary">
+                    <i class="fas fa-plus mr-1"></i><?= _("Add Role") ?>
+                </a>
+                <a href="#" id="manageRole" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-cog mr-1"></i><?= _("Manage Roles") ?>
+                </a>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-outline-secondary changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>">
+                        <i class="fas fa-user-plus mr-1"></i><?= _("Add Role to Current User") ?>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" role="menu" id="AllRoles">
+                        <?php
+                        foreach ($userRoles as $userRole) {
+                            ?>
+                            <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i class="fas fa-tag mr-1"></i><?= $userRole->getName() ?></a>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- /.box-body -->
-</div><!-- Default box -->
+</div>
 
 <form method="post" action="<?= $sRootPath ?>/v2/users/editor">
 
@@ -63,7 +67,7 @@ require $sRootDocument . '/Include/Header.php';
     if ($bShowPersonSelect) {
         //Yes, so display the people drop-down
         ?>
-        <div class="card">
+        <div class="card card-outline card-secondary shadow-sm">
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3">
@@ -100,7 +104,7 @@ require $sRootDocument . '/Include/Header.php';
     }
     ?>
 
-    <div class="card card-secondary">
+    <div class="card card-secondary card-outline shadow-sm">
         <div class="card-header">
             <h3 class="card-title">
                     <?= _('Note: Changes will not take effect until next logon.') ?>
@@ -162,23 +166,23 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="col-7 col-sm-9 preferences_pane">
                     <div class="tab-content" id="vert-tabs-right-tabContent">
                         <div class="tab-pane fade active show" id="vert-tabs-right-home" role="tabpanel" aria-labelledby="vert-tabs-right-home-tab">
-                            <div class="card card-default">
-                                <div class="card-header">
-                                    <label class="card-title">
-                                        <?= _("Global Permissions") ?>
-                                    </label>
+                            <div class="card shadow-sm mb-0">
+                                <div class="card-header border-0">
+                                    <h3 class="card-title mb-0">
+                                        <i class="fas fa-user-lock mr-2"></i><?= _("Global Permissions") ?>
+                                    </h3>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body py-3">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-3 mb-md-0">
                                             <!-- Management settings -->
-                                            <div class="card card-default">
-                                                <div class="card-header">
-                                                    <h3 class="card-title">
-                                                        <?= _("Management") ?>
+                                            <div class="card card-outline card-primary shadow-sm mb-3">
+                                                <div class="card-header border-0 py-2">
+                                                    <h3 class="card-title mb-0">
+                                                        <i class="fas fa-sitemap mr-2"></i><?= _("Management") ?>
                                                     </h3>
                                                 </div>
-                                                <div class="card-body">
+                                                <div class="card-body py-2">
                                                     <div class="row">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('Admin') ?>:<br/>
@@ -260,11 +264,11 @@ require $sRootDocument . '/Include/Header.php';
                                             <!-- end of Management settings -->
 
                                             <!-- user settings -->
-                                            <div class="card card-default">
-                                                <div class="card-header">
-                                                    <h3 class="card-title"><?= _("User Account Permissions") ?></h3>
+                                            <div class="card card-outline card-secondary shadow-sm mb-3">
+                                                <div class="card-header border-0 py-2">
+                                                    <h3 class="card-title mb-0"><i class="fas fa-user-cog mr-2"></i><?= _("User Account Permissions") ?></h3>
                                                 </div>
-                                                <div class="card-body">
+                                                <div class="card-body py-2">
                                                     <div class="d-none">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('Main Dashboard') ?>:<br/>
@@ -323,13 +327,13 @@ require $sRootDocument . '/Include/Header.php';
                                             <!-- end of user settings -->
 
                                             <!-- View settings -->
-                                            <div class="card card-default">
-                                                <div class="card-header">
-                                                    <h3 class="card-title">
-                                                        <?= _("Permissions To View") ?>
+                                            <div class="card card-outline card-info shadow-sm mb-0">
+                                                <div class="card-header border-0 py-2">
+                                                    <h3 class="card-title mb-0">
+                                                        <i class="fas fa-eye mr-2"></i><?= _("Permissions To View") ?>
                                                     </h3>
                                                 </div>
-                                                <div class="card-body">
+                                                <div class="card-body py-2">
                                                     <div class="row">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('Show Cart') ?>:
@@ -367,13 +371,13 @@ require $sRootDocument . '/Include/Header.php';
                                         </div>
                                         <div class="col-md-6">
                                             <!-- Export settings -->
-                                            <div class="card card-default">
-                                                <div class="card-header">
-                                                    <h3 class="card-title">
-                                                        <?= _("Export Permissions") ?>
+                                            <div class="card card-outline card-success shadow-sm mb-3">
+                                                <div class="card-header border-0 py-2">
+                                                    <h3 class="card-title mb-0">
+                                                        <i class="fas fa-file-export mr-2"></i><?= _("Export Permissions") ?>
                                                     </h3>
                                                 </div>
-                                                <div class="card-body">
+                                                <div class="card-body py-2">
                                                     <div class="row">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('CSV Export') ?>:<br/>
@@ -427,13 +431,13 @@ require $sRootDocument . '/Include/Header.php';
                                             <!-- Export settings -->
 
                                             <!-- Special settings -->
-                                            <div class="card card-default">
-                                                <div class="card-header">
-                                                    <h3 class="card-title">
-                                                        <?= _("Special Permissions") ?>
+                                            <div class="card card-outline card-warning shadow-sm mb-0">
+                                                <div class="card-header border-0 py-2">
+                                                    <h3 class="card-title mb-0">
+                                                        <i class="fas fa-star mr-2"></i><?= _("Special Permissions") ?>
                                                     </h3>
                                                 </div>
-                                                <div class="card-body">
+                                                <div class="card-body py-2">
                                                     <div class="<?= (SystemConfig::getBooleanValue('bEnabledFinance') or SystemConfig::getBooleanValue('bEnabledFundraiser'))?'row':'d-none' ?>">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _('Manage Donations and Finance') ?>:
@@ -503,26 +507,25 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                         </div>
                         <div class="tab-pane fade" id="vert-tabs-right-profile" role="tabpanel" aria-labelledby="vert-tabs-right-profile-tab">
-                            <!-- Default box -->
-                            <div class="card card-default">
-                                <div class="card-header">
-                                    <label class="card-title">
-                                        <?= _("Modifiable Permissions") ?>
-                                    </label>
+                            <div class="card  shadow-sm mb-0">
+                                <div class="card-header border-0 py-2">
+                                    <h3 class="card-title mb-0">
+                                        <i class="fas fa-sliders-h mr-2"></i><?= _("Modifiable Permissions") ?>
+                                    </h3>
                                 </div>
-                                <div class="card-body">
-                                    <div class="alert alert-info">
-                                        <i class="fas fa-info-circle"></i>
-                                        <?= _('Set Permission True to give this user the ability to change their current value.') ?>
+                                <div class="card-body py-3">
+                                    <div class="alert alert-info py-2 mb-3 d-flex align-items-start">
+                                        <i class="fas fa-info-circle mr-2"></i>
+                                        <span><?= _('Set Permission True to give this user the ability to change their current value.') ?></span>
                                     </div>
-                                    <table class="table table-hover data-person data-table2 no-footer dtr-inline"
+                                    <table class="table table-sm table-hover table-striped data-person data-table2 no-footer dtr-inline"
                                            style="width:100%">
                                         <thead>
-                                        <tr>
-                                            <th><?= _('Permission') ?></h3></th>
-                                            <th><?= _('Variable name') ?></th>
-                                            <th><?= _('Current Value') ?></h3></th>
-                                            <th><?= _('Notes') ?></th>
+                                        <tr class="border-bottom">
+                                            <th class="text-muted small font-weight-bold"><?= _('Permission') ?></th>
+                                            <th class="text-muted small font-weight-bold"><?= _('Variable name') ?></th>
+                                            <th class="text-muted small font-weight-bold"><?= _('Current Value') ?></th>
+                                            <th class="text-muted small font-weight-bold"><?= _('Notes') ?></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -553,8 +556,8 @@ require $sRootDocument . '/Include/Header.php';
                                                 $sel2 = '';
                                             }
                                             ?>
-                                            <tr class="user_settings" data-name="<?= $userConfig->getName() ?>">
-                                                <td>
+                                            <tr class="user_settings align-middle" data-name="<?= $defaultConfig->getName() ?>" <?=  ($defaultConfig->getName() == 'sStyleSideBar' or $defaultConfig->getName() == 'sDarkMode' or $defaultConfig->getName() == 'sStyleBrandLinkColor' or $defaultConfig->getName() == 'sStyleNavBarColor')?'style="display:none;height:0px"':'' ?>>
+                                                <td class="align-middle" style="min-width:120px;">
                                                     <select class="form-control form-control-sm"
                                                             name="new_permission[<?= $userConfig->getId() ?>]">
                                                         <option value="FALSE" <?= $sel1 ?>><?= _('False') ?>
@@ -566,15 +569,15 @@ require $sRootDocument . '/Include/Header.php';
                                                 // Variable Name & Type
                                                 ?>
 
-                                                <td>
-                                                    <?= $userConfig->getName() ?>
+                                                <td class="align-middle" style="min-width:180px;">
+                                                    <span class="badge badge-light border text-dark font-weight-normal px-2 py-1"><?= $userConfig->getName() ?></span>
                                                 </td>
 
                                                 <?php
                                                 // Current Value
                                                 if ($userConfig->getType() == 'text') {
                                                     ?>
-                                                    <td>
+                                                    <td class="align-middle" style="min-width:220px;">
                                                         <input class="form-control form-control-sm" type="text" size="30"
                                                                maxlength="255"
                                                                name="new_value[<?= $userConfig->getId() ?>]"
@@ -583,8 +586,8 @@ require $sRootDocument . '/Include/Header.php';
                                                     <?php
                                                 } elseif ($userConfig->getType() == 'textarea') {
                                                     ?>
-                                                    <td>
-                                              <textarea rows="4" cols="30" name="new_value[<?= $userConfig->getId() ?>]\">
+                                                        <td class="align-middle" style="min-width:220px;">
+                                                    <textarea rows="4" cols="30" class="form-control form-control-sm" name="new_value[<?= $userConfig->getId() ?>]\">
                                                     <?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>
                                               </textarea>
                                                     </td>
@@ -592,7 +595,7 @@ require $sRootDocument . '/Include/Header.php';
                                                 } elseif ($userConfig->getType() == 'number' || $userConfig->getType() == 'date') {
                                                     // todo dates !!!! PL
                                                     ?>
-                                                    <td>
+                                                    <td class="align-middle" style="min-width:220px;">
                                                         <input class="form-control form-control-sm" type="text" size="15"
                                                                maxlength="15" name="new_value[<?= $userConfig->getId() ?>]\"
                                                                value="<?= $userConfig->getValue() ?>">
@@ -607,7 +610,7 @@ require $sRootDocument . '/Include/Header.php';
                                                         $sel2 = '';
                                                     }
                                                     ?>
-                                                    <td>
+                                                    <td class="align-middle" style="min-width:220px;">
                                                         <select class="form-control form-control-sm"
                                                                 name="new_value[<?= $userConfig->getId() ?>]">
                                                             <option value="" <?= $sel1 ?>><?= _('False') ?>
@@ -621,7 +624,7 @@ require $sRootDocument . '/Include/Header.php';
 
                                                     $choices = explode(",", $userChoices->getChoices());
                                                     ?>
-                                                    <td>
+                                                    <td class="align-middle" style="min-width:220px;">
                                                         <select class="form-control form-control-sm"
                                                                 name="new_value[<?= $userConfig->getId() ?>]">
                                                             <?php
@@ -641,7 +644,7 @@ require $sRootDocument . '/Include/Header.php';
 
                                                 // Notes
                                                 ?>
-                                                <td>
+                                                      <td class="align-middle text-muted small">
                                                     <input type="hidden" name="type[<?= $userConfig->getId() ?>]\"
                                                            value="<?= $userConfig->getType() ?>">
                                                     <?= _($userConfig->getTooltip()) ?>
@@ -655,19 +658,17 @@ require $sRootDocument . '/Include/Header.php';
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- /.box-body -->
                             </div>
-                            <!-- /.box -->
                         </div>
                         <div class="tab-pane fade" id="vert-tabs-right-messages" role="tabpanel" aria-labelledby="vert-tabs-right-messages-tab">
                             <!-- Global Plugin settings -->
-                            <div class="card">
-                                <div class="card-header">
-                                    <label class="card-title">
-                                        <?= _("Plugin permissions") ?>
-                                    </label>
+                            <div class="card shadow-sm mb-3">
+                                <div class="card-header border-0 py-2">
+                                    <h3 class="card-title mb-0">
+                                        <i class="fas fa-plug mr-2"></i><?= _("Plugin permissions") ?>
+                                    </h3>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body py-2">
                                     <?php
                                     $plugins = PluginQuery::create()
                                         ->filterByCategory('Dashboard', Criteria::NOT_EQUAL)
@@ -681,9 +682,9 @@ require $sRootDocument . '/Include/Header.php';
                                             $role_sel = $role->getRole();
                                         }
                                         ?>
-                                        <div class="row">
-                                            <div class="col-md-7">&bullet;
-                                                <?= $plugin->getName() ?>:
+                                        <div class="row align-items-center py-2 border-bottom">
+                                            <div class="col-md-7">
+                                                <span class="font-weight-medium"><i class="fas fa-puzzle-piece text-muted mr-2"></i><?= $plugin->getName() ?></span>
                                             </div>
                                             <div class="col-md-5">
                                                 <select class="form-control form-control-sm"
@@ -702,29 +703,29 @@ require $sRootDocument . '/Include/Header.php';
                             <!-- Global Plugin settings -->
 
                             <!-- Dashboard Plugin settings -->
-                            <div class="card">
-                                <div class="card-header">
-                                    <label class="card-title">
-                                        <?= _("Visibilities of the dashboard plugins") ?>
-                                    </label>
+                            <div class="card card-outline card-primary shadow-sm mb-0">
+                                <div class="card-header border-0 py-2">
+                                    <h3 class="card-title mb-0">
+                                        <i class="fas fa-th-large mr-2"></i><?= _("Visibilities of the dashboard plugins") ?>
+                                    </h3>
                                 </div>
-                                <div class="card-body">
-                                <label><?= _("Widgets") ?></label>
-                                <div class="row">
+                                <div class="card-body py-2">
+                                <label class="text-muted small font-weight-bold text-uppercase mb-2"><?= _("Widgets") ?></label>
+                                <div class="row border-bottom pb-2 mb-2">
                                             <div class="col-md-4">
-                                                <label><?= _("Name") ?></label>
+                                                <label class="text-muted small font-weight-bold"><?= _("Name") ?></label>
                                             </div>
                                             <div class="col-md-2">
-                                                <label><?= _("Security") ?></label>
+                                                <label class="text-muted small font-weight-bold"><?= _("Security") ?></label>
                                             </div>
                                             <div class="col-md-2">
-                                                <label><?= _("Status") ?></label>
+                                                <label class="text-muted small font-weight-bold"><?= _("Status") ?></label>
                                             </div>
                                             <div class="col-md-2 d-none">
-                                               <label><?= _("Position") ?></label>
+                                               <label class="text-muted small font-weight-bold"><?= _("Position") ?></label>
                                             </div>
                                             <div class="col-md-2 d-none">
-                                                <label><?= _("Role") ?></label>
+                                                <label class="text-muted small font-weight-bold"><?= _("Role") ?></label>
                                             </div>
                                         </div>
                                     <?php
@@ -749,9 +750,9 @@ require $sRootDocument . '/Include/Header.php';
                                             $role_sel = $role->getRole();
                                         }
                                         ?>
-                                        <div class="row">
-                                            <div class="col-md-4">&bullet;
-                                                <?= $plugin->getName() ?>:
+                                        <div class="row align-items-center py-2 border-bottom">
+                                            <div class="col-md-4">
+                                                <span class="font-weight-medium"><i class="fas fa-th-large text-muted mr-2"></i><?= $plugin->getName() ?></span>
                                             </div>
                                             <div class="col-md-2">
                                                 <?= $plugin->getPluginSecurityName() ?>
@@ -776,23 +777,23 @@ require $sRootDocument . '/Include/Header.php';
                                     }
                                     ?>
 
-                                <hr/>
-                                <label><?= _("Dashboard Plugins") ?></label>
-                                <div class="row">
+                                <hr class="my-3">
+                                <h3 class="card-title mb-0"><i class="fas fa-puzzle-piece mr-2"></i> <?= _("Dashboard Plugins") ?></h3>
+                                <div class="row border-bottom pb-2 mb-2">
                                             <div class="col-md-4">
-                                                <label><?= _("Name") ?></label>
+                                                <label class="text-muted small font-weight-bold"><?= _("Name") ?></label>
                                             </div>
                                             <div class="col-md-2">
-                                                <label><?= _("Security") ?></label>
+                                                <label class="text-muted small font-weight-bold"><?= _("Security") ?></label>
                                             </div>
                                             <div class="col-md-2">
-                                                <label><?= _("Status") ?></label>
+                                                <label class="text-muted small font-weight-bold"><?= _("Status") ?></label>
                                             </div>
                                             <div class="col-md-2">
-                                               <label><?= _("Position") ?></label>
+                                               <label class="text-muted small font-weight-bold"><?= _("Position") ?></label>
                                             </div>
                                             <div class="col-md-2">
-                                                <label><?= _("Role") ?></label>
+                                                <label class="text-muted small font-weight-bold"><?= _("Role") ?></label>
                                             </div>
                                         </div>
                                     <?php
@@ -817,9 +818,9 @@ require $sRootDocument . '/Include/Header.php';
                                             $role_sel = $role->getRole();
                                         }
                                         ?>
-                                        <div class="row">
-                                            <div class="col-md-4">&bullet;
-                                                <?= $plugin->getName() ?>:
+                                        <div class="row align-items-center py-2 border-bottom">
+                                            <div class="col-md-4">
+                                                <span class="font-weight-medium"><i class="fas fa-columns text-muted mr-2"></i><?= $plugin->getName() ?></span>
                                             </div>
                                             <div class="col-md-2">
                                                 <?= $plugin->getPluginSecurityName() ?>
@@ -858,10 +859,10 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                 </div>
                 <div class="col-5 col-sm-3">
-                    <div class="nav flex-column nav-tabs nav-tabs-right h-100" id="vert-tabs-right-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="vert-tabs-right-home-tab" data-toggle="pill" href="#vert-tabs-right-home" role="tab" aria-controls="vert-tabs-right-home" aria-selected="true"><?= _("Global Permissions") ?></a>
-                        <a class="nav-link" id="vert-tabs-right-profile-tab" data-toggle="pill" href="#vert-tabs-right-profile" role="tab" aria-controls="vert-tabs-right-profile" aria-selected="false"><?= _("Modifiable Permissions") ?></a>
-                        <a class="nav-link" id="vert-tabs-right-messages-tab" data-toggle="pill" href="#vert-tabs-right-messages" role="tab" aria-controls="vert-tabs-right-messages" aria-selected="false"><?= _("Plugin permissions") ?></a>
+                    <div class="nav flex-column nav-tabs nav-tabs-right" id="vert-tabs-right-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active py-2 px-3" id="vert-tabs-right-home-tab" data-toggle="pill" href="#vert-tabs-right-home" role="tab" aria-controls="vert-tabs-right-home" aria-selected="true"><i class="fas fa-user-lock mr-2"></i><?= _("Global Permissions") ?></a>
+                        <a class="nav-link py-2 px-3" id="vert-tabs-right-profile-tab" data-toggle="pill" href="#vert-tabs-right-profile" role="tab" aria-controls="vert-tabs-right-profile" aria-selected="false"><i class="fas fa-sliders-h mr-2"></i><?= _("Modifiable Permissions") ?></a>
+                        <a class="nav-link py-2 px-3" id="vert-tabs-right-messages-tab" data-toggle="pill" href="#vert-tabs-right-messages" role="tab" aria-controls="vert-tabs-right-messages" aria-selected="false"><i class="fas fa-plug mr-2"></i><?= _("Plugin permissions") ?></a>
                     </div>
                 </div>
             </div>
@@ -873,18 +874,13 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
         <!-- /.box-body -->
-        <div class="card-footer">
-            <div class="row float-left">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-8">
-                    <input type="submit" class="btn btn-primary" name="save"
-                           value="<?= _('Save Settings') ?>">
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="btn btn-default" name="cancel" value="<?= _('Cancel') ?>">
-                </div>
-            </div>
+        <div class="card-footer border-0 d-flex justify-content-end" style="gap:.5rem;">
+            <button type="submit" class="btn btn-sm btn-outline-secondary" name="cancel" value="<?= _('Cancel') ?>">
+                <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
+            </button>
+            <button type="submit" class="btn btn-sm btn-primary" name="save" value="<?= _('Save Settings') ?>">
+                <i class="fas fa-save mr-1"></i><?= _('Save Settings') ?>
+            </button>
         </div>
     </div>
     <!-- /.box -->
