@@ -23,108 +23,116 @@ require $sRootDocument . '/Include/Header.php';
 
 ?>
 
-<div class='text-center'>
-    <a class='btn btn-primary' id="add-event">
-        <i class='fas fa-ticket-alt'></i>
-        <?= _('Add New Event') ?>
-    </a>
+<div class="card card-outline card-primary shadow-sm mb-3">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-calendar mr-1"></i><?= _('Events Management') ?></h3>
+    </div>
+    <div class="card-body py-3">
+        <button type="button" class="btn btn-sm btn-success" id="add-event">
+            <i class="fas fa-plus mr-1"></i><?= _('Add New Event') ?>
+        </button>
+    </div>
 </div>
 
 
-<div class="row">
-    <div class="col-sm-4">
-        <label><?= _('Select Event Types To Display') ?></label>
-        <select name="WhichType" id="EventTypeSelector" class="form-control form-control-sm">
-            <option value="all" <?= ($eType == 'All')?'selected':'' ?>><?= _('All') ?></option>
-            <?php
-            foreach ($eventTypes as $eventType) {
-                if ($eventType->getId() == null) {
-                    ?>
-                    <option value="<?= _("Personal Calendar") ?>" <?= ($eType == '0' && $eType !='All')?'selected':'' ?>><?= _("Personal Calendar") ?></option>
-                    <option value="<?= _("Group") ?>" <?= ($eType == '0' && $eType !='All')?'selected':'' ?>><?= _("Group") ?></option>
-                <?php } else { ?>
-                    <option value="<?= $eventType->getName() ?>" <?= ($eventType->getId() == $eType)?'selected':'' ?>><?= $eventType->getName() ?></option>
+<div class="card card-outline card-info shadow-sm mb-3">
+    <div class="card-header py-2">
+        <h3 class="card-title mb-0"><i class="fas fa-filter mr-1"></i><?= _('Event Filters') ?></h3>
+    </div>
+    <div class="card-body py-3">
+        <div class="row">
+            <div class="col-sm-4">
+                <label class="mb-2"><?= _('Select Event Types To Display') ?></label>
+                <select name="WhichType" id="EventTypeSelector" class="form-control form-control-sm">
+                    <option value="all" <?= ($eType == 'All')?'selected':'' ?>><?= _('All') ?></option>
                     <?php
-                }
-            }
-            ?>
-        </select>
-    </div>
-    <div class="col-sm-4">
-        <label><?= _('Display Events in Month') ?></label>
-        <select name="WhichMonth" id="MonthSelector" class="form-control form-control-sm">
-            <option value="all" <?= ($EventMonth == 0)?'selected':'' ?>><?= _("All") ?></option>
-            <option value="-1" disabled="disabled">_________________________</option>
-            <option value="<?= _("January") ?>" <?= ($EventMonth == 1)?'selected':'' ?>><?= _("January") ?></option>
-            <option value="<?= _("February") ?>" <?= ($EventMonth == 2)?'selected':'' ?>><?= _("February") ?></option>
-            <option value="<?= _("March") ?>" <?= ($EventMonth == 3)?'selected':'' ?>><?= _("March") ?></option>
-            <option value="<?= _("April") ?>" <?= ($EventMonth == 4)?'selected':'' ?>><?= _("April") ?></option>
-            <option value="<?= _("May") ?>" <?= ($EventMonth == 5)?'selected':'' ?>><?= _("May") ?></option>
-            <option value="<?= _("June") ?>" <?= ($EventMonth == 6)?'selected':'' ?>><?= _("June") ?></option>
-            <option value="<?= _("July") ?>" <?= ($EventMonth == 7)?'selected':'' ?>><?= _("July") ?></option>
-            <option value="<?= _("August") ?>" <?= ($EventMonth == 8)?'selected':'' ?>><?= _("August") ?></option>
-            <option value="<?= _("September") ?>" <?= ($EventMonth == 9)?'selected':'' ?>><?= _("September") ?></option>
-            <option value="<?= _("October") ?>" <?= ($EventMonth == 10)?'selected':'' ?>><?= _("October") ?></option>
-            <option value="<?= _("November") ?>" <?= ($EventMonth == 11)?'selected':'' ?>><?= _("November") ?></option>
-            <option value="<?= _("December") ?>" <?= ($EventMonth == 12)?'selected':'' ?>><?= _("December") ?></option>
-        </select>
-    </div>
-    <div class="col-sm-4"><label><?= _('Display Events in Year') ?></label>
-        <select name="WhichYear" id="YearSelector" class= "form-control form-control-sm">
-            <?php
-            $current_Year = date('Y');
+                    foreach ($eventTypes as $eventType) {
+                        if ($eventType->getId() == null) {
+                            ?>
+                            <option value="<?= _("Personal Calendar") ?>" <?= ($eType == '0' && $eType !='All')?'selected':'' ?>><?= _("Personal Calendar") ?></option>
+                            <option value="<?= _("Group") ?>" <?= ($eType == '0' && $eType !='All')?'selected':'' ?>><?= _("Group") ?></option>
+                        <?php } else { ?>
+                            <option value="<?= $eventType->getName() ?>" <?= ($eventType->getId() == $eType)?'selected':'' ?>><?= $eventType->getName() ?></option>
+                            <?php
+                        }
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <label class="mb-2"><?= _('Display Events in Month') ?></label>
+                <select name="WhichMonth" id="MonthSelector" class="form-control form-control-sm">
+                    <option value="all" <?= ($EventMonth == 0)?'selected':'' ?>><?= _("All") ?></option>
+                    <option value="-1" disabled="disabled">_________________________</option>
+                    <option value="<?= _("January") ?>" <?= ($EventMonth == 1)?'selected':'' ?>><?= _("January") ?></option>
+                    <option value="<?= _("February") ?>" <?= ($EventMonth == 2)?'selected':'' ?>><?= _("February") ?></option>
+                    <option value="<?= _("March") ?>" <?= ($EventMonth == 3)?'selected':'' ?>><?= _("March") ?></option>
+                    <option value="<?= _("April") ?>" <?= ($EventMonth == 4)?'selected':'' ?>><?= _("April") ?></option>
+                    <option value="<?= _("May") ?>" <?= ($EventMonth == 5)?'selected':'' ?>><?= _("May") ?></option>
+                    <option value="<?= _("June") ?>" <?= ($EventMonth == 6)?'selected':'' ?>><?= _("June") ?></option>
+                    <option value="<?= _("July") ?>" <?= ($EventMonth == 7)?'selected':'' ?>><?= _("July") ?></option>
+                    <option value="<?= _("August") ?>" <?= ($EventMonth == 8)?'selected':'' ?>><?= _("August") ?></option>
+                    <option value="<?= _("September") ?>" <?= ($EventMonth == 9)?'selected':'' ?>><?= _("September") ?></option>
+                    <option value="<?= _("October") ?>" <?= ($EventMonth == 10)?'selected':'' ?>><?= _("October") ?></option>
+                    <option value="<?= _("November") ?>" <?= ($EventMonth == 11)?'selected':'' ?>><?= _("November") ?></option>
+                    <option value="<?= _("December") ?>" <?= ($EventMonth == 12)?'selected':'' ?>><?= _("December") ?></option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <label class="mb-2"><?= _('Display Events in Year') ?></label>
+                <select name="WhichYear" id="YearSelector" class= "form-control form-control-sm">
+                    <?php
+                    $current_Year = date('Y');
 
-            $is_current_available = false;
-            $is_option_selected   = false;
+                    $is_current_available = false;
+                    $is_option_selected   = false;
 
-            foreach ($years as $year) {
-                if ($year == $current_Year) {
-                    $is_current_available = true;
-                }
+                    foreach ($years as $year) {
+                        if ($year == $current_Year) {
+                            $is_current_available = true;
+                        }
 
-                if ($year == $yVal && $year != $current_Year) {
-                    $is_option_selected = true;
-                }
-                ?>
-                <option value="<?= $year ?>" <?= ($year == $yVal)?'selected':'' ?>><?= $year ?></option>
-                <?php
-            }
-            if (!$is_current_available) {
-                ?>
-                <option value="<?= $current_Year ?>" <?= (!$is_option_selected)?"selected":"" ?>><?= $current_Year ?></option>
-                <?php
-            }
-            ?>
-        </select>
+                        if ($year == $yVal && $year != $current_Year) {
+                            $is_option_selected = true;
+                        }
+                        ?>
+                        <option value="<?= $year ?>" <?= ($year == $yVal)?'selected':'' ?>><?= $year ?></option>
+                        <?php
+                    }
+                    if (!$is_current_available) {
+                        ?>
+                        <option value="<?= $current_Year ?>" <?= (!$is_option_selected)?"selected":"" ?>><?= $current_Year ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
     </div>
 </div>
 
-<br/>
 
-
-<div class="card">
-    <div class="card-header border-1">
-        <h3 class="card-title" id="main-Title-events"><?= _("Events in Year") ?> : <?= $yVal ?></h3>
+<div class="card card-outline card-primary shadow-sm">
+    <div class="card-header py-2">
+        <h3 class="card-title mb-0" id="main-Title-events"><i class="fas fa-list mr-1"></i><?= _("Events in Year") ?> : <?= $yVal ?></h3>
         <div class="card-tools">
             <h3 class="in-progress" style="color:red"></h3>
         </div>
     </div>
-    <div class="card-body">
+    <div class="card-body p-0">
         <table width="100%" cellpadding="2"
-               class="table table-striped table-bordered data-table dataTable no-footer dtr-inline"
+               class="table table-striped table-bordered table-hover data-table dataTable no-footer dtr-inline"
             id="DataEventsListTable"></table>
     </div>
 </div>
 
 
-<div>
-    <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar" class='btn btn-default'>
-        <i class='fas fa-chevron-left'></i>
+<div class="mt-4 pt-3 border-top">
+    <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar" class='btn btn-outline-secondary'>
+        <i class='fas fa-arrow-left mr-1'></i>
         <?= _('Return to Calendar') ?>
     </a>
 </div>
-
-<br/>
 
 <link href="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
 
