@@ -1,18 +1,20 @@
 $(function() {
     $(".groupSpecificProperties").on('click',function (e) {
         var groupPropertyAction = e.currentTarget.id;
-        if (groupPropertyAction == "enableGroupProps") {
+        if (groupPropertyAction === "enableGroupProps") {
             $("#groupSpecificPropertiesModal").modal("show");
             $("#gsproperties-label").text(i18next.t('Confirm Enable Group Specific Properties'));
             $("#groupSpecificPropertiesModal .modal-body span").text(i18next.t('This will create a group-specific properties table for this group. You should then add needed properties with the Group-Specific Properties Form Editor.'));
             $("#setgroupSpecificProperties").text(i18next.t('Enable Group Specific Properties'));
             $("#setgroupSpecificProperties").data("action", 1);
+            $("#setgroupSpecificProperties").removeClass("btn-danger").addClass("btn-success");
         } else {
             $("#groupSpecificPropertiesModal").modal("show");
             $("#gsproperties-label").text(i18next.t('Confirm Disable Group Specific Properties'));
             $("#groupSpecificPropertiesModal .modal-body span").text(i18next.t('Are you sure you want to remove the group-specific person properties? All group member properties data will be lost!'));
             $("#setgroupSpecificProperties").text(i18next.t('Disable Group Specific Properties'));
             $("#setgroupSpecificProperties").data("action", 0);
+            $("#setgroupSpecificProperties").removeClass("btn-success").addClass("btn-danger");
         }
     });
 
@@ -65,11 +67,15 @@ $(function() {
 
     $("#addNewRole").on('click',function (e) {
         var newRoleName = $("#newRole").val();
+        if (!newRoleName || newRoleName.trim() === "") {
+            window.CRM.DisplayAlert(i18next.t("Role"), i18next.t("Please enter a role name."));
+            return;
+        }
 
         window.CRM.APIRequest({
             method: "POST",
             path: "groups/" + window.CRM.groupID + "/roles",
-            data: JSON.stringify({"roleName": newRoleName }),
+            data: JSON.stringify({"roleName": newRoleName.trim() }),
         },function (data) {
             window.CRM.dataT.ajax.reload();
             $("#newRole").val('');
@@ -86,10 +92,20 @@ $(function() {
 
         if (numberOfRows > 1) {
             bootbox.confirm({
-                title: i18next.t("Confirm Delete Role"),
-                message: '<p style="color: red">' +
+                title: '<i class="fas fa-exclamation-triangle text-danger mr-2"></i>' + i18next.t("Confirm Delete Role"),
+                message: '<div class="alert alert-danger mb-0">' +
                     i18next.t("This will also delete all persons membership associated with this role.") +
-                    "</p>",
+                    '</div>',
+                buttons: {
+                    cancel: {
+                        label: i18next.t('Cancel'),
+                        className: 'btn-outline-secondary'
+                    },
+                    confirm: {
+                        label: '<i class="fas fa-trash-alt mr-1"></i>' + i18next.t('Delete'),
+                        className: 'btn-danger'
+                    }
+                },
                 callback: function (result) {
                     if (result) {
                         window.CRM.APIRequest({
@@ -126,7 +142,7 @@ $(function() {
             newRoleSequence = Number(currentRoleSequence) + 1; // increase the role's sequenc number
         }
 
-        replaceRow = window.CRM.dataT.row(function (idx, data, node) {
+        var replaceRow = window.CRM.dataT.row(function (idx, data, node) {
             if (data.OptionSequence == newRoleSequence) {
                 return true;
             }
@@ -162,7 +178,7 @@ $(function() {
     });
 
     $(document).on('click', '.defaultRole', function (e) {
-        var roleID = e.target.id.split("-")[1];
+        var roleID = e.currentTarget.id.split("-")[1];
         window.CRM.APIRequest({
             method: "POST",
             path: "groups/" + window.CRM.groupID + "/defaultRole",
@@ -210,9 +226,9 @@ $(function() {
                 data: 'Id',
                 render: function (data, type, full, meta) {
                     if (full.OptionId == defaultRoleID) {
-                        return "<strong><i class=\"fas fa-check\"></i>" + i18next.t("Default") + "</strong>";
+                        return '<span class="badge badge-success"><i class="fas fa-check mr-1"></i>' + i18next.t("Default") + '</span>';
                     } else {
-                        return '<button type="button" id="defaultRole-' + full.OptionId + '" class="btn btn-sm btn-success defaultRole">' + i18next.t("Default") + '</button>';
+                        return '<button type="button" id="defaultRole-' + full.OptionId + '" class="btn btn-sm btn-outline-success defaultRole"><i class="fas fa-check mr-1"></i>' + i18next.t("Default") + '</button>';
                     }
                 }
             },
@@ -225,11 +241,11 @@ $(function() {
                     if (type === 'display') {
                         var sequenceCell = "";
                         if (data > 1) {
-                            sequenceCell += '<button type="button" id="roleUp-' + full.OptionId + '" class="btn btn-sm rollOrder"> <i class="fas fa-arrow-up"></i></button>&nbsp;';
+                            sequenceCell += '<button type="button" id="roleUp-' + full.OptionId + '" class="btn btn-sm btn-outline-secondary rollOrder" title="' + i18next.t("Move Up") + '"><i class="fas fa-arrow-up"></i></button>&nbsp;';
                         }
                         sequenceCell += data;
                         if (data != window.CRM.roleCount) {
-                            sequenceCell += '&nbsp;<button type="button" id="roleDown-' + full.OptionId + '" class="btn  btn-sm rollOrder"> <i class="fas fa-arrow-down"></i></button>';
+                            sequenceCell += '&nbsp;<button type="button" id="roleDown-' + full.OptionId + '" class="btn btn-sm btn-outline-secondary rollOrder" title="' + i18next.t("Move Down") + '"><i class="fas fa-arrow-down"></i></button>';
                         }
                         return sequenceCell;
                     } else {
@@ -243,9 +259,9 @@ $(function() {
                 data: 'Id',
                 render: function (data, type, full, meta) {
                     if (full.OptionName === 'Student' || full.OptionName === 'Teacher')
-                        return '<button type="button" id="roleDelete-' + full.OptionId + '" class="btn  btn-sm btn-danger deleteRole" disabled><i class="far fa-trash-alt" aria-hidden="true"></i></button>';
+                        return '<button type="button" id="roleDelete-' + full.OptionId + '" class="btn btn-sm btn-outline-danger deleteRole" disabled><i class="fas fa-trash-alt" aria-hidden="true"></i></button>';
                     else
-                        return '<button type="button" id="roleDelete-' + full.OptionId + '" class="btn  btn-sm btn-danger deleteRole"><i class="far fa-trash-alt" aria-hidden="true"></i></button>';
+                        return '<button type="button" id="roleDelete-' + full.OptionId + '" class="btn btn-sm btn-outline-danger deleteRole"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>';
 
                 }
             },
